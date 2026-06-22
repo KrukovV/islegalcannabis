@@ -17,39 +17,36 @@
       "override_reason": "rec_implies_med_floor"
     },
     "distribution": {
-      "status": "illegal",
+      "status": "restricted",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
-        "sale": "illegal",
-        "cultivation": "tolerated",
+        "sale": null,
+        "cultivation": null,
         "import": null,
-        "trafficking": "illegal"
+        "trafficking": null
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [],
       "modifiers": [
-        "up_to",
-        "but",
-        "only",
-        "may"
+        "up_to"
       ]
     },
     "signals": {
-      "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "status": "restricted",
+      "final_risk": "LIMITED",
       "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": false,
-        "fine": true,
-        "severity_score": 3,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
-          "fine": true,
-          "severe": true
+          "fine": false,
+          "severe": false
         },
         "trafficking": {
           "prison": false,
@@ -58,19 +55,13 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Belgium / Belgien",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Belgium",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Belgium",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "EMCDDA &#124; Country Profile - Belgium",
@@ -105,60 +96,30 @@
       ],
       "explain": [
         "rule: possession_decriminalized | source: Belgium / Belgien | type: summary | priority: 1 | scope: general",
-        "rule: legal | source: Cannabis in Belgium | type: traversal | priority: 3 | scope: cultivation",
-        "rule: raw_illegal | source: Cannabis in Belgium | type: traversal | priority: 3 | scope: possession",
-        "rule: possession_decriminalized | source: Cannabis in Belgium | type: traversal | priority: 3 | scope: possession",
-        "rule: illegal | source: Cannabis in Belgium | type: traversal | priority: 3 | scope: possession",
-        "rule: legal | source: Cannabis in Belgium | type: traversal | priority: 3 | scope: possession",
-        "rule: private_cultivation | source: Cannabis in Belgium | type: traversal | priority: 3 | scope: cultivation",
-        "rule: raw_illegal | source: Cannabis in Belgium | type: traversal | priority: 3 | scope: trafficking",
-        "rule: trafficking_illegal | source: Cannabis in Belgium | type: traversal | priority: 3 | scope: trafficking",
-        "rule: sale_illegal | source: Cannabis in Belgium | type: traversal | priority: 3 | scope: trafficking",
-        "rule: sale_tolerated | source: Cannabis in Belgium | type: traversal | priority: 3 | scope: trafficking",
-        "rule: private_cultivation | source: Cannabis in Belgium | type: traversal | priority: 3 | scope: trafficking",
-        "rule: illegal | source: Cannabis in Belgium | type: traversal | priority: 3 | scope: trafficking",
-        "rule: sale_tolerated | source: Cannabis in Belgium | type: traversal | priority: 3 | scope: sale",
-        "rule: rec_tolerated | source: Cannabis in Belgium | type: traversal | priority: 3 | scope: sale",
-        "rule: raw_illegal | source: Cannabis in Belgium | type: traversal | priority: 3 | scope: sale",
-        "rule: sale_illegal | source: Cannabis in Belgium | type: traversal | priority: 3 | scope: sale",
-        "rule: illegal | source: Cannabis in Belgium | type: traversal | priority: 3 | scope: sale",
-        "rule: penalty_fine | source: Cannabis in Belgium | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_criminal_offense | source: Cannabis in Belgium | type: traversal | priority: 3 | scope: possession",
-        "rule: legal | source: Cannabis in Belgium | type: traversal | priority: 3 | scope: general",
-        "rule: legal | source: Cannabis in Belgium | type: traversal | priority: 3 | scope: use",
-        "rule: medical_legal | source: Cannabis in Belgium | type: traversal | priority: 3 | scope: use",
-        "rule: raw_illegal | source: Cannabis in Belgium | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Belgium | type: traversal | priority: 3 | scope: general",
-        "rule: medical_legal | source: Cannabis in Belgium | type: traversal | priority: 3 | scope: cultivation"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 11714,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": "restricted",
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
       "possession_decriminalized",
-      "raw_illegal",
-      "private_cultivation",
-      "penalty_fine",
-      "penalty_criminal_offense",
       "rec_implies_med_floor"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Belgium / Belgien. Medical cannabis is limited. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is decriminalized in Belgium / Belgien. Medical cannabis is limited. Distribution is restricted."
   },
-  "notes_normalized": "Cannabis is decriminalized in Belgium / Belgien. Medical cannabis is limited. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is decriminalized in Belgium / Belgien. Medical cannabis is limited. Distribution is restricted.",
   "notes_raw": "{{main|Cannabis in Belgium}} Up to {{cvt|3|g|frac=10}} decriminalized for adults since 2003.<ref>{{cite web|url=http://www.polfed-fedpol.be/|title=Federale politie – Police fédérale|author=Police fédérale – CGPR Webteam|access-date=14 January 2015|archive-date=26 December 2018|archive-url=https://web.archive.org/web/20181226021500/https://www.politie.be//nl|url-status=live}}</ref><ref>{{cite web |title = Cannabis legal status vault – Belgium |url = http://www.erowid.org/plants/cannabis/cannabis_law.shtml#belgium |website = www.erowid.org |publisher = Erowid.org |access-date = 17 February 2011 |archive-date = 15 December 2019 |archive-url = https://web.archive.org/web/20191215152836/https://www.erowid.org/plants/cannabis/cannabis_law.shtml#belgium |url-status = live }}</ref>",
   "facts": {
     "possession_limit": "Up to 3 g",
@@ -257,9 +218,9 @@
   },
   "hashes": {
     "code": "bel",
-    "content_hash": "1c750aacde52445a5bf978f39a077833b5f82821c5a7b1d847bf1c267e0adbbd",
-    "notes_hash": "02abd7c7028804a4352091cc90a3784beda7d388222066fb38ccecc059db81b2",
-    "model_hash": "0cd127740e199aa01d75c8ff9bf903434c50000c22ff41ad7753c679acd819d1"
+    "content_hash": "46cc588ea2dd7832bb3b42f1486623e9c86f3de6315dac15324c60b0ab497f98",
+    "notes_hash": "085254dabeb657217f18d4cebc2a8313034acae0bbbf786ab6b8931b1b3dbb19",
+    "model_hash": "96562ee53944e2d3e8024bd4b012215f0b2ad3e3680c66b8818e59a673b27eea"
   },
   "geo_code": "BE",
   "node_type": "country",

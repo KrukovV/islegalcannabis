@@ -2965,6 +2965,53 @@ echo "TRUTH_TESTS_OK=1"
   tail -n 80 "${TRUTH_TEST_LOG}" || true
   echo "TRUTH_TEST_LOG_TAIL_END"
 } >> "${STEP_LOG}"
+echo "RUN_POPUP_PROFILE_TESTS=1"
+SUMMARY_LINES+=("RUN_POPUP_PROFILE_TESTS=1")
+CURRENT_STEP="popup_profile_tests"
+CURRENT_CMD="npm -w apps/web run test -- src/lib/cannabisProfile.test.ts src/new-map/components/viewport-country-popup-render.test.ts src/new-map/components/viewport-country-popup.test.ts"
+POPUP_PROFILE_TEST_LOG="${ROOT}/Reports/popup-profile-tests.log"
+rm -f "${POPUP_PROFILE_TEST_LOG}" 2>/dev/null || true
+if ! (cd "${ROOT}" && npm -w apps/web run test -- src/lib/cannabisProfile.test.ts src/new-map/components/viewport-country-popup-render.test.ts src/new-map/components/viewport-country-popup.test.ts) 2>&1 | tee -a "${POPUP_PROFILE_TEST_LOG}"; then
+  SUMMARY_LINES+=("POPUP_PROFILE_TESTS_OK=0")
+  echo "POPUP_PROFILE_TESTS_OK=0 reason=POPUP_PROFILE_TESTS_FAILED"
+  {
+    echo "POPUP_PROFILE_TEST_LOG_TAIL_BEGIN"
+    tail -n 80 "${POPUP_PROFILE_TEST_LOG}" || true
+    echo "POPUP_PROFILE_TEST_LOG_TAIL_END"
+  } >> "${STEP_LOG}"
+  fail_with_reason "POPUP_PROFILE_TESTS_FAILED"
+fi
+SUMMARY_LINES+=("POPUP_PROFILE_TESTS_OK=1")
+echo "POPUP_PROFILE_TESTS_OK=1"
+{
+  echo "POPUP_PROFILE_TEST_LOG_TAIL_BEGIN"
+  tail -n 80 "${POPUP_PROFILE_TEST_LOG}" || true
+  echo "POPUP_PROFILE_TEST_LOG_TAIL_END"
+} >> "${STEP_LOG}"
+echo "RUN_POPUP_PROFILE_AUDIT=1"
+SUMMARY_LINES+=("RUN_POPUP_PROFILE_AUDIT=1")
+CURRENT_STEP="popup_profile_audit"
+CURRENT_CMD="npm -w apps/web run popup:profile:audit && ${NODE_BIN} tools/gates/popup_profile_audit_gate.mjs"
+POPUP_PROFILE_AUDIT_LOG="${ROOT}/Reports/popup-profile-audit.log"
+rm -f "${POPUP_PROFILE_AUDIT_LOG}" 2>/dev/null || true
+if ! (cd "${ROOT}" && npm -w apps/web run popup:profile:audit && ${NODE_BIN} tools/gates/popup_profile_audit_gate.mjs) 2>&1 | tee -a "${POPUP_PROFILE_AUDIT_LOG}"; then
+  SUMMARY_LINES+=("POPUP_PROFILE_AUDIT_OK=0")
+  echo "POPUP_PROFILE_AUDIT_OK=0 reason=POPUP_PROFILE_AUDIT_FAILED"
+  {
+    echo "POPUP_PROFILE_AUDIT_LOG_TAIL_BEGIN"
+    tail -n 120 "${POPUP_PROFILE_AUDIT_LOG}" || true
+    echo "POPUP_PROFILE_AUDIT_LOG_TAIL_END"
+  } >> "${STEP_LOG}"
+  fail_with_reason "POPUP_PROFILE_AUDIT_FAILED"
+fi
+while IFS= read -r line; do
+  [ -n "${line}" ] && SUMMARY_LINES+=("${line}")
+done < <(grep -E '^POPUP_PROFILE_(AUDIT_OK|TOTAL|PROCESSED|UNPROCESSED|NO_PAGE|TEMPLATE_SECTIONS|REPEATED_TEXT|RAW_URLS|SOURCE_ERRORS|STATUS_MISMATCHES|COLOR_MISMATCHES|CONFLICTS|STATUS_REVIEW_OVERRIDES|NO_PAGE_WITH_VISIBLE_SECTIONS)=' "${POPUP_PROFILE_AUDIT_LOG}" || true)
+{
+  echo "POPUP_PROFILE_AUDIT_LOG_TAIL_BEGIN"
+  tail -n 120 "${POPUP_PROFILE_AUDIT_LOG}" || true
+  echo "POPUP_PROFILE_AUDIT_LOG_TAIL_END"
+} >> "${STEP_LOG}"
 
 CURRENT_STEP="ssot_diff_engine"
 CURRENT_CMD="${NODE_BIN} tools/ssot/ssot_diff_run.mjs"

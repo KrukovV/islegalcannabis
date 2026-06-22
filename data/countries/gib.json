@@ -17,36 +17,41 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "illegal",
+      "status": "tolerated",
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "tolerated",
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [
-        "distribution_fallback_illegal"
+        "sale_tolerated"
       ],
-      "modifiers": []
+      "modifiers": [
+        "but",
+        "only",
+        "may",
+        "however"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
       "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         },
         "trafficking": {
           "prison": false,
@@ -55,40 +60,65 @@
           "severe": false
         }
       },
-      "confidence": "low",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Gibraltar",
           "url": null,
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis",
+          "url": null,
+          "depth": 1,
+          "type": "traversal"
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: possession",
+        "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: sale",
+        "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: possession",
+        "rule: sale_tolerated | source: Legality of cannabis | type: traversal | priority: 3 | scope: sale",
+        "rule: rec_tolerated | source: Legality of cannabis | type: traversal | priority: 3 | scope: sale",
+        "rule: raw_illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 4262,
+        "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
-          "prison_article": false,
+          "prison_article": true,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": null
+          "distribution_article": "illegal"
         }
       }
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_illegal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in Gibraltar. Medical cannabis is illegal. Distribution is illegal."
+    "applied_rules": [
+      "raw_illegal",
+      "penalty_prison",
+      "penalty_fine",
+      "sale_tolerated",
+      "medical_legal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Gibraltar. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Gibraltar. Medical cannabis is illegal. Distribution is illegal.",
-  "notes_raw": "No notes available.",
+  "notes_normalized": "Cannabis is illegal in Gibraltar. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected.",
+  "notes_raw": "Main article: Legality_of_cannabis.\n\n'''Adult legal status of cannabis possession for recreational use''' 1 ----\n\n----]]\n\n'''Adult legal status of cannabis for medical use''' 1 ----",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -171,9 +201,9 @@
   },
   "hashes": {
     "code": "gib",
-    "content_hash": "e7e68df83db5741a7b2da6f6c08438ae3da9e1106d7fca0529536f292c982b45",
-    "notes_hash": "4240bcbe55beb93fac6bb803d5fb46bee93d1d3e28923e10cf55a5c5b40d7b44",
-    "model_hash": "53aea4e0c25e290f7f5def3c78d84dd15076231c78ae77671768d75706fdd10e"
+    "content_hash": "46c199e7e66bdb1ff628c32eba102e549e9dbc91e82fbc8f97b5e2baead0948b",
+    "notes_hash": "28a40d1c48af70e3610b0e1d95c55baa4d8554a6c6d0df29fc4c976c25309ea1",
+    "model_hash": "e2e561e9c074ec620efdadb65db5c564b5adde7847fc829fbad94d237be71d6e"
   },
   "geo_code": "GI",
   "node_type": "country",

@@ -17,37 +17,33 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "illegal",
+      "status": "restricted",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
-        "trafficking": "illegal"
+        "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "trafficking_illegal"
-      ],
+      "flags": [],
       "modifiers": [
         "but",
         "up_to",
-        "however",
-        "may",
-        "only"
+        "however"
       ]
     },
     "signals": {
-      "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "status": "restricted",
+      "final_risk": "LIMITED",
       "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 5,
+        "severity_score": 0,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -55,10 +51,10 @@
           "severe": false
         },
         "trafficking": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
           "fine": false,
-          "severe": true
+          "severe": false
         }
       },
       "confidence": "high",
@@ -87,22 +83,15 @@
         "rule: raw_illegal | source: Cannabis in Ecuador | type: traversal | priority: 3 | scope: use",
         "rule: illegal | source: Cannabis in Ecuador | type: traversal | priority: 3 | scope: use",
         "rule: legal | source: Cannabis in Ecuador | type: traversal | priority: 3 | scope: trafficking",
-        "rule: medical_legal | source: Cannabis in Ecuador | type: traversal | priority: 3 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Ecuador | type: traversal | priority: 3 | scope: possession",
-        "rule: illegal | source: Cannabis in Ecuador | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_prison | source: Cannabis in Ecuador | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in Ecuador | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_years | source: Cannabis in Ecuador | type: traversal | priority: 3 | scope: trafficking",
-        "rule: trafficking_illegal | source: Cannabis in Ecuador | type: traversal | priority: 3 | scope: trafficking",
-        "rule: legal | source: Cannabis in Ecuador | type: traversal | priority: 3 | scope: cultivation"
+        "rule: medical_legal | source: Cannabis in Ecuador | type: traversal | priority: 3 | scope: general"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 1581,
-        "source_confidence": "prison_signal",
+        "article_len": 481,
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": "restricted",
@@ -114,13 +103,11 @@
     "applied_rules": [
       "possession_decriminalized",
       "raw_illegal",
-      "penalty_prison",
-      "penalty_years",
-      "trafficking_illegal"
+      "medical_legal"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Ecuador. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is decriminalized in Ecuador. Medical cannabis is legal. Distribution is restricted."
   },
-  "notes_normalized": "Cannabis is decriminalized in Ecuador. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is decriminalized in Ecuador. Medical cannabis is legal. Distribution is restricted.",
   "notes_raw": "{{main|Cannabis in Ecuador}} Possession of up to {{cvt|10|g|frac=8}} decriminalized in 2013, but policy was repealed by President [[Daniel Noboa]] in 2023.<ref>{{cite news |title=Ecuador's newly sworn-in president repeals guidelines allowing people to carry limited drug amounts |url=https://apnews.com/article/ecuador-president-noboa-drug-trafficking-repeal-6c2e7b2764516113639817716f208300 |access-date=22 March 2024 |work=Associated Press |date=25 November 2023}}</ref>",
   "facts": {
     "possession_limit": "up to 10 g",
@@ -219,9 +206,9 @@
   },
   "hashes": {
     "code": "ecu",
-    "content_hash": "2a8ccff367c3e3394d1d810b8d2a0feb7fd2c10ecb7f2fc3d5de720c18f77f81",
-    "notes_hash": "4bee2c8ab6f1ade0a0d8fbcec3dcb960bbcf898e15db2359a8de19da050c63f8",
-    "model_hash": "332a8b8b73a0a850124518c597229b91a7724304a29b8f8f568f8372e20217b2"
+    "content_hash": "2b6777bcb2751d8d1bfe7e986f473ee219e5f75d81adc708a88062d9aba8a196",
+    "notes_hash": "dff02ccae29e6caa00ddda8861b8e4542abec8231c3a7eef3b2ecb2c216055b7",
+    "model_hash": "21cc26bc3450b685f7ea314095d4d856d8e8b3b9528ea506a3675d448ba5705b"
   },
   "geo_code": "EC",
   "node_type": "country",

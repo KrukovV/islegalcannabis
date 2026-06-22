@@ -11,9 +11,9 @@
     },
     "medical": {
       "raw_status": "LEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
       "override_reason": null
     },
     "distribution": {
@@ -24,27 +24,24 @@
         "sale": null,
         "cultivation": null,
         "import": null,
-        "trafficking": "illegal"
+        "trafficking": null
       },
-      "enforcement": "fine-based",
-      "flags": [
-        "trafficking_illegal"
-      ],
+      "enforcement": "standard",
+      "flags": [],
       "modifiers": [
-        "but",
-        "however"
+        "but"
       ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "final_risk": "RESTRICTED",
       "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": false,
-        "fine": true,
-        "severity_score": 4,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -52,25 +49,19 @@
           "severe": false
         },
         "trafficking": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
-          "fine": true,
-          "severe": true
+          "fine": false,
+          "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "San Marino",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in San Marino",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_San_Marino",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Drug Use in America: Problem in Perspective: Second Report",
@@ -92,39 +83,30 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in San Marino | type: traversal | priority: 3 | scope: general",
-        "rule: medical_legal | source: Cannabis in San Marino | type: traversal | priority: 3 | scope: general",
-        "rule: legal | source: Cannabis in San Marino | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in San Marino | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_fine | source: Cannabis in San Marino | type: traversal | priority: 3 | scope: trafficking",
-        "rule: trafficking_illegal | source: Cannabis in San Marino | type: traversal | priority: 3 | scope: trafficking"
+        "rule: raw_illegal | source: San Marino | type: summary | priority: 1 | scope: general",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 1105,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_notes": "illegal",
+          "distribution_article": null
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal",
-      "penalty_prison",
-      "penalty_fine",
-      "trafficking_illegal"
+      "raw_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in San Marino. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in San Marino. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in San Marino. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in San Marino. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in San Marino}}",
   "facts": {
     "possession_limit": null,
@@ -196,26 +178,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "hrv",
-        "name": "Croatia / Hrvatska"
-      },
-      {
         "code": "lie",
         "name": "Liechtenstein"
       },
       {
         "code": "mco",
         "name": "Monaco"
+      },
+      {
+        "code": "bih",
+        "name": "Bosnia and Herzegovina / Bosna i Hercegovina"
       }
     ],
     "cluster_links": [
       {
-        "code": "aut",
-        "name": "Austria / Österreich"
+        "code": "hrv",
+        "name": "Croatia / Hrvatska"
       },
       {
-        "code": "che",
-        "name": "Switzerland / Suisse"
+        "code": "aut",
+        "name": "Austria / Österreich"
       }
     ],
     "same_country_states": [],
@@ -223,9 +205,9 @@
   },
   "hashes": {
     "code": "smr",
-    "content_hash": "3a706422dddd82ca45a844badd9122adb5b3151be1b56d716e438e41e1c7694f",
-    "notes_hash": "a4daea930b0413f11ee7a81ec382c48a014ae98e2c60c6efa40e150056c34c93",
-    "model_hash": "0177a69e83cd9e36b092ba04fb48fb3228ac0153a5b99b7ca761e96ca5df481d"
+    "content_hash": "08579b576c4b110e4e632d344f4565e032f8309e0abb4bd29f50cc0975f79ed3",
+    "notes_hash": "32b0a6424ccda209bee278b59648b2ecaa158464792f61ae15a1b3d22a057077",
+    "model_hash": "342ce2cd3f62d90f4e388a1ee72bb93e3accf2579015eb1aa2d10914da1aca36"
   },
   "geo_code": "SM",
   "node_type": "country",

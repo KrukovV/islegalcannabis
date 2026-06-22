@@ -26,51 +26,40 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [],
-      "modifiers": [
-        "only",
-        "but",
-        "may",
-        "usually"
-      ]
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "final_risk": "RESTRICTED",
       "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
-        "arrest": true,
-        "fine": true,
-        "severity_score": 4,
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
           "fine": false,
-          "severe": true
+          "severe": false
         },
         "trafficking": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
-          "fine": true,
-          "severe": true
+          "fine": false,
+          "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Nigeria",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Nigeria",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Nigeria",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "World Drug Report 2014: Nigeria records highest cannabis seizure in Africa",
@@ -98,47 +87,31 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Nigeria | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Nigeria | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_fine | source: Cannabis in Nigeria | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_prison | source: Cannabis in Nigeria | type: traversal | priority: 3 | scope: cultivation",
-        "rule: penalty_fine | source: Cannabis in Nigeria | type: traversal | priority: 3 | scope: cultivation",
-        "rule: penalty_prison | source: Cannabis in Nigeria | type: traversal | priority: 3 | scope: possession",
-        "rule: raw_illegal | source: Cannabis in Nigeria | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_years | source: Cannabis in Nigeria | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_criminal_offense | source: Cannabis in Nigeria | type: traversal | priority: 3 | scope: possession",
-        "rule: illegal | source: Cannabis in Nigeria | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_prison | source: Cannabis in Nigeria | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_arrest | source: Cannabis in Nigeria | type: traversal | priority: 3 | scope: general"
+        "rule: raw_illegal | source: Nigeria | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Nigeria | type: summary | priority: 1 | scope: general",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 4803,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_notes": "illegal",
+          "distribution_article": null
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal",
-      "penalty_fine",
-      "penalty_prison",
-      "penalty_years",
-      "penalty_criminal_offense",
-      "penalty_arrest"
+      "raw_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Nigeria. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Nigeria. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Nigeria. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Nigeria. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Nigeria}}",
   "facts": {
     "possession_limit": null,
@@ -237,9 +210,9 @@
   },
   "hashes": {
     "code": "nga",
-    "content_hash": "99a888ef9a913df26bce346cc32a85b71385b2a00b8aaad04f591992cfe231e2",
-    "notes_hash": "09061725848ece4bee696d2e52e52ad684777a60a1abcf53b29f7cd49369d4fe",
-    "model_hash": "3729eb155946d81e6c22adde983d325ccadf9290dd61357d04996ddda1ccf482"
+    "content_hash": "13e5efee60df02838e998e1e13448517d7ac883d1ffda2ae3df98a50be679d82",
+    "notes_hash": "08e3614e5c9ae4e796c3659e40443fcce645d69b1f023d453d2f4a3cc880b0f9",
+    "model_hash": "5dbf382d0df25db4c393ebc415311280139eebc7a70c2c7632633202e23fd125"
   },
   "geo_code": "NG",
   "node_type": "country",

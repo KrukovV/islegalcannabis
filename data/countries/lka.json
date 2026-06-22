@@ -17,44 +17,36 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "mixed",
+      "status": "restricted",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
-        "sale": "regulated",
+        "sale": null,
         "cultivation": null,
-        "import": "illegal",
+        "import": null,
         "trafficking": null
       },
-      "enforcement": "fine-based",
-      "flags": [
-        "sale_regulated",
-        "import_illegal",
-        "distribution_mixed_strong_penalty"
-      ],
+      "enforcement": "standard",
+      "flags": [],
       "modifiers": [
-        "only",
-        "however",
-        "may",
-        "but",
-        "up_to"
+        "only"
       ]
     },
     "signals": {
-      "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "status": "restricted",
+      "final_risk": "LIMITED",
       "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": false,
-        "fine": true,
-        "severity_score": 4,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
           "fine": false,
-          "severe": true
+          "severe": false
         },
         "trafficking": {
           "prison": false,
@@ -63,19 +55,13 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Sri Lanka / ශ්‍රී ලංකාව",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Sri Lanka",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Sri_Lanka",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "AN ORDINANCE TO AMEND AND CONSOLIDATE THE LAW RELATING TO POISONS,OPIUM, AND DANGEROUS DRUGS.",
@@ -105,48 +91,29 @@
       "explain": [
         "rule: possession_decriminalized | source: Sri Lanka / ශ්‍රී ලංකාව | type: summary | priority: 1 | scope: sale",
         "rule: legal | source: Sri Lanka / ශ්‍රී ලංකාව | type: summary | priority: 1 | scope: sale",
-        "rule: medical_limited | source: Cannabis in Sri Lanka | type: traversal | priority: 3 | scope: general",
-        "rule: legal | source: Cannabis in Sri Lanka | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in Sri Lanka | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_prison | source: Cannabis in Sri Lanka | type: traversal | priority: 3 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Sri Lanka | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Sri Lanka | type: traversal | priority: 3 | scope: general",
-        "rule: legal | source: Cannabis in Sri Lanka | type: traversal | priority: 3 | scope: sale",
-        "rule: medical_legal | source: Cannabis in Sri Lanka | type: traversal | priority: 3 | scope: general",
-        "rule: sale_regulated | source: Cannabis in Sri Lanka | type: traversal | priority: 3 | scope: sale",
-        "rule: import_illegal | source: Cannabis in Sri Lanka | type: traversal | priority: 3 | scope: import",
-        "rule: illegal | source: Cannabis in Sri Lanka | type: traversal | priority: 3 | scope: import",
-        "rule: penalty_fine | source: Cannabis in Sri Lanka | type: traversal | priority: 3 | scope: general"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 4173,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": "restricted",
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
-      "possession_decriminalized",
-      "penalty_prison",
-      "raw_illegal",
-      "sale_regulated",
-      "import_illegal",
-      "penalty_fine",
-      "distribution_mixed_strong_penalty"
+      "possession_decriminalized"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Sri Lanka / ශ්‍රී ලංකාව. Medical cannabis is legal. Distribution is mixed. Prison exposure detected."
+    "notes_normalized": "Cannabis is decriminalized in Sri Lanka / ශ්‍රී ලංකාව. Medical cannabis is legal. Distribution is restricted."
   },
-  "notes_normalized": "Cannabis is decriminalized in Sri Lanka / ශ්‍රී ලංකාව. Medical cannabis is legal. Distribution is mixed. Prison exposure detected.",
+  "notes_normalized": "Cannabis is decriminalized in Sri Lanka / ශ්‍රී ලංකාව. Medical cannabis is legal. Distribution is restricted.",
   "notes_raw": "{{main|Cannabis in Sri Lanka}} The sale of cannabis is decriminalized for traditional medicine vendors and it is commonly used in [[Ayurveda|Ayurvedic]] traditional medicines.<ref>{{citation |url = http://news.nidahasa.com/news.php?go=fullnews&newsid=833 |title = Marijuana Should be Allowed; Sri Lanka Indigenous Medicine Minister Says :: NIDAHASA News |publisher = News.nidahasa.com |date = 2 July 2009 |access-date = 17 February 2011 |archive-date = 17 December 2019 |archive-url = https://web.archive.org/web/20191217032232/http://news.nidahasa.com/news.php?go=fullnews&newsid=833 |url-status = live }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -245,9 +212,9 @@
   },
   "hashes": {
     "code": "lka",
-    "content_hash": "e85c6e55a5d28d9b1d0804d95d23a3970e3bb59753bd5df77657b0e0db0a8977",
-    "notes_hash": "7b685f4a2e05ed14e256d8c8bcaea179d459886e0ce5b70203805ab603bb194f",
-    "model_hash": "182830ba91da19b8fd812d92d4bf738dd1a9c2680c198ddf13cefabf769a2220"
+    "content_hash": "c4830b00470bff790a624223ae291cfc29db8b681a11cb03f5d9cc7bd917073e",
+    "notes_hash": "53b6fd02e90e7649e4757896e3d482811c52f43d2b0af2c42a2ff287324c9889",
+    "model_hash": "b011d5a636d8709bb2d7591f86a1b77b353658dfe7086c993c4d487b1032ebd8"
   },
   "geo_code": "LK",
   "node_type": "country",

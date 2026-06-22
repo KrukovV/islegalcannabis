@@ -87,6 +87,8 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Angola | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Angola | type: summary | priority: 1 | scope: general",
         "rule: raw_illegal | source: Cannabis in Angola | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Angola | type: traversal | priority: 3 | scope: general"
       ],
@@ -99,7 +101,7 @@
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
+          "distribution_notes": "illegal",
           "distribution_article": "illegal"
         }
       }
@@ -209,9 +211,9 @@
   },
   "hashes": {
     "code": "ago",
-    "content_hash": "8edd462cbc64eefdde3ceee4d758aa59ff2d2a8e5120cff584469a59b97541ff",
+    "content_hash": "e48ca53462cef277ac099b1bbf7246e5a213aa5b69139361fce466f34b92212f",
     "notes_hash": "94362257aa43ea74bd3395187ca76d6cff00a2a6389b2473aeab4739b8dc35f9",
-    "model_hash": "b247013387b32f2cd695d38671c7b765806a72dc209e0c21fd4c0369bd656123"
+    "model_hash": "1abb4c5c694aa1554ac4ee7e8fdd817335566a85634da7ee30e8be04b7f25d51"
   },
   "geo_code": "AO",
   "node_type": "country",

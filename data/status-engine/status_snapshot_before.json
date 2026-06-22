@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-09T16:37:42.346Z",
+  "generated_at": "2026-06-22T19:20:23.821Z",
   "entries": [
     {
       "id": "AD",
@@ -22,8 +22,8 @@
     {
       "id": "AG",
       "name": "Antigua and Barbuda",
-      "oldStatus": "DECRIMINALIZED/LIMITED",
-      "oldColor": "GREEN"
+      "oldStatus": "ILLEGAL/LIMITED",
+      "oldColor": "YELLOW"
     },
     {
       "id": "AI",
@@ -106,8 +106,8 @@
     {
       "id": "BB",
       "name": "Barbados",
-      "oldStatus": "LEGAL/LEGAL",
-      "oldColor": "GREEN"
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
     },
     {
       "id": "BD",
@@ -143,7 +143,7 @@
       "id": "BI",
       "name": "Burundi / Uburundi",
       "oldStatus": "ILLEGAL/ILLEGAL",
-      "oldColor": "YELLOW"
+      "oldColor": "RED"
     },
     {
       "id": "BJ",
@@ -371,7 +371,7 @@
       "id": "DZ",
       "name": "Algeria / الجزائر",
       "oldStatus": "ILLEGAL/ILLEGAL",
-      "oldColor": "YELLOW"
+      "oldColor": "RED"
     },
     {
       "id": "EC",
@@ -460,7 +460,7 @@
     {
       "id": "GB",
       "name": "United Kingdom",
-      "oldStatus": "ILLEGAL/LEGAL",
+      "oldStatus": "ILLEGAL/LIMITED",
       "oldColor": "YELLOW"
     },
     {
@@ -683,7 +683,7 @@
       "id": "JP",
       "name": "Japan / 日本",
       "oldStatus": "ILLEGAL/ILLEGAL",
-      "oldColor": "YELLOW"
+      "oldColor": "RED"
     },
     {
       "id": "KE",
@@ -718,8 +718,8 @@
     {
       "id": "KN",
       "name": "Saint Kitts and Nevis",
-      "oldStatus": "DECRIMINALIZED/LIMITED",
-      "oldColor": "GREEN"
+      "oldStatus": "ILLEGAL/LIMITED",
+      "oldColor": "YELLOW"
     },
     {
       "id": "KP",
@@ -947,7 +947,7 @@
       "id": "MY",
       "name": "Malaysia / مليسيا",
       "oldStatus": "ILLEGAL/ILLEGAL",
-      "oldColor": "YELLOW"
+      "oldColor": "RED"
     },
     {
       "id": "MZ",
@@ -1150,8 +1150,8 @@
     {
       "id": "RW",
       "name": "Rwanda",
-      "oldStatus": "ILLEGAL/LEGAL",
-      "oldColor": "YELLOW"
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
     },
     {
       "id": "SA",
@@ -1222,8 +1222,8 @@
     {
       "id": "SM",
       "name": "San Marino",
-      "oldStatus": "ILLEGAL/LEGAL",
-      "oldColor": "YELLOW"
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
     },
     {
       "id": "SN",
@@ -1396,26 +1396,26 @@
     {
       "id": "US",
       "name": "United States",
-      "oldStatus": "DECRIMINALIZED/LIMITED",
+      "oldStatus": "DECRIMINALIZED/LEGAL",
       "oldColor": "GREEN"
     },
     {
       "id": "US-AK",
       "name": "Alaska",
-      "oldStatus": "LEGAL/LEGAL",
+      "oldStatus": "LEGAL/ILLEGAL",
       "oldColor": "GREEN"
     },
     {
       "id": "US-AL",
       "name": "Alabama",
-      "oldStatus": "ILLEGAL/ILLEGAL",
-      "oldColor": "RED"
+      "oldStatus": "ILLEGAL/LIMITED",
+      "oldColor": "YELLOW"
     },
     {
       "id": "US-AR",
       "name": "Arkansas",
-      "oldStatus": "ILLEGAL/ILLEGAL",
-      "oldColor": "RED"
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
     },
     {
       "id": "US-AZ",
@@ -1444,7 +1444,7 @@
     {
       "id": "US-DE",
       "name": "Delaware",
-      "oldStatus": "LEGAL/LEGAL",
+      "oldStatus": "LEGAL/ILLEGAL",
       "oldColor": "GREEN"
     },
     {
@@ -1468,8 +1468,8 @@
     {
       "id": "US-IA",
       "name": "Iowa",
-      "oldStatus": "ILLEGAL/ILLEGAL",
-      "oldColor": "RED"
+      "oldStatus": "ILLEGAL/LIMITED",
+      "oldColor": "YELLOW"
     },
     {
       "id": "US-ID",
@@ -1486,8 +1486,8 @@
     {
       "id": "US-IN",
       "name": "Indiana",
-      "oldStatus": "ILLEGAL/ILLEGAL",
-      "oldColor": "RED"
+      "oldStatus": "ILLEGAL/LIMITED",
+      "oldColor": "YELLOW"
     },
     {
       "id": "US-KS",
@@ -1498,8 +1498,8 @@
     {
       "id": "US-KY",
       "name": "Kentucky",
-      "oldStatus": "ILLEGAL/ILLEGAL",
-      "oldColor": "RED"
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
     },
     {
       "id": "US-LA",
@@ -1522,7 +1522,7 @@
     {
       "id": "US-ME",
       "name": "Maine",
-      "oldStatus": "LEGAL/LEGAL",
+      "oldStatus": "LEGAL/ILLEGAL",
       "oldColor": "GREEN"
     },
     {
@@ -1534,7 +1534,7 @@
     {
       "id": "US-MN",
       "name": "Minnesota",
-      "oldStatus": "LEGAL/LEGAL",
+      "oldStatus": "LEGAL/ILLEGAL",
       "oldColor": "GREEN"
     },
     {
@@ -1546,7 +1546,7 @@
     {
       "id": "US-MS",
       "name": "Mississippi",
-      "oldStatus": "DECRIMINALIZED/ILLEGAL",
+      "oldStatus": "DECRIMINALIZED/LEGAL",
       "oldColor": "GREEN"
     },
     {
@@ -1558,13 +1558,13 @@
     {
       "id": "US-NC",
       "name": "North Carolina",
-      "oldStatus": "DECRIMINALIZED/ILLEGAL",
+      "oldStatus": "DECRIMINALIZED/LEGAL",
       "oldColor": "GREEN"
     },
     {
       "id": "US-ND",
       "name": "North Dakota",
-      "oldStatus": "DECRIMINALIZED/ILLEGAL",
+      "oldStatus": "DECRIMINALIZED/LEGAL",
       "oldColor": "GREEN"
     },
     {
@@ -1588,7 +1588,7 @@
     {
       "id": "US-NM",
       "name": "New Mexico",
-      "oldStatus": "LEGAL/LEGAL",
+      "oldStatus": "LEGAL/ILLEGAL",
       "oldColor": "GREEN"
     },
     {
@@ -1612,8 +1612,8 @@
     {
       "id": "US-OK",
       "name": "Oklahoma",
-      "oldStatus": "ILLEGAL/ILLEGAL",
-      "oldColor": "RED"
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
     },
     {
       "id": "US-OR",
@@ -1636,20 +1636,20 @@
     {
       "id": "US-SC",
       "name": "South Carolina",
-      "oldStatus": "ILLEGAL/ILLEGAL",
-      "oldColor": "RED"
+      "oldStatus": "ILLEGAL/LIMITED",
+      "oldColor": "YELLOW"
     },
     {
       "id": "US-SD",
       "name": "South Dakota",
-      "oldStatus": "ILLEGAL/ILLEGAL",
-      "oldColor": "RED"
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
     },
     {
       "id": "US-TN",
       "name": "Tennessee",
-      "oldStatus": "ILLEGAL/ILLEGAL",
-      "oldColor": "RED"
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
     },
     {
       "id": "US-TX",

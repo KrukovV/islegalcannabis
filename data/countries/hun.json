@@ -31,8 +31,7 @@
       "modifiers": [
         "but",
         "only",
-        "up_to",
-        "may"
+        "up_to"
       ]
     },
     "signals": {
@@ -123,7 +122,7 @@
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 2573,
+        "article_len": 2073,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -143,6 +142,7 @@
       "penalty_prison",
       "enforcement_rare",
       "private_cultivation",
+      "medical_legal",
       "penalty_years",
       "penalty_criminal_offense"
     ],
@@ -247,9 +247,9 @@
   },
   "hashes": {
     "code": "hun",
-    "content_hash": "dc1752a1079beedf89afe3f7d658c9e32910bf8b14f35c534f1d0cc2b8356bd3",
+    "content_hash": "bed88643a5284b2e30691bb949d321fe8e246c690dcbab056f2254ffcdf60e68",
     "notes_hash": "2103af8c8fc92a89a8e60f18f043cf029288c8aa9a866c01d234ef7d3a9bbca7",
-    "model_hash": "c8e525f5c80b1b557c86af7b77bae6c55ac09267f7a59679df88ae594b7454a1"
+    "model_hash": "d4f820f43a7d533635e3131b96d175b8aa9925cb3ad1f74221ac90b6b1a304bb"
   },
   "geo_code": "HU",
   "node_type": "country",

@@ -30,9 +30,7 @@
       "flags": [
         "trafficking_illegal"
       ],
-      "modifiers": [
-        "only"
-      ]
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
@@ -89,13 +87,11 @@
         "rule: trafficking_illegal | source: Romania / România | type: summary | priority: 1 | scope: trafficking",
         "rule: medical_limited | source: Romania / România | type: summary | priority: 1 | scope: use",
         "rule: raw_illegal | source: Cannabis in Romania | type: traversal | priority: 3 | scope: use",
-        "rule: medical_legal | source: Cannabis in Romania | type: traversal | priority: 3 | scope: use",
-        "rule: medical_limited | source: Cannabis in Romania | type: traversal | priority: 3 | scope: cultivation",
-        "rule: medical_legal | source: Cannabis in Romania | type: traversal | priority: 3 | scope: general"
+        "rule: medical_legal | source: Cannabis in Romania | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 1486,
+        "article_len": 426,
         "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": true,
@@ -117,7 +113,8 @@
       "penalty_criminal_offense",
       "trafficking_illegal",
       "medical_limited",
-      "raw_illegal"
+      "raw_illegal",
+      "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Romania / România. Medical cannabis is limited. Distribution is illegal. Prison exposure detected."
   },
@@ -220,9 +217,9 @@
   },
   "hashes": {
     "code": "rou",
-    "content_hash": "3d3a323e0bf352563bb69eae5d15937eb70742b770b916de60154ddd2172407d",
+    "content_hash": "cb015476ff7c9d04dfbd083ac9a0f1b59a129fa439c895779954bc274f6ad841",
     "notes_hash": "03df59b08957be863fbdb8a7185f91ed2dca6a35a8102c4869e0ba6188077230",
-    "model_hash": "d972771e07936356cfb3b095e457cfe2bc6a317212225625a37f5567765a7a3c"
+    "model_hash": "6fc6b45f2c983447ca99df09dc8282ec65fb40f42ad2a7acd94254749e2984a2"
   },
   "geo_code": "RO",
   "node_type": "country",

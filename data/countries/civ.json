@@ -62,12 +62,6 @@
           "type": "summary"
         },
         {
-          "title": "Cannabis in Ivory Coast",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ivory_Coast",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
           "title": "International Narcotics Control Strategy Report, 1995",
           "url": "https://books.google.com/books?id=w0DlWjK3YCEC&pg=PA415",
           "depth": 2,
@@ -93,20 +87,21 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Ivory Coast | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Ivory Coast | type: traversal | priority: 3 | scope: general"
+        "rule: raw_illegal | source: Ivory Coast / Côte d'Ivoire | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Ivory Coast / Côte d'Ivoire | type: summary | priority: 1 | scope: general",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 472,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_notes": "illegal",
+          "distribution_article": null
         }
       }
     },
@@ -215,9 +210,9 @@
   },
   "hashes": {
     "code": "civ",
-    "content_hash": "9ba808857e6e2a574dd72715600c6b1a3a3d8b091e41b995835a9db93f24bf87",
+    "content_hash": "31db607c2ebbb81b1e833e4a9bdcce5a150163841ac82eca31f7f2f9e40d0ee7",
     "notes_hash": "36955f4668114cf439ce83a064424602223938e8becab7061efb3e9afaa7d3f8",
-    "model_hash": "c2188a4f21bb85b19c2fb9e60ad0bcdff91140bf6cd4886c3c16b7f2ee72ba2e"
+    "model_hash": "d37c48bda2c9bff96e8ca3fca1406d7ecb5157d36b6f1a5b96a56c12ab078baf"
   },
   "geo_code": "CI",
   "node_type": "country",

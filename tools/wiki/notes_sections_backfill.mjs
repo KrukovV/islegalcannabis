@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 import fs from "node:fs";
 import path from "node:path";
+import { fetchPageInfo, fetchPageWikitextCached } from "./mediawiki_api.mjs";
 
 const ROOT = process.cwd();
 const MAP_PATH = path.join(ROOT, "data", "wiki", "wiki_claims_map.json");
 const LEGALITY_PATH = path.join(ROOT, "data", "wiki", "ssot_legality_table.json");
 const READONLY_CI = process.env.READONLY_CI === "1";
 const UPDATE_MODE = process.env.UPDATE_MODE === "1";
+const ALLOW_NETWORK = process.env.ALLOW_NETWORK === "1";
 
 function parseGeoScope(argv) {
   const args = Array.isArray(argv) ? argv.slice(2) : [];
@@ -80,6 +82,27 @@ function extractMainArticle(raw) {
   return parts[0] || "";
 }
 
+function stripTemplateBlocks(value) {
+  const text = String(value || "");
+  let depth = 0;
+  const out = [];
+  for (let i = 0; i < text.length; i += 1) {
+    const pair = text.slice(i, i + 2);
+    if (pair === "{{") {
+      depth += 1;
+      i += 1;
+      continue;
+    }
+    if (pair === "}}") {
+      depth = Math.max(0, depth - 1);
+      i += 1;
+      continue;
+    }
+    if (depth === 0) out.push(text[i]);
+  }
+  return out.join("");
+}
+
 function isPlaceholderNotes(notesText, notesRaw) {
   const text = normalizeSpace(notesText);
   if (!text) return true;
@@ -95,7 +118,7 @@ function isPlaceholderNotes(notesText, notesRaw) {
 }
 
 function extractLeadParagraphs(raw) {
-  let text = String(raw || "");
+  let text = stripTemplateBlocks(String(raw || ""));
   text = text.replace(/\{\{\s*main\s*\|[^}]+\}\}/gi, " ");
   text = text.replace(/\{\{\s*see\s*also\s*\|[^}]+\}\}/gi, " ");
   text = text.replace(/\{\{\s*further(?:\s+information)?\s*\|[^}]+\}\}/gi, " ");
@@ -115,6 +138,7 @@ function extractLeadParagraphs(raw) {
     }
     if (/^\{\{.*\}\}$/.test(trimmed)) continue;
     if (/^\[\[Category:/i.test(trimmed)) continue;
+    if (/^\[\[(?:File|Image):/i.test(trimmed)) continue;
     if (/^==+/.test(trimmed)) break;
     buffer.push(trimmed);
     if (buffer.length >= 6) {
@@ -154,6 +178,19 @@ function writeAtomic(filePath, payload) {
   const tmpPath = `${filePath}.tmp`;
   fs.writeFileSync(tmpPath, JSON.stringify(payload, null, 2) + "\n");
   fs.renameSync(tmpPath, filePath);
+}
+
+async function fetchLeadFromWiki(mainArticle) {
+  if (!mainArticle) return [];
+  const info = await fetchPageInfo(mainArticle);
+  if (!info.ok || !info.pageid) {
+    return [];
+  }
+  const wikiResult = await fetchPageWikitextCached(info.pageid, info.revision_id);
+  if (!wikiResult.ok) {
+    return [];
+  }
+  return extractLeadParagraphs(wikiResult.wikitext || "");
 }
 
 if (!fs.existsSync(MAP_PATH)) {
@@ -241,6 +278,28 @@ for (const [geoId, entry] of Object.entries(items)) {
   const geoIso = String(entry.iso2 || "").toUpperCase();
   const geoKeyUpper = geoKey.toUpperCase();
   let mainArticle = extractMainArticle(notesRaw) || String(entry.notes_main_article || "");
+  if (ALLOW_NETWORK && (isPlaceholderNotes(notesText, notesRaw) || existingKind === "MIN_ONLY")) {
+    const networkTitle = mainArticle || String(entry.notes_main_articles?.[0]?.title || "") || "";
+    const leadParagraphs = await fetchLeadFromWiki(networkTitle);
+    const candidateMain = networkTitle || mainArticle;
+    if (leadParagraphs.length > 0 && candidateMain) {
+      const mainLine = `Main article: ${candidateMain}.`;
+      const combined = [mainLine, ...leadParagraphs].filter(Boolean).join("\n\n").trim();
+      if (combined.length > 0 && combined.length > (notesText || "").length + 10) {
+        entry.notes_text = combined;
+        entry.notes_text_len = combined.length;
+        entry.notes_sections_used = ["main_article", "lead"];
+        entry.notes_kind = "RICH";
+        entry.notes_reason_code = "NOTES_BACKFILL_LEAD";
+        entry.notes_source = "wiki";
+        if (candidateMain && !entry.notes_main_article) {
+          entry.notes_main_article = candidateMain;
+        }
+        updated += 1;
+        continue;
+      }
+    }
+  }
   if ((geoKeyUpper === "RO" || geoKeyUpper === "RU") && isMinOnlyNotes(notesText, existingKind)) {
     const leadParagraphs = extractLeadParagraphs(notesRaw);
     const mainLine = mainArticle ? `Main article: ${mainArticle}.` : "";

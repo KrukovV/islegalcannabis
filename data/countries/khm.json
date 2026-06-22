@@ -21,7 +21,7 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": "illegal",
+        "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
@@ -29,8 +29,7 @@
       "enforcement": "standard",
       "flags": [],
       "modifiers": [
-        "but",
-        "only"
+        "but"
       ]
     },
     "signals": {
@@ -65,12 +64,6 @@
           "type": "summary"
         },
         {
-          "title": "Cannabis in Cambodia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cambodia",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
           "title": "Legality of cannabis (notes)",
           "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cambodia",
           "depth": 2,
@@ -80,23 +73,19 @@
       "explain": [
         "rule: raw_illegal | source: Cambodia / Kâmpŭchéa | type: summary | priority: 1 | scope: general",
         "rule: illegal | source: Cambodia / Kâmpŭchéa | type: summary | priority: 1 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Cambodia | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Cambodia | type: traversal | priority: 3 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Cambodia | type: traversal | priority: 3 | scope: sale",
-        "rule: sale_illegal | source: Cannabis in Cambodia | type: traversal | priority: 3 | scope: sale",
-        "rule: illegal | source: Cannabis in Cambodia | type: traversal | priority: 3 | scope: sale"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 1379,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": "illegal",
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
@@ -205,9 +194,9 @@
   },
   "hashes": {
     "code": "khm",
-    "content_hash": "a4456391688faee6eddf9635b00c0e4034bed42564bbfa47ae5ccef37c5f134a",
+    "content_hash": "077d1c37c50c17452921f1e3a1217656324b1803e976f5ccb88baadc1a1ca208",
     "notes_hash": "8521b7ed18868b41ce6acb4d6902b475e3152e693d683fce2049265aabbaa07b",
-    "model_hash": "651611a72e69567bf320ebfd907d728580cdc9de5b21979f20ece8812556effc"
+    "model_hash": "29bfeb5bf9529bd258592f8169331a2b79017fafe4a9c384a612169998743c18"
   },
   "geo_code": "KH",
   "node_type": "country",

@@ -28,9 +28,7 @@
       },
       "enforcement": "fine-based",
       "flags": [],
-      "modifiers": [
-        "only"
-      ]
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
@@ -64,12 +62,6 @@
           "type": "summary"
         },
         {
-          "title": "Cannabis in Equatorial Guinea",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Equatorial_Guinea",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
           "title": "Equatorial Guinea 2019 Crime & Safety Report",
           "url": "https://www.osac.gov/Country/EquatorialGuinea/Content/Detail/Report/3d67999c-89fc-4740-a0d8-15f4aeb5e0b8",
           "depth": 2,
@@ -98,26 +90,33 @@
           "url": "https://books.google.com/books?id=5xuGDwAAQBAJ&dq=Macias+Nguema+cannabis&pg=PT297",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "International Terrorism in the Contemporary World",
+          "url": "https://books.google.com/books?id=nd_cAAAAIAAJ&q=Macias+Nguema+cannabis",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Equatorial Guinea | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_fine | source: Cannabis in Equatorial Guinea | type: traversal | priority: 3 | scope: trafficking",
-        "rule: trafficking_illegal | source: Cannabis in Equatorial Guinea | type: traversal | priority: 3 | scope: trafficking",
-        "rule: sale_illegal | source: Cannabis in Equatorial Guinea | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_arrest | source: Cannabis in Equatorial Guinea | type: traversal | priority: 3 | scope: trafficking"
+        "rule: raw_illegal | source: Equatorial Guinea / Guinée équatoriale | type: summary | priority: 1 | scope: trafficking",
+        "rule: penalty_fine | source: Equatorial Guinea / Guinée équatoriale | type: summary | priority: 1 | scope: trafficking",
+        "rule: trafficking_illegal | source: Equatorial Guinea / Guinée équatoriale | type: summary | priority: 1 | scope: trafficking",
+        "rule: sale_illegal | source: Equatorial Guinea / Guinée équatoriale | type: summary | priority: 1 | scope: trafficking",
+        "rule: penalty_arrest | source: Equatorial Guinea / Guinée équatoriale | type: summary | priority: 1 | scope: trafficking",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 893,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_notes": "illegal",
+          "distribution_article": null
         }
       }
     },
@@ -230,9 +229,9 @@
   },
   "hashes": {
     "code": "gnq",
-    "content_hash": "ab449522456515821a3b37f6c1230df16ac16e14d5846c2eab0a2d3dc3a7ed94",
+    "content_hash": "306a18d49b9646fd2676585f2982ec538730662586caea7c74ea9c8c85f8f320",
     "notes_hash": "9460a5bd07ced8dcbee3ba183d26b4d580e2157528e6cf28277164d75ca349a9",
-    "model_hash": "1538809ff194c7fb676b63937c65aaaea74695fb3523c2edf6fe4b0454642db3"
+    "model_hash": "782e05493ef7140ea7ad43c8adde3f26c54af3f2afbdf89c54dc19c39ecaba44"
   },
   "geo_code": "GQ",
   "node_type": "country",

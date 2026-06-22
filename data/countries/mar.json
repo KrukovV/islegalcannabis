@@ -21,17 +21,16 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "illegal",
         "cultivation": null,
         "import": null,
-        "trafficking": "illegal"
+        "trafficking": null
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [],
       "modifiers": [
-        "however",
         "but",
-        "only",
+        "however",
         "may"
       ]
     },
@@ -43,8 +42,8 @@
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
-        "fine": true,
-        "severity_score": 1,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -58,7 +57,7 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Morocco / المغرب",
@@ -104,45 +103,38 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Morocco | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Morocco | type: traversal | priority: 3 | scope: general",
-        "rule: medical_legal | source: Cannabis in Morocco | type: traversal | priority: 3 | scope: trafficking",
-        "rule: medical_legal | source: Cannabis in Morocco | type: traversal | priority: 3 | scope: use",
-        "rule: legal | source: Cannabis in Morocco | type: traversal | priority: 3 | scope: cultivation",
-        "rule: penalty_fine | source: Cannabis in Morocco | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Morocco / المغرب | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Morocco / المغرب | type: summary | priority: 1 | scope: general",
+        "rule: medical_legal | source: Morocco / المغرب | type: summary | priority: 1 | scope: general",
+        "rule: raw_illegal | source: Morocco / المغرب | type: summary | priority: 1 | scope: sale",
+        "rule: sale_illegal | source: Morocco / المغرب | type: summary | priority: 1 | scope: sale",
+        "rule: illegal | source: Morocco / المغرب | type: summary | priority: 1 | scope: sale",
         "rule: raw_illegal | source: Cannabis in Morocco | type: traversal | priority: 3 | scope: cultivation",
-        "rule: illegal | source: Cannabis in Morocco | type: traversal | priority: 3 | scope: cultivation",
-        "rule: illegal | source: Cannabis in Morocco | type: traversal | priority: 3 | scope: trafficking",
-        "rule: raw_illegal | source: Cannabis in Morocco | type: traversal | priority: 3 | scope: use",
-        "rule: medical_limited | source: Cannabis in Morocco | type: traversal | priority: 3 | scope: use",
-        "rule: illegal | source: Cannabis in Morocco | type: traversal | priority: 3 | scope: use"
+        "rule: illegal | source: Cannabis in Morocco | type: traversal | priority: 3 | scope: cultivation"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 9322,
+        "article_len": 870,
         "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
+          "distribution_notes": "illegal",
           "distribution_article": "illegal"
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
       "raw_illegal",
-      "penalty_fine",
-      "illegal"
+      "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Morocco / المغرب. Medical cannabis is legal. Distribution is illegal."
   },
   "notes_normalized": "Cannabis is illegal in Morocco / المغرب. Medical cannabis is legal. Distribution is illegal.",
-  "notes_raw": "{{main|Cannabis in Morocco}} Morocco is among the world's top producers of hashish.",
+  "notes_raw": "Cannabis is illegal in Morocco / المغرب. Medical cannabis is legal. Distribution is illegal.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -240,9 +232,9 @@
   },
   "hashes": {
     "code": "mar",
-    "content_hash": "b9ce121112cd3e31eea0d47adf1462e7203700720b3f3a9788f5ec0d7dbd87af",
+    "content_hash": "47760f818a03bd2c959464727f06105797613664559fb37fc8b92add7d86eebe",
     "notes_hash": "dba651ab562317aa41a092cda7e7ba51d7bec10d1c064b9fca070cd932647f38",
-    "model_hash": "1b0f8e6ccc652bbcfa6549915dcdf1bf2dbc534c7035c468cabe04c523e5c724"
+    "model_hash": "f4be9b0c6337717d1a2974b3b24159be3dcbc8ba9c84c2888ef6ab94a848fe63"
   },
   "geo_code": "MA",
   "node_type": "country",

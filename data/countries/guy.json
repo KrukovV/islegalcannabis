@@ -50,7 +50,7 @@
         },
         "trafficking": {
           "prison": false,
-          "arrest": true,
+          "arrest": false,
           "fine": false,
           "severe": false
         }
@@ -103,13 +103,11 @@
       "explain": [
         "rule: raw_illegal | source: Cannabis in Guyana | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Guyana | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_arrest | source: Cannabis in Guyana | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_arrest | source: Cannabis in Guyana | type: traversal | priority: 3 | scope: sale",
         "rule: penalty_arrest | source: Guyana Politician Arrested On Drug Charges | type: reference | priority: 2 | scope: general"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 1692,
+        "article_len": 163,
         "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
@@ -204,12 +202,12 @@
         "name": "Venezuela"
       },
       {
-        "code": "msr",
-        "name": "Montserrat"
+        "code": "brb",
+        "name": "Barbados"
       },
       {
-        "code": "cuw",
-        "name": "Curaçao / Pais Kòrsou"
+        "code": "msr",
+        "name": "Montserrat"
       }
     ],
     "cluster_links": [
@@ -227,9 +225,9 @@
   },
   "hashes": {
     "code": "guy",
-    "content_hash": "411168ef6a789407e7b3188c5fa1700b88b551eaabf52b42efe3dc761c223a68",
+    "content_hash": "e8508253916c41bbd74da2bdc79058c359b2648e98f02718d0ccad89b3008c90",
     "notes_hash": "9ff08b98b61555d3aacb8ae86bbb64b6dd9499f8bb49bb37a538982b3bf01527",
-    "model_hash": "0a2d123fca293d61f831aa76df670cfa9ed0ff343dbbd7f7df2dfe6f8e03fe9c"
+    "model_hash": "a1ba4be84eb859a01ae77430bcc876bca714309afa1eb5c603fa35cf7983e0eb"
   },
   "geo_code": "GY",
   "node_type": "country",

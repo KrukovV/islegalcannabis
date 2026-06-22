@@ -154,7 +154,6 @@
         "rule: medical_legal | source: Cannabis in Australia | type: traversal | priority: 3 | scope: sale",
         "rule: medical_legal | source: Cannabis in Australia | type: traversal | priority: 3 | scope: use",
         "rule: legal | source: Cannabis in Australia | type: traversal | priority: 3 | scope: general",
-        "rule: legal | source: Cannabis in Australia | type: traversal | priority: 3 | scope: cultivation",
         "rule: medical_legal | source: Medicinal Marijuana has been Legalised in Australia | type: reference | priority: 2 | scope: general",
         "rule: penalty_fine | source: Economic benefit of recreational cannabis now placed at $700m annually, as Greens renew pledge to push legal weed | type: reference | priority: 2 | scope: general",
         "rule: medical_legal | source: Medical marijuana legalized in Australia | type: reference | priority: 2 | scope: general",
@@ -162,7 +161,7 @@
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 89570,
+        "article_len": 86586,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -180,6 +179,7 @@
     "applied_rules": [
       "raw_illegal",
       "private_cultivation",
+      "medical_legal",
       "penalty_years",
       "penalty_arrest",
       "penalty_prison",
@@ -190,7 +190,7 @@
     "notes_normalized": "Cannabis is illegal in Australia. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
   "notes_normalized": "Cannabis is illegal in Australia. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.",
-  "notes_raw": "{{main|Cannabis in Australia}} In September 2019, the [[Australian Capital Territory]] became the first state or territory of Australia to legalize recreational use of cannabis. Since 31 January 2020 residents have been allowed to grow two plants and possess {{cvt|50|g|frac=4}}, though sales or other transfer is prohibited, including cannabis seeds. Federal law also remains enforceable.<ref name=\"ACT\">{{cite news |last=Lowrey |first=Tom |title=ACT legalises personal cannabis use but warns smokers they're not safe from federal laws |url=https://www.abc.net.au/news/2019-09-25/act-first-jurisdiction-to-legalise-personal-cannabis-use/11530104 |access-date=11 December 2019 |publisher=[[Australian Broadcasting Corporation|ABC News]] |date=25 September 2019 |archive-url=https://web.archive.org/web/20191005020408/https://www.abc.net.au/news/2019-09-25/act-first-jurisdiction-to-legalise-personal-cannabis-use/11530104 |archive-date=5 October 2019 |url-status=live}}</ref>",
+  "notes_raw": "{{main|Cannabis in Australia}} In September 2019, the [[Australian Capital Territory]] became the first state or territory of Australia to legalize recreational use of cannabis. Since 31 January 2020 residents aged 18 and over have been allowed to grow two plants and possess {{cvt|50|g|frac=4}}, though sales or other transfer is prohibited, including cannabis seeds.<ref>{{cite news |date= 25 September 2019 |title= Australian Capital Territory votes to legalise cannabis for personal use |url= https://www.theguardian.com/australia-news/2019/sep/25/cannabis-set-to-be-legalised-in-australian-capital-territory-for-personal-use |work= [[The Guardian]] |publisher= Australian Associated Press |access-date= 20 March 2026}}</ref> Federal law also remains enforceable.<ref name=\"ACT\">{{cite news |last=Lowrey |first=Tom |title=ACT legalises personal cannabis use but warns smokers they're not safe from federal laws |url=https://www.abc.net.au/news/2019-09-25/act-first-jurisdiction-to-legalise-personal-cannabis-use/11530104 |access-date=11 December 2019 |publisher=[[Australian Broadcasting Corporation|ABC News]] |date=25 September 2019 |archive-url=https://web.archive.org/web/20191005020408/https://www.abc.net.au/news/2019-09-25/act-first-jurisdiction-to-legalise-personal-cannabis-use/11530104 |archive-date=5 October 2019 |url-status=live}}</ref>",
   "facts": {
     "possession_limit": null,
     "cultivation": "grow two plants and possess 50 g ( 1 + 3 ⁄ 4 oz), though sales or other transfer is prohibited, including cannabis seeds.",
@@ -288,9 +288,9 @@
   },
   "hashes": {
     "code": "aus",
-    "content_hash": "9cf54f23fc09460c077ea1aeffd67fffef570efcbd59ddcd713d00d72e0fc60f",
+    "content_hash": "b05585d2c54f45892fdd45847d3e5c4a0cc2ff4ff1e2f5692a13b6574e223134",
     "notes_hash": "68232c768fc86be79b6a370d0cbca5ff80aa8bd7527b52ff657f911e94040894",
-    "model_hash": "568f56c8506e3d4f7dd76663388a89693383f27685adf854acb0baa27ba235c2"
+    "model_hash": "b9221ad84a067da510b6a6cddce3ac779bd820c5fb1a645550c6d1879c3e6194"
   },
   "geo_code": "AU",
   "node_type": "country",

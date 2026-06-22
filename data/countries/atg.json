@@ -5,9 +5,9 @@
   "legal_model": {
     "recreational": {
       "raw_status": "DECRIMINALIZED",
-      "status": "DECRIMINALIZED",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
@@ -34,7 +34,7 @@
     },
     "signals": {
       "status": "restricted",
-      "final_risk": "LIMITED",
+      "final_risk": "UNKNOWN",
       "enforcement_level": "active",
       "penalties": {
         "prison": false,
@@ -95,6 +95,9 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Antigua and Barbuda | type: summary | priority: 1 | scope: general",
+        "rule: possession_decriminalized | source: Antigua and Barbuda | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Antigua and Barbuda | type: summary | priority: 1 | scope: general",
         "rule: raw_illegal | source: Cannabis in Antigua and Barbuda | type: traversal | priority: 3 | scope: general",
         "rule: possession_decriminalized | source: Cannabis in Antigua and Barbuda | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Antigua and Barbuda | type: traversal | priority: 3 | scope: general",
@@ -110,7 +113,7 @@
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
+          "distribution_notes": "illegal",
           "distribution_article": "illegal"
         }
       }
@@ -124,9 +127,9 @@
       "penalty_fine",
       "rec_implies_med_floor"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Antigua and Barbuda. Medical cannabis is limited. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in Antigua and Barbuda. Medical cannabis is limited. Distribution is restricted."
   },
-  "notes_normalized": "Cannabis is decriminalized in Antigua and Barbuda. Medical cannabis is limited. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in Antigua and Barbuda. Medical cannabis is limited. Distribution is restricted.",
   "notes_raw": "{{main|Cannabis in Antigua and Barbuda}}",
   "facts": {
     "possession_limit": null,
@@ -198,26 +201,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "dma",
-        "name": "Dominica"
-      },
-      {
-        "code": "lca",
-        "name": "Saint Lucia"
-      },
-      {
-        "code": "vct",
-        "name": "Saint Vincent and the Grenadines"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "sxm",
         "name": "Sint Maarten / Saint-Martin"
       },
       {
         "code": "maf",
         "name": "Saint Martin"
+      },
+      {
+        "code": "dma",
+        "name": "Dominica"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "aia",
+        "name": "Anguilla"
+      },
+      {
+        "code": "vir",
+        "name": "United States Virgin Islands"
       }
     ],
     "same_country_states": [],
@@ -225,9 +228,9 @@
   },
   "hashes": {
     "code": "atg",
-    "content_hash": "fb80bd07a52492888697e5c527e640d2954dd5f2ffbc56f8b590215c9cd7234d",
-    "notes_hash": "172ac1f0db0866852b2c9f27086532cf9eb91088a96deb5d40762d0e259a4f97",
-    "model_hash": "9203ea83cd12edba0264b7271202b3ff07e7297711d6521dab8f4ceb93844559"
+    "content_hash": "acfd60e19e7197b2c1c951d572fba6bf32ccb1d41b3f2a219ffc4bc0dad06961",
+    "notes_hash": "db4adac5eb952d3d6c48bcc9c6039e60baa3465834d2bb2164336ec81351a606",
+    "model_hash": "1d9f19a4affe0f2181eb624600cbdd821d56dcbf973405a4f85985a8515c4e13"
   },
   "geo_code": "AG",
   "node_type": "country",

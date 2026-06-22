@@ -21,20 +21,15 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": "illegal",
-        "cultivation": "tolerated",
+        "sale": null,
+        "cultivation": null,
         "import": null,
-        "trafficking": "illegal"
+        "trafficking": null
       },
       "enforcement": "fine-based",
-      "flags": [
-        "trafficking_illegal"
-      ],
+      "flags": [],
       "modifiers": [
-        "up_to",
-        "but",
-        "only",
-        "may"
+        "up_to"
       ]
     },
     "signals": {
@@ -43,13 +38,13 @@
       "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 3,
-        "arrest": true,
+        "prison_priority": 1,
+        "arrest": false,
         "fine": true,
         "severity_score": 4,
         "possession": {
           "prison": true,
-          "arrest": true,
+          "arrest": false,
           "fine": true,
           "severe": true
         },
@@ -113,36 +108,15 @@
         "rule: raw_illegal | source: Cannabis in France | type: traversal | priority: 3 | scope: use",
         "rule: illegal | source: Cannabis in France | type: traversal | priority: 3 | scope: use",
         "rule: medical_legal | source: Cannabis in France | type: traversal | priority: 3 | scope: general",
-        "rule: medical_limited | source: Cannabis in France | type: traversal | priority: 3 | scope: general",
-        "rule: raw_illegal | source: Cannabis in France | type: traversal | priority: 3 | scope: cultivation",
-        "rule: private_cultivation | source: Cannabis in France | type: traversal | priority: 3 | scope: cultivation",
-        "rule: illegal | source: Cannabis in France | type: traversal | priority: 3 | scope: cultivation",
-        "rule: raw_illegal | source: Cannabis in France | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in France | type: traversal | priority: 3 | scope: general",
-        "rule: trafficking_illegal | source: Cannabis in France | type: traversal | priority: 3 | scope: trafficking",
-        "rule: legal | source: Cannabis in France | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in France | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_fine | source: Cannabis in France | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_criminal_offense | source: Cannabis in France | type: traversal | priority: 3 | scope: general",
-        "rule: raw_illegal | source: Cannabis in France | type: traversal | priority: 3 | scope: trafficking",
-        "rule: sale_illegal | source: Cannabis in France | type: traversal | priority: 3 | scope: trafficking",
-        "rule: illegal | source: Cannabis in France | type: traversal | priority: 3 | scope: trafficking",
-        "rule: legal | source: Cannabis in France | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_arrest | source: Cannabis in France | type: traversal | priority: 3 | scope: possession",
-        "rule: raw_illegal | source: Cannabis in France | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_fine | source: Cannabis in France | type: traversal | priority: 3 | scope: possession",
-        "rule: illegal | source: Cannabis in France | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_prison | source: Cannabis in France | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_fine | source: Cannabis in France | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_arrest | source: Cannabis in France | type: traversal | priority: 3 | scope: general"
+        "rule: medical_limited | source: Cannabis in France | type: traversal | priority: 3 | scope: general"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 9384,
-        "source_confidence": "prison_signal",
+        "article_len": 127,
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": true,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
@@ -157,11 +131,7 @@
       "penalty_prison",
       "penalty_fine",
       "medical_legal",
-      "raw_illegal",
-      "private_cultivation",
-      "trafficking_illegal",
-      "penalty_criminal_offense",
-      "penalty_arrest"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in France. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
@@ -264,9 +234,9 @@
   },
   "hashes": {
     "code": "fra",
-    "content_hash": "cd5380d9709b238cb54694095a8d0ff062f3fddc07c5c38e2a4d053255db8d72",
+    "content_hash": "df0eb650a4ceafe6b96a282b89265c31d531e940831355954d4e614e6d21576f",
     "notes_hash": "15440b589840319aed174927933052bb47f9e3ae7a74cf19c437e61e9271d87f",
-    "model_hash": "62578b5bacd0dae40199a99de568ff0c4dea5f1d324056c326b4912248db8ac6"
+    "model_hash": "5870597da82fc38288c4cc559b662c73780c959ca9eff23b53b645fc95430f96"
   },
   "geo_code": "FR",
   "node_type": "country",

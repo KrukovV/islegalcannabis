@@ -32,9 +32,7 @@
         "sale_illegal"
       ],
       "modifiers": [
-        "up_to",
-        "may",
-        "however"
+        "up_to"
       ]
     },
     "signals": {
@@ -120,7 +118,6 @@
         "rule: penalty_criminal_offense | source: Serbia / Србија | type: summary | priority: 1 | scope: cultivation",
         "rule: penalty_fine | source: Serbia / Србија | type: summary | priority: 1 | scope: general",
         "rule: raw_illegal | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: possession",
         "rule: penalty_fine | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: possession",
         "rule: penalty_years | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: possession",
@@ -133,14 +130,11 @@
         "rule: penalty_prison | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: cultivation",
         "rule: penalty_years | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: cultivation",
         "rule: penalty_criminal_offense | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: cultivation",
-        "rule: penalty_fine | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: general",
-        "rule: medical_legal | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: use"
+        "rule: penalty_fine | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: general"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 3851,
+        "article_len": 434,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": true,
@@ -265,9 +259,9 @@
   },
   "hashes": {
     "code": "srb",
-    "content_hash": "a041de4e97b6e266415be10ccc138e6d5c7d0aa47845ed21aed6c200a3f0e4d3",
+    "content_hash": "b6369b4f48e888a9b49e334389ce6c1b291ee8a45e35244f8a79840b25902326",
     "notes_hash": "b93ed3e0850eb8830f75069ea25c3fd8d686f59c946e58073045c5e154a8d42a",
-    "model_hash": "411d0c0082271cd722cf3e5ecf7d54ac28fa9da714211ee4208755e37e7dd925"
+    "model_hash": "7eac86e541fcca63a7525242eb6c9248da623dd12f1ad443bf2b7e8f5d435023"
   },
   "geo_code": "RS",
   "node_type": "country",

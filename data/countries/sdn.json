@@ -26,25 +26,27 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "fine-based",
-      "flags": [],
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
       "modifiers": []
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "final_risk": "RESTRICTED",
       "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": false,
-        "fine": true,
-        "severity_score": 5,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
-          "fine": true,
-          "severe": true
+          "fine": false,
+          "severe": false
         },
         "trafficking": {
           "prison": false,
@@ -53,19 +55,13 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Sudan / السودان",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Sudan",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Sudan",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Sudan worried over \"insane\" hikes in use of illicit drugs - Sudan Tribune: Plural news and views on Sudan",
@@ -93,36 +89,29 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Sudan | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Sudan | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_fine | source: Cannabis in Sudan | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_years | source: Cannabis in Sudan | type: traversal | priority: 3 | scope: use"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 549,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal",
-      "penalty_fine",
-      "penalty_years"
+      "distribution_fallback_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Sudan / السودان. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Sudan / السودان. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Sudan / السودان. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Sudan / السودان. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Sudan}}",
   "facts": {
     "possession_limit": null,
@@ -221,9 +210,9 @@
   },
   "hashes": {
     "code": "sdn",
-    "content_hash": "6a7657f0eb86d33fde89b1cdef8294fc70d34aed0439b6e2fbd0e35aef2ebe09",
-    "notes_hash": "6d5d38bf93e06efee9c5e922e8d80d1cccbe42e2645c8c5405ff7941788583f4",
-    "model_hash": "5add37c09c924a04ab3be995b275e116b7f3cff87710329ed4ebe74761f663a9"
+    "content_hash": "3fe181c2543bfb78c90e01b57071f5fa44a5bf252520df2c1fb48eea5ddde2f0",
+    "notes_hash": "71248747a296c612aed673e638f3f2c1a1d1c1e1843178e712c727dd03682d65",
+    "model_hash": "8f4e1fa28a9d198de1b6042a2856f3f4be1dc305b4cfe3d9f84a2d54fadc6297"
   },
   "geo_code": "SD",
   "node_type": "country",

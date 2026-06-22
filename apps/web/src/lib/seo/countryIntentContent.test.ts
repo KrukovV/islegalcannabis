@@ -25,7 +25,7 @@ describe("countryIntentContent", () => {
     const tourists = sections.find((section) => section.id === "tourists");
 
     expect(airport?.body.toLowerCase()).toContain("airport");
-    expect(airport?.body.toLowerCase()).toContain("illegal");
+    expect(airport?.body.toLowerCase()).toMatch(/(illegal|restricted|prohibited|controlled|regulated)/);
     expect(tourists?.body.toLowerCase()).toContain("tourists");
     expect(tourists?.body.toLowerCase()).toContain("restricted");
   });

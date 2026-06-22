@@ -17,36 +17,41 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "illegal",
+      "status": "tolerated",
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "tolerated",
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [
-        "distribution_fallback_illegal"
+        "sale_tolerated"
       ],
-      "modifiers": []
+      "modifiers": [
+        "but",
+        "only",
+        "may",
+        "however"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
       "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         },
         "trafficking": {
           "prison": false,
@@ -55,40 +60,65 @@
           "severe": false
         }
       },
-      "confidence": "low",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Saint Pierre and Miquelon / Saint-Pierre-et-Miquelon",
           "url": null,
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis",
+          "url": null,
+          "depth": 1,
+          "type": "traversal"
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: possession",
+        "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: sale",
+        "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: possession",
+        "rule: sale_tolerated | source: Legality of cannabis | type: traversal | priority: 3 | scope: sale",
+        "rule: rec_tolerated | source: Legality of cannabis | type: traversal | priority: 3 | scope: sale",
+        "rule: raw_illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 4262,
+        "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
-          "prison_article": false,
+          "prison_article": true,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": null
+          "distribution_article": "illegal"
         }
       }
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_illegal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in Saint Pierre and Miquelon / Saint-Pierre-et-Miquelon. Medical cannabis is illegal. Distribution is illegal."
+    "applied_rules": [
+      "raw_illegal",
+      "penalty_prison",
+      "penalty_fine",
+      "sale_tolerated",
+      "medical_legal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Saint Pierre and Miquelon / Saint-Pierre-et-Miquelon. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Saint Pierre and Miquelon / Saint-Pierre-et-Miquelon. Medical cannabis is illegal. Distribution is illegal.",
-  "notes_raw": "No notes available.",
+  "notes_normalized": "Cannabis is illegal in Saint Pierre and Miquelon / Saint-Pierre-et-Miquelon. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected.",
+  "notes_raw": "Main article: Legality_of_cannabis.\n\n'''Adult legal status of cannabis possession for recreational use''' 1 ----\n\n----]]\n\n'''Adult legal status of cannabis for medical use''' 1 ----",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -171,9 +201,9 @@
   },
   "hashes": {
     "code": "spm",
-    "content_hash": "e59a0a8c7b53b428f8b8cd7885654dac32b2dfd4c095ba3bd38b0a8b6f182d09",
-    "notes_hash": "0c9bf3682ccf803094092e16431a334085a9643ff0eb4142d3f7abb30737fda6",
-    "model_hash": "2d2c54a6cdafb16caed98706fb3ea8997355c3bb6efb587b02e0bc138feea964"
+    "content_hash": "724b9fbfe26746122f4b9a5fc9a3a5a3d440bcc003d45b5c60292107cd6be3a7",
+    "notes_hash": "f4ec16ce111e82fe997c7bf08983685599789de39a2a57dd0b9587fc7c0e514d",
+    "model_hash": "f99c60e03abf21ab4d9305c30805f3eb0869e6e57751eb45cab7183f528594e8"
   },
   "geo_code": "PM",
   "node_type": "country",

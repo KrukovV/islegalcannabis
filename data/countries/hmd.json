@@ -17,36 +17,41 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "illegal",
+      "status": "tolerated",
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "tolerated",
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [
-        "distribution_fallback_illegal"
+        "sale_tolerated"
       ],
-      "modifiers": []
+      "modifiers": [
+        "but",
+        "only",
+        "may",
+        "however"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
       "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         },
         "trafficking": {
           "prison": false,
@@ -55,40 +60,65 @@
           "severe": false
         }
       },
-      "confidence": "low",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Heard Island and McDonald Islands",
           "url": null,
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis",
+          "url": null,
+          "depth": 1,
+          "type": "traversal"
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: possession",
+        "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: sale",
+        "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: possession",
+        "rule: sale_tolerated | source: Legality of cannabis | type: traversal | priority: 3 | scope: sale",
+        "rule: rec_tolerated | source: Legality of cannabis | type: traversal | priority: 3 | scope: sale",
+        "rule: raw_illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 4262,
+        "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
-          "prison_article": false,
+          "prison_article": true,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": null
+          "distribution_article": "illegal"
         }
       }
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_illegal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in Heard Island and McDonald Islands. Medical cannabis is illegal. Distribution is illegal."
+    "applied_rules": [
+      "raw_illegal",
+      "penalty_prison",
+      "penalty_fine",
+      "sale_tolerated",
+      "medical_legal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Heard Island and McDonald Islands. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Heard Island and McDonald Islands. Medical cannabis is illegal. Distribution is illegal.",
-  "notes_raw": "No notes available.",
+  "notes_normalized": "Cannabis is illegal in Heard Island and McDonald Islands. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected.",
+  "notes_raw": "Main article: Legality_of_cannabis.\n\n'''Adult legal status of cannabis possession for recreational use''' 1 ----\n\n----]]\n\n'''Adult legal status of cannabis for medical use''' 1 ----",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -171,9 +201,9 @@
   },
   "hashes": {
     "code": "hmd",
-    "content_hash": "773b0d0bde9141469e2857a2c6dcbbb2bf210e23fe350c725ef24581351bac91",
-    "notes_hash": "9f69830c05e0c67933239bda863a215079e94c6f4a807d1944b61d003493e7cf",
-    "model_hash": "c8475816b16ba6a8579154f348d875c7e98e847ad0291572b6f42a4d72c14ec5"
+    "content_hash": "3ebecd6d31f97664b8d1df028486bedb032636696722a5d9d0040c3c95418d76",
+    "notes_hash": "313beceed710ecf93bbcf64fc867f47fa2480de60a4b3bb1890159961532aa24",
+    "model_hash": "e61b3ef2377f1c69cb1a3f33c02cc970ad8bfe07b144ea3d6b57d731a4640166"
   },
   "geo_code": "HM",
   "node_type": "country",

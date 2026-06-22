@@ -577,6 +577,8 @@
   box-shadow: 0 12px 30px rgba(40, 55, 70, 0.12);
   padding: 16px 18px;
   color: #283746;
+  overflow-wrap: break-word;
+  word-break: break-word;
   max-width: min(320px, calc(100vw - max(20px, var(--new-map-safe-left)) - max(20px, var(--new-map-safe-right))));
   max-height: calc(var(--new-map-visible-height) - var(--new-map-bottom-safe) - 32px - var(--new-map-safe-top));
   overflow-y: auto;
@@ -617,6 +619,9 @@
   font-size: 1rem;
   font-weight: 700;
   margin-bottom: 4px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .countryPopupBadge {
@@ -651,6 +656,8 @@
   font-size: 0.86rem;
   line-height: 1.45;
   color: #4f6476;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .countryPopupSummary {
@@ -686,6 +693,9 @@
   font-size: 0.86rem;
   line-height: 1.45;
   color: #33485b;
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .countryPopupReasonLink {
@@ -694,6 +704,9 @@
   text-decoration-style: dotted;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
+  display: inline;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .countryPopupReasonLink:hover {
@@ -708,6 +721,9 @@
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
   font-size: 0.8rem;
+  display: inline;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .countryPopupSourceLink:hover {
@@ -733,6 +749,9 @@
   box-shadow: 0 12px 30px rgba(40, 55, 70, 0.12);
   padding: 16px 18px 20px;
   color: #283746;
+  font-family: inherit;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .viewportPopupPanel[data-placement="left"] {
@@ -750,6 +769,11 @@
   gap: 12px;
 }
 
+.viewportPopupHeaderText {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
 .viewportPopupHeaderControls {
   display: flex;
   align-items: center;
@@ -761,12 +785,17 @@
   font-size: 1rem;
   font-weight: 700;
   margin-bottom: 4px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .viewportPopupMeta {
   font-size: 0.86rem;
   line-height: 1.45;
   color: #4f6476;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .viewportPopupBadge {
@@ -843,6 +872,9 @@
   font-size: 0.86rem;
   line-height: 1.45;
   color: #33485b;
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .viewportPopupReasonLink {
@@ -851,6 +883,9 @@
   text-decoration-style: dotted;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
+  display: inline;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .viewportPopupReasonLink:hover,
@@ -868,6 +903,9 @@
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
   font-size: 0.8rem;
+  display: inline;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .viewportPopupSourceInlineLink {
@@ -876,6 +914,9 @@
   text-decoration-style: solid;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
+  display: inline;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .viewportPopupFooter {

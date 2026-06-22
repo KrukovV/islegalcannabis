@@ -26,24 +26,20 @@
         "import": null,
         "trafficking": "illegal"
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [],
-      "modifiers": [
-        "may",
-        "but",
-        "however"
-      ]
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "final_risk": "RESTRICTED",
       "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": false,
-        "fine": true,
-        "severity_score": 6,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -51,25 +47,19 @@
           "severe": false
         },
         "trafficking": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
-          "fine": true,
-          "severe": true
+          "fine": false,
+          "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Hong Kong / 香港",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Hong Kong",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Hong_Kong",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Government of Hong Kong Press Releases: LCQ5: Regulation of products containing cannabis",
@@ -95,45 +85,29 @@
         "rule: trafficking_illegal | source: Hong Kong / 香港 | type: summary | priority: 1 | scope: trafficking",
         "rule: sale_illegal | source: Hong Kong / 香港 | type: summary | priority: 1 | scope: trafficking",
         "rule: illegal | source: Hong Kong / 香港 | type: summary | priority: 1 | scope: trafficking",
-        "rule: raw_illegal | source: Cannabis in Hong Kong | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Hong Kong | type: traversal | priority: 3 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Hong Kong | type: traversal | priority: 3 | scope: trafficking",
-        "rule: trafficking_illegal | source: Cannabis in Hong Kong | type: traversal | priority: 3 | scope: trafficking",
-        "rule: sale_illegal | source: Cannabis in Hong Kong | type: traversal | priority: 3 | scope: trafficking",
-        "rule: illegal | source: Cannabis in Hong Kong | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_prison | source: Cannabis in Hong Kong | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_fine | source: Cannabis in Hong Kong | type: traversal | priority: 3 | scope: trafficking",
-        "rule: legal | source: Cannabis in Hong Kong | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_fine | source: Cannabis in Hong Kong | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in Hong Kong | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_years | source: Cannabis in Hong Kong | type: traversal | priority: 3 | scope: general"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 3623,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": "illegal",
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal",
-      "penalty_prison",
-      "penalty_fine",
-      "penalty_years"
+      "raw_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Hong Kong / 香港. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Hong Kong / 香港. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Hong Kong / 香港. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Hong Kong / 香港. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Hong Kong}} Possession, sale, transportation, and cultivation illegal under the Dangerous Drug Ordinance.<ref name=\"Police.gov.hk\">{{citation |url = http://www.police.gov.hk/ppp_en/04_crime_matters/drug/law_pen.html |title = Information on the official web site of the Hong Kong Police Force |publisher = Police.gov.hk |access-date = 14 December 2011 |archive-date = 5 October 2019 |archive-url = https://web.archive.org/web/20191005070448/https://www.police.gov.hk/ppp_en/04_crime_matters/drug/law_pen.html |url-status = live }}</ref> (Chapter 134 of the [[Law of Hong Kong]])",
   "facts": {
     "possession_limit": null,
@@ -232,9 +206,9 @@
   },
   "hashes": {
     "code": "hkg",
-    "content_hash": "4f7a05a2c50f528d72fce50223a3ecc29dd958017aa72ebbb8b14330a4042b5a",
-    "notes_hash": "b10a0ced26f6b39793c4f211ceec921fbf58b3f4f3359b0756f8279b34662da0",
-    "model_hash": "b0c1aa85ca1cf5d01e4c47aaebcfe4ff42f36421cacc0a5d87881b7ada74de7f"
+    "content_hash": "f8cb58f0125673e5295c32833fe010c8fb548927cb9ea832a98c68bb9fdc1833",
+    "notes_hash": "0be942edcd140453763d396ac6b642759ba3b39e24164fccd72b352b4f4cdbd0",
+    "model_hash": "d924f3bf4357c145dd7ded087eacc614d1fda73b4769a38536b5ae2436a3bbaf"
   },
   "geo_code": "HK",
   "node_type": "country",

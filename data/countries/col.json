@@ -29,9 +29,7 @@
       "enforcement": "standard",
       "flags": [],
       "modifiers": [
-        "up_to",
-        "but",
-        "however"
+        "up_to"
       ]
     },
     "signals": {
@@ -57,19 +55,13 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Colombia",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Colombia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Colombia",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Colombia's Narcotics Nightmare: How the Drug Trade Destroyed Peace",
@@ -100,43 +92,37 @@
           "url": "https://colombiareports.com/colombia-decriminalizes-marijuana-cultivation-up-to-20-plants/",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Colombia legalizes medical marijuana",
+          "url": "https://www.yahoo.com/news/colombia-legalizes-medical-marijuana-171023547.html?ref=gs",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: possession_decriminalized | source: Colombia | type: summary | priority: 1 | scope: use",
         "rule: private_cultivation | source: Colombia | type: summary | priority: 1 | scope: cultivation",
-        "rule: legal | source: Cannabis in Colombia | type: traversal | priority: 3 | scope: general",
-        "rule: medical_legal | source: Cannabis in Colombia | type: traversal | priority: 3 | scope: sale",
-        "rule: possession_decriminalized | source: Cannabis in Colombia | type: traversal | priority: 3 | scope: cultivation",
-        "rule: raw_illegal | source: Cannabis in Colombia | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Colombia | type: traversal | priority: 3 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Colombia | type: traversal | priority: 3 | scope: use",
-        "rule: illegal | source: Cannabis in Colombia | type: traversal | priority: 3 | scope: use",
-        "rule: legal | source: Cannabis in Colombia | type: traversal | priority: 3 | scope: possession",
-        "rule: possession_decriminalized | source: Cannabis in Colombia | type: traversal | priority: 3 | scope: possession",
-        "rule: private_cultivation | source: Cannabis in Colombia | type: traversal | priority: 3 | scope: cultivation",
-        "rule: legal | source: Cannabis in Colombia | type: traversal | priority: 3 | scope: cultivation",
-        "rule: medical_legal | source: Cannabis in Colombia | type: traversal | priority: 3 | scope: general"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 2902,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": "restricted",
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
     "enforcement_flags": [],
     "applied_rules": [
       "possession_decriminalized",
-      "private_cultivation",
-      "raw_illegal"
+      "private_cultivation"
     ],
     "notes_normalized": "Cannabis is decriminalized in Colombia. Medical cannabis is legal. Distribution is tolerated."
   },
@@ -239,9 +225,9 @@
   },
   "hashes": {
     "code": "col",
-    "content_hash": "4151e70cb33a6b3b4d91a22d9d029d73e30db1748cdec7a3c00e97b63e8a4e86",
+    "content_hash": "c596f052cee54e7228ebcb850579fe902b1ec1f7435663cb0c77a0505b83cfab",
     "notes_hash": "84ea0f3a49bf7b225e081e1de373700234d99ad251b1fc9db53fd8f326f19bc8",
-    "model_hash": "51db43948671785611ca6e5a2718b1ddf55cbbe81396641feb89bb02df9adf40"
+    "model_hash": "115a368347501ae2d9b407b4a3d05efb2b9e32168468f02367fcc18d7ef4fa58"
   },
   "geo_code": "CO",
   "node_type": "country",

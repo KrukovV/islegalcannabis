@@ -102,7 +102,7 @@
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 532,
+        "article_len": 102,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": true,
@@ -220,9 +220,9 @@
   },
   "hashes": {
     "code": "eth",
-    "content_hash": "723cccb4b3ba6fcc647d5bec76f68a71caa6df5f21602474076d8d7a3658628d",
+    "content_hash": "7581e9e616d2cb702aee2ef45313b1099ab2386f955aaee4ca657dee3f5d1b1e",
     "notes_hash": "7b7cbc1fa2c94de75c60a79ade3af8b0e09942faac2cbb23be66c01e5dfc9157",
-    "model_hash": "18a1dad6a824b4d9db296264a179fb4e05702057c202ca43fda790fb7dcce67a"
+    "model_hash": "df13c6980dccc67b0ccc502f38f2eb48788b1df3e9d51d8c17501db7f056b0bf"
   },
   "geo_code": "ET",
   "node_type": "country",

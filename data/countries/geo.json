@@ -17,11 +17,11 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "illegal",
+      "status": "restricted",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
-        "sale": "illegal",
+        "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
@@ -30,9 +30,7 @@
       "flags": [],
       "modifiers": [
         "only",
-        "up_to",
-        "but",
-        "may"
+        "up_to"
       ]
     },
     "signals": {
@@ -41,10 +39,10 @@
       "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 3,
+        "prison_priority": 2,
         "arrest": false,
         "fine": true,
-        "severity_score": 140,
+        "severity_score": 4,
         "possession": {
           "prison": true,
           "arrest": false,
@@ -52,10 +50,10 @@
           "severe": true
         },
         "trafficking": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
-          "fine": true,
-          "severe": true
+          "fine": false,
+          "severe": false
         }
       },
       "confidence": "high",
@@ -65,12 +63,6 @@
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Georgia (country)",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Georgia_(country)",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Georgia's High Court Removes Marijuana Possession Penalties",
@@ -101,37 +93,31 @@
           "url": "https://www.entrepreneur.com/article/321898",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Cannabis in Georgia (country)",
+          "url": "https://web.archive.org/web/20220209113700/https://www.entrepreneur.com/article/321898",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
-        "rule: legal | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: possession",
-        "rule: raw_illegal | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: sale",
-        "rule: sale_illegal | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: sale",
-        "rule: illegal | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: sale",
-        "rule: penalty_years | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: general",
-        "rule: legal | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_fine | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_prison | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_fine | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: sale",
-        "rule: legal | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: sale",
-        "rule: raw_illegal | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: use",
-        "rule: illegal | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: use",
-        "rule: legal | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: use",
+        "rule: legal | source: Georgia / საქართველო | type: summary | priority: 1 | scope: possession",
         "rule: penalty_fine | source: Georgia's High Court Removes Marijuana Possession Penalties | type: reference | priority: 2 | scope: possession",
-        "rule: penalty_prison | source: Norms envisaging imprisonment for marijuana use now null and void in Georgia | type: reference | priority: 2 | scope: use"
+        "rule: penalty_prison | source: Norms envisaging imprisonment for marijuana use now null and void in Georgia | type: reference | priority: 2 | scope: use",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 4451,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": true,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
@@ -139,14 +125,12 @@
       "fine_based"
     ],
     "applied_rules": [
-      "raw_illegal",
-      "penalty_years",
       "penalty_fine",
       "penalty_prison"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Georgia / საქართველო. Medical cannabis is limited. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is decriminalized in Georgia / საქართველო. Medical cannabis is limited. Distribution is restricted. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is decriminalized in Georgia / საქართველო. Medical cannabis is limited. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is decriminalized in Georgia / საქართველო. Medical cannabis is limited. Distribution is restricted. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Georgia (country)}}",
   "facts": {
     "possession_limit": null,
@@ -245,9 +229,9 @@
   },
   "hashes": {
     "code": "geo",
-    "content_hash": "20c6a9fb4883da795d067a555b619e08dc09de77ba809cba780dcbce1d858274",
-    "notes_hash": "111bf5044b2817ded4f120cec61060965f104caa72a638919a632973d7c61b84",
-    "model_hash": "8629a36673629d82f6441c8d11006e5e133bc5f10493411270bc16ae27ea871b"
+    "content_hash": "fb11bd59e16ed88f7af5d0d8275e78eaa65136be8af18f73af2e8cda9079a96a",
+    "notes_hash": "5887f13e457a3d22177c822e6179ddd71b742c9013760a15ac203e79e571155b",
+    "model_hash": "eff6e70f4d52e04b0619802c07efc6f840cfa5e30ae5f1ce821102f85c218319"
   },
   "geo_code": "GE",
   "node_type": "country",

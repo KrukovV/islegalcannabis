@@ -108,7 +108,6 @@
         "rule: raw_illegal | source: Albania / Shqipëria | type: summary | priority: 1 | scope: cultivation",
         "rule: illegal | source: Albania / Shqipëria | type: summary | priority: 1 | scope: cultivation",
         "rule: medical_legal | source: Albania / Shqipëria | type: summary | priority: 1 | scope: cultivation",
-        "rule: medical_legal | source: Cannabis in Albania | type: traversal | priority: 3 | scope: general",
         "rule: enforcement_rare | source: Cannabis in Albania | type: traversal | priority: 3 | scope: general",
         "rule: import_illegal | source: Cannabis in Albania | type: traversal | priority: 3 | scope: import"
       ],
@@ -236,9 +235,9 @@
   },
   "hashes": {
     "code": "alb",
-    "content_hash": "535002d92a678621615abdc939bbc7d89a9e05156b4387fd1b572655e24648cb",
+    "content_hash": "6775554a3676d3cb4280b34def1536263f659eab72cc5e5b134dc51fd40eb840",
     "notes_hash": "a9cf348b17e4e51738067ab789ecadf53715809c3853092746793b3efdfeabe4",
-    "model_hash": "3332048126c98dd26ca94cca226ae52d571801d424331882be4008a922e21707"
+    "model_hash": "8eea994cb253326d13d211f0d0cd15392a54ed5a261d74745c35d3d055858eb0"
   },
   "geo_code": "AL",
   "node_type": "country",

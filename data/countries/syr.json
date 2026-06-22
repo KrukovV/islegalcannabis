@@ -21,7 +21,7 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": "illegal",
+        "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": "illegal"
@@ -111,13 +111,11 @@
         "rule: penalty_criminal_offense | source: Cannabis in Syria | type: traversal | priority: 3 | scope: trafficking",
         "rule: trafficking_illegal | source: Cannabis in Syria | type: traversal | priority: 3 | scope: trafficking",
         "rule: illegal | source: Cannabis in Syria | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_arrest | source: Cannabis in Syria | type: traversal | priority: 3 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Syria | type: traversal | priority: 3 | scope: sale",
-        "rule: sale_illegal | source: Cannabis in Syria | type: traversal | priority: 3 | scope: sale"
+        "rule: penalty_arrest | source: Cannabis in Syria | type: traversal | priority: 3 | scope: general"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 1950,
+        "article_len": 674,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -241,9 +239,9 @@
   },
   "hashes": {
     "code": "syr",
-    "content_hash": "e0714b55c387dd37d042bbdf5fb021b8be75060defad7bc74bc7c0f05e414e0e",
+    "content_hash": "0d362780ab93c44e9be9aeca6c8def14ba5e26ddef4a70cee0aef5d6b6f53d40",
     "notes_hash": "1f175ae592dbf03341ded38f37b3cc0e75c3defc7e7f8012b512bd0f533fdf0b",
-    "model_hash": "c19385930b16d324b9f3561c1f28c317c525190ebb3d36aa229f4081c154b75e"
+    "model_hash": "9af51434c7130716847e92909ec4a1d0b7d3e8dbb2b6b122595f04d93e64b798"
   },
   "geo_code": "SY",
   "node_type": "country",

@@ -6,7 +6,7 @@
     "recreational": {
       "raw_status": "ILLEGAL",
       "status": "ILLEGAL",
-      "enforcement": "MODERATE",
+      "enforcement": "STRICT",
       "scope": "NONE"
     },
     "medical": {
@@ -22,41 +22,35 @@
         "possession": null,
         "use": null,
         "sale": null,
-        "cultivation": "tolerated",
+        "cultivation": null,
         "import": null,
-        "trafficking": "illegal"
+        "trafficking": null
       },
       "enforcement": "fine-based",
       "flags": [],
-      "modifiers": [
-        "only",
-        "may",
-        "up_to",
-        "but",
-        "however"
-      ]
+      "modifiers": []
     },
     "signals": {
-      "status": "restricted",
-      "final_risk": "RESTRICTED",
-      "enforcement_level": "rare",
+      "status": "illegal",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 3,
+        "prison_priority": 2,
         "arrest": false,
         "fine": true,
-        "severity_score": 4,
+        "severity_score": 3,
         "possession": {
           "prison": true,
           "arrest": false,
-          "fine": true,
+          "fine": false,
           "severe": true
         },
         "trafficking": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
-          "fine": true,
-          "severe": true
+          "fine": false,
+          "severe": false
         }
       },
       "confidence": "high",
@@ -66,12 +60,6 @@
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Malaysia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Malaysia",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Dangerous Drugs Act 1952 (Act 234)",
@@ -102,61 +90,40 @@
           "url": "https://codeblue.galencentre.org/2022/08/usm-researcher-highlights-legal-hurdle-to-cannabis-research/",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Use of hemp, cannabis or ketum for medical purposes punishable in Malaysia until legalised, says deputy minister",
+          "url": "https://www.malaymail.com/news/malaysia/2022/07/28/use-of-hemp-cannabis-or-ketum-for-medical-purposes-punishable-in-malaysia-until-legalisedsays-deputy-minister/19774",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: penalty_fine | source: Malaysia / مليسيا | type: summary | priority: 1 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Malaysia | type: traversal | priority: 3 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Malaysia | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_prison | source: Cannabis in Malaysia | type: traversal | priority: 3 | scope: trafficking",
-        "rule: raw_illegal | source: Cannabis in Malaysia | type: traversal | priority: 3 | scope: trafficking",
-        "rule: trafficking_illegal | source: Cannabis in Malaysia | type: traversal | priority: 3 | scope: trafficking",
-        "rule: illegal | source: Cannabis in Malaysia | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_fine | source: Cannabis in Malaysia | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_years | source: Cannabis in Malaysia | type: traversal | priority: 3 | scope: trafficking",
-        "rule: raw_illegal | source: Cannabis in Malaysia | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_criminal_offense | source: Cannabis in Malaysia | type: traversal | priority: 3 | scope: possession",
-        "rule: illegal | source: Cannabis in Malaysia | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_prison | source: Cannabis in Malaysia | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_fine | source: Cannabis in Malaysia | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_years | source: Cannabis in Malaysia | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_fine | source: Cannabis in Malaysia | type: traversal | priority: 3 | scope: general",
-        "rule: enforcement_rare | source: Cannabis in Malaysia | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_criminal_offense | source: Cannabis in Malaysia | type: traversal | priority: 3 | scope: use",
-        "rule: illegal | source: Cannabis in Malaysia | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_fine | source: Cannabis in Malaysia | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_years | source: Cannabis in Malaysia | type: traversal | priority: 3 | scope: general",
-        "rule: private_cultivation | source: Cannabis in Malaysia | type: traversal | priority: 3 | scope: cultivation",
-        "rule: legal | source: Cannabis in Malaysia | type: traversal | priority: 3 | scope: cultivation",
         "rule: penalty_criminal_offense | source: Use of hemp, cannabis or ketum for medical purposes punishable in Malaysia until legalised, says deputy minister | type: reference | priority: 2 | scope: use",
-        "rule: medical_legal | source: Use of hemp, cannabis or ketum for medical purposes punishable in Malaysia until legalised, says deputy minister | type: reference | priority: 2 | scope: use"
+        "rule: medical_legal | source: Use of hemp, cannabis or ketum for medical purposes punishable in Malaysia until legalised, says deputy minister | type: reference | priority: 2 | scope: use",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 4155,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": true,
           "enforcement_notes": null,
-          "enforcement_article": "rare",
+          "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
     "enforcement_flags": [
-      "fine_based",
-      "weak_enforcement"
+      "fine_based"
     ],
     "applied_rules": [
       "penalty_fine",
-      "raw_illegal",
-      "penalty_prison",
-      "penalty_years",
-      "penalty_criminal_offense",
-      "enforcement_rare",
-      "private_cultivation"
+      "penalty_criminal_offense"
     ],
     "notes_normalized": "Cannabis is illegal in Malaysia / مليسيا. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
@@ -259,9 +226,9 @@
   },
   "hashes": {
     "code": "mys",
-    "content_hash": "a43400aac5a4f2805ca324b6e407484ef764357b6635a08ec756f62f96fce5d7",
+    "content_hash": "c558e559c85b99221341e9c33f046c61858d7a3e889a97f2ddcdee18ad2521e8",
     "notes_hash": "d4447faa4f9a9d76ba5d0a6459485327231e9ffc32031051f20ac51a99c9477b",
-    "model_hash": "7817f46520d11cf3a913f215924c116627ef5a8b922d99cc96aa2eab87c2cc33"
+    "model_hash": "55d7e97ba272f0c1f29d9973402424724e77ac92100107bc049c3b6c510dd79e"
   },
   "geo_code": "MY",
   "node_type": "country",

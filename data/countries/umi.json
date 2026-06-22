@@ -17,36 +17,41 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "illegal",
+      "status": "tolerated",
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "tolerated",
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [
-        "distribution_fallback_illegal"
+        "sale_tolerated"
       ],
-      "modifiers": []
+      "modifiers": [
+        "but",
+        "only",
+        "may",
+        "however"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
       "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         },
         "trafficking": {
           "prison": false,
@@ -55,40 +60,65 @@
           "severe": false
         }
       },
-      "confidence": "low",
+      "confidence": "medium",
       "sources": [
         {
           "title": "United States Minor Outlying Islands",
           "url": null,
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis",
+          "url": null,
+          "depth": 1,
+          "type": "traversal"
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: possession",
+        "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: sale",
+        "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: possession",
+        "rule: sale_tolerated | source: Legality of cannabis | type: traversal | priority: 3 | scope: sale",
+        "rule: rec_tolerated | source: Legality of cannabis | type: traversal | priority: 3 | scope: sale",
+        "rule: raw_illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 4262,
+        "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
-          "prison_article": false,
+          "prison_article": true,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": null
+          "distribution_article": "illegal"
         }
       }
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_illegal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in United States Minor Outlying Islands. Medical cannabis is illegal. Distribution is illegal."
+    "applied_rules": [
+      "raw_illegal",
+      "penalty_prison",
+      "penalty_fine",
+      "sale_tolerated",
+      "medical_legal"
+    ],
+    "notes_normalized": "Cannabis is illegal in United States Minor Outlying Islands. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in United States Minor Outlying Islands. Medical cannabis is illegal. Distribution is illegal.",
-  "notes_raw": "No notes available.",
+  "notes_normalized": "Cannabis is illegal in United States Minor Outlying Islands. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected.",
+  "notes_raw": "Main article: Legality_of_cannabis.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -171,9 +201,9 @@
   },
   "hashes": {
     "code": "umi",
-    "content_hash": "a7288a23021cc6193c3744016f3175ec1a28c62d8e9dc97d82faaa46a2cbdf8c",
-    "notes_hash": "76e8c027f7a633e8c22d02e9ecc9ec08c05e0a144c861308238565baca8f869b",
-    "model_hash": "23035d009ee88a7db8f33647d89a3e69a4d315f353c9dcc6f73ee3cae9196745"
+    "content_hash": "e9fcfcd1aeaf10ff64700593a0bb64f39e0fab82d33a5a706335fe60aa0d51f0",
+    "notes_hash": "6dcb55825f927d31b2e8d0d1b422970aa2a8f02d3f3e1bf0f742ab2e775d7c09",
+    "model_hash": "ab92e511fb217600e6ca505ddf741cd332ac88d9cdbd34d2ef0bc59e990f13d0"
   },
   "geo_code": "UM",
   "node_type": "country",

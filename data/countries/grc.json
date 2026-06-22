@@ -28,28 +28,23 @@
       },
       "enforcement": "fine-based",
       "flags": [],
-      "modifiers": [
-        "but",
-        "up_to",
-        "however",
-        "only"
-      ]
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "final_risk": "RESTRICTED",
       "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": false,
         "fine": true,
-        "severity_score": 4,
+        "severity_score": 1,
         "possession": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
           "fine": false,
-          "severe": true
+          "severe": false
         },
         "trafficking": {
           "prison": false,
@@ -58,19 +53,13 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Greece / Ελλάδα",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Greece",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Greece",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Cannabis in Greece – laws, attitudes and other info",
@@ -101,29 +90,30 @@
           "url": "https://www.independent.co.uk/news/world/europe/greece-marijuana-legal-medical-cannabis-weed-law-passes-a7821771.html",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Greek Parliament approves law for medical cannabis",
+          "url": "https://www.keeptalkinggreece.com/2018/03/02/greece-medical-cannabis-law/",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Greece | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Greece | type: traversal | priority: 3 | scope: general",
-        "rule: medical_legal | source: Cannabis in Greece | type: traversal | priority: 3 | scope: use",
-        "rule: medical_legal | source: Cannabis in Greece | type: traversal | priority: 3 | scope: trafficking",
-        "rule: medical_legal | source: Cannabis in Greece | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in Greece | type: traversal | priority: 3 | scope: possession",
         "rule: medical_legal | source: Cannabis for Medical Use to be Legalized in Greece | type: reference | priority: 2 | scope: use",
-        "rule: penalty_fine | source: Is Cannabis Legal in Greece? Laws Penalties, and More | type: reference | priority: 2 | scope: general"
+        "rule: penalty_fine | source: Is Cannabis Legal in Greece? Laws Penalties, and More | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 1968,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
@@ -131,13 +121,11 @@
       "fine_based"
     ],
     "applied_rules": [
-      "raw_illegal",
-      "penalty_prison",
       "penalty_fine"
     ],
-    "notes_normalized": "Cannabis is illegal in Greece / Ελλάδα. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Greece / Ελλάδα. Medical cannabis is legal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Greece / Ελλάδα. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Greece / Ελλάδα. Medical cannabis is legal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Greece}}",
   "facts": {
     "possession_limit": null,
@@ -236,9 +224,9 @@
   },
   "hashes": {
     "code": "grc",
-    "content_hash": "3b38fe4e68f7e6c054385066ffd0a24a96aeec82b9d66b93549f624cbebe26a8",
-    "notes_hash": "4ff79f8ee3439772aada89ac53eb96d4bb2be215d96a410e1e38bbd5b666cabc",
-    "model_hash": "b5867ad3eba09b805bba0a1a2037e12682329e28fb414669bfccd8f1992b13b7"
+    "content_hash": "9f2439202c7c05bdd350cfca6bcac16a5c368446ecc912324a74d268017076b1",
+    "notes_hash": "136ac3029799f98fda4d76749f747d7aa15c03a9c560dfb19e1ab5b3c7fc5899",
+    "model_hash": "4421fe5830d935482a13854aee1e546fe0e87c9a5649b73d39910867c654cc82"
   },
   "geo_code": "GR",
   "node_type": "country",

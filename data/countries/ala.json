@@ -17,36 +17,41 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "illegal",
+      "status": "tolerated",
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "tolerated",
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [
-        "distribution_fallback_illegal"
+        "sale_tolerated"
       ],
-      "modifiers": []
+      "modifiers": [
+        "but",
+        "only",
+        "may",
+        "however"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
       "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         },
         "trafficking": {
           "prison": false,
@@ -55,40 +60,65 @@
           "severe": false
         }
       },
-      "confidence": "low",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Åland Islands / Åland",
           "url": null,
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis",
+          "url": null,
+          "depth": 1,
+          "type": "traversal"
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: possession",
+        "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: sale",
+        "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: possession",
+        "rule: sale_tolerated | source: Legality of cannabis | type: traversal | priority: 3 | scope: sale",
+        "rule: rec_tolerated | source: Legality of cannabis | type: traversal | priority: 3 | scope: sale",
+        "rule: raw_illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 4262,
+        "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
-          "prison_article": false,
+          "prison_article": true,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": null
+          "distribution_article": "illegal"
         }
       }
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_illegal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in Åland Islands / Åland. Medical cannabis is illegal. Distribution is illegal."
+    "applied_rules": [
+      "raw_illegal",
+      "penalty_prison",
+      "penalty_fine",
+      "sale_tolerated",
+      "medical_legal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Åland Islands / Åland. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Åland Islands / Åland. Medical cannabis is illegal. Distribution is illegal.",
-  "notes_raw": "No notes available.",
+  "notes_normalized": "Cannabis is illegal in Åland Islands / Åland. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected.",
+  "notes_raw": "Main article: Legality_of_cannabis.\n\n'''Adult legal status of cannabis possession for recreational use''' 1 ----\n\n----]]\n\n'''Adult legal status of cannabis for medical use''' 1 ----",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -171,9 +201,9 @@
   },
   "hashes": {
     "code": "ala",
-    "content_hash": "2da907be7df738f92c276319dcd2dffa8a79d5be6fe7ced30bc267475a7f8786",
-    "notes_hash": "ce3f0432775bf23e4c65d6be21f49c9e38339d6f94b134fdd2b5c3121392b3ae",
-    "model_hash": "f25ef5833d31511d6a40cabdc0924291d24d18c5cbafd1a7bedfdc89cd1e2f5c"
+    "content_hash": "0b6ce267ba2a9d9f968375719d24959f524eff5e84c71476412dd794bcf94468",
+    "notes_hash": "b4e9e6a3d038bc65b7108202133043249dd91284510ba63f8207b0ade9a9e42f",
+    "model_hash": "6fdea92d60f74cc987ce70735019e37e6e695782364d1f8d7ec35ecede6d8f77"
   },
   "geo_code": "AX",
   "node_type": "country",

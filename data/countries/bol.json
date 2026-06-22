@@ -38,7 +38,7 @@
       "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 3,
+        "prison_priority": 1,
         "arrest": false,
         "fine": false,
         "severity_score": 5,
@@ -62,12 +62,6 @@
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Bolivia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bolivia",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "International Narcotics Control Strategy Report: Volume I: Drug and Chemical Control",
@@ -101,23 +95,24 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Bolivia | type: traversal | priority: 3 | scope: use",
-        "rule: illegal | source: Cannabis in Bolivia | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_prison | source: Cannabis in Bolivia | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_years | source: Cannabis in Bolivia | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_criminal_offense | source: Cannabis in Bolivia | type: traversal | priority: 3 | scope: possession"
+        "rule: raw_illegal | source: Bolivia / Wuliwya | type: summary | priority: 1 | scope: use",
+        "rule: illegal | source: Bolivia / Wuliwya | type: summary | priority: 1 | scope: use",
+        "rule: penalty_prison | source: Bolivia / Wuliwya | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_years | source: Bolivia / Wuliwya | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_criminal_offense | source: Bolivia / Wuliwya | type: summary | priority: 1 | scope: possession",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 314,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
-          "prison_notes": false,
-          "prison_article": true,
+          "prison_notes": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_notes": "illegal",
+          "distribution_article": null
         }
       }
     },
@@ -229,9 +224,9 @@
   },
   "hashes": {
     "code": "bol",
-    "content_hash": "fda762a6ba78bed1ea688817519cc12e19db980ab2a633690895c39dea628ba8",
+    "content_hash": "7fe78dd894c87129c3005163ecdc23b4388432f9e36d003acf1018b1831cd956",
     "notes_hash": "c03fe5116ecc028b6cf99c65b9b0330c2f452b2ffbdb929ed47d9642dfde40f1",
-    "model_hash": "98dd95ac72778f4f773b9bb436b09428631b99ad288be5fa61b38ba47cddb9a1"
+    "model_hash": "a033b3cfc29efeb472e01d0c1c1ce8523b809d5a4504b8971d68c60820cea789"
   },
   "geo_code": "BO",
   "node_type": "country",

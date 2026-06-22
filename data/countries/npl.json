@@ -26,13 +26,9 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [],
-      "modifiers": [
-        "but",
-        "may",
-        "however"
-      ]
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
@@ -42,11 +38,11 @@
         "prison": false,
         "prison_priority": 0,
         "arrest": true,
-        "fine": true,
+        "fine": false,
         "severity_score": 2,
         "possession": {
           "prison": false,
-          "arrest": true,
+          "arrest": false,
           "fine": false,
           "severe": false
         },
@@ -57,19 +53,13 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Nepal / नेपाल",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Nepal",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Nepal",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Nepal to legalise marijuana cultivation for medicinal purposes - The Economic Times",
@@ -100,40 +90,34 @@
           "url": "https://books.google.com/books?id=gCRNRGOhNA4C&pg=PA255",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "How the Drug War Destroyed a Hippie Paradise in Kathmandu",
+          "url": "https://reason.com/video/2019/09/13/how-the-drug-war-destroyed-a-hippie-paradise-in-kathmandu/",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Nepal | type: traversal | priority: 3 | scope: use",
-        "rule: illegal | source: Cannabis in Nepal | type: traversal | priority: 3 | scope: use",
-        "rule: medical_legal | source: Cannabis in Nepal | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_fine | source: Cannabis in Nepal | type: traversal | priority: 3 | scope: general",
-        "rule: medical_limited | source: Cannabis in Nepal | type: traversal | priority: 3 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Nepal | type: traversal | priority: 3 | scope: cultivation",
-        "rule: illegal | source: Cannabis in Nepal | type: traversal | priority: 3 | scope: cultivation",
-        "rule: penalty_arrest | source: Cannabis in Nepal | type: traversal | priority: 3 | scope: use",
-        "rule: rec_tolerated | source: Cannabis in Nepal | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_arrest | source: Police to arrest cannabis users at Pashupati this Mahashivaratri festival | type: reference | priority: 2 | scope: general"
+        "rule: penalty_arrest | source: Police to arrest cannabis users at Pashupati this Mahashivaratri festival | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 4874,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal",
-      "penalty_fine",
       "penalty_arrest"
     ],
     "notes_normalized": "Cannabis is illegal in Nepal / नेपाल. Medical cannabis is illegal. Distribution is illegal."
@@ -237,9 +221,9 @@
   },
   "hashes": {
     "code": "npl",
-    "content_hash": "75dda6472d146b754e4297a532d7c2160ae711b2965b1f1c6ef644f72dde83b7",
+    "content_hash": "d9798cdb5b8a887928a3b192709437104d8b8ddd322ac8be8ce56475a243914f",
     "notes_hash": "7a3bb35762a3f228b51b82b9e268be1408e9adb3432d8fa1b426853dcce3f8b1",
-    "model_hash": "0a51e10dcfa58a92caedddd3b85e9d24aa090f5cc1ed348264ad56b4306e25c0"
+    "model_hash": "ddef1d3e2a1085a83b744a4f2a03630cfc770eebf2ffd2323c63611cadf8657a"
   },
   "geo_code": "NP",
   "node_type": "country",

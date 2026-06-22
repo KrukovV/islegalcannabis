@@ -21,7 +21,7 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "illegal",
         "cultivation": null,
         "import": null,
         "trafficking": null
@@ -29,7 +29,7 @@
       "enforcement": "standard",
       "flags": [],
       "modifiers": [
-        "however"
+        "but"
       ]
     },
     "signals": {
@@ -64,12 +64,6 @@
           "type": "summary"
         },
         {
-          "title": "Cannabis in Iraq",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Iraq",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
           "title": "Cannabis in Iraq – Laws, Use, Attitudes, and Other Info",
           "url": "https://sensiseeds.com/en/blog/countries/cannabis-in-iraq-laws-use-history/",
           "depth": 2,
@@ -83,20 +77,24 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Iraq | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Iraq | type: traversal | priority: 3 | scope: general"
+        "rule: raw_illegal | source: Iraq / العراق | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Iraq / العراق | type: summary | priority: 1 | scope: general",
+        "rule: raw_illegal | source: Iraq / العراق | type: summary | priority: 1 | scope: sale",
+        "rule: sale_illegal | source: Iraq / العراق | type: summary | priority: 1 | scope: sale",
+        "rule: illegal | source: Iraq / العراق | type: summary | priority: 1 | scope: sale",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 305,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_notes": "illegal",
+          "distribution_article": null
         }
       }
     },
@@ -107,7 +105,7 @@
     "notes_normalized": "Cannabis is illegal in Iraq / العراق. Medical cannabis is illegal. Distribution is illegal."
   },
   "notes_normalized": "Cannabis is illegal in Iraq / العراق. Medical cannabis is illegal. Distribution is illegal.",
-  "notes_raw": "{{main|Cannabis in Iraq}}",
+  "notes_raw": "Cannabis is illegal in Iraq / العراق. Medical cannabis is illegal. Distribution is illegal.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -205,9 +203,9 @@
   },
   "hashes": {
     "code": "irq",
-    "content_hash": "7afc637d8688a787500f51405f13b0ed1ca98bde1c1ff551d70bdcb06ac75e29",
+    "content_hash": "22c0c402eba039ee66c2d3f2c10ffbd11278738ff1b349530e049af3d1303435",
     "notes_hash": "8892a54e2633e702841f328270f24943c6d846212ca146aecaaa479d33bee001",
-    "model_hash": "4b1b843be5f20389b87d8b64fca7970f7ec97e4a200521912aa63b5e4abb6d05"
+    "model_hash": "cb0683b23c4286988241c088f8b7986a971e433bac1d915bbaac387cc20dd705"
   },
   "geo_code": "IQ",
   "node_type": "country",

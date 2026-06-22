@@ -83,19 +83,21 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Greenland / Kalaallit Nunaat | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Greenland / Kalaallit Nunaat | type: summary | priority: 1 | scope: general",
         "rule: raw_illegal | source: Cannabis in Greenland | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Greenland | type: traversal | priority: 3 | scope: general"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 158,
+        "article_len": 154,
         "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
+          "distribution_notes": "illegal",
           "distribution_article": "illegal"
         }
       }
@@ -205,9 +207,9 @@
   },
   "hashes": {
     "code": "grl",
-    "content_hash": "ad6b4c9642bb0b5fa00ed7038008a8919c67725f3f7a483b45d23995906200b2",
+    "content_hash": "ce23dece6377016d11f74eb1ce5eaaac116fc2630142af143c57561a70b5a63e",
     "notes_hash": "803518579d58996ee5d423f464c3cd63a17568d1fb49c336e44974db824f7596",
-    "model_hash": "0ca4c1486f96b54f61fb4fb96559e090cadba6bbbfec1946970341f7a5823ce7"
+    "model_hash": "351f0aa13eba7ed13c79d96b53b3af7c1f703878c1cfc9d58fe37b970a7a93a4"
   },
   "geo_code": "GL",
   "node_type": "country",

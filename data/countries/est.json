@@ -41,7 +41,7 @@
       "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 3,
+        "prison_priority": 1,
         "arrest": false,
         "fine": true,
         "severity_score": 4,
@@ -68,12 +68,6 @@
         },
         {
           "title": "Cannabis in Estonia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Estonia",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
-          "title": "Cannabis in Estonia",
           "url": "https://www.eupedia.com/europe/maps_of_europe.shtml",
           "depth": 2,
           "type": "reference"
@@ -94,27 +88,19 @@
         "rule: medical_legal | source: Estonia / Eesti | type: summary | priority: 1 | scope: general",
         "rule: sale_regulated | source: Estonia / Eesti | type: summary | priority: 1 | scope: sale",
         "rule: medical_legal | source: Estonia / Eesti | type: summary | priority: 1 | scope: sale",
-        "rule: raw_illegal | source: Cannabis in Estonia | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_fine | source: Cannabis in Estonia | type: traversal | priority: 3 | scope: possession",
-        "rule: illegal | source: Cannabis in Estonia | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_prison | source: Cannabis in Estonia | type: traversal | priority: 3 | scope: sale",
-        "rule: penalty_years | source: Cannabis in Estonia | type: traversal | priority: 3 | scope: sale",
-        "rule: penalty_criminal_offense | source: Cannabis in Estonia | type: traversal | priority: 3 | scope: sale",
-        "rule: sale_illegal | source: Cannabis in Estonia | type: traversal | priority: 3 | scope: sale",
-        "rule: penalty_years | source: Cannabis in Estonia | type: traversal | priority: 3 | scope: general",
-        "rule: medical_legal | source: Cannabis in Estonia | type: traversal | priority: 3 | scope: general"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 856,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": true,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": "illegal",
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
@@ -127,8 +113,7 @@
       "penalty_years",
       "penalty_criminal_offense",
       "sale_illegal",
-      "medical_legal",
-      "raw_illegal"
+      "medical_legal"
     ],
     "notes_normalized": "Cannabis is decriminalized in Estonia / Eesti. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
@@ -231,9 +216,9 @@
   },
   "hashes": {
     "code": "est",
-    "content_hash": "782febee390cc95bd743b2063a53be2a974eef4219ec1c59695549b055b0b52f",
+    "content_hash": "e614821026147b0c0cef1d643dbdb9859e1d1d598a874bed29e811d3ca8da61f",
     "notes_hash": "aac29910bfdfaa63644f443ff0ed58dcef6d273ddfaeaad594d2c6c9e46e60a4",
-    "model_hash": "b384bcc8e467e3d69268d14e4c210b407402fd41f6b9a89d7fff64aed6d93fc2"
+    "model_hash": "b1ed28e46a0e7d2db2fd56e38aee0960bf325e5fbe8560edf6b1308ffce5afbe"
   },
   "geo_code": "EE",
   "node_type": "country",

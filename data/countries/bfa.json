@@ -28,11 +28,7 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": [
-        "however",
-        "but",
-        "only"
-      ]
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
@@ -66,12 +62,6 @@
           "type": "summary"
         },
         {
-          "title": "Cannabis in Burkina Faso",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Burkina_Faso",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
           "title": "Cannabis in Africa",
           "url": "https://www.unodc.org/documents/data-and-analysis/Can_Afr_EN_09_11_07.pdf",
           "depth": 2,
@@ -100,19 +90,24 @@
           "url": "https://www.thenewhumanitarian.org/report/81212/west-africa-clandestine-cannabis-farmers-feed-growing-drug-abuse",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Mother, son arrested with 105kgs of cannabis",
+          "url": "https://police.gov.rw/media/news-detail/news/mother-son-arrested-with-105kgs-of-cannabis/",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Burkina Faso | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Burkina Faso | type: traversal | priority: 3 | scope: general",
         "rule: penalty_arrest | source: Mother, son arrested with 105kgs of cannabis | type: reference | priority: 2 | scope: general",
         "rule: raw_illegal | source: Special Senate Committee on Illegal Drugs (37th Parliament, 1st Session) | type: reference | priority: 2 | scope: general",
-        "rule: illegal | source: Special Senate Committee on Illegal Drugs (37th Parliament, 1st Session) | type: reference | priority: 2 | scope: general"
+        "rule: illegal | source: Special Senate Committee on Illegal Drugs (37th Parliament, 1st Session) | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 1033,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
@@ -125,8 +120,8 @@
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal",
-      "penalty_arrest"
+      "penalty_arrest",
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Burkina Faso. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -229,9 +224,9 @@
   },
   "hashes": {
     "code": "bfa",
-    "content_hash": "2f3224e086fb6115f6ea3e1b3446b6fa932bc98bf3d0a825be76bc442b9cf34e",
+    "content_hash": "07a26e097a2478df1b122788faaff39e8df5329c5a994cd8df7c47cbff74e055",
     "notes_hash": "5069fd94c40ccac279a145e698a95917bbcf152f4d32aae4ef9581dca3a847ec",
-    "model_hash": "c16131a399eb35c44e3471b69b3f98cca30e5a9474a4a9d914b496ac610159bd"
+    "model_hash": "4833651f67f32a8e9e55c9d4106e6bdddb285267c4063a8e00596bb99f6ef820"
   },
   "geo_code": "BF",
   "node_type": "country",

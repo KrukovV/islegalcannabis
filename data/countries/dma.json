@@ -103,6 +103,13 @@
         }
       ],
       "explain": [
+        "rule: penalty_fine | source: Dominica | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_years | source: Dominica | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_criminal_offense | source: Dominica | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_fine | source: Dominica | type: summary | priority: 1 | scope: trafficking",
+        "rule: penalty_years | source: Dominica | type: summary | priority: 1 | scope: trafficking",
+        "rule: penalty_criminal_offense | source: Dominica | type: summary | priority: 1 | scope: trafficking",
+        "rule: trafficking_illegal | source: Dominica | type: summary | priority: 1 | scope: trafficking",
         "rule: penalty_fine | source: Cannabis in Dominica | type: traversal | priority: 3 | scope: possession",
         "rule: penalty_years | source: Cannabis in Dominica | type: traversal | priority: 3 | scope: possession",
         "rule: penalty_criminal_offense | source: Cannabis in Dominica | type: traversal | priority: 3 | scope: possession",
@@ -113,14 +120,14 @@
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 1317,
+        "article_len": 997,
         "source_confidence": "prison_signal",
         "signals": {
-          "prison_notes": false,
+          "prison_notes": true,
           "prison_article": true,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
+          "distribution_notes": "illegal",
           "distribution_article": "illegal"
         }
       }
@@ -217,18 +224,18 @@
         "name": "Saint Kitts and Nevis"
       },
       {
-        "code": "brb",
-        "name": "Barbados"
+        "code": "tto",
+        "name": "Trinidad and Tobago"
       }
     ],
     "cluster_links": [
       {
-        "code": "blm",
-        "name": "Saint Barthélemy"
+        "code": "brb",
+        "name": "Barbados"
       },
       {
-        "code": "sxm",
-        "name": "Sint Maarten / Saint-Martin"
+        "code": "blm",
+        "name": "Saint Barthélemy"
       }
     ],
     "same_country_states": [],
@@ -236,9 +243,9 @@
   },
   "hashes": {
     "code": "dma",
-    "content_hash": "03ab73ddb92f4fe761bd38f09dfe5f792b21cd99f0db5e7a01a8995128ed0906",
+    "content_hash": "21acfe4b2218aef231707df054f5188ca04415a9727d0a004af779dba610d158",
     "notes_hash": "7fb616b66794f0407fb2bf81b51a9854ec2bcda06bb8ce2fc449713b65b0d981",
-    "model_hash": "e62983c49ceda043e6a21d8f25750cf8018c4c6e55019303c1642da99548186c"
+    "model_hash": "2fd6c2fcde1d1f933b76c92114f1648c128bf20798d09a145a83f79e844ac2e4"
   },
   "geo_code": "DM",
   "node_type": "country",

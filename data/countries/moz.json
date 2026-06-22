@@ -62,12 +62,6 @@
           "type": "summary"
         },
         {
-          "title": "Cannabis in Mozambique",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Mozambique",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
           "title": "Carlos Cardoso: Telling the Truth in Mozambique",
           "url": "https://books.google.com/books?id=dnOIJThvRssC&pg=PA269",
           "depth": 2,
@@ -96,23 +90,30 @@
           "url": "https://books.google.com/books?id=LvbJsQgnlXwC&pg=PA65",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Non-Timber Forest Products in the Global Context",
+          "url": "https://books.google.com/books?id=eQiSxsvuZ9kC&pg=PA93",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Mozambique | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Mozambique | type: traversal | priority: 3 | scope: general"
+        "rule: raw_illegal | source: Mozambique / Moçambique | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Mozambique / Moçambique | type: summary | priority: 1 | scope: general",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 812,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_notes": "illegal",
+          "distribution_article": null
         }
       }
     },
@@ -221,9 +222,9 @@
   },
   "hashes": {
     "code": "moz",
-    "content_hash": "a0ddeb659b3e7bbc4be4c6975abdc0a3652d52a39a3216ca7c294fe1bf324f9c",
+    "content_hash": "34945a3509248d3fbdf013b2452033dc58fcb2ef8f8333ff47410c87f3d18405",
     "notes_hash": "ebc793619c31796b8002bb3ef3a2549263bac9c6ff79979dbaffed9a6f71cc99",
-    "model_hash": "4d7d9eb7a638ee78211999bc0ee9ee158fa631bb5bc9d42f5b1140b55b00f80e"
+    "model_hash": "f8a2f3a7df99604410b30a6bd18f0d7a1c348a63bdd8b22710ef040dc1d92eb3"
   },
   "geo_code": "MZ",
   "node_type": "country",

@@ -21,53 +21,47 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": "illegal",
-        "cultivation": "tolerated",
+        "sale": null,
+        "cultivation": null,
         "import": null,
-        "trafficking": "illegal"
+        "trafficking": null
       },
-      "enforcement": "fine-based",
-      "flags": [],
-      "modifiers": [
-        "up_to"
-      ]
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "final_risk": "RESTRICTED",
       "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": false,
-        "fine": true,
-        "severity_score": 100,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
           "fine": false,
-          "severe": true
+          "severe": false
         },
         "trafficking": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
-          "fine": true,
-          "severe": true
+          "fine": false,
+          "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Tajikistan / Таджикистан",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Tajikistan",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Tajikistan",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "EMCDDA {{!",
@@ -98,44 +92,38 @@
           "url": "https://www.cannaconnection.com/blog/14702-legal-status-tajikistan",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Cannabis in Tajikistan – Laws, Drug Trade and More Info - Sensi Seeds",
+          "url": "https://sensiseeds.com/en/blog/countries/cannabis-in-tajikistan-laws-use-history/",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Tajikistan | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_fine | source: Cannabis in Tajikistan | type: traversal | priority: 3 | scope: trafficking",
-        "rule: trafficking_illegal | source: Cannabis in Tajikistan | type: traversal | priority: 3 | scope: trafficking",
-        "rule: sale_illegal | source: Cannabis in Tajikistan | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_prison | source: Cannabis in Tajikistan | type: traversal | priority: 3 | scope: sale",
-        "rule: private_cultivation | source: Cannabis in Tajikistan | type: traversal | priority: 3 | scope: cultivation",
-        "rule: penalty_years | source: Cannabis in Tajikistan | type: traversal | priority: 3 | scope: cultivation"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 1094,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal",
-      "penalty_fine",
-      "penalty_prison",
-      "private_cultivation",
-      "penalty_years"
+      "distribution_fallback_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Tajikistan / Таджикистан. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Tajikistan / Таджикистан. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Tajikistan / Таджикистан. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Tajikistan / Таджикистан. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Tajikistan}}",
   "facts": {
     "possession_limit": null,
@@ -234,9 +222,9 @@
   },
   "hashes": {
     "code": "tjk",
-    "content_hash": "2a5d6fd2184c443753e743454a8ba9e97341514acd6cecc3cf8db4a08598e1d2",
-    "notes_hash": "eb6cdbfcf608c11f07cab94846db9716fe7894e4d9c93f35a087aa44d1a87a67",
-    "model_hash": "ae67fdef9f8e44ed390d846efb0301a6c5d7eac197babc35a7963583016de56a"
+    "content_hash": "da6be90b448aa6571ea49050827fe79a17c77d24919f53044b2bdcbab08ebf0d",
+    "notes_hash": "7a941df10c1dcfe52481b3d721eff0837547ad8bb24dda1bc87fdeb6539d40be",
+    "model_hash": "283d4a367461c044886e150d60721f1a201e84a4b635a7927786502f22122bf0"
   },
   "geo_code": "TJ",
   "node_type": "country",

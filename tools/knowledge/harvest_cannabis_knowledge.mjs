@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { fetchPageInfo, fetchPageWikitextCached } from "../wiki/mediawiki_api.mjs";
+import { fetchPageInfo, fetchPageWikitextCached, searchPageTitles } from "../wiki/mediawiki_api.mjs";
 
 const PROFILE_SECTION_KEYS = [
   "history",
@@ -21,6 +21,8 @@ const KNOWLEDGE_FIELDS = [
   "localNames",
   "products",
   "traditionalUse",
+  "cultivation",
+  "market",
   "enforcementReality",
   "notes"
 ];
@@ -80,12 +82,48 @@ const LOCAL_NAME_LEXICON = [
   "sinsemilla"
 ];
 
+const CANNABIS_CACHE_TITLE_ALIASES = new Map([
+  ["Cannabis in Cabo Verde", "Cannabis in Cape Verde"],
+  ["Cannabis in Democratic Republic of the Congo", "Cannabis in the Democratic Republic of the Congo"],
+  ["Cannabis in Dominican Republic", "Cannabis in the Dominican Republic"],
+  ["Cannabis in Federated States of Micronesia", "Cannabis in Micronesia"],
+  ["Cannabis in the Federated States of Micronesia", "Cannabis in Micronesia"],
+  ["Cannabis in Gambia", "Cannabis in the Gambia"],
+  ["Cannabis in Marshall Islands", "Cannabis in the Marshall Islands"],
+  ["Cannabis in Maldives", "Cannabis in the Maldives"],
+  ["Cannabis in Micronesia", "Cannabis in Micronesia"],
+  ["Cannabis in Myanmar (Burma)", "Cannabis in Myanmar"],
+  ["Cannabis in Republic of the Congo", "Cannabis in the Republic of the Congo"],
+  ["Cannabis in Solomon Islands", "Cannabis in the Solomon Islands"],
+  ["Cannabis in São Tomé and Príncipe", "Cannabis in São Tomé and Principe"],
+  ["Cannabis in The Gambia", "Cannabis in the Gambia"],
+  ["cannabis in Australia", "Cannabis in Australia"],
+  ["cannabis in Kazakhstan", "Cannabis in Kazakhstan"]
+]);
+
+const WIKI_CLAIMS_PATH = ["data", "wiki", "wiki_claims.json"];
+const DEFAULT_AUDIT_PATH = path.join("Reports", "popup-profile-audit.json");
+const DEFAULT_CHECKPOINT_PATH = path.join("Artifacts", "popup-profile-harvest-checkpoint.json");
+const DEFAULT_PROGRESS_REPORT_PATH = path.join("Reports", "knowledge-harvester", "progress.json");
+const DEFAULT_REQUEST_SLEEP_MS = Math.max(0, Number(process.env.KNOWLEDGE_HARVEST_SLEEP_MS || 0));
+
 function readArg(name, fallback = "") {
   const idx = process.argv.indexOf(name);
   if (idx !== -1) return process.argv[idx + 1] ?? fallback;
   const prefixed = process.argv.find((arg) => arg.startsWith(`${name}=`));
   if (prefixed) return prefixed.slice(name.length + 1);
   return fallback;
+}
+
+function hasArg(name) {
+  return process.argv.includes(name);
+}
+
+function resolvePath(root, candidatePath, fallbackRelativePath = "") {
+  const value = normalizeWhitespace(candidatePath || "");
+  if (!value && !fallbackRelativePath) return "";
+  if (!value) return path.join(root, fallbackRelativePath);
+  return path.isAbsolute(value) ? value : path.join(root, value);
 }
 
 function repoRoot() {
@@ -157,16 +195,90 @@ function wikiUrlFromTitle(title) {
   return normalized ? `https://en.wikipedia.org/wiki/${encodeURIComponent(normalized)}` : "";
 }
 
-function cleanFact(value) {
-  const text = normalizeWhitespace(
+function normalizeGeo(value) {
+  return normalizeWhitespace(value).toUpperCase();
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function stripWikiMarkup(value) {
+  return normalizeWhitespace(
     String(value || "")
+      .replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, "$2")
+      .replace(/\[\[([^\]]+)\]\]/g, "$1")
+      .replace(/'{2,5}/g, "")
+  );
+}
+
+function canonicalizeCannabisArticleTitle(value) {
+  let title = stripWikiMarkup(value);
+  if (!title) return "";
+  if (/^cannabis is illegal in (?:the\s+)?/i.test(title)) {
+    title = `Cannabis in ${title.replace(/^cannabis is illegal in (?:the\s+)?/i, "")}`;
+  } else if (/^cannabis in\s+/i.test(title)) {
+    title = `Cannabis in ${title.replace(/^cannabis in\s+/i, "")}`;
+  }
+  title = CANNABIS_CACHE_TITLE_ALIASES.get(title) || title;
+  return isCannabisArticle(title) ? title : "";
+}
+
+function uniqueUrls(items) {
+  const seen = new Set();
+  const result = [];
+  for (const item of items || []) {
+    const normalized = normalizeWhitespace(item);
+    if (!normalized || seen.has(normalized)) continue;
+    seen.add(normalized);
+    result.push(normalized);
+  }
+  return result;
+}
+
+function cleanFact(value) {
+  let text = normalizeWhitespace(
+    String(value || "")
+      .replace(/<gallery[\s\S]*?<\/gallery>/gi, " ")
+      .replace(/\{\|[\s\S]*?\|\}/g, " ")
+      .replace(/\{\{[^}]+\}\}/g, " ")
+      .replace(/<ref[^>]*>[\s\S]*?<\/ref>/gi, " ")
+      .replace(/<ref[^/>]*\/>/gi, " ")
+      .replace(/\[\[(?:File|Image|Media|Category):[^\]]+\]\]/gi, " ")
+      .replace(/\[https?:\/\/[^\s\]]+\s*([^\]]*)\]/g, "$1")
+      .replace(/\bhttps?:\/\/[^\s<>()]+/gi, " ")
+      .replace(/<\/?[^>]+>/g, " ")
+      .replace(/\[\[[^\]|]+\|([^\]]+)\]\]/g, "$1")
+      .replace(/\[\[([^\]]+)\]\]/g, "$1")
+      .replace(/^(?:[^.!?]{0,160}\]\]\s*)+/i, "")
+      .replace(/[^.!?]*\|\d{2,4}x\d{2,4}px\]\]/gi, " ")
+      .replace(/\]\]+/g, " ")
+      .replace(/\[\[+/g, " ")
       .replace(/\[[0-9]+\]/g, " ")
+      .replace(/\bCategory:[^.]+/gi, " ")
+      .replace(/(?:^|\s)\*+\s+/g, " ")
       .replace(/\s+([,.;:!?])/g, "$1")
       .replace(/^[*#:;\-\s]+/, "")
   );
+  text = text.replace(
+    /^(?:History|Culture|Legality|Enforcement|Products|Traditional use|Local names?|Further reading|See also|External links|Bibliography|References)\.\s*/i,
+    ""
+  );
+  const appendixIndex = text.search(/\b(?:Further reading|See also|External links|Bibliography|References)\b/i);
+  if (appendixIndex === 0) return "";
+  if (appendixIndex > 0) text = text.slice(0, appendixIndex).trim();
+  text = normalizeWhitespace(text)
+    .replace(/^[,;:\-.\]\[\s]+/, "")
+    .replace(/([.?!]){2,}/g, "$1")
+    .trim();
   if (text.length < 18) return "";
-  if (/^(see also|references|external links|sources|bibliography)$/i.test(text)) return "";
+  if (/^(see also|references|external links|sources|bibliography|further reading)$/i.test(text)) return "";
+  if (/\[\[|\]\]|\{\{|\}\}|<ref|\|\d{2,4}x\d{2,4}px\b|Category:/i.test(text)) return "";
   return text.length > 420 ? `${text.slice(0, 417).trim()}...` : text;
+}
+
+function cleanSectionItems(items, limit) {
+  return unique((items || []).map((item) => cleanFact(item)).filter(Boolean), limit);
 }
 
 function stripWikitext(value) {
@@ -209,6 +321,24 @@ function isRelevantSentence(sentence, title) {
   if (CANNABIS_RE.test(sentence)) return true;
   if (isCannabisArticle(title) && !/\b(references|external links|see also)\b/i.test(sentence)) return true;
   return false;
+}
+
+function hasExplicitProfileContent(profile) {
+  return PROFILE_SECTION_KEYS.some((key) => Array.isArray(profile?.sections?.[key]) && profile.sections[key].length > 0);
+}
+
+function canonicalizeProfileSourceType(profile) {
+  const raw = normalizeWhitespace(profile?.source_type || profile?.sourceType || "wikipedia") || "wikipedia";
+  const title = normalizeWhitespace(profile?.wiki_title || profile?.wikiTitle || "");
+  const url = normalizeWhitespace(profile?.wiki_url || profile?.wikiUrl || "");
+  if (
+    isCannabisArticle(title || titleFromWikiUrl(url)) &&
+    hasExplicitProfileContent(profile) &&
+    (raw === "missing_wikipedia_article" || raw === "wikipedia_related_article" || raw === "wikipedia")
+  ) {
+    return "wikipedia_cannabis_article";
+  }
+  return raw;
 }
 
 function localNameKind(term, context = "") {
@@ -399,7 +529,10 @@ export function mergeProfiles(existing, harvested) {
   const sections = emptySections();
   for (const key of PROFILE_SECTION_KEYS) {
     const limit = key === "local_names" ? 24 : 12;
-    sections[key] = unique([...(harvested?.sections?.[key] || []), ...(existing?.sections?.[key] || [])], limit);
+    sections[key] =
+      key === "local_names"
+        ? unique([...(harvested?.sections?.[key] || []), ...(existing?.sections?.[key] || [])], limit)
+        : cleanSectionItems([...(harvested?.sections?.[key] || []), ...(existing?.sections?.[key] || [])], limit);
   }
   const localNames = dedupeLocalNames([...(harvested?.local_names || []), ...(existing?.local_names || [])]);
   sections.local_names = unique(localNames.map((entry) => entry.term), 24);
@@ -409,7 +542,13 @@ export function mergeProfiles(existing, harvested) {
     wiki_title: harvested?.wiki_title || existing?.wiki_title || "",
     wiki_url: harvested?.wiki_url || existing?.wiki_url || "",
     revision_id: harvested?.revision_id || existing?.revision_id || null,
-    source_type: harvested?.source_type || existing?.source_type || "wikipedia",
+    source_type: canonicalizeProfileSourceType({
+      geo: String(harvested?.geo || existing?.geo || "").toUpperCase(),
+      wiki_title: harvested?.wiki_title || existing?.wiki_title || "",
+      wiki_url: harvested?.wiki_url || existing?.wiki_url || "",
+      source_type: harvested?.source_type || existing?.source_type || "wikipedia",
+      sections
+    }),
     sections,
     local_names: localNames
   };
@@ -422,12 +561,14 @@ function profileToKnowledgeRecord(profile) {
     wikiTitle: profile.wiki_title,
     wikiUrl: profile.wiki_url,
     revisionId: profile.revision_id || null,
-    sourceType: profile.source_type || "wikipedia",
+    sourceType: canonicalizeProfileSourceType(profile),
     history: profile.sections?.history || [],
     culture: profile.sections?.culture || [],
     localNames: profile.local_names || [],
     products: profile.sections?.products || [],
     traditionalUse: profile.sections?.traditional_use || [],
+    cultivation: profile.sections?.cultivation || [],
+    market: profile.sections?.market || [],
     enforcementReality: profile.sections?.enforcement_notes || [],
     notes: profile.sections?.notes || []
   };
@@ -435,20 +576,27 @@ function profileToKnowledgeRecord(profile) {
 
 function knowledgeRecordToProfile(record) {
   const sections = emptySections();
-  sections.history = record.history || [];
-  sections.culture = record.culture || [];
+  sections.history = cleanSectionItems(record.history || [], 12);
+  sections.culture = cleanSectionItems(record.culture || [], 12);
   sections.local_names = (record.localNames || []).map((entry) => (typeof entry === "string" ? entry : entry.term)).filter(Boolean);
-  sections.products = record.products || [];
-  sections.traditional_use = record.traditionalUse || [];
-  sections.enforcement_notes = record.enforcementReality || [];
-  sections.notes = record.notes || [];
+  sections.products = cleanSectionItems(record.products || [], 12);
+  sections.traditional_use = cleanSectionItems(record.traditionalUse || [], 12);
+  sections.cultivation = cleanSectionItems(record.cultivation || [], 12);
+  sections.market = cleanSectionItems(record.market || [], 12);
+  sections.enforcement_notes = cleanSectionItems(record.enforcementReality || [], 12);
+  sections.notes = cleanSectionItems(record.notes || [], 12);
   return {
     geo: String(record.geo || "").toUpperCase(),
     country: record.country || "",
     wiki_title: record.wikiTitle || "",
     wiki_url: record.wikiUrl || "",
     revision_id: record.revisionId || null,
-    source_type: record.sourceType || "wikipedia",
+    source_type: canonicalizeProfileSourceType({
+      wikiTitle: record.wikiTitle || "",
+      wikiUrl: record.wikiUrl || "",
+      sourceType: record.sourceType || "wikipedia",
+      sections
+    }),
     sections,
     local_names: (record.localNames || []).filter((entry) => entry && typeof entry === "object")
   };
@@ -465,10 +613,20 @@ function buildValidationRows(profiles, scope) {
       cultureCount: profile?.sections?.culture?.length || 0,
       localNamesCount: profile?.sections?.local_names?.length || 0,
       productsCount: profile?.sections?.products?.length || 0,
+      cultivationCount: profile?.sections?.cultivation?.length || 0,
+      marketCount: profile?.sections?.market?.length || 0,
       enforcementFactsCount: profile?.sections?.enforcement_notes?.length || 0,
       source: profile?.wiki_url || item.wikiUrl || null
     };
   });
+}
+
+function loadPopupProfileAudit(root, auditPathArg = "") {
+  const auditPath = resolvePath(root, auditPathArg, DEFAULT_AUDIT_PATH);
+  const audit = readJson(auditPath, null);
+  const rows = Array.isArray(audit?.rows) ? audit.rows : [];
+  const byGeo = new Map(rows.map((row) => [normalizeGeo(row?.id || ""), row]).filter(([geo]) => geo));
+  return { auditPath, audit, rows, byGeo };
 }
 
 function renderValidationMarkdown(rows, generatedAt) {
@@ -477,18 +635,63 @@ function renderValidationMarkdown(rows, generatedAt) {
     "",
     `Generated: ${generatedAt}`,
     "",
-    "| Country | History Count | Culture Count | Local Names Count | Products Count | Enforcement Facts Count |",
-    "| --- | ---: | ---: | ---: | ---: | ---: |"
+    "| Country | History Count | Culture Count | Local Names Count | Products Count | Cultivation Count | Market Count | Enforcement Facts Count |",
+    "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |"
   ];
   const body = rows.map(
     (row) =>
-      `| ${row.country} | ${row.historyCount} | ${row.cultureCount} | ${row.localNamesCount} | ${row.productsCount} | ${row.enforcementFactsCount} |`
+      `| ${row.country} | ${row.historyCount} | ${row.cultureCount} | ${row.localNamesCount} | ${row.productsCount} | ${row.cultivationCount} | ${row.marketCount} | ${row.enforcementFactsCount} |`
   );
   return [...header, ...body, ""].join("\n");
 }
 
-function loadScope(root, limit, geosArg) {
+function loadCountryGeoIndex(root) {
   const countryIndex = readJson(path.join(root, "data", "index.json"), []);
+  const index = new Map();
+  for (const code of countryIndex) {
+    const filePath = path.join(root, "data", "countries", `${code}.json`);
+    if (!fs.existsSync(filePath)) continue;
+    const country = readJson(filePath);
+    const geo = normalizeWhitespace(country?.geo_code || "").toUpperCase();
+    if (!geo) continue;
+    index.set(geo, {
+      code: String(code || "").toLowerCase(),
+      geo,
+      country: normalizeWhitespace(country?.name || geo),
+      countryWikiUrl: normalizeWhitespace(country?.sources?.wiki || "") || null,
+      legalWikiUrl: normalizeWhitespace(country?.sources?.legal || "") || null,
+      type: String(country?.node_type || "country")
+    });
+  }
+  return index;
+}
+
+function firstClaimArticleUrl(row) {
+  const candidateUrls = [
+    ...(Array.isArray(row?.sources) ? row.sources.map((item) => item?.url || "") : []),
+    ...(Array.isArray(row?.main_articles) ? row.main_articles.map((item) => item?.url || "") : []),
+    ...(Array.isArray(row?.notes_main_articles) ? row.notes_main_articles.map((item) => item?.url || "") : [])
+  ];
+  for (const url of candidateUrls) {
+    const title = titleFromWikiUrl(url);
+    if (isCannabisArticle(title)) return normalizeWhitespace(url);
+  }
+  const candidateTitles = [
+    ...(Array.isArray(row?.sources) ? row.sources.map((item) => item?.title || "") : []),
+    ...(Array.isArray(row?.main_articles) ? row.main_articles.map((item) => item?.title || "") : []),
+    ...(Array.isArray(row?.notes_main_articles) ? row.notes_main_articles.map((item) => item?.title || "") : []),
+    row?.notes_main_article || ""
+  ];
+  for (const title of candidateTitles) {
+    const normalized = normalizeWhitespace(title);
+    if (isCannabisArticle(normalized)) return wikiUrlFromTitle(normalized);
+  }
+  return null;
+}
+
+export function loadScope(root, limit, geosArg) {
+  const claims = readJson(path.join(root, ...WIKI_CLAIMS_PATH), []);
+  const pageIndex = loadCountryGeoIndex(root);
   const requested = new Set(
     String(geosArg || "")
       .split(",")
@@ -496,22 +699,117 @@ function loadScope(root, limit, geosArg) {
       .filter(Boolean)
   );
   const selected = [];
-  for (const code of countryIndex) {
-    const filePath = path.join(root, "data", "countries", `${code}.json`);
-    if (!fs.existsSync(filePath)) continue;
-    const country = readJson(filePath);
-    const iso2 = String(country?.iso2 || "").toUpperCase();
-    if (!iso2) continue;
-    if (requested.size && !requested.has(iso2) && !requested.has(String(code).toUpperCase())) continue;
+  for (const row of Array.isArray(claims) ? claims : []) {
+    const geo = normalizeWhitespace(row?.geo_key || "").toUpperCase();
+    if (!geo) continue;
+    const page = pageIndex.get(geo);
+    const code = normalizeWhitespace(page?.code || geo.toLowerCase());
+    if (requested.size && !requested.has(geo) && !requested.has(code.toUpperCase())) continue;
     selected.push({
       code,
-      geo: iso2,
-      country: country.name || iso2,
-      countryWikiUrl: country.sources?.wiki || null
+      geo,
+      country: page?.country || normalizeWhitespace(row?.name_in_wiki || geo),
+      countryWikiUrl: page?.countryWikiUrl || normalizeWhitespace(row?.wiki_row_url || "") || null,
+      legalWikiUrl: page?.legalWikiUrl || null,
+      claimWikiUrl: firstClaimArticleUrl(row),
+      claimSourcePageUrl: normalizeWhitespace(row?.source_url || "") || null,
+      type: page?.type || (geo.startsWith("US-") ? "state" : "country")
     });
     if (!requested.size && selected.length >= limit) break;
   }
   return selected;
+}
+
+function loadCheckpoint(root, checkpointPathArg = "") {
+  const checkpointPath = resolvePath(root, checkpointPathArg, DEFAULT_CHECKPOINT_PATH);
+  const checkpoint = readJson(checkpointPath, null);
+  return { checkpointPath, checkpoint };
+}
+
+function initializeCheckpoint({ checkpoint, checkpointPath, worklist, cacheOnly, filterMode }) {
+  const completed = new Set(Array.isArray(checkpoint?.completed_geos) ? checkpoint.completed_geos.map(normalizeGeo).filter(Boolean) : []);
+  return {
+    checkpointPath,
+    state: {
+      schema_version: "popup_profile_harvest_checkpoint_v1",
+      started_at: checkpoint?.started_at || new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+      audit_generated_at: normalizeWhitespace(checkpoint?.audit_generated_at || "") || null,
+      cache_only: cacheOnly,
+      filter_mode: filterMode,
+      candidate_total: worklist.length,
+      completed_geos: Array.from(completed),
+      completed_count: completed.size,
+      last_geo: normalizeGeo(checkpoint?.last_geo || "") || null,
+      remaining_geos: worklist.filter((item) => !completed.has(item.geo)).map((item) => item.geo)
+    },
+    completed
+  };
+}
+
+function persistCheckpoint(handle, worklist, lastGeo = null) {
+  const completed = new Set(handle.state.completed_geos.map(normalizeGeo).filter(Boolean));
+  handle.state.updated_at = new Date().toISOString();
+  handle.state.completed_count = completed.size;
+  handle.state.last_geo = lastGeo || handle.state.last_geo || null;
+  handle.state.remaining_geos = worklist.filter((item) => !completed.has(item.geo)).map((item) => item.geo);
+  writeJson(handle.checkpointPath, handle.state);
+}
+
+function buildHarvestWorklist(root, options = {}) {
+  const geosArg = options.geos || "";
+  const limit = Number.isFinite(Number(options.limit)) ? Number(options.limit) : DEFAULT_LIMIT;
+  const offset = Number.isFinite(Number(options.offset)) ? Math.max(0, Number(options.offset)) : 0;
+  const onlyUnprocessed = Boolean(options.onlyUnprocessed);
+  const onlyUnprocessedDedicated = Boolean(options.onlyUnprocessedDedicated);
+  const filterMode = onlyUnprocessedDedicated ? "only_unprocessed_dedicated" : onlyUnprocessed ? "only_unprocessed" : "all";
+  const fullScope = loadScope(root, Number.POSITIVE_INFINITY, geosArg);
+  const auditInfo = loadPopupProfileAudit(root, options.auditPath || "");
+  let selected = fullScope.slice();
+
+  if (onlyUnprocessed || onlyUnprocessedDedicated) {
+    const wanted = new Set(
+      auditInfo.rows
+        .filter((row) => {
+          if (row?.processed) return false;
+          if (onlyUnprocessedDedicated && row?.resolver_status !== "individual_wiki_page") return false;
+          return true;
+        })
+        .map((row) => normalizeGeo(row?.id || ""))
+        .filter(Boolean)
+    );
+    selected = selected.filter((item) => wanted.has(item.geo));
+  }
+
+  selected.sort((left, right) => {
+    const leftName = normalizeWhitespace(auditInfo.byGeo.get(left.geo)?.name || left.country || left.geo);
+    const rightName = normalizeWhitespace(auditInfo.byGeo.get(right.geo)?.name || right.country || right.geo);
+    return leftName.localeCompare(rightName, "en") || left.geo.localeCompare(right.geo);
+  });
+
+  const { checkpointPath, checkpoint } = loadCheckpoint(root, options.checkpointPath || "");
+  const currentAuditGeneratedAt = normalizeWhitespace(auditInfo.audit?.generated_at || "") || null;
+  const shouldReuseCheckpoint =
+    normalizeWhitespace(checkpoint?.audit_generated_at || "") === currentAuditGeneratedAt &&
+    normalizeWhitespace(checkpoint?.filter_mode || "") === filterMode;
+  const checkpointHandle = initializeCheckpoint({
+    checkpoint: shouldReuseCheckpoint ? checkpoint : null,
+    checkpointPath,
+    worklist: selected,
+    cacheOnly: Boolean(options.cacheOnly),
+    filterMode
+  });
+  checkpointHandle.state.audit_generated_at = currentAuditGeneratedAt;
+  let remaining = selected.filter((item) => !checkpointHandle.completed.has(item.geo));
+  if (offset > 0) remaining = remaining.slice(offset);
+  const bounded = Number.isFinite(limit) && limit < Number.POSITIVE_INFINITY ? remaining.slice(0, limit) : remaining;
+  return {
+    auditInfo,
+    checkpointHandle,
+    filterMode,
+    selected,
+    scope: bounded
+  };
 }
 
 function loadWikiDiscovery(root) {
@@ -529,22 +827,118 @@ function loadExistingProfiles(root) {
     return knowledgeDb.entries.map(knowledgeRecordToProfile);
   }
   const firstWave = readJson(path.join(root, "data", "cannabis_profiles", "first_wave_profiles.json"), {});
-  return Array.isArray(firstWave?.profiles) ? firstWave.profiles : [];
+  return Array.isArray(firstWave?.profiles)
+    ? firstWave.profiles.map((profile) => ({
+        ...profile,
+        source_type: canonicalizeProfileSourceType(profile)
+      }))
+    : [];
 }
 
-async function fetchProfileForScopeItem(item, discoveryRow) {
-  const candidateUrls = [
+function isCannabisCachePayload(wikitext) {
+  return (
+    /\{\{Infobox cannabis overview/i.test(String(wikitext || "")) ||
+    /\{\{Cannabis sidebar\}\}/i.test(String(wikitext || "")) ||
+    /^#REDIRECT \[\[Cannabis in /im.test(String(wikitext || ""))
+  );
+}
+
+function inferCannabisArticleTitleFromWikitext(wikitext) {
+  const text = String(wikitext || "");
+  const patterns = [
+    { regex: /^#REDIRECT \[\[([^\]]+)\]\]/im, wrapCountry: false },
+    {
+      regex: /'''\s*\[\[Cannabis(?: \(drug\))?\]\]\s+in\s+(?:the\s+)?\[\[([^\]|]+)(?:\|[^\]]+)?\]\]\s*'''/i,
+      wrapCountry: true
+    },
+    {
+      regex: /'''\s*\[\[Cannabis(?: \(drug\))?\]\]\s+is illegal in\s+(?:the\s+)?\[\[([^\]|]+)(?:\|[^\]]+)?\]\]\s*'''/i,
+      wrapCountry: true
+    },
+    { regex: /'''\s*(Cannabis in[^'\n]{2,140})\s*'''/i, wrapCountry: false },
+    {
+      regex: /\[\[Cannabis(?: \(drug\))?\]\][^.]{0,220}?\bis illegal in\s+['"]{0,5}(?:the\s+)?\[\[([^\]|]+)(?:\|[^\]]+)?\]\]['"]{0,5}/i,
+      wrapCountry: true
+    },
+    {
+      regex: /\[\[Cannabis(?: \(drug\))?\]\][^.]{0,220}?\bin\s+['"]{0,5}(?:the\s+)?\[\[([^\]|]+)(?:\|[^\]]+)?\]\]['"]{0,5}/i,
+      wrapCountry: true
+    }
+  ];
+  for (const pattern of patterns) {
+    const match = text.match(pattern.regex);
+    if (!match) continue;
+    const title = canonicalizeCannabisArticleTitle(pattern.wrapCountry ? `Cannabis in ${match[1]}` : match[1]);
+    if (title) return title;
+  }
+  return "";
+}
+
+function buildLocalCannabisCacheIndex(root) {
+  const dir = path.join(root, "data", "wiki", "cache");
+  const index = new Map();
+  if (!fs.existsSync(dir)) return index;
+  for (const fileName of fs.readdirSync(dir)) {
+    if (!fileName.endsWith(".json") || fileName === "legality_of_cannabis.json" || fileName === "legality_us_states.json") {
+      continue;
+    }
+    const payload = readJson(path.join(dir, fileName), null);
+    const wikitext = String(payload?.wikitext || "");
+    if (!wikitext || !isCannabisCachePayload(wikitext)) continue;
+    const title = inferCannabisArticleTitleFromWikitext(wikitext);
+    if (!title) continue;
+    const nextEntry = {
+      title,
+      pageid: String(payload?.pageid || ""),
+      revision_id: String(payload?.revision_id || ""),
+      wikitext,
+      wiki_url: wikiUrlFromTitle(title)
+    };
+    const existing = index.get(title);
+    if (!existing || String(existing.wikitext || "").length < wikitext.length) {
+      index.set(title, nextEntry);
+    }
+  }
+  return index;
+}
+
+async function fetchProfileForScopeItem(item, discoveryRow, options = {}) {
+  const localCacheIndex = options.localCacheIndex || null;
+  const cacheOnly = Boolean(options.cacheOnly);
+  const candidateUrls = uniqueUrls([
+    item.legalWikiUrl,
+    item.claimWikiUrl,
     discoveryRow?.wiki_page_url,
     discoveryRow?.expected_wiki_page_url,
-    discoveryRow?.expected_wiki_url,
-    item.countryWikiUrl
-  ].filter(Boolean);
-  const candidateTitles = unique([
-    ...candidateUrls.map(titleFromWikiUrl),
-    `Cannabis in ${String(item.country || "").split(" / ")[0]}`,
-    `Cannabis in the ${String(item.country || "").split(" / ")[0]}`
-  ], 8);
+    discoveryRow?.expected_wiki_url
+  ].filter(Boolean));
+  const candidateTitles = unique(
+    [
+      ...candidateUrls.map(titleFromWikiUrl),
+      `Cannabis in ${String(item.country || "").split(" / ")[0]}`,
+      `Cannabis in the ${String(item.country || "").split(" / ")[0]}`
+    ]
+      .map(canonicalizeCannabisArticleTitle)
+      .filter(Boolean),
+    8
+  );
   for (const title of candidateTitles) {
+    const cached = localCacheIndex?.get(title) || null;
+    if (cached?.wikitext) {
+      const profile = extractKnowledgeFromText({
+        geo: item.geo,
+        country: item.country,
+        wikiTitle: cached.title || title,
+        wikiUrl: cached.wiki_url || wikiUrlFromTitle(cached.title || title),
+        wikitext: cached.wikitext
+      });
+      return {
+        ...profile,
+        revision_id: cached.revision_id || null,
+        source_type: "wikipedia_cannabis_article"
+      };
+    }
+    if (cacheOnly) continue;
     const info = await fetchPageInfo(title);
     if (!info.ok || !info.pageid || !info.revision_id) continue;
     const wikitext = await fetchPageWikitextCached(info.pageid, info.revision_id);
@@ -562,11 +956,67 @@ async function fetchProfileForScopeItem(item, discoveryRow) {
       source_type: isCannabisArticle(info.title || title) ? "wikipedia_cannabis_article" : "wikipedia_related_article"
     };
   }
+  if (!cacheOnly) {
+    const searchQueries = unique(
+      [
+        ...candidateTitles,
+        `Cannabis in ${String(item.country || "").split(" / ")[0]}`,
+        `cannabis ${String(item.country || "").split(" / ")[0]}`,
+        `marijuana ${String(item.country || "").split(" / ")[0]}`
+      ],
+      6
+    );
+    const triedTitles = new Set(candidateTitles.map((title) => normalizeKey(title)));
+    for (const query of searchQueries) {
+      const searchResult = await searchPageTitles(query, 5);
+      if (!searchResult.ok) continue;
+      const searchedTitles = unique(
+        (searchResult.titles || [])
+          .map(canonicalizeCannabisArticleTitle)
+          .filter((title) => title && !triedTitles.has(normalizeKey(title))),
+        6
+      );
+      for (const title of searchedTitles) {
+        triedTitles.add(normalizeKey(title));
+        const cached = localCacheIndex?.get(title) || null;
+        if (cached?.wikitext) {
+          const profile = extractKnowledgeFromText({
+            geo: item.geo,
+            country: item.country,
+            wikiTitle: cached.title || title,
+            wikiUrl: cached.wiki_url || wikiUrlFromTitle(cached.title || title),
+            wikitext: cached.wikitext
+          });
+          return {
+            ...profile,
+            revision_id: cached.revision_id || null,
+            source_type: "wikipedia_cannabis_article"
+          };
+        }
+        const info = await fetchPageInfo(title);
+        if (!info.ok || !info.pageid || !info.revision_id) continue;
+        const wikitext = await fetchPageWikitextCached(info.pageid, info.revision_id);
+        if (!wikitext.ok || !wikitext.wikitext) continue;
+        const profile = extractKnowledgeFromText({
+          geo: item.geo,
+          country: item.country,
+          wikiTitle: info.title || title,
+          wikiUrl: wikiUrlFromTitle(info.title || title),
+          wikitext: wikitext.wikitext
+        });
+        return {
+          ...profile,
+          revision_id: wikitext.revision_id || info.revision_id,
+          source_type: isCannabisArticle(info.title || title) ? "wikipedia_cannabis_article" : "wikipedia_related_article"
+        };
+      }
+    }
+  }
   return {
     geo: item.geo,
     country: item.country,
-    wiki_title: titleFromWikiUrl(candidateUrls[0]) || `Cannabis in ${item.country}`,
-    wiki_url: candidateUrls[0] || "",
+    wiki_title: titleFromWikiUrl(item.legalWikiUrl || item.claimWikiUrl || candidateUrls[0]) || `Cannabis in ${item.country}`,
+    wiki_url: "",
     revision_id: null,
     source_type: "missing_wikipedia_article",
     sections: emptySections(),
@@ -577,18 +1027,51 @@ async function fetchProfileForScopeItem(item, discoveryRow) {
 async function harvestKnowledge(options = {}) {
   const root = options.root || repoRoot();
   const generatedAt = new Date().toISOString();
+  const cacheOnly = Boolean(options.cacheOnly || process.env.KNOWLEDGE_HARVEST_CACHE_ONLY === "1");
+  const requestSleepMs = Number.isFinite(Number(options.requestSleepMs))
+    ? Math.max(0, Number(options.requestSleepMs))
+    : DEFAULT_REQUEST_SLEEP_MS;
   const limit = Number(options.limit || DEFAULT_LIMIT);
-  const scope = loadScope(root, limit, options.geos || "");
+  const worklist = buildHarvestWorklist(root, {
+    geos: options.geos || "",
+    limit,
+    offset: options.offset || 0,
+    onlyUnprocessed: options.onlyUnprocessed || process.env.KNOWLEDGE_HARVEST_ONLY_UNPROCESSED === "1",
+    onlyUnprocessedDedicated:
+      options.onlyUnprocessedDedicated || process.env.KNOWLEDGE_HARVEST_ONLY_UNPROCESSED_DEDICATED === "1",
+    auditPath: options.auditPath || "",
+    checkpointPath: options.checkpointPath || "",
+    cacheOnly
+  });
+  const scope = worklist.scope;
   const discovery = loadWikiDiscovery(root);
+  const localCacheIndex = buildLocalCannabisCacheIndex(root);
   const existingProfiles = loadExistingProfiles(root);
   const byGeo = new Map(existingProfiles.map((profile) => [String(profile.geo || "").toUpperCase(), profile]));
   const harvested = [];
+  let newlyFilledProfiles = 0;
+
+  console.log(
+    `KNOWLEDGE_WORKLIST total=${worklist.selected.length} batch=${scope.length} cache_only=${cacheOnly ? 1 : 0} sleep_ms=${requestSleepMs} filter=${worklist.filterMode} checkpoint=${path.relative(root, worklist.checkpointHandle.checkpointPath)}`
+  );
 
   for (const item of scope) {
-    const profile = await fetchProfileForScopeItem(item, discovery.get(item.geo));
+    if (!cacheOnly && requestSleepMs > 0) {
+      await sleep(requestSleepMs);
+    }
+    const before = byGeo.get(item.geo) || null;
+    const profile = await fetchProfileForScopeItem(item, discovery.get(item.geo), { cacheOnly, localCacheIndex });
     const merged = mergeProfiles(byGeo.get(item.geo), profile);
     byGeo.set(item.geo, merged);
     harvested.push(merged);
+    if (!hasExplicitProfileContent(before) && hasExplicitProfileContent(merged)) {
+      newlyFilledProfiles += 1;
+    }
+    if (!worklist.checkpointHandle.completed.has(item.geo)) {
+      worklist.checkpointHandle.completed.add(item.geo);
+      worklist.checkpointHandle.state.completed_geos.push(item.geo);
+    }
+    persistCheckpoint(worklist.checkpointHandle, worklist.selected, item.geo);
     console.log(
       `KNOWLEDGE_HARVESTED geo=${item.geo} history=${merged.sections.history.length} culture=${merged.sections.culture.length} local_names=${merged.sections.local_names.length} products=${merged.sections.products.length} enforcement=${merged.sections.enforcement_notes.length}`
     );
@@ -599,6 +1082,7 @@ async function harvestKnowledge(options = {}) {
   const validationRows = buildValidationRows(profiles, scope);
   const profileDir = path.join(root, "data", "cannabis_profiles");
   const reportDir = path.join(root, "Reports", "knowledge-harvester");
+  const progressReportPath = resolvePath(root, options.progressReportPath || "", DEFAULT_PROGRESS_REPORT_PATH);
 
   writeJson(path.join(profileDir, "knowledge_db.json"), {
     schema_version: "cannabis_knowledge_v1",
@@ -625,22 +1109,79 @@ async function harvestKnowledge(options = {}) {
     status_engine_touched: false,
     rows: validationRows
   });
+  writeJson(progressReportPath, {
+    generated_at: generatedAt,
+    cache_only: cacheOnly,
+    filter_mode: worklist.filterMode,
+    worklist_total: worklist.selected.length,
+    batch_total: scope.length,
+    completed_geos_total: worklist.checkpointHandle.state.completed_count,
+    remaining_geos_total: worklist.checkpointHandle.state.remaining_geos.length,
+    newly_filled_profiles: newlyFilledProfiles,
+    checkpoint_path: path.relative(root, worklist.checkpointHandle.checkpointPath),
+    audit_path: path.relative(root, worklist.auditInfo.auditPath),
+    changed_files: [
+      "data/cannabis_profiles/knowledge_db.json",
+      "data/cannabis_profiles/first_wave_profiles.json",
+      "data/cannabis_profiles/local_names.dictionary.json",
+      path.relative(root, path.join(reportDir, "first_wave_validation.json")),
+      path.relative(root, path.join(reportDir, "first_wave_validation.md"))
+    ]
+  });
   fs.mkdirSync(reportDir, { recursive: true });
   fs.writeFileSync(path.join(reportDir, "first_wave_validation.md"), renderValidationMarkdown(validationRows, generatedAt));
 
   console.log(
-    `KNOWLEDGE_HARVESTER_STATUS=PASS scope=${scope.length} profiles=${profiles.length} local_names=${dictionaryEntries.length} report=${path.join(reportDir, "first_wave_validation.json")}`
+    `KNOWLEDGE_HARVESTER_STATUS=PASS scope=${scope.length} profiles=${profiles.length} local_names=${dictionaryEntries.length} report=${path.join(reportDir, "first_wave_validation.json")} progress=${progressReportPath} filled=${newlyFilledProfiles} remaining=${worklist.checkpointHandle.state.remaining_geos.length}`
   );
-  return { generatedAt, scope, profiles, dictionaryEntries, validationRows };
+  return {
+    generatedAt,
+    scope,
+    profiles,
+    dictionaryEntries,
+    validationRows,
+    worklist,
+    newlyFilledProfiles,
+    progressReportPath
+  };
 }
 
 async function main() {
   const limit = Number(readArg("--limit", String(DEFAULT_LIMIT)));
   const geos = readArg("--geos", "");
-  await harvestKnowledge({ limit, geos });
+  const cacheOnly = hasArg("--cache-only") || process.env.KNOWLEDGE_HARVEST_CACHE_ONLY === "1";
+  const offset = Number(readArg("--offset", "0"));
+  const auditPath = readArg("--audit", "");
+  const checkpointPath = readArg("--checkpoint", "");
+  const progressReportPath = readArg("--progress-report", "");
+  const requestSleepMs = Number(readArg("--sleep-ms", String(DEFAULT_REQUEST_SLEEP_MS)));
+  const onlyUnprocessed = hasArg("--only-unprocessed") || process.env.KNOWLEDGE_HARVEST_ONLY_UNPROCESSED === "1";
+  const onlyUnprocessedDedicated =
+    hasArg("--only-unprocessed-dedicated") || process.env.KNOWLEDGE_HARVEST_ONLY_UNPROCESSED_DEDICATED === "1";
+  await harvestKnowledge({
+    limit,
+    geos,
+    cacheOnly,
+    offset,
+    auditPath,
+    checkpointPath,
+    progressReportPath,
+    requestSleepMs,
+    onlyUnprocessed,
+    onlyUnprocessedDedicated
+  });
 }
 
-export { buildValidationRows, harvestKnowledge, profileToKnowledgeRecord, renderValidationMarkdown };
+export {
+  buildLocalCannabisCacheIndex,
+  buildHarvestWorklist,
+  buildValidationRows,
+  canonicalizeCannabisArticleTitle,
+  fetchProfileForScopeItem,
+  harvestKnowledge,
+  profileToKnowledgeRecord,
+  renderValidationMarkdown
+};
 
 if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch((error) => {

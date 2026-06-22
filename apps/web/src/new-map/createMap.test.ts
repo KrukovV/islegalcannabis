@@ -7,10 +7,16 @@ import {
   getCountryFeatureAtPoint
 } from "./createMap";
 
+type MockMap = {
+  queryRenderedFeatures: (_point: [number, number], _options: { layers?: string[] }) => Array<{
+    properties?: { geo?: string };
+  }>;
+};
+
 describe("getCountryFeatureAtPoint", () => {
   test("prefers territory labels and hitboxes before the parent fill layer", () => {
     const calls: string[] = [];
-    const map = {
+    const map: MockMap = {
       queryRenderedFeatures: (_point: [number, number], options: { layers?: string[] }) => {
         const layerId = options.layers?.[0] || "";
         calls.push(layerId);
@@ -28,7 +34,7 @@ describe("getCountryFeatureAtPoint", () => {
         }
         return [];
       }
-    } as any;
+    };
 
     const feature = getCountryFeatureAtPoint(map, { x: 320, y: 240 });
 
@@ -38,7 +44,7 @@ describe("getCountryFeatureAtPoint", () => {
 
   test("falls back to the hidden territory hitbox before the parent fill layer", () => {
     const calls: string[] = [];
-    const map = {
+    const map: MockMap = {
       queryRenderedFeatures: (_point: [number, number], options: { layers?: string[] }) => {
         const layerId = options.layers?.[0] || "";
         calls.push(layerId);
@@ -54,7 +60,7 @@ describe("getCountryFeatureAtPoint", () => {
         }
         return [];
       }
-    } as any;
+    };
 
     const feature = getCountryFeatureAtPoint(map, { x: 140, y: 96 });
 

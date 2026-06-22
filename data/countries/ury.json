@@ -17,30 +17,24 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "regulated",
+      "status": "illegal",
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": "regulated",
-        "cultivation": "tolerated",
+        "sale": null,
+        "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
       "flags": [
-        "social_club_distribution",
-        "sale_regulated"
+        "distribution_fallback_illegal"
       ],
-      "modifiers": [
-        "up_to",
-        "but",
-        "however",
-        "only"
-      ]
+      "modifiers": []
     },
     "signals": {
-      "status": "regulated",
-      "final_risk": "UNKNOWN",
+      "status": "illegal",
+      "final_risk": "RESTRICTED",
       "enforcement_level": "active",
       "penalties": {
         "prison": false,
@@ -61,19 +55,13 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Uruguay",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Uruguay",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Uruguay",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Vargas Llosa praises Uruguayan decision to legalize marihuana",
@@ -104,47 +92,39 @@
           "url": "https://archivo.presidencia.gub.uy/sci/leyes/2013/12/cons_min_803.pdf",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Therapeutic cannabis",
+          "url": "https://www.paula.com.uy/nota_detalle.php?plink=marihuana-terap_utica",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: legal | source: Uruguay | type: summary | priority: 1 | scope: general",
-        "rule: legal | source: Cannabis in Uruguay | type: traversal | priority: 3 | scope: general",
-        "rule: legal | source: Cannabis in Uruguay | type: traversal | priority: 3 | scope: sale",
-        "rule: social_club_distribution | source: Cannabis in Uruguay | type: traversal | priority: 3 | scope: cultivation",
-        "rule: private_cultivation | source: Cannabis in Uruguay | type: traversal | priority: 3 | scope: cultivation",
-        "rule: legal | source: Cannabis in Uruguay | type: traversal | priority: 3 | scope: cultivation",
-        "rule: sale_regulated | source: Cannabis in Uruguay | type: traversal | priority: 3 | scope: sale",
-        "rule: legal | source: Cannabis in Uruguay | type: traversal | priority: 3 | scope: possession",
-        "rule: legal | source: Cannabis in Uruguay | type: traversal | priority: 3 | scope: trafficking",
-        "rule: social_club_distribution | source: Cannabis in Uruguay | type: traversal | priority: 3 | scope: sale",
-        "rule: private_cultivation | source: Cannabis in Uruguay | type: traversal | priority: 3 | scope: sale",
-        "rule: raw_illegal | source: Cannabis in Uruguay | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Uruguay | type: traversal | priority: 3 | scope: general"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 7026,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "social_club_distribution",
-      "private_cultivation",
-      "sale_regulated",
-      "raw_illegal"
+      "distribution_fallback_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Uruguay. Medical cannabis is legal. Distribution is regulated."
+    "notes_normalized": "Cannabis is illegal in Uruguay. Medical cannabis is legal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Uruguay. Medical cannabis is legal. Distribution is regulated.",
+  "notes_normalized": "Cannabis is illegal in Uruguay. Medical cannabis is legal. Distribution is illegal.",
   "notes_raw": "{{Main|Cannabis in Uruguay}} Legal since late 2013.<ref name=\"erowid-SA\">{{citation |url = http://www.erowid.org/plants/cannabis/cannabis_law2.shtml |title = Cannabis South American laws |publisher = Erowid.org |date = March 1995 |access-date = 5 June 2018 |archive-date = 9 December 2019 |archive-url = https://web.archive.org/web/20191209011625/https://www.erowid.org/plants/cannabis/cannabis_law2.shtml |url-status = live }}</ref> Buyers must be eighteen or older, residents of Uruguay, and must register with the authorities. Authorities grow the cannabis that can be sold legally.<ref>{{cite news |url = https://www.economist.com/news/americas/21582579-another-blow-against-prohibition-experiment |title = The experiment: Another blow against prohibition |date = 1 August 2013 |newspaper = The Economist |access-date = 5 June 2018 |archive-date = 5 September 2017 |archive-url = https://web.archive.org/web/20170905093253/https://www.economist.com/news/americas/21582579-another-blow-against-prohibition-experiment |url-status = live }}</ref><ref>{{cite news |url = https://www.reuters.com/article/us-uruguay-marijuana-vote-idUSBRE9BA01520131211 |title = Uruguay becomes first country to legalize marijuana trade |date = 10 December 2013 |access-date = 10 July 2021 |archive-date = 1 December 2015 |archive-url = https://web.archive.org/web/20151201043200/http://www.reuters.com/article/2013/12/11/us-uruguay-marijuana-vote-idUSBRE9BA01520131211 |url-status = live }}</ref><ref>{{cite web|url=http://www.hurriyetdailynews.com/uruguay-marijuana-sales-delayed-until-2015-president.aspx?pageID=238&nID=68922&NewsCatID=358|title=Uruguay marijuana sales delayed until 2015: President – Americas|date=10 July 2014 |access-date=14 January 2015|archive-date=26 December 2018|archive-url=https://web.archive.org/web/20181226021407/http://www.hurriyetdailynews.com/uruguay-marijuana-sales-delayed-until-2015-president-68922|url-status=live}}</ref> [[Cannabis Social Club|Non-profit Cannabis Clubs]] can also operate.<ref>{{Cite book |last=Junta Nacional de Drogas |url=https://www.ircca.gub.uy/wp-content/uploads/2019/06/Ley19172-Decretos-ingles-espanol.pdf |title=Regulation and Control of Cannabis Market: Law 19.172 & Decrees |publisher=Presidencia de la República, Uruguay |year=2019 |location=[[Montevideo]] |access-date=3 July 2022 |archive-date=27 June 2022 |archive-url=https://web.archive.org/web/20220627170553/https://www.ircca.gub.uy/wp-content/uploads/2019/06/Ley19172-Decretos-ingles-espanol.pdf |url-status=live }}</ref> The minimum age to purchase or obtain cannabis in Uruguay is 18.<ref>{{cite news |date= 19 July 2017 |title=Uruguay pharmacies start selling cannabis straight to consumers |url= https://www.theguardian.com/world/2017/jul/19/uruguay-marijuana-sale-pharmacies |work= [[The Guardian]] |publisher= [[Reuters]] |location= Montevideo |access-date= 23 June 2023}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -243,9 +223,9 @@
   },
   "hashes": {
     "code": "ury",
-    "content_hash": "320cb26281dc548fa1fd863766f67270ba30333ca9f15d05e5e04d0c0d9e821f",
-    "notes_hash": "7c977fd0dfb0932b3f1b2a302639054d20ef6dfee0efd8eb2b1e9b1ac386c8ad",
-    "model_hash": "b06646acfd73dd996cf4cce4c07895506863fd3176d71f5b62133db3da39d55f"
+    "content_hash": "1e8b2d31372e5ce8df31114b82b9000d1fd76c1935e74c5064edf42bbdf3277a",
+    "notes_hash": "119d9d698027d77f906da916134e546d467b99b9a3625afc0d3817f980df6ae0",
+    "model_hash": "7a7feb91d59c492459f8806cc013f04c4dee50d96749ac0930aeed12b658e15a"
   },
   "geo_code": "UY",
   "node_type": "country",

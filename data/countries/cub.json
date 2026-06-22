@@ -28,10 +28,7 @@
       },
       "enforcement": "fine-based",
       "flags": [],
-      "modifiers": [
-        "but",
-        "may"
-      ]
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
@@ -39,7 +36,7 @@
       "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 3,
+        "prison_priority": 1,
         "arrest": false,
         "fine": true,
         "severity_score": 6,
@@ -52,7 +49,7 @@
         "trafficking": {
           "prison": true,
           "arrest": false,
-          "fine": true,
+          "fine": false,
           "severe": true
         }
       },
@@ -63,12 +60,6 @@
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Cuba",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cuba",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Will Cuba Update its Drug Policy for the Twenty First Century?",
@@ -102,30 +93,29 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Cuba | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Cuba | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in Cuba | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_criminal_offense | source: Cannabis in Cuba | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_prison | source: Cannabis in Cuba | type: traversal | priority: 3 | scope: trafficking",
-        "rule: raw_illegal | source: Cannabis in Cuba | type: traversal | priority: 3 | scope: trafficking",
-        "rule: trafficking_illegal | source: Cannabis in Cuba | type: traversal | priority: 3 | scope: trafficking",
-        "rule: illegal | source: Cannabis in Cuba | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_years | source: Cannabis in Cuba | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_fine | source: Cannabis in Cuba | type: traversal | priority: 3 | scope: cultivation",
-        "rule: penalty_fine | source: Cannabis in Cuba | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_fine | source: Cuba - Universal Periodic Review - Death Penalty - the Advocates for Human Rights | type: reference | priority: 2 | scope: general"
+        "rule: raw_illegal | source: Cuba | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Cuba | type: summary | priority: 1 | scope: general",
+        "rule: penalty_prison | source: Cuba | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_criminal_offense | source: Cuba | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_prison | source: Cuba | type: summary | priority: 1 | scope: trafficking",
+        "rule: raw_illegal | source: Cuba | type: summary | priority: 1 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cuba | type: summary | priority: 1 | scope: trafficking",
+        "rule: illegal | source: Cuba | type: summary | priority: 1 | scope: trafficking",
+        "rule: penalty_years | source: Cuba | type: summary | priority: 1 | scope: trafficking",
+        "rule: penalty_fine | source: Cuba - Universal Periodic Review - Death Penalty - the Advocates for Human Rights | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 1347,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
-          "prison_notes": false,
-          "prison_article": true,
+          "prison_notes": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_notes": "illegal",
+          "distribution_article": null
         }
       }
     },
@@ -240,9 +230,9 @@
   },
   "hashes": {
     "code": "cub",
-    "content_hash": "18710df66cf195b085834789349d01f38b5ed58758a83dd60bc9487e414b888c",
+    "content_hash": "cbec53819fa153f9ec39096fef2e5e5135b76d74252200c140ed517eb09f73e3",
     "notes_hash": "f7da2383204920ddb24d6709f655d75380d9c1714dccd340fe5190b55df9302e",
-    "model_hash": "a90e710a1d3e9093b78971a474ec954a7d70a2dbddf89e038fb798f209589aff"
+    "model_hash": "455c7d37a75578ef3ca97d55c44932c2b8e3484493d2d41b46cfc409d2dcc5f0"
   },
   "geo_code": "CU",
   "node_type": "country",

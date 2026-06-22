@@ -21,17 +21,16 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": "illegal",
+        "sale": null,
         "cultivation": null,
-        "import": "illegal",
-        "trafficking": "illegal"
+        "import": null,
+        "trafficking": null
       },
       "enforcement": "fine-based",
       "flags": [],
       "modifiers": [
         "but",
         "only",
-        "unless",
         "up_to"
       ]
     },
@@ -54,7 +53,7 @@
         "trafficking": {
           "prison": false,
           "arrest": false,
-          "fine": true,
+          "fine": false,
           "severe": false
         }
       },
@@ -110,21 +109,11 @@
         "rule: illegal | source: Cannabis in Finland | type: traversal | priority: 3 | scope: general",
         "rule: penalty_fine | source: Cannabis in Finland | type: traversal | priority: 3 | scope: possession",
         "rule: medical_legal | source: Cannabis in Finland | type: traversal | priority: 3 | scope: general",
-        "rule: medical_limited | source: Cannabis in Finland | type: traversal | priority: 3 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Finland | type: traversal | priority: 3 | scope: trafficking",
-        "rule: import_illegal | source: Cannabis in Finland | type: traversal | priority: 3 | scope: trafficking",
-        "rule: trafficking_illegal | source: Cannabis in Finland | type: traversal | priority: 3 | scope: trafficking",
-        "rule: sale_illegal | source: Cannabis in Finland | type: traversal | priority: 3 | scope: trafficking",
-        "rule: illegal | source: Cannabis in Finland | type: traversal | priority: 3 | scope: trafficking",
-        "rule: raw_illegal | source: Cannabis in Finland | type: traversal | priority: 3 | scope: use",
-        "rule: illegal | source: Cannabis in Finland | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_fine | source: Cannabis in Finland | type: traversal | priority: 3 | scope: sale",
-        "rule: medical_legal | source: Cannabis in Finland | type: traversal | priority: 3 | scope: sale",
-        "rule: medical_limited | source: Cannabis in Finland | type: traversal | priority: 3 | scope: sale"
+        "rule: medical_limited | source: Cannabis in Finland | type: traversal | priority: 3 | scope: general"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 3348,
+        "article_len": 355,
         "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
@@ -142,7 +131,8 @@
     "applied_rules": [
       "penalty_fine",
       "medical_limited",
-      "raw_illegal"
+      "raw_illegal",
+      "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Finland / Suomi. Medical cannabis is limited. Distribution is illegal."
   },
@@ -245,9 +235,9 @@
   },
   "hashes": {
     "code": "fin",
-    "content_hash": "78a92805b5062eabc2691f383ded315a0f40ac1b415c384c5ffafddefe3d5aaf",
+    "content_hash": "145e3328eb2cf9f649ccc1019ba92588631969f38c1c5c23ee60f418505cab48",
     "notes_hash": "a76863c8ba05a1b67e0c81877dc1fc953953583f98a4a23e296646059abab040",
-    "model_hash": "ab6456e472c71e7f516bdd3257dba0732bfa6d13911bfb73c316d9af64efe625"
+    "model_hash": "b0df65428d390294d416f266b324aa5cd2e734fd3fa70d52deea1a3d86f51d63"
   },
   "geo_code": "FI",
   "node_type": "country",

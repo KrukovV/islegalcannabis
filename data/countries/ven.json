@@ -94,7 +94,7 @@
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 473,
+        "article_len": 455,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": true,
@@ -195,8 +195,8 @@
         "name": "Guyana"
       },
       {
-        "code": "msr",
-        "name": "Montserrat"
+        "code": "brb",
+        "name": "Barbados"
       }
     ],
     "cluster_links": [
@@ -214,9 +214,9 @@
   },
   "hashes": {
     "code": "ven",
-    "content_hash": "7be17ee69f704c7eee812769b834582ad724f8281a63525d76e7dd4b6f3db9ad",
+    "content_hash": "493385ed23f8d3865ec1a92c699c8485d8e21b4ab8ed87c5794f2ecb4096481e",
     "notes_hash": "621d0f30994afa165750655a71a41c87c6c10d31b65f78b307f654dfc30382c3",
-    "model_hash": "1941e9e1dc72a8b50a667f789310f2a59bf5c4d67ec9e6272547b43f8173cf4c"
+    "model_hash": "3c14086030cc3ae2ee5e2d2cc87cc7c3fe67c82c418fd12d451341728def814a"
   },
   "geo_code": "VE",
   "node_type": "country",

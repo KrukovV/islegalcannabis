@@ -28,9 +28,7 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": [
-        "but"
-      ]
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
@@ -107,7 +105,7 @@
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 1907,
+        "article_len": 87,
         "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
@@ -225,9 +223,9 @@
   },
   "hashes": {
     "code": "sur",
-    "content_hash": "e4b74830bbf59f2d2d20e14858c60d46b36ddb1e1a6b94a787bc52a4b93a1719",
+    "content_hash": "54b2738bb09885d049169a6dc666ce0f9fc928302c5cf139d7d28167117701d4",
     "notes_hash": "7a9e173a147ec86f5a6d0f81cd8c937e5ad9aa7878c95275a1656a11e880d8cb",
-    "model_hash": "2b0726205dd59dc0a951d53510080898262fd940258d266e2fba879e9ec6ef32"
+    "model_hash": "90879ba918a211f3156851f922741dcf5f01e044082ff393b76d7fb84a38e9b3"
   },
   "geo_code": "SR",
   "node_type": "country",

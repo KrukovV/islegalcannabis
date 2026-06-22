@@ -28,9 +28,7 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": [
-        "but"
-      ]
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
@@ -64,12 +62,6 @@
           "type": "summary"
         },
         {
-          "title": "Cannabis in Cameroon",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cameroon",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
           "title": "Cannabis",
           "url": "https://books.google.com/books?id=SVU8BQAAQBAJ&pg=PT89",
           "depth": 2,
@@ -101,20 +93,21 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Cameroon | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Cameroon | type: traversal | priority: 3 | scope: general"
+        "rule: raw_illegal | source: Cameroon / Cameroun | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Cameroon / Cameroun | type: summary | priority: 1 | scope: general",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 685,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_notes": "illegal",
+          "distribution_article": null
         }
       }
     },
@@ -223,9 +216,9 @@
   },
   "hashes": {
     "code": "cmr",
-    "content_hash": "e85f12a07f7a44c6ba8f82db4d9d5adb3279508855413bc23082f32bcd021d7a",
+    "content_hash": "7e685486423759e1269b29bd21cec04d5324d2ce4937cb018ca79e21360cbbe2",
     "notes_hash": "5d37afb46c1850defec8df196058e5b0b134fbf6ebf98483425bc05ad933e23d",
-    "model_hash": "e37666bb38d728ed0a563954b7a78b68bf67937649a08117cbb5f951006802f4"
+    "model_hash": "d35c2e49d734128d89815d876757a624fca44a51b54f65b2aed4a304e588bb11"
   },
   "geo_code": "CM",
   "node_type": "country",

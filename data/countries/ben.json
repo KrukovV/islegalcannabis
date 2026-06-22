@@ -65,12 +65,6 @@
           "type": "summary"
         },
         {
-          "title": "Cannabis in Benin",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Benin",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
           "title": "The International Drugs Trade",
           "url": "https://books.google.com/books?id=WHH1ON4EEXsC&pg=PA191",
           "depth": 2,
@@ -102,21 +96,21 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Benin | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Benin | type: traversal | priority: 3 | scope: general",
-        "rule: legal | source: Cannabis in Benin | type: traversal | priority: 3 | scope: general"
+        "rule: raw_illegal | source: Benin / Bénin | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Benin / Bénin | type: summary | priority: 1 | scope: general",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 743,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_notes": "illegal",
+          "distribution_article": null
         }
       }
     },
@@ -225,9 +219,9 @@
   },
   "hashes": {
     "code": "ben",
-    "content_hash": "2854345fc6c6f4c5be6ff3c19152ef36fb808b891f75518489847784e9cd36d6",
+    "content_hash": "1b1a8a6661179528133a750396061a865112436315199cc1fc3dd53fd70ea750",
     "notes_hash": "99505672eae0ace6d34cc373537899c04d90505405bf25d85dc98f56ceca1320",
-    "model_hash": "57881c2ca17b7771e1c54167b28638da579ec87c900126fade88c392f9374d6b"
+    "model_hash": "81a3bf61600189a137c96c39e5aadc4c8a233c1985ca0e9290626d7ddc398b1b"
   },
   "geo_code": "BJ",
   "node_type": "country",

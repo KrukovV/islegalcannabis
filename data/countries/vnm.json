@@ -27,12 +27,10 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
-      "modifiers": [
-        "but",
-        "only",
-        "however"
-      ]
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
@@ -66,12 +64,6 @@
           "type": "summary"
         },
         {
-          "title": "Cannabis in Vietnam",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Vietnam",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
           "title": "The Therapeutic Potential of Marihuana",
           "url": "https://books.google.com/books?id=89vTBwAAQBAJ&pg=PA3",
           "depth": 2,
@@ -103,26 +95,25 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Vietnam | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Vietnam | type: traversal | priority: 3 | scope: general"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 1428,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal"
+      "distribution_fallback_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Vietnam / Việt Nam. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -225,9 +216,9 @@
   },
   "hashes": {
     "code": "vnm",
-    "content_hash": "4f3bc55663a63f4e1cb91574f0eae34725e18555e7ffc7df6d00e9cda379d11f",
+    "content_hash": "defa0fc735f0b48288ff28c5ecf305d9170cad1c0f767b95ddda05d73a6c4e2c",
     "notes_hash": "40c7359699d8ac6ce9d7141845207f1d15d8e631bb3334620376caefd5aa891e",
-    "model_hash": "3aa8c0d62e985ac639359105b07c84ebb8c1bfccd2a740c0ceef17a411f42265"
+    "model_hash": "59b3c9301baa043d9cc01807c9171b2aedd92d9a9554d0893ce06e35c598aaea"
   },
   "geo_code": "VN",
   "node_type": "country",

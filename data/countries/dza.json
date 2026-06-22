@@ -6,7 +6,7 @@
     "recreational": {
       "raw_status": "ILLEGAL",
       "status": "ILLEGAL",
-      "enforcement": "MODERATE",
+      "enforcement": "STRICT",
       "scope": "NONE"
     },
     "medical": {
@@ -31,9 +31,9 @@
       "modifiers": []
     },
     "signals": {
-      "status": "restricted",
+      "status": "illegal",
       "final_risk": "RESTRICTED",
-      "enforcement_level": "rare",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -99,31 +99,31 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Algeria / الجزائر | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Algeria / الجزائر | type: summary | priority: 1 | scope: general",
+        "rule: medical_limited | source: Algeria / الجزائر | type: summary | priority: 1 | scope: cultivation",
         "rule: raw_illegal | source: Cannabis in Algeria | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Algeria | type: traversal | priority: 3 | scope: general",
-        "rule: enforcement_rare | source: Cannabis in Algeria | type: traversal | priority: 3 | scope: general",
-        "rule: medical_legal | source: Cannabis in Algeria | type: traversal | priority: 3 | scope: general"
+        "rule: medical_limited | source: Cannabis in Algeria | type: traversal | priority: 3 | scope: cultivation"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 1986,
+        "article_len": 331,
         "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
-          "enforcement_article": "rare",
-          "distribution_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
           "distribution_article": "illegal"
         }
       }
     },
-    "enforcement_flags": [
-      "weak_enforcement"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
       "raw_illegal",
-      "enforcement_rare"
+      "medical_limited"
     ],
     "notes_normalized": "Cannabis is illegal in Algeria / الجزائر. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -207,18 +207,18 @@
         "name": "Mali"
       },
       {
-        "code": "mlt",
-        "name": "Malta"
+        "code": "lby",
+        "name": "Libya / ليبيا"
       }
     ],
     "cluster_links": [
       {
-        "code": "lby",
-        "name": "Libya / ليبيا"
-      },
-      {
         "code": "bfa",
         "name": "Burkina Faso"
+      },
+      {
+        "code": "esh",
+        "name": "Western Sahara / الصحراء الغربية"
       }
     ],
     "same_country_states": [],
@@ -226,9 +226,9 @@
   },
   "hashes": {
     "code": "dza",
-    "content_hash": "c0584ab6a4f16f7a1ae7e2373e3f9cf94483e941d148114070372ec414f4732f",
+    "content_hash": "7ed815ba50969c238d597e2aa6e0d3622e3a8022171ae18d7c344d1bc8c0e7b6",
     "notes_hash": "5ffcddfa424b8f9da42f8d40f65562db962357906b5da65c49024a22d4b8edc2",
-    "model_hash": "51121e32b41a55b11f48943e456d4e869c7cb495e8425c574ff43fbf14231185"
+    "model_hash": "5e9f7f03d1723ab9bb6704a3d2e19eea4a74008268f9870439d2848fcdb92c34"
   },
   "geo_code": "DZ",
   "node_type": "country",

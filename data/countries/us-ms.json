@@ -13,10 +13,10 @@
       "scope": "PERSONAL_USE"
     },
     "medical": {
-      "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
       "override_reason": null
     },
     "distribution": {
@@ -38,8 +38,8 @@
     ],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is decriminalized in Mississippi in limited state-level practice, but it is not fully legal under state law. Medical cannabis is not broadly legal in Mississippi. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#80CE69; color:#000000; text-align:center;\" | {{Hs|2}} <span style=\"font-size:25px;\">●</span>",
+  "notes_normalized": "Cannabis is decriminalized in Mississippi in limited state-level practice, but it is not fully legal under state law. Medical cannabis is legal under a regulated state program in Mississippi. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#80CE69; color:#000000; text-align:center;\" | {{Hs|2}} <span style=\"font-size:25px;\">●</span> Cannabis in Mississippi is legal for medical use and illegal for non-medical use. Under the Mississippi Code of 1979, possession of less than of marijuana is a misdemeanor, with the first offense punishable by jail time up to 90 days and a $250 fine. Simultaneous possession of under 30 grams and paraphernalia is punishable only with a possession of marijuana charge. In practice, if found with under 30 grams of marijuana, it is common to receive a paraphernalia charge for the container it was in, instead of a possession charge. This is done to save the state from having to pay testing costs for the marijuana. For example, the sale of over 10 pounds of marijuana carries a life sentence without the possibility of parole. Penalties for possession of hash and concentrates is more severe than for marijuana, with any amount greater than 0.1 grams a felony with mandatory sentencing on a graduating scale. Trafficking any amount of hash or concentrates carries a mandatory 30 years in the state penitentiary. Possession of small amounts was decriminalized in 1978. While possession of small amounts is indeed decriminalized, it is still a misdemeanor and only decriminalized in the sense that one will not be jailed for a first offense. Under the Mississippi Code of 1979, possession of less than of marijuana is a misdemeanor, with the first offense punishable by jail time up to 90 days and a $250 fine. However, probation is always given in lieu of a jail sentence following the 1978 decriminalization. One will likely be brought to jail when charged, but, at the discretion of the arresting officer, this can be avoided by both having acceptable identification and promising to appear in court to answer the charge. Subsequent offenses require a minimum 5 days in jail and graduating scale of fines. Possession of paraphernalia will result in up to 90 days in jail and a fine of up to $1,000.00. Again, probation is given instead of the jail sentence, and since 1978 there has never been a person sentenced to jail time for possession of paraphernalia in Mississippi. Possession of between one and 30 grams kept in a vehicle is punishable of a fine up to $1,000 and up to 90 days in jail. Possession of larger amounts are felonies, as is sale, cultivation and trafficking.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -54,7 +54,7 @@
     "medical": "override",
     "enforcement_strength": "MEDIUM",
     "federal_conflict": "Cannabis remains federally illegal in United States.",
-    "legalization_status": "State decriminalized"
+    "legalization_status": "Medical only"
   },
   "related_codes": [
     "usa",
@@ -174,9 +174,9 @@
   },
   "hashes": {
     "code": "us-ms",
-    "content_hash": "25afb32bfb57ac6c4e19cbbdc66cf26364e1e8cf82ee402508aba8adc672cbbd",
-    "notes_hash": "fe31a25efce8c9b744e5ecd3cedd396ec966bfc82b554fafb780dc16d41f3532",
-    "model_hash": "c26cf25b8c3487cc476f9747df93df761b9cf20f62606b5b4226576a930fe895"
+    "content_hash": "6df802ce454beb19ff9b4755922272261e774083e94127fea4ef2ae982b1e6b3",
+    "notes_hash": "5d12edff2bbcc830b0f6db6cc5c8626b7f35f57b26541036292f71f42e91c06d",
+    "model_hash": "86f66ecd55d4a88d55f05c721b6c7120a8e7aa50ecef2a419e515c5d08c13189"
   },
   "updated_at": "2026-04-10"
 }

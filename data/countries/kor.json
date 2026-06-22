@@ -6,7 +6,7 @@
     "recreational": {
       "raw_status": "ILLEGAL",
       "status": "ILLEGAL",
-      "enforcement": "MODERATE",
+      "enforcement": "STRICT",
       "scope": "NONE"
     },
     "medical": {
@@ -26,26 +26,25 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [],
       "modifiers": [
         "however",
         "only",
-        "up_to",
         "unless",
         "but"
       ]
     },
     "signals": {
-      "status": "restricted",
+      "status": "illegal",
       "final_risk": "RESTRICTED",
-      "enforcement_level": "rare",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": true,
-        "fine": true,
-        "severity_score": 4,
+        "fine": false,
+        "severity_score": 2,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -108,47 +107,31 @@
         "rule: medical_legal | source: South Korea / 한국 | type: summary | priority: 1 | scope: use",
         "rule: raw_illegal | source: Cannabis in South Korea | type: traversal | priority: 3 | scope: use",
         "rule: illegal | source: Cannabis in South Korea | type: traversal | priority: 3 | scope: use",
-        "rule: medical_legal | source: Cannabis in South Korea | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_arrest | source: Cannabis in South Korea | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in South Korea | type: traversal | priority: 3 | scope: general",
-        "rule: medical_legal | source: Cannabis in South Korea | type: traversal | priority: 3 | scope: general",
-        "rule: legal | source: Cannabis in South Korea | type: traversal | priority: 3 | scope: cultivation",
-        "rule: enforcement_rare | source: Cannabis in South Korea | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in South Korea | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_fine | source: Cannabis in South Korea | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_criminal_offense | source: Cannabis in South Korea | type: traversal | priority: 3 | scope: general",
-        "rule: legal | source: Cannabis in South Korea | type: traversal | priority: 3 | scope: general"
+        "rule: penalty_arrest | source: Cannabis in South Korea | type: traversal | priority: 3 | scope: general"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 6452,
-        "source_confidence": "prison_signal",
+        "article_len": 469,
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
-          "enforcement_article": "rare",
+          "enforcement_article": null,
           "distribution_notes": null,
           "distribution_article": "illegal"
         }
       }
     },
-    "enforcement_flags": [
-      "weak_enforcement",
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
       "medical_legal",
       "raw_illegal",
-      "penalty_arrest",
-      "enforcement_rare",
-      "penalty_prison",
-      "penalty_fine",
-      "penalty_criminal_offense"
+      "penalty_arrest"
     ],
-    "notes_normalized": "Cannabis is illegal in South Korea / 한국. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in South Korea / 한국. Medical cannabis is legal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in South Korea / 한국. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in South Korea / 한국. Medical cannabis is legal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in South Korea}} Medical use of cannabis was legalized in November 2018. The plant itself, however, remains unavailable due to a policy implemented by the [[Ministry of Food and Drug Safety]].<ref>{{cite news|url=https://www.ft.com/content/ff715088-f2ba-11e8-ae55-df4bf40f9d0d|title=South Korea legalises medical marijuana|work=[[Financial Times]]|access-date=29 November 2018|archive-url=https://archive.today/20181214110836/https://www.ft.com/content/ff715088-f2ba-11e8-ae55-df4bf40f9d0d|archive-date=14 December 2018|url-status=live|url-access=subscription}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -247,9 +230,9 @@
   },
   "hashes": {
     "code": "kor",
-    "content_hash": "c184b202b4812628a5025e99b04d58bfd8c87ab125feaf7dd16e7c971d0da3de",
-    "notes_hash": "debd6cc05edea9dce50665fc6960b9294e24bb05bf616f08b4ea188e9c9dcb15",
-    "model_hash": "99eae5e1b2ca2a379118dd0d23784392c55e6d2a9577ece8f478a1529688d2c5"
+    "content_hash": "ae0c1f4293bae98eab1078a024e1ddae30ddcfed4817c09e723e078a67b3b655",
+    "notes_hash": "574cc968ccdcf56bbf2ead2add86dcf94f8b5282e29a42932d276d66c3015272",
+    "model_hash": "73bfd981613eb3912e92e43db2699416e577f6517db2d5b9a5cdcd44dca63d55"
   },
   "geo_code": "KR",
   "node_type": "country",

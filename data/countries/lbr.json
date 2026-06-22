@@ -27,7 +27,9 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
       "modifiers": []
     },
     "signals": {
@@ -62,12 +64,6 @@
           "type": "summary"
         },
         {
-          "title": "Cannabis in Liberia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Liberia",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
           "title": "The International Drugs Trade",
           "url": "https://books.google.com/books?id=WHH1ON4EEXsC&pg=PA183",
           "depth": 2,
@@ -75,26 +71,25 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Liberia | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Liberia | type: traversal | priority: 3 | scope: general"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 281,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal"
+      "distribution_fallback_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Liberia. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -197,9 +192,9 @@
   },
   "hashes": {
     "code": "lbr",
-    "content_hash": "113b42a16346945565ea02a7c00f3b00f539a8a7689fc4e01c669339305b0594",
+    "content_hash": "b04ec6cd9caf24f59b34ccee78c329104b09626aa2fa6759250b76ffbe4debba",
     "notes_hash": "d07befd6ce51bc804c545d8a6ca482436c34abc5403a7a6e9bccc8a2cf656913",
-    "model_hash": "b4ae41bcc39d3dfbf521178a9c44265ecfd1ec679345740c4f30486173acb49e"
+    "model_hash": "a00054424b2b41d777a1ad87792b778245c19a430bfe1ba1cc7657afdb7ae573"
   },
   "geo_code": "LR",
   "node_type": "country",

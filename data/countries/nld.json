@@ -35,8 +35,7 @@
         "only",
         "but",
         "may",
-        "up_to",
-        "however"
+        "up_to"
       ]
     },
     "signals": {
@@ -126,9 +125,6 @@
         "rule: trafficking_illegal | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: trafficking",
         "rule: illegal | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: trafficking",
         "rule: medical_legal | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: general",
-        "rule: legal | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: sale",
-        "rule: sale_regulated | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: sale",
         "rule: sale_tolerated | source: Am I committing a criminal offence if I possess, produce or deal in drugs? - Drugs - Government.nl | type: reference | priority: 2 | scope: sale",
         "rule: rec_tolerated | source: Am I committing a criminal offence if I possess, produce or deal in drugs? - Drugs - Government.nl | type: reference | priority: 2 | scope: sale",
         "rule: sale_tolerated | source: Cannabis in the Netherlands | type: reference | priority: 2 | scope: sale",
@@ -140,7 +136,7 @@
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 2979,
+        "article_len": 593,
         "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
@@ -159,12 +155,13 @@
       "possession_decriminalized",
       "zero_tolerance",
       "raw_illegal",
+      "medical_legal",
       "distribution_mixed_strong_penalty"
     ],
     "notes_normalized": "Cannabis is tolerated in Netherlands / Nederland. Medical cannabis is legal. Distribution is mixed."
   },
   "notes_normalized": "Cannabis is tolerated in Netherlands / Nederland. Medical cannabis is legal. Distribution is mixed.",
-  "notes_raw": "{{Main|Cannabis in the Netherlands}} Personal possession decriminalized and sale allowed only in certain licensed [[Cannabis coffee shop|coffeeshops]] in the continental Netherlands.<ref>{{citation |url = http://eldd.emcdda.europa.eu/html.cfm/index5174EN.html |title = Use drop-down menu on site to view Netherlands entry. |publisher = Eldd.emcdda.europa.eu |access-date = 17 February 2011 |archive-date = 7 May 2010 |archive-url = https://web.archive.org/web/20100507181022/http://eldd.emcdda.europa.eu/html.cfm/index5174EN.html |url-status = dead }}</ref><ref>{{citation |url = http://www.ukcia.org/research/dutch.php |title = Drugs Policy in the Netherlands |publisher = Ukcia.org |access-date = 17 February 2011 |archive-url = https://web.archive.org/web/20170802141845/http://www.ukcia.org/research/dutch.php |archive-date = 2 August 2017 |url-status = dead }}</ref><ref>{{cite news |url = https://www.theatlantic.com/international/archive/2011/05/amsterdam-ban-pot-sales-tourists/322383/ |last = Martin |first = Adam |title = Amsterdam Will Ban Tourists from Pot Coffee Shops |work = Atlantic Wire |access-date = 23 June 2011 |date = 27 May 2011 |archive-url = https://web.archive.org/web/20120327081236/http://www.theatlanticwire.com/global/2011/05/amsterdam-ban-pot-sales-tourists/38248/ |archive-date = 27 March 2012 |url-status = live |url-access = limited}}</ref> Cultivation often tolerated but growers can still have their plants and equipment confiscated<ref>{{Cite web|url=https://www.om.nl/organisatie/beleidsregels/overzicht-0/algemeen/@88338/aanwijzing-opiumwet-0|archive-url=https://web.archive.org/web/20190420011626/https://www.om.nl/organisatie/beleidsregels/overzicht-0/algemeen/@88338/aanwijzing-opiumwet-0|url-status=dead|archive-date=20 April 2019|title=Aanwijzing Opiumwet (2015A003)}}</ref> and face eviction<ref>{{Cite web|url=https://www.portaal.nl/ik-huur/mijn-woning/hennep-einde-huurcontract/|title=Hennep? Einde huurcontract! – Portaal|website=www.portaal.nl|access-date=12 August 2018|archive-date=13 August 2018|archive-url=https://web.archive.org/web/20180813043930/https://www.portaal.nl/ik-huur/mijn-woning/hennep-einde-huurcontract/|url-status=live}}</ref> or cancellation of their mortgage<ref>{{cite web|url=https://www.vvsadvocaten.nl/2016/10/26/de-keerzijde-van-straffeloosheid/|title=De keerzijde van straffeloosheid – VVS Advocaten|date=26 October 2016|access-date=12 August 2018|archive-date=13 August 2018|archive-url=https://web.archive.org/web/20180813043729/https://www.vvsadvocaten.nl/2016/10/26/de-keerzijde-van-straffeloosheid/|url-status=live}}</ref> for one single plant.<ref>{{cite web|url=https://decorrespondent.nl/6000/met-je-gezin-voor-twee-planten-op-straat-gezet-en-meer-uitwassen-van-de-strijd-tegen-wiet/760026894000-db663f5b|title=Met je gezin voor twee planten op straat gezet. En meer uitwassen van de strijd tegen wiet|first=Thijs|last=Roes|date=13 January 2017|access-date=12 August 2018|archive-date=13 August 2018|archive-url=https://web.archive.org/web/20180813044107/https://decorrespondent.nl/6000/met-je-gezin-voor-twee-planten-op-straat-gezet-en-meer-uitwassen-van-de-strijd-tegen-wiet/760026894000-db663f5b|url-status=live}}</ref> Zero tolerance policy in the [[Caribbean Netherlands]].<ref>{{cite web|url=http://wetten.overheid.nl/BWBR0028519/2013-07-01|title=wetten.nl – Regeling – Opiumwet 1960 BES – BWBR0028519|website=wetten.overheid.nl|access-date=12 August 2018|archive-date=13 August 2018|archive-url=https://web.archive.org/web/20180813044136/http://wetten.overheid.nl/BWBR0028519/2013-07-01|url-status=live}}</ref>",
+  "notes_raw": "{{Main|Cannabis in the Netherlands}} Personal possession decriminalized for those aged 18 and over and sale allowed only in certain licensed [[Cannabis coffee shop|coffeeshops]] in the continental Netherlands for those of the same age.{{refn|<ref>{{cite web |title= Cannabis and drug regulations |url= https://mymaastricht.nl/housing/living-in-maastricht/cannabis-regulations/ |website= mymaastricht.nl |access-date= 22 March 2026}}</ref><ref>{{cite web |title= Toleration policy regarding soft drugs and coffee shops |url= https://www.government.nl/topics/drugs/toleration-policy-regarding-soft-drugs-and-coffee-shops |website= Government of the Netherlands |access-date= 22 March 2026}}</ref><ref>{{citation |url = http://eldd.emcdda.europa.eu/html.cfm/index5174EN.html |title = Use drop-down menu on site to view Netherlands entry. |publisher = Eldd.emcdda.europa.eu |access-date = 17 February 2011 |archive-date = 7 May 2010 |archive-url = https://web.archive.org/web/20100507181022/http://eldd.emcdda.europa.eu/html.cfm/index5174EN.html |url-status = dead }}</ref><ref>{{citation |url = http://www.ukcia.org/research/dutch.php |title = Drugs Policy in the Netherlands |publisher = Ukcia.org |access-date = 17 February 2011 |archive-url = https://web.archive.org/web/20170802141845/http://www.ukcia.org/research/dutch.php |archive-date = 2 August 2017 |url-status = dead }}</ref><ref>{{cite news |url = https://www.theatlantic.com/international/archive/2011/05/amsterdam-ban-pot-sales-tourists/322383/ |last = Martin |first = Adam |title = Amsterdam Will Ban Tourists from Pot Coffee Shops |work = Atlantic Wire |access-date = 23 June 2011 |date = 27 May 2011 |archive-url = https://web.archive.org/web/20120327081236/http://www.theatlanticwire.com/global/2011/05/amsterdam-ban-pot-sales-tourists/38248/ |archive-date = 27 March 2012 |url-status = live |url-access = limited}}</ref>}} Cultivation often tolerated but growers can still have their plants and equipment confiscated<ref>{{Cite web|url=https://www.om.nl/organisatie/beleidsregels/overzicht-0/algemeen/@88338/aanwijzing-opiumwet-0|archive-url=https://web.archive.org/web/20190420011626/https://www.om.nl/organisatie/beleidsregels/overzicht-0/algemeen/@88338/aanwijzing-opiumwet-0|url-status=dead|archive-date=20 April 2019|title=Aanwijzing Opiumwet (2015A003)}}</ref> and face eviction<ref>{{Cite web|url=https://www.portaal.nl/ik-huur/mijn-woning/hennep-einde-huurcontract/|title=Hennep? Einde huurcontract! – Portaal|website=www.portaal.nl|access-date=12 August 2018|archive-date=13 August 2018|archive-url=https://web.archive.org/web/20180813043930/https://www.portaal.nl/ik-huur/mijn-woning/hennep-einde-huurcontract/|url-status=live}}</ref> or cancellation of their mortgage<ref>{{cite web|url=https://www.vvsadvocaten.nl/2016/10/26/de-keerzijde-van-straffeloosheid/|title=De keerzijde van straffeloosheid – VVS Advocaten|date=26 October 2016|access-date=12 August 2018|archive-date=13 August 2018|archive-url=https://web.archive.org/web/20180813043729/https://www.vvsadvocaten.nl/2016/10/26/de-keerzijde-van-straffeloosheid/|url-status=live}}</ref> for one single plant.<ref>{{cite web|url=https://decorrespondent.nl/6000/met-je-gezin-voor-twee-planten-op-straat-gezet-en-meer-uitwassen-van-de-strijd-tegen-wiet/760026894000-db663f5b|title=Met je gezin voor twee planten op straat gezet. En meer uitwassen van de strijd tegen wiet|first=Thijs|last=Roes|date=13 January 2017|access-date=12 August 2018|archive-date=13 August 2018|archive-url=https://web.archive.org/web/20180813044107/https://decorrespondent.nl/6000/met-je-gezin-voor-twee-planten-op-straat-gezet-en-meer-uitwassen-van-de-strijd-tegen-wiet/760026894000-db663f5b|url-status=live}}</ref> Zero tolerance policy in the [[Caribbean Netherlands]].<ref>{{cite web|url=http://wetten.overheid.nl/BWBR0028519/2013-07-01|title=wetten.nl – Regeling – Opiumwet 1960 BES – BWBR0028519|website=wetten.overheid.nl|access-date=12 August 2018|archive-date=13 August 2018|archive-url=https://web.archive.org/web/20180813044136/http://wetten.overheid.nl/BWBR0028519/2013-07-01|url-status=live}}</ref>",
   "facts": {
     "possession_limit": "Personal possession decriminalized and sale allowed only in certain licensed coffeeshops in the continental Netherlands.",
     "cultivation": "plants and equipment confiscated and face eviction or cancellation of their mortgage for one single plant.",
@@ -262,9 +259,9 @@
   },
   "hashes": {
     "code": "nld",
-    "content_hash": "57f9c38ed0f3f893dc8735bb27fb342cad3ad48e9a2ef0b1b216e8ee83750a62",
+    "content_hash": "f56402984bba99e6d13e7224983bd5e70dc232bb0e78aec4b1561fc6b0a3f38d",
     "notes_hash": "047e0c2c9bce78732303ef221b6ed2086c7f5b2fe8e0916a4266d4a2590dca49",
-    "model_hash": "c1b7a4851eb61491d33525c285cce1daaab27f1289ca1008367a1b78c84b6d9c"
+    "model_hash": "e9262ff64c24fa2b1a26410cee4edb8f488328e0c94daf65cb94a35f22b3f071"
   },
   "geo_code": "NL",
   "node_type": "country",

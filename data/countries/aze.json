@@ -64,12 +64,6 @@
           "type": "summary"
         },
         {
-          "title": "Cannabis in Azerbaijan",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Azerbaijan",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
           "title": "Women and Cannabis: Medicine, Science, and Sociology",
           "url": "https://books.google.com/books?id=gZJ7m3Uf6FQC&pg=PA8",
           "depth": 2,
@@ -83,19 +77,20 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Azerbaijan | type: traversal | priority: 3 | scope: general"
+        "rule: raw_illegal | source: Azerbaijan / Azərbaycan | type: summary | priority: 1 | scope: general",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 435,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_notes": "illegal",
+          "distribution_article": null
         }
       }
     },
@@ -204,9 +199,9 @@
   },
   "hashes": {
     "code": "aze",
-    "content_hash": "d70d7056e7f2d82d2e443773df62228cf1febcaa42223e69fb67015eb69c63d3",
+    "content_hash": "d463e39d4b70cd7ab041b6cbf0b8cd0a3ebc55464bbb9fb7392c1c34ee9a9802",
     "notes_hash": "3ea8f35858b441dd90f482b38c3b354ee5c773e65433d5e2313da8dbfc144c61",
-    "model_hash": "36fd3142b2e4327442f0c9c9705ffe105fa4da01f3b9f18e529967cf97f594be"
+    "model_hash": "8532f576ea4141c0131d4b5bfe2040042f3b33ceda07d2f09c69cc9745e18832"
   },
   "geo_code": "AZ",
   "node_type": "country",

@@ -28,27 +28,23 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": [
-        "however",
-        "only",
-        "up_to"
-      ]
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "final_risk": "RESTRICTED",
       "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 5,
+        "severity_score": 0,
         "possession": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
           "fine": false,
-          "severe": true
+          "severe": false
         },
         "trafficking": {
           "prison": false,
@@ -57,19 +53,13 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Kenya",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Kenya",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kenya",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Cannabis in Kenya",
@@ -100,39 +90,40 @@
           "url": "https://books.google.com/books?id=MmQ16P1RMmAC&pg=PA203",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Kibra MP Ken Okoth in push for marijuana legalisation",
+          "url": "https://www.sde.co.ke/article/2001296589/kibra-mp-ken-okoth-in-push-for-marijuana-legalisation",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Kenya | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Kenya | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_years | source: Cannabis in Kenya | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in Kenya | type: traversal | priority: 3 | scope: use",
-        "rule: raw_illegal | source: Cannabis in Kenya | type: traversal | priority: 3 | scope: use",
-        "rule: illegal | source: Cannabis in Kenya | type: traversal | priority: 3 | scope: use"
+        "rule: raw_illegal | source: Kenya | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Kenya | type: summary | priority: 1 | scope: general",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 2448,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_notes": "illegal",
+          "distribution_article": null
         }
       }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal",
-      "penalty_years",
-      "penalty_prison"
+      "raw_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Kenya. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Kenya. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Kenya. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Kenya. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Kenya}}",
   "facts": {
     "possession_limit": null,
@@ -231,9 +222,9 @@
   },
   "hashes": {
     "code": "ken",
-    "content_hash": "470e54e7821febb43b835c9c337d1c13229c760893314a7873359c486d681772",
-    "notes_hash": "b5df4f2aeb7b31754b129fdd495141f856bf372b04d67110201f643b6b33471b",
-    "model_hash": "bb70667793f954c348007fa1cca64448c1397768d06897354f0cb7cce1c89bb4"
+    "content_hash": "bec88c47e2051380d2ac042bc19481147cfc2ffa09825eae546720f1e7443c93",
+    "notes_hash": "9d8e9f11e55f34e8f9f5820254d436fe6db52529393113d672cb1d20a8fd44e8",
+    "model_hash": "365f2ef12c9cb8bf289c314810ee6d11912f1e882b0cd4674d4ed60d552ae890"
   },
   "geo_code": "KE",
   "node_type": "country",

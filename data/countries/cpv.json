@@ -64,12 +64,6 @@
           "type": "summary"
         },
         {
-          "title": "Cannabis in Cape Verde",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cape_Verde",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
           "title": "International Narcotics Control Strategy Report: Volume I: Drug and Chemical Control",
           "url": "https://books.google.com/books?id=0jnyNWFuhXYC&pg=PA187",
           "depth": 2,
@@ -77,20 +71,21 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Cape Verde | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Cape Verde | type: traversal | priority: 3 | scope: general"
+        "rule: raw_illegal | source: Cape Verde / Cabo Verde | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Cape Verde / Cabo Verde | type: summary | priority: 1 | scope: general",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 236,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_notes": "illegal",
+          "distribution_article": null
         }
       }
     },
@@ -199,9 +194,9 @@
   },
   "hashes": {
     "code": "cpv",
-    "content_hash": "dc8461f776720e239017c70548260ed597488936e1f9109ae27c9cbdc124a424",
+    "content_hash": "03b1c2e0400619e93baabaa00d6c85650cd381ab48036d027044473c6ec751e1",
     "notes_hash": "1311c9600ef0d8123d9b1c083671f81703c096b860c1688f8b7a990c81146719",
-    "model_hash": "123ce20cd4d90906ed6340759077b0cfb2547d61daffa95e31ab5e7f45cf8b8c"
+    "model_hash": "78d3eae262896f5b7b45315582dabb4a19389e39d099ef045002df3396e0a8b0"
   },
   "geo_code": "CV",
   "node_type": "country",

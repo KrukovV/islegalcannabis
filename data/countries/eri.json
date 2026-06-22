@@ -103,6 +103,14 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Eritrea / إريتريا | type: summary | priority: 1 | scope: trafficking",
+        "rule: penalty_fine | source: Eritrea / إريتريا | type: summary | priority: 1 | scope: trafficking",
+        "rule: trafficking_illegal | source: Eritrea / إريتريا | type: summary | priority: 1 | scope: trafficking",
+        "rule: sale_illegal | source: Eritrea / إريتريا | type: summary | priority: 1 | scope: trafficking",
+        "rule: raw_illegal | source: Eritrea / إريتريا | type: summary | priority: 1 | scope: sale",
+        "rule: sale_illegal | source: Eritrea / إريتريا | type: summary | priority: 1 | scope: sale",
+        "rule: illegal | source: Eritrea / إريتريا | type: summary | priority: 1 | scope: sale",
+        "rule: legal | source: Eritrea / إريتريا | type: summary | priority: 1 | scope: general",
         "rule: raw_illegal | source: Cannabis in Eritrea | type: traversal | priority: 3 | scope: trafficking",
         "rule: penalty_fine | source: Cannabis in Eritrea | type: traversal | priority: 3 | scope: trafficking",
         "rule: trafficking_illegal | source: Cannabis in Eritrea | type: traversal | priority: 3 | scope: trafficking",
@@ -116,14 +124,14 @@
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 2825,
+        "article_len": 2299,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": true,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
+          "distribution_notes": "illegal",
           "distribution_article": "illegal"
         }
       }
@@ -237,9 +245,9 @@
   },
   "hashes": {
     "code": "eri",
-    "content_hash": "f7152d9427bb674d61c20bfbc04cefe94b2d5211769e26df7307acc1c7473e51",
+    "content_hash": "21765a9c57c20854b68f34904f403ebf2a4e7183b50737980c5dae07fb193831",
     "notes_hash": "b30f0fa343f3590f69e1f5f856336ff4f95902fa0090653102782408e0fd0ecd",
-    "model_hash": "f765247bef2d83e874f7d469484cf5155ea053eba77e074f9891941b7ad7b898"
+    "model_hash": "164a7b5276bef451f07fc3760800dc9c60801210e4c20c795d1ae7a1f70082b9"
   },
   "geo_code": "ER",
   "node_type": "country",

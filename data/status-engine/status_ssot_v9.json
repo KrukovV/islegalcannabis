@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-09T16:37:42.346Z",
+  "generated_at": "2026-06-22T19:20:23.821Z",
   "model": "STATUS_ENGINE_V9",
   "allowed_fields": [
     "recreational",
@@ -42,7 +42,7 @@
       "name": "Antigua and Barbuda",
       "recreational": "ILLEGAL",
       "medical": "LIMITED",
-      "enforcement": "SOFT",
+      "enforcement": "STRICT",
       "color": "YELLOW",
       "reviewRequired": false,
       "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Antigua_and_Barbuda"
@@ -63,9 +63,9 @@
       "recreational": "ILLEGAL",
       "medical": "REGULATED",
       "enforcement": "SOFT",
-      "color": "GREEN",
-      "reviewRequired": false,
-      "sourceUrl": "https://www.nacc.gov.al/wp-content/uploads/2024/10/Law-no.-61-2023-On-the-control-of-the-cultivation-and-processing-of-the-cannabis-plant-and-the-production-of-its-by-products-for-medical-and-industrial-purposes.pdf"
+      "color": "YELLOW",
+      "reviewRequired": true,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Albania"
     },
     {
       "id": "AM",
@@ -180,9 +180,9 @@
     {
       "id": "BB",
       "name": "Barbados",
-      "recreational": "LEGAL",
+      "recreational": "ILLEGAL",
       "medical": "REGULATED",
-      "enforcement": "SOFT",
+      "enforcement": "STRICT",
       "color": "GREEN",
       "reviewRequired": false,
       "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Barbados"
@@ -242,8 +242,8 @@
       "name": "Burundi / Uburundi",
       "recreational": "ILLEGAL",
       "medical": "NONE",
-      "enforcement": "SOFT",
-      "color": "YELLOW",
+      "enforcement": "STRICT",
+      "color": "RED",
       "reviewRequired": false,
       "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Burundi"
     },
@@ -622,8 +622,8 @@
       "name": "Algeria / الجزائر",
       "recreational": "ILLEGAL",
       "medical": "NONE",
-      "enforcement": "SOFT",
-      "color": "YELLOW",
+      "enforcement": "STRICT",
+      "color": "RED",
       "reviewRequired": false,
       "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Algeria"
     },
@@ -771,9 +771,9 @@
       "id": "GB",
       "name": "United Kingdom",
       "recreational": "ILLEGAL",
-      "medical": "REGULATED",
-      "enforcement": "SOFT",
-      "color": "GREEN",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "color": "YELLOW",
       "reviewRequired": false,
       "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_the_United_Kingdom"
     },
@@ -1001,10 +1001,10 @@
       "id": "HU",
       "name": "Hungary / Magyarország",
       "recreational": "ILLEGAL",
-      "medical": "NONE",
+      "medical": "REGULATED",
       "enforcement": "SOFT",
       "color": "YELLOW",
-      "reviewRequired": false,
+      "reviewRequired": true,
       "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Hungary"
     },
     {
@@ -1142,8 +1142,8 @@
       "name": "Japan / 日本",
       "recreational": "ILLEGAL",
       "medical": "NONE",
-      "enforcement": "SOFT",
-      "color": "YELLOW",
+      "enforcement": "STRICT",
+      "color": "RED",
       "reviewRequired": false,
       "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Japan"
     },
@@ -1202,7 +1202,7 @@
       "name": "Saint Kitts and Nevis",
       "recreational": "ILLEGAL",
       "medical": "LIMITED",
-      "enforcement": "SOFT",
+      "enforcement": "STRICT",
       "color": "YELLOW",
       "reviewRequired": false,
       "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Saint_Kitts_and_Nevis"
@@ -1222,7 +1222,7 @@
       "name": "South Korea / 한국",
       "recreational": "ILLEGAL",
       "medical": "REGULATED",
-      "enforcement": "SOFT",
+      "enforcement": "STRICT",
       "color": "GREEN",
       "reviewRequired": false,
       "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_South_Korea"
@@ -1582,8 +1582,8 @@
       "name": "Malaysia / مليسيا",
       "recreational": "ILLEGAL",
       "medical": "NONE",
-      "enforcement": "SOFT",
-      "color": "YELLOW",
+      "enforcement": "STRICT",
+      "color": "RED",
       "reviewRequired": false,
       "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Malaysia"
     },
@@ -1732,7 +1732,7 @@
       "name": "Panama / Panamá",
       "recreational": "ILLEGAL",
       "medical": "REGULATED",
-      "enforcement": "SOFT",
+      "enforcement": "STRICT",
       "color": "GREEN",
       "reviewRequired": false,
       "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Panama"
@@ -1981,7 +1981,7 @@
       "id": "SG",
       "name": "Singapore / Singapura",
       "recreational": "ILLEGAL",
-      "medical": "NONE",
+      "medical": "LIMITED",
       "enforcement": "SOFT",
       "color": "YELLOW",
       "reviewRequired": false,
@@ -2021,9 +2021,9 @@
       "id": "SK",
       "name": "Slovakia / Slovensko",
       "recreational": "ILLEGAL",
-      "medical": "NONE",
+      "medical": "LIMITED",
       "enforcement": "STRICT",
-      "color": "RED",
+      "color": "YELLOW",
       "reviewRequired": false,
       "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Slovakia"
     },
@@ -2122,8 +2122,8 @@
       "name": "Syria / سوريا",
       "recreational": "ILLEGAL",
       "medical": "NONE",
-      "enforcement": "STRICT",
-      "color": "RED",
+      "enforcement": "SOFT",
+      "color": "YELLOW",
       "reviewRequired": false,
       "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Syria"
     },
@@ -2251,9 +2251,9 @@
       "id": "TR",
       "name": "Türkiye",
       "recreational": "ILLEGAL",
-      "medical": "NONE",
+      "medical": "LIMITED",
       "enforcement": "STRICT",
-      "color": "RED",
+      "color": "YELLOW",
       "reviewRequired": false,
       "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Turkey"
     },
@@ -2331,9 +2331,9 @@
       "id": "US",
       "name": "United States",
       "recreational": "ILLEGAL",
-      "medical": "LIMITED",
+      "medical": "REGULATED",
       "enforcement": "SOFT",
-      "color": "YELLOW",
+      "color": "GREEN",
       "reviewRequired": false,
       "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_the_United_States"
     },
@@ -2341,7 +2341,7 @@
       "id": "US-AK",
       "name": "Alaska",
       "recreational": "LEGAL",
-      "medical": "REGULATED",
+      "medical": "NONE",
       "enforcement": "SOFT",
       "color": "GREEN",
       "reviewRequired": false,
@@ -2411,7 +2411,7 @@
       "id": "US-DE",
       "name": "Delaware",
       "recreational": "LEGAL",
-      "medical": "REGULATED",
+      "medical": "NONE",
       "enforcement": "SOFT",
       "color": "GREEN",
       "reviewRequired": false,
@@ -2431,9 +2431,9 @@
       "id": "US-GA",
       "name": "Georgia",
       "recreational": "ILLEGAL",
-      "medical": "LIMITED",
+      "medical": "NONE",
       "enforcement": "STRICT",
-      "color": "YELLOW",
+      "color": "RED",
       "reviewRequired": false,
       "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Georgia_(U.S._state)"
     },
@@ -2441,9 +2441,9 @@
       "id": "US-HI",
       "name": "Hawaii",
       "recreational": "ILLEGAL",
-      "medical": "NONE",
+      "medical": "REGULATED",
       "enforcement": "SOFT",
-      "color": "YELLOW",
+      "color": "GREEN",
       "reviewRequired": false,
       "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Hawaii"
     },
@@ -2481,9 +2481,9 @@
       "id": "US-IN",
       "name": "Indiana",
       "recreational": "ILLEGAL",
-      "medical": "NONE",
+      "medical": "LIMITED",
       "enforcement": "STRICT",
-      "color": "RED",
+      "color": "YELLOW",
       "reviewRequired": false,
       "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Indiana"
     },
@@ -2495,15 +2495,15 @@
       "enforcement": "STRICT",
       "color": "YELLOW",
       "reviewRequired": false,
-      "sourceUrl": "https://www.kslegislature.gov/li_2020/b2019_20/statute/065_000_0000_chapter/065_062_0000_article/065_062_0035_section/065_062_0035_k/"
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Kansas"
     },
     {
       "id": "US-KY",
       "name": "Kentucky",
       "recreational": "ILLEGAL",
-      "medical": "LIMITED",
+      "medical": "REGULATED",
       "enforcement": "STRICT",
-      "color": "YELLOW",
+      "color": "GREEN",
       "reviewRequired": false,
       "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Kentucky"
     },
@@ -2511,9 +2511,9 @@
       "id": "US-LA",
       "name": "Louisiana",
       "recreational": "ILLEGAL",
-      "medical": "REGULATED",
+      "medical": "NONE",
       "enforcement": "SOFT",
-      "color": "GREEN",
+      "color": "YELLOW",
       "reviewRequired": false,
       "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Louisiana"
     },
@@ -2541,7 +2541,7 @@
       "id": "US-ME",
       "name": "Maine",
       "recreational": "LEGAL",
-      "medical": "REGULATED",
+      "medical": "NONE",
       "enforcement": "SOFT",
       "color": "GREEN",
       "reviewRequired": false,
@@ -2561,7 +2561,7 @@
       "id": "US-MN",
       "name": "Minnesota",
       "recreational": "LEGAL",
-      "medical": "REGULATED",
+      "medical": "NONE",
       "enforcement": "SOFT",
       "color": "GREEN",
       "reviewRequired": false,
@@ -2581,9 +2581,9 @@
       "id": "US-MS",
       "name": "Mississippi",
       "recreational": "ILLEGAL",
-      "medical": "NONE",
+      "medical": "REGULATED",
       "enforcement": "SOFT",
-      "color": "YELLOW",
+      "color": "GREEN",
       "reviewRequired": false,
       "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Mississippi"
     },
@@ -2601,9 +2601,9 @@
       "id": "US-NC",
       "name": "North Carolina",
       "recreational": "ILLEGAL",
-      "medical": "LIMITED",
+      "medical": "REGULATED",
       "enforcement": "SOFT",
-      "color": "YELLOW",
+      "color": "GREEN",
       "reviewRequired": false,
       "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_North_Carolina"
     },
@@ -2622,10 +2622,10 @@
       "name": "Nebraska",
       "recreational": "ILLEGAL",
       "medical": "REGULATED",
-      "enforcement": "STRICT",
+      "enforcement": "SOFT",
       "color": "GREEN",
       "reviewRequired": false,
-      "sourceUrl": "https://nebraskalegislature.gov/laws/statutes.php?statute=71-24%2C106"
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Nebraska"
     },
     {
       "id": "US-NH",
@@ -2691,9 +2691,9 @@
       "id": "US-OK",
       "name": "Oklahoma",
       "recreational": "ILLEGAL",
-      "medical": "LIMITED",
+      "medical": "REGULATED",
       "enforcement": "STRICT",
-      "color": "YELLOW",
+      "color": "GREEN",
       "reviewRequired": false,
       "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Oklahoma"
     },
@@ -2751,9 +2751,9 @@
       "id": "US-TN",
       "name": "Tennessee",
       "recreational": "ILLEGAL",
-      "medical": "LIMITED",
+      "medical": "REGULATED",
       "enforcement": "STRICT",
-      "color": "YELLOW",
+      "color": "GREEN",
       "reviewRequired": false,
       "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Tennessee"
     },
@@ -2775,7 +2775,7 @@
       "enforcement": "STRICT",
       "color": "GREEN",
       "reviewRequired": false,
-      "sourceUrl": "https://medicalcannabis.utah.gov/resources/utah-medical-cannabis-law/"
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Utah"
     },
     {
       "id": "US-VA",
@@ -2815,15 +2815,15 @@
       "enforcement": "STRICT",
       "color": "YELLOW",
       "reviewRequired": false,
-      "sourceUrl": "https://docs.legis.wisconsin.gov/2013/related/acts/267"
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Wisconsin"
     },
     {
       "id": "US-WV",
       "name": "West Virginia",
       "recreational": "ILLEGAL",
-      "medical": "REGULATED",
+      "medical": "NONE",
       "enforcement": "STRICT",
-      "color": "GREEN",
+      "color": "RED",
       "reviewRequired": false,
       "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_West_Virginia"
     },
@@ -2835,7 +2835,7 @@
       "enforcement": "STRICT",
       "color": "YELLOW",
       "reviewRequired": false,
-      "sourceUrl": "https://www.wyoleg.gov/2015/Introduced/HB0032.pdf"
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Wyoming"
     },
     {
       "id": "UY",

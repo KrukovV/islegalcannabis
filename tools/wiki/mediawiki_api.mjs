@@ -23,6 +23,8 @@ const API_USER_AGENT = process.env.WIKI_API_USER_AGENT || "islegalcannabis-knowl
 const PAGE_TITLE = "Legality_of_cannabis";
 const PING_URL = "https://en.wikipedia.org/w/api.php?action=query&meta=siteinfo&format=json";
 const PING_TIMEOUT_MS = Number(process.env.WIKI_PING_TIMEOUT_MS || 4000);
+const WIKI_API_MAX_ATTEMPTS = Math.max(1, Number(process.env.WIKI_API_MAX_ATTEMPTS || 3));
+const WIKI_API_RETRY_MS = Math.max(0, Number(process.env.WIKI_API_RETRY_MS || 400));
 const WIKI_CACHE_MAX_AGE_H = Number(process.env.WIKI_CACHE_MAX_AGE_H || 6);
 const WIKI_CACHE_DIR = path.join(ROOT, "data", "wiki", "cache");
 const WIKI_HTML_CACHE_DIR = path.join(WIKI_CACHE_DIR, "html");
@@ -80,6 +82,29 @@ function normalizeFetchError(error) {
   return String(error?.message || "UNKNOWN");
 }
 
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function shouldRetryFetchError(errorCode) {
+  const code = String(errorCode || "");
+  return (
+    code === "HTTP_408" ||
+    code === "HTTP_425" ||
+    code === "HTTP_429" ||
+    code === "HTTP_500" ||
+    code === "HTTP_502" ||
+    code === "HTTP_503" ||
+    code === "HTTP_504" ||
+    code === "ECONNRESET" ||
+    code === "ETIMEDOUT" ||
+    code === "UND_ERR_CONNECT_TIMEOUT" ||
+    code === "UND_ERR_HEADERS_TIMEOUT" ||
+    code === "UND_ERR_SOCKET" ||
+    code === "JSON_PARSE"
+  );
+}
+
 function fetchJsonViaCurl(url) {
   try {
     const output = execFileSync("curl", ["-sS", "--max-time", "20", "-A", API_USER_AGENT, "-H", `Api-User-Agent: ${API_USER_AGENT}`, url], {
@@ -93,32 +118,51 @@ function fetchJsonViaCurl(url) {
 }
 
 async function fetchJson(url) {
-  let res;
-  try {
-    res = await fetch(url, {
-      method: "GET",
-      headers: {
-        "user-agent": API_USER_AGENT,
-        "api-user-agent": API_USER_AGENT
+  let lastErrorCode = "";
+  for (let attempt = 1; attempt <= WIKI_API_MAX_ATTEMPTS; attempt += 1) {
+    let res;
+    try {
+      res = await fetch(url, {
+        method: "GET",
+        headers: {
+          "user-agent": API_USER_AGENT,
+          "api-user-agent": API_USER_AGENT
+        }
+      });
+    } catch (error) {
+      lastErrorCode = normalizeFetchError(error);
+      const curlResult = fetchJsonViaCurl(url);
+      if (curlResult.ok) {
+        console.log("WIKI_API_FETCH via=curl");
+        return curlResult;
       }
-    });
-  } catch (error) {
-    const curlResult = fetchJsonViaCurl(url);
-    if (curlResult.ok) {
-      console.log("WIKI_API_FETCH via=curl");
-      return curlResult;
+      if (attempt < WIKI_API_MAX_ATTEMPTS && shouldRetryFetchError(lastErrorCode)) {
+        await sleep(WIKI_API_RETRY_MS * attempt);
+        continue;
+      }
+      return { ok: false, reason: "NETWORK_FAIL", error: lastErrorCode };
     }
-    return { ok: false, reason: "NETWORK_FAIL", error: normalizeFetchError(error) };
+    if (!res.ok) {
+      lastErrorCode = `HTTP_${res.status}`;
+      if (attempt < WIKI_API_MAX_ATTEMPTS && shouldRetryFetchError(lastErrorCode)) {
+        await sleep(WIKI_API_RETRY_MS * attempt);
+        continue;
+      }
+      return { ok: false, reason: "NETWORK_FAIL", error: lastErrorCode };
+    }
+    try {
+      const payload = await res.json();
+      return { ok: true, payload };
+    } catch {
+      lastErrorCode = "JSON_PARSE";
+      if (attempt < WIKI_API_MAX_ATTEMPTS && shouldRetryFetchError(lastErrorCode)) {
+        await sleep(WIKI_API_RETRY_MS * attempt);
+        continue;
+      }
+      return { ok: false, reason: "NETWORK_FAIL", error: lastErrorCode };
+    }
   }
-  if (!res.ok) {
-    return { ok: false, reason: "NETWORK_FAIL", error: `HTTP_${res.status}` };
-  }
-  try {
-    const payload = await res.json();
-    return { ok: true, payload };
-  } catch {
-    return { ok: false, reason: "NETWORK_FAIL", error: "JSON_PARSE" };
-  }
+  return { ok: false, reason: "NETWORK_FAIL", error: lastErrorCode || "UNKNOWN" };
 }
 
 function cachePathForWikitext(pageid, revisionId) {
@@ -183,6 +227,7 @@ export async function fetchPageMeta(title) {
   const params = new URLSearchParams({
     action: "query",
     titles: title,
+    redirects: "1",
     prop: "info",
     inprop: "url",
     format: "json",
@@ -206,6 +251,7 @@ export async function fetchPageInfo(title) {
   const params = new URLSearchParams({
     action: "query",
     titles: title,
+    redirects: "1",
     prop: "info|revisions",
     rvprop: "ids",
     format: "json",
@@ -224,6 +270,24 @@ export async function fetchPageInfo(title) {
     title: String(page.title || title),
     revision_id: String(revision.revid || "")
   };
+}
+
+export async function searchPageTitles(query, limit = 5) {
+  const params = new URLSearchParams({
+    action: "query",
+    list: "search",
+    srsearch: query,
+    srlimit: String(Math.max(1, Math.min(10, Number(limit) || 5))),
+    format: "json",
+    formatversion: "2"
+  });
+  const url = `${API_BASE}?${params.toString()}`;
+  const response = await fetchJson(url);
+  if (!response.ok) {
+    return { ok: false, reason: response.reason, error: response.error, titles: [] };
+  }
+  const titles = (response.payload?.query?.search || []).map((item) => String(item?.title || "")).filter(Boolean);
+  return { ok: true, titles };
 }
 
 export async function fetchPageWikitext(pageid) {

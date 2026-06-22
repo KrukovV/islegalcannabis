@@ -21,30 +21,27 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": "illegal",
+        "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
-      "enforcement": "fine-based",
-      "flags": [],
-      "modifiers": [
-        "may",
-        "only",
-        "however",
-        "but"
-      ]
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "final_risk": "RESTRICTED",
       "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": false,
-        "fine": true,
-        "severity_score": 4,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -52,25 +49,19 @@
           "severe": false
         },
         "trafficking": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
-          "fine": true,
-          "severe": true
+          "fine": false,
+          "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Philippines / Pilipinas",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in the Philippines",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Philippines",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "An Act Instituting the Comprehensive Dangerous Drugs Act of 2002, Repealing Republic Act No. 6425, Otherwise Known as the Dangerous Drugs Act of 1972, as Amended, Providing its Funds Therefor, and for Other Purposes",
@@ -101,49 +92,41 @@
           "url": "https://www.philstar.com/headlines/2018/12/18/1878036/fact-check-medical-marijuana-already-allowed-philippines",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Bill on medical use of marijuana filed in Congress",
+          "url": "https://www.rappler.com/nation/59118-compassionate-use-medical-cannabis-bill",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: medical_legal | source: Philippines / Pilipinas | type: summary | priority: 1 | scope: use",
         "rule: medical_legal | source: Philippines / Pilipinas | type: summary | priority: 1 | scope: general",
-        "rule: raw_illegal | source: Cannabis in the Philippines | type: traversal | priority: 3 | scope: cultivation",
-        "rule: illegal | source: Cannabis in the Philippines | type: traversal | priority: 3 | scope: cultivation",
-        "rule: raw_illegal | source: Cannabis in the Philippines | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in the Philippines | type: traversal | priority: 3 | scope: general",
-        "rule: raw_illegal | source: Cannabis in the Philippines | type: traversal | priority: 3 | scope: sale",
-        "rule: sale_illegal | source: Cannabis in the Philippines | type: traversal | priority: 3 | scope: sale",
-        "rule: illegal | source: Cannabis in the Philippines | type: traversal | priority: 3 | scope: sale",
-        "rule: penalty_prison | source: Cannabis in the Philippines | type: traversal | priority: 3 | scope: sale",
-        "rule: penalty_fine | source: Cannabis in the Philippines | type: traversal | priority: 3 | scope: sale",
-        "rule: raw_illegal | source: Cannabis in the Philippines | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_fine | source: Cannabis in the Philippines | type: traversal | priority: 3 | scope: general",
-        "rule: medical_legal | source: Fact check: Is medical marijuana already allowed in the Philippines? | type: reference | priority: 2 | scope: general"
+        "rule: medical_legal | source: Fact check: Is medical marijuana already allowed in the Philippines? | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 4552,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal",
-      "penalty_prison",
-      "penalty_fine"
+      "distribution_fallback_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Philippines / Pilipinas. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Philippines / Pilipinas. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Philippines / Pilipinas. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Philippines / Pilipinas. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in the Philippines}} Medical use of cannabis is possible with a special permit from the Food and Drugs Authority for use by individuals with serious or terminal illness.<ref>{{cite news |last1=Viray |first1=Patricia Lourdes |title=Fact check: Is medical marijuana already allowed in the Philippines? |url=https://www.philstar.com/headlines/2018/12/18/1878036/fact-check-medical-marijuana-already-allowed-philippines |access-date=28 December 2018 |work=[[The Philippine Star]] |date=18 December 2018 |archive-date=20 December 2018 |archive-url=https://web.archive.org/web/20181220091203/https://www.philstar.com/headlines/2018/12/18/1878036/fact-check-medical-marijuana-already-allowed-philippines |url-status=live }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -242,9 +225,9 @@
   },
   "hashes": {
     "code": "phl",
-    "content_hash": "de71a520e556c3cc763ac95da75fff28859560ee246bbedafdb82dee6fe7534d",
-    "notes_hash": "396bba7e4b1fd5036fed4f3a0e0fc2c67c1348712741f0e989cd23e46f2241f1",
-    "model_hash": "b1e7a416c774ed6eafa6b95219da9193f11ea51b64390588085775d828e31d6a"
+    "content_hash": "6d2374ff0b1f13b1e0734ce943b89f5721a13c78c836a3a552bf4391a47282c8",
+    "notes_hash": "dac9eded7b4906c6564b84c0a40af63789e94b8f40233680dcade8ab41b58803",
+    "model_hash": "9696d554e41dcc29ea500838efc6151f87e94a6097d63d00d31b0eb84ed2eff2"
   },
   "geo_code": "PH",
   "node_type": "country",

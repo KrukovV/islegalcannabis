@@ -5,9 +5,9 @@
   "legal_model": {
     "recreational": {
       "raw_status": "DECRIMINALIZED",
-      "status": "DECRIMINALIZED",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
@@ -17,38 +17,35 @@
       "override_reason": "rec_implies_med_floor"
     },
     "distribution": {
-      "status": "tolerated",
+      "status": "restricted",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
         "sale": null,
-        "cultivation": "tolerated",
+        "cultivation": null,
         "import": null,
         "trafficking": null
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [],
       "modifiers": [
-        "but",
-        "only",
-        "may",
-        "up_to"
+        "but"
       ]
     },
     "signals": {
-      "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "status": "restricted",
+      "final_risk": "UNKNOWN",
       "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": false,
-        "fine": true,
-        "severity_score": 3,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
           "prison": false,
           "arrest": false,
-          "fine": true,
+          "fine": false,
           "severe": false
         },
         "trafficking": {
@@ -58,19 +55,13 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Saint Kitts and Nevis",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Saint Kitts and Nevis",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Saint_Kitts_and_Nevis",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Legality of cannabis (notes)",
@@ -80,43 +71,34 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Saint Kitts and Nevis | type: traversal | priority: 3 | scope: general",
-        "rule: possession_decriminalized | source: Cannabis in Saint Kitts and Nevis | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Saint Kitts and Nevis | type: traversal | priority: 3 | scope: general",
-        "rule: private_cultivation | source: Cannabis in Saint Kitts and Nevis | type: traversal | priority: 3 | scope: cultivation",
-        "rule: penalty_fine | source: Cannabis in Saint Kitts and Nevis | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_criminal_offense | source: Cannabis in Saint Kitts and Nevis | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_fine | source: Cannabis in Saint Kitts and Nevis | type: traversal | priority: 3 | scope: use",
-        "rule: legal | source: Cannabis in Saint Kitts and Nevis | type: traversal | priority: 3 | scope: general"
+        "rule: raw_illegal | source: Saint Kitts and Nevis | type: summary | priority: 1 | scope: general",
+        "rule: possession_decriminalized | source: Saint Kitts and Nevis | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Saint Kitts and Nevis | type: summary | priority: 1 | scope: general",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 1273,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_notes": "illegal",
+          "distribution_article": null
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
       "raw_illegal",
       "possession_decriminalized",
-      "private_cultivation",
-      "penalty_fine",
-      "penalty_criminal_offense",
       "rec_implies_med_floor"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Saint Kitts and Nevis. Medical cannabis is limited. Distribution is tolerated. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Saint Kitts and Nevis. Medical cannabis is limited. Distribution is restricted."
   },
-  "notes_normalized": "Cannabis is decriminalized in Saint Kitts and Nevis. Medical cannabis is limited. Distribution is tolerated. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Saint Kitts and Nevis. Medical cannabis is limited. Distribution is restricted.",
   "notes_raw": "{{main|Cannabis in Saint Kitts and Nevis}}",
   "facts": {
     "possession_limit": null,
@@ -188,26 +170,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "atg",
-        "name": "Antigua and Barbuda"
-      },
-      {
-        "code": "dma",
-        "name": "Dominica"
-      },
-      {
-        "code": "lca",
-        "name": "Saint Lucia"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "msr",
         "name": "Montserrat"
       },
       {
         "code": "aia",
         "name": "Anguilla"
+      },
+      {
+        "code": "atg",
+        "name": "Antigua and Barbuda"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "vir",
+        "name": "United States Virgin Islands"
+      },
+      {
+        "code": "vgb",
+        "name": "British Virgin Islands"
       }
     ],
     "same_country_states": [],
@@ -215,9 +197,9 @@
   },
   "hashes": {
     "code": "kna",
-    "content_hash": "1110765d6977bb7f566cfdbcb393dfb5e0c432be7165326b012f2abe0470c447",
-    "notes_hash": "2ae54cbbc6f8a96d7a0e9f119305355d7b9b7060fb995a6ed108071c5241df6e",
-    "model_hash": "1e033c8761178a267eff47092b8ee4502c8b9cda19b6285c05d9ee85052be0ad"
+    "content_hash": "c0f5f7d4f7665d2ca57166059339d5134b0f542c2ee1f8138759c7de83939201",
+    "notes_hash": "aa0f7729f49e38bcbe14d4cb5bb52b320879cdc1152ee0666cf5f6ce6c090a95",
+    "model_hash": "0fe88136087fcd7cd971025ee45f23e568758ea3534dd6981fd1ac44e57ec04b"
   },
   "geo_code": "KN",
   "node_type": "country",

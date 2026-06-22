@@ -13,10 +13,10 @@
       "scope": "PERSONAL_USE"
     },
     "medical": {
-      "raw_status": "LEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
       "override_reason": null
     },
     "distribution": {
@@ -38,8 +38,8 @@
     ],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is legal in Delaware under state law for recreational adult use. Medical cannabis is also legal in Delaware. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
+  "notes_normalized": "Cannabis is legal in Delaware under state law for recreational adult use. Medical cannabis is not broadly legal in Delaware. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Cannabis in Delaware is legal for medicinal and recreational use. Medical cannabis (2011). State data on patients who received marijuana cards in 2015 showed that the primary medical conditions being treated for cardholders were pain (36.3%), muscle spasms (21.6%), and cancer (9.3%). The first medical marijuana clinic in Delaware opened in Wilmington in June 2015. As of that date, some 340 Delaware residents held cards from the Delaware Health and Social Services, allowing them to purchase marijuana in order to treat their medical conditions. Under the legislation, it remains illegal for minors (persons under age 21) to possess cannabis. Additionally, smoking cannabis \"in a moving vehicle, in public areas, or outdoors on private property within of a street, sidewalk or other area accessible to the public\" is also a misdemeanor. but such bills failed to receive the required number of votes in the Delaware legislature. The first licensed cannabis sales occurred over two years later on August 1, 2025.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -59,8 +59,8 @@
   "related_codes": [
     "usa",
     "us-va",
-    "us-nc",
-    "us-wv"
+    "us-ct",
+    "us-ny"
   ],
   "related_names": [
     {
@@ -72,12 +72,12 @@
       "name": "Virginia"
     },
     {
-      "code": "us-nc",
-      "name": "North Carolina"
+      "code": "us-ct",
+      "name": "Connecticut"
     },
     {
-      "code": "us-wv",
-      "name": "West Virginia"
+      "code": "us-ny",
+      "name": "New York"
     }
   ],
   "graph": {
@@ -99,16 +99,16 @@
     ],
     "legal_similarity": [
       {
-        "code": "us-ct",
-        "name": "Connecticut"
+        "code": "us-me",
+        "name": "Maine"
       },
       {
-        "code": "us-ny",
-        "name": "New York"
+        "code": "us-mn",
+        "name": "Minnesota"
       },
       {
-        "code": "us-ri",
-        "name": "Rhode Island"
+        "code": "us-nm",
+        "name": "New Mexico"
       }
     ],
     "cluster_links": [
@@ -117,8 +117,8 @@
         "name": "United States"
       },
       {
-        "code": "us-ma",
-        "name": "Massachusetts"
+        "code": "us-nc",
+        "name": "North Carolina"
       }
     ],
     "same_country_states": [
@@ -127,12 +127,12 @@
         "name": "Virginia"
       },
       {
-        "code": "us-nc",
-        "name": "North Carolina"
+        "code": "us-ct",
+        "name": "Connecticut"
       },
       {
-        "code": "us-wv",
-        "name": "West Virginia"
+        "code": "us-ny",
+        "name": "New York"
       }
     ],
     "federal_parent": {
@@ -174,9 +174,9 @@
   },
   "hashes": {
     "code": "us-de",
-    "content_hash": "bba83cdf88117e312772132de66342b051f5db152c990f91552e6d24e86ffd02",
-    "notes_hash": "9885c9ceffa96af17ea0edf90572cfa49044bea5152e1b90f54e52ca52d63774",
-    "model_hash": "c8d1fc1a36748010e7e8b56b2a7634830dced43e96ac398504e2cc2e1ab40f98"
+    "content_hash": "ece61aac1d0c7e2df391ee50155bd66b4f5d62abf2fbbdc6959e4e886375cf0d",
+    "notes_hash": "9fadf182aec990d53ce1d6cf4a360ce722b3be794c5420b8bb7870b3048782b7",
+    "model_hash": "aef2537ae411ec9c87496de708208a6c9c5e1606a2eed489fe845cf9ae0b7adb"
   },
   "updated_at": "2026-04-10"
 }

@@ -29,8 +29,7 @@
       "enforcement": "fine-based",
       "flags": [],
       "modifiers": [
-        "may",
-        "but"
+        "may"
       ]
     },
     "signals": {
@@ -39,7 +38,7 @@
       "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 3,
+        "prison_priority": 1,
         "arrest": false,
         "fine": true,
         "severity_score": 4,
@@ -110,16 +109,15 @@
         "rule: penalty_fine | source: Tunisia / تونس | type: summary | priority: 1 | scope: cultivation",
         "rule: penalty_years | source: Tunisia / تونس | type: summary | priority: 1 | scope: cultivation",
         "rule: raw_illegal | source: Cannabis in Tunisia | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Tunisia | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in Tunisia | type: traversal | priority: 3 | scope: general"
+        "rule: illegal | source: Cannabis in Tunisia | type: traversal | priority: 3 | scope: general"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 916,
-        "source_confidence": "prison_signal",
+        "article_len": 137,
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": true,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": "illegal",
@@ -238,9 +236,9 @@
   },
   "hashes": {
     "code": "tun",
-    "content_hash": "390030871fea036e2c262df94f6431aef4b094979e6942439cd2403bcd7d27cd",
+    "content_hash": "7fb202cbc0b9f4dedb658744987294d2c767302543ff3ab192b336680cc91a90",
     "notes_hash": "cb060f565d93c84c53b5fa2714660d89a8342e7fe4b5ce9801faf4b2006dd22d",
-    "model_hash": "2cab5c3aa1d1c83437902faf337a18ce12845d93ad834ab266882f735545f835"
+    "model_hash": "fb101b0dbce372b0050791d5060d2fa99e24ca35fe746ab370fe5dcfea9d52df"
   },
   "geo_code": "TN",
   "node_type": "country",

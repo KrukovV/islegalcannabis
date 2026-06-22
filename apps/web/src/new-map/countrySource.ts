@@ -2,8 +2,15 @@ import type { Feature, FeatureCollection, Geometry, MultiPolygon, Point, Polygon
 import { buildGeoJson } from "@/lib/mapData";
 import {
   buildCountryCardIndexFromStorage,
+  deriveMapCategoryFromCountryPageData,
   getCountryPageIndexByGeoCode,
 } from "@/lib/countryPageStorage";
+import { getStatusReviewOverride } from "@/lib/statusReviewOverrides";
+import {
+  buildTerritoryParentLawSummary,
+  inferJurisdictionContextNotes,
+  inferParentCountryFromGeoCode
+} from "./territoryParent";
 import type { AdminBoundaryCollection, CountryCardEntry, LegalCountryCollection, LegalCountryFeatureProperties } from "./map.types";
 import {
   resolveLegalFillColor,
@@ -47,6 +54,28 @@ function buildMapFeatureFallbackCardEntry(
   const pointFallbackLabel = String(feature.properties?.pointFallbackLabel || "").trim();
   const popupDisplayName = pointFallbackLabel || displayName;
   const mapCategory = String(feature.properties?.mapCategory || "UNKNOWN") as CountryCardEntry["mapCategory"];
+  const statusReviewOverride = getStatusReviewOverride(geo);
+  const parentCountry = inferParentCountryFromGeoCode(geo);
+  const parentLawSummary = parentCountry
+    ? buildTerritoryParentLawSummary(parentCountry.name, popupDisplayName)
+    : null;
+  const fallbackTargetCode = parentCountry?.code?.toLowerCase() || geo.toLowerCase();
+  const fallbackPageHref = parentCountry ? `/c/${fallbackTargetCode}` : `/new-map?geo=${encodeURIComponent(geo)}`;
+  const fallbackNotes = [
+    statusReviewOverride?.notes,
+    getHumanStatusSummary(mapCategory),
+    parentLawSummary
+  ]
+    .filter((item) => typeof item === "string" && item.trim())
+    .join(" ");
+  const jurisdictionContextNotes = inferJurisdictionContextNotes(
+    { countryName: popupDisplayName },
+    parentCountry
+  );
+  const overrideSources =
+    statusReviewOverride?.sources
+      ?.map((url, index) => ({ id: `${geo.toLowerCase()}-override-${index}`, title: "Status review source", url })) || [];
+
   const labelCoordinates = {
     lng: Number(feature.properties?.labelAnchorLng),
     lat: Number(feature.properties?.labelAnchorLat)
@@ -70,7 +99,7 @@ function buildMapFeatureFallbackCardEntry(
   return {
     geo,
     code: geo.toLowerCase(),
-    pageHref: `/new-map?geo=${encodeURIComponent(geo)}`,
+    pageHref: fallbackPageHref,
     detailsHref: null,
     displayName: popupDisplayName,
     iso2: geo,
@@ -85,10 +114,12 @@ function buildMapFeatureFallbackCardEntry(
     },
     mapCategory,
     mapReason: getHumanStatusSummary(mapCategory),
-    normalizedStatusSummary: popupDisplayName,
+    normalizedStatusSummary: `${popupDisplayName}. ${getHumanStatusSummary(mapCategory)}`,
     recreationalSummary: getHumanStatusHeadline(mapCategory),
     medicalSummary: getHumanStatusSummary(mapCategory),
-    distributionSummary: "Fallback territory marker",
+    distributionSummary: parentCountry
+      ? `${popupDisplayName} follows ${parentCountry.name} for legal references.`
+      : getHumanStatusHeadline(mapCategory),
     normalizedRecreationalStatus: "Unknown",
     normalizedRecreationalEnforcement: "Unknown",
     normalizedRecreationalScope: "Unknown",
@@ -98,7 +129,10 @@ function buildMapFeatureFallbackCardEntry(
     distributionFlags: [],
     statusFlags: [],
     cannabisProfile: null,
-    notes: popupDisplayName,
+    parentCountry: parentCountry || undefined,
+    parentLawSummary,
+    jurisdictionContextNotes,
+    notes: fallbackNotes,
     panel: {
       levelTitle: getHumanStatusLevel(mapCategory),
       summary: getHumanStatusHeadline(mapCategory),
@@ -108,11 +142,11 @@ function buildMapFeatureFallbackCardEntry(
         {
           id: `why-${geo.toLowerCase()}`,
           text: getHumanStatusSummary(mapCategory),
-          href: `/new-map?geo=${encodeURIComponent(geo)}`
+          href: parentCountry ? `/c/${fallbackTargetCode}` : `/new-map?geo=${encodeURIComponent(geo)}`
         }
       ]
     },
-    sources: [],
+    sources: overrideSources,
     ...(coordinates ? { coordinates } : {})
   };
 }
@@ -120,12 +154,18 @@ function buildMapFeatureFallbackCardEntry(
 export function buildCountrySourceSnapshot(): LegalCountryCollection {
   if (countrySourceCache) return countrySourceCache;
   const snapshot = buildGeoJson("countries") as FeatureCollection;
+  const countryPageByGeo = getCountryPageIndexByGeoCode();
   const features = snapshot.features
     .filter((feature): feature is Feature<Polygon | MultiPolygon | Point> => isRenderableCountryGeometry(feature.geometry))
     .map((feature) => {
       const geo = String(feature.properties?.geo || "").trim().toUpperCase();
-      const mapCategory = String(feature.properties?.mapCategory || "UNKNOWN") as
-        SnapshotMapCategory;
+      const countryPageData = countryPageByGeo.get(geo);
+      const derivedMapCategory = countryPageData
+        ? deriveMapCategoryFromCountryPageData(countryPageData)
+        : null;
+      const mapCategory = String(
+        derivedMapCategory || feature.properties?.mapCategory || "UNKNOWN"
+      ) as SnapshotMapCategory;
       const resultStatus = resultStatusFromMapCategory(mapCategory);
       const baseColor = geo === "AQ" ? ANTARCTICA_FILL_COLOR : resolveLegalFillColor(mapCategory);
       const hoverColor = geo === "AQ" ? ANTARCTICA_HOVER_COLOR : resolveLegalHoverColor(mapCategory);

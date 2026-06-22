@@ -102,6 +102,8 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Armenia / Հայաստան | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Armenia / Հայաստան | type: summary | priority: 1 | scope: general",
         "rule: raw_illegal | source: Cannabis in Armenia | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Armenia | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Cannabis in Armenia | type: traversal | priority: 3 | scope: use",
@@ -117,7 +119,7 @@
           "prison_article": true,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
+          "distribution_notes": "illegal",
           "distribution_article": "illegal"
         }
       }
@@ -229,9 +231,9 @@
   },
   "hashes": {
     "code": "arm",
-    "content_hash": "cca94616fbcbe9ff7334a374b5b12bcb74aafb97e62f24846846ca9a355b67e7",
+    "content_hash": "a7346dac31eea2d16e05792d47f7549f8fb08318ed94834ca01c39f77cad69a5",
     "notes_hash": "004a24d51da8bd9c26ff285564e93d7ab2fc15e1a1bf005c36569d9ba7a5fe3b",
-    "model_hash": "9e0bb1687c40cdb3e0cff75d6ec2b19e04ee9e92e65c01899f8207c90af6abb5"
+    "model_hash": "797fa0025d1c537bf3ccf5cd36c76cf90069c06a7397a5eb4a2456efd896dfda"
   },
   "geo_code": "AM",
   "node_type": "country",

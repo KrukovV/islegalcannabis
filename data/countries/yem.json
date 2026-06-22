@@ -80,7 +80,7 @@
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 399,
+        "article_len": 73,
         "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
@@ -197,9 +197,9 @@
   },
   "hashes": {
     "code": "yem",
-    "content_hash": "6bd553afc0714692e381101be457186d819c73ad196e8340ca3dd124eca066de",
+    "content_hash": "41002c52af3a18be5a312e25316a8663c5ccd942fcc6a0591d3844e83c412d43",
     "notes_hash": "6c90f9be1701205c93f3521301b40501435791124b2765a5666926d99177ce63",
-    "model_hash": "de77d2e593638cf0ae39805f4651beb7709b0cf3b7564224e247c15cbb1ae675"
+    "model_hash": "3257d26374e5f86dc513c00ae6e9052f57dbc0f82f180ab91f641e1847d6d355"
   },
   "geo_code": "YE",
   "node_type": "country",

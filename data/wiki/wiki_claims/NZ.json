@@ -5,10 +5,25 @@
   "row_ref": "country:131",
   "wiki_rec": "Illegal",
   "wiki_med": "Legal",
-  "sources": [],
-  "sources_count": 0,
-  "main_articles": [],
-  "notes_main_articles": [],
+  "sources": [
+    {
+      "title": "Legality of cannabis",
+      "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Legality of cannabis",
+      "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Legality of cannabis",
+      "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis"
+    }
+  ],
   "notes_text": "Banned in 1927. Possession over 28 g is presumed for supply. Medical use was legalized in 2018. In 2020, a referendum to legalize recreational use failed by a 50.7% to 48.4% margin.",
   "notes_text_len": 181,
   "notes": "Banned in 1927. Possession over 28 g is presumed for supply. Medical use was legalized in 2018. In 2020, a referendum to legalize recreational use failed by a 50.7% to 48.4% margin.",
@@ -26,10 +41,11 @@
   "primary_source": "WIKI_COUNTRIES",
   "source_page": "Legality of cannabis",
   "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-  "source_revision": "1336080043",
+  "source_revision": "1360109215",
   "source_table": "countries",
-  "wiki_revision_id": "1336080043",
-  "fetched_at": "2026-02-12T19:20:54.889Z",
+  "wiki_revision_id": "1360109215",
+  "fetched_at": "2026-06-21T17:29:39.863Z",
+  "sources_reason_code": "",
   "source": "countries",
-  "revision_id": "1336080043"
+  "revision_id": "1360109215"
 }

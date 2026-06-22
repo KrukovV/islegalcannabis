@@ -38,8 +38,8 @@
     ],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is legal in Vermont under state law for recreational adult use. Medical cannabis is also legal in Vermont. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
+  "notes_normalized": "Cannabis is legal in Vermont under state law for recreational adult use. Medical cannabis is also legal under a regulated state program in Vermont. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Cannabis in Vermont as of May 2004 is legal for medical use, and legal for recreational use as of July 1, 2018. As part of a larger trend of restricting cannabis in the early 20th century, Vermont banned the drug in 1915. On May 19, 2004, Vermont legalized medical cannabis when Governor James Douglas announced he would allow Senate Bill 76 to pass without his signature. In April 2015, as a form of political theater, two state representatives facetiously introduced HB502, which would re-illegalize alcohol, giving it penalties equivalent to those for cannabis. In 2015, Senate Bill 95 and House bill 277 were submitted, proposing a regulated system of legal recreational cannabis sales, however neither bill passed during the 2015 legislative session. In May 2017, the Vermont House approved a bill to allow personal possession, use, and cultivation of cannabis but not commercial sales by a 74–68 vote, while the Vermont Senate in April approved a broader bill allowing cannabis commercial sale by a 21–9 vote. On May 10, 2017, a joint bill formerly concerning fentanyl was amended to legalize cannabis, and approved by the entire state legislature, for the first time in U.S. history. The bill, titled S.22 \"An act relating to increased penalties for possession, sale, and dispensation of fentanyl\", was amended to allow possession of an ounce of cannabis under title 18 of the Vermont Statutes Annotated. On June 6, 2013, Governor Peter Shumlin signed HB200 which decriminalized the possession of 1 ounce or less to a civil infraction. In April 2015, as a form of political theater, two state representatives facetiously introduced HB502, which would re-illegalize alcohol, giving it penalties equivalent to those for cannabis. The bill, titled S.22 \"An act relating to increased penalties for possession, sale, and dispensation of fentanyl\", was amended to allow possession of an ounce of cannabis under title 18 of the Vermont Statutes Annotated.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -58,7 +58,7 @@
   },
   "related_codes": [
     "usa",
-    "us-nj",
+    "us-me",
     "us-pa",
     "us-de"
   ],
@@ -68,8 +68,8 @@
       "name": "United States"
     },
     {
-      "code": "us-nj",
-      "name": "New Jersey"
+      "code": "us-me",
+      "name": "Maine"
     },
     {
       "code": "us-pa",
@@ -107,8 +107,8 @@
         "name": "Rhode Island"
       },
       {
-        "code": "us-me",
-        "name": "Maine"
+        "code": "us-nj",
+        "name": "New Jersey"
       }
     ],
     "cluster_links": [
@@ -123,8 +123,8 @@
     ],
     "same_country_states": [
       {
-        "code": "us-nj",
-        "name": "New Jersey"
+        "code": "us-me",
+        "name": "Maine"
       },
       {
         "code": "us-pa",
@@ -174,9 +174,9 @@
   },
   "hashes": {
     "code": "us-vt",
-    "content_hash": "ee1be3d2dbdfa4fbee52dc4f3a8aae86783a9cf8c03ab4238d29f56c9dc4ca34",
-    "notes_hash": "1636788066b8e3a18ff09192cc12a59a408880d437fd764029abd9b4d37d3972",
-    "model_hash": "d015ab85c6acde50a4cede81f78cb17bb0ffe11fde5fcd44ce1501879d28f68b"
+    "content_hash": "0032b753083d30cbeac562652ab1badd7953a217f292481c19d6b84f1da05845",
+    "notes_hash": "7df67e382cdcf317441d1fb377e1749593559cd09486aa6ecc08afd253f1e5d4",
+    "model_hash": "45b1e2b95265bb4b94a7e1c9b5eb9f78eea940985cdd2af5e871b6d8dd567f65"
   },
   "updated_at": "2026-04-10"
 }

@@ -36,8 +36,8 @@
     "enforcement_flags": [],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is illegal in Virginia for recreational use under state law, but medical cannabis is available in limited form. Cannabis remains federally illegal in United States. Possession is limited to varies (see official sources).",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
+  "notes_normalized": "Cannabis is illegal in Virginia for recreational use under state law, but medical cannabis is legal under a regulated state program. Cannabis remains federally illegal in United States. Possession is limited to varies (see official sources).",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Cannabis in Virginia is legal for for medical and adult recreational use. Virginia initially decriminalized simple marijuana possession effective July 2020, and the first medical dispensary opened in August 2020. Recreational use was legalized effective July 2021, allowing adults to possess one ounce (28 g), cultivate four plants per household, and share cannabis when there is no commercial transaction. While Virginia became the first of the southern United States to legalize cannabis, retail sales remain limited to medical patients. Adult recreational cannabis products are neither regulated nor licensed for sale in Virginia. In the 1990s, the Virginia General Assembly tightened the laws on cannabis, but added a provision allowing its use and distribution for cancer and glaucoma. Virginia Senate's Courts of Justice committee rejected bills in 2015 to decriminalize cannabis and remove the smoke a joint, lose your license provision in the Virginia Code. Before July 2020 in the Commonwealth of Virginia, possession of cannabis as a first offense was an unclassified misdemeanor, with a maximum penalty of 30 days in jail and/or $500 fine (or both), and loss of driving privileges. Virginia initially decriminalized simple marijuana possession effective July 2020, and the first medical dispensary opened in August 2020. In the 1990s, Virginia also had some of the lightest penalties for cultivation in the United States; cultivation of any amount for personal use counted as simple possession (otherwise it carried felony penalties of up to 35 years imprisonment). Before July 2020 in the Commonwealth of Virginia, possession of cannabis as a first offense was an unclassified misdemeanor, with a maximum penalty of 30 days in jail and/or $500 fine (or both), and loss of driving privileges. A subsequent offense was previously a Class 1 misdemeanor, with a maximum penalty of 12 months in confinement and a $2,500 fine (or both), plus loss of driving privileges. As of July 1, 2020, possession of less than was decriminalized to a civil offense punishable by a $25 fine. Virginia was to become the 27th state to remove the threat of jail time for low-level marijuana possession. This legislation decriminalized cannabis per possession of less than of, which carries the presumption of personal use, carrying a $25 civil fine. On January 22, Virginia SB 1406, \"Marijuana; legalization of simple possession, penalties\", sponsored by senators Adam Ebbin and Louise Lucas, was advanced by the state Senate Rehabilitation and Social Services Committee. Governor Spanberger subsequently sent the bill back to the legislature with several amendments, which would have delayed the launch of retail sales from January to July 2027 and increased penalties for public consumption of marijuana.",
   "facts": {
     "possession_limit": "varies (see official sources)",
     "cultivation": null,
@@ -101,12 +101,12 @@
         "name": "Pennsylvania"
       },
       {
-        "code": "us-fl",
-        "name": "Florida"
+        "code": "us-ky",
+        "name": "Kentucky"
       },
       {
-        "code": "us-tx",
-        "name": "Texas"
+        "code": "us-tn",
+        "name": "Tennessee"
       }
     ],
     "cluster_links": [
@@ -179,9 +179,9 @@
   },
   "hashes": {
     "code": "us-va",
-    "content_hash": "9633cdb531d623fe00c8dbba0367a25b3169085211a5c0dce62ca990ea7cb7bb",
-    "notes_hash": "a27597f49e9f10762bd6ecbfd6aab01bbe4cf8e5ed88e4f64bcd12e7e49e6511",
-    "model_hash": "969070e5e1ed9d1ec988ac30a277a5146b495b1cbee4a0597c1dde78feffb5c2"
+    "content_hash": "d2769a4fdbb7aa0cfabd6a6fd86e7b4460ef726a5acca29e8aba4d3902927d53",
+    "notes_hash": "c55b2c9270ef50dda6d3026060143a97597f1a2ca37014a465f9c8ce75adc5e0",
+    "model_hash": "9f4c73d955d43cd90f99defaa8cb1910e05feaeed76ff9deb127b39e2028f9a8"
   },
   "updated_at": "2024-01-01"
 }

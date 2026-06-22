@@ -28,7 +28,9 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "but"
+      ]
     },
     "signals": {
       "status": "illegal",
@@ -81,10 +83,11 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Honduras | type: summary | priority: 1 | scope: trafficking",
-        "rule: trafficking_illegal | source: Honduras | type: summary | priority: 1 | scope: trafficking",
-        "rule: sale_illegal | source: Honduras | type: summary | priority: 1 | scope: trafficking",
-        "rule: illegal | source: Honduras | type: summary | priority: 1 | scope: trafficking",
+        "rule: raw_illegal | source: Honduras | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Honduras | type: summary | priority: 1 | scope: general",
+        "rule: raw_illegal | source: Honduras | type: summary | priority: 1 | scope: sale",
+        "rule: sale_illegal | source: Honduras | type: summary | priority: 1 | scope: sale",
+        "rule: illegal | source: Honduras | type: summary | priority: 1 | scope: sale",
         "rule: raw_illegal | source: Cannabis in Honduras | type: traversal | priority: 3 | scope: trafficking",
         "rule: trafficking_illegal | source: Cannabis in Honduras | type: traversal | priority: 3 | scope: trafficking",
         "rule: sale_illegal | source: Cannabis in Honduras | type: traversal | priority: 3 | scope: trafficking",
@@ -92,7 +95,7 @@
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 104,
+        "article_len": 85,
         "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
@@ -111,7 +114,7 @@
     "notes_normalized": "Cannabis is illegal in Honduras. Medical cannabis is illegal. Distribution is illegal."
   },
   "notes_normalized": "Cannabis is illegal in Honduras. Medical cannabis is illegal. Distribution is illegal.",
-  "notes_raw": "{{main|Cannabis in Honduras}} The possession, sale, transportation, and cultivation of cannabis is illegal.<ref>{{Cite web|url=http://www.poderjudicial.gob.hn/juris/Leyes/Ley%20sobre%20uso%20Indebido%20y%20Trafico%20Ilicito%20de%20Drogas%20y%20Sustancias%20Psicotropicas.pdf|title=Ley Sobre Uso Indebido y Trafico Ilicito de Drogas y Sustancias Psicotropicas|access-date=5 June 2018|archive-date=18 November 2017|archive-url=https://web.archive.org/web/20171118051130/http://www.poderjudicial.gob.hn/juris/Leyes/Ley%20sobre%20uso%20Indebido%20y%20Trafico%20Ilicito%20de%20Drogas%20y%20Sustancias%20Psicotropicas.pdf|url-status=dead}}</ref>",
+  "notes_raw": "Cannabis is illegal in Honduras. Medical cannabis is illegal. Distribution is illegal.",
   "facts": {
     "possession_limit": null,
     "cultivation": "cultivation of cannabis is illegal.",
@@ -209,9 +212,9 @@
   },
   "hashes": {
     "code": "hnd",
-    "content_hash": "21201ddf9ff81f244528d9985986821d4b64b9629fac127269d49599ba96f4fc",
+    "content_hash": "51ba266b0adc42e8e7a678bde68fb0f57efac040d6e9b07d32d71550c03cc1f0",
     "notes_hash": "4fc807051916b0fab6b2053b42f5e74d3f606d41583dec2c09c936d803d8149d",
-    "model_hash": "d6917e9976a8df44ae8a32bb94c2ff3077e3260b7e6be0616c42517f715ddb73"
+    "model_hash": "93ae0fe3b6888ad616cd8b72fd9716d5dcb1da986f388176ab8fc8a65ff3b1de"
   },
   "geo_code": "HN",
   "node_type": "country",

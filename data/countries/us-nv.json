@@ -38,8 +38,8 @@
     ],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is legal in Nevada under state law for recreational adult use. Medical cannabis is also legal in Nevada. Cannabis remains federally illegal in United States. Possession is limited to varies (see official sources).",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
+  "notes_normalized": "Cannabis is legal in Nevada under state law for recreational adult use. Medical cannabis is also legal under a regulated state program in Nevada. Cannabis remains federally illegal in United States. Possession is limited to varies (see official sources).",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Cannabis in Nevada became legal for recreational use on January 1, 2017, following the passage of Question 2 on the 2016 ballot with 54% of the vote. The first licensed sales of recreational cannabis began on July 1, 2017. The first medical cannabis dispensary opened on July 31, 2015. Nevada first banned cannabis in 1923, during a nationwide trend of states limiting the drug between 1911 and 1933. Nevada Medical Marijuana Act (1998, 2000). A ballot measure to legalize cannabis for medical use, the Nevada Medical Marijuana Act, passed with 59% of the vote in 1998. Prior to the passage of AB 453, Nevada was the only state for which possessing any amount of cannabis was a felony. Titled the Decriminalization of Marijuana Amendment, the measure would have legalized the possession of up to three ounces of cannabis and allowed it to be sold at dispensaries. It would have legalized the possession of up to an ounce of cannabis and allowed it to be sold at dispensaries, while also increasing penalties for some cannabis offenses. Violators will be penalized with a $400 fine, 2 days in jail, 48 – 96 hours of community service to $5000 fine and 1 – 6 years in prison depending on the first, second and third offence. If no felony charges for distribution or trafficking of controlled substances, the applicant will be approved for their MMR card subject to further approval by the Division. Nevada Laws and Penalties (NORML) Nevada Division of Public and Behavioral Health Medical Marijuana Page Text of Question 2 that appeared on November 2016 ballot",
   "facts": {
     "possession_limit": "varies (see official sources)",
     "cultivation": null,
@@ -181,9 +181,9 @@
   },
   "hashes": {
     "code": "us-nv",
-    "content_hash": "5d045ec2096215cce2ac0e3603d27e80650a4540ab81fb510f62e6cbb4be8751",
-    "notes_hash": "d869da2b8cd4fb1d720376f09b9d9ea17bf6deeb4ae44e7db1ac078900721f31",
-    "model_hash": "fd47a57a8def96a66cfe449dc8e84d4af9670348a005706d1d32884b14a987f5"
+    "content_hash": "5992ed69cd03d39889c721b74ed9c7241305e31eff75244ff5029dab872d47d4",
+    "notes_hash": "d7497c9eb8f2040ba733fa09e925ede73207d158237ead44aabbffc2dbaf60e8",
+    "model_hash": "45ac9e03f6601092c84acb7e4e22ce83064172335c43abe91dd6ab6730db7838"
   },
   "updated_at": "2024-01-01"
 }

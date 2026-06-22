@@ -22,9 +22,9 @@
         "possession": null,
         "use": null,
         "sale": null,
-        "cultivation": "tolerated",
+        "cultivation": null,
         "import": null,
-        "trafficking": "illegal"
+        "trafficking": null
       },
       "enforcement": "standard",
       "flags": [],
@@ -55,19 +55,13 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Lebanon / لبنان",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Lebanon",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Lebanon",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Hashish!",
@@ -98,43 +92,38 @@
           "url": "https://www.lbcgroup.tv/news/lebanon-news/867538/lebanon-sees-high-economic-hopes-in-regulated-cannabis-sector/en",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Rapport sur la situation de la Syrie et du Liban",
+          "url": "https://books.google.com/books?id=ks_mAAAAMAAJ",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: illegal | source: Lebanon / لبنان | type: summary | priority: 1 | scope: general",
         "rule: illegal | source: Lebanon / لبنان | type: summary | priority: 1 | scope: cultivation",
         "rule: medical_legal | source: Lebanon / لبنان | type: summary | priority: 1 | scope: cultivation",
-        "rule: legal | source: Cannabis in Lebanon | type: traversal | priority: 3 | scope: cultivation",
-        "rule: raw_illegal | source: Cannabis in Lebanon | type: traversal | priority: 3 | scope: cultivation",
-        "rule: private_cultivation | source: Cannabis in Lebanon | type: traversal | priority: 3 | scope: cultivation",
-        "rule: illegal | source: Cannabis in Lebanon | type: traversal | priority: 3 | scope: cultivation",
-        "rule: raw_illegal | source: Cannabis in Lebanon | type: traversal | priority: 3 | scope: trafficking",
-        "rule: trafficking_illegal | source: Cannabis in Lebanon | type: traversal | priority: 3 | scope: trafficking",
-        "rule: illegal | source: Cannabis in Lebanon | type: traversal | priority: 3 | scope: trafficking",
-        "rule: medical_legal | source: Cannabis in Lebanon | type: traversal | priority: 3 | scope: cultivation",
-        "rule: raw_illegal | source: Cannabis in Lebanon | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Lebanon | type: traversal | priority: 3 | scope: general"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 2261,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": "illegal",
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
     "enforcement_flags": [],
     "applied_rules": [
       "illegal",
-      "medical_legal",
-      "raw_illegal",
-      "private_cultivation"
+      "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Lebanon / لبنان. Medical cannabis is legal. Distribution is illegal."
   },
@@ -237,9 +226,9 @@
   },
   "hashes": {
     "code": "lbn",
-    "content_hash": "aa060a3e5b20243fa87e156307d7ef90acb32e2b1fe1b929532767700fe4146c",
+    "content_hash": "fa30dec8e25f3673e46fb546486185e459d1196fd29185baf6637601d40224cd",
     "notes_hash": "465283faecce66a0a50a02b7ca506300b1a7f1b72e6583fac58a67a1d684327a",
-    "model_hash": "4ed0ec65e4a913fd39c482909123d877acbb301a5f0f4795b251fb43058eaece"
+    "model_hash": "4d13856dcde44794f88aa1270c28c7a16c4f8e8ab9a9133f1651e78831f4bbed"
   },
   "geo_code": "LB",
   "node_type": "country",

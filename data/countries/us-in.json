@@ -13,8 +13,8 @@
       "scope": "NONE"
     },
     "medical": {
-      "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
+      "raw_status": "LIMITED",
+      "status": "LIMITED",
       "enforcement": "STRICT",
       "scope": "NONE",
       "override_reason": null
@@ -36,8 +36,8 @@
     "enforcement_flags": [],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is illegal in Indiana under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}}",
+  "notes_normalized": "Cannabis is illegal in Indiana for recreational use under state law, but medical cannabis is available only in limited form. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}} Cannabis in Indiana is illegal for recreational use, with the exception of limited medical usage. In 1913, Indiana banned the sale of marijuana without a prescription. In February 2013, a bill to decriminalize small amounts of marijuana was killed in committee. Following that, the Senate offered an amendment to the previously approved House Bill 1006, which had included decreased penalties for cannabis possession, with an amendment to instead raise certain types of possession from misdemeanors to felonies. On September 30, 2019, possession of of marijuana or less was decriminalized in Marion County. State Senators Michael Young and Liz Brown introduced a bill during the 2022 session to outlaw delta-8 products, but it died in session due to concerns that it would outlaw CBD oil. First Church of Cannabis. Pending the 2015 passage of Indiana's Religious Freedom Restoration Act (RFRA), Bill Levin created the First Church of Cannabis in Indiana. Possession of any amount is a Class B misdemeanor, punishable by up to 180 days in prison and a fine of up to $1000. Failed attempts to raise or lower penalties (2013). Following that, the Senate offered an amendment to the previously approved House Bill 1006, which had included decreased penalties for cannabis possession, with an amendment to instead raise certain types of possession from misdemeanors to felonies. Governor Mike Pence stated: \"I think we need to focus on reducing crime, not reducing penalties.\". On September 30, 2019, possession of of marijuana or less was decriminalized in Marion County. Laws affecting possession, cultivation and sale of marijuana were amended to reduce the penalties for simple possession, but enhance the penalties for delivery, and possession with the intent to deliver, in certain circumstances (amendments effective on July 1, 2014, under IC 35-48-4). Sale or cultivation of more than 10 lbs or within 1,000 feet of a school, or any other specialized area, will result in a minimum of 2–8 years and a $10,000 fine.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -56,9 +56,9 @@
   },
   "related_codes": [
     "usa",
+    "us-tn",
     "us-mi",
-    "us-mo",
-    "us-al"
+    "us-wv"
   ],
   "related_names": [
     {
@@ -66,16 +66,16 @@
       "name": "United States"
     },
     {
+      "code": "us-tn",
+      "name": "Tennessee"
+    },
+    {
       "code": "us-mi",
       "name": "Michigan"
     },
     {
-      "code": "us-mo",
-      "name": "Missouri"
-    },
-    {
-      "code": "us-al",
-      "name": "Alabama"
+      "code": "us-wv",
+      "name": "West Virginia"
     }
   ],
   "graph": {
@@ -97,16 +97,16 @@
     ],
     "legal_similarity": [
       {
-        "code": "us-tn",
-        "name": "Tennessee"
-      },
-      {
-        "code": "us-wv",
-        "name": "West Virginia"
-      },
-      {
         "code": "us-wi",
         "name": "Wisconsin"
+      },
+      {
+        "code": "us-ia",
+        "name": "Iowa"
+      },
+      {
+        "code": "us-sc",
+        "name": "South Carolina"
       }
     ],
     "cluster_links": [
@@ -115,22 +115,22 @@
         "name": "United States"
       },
       {
-        "code": "us-ga",
-        "name": "Georgia"
+        "code": "us-mo",
+        "name": "Missouri"
       }
     ],
     "same_country_states": [
+      {
+        "code": "us-tn",
+        "name": "Tennessee"
+      },
       {
         "code": "us-mi",
         "name": "Michigan"
       },
       {
-        "code": "us-mo",
-        "name": "Missouri"
-      },
-      {
-        "code": "us-al",
-        "name": "Alabama"
+        "code": "us-wv",
+        "name": "West Virginia"
       }
     ],
     "federal_parent": {
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-in",
-    "content_hash": "53feb467e54b71af89537f271b1f29990cfa89f7fe09b9254e0d207fb54146c5",
-    "notes_hash": "763be14f0b725fdcbed91eb09de6913e0c46b0100a10172c58169c7e949c0e90",
-    "model_hash": "9de5e015ad710c64f5a79fd0fe270cf01e505d8d85dc139e106e914ab388b61d"
+    "content_hash": "0d5396dd76b86f9367da58a71ca57f520bd4b0128cfcbabd8024a073ca85da4f",
+    "notes_hash": "6c67489299f91972d945cc00c37a26a449755fe8aff2133f2e15383b374ea38e",
+    "model_hash": "017ce3b22da270cf81c6ddaecd974ace0b12093e8edfadbad5084df18927285f"
   },
   "updated_at": "2026-04-10"
 }

@@ -28,9 +28,7 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": [
-        "only"
-      ]
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
@@ -64,12 +62,6 @@
           "type": "summary"
         },
         {
-          "title": "Cannabis in Togo",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Togo",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
           "title": "International Narcotics Control Strategy Report, 1995",
           "url": "https://books.google.com/books?id=w0DlWjK3YCEC&pg=PA452",
           "depth": 2,
@@ -77,20 +69,21 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Togo | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Togo | type: traversal | priority: 3 | scope: general"
+        "rule: raw_illegal | source: Togo | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Togo | type: summary | priority: 1 | scope: general",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 149,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_notes": "illegal",
+          "distribution_article": null
         }
       }
     },
@@ -199,9 +192,9 @@
   },
   "hashes": {
     "code": "tgo",
-    "content_hash": "09a51f1ee190be56b227c487a7020c178bd433899ec65fdf7cfab8bf1e02073d",
+    "content_hash": "c87f08bfa5a2257d925274194d6f47ad052c912a3b538c1cd0d86fd890f1fe16",
     "notes_hash": "729a48e64e7c320790012e02ae0f749bbb6907a70bb8501ddab605f7c16a5484",
-    "model_hash": "0557274514c41beba2962b2e19f81e58833d5c403d1b8d10a2fd342fcc89adb4"
+    "model_hash": "7f9d8a15650f8e68c13b936b3fbb726c2ca5cfdef5849ce29a0bd8214cc331ea"
   },
   "geo_code": "TG",
   "node_type": "country",

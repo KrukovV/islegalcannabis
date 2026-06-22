@@ -16,8 +16,8 @@
       "raw_status": "LIMITED",
       "status": "LIMITED",
       "enforcement": "STRICT",
-      "scope": "MEDICAL_ONLY",
-      "override_reason": "STATUS_GOVERNANCE_REVIEW_KS_LIMITED_CBD"
+      "scope": "NONE",
+      "override_reason": null
     },
     "distribution": {
       "status": "illegal",
@@ -34,13 +34,10 @@
       "modifiers": []
     },
     "enforcement_flags": [],
-    "applied_rules": [],
-    "signals": {
-      "enforcement_level": "active"
-    }
+    "applied_rules": []
   },
-  "notes_normalized": "Cannabis is illegal in Kansas for recreational use; medical access is limited to narrow cannabidiol treatment preparations under Claire and Lola's Law.",
-  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}} Cannabis in Kansas is fully illegal, and possession of even small amounts is a misdemeanor crime. Cannabis is only legal in Kansas in the form of THC free cannabidiol oil, also known as CBD.\n\n\n== History ==\n\n\n=== 1927 prohibition ===\nIn the early 20th century, most states west of the Mississippi enacted laws banning cannabis, with Kansas doing so in 1927.\n\n\n=== 2013–2015 medical cannabis attempts ===\nSenate bill 9 was pre-filed by David Haley (D) on January 10, 2013. This cannabis compassion and care act will allow the use of medical marijuana for certain debilitating conditions. Patients would be allowed to own 12 plants or 6 ounces (170 g) of marijuana for therapeutic purposes. During the 2015 legislative session, the equivalent bill was passed in the House in mid-2015, but stalled in the Senate, who intend to reopen discussion of the bill in 2016. The bill would also decrease penalties for cannabis possession, and order a state study of industrial hemp.\n\n\n=== 2015 Wichita decriminalization ===\nIn April 2015, the city of Wichita voted to decriminalize cannabis municipally, with a vote of 54-45, reducing first time possession to a criminal infraction with a $50 fine, rather than a misdemeanor with fines up to $2500 and a year of jail time, as under state law. The Kansas Attorney General stated that he would sue the city if the measure passed, arguing the city does not have legal authority to reduce cannabis penalties. The Kansas Attorney General subsequently sued the city to hold the initiative. The Wichita City Council later unanimously voted to approve a similar ordinance in 2017.\n\n\n=== Shona Banda case ===\n\nIn March 2015, Garden City resident Shona Banda, who uses medical cannabis to treat her debilitating Crohn's disease, was arrested and charged with five felony counts in relation to cannabis. Banda's usage of medical cannabis had been discovered after her 11-year-old child spoke publicly of his mother's usage at school; the boy was removed from her home by Child Protective Services and later placed with Banda's ex-husband. Banda faced up to 30 years for her use and possession of cannabis. In August 2017, she pleaded no contest to possession of drug paraphernalia with intent to manufacture and was sentenced to 12 months of \"mail-in probation\", allowing her to complete probation while living in Spokane, Washington.\n\n\n=== Lawsuit against Colorado ===\nIn 2015, 10 sheriffs from Kansas and two other states sued the state of Colorado, alleging that the state's legalization of cannabis was placing an undue burden on law enforcement in neighboring states. The states of Nebraska and Oklahoma joined the suit, and Colorado responded that \"Nebraska and Oklahoma filed this case in an attempt to reach across their borders and selectively invalidate state laws with which they disagree.\" The U.S. Supreme Court refused to hear the case.\n\n\n=== CBD oil ===\nOn May 14, 2018, Governor Jeff Colyer signed SB 282 which exempted CBD oil from the definition of marijuana, which allowed the legalization of CBD oil.\n\n\n=== 2021 medicinal bill ===\nOn March 17, 2021, the Kansas State House introduced a medicinal marijuana bill. The bill would allow the sale of raw plant material (flower), oils, tinctures, patches, and edibles to patients with conditions including chronic pain, cancer, lupus, Alzheimer's, Parkinson's, among others. Smoking and using vaporizers (that come into \"direct contact\" with a heating element) would still be illegal under the bill. The bill was referred to the Committee on Federal and State Affairs and did not progress. \n\n\n== Criminal penalties ==\nThe first possession charge of less than 450 grams (16 oz) will result in a class-B misdemeanor with up to 6 month incarceration sentence and a $1,000 fine maximum. A subsequent offense for possessing any amount can result in a fine of up to $100,000 and a sentence of up to 3½ years. Sale or distribution of any amount can result in a $300,000 to $500,000 fine and an incarceration sentence depending on the quantity and severity of the offense.\n\n\n== References ==",
+  "notes_normalized": "Cannabis is illegal in Kansas for recreational use under state law, but medical cannabis is available only in limited form. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}} Cannabis in Kansas is fully illegal, and possession of even small amounts is a misdemeanor crime. Cannabis is only legal in Kansas in the form of THC free cannabidiol oil, also known as CBD. In the early 20th century, most states west of the Mississippi enacted laws banning cannabis, with Kansas doing so in 1927. 2013–2015 medical cannabis attempts. This cannabis compassion and care act will allow the use of medical marijuana for certain debilitating conditions. Patients would be allowed to own 12 plants or of marijuana for therapeutic purposes. The bill would also decrease penalties for cannabis possession, and order a state study of industrial hemp. In April 2015, the city of Wichita voted to decriminalize cannabis municipally, with a vote of 54-45, reducing first time possession to a criminal infraction with a $50 fine, rather than a misdemeanor with fines up to $2500 and a year of jail time, as under state law. The bill would also decrease penalties for cannabis possession, and order a state study of industrial hemp. In April 2015, the city of Wichita voted to decriminalize cannabis municipally, with a vote of 54-45, reducing first time possession to a criminal infraction with a $50 fine, rather than a misdemeanor with fines up to $2500 and a year of jail time, as under state law. The Kansas Attorney General stated that he would sue the city if the measure passed, arguing the city does not have legal authority to reduce cannabis penalties. In 2015, 10 sheriffs from Kansas and two other states sued the state of Colorado, alleging that the state's legalization of cannabis was placing an undue burden on law enforcement in neighboring states. Criminal penalties. The first possession charge of less than will result in a class-B misdemeanor with up to 6 month incarceration sentence and a $1,000 fine maximum. A subsequent offense for possessing any amount can result in a fine of up to $100,000 and a sentence of up to 3½ years. Sale or distribution of any amount can result in a $300,000 to $500,000 fine and an incarceration sentence depending on the quantity and severity of the offense.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -59,9 +56,9 @@
   },
   "related_codes": [
     "usa",
-    "us-tx",
-    "us-co",
-    "us-nm"
+    "us-sd",
+    "us-ar",
+    "us-co"
   ],
   "related_names": [
     {
@@ -69,16 +66,16 @@
       "name": "United States"
     },
     {
-      "code": "us-tx",
-      "name": "Texas"
+      "code": "us-sd",
+      "name": "South Dakota"
+    },
+    {
+      "code": "us-ar",
+      "name": "Arkansas"
     },
     {
       "code": "us-co",
       "name": "Colorado"
-    },
-    {
-      "code": "us-nm",
-      "name": "New Mexico"
     }
   ],
   "graph": {
@@ -104,12 +101,12 @@
         "name": "Iowa"
       },
       {
-        "code": "us-sd",
-        "name": "South Dakota"
+        "code": "us-tx",
+        "name": "Texas"
       },
       {
-        "code": "us-ar",
-        "name": "Arkansas"
+        "code": "us-wy",
+        "name": "Wyoming"
       }
     ],
     "cluster_links": [
@@ -118,22 +115,22 @@
         "name": "United States"
       },
       {
-        "code": "us-mn",
-        "name": "Minnesota"
+        "code": "us-nm",
+        "name": "New Mexico"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-tx",
-        "name": "Texas"
+        "code": "us-sd",
+        "name": "South Dakota"
+      },
+      {
+        "code": "us-ar",
+        "name": "Arkansas"
       },
       {
         "code": "us-co",
         "name": "Colorado"
-      },
-      {
-        "code": "us-nm",
-        "name": "New Mexico"
       }
     ],
     "federal_parent": {
@@ -158,16 +155,16 @@
         "weight": "low"
       },
       {
-        "id": "ks-claire-lola-law",
-        "url": "https://www.kslegislature.gov/li_2020/b2019_20/statute/065_000_0000_chapter/065_062_0000_article/065_062_0035_section/065_062_0035_k/",
-        "title": "Kansas Claire and Lola's Law",
+        "id": "wiki-us-ks",
+        "url": "https://en.wikipedia.org/wiki/Kansas",
+        "title": "Wikipedia: Kansas",
         "type": "external",
         "weight": "low"
       },
       {
-        "id": "ncsl-medical-cannabis-laws",
-        "url": "https://www.ncsl.org/health/state-medical-cannabis-laws",
-        "title": "NCSL State Medical Cannabis Laws",
+        "id": "wiki-truth-us-ks",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
         "type": "external",
         "weight": "low"
       }
@@ -175,9 +172,9 @@
   },
   "hashes": {
     "code": "us-ks",
-    "content_hash": "39c9ab3240e3ca9c08b8664a2d54c6947adcfcd4d623bbab4f08eb93b95c09b8",
-    "notes_hash": "0a67bd0a9619819b13fdf70a4a3e54f1df49395e9db4e6e5a0a5f3809c7525dd",
-    "model_hash": "572d2c9e26b2fd574a3e3a5a66dcf2b40d89c984b45de3b40f41db7a20a07ec5"
+    "content_hash": "6ffa8e20e88310c3dc8266a6e3322acf0f58236a3d9b99b22aa67be2af7b1da6",
+    "notes_hash": "4691d2eb025fbc3a2940b391c2a8e2faa5e1a6fa0e305251f72e9b5004eb290f",
+    "model_hash": "e663ed2384250fd0612fc3f8f91d3aadaa43d6bd5fb681caefdb8cc2246336d0"
   },
   "updated_at": "2026-04-10"
 }

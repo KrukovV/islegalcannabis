@@ -15,12 +15,12 @@
     "medical": {
       "raw_status": "LEGAL",
       "status": "LEGAL",
-      "enforcement": "STRICT",
+      "enforcement": "MODERATE",
       "scope": "MEDICAL_ONLY",
-      "override_reason": "STATUS_GOVERNANCE_REVIEW_UT_MEDICAL"
+      "override_reason": null
     },
     "distribution": {
-      "status": "illegal",
+      "status": "restricted",
       "scopes": {
         "possession": "illegal",
         "use": "illegal",
@@ -34,13 +34,10 @@
       "modifiers": []
     },
     "enforcement_flags": [],
-    "applied_rules": [],
-    "signals": {
-      "enforcement_level": "active"
-    }
+    "applied_rules": []
   },
-  "notes_normalized": "Cannabis is illegal in Utah for recreational use, while medical cannabis is regulated through Utah medical cannabis law, patient cards, pharmacies and production rules.",
-  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}}",
+  "notes_normalized": "Cannabis is illegal in Utah for recreational use under state law, but medical cannabis is legal under a regulated state program. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}} Cannabis in Utah is illegal for recreational use. Medical use was legalized by ballot measure in November 2018, after a CBD-only law was passed in 2014 and a limited \"right to try\" law was passed in March 2018. Utah is frequently cited as the first state to explicitly ban cannabis, which they did in 1915, though other scholars state that California was actually the first, in 1913, and that Utah's claim to be first is based on a misunderstanding of California's earlier law and the lack of public attention its passing received. Newton notes that Utah law is an area of controversy among cannabis historians: some scholars believe the law was a reaction to cannabis usage by Mormon returnees from Mexico following the 1910 revolution, and based on an August 1915 prohibition on cannabis by the Church of Jesus Christ of Latter-day Saints (LDS Church). Other scholars however note that cannabis was simply not an issue of public attention in Utah during that period, and submit that Utah simply banned cannabis as part of a larger anti-drug legislation based on earlier California law, rather than as a response to any cannabis situation in Utah. CBD legalization (2014). In March 2014, House Bill 105 was signed by Governor Gary Herbert, legalizing possession and use of low-THC CBD oil by registered patients with a physician's recommendation and intractable epilepsy. Medical cannabis legislation. The legislation also put into place a more robust cultivation, tracking, distribution, and enforcement models in direct response to this lacking information in the 2015 bill and advocated for whole plant usage. Vickers' legislation would expand the use of low-THC CBD oil (as opposed to whole plant use) to additional illnesses and also put into place cultivation, tracking, distribution, and enforcement models, but would also include provisions for product testing and research. Donna Weinholtz used medical marijuana to treat pain from arthritis and a degenerative spinal condition In October 2016, she pled guilty to misdemeanor possession, agreeing to a fine and probation.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -55,7 +52,7 @@
     "medical": "override",
     "enforcement_strength": "HIGH",
     "federal_conflict": "Cannabis remains federally illegal in United States.",
-    "legalization_status": "State illegal"
+    "legalization_status": "Medical only"
   },
   "related_codes": [
     "usa",
@@ -104,12 +101,12 @@
         "name": "South Dakota"
       },
       {
-        "code": "us-ks",
-        "name": "Kansas"
-      },
-      {
         "code": "us-ok",
         "name": "Oklahoma"
+      },
+      {
+        "code": "us-ar",
+        "name": "Arkansas"
       }
     ],
     "cluster_links": [
@@ -158,16 +155,16 @@
         "weight": "low"
       },
       {
-        "id": "ut-medical-cannabis-law",
-        "url": "https://medicalcannabis.utah.gov/resources/utah-medical-cannabis-law/",
-        "title": "Utah medical cannabis law",
+        "id": "wiki-us-ut",
+        "url": "https://en.wikipedia.org/wiki/Utah",
+        "title": "Wikipedia: Utah",
         "type": "external",
         "weight": "low"
       },
       {
-        "id": "ut-ag-medical-cannabis",
-        "url": "https://ag.utah.gov/specialized-products/medical-cannabis/",
-        "title": "Utah Department of Agriculture and Food: Medical Cannabis",
+        "id": "wiki-truth-us-ut",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
         "type": "external",
         "weight": "low"
       }
@@ -175,9 +172,9 @@
   },
   "hashes": {
     "code": "us-ut",
-    "content_hash": "70564af105bf3c677db2d134c8655f5b0463ff15e3de87ac1b5d63d412c022eb",
-    "notes_hash": "f71728b2d579573d459c06b6fc0b181a1b640421415c63cc08d254013cf5e42f",
-    "model_hash": "ab4e8804bf36ff49e9e8bb512ca76308de297bdb140d6647cda7d3ca5e96cad5"
+    "content_hash": "4aa2d0d2261034a4938fa5fa3dc3de9289ee35b9edc528fd23bd0518e3ea7c8c",
+    "notes_hash": "8e6054d948459fdf6a669affdd22200e9c0a7cfd342bddd3a7ea6e9af3ba41b9",
+    "model_hash": "8d0d3626963defff128a1cd11f0f2cd6fb09ce19aa4d3ea647780cb2326a73ac"
   },
   "updated_at": "2026-04-10"
 }

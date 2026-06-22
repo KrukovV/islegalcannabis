@@ -26,22 +26,22 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "fine-based",
-      "flags": [],
-      "modifiers": [
-        "however"
-      ]
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "final_risk": "RESTRICTED",
       "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
-        "arrest": true,
-        "fine": true,
-        "severity_score": 4,
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -55,19 +55,13 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Laos / ສປປລາວ",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Laos",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Laos",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Legality of cannabis (notes)",
@@ -77,38 +71,29 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Laos | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Laos | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in Laos | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_arrest | source: Cannabis in Laos | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_fine | source: Cannabis in Laos | type: traversal | priority: 3 | scope: general"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 930,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal",
-      "penalty_prison",
-      "penalty_arrest",
-      "penalty_fine"
+      "distribution_fallback_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Laos / ສປປລາວ. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Laos / ສປປລາວ. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Laos / ສປປລາວ. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Laos / ສປປລາວ. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{Main|Cannabis in Laos}}",
   "facts": {
     "possession_limit": null,
@@ -207,9 +192,9 @@
   },
   "hashes": {
     "code": "lao",
-    "content_hash": "1d17f72eaafbe04634c80f53b813097a3f83a6f1ee1c0f88a031ca32f3a22d88",
-    "notes_hash": "62ef9b91e37bef15cbaa375ac8ce1abecfde9985591654dd207dfd7e7da8062d",
-    "model_hash": "7cb0ff743a32636f30b7e3aa067dda0e71e7f676fdaa50e4de5e3fedbd6c6fe5"
+    "content_hash": "0cc468d604973b417c8abf88a1358389a4b1b72d5e9d96232039515a2a94e6ad",
+    "notes_hash": "c7a2938425f1494b70f3f89db6511cf9725d1a13c485fb4e7801e2452299d04b",
+    "model_hash": "f1c9ed5a867f9744de5ea37f4906ac0f3076181491db8b43b8432eac424aa0d7"
   },
   "geo_code": "LA",
   "node_type": "country",

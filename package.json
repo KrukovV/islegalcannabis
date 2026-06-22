@@ -27,7 +27,7 @@
     "eslint-plugin-react": "^7.34.3"
   },
   "scripts": {
-    "where": "node -e \"console.log('WHERE_OK=1')\"",
+    "where": "bash tools/where-am-i.sh",
     "guard:ssr": "bash tools/guard-ssr.sh",
     "audit": "bash tools/tree-audit.sh",
     "web:dev": "bash tools/ui_dev_guard.sh",
@@ -50,6 +50,8 @@
     "wiki:refresh": "node tools/wiki/wiki_refresh.mjs --all",
     "wiki:official_eval": "node tools/wiki/wiki_official_eval.mjs",
     "knowledge:harvest": "node tools/knowledge/harvest_cannabis_knowledge.mjs --limit=30",
+    "popup:profile:full-run": "bash tools/popup_profile_full_run.sh",
+    "popup:profile:fetch-unprocessed": "bash tools/popup_profile_fetch_unprocessed.sh",
     "status:recolor": "node tools/status-engine/recolor_wave_1.mjs",
     "ai:evaluate-models": "node --experimental-strip-types tools/ai/evaluateModels.ts",
     "allowlist:merge": "node tools/sources/merge_official_allowlist.mjs",

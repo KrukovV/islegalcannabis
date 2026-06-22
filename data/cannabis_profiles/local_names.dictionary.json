@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-08T19:09:35.568Z",
+  "generated_at": "2026-06-22T18:03:26.425Z",
   "source_report": "Reports/knowledge-harvester/first_wave_validation.json",
   "entries": [
     {
@@ -8,7 +8,7 @@
       "term": "hashish",
       "kind": "local_hash_name",
       "source": "wiki_fact",
-      "evidence": "Baba Ku is a legendary folkloric character from Balkh in Afghanistan, a Sufi adherent who legendarily introduced hashish to Afghanistan.."
+      "evidence": "Baba Ku is a legendary folkloric character from Balkh in Afghanistan, a Sufi adherent who legendarily introduced hashish to Afghanistan."
     },
     {
       "geo": "AL",
@@ -17,6 +17,14 @@
       "kind": "local_hash_name",
       "source": "wiki_fact",
       "evidence": "Albanian cannabis production is sufficient to meet local demand and also export to other areas, though the country continues to import some hashish through Turkey."
+    },
+    {
+      "geo": "AM",
+      "country": "Armenia / Հայաստան",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Armenia also serves as a transit route for hashish coming from Central Asia, headed for Europe and the United States."
     },
     {
       "geo": "AO",
@@ -48,7 +56,23 @@
       "term": "cone",
       "kind": "local_cannabis_name",
       "source": "wiki_fact",
-      "evidence": "National Drug and Alcohol Research Centre, University of New South Wales. {{ISBN|1-877018-13-9}}</ref> cannabis in Australia is commonly smoked as a cluster (or \"cone\", similar to \"[[Bowl (smoking)|bowls]]\" as known in the United States) of the flowering heads (buds) or [[resin]] [[Gland (botany)|glands]] (also known as [[Hashish]]) of the female plant."
+      "evidence": "Copeland from the NCPIC and others, cannabis in Australia is commonly smoked as a cluster (or \"cone\", similar to \"bowls\" as known in the United States) of the flowering heads (buds) or resin glands (also known as Hashish) of the female plant."
+    },
+    {
+      "geo": "AU",
+      "country": "Australia",
+      "term": "ganja",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "Some of the street names of Cannabis in Australia are Mary Jane, bud, dope, smoko, green, sesh, chop, choof, pot, spliff, honk, ganja, yarndi, mull, hydro, hydge, green action, heads, hooch, weed, joints, cones, laughing lucerne, chronic and 420."
+    },
+    {
+      "geo": "AU",
+      "country": "Australia",
+      "term": "gunja",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "Two common names for cannabis in Aboriginal English and in Indigenous Australian languages are gunja and yarndi."
     },
     {
       "geo": "AU",
@@ -64,7 +88,31 @@
       "term": "hashish",
       "kind": "local_hash_name",
       "source": "wiki_fact",
-      "evidence": "National Drug and Alcohol Research Centre, University of New South Wales. {{ISBN|1-877018-13-9}}</ref> cannabis in Australia is commonly smoked as a cluster (or \"cone\", similar to \"[[Bowl (smoking)|bowls]]\" as known in the United States) of the flowering heads (buds) or [[resin]] [[Gland (botany)|glands]] (also known as [[Hashish]]) of the female plant."
+      "evidence": "Copeland from the NCPIC and others, cannabis in Australia is commonly smoked as a cluster (or \"cone\", similar to \"bowls\" as known in the United States) of the flowering heads (buds) or resin glands (also known as Hashish) of the female plant."
+    },
+    {
+      "geo": "AU",
+      "country": "Australia",
+      "term": "yarndi",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "Two common names for cannabis in Aboriginal English and in Indigenous Australian languages are gunja and yarndi."
+    },
+    {
+      "geo": "BN",
+      "country": "Brunei / Negara Brunei Darussalam",
+      "term": "ganja",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "Cannabis (also known as marijuana, ganja, pot, grass, hashish, and weed) is the second most prominent drug in Brunei, behind methamphetamine."
+    },
+    {
+      "geo": "BN",
+      "country": "Brunei / Negara Brunei Darussalam",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Cannabis (also known as marijuana, ganja, pot, grass, hashish, and weed) is the second most prominent drug in Brunei, behind methamphetamine."
     },
     {
       "geo": "BW",
@@ -72,7 +120,63 @@
       "term": "dagga",
       "kind": "local_cannabis_name",
       "source": "user_requirement_seed",
-      "evidence": "Country data names cannabis as dagga."
+      "evidence": "Required local cannabis name in Southern African cannabis context."
+    },
+    {
+      "geo": "CD",
+      "country": "DR Congo / RD Congo",
+      "term": "diamba",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "In the 1880s, the Beni Diamba (People of Cannabis) movement popularized ritual use of cannabis in southwest Congo.."
+    },
+    {
+      "geo": "CH",
+      "country": "Switzerland / Suisse",
+      "term": "hash",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Four cannabis strains will be made available, and two strains of hash will be available to a small group of approved volunteers in 10 pharmacies in Basel, produced by Pure Holding A.G."
+    },
+    {
+      "geo": "CH",
+      "country": "Switzerland / Suisse",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Professional cannabis trade, as well as the possession of a quantity of cannabis that can affect the health of a large number of people (4 kg; 9 lb of hashish, according to the Federal Court ), are punished by one to three years of imprisonment that can be augmented with a fine."
+    },
+    {
+      "geo": "CH",
+      "country": "Switzerland / Suisse",
+      "term": "low-THC weed",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "Since 2017, legal cannabis, also known as \"low-THC weed\", with less than 1.0% of THC is sold at nearly every tobacco store."
+    },
+    {
+      "geo": "CN",
+      "country": "China / 中国",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "In the 19th century, Xinjiang province was a major producer and exporter of hashish, with Yarkand being a major center."
+    },
+    {
+      "geo": "DK",
+      "country": "Denmark / Danmark",
+      "term": "hash",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Although the hash trade is illegal, authorities were for many years reluctant to forcibly stop it."
+    },
+    {
+      "geo": "DM",
+      "country": "Dominica",
+      "term": "increasingly exploited transit route",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "In 1995, the US government described Dominica as a minor cannabis producer but \"increasingly exploited transit route\", with some cannabis cultivated on the island but mostly consumed locally."
     },
     {
       "geo": "DZ",
@@ -80,7 +184,7 @@
       "term": "chanvre à fumer",
       "kind": "product_name",
       "source": "user_requirement_seed",
-      "evidence": "User-required French cannabis smoking-product phrase."
+      "evidence": "Required French cannabis smoking-product phrase."
     },
     {
       "geo": "DZ",
@@ -88,7 +192,7 @@
       "term": "dawamesc",
       "kind": "traditional_name",
       "source": "user_requirement_seed",
-      "evidence": "User-required historical/traditional cannabis product name."
+      "evidence": "Required historical/traditional cannabis product name."
     },
     {
       "geo": "DZ",
@@ -96,7 +200,15 @@
       "term": "hachich",
       "kind": "local_hash_name",
       "source": "user_requirement_seed",
-      "evidence": "Wiki fact names hachich in Algerian cannabis context."
+      "evidence": "Required local hashish name."
+    },
+    {
+      "geo": "DZ",
+      "country": "Algeria / الجزائر",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Despite widespread underground use—particularly of hashish—there have been no legislative moves toward decriminalization or legalization."
     },
     {
       "geo": "DZ",
@@ -104,7 +216,7 @@
       "term": "kif",
       "kind": "local_cannabis_name",
       "source": "user_requirement_seed",
-      "evidence": "Wiki fact names kif in Algerian cannabis context."
+      "evidence": "Required local cannabis name in North African cannabis context."
     },
     {
       "geo": "DZ",
@@ -112,7 +224,231 @@
       "term": "tekrouri",
       "kind": "local_hash_name",
       "source": "user_requirement_seed",
-      "evidence": "Wiki fact names tekrouri in Algerian cannabis context."
+      "evidence": "Required local hashish name."
+    },
+    {
+      "geo": "EG",
+      "country": "Egypt / مصر",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Hashish consumption by Egyptian Sufis has been documented as occurrent in the thirteenth century AD, and a unique type of cannabis referred to as Indian hemp was also documented during this time."
+    },
+    {
+      "geo": "ER",
+      "country": "Eritrea / إريتريا",
+      "term": "dagga",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "While some neighboring countries, such as Ethiopia, have a history of traditional cannabis use (e.g., dagga or khat, though khat is a different stimulant plant), Eritrea does not have the same cultural ties to cannabis.Unlike other parts of Africa where cannabis reform is gaining traction, Eritrea remains one of the most prohibitive countries when it comes to drug policy."
+    },
+    {
+      "geo": "ES",
+      "country": "Spain / España",
+      "term": "industrial hemp",
+      "kind": "cannabis_food",
+      "source": "wiki_fact",
+      "evidence": "In the period known as Al-Andalus, cannabis was intensely cultivated and used for both its \"industrial hemp\" and \"marijuana\" sides, including food, fiber, medicine, and recreation."
+    },
+    {
+      "geo": "ES",
+      "country": "Spain / España",
+      "term": "King of Grains",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "The seeds and seeded tops of cannabis plants were often called \"sedenegi\" (also šedenegi, šahdānaŷ, and other forms), a word from Persian origins meaning \"King of Grains\"."
+    },
+    {
+      "geo": "ES",
+      "country": "Spain / España",
+      "term": "sedenegi",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "The seeds and seeded tops of cannabis plants were often called \"sedenegi\" (also šedenegi, šahdānaŷ, and other forms), a word from Persian origins meaning \"King of Grains\"."
+    },
+    {
+      "geo": "FI",
+      "country": "Finland / Suomi",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "In practice, possession of up to 10 grams of hashish or 15 grams of marijuana is deemed personal use and carries a penalty of 10–20 day-fines."
+    },
+    {
+      "geo": "FR",
+      "country": "France",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "During Napoléon Bonaparte's invasion of Egypt in 1798, the troops got to try different preparations of hashish, which they found to their liking."
+    },
+    {
+      "geo": "GB",
+      "country": "United Kingdom",
+      "term": "ganja",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "Cannabis as a drug also spread slowly in other parts of the Empire; cannabis was introduced to Jamaica in the 1850s–1860s by indentured servants imported from India during British rule of both nations; many of the terms used in cannabis culture in Jamaica are based on Indian terms, including the term ganja.."
+    },
+    {
+      "geo": "GB",
+      "country": "United Kingdom",
+      "term": "skunk",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "Marta Di Forti, found that use of high potency cannabis known as skunk increased the risk of psychosis by three times, compared to non-use."
+    },
+    {
+      "geo": "GD",
+      "country": "Grenada",
+      "term": "bhang",
+      "kind": "traditional_name",
+      "source": "wiki_fact",
+      "evidence": "They referred to cannabis as \"ganja\" and used the intoxicant to prepare bhang, which they would consume to relax after working on the plantations."
+    },
+    {
+      "geo": "GD",
+      "country": "Grenada",
+      "term": "ganja",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "They referred to cannabis as \"ganja\" and used the intoxicant to prepare bhang, which they would consume to relax after working on the plantations."
+    },
+    {
+      "geo": "GR",
+      "country": "Greece / Ελλάδα",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "In 1890, Greece outlawed the production and usage of hashish, but the laws were largely ineffective."
+    },
+    {
+      "geo": "GY",
+      "country": "Guyana",
+      "term": "bhang",
+      "kind": "traditional_name",
+      "source": "wiki_fact",
+      "evidence": "In 1861, British Guiana passed a law entitled An Ordinance to Regulate the Sale of Opium and Bhang.."
+    },
+    {
+      "geo": "GY",
+      "country": "Guyana",
+      "term": "ganja",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "As in other parts of the British Caribbean, arriving indentured laborers from India brought the custom of smoking ganja with them, but this habit had fallen from fashion by the early part of the 20th century.."
+    },
+    {
+      "geo": "ID",
+      "country": "Indonesia",
+      "term": "hash",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Cannabis plants, all plants of the Cannabis genus and all parts of plants including seeds, fruit, straw, and processed cannabis plants or parts of cannabis plants including marijuana resin and hash are categorized as narcotics group."
+    },
+    {
+      "geo": "ID",
+      "country": "Indonesia",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Derivatives of medical and recreational cannabis (such as hemp, CBD, tetrahydrocannabinol, hashish, and edibles) are also illegal."
+    },
+    {
+      "geo": "IN",
+      "country": "India / भारत",
+      "term": "bhang",
+      "kind": "traditional_name",
+      "source": "wiki_fact",
+      "evidence": "In Indian society, common terms for cannabis preparations include charas (resin), ganja (flower), and bhang (seeds and leaves), with Indian drinks such as bhang lassi and bhang thandai made from bhang being one of the most common legal uses."
+    },
+    {
+      "geo": "IN",
+      "country": "India / भारत",
+      "term": "charas",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "In Indian society, common terms for cannabis preparations include charas (resin), ganja (flower), and bhang (seeds and leaves), with Indian drinks such as bhang lassi and bhang thandai made from bhang being one of the most common legal uses."
+    },
+    {
+      "geo": "IN",
+      "country": "India / भारत",
+      "term": "ganja",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "In Indian society, common terms for cannabis preparations include charas (resin), ganja (flower), and bhang (seeds and leaves), with Indian drinks such as bhang lassi and bhang thandai made from bhang being one of the most common legal uses."
+    },
+    {
+      "geo": "IN",
+      "country": "India / भारत",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Indian law enforcement agencies seized a total of 182,622 kg of ganja and 2,489 kg of hashish in 2016."
+    },
+    {
+      "geo": "IT",
+      "country": "Italy / Italia",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "According to the CDA, the major marijuana producers worldwide are Albania, supplying Italy and parts of Europe; Mexico and the United States, mainly supplying North America; and Paraguay, which represents the main distribution center for all of South America; while Morocco represents the main producer of hashish."
+    },
+    {
+      "geo": "JM",
+      "country": "Jamaica",
+      "term": "ganja",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "Cannabis is locally known as ganja, and internationally cannabis consumption plays a prominent role in the nation's public image, being tied to cultural touchstones such as Rastafari and reggae music."
+    },
+    {
+      "geo": "JM",
+      "country": "Jamaica",
+      "term": "herb houses",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "Marijuana was sold by legal retailers (called \"herb houses\") at about five to ten times the cost of cannabis sold illicitly on the street."
+    },
+    {
+      "geo": "JM",
+      "country": "Jamaica",
+      "term": "Indian Hemp",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "Cannabis – then called \"Indian Hemp\" – was banned in Jamaica under the 1913 Ganja Law, supported by the white elites and the Council of Evangelical Churches in Jamaica."
+    },
+    {
+      "geo": "JO",
+      "country": "Jordan / الأردن",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "In the mid-20th century, Jordan (then Trans-Jordan) was noted as a smuggling route, carrying hashish from Turkey, Iran, Lebanon, and Syria into Egypt."
+    },
+    {
+      "geo": "JO",
+      "country": "Jordan / الأردن",
+      "term": "Joker",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "Synthetic cannabis, also known locally as \"Joker\", is manufactured locally and consists of a combination of 14 substances."
+    },
+    {
+      "geo": "JP",
+      "country": "Japan / 日本",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Per a UNODC survey, in 2010 a gram (1/28 oz) of ground cannabis sold at retail in Japan for an average of US$68.40, while a gram (1/28 oz) of hashish retailed for an average of US$91.10."
+    },
+    {
+      "geo": "KE",
+      "country": "Kenya",
+      "term": "bhang",
+      "kind": "traditional_name",
+      "source": "wiki_fact",
+      "evidence": "Cannabis, locally referred to as bhang, is illegal in Kenya under the Narcotic Drugs and Psychotropic Substances (Control) Act, 1994."
     },
     {
       "geo": "KH",
@@ -120,7 +456,567 @@
       "term": "happy pizza",
       "kind": "cannabis_food",
       "source": "user_requirement_seed",
-      "evidence": "Wiki fact names happy pizza as cannabis-infused food."
+      "evidence": "Required cannabis-infused food name."
+    },
+    {
+      "geo": "KR",
+      "country": "South Korea / 한국",
+      "term": "the drugstore",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "After T.O.P. was charged for possession and usage of marijuana, his record label YG Entertainment became widely referred to as Yak Guk ( ) Entertainment, which translates to \"the drugstore.\" With an average of 40 months following a drug related scandal for a Korean entertainer to return to the stage, K-pop artists apprehended for using cannabis often have a difficult time regaining their lost stardom."
+    },
+    {
+      "geo": "LA",
+      "country": "Laos / ສປປລາວ",
+      "term": "happy pizza",
+      "kind": "cannabis_food",
+      "source": "wiki_fact",
+      "evidence": "In the tourist heavy area of Vang Vieng in particular, cannabis is openly sold by bars as marijuana bud or as infused \"happy pizza\"."
+    },
+    {
+      "geo": "LK",
+      "country": "Sri Lanka / ශ්‍රී ලංකාව",
+      "term": "bhang",
+      "kind": "traditional_name",
+      "source": "wiki_fact",
+      "evidence": "In 1867, the British colonial government introduced the Opium and Bhang Ordinance, restricting the sale of cannabis to licensed dealers only."
+    },
+    {
+      "geo": "LK",
+      "country": "Sri Lanka / ශ්‍රී ලංකාව",
+      "term": "ganja",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "In 1897, the import of bhang or ganja was banned."
+    },
+    {
+      "geo": "LV",
+      "country": "Latvia / Latvija",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "In Latvia, cannabis products (marijuana and hashish) is the most commonly used illicit substance."
+    },
+    {
+      "geo": "MA",
+      "country": "Morocco / المغرب",
+      "term": "hash",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Hash pressing, tours, consumption of the drug, and sales are still illegal, but unofficially, the combination of these services has made the North African region one of the largest exporters of hashish, which is produced from female cannabis plants through compression and heating of resin glands known as trichomes."
+    },
+    {
+      "geo": "MA",
+      "country": "Morocco / المغرب",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Morocco remains one of the world’s leading producers of hashish."
+    },
+    {
+      "geo": "MA",
+      "country": "Morocco / المغرب",
+      "term": "kif",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "The first kif beaten from the stalks is of the best quality, and the stalks can be further beaten a second and third time, however, continuously producing a lower-quality product."
+    },
+    {
+      "geo": "MA",
+      "country": "Morocco / المغرب",
+      "term": "majoun",
+      "kind": "cannabis_food",
+      "source": "wiki_fact",
+      "evidence": "Majoun is also a popular traditional edible, a candy or jam made of cannabis with the combination of honey, chocolate, and various nuts that is ingested to feel the sensations similar to those of smoking cannabis."
+    },
+    {
+      "geo": "MU",
+      "country": "Mauritius / Maurice",
+      "term": "bhang",
+      "kind": "traditional_name",
+      "source": "wiki_fact",
+      "evidence": "Other alternative was to mix them into cakes or sweets, or the beverage bhang."
+    },
+    {
+      "geo": "MY",
+      "country": "Malaysia / مليسيا",
+      "term": "bhang",
+      "kind": "traditional_name",
+      "source": "wiki_fact",
+      "evidence": "Following the British acquisition of Dutch Malacca, by 1826 the British were raising taxes from the production of bhang."
+    },
+    {
+      "geo": "MZ",
+      "country": "Mozambique / Moçambique",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Aside from indigenous production, Mozambique also serves as a transit point for cannabis and hashish smuggled from Pakistan and Afghanistan to Africa, and on to Europe and Canada.."
+    },
+    {
+      "geo": "NA",
+      "country": "Namibia / Namibië",
+      "term": "dagga",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "The term dagga or dakha (\"grass\") is common for cannabis, with a cannabis cigarette termed a zol or joint.."
+    },
+    {
+      "geo": "NA",
+      "country": "Namibia / Namibië",
+      "term": "ganja",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "April 2019 - A Call for Change: A Public demonstration took place in Windhoek, led by Cannabis and Hemp Association (CHAN), Ganja Users of Namibia (GUN) and the Rastafari United Front (RUF) supporters."
+    },
+    {
+      "geo": "NA",
+      "country": "Namibia / Namibië",
+      "term": "skunk",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "Ellest ‘Speedy’ Plaatjie, a resident known to suffer from treatment - resistant epilepsy, was detained by members of the Nampol Special Reserve Force for possessing a “Skunk Bankie” or small bag of cannabis."
+    },
+    {
+      "geo": "NG",
+      "country": "Nigeria",
+      "term": "ganja",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "In addition to such widespread international terms as marijuana, hemp, ganja, and pot, cannabis in Nigeria is also referred to by terms such as kaya, wee-wee, igbo, oja, gbana, blau, kpoli,kpocha and abana.."
+    },
+    {
+      "geo": "NP",
+      "country": "Nepal / नेपाल",
+      "term": "bhang",
+      "kind": "traditional_name",
+      "source": "wiki_fact",
+      "evidence": "In Nepal, cannabis seeds are also used in making pickles \"bhang ko achar\"."
+    },
+    {
+      "geo": "NP",
+      "country": "Nepal / नेपाल",
+      "term": "charas",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "History. in 1973]] Nepal has used psychoactive cannabis for centuries, and as early as the 1700s Nepalese charas was recognized as the best available."
+    },
+    {
+      "geo": "NP",
+      "country": "Nepal / नेपाल",
+      "term": "ganja",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "Nepal was a gateway destination for every Ganja lover."
+    },
+    {
+      "geo": "NP",
+      "country": "Nepal / नेपाल",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "The increased demand and linkage to outside markets led to an increase in hashish production, and smuggling routes were established through India and the wider world.."
+    },
+    {
+      "geo": "PA",
+      "country": "Panama / Panamá",
+      "term": "Canyac",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "The Panamanian 1935 Judicial Register refers to cannabis being commonly known locally as \"Canyac\" or \"Kan Jac\"."
+    },
+    {
+      "geo": "PA",
+      "country": "Panama / Panamá",
+      "term": "Kan Jac",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "The Panamanian 1935 Judicial Register refers to cannabis being commonly known locally as \"Canyac\" or \"Kan Jac\"."
+    },
+    {
+      "geo": "PK",
+      "country": "Pakistan / پاكستان",
+      "term": "bhang",
+      "kind": "traditional_name",
+      "source": "wiki_fact",
+      "evidence": "Cannabis is widely consumed in Pakistan as charas and bhang.."
+    },
+    {
+      "geo": "PK",
+      "country": "Pakistan / پاكستان",
+      "term": "charas",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Cannabis is widely consumed in Pakistan as charas and bhang.."
+    },
+    {
+      "geo": "PK",
+      "country": "Pakistan / پاكستان",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Cannabis is widely used in Pakistan, and smoked as charas (hashish) or consumed as a drink as bhang."
+    },
+    {
+      "geo": "PT",
+      "country": "Portugal",
+      "term": "bhang",
+      "kind": "traditional_name",
+      "source": "wiki_fact",
+      "evidence": "Fifteen years later Cristobal Acosta produced the work A Tract about the Drugs and Medicines of the East Indies, outlining recipes for bhang."
+    },
+    {
+      "geo": "PT",
+      "country": "Portugal",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Possession of cannabis in Portugal is decriminalised in amounts for personal use, considered to be up to 25 g of plant material or 5 g of hashish."
+    },
+    {
+      "geo": "PW",
+      "country": "Palau / Belau",
+      "term": "sinsemilla",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "In the early 1980s, a joint US effort removed 3,347 cannabis plants, which had been used to produce sinsemilla, from the island of Peleliu."
+    },
+    {
+      "geo": "RO",
+      "country": "Romania / România",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "In 1928, Romania established laws for countering narcotics, including hashish and its preparations.."
+    },
+    {
+      "geo": "RS",
+      "country": "Serbia / Србија",
+      "term": "ganja",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "The first Ganja March in Belgrade was held on 7 May 2005 and went smoothly with around 50 participants. at the first Ganja March in Belgrade 2005.]] The second Ganja March in Belgrade, organized by Damjan Pavlica, was scheduled to be held on 5 May 2007."
+    },
+    {
+      "geo": "RU",
+      "country": "Russia / Россия",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Possession of up to 6 grams (or two grams of hashish) is an administrative offense, punishable by a fine or detention of 15 days."
+    },
+    {
+      "geo": "SA",
+      "country": "Saudi Arabia / السعودية",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Hashish in Saudi Arabia is largely trafficked by sea from Pakistan; a 2007 report notes that hashish sold for US$2,130 per kilogram.."
+    },
+    {
+      "geo": "SE",
+      "country": "Sweden / Sverige",
+      "term": "hash",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Flower/fruit * Grälle * Gräs * Gröning * Grönt * Marre * Maja * Ört * Äzi * Jazztobak * Hash * Böj * Braj * Brass * Brownie * Brunt * Knatch, knätch * Svart * Zattla * Zütt."
+    },
+    {
+      "geo": "SG",
+      "country": "Singapore / Singapura",
+      "term": "ganja",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "This origin is witnessed by the use of the Indian term ganja to label cannabis in Singapore, even among non-Indians."
+    },
+    {
+      "geo": "SL",
+      "country": "Sierra Leone",
+      "term": "diamba",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "Cannabis is known locally as diamba.."
+    },
+    {
+      "geo": "SO",
+      "country": "Somalia / الصومال",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "A 2008 Al Jazeera report, following Al-Shabaab's seizing of the port city of Kismayo, noted that three local men were arrested for possession of hashish, and their supply was burned and they were publicly flogged by the militants."
+    },
+    {
+      "geo": "SR",
+      "country": "Suriname",
+      "term": "ganja",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "In 1921 the Surinamese Immigrants' Association requested that the ban on ganja be lifted and an import and sales concession be granted to them.."
+    },
+    {
+      "geo": "SY",
+      "country": "Syria / سوريا",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Under President Shukri al-Quwatli (1943–1949), the cultivating of cannabis was banned in Syria, though authorities noted they had little ability to prevent the Druze of the Jabal al-Druze region from producing hashish."
+    },
+    {
+      "geo": "SZ",
+      "country": "Eswatini",
+      "term": "Swazi gold",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "The local traditional plant variety (Cannabis strain) is known as \"Swazi gold\"; it is often bioprospected and commands a high price due to its reputation for potency,."
+    },
+    {
+      "geo": "TH",
+      "country": "Thailand / ประเทศไทย",
+      "term": "cannabis king",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "Despite the rollback of some policies, Anutin—widely known as Thailand's \"cannabis king\" for championing the decriminalization initiative—remained a key political figure."
+    },
+    {
+      "geo": "TH",
+      "country": "Thailand / ประเทศไทย",
+      "term": "ganja",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "In Thailand, cannabis, known by the name Ganja (; ), was decriminalised in 2022."
+    },
+    {
+      "geo": "TJ",
+      "country": "Tajikistan / Таджикистан",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "A survey of 5,003 schoolchildren aged 15-16 showed that 0.5% of the respondents reporting that they had tried marijuana or hashish at least once."
+    },
+    {
+      "geo": "TL",
+      "country": "Timor-Leste / Timór-Leste",
+      "term": "ganja",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "A 2012 assessment undertaken on behalf of the UNFPA noted that cannabis was easily available in Timor-Leste, often termed \"ganja\", with \"coklat\" appearing to refer to hashish."
+    },
+    {
+      "geo": "TL",
+      "country": "Timor-Leste / Timór-Leste",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "A 2012 assessment undertaken on behalf of the UNFPA noted that cannabis was easily available in Timor-Leste, often termed \"ganja\", with \"coklat\" appearing to refer to hashish."
+    },
+    {
+      "geo": "TM",
+      "country": "Turkmenistan / Туркмения",
+      "term": "bhang",
+      "kind": "traditional_name",
+      "source": "wiki_fact",
+      "evidence": "The Turkmen people grew cannabis indica, with male plants being used for fiber and females for seeds and bhang."
+    },
+    {
+      "geo": "TN",
+      "country": "Tunisia / تونس",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "In 1550 Leo Africanus' Description of Africa described hashish consumption in Tunis: Cannabis prohibition was introduced in Tunisia under French rule and outlawed by decree on 23 April 1953.."
+    },
+    {
+      "geo": "TT",
+      "country": "Trinidad and Tobago",
+      "term": "ganja",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "In 1915 Trinidad created the Ganja Ordinance, by which all cannabis sold on the island was gathered into bonded warehouses and distributed only to sellers who paid a license fee, similar to the system found in Bengal."
+    },
+    {
+      "geo": "UG",
+      "country": "Uganda",
+      "term": "bhang",
+      "kind": "traditional_name",
+      "source": "wiki_fact",
+      "evidence": "In 1902, the British colonial administration prohibited the production of \"opium\" in Uganda, with the term defined to include \"the preparation known as bhang, ganja, churus, and chandoo natron\"."
+    },
+    {
+      "geo": "UG",
+      "country": "Uganda",
+      "term": "ganja",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "In 1902, the British colonial administration prohibited the production of \"opium\" in Uganda, with the term defined to include \"the preparation known as bhang, ganja, churus, and chandoo natron\"."
+    },
+    {
+      "geo": "UG",
+      "country": "Uganda",
+      "term": "opium",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "In 1902, the British colonial administration prohibited the production of \"opium\" in Uganda, with the term defined to include \"the preparation known as bhang, ganja, churus, and chandoo natron\"."
+    },
+    {
+      "geo": "US-CA",
+      "country": "California",
+      "term": "Grass Lands",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "The area was known as \"Grass Lands\" and sold more than $1 million in cannabis products such as edibles, vaping cartridges and joints over the three-day event."
+    },
+    {
+      "geo": "US-CA",
+      "country": "California",
+      "term": "sinsemilla",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "In the 1960s–1970s, people in California had developed the sinsemilla (\"without seeds\") method of producing cannabis, uprooting the male plants before they could pollinate the females, resulting in a seedless and more potent cannabis."
+    },
+    {
+      "geo": "US-MS",
+      "country": "Mississippi",
+      "term": "hash",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Penalties for possession of hash and concentrates is more severe than for marijuana, with any amount greater than 0.1 grams a felony with mandatory sentencing on a graduating scale."
+    },
+    {
+      "geo": "US-ND",
+      "country": "North Dakota",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "In May 2019, penalties were reduced in the state, with possession resulting in a fine instead of jail time, however possession of any amount of hashish or concentrates is still a felony, with punishment up to 5 years in prison."
+    },
+    {
+      "geo": "US-NE",
+      "country": "Nebraska",
+      "term": "ditch weed",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "Botany. Nebraska is noted for the presence of feral hemp plants, low in psychoactive THC and generally known as \"ditch weed\" (or more rarely \"Nebraska Nonsense\")."
+    },
+    {
+      "geo": "US-NE",
+      "country": "Nebraska",
+      "term": "Nebraska Nonsense",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "Botany. Nebraska is noted for the presence of feral hemp plants, low in psychoactive THC and generally known as \"ditch weed\" (or more rarely \"Nebraska Nonsense\")."
+    },
+    {
+      "geo": "US-NJ",
+      "country": "New Jersey",
+      "term": "alternative treatment centers",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "The seven businesses granted licenses by the commission were already in the medical cannabis business, known as \"alternative treatment centers.\" Financial Regulation News noted that the state board still had a lot of work ahead of it, as they need to approve more companies to sell cannabis to meet what the state's expected demand."
+    },
+    {
+      "geo": "US-NJ",
+      "country": "New Jersey",
+      "term": "front for legalization",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "Enrollment in the medical marijuana program was initially small, which was attributed to costs, the rigid limitations of the program, and \"the small number of doctors willing to recommend patients,\" as well as resistance to the program by New Jersey Governor Chris Christie, who in 2014 called the medical program a \"front for legalization\" of marijuana."
+    },
+    {
+      "geo": "US-NJ",
+      "country": "New Jersey",
+      "term": "NJ Weedman",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "A report by New Jersey United for Marijuana Reform and New Jersey Policy Perspective, issued in 2016, concluded that if New Jersey legalized marijuana, it could generate about $300 million annually in sales tax revenue for the state. (The report assumed a sales tax of 25% and annual in-state marijuana sales of $1.2 billion.) Perennial candidate Ed Forchion known as \"NJ Weedman\" has been described by NJ.com as \"one."
+    },
+    {
+      "geo": "US-NY",
+      "country": "New York",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "In an amendment to the Boylan Bill, they added \"Cannabis indica, which is the Indian hemp from which the East Indian drug called hashish is manufactured,\" to the city's list of restricted drugs."
+    },
+    {
+      "geo": "US-OH",
+      "country": "Ohio",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "In September 2015, Toledo residents voted by a 70–30 margin to depenalize misdemeanor cannabis offenses, with no fines and no jail time for possession or cultivation of under 200 grams (7 oz), possession of hashish under 10 grams ( oz), possession of paraphernalia, and gifts of under 20 grams ( oz)."
+    },
+    {
+      "geo": "US-OK",
+      "country": "Oklahoma",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Non-licensed making of hashish (including through the use of a simple grinder) or making brownies is still restricted."
+    },
+    {
+      "geo": "US-OR",
+      "country": "Oregon",
+      "term": "hash",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "One grower, a previously convicted felon, was found with evidence of making hash oil, which is not protected, though a grand jury did not indict him."
+    },
+    {
+      "geo": "US-OR",
+      "country": "Oregon",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "In recent decades, the U.S. state of Oregon has had a number of legislative, legal and cultural events surrounding the use of cannabis (marijuana, hashish, THC, kief, etc.)."
+    },
+    {
+      "geo": "US-SD",
+      "country": "South Dakota",
+      "term": "hash",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Possession of any amounts of edibles, hash, and concentrates is a Class 5 felony, punishable by up to 5 years in prison and a fine of up to $10,000.."
+    },
+    {
+      "geo": "US-WA",
+      "country": "Washington",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Cannabis in Washington relates to a number of legislative, legal, and cultural events surrounding the use of cannabis (marijuana, hashish, THC, kief, etc.)."
+    },
+    {
+      "geo": "US-WI",
+      "country": "Wisconsin",
+      "term": "hemp-derived THC loophole",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "De-Facto however, the enforcement of state law is uneven due to a patchwork mixture of local ordinance decriminalization and the legal gray area referred to as the \"hemp-derived THC loophole\", which allows products less than 0.3% Delta-9 THC with similar effects (such as THC-A, concentrated Delta-9, and Delta-8 products) to be sold legally in the state."
+    },
+    {
+      "geo": "ZA",
+      "country": "South Africa / Sewula Afrika",
+      "term": "dagga",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "The Afrikaans term commonly used to refer to cannabis is dagga ( ), derived from the Khoikhoi word, which was adopted by early European colonial settlers in the Dutch Cape Colony."
+    },
+    {
+      "geo": "ZA",
+      "country": "South Africa / Sewula Afrika",
+      "term": "Dagga Couple",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "Julian Stobbs and Myrtle Clarke are known as the \"Dagga Couple\" in South African media."
+    },
+    {
+      "geo": "ZA",
+      "country": "South Africa / Sewula Afrika",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "These Indians brought with them the habit of consuming cannabis and hashish, which blended with local, extant African traditions."
     }
   ]
 }

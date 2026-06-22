@@ -106,7 +106,7 @@
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 708,
+        "article_len": 688,
         "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
@@ -223,9 +223,9 @@
   },
   "hashes": {
     "code": "tls",
-    "content_hash": "3ecc54eb2c2b614d2e39d53b12c87ee467211c9c752b7b77b736b127d03f3685",
+    "content_hash": "382ae320999bd9083d5557831f476d2db2544e7a1e2c3435a27417f012291908",
     "notes_hash": "4040304985f28144e59bad44a0b5e1b373cc7893e0f0ca46d8cc0cc91a9304f1",
-    "model_hash": "d9e9588dc1c6e06f459acab7c226fdda74a0c2db7aba3e286b6644b5a52b779e"
+    "model_hash": "dae9631b31694f9f2b5a65e080ff06858e895eecc7a86dafc2d9f936b0c529bc"
   },
   "geo_code": "TL",
   "node_type": "country",

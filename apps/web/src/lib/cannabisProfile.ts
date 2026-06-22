@@ -1,5 +1,6 @@
 import knowledgeDb from "../../../../data/cannabis_profiles/knowledge_db.json";
 import localNamesDictionary from "../../../../data/cannabis_profiles/local_names.dictionary.json";
+import { sanitizeEvidenceQuoteText } from "@/lib/text/sanitizeEvidenceQuoteText";
 
 export type CannabisProfileLocalName = {
   geo: string;
@@ -29,11 +30,14 @@ export type CannabisProfile = {
   country: string;
   wiki_title: string;
   wiki_url: string;
+  source_type?: string;
   sections: CannabisProfileSections;
   local_names: CannabisProfileLocalName[];
 };
 
 export type CannabisProfileCard = {
+  sourceUrl: string;
+  sourceTitle: string;
   history: string[];
   localNames: string[];
   culture: string[];
@@ -51,6 +55,20 @@ export type CannabisProfileAiContext = CannabisProfileCard & {
   source: string;
 };
 
+const PROFILE_CARD_DEDUPE_ORDER: Array<keyof CannabisProfileCard> = [
+  "localNames",
+  "slang",
+  "cannabisFoods",
+  "products",
+  "traditionalUse",
+  "cultivation",
+  "market",
+  "enforcementReality",
+  "history",
+  "culture",
+  "notes"
+];
+
 type ProfilesPayload = {
   profiles: CannabisProfile[];
 };
@@ -67,6 +85,8 @@ type KnowledgeRecord = {
   localNames?: Array<CannabisProfileLocalName | string>;
   products?: string[];
   traditionalUse?: string[];
+  cultivation?: string[];
+  market?: string[];
   enforcementReality?: string[];
   notes?: string[];
 };
@@ -79,6 +99,42 @@ type LocalNamesPayload = {
   entries: CannabisProfileLocalName[];
 };
 
+function isDedicatedCannabisArticle(title: string | null | undefined, url: string | null | undefined) {
+  return /^Cannabis in\b/i.test(String(title || "").trim()) || /\/wiki\/Cannabis_in_/i.test(String(url || "").trim());
+}
+
+function hasExplicitKnowledgeContent(record: {
+  history?: string[];
+  culture?: string[];
+  localNames?: Array<CannabisProfileLocalName | string>;
+  products?: string[];
+  traditionalUse?: string[];
+  enforcementReality?: string[];
+  notes?: string[];
+}) {
+  return [
+    record.history,
+    record.culture,
+    record.localNames,
+    record.products,
+    record.traditionalUse,
+    record.enforcementReality,
+    record.notes
+  ].some((items) => Array.isArray(items) && items.length > 0);
+}
+
+function canonicalizeProfileSourceType(record: KnowledgeRecord) {
+  const raw = String(record.sourceType || "wikipedia");
+  if (
+    isDedicatedCannabisArticle(record.wikiTitle, record.wikiUrl) &&
+    hasExplicitKnowledgeContent(record) &&
+    (raw === "missing_wikipedia_article" || raw === "wikipedia_related_article" || raw === "wikipedia")
+  ) {
+    return "wikipedia_cannabis_article";
+  }
+  return raw;
+}
+
 function profileFromKnowledgeRecord(record: KnowledgeRecord): CannabisProfile {
   const localNames = (record.localNames || []).filter(
     (item): item is CannabisProfileLocalName => Boolean(item) && typeof item === "object"
@@ -88,6 +144,7 @@ function profileFromKnowledgeRecord(record: KnowledgeRecord): CannabisProfile {
     country: record.country,
     wiki_title: record.wikiTitle,
     wiki_url: record.wikiUrl,
+    source_type: canonicalizeProfileSourceType(record),
     sections: {
       history: record.history || [],
       local_names: (record.localNames || [])
@@ -102,8 +159,8 @@ function profileFromKnowledgeRecord(record: KnowledgeRecord): CannabisProfile {
       slang: localNames
         .filter((entry) => entry.kind === "local_cannabis_name" || entry.kind === "slang_name")
         .map((entry) => entry.term),
-      cultivation: [],
-      market: [],
+      cultivation: record.cultivation || [],
+      market: record.market || [],
       enforcement_notes: record.enforcementReality || [],
       culture: record.culture || [],
       notes: record.notes || []
@@ -121,15 +178,29 @@ function normalizeGeo(geo: string | null | undefined) {
   return String(geo || "").trim().toUpperCase();
 }
 
-function cleanItems(items: string[] | undefined, limit: number) {
+function cleanItems(items: string[] | undefined, limit?: number) {
   return (items || [])
-    .map((item) => String(item || "").replace(/\s+/g, " ").trim())
+    .map((item) => sanitizeEvidenceQuoteText(String(item || "")))
     .filter(Boolean)
     .slice(0, limit);
 }
 
+function dedupeCardSections(card: CannabisProfileCard): CannabisProfileCard {
+  const seen = new Set<string>();
+  const deduped = { ...card };
+  for (const sectionId of PROFILE_CARD_DEDUPE_ORDER) {
+    deduped[sectionId] = deduped[sectionId].filter((item) => {
+      const normalized = item.toLowerCase();
+      if (seen.has(normalized)) return false;
+      seen.add(normalized);
+      return true;
+    });
+  }
+  return deduped;
+}
+
 function isEmptyCard(card: CannabisProfileCard) {
-  return Object.values(card).every((value) => Array.isArray(value) && value.length === 0);
+  return PROFILE_CARD_DEDUPE_ORDER.every((sectionId) => Array.isArray(card[sectionId]) && card[sectionId].length === 0);
 }
 
 export function getCannabisProfileForGeo(geo: string | null | undefined) {
@@ -140,23 +211,34 @@ export function getLocalNamesDictionary() {
   return dictionaryEntries.slice();
 }
 
-export function buildCannabisProfileCard(geo: string | null | undefined, itemLimit = 3): CannabisProfileCard | null {
+export function buildCannabisProfileCard(
+  geo: string | null | undefined,
+  itemLimit?: number
+): CannabisProfileCard | null {
   const profile = getCannabisProfileForGeo(geo);
   if (!profile) return null;
+  if (profile.source_type === "missing_wikipedia_article" || profile.source_type === "wikipedia_related_article") {
+    return null;
+  }
+
+  const safeLimit = typeof itemLimit === "number" && Number.isFinite(itemLimit) ? Math.max(1, Math.floor(itemLimit)) : undefined;
   const card: CannabisProfileCard = {
-    history: cleanItems(profile.sections.history, itemLimit),
-    localNames: cleanItems(profile.sections.local_names, 12),
-    culture: cleanItems(profile.sections.culture, itemLimit),
-    enforcementReality: cleanItems(profile.sections.enforcement_notes, itemLimit),
-    products: cleanItems(profile.sections.products, itemLimit),
-    traditionalUse: cleanItems(profile.sections.traditional_use, itemLimit),
-    notes: cleanItems(profile.sections.notes, itemLimit),
-    cannabisFoods: cleanItems(profile.sections.cannabis_foods, itemLimit),
+    sourceUrl: profile.wiki_url,
+    sourceTitle: profile.wiki_title || "Wikipedia source",
+    history: cleanItems(profile.sections.history, safeLimit),
+    localNames: cleanItems(profile.sections.local_names),
+    culture: cleanItems(profile.sections.culture, safeLimit),
+    enforcementReality: cleanItems(profile.sections.enforcement_notes, safeLimit),
+    products: cleanItems(profile.sections.products, safeLimit),
+    traditionalUse: cleanItems(profile.sections.traditional_use, safeLimit),
+    notes: cleanItems(profile.sections.notes || [], safeLimit),
+    cannabisFoods: cleanItems(profile.sections.cannabis_foods, safeLimit),
     slang: cleanItems(profile.sections.slang, 8),
-    cultivation: cleanItems(profile.sections.cultivation, itemLimit),
-    market: cleanItems(profile.sections.market, itemLimit)
+    cultivation: cleanItems(profile.sections.cultivation, safeLimit),
+    market: cleanItems(profile.sections.market, safeLimit)
   };
-  return isEmptyCard(card) ? null : card;
+  const dedupedCard = dedupeCardSections(card);
+  return isEmptyCard(dedupedCard) ? null : dedupedCard;
 }
 
 export function buildCannabisProfileAiContext(geo: string | null | undefined): CannabisProfileAiContext | null {

@@ -17,28 +17,22 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "illegal",
+      "status": "restricted",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
-        "sale": "illegal",
-        "cultivation": "tolerated",
+        "sale": null,
+        "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "sale_illegal"
-      ],
-      "modifiers": [
-        "but",
-        "up_to",
-        "may"
-      ]
+      "flags": [],
+      "modifiers": []
     },
     "signals": {
       "status": "restricted",
-      "final_risk": "RESTRICTED",
+      "final_risk": "LIMITED",
       "enforcement_level": "active",
       "penalties": {
         "prison": false,
@@ -59,19 +53,13 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Jamaica",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Jamaica",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Jamaica",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Legality of cannabis (notes)",
@@ -82,40 +70,29 @@
       ],
       "explain": [
         "rule: possession_decriminalized | source: Jamaica | type: summary | priority: 1 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Jamaica | type: traversal | priority: 3 | scope: possession",
-        "rule: illegal | source: Cannabis in Jamaica | type: traversal | priority: 3 | scope: possession",
-        "rule: illegal | source: Cannabis in Jamaica | type: traversal | priority: 3 | scope: general",
-        "rule: sale_illegal | source: Cannabis in Jamaica | type: traversal | priority: 3 | scope: sale",
-        "rule: sale_regulated | source: Cannabis in Jamaica | type: traversal | priority: 3 | scope: sale",
-        "rule: private_cultivation | source: Cannabis in Jamaica | type: traversal | priority: 3 | scope: sale",
-        "rule: medical_legal | source: Cannabis in Jamaica | type: traversal | priority: 3 | scope: sale",
-        "rule: medical_legal | source: Cannabis in Jamaica | type: traversal | priority: 3 | scope: general",
-        "rule: legal | source: Cannabis in Jamaica | type: traversal | priority: 3 | scope: general"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 3875,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": "restricted",
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "possession_decriminalized",
-      "raw_illegal",
-      "sale_illegal",
-      "private_cultivation"
+      "possession_decriminalized"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Jamaica. Medical cannabis is legal. Distribution is illegal."
+    "notes_normalized": "Cannabis is decriminalized in Jamaica. Medical cannabis is legal. Distribution is restricted."
   },
-  "notes_normalized": "Cannabis is decriminalized in Jamaica. Medical cannabis is legal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is decriminalized in Jamaica. Medical cannabis is legal. Distribution is restricted.",
   "notes_raw": "{{main|Cannabis in Jamaica}} Decriminalized since 2015, and in 2018 the first medical cannabis dispensary opened.<ref>{{cite news |last1=Bud |first1=Monterey |title=Jamaica's Kaya Farms Becomes First Medical Marijuana Dispensary To Open |url=https://www.marijuana.com/news/2018/03/jamaicas-kaya-farms-becomes-first-medical-marijuana-dispensary-to-open/ |access-date=15 July 2018 |work=marijuana.com |date=19 March 2018 |archive-date=16 July 2018 |archive-url=https://web.archive.org/web/20180716111623/https://www.marijuana.com/news/2018/03/jamaicas-kaya-farms-becomes-first-medical-marijuana-dispensary-to-open/ |url-status=live }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -214,9 +191,9 @@
   },
   "hashes": {
     "code": "jam",
-    "content_hash": "b80b41aec00411217ec1c91e41f7dcb703126874d5d403bfdf94d3ba1109979c",
-    "notes_hash": "6ff41ce9b07bcadeb9ef069bc98849c9be0ebe339948fcca4245c90e3a00b33c",
-    "model_hash": "76e0bc08dd6d072caefb8af0b47d1e599a68e918147023909a7acf3fdbcdd2f8"
+    "content_hash": "9c15f17d41ea42f1a5246f90225cc3e13d0f85efcf1e8a380570226a0676f9f5",
+    "notes_hash": "de5767586b6a6aace9f35062caa006562d7556467b8f209863ed17eb3a51f8c1",
+    "model_hash": "7c10d49314defb94a432f4a1f891a8d105707c8f892a0a79f671c37087f9be94"
   },
   "geo_code": "JM",
   "node_type": "country",

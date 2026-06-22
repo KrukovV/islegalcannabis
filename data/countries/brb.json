@@ -5,9 +5,9 @@
   "legal_model": {
     "recreational": {
       "raw_status": "LEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "LEGAL",
@@ -17,37 +17,36 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [],
       "modifiers": [
         "but",
-        "only",
-        "up_to"
+        "only"
       ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "final_risk": "RESTRICTED",
       "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": false,
-        "fine": true,
-        "severity_score": 4,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
           "prison": false,
           "arrest": false,
-          "fine": true,
+          "fine": false,
           "severe": false
         },
         "trafficking": {
@@ -57,19 +56,13 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Barbados",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Barbados",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Barbados",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "International Narcotics Control Strategy Report: Volume I: Drug and Chemical Control",
@@ -100,45 +93,42 @@
           "url": "https://barbadostoday.bb/2025/06/14/barbados-officially-opens-first-licensed-medicinal-cannabis-therapeutics-facility/",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Barbados Tiptoes Ahead With Cannabis Plans—Carefully",
+          "url": "https://cannabiswire.com/2020/01/17/barbados-tiptoes-ahead-with-cannabis-plans-carefully/",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Barbados | type: traversal | priority: 3 | scope: use",
-        "rule: illegal | source: Cannabis in Barbados | type: traversal | priority: 3 | scope: use",
-        "rule: medical_legal | source: Cannabis in Barbados | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_fine | source: Cannabis in Barbados | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_fine | source: Cannabis in Barbados | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in Barbados | type: traversal | priority: 3 | scope: cultivation",
-        "rule: raw_illegal | source: Cannabis in Barbados | type: traversal | priority: 3 | scope: cultivation",
-        "rule: penalty_years | source: Cannabis in Barbados | type: traversal | priority: 3 | scope: cultivation",
-        "rule: illegal | source: Cannabis in Barbados | type: traversal | priority: 3 | scope: cultivation"
+        "rule: raw_illegal | source: Barbados | type: summary | priority: 1 | scope: use",
+        "rule: illegal | source: Barbados | type: summary | priority: 1 | scope: use",
+        "rule: medical_legal | source: Barbados | type: summary | priority: 1 | scope: use",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 1300,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_notes": "illegal",
+          "distribution_article": null
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
       "raw_illegal",
-      "penalty_fine",
-      "penalty_prison",
-      "penalty_years"
+      "medical_legal"
     ],
-    "notes_normalized": "Cannabis is legal in Barbados. Medical cannabis is legal. Distribution is restricted. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Barbados. Medical cannabis is legal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is legal in Barbados. Medical cannabis is legal. Distribution is restricted. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Barbados. Medical cannabis is legal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Barbados}}",
   "facts": {
     "possession_limit": null,
@@ -210,26 +200,26 @@
     ],
     "legal_similarity": [
       {
+        "code": "msr",
+        "name": "Montserrat"
+      },
+      {
+        "code": "atg",
+        "name": "Antigua and Barbuda"
+      },
+      {
+        "code": "kna",
+        "name": "Saint Kitts and Nevis"
+      }
+    ],
+    "cluster_links": [
+      {
         "code": "tto",
         "name": "Trinidad and Tobago"
       },
       {
         "code": "dma",
         "name": "Dominica"
-      },
-      {
-        "code": "atg",
-        "name": "Antigua and Barbuda"
-      }
-    ],
-    "cluster_links": [
-      {
-        "code": "msr",
-        "name": "Montserrat"
-      },
-      {
-        "code": "kna",
-        "name": "Saint Kitts and Nevis"
       }
     ],
     "same_country_states": [],
@@ -237,9 +227,9 @@
   },
   "hashes": {
     "code": "brb",
-    "content_hash": "4fb275b6e9253d5ef908f0a1c8e5bbe94f7ac565976ed7f3676324b3bfce1f10",
-    "notes_hash": "d5d8d924f397aaa02154d34767b9b797d6e8ecbc0cf405409b80fdf6aede6ba5",
-    "model_hash": "4bfa8c6f7e9649345c114196d5b167aaa6336db3a16ba8d74550b34f62cac3bc"
+    "content_hash": "02546867000e7da7a71cb8a4383cad59d5cf79c2e78d94f67daaedd50c3f2253",
+    "notes_hash": "6e959f08d3e8cc2bd3f4aea5f16532c1bd2c630e0bc6e78d85423c7a8cbe2c33",
+    "model_hash": "d959c6604813ff20150f9d972cdf40e9a8bf115fbc88de8f961d3aba998ac471"
   },
   "geo_code": "BB",
   "node_type": "country",

@@ -4,11 +4,12 @@
 - Node.js 20 LTS (минимум 20.x). Рекомендуется управлять через nvm.
 
 ## Рабочий каталог
-- Работаем только в `/Users/vitaliykryukov/Projects/islegalcannabis`.
+- Работаем только в `/Users/james/Projects/isLegal`.
 - Перед любой работой запускать: `npm run where`.
+- Если нужен только path-check в широком незакоммиченном worktree, используйте `ALLOW_SCOPE_OVERRIDE=1 npm run where`.
 
 ## КАНОН ПУТИ
-Все команды и изменения выполняются только из `/Users/vitaliykryukov/Projects/islegalcannabis`; запуск из другого каталога запрещен и должен завершаться ошибкой.
+Все команды и изменения выполняются только из `/Users/james/Projects/isLegal`; запуск из другого каталога запрещен и должен завершаться ошибкой.
 
 ## Команды
 - lint: `npm run lint`

@@ -6,7 +6,7 @@
     "recreational": {
       "raw_status": "ILLEGAL",
       "status": "ILLEGAL",
-      "enforcement": "MODERATE",
+      "enforcement": "STRICT",
       "scope": "NONE"
     },
     "medical": {
@@ -22,7 +22,7 @@
         "possession": null,
         "use": null,
         "sale": "illegal",
-        "cultivation": "tolerated",
+        "cultivation": null,
         "import": null,
         "trafficking": "illegal"
       },
@@ -33,24 +33,22 @@
       ],
       "modifiers": [
         "up_to",
-        "may",
-        "only",
         "but"
       ]
     },
     "signals": {
-      "status": "restricted",
-      "final_risk": "RESTRICTED",
-      "enforcement_level": "rare",
+      "status": "illegal",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 3,
-        "arrest": true,
+        "prison_priority": 1,
+        "arrest": false,
         "fine": true,
         "severity_score": 4,
         "possession": {
           "prison": true,
-          "arrest": true,
+          "arrest": false,
           "fine": true,
           "severe": true
         },
@@ -68,12 +66,6 @@
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Japan",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Japan",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "A review of drug abuse and countermeasures in Japan since World War II",
@@ -104,6 +96,12 @@
           "url": "https://www.japantimes.co.jp/news/2016/11/05/national/media-national/japans-war-medical-marijuana/",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "A Loophole in Japan's Weed Laws Is Getting Tens of Thousands High",
+          "url": "https://www.vice.com/en/article/japan-weed-law-thc-thco-cannabis-ban/",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -117,47 +115,24 @@
         "rule: penalty_criminal_offense | source: Japan / 日本 | type: summary | priority: 1 | scope: trafficking",
         "rule: trafficking_illegal | source: Japan / 日本 | type: summary | priority: 1 | scope: trafficking",
         "rule: sale_illegal | source: Japan / 日本 | type: summary | priority: 1 | scope: trafficking",
-        "rule: raw_illegal | source: Cannabis in Japan | type: traversal | priority: 3 | scope: possession",
-        "rule: private_cultivation | source: Cannabis in Japan | type: traversal | priority: 3 | scope: cultivation",
-        "rule: legal | source: Cannabis in Japan | type: traversal | priority: 3 | scope: cultivation",
-        "rule: penalty_years | source: Cannabis in Japan | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_years | source: Cannabis in Japan | type: traversal | priority: 3 | scope: cultivation",
-        "rule: penalty_fine | source: Cannabis in Japan | type: traversal | priority: 3 | scope: general",
-        "rule: legal | source: Cannabis in Japan | type: traversal | priority: 3 | scope: trafficking",
-        "rule: legal | source: Cannabis in Japan | type: traversal | priority: 3 | scope: sale",
-        "rule: legal | source: Cannabis in Japan | type: traversal | priority: 3 | scope: import",
-        "rule: raw_illegal | source: Cannabis in Japan | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Japan | type: traversal | priority: 3 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Japan | type: traversal | priority: 3 | scope: sale",
-        "rule: sale_illegal | source: Cannabis in Japan | type: traversal | priority: 3 | scope: sale",
-        "rule: legal | source: Cannabis in Japan | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_prison | source: Cannabis in Japan | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_fine | source: Cannabis in Japan | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_arrest | source: Cannabis in Japan | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in Japan | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in Japan | type: traversal | priority: 3 | scope: possession",
-        "rule: enforcement_rare | source: Cannabis in Japan | type: traversal | priority: 3 | scope: general",
-        "rule: legal | source: Cannabis in Japan | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_arrest | source: Cannabis in Japan | type: traversal | priority: 3 | scope: possession",
-        "rule: legal | source: Cannabis in Japan | type: traversal | priority: 3 | scope: possession"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 20450,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": true,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
-          "enforcement_article": "rare",
+          "enforcement_article": null,
           "distribution_notes": "illegal",
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
     "enforcement_flags": [
-      "fine_based",
-      "weak_enforcement"
+      "fine_based"
     ],
     "applied_rules": [
       "penalty_prison",
@@ -165,11 +140,7 @@
       "penalty_years",
       "penalty_criminal_offense",
       "trafficking_illegal",
-      "sale_illegal",
-      "raw_illegal",
-      "private_cultivation",
-      "penalty_arrest",
-      "enforcement_rare"
+      "sale_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Japan / 日本. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
@@ -272,9 +243,9 @@
   },
   "hashes": {
     "code": "jpn",
-    "content_hash": "f61ed5cc352ef96a2098d0778e2a4253627f808162c8657c052a975447812652",
+    "content_hash": "dfe411ead556d68cc7e8cbe3d75c87dc64063d6a056bd5191c711b1adb0a2d35",
     "notes_hash": "51d2bf04605ee687ed3abbc6ce70456da90381bab5f16488933d86c7aadfdf38",
-    "model_hash": "b028a0444e0d3fe28c8596919af856331beb57bf35f38ae9f06183d279e0148c"
+    "model_hash": "f5e747aec52e0371c5ed79c8729e2e54d87b6ce2ad1e9528e25de715f154bd43"
   },
   "geo_code": "JP",
   "node_type": "country",

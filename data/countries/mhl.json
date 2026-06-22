@@ -17,38 +17,36 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "regulated",
+      "status": "illegal",
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": "regulated",
+        "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [
-        "sale_regulated"
+        "distribution_fallback_illegal"
       ],
-      "modifiers": [
-        "may"
-      ]
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "final_risk": "RESTRICTED",
       "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": false,
-        "fine": true,
-        "severity_score": 4,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
-          "fine": true,
-          "severe": true
+          "fine": false,
+          "severe": false
         },
         "trafficking": {
           "prison": false,
@@ -57,19 +55,13 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Marshall Islands / M̧ajeļ",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in the Marshall Islands",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Marshall_Islands",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Narcotic Drugs (Prohibition and Control) Act 1987 - 7 MIRC Ch.9",
@@ -79,42 +71,29 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in the Marshall Islands | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in the Marshall Islands | type: traversal | priority: 3 | scope: general",
-        "rule: sale_regulated | source: Cannabis in the Marshall Islands | type: traversal | priority: 3 | scope: trafficking",
-        "rule: raw_illegal | source: Cannabis in the Marshall Islands | type: traversal | priority: 3 | scope: possession",
-        "rule: illegal | source: Cannabis in the Marshall Islands | type: traversal | priority: 3 | scope: possession",
-        "rule: medical_legal | source: Cannabis in the Marshall Islands | type: traversal | priority: 3 | scope: possession",
-        "rule: medical_legal | source: Cannabis in the Marshall Islands | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in the Marshall Islands | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_fine | source: Cannabis in the Marshall Islands | type: traversal | priority: 3 | scope: possession"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 1708,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal",
-      "sale_regulated",
-      "penalty_prison",
-      "penalty_fine"
+      "distribution_fallback_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Marshall Islands / M̧ajeļ. Medical cannabis is illegal. Distribution is regulated. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Marshall Islands / M̧ajeļ. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Marshall Islands / M̧ajeļ. Medical cannabis is illegal. Distribution is regulated. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Marshall Islands / M̧ajeļ. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in the Marshall Islands}}",
   "facts": {
     "possession_limit": null,
@@ -213,9 +192,9 @@
   },
   "hashes": {
     "code": "mhl",
-    "content_hash": "54f4d0dfbad839816d469a6676de850ddbccb54dce22cb5af8cc3b82b6ea7791",
-    "notes_hash": "b3d999da5311a1b01390093538bc86d145956c084794a22c0772ff1a4bce46ae",
-    "model_hash": "d0772e46eec91a665c74783fa4ba16475585b3338f2c32b6e44e0f2e43cd10b3"
+    "content_hash": "b0dae37938be0d9e53280b012149fa7786073dfb591b5cd5e61474f31a0b529e",
+    "notes_hash": "c812d6590cbc324d64eac48c79021b83aa357c7e4cf50567439620298aa02a34",
+    "model_hash": "1ea611824e7912740ca4f964e242bae13eb75161718c6bc9d38ee07e4f916b55"
   },
   "geo_code": "MH",
   "node_type": "country",

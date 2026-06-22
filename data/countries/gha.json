@@ -101,21 +101,21 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Ghana | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Ghana | type: summary | priority: 1 | scope: general",
         "rule: raw_illegal | source: Cannabis in Ghana | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Ghana | type: traversal | priority: 3 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Ghana | type: traversal | priority: 3 | scope: cultivation",
-        "rule: illegal | source: Cannabis in Ghana | type: traversal | priority: 3 | scope: cultivation"
+        "rule: illegal | source: Cannabis in Ghana | type: traversal | priority: 3 | scope: general"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 1664,
+        "article_len": 333,
         "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
+          "distribution_notes": "illegal",
           "distribution_article": "illegal"
         }
       }
@@ -225,9 +225,9 @@
   },
   "hashes": {
     "code": "gha",
-    "content_hash": "ebe54731d42fef3bf8298bdb88a7426a360cf31ac788b6a13f2682929f752393",
+    "content_hash": "3ae8553654cc2e3f33a04b01713116de755a9c493d11fa47cf434598c054d7d2",
     "notes_hash": "0b7bd0510e7312f3379173e13f9d57fbebefc6a9b82e3a7305ce48e23e2372c8",
-    "model_hash": "7f5ec94f4c5a4fc9390f162bfea231ec27d22f2f0622ae208e082f0735b8c05a"
+    "model_hash": "b26753c31a813d3db7db2aa89b9d942baa6245507e936f0caceee93d253ec48e"
   },
   "geo_code": "GH",
   "node_type": "country",

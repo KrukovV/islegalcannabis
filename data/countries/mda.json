@@ -97,7 +97,7 @@
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 516,
+        "article_len": 497,
         "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
@@ -117,6 +117,7 @@
       "possession_decriminalized",
       "penalty_fine",
       "sale_regulated",
+      "medical_legal",
       "rec_implies_med_floor"
     ],
     "notes_normalized": "Cannabis is decriminalized in Moldova. Medical cannabis is limited. Distribution is regulated."
@@ -220,9 +221,9 @@
   },
   "hashes": {
     "code": "mda",
-    "content_hash": "40f914b1324cbc5428734462874eb239a18290ffd1ba240d50668ae63a1984c7",
+    "content_hash": "608814579e2072219bbbc3a5a8af1b61324b24db9c67d1384f576bf8173916a8",
     "notes_hash": "c1e72c7a6321d57ddfbf53f91343848c7f82e5f2b212c9718b55ca0baf934933",
-    "model_hash": "6bbb01f92c422103635b3e416358ef46ee81626c2d5e79f4d69fc8315de5fc8a"
+    "model_hash": "cc7a5a0468af3e2d48b3ec5f19a3f1fef55f193bf8d7202a8511f67157f948d0"
   },
   "geo_code": "MD",
   "node_type": "country",

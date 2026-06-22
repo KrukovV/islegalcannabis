@@ -89,12 +89,11 @@
       "explain": [
         "rule: raw_illegal | source: Cannabis in the Cook Islands | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in the Cook Islands | type: traversal | priority: 3 | scope: general",
-        "rule: medical_legal | source: Cannabis in the Cook Islands | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Medicinal cannabis now permitted in Cook Islands with prescription | type: reference | priority: 2 | scope: general"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 386,
+        "article_len": 367,
         "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
@@ -211,9 +210,9 @@
   },
   "hashes": {
     "code": "cok",
-    "content_hash": "b6193d1164f5040e134a6d536fcac08b7929f2070da8ee4325dbf86b1b827a98",
+    "content_hash": "ef49562794008afe544dae568c3fbc51c1edc94c415275bf0ffc4307b5c0f434",
     "notes_hash": "f206341d13f35269325f7829ba7f557fc6725fdd14b5d7abc6ef2a98432ebabf",
-    "model_hash": "8a6a5d207e5b37ba7ca8fac1f968207bbe69acc9b141682144d2727fc76875f3"
+    "model_hash": "043d48593d794ce1f4118b33c74f113cda6e413892048eb0b1d7274c9deca401"
   },
   "geo_code": "CK",
   "node_type": "country",

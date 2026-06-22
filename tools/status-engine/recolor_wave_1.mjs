@@ -145,20 +145,30 @@ function normalizeMedFromValues(statusValue, rawValue, text) {
   const status = String(statusValue || "").trim().toUpperCase();
   const raw = String(rawValue || "").trim().toUpperCase();
   const positive =
-    /\bmedical (?:use|cannabis|marijuana).{0,80}\b(?:legalized|allowed|approved|regulated|licensed)\b/i.test(text) ||
-    /\b(?:legalized|allowed|approved|regulated|licensed).{0,80}\bmedical (?:use|cannabis|marijuana)\b/i.test(text) ||
+    /\bmedical (?:use|cannabis|marijuana).{0,80}\b(?:legalized|legalised|allowed|approved|regulated|licensed)\b/i.test(text) ||
+    /\b(?:legalized|legalised|allowed|approved|regulated|licensed).{0,80}\bmedical (?:use|cannabis|marijuana)\b/i.test(text) ||
+    /\blegal for medical use\b/i.test(text) ||
+    /\bmedical (?:use|cannabis|marijuana) is legal\b/i.test(text) ||
     /\bmedical and industrial purposes\b/i.test(text);
   const limited =
+    /\brule:\s*medical_limited\b/i.test(text) ||
     /\blimited medical\b/i.test(text) ||
     /\bcbd oil\b/i.test(text) ||
+    /\bcannabidiol\b/i.test(text) ||
     /\blow[- ]thc\b/i.test(text) ||
+    /\bhemp extract\b/i.test(text) ||
     /\bmedical use is limited\b/i.test(text) ||
     /\bspecial permit\b/i.test(text) ||
+    /\bunless prescribed by a licensed medical professional\b/i.test(text) ||
     /\bnon-psychoactive cannabidiol\b/i.test(text);
   const negative = hasAny(text, [
     "medical cannabis is illegal",
     "medical marijuana is illegal",
     "medical use is illegal",
+    "medical cannabis is not allowed",
+    "not allowed for medical purposes",
+    "does not have a comprehensive medical cannabis program",
+    "no comprehensive medical cannabis program",
     "no medical cannabis",
     "continues to ban medical"
   ]);

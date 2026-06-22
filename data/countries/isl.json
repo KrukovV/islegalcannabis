@@ -29,8 +29,7 @@
       "enforcement": "fine-based",
       "flags": [],
       "modifiers": [
-        "but",
-        "only"
+        "but"
       ]
     },
     "signals": {
@@ -90,7 +89,7 @@
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 820,
+        "article_len": 246,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -213,9 +212,9 @@
   },
   "hashes": {
     "code": "isl",
-    "content_hash": "78b61e8510e0a5b38fcbec125e1256183a26204abf3e7c09e8c6d7695b4deb9b",
+    "content_hash": "eaee0e9dee14e7a86596e447d735a62a889d84cd7aabb3907e7708689144af7b",
     "notes_hash": "871ac4fe0e025c62f8394663a84403d12a981aaca255fcb3eaedc6d523e2e073",
-    "model_hash": "7367dc894457d0578988da23218f2a6860d3136c3c8fc7995fca93b845431e70"
+    "model_hash": "1c0c0922b8c73ad06162adb7144445a67d6cd56af095b06931b1cb1ff862c092"
   },
   "geo_code": "IS",
   "node_type": "country",

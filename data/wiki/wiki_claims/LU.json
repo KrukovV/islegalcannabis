@@ -24,10 +24,10 @@
       "url": "https://en.wikipedia.org/wiki/Cannabis_in_Luxembourg"
     }
   ],
-  "notes_text": "Decriminalized in 2001. Home use and cultivation legal since 21 July 2023.",
-  "notes_text_len": 74,
-  "notes": "Decriminalized in 2001. Home use and cultivation legal since 21 July 2023.",
-  "notes_raw": "{{main|Cannabis in Luxembourg}} Decriminalized in 2001.<ref>{{citation |title=Decriminalisation in Europe? |url=https://www.emcdda.europa.eu/attachements.cfm/att_5741_EN_Decriminalisation_Legal_Approaches.pdf |publisher=European Monitoring Centre for Drugs and Drug Addiction |date=November 2001}}</ref> Home use and cultivation legal since 21 July 2023.<ref name=\"lu\" /><ref name=\"law Luxembourg\">{{Cite act |language=fr |date=10 July 2023 |title=Loi du 10 juillet 2023 portant modification de la loi modifiée du 19 février 1973 concernant la vente de substances médicamenteuses et la lutte contre la toxicomanie |trans-title=Law of 10 July 2023 amending the amended law of 19 February 1973 concerning the sale of medicinal substances and the fight against drug addiction |url=https://mj.gouvernement.lu/dam-assets/dossiers/cannabis/loi-du-10-juillet-2023-cannabis.pdf |access-date=2024-01-16 |url-status=live |archive-url=https://web.archive.org/web/20240109044110/https://mj.gouvernement.lu/dam-assets/dossiers/cannabis/loi-du-10-juillet-2023-cannabis.pdf |archive-date=2024-01-09}}</ref>",
+  "notes_text": "Decriminalized in 2001. Home use and cultivation has been legal since 21 July 2023 for those aged 18 and over.",
+  "notes_text_len": 110,
+  "notes": "Decriminalized in 2001. Home use and cultivation has been legal since 21 July 2023 for those aged 18 and over.",
+  "notes_raw": "{{main|Cannabis in Luxembourg}} Decriminalized in 2001.<ref>{{citation |title=Decriminalisation in Europe? |url=https://www.emcdda.europa.eu/attachements.cfm/att_5741_EN_Decriminalisation_Legal_Approaches.pdf |publisher=European Monitoring Centre for Drugs and Drug Addiction |date=November 2001}}</ref> Home use and cultivation has been legal since 21 July 2023 for those aged 18 and over.<ref>{{cite news |last= Boffey |first= Daniel |date= 22 October 2021 |title= Luxembourg first in Europe to legalise growing and using cannabis |url= https://www.theguardian.com/world/2021/oct/22/luxembourg-first-in-europe-to-legalise-growing-and-using-cannabis |work= [[The Guardian]] |location= Brussels |access-date= 20 March 2026}}</ref><ref name=\"lu\" /><ref name=\"law Luxembourg\">{{Cite act |language=fr |date=10 July 2023 |title=Loi du 10 juillet 2023 portant modification de la loi modifiée du 19 février 1973 concernant la vente de substances médicamenteuses et la lutte contre la toxicomanie |trans-title=Law of 10 July 2023 amending the amended law of 19 February 1973 concerning the sale of medicinal substances and the fight against drug addiction |url=https://mj.gouvernement.lu/dam-assets/dossiers/cannabis/loi-du-10-juillet-2023-cannabis.pdf |access-date=2024-01-16 |url-status=live |archive-url=https://web.archive.org/web/20240109044110/https://mj.gouvernement.lu/dam-assets/dossiers/cannabis/loi-du-10-juillet-2023-cannabis.pdf |archive-date=2024-01-09}}</ref>",
   "notes_sections_used": [
     "notes_raw"
   ],
@@ -41,10 +41,11 @@
   "primary_source": "WIKI_COUNTRIES",
   "source_page": "Legality of cannabis",
   "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-  "source_revision": "1336080043",
+  "source_revision": "1360109215",
   "source_table": "countries",
-  "wiki_revision_id": "1336080043",
-  "fetched_at": "2026-02-12T19:20:54.889Z",
+  "wiki_revision_id": "1360109215",
+  "fetched_at": "2026-06-21T17:29:39.863Z",
+  "sources_reason_code": "",
   "source": "countries",
-  "revision_id": "1336080043"
+  "revision_id": "1360109215"
 }

@@ -6,7 +6,7 @@
     "recreational": {
       "raw_status": "ILLEGAL",
       "status": "ILLEGAL",
-      "enforcement": "STRICT",
+      "enforcement": "MODERATE",
       "scope": "NONE"
     },
     "medical": {
@@ -14,7 +14,7 @@
       "status": "ILLEGAL",
       "enforcement": "STRICT",
       "scope": "NONE",
-      "override_reason": "STATUS_GOVERNANCE_REVIEW_BD_STRICT"
+      "override_reason": null
     },
     "distribution": {
       "status": "illegal",
@@ -24,7 +24,7 @@
         "sale": "illegal",
         "cultivation": null,
         "import": null,
-        "trafficking": "illegal"
+        "trafficking": null
       },
       "enforcement": "fine-based",
       "flags": [
@@ -37,18 +37,18 @@
     "signals": {
       "status": "restricted",
       "final_risk": "RESTRICTED",
-      "enforcement_level": "active",
+      "enforcement_level": "unenforced",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": false,
         "fine": true,
-        "severity_score": 4,
+        "severity_score": 1,
         "possession": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
           "fine": false,
-          "severe": true
+          "severe": false
         },
         "trafficking": {
           "prison": false,
@@ -64,12 +64,6 @@
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Bangladesh",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bangladesh",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Narcotics Control Act, 1990 (Bangladesh)",
@@ -100,6 +94,12 @@
           "url": "https://archive.thedailystar.net/law/2010/03/04/advocate.htm",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "The Death Penalty: A Worldwide Perspective",
+          "url": "https://books.google.com/books?id=fSZwglgRnHsC&pg=PA138",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -109,27 +109,20 @@
         "rule: illegal | source: Bangladesh / বাংলাদেশ | type: summary | priority: 1 | scope: sale",
         "rule: enforcement_unenforced | source: Bangladesh / বাংলাদেশ | type: summary | priority: 1 | scope: general",
         "rule: enforcement_rare | source: Bangladesh / বাংলাদেশ | type: summary | priority: 1 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Bangladesh | type: traversal | priority: 3 | scope: trafficking",
-        "rule: trafficking_illegal | source: Cannabis in Bangladesh | type: traversal | priority: 3 | scope: trafficking",
-        "rule: sale_illegal | source: Cannabis in Bangladesh | type: traversal | priority: 3 | scope: trafficking",
-        "rule: illegal | source: Cannabis in Bangladesh | type: traversal | priority: 3 | scope: trafficking",
-        "rule: sale_illegal | source: Cannabis in Bangladesh | type: traversal | priority: 3 | scope: sale",
-        "rule: illegal | source: Cannabis in Bangladesh | type: traversal | priority: 3 | scope: sale",
-        "rule: penalty_prison | source: Cannabis in Bangladesh | type: traversal | priority: 3 | scope: possession",
-        "rule: rec_tolerated | source: Cannabis in Bangladesh | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_fine | source: The Death Penalty: A Worldwide Perspective | type: reference | priority: 2 | scope: general"
+        "rule: penalty_fine | source: The Death Penalty: A Worldwide Perspective | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 2107,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": "unenforced",
           "enforcement_article": null,
           "distribution_notes": "illegal",
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
@@ -141,13 +134,11 @@
       "enforcement_unenforced",
       "enforcement_rare",
       "sale_illegal",
-      "raw_illegal",
-      "penalty_prison",
       "penalty_fine"
     ],
-    "notes_normalized": "Cannabis is illegal in Bangladesh / বাংলাদেশ. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Bangladesh / বাংলাদেশ. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Bangladesh for recreational and medical access; criminal penalties remain in force and later enforcement notes report harsher cannabis enforcement since 2017.",
+  "notes_normalized": "Cannabis is illegal in Bangladesh / বাংলাদেশ. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Bangladesh}} Sale banned in 1989,<ref>{{cite web |url=http://dhakainsider.com/bangladesh-news/drug-abuse-where-is-the-way-of-remedy-part-ii-some-dangerous-silent-killers/ |title=Drug Abuse: Where is The Way of Remedy? (Part II- Some Dangerous Silent Killers) |publisher=DhakaInsider |date=20 June 2014 |access-date=15 November 2016 |archive-url=https://web.archive.org/web/20161115140731/http://dhakainsider.com/bangladesh-news/drug-abuse-where-is-the-way-of-remedy-part-ii-some-dangerous-silent-killers/ |archive-date=15 November 2016 |url-status=dead}}</ref> but laws are rarely enforced and cannabis is openly sold in many parts of the country.<ref>{{cite web |author1=Government of Bangladesh |author-link1=Government of Bangladesh |title=Narcotics Substances Control Act, 2018 |url=http://bdlaws.minlaw.gov.bd/act-details-1276.html |access-date=11 November 2016 |archive-date=11 October 2019 |archive-url=https://web.archive.org/web/20191011034412/http://bdlaws.minlaw.gov.bd/act-details-1276.html |url-status=live }}</ref><ref>{{cite web |title=Dhaka, Bangladesh – We Be High |url=http://webehigh.org/dhaka-bangladesh/ |website=webehigh.org |publisher=webehigh |access-date=5 December 2015 |archive-date=30 June 2018 |archive-url=https://web.archive.org/web/20180630024753/http://webehigh.org/dhaka-bangladesh/ |url-status=live }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -183,16 +174,16 @@
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "bd-narcotics-control-act-2018",
-        "url": "https://bdlaws.minlaw.gov.bd/act-details-1276.html",
-        "title": "Bangladesh Narcotics Control Act, 2018",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bangladesh",
+        "title": "Wikipedia: Cannabis in Bangladesh",
         "type": "external",
         "weight": "low"
       },
       {
-        "id": "refworld-bd-narcotics-control-act-2018",
-        "url": "https://www.refworld.org/legal/legislation/natlegbod/2018/en/148280",
-        "title": "Refworld: Bangladesh Narcotics Control Act, 2018",
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
         "type": "external",
         "weight": "low"
       }
@@ -246,9 +237,9 @@
   },
   "hashes": {
     "code": "bgd",
-    "content_hash": "c59b60481a0f2409398429b4f8e68c2358d455bf0bf316233eb17bd6fe4283ce",
-    "notes_hash": "41837d0f8466767c4c38e75cdca5c0d3f6c8dd603df17ea5c3f618da42128abf",
-    "model_hash": "704513f657a2b610d88dd3f37cdf550552f1fb305883eacbee284f4618294987"
+    "content_hash": "d07f365cd68ab566135a978248b96a689ca875e1d045b20d02be79d85af91624",
+    "notes_hash": "11357b36c53661bc63ebbe5fb700881afced94cfa7433c329fff23564fa629ad",
+    "model_hash": "c06732419a7b34fe3852c998a3386f208181e98874729315fa4a8d90867c3250"
   },
   "geo_code": "BD",
   "node_type": "country",

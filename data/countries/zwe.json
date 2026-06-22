@@ -134,6 +134,7 @@
       "penalty_prison",
       "penalty_years",
       "private_cultivation",
+      "medical_legal",
       "penalty_fine"
     ],
     "notes_normalized": "Cannabis is illegal in Zimbabwe. Medical cannabis is legal. Distribution is tolerated. Prison exposure detected."
@@ -237,9 +238,9 @@
   },
   "hashes": {
     "code": "zwe",
-    "content_hash": "97ba06dc0ea83d987351a8d1886fe112a6d0bceed739b5a21798f124ef067e42",
+    "content_hash": "7b1652b4c34dd420dd34ace0d279546d6174c8fd124bd29d70504e7b8c0f2e2b",
     "notes_hash": "ce6f2d393218f60cf08c664122f3fcddcd145bab6db9ddd8395fcd970812a615",
-    "model_hash": "8fb79779c8dd18d83d3ee57ad317c9fbeb5039112b178196a8a8f9286a5bd3f3"
+    "model_hash": "f3e992505742b31d7583c27cc4fe106fe029f9ddb7d9f992068cd3db92b6473e"
   },
   "geo_code": "ZW",
   "node_type": "country",

@@ -24,15 +24,15 @@
         "sale": null,
         "cultivation": null,
         "import": null,
-        "trafficking": "illegal"
+        "trafficking": null
       },
-      "enforcement": "fine-based",
-      "flags": [],
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
       "modifiers": [
         "may",
-        "but",
-        "only",
-        "however"
+        "but"
       ]
     },
     "signals": {
@@ -42,12 +42,12 @@
       "penalties": {
         "prison": false,
         "prison_priority": 0,
-        "arrest": true,
-        "fine": true,
-        "severity_score": 2,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
           "prison": false,
-          "arrest": true,
+          "arrest": false,
           "fine": false,
           "severe": false
         },
@@ -58,7 +58,7 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Uganda",
@@ -80,20 +80,11 @@
         }
       ],
       "explain": [
-        "rule: legal | source: Cannabis in Uganda | type: traversal | priority: 3 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Uganda | type: traversal | priority: 3 | scope: use",
-        "rule: illegal | source: Cannabis in Uganda | type: traversal | priority: 3 | scope: use",
-        "rule: raw_illegal | source: Cannabis in Uganda | type: traversal | priority: 3 | scope: trafficking",
-        "rule: trafficking_illegal | source: Cannabis in Uganda | type: traversal | priority: 3 | scope: trafficking",
-        "rule: illegal | source: Cannabis in Uganda | type: traversal | priority: 3 | scope: trafficking",
-        "rule: medical_legal | source: Cannabis in Uganda | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_arrest | source: Cannabis in Uganda | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_fine | source: Cannabis in Uganda | type: traversal | priority: 3 | scope: general",
-        "rule: medical_limited | source: Cannabis in Uganda | type: traversal | priority: 3 | scope: cultivation"
+        "rule: legal | source: Cannabis in Uganda | type: traversal | priority: 3 | scope: general"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 6032,
+        "article_len": 659,
         "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
@@ -101,17 +92,13 @@
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal",
-      "penalty_arrest",
-      "penalty_fine"
+      "distribution_fallback_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Uganda. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -214,9 +201,9 @@
   },
   "hashes": {
     "code": "uga",
-    "content_hash": "07c1880ced13479f16f9a506c39fee3118b08492b3cc30972ddb5a57b36bf948",
+    "content_hash": "f988d45b4059b77c6cb1bdc7c6d3128901f1f05c768c77115b948fb4795a96b3",
     "notes_hash": "3cb68ba237789282660edd80366755192891f05b27e7fb5f47d01d1ad2dae77f",
-    "model_hash": "6130bffd685e0d3d1796343bdc22ed3b430d7d2cf9b7dde44a9e8d6252e5a007"
+    "model_hash": "d18d7830cde9240eb2b340ceb251a4fcbe62275aa643016089247c9c6d15cc00"
   },
   "geo_code": "UG",
   "node_type": "country",

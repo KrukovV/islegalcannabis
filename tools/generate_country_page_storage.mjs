@@ -14,10 +14,12 @@ const US_STATE_CENTROIDS_PATH = path.join(ROOT, "data", "centroids", "us_adm1.js
 const US_STATE_ROWS_PATH = path.join(ROOT, "data", "wiki", "cache", "legality_us_states.json");
 const US_STATE_WIKI_PATH = path.join(ROOT, "data", "ssot", "us_states_wiki.json");
 const US_LAWS_DIR = path.join(ROOT, "data", "laws", "us");
+const KNOWLEDGE_DB_PATH = path.join(ROOT, "data", "cannabis_profiles", "knowledge_db.json");
 const WIKI_LEGALITY_TABLE_PATH = path.join(ROOT, "data", "wiki", "ssot_legality_table.json");
 const WIKI_CLAIMS_MAP_PATH = path.join(ROOT, "data", "wiki", "wiki_claims_map.json");
 const WIKI_CLAIMS_ENRICHED_PATH = path.join(ROOT, "data", "wiki", "wiki_claims_enriched.json");
 const WIKI_TRAVERSAL_CACHE_PATH = path.join(ROOT, "data", "wiki", "wiki_traversal_cache.json");
+const WIKI_CACHE_DIR = path.join(ROOT, "data", "wiki", "cache");
 const WIKI_API_BASE = "https://en.wikipedia.org/w/api.php";
 const US_STATES_WIKI_TRUTH_URL = "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction";
 const SECONDARY_SOURCE_USER_AGENT = "islegalcannabis/wiki-secondary-enrichment";
@@ -44,6 +46,7 @@ function readJson(filePath) {
 
 const wikiExtractCache = new Map();
 const wikiExtractInflight = new Map();
+let localWikiLeadByTitle = null;
 
 function ensureDir(dirPath) {
   fs.mkdirSync(dirPath, { recursive: true });
@@ -205,6 +208,10 @@ function mergeText(primaryText, secondaryText) {
   return [String(primaryText || "").trim(), String(secondaryText || "").trim()].filter(Boolean).join(" ").trim();
 }
 
+function mergeManyText(parts) {
+  return (Array.isArray(parts) ? parts : []).map((part) => String(part || "").trim()).filter(Boolean).join(" ").trim();
+}
+
 function formatWikipediaTitleFromUrl(url, fallbackTitle = "") {
   const raw = String(url || "").trim();
   if (!raw) return String(fallbackTitle || "").trim();
@@ -217,6 +224,65 @@ function buildWikiUrlFromTitle(title) {
   const normalized = canonicalizeWikiTitle(title);
   if (!normalized) return "";
   return `https://en.wikipedia.org/wiki/${encodeURIComponent(normalized.replace(/ /g, "_"))}`;
+}
+
+function stripWikiMarkupToText(value) {
+  return String(value || "")
+    .replace(/<ref[\s\S]*?<\/ref>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\{\{[^{}]*\}\}/g, " ")
+    .replace(/\[\[([^|\]]*\|)?([^\]]+)\]\]/g, "$2")
+    .replace(/'''?/g, "")
+    .replace(/\[\s*https?:\/\/[^\s\]]+\s+([^\]]+)\]/g, "$1")
+    .replace(/\[\s*https?:\/\/[^\]]+\]/g, " ")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function extractLeadTextFromWikiText(wikitext) {
+  const lead = String(wikitext || "").split(/\n==/)[0] || "";
+  return stripWikiMarkupToText(lead);
+}
+
+function loadLocalWikiLeadByTitle() {
+  if (localWikiLeadByTitle) return localWikiLeadByTitle;
+  const index = new Map();
+  if (!fs.existsSync(WIKI_CACHE_DIR)) {
+    localWikiLeadByTitle = index;
+    return index;
+  }
+  for (const fileName of fs.readdirSync(WIKI_CACHE_DIR)) {
+    if (!fileName.endsWith(".json")) continue;
+    const filePath = path.join(WIKI_CACHE_DIR, fileName);
+    const stat = fs.statSync(filePath);
+    if (!stat.isFile()) continue;
+    let payload;
+    try {
+      payload = readJson(filePath);
+    } catch {
+      continue;
+    }
+    const wikitext = String(payload?.wikitext || "").trim();
+    if (!wikitext) continue;
+    const titleMatch = wikitext.match(/'''([^'\n]+)'''/);
+    const title = canonicalizeWikiTitle(titleMatch?.[1] || "");
+    const text = extractLeadTextFromWikiText(wikitext);
+    if (!title || text.length < 40 || index.has(title)) continue;
+    index.set(title, {
+      title,
+      url: buildWikiUrlFromTitle(title),
+      text
+    });
+  }
+  localWikiLeadByTitle = index;
+  return index;
+}
+
+function getLocalWikiLead(title) {
+  const normalized = canonicalizeWikiTitle(title);
+  if (!normalized) return null;
+  return loadLocalWikiLeadByTitle().get(normalized) || null;
 }
 
 async function resolveWikipediaPage(candidates) {
@@ -334,13 +400,14 @@ async function buildSecondaryTraversalPages(countryCode, notesMainArticles, wiki
     if (!title) continue;
     const cachedPage = wikiTraversalCache.get(title);
     const apiText = await fetchWikiExtract(title);
+    const localPage = apiText.length >= 200 ? null : getLocalWikiLead(title);
     if (item?.url && apiText.length < 300) {
       console.warn(`SECONDARY_SOURCE_WEAK code=${countryCode} title=${title} extract_len=${apiText.length}`);
     }
     if (item?.url && apiText.length < 200) {
       console.warn(`EMPTY_MAIN_ARTICLE code=${countryCode} title=${title} extract_len=${apiText.length}`);
     }
-    const mergedText = mergeText(cachedPage?.text || "", apiText);
+    const mergedText = mergeManyText([cachedPage?.text || "", apiText, localPage?.text || ""]);
     if (!mergedText) continue;
     if (SECONDARY_SOURCE_AUDIT_CODES.has(String(countryCode || "").toUpperCase())) {
       const normalized = mergedText.toLowerCase();
@@ -350,7 +417,7 @@ async function buildSecondaryTraversalPages(countryCode, notesMainArticles, wiki
     }
     pages.push({
       title,
-      url: String(item?.url || cachedPage?.url || "").trim() || null,
+      url: String(item?.url || cachedPage?.url || localPage?.url || "").trim() || null,
       depth: 1,
       text: mergedText
     });
@@ -368,9 +435,18 @@ function mapLawValueToStatus(value, fallbackStatus = "ILLEGAL") {
 
 function mapMedicalValueToStatus(value, fallbackStatus = "ILLEGAL") {
   const normalized = String(value || "").trim().toLowerCase();
-  if (normalized === "allowed" || normalized === "legal" || normalized === "restricted") return "LEGAL";
+  if (normalized === "allowed" || normalized === "legal") return "LEGAL";
+  if (normalized === "restricted") return "LIMITED";
   if (normalized === "illegal") return "ILLEGAL";
   return fallbackStatus;
+}
+
+function buildKnowledgeLegalSummary(entry) {
+  if (!entry || typeof entry !== "object") return "";
+  return mergeManyText([
+    ...(Array.isArray(entry.notes) ? entry.notes : []),
+    ...(Array.isArray(entry.enforcementReality) ? entry.enforcementReality : [])
+  ]);
 }
 
 function decodeUsStateHs(rawText) {
@@ -392,15 +468,37 @@ function parseStateRecStatusFromRaw(rawText, wikiFallbackStatus = "ILLEGAL") {
   return wikiFallbackStatus;
 }
 
-function parseStateMedicalStatus(rawText, lawValue, wikiFallbackStatus = "ILLEGAL") {
+function parseStateMedicalStatus(rawText, lawValue, wikiFallbackStatus = "ILLEGAL", evidenceText = "") {
   if (lawValue) return mapMedicalValueToStatus(lawValue, wikiFallbackStatus);
-  const raw = String(rawText || "").toLowerCase();
+  const sourceText = mergeText(rawText, evidenceText);
+  const raw = sourceText.toLowerCase();
   const hs = decodeUsStateHs(rawText);
-  if (/\blegal(?:ized)?\b|\ballowed\b|\bpermitted\b|\bmedical marijuana\b|\bmedical cannabis\b/.test(raw) && !/\billegal\b/.test(raw)) {
+  const regulatedMedical =
+    /\blegali[sz]ed\b.{0,120}\bmedical (?:use|marijuana|cannabis)\b/i.test(sourceText) ||
+    /\bmedical (?:use|marijuana|cannabis)\b.{0,120}\blegali[sz]ed\b/i.test(sourceText) ||
+    /\blegal for medical use\b/i.test(sourceText) ||
+    /\bmedical (?:use|marijuana|cannabis) is legal\b/i.test(sourceText) ||
+    /\bstate medical cannabis code\b|\bpatient card system\b|\bmedical cannabis program\b|\bmedical marijuana program\b/i.test(sourceText);
+  if (regulatedMedical) {
     return "LEGAL";
   }
   if (hs === "3") return "LEGAL";
-  if (/\bde facto legal\b|\bcompassionate use\b|\bcbd\b/.test(raw)) return "LIMITED";
+  if (
+    /\bde facto legal\b|\bcompassionate use\b|\bcbd\b|\bcannabidiol\b|\blow[- ]thc\b|\bhemp extract\b|\bnon-psychoactive cannabidiol\b/.test(raw) ||
+    /\bonly legal\b.{0,80}\bcbd\b/i.test(sourceText) ||
+    /\bunless prescribed by a licensed medical professional\b/i.test(sourceText) ||
+    /\blimited use of\b.{0,40}\bcannabidiol\b/i.test(sourceText)
+  ) {
+    return "LIMITED";
+  }
+  if (
+    /\bmedical cannabis is not allowed\b/i.test(sourceText) ||
+    /\bnot allowed for medical purposes\b/i.test(sourceText) ||
+    /\bdoes not have a comprehensive medical cannabis program\b/i.test(sourceText) ||
+    /\bno comprehensive medical cannabis program\b/i.test(sourceText)
+  ) {
+    return "ILLEGAL";
+  }
   if (raw.includes("illegal")) return "ILLEGAL";
   return wikiFallbackStatus;
 }
@@ -428,13 +526,16 @@ function formatStateNotes(entry) {
   const med = entry.legal_model.medical.status;
   const possession = entry.facts.possession_limit ? ` Possession is limited to ${entry.facts.possession_limit}.` : "";
   if (rec === "LEGAL") {
-    return `Cannabis is legal in ${stateName} under state law for recreational adult use. Medical cannabis is ${med === "LEGAL" ? "also legal" : "not broadly legal"} in ${stateName}. Cannabis remains federally illegal in United States.${possession}`;
+    return `Cannabis is legal in ${stateName} under state law for recreational adult use. Medical cannabis is ${med === "LEGAL" ? "also legal under a regulated state program" : "not broadly legal"} in ${stateName}. Cannabis remains federally illegal in United States.${possession}`;
   }
   if (rec === "DECRIMINALIZED" || rec === "TOLERATED") {
-    return `Cannabis is ${rec === "DECRIMINALIZED" ? "decriminalized" : "tolerated"} in ${stateName} in limited state-level practice, but it is not fully legal under state law. Medical cannabis is ${med === "LEGAL" ? "available in limited form" : "not broadly legal"} in ${stateName}. Cannabis remains federally illegal in United States.${possession}`;
+    return `Cannabis is ${rec === "DECRIMINALIZED" ? "decriminalized" : "tolerated"} in ${stateName} in limited state-level practice, but it is not fully legal under state law. Medical cannabis is ${med === "LEGAL" ? "legal under a regulated state program" : "not broadly legal"} in ${stateName}. Cannabis remains federally illegal in United States.${possession}`;
   }
   if (med === "LEGAL") {
-    return `Cannabis is illegal in ${stateName} for recreational use under state law, but medical cannabis is available in limited form. Cannabis remains federally illegal in United States.${possession}`;
+    return `Cannabis is illegal in ${stateName} for recreational use under state law, but medical cannabis is legal under a regulated state program. Cannabis remains federally illegal in United States.${possession}`;
+  }
+  if (med === "LIMITED") {
+    return `Cannabis is illegal in ${stateName} for recreational use under state law, but medical cannabis is available only in limited form. Cannabis remains federally illegal in United States.${possession}`;
   }
   return `Cannabis is illegal in ${stateName} under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.${possession}`;
 }
@@ -501,6 +602,16 @@ function loadUsStateRawRowsByGeo() {
         return [geo, row];
       })
       .filter(([geo]) => /^US-[A-Z]{2}$/.test(geo))
+  );
+}
+
+function loadKnowledgeByGeo() {
+  if (!fs.existsSync(KNOWLEDGE_DB_PATH)) return new Map();
+  const payload = readJson(KNOWLEDGE_DB_PATH);
+  return new Map(
+    (Array.isArray(payload?.entries) ? payload.entries : [])
+      .map((entry) => [String(entry?.geo || "").toUpperCase(), entry])
+      .filter(([geo]) => geo)
   );
 }
 
@@ -696,6 +807,7 @@ async function buildStateEntries(usaEntry) {
   const lawsByGeo = loadUsStateLawByGeo();
   const wikiByGeo = loadUsStateWikiByGeo();
   const rawRowsByGeo = loadUsStateRawRowsByGeo();
+  const knowledgeByGeo = loadKnowledgeByGeo();
   const parentRef = { code: "usa", name: usaEntry.name };
   const stateEntries = [];
 
@@ -704,17 +816,22 @@ async function buildStateEntries(usaEntry) {
     const code = `us-${stateCode}`;
     const rawRow = rawRowsByGeo.get(geo);
     const law = lawsByGeo.get(geo);
+    const knowledge = knowledgeByGeo.get(geo) || null;
     const centroid = centroids[geo] || labelAnchors[geo] || null;
     const fallbackRec = "ILLEGAL";
     const fallbackMed = "ILLEGAL";
+    const name = normalizeStateTitleFromWikiUrl(wikiRow.wiki_page_url, geo);
     const recreationalStatus = law
       ? mapLawValueToStatus(law.recreational, fallbackRec)
       : parseStateRecStatusFromRaw(rawRow?.recreational_raw, fallbackRec);
-    const medicalStatus = parseStateMedicalStatus(rawRow?.medical_raw, law?.medical, fallbackMed);
+    const legalSource = await resolveUsStateCannabisSource(name);
+    const stateEvidenceText = mergeManyText([
+      buildKnowledgeLegalSummary(knowledge),
+      legalSource?.text || ""
+    ]);
+    const medicalStatus = parseStateMedicalStatus(rawRow?.medical_raw, law?.medical, fallbackMed, stateEvidenceText);
     const recreationalEnforcement = parseStateEnforcement(rawRow?.recreational_raw, recreationalStatus);
     const enforcementStrength = parseStateEnforcementStrength(rawRow?.recreational_raw, recreationalStatus);
-    const name = normalizeStateTitleFromWikiUrl(wikiRow.wiki_page_url, geo);
-    const legalSource = await resolveUsStateCannabisSource(name);
     const facts = {
       possession_limit: law?.possession_limit || null,
       cultivation:
@@ -777,7 +894,10 @@ async function buildStateEntries(usaEntry) {
         applied_rules: []
       },
       notes_normalized: "",
-      notes_raw: mergeText(String(rawRow?.recreational_raw || law?.recreational || "").trim(), legalSource?.text || ""),
+      notes_raw: mergeManyText([
+        String(rawRow?.recreational_raw || law?.recreational || "").trim(),
+        stateEvidenceText
+      ]),
       facts,
       parent_country: parentRef,
       state_modifiers: {
@@ -810,7 +930,7 @@ async function buildStateEntries(usaEntry) {
           ? { lat: Number(centroid.lat), lng: Number(centroid.lon) }
           : usaEntry.coordinates,
       sources: {
-        legal: legalSource?.url || null,
+        legal: legalSource?.url || knowledge?.wikiUrl || null,
         wiki: wikiRow.wiki_page_url || null,
         wiki_truth: US_STATES_WIKI_TRUTH_URL,
         citations: []

@@ -29,10 +29,7 @@
       "enforcement": "standard",
       "flags": [],
       "modifiers": [
-        "but",
-        "however",
-        "only",
-        "may"
+        "but"
       ]
     },
     "signals": {
@@ -104,20 +101,21 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Palau / Belau | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Palau / Belau | type: summary | priority: 1 | scope: general",
         "rule: raw_illegal | source: Cannabis in Palau | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Palau | type: traversal | priority: 3 | scope: general",
-        "rule: legal | source: Cannabis in Palau | type: traversal | priority: 3 | scope: general"
+        "rule: illegal | source: Cannabis in Palau | type: traversal | priority: 3 | scope: general"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 1797,
+        "article_len": 573,
         "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
+          "distribution_notes": "illegal",
           "distribution_article": "illegal"
         }
       }
@@ -227,9 +225,9 @@
   },
   "hashes": {
     "code": "plw",
-    "content_hash": "945870987ecc91f6d22d05a62d4416eccf7623c3a993b83d5a5ca110d336ee44",
+    "content_hash": "1b70f62524a0bef84c97e0a7a7d2183ceeda9a8c62854fc2ca692f066b629cbc",
     "notes_hash": "e0d6b9304f86fe6a05d9232050c76c308f6e30801c77acfdb1e11f0850dfdcef",
-    "model_hash": "21eb51209d2fd0a7a9a776390b309d877cd5a3c3ba6c84a1ddd04fc799de4113"
+    "model_hash": "dc12375d5d28c4913db52b7295eba49a6f996ba9655d5580fb6a6b0e899c1b48"
   },
   "geo_code": "PW",
   "node_type": "country",

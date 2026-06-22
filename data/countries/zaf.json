@@ -47,10 +47,10 @@
         "fine": true,
         "severity_score": 4,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
           "fine": false,
-          "severe": false
+          "severe": true
         },
         "trafficking": {
           "prison": false,
@@ -105,8 +105,10 @@
         }
       ],
       "explain": [
+        "rule: penalty_years | source: South Africa / Sewula Afrika | type: summary | priority: 1 | scope: cultivation",
         "rule: private_cultivation | source: South Africa / Sewula Afrika | type: summary | priority: 1 | scope: cultivation",
         "rule: legal | source: South Africa / Sewula Afrika | type: summary | priority: 1 | scope: cultivation",
+        "rule: legal | source: South Africa / Sewula Afrika | type: summary | priority: 1 | scope: use",
         "rule: legal | source: South Africa / Sewula Afrika | type: summary | priority: 1 | scope: general",
         "rule: raw_illegal | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: sale",
         "rule: sale_illegal | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: sale",
@@ -139,10 +141,10 @@
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 21200,
+        "article_len": 21176,
         "source_confidence": "prison_signal",
         "signals": {
-          "prison_notes": false,
+          "prison_notes": true,
           "prison_article": true,
           "enforcement_notes": null,
           "enforcement_article": "rare",
@@ -156,18 +158,20 @@
       "fine_based"
     ],
     "applied_rules": [
+      "penalty_years",
       "private_cultivation",
       "raw_illegal",
       "enforcement_rare",
       "possession_decriminalized",
       "penalty_fine",
       "penalty_arrest",
+      "medical_legal",
       "penalty_prison"
     ],
     "notes_normalized": "Cannabis is legal in South Africa / Sewula Afrika. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
   "notes_normalized": "Cannabis is legal in South Africa / Sewula Afrika. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.",
-  "notes_raw": "{{main|Cannabis in South Africa}} Private use and cultivation have been legal since September 2018.<ref>{{cite web|url=https://ewn.co.za/2018/09/18/concourt-upholds-ruling-that-private-use-of-dagga-is-legal|title=ConCourt upholds ruling that private use of dagga is legal|first=Mia|last=Lindeque|access-date=18 September 2018|archive-date=30 June 2019|archive-url=https://web.archive.org/web/20190630092912/https://ewn.co.za/2018/09/18/concourt-upholds-ruling-that-private-use-of-dagga-is-legal|url-status=live}}</ref><ref>{{Cite web|url=https://www.timeslive.co.za/news/south-africa/2018-09-18-ban-on-private-use-of-dagga-at-home-is-ruled-unconstitutional/|title=The highest court has spoken: You are allowed to smoke – and grow – dagga at home|website=TimesLIVE|date=18 September 2018 |access-date=18 September 2018|archive-date=27 November 2018|archive-url=https://web.archive.org/web/20181127234223/https://www.timeslive.co.za/news/south-africa/2018-09-18-ban-on-private-use-of-dagga-at-home-is-ruled-unconstitutional/|url-status=live}}</ref><ref>{{cite news |date= 18 September 2018 |title= South Africa's highest court legalises cannabis use |url= https://www.bbc.co.uk/news/world-africa-45559954 |publisher= BBC News |access-date= 4 November 2021 |archive-date= 4 November 2021 |archive-url= https://web.archive.org/web/20211104002656/https://www.bbc.co.uk/news/world-africa-45559954 |url-status= live }}</ref><ref>{{cite news |last= Gwegwe |first= Siseko |date= 12 October 2021 |title= Cannabis weed in South Africa – What's legal and what's not? |url= https://www.thesouthafrican.com/news/cannabis-marijuana-weed-legal-status-in-south-africa-law-government/ |work= TheSouthAfrican.com |access-date= 4 November 2021 |archive-date= 4 November 2021 |archive-url= https://web.archive.org/web/20211104004200/https://www.thesouthafrican.com/news/cannabis-marijuana-weed-legal-status-in-south-africa-law-government/ |url-status= live }}</ref>",
+  "notes_raw": "{{main|Cannabis in South Africa}} Private use and cultivation have been legal for those 18 years and older since September 2018.<ref>Nadine Harker, Nancy Hornsby, Mukhethwa Londani, Charles Parry, Tara Carney. ''[https://www.sciencedirect.com/science/article/pii/S0955395926000034 From courtroom to clinic: How legal rulings shape cannabis use among adolescents and young adults in South Africa]''. International Journal of Drug Policy. Volume 149. 2026. 105151. ISSN 0955-3959. https://doi.org/10.1016/j.drugpo.2026.105151. \"This was followed by the recent signing into law of the Cannabis for Private Purposes Act by President Ramaphosa on 28th May 2024, which legalized cannabis use. Specifically, adult South Africans (18 years and older) are now permitted to grow and consume cannabis [...]\"</ref><ref>{{cite web|url=https://ewn.co.za/2018/09/18/concourt-upholds-ruling-that-private-use-of-dagga-is-legal|title=ConCourt upholds ruling that private use of dagga is legal|first=Mia|last=Lindeque|access-date=18 September 2018|archive-date=30 June 2019|archive-url=https://web.archive.org/web/20190630092912/https://ewn.co.za/2018/09/18/concourt-upholds-ruling-that-private-use-of-dagga-is-legal|url-status=live}}</ref><ref>{{Cite web|url=https://www.timeslive.co.za/news/south-africa/2018-09-18-ban-on-private-use-of-dagga-at-home-is-ruled-unconstitutional/|title=The highest court has spoken: You are allowed to smoke – and grow – dagga at home|website=TimesLIVE|date=18 September 2018 |access-date=18 September 2018|archive-date=27 November 2018|archive-url=https://web.archive.org/web/20181127234223/https://www.timeslive.co.za/news/south-africa/2018-09-18-ban-on-private-use-of-dagga-at-home-is-ruled-unconstitutional/|url-status=live}}</ref><ref>{{cite news |date= 18 September 2018 |title= South Africa's highest court legalises cannabis use |url= https://www.bbc.co.uk/news/world-africa-45559954 |publisher= BBC News |access-date= 4 November 2021 |archive-date= 4 November 2021 |archive-url= https://web.archive.org/web/20211104002656/https://www.bbc.co.uk/news/world-africa-45559954 |url-status= live }}</ref><ref>{{cite news |last= Gwegwe |first= Siseko |date= 12 October 2021 |title= Cannabis weed in South Africa – What's legal and what's not? |url= https://www.thesouthafrican.com/news/cannabis-marijuana-weed-legal-status-in-south-africa-law-government/ |work= TheSouthAfrican.com |access-date= 4 November 2021 |archive-date= 4 November 2021 |archive-url= https://web.archive.org/web/20211104004200/https://www.thesouthafrican.com/news/cannabis-marijuana-weed-legal-status-in-south-africa-law-government/ |url-status= live }}</ref>",
   "facts": {
     "possession_limit": null,
     "cultivation": "cultivation have been legal since September 2018.",
@@ -265,9 +269,9 @@
   },
   "hashes": {
     "code": "zaf",
-    "content_hash": "cc34ad8d4917ae2832140bcccf44588868e180c0a209f3348abbc4455aa72abd",
+    "content_hash": "6ee20449c199e3ca1882f50b459eb9358de585269766dcc8e00a32d57a44e4c3",
     "notes_hash": "29ea8aa9cd3d2d53813e4acb46a42a5e19127aaaa89cf3467946b31eab366e24",
-    "model_hash": "39cf983b0cc92620e03e770243c4adfc87ca3d2578e26eb9b73c953c7281c6d6"
+    "model_hash": "2ea015efac7a02529bcb3558bfa75cd64350a155f7f66016bb1572f52d770d2c"
   },
   "geo_code": "ZA",
   "node_type": "country",

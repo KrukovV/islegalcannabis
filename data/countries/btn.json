@@ -39,9 +39,9 @@
       "penalties": {
         "prison": false,
         "prison_priority": 0,
-        "arrest": true,
+        "arrest": false,
         "fine": false,
-        "severity_score": 2,
+        "severity_score": 0,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -62,12 +62,6 @@
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Bhutan",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bhutan",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Bhutan",
@@ -98,33 +92,36 @@
           "url": "https://thebhutanese.bt/41-dead-and-counting-bhutans-growing-drug-problem/",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Report of the International Narcotics Control Board for 2012",
+          "url": "https://www.incb.org/incb/en/publications/annual-reports/annual-report-2012.html",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Bhutan / འབྲུག་ཡུལ་ | type: summary | priority: 1 | scope: cultivation",
         "rule: illegal | source: Bhutan / འབྲུག་ཡུལ་ | type: summary | priority: 1 | scope: cultivation",
-        "rule: raw_illegal | source: Cannabis in Bhutan | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Bhutan | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_arrest | source: Cannabis in Bhutan | type: traversal | priority: 3 | scope: general"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 1089,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": "illegal",
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal",
-      "penalty_arrest"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Bhutan / འབྲུག་ཡུལ་. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -227,9 +224,9 @@
   },
   "hashes": {
     "code": "btn",
-    "content_hash": "fec32e04beaa7cc57505526c772b5806b896c47ff41f8ef84ada4f3caef50ede",
+    "content_hash": "20f6020cca4515e9b3f2c49c2475c6dbd724c648daa59c6e1783792938bf4c9d",
     "notes_hash": "cec92f6f8f088b0b453f72d9417c64373f3af1593e4a988201b09dec7521d332",
-    "model_hash": "3d08a191235d9206d4a7c000f83dcccd9be6d558aded98ee4fe67e8cc44d81fb"
+    "model_hash": "6b5f50b1d16b3029c5f12bb0d28ff9bfffc803e88acde53590e8a477d7d17e9e"
   },
   "geo_code": "BT",
   "node_type": "country",

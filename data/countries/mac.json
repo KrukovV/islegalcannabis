@@ -84,7 +84,7 @@
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 401,
+        "article_len": 382,
         "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
@@ -201,9 +201,9 @@
   },
   "hashes": {
     "code": "mac",
-    "content_hash": "7ec0a9c9642d2bc33e53a551ce6d7610da19fc20f039711b973c8f6fff032ca2",
+    "content_hash": "d2929e6bd3a43ec13e98bb1e9374641f5c7f673ce082a11733c3a0c28ec1297b",
     "notes_hash": "c6e0fe455944aef1a97fe51c11e1cfd42fac0c7b5f0e72e79b7fb8e43c9fa536",
-    "model_hash": "714260a5c5ad0a544f456cea48b5c5360e3b0ecbad058e6b64a9675eece54b25"
+    "model_hash": "13ebee08f251de01e11fa8ae7f099a3f4b1255828cdbc6f72bcb36b6a999a590"
   },
   "geo_code": "MO",
   "node_type": "country",

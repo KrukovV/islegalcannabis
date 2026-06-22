@@ -28,10 +28,7 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": [
-        "may",
-        "but"
-      ]
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
@@ -102,21 +99,21 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Grenada | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Grenada | type: summary | priority: 1 | scope: general",
         "rule: raw_illegal | source: Cannabis in Grenada | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Grenada | type: traversal | priority: 3 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Grenada | type: traversal | priority: 3 | scope: cultivation",
-        "rule: illegal | source: Cannabis in Grenada | type: traversal | priority: 3 | scope: cultivation"
+        "rule: illegal | source: Cannabis in Grenada | type: traversal | priority: 3 | scope: general"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 1844,
+        "article_len": 98,
         "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
+          "distribution_notes": "illegal",
           "distribution_article": "illegal"
         }
       }
@@ -199,26 +196,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "msr",
-        "name": "Montserrat"
-      },
-      {
-        "code": "blm",
-        "name": "Saint Barthélemy"
-      },
-      {
-        "code": "ven",
-        "name": "Venezuela"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "brb",
         "name": "Barbados"
       },
       {
+        "code": "msr",
+        "name": "Montserrat"
+      },
+      {
+        "code": "atg",
+        "name": "Antigua and Barbuda"
+      }
+    ],
+    "cluster_links": [
+      {
         "code": "dma",
         "name": "Dominica"
+      },
+      {
+        "code": "kna",
+        "name": "Saint Kitts and Nevis"
       }
     ],
     "same_country_states": [],
@@ -226,9 +223,9 @@
   },
   "hashes": {
     "code": "grd",
-    "content_hash": "a337e1e0a0134244ae5d1233bf400aaf50363eaa6823a8d5b8fa51f8fbda66e6",
+    "content_hash": "5ef19609c92db711292d82f6c06c3efe36ce015b81092084c38c2e6377a487bc",
     "notes_hash": "a70335c7ae621bd114c280a78215927ee733f9eebde29a2c7fc5480aaefd5c8c",
-    "model_hash": "7a08755f8a42df65a2bb875205c90c31a6e87da8b216cfe5d65e64e324cbd60d"
+    "model_hash": "9ae4569dc92ed2fac16200606b4c42f493db8b534843d34c270b7275606e711a"
   },
   "geo_code": "GD",
   "node_type": "country",

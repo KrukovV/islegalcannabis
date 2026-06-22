@@ -16,6 +16,13 @@ describe("CountrySeoPage quote sanitizer", () => {
     expect(sanitized).toBe("Cannabis itself is not allowed for medical purposes.");
   });
 
+  it("drops wiki appendix garbage and image-caption residue from visible text", () => {
+    const sanitized = sanitizeEvidenceQuoteText(
+      ", Morocco|267x267px]] Cannabis in Morocco has been illegal since 1956. Further reading. * https://example.com Category:Politics of Morocco"
+    );
+    expect(sanitized).toBe("Cannabis in Morocco has been illegal since 1956.");
+  });
+
   it("sanitizes notes before passing seo country data to the client entry", () => {
     const safe = getSafeSeoCountryData({
       code: "us-wy",

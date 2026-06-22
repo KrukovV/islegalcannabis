@@ -2,6 +2,7 @@
 
 import styles from "../MapRoot.module.css";
 import type { CountryCardEntry } from "../map.types";
+import { sanitizeEvidenceQuoteText } from "@/lib/text/sanitizeEvidenceQuoteText";
 
 type Props = {
   geo: string | null;
@@ -19,7 +20,7 @@ export default function CountryCard({ geo, cardIndex }: Props) {
       <div className={styles.countryCardMeta}>ISO2: {entry.iso2 || "Unknown"}</div>
       <div className={styles.countryCardMeta}>{entry.panel.summary}</div>
       <div className={styles.countryCardNotes}>
-        {entry.notes || "No notes available."}
+        {sanitizeEvidenceQuoteText(entry.notes || "").trim() || "No notes available."}
       </div>
     </div>
   );

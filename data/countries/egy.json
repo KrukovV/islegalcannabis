@@ -22,31 +22,27 @@
         "possession": null,
         "use": null,
         "sale": null,
-        "cultivation": "tolerated",
-        "import": "illegal",
+        "cultivation": null,
+        "import": null,
         "trafficking": null
       },
-      "enforcement": "fine-based",
-      "flags": [
-        "import_illegal"
-      ],
+      "enforcement": "standard",
+      "flags": [],
       "modifiers": [
         "but",
-        "may",
-        "however",
-        "only"
+        "may"
       ]
     },
     "signals": {
       "status": "restricted",
       "final_risk": "RESTRICTED",
-      "enforcement_level": "unenforced",
+      "enforcement_level": "rare",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": false,
-        "fine": true,
-        "severity_score": 3,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -54,25 +50,19 @@
           "severe": false
         },
         "trafficking": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
-          "fine": true,
-          "severe": true
+          "fine": false,
+          "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Egypt / مصر",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Egypt",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Egypt",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Egypt's Pot Problem? A Marijuana Shortage",
@@ -103,53 +93,44 @@
           "url": "https://books.google.com/books?id=poenY6QMq8UC&pg=PA234",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Timeline: the use of cannabis",
+          "url": "https://news.bbc.co.uk/2/hi/programmes/panorama/4079668.stm",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Egypt / مصر | type: summary | priority: 1 | scope: use",
         "rule: illegal | source: Egypt / مصر | type: summary | priority: 1 | scope: use",
         "rule: enforcement_rare | source: Egypt / مصر | type: summary | priority: 1 | scope: use",
-        "rule: raw_illegal | source: Cannabis in Egypt | type: traversal | priority: 3 | scope: use",
-        "rule: illegal | source: Cannabis in Egypt | type: traversal | priority: 3 | scope: use",
-        "rule: rec_tolerated | source: Cannabis in Egypt | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_fine | source: Cannabis in Egypt | type: traversal | priority: 3 | scope: import",
-        "rule: penalty_criminal_offense | source: Cannabis in Egypt | type: traversal | priority: 3 | scope: import",
-        "rule: import_illegal | source: Cannabis in Egypt | type: traversal | priority: 3 | scope: import",
-        "rule: enforcement_unenforced | source: Cannabis in Egypt | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Egypt | type: traversal | priority: 3 | scope: general",
-        "rule: private_cultivation | source: Cannabis in Egypt | type: traversal | priority: 3 | scope: cultivation",
-        "rule: legal | source: Cannabis in Egypt | type: traversal | priority: 3 | scope: cultivation"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 4886,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": "rare",
-          "enforcement_article": "unenforced",
+          "enforcement_article": null,
           "distribution_notes": "illegal",
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
     "enforcement_flags": [
-      "weak_enforcement",
-      "fine_based"
+      "weak_enforcement"
     ],
     "applied_rules": [
       "raw_illegal",
-      "enforcement_rare",
-      "penalty_fine",
-      "penalty_criminal_offense",
-      "import_illegal",
-      "enforcement_unenforced",
-      "private_cultivation"
+      "enforcement_rare"
     ],
-    "notes_normalized": "Cannabis is illegal in Egypt / مصر. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Egypt / مصر. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Egypt / مصر. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Egypt / مصر. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Egypt}} Illegal since 1925<ref>{{citation |url = http://sensiseeds.com/en/blog/cannabis-egypt |title = Cannabis in Egypt |publisher = The Sensi Seed Bank |author = Seshata |work = Sensi Seeds Blog |date = 27 December 2013 |access-date = 20 January 2014 |archive-date = 29 June 2019 |archive-url = https://web.archive.org/web/20190629104604/https://sensiseeds.com/en/blog/cannabis-egypt/ |url-status = live }}</ref> but use is widespread. Convictions for personal use are rare.<ref>{{citation |url = http://blogs.abcnews.com/theworldnewser/2010/05/egypts-pot-problem-a-marijuana-shortage.html |title = Egypt's Pot Problem? A Marijuana Shortage |publisher = [[ABC News (United States)|ABC News]] |last = Hasan |first = Lama |date = 5 May 2010 |access-date = 31 January 2011 |url-status = dead |archive-url = https://web.archive.org/web/20110301233324/http://blogs.abcnews.com/theworldnewser/2010/05/egypts-pot-problem-a-marijuana-shortage.html |archive-date = 1 March 2011}}</ref> Formerly a plant of high status with several documented medicinal uses in ancient times.",
   "facts": {
     "possession_limit": null,
@@ -248,9 +229,9 @@
   },
   "hashes": {
     "code": "egy",
-    "content_hash": "f1dd4784055b3d02629a46562d668395371cdbb48e1d411c477fc2a2800167d3",
-    "notes_hash": "3ecc6fb5a17f4ab8412abdef95007cd2dd32cd273eda74c27b7d6d551eb3b0dc",
-    "model_hash": "584a29f9235b549a848f93997d018cd56505c6b78eaa04734677529f48bc072a"
+    "content_hash": "dfcbe1d98360069cf22847c35aa8cea2afca2400d5e036a004890316b6fdaa28",
+    "notes_hash": "906fcf22273e264acf4c9f6e99377f0f5405e6b902e3b6c7676b566f6d9e913e",
+    "model_hash": "bfc95850ef269d34163b8ab744555635e1ce2fa9e05c1cce06666a80db021f47"
   },
   "geo_code": "EG",
   "node_type": "country",

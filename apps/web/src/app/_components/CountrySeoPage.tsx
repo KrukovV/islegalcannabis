@@ -8,7 +8,9 @@ import { buildCountryIntentSections } from "@/lib/seo/countryIntentContent";
 import { getLocalizedCountryName, getSeoText, type SeoLocale } from "@/lib/seo/i18n";
 import { localizePanel } from "@/lib/seo/panelLocale";
 import { getStaticCountriesAsset } from "@/new-map/staticCountries";
+import { sanitizeEvidenceQuoteText } from "@/lib/text/sanitizeEvidenceQuoteText";
 import styles from "@/app/c/[code]/page.module.css";
+export { sanitizeEvidenceQuoteText };
 
 export function getCountrySeoTitle(data: CountryPageData, locale: SeoLocale) {
   const seo = getSeoText(locale);
@@ -25,22 +27,6 @@ export function ensureCountryPageHash(data: CountryPageData) {
     return;
   }
   console.warn(message);
-}
-
-export function sanitizeEvidenceQuoteText(input: string) {
-  return String(input || "")
-    .replace(/style\s*=\s*"(?:[^"\\]|\\.)*"\s*\|/gi, " ")
-    .replace(/style\s*=\s*'(?:[^'\\]|\\.)*'\s*\|/gi, " ")
-    .replace(/\{\{[^}]+\}\}/g, " ")
-    .replace(/<ref[^>]*>[\s\S]*?<\/ref>/gi, " ")
-    .replace(/<ref[^/>]*\/>/gi, " ")
-    .replace(/<style[\s\S]*?<\/style>/gi, " ")
-    .replace(/<\/?[^>]+>/g, " ")
-    .replace(/\[\[[^\]|]+\|([^\]]+)\]\]/g, "$1")
-    .replace(/\[\[([^\]]+)\]\]/g, "$1")
-    .replace(/(^|\s)\|\s*/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
 }
 
 export function getSafeSeoCountryData(data: CountryPageData): CountryPageData {

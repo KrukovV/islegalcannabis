@@ -102,6 +102,13 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Djibouti / جيبوتي | type: summary | priority: 1 | scope: trafficking",
+        "rule: penalty_fine | source: Djibouti / جيبوتي | type: summary | priority: 1 | scope: trafficking",
+        "rule: trafficking_illegal | source: Djibouti / جيبوتي | type: summary | priority: 1 | scope: trafficking",
+        "rule: sale_illegal | source: Djibouti / جيبوتي | type: summary | priority: 1 | scope: trafficking",
+        "rule: penalty_prison | source: Djibouti / جيبوتي | type: summary | priority: 1 | scope: general",
+        "rule: penalty_fine | source: Djibouti / جيبوتي | type: summary | priority: 1 | scope: general",
+        "rule: legal | source: Djibouti / جيبوتي | type: summary | priority: 1 | scope: cultivation",
         "rule: raw_illegal | source: Cannabis in Djibouti | type: traversal | priority: 3 | scope: trafficking",
         "rule: penalty_fine | source: Cannabis in Djibouti | type: traversal | priority: 3 | scope: trafficking",
         "rule: trafficking_illegal | source: Cannabis in Djibouti | type: traversal | priority: 3 | scope: trafficking",
@@ -112,14 +119,14 @@
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 539,
+        "article_len": 520,
         "source_confidence": "prison_signal",
         "signals": {
-          "prison_notes": false,
+          "prison_notes": true,
           "prison_article": true,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
+          "distribution_notes": "illegal",
           "distribution_article": "illegal"
         }
       }
@@ -233,9 +240,9 @@
   },
   "hashes": {
     "code": "dji",
-    "content_hash": "6e845d9082d52d62b3cf5e697f7f91add26bda19812526ad20abcaeefe17831e",
+    "content_hash": "a7515b2dcff5370f97ee7c8e63d1c5deb3d186d30540fa94e32cb20b1d3903b1",
     "notes_hash": "94c08e53f3434d03070adc3a18c8b7fd4dada8ea8ce0723fef17724fa57f8679",
-    "model_hash": "7d98aa8efe2e3fe32a325ef12df9ebb84feb611b76413022a470c1d42b168be5"
+    "model_hash": "3c80a8bfe980476beffb93abd8ffa289c34aa43bf9c1fa06213293db87c8ddec"
   },
   "geo_code": "DJ",
   "node_type": "country",

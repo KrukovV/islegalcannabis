@@ -28,9 +28,7 @@
       },
       "enforcement": "fine-based",
       "flags": [],
-      "modifiers": [
-        "but"
-      ]
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
@@ -64,12 +62,6 @@
           "type": "summary"
         },
         {
-          "title": "Cannabis in Chad",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Chad",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
           "title": "5000 Francs CFA, Chad",
           "url": "https://en.numista.com/catalogue/pieces391028.html",
           "depth": 2,
@@ -83,21 +75,22 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Chad | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Chad | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_fine | source: Cannabis in Chad | type: traversal | priority: 3 | scope: general"
+        "rule: raw_illegal | source: Chad / تشاد | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Chad / تشاد | type: summary | priority: 1 | scope: general",
+        "rule: penalty_fine | source: Chad / تشاد | type: summary | priority: 1 | scope: general",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 434,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_notes": "illegal",
+          "distribution_article": null
         }
       }
     },
@@ -209,9 +202,9 @@
   },
   "hashes": {
     "code": "tcd",
-    "content_hash": "7bf30954cc3d5363d6b3da7ff24f29df5a5c658121d194873f6f1c9de172f786",
+    "content_hash": "3aa8dac940eeb63511ab094020ae2ded0ee009e8eea6a5cadaef434cff1a471c",
     "notes_hash": "79f0a3f0a60abb4624e47ded14c38c5c58bacb00b8d87dead3fd2de56d97f2c3",
-    "model_hash": "4344ef0705cf426bac78754d5459ca3faf598ac637a58941f5b7ba5acd10fdbc"
+    "model_hash": "12d43bf7749f1dc0f3a41fdd221f4b8749fa806e29dc6908f60d15f307da09b1"
   },
   "geo_code": "TD",
   "node_type": "country",

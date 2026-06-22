@@ -17,34 +17,29 @@
       "override_reason": "rec_implies_med_floor"
     },
     "distribution": {
-      "status": "illegal",
+      "status": "restricted",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
-        "trafficking": "illegal"
+        "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "trafficking_illegal"
-      ],
-      "modifiers": [
-        "but",
-        "up_to"
-      ]
+      "flags": [],
+      "modifiers": []
     },
     "signals": {
-      "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "status": "restricted",
+      "final_risk": "LIMITED",
       "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 4,
+        "severity_score": 0,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -52,25 +47,19 @@
           "severe": false
         },
         "trafficking": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
           "fine": false,
-          "severe": true
+          "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Austria / Österreich",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Austria",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Austria",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Änderung des Suchtmittelgesetzes – SMG",
@@ -92,42 +81,29 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Austria | type: traversal | priority: 3 | scope: general",
-        "rule: medical_legal | source: Cannabis in Austria | type: traversal | priority: 3 | scope: general",
-        "rule: medical_limited | source: Cannabis in Austria | type: traversal | priority: 3 | scope: general",
-        "rule: possession_decriminalized | source: Cannabis in Austria | type: traversal | priority: 3 | scope: possession",
-        "rule: legal | source: Cannabis in Austria | type: traversal | priority: 3 | scope: sale",
-        "rule: penalty_criminal_offense | source: Cannabis in Austria | type: traversal | priority: 3 | scope: trafficking",
-        "rule: trafficking_illegal | source: Cannabis in Austria | type: traversal | priority: 3 | scope: trafficking",
-        "rule: legal | source: Cannabis in Austria | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_prison | source: Cannabis in Austria | type: traversal | priority: 3 | scope: general"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 1590,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal",
-      "possession_decriminalized",
-      "penalty_criminal_offense",
-      "trafficking_illegal",
-      "penalty_prison",
       "rec_implies_med_floor"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Austria / Österreich. Medical cannabis is limited. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is decriminalized in Austria / Österreich. Medical cannabis is limited. Distribution is restricted."
   },
-  "notes_normalized": "Cannabis is decriminalized in Austria / Österreich. Medical cannabis is limited. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is decriminalized in Austria / Österreich. Medical cannabis is limited. Distribution is restricted.",
   "notes_raw": "{{main|Cannabis in Austria}}",
   "facts": {
     "possession_limit": null,
@@ -226,9 +202,9 @@
   },
   "hashes": {
     "code": "aut",
-    "content_hash": "4460874df5ae1640e7f0bc5c5d5b99b607142f654fa29d5e0582cf875046d7af",
-    "notes_hash": "ba66ff8c46749485479b924a392f957dc23318693b4c08b50f7135452509a5c0",
-    "model_hash": "91412d2746cd293ec6a937d66b2c2bdd8f6423811d7e83f0250be6371775e269"
+    "content_hash": "001ec1cbb67aca8dc4fc1153a5a83934965358e9532be8de99c0fcaafc973361",
+    "notes_hash": "fd36e64dc2e330f1c986416fc0a5c5e9efeaac1c1cc25aa486628f1fb561f909",
+    "model_hash": "9206f939ea6bac9c3f7a06cb22bd6044724196422fff89812884b82f5f9eae64"
   },
   "geo_code": "AT",
   "node_type": "country",

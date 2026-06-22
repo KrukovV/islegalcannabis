@@ -17,33 +17,29 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "regulated",
+      "status": "illegal",
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": "regulated",
+        "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
-      "enforcement": "fine-based",
-      "flags": [
-        "sale_regulated"
-      ],
-      "modifiers": [
-        "only"
-      ]
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "final_risk": "RESTRICTED",
       "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": false,
-        "fine": true,
-        "severity_score": 4,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -57,19 +53,13 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Samoa / Sāmoa",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Samoa",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Samoa",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Review of the Narcotics Act 1967 (Drugs Reform)",
@@ -100,47 +90,40 @@
           "url": "https://www.samoaobserver.ws/category/samoa/15561",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "P.M. rejects call to legalise marijuana",
+          "url": "https://www.samoaobserver.ws/category/samoa/16795",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Samoa | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Samoa | type: traversal | priority: 3 | scope: general",
-        "rule: sale_regulated | source: Cannabis in Samoa | type: traversal | priority: 3 | scope: trafficking",
-        "rule: raw_illegal | source: Cannabis in Samoa | type: traversal | priority: 3 | scope: cultivation",
-        "rule: illegal | source: Cannabis in Samoa | type: traversal | priority: 3 | scope: cultivation",
-        "rule: penalty_prison | source: Cannabis in Samoa | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_fine | source: Cannabis in Samoa | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_years | source: Cannabis in Samoa | type: traversal | priority: 3 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Samoa | type: traversal | priority: 3 | scope: possession",
-        "rule: illegal | source: Cannabis in Samoa | type: traversal | priority: 3 | scope: possession"
+        "rule: raw_illegal | source: Samoa / Sāmoa | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Samoa / Sāmoa | type: summary | priority: 1 | scope: general",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 1350,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_notes": "illegal",
+          "distribution_article": null
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal",
-      "sale_regulated",
-      "penalty_prison",
-      "penalty_fine",
-      "penalty_years"
+      "raw_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Samoa / Sāmoa. Medical cannabis is illegal. Distribution is regulated. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Samoa / Sāmoa. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Samoa / Sāmoa. Medical cannabis is illegal. Distribution is regulated. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Samoa / Sāmoa. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Samoa}}",
   "facts": {
     "possession_limit": null,
@@ -239,9 +222,9 @@
   },
   "hashes": {
     "code": "wsm",
-    "content_hash": "1653288397a513a5bb9bebee4773675d1527d6d8d17fb4cd3cd395f193281d21",
-    "notes_hash": "f477063d02c83d25f2434c779849e860b49a57bbdce6135f3c4c8f79d15ca723",
-    "model_hash": "73553e3d2658a64d768b4cd2147b7430b88ec241a57ce9841a4cb9658d196f61"
+    "content_hash": "f008a0cd06ac7ece8ec3469ad6b8641718fc6b02cf3a63a8b8dcd89d6a037ab4",
+    "notes_hash": "2a5c33004827602668daa588bec75de9334199aee79141ef97ea8e211bf31e30",
+    "model_hash": "a7dc74e549eb76b6297c023075d7ee02fd8e93f9ffb35b7e72e837e0760f022e"
   },
   "geo_code": "WS",
   "node_type": "country",

@@ -30,6 +30,7 @@ Status Engine Audit v3 is present as a review-only evaluator. The current rerun 
 
 | Path | Purpose | Notes |
 | --- | --- | --- |
+| `apps/web/src/new-map/components/ViewportCountryPopup.tsx` | Interactive popup renderer | Full profile/history/culture view with fallback note coverage |
 | `apps/web` | Next.js runtime, API routes, UI, E2E tests | Main application |
 | `apps/web/src/new-map` | MapLibre runtime, palette, country source logic | Single map runtime |
 | `apps/web/src/app/new-map` | Route shell and runtime config | Uses static countries asset |
@@ -110,6 +111,9 @@ npm -w apps/web run status:engine:audit
 # app build/lint
 npm -w apps/web run lint
 npm -w apps/web run build
+
+# optional: local full popup matrix with screenshots for all map jurisdictions
+NEW_MAP_POPUP_MATRIX_ALL=1 npm -w apps/web exec -- playwright test e2e/new-map.popup.spec.ts
 ```
 
 Final handoff requires `Reports/ci-final.txt` to contain:

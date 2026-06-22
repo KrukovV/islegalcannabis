@@ -101,19 +101,21 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Kyrgyzstan / Кыргызстан | type: summary | priority: 1 | scope: cultivation",
+        "rule: illegal | source: Kyrgyzstan / Кыргызстан | type: summary | priority: 1 | scope: cultivation",
         "rule: raw_illegal | source: Cannabis in Kyrgyzstan | type: traversal | priority: 3 | scope: cultivation",
         "rule: illegal | source: Cannabis in Kyrgyzstan | type: traversal | priority: 3 | scope: cultivation"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 735,
+        "article_len": 144,
         "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
+          "distribution_notes": "illegal",
           "distribution_article": "illegal"
         }
       }
@@ -223,9 +225,9 @@
   },
   "hashes": {
     "code": "kgz",
-    "content_hash": "a0a4edcc10a2a0af63f192bec9c43163dbe96f5b6c4068e1071cc4486042bd28",
+    "content_hash": "a06718129d2bd879aed9eca700ef2caae91f9a3f59603c6ab6a644d0a2e51783",
     "notes_hash": "abb86a86c35c233100492243c838f299c58e1ad025a6ba0ed0749c268a70e033",
-    "model_hash": "1f629b8d2560cbd979ce835633a174117eefa502f4851861afab198d48fadc55"
+    "model_hash": "7098c5cc1c1802bc5e66bc94e192fdd795b015fd319f0a5c76c281017d785ddb"
   },
   "geo_code": "KG",
   "node_type": "country",

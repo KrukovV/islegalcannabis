@@ -107,7 +107,7 @@
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 648,
+        "article_len": 46,
         "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
@@ -225,9 +225,9 @@
   },
   "hashes": {
     "code": "bih",
-    "content_hash": "1c9b33b6eb910ebba63ddc89f0d3a885a5857a39201db6d7543c40d3a8e0d1f3",
+    "content_hash": "e47f706e625b6d1edf4b29db411f56c7914121c5a91947de708d205a0d73a073",
     "notes_hash": "d321b095b67c333e2269e008fd48c59ce91aa4357c4ce0d40d9bddf76177ae42",
-    "model_hash": "bfb7333d76026aeccb45b116538939b1c46fc524bfa1af4872213594e46b044c"
+    "model_hash": "14b6904eae1efc4b85bc6f0378febe3ff6c89fdf48ea2cba9d7f60b929ef0f14"
   },
   "geo_code": "BA",
   "node_type": "country",

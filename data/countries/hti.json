@@ -62,12 +62,6 @@
           "type": "summary"
         },
         {
-          "title": "Cannabis in Haiti",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Haiti",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
           "title": "Legality of cannabis (notes)",
           "url": "https://en.wikipedia.org/wiki/Cannabis_in_Haiti",
           "depth": 2,
@@ -75,21 +69,22 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Haiti | type: traversal | priority: 3 | scope: trafficking",
-        "rule: trafficking_illegal | source: Cannabis in Haiti | type: traversal | priority: 3 | scope: trafficking",
-        "rule: sale_illegal | source: Cannabis in Haiti | type: traversal | priority: 3 | scope: trafficking"
+        "rule: raw_illegal | source: Haiti / Haïti | type: summary | priority: 1 | scope: trafficking",
+        "rule: trafficking_illegal | source: Haiti / Haïti | type: summary | priority: 1 | scope: trafficking",
+        "rule: sale_illegal | source: Haiti / Haïti | type: summary | priority: 1 | scope: trafficking",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 268,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_notes": "illegal",
+          "distribution_article": null
         }
       }
     },
@@ -198,9 +193,9 @@
   },
   "hashes": {
     "code": "hti",
-    "content_hash": "470636fb37061bbf203b9212c0fb8bdb5dddb73d45ca4ed0b42e536f0612e3fc",
+    "content_hash": "34de85c0f1ef0c5c0b72b54e1635e5722243a8d92b3e6cee81c4964a10ee28ce",
     "notes_hash": "ad03a2e6242039f04104bb3f817b79b7ce7e7e5bad5b21ce7d59045f6b0e926a",
-    "model_hash": "86365c57c5c6936dae91681e787db7664502344b29d96cc573082bd0377a4837"
+    "model_hash": "6961ff2a9087193c9b9e76445d6499925abd865a4e83c585640710914c20f07f"
   },
   "geo_code": "HT",
   "node_type": "country",

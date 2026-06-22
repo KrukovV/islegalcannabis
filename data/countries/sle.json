@@ -29,10 +29,7 @@
       "enforcement": "standard",
       "flags": [],
       "modifiers": [
-        "may",
-        "but",
-        "only",
-        "up_to"
+        "may"
       ]
     },
     "signals": {
@@ -67,12 +64,6 @@
           "type": "summary"
         },
         {
-          "title": "Cannabis in Sierra Leone",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Sierra_Leone",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
           "title": "International Narcotics Control Strategy Report: Volume I: Drug and Chemical Control",
           "url": "https://books.google.com/books?id=0jnyNWFuhXYC&pg=PA543",
           "depth": 2,
@@ -101,19 +92,24 @@
           "url": "https://books.google.com/books?id=wUd9CAAAQBAJ&pg=PA39",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Cannabis in Sierra Leone",
+          "url": "https://archive.org/details/hookersjournalb03hookgoog/page/n18",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: illegal | source: Sierra Leone | type: summary | priority: 1 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Sierra Leone | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Sierra Leone | type: traversal | priority: 3 | scope: general",
         "rule: raw_illegal | source: Kush: Sierra Leone's new illegal drug | type: reference | priority: 2 | scope: general",
-        "rule: illegal | source: Kush: Sierra Leone's new illegal drug | type: reference | priority: 2 | scope: general"
+        "rule: illegal | source: Kush: Sierra Leone's new illegal drug | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 3377,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
@@ -230,9 +226,9 @@
   },
   "hashes": {
     "code": "sle",
-    "content_hash": "88d0177abf0b2e007adcf853a56cfd97ac069b59414150ac96f52cac0a3d20f0",
+    "content_hash": "a500f49cef7b8ac44b8167ae7ff05be7479f179209f46631d38872e0227da91c",
     "notes_hash": "42e2911c66cf7864c3ef6ca41607a2c0aeecec825f1b352b3fe2976b5647fc1b",
-    "model_hash": "9ff01737de8baf46596fcfc54a42c4330d47efd1cc3a77575e4b607d9d10a028"
+    "model_hash": "7f344f4cc2aaf2440751a0625957afe07c7b578b2fcaf7184d2a17ebacc5f19b"
   },
   "geo_code": "SL",
   "node_type": "country",

@@ -28,21 +28,18 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": [
-        "only",
-        "usually"
-      ]
+      "modifiers": []
     },
     "signals": {
       "status": "restricted",
       "final_risk": "RESTRICTED",
       "enforcement_level": "rare",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
-        "arrest": true,
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
         "fine": false,
-        "severity_score": 4,
+        "severity_score": 0,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -56,7 +53,7 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Mauritius / Maurice",
@@ -104,19 +101,15 @@
       "explain": [
         "rule: raw_illegal | source: Cannabis in Mauritius | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Mauritius | type: traversal | priority: 3 | scope: general",
-        "rule: enforcement_rare | source: Cannabis in Mauritius | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Mauritius | type: traversal | priority: 3 | scope: cultivation",
-        "rule: penalty_prison | source: Cannabis in Mauritius | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_arrest | source: Cannabis in Mauritius | type: traversal | priority: 3 | scope: general",
         "rule: enforcement_rare | source: Zamal: The Rare Sativa Landrace of Réunion | type: reference | priority: 2 | scope: general"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 2316,
-        "source_confidence": "prison_signal",
+        "article_len": 64,
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": "rare",
           "distribution_notes": null,
@@ -129,13 +122,11 @@
     ],
     "applied_rules": [
       "raw_illegal",
-      "enforcement_rare",
-      "penalty_prison",
-      "penalty_arrest"
+      "enforcement_rare"
     ],
-    "notes_normalized": "Cannabis is illegal in Mauritius / Maurice. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Mauritius / Maurice. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Mauritius / Maurice. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Mauritius / Maurice. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Mauritius}}",
   "facts": {
     "possession_limit": null,
@@ -234,9 +225,9 @@
   },
   "hashes": {
     "code": "mus",
-    "content_hash": "46c86a46b51c0eb7e612e9f708273309cfbb85aa4dd6368359d79fc37974173a",
-    "notes_hash": "bc4ea297ee9928bf15f99f0430c3e25163ecc58a302e1f201da3949e5f329dbc",
-    "model_hash": "290ae4bc317ec32232cbd757f5d550952e3aa21f6ba49a6416366a85d1c1fd85"
+    "content_hash": "e1eafcced628a7e80fca0c50e1cda902aa80b9b0e709d2bedde6d38cf3a5e9d2",
+    "notes_hash": "740cc5fed3f375a2b5a5cdc8ab5cd50d99035127e4b6b794da63ccb238218188",
+    "model_hash": "55b171123d105e9b468cc5c2afa883b36460c6f710a48563f9f5dbd00810887a"
   },
   "geo_code": "MU",
   "node_type": "country",

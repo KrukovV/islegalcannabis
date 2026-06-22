@@ -84,7 +84,7 @@
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 137,
+        "article_len": 118,
         "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
@@ -201,9 +201,9 @@
   },
   "hashes": {
     "code": "uzb",
-    "content_hash": "3185ee88c5b62cdc6ac1316354f3fc5a24b897aed2018978c87ed8624ef703a8",
+    "content_hash": "eec605ac612bd6dd670f5f7a09e20ce752b0209097a17dd7270884cda93ab2b7",
     "notes_hash": "4c9c6090e178fce62dfdeef82c0c7156118cf234bfb4a049a970371598a691f8",
-    "model_hash": "b211d23ff898fb11c3876e0ba8dade8f729d6ce6fb6aa14368177a98d80472bf"
+    "model_hash": "1440f6eaec258e9108a45c6bdc3b706e4b2868319ec380437d812ac077e5e26e"
   },
   "geo_code": "UZ",
   "node_type": "country",

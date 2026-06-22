@@ -62,12 +62,6 @@
           "type": "summary"
         },
         {
-          "title": "Cannabis in the Gambia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Gambia",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
           "title": "Crime and Punishment around the World &#91;4 volumes&#93;: &#91;Four Volumes&#93;",
           "url": "https://books.google.com/books?id=2uK6bR9byVIC&pg=PA83",
           "depth": 2,
@@ -75,20 +69,21 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in the Gambia | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in the Gambia | type: traversal | priority: 3 | scope: general"
+        "rule: raw_illegal | source: Gambia | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Gambia | type: summary | priority: 1 | scope: general",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 141,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_notes": "illegal",
+          "distribution_article": null
         }
       }
     },
@@ -197,9 +192,9 @@
   },
   "hashes": {
     "code": "gmb",
-    "content_hash": "3405aa731bccaec9d58440f1760339514083600cee1d4a0d668156531b74d562",
+    "content_hash": "d6876bbe5e60729dc645fb5c36b3995251ee639bc9ad2d984e618b1fadc0f509",
     "notes_hash": "210762848b850a05bc73e2f0bb38e1c1f2687ada2eadd7a632fdbea8016de4bf",
-    "model_hash": "92aa3c25d2a257656f31f4a52675e64bf0ec145bf1d7f0ae3525e1c1f528a660"
+    "model_hash": "7fb1f97f43d39ccc94146a8781270c1e9aadda615c13dcc6354dbccd1e715ef5"
   },
   "geo_code": "GM",
   "node_type": "country",

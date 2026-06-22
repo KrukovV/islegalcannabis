@@ -26,14 +26,13 @@
         "import": "illegal",
         "trafficking": "illegal"
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [
         "import_illegal",
         "trafficking_illegal"
       ],
       "modifiers": [
-        "usually",
-        "up_to"
+        "usually"
       ]
     },
     "signals": {
@@ -42,9 +41,9 @@
       "enforcement_level": "rare",
       "penalties": {
         "prison": true,
-        "prison_priority": 3,
+        "prison_priority": 1,
         "arrest": false,
-        "fine": true,
+        "fine": false,
         "severity_score": 4,
         "possession": {
           "prison": true,
@@ -55,7 +54,7 @@
         "trafficking": {
           "prison": true,
           "arrest": false,
-          "fine": true,
+          "fine": false,
           "severe": true
         }
       },
@@ -66,12 +65,6 @@
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Saudi Arabia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Saudi_Arabia",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Cannabis in Saudi Arabia",
@@ -106,46 +99,31 @@
         "rule: enforcement_rare | source: Saudi Arabia / السعودية | type: summary | priority: 1 | scope: trafficking",
         "rule: import_illegal | source: Saudi Arabia / السعودية | type: summary | priority: 1 | scope: trafficking",
         "rule: trafficking_illegal | source: Saudi Arabia / السعودية | type: summary | priority: 1 | scope: trafficking",
-        "rule: raw_illegal | source: Cannabis in Saudi Arabia | type: traversal | priority: 3 | scope: possession",
-        "rule: illegal | source: Cannabis in Saudi Arabia | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_prison | source: Cannabis in Saudi Arabia | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_criminal_offense | source: Cannabis in Saudi Arabia | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_prison | source: Cannabis in Saudi Arabia | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_prison | source: Cannabis in Saudi Arabia | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_years | source: Cannabis in Saudi Arabia | type: traversal | priority: 3 | scope: trafficking",
-        "rule: trafficking_illegal | source: Cannabis in Saudi Arabia | type: traversal | priority: 3 | scope: trafficking",
-        "rule: enforcement_rare | source: Cannabis in Saudi Arabia | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_fine | source: Cannabis in Saudi Arabia | type: traversal | priority: 3 | scope: trafficking",
-        "rule: import_illegal | source: Cannabis in Saudi Arabia | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_fine | source: Cannabis in Saudi Arabia | type: traversal | priority: 3 | scope: general"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 979,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": true,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": "rare",
-          "enforcement_article": "rare",
+          "enforcement_article": null,
           "distribution_notes": "illegal",
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
     "enforcement_flags": [
-      "weak_enforcement",
-      "fine_based"
+      "weak_enforcement"
     ],
     "applied_rules": [
       "penalty_prison",
       "penalty_criminal_offense",
       "enforcement_rare",
       "import_illegal",
-      "trafficking_illegal",
-      "raw_illegal",
-      "penalty_years",
-      "penalty_fine"
+      "trafficking_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Saudi Arabia / السعودية. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
@@ -248,9 +226,9 @@
   },
   "hashes": {
     "code": "sau",
-    "content_hash": "03fac370a6077f7e58790aba0d3c54ec52beec79577663a2ad1042b66c34d8d0",
+    "content_hash": "2928cc6be9271e6e6b9e94f0d0eadc622c64e9056016b02c43360e58e76601a5",
     "notes_hash": "0a1fb0fbaf0f647976d8db8de27b3bf3fd0c79ab7079af9691309894536fef25",
-    "model_hash": "bc905a232d12908a92e22561d4cc79fbcf56894ffada87a290ccfa6f6e635252"
+    "model_hash": "dce4279a295c0e1e2cd7a4d5af337f7e718b5facf150d3c2af89bd40a6994641"
   },
   "geo_code": "SA",
   "node_type": "country",

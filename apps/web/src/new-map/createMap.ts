@@ -726,8 +726,6 @@ export function createMap(
           14.5
         ],
         "text-font": [
-          "Montserrat SemiBold",
-          "Open Sans Semibold",
           "Noto Sans Regular",
           "HanWangHeiLight Regular",
           "NanumBarunGothic Regular"

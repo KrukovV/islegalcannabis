@@ -26,29 +26,27 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [],
       "modifiers": [
-        "but",
-        "up_to",
-        "may"
+        "but"
       ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "final_risk": "RESTRICTED",
       "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": false,
-        "fine": true,
-        "severity_score": 4,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
-          "fine": true,
-          "severe": true
+          "fine": false,
+          "severe": false
         },
         "trafficking": {
           "prison": false,
@@ -57,7 +55,7 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Guatemala",
@@ -104,20 +102,15 @@
       ],
       "explain": [
         "rule: raw_illegal | source: Cannabis in Guatemala | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Guatemala | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in Guatemala | type: traversal | priority: 3 | scope: use",
-        "rule: raw_illegal | source: Cannabis in Guatemala | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_fine | source: Cannabis in Guatemala | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_years | source: Cannabis in Guatemala | type: traversal | priority: 3 | scope: use",
-        "rule: illegal | source: Cannabis in Guatemala | type: traversal | priority: 3 | scope: use"
+        "rule: illegal | source: Cannabis in Guatemala | type: traversal | priority: 3 | scope: general"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 2343,
-        "source_confidence": "prison_signal",
+        "article_len": 311,
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
@@ -125,18 +118,13 @@
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal",
-      "penalty_prison",
-      "penalty_fine",
-      "penalty_years"
+      "raw_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Guatemala. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Guatemala. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Guatemala. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Guatemala. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Guatemala}} In 2016 a constitutional commission rejected proposals to legalize medicinal or recreational use of cannabis.<ref>{{cite web |author=Milena Lopez |url=http://www.tn8.tv/cronica-tn8/373406-comision-rechaza-uso-medicinal-marihuana-guatemala/ |title=Comisión Rechaza Uso Medicinal De La Marihuana En Guatemala |date=2 November 2016 |publisher=Tn8.tv |access-date=30 November 2016 |archive-date=5 September 2017 |archive-url=https://web.archive.org/web/20170905095333/http://www.tn8.tv/cronica-tn8/373406-comision-rechaza-uso-medicinal-marihuana-guatemala/ |url-status=live }}</ref><ref>{{cite web |author=Juan Toro |url=http://clustersalud.americaeconomia.com/guatemala-rechazan-uso-marihuana-medicinal/ |title=Guatemala: Rechazan uso de marihuana medicinal |website=Cluster Salud |access-date=30 November 2016 |archive-date=3 October 2018 |archive-url=https://web.archive.org/web/20181003102740/https://clustersalud.americaeconomia.com/guatemala-rechazan-uso-marihuana-medicinal/ |url-status=dead }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -235,9 +223,9 @@
   },
   "hashes": {
     "code": "gtm",
-    "content_hash": "a214bb22cbfece9471b4016c080b9a99b19668a41683d488fca75847a3caabd6",
-    "notes_hash": "840eaeb34dfa7caa61de680dc281c831b015a2eef9de1fca0f4a711b45192dd8",
-    "model_hash": "705f7540ade13f643620b5d46eecbd4080cfcdd148fe72f68f9ce4370b418453"
+    "content_hash": "a4ea9e799df65d2f4781b9d6c0041c0f16a4289d94a13528fb13d82d4b5024c3",
+    "notes_hash": "0ba23dc1ade910cc81683748249081dd0354fcbb78fabad01fd8aecc0597a8bf",
+    "model_hash": "ed463068b311b5bcc25fba0da4e62a20b49140690ba43b22b6ef15004ec7c707"
   },
   "geo_code": "GT",
   "node_type": "country",

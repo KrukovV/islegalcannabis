@@ -15,9 +15,9 @@
     "medical": {
       "raw_status": "LEGAL",
       "status": "LEGAL",
-      "enforcement": "STRICT",
+      "enforcement": "MODERATE",
       "scope": "MEDICAL_ONLY",
-      "override_reason": "STATUS_GOVERNANCE_REVIEW_NE_MEDICAL"
+      "override_reason": null
     },
     "distribution": {
       "status": "restricted",
@@ -36,13 +36,10 @@
     "enforcement_flags": [
       "fine_based"
     ],
-    "applied_rules": [],
-    "signals": {
-      "enforcement_level": "active"
-    }
+    "applied_rules": []
   },
-  "notes_normalized": "Cannabis possession is decriminalized in Nebraska in limited state-level practice; medical cannabis is now covered by the Nebraska Medical Cannabis Patient Protection Act and Medical Cannabis Regulation Act.",
-  "notes_raw": "style=\"background:#80CE69; color:#000000; text-align:center;\" | {{Hs|2}} <span style=\"font-size:25px;\">●</span>",
+  "notes_normalized": "Cannabis is decriminalized in Nebraska in limited state-level practice, but it is not fully legal under state law. Medical cannabis is legal under a regulated state program in Nebraska. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#80CE69; color:#000000; text-align:center;\" | {{Hs|2}} <span style=\"font-size:25px;\">●</span> Cannabis in Nebraska is legal for medical use. Industrial hemp (1887). According to the USDA, the first crop of industrial hemp in Nebraska was grown in Fremont in 1887 by men from Champaign, Illinois. Amidst an early 20th century trend of limiting the drug, Nebraska first restricted cannabis in 1927. In 1969, Nebraska eased penalties for cannabis possession in the state, limiting the penalty for first-time possession to no more than 7 days in jail. Marijuana was decriminalized to a civil infraction for first-time offenders in 1978 or 1979. Testimony given by Nebraska prosecutors and local law enforcement officials before the Nebraska Legislature Judiciary Committee in 2014 showed the different counties in Nebraska respond to marijuana in significantly differing ways. In 2013 and 2014, after the neighboring state of Colorado legalized the use of marijuana, the marijuana arrest rate in Nebraska increased by 11 percent. In 1969, Nebraska eased penalties for cannabis possession in the state, limiting the penalty for first-time possession to no more than 7 days in jail. Marijuana was decriminalized to a civil infraction for first-time offenders in 1978 or 1979. Testimony given by Nebraska prosecutors and local law enforcement officials before the Nebraska Legislature Judiciary Committee in 2014 showed the different counties in Nebraska respond to marijuana in significantly differing ways. Some county attorneys and sheriffs take an approach emphasizing strict enforcement, while others take an approach that deemphasizes prosecution for minor offenses. In 2013 and 2014, after the neighboring state of Colorado legalized the use of marijuana, the marijuana arrest rate in Nebraska increased by 11 percent. Most of the increase in arrests and enforcement spent came in western Nebraska (the \"Nebraska Panhandle\") next to the Colorado border, and particularly along Interstate 80 which traverses the entire state. Experts expressed uncertainty whether the spike was caused by the change in Colorado law, by increased enforcement by Nebraska police, or some combination of factors. Nebraska and Oklahoma argued that it had resulted in a spillover of cannabis activity into their states, and thus increasing enforcement expenses and social harm.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -57,7 +54,7 @@
     "medical": "override",
     "enforcement_strength": "MEDIUM",
     "federal_conflict": "Cannabis remains federally illegal in United States.",
-    "legalization_status": "State decriminalized"
+    "legalization_status": "Medical only"
   },
   "related_codes": [
     "usa",
@@ -104,10 +101,6 @@
       {
         "code": "us-ms",
         "name": "Mississippi"
-      },
-      {
-        "code": "us-la",
-        "name": "Louisiana"
       },
       {
         "code": "us-nc",
@@ -160,16 +153,16 @@
         "weight": "low"
       },
       {
-        "id": "ne-medical-cannabis-regulation-act",
-        "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=71-24%2C106",
-        "title": "Nebraska Medical Cannabis Regulation Act",
+        "id": "wiki-us-ne",
+        "url": "https://en.wikipedia.org/wiki/Nebraska",
+        "title": "Wikipedia: Nebraska",
         "type": "external",
         "weight": "low"
       },
       {
-        "id": "ne-medical-cannabis-commission",
-        "url": "https://lcc.nebraska.gov/medical-cannabis/medical-cannabis-commission-how-apply",
-        "title": "Nebraska Medical Cannabis Commission",
+        "id": "wiki-truth-us-ne",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
         "type": "external",
         "weight": "low"
       }
@@ -177,9 +170,9 @@
   },
   "hashes": {
     "code": "us-ne",
-    "content_hash": "e2e8ad4d75616171d3ee1bfd67aa19c6ac9957ada4ad46f955cc57413a74f790",
-    "notes_hash": "5660d13f0630475ea81ad42f88edf4c74e0dd3234b37afdc232200574f7623a3",
-    "model_hash": "96ba930ea163b333bded4c9b420bdcf1d437c1284333349d8cca2bfce9965587"
+    "content_hash": "3781aa85c62ccf0f665583b1686602ab51bcdd13ae544b6476bead4ab4f21d5d",
+    "notes_hash": "594899ae562131a2d175bc53deb6c72340555153ed5dd5c22ce02aa713e3ca09",
+    "model_hash": "97a2120e627962055ef035313797eb47090c5e3f279dccb1e1e8c96ff69d6801"
   },
   "updated_at": "2026-04-10"
 }

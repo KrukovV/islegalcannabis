@@ -24,15 +24,11 @@
         "sale": null,
         "cultivation": null,
         "import": null,
-        "trafficking": "illegal"
+        "trafficking": null
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": [
-        "unless",
-        "may",
-        "only"
-      ]
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
@@ -66,12 +62,6 @@
           "type": "summary"
         },
         {
-          "title": "Cannabis in the Democratic Republic of the Congo",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Democratic_Republic_of_the_Congo",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
           "title": "ARRETE MINISTERIEL N\"1250ICAB/M!N/S/O T O .2 /DC/OWA2021 DU 2 1 FEU 202] FIXANT LES CONDMONS D'EXPLOTRATTON DES SRUPEFTANTS ET DES SUBSTANCES PSYCHOTROPES A DES FINS MEDICALES ET SCTENTIFIQUES",
           "url": "https://acorep-dpmrdc.org/Base/GetPDF/35?filename=ARRETE%20PSYCOTROPE.pdf",
           "depth": 2,
@@ -100,26 +90,30 @@
           "url": "https://books.google.com/books?id=mM5bYb_uVcwC&pg=PA53",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Drugs in Africa: Histories and Ethnographies of Use, Trade, and Control",
+          "url": "https://books.google.com/books?id=zSBvBAAAQBAJ&pg=PT190",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
-        "rule: medical_legal | source: Cannabis in the Democratic Republic of the Congo | type: traversal | priority: 3 | scope: use",
-        "rule: raw_illegal | source: Cannabis in the Democratic Republic of the Congo | type: traversal | priority: 3 | scope: use",
-        "rule: illegal | source: Cannabis in the Democratic Republic of the Congo | type: traversal | priority: 3 | scope: use",
-        "rule: raw_illegal | source: Cannabis in the Democratic Republic of the Congo | type: traversal | priority: 3 | scope: trafficking",
-        "rule: trafficking_illegal | source: Cannabis in the Democratic Republic of the Congo | type: traversal | priority: 3 | scope: trafficking"
+        "rule: raw_illegal | source: DR Congo / RD Congo | type: summary | priority: 1 | scope: use",
+        "rule: illegal | source: DR Congo / RD Congo | type: summary | priority: 1 | scope: use",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 3168,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_notes": "illegal",
+          "distribution_article": null
         }
       }
     },
@@ -228,9 +222,9 @@
   },
   "hashes": {
     "code": "cod",
-    "content_hash": "c60105c1fe545b2c5cb954767a62a9d6af955929612a18a922ab7dd384ee65e1",
+    "content_hash": "0855d6efe60a38037317c90d9e13e74ac0230a8cf7afb44a55042a519fa42fb6",
     "notes_hash": "0f9cefbbf623aab804c8c24150a7bbecaf53df6a638ab439b67197686d37dc7b",
-    "model_hash": "160fdd7c191918b27974a0570f3515922f021686bef8cf2fcd0c4fc3764971af"
+    "model_hash": "9a665969165f2fccaa9633eaa838defbc0dd5029737870b06eb5930bf6f199d8"
   },
   "geo_code": "CD",
   "node_type": "country",

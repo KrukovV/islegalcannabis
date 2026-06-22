@@ -36,7 +36,7 @@
       "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 3,
+        "prison_priority": 1,
         "arrest": false,
         "fine": false,
         "severity_score": 4,
@@ -53,19 +53,13 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Fiji / Viti",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Fiji",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Fiji",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Legality of cannabis (notes)",
@@ -75,24 +69,22 @@
         }
       ],
       "explain": [
-        "rule: penalty_prison | source: Cannabis in Fiji | type: traversal | priority: 3 | scope: possession",
-        "rule: raw_illegal | source: Cannabis in Fiji | type: traversal | priority: 3 | scope: possession",
-        "rule: illegal | source: Cannabis in Fiji | type: traversal | priority: 3 | scope: possession",
-        "rule: legal | source: Cannabis in Fiji | type: traversal | priority: 3 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Fiji | type: traversal | priority: 3 | scope: general",
-        "rule: legal | source: Cannabis in Fiji | type: traversal | priority: 3 | scope: cultivation"
+        "rule: penalty_prison | source: Fiji / Viti | type: summary | priority: 1 | scope: possession",
+        "rule: raw_illegal | source: Fiji / Viti | type: summary | priority: 1 | scope: possession",
+        "rule: illegal | source: Fiji / Viti | type: summary | priority: 1 | scope: possession",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 1345,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
-          "prison_notes": false,
-          "prison_article": true,
+          "prison_notes": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_notes": "illegal",
+          "distribution_article": null
         }
       }
     },
@@ -202,9 +194,9 @@
   },
   "hashes": {
     "code": "fji",
-    "content_hash": "ba89a8c3b2ea823d30a7581d3ead42acf787f823529005a4621c0e951e3560cd",
+    "content_hash": "d240172fe6f41d12c86eb68651b84012782450e202310a80e0395612cf86194b",
     "notes_hash": "83a693914290dd386f0436731817cdeddc8fe1bcef9780aae84e62548c4c8d0c",
-    "model_hash": "f90846ee30e0e8095208382eef95ed5f213071ca17ee25c7dd5dd59a6a54d77b"
+    "model_hash": "a8b02eaf67475fab7114ac8610ea7bd635f399e4b7ba5ce042a15aae2c9060af"
   },
   "geo_code": "FJ",
   "node_type": "country",

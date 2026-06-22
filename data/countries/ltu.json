@@ -26,13 +26,11 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [],
       "modifiers": [
         "but",
-        "only",
-        "may",
-        "however"
+        "only"
       ]
     },
     "signals": {
@@ -43,12 +41,12 @@
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
-        "fine": true,
-        "severity_score": 1,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
           "prison": false,
           "arrest": false,
-          "fine": true,
+          "fine": false,
           "severe": false
         },
         "trafficking": {
@@ -58,7 +56,7 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Lithuania / Lietuva",
@@ -105,15 +103,11 @@
       ],
       "explain": [
         "rule: raw_illegal | source: Lithuania / Lietuva | type: summary | priority: 1 | scope: use",
-        "rule: illegal | source: Cannabis in Lithuania | type: traversal | priority: 3 | scope: cultivation",
-        "rule: raw_illegal | source: Cannabis in Lithuania | type: traversal | priority: 3 | scope: cultivation",
-        "rule: legal | source: Cannabis in Lithuania | type: traversal | priority: 3 | scope: trafficking",
-        "rule: medical_legal | source: Cannabis in Lithuania | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_fine | source: Cannabis in Lithuania | type: traversal | priority: 3 | scope: possession"
+        "rule: illegal | source: Cannabis in Lithuania | type: traversal | priority: 3 | scope: cultivation"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 1607,
+        "article_len": 322,
         "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
@@ -125,13 +119,10 @@
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
       "raw_illegal",
-      "illegal",
-      "penalty_fine"
+      "illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Lithuania / Lietuva. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -234,9 +225,9 @@
   },
   "hashes": {
     "code": "ltu",
-    "content_hash": "b17f91e1428273f33b4b7f1865166875f1a4e2331f164f773fecf8664a8e741a",
+    "content_hash": "b1dbf2a4f43a2cfed170210b6994893e02c5fa6f1fd8df2425bf9928eecb08b3",
     "notes_hash": "7053b128ad50a168d33a8689be99e05331e3bd2fe1930ebe9ac4c363b5e160da",
-    "model_hash": "d42de9ca3b08fb4dc79900183c77605b42c1d6a39c8f4405290391c333a85d43"
+    "model_hash": "95a5c16805324003f033bd3867170cf5d857c883e22a54d8578fa6c936f54792"
   },
   "geo_code": "LT",
   "node_type": "country",

@@ -587,13 +587,17 @@ const RULES_TABLE = [
     id: "medical_legal",
     priority: 82,
     test: (sentence) =>
-      /\bmedical\b|\bmedicinal\b/.test(sentence.normalized) &&
-      /\blegal(?:ised|ized)?\b|\ballowed\b|\bpermitted\b|\bavailable\b|\bpharmacies\b|\bprescription\b/.test(
+      (/\bmedical\b|\bmedicinal\b/.test(sentence.normalized) &&
+        (/\blegali[sz]ed\b|\ballowed\b|\bpermitted\b|\bavailable\b|\bpharmacies\b|\bprescription\b/.test(
+          sentence.normalized
+        ) ||
+          /\bmedical\b.{0,40}\bis legal\b/.test(sentence.normalized))) &&
+      !/\bnot allowed for medical purposes\b|\bmedical cannabis is illegal\b|\bmedical marijuana is illegal\b/.test(
         sentence.normalized
       ),
     apply(state, sentence) {
-      if (sentence.sourceType === "summary") {
-        assignMed(state, "LEGAL", this.id, this.priority);
+      if (sentence.sourceType !== "reference") {
+        assignMed(state, "LEGAL", this.id, sentence.sourceType === "traversal" ? this.priority + 50 : this.priority);
       }
     }
   },
@@ -602,10 +606,10 @@ const RULES_TABLE = [
     priority: 80,
     test: (sentence) =>
       /\bmedical\b|\bmedicinal\b/.test(sentence.normalized) &&
-      /\blimited\b|\brestricted\b|\bspecial license\b|\blicense\b|\bextremely limited\b/.test(sentence.normalized),
+      /\blimited\b|\brestricted\b|\bspecial license\b|\blicense\b|\bextremely limited\b|\bprior authori[sz]ation\b|\bexcept for medical purposes\b|\bsubject to prior authorization\b/.test(sentence.normalized),
     apply(state, sentence) {
-      if (sentence.sourceType === "summary") {
-        assignMed(state, "LIMITED", this.id, this.priority);
+      if (sentence.sourceType !== "reference") {
+        assignMed(state, "LIMITED", this.id, sentence.sourceType === "traversal" ? this.priority + 50 : this.priority);
       }
     }
   },
@@ -805,7 +809,8 @@ function resolveRecFinal(state) {
 
 function resolveMedFinal(state, recFinalStatus) {
   const med = state.med.status || "UNKNOWN";
-  if (REC_MED_FLOOR_STATUSES.has(recFinalStatus) && (med === "ILLEGAL" || med === "UNKNOWN")) {
+  const wikiRecStatus = baseRecStatus(state.input?.wikiRecStatus);
+  if ((REC_MED_FLOOR_STATUSES.has(recFinalStatus) || REC_MED_FLOOR_STATUSES.has(wikiRecStatus)) && (med === "ILLEGAL" || med === "UNKNOWN")) {
     pushUnique(state.applied_rules, "rec_implies_med_floor");
     return { status: "LIMITED", override_reason: "rec_implies_med_floor" };
   }

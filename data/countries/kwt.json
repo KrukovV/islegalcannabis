@@ -26,11 +26,9 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [],
-      "modifiers": [
-        "up_to"
-      ]
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
@@ -40,7 +38,7 @@
         "prison": true,
         "prison_priority": 3,
         "arrest": false,
-        "fine": true,
+        "fine": false,
         "severity_score": 4,
         "possession": {
           "prison": true,
@@ -103,12 +101,11 @@
       "explain": [
         "rule: penalty_prison | source: Cannabis in Kuwait | type: traversal | priority: 3 | scope: possession",
         "rule: raw_illegal | source: Cannabis in Kuwait | type: traversal | priority: 3 | scope: possession",
-        "rule: illegal | source: Cannabis in Kuwait | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_fine | source: Cannabis in Kuwait | type: traversal | priority: 3 | scope: general"
+        "rule: illegal | source: Cannabis in Kuwait | type: traversal | priority: 3 | scope: possession"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 522,
+        "article_len": 177,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -120,13 +117,10 @@
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
       "penalty_prison",
-      "raw_illegal",
-      "penalty_fine"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Kuwait / الكويت. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
@@ -229,9 +223,9 @@
   },
   "hashes": {
     "code": "kwt",
-    "content_hash": "0784815a3e82ff8c186ea57ec167056ed412919ccb49fa2ee2c7a4ccb8fcf065",
+    "content_hash": "fa4c0ac507abc7adf492a491bcea58e617b191b4f1a2a5d63128f883788562eb",
     "notes_hash": "dfa93b771ce3e7d71a15309d0f95d6c313d9c828070bf25977aa6666e7df268b",
-    "model_hash": "28d3151e9923580841ffc36170dac56563aee48fec91e75eadacce5f95b05725"
+    "model_hash": "c6040f1e234a0a557eb2dd0424b387a3ed160f20b9d1ef811c394a1e71bf5a26"
   },
   "geo_code": "KW",
   "node_type": "country",

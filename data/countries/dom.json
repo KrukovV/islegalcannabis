@@ -26,28 +26,25 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [],
-      "modifiers": [
-        "may",
-        "but"
-      ]
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "final_risk": "RESTRICTED",
       "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": false,
-        "fine": true,
-        "severity_score": 4,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
           "fine": false,
-          "severe": true
+          "severe": false
         },
         "trafficking": {
           "prison": false,
@@ -56,19 +53,13 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Dominican Republic / República Dominicana",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in the Dominican Republic",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Dominican_Republic",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Decree No. 288-96, establishing the Regulation of Law 50-88 on Drugs and Controlled Substances of the Dominican Republic",
@@ -78,39 +69,31 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in the Dominican Republic | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in the Dominican Republic | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_criminal_offense | source: Cannabis in the Dominican Republic | type: traversal | priority: 3 | scope: possession",
-        "rule: legal | source: Cannabis in the Dominican Republic | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_fine | source: Cannabis in the Dominican Republic | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in the Dominican Republic | type: traversal | priority: 3 | scope: general"
+        "rule: raw_illegal | source: Dominican Republic / República Dominicana | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Dominican Republic / República Dominicana | type: summary | priority: 1 | scope: general",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 1470,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_notes": "illegal",
+          "distribution_article": null
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal",
-      "penalty_criminal_offense",
-      "penalty_fine",
-      "penalty_prison"
+      "raw_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Dominican Republic / República Dominicana. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Dominican Republic / República Dominicana. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Dominican Republic / República Dominicana. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Dominican Republic / República Dominicana. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in the Dominican Republic}}",
   "facts": {
     "possession_limit": null,
@@ -209,9 +192,9 @@
   },
   "hashes": {
     "code": "dom",
-    "content_hash": "cb53e5cbd67357c9b630c57ec6eb718a25d1e021a7e509fdeb7297d8950da495",
-    "notes_hash": "394ae726aa8f4508957f8d7231d3f8dc4d6ffbf7bde47b373cd0f4654d74c415",
-    "model_hash": "cb77267afdccd6fc9075f1e253b89c23da949e7d1f47bdcfe83c634cd3cccd0c"
+    "content_hash": "b5ec642fe59b48ceea2f3564c293323ca3c3fa4c06317b7e3a1884d92ca1c5cd",
+    "notes_hash": "74c7175f14542926666e9137f4c36f6ab2aafe7cb9020aee87a854726bf0ac6e",
+    "model_hash": "6a1e8e757025fad61ae4222c2fd08095cde8c13af11b6568f8b6bb26ce3a9c2b"
   },
   "geo_code": "DO",
   "node_type": "country",

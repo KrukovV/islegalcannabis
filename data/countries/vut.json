@@ -27,10 +27,10 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
-      "modifiers": [
-        "but"
-      ]
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
@@ -64,12 +64,6 @@
           "type": "summary"
         },
         {
-          "title": "Cannabis in Vanuatu",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Vanuatu",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
           "title": "Legality of cannabis (notes)",
           "url": "https://en.wikipedia.org/wiki/Cannabis_in_Vanuatu",
           "depth": 2,
@@ -77,26 +71,25 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Vanuatu | type: traversal | priority: 3 | scope: general",
-        "rule: medical_legal | source: Cannabis in Vanuatu | type: traversal | priority: 3 | scope: general"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 893,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal"
+      "distribution_fallback_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Vanuatu. Medical cannabis is legal. Distribution is illegal."
   },
@@ -199,9 +192,9 @@
   },
   "hashes": {
     "code": "vut",
-    "content_hash": "1cf39cd724bcf59be61d2b90e63bb19c199ec79b4fa67279572ee6f9bee3f8c0",
+    "content_hash": "103aa23ab776c4edbfd7a4c2b985637e882f95723da722e9c86af8db742de004",
     "notes_hash": "e90d4ce0250c56fd6ddd61e207f340caf58ca820f9b3642c85305c0af85c625f",
-    "model_hash": "feffd68d525304e8a7f7ebd1c233b39cffbfe621fa89eb50160bd5919d2feeb1"
+    "model_hash": "b6547f609cd2432f96c5d1838b0586256f5bbe7f2830ac3e428d9f2d60a8cea9"
   },
   "geo_code": "VU",
   "node_type": "country",

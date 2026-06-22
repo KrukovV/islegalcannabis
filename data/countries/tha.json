@@ -26,31 +26,27 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [],
       "modifiers": [
-        "but",
-        "only",
-        "may",
-        "up_to",
-        "however"
+        "but"
       ]
     },
     "signals": {
       "status": "restricted",
-      "final_risk": "RESTRICTED",
+      "final_risk": "LIMITED",
       "enforcement_level": "unenforced",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": false,
-        "fine": true,
-        "severity_score": 4,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
-          "fine": true,
-          "severe": true
+          "fine": false,
+          "severe": false
         },
         "trafficking": {
           "prison": false,
@@ -66,12 +62,6 @@
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Thailand",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Thailand",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Medical Cannabis Act",
@@ -90,54 +80,33 @@
         "rule: medical_legal | source: Thailand / ประเทศไทย | type: summary | priority: 1 | scope: use",
         "rule: legal | source: Thailand / ประเทศไทย | type: summary | priority: 1 | scope: use",
         "rule: enforcement_unenforced | source: Thailand / ประเทศไทย | type: summary | priority: 1 | scope: general",
-        "rule: possession_decriminalized | source: Cannabis in Thailand | type: traversal | priority: 3 | scope: general",
-        "rule: medical_legal | source: Cannabis in Thailand | type: traversal | priority: 3 | scope: use",
-        "rule: raw_illegal | source: Cannabis in Thailand | type: traversal | priority: 3 | scope: cultivation",
-        "rule: illegal | source: Cannabis in Thailand | type: traversal | priority: 3 | scope: cultivation",
-        "rule: raw_illegal | source: Cannabis in Thailand | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Thailand | type: traversal | priority: 3 | scope: general",
-        "rule: legal | source: Cannabis in Thailand | type: traversal | priority: 3 | scope: sale",
-        "rule: medical_legal | source: Cannabis in Thailand | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_fine | source: Cannabis in Thailand | type: traversal | priority: 3 | scope: use",
-        "rule: possession_decriminalized | source: Cannabis in Thailand | type: traversal | priority: 3 | scope: use",
-        "rule: medical_limited | source: Cannabis in Thailand | type: traversal | priority: 3 | scope: use",
-        "rule: raw_illegal | source: Cannabis in Thailand | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_prison | source: Cannabis in Thailand | type: traversal | priority: 3 | scope: use",
-        "rule: illegal | source: Cannabis in Thailand | type: traversal | priority: 3 | scope: use",
-        "rule: raw_illegal | source: Cannabis in Thailand | type: traversal | priority: 3 | scope: possession",
-        "rule: illegal | source: Cannabis in Thailand | type: traversal | priority: 3 | scope: possession",
-        "rule: legal | source: Cannabis in Thailand | type: traversal | priority: 3 | scope: general"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 8366,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": "unenforced",
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
     "enforcement_flags": [
-      "weak_enforcement",
-      "fine_based"
+      "weak_enforcement"
     ],
     "applied_rules": [
       "medical_legal",
       "legal",
-      "enforcement_unenforced",
-      "possession_decriminalized",
-      "raw_illegal",
-      "penalty_fine",
-      "penalty_prison"
+      "enforcement_unenforced"
     ],
-    "notes_normalized": "Cannabis is legal in Thailand / ประเทศไทย. Medical cannabis is legal. Distribution is restricted. Prison exposure detected."
+    "notes_normalized": "Cannabis is legal in Thailand / ประเทศไทย. Medical cannabis is legal. Distribution is restricted."
   },
-  "notes_normalized": "Cannabis is legal in Thailand / ประเทศไทย. Medical cannabis is legal. Distribution is restricted. Prison exposure detected.",
+  "notes_normalized": "Cannabis is legal in Thailand / ประเทศไทย. Medical cannabis is legal. Distribution is restricted.",
   "notes_raw": "{{main|Cannabis in Thailand}} Criminalized in 1935, medical use legalized in 2018. Recreational use legalized in 2022 for those aged 20 and over. Unprescribed products with over 0.2% THC were recriminalized in 2025, but this law is often unenforced.<ref>{{cite news |last= Bush |first= Austin |date= 30 August 2022 |title= Cannabis is now legal in Thailand, but it's complicated: what travelers need to know |url= https://www.lonelyplanet.com/news/thailand-cannabis-guide |work= Lonely Planet |access-date= 24 June 2023}}</ref><ref>{{Cite web |date=2025-06-25 |title=Country bans recreational cannabis again in major blow to tourism |url=https://www.independent.co.uk/asia/southeast-asia/thailand-cannabis-illegal-law-b2776598.html |access-date=2025-06-25 |website=The Independent |language=en}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -217,8 +186,8 @@
         "name": "Singapore / Singapura"
       },
       {
-        "code": "mys",
-        "name": "Malaysia / مليسيا"
+        "code": "lka",
+        "name": "Sri Lanka / ශ්‍රී ලංකාව"
       }
     ],
     "cluster_links": [
@@ -236,9 +205,9 @@
   },
   "hashes": {
     "code": "tha",
-    "content_hash": "257760f618464c2d1c8e3dc48d10ecd6cc8b2cc252ece040c788537f6403a4c6",
-    "notes_hash": "f196a03c1db162dc5d6ea1ac0e7ab56f495eae1ff9bdb42cf6f2974b8c763078",
-    "model_hash": "22b4517ccd04f1a6136fde8ab08a859dfcaa5ebf15867e943b871a0d4d75024c"
+    "content_hash": "675f9a3e6cfc54adefd0af5bd180f80eb4fc931acfacb86b52a6ebda5f9e0505",
+    "notes_hash": "8335a84932b101aab22bafb82814fe098029353f2a3be503df92eea5a41d9eaa",
+    "model_hash": "48e61be7f83f6ef56c2c906b60db2f84797557b1414f9073660881d8ce8be37e"
   },
   "geo_code": "TH",
   "node_type": "country",

@@ -44,6 +44,12 @@ Profile-only data such as trafficking, export, organized crime, market size, his
 - Cannabis Profile rows: `31`
 - Local name dictionary entries: `9`
 
+## Current Runtime Alignment
+
+- Generic cleanup removed six manual review overrides without per-country hardcode: `AL`, `US-UT`, `US-NE`, `US-KS`, `US-WI`, `US-WY`.
+- Current narrow validation keeps `KS/WI/WY` in `LIMITED` and `UT/NE` in `REGULATED`.
+- Country-page derivation and map snapshot/runtime must agree on map color for the same country page. If a country page carries explainability-only yellow signals such as `rule: medical_limited`, the runtime map snapshot must reuse the same derive path rather than trusting an older SSOT map bucket directly.
+
 Required controls:
 
 - Albania (`AL`) -> `GREEN`

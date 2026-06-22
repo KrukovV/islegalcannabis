@@ -17,36 +17,33 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "illegal",
+      "status": "restricted",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
-        "sale": "illegal",
-        "cultivation": "tolerated",
+        "sale": null,
+        "cultivation": null,
         "import": null,
         "trafficking": null
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [],
-      "modifiers": [
-        "however",
-        "may"
-      ]
+      "modifiers": []
     },
     "signals": {
       "status": "restricted",
-      "final_risk": "RESTRICTED",
+      "final_risk": "LIMITED",
       "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
-        "arrest": true,
-        "fine": true,
-        "severity_score": 2,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
           "prison": false,
           "arrest": false,
-          "fine": true,
+          "fine": false,
           "severe": false
         },
         "trafficking": {
@@ -56,19 +53,13 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Costa Rica",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Costa Rica",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Costa_Rica",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Landmark ruling upholds de facto marijuana decriminalization in Costa Rica",
@@ -99,49 +90,39 @@
           "url": "https://web.archive.org/web/20161110192237/http://thecostaricanews.com/crime-courts/weed-in-costa-rica/",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Cannabis in Costa Rica",
+          "url": "https://thecostaricanews.com/a-project-proposes-legalizing-essential-oils-of-marijuana-for-medical-purposes/",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: possession_decriminalized | source: Costa Rica | type: summary | priority: 1 | scope: possession",
-        "rule: raw_illegal | source: Cannabis in Costa Rica | type: traversal | priority: 3 | scope: use",
-        "rule: illegal | source: Cannabis in Costa Rica | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_fine | source: Cannabis in Costa Rica | type: traversal | priority: 3 | scope: use",
-        "rule: raw_illegal | source: Cannabis in Costa Rica | type: traversal | priority: 3 | scope: sale",
-        "rule: sale_illegal | source: Cannabis in Costa Rica | type: traversal | priority: 3 | scope: sale",
-        "rule: illegal | source: Cannabis in Costa Rica | type: traversal | priority: 3 | scope: sale",
-        "rule: raw_illegal | source: Cannabis in Costa Rica | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Costa Rica | type: traversal | priority: 3 | scope: general",
-        "rule: private_cultivation | source: Cannabis in Costa Rica | type: traversal | priority: 3 | scope: cultivation",
-        "rule: legal | source: Cannabis in Costa Rica | type: traversal | priority: 3 | scope: cultivation",
-        "rule: penalty_arrest | source: Cannabis in Costa Rica | type: traversal | priority: 3 | scope: general"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 1555,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": "restricted",
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
-      "possession_decriminalized",
-      "raw_illegal",
-      "penalty_fine",
-      "private_cultivation",
-      "penalty_arrest"
+      "possession_decriminalized"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Costa Rica. Medical cannabis is legal. Distribution is illegal."
+    "notes_normalized": "Cannabis is decriminalized in Costa Rica. Medical cannabis is legal. Distribution is restricted."
   },
-  "notes_normalized": "Cannabis is decriminalized in Costa Rica. Medical cannabis is legal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is decriminalized in Costa Rica. Medical cannabis is legal. Distribution is restricted.",
   "notes_raw": "{{main|Cannabis in Costa Rica}} Decriminalized since police officers do not detain people for personal use, yet no amount has been defined as a minimum for possession. Use of cannabis is widespread throughout the country.<ref name=\"nacion1\" /><ref name=\"tcrn\" />",
   "facts": {
     "possession_limit": null,
@@ -240,9 +221,9 @@
   },
   "hashes": {
     "code": "cri",
-    "content_hash": "26ebe86c1a6c8600abb52f8b11fe0ddd99566c6fa3cc3ddbee232b26c088bb25",
-    "notes_hash": "7de6cad858881be8dde83b6a74c23bb87155f13dceab9cf904243b86147db16c",
-    "model_hash": "a20039b7477905a200981e8105b58e3b3c2fe4afcdcc61785527bfaf448b9109"
+    "content_hash": "16b8493bf4f7920fc4d75114383dd8aedf8c4f5aa90473914ba9c2b5c8d74376",
+    "notes_hash": "61c87e228c6afa46edcbb7b1d558162aa70bef02fcc488183be558f394751a65",
+    "model_hash": "8b88b225ea74ca594ee6e32041bc5e6db7951f366aead1b988762f0836b1dabb"
   },
   "geo_code": "CR",
   "node_type": "country",

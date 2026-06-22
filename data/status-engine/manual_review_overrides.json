@@ -2,20 +2,6 @@
   "generated_at": "2026-06-09T00:00:00.000Z",
   "model": "STATUS_ENGINE_V9_MANUAL_REVIEW_OVERRIDES",
   "entries": {
-    "AL": {
-      "name": "Albania",
-      "recreational": "ILLEGAL",
-      "medical": "REGULATED",
-      "enforcement": "SOFT",
-      "wikiRecStatus": "Illegal",
-      "wikiMedStatus": "Legal",
-      "notes": "Recreational cannabis remains prohibited, but law is often unenforced for cultivation in legacy notes; Albania adopted Law No. 61/2023 for controlled cultivation and processing of cannabis for medical and industrial purposes.",
-      "sources": [
-        "https://www.nacc.gov.al/wp-content/uploads/2024/10/Law-no.-61-2023-On-the-control-of-the-cultivation-and-processing-of-the-cannabis-plant-and-the-production-of-its-by-products-for-medical-and-industrial-purposes.pdf",
-        "https://apnews.com/article/albania-legalize-medical-cannabis-trafficking-drugs-81c423f05a08537f606fb4dc535f8bfa"
-      ],
-      "reason": "Medical/industrial cannabis is regulated by Law No. 61/2023; recreational trafficking/cultivation remains prohibited, with weak enforcement signals in legacy cultivation notes."
-    },
     "BQ": {
       "name": "Caribbean Netherlands",
       "recreational": "ILLEGAL",
@@ -259,81 +245,6 @@
         "https://en.wikipedia.org/wiki/Cannabis_in_Bangladesh"
       ],
       "reason": "Control audit requires RED: medical access is not confirmed and strict criminal penalties override older lax-enforcement notes."
-    },
-    "US-UT": {
-      "name": "Utah",
-      "recreational": "ILLEGAL",
-      "medical": "REGULATED",
-      "enforcement": "STRICT",
-      "wikiRecStatus": "Illegal",
-      "wikiMedStatus": "Legal",
-      "notes": "Recreational cannabis remains illegal; Utah maintains a state medical cannabis code, patient card system, pharmacy rules and production establishment framework. Criminal penalties remain outside the medical program.",
-      "sources": [
-        "https://medicalcannabis.utah.gov/resources/utah-medical-cannabis-law/",
-        "https://ag.utah.gov/specialized-products/medical-cannabis/",
-        "https://www.ncsl.org/health/state-medical-cannabis-laws"
-      ],
-      "reason": "Utah has a regulated medical cannabis framework; RED/limited medical data was stale."
-    },
-    "US-NE": {
-      "name": "Nebraska",
-      "recreational": "ILLEGAL",
-      "medical": "REGULATED",
-      "enforcement": "STRICT",
-      "wikiRecStatus": "Illegal",
-      "wikiMedStatus": "Legal",
-      "notes": "Recreational cannabis remains illegal; Nebraska enacted the Medical Cannabis Patient Protection Act and Medical Cannabis Regulation Act after 2024 initiatives, with the Regulation Act operative April 8, 2026. Criminal penalties remain outside the medical framework.",
-      "sources": [
-        "https://nebraskalegislature.gov/laws/statutes.php?statute=71-24%2C106",
-        "https://lcc.nebraska.gov/medical-cannabis/medical-cannabis-commission-how-apply",
-        "https://www.ncsl.org/health/state-medical-cannabis-laws"
-      ],
-      "reason": "Nebraska now has statutory medical cannabis protection/regulation; RED/limited medical data was stale."
-    },
-    "US-KS": {
-      "name": "Kansas",
-      "recreational": "ILLEGAL",
-      "medical": "LIMITED",
-      "enforcement": "STRICT",
-      "wikiRecStatus": "Illegal",
-      "wikiMedStatus": "Limited",
-      "notes": "Recreational cannabis remains illegal; Kansas has no comprehensive medical cannabis program, but Claire and Lola's Law provides a narrow cannabidiol treatment preparation defense with THC limits. Criminal penalties remain outside that narrow exception.",
-      "sources": [
-        "https://www.kslegislature.gov/li_2020/b2019_20/statute/065_000_0000_chapter/065_062_0000_article/065_062_0035_section/065_062_0035_k/",
-        "https://kslegislature.gov/li_2020/b2019_20/measures/documents/summary_sb_28_2019.pdf",
-        "https://www.ncsl.org/health/state-medical-cannabis-laws"
-      ],
-      "reason": "Kansas is not regulated medical, but narrow low-THC cannabidiol access makes medical LIMITED rather than NONE."
-    },
-    "US-WI": {
-      "name": "Wisconsin",
-      "recreational": "ILLEGAL",
-      "medical": "LIMITED",
-      "enforcement": "STRICT",
-      "wikiRecStatus": "Illegal",
-      "wikiMedStatus": "Limited",
-      "notes": "Recreational cannabis remains illegal; Wisconsin does not have a comprehensive medical cannabis program, but state law recognizes a narrow non-psychoactive cannabidiol exception. Criminal penalties remain outside that narrow exception.",
-      "sources": [
-        "https://docs.legis.wisconsin.gov/2013/related/acts/267",
-        "https://datcp.wi.gov/Documents/VEBCannabis.pdf",
-        "https://www.ncsl.org/health/state-medical-cannabis-laws"
-      ],
-      "reason": "Wisconsin has only a narrow cannabidiol exception, so medical is LIMITED and enforcement remains strict."
-    },
-    "US-WY": {
-      "name": "Wyoming",
-      "recreational": "ILLEGAL",
-      "medical": "LIMITED",
-      "enforcement": "STRICT",
-      "wikiRecStatus": "Illegal",
-      "wikiMedStatus": "Limited",
-      "notes": "Recreational cannabis remains illegal; Wyoming does not have a comprehensive medical cannabis program, but HB 32 created supervised medical use of hemp extracts for intractable epilepsy. Criminal penalties remain outside that narrow exception.",
-      "sources": [
-        "https://www.wyoleg.gov/2015/Introduced/HB0032.pdf",
-        "https://www.wyoleg.gov/2026/Introduced/HB0166.pdf",
-        "https://www.ncsl.org/health/state-medical-cannabis-laws"
-      ],
-      "reason": "Wyoming has only narrow hemp-extract access, so medical is LIMITED and enforcement remains strict."
     }
   },
   "governance": {

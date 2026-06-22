@@ -27,7 +27,9 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
       "modifiers": []
     },
     "signals": {
@@ -62,12 +64,6 @@
           "type": "summary"
         },
         {
-          "title": "Cannabis in Kazakhstan",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kazakhstan",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
           "title": "Legality of cannabis (notes)",
           "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kazakhstan",
           "depth": 2,
@@ -75,26 +71,25 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Kazakhstan | type: traversal | priority: 3 | scope: possession",
-        "rule: illegal | source: Cannabis in Kazakhstan | type: traversal | priority: 3 | scope: possession"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 342,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal"
+      "distribution_fallback_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Kazakhstan / Қазақстан. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -197,9 +192,9 @@
   },
   "hashes": {
     "code": "kaz",
-    "content_hash": "0df1cec349f320332fcde4129656b4a8830bb912b59d1a4c675a3b1bb897f2bf",
+    "content_hash": "5c92861d0c87c025a72fa19b9331409efbd9ffa43acf72d64352c10081da8e0f",
     "notes_hash": "6439b39b510de3837a1466a290e299282a862310a7f2fa0abad9a6cc2d8b6156",
-    "model_hash": "1af98809d4dd446bacb65a7b811c4e98b3e2596aef87d9d552e43b186ae5ff6c"
+    "model_hash": "123e8647021df0109d41a9cf08ed864cf402e07410aa1a680dabb115ac351509"
   },
   "geo_code": "KZ",
   "node_type": "country",

@@ -17,63 +17,51 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "illegal",
+      "status": "restricted",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
-        "trafficking": "illegal"
+        "trafficking": null
       },
-      "enforcement": "fine-based",
-      "flags": [
-        "trafficking_illegal"
-      ],
+      "enforcement": "standard",
+      "flags": [],
       "modifiers": [
-        "however",
-        "but",
-        "may",
-        "up_to",
-        "unless"
+        "however"
       ]
     },
     "signals": {
-      "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "status": "restricted",
+      "final_risk": "LIMITED",
       "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
-        "arrest": true,
-        "fine": true,
-        "severity_score": 4,
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
-          "prison": true,
-          "arrest": true,
-          "fine": true,
-          "severe": true
-        },
-        "trafficking": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
           "fine": false,
-          "severe": true
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Israel / إسرائيل",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Israel",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Israel",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Ministry of Health - Medical Cannabis Unit",
@@ -104,58 +92,40 @@
           "url": "https://www.jns.org/israel-moves-a-step-closer-to-decriminalizing-cannabis/",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Will Marijuana Soon Be Legal In Israel?",
+          "url": "https://www.theyeshivaworld.com/news/headlines-breaking-stories/1875026/will-marijuana-soon-be-legal-in-israel.html",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: possession_decriminalized | source: Israel / إسرائيل | type: summary | priority: 1 | scope: possession",
-        "rule: possession_decriminalized | source: Cannabis in Israel | type: traversal | priority: 3 | scope: use",
-        "rule: legal | source: Cannabis in Israel | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_arrest | source: Cannabis in Israel | type: traversal | priority: 3 | scope: use",
-        "rule: medical_legal | source: Cannabis in Israel | type: traversal | priority: 3 | scope: use",
-        "rule: medical_legal | source: Cannabis in Israel | type: traversal | priority: 3 | scope: general",
-        "rule: medical_limited | source: Cannabis in Israel | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_fine | source: Cannabis in Israel | type: traversal | priority: 3 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Israel | type: traversal | priority: 3 | scope: use",
-        "rule: illegal | source: Cannabis in Israel | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_fine | source: Cannabis in Israel | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_prison | source: Cannabis in Israel | type: traversal | priority: 3 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Israel | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Israel | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_criminal_offense | source: Cannabis in Israel | type: traversal | priority: 3 | scope: trafficking",
-        "rule: trafficking_illegal | source: Cannabis in Israel | type: traversal | priority: 3 | scope: trafficking",
-        "rule: legal | source: Cannabis in Israel | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_criminal_offense | source: Cannabis in Israel | type: traversal | priority: 3 | scope: cultivation",
-        "rule: possession_decriminalized | source: Israel Decriminalized Cannabis (Kind Of) | type: reference | priority: 2 | scope: general"
+        "rule: possession_decriminalized | source: Israel Decriminalized Cannabis (Kind Of) | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 12076,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": "restricted",
-          "distribution_article": "illegal"
+          "distribution_article": "restricted"
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
-      "possession_decriminalized",
-      "penalty_arrest",
-      "penalty_fine",
-      "raw_illegal",
-      "penalty_prison",
-      "penalty_criminal_offense",
-      "trafficking_illegal"
+      "possession_decriminalized"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Israel / إسرائيل. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is decriminalized in Israel / إسرائيل. Medical cannabis is legal. Distribution is restricted."
   },
-  "notes_normalized": "Cannabis is decriminalized in Israel / إسرائيل. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is decriminalized in Israel / إسرائيل. Medical cannabis is legal. Distribution is restricted.",
   "notes_raw": "{{main|Cannabis in Israel}} As of April 2019, public possession of small amounts is a non-criminal offense punished by escalating fines. A third offense can result in criminal charges, however. Possession in the privacy of one's home is not punished.<ref>{{cite news |title=Partial decriminalization of public cannabis use takes effect Sunday night |url=https://www.timesofisrael.com/partial-decriminalization-of-public-cannabis-use-to-come-into-effect/ |access-date=5 April 2019 |work=[[The Times of Israel]] |date=31 March 2019 |archive-url=https://web.archive.org/web/20190609200544/https://www.timesofisrael.com/partial-decriminalization-of-public-cannabis-use-to-come-into-effect/ |archive-date=9 June 2019 |url-status=live}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -254,9 +224,9 @@
   },
   "hashes": {
     "code": "isr",
-    "content_hash": "4d5770302a073d19679478b851e1b08c4c2d4dea2385c493ae6eaef48c8bc6c0",
-    "notes_hash": "7bcfa5c7c5c0175fd6028696e31aacb76d95824f0ab35d46c5f84dac1ff30182",
-    "model_hash": "f778b4ada66044c36e97af5c71a0f36b2a031c4b8e88ff3df008f6108b0d2f37"
+    "content_hash": "0656ea803f21a4dd91d8f7e5dbbc311a29bf189e9a6b2e7211c0792e63e1c6d2",
+    "notes_hash": "cd7228a5ffc1f69a017d80f1f95f474617d90cde56459a4d2f53a8aa46ff24ee",
+    "model_hash": "1fbf42bbafa66ae77e60ee3d87330b3748d19b6a862ce7dd7b94f85b807f0f80"
   },
   "geo_code": "IL",
   "node_type": "country",

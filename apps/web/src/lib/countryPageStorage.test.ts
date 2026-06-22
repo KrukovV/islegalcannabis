@@ -51,6 +51,16 @@ describe("countryPageStorage", () => {
     expect(netherlands?.hashes.model_hash).toMatch(/^[a-f0-9]{64}$/);
   });
 
+  it("resolves ISO2 country aliases in country storage", () => {
+    const countryByIso2 = getCountryPageData("nl");
+    expect(countryByIso2?.code).toBe("nld");
+    expect(countryByIso2?.iso2).toBe("NL");
+
+    const territoryAlias = getCountryPageData("us");
+    expect(territoryAlias?.code).toBe("usa");
+    expect(territoryAlias?.iso2).toBe("US");
+  });
+
   it("derives a current-law timeline for Dominica and keeps the latest law current", () => {
     const dominica = getCountryPageData("dma");
     expect(dominica?.legal_timeline?.length).toBeGreaterThan(0);
@@ -76,7 +86,7 @@ describe("countryPageStorage", () => {
 
     expect(frenchGuiana?.displayName).toBe("French Guiana");
     expect(frenchGuiana?.iso2).toBe("GF");
-    expect(frenchGuiana?.pageHref).toBe("/new-map?geo=GF");
+    expect(frenchGuiana?.pageHref).toBe("/c/fra");
     expect(frenchGuiana?.detailsHref).toBeNull();
     expect(frenchGuiana?.coordinates?.lat).toEqual(expect.any(Number));
     expect(frenchGuiana?.coordinates?.lng).toEqual(expect.any(Number));
@@ -145,6 +155,26 @@ describe("countryPageStorage", () => {
       expect(card.sources[0]?.url).toBe(page.sources.legal);
       expect(card.sources.some((source) => source.id === "wiki_country")).toBe(false);
     }
+  });
+
+  it("keeps the exact dedicated cannabis article in popup sources even when official citations are present", () => {
+    for (const code of ["alb", "us-ga", "phl", "us-ut"] as const) {
+      const page = getCountryPageData(code)!;
+      const card = deriveCountryCardEntryFromCountryPageData(page);
+      expect(page.sources.legal).toBeTruthy();
+      expect(card.cannabisProfile).toBeTruthy();
+      expect(card.sources.some((source) => source.url === page.sources.legal)).toBe(true);
+    }
+  });
+
+  it("keeps root-summary jurisdictions out of popup profile sections when no Cannabis_in_* page exists", () => {
+    const gibraltar = getCountryPageData("gib");
+    const card = deriveCountryCardEntryFromCountryPageData(gibraltar!);
+
+    expect(gibraltar?.sources.legal).toBeNull();
+    expect(card.cannabisProfile).toBeNull();
+    expect(card.panel.summary).toBeTruthy();
+    expect(card.notes).toContain("Cannabis is illegal in Gibraltar");
   });
 
   it("builds state-level SEO nodes derived from USA", () => {
@@ -246,7 +276,7 @@ describe("countryPageStorage", () => {
     const fixtures = [
       { code: "dza", expectedCategory: "LIMITED_OR_MEDICAL" },
       { code: "chn", expectedCategory: "ILLEGAL" },
-      { code: "jpn", expectedCategory: "LIMITED_OR_MEDICAL" },
+      { code: "jpn", expectedCategory: "ILLEGAL" },
       { code: "sgp", expectedCategory: "LIMITED_OR_MEDICAL" },
       { code: "fra", expectedCategory: "LEGAL_OR_DECRIM" },
       { code: "nor", expectedCategory: "LEGAL_OR_DECRIM" },
@@ -370,7 +400,7 @@ describe("countryPageStorage", () => {
     expect(deriveMapCategoryFromCountryPageData(china!)).toBe("ILLEGAL");
     expect(deriveResultStatusFromCountryPageData(estonia!)).toBe("DECRIM");
     expect(deriveMapCategoryFromCountryPageData(estonia!)).toBe("LEGAL_OR_DECRIM");
-    expect(deriveResultStatusFromCountryPageData(luxembourg!)).toBe("MIXED");
+    expect(deriveResultStatusFromCountryPageData(luxembourg!)).toBe("DECRIM");
     expect(deriveMapCategoryFromCountryPageData(luxembourg!)).toBe("LEGAL_OR_DECRIM");
     expect(deriveResultStatusFromCountryPageData(netherlands!)).toBe("MIXED");
     expect(deriveMapCategoryFromCountryPageData(netherlands!)).toBe("LEGAL_OR_DECRIM");
@@ -391,7 +421,7 @@ describe("countryPageStorage", () => {
     expect(deriveResultStatusFromCountryPageData(iran!)).toBe("ILLEGAL");
     expect(deriveMapCategoryFromCountryPageData(iran!)).toBe("LIMITED_OR_MEDICAL");
     expect(deriveResultStatusFromCountryPageData(usa!)).toBe("MIXED");
-    expect(deriveMapCategoryFromCountryPageData(usa!)).toBe("LIMITED_OR_MEDICAL");
+    expect(deriveMapCategoryFromCountryPageData(usa!)).toBe("LEGAL_OR_DECRIM");
     expect(deriveResultStatusFromCountryPageData(japan!)).toBe("ILLEGAL");
     expect(deriveResultStatusFromCountryPageData(singapore!)).toBe("ILLEGAL");
   });

@@ -64,12 +64,6 @@
           "type": "summary"
         },
         {
-          "title": "Cannabis in Qatar",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Qatar",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
           "title": "Legality of cannabis (notes)",
           "url": "https://en.wikipedia.org/wiki/Cannabis_in_Qatar",
           "depth": 2,
@@ -77,20 +71,21 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Qatar | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Qatar | type: traversal | priority: 3 | scope: general"
+        "rule: raw_illegal | source: Qatar / قطر | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Qatar / قطر | type: summary | priority: 1 | scope: general",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 167,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_notes": "illegal",
+          "distribution_article": null
         }
       }
     },
@@ -199,9 +194,9 @@
   },
   "hashes": {
     "code": "qat",
-    "content_hash": "a9a673e7caa7ad777f636a859371caf46ab7fe300eae0a54bc2a0b9b6a15f0b5",
+    "content_hash": "1e0ffcfd8172b759960c8993a9403db9e7621b73de97771014540e1c9845720d",
     "notes_hash": "2f891609507d5143fd3fc6b765cd68d07c7499f8091651fe3563d8ee9f2e4afc",
-    "model_hash": "1a4e9d586c847b62c924874a3545e86fefec214d0fb0e9f9b1f762020e1ce974"
+    "model_hash": "1dbcea5b1e5019c00e435639cf9f18cc3a48610e549de18b149656b75066eb37"
   },
   "geo_code": "QA",
   "node_type": "country",

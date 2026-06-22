@@ -28,21 +28,18 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": [
-        "but",
-        "however"
-      ]
+      "modifiers": []
     },
     "signals": {
-      "status": "restricted",
-      "final_risk": "RESTRICTED",
+      "status": "tolerated",
+      "final_risk": "UNKNOWN",
       "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
-        "arrest": true,
+        "arrest": false,
         "fine": false,
-        "severity_score": 2,
+        "severity_score": 0,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -51,24 +48,18 @@
         },
         "trafficking": {
           "prison": false,
-          "arrest": true,
+          "arrest": false,
           "fine": false,
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Lesotho",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Lesotho",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Lesotho",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Cannabis in Lesotho",
@@ -99,39 +90,36 @@
           "url": "https://journals.openedition.org/echogeo/17612",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Crime and Punishment around the World &#91;4 volumes&#93;: &#91;Four Volumes&#93;",
+          "url": "https://books.google.com/books?id=2uK6bR9byVIC&pg=PA113",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: private_cultivation | source: Lesotho | type: summary | priority: 1 | scope: cultivation",
         "rule: legal | source: Lesotho | type: summary | priority: 1 | scope: cultivation",
-        "rule: raw_illegal | source: Cannabis in Lesotho | type: traversal | priority: 3 | scope: use",
-        "rule: medical_limited | source: Cannabis in Lesotho | type: traversal | priority: 3 | scope: cultivation",
-        "rule: rec_tolerated | source: Cannabis in Lesotho | type: traversal | priority: 3 | scope: cultivation",
-        "rule: raw_illegal | source: Cannabis in Lesotho | type: traversal | priority: 3 | scope: cultivation",
-        "rule: private_cultivation | source: Cannabis in Lesotho | type: traversal | priority: 3 | scope: cultivation",
-        "rule: medical_legal | source: Cannabis in Lesotho | type: traversal | priority: 3 | scope: cultivation",
-        "rule: penalty_arrest | source: Cannabis in Lesotho | type: traversal | priority: 3 | scope: import",
-        "rule: legal | source: Cannabis in Lesotho | type: traversal | priority: 3 | scope: cultivation"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 4122,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": "tolerated",
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "private_cultivation",
-      "raw_illegal",
-      "penalty_arrest"
+      "private_cultivation"
     ],
     "notes_normalized": "Cannabis is illegal in Lesotho. Medical cannabis is illegal. Distribution is tolerated."
   },
@@ -234,9 +222,9 @@
   },
   "hashes": {
     "code": "lso",
-    "content_hash": "c7da40e697b99dad14eee2f65297b378abe8077bb99f59554c0cfc5d5cddd59f",
+    "content_hash": "d488ebe8f5b52470e7d7d1daf9a22d3b8821d56bc7bffe92de2c5de123acfdf8",
     "notes_hash": "c9fb117416651d2e93de5c79ca5302eddf1903c6d5117ec1d51aff9a1a5d4656",
-    "model_hash": "6eae0f3e43e99b72c77b5a83638c9691b5bdb23cd116ab8a49a93704e4cbcfbe"
+    "model_hash": "f57d538c51e801c4e252dca3aadda569234afb8f3a0b38a12081d0de7ba91faa"
   },
   "geo_code": "LS",
   "node_type": "country",

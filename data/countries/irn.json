@@ -26,8 +26,10 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "fine-based",
-      "flags": [],
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
       "modifiers": [
         "but"
       ]
@@ -40,12 +42,12 @@
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
-        "fine": true,
-        "severity_score": 1,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
           "prison": false,
           "arrest": false,
-          "fine": true,
+          "fine": false,
           "severe": false
         },
         "trafficking": {
@@ -62,12 +64,6 @@
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Iran",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Iran",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "A guide to smoking weed around the world",
@@ -98,33 +94,34 @@
           "url": "https://www.thedailybeast.com/as-irans-marijuana-trade-thrives-is-it-becoming-a-nation-of-stoners",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Human Rights in Iran: The Abuse of Cultural Relativism",
+          "url": "https://books.google.com/books?id=3e_SBQAAQBAJ&pg=PA40",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Iran | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Iran | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_fine | source: Cannabis in Iran | type: traversal | priority: 3 | scope: possession"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 886,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal",
-      "penalty_fine"
+      "distribution_fallback_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Iran / ایران. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -227,9 +224,9 @@
   },
   "hashes": {
     "code": "irn",
-    "content_hash": "9f1c3bd076acfbf4b3e5f1aa08130059f005ad5b9ef6ba11105bcdf9445441fb",
+    "content_hash": "b1e0e369d39afb4fb37cdf14f912eefbdfaffc9a1c46055cf4fe595f79d1716c",
     "notes_hash": "eaa6e507f742cdb588d9a1a9a0a181cce7652d3e2b3cfd0e0b0e2c67cb9c2653",
-    "model_hash": "320e8ba6006c4e9b442c38ac035461433a336c3892163f5fc2ec89da05f59b58"
+    "model_hash": "a53c8af4339d819e37ad76bbac5389e362c0254b72aa1ea1c91eb231e9503ad5"
   },
   "geo_code": "IR",
   "node_type": "country",

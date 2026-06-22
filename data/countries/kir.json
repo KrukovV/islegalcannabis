@@ -99,20 +99,23 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Kiribati | type: summary | priority: 1 | scope: trafficking",
+        "rule: trafficking_illegal | source: Kiribati | type: summary | priority: 1 | scope: trafficking",
+        "rule: sale_illegal | source: Kiribati | type: summary | priority: 1 | scope: trafficking",
         "rule: raw_illegal | source: Cannabis in Kiribati | type: traversal | priority: 3 | scope: trafficking",
         "rule: trafficking_illegal | source: Cannabis in Kiribati | type: traversal | priority: 3 | scope: trafficking",
         "rule: sale_illegal | source: Cannabis in Kiribati | type: traversal | priority: 3 | scope: trafficking"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 818,
+        "article_len": 799,
         "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
+          "distribution_notes": "illegal",
           "distribution_article": "illegal"
         }
       }
@@ -222,9 +225,9 @@
   },
   "hashes": {
     "code": "kir",
-    "content_hash": "d5a983d7059c7c7bfd1b6539fe524bc4ebe93dfe2a8c9ed9155e4747802acb62",
+    "content_hash": "d1480286779d097e561e7e08e9157a6e4fd188a304f42ece261fb162863bc37f",
     "notes_hash": "5d35511816a2641efbb5e04ecff7fa54ae2b4e62426265c13acb5feba2561a05",
-    "model_hash": "744e69f16709fa2a6ad243bbacf07fa9e79e3a576a5d8d920eb9f82ef72d8424"
+    "model_hash": "08e402b7704327742651988b7feac29f89d011979c75dde044b130069b637e22"
   },
   "geo_code": "KI",
   "node_type": "country",

@@ -24,10 +24,12 @@
         "sale": null,
         "cultivation": null,
         "import": null,
-        "trafficking": "illegal"
+        "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
       "modifiers": []
     },
     "signals": {
@@ -62,12 +64,6 @@
           "type": "summary"
         },
         {
-          "title": "Cannabis in Belarus",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Belarus",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
           "title": "International narcotics control strategy report",
           "url": "https://books.google.com/books?id=nNEWAAAAYAAJ",
           "depth": 2,
@@ -75,31 +71,25 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Belarus | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Belarus | type: traversal | priority: 3 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Belarus | type: traversal | priority: 3 | scope: possession",
-        "rule: illegal | source: Cannabis in Belarus | type: traversal | priority: 3 | scope: possession",
-        "rule: raw_illegal | source: Cannabis in Belarus | type: traversal | priority: 3 | scope: trafficking",
-        "rule: trafficking_illegal | source: Cannabis in Belarus | type: traversal | priority: 3 | scope: trafficking",
-        "rule: illegal | source: Cannabis in Belarus | type: traversal | priority: 3 | scope: trafficking"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 390,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal"
+      "distribution_fallback_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Belarus / Белару́сь. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -202,9 +192,9 @@
   },
   "hashes": {
     "code": "blr",
-    "content_hash": "e3e9a3bb5df9b6c7a50961cbbc1054a31b9ebb32a93d25c765336cbe17d0dd29",
+    "content_hash": "43c7d4a1f444ecd9df0b84f0f082e028635c99badb8ac38db0b58964d9ef1644",
     "notes_hash": "e4fe433bc1896102206fc1ab00f52d81d3026056bd5307861e55d4592b30d5db",
-    "model_hash": "70e409a071540ef0ba748bfdcacfd9e63c2dd0aaff1b91c9c997dfffc0b2f3cf"
+    "model_hash": "3ac805fb0f2719c656bc3e64b92572c0855133e56ecb11962b8382420c2bcaf2"
   },
   "geo_code": "BY",
   "node_type": "country",

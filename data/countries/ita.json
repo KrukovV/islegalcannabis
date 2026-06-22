@@ -22,44 +22,36 @@
         "possession": "restricted",
         "use": "restricted",
         "sale": "illegal",
-        "cultivation": "tolerated",
+        "cultivation": null,
         "import": null,
-        "trafficking": "illegal"
+        "trafficking": null
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [
         "sale_illegal"
       ],
-      "modifiers": [
-        "however",
-        "only",
-        "but",
-        "may",
-        "up_to",
-        "unless",
-        "usually"
-      ]
+      "modifiers": []
     },
     "signals": {
-      "status": "restricted",
-      "final_risk": "RESTRICTED",
-      "enforcement_level": "rare",
+      "status": "illegal",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 3,
-        "arrest": true,
-        "fine": true,
-        "severity_score": 8,
+        "prison_priority": 1,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 4,
         "possession": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
-          "fine": true,
-          "severe": true
+          "fine": false,
+          "severe": false
         },
         "trafficking": {
           "prison": true,
-          "arrest": true,
-          "fine": true,
+          "arrest": false,
+          "fine": false,
           "severe": true
         }
       },
@@ -70,12 +62,6 @@
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Italy",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Italy",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Uso medico della cannabis – Impiego farmaceutico",
@@ -106,92 +92,39 @@
           "url": "https://www.salute.gov.it/portale/medicinaliStupefacenti/dettaglioContenutiMedicinaliStupefacenti.jsp?lingua=italiano&id=4588&area=sostanzeStupefacenti&menu=organismo",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "La distribuzione della cannabis ad uso medico",
+          "url": "https://www.salute.gov.it/portale/medicinaliStupefacenti/dettaglioContenutiMedicinaliStupefacenti.jsp?lingua=italiano&id=5066&area=sostanzeStupefacenti&menu=organismo",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: penalty_prison | source: Italy / Italia | type: summary | priority: 1 | scope: sale",
         "rule: penalty_criminal_offense | source: Italy / Italia | type: summary | priority: 1 | scope: sale",
         "rule: sale_illegal | source: Italy / Italia | type: summary | priority: 1 | scope: sale",
-        "rule: possession_decriminalized | source: Cannabis in Italy | type: traversal | priority: 3 | scope: general",
-        "rule: medical_legal | source: Cannabis in Italy | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in Italy | type: traversal | priority: 3 | scope: sale",
-        "rule: raw_illegal | source: Cannabis in Italy | type: traversal | priority: 3 | scope: sale",
-        "rule: penalty_criminal_offense | source: Cannabis in Italy | type: traversal | priority: 3 | scope: sale",
-        "rule: sale_illegal | source: Cannabis in Italy | type: traversal | priority: 3 | scope: sale",
-        "rule: private_cultivation | source: Cannabis in Italy | type: traversal | priority: 3 | scope: sale",
-        "rule: illegal | source: Cannabis in Italy | type: traversal | priority: 3 | scope: sale",
-        "rule: legal | source: Cannabis in Italy | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_years | source: Cannabis in Italy | type: traversal | priority: 3 | scope: use",
-        "rule: legal | source: Cannabis in Italy | type: traversal | priority: 3 | scope: use",
-        "rule: raw_illegal | source: Cannabis in Italy | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Italy | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_years | source: Cannabis in Italy | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in Italy | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_fine | source: Cannabis in Italy | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_prison | source: Cannabis in Italy | type: traversal | priority: 3 | scope: cultivation",
-        "rule: penalty_fine | source: Cannabis in Italy | type: traversal | priority: 3 | scope: cultivation",
-        "rule: private_cultivation | source: Cannabis in Italy | type: traversal | priority: 3 | scope: cultivation",
-        "rule: legal | source: Cannabis in Italy | type: traversal | priority: 3 | scope: cultivation",
-        "rule: medical_legal | source: Cannabis in Italy | type: traversal | priority: 3 | scope: sale",
-        "rule: penalty_arrest | source: Cannabis in Italy | type: traversal | priority: 3 | scope: trafficking",
-        "rule: sale_regulated | source: Cannabis in Italy | type: traversal | priority: 3 | scope: sale",
-        "rule: medical_limited | source: Cannabis in Italy | type: traversal | priority: 3 | scope: sale",
-        "rule: raw_illegal | source: Cannabis in Italy | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_years | source: Cannabis in Italy | type: traversal | priority: 3 | scope: possession",
-        "rule: illegal | source: Cannabis in Italy | type: traversal | priority: 3 | scope: possession",
-        "rule: raw_illegal | source: Cannabis in Italy | type: traversal | priority: 3 | scope: trafficking",
-        "rule: trafficking_illegal | source: Cannabis in Italy | type: traversal | priority: 3 | scope: trafficking",
-        "rule: illegal | source: Cannabis in Italy | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_prison | source: Cannabis in Italy | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_fine | source: Cannabis in Italy | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_years | source: Cannabis in Italy | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_prison | source: Cannabis in Italy | type: traversal | priority: 3 | scope: general",
-        "rule: sale_tolerated | source: Cannabis in Italy | type: traversal | priority: 3 | scope: sale",
-        "rule: rec_tolerated | source: Cannabis in Italy | type: traversal | priority: 3 | scope: sale",
-        "rule: raw_illegal | source: Cannabis in Italy | type: traversal | priority: 3 | scope: use",
-        "rule: illegal | source: Cannabis in Italy | type: traversal | priority: 3 | scope: use",
-        "rule: medical_legal | source: Cannabis in Italy | type: traversal | priority: 3 | scope: cultivation",
-        "rule: private_cultivation | source: Cannabis in Italy | type: traversal | priority: 3 | scope: trafficking",
-        "rule: legal | source: Cannabis in Italy | type: traversal | priority: 3 | scope: trafficking",
-        "rule: raw_illegal | source: Cannabis in Italy | type: traversal | priority: 3 | scope: cultivation",
-        "rule: illegal | source: Cannabis in Italy | type: traversal | priority: 3 | scope: cultivation",
-        "rule: medical_legal | source: Cannabis in Italy | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_fine | source: Cannabis in Italy | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_fine | source: Cannabis in Italy | type: traversal | priority: 3 | scope: use",
-        "rule: medical_legal | source: Cannabis in Italy | type: traversal | priority: 3 | scope: trafficking",
-        "rule: enforcement_rare | source: Cannabis in Italy | type: traversal | priority: 3 | scope: trafficking",
-        "rule: sale_regulated | source: Cannabis in Italy | type: traversal | priority: 3 | scope: import",
-        "rule: medical_legal | source: Cannabis in Italy | type: traversal | priority: 3 | scope: import"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 81342,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": true,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
-          "enforcement_article": "rare",
+          "enforcement_article": null,
           "distribution_notes": "illegal",
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based",
-      "weak_enforcement"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
       "penalty_prison",
       "penalty_criminal_offense",
-      "sale_illegal",
-      "possession_decriminalized",
-      "raw_illegal",
-      "private_cultivation",
-      "penalty_years",
-      "penalty_fine",
-      "penalty_arrest",
-      "enforcement_rare"
+      "sale_illegal"
     ],
     "notes_normalized": "Cannabis is decriminalized in Italy / Italia. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
@@ -294,9 +227,9 @@
   },
   "hashes": {
     "code": "ita",
-    "content_hash": "deb92d25b9fa5a26d2a7e39cb08d9c4e0c84123ba999b4d3de47fbac53b56ee9",
+    "content_hash": "d0448d82dbf2d7e1406d8fc7c27ee1817262785c8b4723119455b950afead53b",
     "notes_hash": "abb0f40ad9904212e99c0a6bcb5f520b3d7b1fb6e0762dfc45af379f5daad99e",
-    "model_hash": "36e6dba91f0e8356bf21372c2d041ece46b6496f091fe2980a3540fb0cfb53e0"
+    "model_hash": "2c64dab07d1742bdfb8c5280c02ab41a53e516968cc7663d838bdd9fa1e47397"
   },
   "geo_code": "IT",
   "node_type": "country",

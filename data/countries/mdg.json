@@ -106,7 +106,7 @@
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 1498,
+        "article_len": 77,
         "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
@@ -223,9 +223,9 @@
   },
   "hashes": {
     "code": "mdg",
-    "content_hash": "86e99e4fab04417e5b941ceb7c6e6008d21d4c822487b355385c4ef65d2c08d8",
+    "content_hash": "cbf1b44ba0627fff8cff16831941c7a27d1336f0c350447ad0b9ce26067d6165",
     "notes_hash": "13efb8f150d5f45345af69dbca0e836ce03f4e49943972f6c906e65236f21cbe",
-    "model_hash": "7e8f66befd5e9f3197577a05bf8fe66ce787642614f83716e426fb74db54012d"
+    "model_hash": "d2feddf1f1ae40df8025a5e937a61b506a7f44c7a39376b2b286406a74159b11"
   },
   "geo_code": "MG",
   "node_type": "country",

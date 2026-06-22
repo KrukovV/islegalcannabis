@@ -113,7 +113,7 @@
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 448,
+        "article_len": 423,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -236,9 +236,9 @@
   },
   "hashes": {
     "code": "mco",
-    "content_hash": "39773165f16b87c65effdba22985eb496e21dd8d5d19e059ef7dacc2def09213",
+    "content_hash": "a29b43af4a61bd0a24abfcbb1ae8eff225b51280a19539395796cc2cc7396be8",
     "notes_hash": "6a79acb2e4a8b7acde94770905adb93e18238a4801704d29365f67e4d051c9c7",
-    "model_hash": "d017eaad16f8a3ae9637b275f9374527e56c6fdc17a568a6688a6e531cac7f42"
+    "model_hash": "6ead25523e5c1a81fd699f04b4cfcff5d816001447d33064934502dbcae29e31"
   },
   "geo_code": "MC",
   "node_type": "country",

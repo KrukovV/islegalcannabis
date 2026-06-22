@@ -2,7 +2,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import type { CountryCardEntry } from "@/new-map/map.types";
-import { buildCannabisProfileCard } from "@/lib/cannabisProfile";
+import { buildCannabisProfileCard, getCannabisProfileForGeo } from "@/lib/cannabisProfile";
 import { assertCannabisWikiSource, isCannabisWikiSource } from "@/lib/wiki/cannabisSource";
 import {
   deriveMapCategoryFromCountryPageDataSignals,
@@ -11,6 +11,12 @@ import {
 } from "@/lib/resultStatus";
 import { getHumanStatusHeadline, getHumanStatusSummary } from "@/lib/statusHumanText";
 import { applyStatusReviewOverrideToCountryPageData } from "@/lib/statusReviewOverrides";
+import {
+  buildTerritoryParentLawSummary,
+  inferJurisdictionContextNotes,
+  inferParentCountryFromCountryData
+} from "@/new-map/territoryParent";
+import { sanitizeEvidenceQuoteText } from "@/lib/text/sanitizeEvidenceQuoteText";
 
 type CountryLegalStatus = "LEGAL" | "ILLEGAL" | "DECRIMINALIZED" | "TOLERATED" | "UNKNOWN";
 type CountryMedicalStatus = "LEGAL" | "LIMITED" | "ILLEGAL" | "UNKNOWN";
@@ -401,7 +407,16 @@ export function listCountryPageData() {
 
 export function getCountryPageData(code: string): CountryPageData | null {
   const normalized = String(code || "").trim().toLowerCase();
-  if (!/^(?:[a-z]{3}|us-[a-z]{2})$/.test(normalized)) return null;
+  if (!/^(?:[a-z]{3}|us-[a-z]{2})$/.test(normalized)) {
+    if (!/^[a-z]{2}$/.test(normalized)) return null;
+    const countryByIso = getCountryPageIndexByIso2();
+    const legacyCountry = countryByIso.get(normalized.toUpperCase());
+    if (!legacyCountry) return null;
+    return {
+      ...legacyCountry,
+      legal_timeline: extractLegalTimeline(legacyCountry)
+    };
+  }
   const filePath = path.join(COUNTRY_DIR, `${normalized}.json`);
   if (!fs.existsSync(filePath)) return null;
   const data = ensureValidCountryPageData(readJson<CountryPageData>(filePath));
@@ -503,18 +518,77 @@ function resultStatusFromMapCategory(mapCategory: CountryCardEntry["mapCategory"
   return "ILLEGAL" as const;
 }
 
+function isEmptyCannabisProfile(profile?: CountryCardEntry["cannabisProfile"]) {
+  if (!profile) return true;
+  return [
+    profile.history,
+    profile.localNames,
+    profile.culture,
+    profile.enforcementReality,
+    profile.products,
+    profile.traditionalUse,
+    profile.notes,
+    profile.cannabisFoods,
+    profile.slang,
+    profile.cultivation,
+    profile.market
+  ].every((items) => items.length === 0);
+}
+
 export function deriveCountryCardEntryFromCountryPageData(data: CountryPageData): CountryCardEntry {
   data = applyStatusReviewOverrideToCountryPageData(data);
   const mapCategory = deriveMapCategoryFromCountryPageDataSignals(data);
   const mapReason = buildMapColorReason(mapCategory);
   const pageHref = `/c/${data.code}`;
+  const parentCountry = inferParentCountryFromCountryData(data);
+  const parentLawSummary = parentCountry
+    ? buildTerritoryParentLawSummary(parentCountry.name, data.name)
+    : undefined;
+  const jurisdictionContextNotes = inferJurisdictionContextNotes(data, parentCountry, { category: data.node_type });
   const legalSourceUrl = isCannabisWikiSource(data.sources.legal) ? assertCannabisWikiSource(data.sources.legal) : null;
-  const sources = (data.sources.citations || []).slice(0, 3).map((source) => ({
-    id: source.id,
-    title: source.title,
-    url: source.url
-  }));
-  const reasonSourceUrl = legalSourceUrl || sources[0]?.url;
+  const rootSourceUrl = String(data.sources.wiki_truth || data.sources.wiki || "").trim() || null;
+  const formatSourceTitle = (sourceUrl: string, sourceTitle: string) => {
+    const sanitized = sanitizeEvidenceQuoteText(String(sourceTitle || "").trim());
+    if (sanitized) return sanitized;
+    if (!sourceUrl) return "Source";
+    try {
+      const parsed = new URL(sourceUrl);
+      return parsed.host || sourceUrl;
+    } catch {
+      return sourceUrl;
+    }
+  };
+  const sources: CountryCardEntry["sources"] = [];
+  const seenSourceUrls = new Set<string>();
+  const addSource = (id: string, title: string, url: string | null | undefined) => {
+    const normalizedUrl = String(url || "").trim();
+    if (!normalizedUrl || seenSourceUrls.has(normalizedUrl)) return;
+    seenSourceUrls.add(normalizedUrl);
+    sources.push({
+      id,
+      title: formatSourceTitle(normalizedUrl, title),
+      url: normalizedUrl
+    });
+  };
+  const cannabisProfileSource = getCannabisProfileForGeo(data.geo_code);
+  if (
+    cannabisProfileSource &&
+    cannabisProfileSource.source_type !== "missing_wikipedia_article" &&
+    cannabisProfileSource.source_type !== "wikipedia_related_article"
+  ) {
+    addSource(
+      `${data.code}-wiki-cannabis-profile`,
+      `Wikipedia: ${cannabisProfileSource.wiki_title || data.name}`,
+      cannabisProfileSource.wiki_url
+    );
+  }
+  for (const source of (data.sources.citations || []).slice(0, 3)) {
+    addSource(source.id, source.title, source.url);
+  }
+  if (sources.length === 0 && rootSourceUrl) {
+    addSource(`${data.code}-wiki-root`, `Wikipedia: ${data.name}`, rootSourceUrl);
+  }
+  const reasonSourceUrl = legalSourceUrl || rootSourceUrl || sources[0]?.url;
   const buildReason = (id: string, text: string, anchor: string, sourceUrl?: string) => ({
     id,
     text,
@@ -565,6 +639,10 @@ export function deriveCountryCardEntryFromCountryPageData(data: CountryPageData)
   }
 
   const summary = getHumanStatusHeadline(mapCategory);
+  const rawNotes = `${data.notes_normalized || ""} ${data.notes_raw || ""}`.trim();
+  const profileSeedNotes = legalSourceUrl ? rawNotes : null;
+  const derivedProfile = buildCannabisProfileCard(data.geo_code, undefined, profileSeedNotes);
+  const cannabisProfile = isEmptyCannabisProfile(derivedProfile) ? null : derivedProfile;
 
   if (mapCategory === "ILLEGAL") {
     why.push(buildReason("why-red", getHumanStatusSummary(mapCategory), "#law-status-explanation", reasonSourceUrl));
@@ -578,7 +656,7 @@ export function deriveCountryCardEntryFromCountryPageData(data: CountryPageData)
     geo: data.geo_code,
     code: data.code,
     pageHref,
-    detailsHref: legalSourceUrl,
+    detailsHref: legalSourceUrl || rootSourceUrl,
     displayName: data.name,
     iso2: data.node_type === "state" ? data.geo_code : data.iso2,
     type: data.node_type,
@@ -592,6 +670,8 @@ export function deriveCountryCardEntryFromCountryPageData(data: CountryPageData)
     recreationalSummary: summarizeLegalModel(data),
     medicalSummary: summarizeMedicalModel(data),
     distributionSummary: summarizeDistributionModel(data),
+    parentLawSummary,
+    jurisdictionContextNotes,
     normalizedRecreationalStatus: data.legal_model.recreational.status,
     normalizedRecreationalEnforcement: data.legal_model.recreational.enforcement,
     normalizedRecreationalScope: data.legal_model.recreational.scope,
@@ -600,8 +680,14 @@ export function deriveCountryCardEntryFromCountryPageData(data: CountryPageData)
     normalizedDistributionStatus: data.legal_model.distribution.status,
     distributionFlags: data.legal_model.distribution.flags,
     statusFlags: data.legal_model.distribution.flags,
-    cannabisProfile: buildCannabisProfileCard(data.geo_code),
-    notes: data.notes_normalized || data.notes_raw,
+    cannabisProfile,
+    notes: rawNotes,
+    parentCountry: parentCountry
+      ? {
+          code: parentCountry.code,
+          name: parentCountry.name
+        }
+      : undefined,
     panel: {
       levelTitle:
         mapCategory === "ILLEGAL"

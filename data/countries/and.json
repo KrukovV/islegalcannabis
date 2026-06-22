@@ -80,6 +80,11 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Andorra | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Andorra | type: summary | priority: 1 | scope: general",
+        "rule: penalty_prison | source: Andorra | type: summary | priority: 1 | scope: trafficking",
+        "rule: trafficking_illegal | source: Andorra | type: summary | priority: 1 | scope: trafficking",
+        "rule: penalty_arrest | source: Andorra | type: summary | priority: 1 | scope: use",
         "rule: raw_illegal | source: Cannabis in Andorra | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Andorra | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Cannabis in Andorra | type: traversal | priority: 3 | scope: trafficking",
@@ -91,11 +96,11 @@
         "article_len": 283,
         "source_confidence": "prison_signal",
         "signals": {
-          "prison_notes": false,
+          "prison_notes": true,
           "prison_article": true,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
+          "distribution_notes": "illegal",
           "distribution_article": "illegal"
         }
       }
@@ -208,9 +213,9 @@
   },
   "hashes": {
     "code": "and",
-    "content_hash": "1a4c12a3de07937d226e201912d037db07baa8d409bbe4748b94fdce7707aa08",
+    "content_hash": "be521abb2e8a7f00061d62c8dce490ca00a81b0ba52411afbcb646e5842da5aa",
     "notes_hash": "371c9082100d585254d96f48231ddc89aab7e54a3c401257eabb8f56680172f6",
-    "model_hash": "76ce076a37c37ec9c1cc009e0a0e73f71f169c76c158bbfcbccc878ec6e0cf69"
+    "model_hash": "bab063cc05c493523b057695d620dcaf9e5dd9fb06ae471ae60b4c0eff3c8454"
   },
   "geo_code": "AD",
   "node_type": "country",

@@ -267,7 +267,14 @@ function applyStatusModifiers(base: ResultStatus, flags: StatusFlags): ResultSta
     if ((flags.isTolerated || flags.hasLicensedSale) && flags.hasCurrentLiberalization && !flags.hasArrest) {
       return "MIXED";
     }
-    if (flags.hasFine && flags.personalUseOnly && !flags.hasLongPrison && !flags.isStrictlyEnforced && !flags.hasArrest) {
+    if (
+      flags.hasFine &&
+      flags.personalUseOnly &&
+      !flags.hasLongPrison &&
+      !flags.hasPrison &&
+      !flags.isStrictlyEnforced &&
+      !flags.hasArrest
+    ) {
       return "DECRIM";
     }
     return "ILLEGAL";

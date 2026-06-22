@@ -21,57 +21,47 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": "illegal",
+        "sale": null,
         "cultivation": null,
         "import": null,
-        "trafficking": "illegal"
+        "trafficking": null
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [
-        "trafficking_illegal",
-        "sale_illegal"
+        "distribution_fallback_illegal"
       ],
-      "modifiers": [
-        "but",
-        "up_to"
-      ]
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "final_risk": "RESTRICTED",
       "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": false,
-        "fine": true,
-        "severity_score": 4,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
-          "prison": true,
-          "arrest": false,
-          "fine": true,
-          "severe": true
-        },
-        "trafficking": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
           "fine": false,
-          "severe": true
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Bulgaria / България",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Bulgaria",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bulgaria",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Cannabis in Bulgaria",
@@ -87,48 +77,29 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Bulgaria | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in Bulgaria | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_fine | source: Cannabis in Bulgaria | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_years | source: Cannabis in Bulgaria | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_prison | source: Cannabis in Bulgaria | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_years | source: Cannabis in Bulgaria | type: traversal | priority: 3 | scope: trafficking",
-        "rule: trafficking_illegal | source: Cannabis in Bulgaria | type: traversal | priority: 3 | scope: trafficking",
-        "rule: sale_illegal | source: Cannabis in Bulgaria | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_prison | source: Cannabis in Bulgaria | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_fine | source: Cannabis in Bulgaria | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_years | source: Cannabis in Bulgaria | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_criminal_offense | source: Cannabis in Bulgaria | type: traversal | priority: 3 | scope: general"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 1117,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal",
-      "penalty_prison",
-      "penalty_fine",
-      "penalty_years",
-      "trafficking_illegal",
-      "sale_illegal",
-      "penalty_criminal_offense"
+      "distribution_fallback_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Bulgaria / България. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Bulgaria / България. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Bulgaria / България. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Bulgaria / България. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Bulgaria}} Cannabis is classified as a class A (High-risk) drug, together with [[heroin]], [[cocaine]], [[amphetamines]], and [[MDMA]] (ecstasy). Until 2004, a loosely defined \"personal dose\" existed.<ref>{{cite web |title=Bulgaria: Country Drug Report 2017 |url=http://www.emcdda.europa.eu/countries/drug-reports/2017/bulgaria/drug-laws-and-offences_en |publisher=European Monitoring Centre for Drugs and Drug Addiction |access-date=17 October 2018 |archive-date=17 October 2018 |archive-url=https://web.archive.org/web/20181017123705/http://www.emcdda.europa.eu/countries/drug-reports/2017/bulgaria/drug-laws-and-offences_en |url-status=live }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -227,9 +198,9 @@
   },
   "hashes": {
     "code": "bgr",
-    "content_hash": "65c8a7dd6a142f0d7136523df21466ccbcff9f3a4411674838973e771f4d7c85",
-    "notes_hash": "5b2231adda2b2e201f166cdcc21983c16da08f8ab4d514da4a90e2745b7f5373",
-    "model_hash": "77dc658ebb49646ccc52aaf9012258ce7d1f389e4a6aea5522525fbd8398e5dd"
+    "content_hash": "2c4d5c145bc53108af37b41e151e46723d81ee8fb3f15412e7965d301c2056cf",
+    "notes_hash": "9cdf972c0cf45d5efbf5a7c0ef96193c68ab76295865d50f0acf81ab559e620a",
+    "model_hash": "acfaea95a9265adafc4ad6a63add82b486c0242117fc14cdd4c5755e0ae3ef44"
   },
   "geo_code": "BG",
   "node_type": "country",

@@ -13,8 +13,8 @@
       "scope": "NONE"
     },
     "medical": {
-      "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
+      "raw_status": "LIMITED",
+      "status": "LIMITED",
       "enforcement": "STRICT",
       "scope": "NONE",
       "override_reason": null
@@ -36,8 +36,8 @@
     "enforcement_flags": [],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is illegal in South Carolina under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}} Cannabis in South Carolina is illegal for recreational use. Use of low-THC CBD oil is allowed for certain medical conditions. But THC-A hemp is federally legal, per 2018 farm bill.\n\n\n== Industrial Hemp ==\nThe cultivation of industrial hemp in South Carolina dates back to at least the 18th century. In 1733, an act was passed in the colony to encourage the growth of hemp for its \"useful manufacture to his Majesty's Royal Navy\". The cultivation of industrial hemp was greatly limited nationwide as a result of the federal 1937 Marihuana Tax Act.\nIn 2017, South Carolina re-legalized the growing of industrial hemp, under the auspices of the federal 2014 Farm Bill. The new legislation permits up to 20 cultivators to hold state licenses for 20 acres (8.1 ha) each, expanding to 50 licenses and 50 acres (20 ha) for 2018.\n\n\n== 2014 legalization of CBD ==\nIn June 2014, Republican governor Nikki Haley signed into law Senate Bill 1035, \"Julian's Law\", following a unanimous Senate vote and a 92–5 House vote. The law allows children with severe epilepsy to be treated with CBD oil if recommended by a physician.\n\n\n== References ==",
+  "notes_normalized": "Cannabis is illegal in South Carolina for recreational use under state law, but medical cannabis is available only in limited form. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}} Cannabis in South Carolina is illegal for recreational use. Use of low-THC CBD oil is allowed for certain medical conditions. But THC-A hemp is federally legal, per 2018 farm bill. The cultivation of industrial hemp in South Carolina dates back to at least the 18th century. In 1733, an act was passed in the colony to encourage the growth of hemp for its \"useful manufacture to his Majesty's Royal Navy\". The cultivation of industrial hemp was greatly limited nationwide as a result of the federal 1937 Marihuana Tax Act. In 2017, South Carolina re-legalized the growing of industrial hemp, under the auspices of the federal 2014 Farm Bill. 2014 legalization of CBD.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -56,9 +56,9 @@
   },
   "related_codes": [
     "usa",
-    "us-al",
-    "us-fl",
-    "us-oh"
+    "us-wv",
+    "us-tn",
+    "us-ky"
   ],
   "related_names": [
     {
@@ -66,16 +66,16 @@
       "name": "United States"
     },
     {
-      "code": "us-al",
-      "name": "Alabama"
+      "code": "us-wv",
+      "name": "West Virginia"
     },
     {
-      "code": "us-fl",
-      "name": "Florida"
+      "code": "us-tn",
+      "name": "Tennessee"
     },
     {
-      "code": "us-oh",
-      "name": "Ohio"
+      "code": "us-ky",
+      "name": "Kentucky"
     }
   ],
   "graph": {
@@ -97,6 +97,30 @@
     ],
     "legal_similarity": [
       {
+        "code": "us-in",
+        "name": "Indiana"
+      },
+      {
+        "code": "us-wi",
+        "name": "Wisconsin"
+      },
+      {
+        "code": "us-ia",
+        "name": "Iowa"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "usa",
+        "name": "United States"
+      },
+      {
+        "code": "us-al",
+        "name": "Alabama"
+      }
+    ],
+    "same_country_states": [
+      {
         "code": "us-wv",
         "name": "West Virginia"
       },
@@ -107,30 +131,6 @@
       {
         "code": "us-ky",
         "name": "Kentucky"
-      }
-    ],
-    "cluster_links": [
-      {
-        "code": "usa",
-        "name": "United States"
-      },
-      {
-        "code": "us-md",
-        "name": "Maryland"
-      }
-    ],
-    "same_country_states": [
-      {
-        "code": "us-al",
-        "name": "Alabama"
-      },
-      {
-        "code": "us-fl",
-        "name": "Florida"
-      },
-      {
-        "code": "us-oh",
-        "name": "Ohio"
       }
     ],
     "federal_parent": {
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-sc",
-    "content_hash": "2553d7a11f388ccaed614026dc25aee35697db11607712f69458faa8f8caf1c0",
-    "notes_hash": "49b54284052c322f9fb99bd07a89e3420a0faba6c492973d422cc0f000c4a471",
-    "model_hash": "4551f01fd72ea608351c5007574550b48f6894ba2e0af2e99a3c754bfbcd4213"
+    "content_hash": "587063e83be2ebeb962e5c54e9fa88f197ad54162306971c7086cbedb6c638da",
+    "notes_hash": "28a954da3d6e632f864e14f3787e785ba6c8577861e82336e21daea5f1ae359e",
+    "model_hash": "02776cc41217bcd6865b92b170d640e4d82bb042d8621eed530c60033c9f2f4d"
   },
   "updated_at": "2026-04-10"
 }

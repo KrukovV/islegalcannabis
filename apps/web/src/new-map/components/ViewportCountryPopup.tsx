@@ -6,6 +6,7 @@ import type { SeoLocale } from "@/lib/seo/i18n";
 import { localizePanelFromEntry } from "@/lib/seo/panelLocale";
 import type { CountryCardEntry } from "../map.types";
 import styles from "../MapRoot.module.css";
+import { sanitizeEvidenceQuoteText } from "@/lib/text/sanitizeEvidenceQuoteText";
 import { readVisualViewportSnapshot, subscribeToVisualViewportChanges } from "../viewportMetrics";
 
 export default function ViewportCountryPopup({
@@ -110,7 +111,7 @@ export default function ViewportCountryPopup({
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Source
+                  {sourceDisplayTitle(`Source: ${item.text}`, item.sourceUrl)}
                 </a>
               ) : null}
             </li>
@@ -119,32 +120,91 @@ export default function ViewportCountryPopup({
       </section>
     );
   };
-  const renderProfileSection = (title: string, items: string[] | undefined, limit = 2) => {
-    const visible = (items || []).slice(0, limit);
+
+  const dedupeByValue = (items: string[]) => {
+    const seen = new Set<string>();
+    return items.filter((item) => {
+      const normalized = item.toLowerCase();
+      if (seen.has(normalized)) return false;
+      seen.add(normalized);
+      return true;
+    });
+  };
+
+  const resolveSection = (value: string[] | undefined, limit?: number) => {
+    const cleaned = (value || []).map((item) => sanitizeEvidenceQuoteText(item)).filter(Boolean);
+    return limit ? dedupeByValue(cleaned).slice(0, limit) : dedupeByValue(cleaned);
+  };
+
+  const renderProfileSection = (title: string, items: string[] | undefined, limit?: number) => {
+    const visible = (items || []).slice(0, limit ?? (items?.length || 0));
     if (!visible.length) return null;
     return (
       <section className={styles.viewportPopupSection}>
-        <div className={styles.viewportPopupSectionTitle}>{title}</div>
+        <div className={styles.viewportPopupSectionTitle}>
+          {title}
+          {entry.cannabisProfile?.sourceUrl ? (
+            <>
+              {" · "}
+              <a
+                className={styles.viewportPopupSourceInlineLink}
+                href={entry.cannabisProfile.sourceUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {sourceDisplayTitle(
+                  entry.cannabisProfile.sourceTitle || `Wikipedia: ${entry.displayName}`,
+                  entry.cannabisProfile.sourceUrl
+                )}
+              </a>
+            </>
+          ) : null}
+        </div>
         <ul className={styles.viewportPopupList}>
           {visible.map((item, index) => (
             <li key={`${title}-${index}-${item}`} className={styles.viewportPopupPlainItem}>
-              {item}
+              {sanitizeEvidenceQuoteText(item)}
             </li>
           ))}
         </ul>
       </section>
     );
   };
-  const cannabisProfileItems = [
-    ...(entry.cannabisProfile?.products || []),
-    ...(entry.cannabisProfile?.traditionalUse || []),
-    ...(entry.cannabisProfile?.cannabisFoods || []),
-    ...(entry.cannabisProfile?.slang || []),
-    ...(entry.cannabisProfile?.cultivation || []),
-    ...(entry.cannabisProfile?.market || []),
-    ...(entry.cannabisProfile?.notes || [])
-  ];
+
+  const jurisdictionLines = resolveSection(
+    [
+      ...(entry.parentLawSummary ? [entry.parentLawSummary] : []),
+      ...(entry.jurisdictionContextNotes || [])
+    ],
+    3
+  );
+  const compactLimit = 3;
+  const jurisdictionSection = resolveSection(jurisdictionLines, 3);
+  const localNamesSectionItems = resolveSection(entry.cannabisProfile?.localNames, 6);
+  const productsSectionItems = resolveSection(entry.cannabisProfile?.products, compactLimit);
+  const traditionalSectionItems = resolveSection(entry.cannabisProfile?.traditionalUse, compactLimit);
+  const cultivationSectionItems = resolveSection(entry.cannabisProfile?.cultivation, compactLimit);
+  const marketSectionItems = resolveSection(entry.cannabisProfile?.market, compactLimit);
+  const cannabisFoodsSectionItems = resolveSection(entry.cannabisProfile?.cannabisFoods, compactLimit);
+  const slangSectionItems = resolveSection(entry.cannabisProfile?.slang, compactLimit);
+  const notesSectionItems = resolveSection(entry.cannabisProfile?.notes, compactLimit);
+  const enforcementSectionItems = resolveSection(entry.cannabisProfile?.enforcementReality, compactLimit);
+  const cultureSectionItems = resolveSection(entry.cannabisProfile?.culture, compactLimit);
+  const historySectionItems = resolveSection(entry.cannabisProfile?.history, compactLimit);
   const hasDetailsCta = Boolean(entry.detailsHref || /^\/c\//i.test(entry.pageHref));
+
+  const sourceDisplayTitle = (title: string, href: string) => {
+    const sanitized = sanitizeEvidenceQuoteText(title || "").trim();
+    if (sanitized) return sanitized;
+    if (!href) return "Source";
+    try {
+      const parsed = new URL(href);
+      const normalized = `${parsed.host}${parsed.pathname || ""}`.replace(/\/wiki\//i, "/");
+      return normalized || parsed.host || "Source";
+    } catch {
+      return href;
+    }
+  };
 
   return (
     <aside
@@ -158,7 +218,7 @@ export default function ViewportCountryPopup({
       }}
     >
       <div className={styles.viewportPopupHeader}>
-        <div>
+        <div className={styles.viewportPopupHeaderText}>
           <div className={styles.viewportPopupTitle}>{entry.displayName}</div>
           <div className={styles.viewportPopupMeta}>ISO2: {entry.iso2 || "Unknown"}</div>
         </div>
@@ -183,12 +243,19 @@ export default function ViewportCountryPopup({
           <li className={styles.viewportPopupPlainItem}>{panel.summary}</li>
         </ul>
       </section>
+      {jurisdictionSection.length > 0 ? renderProfileSection("Jurisdiction", jurisdictionSection) : null}
       {renderList(panel?.labels.whyThisColor || "Why this color", panel?.why || entry.panel.why)}
-      {renderProfileSection("Enforcement Reality", entry.cannabisProfile?.enforcementReality)}
-      {renderProfileSection("History", entry.cannabisProfile?.history)}
-      {renderProfileSection("Culture", entry.cannabisProfile?.culture)}
-      {renderProfileSection("Local Names", entry.cannabisProfile?.localNames, 6)}
-      {renderProfileSection("Cannabis Profile", cannabisProfileItems, 4)}
+      {renderProfileSection("History", historySectionItems)}
+      {renderProfileSection("Culture", cultureSectionItems)}
+      {renderProfileSection("Enforcement Reality", enforcementSectionItems)}
+      {renderProfileSection("Products", productsSectionItems)}
+      {renderProfileSection("Traditional Use", traditionalSectionItems)}
+      {renderProfileSection("Cannabis Foods", cannabisFoodsSectionItems)}
+      {renderProfileSection("Slang", slangSectionItems)}
+      {renderProfileSection("Cultivation", cultivationSectionItems)}
+      {renderProfileSection("Market", marketSectionItems)}
+      {renderProfileSection("Local Names", localNamesSectionItems)}
+      {renderProfileSection("Cannabis Profile", notesSectionItems)}
 
       {entry.sources.length > 0 ? (
         <section className={styles.viewportPopupSection}>
@@ -197,7 +264,7 @@ export default function ViewportCountryPopup({
             {entry.sources.map((source) => (
               <li key={source.id} className={styles.viewportPopupPlainItem}>
                 <a className={styles.viewportPopupSourceInlineLink} href={source.url} target="_blank" rel="noreferrer">
-                  {source.title}
+                  {sourceDisplayTitle(source.title, source.url)}
                 </a>
               </li>
             ))}

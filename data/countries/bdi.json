@@ -6,7 +6,7 @@
     "recreational": {
       "raw_status": "ILLEGAL",
       "status": "ILLEGAL",
-      "enforcement": "MODERATE",
+      "enforcement": "STRICT",
       "scope": "NONE"
     },
     "medical": {
@@ -24,22 +24,24 @@
         "sale": null,
         "cultivation": null,
         "import": null,
-        "trafficking": "illegal"
+        "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
       "modifiers": []
     },
     "signals": {
-      "status": "restricted",
+      "status": "illegal",
       "final_risk": "RESTRICTED",
-      "enforcement_level": "unenforced",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 3,
+        "severity_score": 0,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -47,25 +49,19 @@
           "severe": false
         },
         "trafficking": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
           "fine": false,
-          "severe": true
+          "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Burundi / Uburundi",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Burundi",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Burundi",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Decriminalization of Marihuana: Hearings Before the Select Committee on Narcotics Abuse and Control, House of Representatives, Ninety-fifth Congress, First Session, March 14, 15, and 16, 1977",
@@ -75,41 +71,29 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Burundi | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Burundi | type: traversal | priority: 3 | scope: general",
-        "rule: enforcement_unenforced | source: Cannabis in Burundi | type: traversal | priority: 3 | scope: trafficking",
-        "rule: enforcement_rare | source: Cannabis in Burundi | type: traversal | priority: 3 | scope: trafficking",
-        "rule: raw_illegal | source: Cannabis in Burundi | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_criminal_offense | source: Cannabis in Burundi | type: traversal | priority: 3 | scope: trafficking",
-        "rule: trafficking_illegal | source: Cannabis in Burundi | type: traversal | priority: 3 | scope: trafficking",
-        "rule: illegal | source: Cannabis in Burundi | type: traversal | priority: 3 | scope: trafficking"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 393,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
-          "enforcement_article": "unenforced",
+          "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
-    "enforcement_flags": [
-      "weak_enforcement"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal",
-      "enforcement_unenforced",
-      "enforcement_rare",
-      "penalty_criminal_offense"
+      "distribution_fallback_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Burundi / Uburundi. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Burundi / Uburundi. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Burundi / Uburundi. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Burundi / Uburundi. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Burundi}}",
   "facts": {
     "possession_limit": null,
@@ -208,9 +192,9 @@
   },
   "hashes": {
     "code": "bdi",
-    "content_hash": "3099a59ba93c6d7ac1fc8e32671dd10768199c473c09645d565e0fa265e60843",
-    "notes_hash": "d36fd22f5ba1cc8656fc4eac7f9a0057de3bea055f778c541b479e6358616bcc",
-    "model_hash": "aa03997ae93c285f3422ad6d9211f1ec3193b0d70c4aba8f8ce84c8a1949c85b"
+    "content_hash": "42fc6b712899bd4a8597e3aa4bade6434ed90ab4902ce54ca1e2716eab3b07c6",
+    "notes_hash": "3334d6e743544361f423c2bb09ab6508499e48a16c6b9da543f8114f22f07333",
+    "model_hash": "3058ebcc1a002af03f020cb3b79d7d21cbb7dbd8776c4edaf2b97bb93f971159"
   },
   "geo_code": "BI",
   "node_type": "country",

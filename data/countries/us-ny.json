@@ -38,8 +38,8 @@
     ],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is legal in New York under state law for recreational adult use. Medical cannabis is also legal in New York. Cannabis remains federally illegal in United States. Possession is limited to Up to 3 oz flower or 24g concentrate.",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
+  "notes_normalized": "Cannabis is legal in New York under state law for recreational adult use. Medical cannabis is also legal under a regulated state program in New York. Cannabis remains federally illegal in United States. Possession is limited to Up to 3 oz flower or 24g concentrate.",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Cannabis in New York has been legal for medical purposes under New York law since 2016, and recreational purposes since 2021. As of 2022, recreational cannabis is for sale legally in the state (including Native American reservations), only through state-approved dispensaries. Adults 21 and older are allowed to possess up to of cannabis and of concentrated cannabis. In addition, home cultivation of up to three mature and three immature cannabis plants per individual will be permitted, with a maximum of twelve plants per household, once regulations for home grow are in place. On March 30, 2021, both houses of the New York State Legislature approved legislation to legalize recreational marijuana. The law also resulted in previous marijuana-related criminal records in the state of New York being expunged. As of October 2021, New York State prohibited employers from testing both prospective and current employees for cannabis use or otherwise discriminating against employees who use cannabis outside of work hours. Smoking marijuana in public is subject to the same enforcement and penalties as smoking tobacco. Smoking marijuana in public is subject to the same enforcement and penalties as smoking tobacco. In 1973, New York governor Nelson Rockefeller signed legislation increasing the penalty for selling or more of heroin, morphine, \"raw or prepared opium,\" cocaine, or cannabis or possessing or more of the same substances, was a minimum of 15 years to life in prison, and a maximum of 25 years to life in prison. In 1977, New York decriminalized possession of or less of marijuana, to an infraction with a $100 fine ( ). However, possession in public view remained a misdemeanor, and civil rights advocates stated that this was used as a loophole to unfairly arrest. In response to the continued arrests for marijuana possession, in 2014, New York City mayor Bill de Blasio directed the NYPD to cease arrests, and instead issue tickets, for small possession even in cases where the 1977 law might allow an arrest, such as cannabis entering \"public view\" during a stop-and-frisk. However, the Village Voice noted in 2016 that despite a sudden drop following de Blasio's direction, arrests have \"gone back up just as quickly.\" In 2018 the Manhattan and Brooklyn district attorneys announced that they would continue reducing the set of offenses that they would prosecute. Possession of less than of marijuana, in any form, is unlawful possession of marijuana, punishable by a fine of no more than $100 if the defendant has no convictions for the offense within the last three years. Those who do can be fined up to $200; on the third conviction within that time period the maximum fine rises to $250 with the possibility of a 15-day jail sentence as well.",
   "facts": {
     "possession_limit": "Up to 3 oz flower or 24g concentrate",
     "cultivation": "Home grow allowed.",
@@ -181,9 +181,9 @@
   },
   "hashes": {
     "code": "us-ny",
-    "content_hash": "8514748159f2ef869bbb2ef090f3ccd0a5c6b9154aa0a48facf79214a27b97c7",
-    "notes_hash": "04302b3e2cb65e7648f243f3eb07a7996f6411267d36a598f89db7884171af2b",
-    "model_hash": "c34e3a1eea003c7be3f45227dfaee8047eea4e6994db133e81cffd51c7f7ceca"
+    "content_hash": "367273446bea798645182b45e72b12fd48b1f5a0d1cb88f2bd580c04b7c31f20",
+    "notes_hash": "9745b57b93a9ee55b30b64423ad784a0647314407de07b3783034930ff54b286",
+    "model_hash": "45574bacb49beff66b2bae0459907c69c26b71a03bb0bb3511b0981ded2fb6d4"
   },
   "updated_at": "2024-01-01"
 }

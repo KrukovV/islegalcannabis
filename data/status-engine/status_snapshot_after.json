@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-09T16:37:42.346Z",
+  "generated_at": "2026-06-22T19:20:23.821Z",
   "entries": [
     {
       "id": "AD",
@@ -57,7 +57,7 @@
       "name": "Antigua and Barbuda",
       "recreational": "ILLEGAL",
       "medical": "LIMITED",
-      "enforcement": "SOFT",
+      "enforcement": "STRICT",
       "newColor": "YELLOW",
       "proposedColor": "YELLOW",
       "reviewRequired": false,
@@ -65,7 +65,7 @@
       "reason": [
         "recreational=ILLEGAL",
         "medical structured status is limited",
-        "soft enforcement signal present",
+        "strict enforcement signal present",
         "YELLOW: medical == LIMITED"
       ]
     },
@@ -92,17 +92,15 @@
       "recreational": "ILLEGAL",
       "medical": "REGULATED",
       "enforcement": "SOFT",
-      "newColor": "GREEN",
-      "proposedColor": "GREEN",
-      "reviewRequired": false,
-      "triggeredRule": "GREEN_MEDICAL_REGULATED",
+      "newColor": "YELLOW",
+      "proposedColor": "UNCONFIRMED",
+      "reviewRequired": true,
+      "triggeredRule": "STATUS_REVIEW_REQUIRED",
       "reason": [
-        "manual_review_override=AL",
-        "Medical/industrial cannabis is regulated by Law No. 61/2023; recreational trafficking/cultivation remains prohibited, with weak enforcement signals in legacy cultivation notes.",
         "recreational=ILLEGAL",
-        "medical=REGULATED",
-        "enforcement=SOFT",
-        "GREEN: medical == REGULATED"
+        "medical structured status is legal",
+        "soft enforcement signal present",
+        "STATUS_REVIEW_REQUIRED"
       ]
     },
     {
@@ -295,18 +293,18 @@
     {
       "id": "BB",
       "name": "Barbados",
-      "recreational": "LEGAL",
+      "recreational": "ILLEGAL",
       "medical": "REGULATED",
-      "enforcement": "SOFT",
+      "enforcement": "STRICT",
       "newColor": "GREEN",
       "proposedColor": "GREEN",
       "reviewRequired": false,
-      "triggeredRule": "GREEN_RECREATIONAL_LEGAL",
+      "triggeredRule": "GREEN_MEDICAL_REGULATED",
       "reason": [
-        "recreational=LEGAL",
+        "recreational=ILLEGAL",
         "medical structured status is legal",
-        "recreational legal means no strict recreational prohibition is evaluated",
-        "GREEN: recreational == LEGAL"
+        "strict enforcement signal present",
+        "GREEN: medical == REGULATED"
       ]
     },
     {
@@ -401,16 +399,16 @@
       "name": "Burundi / Uburundi",
       "recreational": "ILLEGAL",
       "medical": "NONE",
-      "enforcement": "SOFT",
-      "newColor": "YELLOW",
-      "proposedColor": "YELLOW",
+      "enforcement": "STRICT",
+      "newColor": "RED",
+      "proposedColor": "RED",
       "reviewRequired": false,
-      "triggeredRule": "YELLOW_SOFT_ENFORCEMENT",
+      "triggeredRule": "RED_STRICT_NONE",
       "reason": [
         "recreational=ILLEGAL",
         "medical structured status is none/illegal",
-        "soft enforcement signal present",
-        "YELLOW: enforcement == SOFT"
+        "strict enforcement signal present",
+        "RED: recreational == ILLEGAL, medical == NONE, enforcement == STRICT"
       ]
     },
     {
@@ -1055,16 +1053,16 @@
       "name": "Algeria / الجزائر",
       "recreational": "ILLEGAL",
       "medical": "NONE",
-      "enforcement": "SOFT",
-      "newColor": "YELLOW",
-      "proposedColor": "YELLOW",
+      "enforcement": "STRICT",
+      "newColor": "RED",
+      "proposedColor": "RED",
       "reviewRequired": false,
-      "triggeredRule": "YELLOW_SOFT_ENFORCEMENT",
+      "triggeredRule": "RED_STRICT_NONE",
       "reason": [
         "recreational=ILLEGAL",
         "medical structured status is none/illegal",
-        "soft enforcement signal present",
-        "YELLOW: enforcement == SOFT"
+        "strict enforcement signal present",
+        "RED: recreational == ILLEGAL, medical == NONE, enforcement == STRICT"
       ]
     },
     {
@@ -1309,17 +1307,17 @@
       "id": "GB",
       "name": "United Kingdom",
       "recreational": "ILLEGAL",
-      "medical": "REGULATED",
-      "enforcement": "SOFT",
-      "newColor": "GREEN",
-      "proposedColor": "GREEN",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "newColor": "YELLOW",
+      "proposedColor": "YELLOW",
       "reviewRequired": false,
-      "triggeredRule": "GREEN_MEDICAL_REGULATED",
+      "triggeredRule": "YELLOW_MEDICAL_LIMITED",
       "reason": [
         "recreational=ILLEGAL",
-        "medical structured status is legal",
-        "soft enforcement signal present",
-        "GREEN: medical == REGULATED"
+        "medical structured status is limited",
+        "strict enforcement signal present",
+        "YELLOW: medical == LIMITED"
       ]
     },
     {
@@ -1704,17 +1702,17 @@
       "id": "HU",
       "name": "Hungary / Magyarország",
       "recreational": "ILLEGAL",
-      "medical": "NONE",
+      "medical": "REGULATED",
       "enforcement": "SOFT",
       "newColor": "YELLOW",
-      "proposedColor": "YELLOW",
-      "reviewRequired": false,
-      "triggeredRule": "YELLOW_SOFT_ENFORCEMENT",
+      "proposedColor": "UNCONFIRMED",
+      "reviewRequired": true,
+      "triggeredRule": "STATUS_REVIEW_REQUIRED",
       "reason": [
         "recreational=ILLEGAL",
-        "medical structured status is none/illegal",
+        "medical source text says legal or regulated",
         "soft enforcement signal present",
-        "YELLOW: enforcement == SOFT"
+        "STATUS_REVIEW_REQUIRED"
       ]
     },
     {
@@ -1943,16 +1941,16 @@
       "name": "Japan / 日本",
       "recreational": "ILLEGAL",
       "medical": "NONE",
-      "enforcement": "SOFT",
-      "newColor": "YELLOW",
-      "proposedColor": "YELLOW",
+      "enforcement": "STRICT",
+      "newColor": "RED",
+      "proposedColor": "RED",
       "reviewRequired": false,
-      "triggeredRule": "YELLOW_SOFT_ENFORCEMENT",
+      "triggeredRule": "RED_STRICT_NONE",
       "reason": [
         "recreational=ILLEGAL",
         "medical structured status is none/illegal",
-        "soft enforcement signal present",
-        "YELLOW: enforcement == SOFT"
+        "strict enforcement signal present",
+        "RED: recreational == ILLEGAL, medical == NONE, enforcement == STRICT"
       ]
     },
     {
@@ -2045,7 +2043,7 @@
       "name": "Saint Kitts and Nevis",
       "recreational": "ILLEGAL",
       "medical": "LIMITED",
-      "enforcement": "SOFT",
+      "enforcement": "STRICT",
       "newColor": "YELLOW",
       "proposedColor": "YELLOW",
       "reviewRequired": false,
@@ -2053,7 +2051,7 @@
       "reason": [
         "recreational=ILLEGAL",
         "medical structured status is limited",
-        "soft enforcement signal present",
+        "strict enforcement signal present",
         "YELLOW: medical == LIMITED"
       ]
     },
@@ -2079,7 +2077,7 @@
       "name": "South Korea / 한국",
       "recreational": "ILLEGAL",
       "medical": "REGULATED",
-      "enforcement": "SOFT",
+      "enforcement": "STRICT",
       "newColor": "GREEN",
       "proposedColor": "GREEN",
       "reviewRequired": false,
@@ -2087,7 +2085,7 @@
       "reason": [
         "recreational=ILLEGAL",
         "medical structured status is legal",
-        "soft enforcement signal present",
+        "strict enforcement signal present",
         "GREEN: medical == REGULATED"
       ]
     },
@@ -2697,16 +2695,16 @@
       "name": "Malaysia / مليسيا",
       "recreational": "ILLEGAL",
       "medical": "NONE",
-      "enforcement": "SOFT",
-      "newColor": "YELLOW",
-      "proposedColor": "YELLOW",
+      "enforcement": "STRICT",
+      "newColor": "RED",
+      "proposedColor": "RED",
       "reviewRequired": false,
-      "triggeredRule": "YELLOW_SOFT_ENFORCEMENT",
+      "triggeredRule": "RED_STRICT_NONE",
       "reason": [
         "recreational=ILLEGAL",
         "medical structured status is none/illegal",
-        "soft enforcement signal present",
-        "YELLOW: enforcement == SOFT"
+        "strict enforcement signal present",
+        "RED: recreational == ILLEGAL, medical == NONE, enforcement == STRICT"
       ]
     },
     {
@@ -2952,7 +2950,7 @@
       "name": "Panama / Panamá",
       "recreational": "ILLEGAL",
       "medical": "REGULATED",
-      "enforcement": "SOFT",
+      "enforcement": "STRICT",
       "newColor": "GREEN",
       "proposedColor": "GREEN",
       "reviewRequired": false,
@@ -2960,7 +2958,7 @@
       "reason": [
         "recreational=ILLEGAL",
         "medical structured status is legal",
-        "soft enforcement signal present",
+        "strict enforcement signal present",
         "GREEN: medical == REGULATED"
       ]
     },
@@ -3380,17 +3378,17 @@
       "id": "SG",
       "name": "Singapore / Singapura",
       "recreational": "ILLEGAL",
-      "medical": "NONE",
+      "medical": "LIMITED",
       "enforcement": "SOFT",
       "newColor": "YELLOW",
       "proposedColor": "YELLOW",
       "reviewRequired": false,
-      "triggeredRule": "YELLOW_SOFT_ENFORCEMENT",
+      "triggeredRule": "YELLOW_MEDICAL_LIMITED",
       "reason": [
         "recreational=ILLEGAL",
-        "medical structured status is none/illegal",
+        "medical source text says limited/CBD-only access",
         "soft enforcement signal present",
-        "YELLOW: enforcement == SOFT"
+        "YELLOW: medical == LIMITED"
       ]
     },
     {
@@ -3450,17 +3448,17 @@
       "id": "SK",
       "name": "Slovakia / Slovensko",
       "recreational": "ILLEGAL",
-      "medical": "NONE",
+      "medical": "LIMITED",
       "enforcement": "STRICT",
-      "newColor": "RED",
-      "proposedColor": "RED",
+      "newColor": "YELLOW",
+      "proposedColor": "YELLOW",
       "reviewRequired": false,
-      "triggeredRule": "RED_STRICT_NONE",
+      "triggeredRule": "YELLOW_MEDICAL_LIMITED",
       "reason": [
         "recreational=ILLEGAL",
-        "medical structured status is none/illegal",
+        "medical source text says limited/CBD-only access",
         "strict enforcement signal present",
-        "RED: recreational == ILLEGAL, medical == NONE, enforcement == STRICT"
+        "YELLOW: medical == LIMITED"
       ]
     },
     {
@@ -3621,16 +3619,16 @@
       "name": "Syria / سوريا",
       "recreational": "ILLEGAL",
       "medical": "NONE",
-      "enforcement": "STRICT",
-      "newColor": "RED",
-      "proposedColor": "RED",
+      "enforcement": "SOFT",
+      "newColor": "YELLOW",
+      "proposedColor": "YELLOW",
       "reviewRequired": false,
-      "triggeredRule": "RED_STRICT_NONE",
+      "triggeredRule": "YELLOW_SOFT_ENFORCEMENT",
       "reason": [
         "recreational=ILLEGAL",
         "medical structured status is none/illegal",
-        "strict enforcement signal present",
-        "RED: recreational == ILLEGAL, medical == NONE, enforcement == STRICT"
+        "soft enforcement signal present",
+        "YELLOW: enforcement == SOFT"
       ]
     },
     {
@@ -3843,17 +3841,17 @@
       "id": "TR",
       "name": "Türkiye",
       "recreational": "ILLEGAL",
-      "medical": "NONE",
+      "medical": "LIMITED",
       "enforcement": "STRICT",
-      "newColor": "RED",
-      "proposedColor": "RED",
+      "newColor": "YELLOW",
+      "proposedColor": "YELLOW",
       "reviewRequired": false,
-      "triggeredRule": "RED_STRICT_NONE",
+      "triggeredRule": "YELLOW_MEDICAL_LIMITED",
       "reason": [
         "recreational=ILLEGAL",
-        "medical structured status is none/illegal",
+        "medical source text says limited/CBD-only access",
         "strict enforcement signal present",
-        "RED: recreational == ILLEGAL, medical == NONE, enforcement == STRICT"
+        "YELLOW: medical == LIMITED"
       ]
     },
     {
@@ -3979,24 +3977,24 @@
       "id": "US",
       "name": "United States",
       "recreational": "ILLEGAL",
-      "medical": "LIMITED",
+      "medical": "REGULATED",
       "enforcement": "SOFT",
-      "newColor": "YELLOW",
-      "proposedColor": "YELLOW",
+      "newColor": "GREEN",
+      "proposedColor": "GREEN",
       "reviewRequired": false,
-      "triggeredRule": "YELLOW_MEDICAL_LIMITED",
+      "triggeredRule": "GREEN_MEDICAL_REGULATED",
       "reason": [
         "recreational=ILLEGAL",
-        "medical structured status is limited",
+        "medical structured status is legal",
         "soft enforcement signal present",
-        "YELLOW: medical == LIMITED"
+        "GREEN: medical == REGULATED"
       ]
     },
     {
       "id": "US-AK",
       "name": "Alaska",
       "recreational": "LEGAL",
-      "medical": "REGULATED",
+      "medical": "NONE",
       "enforcement": "SOFT",
       "newColor": "GREEN",
       "proposedColor": "GREEN",
@@ -4004,7 +4002,7 @@
       "triggeredRule": "GREEN_RECREATIONAL_LEGAL",
       "reason": [
         "recreational=LEGAL",
-        "medical structured status is legal",
+        "medical structured status is none/illegal",
         "recreational legal means no strict recreational prohibition is evaluated",
         "GREEN: recreational == LEGAL"
       ]
@@ -4021,7 +4019,7 @@
       "triggeredRule": "YELLOW_MEDICAL_LIMITED",
       "reason": [
         "recreational=ILLEGAL",
-        "medical source text says limited/CBD-only access",
+        "medical structured status is limited",
         "strict enforcement signal present",
         "YELLOW: medical == LIMITED"
       ]
@@ -4038,7 +4036,7 @@
       "triggeredRule": "GREEN_MEDICAL_REGULATED",
       "reason": [
         "recreational=ILLEGAL",
-        "medical source text says legal or regulated",
+        "medical structured status is legal",
         "strict enforcement signal present",
         "GREEN: medical == REGULATED"
       ]
@@ -4115,7 +4113,7 @@
       "id": "US-DE",
       "name": "Delaware",
       "recreational": "LEGAL",
-      "medical": "REGULATED",
+      "medical": "NONE",
       "enforcement": "SOFT",
       "newColor": "GREEN",
       "proposedColor": "GREEN",
@@ -4123,7 +4121,7 @@
       "triggeredRule": "GREEN_RECREATIONAL_LEGAL",
       "reason": [
         "recreational=LEGAL",
-        "medical structured status is legal",
+        "medical structured status is none/illegal",
         "recreational legal means no strict recreational prohibition is evaluated",
         "GREEN: recreational == LEGAL"
       ]
@@ -4149,34 +4147,34 @@
       "id": "US-GA",
       "name": "Georgia",
       "recreational": "ILLEGAL",
-      "medical": "LIMITED",
+      "medical": "NONE",
       "enforcement": "STRICT",
-      "newColor": "YELLOW",
-      "proposedColor": "YELLOW",
+      "newColor": "RED",
+      "proposedColor": "RED",
       "reviewRequired": false,
-      "triggeredRule": "YELLOW_MEDICAL_LIMITED",
+      "triggeredRule": "RED_STRICT_NONE",
       "reason": [
         "recreational=ILLEGAL",
-        "medical source text says limited/CBD-only access",
+        "medical structured status is none/illegal",
         "strict enforcement signal present",
-        "YELLOW: medical == LIMITED"
+        "RED: recreational == ILLEGAL, medical == NONE, enforcement == STRICT"
       ]
     },
     {
       "id": "US-HI",
       "name": "Hawaii",
       "recreational": "ILLEGAL",
-      "medical": "NONE",
+      "medical": "REGULATED",
       "enforcement": "SOFT",
-      "newColor": "YELLOW",
-      "proposedColor": "YELLOW",
+      "newColor": "GREEN",
+      "proposedColor": "GREEN",
       "reviewRequired": false,
-      "triggeredRule": "YELLOW_SOFT_ENFORCEMENT",
+      "triggeredRule": "GREEN_MEDICAL_REGULATED",
       "reason": [
         "recreational=ILLEGAL",
-        "medical structured status is none/illegal",
+        "medical source text says legal or regulated",
         "soft enforcement signal present",
-        "YELLOW: enforcement == SOFT"
+        "GREEN: medical == REGULATED"
       ]
     },
     {
@@ -4191,7 +4189,7 @@
       "triggeredRule": "YELLOW_MEDICAL_LIMITED",
       "reason": [
         "recreational=ILLEGAL",
-        "medical source text says limited/CBD-only access",
+        "medical structured status is limited",
         "strict enforcement signal present",
         "YELLOW: medical == LIMITED"
       ]
@@ -4234,17 +4232,17 @@
       "id": "US-IN",
       "name": "Indiana",
       "recreational": "ILLEGAL",
-      "medical": "NONE",
+      "medical": "LIMITED",
       "enforcement": "STRICT",
-      "newColor": "RED",
-      "proposedColor": "RED",
+      "newColor": "YELLOW",
+      "proposedColor": "YELLOW",
       "reviewRequired": false,
-      "triggeredRule": "RED_STRICT_NONE",
+      "triggeredRule": "YELLOW_MEDICAL_LIMITED",
       "reason": [
         "recreational=ILLEGAL",
-        "medical structured status is none/illegal",
+        "medical structured status is limited",
         "strict enforcement signal present",
-        "RED: recreational == ILLEGAL, medical == NONE, enforcement == STRICT"
+        "YELLOW: medical == LIMITED"
       ]
     },
     {
@@ -4258,11 +4256,9 @@
       "reviewRequired": false,
       "triggeredRule": "YELLOW_MEDICAL_LIMITED",
       "reason": [
-        "manual_review_override=US-KS",
-        "Kansas is not regulated medical, but narrow low-THC cannabidiol access makes medical LIMITED rather than NONE.",
         "recreational=ILLEGAL",
-        "medical=LIMITED",
-        "enforcement=STRICT",
+        "medical structured status is limited",
+        "strict enforcement signal present",
         "YELLOW: medical == LIMITED"
       ]
     },
@@ -4270,34 +4266,34 @@
       "id": "US-KY",
       "name": "Kentucky",
       "recreational": "ILLEGAL",
-      "medical": "LIMITED",
-      "enforcement": "STRICT",
-      "newColor": "YELLOW",
-      "proposedColor": "YELLOW",
-      "reviewRequired": false,
-      "triggeredRule": "YELLOW_MEDICAL_LIMITED",
-      "reason": [
-        "recreational=ILLEGAL",
-        "medical source text says limited/CBD-only access",
-        "strict enforcement signal present",
-        "YELLOW: medical == LIMITED"
-      ]
-    },
-    {
-      "id": "US-LA",
-      "name": "Louisiana",
-      "recreational": "ILLEGAL",
       "medical": "REGULATED",
-      "enforcement": "SOFT",
+      "enforcement": "STRICT",
       "newColor": "GREEN",
       "proposedColor": "GREEN",
       "reviewRequired": false,
       "triggeredRule": "GREEN_MEDICAL_REGULATED",
       "reason": [
         "recreational=ILLEGAL",
-        "medical source text says legal or regulated",
-        "soft enforcement signal present",
+        "medical structured status is legal",
+        "strict enforcement signal present",
         "GREEN: medical == REGULATED"
+      ]
+    },
+    {
+      "id": "US-LA",
+      "name": "Louisiana",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "SOFT",
+      "newColor": "YELLOW",
+      "proposedColor": "YELLOW",
+      "reviewRequired": false,
+      "triggeredRule": "YELLOW_SOFT_ENFORCEMENT",
+      "reason": [
+        "recreational=ILLEGAL",
+        "medical structured status is none/illegal",
+        "soft enforcement signal present",
+        "YELLOW: enforcement == SOFT"
       ]
     },
     {
@@ -4338,7 +4334,7 @@
       "id": "US-ME",
       "name": "Maine",
       "recreational": "LEGAL",
-      "medical": "REGULATED",
+      "medical": "NONE",
       "enforcement": "SOFT",
       "newColor": "GREEN",
       "proposedColor": "GREEN",
@@ -4346,7 +4342,7 @@
       "triggeredRule": "GREEN_RECREATIONAL_LEGAL",
       "reason": [
         "recreational=LEGAL",
-        "medical structured status is legal",
+        "medical structured status is none/illegal",
         "recreational legal means no strict recreational prohibition is evaluated",
         "GREEN: recreational == LEGAL"
       ]
@@ -4372,7 +4368,7 @@
       "id": "US-MN",
       "name": "Minnesota",
       "recreational": "LEGAL",
-      "medical": "REGULATED",
+      "medical": "NONE",
       "enforcement": "SOFT",
       "newColor": "GREEN",
       "proposedColor": "GREEN",
@@ -4380,7 +4376,7 @@
       "triggeredRule": "GREEN_RECREATIONAL_LEGAL",
       "reason": [
         "recreational=LEGAL",
-        "medical structured status is legal",
+        "medical structured status is none/illegal",
         "recreational legal means no strict recreational prohibition is evaluated",
         "GREEN: recreational == LEGAL"
       ]
@@ -4406,17 +4402,17 @@
       "id": "US-MS",
       "name": "Mississippi",
       "recreational": "ILLEGAL",
-      "medical": "NONE",
+      "medical": "REGULATED",
       "enforcement": "SOFT",
-      "newColor": "YELLOW",
-      "proposedColor": "YELLOW",
+      "newColor": "GREEN",
+      "proposedColor": "GREEN",
       "reviewRequired": false,
-      "triggeredRule": "YELLOW_SOFT_ENFORCEMENT",
+      "triggeredRule": "GREEN_MEDICAL_REGULATED",
       "reason": [
         "recreational=ILLEGAL",
-        "medical structured status is none/illegal",
+        "medical structured status is legal",
         "soft enforcement signal present",
-        "YELLOW: enforcement == SOFT"
+        "GREEN: medical == REGULATED"
       ]
     },
     {
@@ -4440,17 +4436,17 @@
       "id": "US-NC",
       "name": "North Carolina",
       "recreational": "ILLEGAL",
-      "medical": "LIMITED",
+      "medical": "REGULATED",
       "enforcement": "SOFT",
-      "newColor": "YELLOW",
-      "proposedColor": "YELLOW",
+      "newColor": "GREEN",
+      "proposedColor": "GREEN",
       "reviewRequired": false,
-      "triggeredRule": "YELLOW_MEDICAL_LIMITED",
+      "triggeredRule": "GREEN_MEDICAL_REGULATED",
       "reason": [
         "recreational=ILLEGAL",
-        "medical source text says limited/CBD-only access",
+        "medical structured status is legal",
         "soft enforcement signal present",
-        "YELLOW: medical == LIMITED"
+        "GREEN: medical == REGULATED"
       ]
     },
     {
@@ -4465,7 +4461,7 @@
       "triggeredRule": "GREEN_MEDICAL_REGULATED",
       "reason": [
         "recreational=ILLEGAL",
-        "medical source text says legal or regulated",
+        "medical structured status is legal",
         "soft enforcement signal present",
         "GREEN: medical == REGULATED"
       ]
@@ -4475,17 +4471,15 @@
       "name": "Nebraska",
       "recreational": "ILLEGAL",
       "medical": "REGULATED",
-      "enforcement": "STRICT",
+      "enforcement": "SOFT",
       "newColor": "GREEN",
       "proposedColor": "GREEN",
       "reviewRequired": false,
       "triggeredRule": "GREEN_MEDICAL_REGULATED",
       "reason": [
-        "manual_review_override=US-NE",
-        "Nebraska now has statutory medical cannabis protection/regulation; RED/limited medical data was stale.",
         "recreational=ILLEGAL",
-        "medical=REGULATED",
-        "enforcement=STRICT",
+        "medical structured status is legal",
+        "soft enforcement signal present",
         "GREEN: medical == REGULATED"
       ]
     },
@@ -4535,7 +4529,7 @@
       "triggeredRule": "GREEN_RECREATIONAL_LEGAL",
       "reason": [
         "recreational=LEGAL",
-        "medical structured status is legal",
+        "medical source text says legal or regulated",
         "recreational legal means no strict recreational prohibition is evaluated",
         "GREEN: recreational == LEGAL"
       ]
@@ -4595,17 +4589,17 @@
       "id": "US-OK",
       "name": "Oklahoma",
       "recreational": "ILLEGAL",
-      "medical": "LIMITED",
+      "medical": "REGULATED",
       "enforcement": "STRICT",
-      "newColor": "YELLOW",
-      "proposedColor": "YELLOW",
+      "newColor": "GREEN",
+      "proposedColor": "GREEN",
       "reviewRequired": false,
-      "triggeredRule": "YELLOW_MEDICAL_LIMITED",
+      "triggeredRule": "GREEN_MEDICAL_REGULATED",
       "reason": [
         "recreational=ILLEGAL",
-        "medical source text says limited/CBD-only access",
+        "medical structured status is legal",
         "strict enforcement signal present",
-        "YELLOW: medical == LIMITED"
+        "GREEN: medical == REGULATED"
       ]
     },
     {
@@ -4671,7 +4665,7 @@
       "triggeredRule": "YELLOW_MEDICAL_LIMITED",
       "reason": [
         "recreational=ILLEGAL",
-        "medical source text says limited/CBD-only access",
+        "medical structured status is limited",
         "strict enforcement signal present",
         "YELLOW: medical == LIMITED"
       ]
@@ -4688,7 +4682,7 @@
       "triggeredRule": "GREEN_MEDICAL_REGULATED",
       "reason": [
         "recreational=ILLEGAL",
-        "medical source text says legal or regulated",
+        "medical structured status is legal",
         "strict enforcement signal present",
         "GREEN: medical == REGULATED"
       ]
@@ -4697,17 +4691,17 @@
       "id": "US-TN",
       "name": "Tennessee",
       "recreational": "ILLEGAL",
-      "medical": "LIMITED",
+      "medical": "REGULATED",
       "enforcement": "STRICT",
-      "newColor": "YELLOW",
-      "proposedColor": "YELLOW",
+      "newColor": "GREEN",
+      "proposedColor": "GREEN",
       "reviewRequired": false,
-      "triggeredRule": "YELLOW_MEDICAL_LIMITED",
+      "triggeredRule": "GREEN_MEDICAL_REGULATED",
       "reason": [
         "recreational=ILLEGAL",
-        "medical source text says limited/CBD-only access",
+        "medical structured status is legal",
         "strict enforcement signal present",
-        "YELLOW: medical == LIMITED"
+        "GREEN: medical == REGULATED"
       ]
     },
     {
@@ -4738,11 +4732,9 @@
       "reviewRequired": false,
       "triggeredRule": "GREEN_MEDICAL_REGULATED",
       "reason": [
-        "manual_review_override=US-UT",
-        "Utah has a regulated medical cannabis framework; RED/limited medical data was stale.",
         "recreational=ILLEGAL",
-        "medical=REGULATED",
-        "enforcement=STRICT",
+        "medical structured status is legal",
+        "strict enforcement signal present",
         "GREEN: medical == REGULATED"
       ]
     },
@@ -4808,11 +4800,9 @@
       "reviewRequired": false,
       "triggeredRule": "YELLOW_MEDICAL_LIMITED",
       "reason": [
-        "manual_review_override=US-WI",
-        "Wisconsin has only a narrow cannabidiol exception, so medical is LIMITED and enforcement remains strict.",
         "recreational=ILLEGAL",
-        "medical=LIMITED",
-        "enforcement=STRICT",
+        "medical structured status is limited",
+        "strict enforcement signal present",
         "YELLOW: medical == LIMITED"
       ]
     },
@@ -4820,17 +4810,17 @@
       "id": "US-WV",
       "name": "West Virginia",
       "recreational": "ILLEGAL",
-      "medical": "REGULATED",
+      "medical": "NONE",
       "enforcement": "STRICT",
-      "newColor": "GREEN",
-      "proposedColor": "GREEN",
+      "newColor": "RED",
+      "proposedColor": "RED",
       "reviewRequired": false,
-      "triggeredRule": "GREEN_MEDICAL_REGULATED",
+      "triggeredRule": "RED_STRICT_NONE",
       "reason": [
         "recreational=ILLEGAL",
-        "medical source text says legal or regulated",
+        "medical structured status is none/illegal",
         "strict enforcement signal present",
-        "GREEN: medical == REGULATED"
+        "RED: recreational == ILLEGAL, medical == NONE, enforcement == STRICT"
       ]
     },
     {
@@ -4844,11 +4834,9 @@
       "reviewRequired": false,
       "triggeredRule": "YELLOW_MEDICAL_LIMITED",
       "reason": [
-        "manual_review_override=US-WY",
-        "Wyoming has only narrow hemp-extract access, so medical is LIMITED and enforcement remains strict.",
         "recreational=ILLEGAL",
-        "medical=LIMITED",
-        "enforcement=STRICT",
+        "medical structured status is limited",
+        "strict enforcement signal present",
         "YELLOW: medical == LIMITED"
       ]
     },

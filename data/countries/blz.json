@@ -30,25 +30,24 @@
       "flags": [],
       "modifiers": [
         "but",
-        "up_to",
-        "however"
+        "up_to"
       ]
     },
     "signals": {
-      "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "status": "restricted",
+      "final_risk": "LIMITED",
       "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
-        "arrest": true,
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
         "fine": false,
-        "severity_score": 4,
+        "severity_score": 0,
         "possession": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
           "fine": false,
-          "severe": true
+          "severe": false
         },
         "trafficking": {
           "prison": false,
@@ -64,12 +63,6 @@
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Belize",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Belize",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Decriminalization of Marijuana",
@@ -100,29 +93,31 @@
           "url": "https://www.guardian.bz/index.php?option=com_content&view=article&id=14372:churches-complain-about-marijuana-law&catid=40:politics&Itemid=90",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Cannabis in Belize",
+          "url": "https://web.archive.org/web/20130505234807/http://www.belize.gov.bz/public/Data/271616513971.pdf",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Belize / Belice | type: summary | priority: 1 | scope: possession",
         "rule: illegal | source: Belize / Belice | type: summary | priority: 1 | scope: possession",
         "rule: possession_decriminalized | source: Belize / Belice | type: summary | priority: 1 | scope: possession",
-        "rule: rec_tolerated | source: Cannabis in Belize | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_prison | source: Cannabis in Belize | type: traversal | priority: 3 | scope: possession",
-        "rule: possession_decriminalized | source: Cannabis in Belize | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_arrest | source: Cannabis in Belize | type: traversal | priority: 3 | scope: general",
-        "rule: legal | source: Cannabis in Belize | type: traversal | priority: 3 | scope: general"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 2561,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": "illegal",
-          "distribution_article": "restricted"
+          "distribution_article": null
         }
       }
     },
@@ -130,13 +125,11 @@
     "applied_rules": [
       "raw_illegal",
       "possession_decriminalized",
-      "penalty_prison",
-      "penalty_arrest",
       "rec_implies_med_floor"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Belize / Belice. Medical cannabis is limited. Distribution is restricted. Prison exposure detected."
+    "notes_normalized": "Cannabis is decriminalized in Belize / Belice. Medical cannabis is limited. Distribution is restricted."
   },
-  "notes_normalized": "Cannabis is decriminalized in Belize / Belice. Medical cannabis is limited. Distribution is restricted. Prison exposure detected.",
+  "notes_normalized": "Cannabis is decriminalized in Belize / Belice. Medical cannabis is limited. Distribution is restricted.",
   "notes_raw": "{{main|Cannabis in Belize}} Possession prohibited, but use is common and largely tolerated.<ref>{{cite web|last=Hubbard|first=Kirsten|title=Drug Laws and Penalties in Central America|url=http://gocentralamerica.about.com/od/culturehistory/p/Central-America-Drug-Laws-And-Penalties.htm|publisher=About.com|access-date=2 January 2014|archive-date=14 May 2017|archive-url=https://web.archive.org/web/20170514082404/http://gocentralamerica.about.com/od/culturehistory/p/Central-America-Drug-Laws-And-Penalties.htm|url-status=dead}}</ref> Possession of up to {{cvt|10|g|frac=8}} decriminalized.<ref>{{cite news |title=The Future of Marijuana under Debate |url=https://edition.channel5belize.com/archives/157025 |access-date=7 January 2024 |work=News 5 |date=5 December 2017}}</ref>",
   "facts": {
     "possession_limit": "up to 10 g",
@@ -216,8 +209,8 @@
         "name": "Jamaica"
       },
       {
-        "code": "pan",
-        "name": "Panama / Panamá"
+        "code": "mex",
+        "name": "Mexico / México"
       }
     ],
     "cluster_links": [
@@ -235,9 +228,9 @@
   },
   "hashes": {
     "code": "blz",
-    "content_hash": "6d22d50cf2c8e26f87cc329ad30c120d52e89631a779d8999e506dcd97769d97",
-    "notes_hash": "7b7954cc457456cf4aabb27a8617285c4c85987d865d32898a059d9a2cb958fd",
-    "model_hash": "8571dc56d49d9dd8d142498dc3d4eae8cb203ce59d201519b3cf1f718e75ba8b"
+    "content_hash": "113ff40878ae2ca24b0f76809094b24aab082030f1f76e40a8531251a69dbede",
+    "notes_hash": "b42909d40bd52dcb175aaacd03342c8db3b2483b3bde05da2e76485e689c251f",
+    "model_hash": "1a74593db3b4605565d62ad4708768fa9b70dd4ee21d36ae070823d1a3a19b65"
   },
   "geo_code": "BZ",
   "node_type": "country",

@@ -26,12 +26,10 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [],
       "modifiers": [
-        "but",
-        "only",
-        "may"
+        "but"
       ]
     },
     "signals": {
@@ -42,8 +40,8 @@
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
-        "fine": true,
-        "severity_score": 1,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -64,12 +62,6 @@
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Senegal",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Senegal",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Cannabis in Africa",
@@ -100,33 +92,36 @@
           "url": "https://books.google.com/books?id=w0DlWjK3YCEC&pg=PA439",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "International Narcotics Control Strategy Report",
+          "url": "https://books.google.com/books?id=1ilJAQAAIAAJ&pg=PA525",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Senegal | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Senegal | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_fine | source: Cannabis in Senegal | type: traversal | priority: 3 | scope: general"
+        "rule: raw_illegal | source: Senegal / Sénégal | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Senegal / Sénégal | type: summary | priority: 1 | scope: general",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 1598,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_notes": "illegal",
+          "distribution_article": null
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal",
-      "penalty_fine"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Senegal / Sénégal. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -229,9 +224,9 @@
   },
   "hashes": {
     "code": "sen",
-    "content_hash": "d1128e9350ec9a4e2d5e988b755f2325d69248ac53f9bdcae9a9511984e0d7c3",
+    "content_hash": "1beba95d684ec4880148ea2a7e160be64a37cdb5360ec10350800aaacca692e5",
     "notes_hash": "86b7838e6020c5e1d4bee7730aeaae099c46a8d4d27367977203f546ff2f25a3",
-    "model_hash": "31fdfc036dc6d6d40e64b2e01f2688e12bb361eee009b70ad34ad0aeeafe32cd"
+    "model_hash": "08ef89a53b16fb9148c1043e4caf4cae48e71bc36ad30386ca806edb386d38bc"
   },
   "geo_code": "SN",
   "node_type": "country",

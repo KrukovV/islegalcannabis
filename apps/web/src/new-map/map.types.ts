@@ -29,6 +29,10 @@ export type AdminBoundaryCollection = FeatureCollection<Polygon | MultiPolygon, 
 export type LabelPointCollection = FeatureCollection<Point, { geo: string; label: string; kind: "country" | "marine" }>;
 
 export type CountryCardEntry = {
+  parentCountry?: {
+    code?: string;
+    name: string;
+  };
   geo: string;
   code: string;
   pageHref: string;
@@ -54,7 +58,11 @@ export type CountryCardEntry = {
   normalizedDistributionStatus: string;
   distributionFlags: string[];
   statusFlags: string[];
+  parentLawSummary?: string | null;
+  jurisdictionContextNotes?: string[];
   cannabisProfile?: {
+    sourceUrl: string;
+    sourceTitle: string;
     history: string[];
     localNames: string[];
     culture: string[];

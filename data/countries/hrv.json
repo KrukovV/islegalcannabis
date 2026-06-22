@@ -26,24 +26,26 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "fine-based",
-      "flags": [],
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_restricted"
+      ],
       "modifiers": []
     },
     "signals": {
-      "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "status": "restricted",
+      "final_risk": "LIMITED",
       "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": false,
-        "fine": true,
-        "severity_score": 4,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
           "prison": false,
           "arrest": false,
-          "fine": true,
+          "fine": false,
           "severe": false
         },
         "trafficking": {
@@ -53,19 +55,13 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Croatia / Hrvatska",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Croatia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Croatia",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Cannabis in Croatia",
@@ -96,47 +92,38 @@
           "url": "https://www.zivizid.hr/wp-content/uploads/2016/07/Program-Zivi-zid.pdf",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Cannabis in Croatia",
+          "url": "https://web.archive.org/web/20161213055207/http://www.zivizid.hr/wp-content/uploads/2016/07/Program-Zivi-zid.pdf",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
-        "rule: medical_legal | source: Croatia / Hrvatska | type: summary | priority: 1 | scope: general",
-        "rule: possession_decriminalized | source: Cannabis in Croatia | type: traversal | priority: 3 | scope: use",
-        "rule: medical_legal | source: Cannabis in Croatia | type: traversal | priority: 3 | scope: use",
-        "rule: medical_limited | source: Cannabis in Croatia | type: traversal | priority: 3 | scope: use",
-        "rule: raw_illegal | source: Cannabis in Croatia | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Croatia | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in Croatia | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_criminal_offense | source: Cannabis in Croatia | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_fine | source: Cannabis in Croatia | type: traversal | priority: 3 | scope: possession"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 1137,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
-      "medical_legal",
-      "possession_decriminalized",
-      "raw_illegal",
-      "penalty_prison",
-      "penalty_criminal_offense",
-      "penalty_fine"
+      "distribution_fallback_restricted"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Croatia / Hrvatska. Medical cannabis is legal. Distribution is restricted. Prison exposure detected."
+    "notes_normalized": "Cannabis is decriminalized in Croatia / Hrvatska. Medical cannabis is legal. Distribution is restricted."
   },
-  "notes_normalized": "Cannabis is decriminalized in Croatia / Hrvatska. Medical cannabis is legal. Distribution is restricted. Prison exposure detected.",
+  "notes_normalized": "Cannabis is decriminalized in Croatia / Hrvatska. Medical cannabis is legal. Distribution is restricted.",
   "notes_raw": "{{main|Cannabis in Croatia}} Possession of small amounts is considered a misdemeanor subject to fixed fines. Medicinal cannabis legal for patients with illnesses such as [[cancer]], [[multiple sclerosis]], or [[HIV/AIDS]].<ref name=\"Balkan Insight\"/>",
   "facts": {
     "possession_limit": null,
@@ -208,26 +195,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "smr",
-        "name": "San Marino"
-      },
-      {
         "code": "ita",
         "name": "Italy / Italia"
       },
       {
         "code": "cze",
         "name": "Czechia / Česko"
+      },
+      {
+        "code": "hun",
+        "name": "Hungary / Magyarország"
       }
     ],
     "cluster_links": [
       {
-        "code": "vat",
-        "name": "Vatican City / Vaticano"
+        "code": "smr",
+        "name": "San Marino"
       },
       {
-        "code": "mne",
-        "name": "Montenegro / Црна Гора"
+        "code": "vat",
+        "name": "Vatican City / Vaticano"
       }
     ],
     "same_country_states": [],
@@ -235,9 +222,9 @@
   },
   "hashes": {
     "code": "hrv",
-    "content_hash": "b3fee8ac0eccf1fc5b0d751dcc427eba19205f2a79895c15c2847dfaea265dfc",
-    "notes_hash": "18060be1870dd444acdbc87881bf5c3cdb656989a4cfbd9cfba4b9bc1f030ba7",
-    "model_hash": "63b755806d2f7d6fa9a7c0c086a8de21905984e7ef9eda8273aac4e6a3f4fc01"
+    "content_hash": "e0e7ba248760166cd69d3c7cbd83c1286276063a10edfcce17a985cb3dd2155a",
+    "notes_hash": "6dd554d1ca066069f94bcf5ed4addac123c70c56a64312b507a98d0d02bebdb4",
+    "model_hash": "1a75489c29bcbf6bcce97f1c4f17145ee05dc794f3fc287ee08183a024f49281"
   },
   "geo_code": "HR",
   "node_type": "country",

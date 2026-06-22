@@ -26,11 +26,10 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [],
       "modifiers": [
-        "but",
-        "only"
+        "but"
       ]
     },
     "signals": {
@@ -41,8 +40,8 @@
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
-        "fine": true,
-        "severity_score": 1,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -102,30 +101,28 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Papua New Guinea / Papua Niu Gini | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Papua New Guinea / Papua Niu Gini | type: summary | priority: 1 | scope: general",
         "rule: raw_illegal | source: Cannabis in Papua New Guinea | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Papua New Guinea | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_fine | source: Cannabis in Papua New Guinea | type: traversal | priority: 3 | scope: general"
+        "rule: illegal | source: Cannabis in Papua New Guinea | type: traversal | priority: 3 | scope: general"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 1780,
+        "article_len": 155,
         "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
+          "distribution_notes": "illegal",
           "distribution_article": "illegal"
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal",
-      "penalty_fine"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Papua New Guinea / Papua Niu Gini. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -228,9 +225,9 @@
   },
   "hashes": {
     "code": "png",
-    "content_hash": "6464fc9f1b661fa4c1bb46086e0a1b4d2794530e7cd8802c7e5cedc1ed2159cc",
+    "content_hash": "3864fd3627963e26adf6d5d6578196a571b51cdb313fd4658c5bddfff8b7db2c",
     "notes_hash": "578e1752120867c3991c9c1ef5627f3de4a11c6e67498f76482519027db744eb",
-    "model_hash": "b37ffeccb57d55d07770539b4d13695203fe34fb7989c19d78843d456574a1e3"
+    "model_hash": "dae0c1653c92ac5e224f02e4ae5ae8016dcd993e8528eda36d18a77ce85f0c5c"
   },
   "geo_code": "PG",
   "node_type": "country",

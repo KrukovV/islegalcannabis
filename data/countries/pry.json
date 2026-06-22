@@ -109,7 +109,7 @@
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 1276,
+        "article_len": 606,
         "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": true,
@@ -229,9 +229,9 @@
   },
   "hashes": {
     "code": "pry",
-    "content_hash": "49fe149614fe6ced4addc96138fffb6117a5a355ee67cf208c0f38433646d1fc",
+    "content_hash": "957c3839bdb2ae22a9deb995b206ad5a5ac1d01a5860fe63e882d65e69bb94f0",
     "notes_hash": "97c9e4b0f3a066ca9479be8d3f7dbf44cf3a9e51e51194bd779506c8a53f54a0",
-    "model_hash": "961e92e95687993a02043768632733eef6593b43913f87c50402fd2b9b297ba9"
+    "model_hash": "3d85af1534999f70dcfaa2630b493d09e8ad35f1d8f5934d913842adf4356883"
   },
   "geo_code": "PY",
   "node_type": "country",

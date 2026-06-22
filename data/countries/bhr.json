@@ -24,24 +24,22 @@
         "sale": null,
         "cultivation": null,
         "import": null,
-        "trafficking": "illegal"
+        "trafficking": null
       },
       "enforcement": "fine-based",
-      "flags": [
-        "trafficking_illegal"
-      ],
+      "flags": [],
       "modifiers": []
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "final_risk": "RESTRICTED",
       "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
-        "arrest": true,
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
         "fine": true,
-        "severity_score": 4,
+        "severity_score": 1,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -49,13 +47,13 @@
           "severe": false
         },
         "trafficking": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
           "fine": true,
-          "severe": true
+          "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Bahrain / البحرين",
@@ -89,23 +87,23 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Bahrain / البحرين | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Bahrain / البحرين | type: summary | priority: 1 | scope: general",
+        "rule: penalty_fine | source: Bahrain / البحرين | type: summary | priority: 1 | scope: trafficking",
         "rule: raw_illegal | source: Cannabis in Bahrain | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Bahrain | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_fine | source: Cannabis in Bahrain | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_arrest | source: Cannabis in Bahrain | type: traversal | priority: 3 | scope: cultivation",
-        "rule: penalty_prison | source: Cannabis in Bahrain | type: traversal | priority: 3 | scope: trafficking",
-        "rule: trafficking_illegal | source: Cannabis in Bahrain | type: traversal | priority: 3 | scope: trafficking"
+        "rule: penalty_fine | source: Cannabis in Bahrain | type: traversal | priority: 3 | scope: trafficking"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 720,
-        "source_confidence": "prison_signal",
+        "article_len": 268,
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
+          "distribution_notes": "illegal",
           "distribution_article": "illegal"
         }
       }
@@ -115,14 +113,11 @@
     ],
     "applied_rules": [
       "raw_illegal",
-      "penalty_fine",
-      "penalty_arrest",
-      "penalty_prison",
-      "trafficking_illegal"
+      "penalty_fine"
     ],
-    "notes_normalized": "Cannabis is illegal in Bahrain / البحرين. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Bahrain / البحرين. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Bahrain / البحرين. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Bahrain / البحرين. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Bahrain}}",
   "facts": {
     "possession_limit": null,
@@ -221,9 +216,9 @@
   },
   "hashes": {
     "code": "bhr",
-    "content_hash": "e5efb5809c46d86fcbf13107dd009f126999725904fe73b647fc6f901c94de5a",
-    "notes_hash": "de31eb043475de70851cd834341d60f22d345bfdf87fa3c42d7b962a4e15da34",
-    "model_hash": "b1a579c6dc0e6353d2fcaee34fd193f427e4a51c42ab4cdbaacb1910f9edb42f"
+    "content_hash": "9e7f6f4f1ae428882bc85d3c187d02c09927dc73043fe0e0b9c147a7412df468",
+    "notes_hash": "4099c31635fb6ea498f4d846ff752b49bc7a8bc3dc9823c8edd2cdfe3af29d21",
+    "model_hash": "c171caff7148cbd3bf63f2fdade597f48b4d5c3936749320d27690d2cf032eea"
   },
   "geo_code": "BH",
   "node_type": "country",

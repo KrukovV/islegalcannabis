@@ -17,28 +17,25 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "tolerated",
+      "status": "restricted",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
         "sale": null,
-        "cultivation": "tolerated",
+        "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
-      "modifiers": [
-        "however",
-        "up_to",
-        "but",
-        "may"
-      ]
+      "flags": [
+        "distribution_fallback_restricted"
+      ],
+      "modifiers": []
     },
     "signals": {
-      "status": "tolerated",
+      "status": "restricted",
       "final_risk": "LIMITED",
-      "enforcement_level": "rare",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -58,19 +55,13 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Bermuda",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Bermuda",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bermuda",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Weeks: we need to talk about cannabis",
@@ -101,43 +92,38 @@
           "url": "https://bernews.com/2018/10/premier-domestic-medical-cannabis-production/",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Cannabis in Bermuda",
+          "url": "https://www.royalgazette.com/news/article/20171213/cannabis-decriminalisation-backed-in-senate",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
-        "rule: possession_decriminalized | source: Cannabis in Bermuda | type: traversal | priority: 3 | scope: use",
-        "rule: medical_legal | source: Cannabis in Bermuda | type: traversal | priority: 3 | scope: use",
-        "rule: possession_decriminalized | source: Cannabis in Bermuda | type: traversal | priority: 3 | scope: possession",
-        "rule: private_cultivation | source: Cannabis in Bermuda | type: traversal | priority: 3 | scope: cultivation",
-        "rule: legal | source: Cannabis in Bermuda | type: traversal | priority: 3 | scope: cultivation",
-        "rule: legal | source: Cannabis in Bermuda | type: traversal | priority: 3 | scope: general",
-        "rule: medical_legal | source: Cannabis in Bermuda | type: traversal | priority: 3 | scope: general",
-        "rule: enforcement_rare | source: Cannabis in Bermuda | type: traversal | priority: 3 | scope: general"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 4817,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
-          "enforcement_article": "rare",
+          "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "restricted"
+          "distribution_article": null
         }
       }
     },
-    "enforcement_flags": [
-      "weak_enforcement"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
-      "possession_decriminalized",
-      "private_cultivation",
-      "enforcement_rare"
+      "distribution_fallback_restricted"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Bermuda. Medical cannabis is legal. Distribution is tolerated."
+    "notes_normalized": "Cannabis is decriminalized in Bermuda. Medical cannabis is legal. Distribution is restricted."
   },
-  "notes_normalized": "Cannabis is decriminalized in Bermuda. Medical cannabis is legal. Distribution is tolerated.",
+  "notes_normalized": "Cannabis is decriminalized in Bermuda. Medical cannabis is legal. Distribution is restricted.",
   "notes_raw": "{{main|Cannabis in Bermuda}} In November 2016, the [[Law of Bermuda#Litigation and the Bermuda Court System|Supreme Court of Bermuda]] ruled in favor of allowing the medical use of cannabis.<ref>{{cite news |last1=Bell |first1=Jonathan |title=People can apply for medical cannabis |url=http://www.royalgazette.com/news/article/20161125/people-can-apply-for-medical-cannabis |access-date=27 October 2018 |work=[[The Royal Gazette (Bermuda)|The Royal Gazette]] |date=25 November 2016 |archive-url=https://web.archive.org/web/20181027232029/http://www.royalgazette.com/news/article/20161125/people-can-apply-for-medical-cannabis |archive-date=27 October 2018 |url-status=live}}</ref> As of July 2018, two doctors have been licensed to prescribe the drug.<ref>{{cite news |last1=Bell |first1=Jonathan |title=Weeks: we need to talk about cannabis |url=http://www.royalgazette.com/politics/article/20180725/weeks-we-need-to-talk-about-cannabis |access-date=27 October 2018 |work=[[The Royal Gazette (Bermuda)|The Royal Gazette]] |date=25 July 2018 |archive-url=https://web.archive.org/web/20181101101737/http://www.royalgazette.com/politics/article/20180725/weeks-we-need-to-talk-about-cannabis |archive-date=1 November 2018 |url-status=live}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -209,16 +195,16 @@
     ],
     "legal_similarity": [
       {
-        "code": "kna",
-        "name": "Saint Kitts and Nevis"
-      },
-      {
-        "code": "atg",
-        "name": "Antigua and Barbuda"
-      },
-      {
         "code": "dma",
         "name": "Dominica"
+      },
+      {
+        "code": "lca",
+        "name": "Saint Lucia"
+      },
+      {
+        "code": "jam",
+        "name": "Jamaica"
       }
     ],
     "cluster_links": [
@@ -236,9 +222,9 @@
   },
   "hashes": {
     "code": "bmu",
-    "content_hash": "e49254d4ce0e5a0afe09563bd4b51b1f107247d61b34106c5473da2725afe635",
-    "notes_hash": "1acae1e75082529f3c98a8832068b54ece2162826829e15a77bd1461e4056354",
-    "model_hash": "014f4c6d3906727e6dbafdd9d9fc190a96cd65e70d154c4829a14eb26ec3be29"
+    "content_hash": "7303f8da308ea0143f9adedec9c1ebf1e9749a4fc9cf18a07495bdbf89e524bf",
+    "notes_hash": "305c6d964cb09a248828591d2ef57749c47c744083866418c3e7e72e0a4da282",
+    "model_hash": "49c9c6b320d5f38eb5348c449d962ab0c5b64a077396fd0f1c980195952960d1"
   },
   "geo_code": "BM",
   "node_type": "country",

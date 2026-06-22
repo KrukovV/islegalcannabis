@@ -32,24 +32,45 @@ type Props = {
 
 const EMPTY_SEO_COUNTRY_INDEX: Record<string, CountryPageData> = {};
 
-function parseSeoCodeFromPath(pathname: string): string | null {
-  const match = pathname.match(/^\/(?:[a-z]{2}\/)?c\/([^/?#]+)$/i);
-  return match?.[1] || null;
+function parseGeoFromPathOrQuery(pathnameOrHref: string): string | null {
+  try {
+    const url = new URL(pathnameOrHref, typeof window !== "undefined" ? window.location.origin : "https://www.islegal.info");
+    const queryCode = url.searchParams.get("geo") || url.searchParams.get("code");
+    if (queryCode) return queryCode.toLowerCase().trim() || null;
+    const match = url.pathname.match(/^\/(?:[a-z]{2}\/)?c\/([a-z0-9-]+)$/i);
+    return match?.[1]?.toLowerCase() || null;
+  } catch {
+    const match = pathnameOrHref.match(/^\/(?:[a-z]{2}\/)?c\/([a-z0-9-]+)$/i);
+    return match?.[1]?.toLowerCase() || null;
+  }
 }
 
 function parseSeoCodeFromHref(href: string): string | null {
   if (!href) return null;
   try {
     const url = new URL(href, typeof window !== "undefined" ? window.location.origin : "https://www.islegal.info");
-    return parseSeoCodeFromPath(url.pathname);
+    return parseGeoFromPathOrQuery(url.href);
   } catch {
-    return parseSeoCodeFromPath(href);
+    return parseGeoFromPathOrQuery(href);
   }
+}
+
+function resolveEntryDetailsCode(entry: CountryCardEntry): string | null {
+  const sources: Array<string> = [entry.pageHref, entry.detailsHref].filter(Boolean) as string[];
+  for (const href of sources) {
+    const code = parseSeoCodeFromHref(href);
+    if (code) return code;
+  }
+  if (entry.parentCountry?.code) {
+    return String(entry.parentCountry.code).trim().toLowerCase();
+  }
+  return null;
 }
 
 type NewMapDebug = {
   mounted: boolean;
   selectedId?: string | null;
+  setSelectedGeo?: (_geo: string | null) => void;
   countriesUrl: string;
   map?: import("maplibre-gl").Map | null;
   labelGroups?: Record<string, string[]>;
@@ -492,11 +513,19 @@ export default function MapRoot({
 
   const handleOpenDetails = useCallback(
     async (entry: CountryCardEntry) => {
-      const code = parseSeoCodeFromHref(entry.pageHref);
-      if (!code) return;
+      const code = resolveEntryDetailsCode(entry);
+      if (!code) {
+        if (entry.detailsHref) {
+          window.location.assign(entry.detailsHref);
+        }
+        return;
+      }
       const activated = await activateSeoRoute(code, { pushUrl: true });
       if (!activated && typeof window !== "undefined") {
-        window.location.assign(entry.pageHref);
+        const fallbackTarget = /^\/new-map\?/i.test(entry.pageHref)
+          ? `/new-map?geo=${encodeURIComponent(code.toUpperCase())}`
+          : entry.pageHref || "/";
+        window.location.assign(fallbackTarget);
       }
     },
     [activateSeoRoute]
@@ -746,7 +775,9 @@ export default function MapRoot({
   useEffect(() => {
     if (typeof window === "undefined") return;
     const handlePopState = () => {
-      const code = parseSeoCodeFromPath(window.location.pathname);
+      const code =
+        parseGeoFromPathOrQuery(window.location.pathname) ||
+        parseGeoFromPathOrQuery(window.location.href);
       if (!code) {
         setActiveRouteSeoData(null);
         setSeoPanelOpen(false);
@@ -852,7 +883,13 @@ export default function MapRoot({
         });
         const unbindAsciiTriggers = bindAsciiMapTriggers(runtime.map);
         const uninstallQaHook = installNewMapQaHook(runtime.map);
-        setDebugState({ mounted: true, countriesUrl, map: isNewMapQaEnabled() ? runtime.map : null, selectedId: null });
+        setDebugState({
+          mounted: true,
+          countriesUrl,
+          map: runtime.map,
+          selectedId: null,
+          setSelectedGeo
+        });
         await countriesDataPromise;
         if (cancelled) {
           uninstallQaHook();
@@ -877,7 +914,7 @@ export default function MapRoot({
           runtime.destroy();
           setSelectedGeo(null);
           setHoveredGeo(null);
-          setDebugState({ mounted: false, selectedId: null, map: null });
+          setDebugState({ mounted: false, selectedId: null, map: null, setSelectedGeo: undefined });
         };
       } catch (mountError) {
         setError(mountError instanceof Error ? mountError.message : "new_map_boot_failed");

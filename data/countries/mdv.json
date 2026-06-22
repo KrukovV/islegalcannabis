@@ -27,10 +27,10 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
-      "modifiers": [
-        "may"
-      ]
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
@@ -64,12 +64,6 @@
           "type": "summary"
         },
         {
-          "title": "Cannabis in the Maldives",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Maldives",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
           "title": "Rapid Situation Assessment of Drug Abuse in Maldives",
           "url": "https://books.google.com/books?id=nuNLn3avt54C&pg=PA38",
           "depth": 2,
@@ -83,26 +77,25 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in the Maldives | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in the Maldives | type: traversal | priority: 3 | scope: general"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 478,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal"
+      "distribution_fallback_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Maldives / ދިވެހިރާއްޖޭގެ. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -205,9 +198,9 @@
   },
   "hashes": {
     "code": "mdv",
-    "content_hash": "359d0714b2228e9525517476a84395fcd81c09c8eacc407bf65e0b4746d0348f",
+    "content_hash": "e1cc4ec05cd7b6f623b754af1348123fa434c58e28a47b537a08f7c09d52c09a",
     "notes_hash": "c006687d7b36aa45333a4599a5d5a5934496fc3730c2f167da7de289dae1e831",
-    "model_hash": "6c273dc42fe2de3b191e907ee3f8f7b88932e14cb885b16db3afabb387df0c65"
+    "model_hash": "a4da79033d4b94112b5e04d1fbd2d15f0604d4badf511b0728c627c0adc06eb9"
   },
   "geo_code": "MV",
   "node_type": "country",

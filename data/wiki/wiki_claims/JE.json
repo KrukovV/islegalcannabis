@@ -5,20 +5,33 @@
   "row_ref": "iso_fallback:JE",
   "wiki_rec": "Unknown",
   "wiki_med": "Unknown",
-  "sources": [],
-  "sources_count": 0,
-  "main_articles": [],
-  "notes_main_articles": [],
+  "sources": [
+    {
+      "title": "Legality_of_cannabis"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Legality_of_cannabis"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Legality_of_cannabis"
+    }
+  ],
   "notes_text": "",
   "notes_text_len": 0,
   "notes": "",
   "notes_raw": "",
   "recreational_status": "Unknown",
   "medical_status": "Unknown",
-  "wiki_revision_id": "1336080043",
-  "fetched_at": "2026-02-12T19:20:54.889Z",
+  "wiki_revision_id": "1360109215",
+  "fetched_at": "2026-06-21T17:29:39.863Z",
   "notes_kind": "NONE",
   "notes_reason_code": "PARSED_SECTIONS",
+  "sources_reason_code": "",
   "source": "unknown",
-  "revision_id": "1336080043"
+  "revision_id": "1360109215"
 }

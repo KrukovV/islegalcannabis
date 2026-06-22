@@ -29,25 +29,24 @@
       "enforcement": "standard",
       "flags": [],
       "modifiers": [
-        "but",
         "may"
       ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "final_risk": "RESTRICTED",
       "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 4,
+        "severity_score": 0,
         "possession": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
           "fine": false,
-          "severe": true
+          "severe": false
         },
         "trafficking": {
           "prison": false,
@@ -56,7 +55,7 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Seychelles / Sesel",
@@ -102,42 +101,34 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Seychelles / Sesel | type: summary | priority: 1 | scope: sale",
+        "rule: sale_illegal | source: Seychelles / Sesel | type: summary | priority: 1 | scope: sale",
+        "rule: illegal | source: Seychelles / Sesel | type: summary | priority: 1 | scope: sale",
         "rule: raw_illegal | source: Cannabis in Seychelles | type: traversal | priority: 3 | scope: sale",
         "rule: sale_illegal | source: Cannabis in Seychelles | type: traversal | priority: 3 | scope: sale",
-        "rule: illegal | source: Cannabis in Seychelles | type: traversal | priority: 3 | scope: sale",
-        "rule: raw_illegal | source: Cannabis in Seychelles | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Seychelles | type: traversal | priority: 3 | scope: general",
-        "rule: legal | source: Cannabis in Seychelles | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in Seychelles | type: traversal | priority: 3 | scope: general",
-        "rule: medical_legal | source: Cannabis in Seychelles | type: traversal | priority: 3 | scope: use",
-        "rule: raw_illegal | source: Cannabis in Seychelles | type: traversal | priority: 3 | scope: use",
-        "rule: illegal | source: Cannabis in Seychelles | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_years | source: Cannabis in Seychelles | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_years | source: Cannabis in Seychelles | type: traversal | priority: 3 | scope: use"
+        "rule: illegal | source: Cannabis in Seychelles | type: traversal | priority: 3 | scope: sale"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 11046,
-        "source_confidence": "prison_signal",
+        "article_len": 733,
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
-          "distribution_notes": null,
+          "distribution_notes": "illegal",
           "distribution_article": "illegal"
         }
       }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal",
-      "penalty_prison",
-      "penalty_years"
+      "raw_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Seychelles / Sesel. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Seychelles / Sesel. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Seychelles / Sesel. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Seychelles / Sesel. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Seychelles}}",
   "facts": {
     "possession_limit": null,
@@ -236,9 +227,9 @@
   },
   "hashes": {
     "code": "syc",
-    "content_hash": "b018e30f0b36b6899457946320823de5ee987c883f2fbd6c88a79b52f27858e8",
-    "notes_hash": "13c12674406ed29e8d223f24d8b9dea0adf0822fd67f331eaec21c3a09f2fd05",
-    "model_hash": "66e7775ea6cba13e2354caa1fad8a3e5c466780cb3a05c22268f5a873ac1bc5b"
+    "content_hash": "1835e73b6a1ae97b45b99ae698e040a1cba39859be2ff1fa28dfc82b984eb3b7",
+    "notes_hash": "a3c5e93e6ec723a5dc7ca92f3c0aa29c22cac3735b7af4940928a19c2118e769",
+    "model_hash": "5b017084073fc8f6a4af9677995972368525aa85455199b7d19ee81ded078618"
   },
   "geo_code": "SC",
   "node_type": "country",
