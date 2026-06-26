@@ -75,6 +75,16 @@ function sectionMap(entry: ReturnType<typeof buildCardIndexSnapshot>[string]) {
   ) as Record<(typeof PROFILE_SECTION_IDS)[number], string[]>;
 }
 
+function emptySectionMap(): Record<(typeof PROFILE_SECTION_IDS)[number], string[]> {
+  return PROFILE_SECTION_IDS.reduce(
+    (acc, key) => {
+      acc[key] = [];
+      return acc;
+    },
+    {} as Record<(typeof PROFILE_SECTION_IDS)[number], string[]>
+  );
+}
+
 function collectRepeatedText(sections: Record<(typeof PROFILE_SECTION_IDS)[number], string[]>) {
   const seen = new Map<string, Set<string>>();
   for (const [sectionId, items] of Object.entries(sections) as Array<[keyof typeof sections, string[]]>) {
@@ -156,7 +166,7 @@ function buildRows() {
     const entry = cardIndex[geo];
     const page = pageIndex.get(geo) || null;
     const knowledge = knowledgeByGeo.get(geo) || null;
-    const sectionsById = entry ? sectionMap(entry) : Object.fromEntries(PROFILE_SECTION_IDS.map((key) => [key, []])) as Record<(typeof PROFILE_SECTION_IDS)[number], string[]>;
+    const sectionsById = entry ? sectionMap(entry) : emptySectionMap();
     const nonEmptySections = PROFILE_SECTION_IDS.filter((key) => sectionsById[key].length > 0);
     const repeatedText = collectRepeatedText(sectionsById);
     const rawUrls = collectRawUrls(sectionsById);

@@ -1,14 +1,14 @@
 import { NextResponse } from "next/server";
 import { buildCardIndexSnapshot } from "@/new-map/countrySource";
 
-export const dynamic = "force-static";
-export const revalidate = 86400;
-const STATIC_MAP_CACHE = "public, max-age=31536000, immutable";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+const RUNTIME_MAP_CACHE = "no-store";
 
 export async function GET() {
-  return NextResponse.json(buildCardIndexSnapshot(), {
+  return NextResponse.json(buildCardIndexSnapshot({ fresh: true }), {
     headers: {
-      "Cache-Control": STATIC_MAP_CACHE
+      "Cache-Control": RUNTIME_MAP_CACHE
     }
   });
 }

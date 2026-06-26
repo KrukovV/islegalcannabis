@@ -36,11 +36,51 @@ const CULTURE_RE =
 const PRODUCT_RE =
   /\b(product|hashish|hash|resin|oil|cbd|hemp|edible|food|pizza|bhang|charas|ganja|kif|hachich|dawamesc|tekrouri|dagga|diamba|liamba|flower|seeds?|extract|tincture)\b/i;
 const TRADITIONAL_RE =
-  /\b(traditional|ritual|religious|folk|medicinal|medicine|smok(?:e|ed|ing)|consum(?:e|ed|ption)|eaten|ingredient|preparation|used as|mixed with)\b/i;
+  /\b(traditional|ritual|religious|folk|smok(?:e|ed|ing)|eaten|ingredient|preparation|used as|mixed with)\b/i;
 const ENFORCEMENT_RE =
-  /\b(rarely enforced|often not enforced|not strictly enforced|often unenforced|not enforced|unenforced|police do not harass|tolerated|toleration|decriminali[sz]ed|civil fine|fine|arrest|prison|jail|imprison|penalt(?:y|ies)|prosecut(?:e|ed|ion)|crackdown|raid|enforcement|trafficking)\b/i;
+  /\b(rarely enforced|often not enforced|not strictly enforced|often unenforced|not enforced|unenforced|police do not harass|enforced opportunistically|opportunistically enforced|tolerated|toleration|decriminali[sz]ed|civil fine|fine|arrest|prison|jail|imprison|penalt(?:y|ies)|prosecut(?:e|ed|ion)|crackdown|raid|enforcement|trafficking|court|judge|charges?|caution(?:ed)?|seiz(?:e|ed|ure))\b/i;
 const CULTIVATION_RE = /\b(cultivat(?:e|ed|ion)|grown|grow(?:ing)?|plantation|farm(?:s|ing)?|production|crop)\b/i;
-const MARKET_RE = /\b(market|trade|traffick(?:ing)?|smuggl(?:e|ing)|import|export|deal(?:er|ers)?|sold|sale|shops?|restaurants?|bars?)\b/i;
+const MARKET_RE =
+  /\b(markets?|econom(?:y|ics)|commodity|commercial|industry|retail(?:er|ers)?|dispensar(?:y|ies)?|tax|revenue|export(?:er|ers)?|import(?:er|ers)?|producer|producers|black market|tourism|consumer|consumption|shops?|bars?|sales volume|licensed producer|licensed retailer|craft cannabis|bartered)\b/i;
+const YEAR_RE = /\b(?:1[5-9]\d{2}|20\d{2})\b/;
+const LAW_CHANGE_RE =
+  /\b(legali[sz](?:e|ed|ation)|decriminali[sz](?:e|ed|ation)|banned|prohibit(?:ed|ion)|act|bill|law|laws|policy|policies|reform|amendment|regulated|regulation|control law|passed)\b/i;
+const HISTORICAL_DETAIL_RE =
+  /\b(introduced|history|historical|centur(?:y|ies)|period|prior to|before|after|during|later|began|started|continued|until|following|occupation|revolution|rule)\b/i;
+const PENALTY_RE =
+  /\b(fine|fined|prison|jail|imprison(?:ment|ed)?|arrest|arrested|penalt(?:y|ies)|prosecut(?:e|ed|ion)|raid|raided|death penalty|crackdown|violations?|sentence(?: of)?|court|judge|charges?|caution(?:ed)?|seiz(?:e|ed|ure))\b/i;
+const LEGAL_STATUS_RE =
+  /\b(illegal|legal|decriminali[sz]ed|banned|prohibit(?:ed|ion)|restricted|allowed|permit(?:ted)?|tolerated|possession|sale|distribution|transport|transit|traffick(?:ing)?|criminal penalties?)\b/i;
+const CULTIVATION_DETAIL_RE =
+  /\b(cultivat(?:e|ed|ion)|grown|grow(?:ing)?|agriculture|agricultural|production|farm(?:s|ing)?|plantation|crop|cash crop|hemp fibers?|seed|grain|textile crop)\b/i;
+const MARKET_DETAIL_RE =
+  /\b(markets?|econom(?:y|ics)|commodity|commercial|industry|retail(?:er|ers)?|dispensar(?:y|ies)?|tax|revenue|export(?:er|ers)?|import(?:er|ers)?|producer|producers|black market|tourism|consumer|consumption|sales volume|craft cannabis|licensed producer|licensed retailer|bartered)\b/i;
+const CULTURE_DETAIL_RE =
+  /\b(culture|cultural|social|society|popular|widely|ritual|religious|festival|ceremon(?:ial|ies)?|spiritual|priest|poetry|textiles?|clothing|fiber|music|arts?)\b/i;
+const TRADITIONAL_DETAIL_RE =
+  /\b(traditional|tradition|folk|used as|used for|ritual|religious|smok(?:e|ed|ing)|eaten|ingredient|preparation|parlance)\b/i;
+const PRODUCT_DETAIL_RE =
+  /\b(hashish|hash|resin|oil|cbd|edible|food|pizza|bhang|charas|ganja|kif|hachich|dawamesc|tekrouri|flower|extract|tincture|preparation|cannabis seeds?|hemp seeds?|hemp food|hemp foods?|hemp fibers?|industrial hemp)\b/i;
+const LOCAL_NAME_SENTENCE_RE =
+  /\b(known as|called|referred to as|referred to by terms? such as|terms? such as|names? of|common names?|slang|locally|local parlance|term|word)\b/i;
+const APPENDIX_HEADING_RE = /\b(references|notes|external links|see also|further reading|bibliography|gallery)\b/i;
+const HISTORY_HEADING_RE =
+  /\b(history|chronology|legal history|steps to legalization|final legalization|reform|origins?|prehistory|prehistoric|ancient|classical|feudal|post[- ]war)\b/i;
+const ENFORCEMENT_HEADING_RE =
+  /\b(enforcement|laws?|legal status|penalt(?:y|ies)|violations?|arrests?|law enforcement|policing|carrying drugs|crime|prohibition)\b/i;
+const CULTIVATION_HEADING_RE = /\b(agriculture|cultivat(?:ion|e|ed)|production|farm(?:ing)?|crop|hemp)\b/i;
+const MARKET_HEADING_RE =
+  /\b(econom(?:y|ics)|market|commodity|commercial|trade|export|import|tourism|sales?|tax|retail|dispensar(?:y|ies)|black market)\b/i;
+const CULTURE_HEADING_RE = /\b(culture|cultural|society|religion|ritual|festival|ceremon|arts?)\b/i;
+const TRADITIONAL_HEADING_RE = /\b(traditional use|traditional|modern use|as hemp|folk medicine|medicinal use)\b/i;
+const LOCAL_NAME_HEADING_RE = /\b(local names?|slang|parlance|etymology|terminology)\b/i;
+const PRODUCT_HEADING_RE = /\b(products?|food|foods|edibles?|preparations?|hashish|resin|oil)\b/i;
+const LEGAL_STATUS_HEADING_RE = /\b(legal status|legislation and policy|legality)\b/i;
+const LEGAL_REFORM_HEADING_RE = /\b(reform|legali[sz]ation|policy reform)\b/i;
+const OPERATIONAL_CULTIVATION_RE =
+  /\b(industrial hemp|hemp fibers?|hemp seeds?|hemp products?|permits? to cultivate|licensed cannabis farms?|licensed hemp|cultivation is strictly regulated|cultivated domestically|commercial hemp)\b/i;
+const OPERATIONAL_MARKET_RE = /\b(market|industry|retail(?:er|ers)?|revenue|consumer|commercial|shops?|sales volume)\b/i;
+const STRICT_ENFORCEMENT_HEADING_RE = /\b(penalt(?:y|ies)|violations?|arrests?|enforcement|law enforcement|policing|crime|prohibition)\b/i;
 
 const REQUIRED_LOCAL_NAME_SEEDS = {
   AO: [
@@ -86,6 +126,7 @@ const CANNABIS_CACHE_TITLE_ALIASES = new Map([
   ["Cannabis in Cabo Verde", "Cannabis in Cape Verde"],
   ["Cannabis in Democratic Republic of the Congo", "Cannabis in the Democratic Republic of the Congo"],
   ["Cannabis in Dominican Republic", "Cannabis in the Dominican Republic"],
+  ["Cannabis in Washington", "Cannabis in Washington (state)"],
   ["Cannabis in Federated States of Micronesia", "Cannabis in Micronesia"],
   ["Cannabis in the Federated States of Micronesia", "Cannabis in Micronesia"],
   ["Cannabis in Gambia", "Cannabis in the Gambia"],
@@ -239,11 +280,13 @@ function uniqueUrls(items) {
 function cleanFact(value) {
   let text = normalizeWhitespace(
     String(value || "")
+      .replace(/^\[\[(?:File|Image):.*$/gim, " ")
       .replace(/<gallery[\s\S]*?<\/gallery>/gi, " ")
       .replace(/\{\|[\s\S]*?\|\}/g, " ")
       .replace(/\{\{[^}]+\}\}/g, " ")
       .replace(/<ref[^>]*>[\s\S]*?<\/ref>/gi, " ")
       .replace(/<ref[^/>]*\/>/gi, " ")
+      .replace(/\|alt=[^|]+/gi, " ")
       .replace(/\[\[(?:File|Image|Media|Category):[^\]]+\]\]/gi, " ")
       .replace(/\[https?:\/\/[^\s\]]+\s*([^\]]*)\]/g, "$1")
       .replace(/\bhttps?:\/\/[^\s<>()]+/gi, " ")
@@ -283,9 +326,11 @@ function cleanSectionItems(items, limit) {
 
 function stripWikitext(value) {
   let text = String(value || "")
+    .replace(/^\[\[(?:File|Image):.*$/gim, " ")
     .replace(/<ref[\s\S]*?<\/ref>/gi, " ")
     .replace(/<ref[^/>]*\/>/gi, " ")
     .replace(/\{\|[\s\S]*?\|\}/g, " ")
+    .replace(/\|alt=[^|]+/gi, " ")
     .replace(/\[\[(?:File|Image):[^\]]+\]\]/gi, " ")
     .replace(/\[https?:\/\/[^\s\]]+\s*([^\]]*)\]/g, "$1")
     .replace(/\[\[[^\]|]+\|([^\]]+)\]\]/g, "$1")
@@ -400,9 +445,13 @@ function extractQuotedLocalNames(rawText, facts, profile) {
   }
   for (const sentence of evidenceSentences) {
     if (!isRelevantSentence(sentence, profile.wiki_title)) continue;
-    if (!/(known as|called|referred to as|names? of|common names?|slang|locally|term|word)/i.test(sentence)) continue;
+    if (!LOCAL_NAME_SENTENCE_RE.test(sentence)) continue;
     const quoted = [...sentence.matchAll(/["“]([^"”]{2,48})["”]/g)].map((match) => match[1]);
     for (const item of quoted) addLocalName(entries, profile, item, "wiki_fact", sentence);
+    const calledMatch = sentence.match(
+      /\b(?:called|known as|referred to as)\s+([A-Za-zÀ-ž][A-Za-zÀ-ž0-9' -]{1,48}?)(?:\s+(?:in|by|among|locally)\b|[.,;:]|$)/i
+    );
+    if (calledMatch) addLocalName(entries, profile, calledMatch[1], "wiki_fact", sentence);
     const namesOf = sentence.match(/names? of ([^.]{3,160})/i);
     if (namesOf) {
       for (const raw of namesOf[1].split(/,|\band\b|\bor\b/i)) {
@@ -469,6 +518,672 @@ function addFact(sections, key, sentence, limit = 10) {
   sections[key] = unique([...sections[key], sentence], limit);
 }
 
+function normalizeCountryForSentence(profile) {
+  return normalizeWhitespace(String(profile?.country || "").split(" / ")[0] || profile?.geo || "");
+}
+
+function normalizeSectionSentence(sentence, target, profile) {
+  let text = normalizeWhitespace(sentence);
+  if (!text) return "";
+  const country = normalizeCountryForSentence(profile);
+  if (/\band is known as\.?$/i.test(text)) return "";
+  if (target === "cultivation" && /\b(legal challenge|court|appeal|ban(?:ned)?|fine imposed|allowed growing|decision)\b/i.test(text)) {
+    return "";
+  }
+
+  if (["cultivation", "market", "culture", "traditional_use", "products"].includes(target)) {
+    text = text.replace(/\billegal drug\b/gi, "drug");
+    text = text.replace(
+      /^Cannabis in ([^,.]+?) is illegal,?\s+but\s+(?:the nation|the territory|it)\s+is\s+/i,
+      "$1 is "
+    );
+    text = text.replace(
+      /^Cannabis in ([^,.]+?) is illegal,?\s+but\s+reports indicate\s+(?:the drug|cannabis)\s+is\s+/i,
+      `${country || "$1"} is `
+    );
+    text = text.replace(
+      /^Cannabis in ([^,.]+?) is illegal,?\s+but\s+(?:the nation|the territory|it)\s+has been used for\s+/i,
+      "$1 has been used for "
+    );
+    text = text.replace(/^Cannabis in ([^,.]+?) is illegal but cultivated illicitly\.?$/i, "$1 is cultivated illicitly.");
+    if (country) {
+      text = text.replace(
+        /^Cannabis is illegal in [^,.]+,?\s+but\s+is cultivated within the country(?:\s+and is known as)?\.?$/i,
+        `Cannabis is cultivated within ${country}.`
+      );
+    }
+  }
+
+  return cleanFact(text);
+}
+
+function applyDerivedLocalNameSections(sections, localNames) {
+  sections.local_names = unique(localNames.map((entry) => entry.term), 24);
+  sections.cannabis_foods = unique([
+    ...(sections.cannabis_foods || []),
+    ...(sections.products || []).filter((sentence) => /\b(food|pizza|edible|dish|ingredient)\b/i.test(sentence)),
+    ...localNames.filter((entry) => entry.kind === "cannabis_food").map((entry) => entry.term)
+  ], 10);
+  sections.slang = unique([
+    ...(sections.slang || []),
+    ...localNames
+      .filter((entry) => entry.kind === "local_cannabis_name" || entry.kind === "slang_name")
+      .map((entry) => entry.term)
+  ], 12);
+  sections.products = unique([
+    ...(sections.products || []),
+    ...localNames
+      .filter((entry) => entry.kind === "product_name")
+      .map((entry) => entry.term)
+  ], 10);
+  return sections;
+}
+
+function parseWikitextBlocks(rawText) {
+  const lines = String(rawText || "").split(/\r?\n/);
+  const blocks = [];
+  const headingStack = [];
+  let current = { titles: [], lines: [] };
+
+  const flush = () => {
+    const text = current.lines.join("\n").trim();
+    if (!text) return;
+    blocks.push({
+      titles: current.titles.slice(),
+      text
+    });
+  };
+
+  for (const line of lines) {
+    const match = line.match(/^(={2,6})\s*(.*?)\s*\1\s*$/);
+    if (match) {
+      flush();
+      const level = match[1].length;
+      const title = stripWikiMarkup(match[2]).replace(/<!--[\s\S]*?-->/g, " ").trim();
+      headingStack[level - 2] = title;
+      headingStack.length = level - 1;
+      current = {
+        titles: headingStack.filter(Boolean),
+        lines: []
+      };
+      continue;
+    }
+    current.lines.push(line);
+  }
+
+  flush();
+  return blocks;
+}
+
+function resolveBlockContext(titles) {
+  if (!Array.isArray(titles) || titles.length === 0) return "lead";
+  const cleanedTitles = titles.map((title) => normalizeWhitespace(stripWikiMarkup(title))).filter(Boolean);
+  const deepest = cleanedTitles[cleanedTitles.length - 1] || "";
+  const combined = cleanedTitles.join(" > ");
+  const historicalLawSubheading =
+    cleanedTitles.length > 1 &&
+    HISTORY_HEADING_RE.test(combined) &&
+    /\b(ordinance|act|law|legislation|policy|restriction|restricted|sale restricted|prohibition|ban(?:ned)?|decriminali[sz]ation|legali[sz]ation|reform)\b/i.test(
+      deepest
+    );
+
+  if (APPENDIX_HEADING_RE.test(deepest) || APPENDIX_HEADING_RE.test(combined)) return "appendix";
+  if (/\bas a drug\b/i.test(deepest)) return "culture";
+  if (/\bpenalties? and violations?\b/i.test(deepest)) return "enforcement_notes";
+  if (historicalLawSubheading) return "history";
+  if (LEGAL_STATUS_HEADING_RE.test(deepest) && CULTIVATION_HEADING_RE.test(combined)) return "cultivation";
+  if (LEGAL_STATUS_HEADING_RE.test(deepest)) return "legal_status";
+  if (LEGAL_REFORM_HEADING_RE.test(deepest)) return "legal_reform";
+  if (LOCAL_NAME_HEADING_RE.test(deepest)) return "local_names";
+  if (PRODUCT_HEADING_RE.test(deepest)) return "products";
+  if (MARKET_HEADING_RE.test(deepest)) return "market";
+  if (CULTIVATION_HEADING_RE.test(deepest) && !STRICT_ENFORCEMENT_HEADING_RE.test(deepest)) return "cultivation";
+  if (CULTURE_HEADING_RE.test(deepest)) return "culture";
+  if (TRADITIONAL_HEADING_RE.test(deepest)) return /as hemp/i.test(deepest) ? "cultivation" : "traditional_use";
+  if (ENFORCEMENT_HEADING_RE.test(deepest)) return "enforcement_notes";
+  if (HISTORY_HEADING_RE.test(deepest)) return "history";
+
+  if (MARKET_HEADING_RE.test(combined) && !HISTORY_HEADING_RE.test(deepest)) return "market";
+  if (CULTIVATION_HEADING_RE.test(combined) && !STRICT_ENFORCEMENT_HEADING_RE.test(deepest)) return "cultivation";
+  if (CULTURE_HEADING_RE.test(combined)) return "culture";
+  if (TRADITIONAL_HEADING_RE.test(combined)) return /as hemp/i.test(combined) ? "cultivation" : "traditional_use";
+  if (LEGAL_STATUS_HEADING_RE.test(combined)) return "legal_status";
+  if (LEGAL_REFORM_HEADING_RE.test(combined)) return "legal_reform";
+  if (ENFORCEMENT_HEADING_RE.test(combined)) return "enforcement_notes";
+  if (HISTORY_HEADING_RE.test(combined)) return "history";
+  return "unknown";
+}
+
+function hasHistoricalSignal(sentence) {
+  return YEAR_RE.test(sentence) || HISTORICAL_DETAIL_RE.test(sentence) || LAW_CHANGE_RE.test(sentence);
+}
+
+function hasPenaltySignal(sentence) {
+  return PENALTY_RE.test(sentence);
+}
+
+function hasCultivationDetail(sentence) {
+  if (/\bgrow(?:n|ing)?\b/i.test(sentence) && /\b(patients?|program|participants?|enrollment|registrants?)\b/i.test(sentence)) {
+    return false;
+  }
+  return CULTIVATION_DETAIL_RE.test(sentence);
+}
+
+function hasMarketDetail(sentence) {
+  return MARKET_DETAIL_RE.test(sentence);
+}
+
+function hasCultureDetail(sentence) {
+  return CULTURE_DETAIL_RE.test(sentence);
+}
+
+function hasTraditionalDetail(sentence) {
+  return TRADITIONAL_DETAIL_RE.test(sentence);
+}
+
+function hasProductDetail(sentence) {
+  return PRODUCT_DETAIL_RE.test(sentence);
+}
+
+function isPenaltyOnlySentence(sentence) {
+  return (
+    (hasPenaltySignal(sentence) || LEGAL_STATUS_RE.test(sentence) || ENFORCEMENT_RE.test(sentence)) &&
+    !hasHistoricalSignal(sentence) &&
+    !hasCultivationDetail(sentence) &&
+    !hasMarketDetail(sentence) &&
+    !hasCultureDetail(sentence) &&
+    !hasTraditionalDetail(sentence) &&
+    !hasProductDetail(sentence) &&
+    !LOCAL_NAME_SENTENCE_RE.test(sentence)
+  );
+}
+
+function isPureLegalBoilerplate(sentence) {
+  const text = normalizeWhitespace(sentence);
+  if (!text) return false;
+  if (!(LEGAL_STATUS_RE.test(text) || hasPenaltySignal(text))) return false;
+  if (hasHistoricalSignal(text) && !hasPenaltySignal(text)) return false;
+  if (LOCAL_NAME_SENTENCE_RE.test(text)) return false;
+  if (hasMarketDetail(text) && !/licensed producer|licensed retailer|dispensar(?:y|ies)|market|econom(?:y|ics)|revenue|tax|export|import|commercial|retail(?:er|ers)?|consumer|sales?|sell/i.test(text)) {
+    return true;
+  }
+  return !hasCultureDetail(text) && !hasTraditionalDetail(text);
+}
+
+function isLegalClassificationSentence(sentence) {
+  return /\b(categori[sz]ed as narcotics?|classified as|listed as a schedule|schedule\s+\d)\b/i.test(sentence) || LEGAL_STATUS_RE.test(sentence);
+}
+
+function isLegalProductBoilerplate(sentence) {
+  const text = normalizeWhitespace(sentence);
+  if (!text) return false;
+  return (
+    isLegalClassificationSentence(text) &&
+    hasProductDetail(text) &&
+    !hasPenaltySignal(text) &&
+    !hasMarketDetail(text) &&
+    !hasCultureDetail(text) &&
+    !hasTraditionalDetail(text)
+  );
+}
+
+function isProductFalsePositiveFromLawOrCultivation(sentence) {
+  const text = normalizeWhitespace(sentence);
+  if (!text || !hasProductDetail(text) || hasProductInventoryDetail(text) || isLocalNameGlossarySentence(text)) return false;
+  if (/\bmade from hemp\b/i.test(text) && !LAW_CHANGE_RE.test(text) && !hasPenaltySignal(text)) return false;
+  return (
+    (LAW_CHANGE_RE.test(text) && (YEAR_RE.test(text) || hasPenaltySignal(text) || /\b(decree|amendment|act|bill|law|laws|statute)\b/i.test(text))) ||
+    (/\bhemp\b/i.test(text) && hasCultivationDetail(text) && (LEGAL_STATUS_RE.test(text) || /\bindustrial(?:ly)?|low-THC\b/i.test(text))) ||
+    (hasPenaltySignal(text) && /\b(hashish|hemp)\b/i.test(text))
+  );
+}
+
+function isLegalPopularityBoilerplate(sentence) {
+  const text = normalizeWhitespace(sentence);
+  if (!text) return false;
+  return (
+    LEGAL_STATUS_RE.test(text) &&
+    /\b(popular illegal drugs?|widely used illegal drugs?|popular illicit drug|most popular illicit drug|widely used illicit drugs?|one of the most widely used drugs?|widely used drugs? in the nation|currently illegal for personal use|except in cases of varieties or products containing low amounts)\b/i.test(
+      text
+    )
+  );
+}
+
+function isLeadLegalPopularityBoilerplate(sentence) {
+  return isLegalPopularityBoilerplate(sentence);
+}
+
+function isLocalNameGlossarySentence(sentence) {
+  return /\b(common terms? for|terms? for|term for)\b/i.test(sentence) || LOCAL_NAME_SENTENCE_RE.test(sentence);
+}
+
+function isPolicyOpinionSentence(sentence) {
+  return /\b(support for (?:the )?legalization|opp(?:ose|osition) to (?:the )?legalization|wedge issue|public opinion|poll(?:ing)?|voters?)\b/i.test(
+    sentence
+  );
+}
+
+function isAvailabilityDespiteIllegalitySentence(sentence) {
+  return /\b(widely available|openly sold|readily available)\b/i.test(sentence) && LEGAL_STATUS_RE.test(sentence);
+}
+
+function isProductionConsumptionDespiteIllegalitySentence(sentence) {
+  return (
+    LEGAL_STATUS_RE.test(sentence) &&
+    /\b(widely produced|produced and consumed|export(?:ed|ing)?|export crop)\b/i.test(sentence)
+  );
+}
+
+function isTransitOrSmugglingSentence(sentence) {
+  return /\b(smuggling|smuggled|drug trafficking|transit country|illicit drug trade|black market)\b/i.test(sentence);
+}
+
+function hasProductInventoryDetail(sentence) {
+  return /\b(form of|forms? for|available in|accessible in|edibles?|foods?|lotions?|cremes?|creams?|oil|oils|vaping|dried|infused)\b/i.test(
+    sentence
+  );
+}
+
+function shouldKeepLeadNote(sentence) {
+  return (
+    !isPureLegalBoilerplate(sentence) &&
+    (
+      hasHistoricalSignal(sentence) ||
+      hasCultivationDetail(sentence) ||
+      hasMarketDetail(sentence) ||
+      hasCultureDetail(sentence) ||
+      hasTraditionalDetail(sentence) ||
+      hasProductDetail(sentence) ||
+      LOCAL_NAME_SENTENCE_RE.test(sentence)
+    )
+  );
+}
+
+function isPolicyDebateSentence(sentence) {
+  return /\b(growing area of political interest|political interest and debate|interest and debate|debate|announced (?:his|her|their|the party'?s)? plan|resubmit legislation|proposal|proposed)\b/i.test(
+    sentence
+  );
+}
+
+function isCurrentLegalStatusAsOfYearSentence(sentence) {
+  const text = normalizeWhitespace(sentence);
+  if (!text) return false;
+  return (
+    /\bas of\s+\d{4}\b/i.test(text) &&
+    LEGAL_STATUS_RE.test(text) &&
+    !LAW_CHANGE_RE.test(text) &&
+    !hasPenaltySignal(text) &&
+    !hasMarketDetail(text) &&
+    !hasCultivationDetail(text) &&
+    !hasCultureDetail(text) &&
+    !hasTraditionalDetail(text) &&
+    !hasProductDetail(text) &&
+    !LOCAL_NAME_SENTENCE_RE.test(text)
+  );
+}
+
+function isLegalGreyCannabisClubsSentence(sentence) {
+  const text = normalizeWhitespace(sentence);
+  if (!text) return false;
+  return (
+    /\bcannabis clubs?\b/i.test(text) &&
+    (
+      /\b(legal grey|legal gray|technically legal|private collective|social clubs?)\b/i.test(text) ||
+      LEGAL_STATUS_RE.test(text)
+    )
+  );
+}
+
+function isComparativeForeignLawSentence(sentence) {
+  const text = normalizeWhitespace(sentence);
+  if (!text) return false;
+  return (
+    LEGAL_STATUS_RE.test(text) &&
+    hasCultivationDetail(text) &&
+    /\b(other countries|other European countries)\b/i.test(text)
+  );
+}
+
+function resolveSectionForSentence(sentence, context) {
+  if (!sentence) return null;
+  if (context === "appendix" || context === "local_names") return null;
+  if (context === "products") {
+    if (isProductFalsePositiveFromLawOrCultivation(sentence)) {
+      if (hasCultivationDetail(sentence) && !hasPenaltySignal(sentence) && !LAW_CHANGE_RE.test(sentence)) return "cultivation";
+      if (hasPenaltySignal(sentence) || ENFORCEMENT_RE.test(sentence)) return "enforcement_notes";
+      return "history";
+    }
+    return hasProductDetail(sentence) &&
+      !isPureLegalBoilerplate(sentence) &&
+      !isLegalProductBoilerplate(sentence) &&
+      !isProductFalsePositiveFromLawOrCultivation(sentence) &&
+      !isLocalNameGlossarySentence(sentence) &&
+      !ENFORCEMENT_RE.test(sentence)
+      ? "products"
+      : null;
+  }
+
+  if (context === "history") {
+    if (isLegalGreyCannabisClubsSentence(sentence)) return "market";
+    if (isComparativeForeignLawSentence(sentence)) return "history";
+    if (isCurrentLegalStatusAsOfYearSentence(sentence)) return null;
+    if (isPenaltyOnlySentence(sentence)) return "enforcement_notes";
+    if (/\b(ordinance|referendum|ballot|vote|voters?)\b/i.test(sentence)) return "history";
+    if (
+      hasMarketDetail(sentence) &&
+      !hasCultureDetail(sentence) &&
+      /\b(export(?:er|ers)?|import(?:er|ers)?|producer|producers|production|tourism|commercial|industry|retail|market|econom(?:y|ics)|trade|revenue|tax)\b/i.test(
+        sentence
+      )
+    ) {
+      return "market";
+    }
+    if (hasMarketDetail(sentence) && !hasHistoricalSignal(sentence) && !hasCultureDetail(sentence)) return "market";
+    if (
+      hasCultivationDetail(sentence) &&
+      !hasCultureDetail(sentence) &&
+      /\b(cultivat(?:ion|e|ed)|grown|grow(?:ing)?|production|farm(?:s|ing)?|plantation|crop)\b/i.test(sentence) &&
+      !LEGAL_STATUS_RE.test(sentence) &&
+      !LAW_CHANGE_RE.test(sentence)
+    ) {
+      return "cultivation";
+    }
+    if (hasCultivationDetail(sentence) && !hasHistoricalSignal(sentence) && !hasCultureDetail(sentence)) return "cultivation";
+    return "history";
+  }
+
+  if (context === "culture") {
+    if (isPureLegalBoilerplate(sentence)) return null;
+    if (isLegalPopularityBoilerplate(sentence)) return null;
+    if (isLegalProductBoilerplate(sentence)) return null;
+    if (isLocalNameGlossarySentence(sentence)) return null;
+    if (isLegalGreyCannabisClubsSentence(sentence)) return "market";
+    if (isAvailabilityDespiteIllegalitySentence(sentence)) return "notes";
+    if (isProductionConsumptionDespiteIllegalitySentence(sentence)) return "market";
+    if (
+      hasCultureDetail(sentence) &&
+      /\b(popular|most popular|water-pipe|hookah|social|widely)\b/i.test(sentence) &&
+      !hasPenaltySignal(sentence)
+    ) {
+      return "culture";
+    }
+    if (hasTraditionalDetail(sentence) && !hasPenaltySignal(sentence)) return "traditional_use";
+    if (
+      hasProductDetail(sentence) &&
+      !hasPenaltySignal(sentence) &&
+      !hasCultureDetail(sentence) &&
+      !hasMarketDetail(sentence) &&
+      !isPureLegalBoilerplate(sentence) &&
+      !LEGAL_STATUS_RE.test(sentence) &&
+      !isLocalNameGlossarySentence(sentence) &&
+      !ENFORCEMENT_RE.test(sentence)
+    ) {
+      return "products";
+    }
+    return hasPenaltySignal(sentence) ? null : "culture";
+  }
+
+  if (context === "traditional_use") {
+    if (isLegalGreyCannabisClubsSentence(sentence)) return "market";
+    if (isComparativeForeignLawSentence(sentence)) return "history";
+    if (
+      isPolicyDebateSentence(sentence) ||
+      (
+        !hasTraditionalDetail(sentence) &&
+        (
+          LAW_CHANGE_RE.test(sentence) ||
+          /\b(petition|supporters?|legali[sz]ation|medical cannabis first|court case|court ruled|government to begin|regulations?|approval|amendments?)\b/i.test(
+            sentence
+          )
+        )
+      )
+    ) {
+      return "history";
+    }
+    if (
+      !hasTraditionalDetail(sentence) &&
+      /\b(medical|medicinal) cannabis\b/i.test(sentence) &&
+      /\b(mother|supporters?|petition|court|government|regulations?|approval|required|personal interest|patients?)\b/i.test(sentence)
+    ) {
+      return "history";
+    }
+    if (isPureLegalBoilerplate(sentence)) return null;
+    if (isProductionConsumptionDespiteIllegalitySentence(sentence)) return "market";
+    if (hasCultivationDetail(sentence) && !hasTraditionalDetail(sentence)) return "cultivation";
+    return hasPenaltySignal(sentence) ? null : "traditional_use";
+  }
+
+  if (context === "cultivation") {
+    if (/\b(legal challenge|court|appeal|ban(?:ned)?|fine imposed|allowed growing|decision)\b/i.test(sentence)) {
+      return "history";
+    }
+    if (isComparativeForeignLawSentence(sentence)) {
+      return "history";
+    }
+    if (
+      hasMarketDetail(sentence) &&
+      !hasPenaltySignal(sentence) &&
+      !hasCultivationDetail(sentence) &&
+      /\b(export|import|revenue|tax|market|commercial|industry|retail|dispensar(?:y|ies)|licensed producer|licensed retailer)\b/i.test(sentence)
+    ) {
+      return "market";
+    }
+    return hasPenaltySignal(sentence) ? null : "cultivation";
+  }
+
+  if (context === "market") {
+    if (isComparativeForeignLawSentence(sentence)) return "history";
+    if (hasPenaltySignal(sentence) || ENFORCEMENT_RE.test(sentence)) {
+      return "enforcement_notes";
+    }
+    if (
+      hasHistoricalSignal(sentence) &&
+      LAW_CHANGE_RE.test(sentence) &&
+      /\b(measure|bill|act|law|laws|vote|voters?|passed|legali[sz]ed|decriminali[sz]ed)\b/i.test(sentence)
+    ) {
+      return "history";
+    }
+    return "market";
+  }
+
+  if (context === "legal_status") {
+    if (isLegalGreyCannabisClubsSentence(sentence)) return "market";
+    if (isComparativeForeignLawSentence(sentence)) return "history";
+    if (isProductFalsePositiveFromLawOrCultivation(sentence)) {
+      if (hasCultivationDetail(sentence) && !hasPenaltySignal(sentence) && !LAW_CHANGE_RE.test(sentence)) return "cultivation";
+      if (hasPenaltySignal(sentence) || ENFORCEMENT_RE.test(sentence)) return "enforcement_notes";
+      return "history";
+    }
+    if (hasPenaltySignal(sentence) || ENFORCEMENT_RE.test(sentence)) return "enforcement_notes";
+    if (LEGAL_STATUS_RE.test(sentence) || LAW_CHANGE_RE.test(sentence)) {
+      if ((YEAR_RE.test(sentence) || /\b(originally passed|modified multiple times|revised?)\b/i.test(sentence)) && LAW_CHANGE_RE.test(sentence)) {
+        return "history";
+      }
+      if (
+        OPERATIONAL_CULTIVATION_RE.test(sentence) &&
+        !/\bbanning the import, export, cultivation, sale, purchase\b/i.test(sentence)
+      ) {
+        return "cultivation";
+      }
+      if (
+        hasProductDetail(sentence) &&
+        hasProductInventoryDetail(sentence) &&
+        !isPureLegalBoilerplate(sentence) &&
+        !hasPenaltySignal(sentence)
+      ) {
+        return "products";
+      }
+      if (OPERATIONAL_MARKET_RE.test(sentence) && !isLegalProductBoilerplate(sentence)) return "market";
+      return null;
+    }
+    if (
+      hasProductDetail(sentence) &&
+      hasProductInventoryDetail(sentence) &&
+      !isPureLegalBoilerplate(sentence) &&
+      !hasPenaltySignal(sentence)
+    ) {
+      return "products";
+    }
+    if (hasCultivationDetail(sentence) && !isPureLegalBoilerplate(sentence) && !isLegalProductBoilerplate(sentence)) return "cultivation";
+    if (
+      hasMarketDetail(sentence) &&
+      !hasPenaltySignal(sentence) &&
+      !isPureLegalBoilerplate(sentence) &&
+      !isLegalProductBoilerplate(sentence)
+    ) {
+      return "market";
+    }
+    return null;
+  }
+
+  if (context === "legal_reform") {
+    if (isLegalGreyCannabisClubsSentence(sentence)) return "market";
+    if (isComparativeForeignLawSentence(sentence)) return "history";
+    if (hasPenaltySignal(sentence) || ENFORCEMENT_RE.test(sentence)) return "enforcement_notes";
+    if (isPolicyDebateSentence(sentence)) return "history";
+    if (isLegalProductBoilerplate(sentence)) return null;
+    if (YEAR_RE.test(sentence) || LAW_CHANGE_RE.test(sentence) || /\b(recommend(?:ed|ation|ations)|panel)\b/i.test(sentence)) {
+      return "history";
+    }
+    if (
+      hasMarketDetail(sentence) &&
+      !isPureLegalBoilerplate(sentence) &&
+      /\b(revenue|tax|market|industry|commercial|retail|consumer|export|import)\b/i.test(sentence)
+    ) {
+      return "market";
+    }
+    if (hasCultivationDetail(sentence) && !hasPenaltySignal(sentence) && !isPolicyDebateSentence(sentence)) {
+      return "cultivation";
+    }
+    return null;
+  }
+
+  if (context === "enforcement_notes") {
+    if (isComparativeForeignLawSentence(sentence)) return "history";
+    if (isPureLegalBoilerplate(sentence) && !hasPenaltySignal(sentence)) return null;
+    if ((YEAR_RE.test(sentence) || HISTORICAL_DETAIL_RE.test(sentence)) && LAW_CHANGE_RE.test(sentence) && !hasPenaltySignal(sentence)) {
+      return "history";
+    }
+    if (
+      hasMarketDetail(sentence) &&
+      !hasPenaltySignal(sentence) &&
+      /\b(market|econom(?:y|ics)|commercial|revenue|tax|retail|dispensar(?:y|ies)|licensed producer|licensed retailer)\b/i.test(sentence)
+    ) {
+      return "market";
+    }
+    return (hasPenaltySignal(sentence) || LEGAL_STATUS_RE.test(sentence) || ENFORCEMENT_RE.test(sentence))
+      ? "enforcement_notes"
+      : null;
+  }
+
+  if (context === "lead") {
+    if (isLegalGreyCannabisClubsSentence(sentence)) return "market";
+    if (isComparativeForeignLawSentence(sentence)) return "history";
+    if (isCurrentLegalStatusAsOfYearSentence(sentence)) return null;
+    if (isProductFalsePositiveFromLawOrCultivation(sentence)) {
+      if (hasCultivationDetail(sentence) && !hasPenaltySignal(sentence) && !LAW_CHANGE_RE.test(sentence)) return "cultivation";
+      if (hasPenaltySignal(sentence) || ENFORCEMENT_RE.test(sentence)) return "enforcement_notes";
+      return "history";
+    }
+    if (isPolicyOpinionSentence(sentence) && (YEAR_RE.test(sentence) || LAW_CHANGE_RE.test(sentence) || /^As of\s+\d{4}\b/i.test(sentence))) {
+      return "history";
+    }
+    if (isAvailabilityDespiteIllegalitySentence(sentence)) return "notes";
+    if (isProductionConsumptionDespiteIllegalitySentence(sentence) && !hasPenaltySignal(sentence)) return "market";
+    if (isTransitOrSmugglingSentence(sentence) && !hasPenaltySignal(sentence)) return "market";
+    if (
+      /\bsubject to drug control\b/i.test(sentence) &&
+      LEGAL_STATUS_RE.test(sentence) &&
+      !hasHistoricalSignal(sentence) &&
+      !hasMarketDetail(sentence) &&
+      !hasCultivationDetail(sentence) &&
+      !hasCultureDetail(sentence) &&
+      !hasTraditionalDetail(sentence) &&
+      !hasProductDetail(sentence)
+    ) {
+      return "enforcement_notes";
+    }
+    if (
+      ENFORCEMENT_RE.test(sentence) &&
+      /\b(enforced|unenforced|harass|harassed|harassing|prosecuted|prosecution|raids?|crackdown|tolerated|opportunistically)\b/i.test(
+        sentence
+      ) &&
+      !YEAR_RE.test(sentence)
+    ) {
+      return "enforcement_notes";
+    }
+    if (hasHistoricalSignal(sentence) && !isPureLegalBoilerplate(sentence) && !/^As of\s+\d{4}\b/i.test(sentence)) {
+      return "history";
+    }
+    if ((hasPenaltySignal(sentence) || ENFORCEMENT_RE.test(sentence)) && !hasHistoricalSignal(sentence)) return "enforcement_notes";
+    if (hasMarketDetail(sentence) && !hasPenaltySignal(sentence) && !isPureLegalBoilerplate(sentence)) return "market";
+    if (hasCultivationDetail(sentence) && !hasPenaltySignal(sentence) && !isPureLegalBoilerplate(sentence)) {
+      return "cultivation";
+    }
+    if (hasTraditionalDetail(sentence) && !hasPenaltySignal(sentence) && !isPureLegalBoilerplate(sentence)) {
+      return "traditional_use";
+    }
+    if (isLocalNameGlossarySentence(sentence)) return "notes";
+    if (
+      hasCultureDetail(sentence) &&
+      !hasPenaltySignal(sentence) &&
+      !isPureLegalBoilerplate(sentence) &&
+      !isLeadLegalPopularityBoilerplate(sentence)
+    ) {
+      return "culture";
+    }
+    if (
+      hasProductDetail(sentence) &&
+      !hasPenaltySignal(sentence) &&
+      !isPureLegalBoilerplate(sentence) &&
+      !isLegalProductBoilerplate(sentence) &&
+      !isLocalNameGlossarySentence(sentence) &&
+      !ENFORCEMENT_RE.test(sentence)
+    ) {
+      return "products";
+    }
+    if (ENFORCEMENT_RE.test(sentence) || hasPenaltySignal(sentence)) return "enforcement_notes";
+    return shouldKeepLeadNote(sentence) ? "notes" : null;
+  }
+
+  if (isLegalGreyCannabisClubsSentence(sentence)) return "market";
+  if (isComparativeForeignLawSentence(sentence)) return "history";
+  if (isCurrentLegalStatusAsOfYearSentence(sentence)) return null;
+  if (isPolicyOpinionSentence(sentence) && (YEAR_RE.test(sentence) || LAW_CHANGE_RE.test(sentence) || /^As of\s+\d{4}\b/i.test(sentence))) {
+    return "history";
+  }
+  if (isProductFalsePositiveFromLawOrCultivation(sentence)) {
+    if (hasCultivationDetail(sentence) && !hasPenaltySignal(sentence) && !LAW_CHANGE_RE.test(sentence)) return "cultivation";
+    if (hasPenaltySignal(sentence) || ENFORCEMENT_RE.test(sentence)) return "enforcement_notes";
+    return "history";
+  }
+  if (isLegalPopularityBoilerplate(sentence)) return null;
+  if (isAvailabilityDespiteIllegalitySentence(sentence)) return "notes";
+  if (isProductionConsumptionDespiteIllegalitySentence(sentence) && !hasPenaltySignal(sentence)) return "market";
+  if (isTransitOrSmugglingSentence(sentence) && !hasPenaltySignal(sentence)) return "market";
+  if (hasHistoricalSignal(sentence) && !isPenaltyOnlySentence(sentence)) return "history";
+  if ((hasPenaltySignal(sentence) || ENFORCEMENT_RE.test(sentence)) && !hasHistoricalSignal(sentence)) return "enforcement_notes";
+  if (hasMarketDetail(sentence) && !hasPenaltySignal(sentence) && !isPureLegalBoilerplate(sentence)) return "market";
+  if (hasCultivationDetail(sentence) && !hasPenaltySignal(sentence) && !isPureLegalBoilerplate(sentence)) {
+    return "cultivation";
+  }
+  if (hasTraditionalDetail(sentence) && !hasPenaltySignal(sentence) && !isPureLegalBoilerplate(sentence)) return "traditional_use";
+  if (hasCultureDetail(sentence) && !hasPenaltySignal(sentence)) return "culture";
+  if (
+    hasProductDetail(sentence) &&
+    !hasPenaltySignal(sentence) &&
+    !hasMarketDetail(sentence) &&
+    !isPureLegalBoilerplate(sentence) &&
+    !isLegalProductBoilerplate(sentence) &&
+    !isLocalNameGlossarySentence(sentence) &&
+    !ENFORCEMENT_RE.test(sentence)
+  ) {
+    return "products";
+  }
+  if (ENFORCEMENT_RE.test(sentence) || hasPenaltySignal(sentence)) return "enforcement_notes";
+  return null;
+}
+
 export function extractKnowledgeFromText(input) {
   const profile = {
     geo: String(input.geo || "").toUpperCase(),
@@ -477,42 +1192,33 @@ export function extractKnowledgeFromText(input) {
     wiki_url: String(input.wikiUrl || "")
   };
   const sections = emptySections();
-  const plainText = stripWikitext(input.wikitext || input.text || "");
-  const facts = splitSentences(plainText).filter((sentence) => isRelevantSentence(sentence, profile.wiki_title));
+  const rawText = input.wikitext || input.text || "";
+  const blocks = parseWikitextBlocks(rawText);
+  const facts = blocks
+    .flatMap((block) => splitSentences(stripWikitext(block.text)))
+    .filter((sentence) => isRelevantSentence(sentence, profile.wiki_title));
 
-  for (const sentence of facts) {
-    if (HISTORY_RE.test(sentence)) addFact(sections, "history", sentence);
-    if (CULTURE_RE.test(sentence)) addFact(sections, "culture", sentence);
-    if (PRODUCT_RE.test(sentence)) addFact(sections, "products", sentence);
-    if (TRADITIONAL_RE.test(sentence)) addFact(sections, "traditional_use", sentence);
-    if (ENFORCEMENT_RE.test(sentence)) addFact(sections, "enforcement_notes", sentence);
-    if (CULTIVATION_RE.test(sentence)) addFact(sections, "cultivation", sentence);
-    if (MARKET_RE.test(sentence)) addFact(sections, "market", sentence);
-    if (CANNABIS_RE.test(sentence)) addFact(sections, "notes", sentence, 8);
+  for (const block of blocks) {
+    const context = resolveBlockContext(block.titles);
+    if (context === "appendix") continue;
+    const sentences = splitSentences(stripWikitext(block.text)).filter((sentence) => isRelevantSentence(sentence, profile.wiki_title));
+    for (const sentence of sentences) {
+      const target = resolveSectionForSentence(sentence, context);
+      if (target) {
+        const normalizedSentence = normalizeSectionSentence(sentence, target, profile);
+        if (normalizedSentence) addFact(sections, target, normalizedSentence, target === "notes" ? 8 : 10);
+      } else if (context === "lead" && shouldKeepLeadNote(sentence)) {
+        const normalizedSentence = normalizeSectionSentence(sentence, "notes", profile);
+        if (normalizedSentence) addFact(sections, "notes", normalizedSentence, 8);
+      }
+    }
   }
 
   const localNames = dedupeLocalNames([
     ...seedLocalNames(profile),
-    ...extractQuotedLocalNames(input.wikitext || input.text || "", facts, profile)
+    ...extractQuotedLocalNames(rawText, facts, profile)
   ]);
-  sections.local_names = unique(localNames.map((entry) => entry.term), 24);
-  sections.cannabis_foods = unique([
-    ...sections.cannabis_foods,
-    ...sections.products.filter((sentence) => /\b(food|pizza|edible|dish|ingredient)\b/i.test(sentence)),
-    ...localNames.filter((entry) => entry.kind === "cannabis_food").map((entry) => entry.term)
-  ], 10);
-  sections.slang = unique([
-    ...sections.slang,
-    ...localNames
-      .filter((entry) => entry.kind === "local_cannabis_name" || entry.kind === "slang_name")
-      .map((entry) => entry.term)
-  ], 12);
-  sections.products = unique([
-    ...sections.products,
-    ...localNames
-      .filter((entry) => ["product_name", "local_hash_name", "traditional_name", "cannabis_food"].includes(entry.kind))
-      .map((entry) => entry.term)
-  ], 10);
+  applyDerivedLocalNameSections(sections, localNames);
 
   return {
     geo: profile.geo,
@@ -524,18 +1230,38 @@ export function extractKnowledgeFromText(input) {
   };
 }
 
+function sameKnowledgeSource(existing, harvested) {
+  const existingUrl = normalizeWhitespace(existing?.wiki_url || existing?.wikiUrl || "");
+  const harvestedUrl = normalizeWhitespace(harvested?.wiki_url || harvested?.wikiUrl || "");
+  if (existingUrl && harvestedUrl && existingUrl === harvestedUrl) return true;
+  const existingTitle = normalizeKey(
+    canonicalizeCannabisArticleTitle(existing?.wiki_title || existing?.wikiTitle || titleFromWikiUrl(existingUrl))
+  );
+  const harvestedTitle = normalizeKey(
+    canonicalizeCannabisArticleTitle(harvested?.wiki_title || harvested?.wikiTitle || titleFromWikiUrl(harvestedUrl))
+  );
+  return Boolean(existingTitle && harvestedTitle && existingTitle === harvestedTitle);
+}
+
 export function mergeProfiles(existing, harvested) {
   if (!existing) return harvested;
   const sections = emptySections();
+  const replaceWithHarvested =
+    sameKnowledgeSource(existing, harvested) &&
+    hasExplicitProfileContent(harvested) &&
+    canonicalizeProfileSourceType(harvested) === "wikipedia_cannabis_article";
   for (const key of PROFILE_SECTION_KEYS) {
     const limit = key === "local_names" ? 24 : 12;
-    sections[key] =
-      key === "local_names"
-        ? unique([...(harvested?.sections?.[key] || []), ...(existing?.sections?.[key] || [])], limit)
-        : cleanSectionItems([...(harvested?.sections?.[key] || []), ...(existing?.sections?.[key] || [])], limit);
+    if (key === "local_names") {
+      sections[key] = unique([...(harvested?.sections?.[key] || []), ...(existing?.sections?.[key] || [])], limit);
+      continue;
+    }
+    sections[key] = replaceWithHarvested
+      ? cleanSectionItems([...(harvested?.sections?.[key] || [])], limit)
+      : cleanSectionItems([...(harvested?.sections?.[key] || []), ...(existing?.sections?.[key] || [])], limit);
   }
   const localNames = dedupeLocalNames([...(harvested?.local_names || []), ...(existing?.local_names || [])]);
-  sections.local_names = unique(localNames.map((entry) => entry.term), 24);
+  applyDerivedLocalNameSections(sections, localNames);
   return {
     geo: String(harvested?.geo || existing?.geo || "").toUpperCase(),
     country: harvested?.country || existing?.country || "",
@@ -862,6 +1588,14 @@ function inferCannabisArticleTitleFromWikitext(wikitext) {
     },
     {
       regex: /\[\[Cannabis(?: \(drug\))?\]\][^.]{0,220}?\bin\s+['"]{0,5}(?:the\s+)?\[\[([^\]|]+)(?:\|[^\]]+)?\]\]['"]{0,5}/i,
+      wrapCountry: true
+    },
+    {
+      regex: /\[\[Cannabis(?: \(drug\))?\]\][^.]{0,220}?\bis illegal in\s+['"]{0,5}((?:the\s+)?[A-Z][A-Za-zÀ-ž'(). -]{1,80}?)(?:['"]{0,5}\s+(?:is|was|has|have|since|under|during|from)\b|[.,;:])/i,
+      wrapCountry: true
+    },
+    {
+      regex: /\[\[Cannabis(?: \(drug\))?\]\][^.]{0,220}?\bin\s+['"]{0,5}((?:the\s+)?[A-Z][A-Za-zÀ-ž'(). -]{1,80}?)(?:['"]{0,5}\s+(?:is|was|has|have|since|under|during|from|remained)\b|[.,;:])/i,
       wrapCountry: true
     }
   ];

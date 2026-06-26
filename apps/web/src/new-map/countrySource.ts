@@ -286,8 +286,9 @@ export function buildUsStateSourceSnapshot(): LegalCountryCollection {
   return usStateSourceCache;
 }
 
-export function buildCardIndexSnapshot() {
-  if (cardIndexCache) return cardIndexCache;
+export function buildCardIndexSnapshot(options?: { fresh?: boolean }) {
+  const fresh = Boolean(options?.fresh);
+  if (!fresh && cardIndexCache) return cardIndexCache;
   const entries = Object.values(buildCountryCardIndexFromStorage());
   const nextEntries = [...entries];
   const existingGeos = new Set(entries.map((entry) => entry.geo));
@@ -300,6 +301,9 @@ export function buildCardIndexSnapshot() {
     existingGeos.add(geo);
   }
 
-  cardIndexCache = Object.fromEntries(nextEntries.map((entry) => [entry.geo, entry]));
-  return cardIndexCache;
+  const snapshot = Object.fromEntries(nextEntries.map((entry) => [entry.geo, entry]));
+  if (!fresh) {
+    cardIndexCache = snapshot;
+  }
+  return snapshot;
 }

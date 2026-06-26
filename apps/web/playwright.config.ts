@@ -1,4 +1,5 @@
 const baseURL = process.env.PLAYWRIGHT_BASE_URL || "http://127.0.0.1:3000";
+const browserName = process.env.PLAYWRIGHT_BROWSER_NAME || "webkit";
 
 export default {
   testDir: "./e2e",
@@ -22,8 +23,8 @@ export default {
   },
   projects: [
     {
-      name: "webkit",
-      use: { browserName: "webkit" }
+      name: browserName,
+      use: { browserName }
     }
   ]
 };

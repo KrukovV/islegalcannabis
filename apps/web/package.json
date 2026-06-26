@@ -21,6 +21,8 @@
     "test": "vitest run",
     "status:engine:audit": "npm exec -- tsx scripts/status-engine-audit-v3.ts",
     "popup:profile:audit": "npm exec -- tsx scripts/popup-profile-audit.ts",
+    "popup:visual:audit": "npm exec -- tsx scripts/popup-visual-audit.ts",
+    "popup:visual:audit:full": "npm exec -- tsx scripts/popup-visual-audit-full.ts",
     "ui:e2e": "npx -y playwright test e2e/favicon.spec.ts e2e/map-render.spec.ts e2e/new-map.geo-perf.spec.ts e2e/new-map.geo.spec.ts e2e/new-map.popup.spec.ts e2e/new-map.preload.spec.ts e2e/mobile-cold-start.spec.ts e2e/us-state-route.spec.ts",
     "pw:ui": "npx -y playwright test --ui",
     "pw:headed": "npx -y playwright test --headed",

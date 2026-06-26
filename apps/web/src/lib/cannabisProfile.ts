@@ -55,7 +55,9 @@ export type CannabisProfileAiContext = CannabisProfileCard & {
   source: string;
 };
 
-const PROFILE_CARD_DEDUPE_ORDER: Array<keyof CannabisProfileCard> = [
+type CannabisProfileCardSectionId = Exclude<keyof CannabisProfileCard, "sourceUrl" | "sourceTitle">;
+
+const PROFILE_CARD_DEDUPE_ORDER: CannabisProfileCardSectionId[] = [
   "localNames",
   "slang",
   "cannabisFoods",
@@ -98,6 +100,40 @@ type KnowledgePayload = {
 type LocalNamesPayload = {
   entries: CannabisProfileLocalName[];
 };
+
+type ProfileState = {
+  profiles: CannabisProfile[];
+  dictionaryEntries: CannabisProfileLocalName[];
+  profilesByGeo: Map<string, CannabisProfile>;
+  knowledgeMtimeMs: number | null;
+  dictionaryMtimeMs: number | null;
+};
+
+type NodeFsLike = {
+  readFileSync: (_filePath: string, _encoding: string) => string;
+  statSync: (_filePath: string) => { mtimeMs: number };
+};
+
+let nodeFsCache: NodeFsLike | null | undefined;
+
+function getNodeFs(): NodeFsLike | null {
+  if (typeof window !== "undefined") return null;
+  if (nodeFsCache !== undefined) return nodeFsCache;
+  try {
+    const runtimeRequire = Function("return require")() as (_id: string) => NodeFsLike;
+    nodeFsCache = runtimeRequire("node:fs");
+  } catch {
+    nodeFsCache = null;
+  }
+  return nodeFsCache;
+}
+
+function getRepoDataPath(relativePath: string) {
+  return `${process.cwd()}/${relativePath}`;
+}
+
+const KNOWLEDGE_DB_PATH = getRepoDataPath("data/cannabis_profiles/knowledge_db.json");
+const LOCAL_NAMES_DICTIONARY_PATH = getRepoDataPath("data/cannabis_profiles/local_names.dictionary.json");
 
 function isDedicatedCannabisArticle(title: string | null | undefined, url: string | null | undefined) {
   return /^Cannabis in\b/i.test(String(title || "").trim()) || /\/wiki\/Cannabis_in_/i.test(String(url || "").trim());
@@ -169,10 +205,62 @@ function profileFromKnowledgeRecord(record: KnowledgeRecord): CannabisProfile {
   };
 }
 
-const profiles = ((knowledgeDb as KnowledgePayload).entries || []).map(profileFromKnowledgeRecord) ||
-  ((knowledgeDb as unknown as ProfilesPayload).profiles || []);
-const dictionaryEntries = (localNamesDictionary as LocalNamesPayload).entries || [];
-const profilesByGeo = new Map(profiles.map((profile) => [profile.geo.toUpperCase(), profile] as const));
+function buildProfileState(
+  knowledgePayload: KnowledgePayload | ProfilesPayload,
+  dictionaryPayload: LocalNamesPayload,
+  meta: Pick<ProfileState, "knowledgeMtimeMs" | "dictionaryMtimeMs">
+): ProfileState {
+  const profiles = ((knowledgePayload as KnowledgePayload).entries || []).map(profileFromKnowledgeRecord) ||
+    ((knowledgePayload as ProfilesPayload).profiles || []);
+  const dictionaryEntries = (dictionaryPayload.entries || []).slice();
+  return {
+    profiles,
+    dictionaryEntries,
+    profilesByGeo: new Map(profiles.map((profile) => [profile.geo.toUpperCase(), profile] as const)),
+    knowledgeMtimeMs: meta.knowledgeMtimeMs,
+    dictionaryMtimeMs: meta.dictionaryMtimeMs
+  };
+}
+
+function readJsonFile<T>(fs: NodeFsLike, filePath: string, fallback: T) {
+  try {
+    return JSON.parse(fs.readFileSync(filePath, "utf8")) as T;
+  } catch {
+    return fallback;
+  }
+}
+
+const staticProfileState = buildProfileState(
+  knowledgeDb as KnowledgePayload | ProfilesPayload,
+  localNamesDictionary as LocalNamesPayload,
+  { knowledgeMtimeMs: null, dictionaryMtimeMs: null }
+);
+let runtimeProfileStateCache: ProfileState | null = null;
+
+function getProfileState() {
+  if (process.env.NODE_ENV === "production") return staticProfileState;
+  try {
+    const fs = getNodeFs();
+    if (!fs) return staticProfileState;
+    const knowledgeMtimeMs = fs.statSync(KNOWLEDGE_DB_PATH).mtimeMs;
+    const dictionaryMtimeMs = fs.statSync(LOCAL_NAMES_DICTIONARY_PATH).mtimeMs;
+    if (
+      runtimeProfileStateCache &&
+      runtimeProfileStateCache.knowledgeMtimeMs === knowledgeMtimeMs &&
+      runtimeProfileStateCache.dictionaryMtimeMs === dictionaryMtimeMs
+    ) {
+      return runtimeProfileStateCache;
+    }
+    runtimeProfileStateCache = buildProfileState(
+      readJsonFile(fs, KNOWLEDGE_DB_PATH, knowledgeDb as KnowledgePayload | ProfilesPayload),
+      readJsonFile(fs, LOCAL_NAMES_DICTIONARY_PATH, localNamesDictionary as LocalNamesPayload),
+      { knowledgeMtimeMs, dictionaryMtimeMs }
+    );
+    return runtimeProfileStateCache;
+  } catch {
+    return staticProfileState;
+  }
+}
 
 function normalizeGeo(geo: string | null | undefined) {
   return String(geo || "").trim().toUpperCase();
@@ -204,16 +292,17 @@ function isEmptyCard(card: CannabisProfileCard) {
 }
 
 export function getCannabisProfileForGeo(geo: string | null | undefined) {
-  return profilesByGeo.get(normalizeGeo(geo)) || null;
+  return getProfileState().profilesByGeo.get(normalizeGeo(geo)) || null;
 }
 
 export function getLocalNamesDictionary() {
-  return dictionaryEntries.slice();
+  return getProfileState().dictionaryEntries.slice();
 }
 
 export function buildCannabisProfileCard(
   geo: string | null | undefined,
-  itemLimit?: number
+  itemLimit?: number,
+  _seedNotes?: string | null
 ): CannabisProfileCard | null {
   const profile = getCannabisProfileForGeo(geo);
   if (!profile) return null;
