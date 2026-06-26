@@ -128,6 +128,14 @@ async function getDockState(page) {
   });
 }
 
+async function getHoverState(page) {
+  return page.evaluate(() => ({
+    hoveredId: window.__NEW_MAP_DEBUG__?.hoveredId ?? null,
+    popupVisible: Boolean(document.querySelector('[data-testid="new-map-country-popup"]')),
+    cursor: getComputedStyle(document.querySelector(".maplibregl-canvas") || document.body).cursor
+  }));
+}
+
 function distanceDegrees(state) {
   if (!state || typeof state.lng !== "number" || typeof state.lat !== "number") return null;
   const lngDelta = Math.abs(state.lng - longitude);
@@ -173,6 +181,22 @@ async function countRenderedCountries(page) {
       return -1;
     }
   });
+}
+
+async function waitForMapCenter(page, targetLng, targetLat, tolerance = 0.25, timeout = 20000) {
+  await page.waitForFunction(
+    ({ lng, lat, allowedDelta }) => {
+      const map = window.__NEW_MAP_DEBUG__?.map;
+      const center = map?.getCenter?.();
+      return Boolean(
+        center &&
+        Math.abs(center.lng - lng) < allowedDelta &&
+        Math.abs(center.lat - lat) < allowedDelta
+      );
+    },
+    { lng: targetLng, lat: targetLat, allowedDelta: tolerance },
+    { timeout }
+  );
 }
 
 async function measureLabels(page, pattern, minLabels, timeout = 15000, settleMs = 3500) {
@@ -222,6 +246,28 @@ async function findCountryFeaturePoint(page, iso) {
     }
     return null;
   }, iso);
+}
+
+async function hoverCountry(page, iso, attempts = 12) {
+  for (let attempt = 0; attempt < attempts; attempt += 1) {
+    const featurePoint = await findCountryFeaturePoint(page, iso);
+    const hoverPoint = await page.evaluate((point) => {
+      const canvas = document.querySelector(".maplibregl-canvas");
+      if (!point || !(canvas instanceof HTMLElement)) return null;
+      const rect = canvas.getBoundingClientRect();
+      return { x: rect.left + point.x, y: rect.top + point.y };
+    }, featurePoint);
+    if (hoverPoint) {
+      await page.mouse.move(hoverPoint.x, hoverPoint.y);
+      await page.waitForTimeout(250);
+      const hoverState = await getHoverState(page);
+      if (hoverState.hoveredId === iso && hoverState.cursor === "pointer") {
+        return hoverState;
+      }
+    }
+    await page.waitForTimeout(250);
+  }
+  return getHoverState(page);
 }
 
 async function run() {
@@ -336,11 +382,7 @@ async function run() {
       return Math.abs(parsedMarker[0] - 14.4378) < 0.0001 && Math.abs(parsedMarker[1] - 50.0755) < 0.0001;
     }, 20000);
     mark("gps_marker_ms");
-    await waitFor(page, () => {
-      const map = window.__NEW_MAP_DEBUG__?.map;
-      const center = map?.getCenter?.();
-      return Boolean(center && Math.abs(center.lng - 14.4378) < 0.25 && Math.abs(center.lat - 50.0755) < 0.25);
-    }, 20000);
+    await waitForMapCenter(page, longitude, latitude);
     mark("gps_center_ms");
     marks.after_gps = await getMapState(page);
     marks.after_gps_ui = await getDockState(page);
@@ -354,11 +396,7 @@ async function run() {
     marks.after_manual_pan = await getMapState(page);
     await gpsButton.click({ timeout: 10000 });
     mark("gps_reclick_ms");
-    await waitFor(page, () => {
-      const map = window.__NEW_MAP_DEBUG__?.map;
-      const center = map?.getCenter?.();
-      return Boolean(center && Math.abs(center.lng - 14.4378) < 0.25 && Math.abs(center.lat - 50.0755) < 0.25);
-    }, 20000);
+    await waitForMapCenter(page, longitude, latitude);
     mark("gps_recenter_ms");
     marks.after_recenter = await getMapState(page);
     marks.after_recenter_ui = await getDockState(page);
@@ -368,6 +406,7 @@ async function run() {
     mark("reload_domcontentloaded_ms");
     await waitFor(page, () => document.querySelector('[data-testid="new-map-surface"]')?.getAttribute("data-map-ready") === "1");
     await waitFor(page, () => document.querySelector('[data-user-marker="1"]')?.getAttribute("data-user-marker-position") === "14.4378,50.0755");
+    await waitForMapCenter(page, longitude, latitude);
     mark("persisted_marker_ms");
     marks.after_reload = await getMapState(page);
 
@@ -375,22 +414,11 @@ async function run() {
       window.__NEW_MAP_DEBUG__?.map?.jumpTo({ center: [2.3522, 46.8], zoom: 3.4 });
     });
     await page.waitForTimeout(350);
-    const featurePoint = await findCountryFeaturePoint(page, "FR");
-    const hoverPoint = await page.evaluate((point) => {
-      const canvas = document.querySelector(".maplibregl-canvas");
-      if (!point || !(canvas instanceof HTMLElement)) return null;
-      const rect = canvas.getBoundingClientRect();
-      return { x: rect.left + point.x, y: rect.top + point.y };
-    }, featurePoint);
-    if (hoverPoint) {
-      await page.mouse.move(hoverPoint.x, hoverPoint.y);
-      await page.waitForTimeout(350);
-    }
-    marks.hover = await page.evaluate(() => ({
-      hoveredId: window.__NEW_MAP_DEBUG__?.hoveredId ?? null,
-      popupVisible: Boolean(document.querySelector('[data-testid="new-map-country-popup"]')),
-      cursor: getComputedStyle(document.querySelector(".maplibregl-canvas") || document.body).cursor
-    }));
+    await waitFor(page, () => {
+      const map = window.__NEW_MAP_DEBUG__?.map;
+      return Boolean(map && map.queryRenderedFeatures(undefined, { layers: ["legal-fill"] }).length > 0);
+    }, 10000);
+    marks.hover = await hoverCountry(page, "FR");
     marks.hover_screenshot = await screenshot(page, "hover");
 
     await page.evaluate(() => {

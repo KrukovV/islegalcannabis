@@ -162,6 +162,9 @@ function main() {
     fs.writeFileSync(file, next);
     return;
   }
+  if (process.stdin.isTTY) {
+    return;
+  }
   let input = "";
   process.stdin.setEncoding("utf8");
   process.stdin.on("data", (chunk) => {

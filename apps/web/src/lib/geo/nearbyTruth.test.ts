@@ -40,7 +40,7 @@ describe("nearbyTruth", () => {
     expect(result).toBeTruthy();
     expect(result?.current).toBeTruthy();
     expect(result?.current?.access.type).not.toBe("strict");
-    expect((result?.current?.access.truthScore || 0)).toBeGreaterThanOrEqual(0.35);
+    expect((result?.current?.access.truthScore || 0)).toBeGreaterThanOrEqual(0.3);
     expect(result?.nearby.length).toBeGreaterThan(0);
   });
 

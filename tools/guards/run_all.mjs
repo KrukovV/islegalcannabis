@@ -11,6 +11,7 @@ const entries = fs
       name !== "run_all.mjs" &&
       name !== "stdout_contract.mjs" &&
       name !== "no_bloat_markers.mjs" &&
+      name !== "compact_ci_summary.mjs" &&
       name !== "final_response_only.mjs" &&
       name !== "no_double_checkpoint.mjs" &&
       name !== "next_line.mjs" &&
