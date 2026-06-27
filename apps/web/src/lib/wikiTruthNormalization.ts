@@ -25,7 +25,7 @@ export type WikiTruthUniverseItem = {
 };
 
 export type WikiTruthClaimItem = {
-  wiki_row_url?: string;
+  wiki_row_url?: string | null;
   country?: string;
   name?: string;
   geo_name?: string;
