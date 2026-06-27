@@ -39,6 +39,7 @@ type AuditRow = {
   raw_urls: string[];
   repeated_text: string[];
   garbage_text: string[];
+  unfinished_text: string[];
   source_errors: string[];
   empty_sections: string[];
   template_sections: string[];
@@ -134,6 +135,26 @@ function collectGarbageText(sections: Record<(typeof PROFILE_SECTION_IDS)[number
   return Array.from(matches).sort();
 }
 
+function looksLikeUnfinishedText(value: string) {
+  const text = normalizeText(value);
+  if (!text) return false;
+  if (/\bv\.$/i.test(text)) return true;
+  if (/\.{3}$/.test(text)) return true;
+  return false;
+}
+
+function collectUnfinishedText(sections: Record<(typeof PROFILE_SECTION_IDS)[number], string[]>) {
+  const matches = new Set<string>();
+  for (const items of Object.values(sections)) {
+    for (const item of items) {
+      const text = normalizeText(item);
+      if (!text) continue;
+      if (looksLikeUnfinishedText(text)) matches.add(text);
+    }
+  }
+  return Array.from(matches).sort();
+}
+
 function readJson<T>(filePath: string): T {
   return JSON.parse(readFileSync(filePath, "utf8")) as T;
 }
@@ -171,6 +192,7 @@ function buildRows() {
     const repeatedText = collectRepeatedText(sectionsById);
     const rawUrls = collectRawUrls(sectionsById);
     const garbageText = collectGarbageText(sectionsById);
+    const unfinishedText = collectUnfinishedText(sectionsById);
     const knowledgeSourceType = normalizeText(String(knowledge?.sourceType || ""));
     const liveKnowledgePage =
       knowledgeSourceType === "missing_wikipedia_article" ? "" : normalizeText(String(knowledge?.wikiUrl || ""));
@@ -231,6 +253,7 @@ function buildRows() {
       rawUrls.length === 0 &&
       repeatedText.length === 0 &&
       garbageText.length === 0 &&
+      unfinishedText.length === 0 &&
       templateSections.length === 0 &&
       sourceErrors.length === 0 &&
       !statusMismatch &&
@@ -255,6 +278,7 @@ function buildRows() {
       raw_urls: rawUrls,
       repeated_text: repeatedText,
       garbage_text: garbageText,
+      unfinished_text: unfinishedText,
       source_errors: sourceErrors,
       empty_sections: emptySections.map(String),
       template_sections: templateSections.map(String),
@@ -286,6 +310,7 @@ function toCsv(rows: AuditRow[]) {
     "raw_urls",
     "repeated_text",
     "garbage_text",
+    "unfinished_text",
     "source_errors",
     "empty_sections",
     "template_sections",
@@ -309,6 +334,7 @@ function toCsv(rows: AuditRow[]) {
       row.raw_urls.join("|"),
       row.repeated_text.join("|"),
       row.garbage_text.join("|"),
+      row.unfinished_text.join("|"),
       row.source_errors.join("|"),
       row.empty_sections.join("|"),
       row.template_sections.join("|"),
@@ -335,6 +361,7 @@ async function main() {
     template_sections_count: rows.reduce((count, row) => count + row.template_sections.length, 0),
     repeated_text_count: rows.reduce((count, row) => count + row.repeated_text.length, 0),
     garbage_text_count: rows.reduce((count, row) => count + row.garbage_text.length, 0),
+    unfinished_text_count: rows.reduce((count, row) => count + row.unfinished_text.length, 0),
     raw_url_count: rows.reduce((count, row) => count + row.raw_urls.length, 0),
     source_errors_count: rows.reduce((count, row) => count + row.source_errors.length, 0),
     status_mismatch_count: statusMismatchCount,
@@ -357,6 +384,7 @@ async function main() {
   console.warn(`POPUP_PROFILE_RAW_URLS=${summary.raw_url_count}`);
   console.warn(`POPUP_PROFILE_REPEATED_TEXT=${summary.repeated_text_count}`);
   console.warn(`POPUP_PROFILE_GARBAGE_TEXT=${summary.garbage_text_count}`);
+  console.warn(`POPUP_PROFILE_UNFINISHED_TEXT=${summary.unfinished_text_count}`);
   console.warn(`POPUP_PROFILE_SOURCE_ERRORS=${summary.source_errors_count}`);
   console.warn(`POPUP_PROFILE_STATUS_MISMATCHES=${summary.status_mismatch_count}`);
   console.warn(`POPUP_PROFILE_COLOR_MISMATCHES=${summary.color_mismatch_count}`);

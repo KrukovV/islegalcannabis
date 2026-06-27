@@ -37,6 +37,7 @@ export function sanitizeEvidenceQuoteText(input: string) {
   return text
     .replace(/^(?:[\],;:.\s-]|\[)+/, "")
     .replace(/\s+([,.;:!?])/g, "$1")
-    .replace(/([.?!]){2,}/g, "$1")
+    .replace(/\.{4,}/g, "...")
+    .replace(/([?!]){2,}/g, "$1")
     .trim();
 }

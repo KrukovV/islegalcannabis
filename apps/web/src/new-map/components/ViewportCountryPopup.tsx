@@ -244,6 +244,8 @@ export default function ViewportCountryPopup({
         </ul>
       </section>
       {jurisdictionSection.length > 0 ? renderProfileSection("Jurisdiction", jurisdictionSection) : null}
+      {renderList(panel?.labels.hardRestrictions || "Hard restrictions", panel?.critical || entry.panel.critical)}
+      {renderList(panel?.labels.moreContext || "More context", panel?.info || entry.panel.info)}
       {renderList(panel?.labels.whyThisColor || "Why this color", panel?.why || entry.panel.why)}
       {renderProfileSection("History", historySectionItems)}
       {renderProfileSection("Culture", cultureSectionItems)}

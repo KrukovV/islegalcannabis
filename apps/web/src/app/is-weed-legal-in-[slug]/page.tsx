@@ -8,6 +8,7 @@ import styles from "../is-cannabis-legal-in-[slug]/seo.module.css";
 import { SEO_MAP } from "@/lib/seo/seoMap.generated";
 import { getSeoEntryBySlug, parseJurisdictionKey } from "@/lib/seo/seoMap";
 import { buildFaqJsonLd, buildWeedSeo, buildBreadcrumbs } from "@/lib/seo/seoContent";
+import { buildCannabisProfileCard, getCannabisProfileCardSections } from "@/lib/cannabisProfile";
 
 export const dynamic = "force-static";
 
@@ -59,6 +60,7 @@ export default function WeedSeoPage({
   if (!profile) notFound();
 
   const seo = buildWeedSeo(profile);
+  const cannabisProfileSections = getCannabisProfileCardSections(buildCannabisProfileCard(entry.jurisdictionKey));
   const faqJsonLd = buildFaqJsonLd({
     title: `Is weed legal in ${entry.displayName}?`,
     status: seo.status.label,
@@ -117,6 +119,21 @@ export default function WeedSeoPage({
               ))}
             </ul>
           </div>
+          {cannabisProfileSections.length > 0 ? (
+            <div className={styles.section} data-testid="cannabis-profile">
+              <h2>Cannabis profile</h2>
+              {cannabisProfileSections.map((section) => (
+                <div key={section.id}>
+                  <h3>{section.heading}</h3>
+                  <ul className={styles.bullets}>
+                    {section.items.map((item) => (
+                      <li key={`${section.id}-${item}`}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          ) : null}
           <div className={styles.section}>
             <h2>Sources</h2>
             <p className={styles.updated}>

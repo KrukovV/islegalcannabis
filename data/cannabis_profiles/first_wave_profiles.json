@@ -1,8 +1,11 @@
 {
-  "generated_at": "2026-06-26T16:31:44.606Z",
+  "generated_at": "2026-06-27T08:15:32.602Z",
   "source_report": "Reports/knowledge-harvester/first_wave_validation.json",
   "scope": [
-    "US-WA"
+    "US-AK",
+    "US-CA",
+    "US-MT",
+    "US"
   ],
   "profiles": [
     {
@@ -9173,10 +9176,10 @@
           "The Agricultural Act of 2014 allows for universities and state-level departments of agriculture to cultivate cannabis for research into its industrial potential.",
           "In December 2018, hemp was permitted to be grown in the U.S. under federal law after the Hemp Farming Act was included in the passed 2018 Farm Bill.",
           "Thirty-eight states, four U.S. territories, and D.C. have legalized medical use of the drug.",
-          "Oakland Cannabis Buyers' Cooperative (2001) and Gonzales v.",
-          "Raich (2005) that the federal government has a right to regulate and criminalize cannabis, whether medical or recreational.",
           "The ability of states to implement cannabis legalization policies was weakened after U.S.",
-          "Attorney General Jeff Sessions rescinded the Obama administration's Cole Memorandum on January 4, 2018, and issued a new memo instructing U.S. attorneys to enforce federal law related to marijuana."
+          "Attorney General Jeff Sessions rescinded the Obama administration's Cole Memorandum on January 4, 2018, and issued a new memo instructing U.S. attorneys to enforce federal law related to marijuana.",
+          "The Cole memo, issued by former Deputy Attorney General James Cole in 2013, urged federal prosecutors to refrain from targeting state-legal marijuana operations.",
+          "Regarding the medical use of cannabis, the Rohrabacher–Farr amendment still remains in effect to protect state-legal medical cannabis activities from enforcement of federal law."
         ],
         "local_names": [],
         "products": [
@@ -9186,7 +9189,12 @@
           "The federal government of the U.S. continues to argue that smoked cannabis has no recognized medical purpose (pointing to a definition of \"medical purpose\" published by the DEA, not the Food and Drug Administration, the National Institutes of Health, the Centers for Disease Control, or the office of the U.S."
         ],
         "traditional_use": [],
-        "cannabis_foods": [],
+        "cannabis_foods": [
+          "Food and Drug Administration, nor are they legally registered with the federal government to sell controlled substances.",
+          "Food and Drug Administration (FDA) has not officially approved marijuana as a medicine.",
+          "The Food and Drug Administration has approved two synthetic cannabis drugs for treating cancer and other medical issues.",
+          "The federal government of the U.S. continues to argue that smoked cannabis has no recognized medical purpose (pointing to a definition of \"medical purpose\" published by the DEA, not the Food and Drug Administration, the National Institutes of Health, the Centers for Disease Control, or the office of the U.S."
+        ],
         "slang": [],
         "cultivation": [],
         "market": [
@@ -9194,14 +9202,14 @@
           "Virgin Islands, and the District of Columbia have legalized recreational use of cannabis, with all but Virginia and D.C. having legalized its commercial sale."
         ],
         "enforcement_notes": [
-          "Supreme Court has ruled in United States v.",
+          "Supreme Court has ruled in United States v. Oakland Cannabis Buyers' Cooperative (2001) and Gonzales v. Raich (2005) that the federal government has a right to regulate and criminalize cannabis, whether medical or recreational.",
           "It can lead to severe dehydration, seizures, kidney failure, and cardiac arrest, with at least eight reported deaths in the United States.",
           "Despite this federal prohibition, some state and local governments established laws attempting to decriminalize cannabis, which has reduced the number of \"simple possession\" offenders sent to jail, since federal law enforcement rarely targets individuals directly for such relatively minor offenses.",
           "Other state and local governments ask law enforcement agencies to limit enforcement of drug laws with respect to cannabis.",
           "Drug Enforcement Administration and the Wo/Men's Alliance for Medical Marijuana (WAMM) provided an example confirming the administration policy as communicated by Attorney General Eric Holder, as WAMM reached an agreement that allowed them to re-open after being shut down by the federal government in 2002.",
           "On August 29, 2013, the Justice Department adopted a new policy (known as the Cole memo) regarding the enforcement of federal law in states that have legalized non-medical cannabis.",
           "The policy specified that commercial distribution of cannabis would be generally tolerated, except in certain circumstances, such as if violence or firearms are involved, the proceeds go to gangs and cartels, or if the cannabis is distributed to states where it is illegal.",
-          "In June 2021, Supreme Court justice Clarence Thomas stated that \"A prohibition on interstate use or cultivation of marijuana may no longer be necessary or proper to support the federal government's piecemeal approach,\" criticizing \"[t]he federal government's. half-in, half-out regime that simultaneously tolerates and forbids local use of marijuana.\" In 2022, President Joe Biden released a budget proposal that did.",
+          "In June 2021, Supreme Court justice Clarence Thomas stated that \"A prohibition on interstate use or cultivation of marijuana may no longer be necessary or proper to support the federal government's piecemeal approach,\" criticizing \"[t]he federal government's. half-in, half-out regime that simultaneously tolerates and forbids local use of marijuana.\" In 2022, President Joe Biden released a budget proposal that did not extend protections for states violating federal laws around marijuana.",
           "While marijuana has been decriminalized throughout many states in the US, it remains a Schedule I drug as of October 2024.",
           "However, in 1997, the vast majority of inmates in state prisons for marijuana-related convictions were convicted of offenses other than simple possession."
         ],
@@ -9224,15 +9232,15 @@
       "sections": {
         "history": [
           "Cannabis in Alaska is legal for recreational use since 2014.",
-          "It was first legalized by the court ruling Ravin v.",
-          "State in 1975, but later recriminalized by Measure 2 in 1990.",
           "Ballot measures in 2000 and 2004 attempted (but failed) to legalize recreational use, until finally Measure 2 in 2014 passed with 53.2% of the vote.",
           "Medical use was legalized by way of Measure 8 in 1998.",
           "On May 16, 1975, Alaska became the second state in the U.S. to decriminalize cannabis.",
           "The law imposed a $100 fine ( ) for persons possessing cannabis, and became law without the governor's signature.",
           "It passed just a week before the Ravin ruling.",
-          "State was a 1975 decision by the Alaska Supreme Court that held the Alaska Constitution's right to privacy protects an adult's ability to use and possess a small amount of marijuana in the home for personal use.",
-          "In 1982, following the Ravin decision, the state legislature decriminalized possession of up to of cannabis in the home, or outside the home."
+          "Ravin v. State was a 1975 decision by the Alaska Supreme Court that held the Alaska Constitution's right to privacy protects an adult's ability to use and possess a small amount of marijuana in the home for personal use.",
+          "In 1982, following the Ravin decision, the state legislature decriminalized possession of up to of cannabis in the home, or outside the home.",
+          "In 1990, Measure 2 to recriminalize cannabis passed with 54.3% of the vote.",
+          "In 1998, Measure 8 to legalize the medical use of cannabis passed with 58.7% of the vote."
         ],
         "local_names": [],
         "products": [],
@@ -9240,13 +9248,14 @@
         "cannabis_foods": [],
         "slang": [],
         "cultivation": [
-          "The measure allowed patients with a doctor's recommendation to possess up to of cannabis or grow six plants.",
           "The measure allows adults 21 and over to possess up to of cannabis and cultivate six plants, effective February 24, 2015."
         ],
         "market": [],
         "enforcement_notes": [
+          "It was first legalized by the court ruling Ravin v. State in 1975, but later recriminalized by Measure 2 in 1990.",
           "The Alaska Supreme Court thereby became the first and only U.S. state or federal court to announce a constitutional right to privacy that protects some level of marijuana use and possession.",
           "The measure imposed a penalty of up to 90 days in jail and a fine of up to $1000 for simple possession.",
+          "The measure allowed patients with a doctor's recommendation to possess up to of cannabis or grow six plants.",
           "Possession of was made a misdemeanor punishable by up to a year in jail.",
           "Possession of over was made a felony."
         ],
@@ -9420,9 +9429,9 @@
           "As a result of recreational legalization, local governments (city and county) may not prohibit adults from growing, using, or transporting marijuana for personal use.",
           "Commercial activities can be regulated or prohibited by local governments although deliveries cannot be prohibited.",
           "Following recreational legalization, existing growers and suppliers of medical cannabis were required to register, comply with regulations, and apply for permits.",
-          "Raids and confiscation by law enforcement of illegal retail and grow operations have continued and in some cases stepped up after legalization.",
           "Their responsibilities were merged under the Department of Cannabis Control in 2021.",
-          "However, since January 2019, local governments may not prohibit deliveries by state-licensed companies."
+          "However, since January 2019, local governments may not prohibit deliveries by state-licensed companies.",
+          "Distributors are required to act as intermediaries between cannabis producers and retailers."
         ],
         "local_names": [
           "budtenders",
@@ -9437,8 +9446,15 @@
         "traditional_use": [
           "Under the permits, they can let anyone 21 and older buy and smoke weed at the festival."
         ],
-        "cannabis_foods": [],
-        "slang": [],
+        "cannabis_foods": [
+          "Other products sold illegally that have not been tested include edible products and vaping pens."
+        ],
+        "slang": [
+          "the Compassionate Use Act",
+          "budtenders",
+          "Grass Lands",
+          "sinsemilla"
+        ],
         "cultivation": [
           "California's main regulatory agencies were initially the Bureau of Cannabis Control (BCC), Department of Food and Agriculture, and Department of Public Health.",
           "Companies must obtain a license from a local agency in each jurisdiction to cultivate, test, or sell cannabis.",
@@ -9454,26 +9470,26 @@
         "market": [
           "Over half of the nonprofit dispensaries legally providing medical marijuana closed.",
           "Local agencies have been slow to approve retail stores selling cannabis for recreational purposes with most cities and counties banning retail with a wait and see approach.",
+          "The export of marijuana to other states remains illegal since the U.S.",
           "Many people do not have nearby retail stores selling cannabis and continue to buy from unlicensed sellers.",
           "Many communities have adopted zoning rules that prohibit cannabis retail stores.",
           "California prohibits the export of marijuana to other states, as the U.S.",
           "Calaveras County registered more than seven hundred cultivators after county voters approved a tax in 2016.",
           "Stores selling cannabis for recreational purposes have been banned from 80% of the 482 municipalities in California.",
           "In September 2019, 873 cannabis sellers had been licensed by the state while the United Cannabis Business Assn. conducted an audit that estimated there are approximately 2,835 unlicensed dispensaries and delivery services based on advertising.",
-          "Legal retailers say the illegal market is larger than the legal market due to the high costs they pay in start-up permit costs and on-going taxes.",
-          "Prior to 2018, about 2,000 nonprofit dispensaries legally provided medical marijuana."
+          "Legal retailers say the illegal market is larger than the legal market due to the high costs they pay in start-up permit costs and on-going taxes."
         ],
         "enforcement_notes": [
           "Drug Enforcement Administration considers it a Schedule I drug.",
+          "Raids and confiscation by law enforcement of illegal retail and grow operations have continued and in some cases stepped up after legalization.",
           "They are concerned about the perceived lack of sufficient enforcement against illegal activities.",
           "An appeals court ruled that inmates who possess small amounts of marijuana in prison are not guilty of a felony crime.",
           "They complain about the lack of effective enforcement against unlicensed shops.",
-          "The city board of supervisors additionally passed a resolution in August 1992 urging the police commission and district attorney to \"make lowest priority the arrest or prosecution of those involved in the possession or cultivation of [cannabis] for medicinal purposes\" and to \"allow a letter from a treating physician to be used as prima facia evidence that marijuana can alleviate the pain and suffering of that pati.",
           "Vague wording became a major criticism of Proposition 215, though the law has since been clarified through state Supreme Court rulings and the passage of subsequent laws.",
-          "In January 2010 the California Supreme Court ruled in People v.",
+          "In January 2010 the California Supreme Court ruled in People v. Kelly that SB 420 did not limit the quantity of cannabis that a patient can possess.",
           "The Supreme Court of California has ruled there are no specified limits as to what a patient may possess in their private residence if the cannabis is strictly for the patient's own use.",
           "Gutwillig argued that because of the law, 200,000 patients in the state had safe and affordable access to medical cannabis to relieve pain and treat medical conditions, without having to risk arrest or buy off the black market.",
-          "Although Proposition 215 legalized medical cannabis in California, at the federal level it remained a Schedule I prohibited drug."
+          "Proposition 64 is not meant in any way to affect, amend, or restrict the statutes provided for medical cannabis in California under Proposition 215. as access to banking services has been a problem due to the additional burdens mandated by the Financial Crimes Enforcement Network (FinCEN) on financial institutions to assure that any marijuana related business clients are in compliance with all state laws."
         ],
         "culture": [],
         "notes": []
@@ -10586,7 +10602,7 @@
           "In November 2016 Bill I-182 was passed, revising the 2004 law and allowing providers to service more than three patients.",
           "In May 2023, numerous further bills on cannabis legalization and other related purposes passed the Montana Legislature.",
           "The Governor of Montana is yet to either sign or veto the bill.",
-          "Cannabis was banned in Montana in 1929, following a Health Committee meeting which was described in the local paper as \"great fun\", during which representative Dr Fred Fulsher of Mineral County justified the ban due to marijuana's effects on Mexicans: \"When some beet field peon takes a few rares of this stuff. he thinks he has just been elected president of Mexico so he starts out to execute all his political enem.",
+          "Cannabis was banned in Montana in 1929, following a Health Committee meeting which was described in the local paper as \"great fun\", during which representative Dr Fred Fulsher of Mineral County justified the ban due to marijuana's effects on Mexicans: \"When some beet field peon takes a few rares of this stuff. he thinks he has just been elected president of Mexico so he starts out to execute all his political enemies.\"",
           "In 1985, the Kurth family of Fort Benton turned to growing cannabis to save their failing beef ranch.",
           "Their efforts were successful, and after reducing their debts they decided to scale back their cannabis business, but were then threatened by drug traffickers they had done business with."
         ],
@@ -10596,9 +10612,7 @@
         "cannabis_foods": [],
         "slang": [],
         "cultivation": [],
-        "market": [
-          "In the case of Montana Department of Revenue v."
-        ],
+        "market": [],
         "enforcement_notes": [],
         "culture": [],
         "notes": []

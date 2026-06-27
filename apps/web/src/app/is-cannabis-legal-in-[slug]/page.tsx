@@ -9,7 +9,7 @@ import { SEO_MAP } from "@/lib/seo/seoMap.generated";
 import { getSeoEntryBySlug, parseJurisdictionKey } from "@/lib/seo/seoMap";
 import { buildFaqJsonLd, buildWeedSeo, buildBreadcrumbs } from "@/lib/seo/seoContent";
 import { buildExtrasCards } from "@/lib/extras";
-import { buildCannabisProfileCard } from "@/lib/cannabisProfile";
+import { buildCannabisProfileCard, getCannabisProfileCardSections } from "@/lib/cannabisProfile";
 
 export const dynamic = "force-static";
 
@@ -62,15 +62,7 @@ export default function SeoResultPage({
 
   const seo = buildWeedSeo(profile);
   const extrasCards = buildExtrasCards(profile, 3);
-  const cannabisProfile = buildCannabisProfileCard(country);
-  const cannabisProfileSections = [
-    { id: "history", heading: "History", items: cannabisProfile?.history || [] },
-    { id: "local-names", heading: "Local names", items: cannabisProfile?.localNames || [] },
-    { id: "products", heading: "Products", items: cannabisProfile?.products || [] },
-    { id: "traditional-use", heading: "Traditional use", items: cannabisProfile?.traditionalUse || [] },
-    { id: "culture", heading: "Culture", items: cannabisProfile?.culture || [] },
-    { id: "enforcement-reality", heading: "Enforcement reality", items: cannabisProfile?.enforcementReality || [] }
-  ].filter((section) => section.items.length > 0);
+  const cannabisProfileSections = getCannabisProfileCardSections(buildCannabisProfileCard(entry.jurisdictionKey));
   const faqJsonLd = buildFaqJsonLd({
     title: `Is weed legal in ${entry.displayName}?`,
     status: seo.status.label,
@@ -136,7 +128,7 @@ export default function SeoResultPage({
                 <div key={section.id}>
                   <h3>{section.heading}</h3>
                   <ul className={styles.bullets}>
-                    {section.items.slice(0, section.id === "local-names" ? 12 : 3).map((item) => (
+                    {section.items.map((item) => (
                       <li key={`${section.id}-${item}`}>{item}</li>
                     ))}
                   </ul>

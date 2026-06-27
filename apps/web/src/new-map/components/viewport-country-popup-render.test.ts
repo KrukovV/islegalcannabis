@@ -162,6 +162,24 @@ describe("ViewportCountryPopup render contract", () => {
     expect(html).toContain("Wikipedia: Cannabis in Albania");
   });
 
+  it("renders Antarctica status context even without a dedicated cannabis profile article", () => {
+    const entry = deriveCountryCardEntryFromCountryPageData(getCountryPageData("ata")!);
+    const html = renderToStaticMarkup(
+      createElement(ViewportCountryPopup, {
+        entry,
+        locale: "en",
+        anchor: { x: 100, y: 100 },
+        onClose: () => {}
+      })
+    );
+
+    expect(entry.cannabisProfile).toBeNull();
+    expect(html).toContain("Recreational use is banned.");
+    expect(html).toContain("Criminal penalties can include prison.");
+    expect(html).toContain("Access depends on local channels and conditions.");
+    expect(html).toContain("Cannabis remains prohibited and criminal penalties remain in force.");
+  });
+
   it("renders the canonical section source next to visible profile section headings", () => {
     const entry = deriveCountryCardEntryFromCountryPageData(getCountryPageData("aus")!);
     const html = renderToStaticMarkup(

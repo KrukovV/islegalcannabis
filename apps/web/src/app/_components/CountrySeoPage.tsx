@@ -3,6 +3,7 @@ import NewMapClientEntry from "@/app/new-map/NewMapClientEntry";
 import { getNewMapRuntimeIdentity } from "@/app/new-map/runtimeConfig";
 import { buildSeoCountryIndex, computeCountryHashes, stripCountryPageHashes, type CountryPageData } from "@/lib/countryPageStorage";
 import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntry";
+import { getCannabisProfileCardSections } from "@/lib/cannabisProfile";
 import { formatVisibleRuntimeStamp } from "@/lib/runtimeIdentity";
 import { buildCountryIntentSections } from "@/lib/seo/countryIntentContent";
 import { getLocalizedCountryName, getSeoText, type SeoLocale } from "@/lib/seo/i18n";
@@ -57,15 +58,7 @@ export default function CountrySeoPage({
   const intro = seo.intro(data);
   const card = deriveCountryCardEntryFromCountryPageData(data);
   const localizedPanel = localizePanel(card, data, locale);
-  const cannabisProfile = card.cannabisProfile;
-  const cannabisProfileSections = [
-    { id: "cannabis-profile-history", heading: "History", items: cannabisProfile?.history || [] },
-    { id: "cannabis-profile-local-names", heading: "Local Names", items: cannabisProfile?.localNames || [] },
-    { id: "cannabis-profile-products", heading: "Products", items: cannabisProfile?.products || [] },
-    { id: "cannabis-profile-traditional-use", heading: "Traditional Use", items: cannabisProfile?.traditionalUse || [] },
-    { id: "cannabis-profile-culture", heading: "Culture", items: cannabisProfile?.culture || [] },
-    { id: "cannabis-profile-enforcement", heading: "Enforcement Reality", items: cannabisProfile?.enforcementReality || [] }
-  ].filter((section) => section.items.length > 0);
+  const cannabisProfileSections = getCannabisProfileCardSections(card.cannabisProfile);
   const safeSeoCountryData = getSafeSeoCountryData(data);
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -280,10 +273,10 @@ export default function CountrySeoPage({
           <section id="cannabis-profile" className={styles.section}>
             <h2>Cannabis profile</h2>
             {cannabisProfileSections.map((section) => (
-              <div key={section.id} id={section.id}>
+              <div key={section.id} id={`cannabis-profile-${section.id}`}>
                 <h3 className={styles.subheading}>{section.heading}</h3>
                 <ul className={styles.factsList}>
-                  {section.items.slice(0, section.heading === "Local Names" ? 12 : 3).map((item) => (
+                  {section.items.map((item) => (
                     <li key={`${section.id}-${item}`}>{item}</li>
                   ))}
                 </ul>

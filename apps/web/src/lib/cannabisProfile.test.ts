@@ -1,6 +1,12 @@
 import { describe, expect, it } from "vitest";
 
-import { buildCannabisProfileAiContext, buildCannabisProfileCard, getCannabisProfileForGeo, getLocalNamesDictionary } from "./cannabisProfile";
+import {
+  buildCannabisProfileAiContext,
+  buildCannabisProfileCard,
+  getCannabisProfileCardSections,
+  getCannabisProfileForGeo,
+  getLocalNamesDictionary
+} from "./cannabisProfile";
 
 describe("cannabisProfile", () => {
   it("keeps required local names in the separate dictionary", () => {
@@ -85,5 +91,25 @@ describe("cannabisProfile", () => {
     }
 
     expect(Math.max(...counts.values())).toBe(1);
+  });
+
+  it("keeps Montana popup profile text complete after sanitizing runtime cards", () => {
+    const geos = ["US", "US-AK", "US-CA", "US-MT"];
+    const failures: string[] = [];
+    let montanaText = "";
+
+    for (const geo of geos) {
+      const card = buildCannabisProfileCard(geo, 20);
+      const flatItems = getCannabisProfileCardSections(card).flatMap((section) => section.items);
+      if (geo === "US-MT") montanaText = flatItems.join(" ");
+      for (const item of flatItems) {
+        if (/\bv\.$/i.test(item) || /\benem\.$/i.test(item) || /\.{3}$/.test(item)) {
+          failures.push(`${geo}:${item}`);
+        }
+      }
+    }
+
+    expect(montanaText).toMatch(/political enemies/i);
+    expect(failures).toEqual([]);
   });
 });

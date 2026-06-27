@@ -224,6 +224,28 @@ Small amounts of possession are punishable by six months to two years in prison.
   assert.ok(!profile.sections.history.some((sentence) => /six months to two years in prison|banned in Cuba/i.test(sentence)));
 });
 
+test("preserves legal case names and long quoted history lines without truncating them", () => {
+  const profile = extractKnowledgeFromText({
+    geo: "US-MT",
+    country: "Montana",
+    wikiTitle: "Cannabis in Montana",
+    wikiUrl: "https://en.wikipedia.org/wiki/Cannabis_in_Montana",
+    wikitext: `
+== Background ==
+=== Prohibition (1929) ===
+Cannabis was banned in Montana in 1929, following a Health Committee meeting which was described in the local paper as "great fun", during which representative Dr Fred Fulsher of Mineral County justified the ban due to marijuana's effects on Mexicans: "When some beet field peon takes a few rares of this stuff... he thinks he has just been elected president of Mexico so he starts out to execute all his political enemies."<ref>source</ref>
+=== Kurth Ranch case ===
+Following their prosecution on drug charges, the Kurths were informed that they also owed tax on their cannabis proceeds to the Montana Department of Revenue. In the case of ''Montana Department of Revenue v. Kurth Ranch'' (1994), the Supreme Court concluded that Montana's 1987 Dangerous Drug Tax Act was a punitive tax rather than normal revenue generation.
+`
+  });
+
+  const combined = Object.values(profile.sections).flat().join(" ");
+  assert.match(combined, /political enemies/i);
+  assert.match(combined, /Montana Department of Revenue v\. Kurth Ranch/i);
+  assert.ok(!profile.sections.history.some((sentence) => /\benem\.$/i.test(sentence)));
+  assert.ok(!/\bv\.$/i.test(combined));
+});
+
 test("legal status and reform headings do not leak JP legal boilerplate into products, market, or enforcement", () => {
   const profile = extractKnowledgeFromText({
     geo: "JP",

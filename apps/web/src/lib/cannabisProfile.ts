@@ -55,6 +55,12 @@ export type CannabisProfileAiContext = CannabisProfileCard & {
   source: string;
 };
 
+export type CannabisProfileCardSection = {
+  id: CannabisProfileCardSectionId;
+  heading: string;
+  items: string[];
+};
+
 type CannabisProfileCardSectionId = Exclude<keyof CannabisProfileCard, "sourceUrl" | "sourceTitle">;
 
 const PROFILE_CARD_DEDUPE_ORDER: CannabisProfileCardSectionId[] = [
@@ -69,6 +75,20 @@ const PROFILE_CARD_DEDUPE_ORDER: CannabisProfileCardSectionId[] = [
   "history",
   "culture",
   "notes"
+];
+
+const PROFILE_CARD_SECTION_LABELS: Array<{ id: CannabisProfileCardSectionId; heading: string }> = [
+  { id: "history", heading: "History" },
+  { id: "localNames", heading: "Local Names" },
+  { id: "culture", heading: "Culture" },
+  { id: "enforcementReality", heading: "Enforcement Reality" },
+  { id: "products", heading: "Products" },
+  { id: "traditionalUse", heading: "Traditional Use" },
+  { id: "notes", heading: "Notes" },
+  { id: "cannabisFoods", heading: "Cannabis Foods" },
+  { id: "slang", heading: "Slang" },
+  { id: "cultivation", heading: "Cultivation" },
+  { id: "market", heading: "Market" }
 ];
 
 type ProfilesPayload = {
@@ -304,6 +324,7 @@ export function buildCannabisProfileCard(
   itemLimit?: number,
   _seedNotes?: string | null
 ): CannabisProfileCard | null {
+  void _seedNotes;
   const profile = getCannabisProfileForGeo(geo);
   if (!profile) return null;
   if (profile.source_type === "missing_wikipedia_article" || profile.source_type === "wikipedia_related_article") {
@@ -328,6 +349,17 @@ export function buildCannabisProfileCard(
   };
   const dedupedCard = dedupeCardSections(card);
   return isEmptyCard(dedupedCard) ? null : dedupedCard;
+}
+
+export function getCannabisProfileCardSections(card: CannabisProfileCard | null | undefined): CannabisProfileCardSection[] {
+  if (!card) return [];
+  return PROFILE_CARD_SECTION_LABELS
+    .map(({ id, heading }) => ({
+      id,
+      heading,
+      items: Array.isArray(card[id]) ? [...card[id]] : []
+    }))
+    .filter((section) => section.items.length > 0);
 }
 
 export function buildCannabisProfileAiContext(geo: string | null | undefined): CannabisProfileAiContext | null {

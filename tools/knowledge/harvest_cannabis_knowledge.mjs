@@ -317,7 +317,15 @@ function cleanFact(value) {
   if (text.length < 18) return "";
   if (/^(see also|references|external links|sources|bibliography|further reading)$/i.test(text)) return "";
   if (/\[\[|\]\]|\{\{|\}\}|<ref|\|\d{2,4}x\d{2,4}px\b|Category:/i.test(text)) return "";
-  return text.length > 420 ? `${text.slice(0, 417).trim()}...` : text;
+  return truncateFact(text);
+}
+
+function truncateFact(text, maxLength = 560) {
+  if (text.length <= maxLength) return text;
+  const prefix = text.slice(0, maxLength - 3).trimEnd();
+  const lastWhitespace = prefix.lastIndexOf(" ");
+  const cutoff = lastWhitespace >= Math.max(120, maxLength - 96) ? lastWhitespace : prefix.length;
+  return `${prefix.slice(0, cutoff).trimEnd()}...`;
 }
 
 function cleanSectionItems(items, limit) {
@@ -352,10 +360,19 @@ function stripWikitext(value) {
 }
 
 function splitSentences(text) {
-  return normalizeWhitespace(text)
+  return protectSentenceSplitAbbreviations(normalizeWhitespace(text))
     .split(/(?<=[.!?])\s+(?=(?:["“']?[A-Z0-9]))/g)
+    .map(restoreSentenceSplitAbbreviations)
     .map(cleanFact)
     .filter(Boolean);
+}
+
+function protectSentenceSplitAbbreviations(text) {
+  return String(text || "").replace(/\bv\.(?=\s+[A-Z])/g, "__CASE_V_DOT__");
+}
+
+function restoreSentenceSplitAbbreviations(text) {
+  return String(text || "").replace(/__CASE_V_DOT__/g, "v.");
 }
 
 function isCannabisArticle(title) {

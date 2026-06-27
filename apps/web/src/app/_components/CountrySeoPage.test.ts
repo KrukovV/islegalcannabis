@@ -1,5 +1,28 @@
 import { describe, expect, it } from "vitest";
-import { getSafeSeoCountryData, sanitizeEvidenceQuoteText } from "./CountrySeoPage";
+import { renderToStaticMarkup } from "react-dom/server";
+import CountrySeoPage, { getSafeSeoCountryData, sanitizeEvidenceQuoteText } from "./CountrySeoPage";
+import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntry";
+import { computeCountryHashes, getCountryPageData, listCountryPageCodes, stripCountryPageHashes } from "@/lib/countryPageStorage";
+import { collectPopupComparableText } from "@/lib/popupComparableText";
+
+function decodeHtmlEntities(value: string) {
+  return value
+    .replace(/&quot;/g, "\"")
+    .replace(/&#x27;|&#39;/g, "'")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">");
+}
+
+function normalizeHtmlText(value: string) {
+  return decodeHtmlEntities(value)
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\u00a0/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
 
 describe("CountrySeoPage quote sanitizer", () => {
   it("strips wiki table style preamble from evidence quotes", () => {
@@ -21,6 +44,11 @@ describe("CountrySeoPage quote sanitizer", () => {
       ", Morocco|267x267px]] Cannabis in Morocco has been illegal since 1956. Further reading. * https://example.com Category:Politics of Morocco"
     );
     expect(sanitized).toBe("Cannabis in Morocco has been illegal since 1956.");
+  });
+
+  it("preserves visible ellipsis instead of collapsing it to a single period", () => {
+    const sanitized = sanitizeEvidenceQuoteText("A long quoted excerpt ends here...");
+    expect(sanitized).toBe("A long quoted excerpt ends here...");
   });
 
   it("sanitizes notes before passing seo country data to the client entry", () => {
@@ -65,5 +93,26 @@ describe("CountrySeoPage quote sanitizer", () => {
     });
     expect(safe.notes_raw).toBe("Cannabis is strictly illegal in Wyoming.");
     expect(safe.notes_normalized).toBe("Cannabis is strictly illegal in Wyoming.");
+  });
+
+  it("renders every popup cannabis-profile line in /c/[code] SSR for all geo pages", () => {
+    const failures: string[] = [];
+
+    for (const code of listCountryPageCodes()) {
+      const data = getCountryPageData(code);
+      expect(data, `country page ${code}`).toBeTruthy();
+      if (!data) continue;
+      const popupItems = collectPopupComparableText(deriveCountryCardEntryFromCountryPageData(data));
+      if (popupItems.length === 0) continue;
+      const safeData = {
+        ...data,
+        hashes: computeCountryHashes(stripCountryPageHashes(data))
+      };
+      const html = normalizeHtmlText(renderToStaticMarkup(CountrySeoPage({ data: safeData, locale: "en", query: null })));
+      const missing = popupItems.filter((item) => !html.includes(item));
+      if (missing.length > 0) failures.push(`${code}:${missing[0]}`);
+    }
+
+    expect(failures).toEqual([]);
   });
 });
