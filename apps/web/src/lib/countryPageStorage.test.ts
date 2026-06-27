@@ -216,13 +216,20 @@ describe("countryPageStorage", () => {
   });
 
   it("keeps root-summary jurisdictions out of popup profile sections when no Cannabis_in_* page exists", () => {
-    const gibraltar = getCountryPageData("gib");
-    const card = deriveCountryCardEntryFromCountryPageData(gibraltar!);
+    const anguila = getCountryPageData("ai");
+    const aruba = getCountryPageData("abw");
+    const cardAnguila = deriveCountryCardEntryFromCountryPageData(anguila!);
+    const cardAruba = deriveCountryCardEntryFromCountryPageData(aruba!);
 
-    expect(gibraltar?.sources.legal).toBeNull();
-    expect(card.cannabisProfile).toBeNull();
-    expect(card.panel.summary).toBeTruthy();
-    expect(card.notes).toContain("Cannabis is illegal in Gibraltar");
+    for (const card of [cardAnguila, cardAruba]) {
+      expect(card.cannabisProfile).toBeNull();
+      expect(card.panel.summary).toBeTruthy();
+    }
+
+    expect(anguila?.sources.legal).toBeNull();
+    expect(aruba?.sources.legal).toBeNull();
+    expect(cardAnguila.notes).toContain("Cannabis is illegal in Anguilla");
+    expect(cardAruba.notes).toContain("Cannabis is illegal in Aruba");
   });
 
   it("builds state-level SEO nodes derived from USA", () => {

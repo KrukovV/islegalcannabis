@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-27T09:24:43.044Z",
+  "generated_at": "2026-06-27T16:17:48.793Z",
   "source_report": "Reports/knowledge-harvester/first_wave_validation.json",
   "entries": [
     {
@@ -105,6 +105,14 @@
       "kind": "product_name",
       "source": "wiki_fact",
       "evidence": "It noted too that cannabis was sometimes called chanvre a fumer in regional French by older and poorer elements of the population."
+    },
+    {
+      "geo": "BL",
+      "country": "Saint Barthélemy",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "During Napoléon Bonaparte's invasion of Egypt in 1798, the troops got to try different preparations of hashish, which they found to their liking."
     },
     {
       "geo": "BN",
@@ -363,12 +371,28 @@
       "evidence": "They referred to cannabis as \"ganja\" and used the intoxicant to prepare bhang, which they would consume to relax after working on the plantations."
     },
     {
+      "geo": "GI",
+      "country": "Gibraltar",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Prior to 1957, cannabis trafficking in the area around Gibraltar was limited to small personal amounts by tourists, but with the arrival of the Hippie Trail, larger amounts began to be commercially smuggled, leading the Campo de Gibraltar to become one of the main entry points to Europe for Moroccan hashish. in 2018, Spanish authorities confiscated 191 tons of cannabis and 15.5 tons of cocaine in the Spanish Campo de Gibraltar area."
+    },
+    {
       "geo": "GR",
       "country": "Greece / Ελλάδα",
       "term": "hashish",
       "kind": "local_hash_name",
       "source": "wiki_fact",
       "evidence": "In 1890, Greece outlawed the production and usage of hashish, but the laws were largely ineffective."
+    },
+    {
+      "geo": "GU",
+      "country": "Guam / Guåhån",
+      "term": "the Marijuana Control Law",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "In January 2017 governor Eddie Calvo proposed a bill, called the Marijuana Control Law, to legalize recreational cannabis in Guam."
     },
     {
       "geo": "GY",
@@ -595,6 +619,14 @@
       "evidence": "Majoun is also a popular traditional edible, a candy or jam made of cannabis with the combination of honey, chocolate, and various nuts that is ingested to feel the sensations similar to those of smoking cannabis."
     },
     {
+      "geo": "MP",
+      "country": "Northern Mariana Islands / Na Islas Mariånas",
+      "term": "a stick",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "A joint (0.5 gram), also known as a stick, of marijuana sold for an average price of $2.50 from 1997 to 1999 when supplies of locally produced marijuana were plentiful."
+    },
+    {
       "geo": "MU",
       "country": "Mauritius / Maurice",
       "term": "bhang",
@@ -697,6 +729,14 @@
       "kind": "local_hash_name",
       "source": "wiki_fact",
       "evidence": "The increased demand and linkage to outside markets led to an increase in hashish production, and smuggling routes were established through India and the wider world."
+    },
+    {
+      "geo": "NZ",
+      "country": "New Zealand / Aotearoa",
+      "term": "green fairies",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "Due to issues around access and cost, New Zealand also has a subculture of illicit medicinal cannabis growers and suppliers known as green fairies."
     },
     {
       "geo": "PA",

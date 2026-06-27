@@ -1,14 +1,25 @@
 {
   "schema_version": "cannabis_knowledge_v1",
-  "generated_at": "2026-06-27T09:24:43.044Z",
+  "generated_at": "2026-06-27T16:17:48.793Z",
   "source": "Wikipedia Cannabis_in_<Jurisdiction> and related pages",
   "status_engine_touched": false,
   "scope": [
-    "GF",
-    "GP",
-    "MQ",
-    "RE",
-    "SJ"
+    "AS",
+    "AQ",
+    "KY",
+    "SV",
+    "GI",
+    "GU",
+    "XK",
+    "MS",
+    "NC",
+    "NZ",
+    "MP",
+    "PR",
+    "BL",
+    "PM",
+    "TC",
+    "VI"
   ],
   "fields": [
     "history",
@@ -296,16 +307,24 @@
       "country": "Antarctica",
       "wikiTitle": "Cannabis in Antarctica",
       "wikiUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Antarctica",
-      "revisionId": null,
-      "sourceType": "missing_wikipedia_article",
-      "history": [],
+      "revisionId": "1351425434",
+      "sourceType": "wikipedia_cannabis_article",
+      "history": [
+        "The legality of cannabis in Antarctica has not been firmly established, although under the Antarctic Treaty, persons in Antarctica are subject to the laws of their home country.",
+        "Vice magazine published an analysis of international cannabis law in 2019, concluding that consumption of cannabis under the Treaty is legal for residents of Uruguay, Canada or another nation with adult-use legalization.",
+        "Seizures of packages bound for U.S. stations in 1981 by New Zealand authorities were said by Capt.",
+        "A New Zealand newspaper reported that police had investigated cannabis grown at Amundsen–Scott South Pole Station – perhaps hidden in air ducts – in connection with the death of Rodney Marks in 2000.",
+        "A California weekly newspaper reported in 2011 that a United States Marshal at McMurdo Station had ensured that cannabis is not grown at the station's greenhouse."
+      ],
       "culture": [],
       "localNames": [],
       "products": [],
       "traditionalUse": [],
       "cultivation": [],
       "market": [],
-      "enforcementReality": [],
+      "enforcementReality": [
+        "Pearigen, the Navy officer in charge of the stations, to have \"gone a long way toward reducing the use of illicit drugs at American Antarctic stations\", implying that at least some personnel had obtained and used cannabis there."
+      ],
       "notes": []
     },
     {
@@ -346,18 +365,24 @@
     {
       "geo": "AS",
       "country": "American Samoa / Sāmoa Amelika",
-      "wikiTitle": "American Samoa",
-      "wikiUrl": "https://en.wikipedia.org/wiki/American_Samoa",
-      "revisionId": null,
-      "sourceType": "missing_wikipedia_article",
-      "history": [],
+      "wikiTitle": "Cannabis in American Samoa",
+      "wikiUrl": "https://en.wikipedia.org/wiki/Cannabis_in_American_Samoa",
+      "revisionId": "1234799557",
+      "sourceType": "wikipedia_cannabis_article",
+      "history": [
+        "The 2001 American Samoa Drug Threat Assessment produced by the National Drug Intelligence Center notes that marijuana is the most widely used illegal drug on the island, though at 25% for youth lifetime use, its prevalence is just over half that of mainland America's 47%."
+      ],
       "culture": [],
       "localNames": [],
       "products": [],
       "traditionalUse": [],
       "cultivation": [],
-      "market": [],
-      "enforcementReality": [],
+      "market": [
+        "Marijuana grows wild on the island, and is produced locally for local consumption, as well as smuggled in by ship from the nation of Samoa, though otherwise there is little evidence of cross-national trafficking of marijuana in Oceania as most regional countries are self-sufficient in its supply."
+      ],
+      "enforcementReality": [
+        "Possession of any amount can result in a five year sentence of imprisonment and a mandatory $5,000 fine."
+      ],
       "notes": []
     },
     {
@@ -835,19 +860,53 @@
     {
       "geo": "BL",
       "country": "Saint Barthélemy",
-      "wikiTitle": "St. Barthélemy",
-      "wikiUrl": "https://en.wikipedia.org/wiki/St._Barth%C3%A9lemy",
-      "revisionId": "163578920",
-      "sourceType": "missing_wikipedia_article",
-      "history": [],
+      "wikiTitle": "Cannabis in France",
+      "wikiUrl": "https://en.wikipedia.org/wiki/Cannabis_in_France",
+      "revisionId": "1348316727",
+      "sourceType": "wikipedia_cannabis_article",
+      "history": [
+        "Documentation suggests that French hemp was not entirely deprived of ∆ 9 -THC.",
+        "For example, in 1570, Mathias de l'Obel documented traditional uses of hemp in the Cévennes region, which included medicinal and psychoactive ones.",
+        "He noted that hemp \"promotes sleep; yet excessive use overwhelms with troublesome drowsiness.\" In the nineteenth century, a professor of medicine in Lyon explained: The hemp seeds “chènevis” of our fibrous hemp (Cannabis sativa) do not seem totally deprived of inebriating properties; hempseed oil, which is part of the food regime of the poorest people, is said to sometimes produce a sort of excitation or hilarity which recalls that of haschich.",
+        "Today, France remains among the main producers of hemp for industrial (fiber) purposes, although only a limited number of varieties can be legally cultivated.",
+        "During Napoléon Bonaparte's invasion of Egypt in 1798, the troops got to try different preparations of hashish, which they found to their liking.",
+        "As a result of the conspicuous consumption of hashish by the troops, the smoking of hashish and consumption of drinks containing it was banned in October 1800, although not by Napoleon but by Jacques-François Menou, one of his officers.",
+        "Upon the end of the occupation in 1801, French troops reportedly brought supplies of hashish with them back to France.",
+        "More than hashish, which historians have shown was a minor preoccupation for Napoleon, taking control of the vast fields of non-psychoactive hemp for fiber production of the Russian Empire was one of the main drivers of Napoleon's campaign in Russia.",
+        "A new interest in the plant and its effects, both medicinally and for non-medical purposes.",
+        "In the mid-1800s, following travel and studies in Asia, French psychiatrist Jacques-Joseph Moreau studied hashish extensively and created the 1845 work of Du Hachisch et de l'aliénation mentale (Hashish and Mental Illness)."
+      ],
       "culture": [],
-      "localNames": [],
+      "localNames": [
+        {
+          "geo": "BL",
+          "country": "Saint Barthélemy",
+          "term": "hashish",
+          "kind": "local_hash_name",
+          "source": "wiki_fact",
+          "evidence": "During Napoléon Bonaparte's invasion of Egypt in 1798, the troops got to try different preparations of hashish, which they found to their liking."
+        }
+      ],
       "products": [],
       "traditionalUse": [],
-      "cultivation": [],
-      "market": [],
-      "enforcementReality": [],
-      "notes": []
+      "cultivation": [
+        "Cannabis is cultivated in France since the late Neolithic.",
+        "In early French pharmacopoeias, cannabis appeared used in different ways, from \"emulsion\" (similar to almond milk) to \"sparadrap\" (bandaid) and later on \"haschish\" and \"tincture.\" Hemp was, for long, extensively cultivated in France, with the primary output being the fibers used in the production of industrious and military materials (the national Corderie Royale remaining the best example).",
+        "Nevertheless, French naturalist Jean-Baptiste Lamarck documented in 1780 that \"Hemp plants grown in pots upon windowsills or cultivated in neighboring gardens\"."
+      ],
+      "market": [
+        "More critically with regards to psychoactive hemp, the invasion of Algeria by France and its integration into the country as a department brought sustained and prolonged contact the French pharmaceutical industry with farmers, climates, and cultivation knowledge which were taken advantage of to create increase production capacity for France's internal market.",
+        "Most famously, the Club des Hashischins was a Parisian club dedicated to the consumption of hashish and other drugs; its members included authors Théophile Gautier, Moreau de Tours, Victor Hugo, Alexandre Dumas, Charles Baudelaire and Honoré de Balzac.",
+        "In 1999, the Agence Française de Sécurité Sanitaire des Produits de Santé made temporary use authorisations for health products otherwise not permitted on the French market."
+      ],
+      "enforcementReality": [
+        "In France, possession and use of cannabis fall under criminal law and the Loi du 31 décembre 1970, regarding health measures against drug abuse and suppression of drug trafficking.",
+        "3421-1 or one of the offences provided for in Articles 222-34 to 222 3421-1 or one of the offences provided for in Articles 222-34 to 222-39 of the Criminal Code [i.e. any drug-related infraction], even if such provocation has not been followed up, or the fact of presenting these offences in a favorable light, shall be punishable by five years’ imprisonment and a fine of 75,000 euros The vague and broad terms highlighted in the quote above have given rise to criticism and controversial legal action against cannabis activists, book editors, and.",
+        "In 1991 a court rejected the demands of the NGO Mouvement pour la Légalisation Contrôlée concerning the importation of cannabis to supply 10 patients suffering terminal illness, arguing that such was incompatible with France's adherence to the 1961 UN Single Convention on Narcotic Drugs, and MLC's inability to scientifically control and administer medical cannabis."
+      ],
+      "notes": [
+        "Cannabis in France is a plant considered indigenous, although currently illegal for personal use except in cases of varieties or products containing low amounts of the main active compound, ∆ 9 -THC. but remains one of the most popular illegal drugs."
+      ]
     },
     {
       "geo": "BM",
@@ -2813,18 +2872,37 @@
     {
       "geo": "GI",
       "country": "Gibraltar",
-      "wikiTitle": "Gibraltar",
-      "wikiUrl": "",
-      "revisionId": null,
-      "sourceType": "missing_wikipedia_article",
-      "history": [],
+      "wikiTitle": "Cannabis in Gibraltar",
+      "wikiUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Gibraltar",
+      "revisionId": "1324761911",
+      "sourceType": "wikipedia_cannabis_article",
+      "history": [
+        "The corresponding figures for cannabis seizures in 2017 are 145 tons and for 2016 100 tons.",
+        "In 2017, Gibraltar legalised Sativex oral spray to treat Multiple Sclerosis.",
+        "In October 2019, Gibraltar published an amendment to the drugs misuse regulations in order to provide for the supply and possession of certain cannabis-based products for medicinal use in limited circumstances."
+      ],
       "culture": [],
-      "localNames": [],
+      "localNames": [
+        {
+          "geo": "GI",
+          "country": "Gibraltar",
+          "term": "hashish",
+          "kind": "local_hash_name",
+          "source": "wiki_fact",
+          "evidence": "Prior to 1957, cannabis trafficking in the area around Gibraltar was limited to small personal amounts by tourists, but with the arrival of the Hippie Trail, larger amounts began to be commercially smuggled, leading the Campo de Gibraltar to become one of the main entry points to Europe for Moroccan hashish. in 2018, Spanish authorities confiscated 191 tons of cannabis and 15.5 tons of cocaine in the Spanish Campo de Gibraltar area."
+        }
+      ],
       "products": [],
       "traditionalUse": [],
       "cultivation": [],
-      "market": [],
-      "enforcementReality": [],
+      "market": [
+        "Gibraltar itself is not a usual destination for drug smuggling from Morocco as it only has a small population and customs controls with Spain make it difficult to move the merchandise further on into Europe.",
+        "Gibraltarian authorities take a hard line on drug smuggling and prohibited the use of fast speed boats in its waters in 1995, a measure introduced by Spain in 2018.",
+        "Prior to 1957, cannabis trafficking in the area around Gibraltar was limited to small personal amounts by tourists, but with the arrival of the Hippie Trail, larger amounts began to be commercially smuggled, leading the Campo de Gibraltar to become one of the main entry points to Europe for Moroccan hashish. in 2018, Spanish authorities confiscated 191 tons of cannabis and 15.5 tons of cocaine in the Spanish Campo de Gibraltar area."
+      ],
+      "enforcementReality": [
+        "Cannabis in Gibraltar is illegal, but due to its proximity to North Africa and to mainland Europe, the area around Gibraltar in Spain (Campo de Gibraltar) is frequently used for cannabis trafficking."
+      ],
       "notes": []
     },
     {
@@ -3031,18 +3109,41 @@
     {
       "geo": "GU",
       "country": "Guam / Guåhån",
-      "wikiTitle": "Guam",
-      "wikiUrl": "",
-      "revisionId": null,
-      "sourceType": "missing_wikipedia_article",
-      "history": [],
+      "wikiTitle": "Cannabis in Guam",
+      "wikiUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Guam",
+      "revisionId": "1264655795",
+      "sourceType": "wikipedia_cannabis_article",
+      "history": [
+        "Cannabis in Guam has been legal for medical use since 2015 and legal for recreational use since April 2019.",
+        "Guam was the first United States Territory to legalize medical marijuana, passing via a ballot referendum in 2014.",
+        "A 1996 report by the Guam Health Planning and Development Agency attributes the origin of marijuana usage in Guam to the Vietnam War of the 1960s and 1970s, when American servicemen on the island popularized the habit.",
+        "Guam v. Guerrero was a United States Court of Appeals, Ninth Circuit ruling issued in 2002, which ruled that Benny Guerrero was not entitled to religious protections for his possession of cannabis on Guam despite his professed Rastafari religion.",
+        "Guerrero was arrested for possession at Guam International Airport in 1991.",
+        "Guam legalized medical marijuana for \"debilitative conditions\" via referendum in the November 2014 mid-term elections, with 56% voting in favor.",
+        "Guam had previously attempted to legalize medical marijuana in 2010, under \"Bill 420\" (later withdrawn and replaced with Bill 423); its public hearing was attended by only one person, who spoke against the measure, and the bill was unsuccessful.",
+        "In 2017, Guam's governor vetoed legislation to allow medical cannabis license holders to cultivate cannabis in their homes.",
+        "In January 2017 governor Eddie Calvo proposed a bill, called the Marijuana Control Law, to legalize recreational cannabis in Guam.",
+        "In January 2019, governor Lou Leon Guerrero addressed possible recreational legalization in Guam, noting \"We need to put in the same kinds of rules and regulations in terms of regulating alcohol, tobacco, and other substances so it won’t get abused.\" In March 2019, the Legislature of Guam passed a bill (by a very close vote of 8–7) to legalize cannabis and immediately sent it to the Governor's desk."
+      ],
       "culture": [],
-      "localNames": [],
+      "localNames": [
+        {
+          "geo": "GU",
+          "country": "Guam / Guåhån",
+          "term": "the Marijuana Control Law",
+          "kind": "local_cannabis_name",
+          "source": "wiki_fact",
+          "evidence": "In January 2017 governor Eddie Calvo proposed a bill, called the Marijuana Control Law, to legalize recreational cannabis in Guam."
+        }
+      ],
       "products": [],
       "traditionalUse": [],
       "cultivation": [],
       "market": [],
-      "enforcementReality": [],
+      "enforcementReality": [
+        "The 2012 UNODC World Drug Report ranked Guam as the third-highest jurisdiction for adult cannabis use in the world at 18.4%., NORML reported that possession of less than an ounce outside a school zone could result in a civil infraction with a $100 fine.",
+        "His argument for religious exemption had been approved by a lower court, then by the Supreme Court of Guam which found it valid under the Free Exercise Clause of the Constitution of Guam; however, the Guamanian government raised the issue to the Ninth Circuit which ultimately struck down the lower findings."
+      ],
       "notes": []
     },
     {
@@ -4208,17 +4309,32 @@
     {
       "geo": "KY",
       "country": "Cayman Islands",
-      "wikiTitle": "Cayman Islands",
-      "wikiUrl": "",
-      "revisionId": null,
-      "sourceType": "missing_wikipedia_article",
-      "history": [],
+      "wikiTitle": "Cannabis in the Cayman Islands",
+      "wikiUrl": "https://en.wikipedia.org/wiki/Cannabis_in_the_Cayman_Islands",
+      "revisionId": "1341338414",
+      "sourceType": "wikipedia_cannabis_article",
+      "history": [
+        "Cannabis in the Cayman Islands has been legal for medical purposes since 2017.",
+        "The use of cannabis for recreational purposes still remains prohibited.",
+        "In May 2017, the Cayman Islands legalized medical cannabis.",
+        "By September 2019, vaporizable cannabinoid products were banned due to concerns raised by the Cayman Islands Medical and Dental Society over unethical drug advertising.",
+        "2023 passed without a referendum being held.",
+        "In October 2024, Minister of Tourism Kenneth Bryan announced that the referendum had been rescheduled to take place alongside the general election in 2025.",
+        "It was held as part of the 2025 Caymanian referendum; 55% voted in favour of cannabis decriminalisation.",
+        "In 1998, a USCG helicopter radioed information to a Cayman Islands vessel, leading them to intercept a Jamaican fast-boat with 1600lbs of cannabis.",
+        "In 1995 alone, Cayman seized 2.6 metric tons of cannabis; 742 pounds of that were seized in one operation, found in burlap sacks labeled \"brown sugar made in Jamaica\".",
+        "In 2016, the governor of the British Overseas Territory of the Cayman Islands approved a change to the Misuse of Drugs Law to allow the importation and use of CBD oil for medical purposes."
+      ],
       "culture": [],
       "localNames": [],
-      "products": [],
+      "products": [
+        "In the Cayman Islands, medical cannabis is dispensed as capsules, oral oil drops, and vaporized forms."
+      ],
       "traditionalUse": [],
       "cultivation": [],
-      "market": [],
+      "market": [
+        "The Cayman Islands cooperates with the United States Coast Guard to share intelligence on drug trafficking."
+      ],
       "enforcementReality": [],
       "notes": []
     },
@@ -5048,17 +5164,41 @@
     {
       "geo": "MP",
       "country": "Northern Mariana Islands / Na Islas Mariånas",
-      "wikiTitle": "Northern Mariana Islands",
-      "wikiUrl": "",
-      "revisionId": null,
-      "sourceType": "missing_wikipedia_article",
-      "history": [],
+      "wikiTitle": "Cannabis in the Northern Mariana Islands",
+      "wikiUrl": "https://en.wikipedia.org/wiki/Cannabis_in_the_Northern_Mariana_Islands",
+      "revisionId": "1311149359",
+      "sourceType": "wikipedia_cannabis_article",
+      "history": [
+        "The recreational and medicinal use of cannabis in the Northern Mariana Islands has been legal since September 2018.",
+        "House Bill 20-178 was signed into law by Gov.",
+        "Ralph Torres, becoming Public Law 20-66.",
+        "The first dispensary opened to the public on July 16, 2021.",
+        "According to the 2012 World Drug Report by the United Nations Office of Drugs and Crime, the Commonwealth of Northern Mariana Islands (CNMI), a United States Territory, then had the second highest marijuana consumption per capita of any nation or territory in the world, at 22.2%.",
+        "The October 2003 National Drug Intelligence Center's Northern Mariana Islands Drug Threat Assessment stated in part that: Marijuana is readily available and widely abused in the CNMI; however, it is difficult to quantify the extent of marijuana abuse due to the lack of drug abuse statistics and marijuana-related survey data for the CNMI.",
+        "From 2000 to 2001 law enforcement eradication efforts caused a decrease in local cannabis cultivation, and distributors had to obtain most of their marijuana from sources outside the commonwealth.",
+        "A joint (0.5 gram), also known as a stick, of marijuana sold for an average price of $2.50 from 1997 to 1999 when supplies of locally produced marijuana were plentiful.",
+        "As a result of strong eradication efforts by law enforcement, cannabis cultivation in the CNMI is primarily limited to small quantities intended for personal use.",
+        "In 2010, the CNMI House of Representatives approved a legalization bill to regulate and tax marijuana, but the measure ultimately failed."
+      ],
       "culture": [],
-      "localNames": [],
+      "localNames": [
+        {
+          "geo": "MP",
+          "country": "Northern Mariana Islands / Na Islas Mariånas",
+          "term": "a stick",
+          "kind": "local_cannabis_name",
+          "source": "wiki_fact",
+          "evidence": "A joint (0.5 gram), also known as a stick, of marijuana sold for an average price of $2.50 from 1997 to 1999 when supplies of locally produced marijuana were plentiful."
+        }
+      ],
       "products": [],
       "traditionalUse": [],
-      "cultivation": [],
-      "market": [],
+      "cultivation": [
+        "According to the Department of Public Safety Criminal Investigation Bureau, marijuana is transported to the CNMI by criminal groups that cultivate cannabis in the Philippines and the neighboring island of the Republic of Palau."
+      ],
+      "market": [
+        "Tourists typically are charged higher prices for retail quantities of marijuana than are local residents."
+      ],
       "enforcementReality": [],
       "notes": []
     },
@@ -5122,17 +5262,23 @@
       "geo": "MS",
       "country": "Montserrat",
       "wikiTitle": "Cannabis in Montserrat",
-      "wikiUrl": "",
-      "revisionId": null,
-      "sourceType": "missing_wikipedia_article",
-      "history": [],
+      "wikiUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Montserrat",
+      "revisionId": "1234801446",
+      "sourceType": "wikipedia_cannabis_article",
+      "history": [
+        "Cannabis in Montserrat, the British Overseas Territory in the Caribbean Leeward Islands, is illegal under British law.",
+        "Black the Ripper was a notable Montserratian who advocated for the rights of Cannabis use during his life and died in 2020."
+      ],
       "culture": [],
       "localNames": [],
       "products": [],
       "traditionalUse": [],
       "cultivation": [],
       "market": [],
-      "enforcementReality": [],
+      "enforcementReality": [
+        "In 1994, Montserrat seized 3 kg (7 lb) of cannabis and destroyed 240,600 cannabis plants.",
+        "Montserrat has no drug testing facilities, neither in its prison nor in civil society, but use of Class A drugs is minimal, with the island's drug issues largely confined to cannabis."
+      ],
       "notes": []
     },
     {
@@ -5523,15 +5669,17 @@
       "geo": "NC",
       "country": "New Caledonia / Nouvelle-Calédonie",
       "wikiTitle": "Cannabis in New Caledonia",
-      "wikiUrl": "",
-      "revisionId": null,
-      "sourceType": "missing_wikipedia_article",
+      "wikiUrl": "https://en.wikipedia.org/wiki/Cannabis_in_New_Caledonia",
+      "revisionId": "1260411684",
+      "sourceType": "wikipedia_cannabis_article",
       "history": [],
       "culture": [],
       "localNames": [],
       "products": [],
       "traditionalUse": [],
-      "cultivation": [],
+      "cultivation": [
+        "Cannabis in New Caledonia is illegal, but is cultivated illicitly."
+      ],
       "market": [],
       "enforcementReality": [],
       "notes": []
@@ -5828,17 +5976,67 @@
       "geo": "NZ",
       "country": "New Zealand / Aotearoa",
       "wikiTitle": "Cannabis in New Zealand",
-      "wikiUrl": "",
-      "revisionId": null,
-      "sourceType": "missing_wikipedia_article",
-      "history": [],
+      "wikiUrl": "https://en.wikipedia.org/wiki/Cannabis_in_New_Zealand",
+      "revisionId": "1331098904",
+      "sourceType": "wikipedia_cannabis_article",
+      "history": [
+        "The use of cannabis in New Zealand is regulated by the Misuse of Drugs Act 1975, which makes unauthorised possession of any amount of cannabis a crime.",
+        "Cannabis is the fourth-most widely used recreational drug in New Zealand, after caffeine, alcohol and tobacco, and the most widely used illicit drug.",
+        "In 2001 a household survey revealed that 13.4% of New Zealanders aged 15–64 used cannabis.",
+        "As of the end of 2022, dried cannabis flower is available on prescription to anyone who might benefit from it who is suffering from issues around pain, sleep or anxiety.",
+        "In December 2018, the Labour-led government announced a referendum on the legality of cannabis for personal use, to be held as part of the 2020 general election.",
+        "In 1927, New Zealand passed the Dangerous Drugs Act, whose schedule listed, among other controlled drugs: Cannabis continued to be used as a prescription medication.",
+        "In accordance with its international obligations under the 1961 Single Convention on Narcotic Drugs, New Zealand passed the Narcotics Act in 1965, which banned a number of drugs, including cannabis.",
+        "The cultivation and distribution of industrial hemp was legalised in 2006 under the Misuse of Drugs (Industrial Hemp) Regulations.",
+        "In 2013, Abe Gray founded Whakamana Cannabis Museum, New Zealand's first and only cannabis museum, in Dunedin.",
+        "The museum has since shifted locations to Dunedin’s main street, Princes Street, then moved to Shand's Emporium in Christchurch, and now seeking a fourth iteration in Wellington."
+      ],
       "culture": [],
-      "localNames": [],
+      "localNames": [
+        {
+          "geo": "NZ",
+          "country": "New Zealand / Aotearoa",
+          "term": "green fairies",
+          "kind": "local_cannabis_name",
+          "source": "wiki_fact",
+          "evidence": "Due to issues around access and cost, New Zealand also has a subculture of illicit medicinal cannabis growers and suppliers known as green fairies."
+        }
+      ],
       "products": [],
-      "traditionalUse": [],
-      "cultivation": [],
-      "market": [],
-      "enforcementReality": [],
+      "traditionalUse": [
+        "Approved cannabis-based pharmaceuticals can be prescribed by a specialist doctor, but requires patients to meet strict criteria.",
+        "As of April 2016, only Sativex is approved for use in New Zealand; it is not subsidised, so patients must pay the full retail cost.",
+        "Unapproved cannabis-based pharmaceuticals (e.g.",
+        "Cesamet, Marinol) and non-pharmaceutical cannabis products can be approved on case-by-case basis by the Minister of Health.",
+        "On 9 June 2015, Associate Health Minister Peter Dunne approved the one-off use of Elixinol, a cannabidiol (CBD) product from the United States for a coma patient, and on 4 April 2016, he approved the one-off use of Aceso Calm Spray, a non-pharmaceutical-grade CBD cannabis-based product for a patient with a severe case of Tourette syndrome.",
+        "These two cases are the only ones to this date to have been approved by the Health Minister.",
+        "As of 1 April 2020 and the introduction of the Medical Cannabis Scheme, CBD products may be prescribed by any doctor registered to practice in New Zealand.",
+        "They are now regarded as normal prescription medicines.",
+        "As with all prescription medicines, patients must have a prescription from an authorised prescriber to use CBD products.",
+        "The New Zealand Medical Association (NZMA) supports having evidence-based, peer-reviewed studies of medical cannabis."
+      ],
+      "cultivation": [
+        "Among Britain's colonies, New Zealand was one of the few areas where the United Kingdom did not encourage extensive industrial hemp production, as the native harakeke plant could instead be used for fibre.",
+        "'Under its proposal, people would be able to legally grow and possess marijuana for personal use'.",
+        "In August 2018 Hikurangi Cannabis became the first New Zealand company to be issued a license to cultivate cannabis for medical purposes."
+      ],
+      "market": [
+        "This ranked as the ninth-highest cannabis consumption level in the world.",
+        "The usage by those aged between 16–64 is 13.4%, the ninth-highest level of consumption in the world, and 15.1% of those who smoked cannabis used it ten times or more per month.",
+        "This enabled the approval of prescription medicinal psychoactive cannabis products that previously were unavailable, and also the licensing of commercial cultivation of cannabis plants for medicinal use."
+      ],
+      "enforcementReality": [
+        "The maximum penalty for possession of cannabis is imprisonment for a term not exceeding three months or a $500 fine, and those convicted of manufacturing or supplying face a maximum penalty of 14 years' imprisonment.",
+        "Cannabis is a class C drug, of which the penalty for dealing can result in a maximum prison sentence of eight years under the Act.",
+        "It is generally accepted that the usage rate is high and possession in small quantities may not often be prosecuted.",
+        "Data from the \"Christchurch Health and Development Study\" shows that by the age of 21, 5.1% of cannabis users from the cohort had been arrested for a cannabis related offence while 3.6% had been convicted.",
+        "Of those convicted, just under 10% received a custodial sentence with the remainder principally receiving fines.",
+        "Given offenders agree to the conditions of diversion (which usually involves a written agreement tailored to change the offending behaviour), the offender may have the charge withdrawn.",
+        "People who knew Molenaar described a long-standing, tense relationship between him and the police surrounding the legality of his cannabis involvement, saying, 'Molenaar believed his home was being watched and told friends he was determined to \"go out in blaze of glory\" if police came to arrest him', and, 'police knew who Molenaar was and knew what he would do in a situation'.",
+        "A notable case involving cannabis growing equipment was the prosecution of the owner, general manager, and several staff members of the Switched on Gardener stores following a series of arrests and raids in 2010.",
+        "Māori when accounting for rates of use and offending history, are four times more likely than non-Māori to be convicted on cannabis charges.",
+        "Similarly, enforcement is inequitable when considering gender, with men nine times more likely to be arrested compared with women."
+      ],
       "notes": []
     },
     {
@@ -6139,11 +6337,13 @@
     {
       "geo": "PM",
       "country": "Saint Pierre and Miquelon / Saint-Pierre-et-Miquelon",
-      "wikiTitle": "St. Pierre & Miquelon",
-      "wikiUrl": "",
-      "revisionId": null,
-      "sourceType": "missing_wikipedia_article",
-      "history": [],
+      "wikiTitle": "Cannabis in Saint Pierre and Miquelon",
+      "wikiUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Saint_Pierre_and_Miquelon",
+      "revisionId": "1309127379",
+      "sourceType": "wikipedia_cannabis_article",
+      "history": [
+        "As an overseas collectivity of France, Saint Pierre and Miquelon is subject to French law and all international conventions signed by France."
+      ],
       "culture": [],
       "localNames": [],
       "products": [],
@@ -6173,18 +6373,34 @@
     {
       "geo": "PR",
       "country": "Puerto Rico",
-      "wikiTitle": "Puerto Rico",
-      "wikiUrl": "",
-      "revisionId": null,
-      "sourceType": "missing_wikipedia_article",
-      "history": [],
+      "wikiTitle": "Cannabis in Puerto Rico",
+      "wikiUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Puerto_Rico",
+      "revisionId": "1345636509",
+      "sourceType": "wikipedia_cannabis_article",
+      "history": [
+        "Legislation to ban cannabis was passed in 1932, and legislation to legalize medical use was passed in 2017.",
+        "Although the medical use of cannabis is permitted, smoking it is prohibited.",
+        "On April 19, 1932, Puerto Rico enacted Act 12, \"An Act to Punish the Planting, Importation, Purchase, and Sale of Marijuana, and for Other Purposes\" ( ).",
+        "On May 13, 1934, Puerto Rico enacted Act No.",
+        "61, in keeping with the 1934 Uniform State Narcotic Drug Act.",
+        "In 2013, Representative José Luis Báez proposed decriminalization, however polling by the newspaper El Nuevo Día indicated that 26% of those surveyed were in favor of decriminalization, with 70% against and 4% unsure.",
+        "In May 2015, Governor Alejandro Garcia Padilla signed an executive order permitting the use of medical cannabis.",
+        "On July 9, 2017, Governor Padilla signed Act 42–2017, named the Act to Manage the Study, Development and Investigation of Cannabis for Innovation, Applicable Norms, and Limitations, into law, officially legalizing cannabis for medicinal purposes in the commonwealth.",
+        "Additionally, lawmakers are exploring the possibility of recreational legalization in the near future as well.",
+        "It also requires safety protocols such as testing of all products prior to sale and labeling requirements that clearly state the contents of each product."
+      ],
       "culture": [],
       "localNames": [],
       "products": [],
       "traditionalUse": [],
       "cultivation": [],
-      "market": [],
-      "enforcementReality": [],
+      "market": [
+        "This includes setting up licensing requirements for dispensaries, cultivators, processors, and caregivers.",
+        "The taxes are used for social programs and public education initiatives about responsible consumption and other related matters."
+      ],
+      "enforcementReality": [
+        "The included penalties were a minimum of one month and maximum of one year in jail."
+      ],
       "notes": []
     },
     {
@@ -7102,8 +7318,15 @@
       "wikiTitle": "Cannabis in El Salvador",
       "wikiUrl": "https://en.wikipedia.org/wiki/Cannabis_in_El_Salvador",
       "revisionId": "1345636534",
-      "sourceType": "missing_wikipedia_article",
-      "history": [],
+      "sourceType": "wikipedia_cannabis_article",
+      "history": [
+        "The country is a signatory of the 1988 United Nations Convention Against Illicit Traffic in Narcotic Drugs and Psychotropic Substances, and has criminalized the production and distribution of the drug.",
+        "El Salvador (along with Peru and Bolivia) is one of the most conservative countries in Latin America in regard to drug policy.",
+        "According to a 2016 study published by the International Journal of Drug Policy, only 17% of Salvadorans reported having used cannabis.",
+        "In 2014, over 700 people protested in San Salvador in favor of decriminalizing the consumption and personal cultivation of cannabis.",
+        "However, support for cannabis reform remains very low.",
+        "A 2014 survey by AmericasBarometer found that a mere 8% of Salvadorans supported legalization of the drug."
+      ],
       "culture": [],
       "localNames": [],
       "products": [],
@@ -7222,18 +7445,25 @@
     {
       "geo": "TC",
       "country": "Turks and Caicos Islands",
-      "wikiTitle": "Turks & Caicos Islands",
-      "wikiUrl": "",
-      "revisionId": null,
-      "sourceType": "missing_wikipedia_article",
-      "history": [],
+      "wikiTitle": "Cannabis in the Turks and Caicos Islands",
+      "wikiUrl": "https://en.wikipedia.org/wiki/Cannabis_in_the_Turks_and_Caicos_Islands",
+      "revisionId": "1228033261",
+      "sourceType": "wikipedia_cannabis_article",
+      "history": [
+        "Although the islands are a British Overseas Territory and their legal system is based on English common law, the islands are a separate legal jurisdiction to the United Kingdom and have their own laws."
+      ],
       "culture": [],
       "localNames": [],
       "products": [],
       "traditionalUse": [],
       "cultivation": [],
       "market": [],
-      "enforcementReality": [],
+      "enforcementReality": [
+        "Under Section 6(2) of the Control of Drugs Ordinance 1976, it is an offence for any person to have cannabis in their possession.",
+        "Anyone convicted of possession of cannabis, is liable under Schedule 4 of the Control of Drugs Ordinance 1976::on summary conviction:::3 years' imprisonment or a fine of $40,000, or both.:before Supreme Court,::7 years' imprisonment or an unlimited fine, or both.",
+        "Under Section 6(3) of the Control of Drugs Ordinance 1976, it is an offence for any person to have cannabis in their possession, with intent to supply it to another person.",
+        "Anyone convicted of possession of cannabis with intent to supply it to another, is liable under Schedule 4 of the Control of Drugs Ordinance 1976::on summary conviction:::4 years' imprisonment or a fine of $50,000, or both.:before Supreme Court,::15 years' imprisonment or an unlimited fine, or both."
+      ],
       "notes": []
     },
     {
@@ -10636,18 +10866,31 @@
     {
       "geo": "VI",
       "country": "United States Virgin Islands",
-      "wikiTitle": "U.S. Virgin Islands",
-      "wikiUrl": "",
-      "revisionId": null,
-      "sourceType": "missing_wikipedia_article",
-      "history": [],
+      "wikiTitle": "Cannabis in the United States Virgin Islands",
+      "wikiUrl": "https://en.wikipedia.org/wiki/Cannabis_in_the_United_States_Virgin_Islands",
+      "revisionId": "1319280543",
+      "sourceType": "wikipedia_cannabis_article",
+      "history": [
+        "Cannabis in the United States Virgin Islands is legal for recreational use since January 18, 2023, under territorial law.",
+        "Legislation to legalize was passed by the territorial legislature in 2022, and was signed into law on January 18.",
+        "Medical use was legalized in 2019 through a bill that passed the Senate 9–4.",
+        "It remains illegal under federal law.",
+        "In December 2014, USVI's unicameral Legislature voted 14–0 to override Governor John P.",
+        "DeJongh's line-item veto of cannabis decriminalization from the territory's 2015 budget.",
+        "Governor DeJongh had vetoed the measure in October, saying the bill would complicate the government's ability to deal with cannabis regarding workplace safety rules and pre-trial release and bail.",
+        "In 2014 a non-binding referendum was held in USVI, asking voters whether the Legislature should explore the issue of legalizing medical cannabis.",
+        "In August the USVI Senate approved the addition of that referendum to the 2014 election, 12–2.",
+        "It followed a 2012 referendum that approved the legalisation of industrial hemp."
+      ],
       "culture": [],
       "localNames": [],
       "products": [],
       "traditionalUse": [],
       "cultivation": [],
       "market": [],
-      "enforcementReality": [],
+      "enforcementReality": [
+        "Penalties for possession of of cannabis or less were reduced from a year in jail and $5,000 fine to a civil offense punishable by a fine of $100–$200."
+      ],
       "notes": []
     },
     {
@@ -10748,16 +10991,28 @@
       "country": "Kosovo",
       "wikiTitle": "Cannabis in Kosovo",
       "wikiUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Kosovo",
-      "revisionId": null,
-      "sourceType": "missing_wikipedia_article",
-      "history": [],
+      "revisionId": "1359092682",
+      "sourceType": "wikipedia_cannabis_article",
+      "history": [
+        "A 2014 survey of 5500 reported that 10% of Kosovans knew someone who had used cannabis and 12.6% reported having easy access to cannabis.",
+        "The Kingdom of Yugoslavia ratified the Second International Opium Convention on 4 September 1929.",
+        "The first law to sanction drug abuse was the Criminal Code of the Kingdom of Serbs, Croats and Slovenes passed on 27 January 1929 and which entered into force on 1 January 1930, which sets a prison sentence of up to 6 months for \"serving\" narcotic drugs in the section \"Crimes against Public Health\".",
+        "From 2001 to 2007, a total of 286.89 kg of cannabis was seized by Kosovo Police."
+      ],
       "culture": [],
       "localNames": [],
       "products": [],
       "traditionalUse": [],
-      "cultivation": [],
+      "cultivation": [
+        "Cannabis is cultivated in Kosovo, for domestic use primarily.",
+        "The cultivation of cannabis is spread in most parts of the country's territory."
+      ],
       "market": [],
-      "enforcementReality": [],
+      "enforcementReality": [
+        "Penalties are defined by Article 269 of the Kosovo Criminal Code, last revised in January 2019.",
+        "For first-time offenders, possession of illicit substances leads to either a one-year sentence or, more likely, a financial penalty of €250-300.",
+        "Since the Kosovo War, organised crime in Kosovo has engaged in the trafficking of drugs including marijuana alongside heroin and cocaine."
+      ],
       "notes": []
     },
     {

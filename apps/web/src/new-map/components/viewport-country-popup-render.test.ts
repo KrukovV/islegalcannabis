@@ -162,8 +162,8 @@ describe("ViewportCountryPopup render contract", () => {
     expect(html).toContain("Wikipedia: Cannabis in Albania");
   });
 
-  it("renders Antarctica status context even without a dedicated cannabis profile article", () => {
-    const entry = deriveCountryCardEntryFromCountryPageData(getCountryPageData("ata")!);
+  it("renders status context even without a dedicated cannabis profile article", () => {
+    const entry = deriveCountryCardEntryFromCountryPageData(getCountryPageData("ai")!);
     const html = renderToStaticMarkup(
       createElement(ViewportCountryPopup, {
         entry,

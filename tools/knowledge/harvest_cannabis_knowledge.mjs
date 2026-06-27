@@ -1097,6 +1097,13 @@ function resolveSectionForSentence(sentence, context) {
     if (isLegalGreyCannabisClubsSentence(sentence)) return "market";
     if (isComparativeForeignLawSentence(sentence)) return "history";
     if (isCurrentLegalStatusAsOfYearSentence(sentence)) return null;
+    if (
+      !hasPenaltySignal(sentence) &&
+      /\b(illegal|illegal to possess|penal|prohibited)\b/i.test(sentence) &&
+      /(cultivat|grown|grow\w*|crop|hemp|seizur\w*|drug issues|drug problems)/i.test(sentence)
+    ) {
+      return "cultivation";
+    }
     if (isProductFalsePositiveFromLawOrCultivation(sentence)) {
       if (hasCultivationDetail(sentence) && !hasPenaltySignal(sentence) && !LAW_CHANGE_RE.test(sentence)) return "cultivation";
       if (hasPenaltySignal(sentence) || ENFORCEMENT_RE.test(sentence)) return "enforcement_notes";
