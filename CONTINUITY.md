@@ -1,5 +1,9 @@
 Goal: Complete a 100% visual + data popup/wiki audit for all 300 map entities, keep popup and SEO content aligned with Wiki-backed sources, and remove resolver gaps that leave runtime popups without canonical wiki references.
-State: checkpoint=.checkpoints/20260627-152922.patch; CI=PASS; Smoke=PASS
-Done: In this turn link rendering policy was hardened for popup and SEO pages with explicit project-vs-external styling and stricter self-link filtering. Added shared link utilities (`apps/web/src/lib/linkDisplayPolicy.ts`) and tests (`apps/web/src/lib/linkDisplayPolicy.test.ts`), applied `Link`/anchor rendering in `CountrySeoPage`, and aligned `ViewportCountryPopup` and `UnifiedSeoStatusPanel` so self targets are suppressed consistently (including source links that point back to the same page). Internal page anchors stay dotted unless they resolve to the same page+hash; external links stay solid. Existing 11-territory/disputed synthetic fallback setup is unchanged. Changes were committed locally as `9c0909d` and tagged `good/20260627-popup-link-policy` + `stable/20260627-popup-link-policy`.
-Now: `bash tools/pass_cycle.sh` completed successfully (`POST_CHECKS_OK=1`, `HUB_STAGE_REPORT_OK=1`, `SMOKE_STATUS=PASS`, `CI_STATUS=PASS`).
-Open questions: UNCONFIRMED — 70-country randomized screenshot parity pass (full visual parity workflow) was not re-run in this turn.
+State: checkpoint=.checkpoints/20260627-163704.patch; CI=PASS; Smoke=PASS
+Done: Link-policy stability check executed: unit contract test (`apps/web/src/lib/linkDisplayPolicy.test.ts`) passed; targeted popup/wiki visual audit passed for Kosovo (`XK`) and French Guiana (`GF`) with popups and wiki screenshots captured, and no regression in link policy behavior observed.
+Now: Full 300-entity parity sweep complete after US-state category fix (`buildUsStateSourceSnapshot` now derives state `mapCategory` from country page data):
+- popup visual manifest: `datasetTotal=300`, `total=300`, `popupCaptured=300`, `wikiCaptured=300`;
+- popup profile audit: `POPUP_PROFILE_STATUS_MISMATCHES=0`, `POPUP_PROFILE_COLOR_MISMATCHES=0`;
+- popup/SEO content audit: `POPUP_SEO_AUDIT_MISMATCHES=0`;
+- popup coverage audit: `PASS_POPUP_COVERAGE=1` with `PASS_FEATURES_WITHOUT_CARD=0`, `PASS_HARD_FAIL_COUNT=0`.
+Open questions: UNCONFIRMED — formal cross-environment/prod parity comparison for this 300-entity screenshot set.

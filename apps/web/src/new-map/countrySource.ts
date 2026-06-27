@@ -417,8 +417,12 @@ export function buildUsStateSourceSnapshot(): LegalCountryCollection {
       if (!statePageData) {
         throw new Error(`MAP_WITHOUT_STATUS: ${geo}`);
       }
-      const stateCategory = String(feature.properties?.mapCategory || "UNKNOWN") as
-        SnapshotMapCategory;
+      const derivedStateMapCategory = statePageData
+        ? deriveMapCategoryFromCountryPageData(statePageData)
+        : null;
+      const stateCategory = String(
+        derivedStateMapCategory || feature.properties?.mapCategory || "UNKNOWN"
+      ) as SnapshotMapCategory;
       const resultStatus = resultStatusFromMapCategory(stateCategory);
       const baseColor = resolveLegalFillColor(stateCategory);
       const displayName = statePageData?.name || String(feature.properties?.displayName || feature.properties?.name || geo);

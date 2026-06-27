@@ -19,6 +19,17 @@ Standard app API responses built with `apps/web/src/lib/api/response.ts` include
 - Unknown/provisional/needs_review: show honest banner, avoid definitive language; sources remain visible.
 - UI uses the viewModel as the single source of truth (no duplicate logic).
 
+## Link rendering contract
+- `CountrySeoPage`, map popups, and SEO side panels must use one shared policy in `apps/web/src/lib/linkDisplayPolicy.ts` for link classification and equality.
+- Project/internal links (same-origin routes and same-page anchors): dotted underline styling.
+- External links (absolute URLs with protocol): solid underline styling.
+- External links open in `_blank` and include `rel="nofollow noopener noreferrer"`.
+- Self-links must be excluded from display in all places:
+  - reason items where `reason.href` resolves to current page (including with hash normalization)
+  - duplicate `Source` links when it is the same as current path or same as `reason.href`
+- `Source` links are still shown when they are a different target and follow the same external/project styling.
+- Internal anchors that differ by hash are treated as distinct for display, but links with identical path+hash are considered the same and suppressed.
+
 ## New Map cold-start contract
 - `/new-map`, `/`, and `/c/[code]` must use one MapLibre runtime and one countries SSOT payload.
 - Runtime countries data is served from `/static/countries/countries.<content-hash>.json`.

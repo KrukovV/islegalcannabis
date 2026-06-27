@@ -19,6 +19,15 @@ The web product is a Next.js App Router app in `apps/web`.
 4. Status derivation produces `rec_final`, `med_final`, `result_status`, `result_color`, penalties, enforcement, explanations, and verification links.
 5. UI renders DTOs and prebuilt models only; UI code must not parse wiki/official sources or compute audit universes.
 
+## Link rendering and source links
+
+Presentation code uses `apps/web/src/lib/linkDisplayPolicy.ts` to classify and normalize links:
+- internal/project links use dotted underlines;
+- external links use solid underlines and open in a new tab with safe rel attributes;
+- links to current page or same target (including hash-equivalent cases) are not rendered.
+
+`CountrySeoPage`, `ViewportCountryPopup`, and `UnifiedSeoStatusPanel` must follow this shared policy so popup and SEO surfaces stay visually and semantically consistent.
+
 ## Map Runtime
 
 The map has one MapLibre runtime across `/`, `/new-map`, and country routes. The countries payload is immutable and content-addressed:
