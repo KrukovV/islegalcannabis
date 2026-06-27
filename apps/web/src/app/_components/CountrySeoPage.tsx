@@ -1,4 +1,5 @@
 import Script from "next/script";
+import Link from "next/link";
 import NewMapClientEntry from "@/app/new-map/NewMapClientEntry";
 import { getNewMapRuntimeIdentity } from "@/app/new-map/runtimeConfig";
 import { buildSeoCountryIndex, computeCountryHashes, stripCountryPageHashes, type CountryPageData } from "@/lib/countryPageStorage";
@@ -10,6 +11,7 @@ import { getLocalizedCountryName, getSeoText, type SeoLocale } from "@/lib/seo/i
 import { localizePanel } from "@/lib/seo/panelLocale";
 import { getStaticCountriesAsset } from "@/new-map/staticCountries";
 import { sanitizeEvidenceQuoteText } from "@/lib/text/sanitizeEvidenceQuoteText";
+import { getLinkScope, isSameLink } from "@/lib/linkDisplayPolicy";
 import styles from "@/app/c/[code]/page.module.css";
 export { sanitizeEvidenceQuoteText };
 
@@ -60,6 +62,7 @@ export default function CountrySeoPage({
   const localizedPanel = localizePanel(card, data, locale);
   const cannabisProfileSections = getCannabisProfileCardSections(card.cannabisProfile);
   const safeSeoCountryData = getSafeSeoCountryData(data);
+  const selfPath = `/c/${data.code}`;
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -138,6 +141,42 @@ export default function CountrySeoPage({
     )
     .slice(0, 3);
 
+  const articleLinkClass = (href: string) => {
+    return getLinkScope(href) === "project" ? styles.internalLink : styles.externalLink;
+  };
+
+  const articleLinkTarget = (href: string) => {
+    if (getLinkScope(href) === "external") {
+      return {
+        target: "_blank" as const,
+        rel: "nofollow noopener noreferrer"
+      };
+    }
+    return {};
+  };
+
+  const renderArticleLink = (href: string, label: string) => {
+    if (!href) return null;
+    const className = articleLinkClass(href);
+    const targetProps = articleLinkTarget(href);
+    if (getLinkScope(href) === "project" && !href.startsWith("#")) {
+      return (
+        <Link href={href} className={className}>
+          {label}
+        </Link>
+      );
+    }
+    return (
+      <a href={href} className={className} {...targetProps}>
+        {label}
+      </a>
+    );
+  };
+
+  const isSelfLink = (href: string) => isSameLink(href, selfPath, selfPath);
+  const isSameReasonSourceLink = (sourceUrl: string, reasonHref: string) =>
+    isSelfLink(sourceUrl) || isSameLink(sourceUrl, reasonHref, selfPath);
+
   return (
     <main className={styles.page}>
       <Script
@@ -190,13 +229,11 @@ export default function CountrySeoPage({
             <ul className={styles.factsList}>
               {localizedPanel.why.map((reason) => (
                 <li key={reason.id}>
-                  <a href={reason.href}>{reason.text}</a>
-                  {reason.sourceUrl && reason.sourceUrl !== reason.href ? (
+                  {!isSelfLink(reason.href) ? renderArticleLink(reason.href, reason.text) : null}
+                  {reason.sourceUrl && !isSameReasonSourceLink(reason.sourceUrl, reason.href) ? (
                     <>
                       {" "}
-                      <a href={reason.sourceUrl} rel="nofollow noopener noreferrer" target="_blank">
-                        Source
-                      </a>
+                      {renderArticleLink(reason.sourceUrl, "Source")}
                     </>
                   ) : null}
                 </li>
@@ -209,15 +246,11 @@ export default function CountrySeoPage({
               <ul className={styles.factsList}>
                 {localizedPanel.critical.map((reason) => (
                   <li key={reason.id}>
-                    <a href={reason.href}>
-                      <strong>{reason.text}</strong>
-                    </a>
-                    {reason.sourceUrl && reason.sourceUrl !== reason.href ? (
+                    {!isSelfLink(reason.href) ? <strong>{renderArticleLink(reason.href, reason.text)}</strong> : null}
+                    {reason.sourceUrl && !isSameReasonSourceLink(reason.sourceUrl, reason.href) ? (
                       <>
                         {" "}
-                        <a href={reason.sourceUrl} rel="nofollow noopener noreferrer" target="_blank">
-                          Source
-                        </a>
+                        {renderArticleLink(reason.sourceUrl, "Source")}
                       </>
                     ) : null}
                   </li>
@@ -231,13 +264,11 @@ export default function CountrySeoPage({
               <ul className={styles.factsList}>
                 {localizedPanel.info.map((reason) => (
                   <li key={reason.id}>
-                    <a href={reason.href}>{reason.text}</a>
-                    {reason.sourceUrl && reason.sourceUrl !== reason.href ? (
+                    {!isSelfLink(reason.href) ? renderArticleLink(reason.href, reason.text) : null}
+                    {reason.sourceUrl && !isSameReasonSourceLink(reason.sourceUrl, reason.href) ? (
                       <>
                         {" "}
-                        <a href={reason.sourceUrl} rel="nofollow noopener noreferrer" target="_blank">
-                          Source
-                        </a>
+                        {renderArticleLink(reason.sourceUrl, "Source")}
                       </>
                     ) : null}
                   </li>
@@ -252,10 +283,8 @@ export default function CountrySeoPage({
                 {evidenceQuotes.map((quote) => (
                   <li key={quote}>
                     <blockquote style={{ margin: "0 0 6px", fontStyle: "italic" }}>{quote}</blockquote>
-                    {data.sources.legal ? (
-                      <a href={data.sources.legal} rel="nofollow noopener noreferrer" target="_blank">
-                        Source
-                      </a>
+                    {data.sources.legal && !isSelfLink(data.sources.legal) ? (
+                      renderArticleLink(data.sources.legal, "Source")
                     ) : null}
                   </li>
                 ))}
@@ -298,7 +327,7 @@ export default function CountrySeoPage({
           <ul className={styles.relatedList}>
             {data.related_names.map((item) => (
               <li key={item.code}>
-                <a href={`/c/${item.code}`}>{item.name}</a>
+                {!isSelfLink(`/c/${item.code}`) ? renderArticleLink(`/c/${item.code}`, item.name) : null}
               </li>
             ))}
           </ul>
