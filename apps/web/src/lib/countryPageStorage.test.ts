@@ -93,6 +93,54 @@ describe("countryPageStorage", () => {
     expect(frenchGuiana?.panel.why[0]?.text).toBe(
       "Cannabis remains restricted, but enforcement is limited or access is partially allowed."
     );
+    expect(frenchGuiana?.cannabisProfile?.sourceUrl).toContain("Cannabis_in_French_Guiana");
+    expect(frenchGuiana?.sources[0]?.url).toContain("Cannabis_in_French_Guiana");
+  });
+
+  it("resolves fallback wiki sources for parent-covered territories without per-geo hardcodes", () => {
+    const cardIndex = buildCardIndexSnapshot();
+
+    expect(cardIndex.BQ?.cannabisProfile).toBeNull();
+    expect(cardIndex.BQ?.sources.map((source) => source.url)).toContain(
+      "https://en.wikipedia.org/wiki/Cannabis_in_the_Netherlands"
+    );
+    expect(cardIndex.BQ?.sources.map((source) => source.url)).toContain(
+      "https://en.wikipedia.org/wiki/Caribbean_Netherlands"
+    );
+
+    expect(cardIndex.CX?.cannabisProfile).toBeNull();
+    expect(cardIndex.CX?.sources[0]?.url).toContain("Cannabis_in_Australia");
+    expect(cardIndex.CX?.sources.map((source) => source.url)).toContain(
+      "https://en.wikipedia.org/wiki/Christmas_Island"
+    );
+
+    expect(cardIndex.BV?.cannabisProfile).toBeNull();
+    expect(cardIndex.BV?.sources[0]?.url).toContain("Cannabis_in_Norway");
+    expect(cardIndex.BV?.sources.map((source) => source.url)).toContain(
+      "https://en.wikipedia.org/wiki/Bouvet_Island"
+    );
+  });
+
+  it("resolves explicit claimant wiki sources for disputed synthetic geos", () => {
+    const cardIndex = buildCardIndexSnapshot();
+
+    expect(cardIndex.PGA?.displayName).toBe("Spratly Islands");
+    expect(cardIndex.PGA?.detailsHref).toBe("https://en.wikipedia.org/wiki/Spratly_Islands");
+    expect(cardIndex.PGA?.sources.map((source) => source.url)).toContain(
+      "https://en.wikipedia.org/wiki/Cannabis_in_China"
+    );
+    expect(cardIndex.PGA?.sources.map((source) => source.url)).toContain(
+      "https://en.wikipedia.org/wiki/Spratly_Islands"
+    );
+
+    for (const geo of ["BJN", "BRT", "KAS", "PGA", "SCR", "SER", "SPI"] as const) {
+      const entry = cardIndex[geo];
+      const wikiSources = (entry?.sources || [])
+        .map((source) => source.url)
+        .filter((url) => /wikipedia\.org\/wiki\//i.test(url));
+      expect(entry?.displayName, `${geo} displayName`).toBeTruthy();
+      expect(wikiSources.length, `${geo} wiki source count`).toBeGreaterThan(0);
+    }
   });
 
   it("keeps every runtime map feature backed by a popup-ready card entry", () => {

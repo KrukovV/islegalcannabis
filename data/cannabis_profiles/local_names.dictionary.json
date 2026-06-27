@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-27T08:15:32.602Z",
+  "generated_at": "2026-06-27T09:24:43.044Z",
   "source_report": "Reports/knowledge-harvester/first_wave_validation.json",
   "entries": [
     {
@@ -769,6 +769,14 @@
       "kind": "local_cannabis_name",
       "source": "wiki_fact",
       "evidence": "In the early 1980s, a joint US effort removed 3,347 cannabis plants, which had been used to produce sinsemilla, from the island of Peleliu."
+    },
+    {
+      "geo": "RE",
+      "country": "Réunion",
+      "term": "zamal",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "Cannabis in Réunion is illegal, but is grown illicitly and is locally known as zamal."
     },
     {
       "geo": "RO",

@@ -1,13 +1,14 @@
 {
   "schema_version": "cannabis_knowledge_v1",
-  "generated_at": "2026-06-27T08:15:32.602Z",
+  "generated_at": "2026-06-27T09:24:43.044Z",
   "source": "Wikipedia Cannabis_in_<Jurisdiction> and related pages",
   "status_engine_touched": false,
   "scope": [
-    "US-AK",
-    "US-CA",
-    "US-MT",
-    "US"
+    "GF",
+    "GP",
+    "MQ",
+    "RE",
+    "SJ"
   ],
   "fields": [
     "history",
@@ -2744,17 +2745,22 @@
     {
       "geo": "GF",
       "country": "French Guiana",
-      "wikiTitle": "French Guiana",
-      "wikiUrl": "",
-      "revisionId": null,
-      "sourceType": "missing_wikipedia_article",
-      "history": [],
+      "wikiTitle": "Cannabis in French Guiana",
+      "wikiUrl": "https://en.wikipedia.org/wiki/Cannabis_in_French_Guiana",
+      "revisionId": "1343334096",
+      "sourceType": "wikipedia_cannabis_article",
+      "history": [
+        "A 2007 report noted that use of cannabis by youth in French Guiana was at 6%.",
+        "While mainland France has begun limited medical cannabis programmes under state-supervised trials, these are narrowly regulated and do not constitute broad legal access for most patients in French Guiana."
+      ],
       "culture": [],
       "localNames": [],
       "products": [],
       "traditionalUse": [],
       "cultivation": [],
-      "market": [],
+      "market": [
+        "In the 1980s and 1990s it was reported that cannabis grown in Brazil was smuggled to Cayenne and French Guiana."
+      ],
       "enforcementReality": [],
       "notes": []
     },
@@ -2883,17 +2889,23 @@
     {
       "geo": "GP",
       "country": "Guadeloupe",
-      "wikiTitle": "Guadeloupe",
-      "wikiUrl": "",
-      "revisionId": null,
-      "sourceType": "missing_wikipedia_article",
-      "history": [],
+      "wikiTitle": "Cannabis in Guadeloupe",
+      "wikiUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Guadeloupe",
+      "revisionId": "1307830585",
+      "sourceType": "wikipedia_cannabis_article",
+      "history": [
+        "A 2007 report noted the prevalence of cannabis among youth in Guadeloupe at 7%."
+      ],
       "culture": [],
       "localNames": [],
       "products": [],
       "traditionalUse": [],
-      "cultivation": [],
-      "market": [],
+      "cultivation": [
+        "Cannabis grown on the Windward Islands is transported to Guadeloupe, where it commands a higher price."
+      ],
+      "market": [
+        "Guadeloupe is located amongst several major cannabis producers, and thus serves as an entry point to the cannabis markets in Europe and North America."
+      ],
       "enforcementReality": [],
       "notes": []
     },
@@ -5053,17 +5065,19 @@
     {
       "geo": "MQ",
       "country": "Martinique",
-      "wikiTitle": "Martinique",
-      "wikiUrl": "",
-      "revisionId": null,
-      "sourceType": "missing_wikipedia_article",
+      "wikiTitle": "Cannabis in Martinique",
+      "wikiUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Martinique",
+      "revisionId": "1266073344",
+      "sourceType": "wikipedia_cannabis_article",
       "history": [],
       "culture": [],
       "localNames": [],
       "products": [],
       "traditionalUse": [],
       "cultivation": [],
-      "market": [],
+      "market": [
+        "Some cannabis is grown locally on Martinique, but appears to be mostly for local consumption and has little impact on the larger drug market."
+      ],
       "enforcementReality": [],
       "notes": []
     },
@@ -6334,18 +6348,40 @@
     {
       "geo": "RE",
       "country": "Réunion",
-      "wikiTitle": "Réunion",
-      "wikiUrl": "",
-      "revisionId": null,
-      "sourceType": "missing_wikipedia_article",
-      "history": [],
+      "wikiTitle": "Cannabis in Réunion",
+      "wikiUrl": "https://en.wikipedia.org/wiki/Cannabis_in_R%C3%A9union",
+      "revisionId": "1272195398",
+      "sourceType": "wikipedia_cannabis_article",
+      "history": [
+        "It is not known when cannabis, locally referred to as zamal, was introduced to Réunion, although it was likely brought in by slaves from nearby Madagascar.",
+        "Inspired by the prevalence of cannabis in Indian traditions and in the tradition of the French, some Réunion poets and writers openly praised cannabis.",
+        "Cannabis usage began to pick up in the 1950s especially in the more developed parts of the country and among the youth.",
+        "However, law enforcement then was lax, as authorities did not view cannabis as a \"social menace\"."
+      ],
       "culture": [],
-      "localNames": [],
+      "localNames": [
+        {
+          "geo": "RE",
+          "country": "Réunion",
+          "term": "zamal",
+          "kind": "local_cannabis_name",
+          "source": "wiki_fact",
+          "evidence": "Cannabis in Réunion is illegal, but is grown illicitly and is locally known as zamal."
+        }
+      ],
       "products": [],
-      "traditionalUse": [],
-      "cultivation": [],
+      "traditionalUse": [
+        "In 1951, Réunion poet Jean Albany released his first anthology of poems titled Zamal, which was described by Peter France in The New Oxford Companion to Literature in French as \"breaking out with a long-standing tradition of exoticism and out-moded Parnassianism in the literature of Réunion\"."
+      ],
+      "cultivation": [
+        "Cannabis in Réunion is illegal, but is grown illicitly and is locally known as zamal.",
+        "The climate of Réunion is particularly suitable for the cultivation of cannabis."
+      ],
       "market": [],
-      "enforcementReality": [],
+      "enforcementReality": [
+        "Under the Code of Public Health, individuals found guilty of trafficking cannabis face a fine of up to 75,000 euros and a five-year prison sentence, whereas the possession and intent to sell cannabis is punishable by a ten-year prison sentence and a fine of 500,000 euros.",
+        "Cannabis users face up to 3,750 euros in fines and one year in prison."
+      ],
       "notes": []
     },
     {

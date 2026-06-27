@@ -51,6 +51,16 @@ type WikiClaimsEntry = {
   fetched_at?: string | null;
 };
 
+export type WikiPagesUniverseEntry = {
+  iso2?: string;
+  country?: string;
+  country_name?: string;
+  expected_wiki_url?: string;
+  expected_wiki_page_url?: string;
+  wiki_page_url?: string;
+  from_cannabis_by_country?: boolean;
+};
+
 export type StatusReviewOverrideEntry = {
   name?: string;
   recreational?: "LEGAL" | "ILLEGAL" | null;
@@ -156,6 +166,7 @@ const DATA_FILE_PATHS: Record<string, string> = {
   "data/wiki/ssot_legality_table.json": path.join(DATA_ROOT, "wiki", "ssot_legality_table.json"),
   "data/status-engine/manual_review_overrides.json": path.join(DATA_ROOT, "status-engine", "manual_review_overrides.json"),
   "data/status-engine/status_ssot_v9.json": path.join(DATA_ROOT, "status-engine", "status_ssot_v9.json"),
+  "data/ssot/wiki_pages_universe.json": path.join(DATA_ROOT, "ssot", "wiki_pages_universe.json"),
   "data/ssot/us_states_wiki.json": path.join(DATA_ROOT, "ssot", "us_states_wiki.json"),
   "data/ssot/us_states.json": path.join(DATA_ROOT, "ssot", "us_states.json"),
   "data/wiki/cache/legality_us_states.json": path.join(DATA_ROOT, "wiki", "cache", "legality_us_states.json"),
@@ -203,6 +214,13 @@ export function loadWikiClaimsMap(): Record<string, WikiClaimsEntry> {
   if (!fs.existsSync(file)) return {};
   const payload = JSON.parse(fs.readFileSync(file, "utf8"));
   return payload?.items || {};
+}
+
+export function loadWikiPagesUniverse(): WikiPagesUniverseEntry[] {
+  const file = resolveDataPath("data", "ssot", "wiki_pages_universe.json");
+  if (!fs.existsSync(file)) return [];
+  const payload = JSON.parse(fs.readFileSync(file, "utf8"));
+  return Array.isArray(payload?.items) ? payload.items : [];
 }
 
 export function loadStatusReviewOverrides(): Record<string, StatusReviewOverrideEntry> {

@@ -684,6 +684,7 @@ function buildAuditGeoList(
           const normalizedGeo = String(geo || "").toUpperCase();
           const normalizedType = String(entry?.type || "").toLowerCase();
           if (requested.size && !requested.has(normalizedGeo)) return null;
+          if (requested.size && requested.has(normalizedGeo) && normalizedType === "country") return normalizedGeo;
           if (/^US-[A-Z]{2}$/.test(normalizedGeo) && normalizedType === "state") return normalizedGeo;
           if (/^[A-Z]{2}$/.test(normalizedGeo) && normalizedType === "country") return normalizedGeo;
           return null;

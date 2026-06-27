@@ -1,11 +1,12 @@
 {
-  "generated_at": "2026-06-27T08:15:32.602Z",
+  "generated_at": "2026-06-27T09:24:43.044Z",
   "source_report": "Reports/knowledge-harvester/first_wave_validation.json",
   "scope": [
-    "US-AK",
-    "US-CA",
-    "US-MT",
-    "US"
+    "GF",
+    "GP",
+    "MQ",
+    "RE",
+    "SJ"
   ],
   "profiles": [
     {
@@ -3195,19 +3196,24 @@
     {
       "geo": "GF",
       "country": "French Guiana",
-      "wiki_title": "French Guiana",
-      "wiki_url": "",
-      "revision_id": null,
-      "source_type": "missing_wikipedia_article",
+      "wiki_title": "Cannabis in French Guiana",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_French_Guiana",
+      "revision_id": "1343334096",
+      "source_type": "wikipedia_cannabis_article",
       "sections": {
-        "history": [],
+        "history": [
+          "A 2007 report noted that use of cannabis by youth in French Guiana was at 6%.",
+          "While mainland France has begun limited medical cannabis programmes under state-supervised trials, these are narrowly regulated and do not constitute broad legal access for most patients in French Guiana."
+        ],
         "local_names": [],
         "products": [],
         "traditional_use": [],
         "cannabis_foods": [],
         "slang": [],
         "cultivation": [],
-        "market": [],
+        "market": [
+          "In the 1980s and 1990s it was reported that cannabis grown in Brazil was smuggled to Cayenne and French Guiana."
+        ],
         "enforcement_notes": [],
         "culture": [],
         "notes": []
@@ -3369,19 +3375,25 @@
     {
       "geo": "GP",
       "country": "Guadeloupe",
-      "wiki_title": "Guadeloupe",
-      "wiki_url": "",
-      "revision_id": null,
-      "source_type": "missing_wikipedia_article",
+      "wiki_title": "Cannabis in Guadeloupe",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Guadeloupe",
+      "revision_id": "1307830585",
+      "source_type": "wikipedia_cannabis_article",
       "sections": {
-        "history": [],
+        "history": [
+          "A 2007 report noted the prevalence of cannabis among youth in Guadeloupe at 7%."
+        ],
         "local_names": [],
         "products": [],
         "traditional_use": [],
         "cannabis_foods": [],
         "slang": [],
-        "cultivation": [],
-        "market": [],
+        "cultivation": [
+          "Cannabis grown on the Windward Islands is transported to Guadeloupe, where it commands a higher price."
+        ],
+        "market": [
+          "Guadeloupe is located amongst several major cannabis producers, and thus serves as an entry point to the cannabis markets in Europe and North America."
+        ],
         "enforcement_notes": [],
         "culture": [],
         "notes": []
@@ -5900,10 +5912,10 @@
     {
       "geo": "MQ",
       "country": "Martinique",
-      "wiki_title": "Martinique",
-      "wiki_url": "",
-      "revision_id": null,
-      "source_type": "missing_wikipedia_article",
+      "wiki_title": "Cannabis in Martinique",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Martinique",
+      "revision_id": "1266073344",
+      "source_type": "wikipedia_cannabis_article",
       "sections": {
         "history": [],
         "local_names": [],
@@ -5912,7 +5924,9 @@
         "cannabis_foods": [],
         "slang": [],
         "cultivation": [],
-        "market": [],
+        "market": [
+          "Some cannabis is grown locally on Martinique, but appears to be mostly for local consumption and has little impact on the larger drug market."
+        ],
         "enforcement_notes": [],
         "culture": [],
         "notes": []
@@ -7405,24 +7419,50 @@
     {
       "geo": "RE",
       "country": "Réunion",
-      "wiki_title": "Réunion",
-      "wiki_url": "",
-      "revision_id": null,
-      "source_type": "missing_wikipedia_article",
+      "wiki_title": "Cannabis in Réunion",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_R%C3%A9union",
+      "revision_id": "1272195398",
+      "source_type": "wikipedia_cannabis_article",
       "sections": {
-        "history": [],
-        "local_names": [],
+        "history": [
+          "It is not known when cannabis, locally referred to as zamal, was introduced to Réunion, although it was likely brought in by slaves from nearby Madagascar.",
+          "Inspired by the prevalence of cannabis in Indian traditions and in the tradition of the French, some Réunion poets and writers openly praised cannabis.",
+          "Cannabis usage began to pick up in the 1950s especially in the more developed parts of the country and among the youth.",
+          "However, law enforcement then was lax, as authorities did not view cannabis as a \"social menace\"."
+        ],
+        "local_names": [
+          "zamal"
+        ],
         "products": [],
-        "traditional_use": [],
+        "traditional_use": [
+          "In 1951, Réunion poet Jean Albany released his first anthology of poems titled Zamal, which was described by Peter France in The New Oxford Companion to Literature in French as \"breaking out with a long-standing tradition of exoticism and out-moded Parnassianism in the literature of Réunion\"."
+        ],
         "cannabis_foods": [],
-        "slang": [],
-        "cultivation": [],
+        "slang": [
+          "zamal"
+        ],
+        "cultivation": [
+          "Cannabis in Réunion is illegal, but is grown illicitly and is locally known as zamal.",
+          "The climate of Réunion is particularly suitable for the cultivation of cannabis."
+        ],
         "market": [],
-        "enforcement_notes": [],
+        "enforcement_notes": [
+          "Under the Code of Public Health, individuals found guilty of trafficking cannabis face a fine of up to 75,000 euros and a five-year prison sentence, whereas the possession and intent to sell cannabis is punishable by a ten-year prison sentence and a fine of 500,000 euros.",
+          "Cannabis users face up to 3,750 euros in fines and one year in prison."
+        ],
         "culture": [],
         "notes": []
       },
-      "local_names": []
+      "local_names": [
+        {
+          "geo": "RE",
+          "country": "Réunion",
+          "term": "zamal",
+          "kind": "local_cannabis_name",
+          "source": "wiki_fact",
+          "evidence": "Cannabis in Réunion is illegal, but is grown illicitly and is locally known as zamal."
+        }
+      ]
     },
     {
       "geo": "RO",
@@ -9189,12 +9229,7 @@
           "The federal government of the U.S. continues to argue that smoked cannabis has no recognized medical purpose (pointing to a definition of \"medical purpose\" published by the DEA, not the Food and Drug Administration, the National Institutes of Health, the Centers for Disease Control, or the office of the U.S."
         ],
         "traditional_use": [],
-        "cannabis_foods": [
-          "Food and Drug Administration, nor are they legally registered with the federal government to sell controlled substances.",
-          "Food and Drug Administration (FDA) has not officially approved marijuana as a medicine.",
-          "The Food and Drug Administration has approved two synthetic cannabis drugs for treating cancer and other medical issues.",
-          "The federal government of the U.S. continues to argue that smoked cannabis has no recognized medical purpose (pointing to a definition of \"medical purpose\" published by the DEA, not the Food and Drug Administration, the National Institutes of Health, the Centers for Disease Control, or the office of the U.S."
-        ],
+        "cannabis_foods": [],
         "slang": [],
         "cultivation": [],
         "market": [
@@ -9446,15 +9481,8 @@
         "traditional_use": [
           "Under the permits, they can let anyone 21 and older buy and smoke weed at the festival."
         ],
-        "cannabis_foods": [
-          "Other products sold illegally that have not been tested include edible products and vaping pens."
-        ],
-        "slang": [
-          "the Compassionate Use Act",
-          "budtenders",
-          "Grass Lands",
-          "sinsemilla"
-        ],
+        "cannabis_foods": [],
+        "slang": [],
         "cultivation": [
           "California's main regulatory agencies were initially the Bureau of Cannabis Control (BCC), Department of Food and Agriculture, and Department of Public Health.",
           "Companies must obtain a license from a local agency in each jurisdiction to cultivate, test, or sell cannabis.",
