@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { chromium, type Page } from "@playwright/test";
+import { buildVercelBypassHeaders } from "../../../tools/vercel_bypass.mjs";
 
 type RuntimeJurisdiction = {
   iso2?: string;
@@ -422,13 +423,22 @@ async function popupDomVisible(page: Page) {
 
 async function main() {
   const baseUrl = process.env.PLAYWRIGHT_BASE_URL || "http://127.0.0.1:3000";
+  const bypassHeaders = buildVercelBypassHeaders(process.env.VERCEL_AUTOMATION_BYPASS_SECRET || "", "true");
+  const cleanedBypassHeaders = Object.entries(bypassHeaders).reduce<Record<string, string>>((acc, [key, value]) => {
+    if (typeof value === "string" && value) {
+      acc[key] = value;
+    }
+    return acc;
+  }, {});
   const popupDir = path.join(POPUP_VISUAL_AUDIT_DIR, "popup");
   const wikiDir = path.join(POPUP_VISUAL_AUDIT_DIR, "wiki");
   fs.mkdirSync(popupDir, { recursive: true });
   fs.mkdirSync(wikiDir, { recursive: true });
 
   const browser = await chromium.launch({ headless: process.env.PLAYWRIGHT_HEADFUL === "1" ? false : true });
-  const context = await browser.newContext();
+  const context = await browser.newContext({
+    ...(Object.keys(cleanedBypassHeaders).length > 0 ? { extraHTTPHeaders: cleanedBypassHeaders } : {})
+  });
   const page = await context.newPage();
   const wikiPage = await context.newPage();
 
