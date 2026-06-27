@@ -104,13 +104,25 @@
   gap: 8px;
 }
 
-.relatedList a {
-  color: #1d5966;
-  text-decoration: none;
+.internalLink {
+  color: #1f4761;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
 
-.relatedList a:hover {
-  text-decoration: underline;
+.externalLink {
+  color: #607382;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.internalLink:hover,
+.externalLink:hover {
+  text-decoration-thickness: 2px;
 }
 
 @media (max-width: 720px) {

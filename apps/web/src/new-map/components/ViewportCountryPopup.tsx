@@ -2,12 +2,14 @@
 
 import { useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import type { SeoLocale } from "@/lib/seo/i18n";
 import { localizePanelFromEntry } from "@/lib/seo/panelLocale";
 import type { CountryCardEntry } from "../map.types";
 import styles from "../MapRoot.module.css";
 import { sanitizeEvidenceQuoteText } from "@/lib/text/sanitizeEvidenceQuoteText";
 import { readVisualViewportSnapshot, subscribeToVisualViewportChanges } from "../viewportMetrics";
+import { getLinkScope, isSameLink } from "@/lib/linkDisplayPolicy";
 
 export default function ViewportCountryPopup({
   entry,
@@ -23,6 +25,7 @@ export default function ViewportCountryPopup({
   onOpenDetails?: (_entry: CountryCardEntry) => void;
 }) {
   const panelRef = useRef<HTMLElement | null>(null);
+  const currentPath = usePathname() || "/";
   const [position, setPosition] = useState<{ left: number; top: number; placement: "left" | "right" }>({
     left: 16,
     top: 16,
@@ -95,22 +98,35 @@ export default function ViewportCountryPopup({
     items: Array<{ id: string; text: string; href: string; sourceUrl?: string }>
   ) => {
     if (!items.length) return null;
+    const isSelfLink = (href: string) => isSameLink(href, currentPath, currentPath);
+    const isSameReasonSourceLink = (sourceUrl: string, reasonHref: string) =>
+      isSelfLink(sourceUrl) || isSameLink(sourceUrl, reasonHref, currentPath);
+    const reasonLinkClass = (href: string) =>
+      getLinkScope(href) === "project" ? styles.viewportPopupReasonLink : styles.viewportPopupSourceLink;
+    const sourceLinkClass = (href: string) =>
+      getLinkScope(href) === "project" ? styles.viewportPopupReasonLink : styles.viewportPopupSourceLink;
+    const getLinkTarget = (href: string) => {
+      if (getLinkScope(href) === "external") {
+        return {
+          target: "_blank" as const,
+          rel: "nofollow noopener noreferrer"
+        };
+      }
+      return {};
+    };
     return (
       <section className={styles.viewportPopupSection}>
         <div className={styles.viewportPopupSectionTitle}>{title}</div>
         <ul className={styles.viewportPopupList}>
           {items.map((item) => (
             <li key={item.id} className={styles.viewportPopupListItem}>
-              <Link href={item.href} className={styles.viewportPopupReasonLink}>
-                <strong>{item.text}</strong>
-              </Link>
-              {item.sourceUrl && item.sourceUrl !== item.href ? (
-                <a
-                  className={styles.viewportPopupSourceLink}
-                  href={item.sourceUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                >
+              {isSelfLink(item.href) ? null : (
+                <Link href={item.href} className={reasonLinkClass(item.href)}>
+                  <strong>{item.text}</strong>
+                </Link>
+              )}
+              {item.sourceUrl && !isSameReasonSourceLink(item.sourceUrl, item.href) ? (
+                <a className={sourceLinkClass(item.sourceUrl)} href={item.sourceUrl} {...getLinkTarget(item.sourceUrl)}>
                   {sourceDisplayTitle(`Source: ${item.text}`, item.sourceUrl)}
                 </a>
               ) : null}
@@ -119,6 +135,18 @@ export default function ViewportCountryPopup({
         </ul>
       </section>
     );
+  };
+
+  const getSourceLinkClass = (href: string) =>
+    getLinkScope(href) === "project" ? styles.viewportPopupReasonLink : styles.viewportPopupSourceInlineLink;
+  const getLinkTarget = (href: string) => {
+    if (getLinkScope(href) === "external") {
+      return {
+        target: "_blank" as const,
+        rel: "nofollow noopener noreferrer"
+      };
+    }
+    return {};
   };
 
   const dedupeByValue = (items: string[]) => {
@@ -143,15 +171,14 @@ export default function ViewportCountryPopup({
       <section className={styles.viewportPopupSection}>
         <div className={styles.viewportPopupSectionTitle}>
           {title}
-          {entry.cannabisProfile?.sourceUrl ? (
+        {entry.cannabisProfile?.sourceUrl && !isSameLink(entry.cannabisProfile.sourceUrl, `/c/${entry.code}`, currentPath) ? (
             <>
               {" · "}
-              <a
-                className={styles.viewportPopupSourceInlineLink}
-                href={entry.cannabisProfile.sourceUrl}
-                target="_blank"
-                rel="noreferrer"
-              >
+                <a
+                  className={getSourceLinkClass(entry.cannabisProfile.sourceUrl)}
+                  href={entry.cannabisProfile.sourceUrl}
+                  {...getLinkTarget(entry.cannabisProfile.sourceUrl)}
+                >
                 {sourceDisplayTitle(
                   entry.cannabisProfile.sourceTitle || `Wikipedia: ${entry.displayName}`,
                   entry.cannabisProfile.sourceUrl
@@ -265,9 +292,15 @@ export default function ViewportCountryPopup({
           <ul className={styles.viewportPopupList}>
             {entry.sources.map((source) => (
               <li key={source.id} className={styles.viewportPopupPlainItem}>
-                <a className={styles.viewportPopupSourceInlineLink} href={source.url} target="_blank" rel="noreferrer">
-                  {sourceDisplayTitle(source.title, source.url)}
-                </a>
+                {isSameLink(source.url, `/c/${entry.code}`, currentPath) ? null : (
+                <a
+                  className={getSourceLinkClass(source.url)}
+                  href={source.url}
+                  {...getLinkTarget(source.url)}
+                >
+                    {sourceDisplayTitle(source.title, source.url)}
+                  </a>
+                )}
               </li>
             ))}
           </ul>
