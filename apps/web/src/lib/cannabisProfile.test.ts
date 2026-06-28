@@ -112,4 +112,13 @@ describe("cannabisProfile", () => {
     expect(montanaText).toMatch(/political enemies/i);
     expect(failures).toEqual([]);
   });
+
+  it("drops unattributed quote fragments from popup profile cards", () => {
+    const sweden = buildCannabisProfileCard("SE", 10);
+    const historyText = (sweden?.history || []).join(" ");
+
+    expect(historyText).not.toMatch(/\bshe said\b/i);
+    expect(historyText).not.toMatch(/I hate the law book here/i);
+    expect(historyText).toMatch(/Medical Products Agency|European Court of Human Rights/i);
+  });
 });

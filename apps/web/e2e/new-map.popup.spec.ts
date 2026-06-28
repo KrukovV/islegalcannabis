@@ -365,7 +365,7 @@ function popupSemanticHeading(value: string) {
 function wikiSemanticHeading(value: string) {
   const heading = String(value || "").replace(/\[edit\]/gi, "").trim();
   if (!heading) return null;
-  if (/\b(history|chronology|origins?|prehistory|prehistoric|ancient|feudal|post-war|legalization|reform)\b/i.test(heading)) {
+  if (/\b(history|chronology|origins?|prehistory|prehistoric|ancient|feudal|post-war|legalization|decriminali[sz]ation|reform|efforts?)\b/i.test(heading)) {
     return "History";
   }
   if (/\b(agriculture|cultivation|production|as hemp|hemp)\b/i.test(heading)) return "Cultivation";
@@ -684,9 +684,11 @@ function buildAuditGeoList(
           const normalizedGeo = String(geo || "").toUpperCase();
           const normalizedType = String(entry?.type || "").toLowerCase();
           if (requested.size && !requested.has(normalizedGeo)) return null;
-          if (requested.size && requested.has(normalizedGeo) && normalizedType === "country") return normalizedGeo;
           if (/^US-[A-Z]{2}$/.test(normalizedGeo) && normalizedType === "state") return normalizedGeo;
-          if (/^[A-Z]{2}$/.test(normalizedGeo) && normalizedType === "country") return normalizedGeo;
+          if ((/^[A-Z]{2}$/.test(normalizedGeo) || /^[A-Z]{3}$/.test(normalizedGeo)) && normalizedType === "country") {
+            return normalizedGeo;
+          }
+          if (requested.size && requested.has(normalizedGeo)) return normalizedGeo;
           return null;
         })
         .filter((geo): geo is string => Boolean(geo))

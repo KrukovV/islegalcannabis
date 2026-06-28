@@ -195,4 +195,40 @@ describe("ViewportCountryPopup render contract", () => {
     expect(html).toContain("History");
     expect(html).toContain("Wikipedia: Cannabis in Australia");
   });
+
+  it("keeps a later reform fact visible when History is compacted to three items", () => {
+    const entry = deriveCountryCardEntryFromCountryPageData(getCountryPageData("khm")!);
+    entry.cannabisProfile = {
+      sourceUrl: "https://en.wikipedia.org/wiki/Cannabis_in_El_Salvador",
+      sourceTitle: "Wikipedia: Cannabis in El Salvador",
+      history: [
+        "The country criminalized production and distribution.",
+        "The country remains conservative on drug policy.",
+        "A 2016 study estimated lifetime use at 17%.",
+        "In 2014, activists protested to decriminalize personal cultivation."
+      ],
+      localNames: [],
+      culture: [],
+      enforcementReality: [],
+      products: [],
+      traditionalUse: [],
+      notes: [],
+      cannabisFoods: [],
+      slang: [],
+      cultivation: [],
+      market: []
+    };
+    const html = renderToStaticMarkup(
+      createElement(ViewportCountryPopup, {
+        entry,
+        locale: "en",
+        anchor: { x: 100, y: 100 },
+        onClose: () => {}
+      })
+    );
+
+    expect(html).toContain("History");
+    expect(html).toContain("protested to decriminalize personal cultivation");
+    expect(html).not.toContain("A 2016 study estimated lifetime use at 17%");
+  });
 });

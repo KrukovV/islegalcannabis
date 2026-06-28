@@ -3370,6 +3370,28 @@ if [ "${LOG_SIZE_GUARD_RC}" -ne 0 ] || printf "%s\n" "${LOG_SIZE_GUARD_OUTPUT}" 
   fail_with_reason "LOG_SIZE_GUARD_FAIL"
 fi
 
+if [ -f "${ROOT}/Artifacts/popup-visual-audit/full-manifest.json" ]; then
+  POPUP_VISUAL_AUDIT_GUARD_OUTPUT=""
+  CURRENT_STEP="popup_visual_audit_guard"
+  CURRENT_CMD="${NODE_BIN} tools/gates/popup_visual_audit_guard.mjs"
+  set +e
+  POPUP_VISUAL_AUDIT_GUARD_OUTPUT=$(${NODE_BIN} tools/gates/popup_visual_audit_guard.mjs 2>&1)
+  POPUP_VISUAL_AUDIT_GUARD_RC=$?
+  set -e
+  printf "%s\n" "${POPUP_VISUAL_AUDIT_GUARD_OUTPUT}" >> "${REPORTS_FINAL}"
+  printf "%s\n" "${POPUP_VISUAL_AUDIT_GUARD_OUTPUT}" >> "${RUN_REPORT_FILE}"
+  if [ "${CI_WRITE_ROOT}" = "1" ]; then
+    printf "%s\n" "${POPUP_VISUAL_AUDIT_GUARD_OUTPUT}" >> "${ROOT}/ci-final.txt"
+  fi
+  if [ "${POPUP_VISUAL_AUDIT_GUARD_RC}" -ne 0 ]; then
+    FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${POPUP_VISUAL_AUDIT_GUARD_OUTPUT}"
+    FAIL_STEP="popup_visual_audit_guard"
+    FAIL_CMD="${CURRENT_CMD}"
+    FAIL_RC="${POPUP_VISUAL_AUDIT_GUARD_RC}"
+    fail_with_reason "POPUP_VISUAL_AUDIT_GUARD_FAIL"
+  fi
+fi
+
 flag_from_env_or_default() {
   local default="$1"
   shift

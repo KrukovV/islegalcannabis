@@ -4,7 +4,7 @@ import {
   mapCategoryToColor
 } from "@/lib/resultStatus";
 import type { CountryPageData } from "@/lib/countryPageStorage";
-import { buildCannabisProfileCard, getCannabisProfileForGeo } from "@/lib/cannabisProfile";
+import { buildCannabisProfileCard, getCannabisProfileForGeo, resolveCanonicalCannabisSource } from "@/lib/cannabisProfile";
 import { assertCannabisWikiSource, isCannabisWikiSource } from "@/lib/wiki/cannabisSource";
 import { getHumanStatusHeadline, getHumanStatusSummary } from "@/lib/statusHumanText";
 import { applyStatusReviewOverrideToCountryPageData } from "@/lib/statusReviewOverrides";
@@ -154,6 +154,22 @@ export function deriveCountryCardEntryFromCountryPageData(data: CountryPageData)
     why.push(buildReason("why-green", getHumanStatusSummary(mapCategory), "#law-status-explanation", reasonSourceUrl));
   }
 
+  const baseCannabisProfile = buildCannabisProfileCard(
+    data.geo_code,
+    Number.POSITIVE_INFINITY,
+    profileSeedNotes
+  );
+  const cannabisProfile = baseCannabisProfile
+    ? {
+        ...baseCannabisProfile,
+        ...resolveCanonicalCannabisSource(
+          baseCannabisProfile,
+          legalSourceUrl || rootSourceUrl,
+          legalSourceUrl || rootSourceUrl ? `Wikipedia: ${data.name}` : baseCannabisProfile.sourceTitle
+        )
+      }
+    : null;
+
   return {
     geo: data.geo_code,
     code: data.code,
@@ -180,11 +196,7 @@ export function deriveCountryCardEntryFromCountryPageData(data: CountryPageData)
     normalizedDistributionStatus: data.legal_model.distribution.status,
     distributionFlags: data.legal_model.distribution.flags,
     statusFlags: data.legal_model.distribution.flags,
-    cannabisProfile: buildCannabisProfileCard(
-      data.geo_code,
-      Number.POSITIVE_INFINITY,
-      profileSeedNotes
-    ),
+    cannabisProfile,
     notes: sanitizeEvidenceQuoteText(rawNotes),
     panel: {
       levelTitle: mapCategoryToLevelTitle(mapCategory),

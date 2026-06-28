@@ -159,9 +159,23 @@ export default function ViewportCountryPopup({
     });
   };
 
-  const resolveSection = (value: string[] | undefined, limit?: number) => {
+  const pickCompactHistoryItems = (items: string[], limit: number) => {
+    if (items.length <= limit || limit < 2) return items.slice(0, limit);
+    const visible = items.slice(0, limit);
+    const reformSignalRe =
+      /\b(decriminali[sz](?:e|ed|ing|ation)|legali[sz](?:e|ed|ing|ation)|reform|bill|initiative|protest(?:ed|s|ing)?|activist|survey|support(?:ed|s|ing)?|court|parliament)\b/i;
+    if (visible.some((item) => reformSignalRe.test(item))) return visible;
+    const replacement = items.slice(limit).find((item) => reformSignalRe.test(item));
+    if (!replacement) return visible;
+    return [...visible.slice(0, limit - 1), replacement];
+  };
+
+  const resolveSection = (title: string, value: string[] | undefined, limit?: number) => {
     const cleaned = (value || []).map((item) => sanitizeEvidenceQuoteText(item)).filter(Boolean);
-    return limit ? dedupeByValue(cleaned).slice(0, limit) : dedupeByValue(cleaned);
+    const deduped = dedupeByValue(cleaned);
+    if (!limit) return deduped;
+    if (title === "History") return pickCompactHistoryItems(deduped, limit);
+    return deduped.slice(0, limit);
   };
 
   const renderProfileSection = (title: string, items: string[] | undefined, limit?: number) => {
@@ -199,6 +213,7 @@ export default function ViewportCountryPopup({
   };
 
   const jurisdictionLines = resolveSection(
+    "Jurisdiction",
     [
       ...(entry.parentLawSummary ? [entry.parentLawSummary] : []),
       ...(entry.jurisdictionContextNotes || [])
@@ -206,18 +221,18 @@ export default function ViewportCountryPopup({
     3
   );
   const compactLimit = 3;
-  const jurisdictionSection = resolveSection(jurisdictionLines, 3);
-  const localNamesSectionItems = resolveSection(entry.cannabisProfile?.localNames, 6);
-  const productsSectionItems = resolveSection(entry.cannabisProfile?.products, compactLimit);
-  const traditionalSectionItems = resolveSection(entry.cannabisProfile?.traditionalUse, compactLimit);
-  const cultivationSectionItems = resolveSection(entry.cannabisProfile?.cultivation, compactLimit);
-  const marketSectionItems = resolveSection(entry.cannabisProfile?.market, compactLimit);
-  const cannabisFoodsSectionItems = resolveSection(entry.cannabisProfile?.cannabisFoods, compactLimit);
-  const slangSectionItems = resolveSection(entry.cannabisProfile?.slang, compactLimit);
-  const notesSectionItems = resolveSection(entry.cannabisProfile?.notes, compactLimit);
-  const enforcementSectionItems = resolveSection(entry.cannabisProfile?.enforcementReality, compactLimit);
-  const cultureSectionItems = resolveSection(entry.cannabisProfile?.culture, compactLimit);
-  const historySectionItems = resolveSection(entry.cannabisProfile?.history, compactLimit);
+  const jurisdictionSection = resolveSection("Jurisdiction", jurisdictionLines, 3);
+  const localNamesSectionItems = resolveSection("Local Names", entry.cannabisProfile?.localNames, 6);
+  const productsSectionItems = resolveSection("Products", entry.cannabisProfile?.products, compactLimit);
+  const traditionalSectionItems = resolveSection("Traditional Use", entry.cannabisProfile?.traditionalUse, compactLimit);
+  const cultivationSectionItems = resolveSection("Cultivation", entry.cannabisProfile?.cultivation, compactLimit);
+  const marketSectionItems = resolveSection("Market", entry.cannabisProfile?.market, compactLimit);
+  const cannabisFoodsSectionItems = resolveSection("Cannabis Foods", entry.cannabisProfile?.cannabisFoods, compactLimit);
+  const slangSectionItems = resolveSection("Slang", entry.cannabisProfile?.slang, compactLimit);
+  const notesSectionItems = resolveSection("Cannabis Profile", entry.cannabisProfile?.notes, compactLimit);
+  const enforcementSectionItems = resolveSection("Enforcement Reality", entry.cannabisProfile?.enforcementReality, compactLimit);
+  const cultureSectionItems = resolveSection("Culture", entry.cannabisProfile?.culture, compactLimit);
+  const historySectionItems = resolveSection("History", entry.cannabisProfile?.history, compactLimit);
   const hasDetailsCta = Boolean(entry.detailsHref || /^\/c\//i.test(entry.pageHref));
 
   const sourceDisplayTitle = (title: string, href: string) => {

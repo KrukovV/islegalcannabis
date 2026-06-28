@@ -65,7 +65,7 @@ const LOCAL_NAME_SENTENCE_RE =
   /\b(known as|called|referred to as|referred to by terms? such as|terms? such as|names? of|common names?|slang|locally|local parlance|term|word)\b/i;
 const APPENDIX_HEADING_RE = /\b(references|notes|external links|see also|further reading|bibliography|gallery)\b/i;
 const HISTORY_HEADING_RE =
-  /\b(history|chronology|legal history|steps to legalization|final legalization|reform|origins?|prehistory|prehistoric|ancient|classical|feudal|post[- ]war)\b/i;
+  /\b(history|chronology|legal history|steps to legalization|final legalization|decriminali[sz]ation|reform|origins?|prehistory|prehistoric|ancient|classical|feudal|post[- ]war)\b/i;
 const ENFORCEMENT_HEADING_RE =
   /\b(enforcement|laws?|legal status|penalt(?:y|ies)|violations?|arrests?|law enforcement|policing|carrying drugs|crime|prohibition)\b/i;
 const CULTIVATION_HEADING_RE = /\b(agriculture|cultivat(?:ion|e|ed)|production|farm(?:ing)?|crop|hemp)\b/i;
@@ -76,7 +76,7 @@ const TRADITIONAL_HEADING_RE = /\b(traditional use|traditional|modern use|as hem
 const LOCAL_NAME_HEADING_RE = /\b(local names?|slang|parlance|etymology|terminology)\b/i;
 const PRODUCT_HEADING_RE = /\b(products?|food|foods|edibles?|preparations?|hashish|resin|oil)\b/i;
 const LEGAL_STATUS_HEADING_RE = /\b(legal status|legislation and policy|legality)\b/i;
-const LEGAL_REFORM_HEADING_RE = /\b(reform|legali[sz]ation|policy reform)\b/i;
+const LEGAL_REFORM_HEADING_RE = /\b(reform|legali[sz]ation|decriminali[sz]ation|policy reform|efforts?)\b/i;
 const OPERATIONAL_CULTIVATION_RE =
   /\b(industrial hemp|hemp fibers?|hemp seeds?|hemp products?|permits? to cultivate|licensed cannabis farms?|licensed hemp|cultivation is strictly regulated|cultivated domestically|commercial hemp)\b/i;
 const OPERATIONAL_MARKET_RE = /\b(market|industry|retail(?:er|ers)?|revenue|consumer|commercial|shops?|sales volume)\b/i;

@@ -1,23 +1,9 @@
 {
-  "generated_at": "2026-06-27T16:17:48.793Z",
+  "generated_at": "2026-06-27T18:36:28.350Z",
   "source_report": "Reports/knowledge-harvester/first_wave_validation.json",
   "scope": [
-    "AS",
-    "AQ",
-    "KY",
     "SV",
-    "GI",
-    "GU",
-    "XK",
-    "MS",
-    "NC",
-    "NZ",
-    "MP",
-    "PR",
-    "BL",
-    "PM",
-    "TC",
-    "VI"
+    "NC"
   ],
   "profiles": [
     {
@@ -3649,9 +3635,7 @@
         "products": [],
         "traditional_use": [],
         "cannabis_foods": [],
-        "slang": [
-          "the Marijuana Control Law"
-        ],
+        "slang": [],
         "cultivation": [],
         "market": [],
         "enforcement_notes": [
@@ -6037,9 +6021,7 @@
         "products": [],
         "traditional_use": [],
         "cannabis_foods": [],
-        "slang": [
-          "a stick"
-        ],
+        "slang": [],
         "cultivation": [
           "According to the Department of Public Safety Criminal Investigation Bureau, marijuana is transported to the CNMI by criminal groups that cultivate cannabis in the Philippines and the neighboring island of the Republic of Palau."
         ],
@@ -6993,9 +6975,7 @@
           "The New Zealand Medical Association (NZMA) supports having evidence-based, peer-reviewed studies of medical cannabis."
         ],
         "cannabis_foods": [],
-        "slang": [
-          "green fairies"
-        ],
+        "slang": [],
         "cultivation": [
           "Among Britain's colonies, New Zealand was one of the few areas where the United Kingdom did not encourage extensive industrial hemp production, as the native harakeke plant could instead be used for fibre.",
           "'Under its proposal, people would be able to legally grow and possess marijuana for personal use'.",
@@ -7385,7 +7365,8 @@
       "source_type": "wikipedia_cannabis_article",
       "sections": {
         "history": [
-          "As an overseas collectivity of France, Saint Pierre and Miquelon is subject to French law and all international conventions signed by France."
+          "As an overseas collectivity of France, Saint Pierre and Miquelon is subject to French law and all international conventions signed by France.",
+          "Cannabis is illegal in Saint Pierre and Miquelon for personal use."
         ],
         "local_names": [],
         "products": [],

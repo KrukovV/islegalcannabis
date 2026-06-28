@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import { readFileSync } from "node:fs";
 import path from "node:path";
+import { resolveCanonicalCannabisSource } from "../src/lib/cannabisProfile";
 import { sanitizeEvidenceQuoteText } from "../src/lib/text/sanitizeEvidenceQuoteText";
 import { buildCardIndexSnapshot } from "../src/new-map/countrySource";
 import {
@@ -196,7 +197,40 @@ function buildRows() {
     const knowledgeSourceType = normalizeText(String(knowledge?.sourceType || ""));
     const liveKnowledgePage =
       knowledgeSourceType === "missing_wikipedia_article" ? "" : normalizeText(String(knowledge?.wikiUrl || ""));
-    const candidateWikiPage = liveKnowledgePage || page?.sources?.legal || null;
+    const preferredLegalWikiPage = normalizeText(String(page?.sources?.legal || ""));
+    const canonicalWikiSource = resolveCanonicalCannabisSource(
+      {
+        sourceUrl: liveKnowledgePage || preferredLegalWikiPage || null,
+        sourceTitle: entry?.cannabisProfile?.sourceTitle || page?.name || ""
+      },
+      preferredLegalWikiPage || null,
+      normalizeText(entry?.cannabisProfile?.sourceTitle || page?.name || "")
+    );
+    const candidateWikiPage = normalizeText(canonicalWikiSource.sourceUrl || "");
+    const canonicalProfileSource = resolveCanonicalCannabisSource(
+      {
+        sourceUrl: normalizeText(entry?.cannabisProfile?.sourceUrl || ""),
+        sourceTitle: normalizeText(entry?.cannabisProfile?.sourceTitle || page?.name || "")
+      },
+      preferredLegalWikiPage || null,
+      normalizeText(entry?.cannabisProfile?.sourceTitle || page?.name || "")
+    );
+    const canonicalProfileSourceUrl = normalizeText(canonicalProfileSource.sourceUrl || "");
+    const canonicalEntrySourceUrls = new Set(
+      (entry?.sources || [])
+        .map((source) => {
+          const canonicalSource = resolveCanonicalCannabisSource(
+            {
+              sourceUrl: normalizeText(source?.url || ""),
+              sourceTitle: normalizeText(source?.title || entry?.cannabisProfile?.sourceTitle || page?.name || "")
+            },
+            preferredLegalWikiPage || null,
+            normalizeText(source?.title || entry?.cannabisProfile?.sourceTitle || page?.name || "")
+          );
+          return normalizeText(canonicalSource.sourceUrl || "");
+        })
+        .filter(Boolean)
+    );
     const expectedEntry = page ? deriveCountryCardEntryFromCountryPageData(page) : null;
     const resolverStatus =
       knowledgeSourceType === "missing_wikipedia_article"
@@ -204,7 +238,7 @@ function buildRows() {
         : candidateWikiPage
           ? "individual_wiki_page"
           : "no_individual_wiki_page";
-    const wikiPage = resolverStatus === "individual_wiki_page" ? candidateWikiPage : null;
+    const wikiPage = resolverStatus === "individual_wiki_page" ? candidateWikiPage || null : null;
     const templateSections = NON_SUMMARY_SECTION_IDS.filter((key) => sectionsById[key].some((item) => isTemplateLine(key, item)));
     const emptySections = NON_SUMMARY_SECTION_IDS.filter((key) => sectionsById[key].length === 0);
     const visibleReasonItems = [
@@ -221,7 +255,7 @@ function buildRows() {
       nonEmptySections.length > 0 &&
       resolverStatus === "individual_wiki_page" &&
       wikiPage &&
-      !(entry?.sources || []).some((source) => normalizeText(source?.url || "") === normalizeText(wikiPage))
+      !canonicalEntrySourceUrls.has(normalizeText(wikiPage))
     ) {
       sourceErrors.push("VISIBLE_PROFILE_WITHOUT_LINKED_WIKI_SOURCE");
     }
@@ -232,8 +266,8 @@ function buildRows() {
       nonEmptySections.length > 0 &&
       resolverStatus === "individual_wiki_page" &&
       (
-        !normalizeText(entry?.cannabisProfile?.sourceUrl || "") ||
-        normalizeText(entry?.cannabisProfile?.sourceUrl || "") !== normalizeText(wikiPage || "")
+        !normalizeText(canonicalProfileSourceUrl || "") ||
+        normalizeText(canonicalProfileSourceUrl || "") !== normalizeText(wikiPage || "")
       )
     ) {
       sourceErrors.push("VISIBLE_PROFILE_SECTION_WITHOUT_MATCHING_SECTION_SOURCE");

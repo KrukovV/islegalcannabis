@@ -1,25 +1,11 @@
 {
   "schema_version": "cannabis_knowledge_v1",
-  "generated_at": "2026-06-27T16:17:48.793Z",
+  "generated_at": "2026-06-27T18:36:28.350Z",
   "source": "Wikipedia Cannabis_in_<Jurisdiction> and related pages",
   "status_engine_touched": false,
   "scope": [
-    "AS",
-    "AQ",
-    "KY",
     "SV",
-    "GI",
-    "GU",
-    "XK",
-    "MS",
-    "NC",
-    "NZ",
-    "MP",
-    "PR",
-    "BL",
-    "PM",
-    "TC",
-    "VI"
+    "NC"
   ],
   "fields": [
     "history",
@@ -6342,7 +6328,8 @@
       "revisionId": "1309127379",
       "sourceType": "wikipedia_cannabis_article",
       "history": [
-        "As an overseas collectivity of France, Saint Pierre and Miquelon is subject to French law and all international conventions signed by France."
+        "As an overseas collectivity of France, Saint Pierre and Miquelon is subject to French law and all international conventions signed by France.",
+        "Cannabis is illegal in Saint Pierre and Miquelon for personal use."
       ],
       "culture": [],
       "localNames": [],

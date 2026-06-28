@@ -2,7 +2,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import type { CountryCardEntry } from "@/new-map/map.types";
-import { buildCannabisProfileCard, getCannabisProfileForGeo } from "@/lib/cannabisProfile";
+import { buildCannabisProfileCard, getCannabisProfileForGeo, resolveCanonicalCannabisSource } from "@/lib/cannabisProfile";
 import { assertCannabisWikiSource, isCannabisWikiSource } from "@/lib/wiki/cannabisSource";
 import {
   deriveMapCategoryFromCountryPageDataSignals,
@@ -642,7 +642,16 @@ export function deriveCountryCardEntryFromCountryPageData(data: CountryPageData)
   const rawNotes = `${data.notes_normalized || ""} ${data.notes_raw || ""}`.trim();
   const profileSeedNotes = legalSourceUrl ? rawNotes : null;
   const derivedProfile = buildCannabisProfileCard(data.geo_code, undefined, profileSeedNotes);
-  const cannabisProfile = isEmptyCannabisProfile(derivedProfile) ? null : derivedProfile;
+  const cannabisProfile = isEmptyCannabisProfile(derivedProfile)
+    ? null
+    : {
+        ...derivedProfile,
+        ...resolveCanonicalCannabisSource(
+          derivedProfile,
+          legalSourceUrl || rootSourceUrl,
+          legalSourceUrl || rootSourceUrl ? `Wikipedia: ${data.name}` : derivedProfile.sourceTitle
+        )
+      };
 
   if (mapCategory === "ILLEGAL") {
     why.push(buildReason("why-red", getHumanStatusSummary(mapCategory), "#law-status-explanation", reasonSourceUrl));

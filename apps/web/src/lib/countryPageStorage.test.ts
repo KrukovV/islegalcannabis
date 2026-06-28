@@ -272,11 +272,15 @@ describe("countryPageStorage", () => {
   it("keeps Georgia country and Georgia state on different Cannabis_in_* sources", () => {
     const country = getCountryPageData("geo");
     const state = getCountryPageData("us-ga");
+    const cardIndex = buildCardIndexSnapshot();
     expect(country?.sources.legal).toContain("Cannabis_in_Georgia_(country)");
     expect(country?.sources.wiki_truth).toBe("https://en.wikipedia.org/wiki/Legality_of_cannabis");
     expect(state?.sources.legal).toContain("Cannabis_in_Georgia_(U.S._state)");
     expect(state?.sources.wiki_truth).toBe("https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction");
     expect(country?.sources.legal).not.toBe(state?.sources.legal);
+    expect(cardIndex.GE?.cannabisProfile?.sourceUrl).toBe(country?.sources.legal);
+    expect(cardIndex["US-GA"]?.cannabisProfile?.sourceUrl).toBe(state?.sources.legal);
+    expect(cardIndex.GE?.cannabisProfile?.sourceUrl).not.toBe(cardIndex["US-GA"]?.cannabisProfile?.sourceUrl);
   });
 
   it("keeps Georgia state route coordinates and details distinct from the USA parent", () => {

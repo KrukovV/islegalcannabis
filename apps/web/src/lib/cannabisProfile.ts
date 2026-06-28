@@ -286,11 +286,127 @@ function normalizeGeo(geo: string | null | undefined) {
   return String(geo || "").trim().toUpperCase();
 }
 
+function decodeWikiTitleFromUrl(url: string | null | undefined) {
+  const normalized = String(url || "").trim();
+  if (!normalized) return "";
+  try {
+    const parsed = new URL(normalized);
+    const match = parsed.pathname.match(/\/wiki\/(.+)$/i);
+    if (!match) return "";
+    return decodeURIComponent(match[1]).replace(/_/g, " ").trim();
+  } catch {
+    return "";
+  }
+}
+
+function isWikipediaCannabisUrl(url: string | null | undefined) {
+  return /wikipedia\.org\/wiki\/Cannabis_in_/i.test(String(url || "").trim());
+}
+
+function isGenericCannabisWikiTitle(title: string | null | undefined) {
+  return /^Cannabis in [^(]+$/i.test(String(title || "").trim());
+}
+
+function hasDisambiguatedCannabisWikiTitle(title: string | null | undefined) {
+  return /^Cannabis in .+\s+\(.+\)$/i.test(String(title || "").trim());
+}
+
+export function resolveCanonicalCannabisSource(
+  current: { sourceUrl?: string | null; sourceTitle?: string | null } | null | undefined,
+  preferredUrl?: string | null,
+  preferredTitle?: string | null
+) {
+  const currentUrl = String(current?.sourceUrl || "").trim();
+  const currentTitle = String(current?.sourceTitle || decodeWikiTitleFromUrl(currentUrl) || "").trim();
+  const nextUrl = String(preferredUrl || "").trim();
+  const nextTitle = String(preferredTitle || decodeWikiTitleFromUrl(nextUrl) || "").trim();
+
+  if (!nextUrl) {
+    return {
+      sourceUrl: currentUrl,
+      sourceTitle: currentTitle
+    };
+  }
+
+  if (!currentUrl) {
+    return {
+      sourceUrl: nextUrl,
+      sourceTitle: nextTitle || currentTitle
+    };
+  }
+
+  const currentWikiTitle = decodeWikiTitleFromUrl(currentUrl) || currentTitle;
+  const nextWikiTitle = decodeWikiTitleFromUrl(nextUrl) || nextTitle;
+
+  const shouldPreferSpecificWikipediaSource =
+    isWikipediaCannabisUrl(nextUrl) &&
+    isWikipediaCannabisUrl(currentUrl) &&
+    isGenericCannabisWikiTitle(currentWikiTitle) &&
+    hasDisambiguatedCannabisWikiTitle(nextWikiTitle);
+
+  if (shouldPreferSpecificWikipediaSource) {
+    return {
+      sourceUrl: nextUrl,
+      sourceTitle: nextTitle || currentTitle
+    };
+  }
+
+  return {
+    sourceUrl: currentUrl,
+    sourceTitle: currentTitle || nextTitle
+  };
+}
+
+function mergeNarrativeFragments(items: string[]) {
+  const merged: string[] = [];
+  for (const rawItem of items) {
+    const item = sanitizeEvidenceQuoteText(String(rawItem || ""));
+    if (!item) continue;
+    const previous = merged[merged.length - 1];
+    if (previous) {
+      const previousQuoteCount = (previous.match(/"/g) || []).length;
+      const startsWithContinuation =
+        /^[a-zа-яё0-9]/.test(item) ||
+        /^(?:\d{1,2},\s+\d{4}\b|we\b|it\b|this\b|that\b|and\b|but\b|or\b)/i.test(item);
+      const previousLooksIncomplete =
+        previousQuoteCount % 2 === 1 ||
+        /(?:\b(?:rep|sen|dr|mr|mrs|ms|prof|gov|st)\.|[:;,-]|according to a [A-Z][a-z]{2,4}\.)$/i.test(previous);
+      if (previousLooksIncomplete || startsWithContinuation) {
+        merged[merged.length - 1] = sanitizeEvidenceQuoteText(`${previous} ${item}`);
+        continue;
+      }
+    }
+    merged.push(item);
+  }
+  return merged;
+}
+
+function hasUnattributedPronounQuote(item: string) {
+  const text = String(item || "").trim();
+  if (!/\b(?:he|she|they) said\b/i.test(text)) return false;
+  const prefix = text.split(/\b(?:he|she|they) said\b/i)[0] || "";
+  if (
+    /\b(?:President|Prime Minister|Minister|MP|Senator|Representative|Rep\.|Sen\.|journalist|singer|actor|writer|governor|ambassador|president)\b/i.test(
+      prefix
+    )
+  ) {
+    return false;
+  }
+  if (/\b[A-Z][\p{L}'’-]+\s+[A-Z][\p{L}'’-]+(?:\s+[A-Z][\p{L}'’-]+){0,2}\b/u.test(prefix)) {
+    return false;
+  }
+  return true;
+}
+
 function cleanItems(items: string[] | undefined, limit?: number) {
-  return (items || [])
-    .map((item) => sanitizeEvidenceQuoteText(String(item || "")))
-    .filter(Boolean)
-    .slice(0, limit);
+  const merged = mergeNarrativeFragments(items || []);
+  const filtered = merged.filter((item) => {
+    if (!item) return false;
+    if (hasUnattributedPronounQuote(item)) return false;
+    if (/^(?:The bill's sponsor, Rep\.|According to a [A-Z][a-z]{2,4}\.)$/i.test(item)) return false;
+    return true;
+  });
+  return filtered.slice(0, limit);
 }
 
 function dedupeCardSections(card: CannabisProfileCard): CannabisProfileCard {
@@ -332,9 +448,13 @@ export function buildCannabisProfileCard(
   }
 
   const safeLimit = typeof itemLimit === "number" && Number.isFinite(itemLimit) ? Math.max(1, Math.floor(itemLimit)) : undefined;
-  const card: CannabisProfileCard = {
+  const canonicalSource = resolveCanonicalCannabisSource({
     sourceUrl: profile.wiki_url,
-    sourceTitle: profile.wiki_title || "Wikipedia source",
+    sourceTitle: profile.wiki_title || "Wikipedia source"
+  });
+  const card: CannabisProfileCard = {
+    sourceUrl: canonicalSource.sourceUrl,
+    sourceTitle: canonicalSource.sourceTitle || "Wikipedia source",
     history: cleanItems(profile.sections.history, safeLimit),
     localNames: cleanItems(profile.sections.local_names),
     culture: cleanItems(profile.sections.culture, safeLimit),
