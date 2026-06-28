@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Falkland Islands. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "flk",
-    "content_hash": "88068b4c3a90fc714fc72ca144331e18535660d960ecaf38a0e619685c02551c",
+    "content_hash": "8e2d710f327ce35c56d893a802585acc77736980dda753d7cd0360fe91da90be",
     "notes_hash": "912cec6a9c0eedc997b173a6131e7e890b0611b0bb59d6c90f7ae1dbb4f7e524",
-    "model_hash": "716efde731516d141a02fb3ab014817363976c1a19a2cbcbff1726c6a1cc47ca"
+    "model_hash": "fd17bbd7b969199531230a420973285cea0439b25c51f553557d51febd91d541"
   },
   "geo_code": "FK",
   "node_type": "country",

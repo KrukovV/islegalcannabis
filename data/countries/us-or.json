@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Oregon under state law for recreational adult use. Medical cannabis is also legal under a regulated state program in Oregon. Cannabis remains federally illegal in United States. Possession is limited to varies (see official sources).",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Cannabis in Oregon is legal for both medical and recreational use. In recent decades, the U.S. state of Oregon has had a number of legislative, legal and cultural events surrounding the use of cannabis (marijuana, hashish, THC, kief, etc.). Oregon was the first state to decriminalize the possession of small amounts of cannabis and authorize its use for medical purposes. An attempt to recriminalize the possession of small amounts of cannabis was turned down by Oregon voters in 1997. From 1999 through 2005, the ratio of Oregonians using cannabis outpaced the general United States population by 32–45%. In surveys conducted in 1974 and 1975—one and two years after decriminalization—it was found that 2% of respondents said they did not use marijuana or cannabis because it was unavailable, 4% for legal or law enforcement reasons, 53% reported lack of interest, and 23% cited health dangers. It followed perennial and unsuccessful efforts to legalize marijuana by ballot initiative, including in 1986 and in 2012 which made it to the ballot, but voters rejected. In 2015, Oregon Governor Kate Brown signed an emergency bill declaring marijuana sales legal to recreational users from dispensaries starting October 1, 2015. In surveys conducted in 1974 and 1975—one and two years after decriminalization—it was found that 2% of respondents said they did not use marijuana or cannabis because it was unavailable, 4% for legal or law enforcement reasons, 53% reported lack of interest, and 23% cited health dangers. Allegedly, large outdoor growing operations run by Mexican cartels drug trafficking were assumed to be operating in remote locations. While organizers insisted smoking would not be tolerated, the smell of marijuana lingered in the air and some festival goers chose to consume various forms of cannabis foods. The Oregon Decriminalization Bill of 1973 abolished criminal penalties for possession of small amounts of marijuana. As a result, possession of up to an ounce of marijuana in Oregon was a violation (not a crime), punishable only by a fine of $500 to $1000. Selling or giving away marijuana was an offense (Unlawful delivery of marijuana) that varied in severity and penalty depending on the amount of marijuana involved in the transaction, whether or not consideration was involved, the relative ages of the people involved, and the proximity of the transaction to nearby schools attended by minors (ORS 475.860, 475.862). 0.18oz) of marijuana or less by an adult to another adult for no payment at a location at least 1000 feet from the closest school was only a violation, punishable by a fine of $500 to $1000. However, if greater amounts of marijuana were involved, if any payment at all were involved, if delivery was by an adult to a minor, and/or if delivery occurred within 1000 feet of a school (even if both parties are adults), the severity of the offense ranged from Class C misdemeanor to Class A felony with increasing penalties. HB 3466 would have increased penalties for possession of under an ounce of marijuana from an infraction (traffic ticket-like offense) to a Class A misdemeanor, the worst non-felony offense, with a fine of $100 to $1,000 per gram, up to a maximum of $5,000. The bill also would have created a new crime—being under the influence of marijuana—punishable by a fine of up to $5,000. which added a possible jail sentence of up to 30 days.",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} As a result, possession of up to an ounce of marijuana in Oregon was a violation (not a crime), punishable only by a fine of $500 to $1000. There is one exception, however, which is: if possession of such an amount occurs in a public place within 1000 feet of a school attended by minors, the person committing the offense is guilty of a Class C misdemeanor instead. Selling or giving away marijuana was an offense (Unlawful delivery of marijuana) that varied in severity and penalty depending on the amount of marijuana involved in the transaction, whether or not consideration was involved, the relative ages of the people involved, and the proximity of the transaction to nearby schools attended by minors (ORS 475.860, 475.862). 0.18oz) of marijuana or less by an adult to another adult for no payment at a location at least 1000 feet from the closest school was only a violation, punishable by a fine of $500 to $1000. However, if greater amounts of marijuana were involved, if any payment at all were involved, if delivery was by an adult to a minor, and/or if delivery occurred within 1000 feet of a school (even if both parties are adults), the severity of the offense ranged from Class C misdemeanor to Class A felony with increasing penalties. HB 3466 would have increased penalties for possession of under an ounce of marijuana from an infraction (traffic ticket-like offense) to a Class A misdemeanor, the worst non-felony offense, with a fine of $100 to $1,000 per gram, up to a maximum of $5,000. Backers of the initiative said 90% of the proceeds from the state's sale of marijuana would have gone to Oregon's general fund (as much as $300 million Essentially, medical marijuana patients are allowed to possess, without fear of citation, arrest, or penalty, up to 1.5 pounds of marijuana at a time. Cardholders are also allowed to designate a primary caregiver and a grower of their choice, if so inclined. These people enjoy the same freedoms, in regard to possession, as the cardholder as long as they remain officially registered.",
   "facts": {
     "possession_limit": "varies (see official sources)",
     "cultivation": null,
@@ -59,8 +59,8 @@
   "related_codes": [
     "usa",
     "us-ut",
-    "us-wy",
-    "us-co"
+    "us-mt",
+    "us-wy"
   ],
   "related_names": [
     {
@@ -72,12 +72,12 @@
       "name": "Utah"
     },
     {
-      "code": "us-wy",
-      "name": "Wyoming"
+      "code": "us-mt",
+      "name": "Montana"
     },
     {
-      "code": "us-co",
-      "name": "Colorado"
+      "code": "us-wy",
+      "name": "Wyoming"
     }
   ],
   "graph": {
@@ -103,12 +103,12 @@
         "name": "California"
       },
       {
-        "code": "us-mt",
-        "name": "Montana"
-      },
-      {
         "code": "us-az",
         "name": "Arizona"
+      },
+      {
+        "code": "us-co",
+        "name": "Colorado"
       }
     ],
     "cluster_links": [
@@ -127,12 +127,12 @@
         "name": "Utah"
       },
       {
-        "code": "us-wy",
-        "name": "Wyoming"
+        "code": "us-mt",
+        "name": "Montana"
       },
       {
-        "code": "us-co",
-        "name": "Colorado"
+        "code": "us-wy",
+        "name": "Wyoming"
       }
     ],
     "federal_parent": {
@@ -181,9 +181,9 @@
   },
   "hashes": {
     "code": "us-or",
-    "content_hash": "286f913c2035e2ab9b5ad9e3b69a3e9d9a475d9d9d46714939d4c5f746a0ef48",
+    "content_hash": "8f619b535d39dc63f6cc483ee00957bb94c300f03aeca3dc60bf426fb92217ee",
     "notes_hash": "f94f308dadc1e48723b95ad961687ec72403ac23b7f7f95596eb50a2d81e0287",
-    "model_hash": "cd730c358d7fe25c6841b5efa057afc346cba36eec31914b345e30807bd8aa87"
+    "model_hash": "a77df18ee51100f73e2e54934c458d614084b377cd271373a047a41a2fe7b9cc"
   },
   "updated_at": "2024-01-01"
 }

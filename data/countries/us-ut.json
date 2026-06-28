@@ -97,16 +97,16 @@
     ],
     "legal_similarity": [
       {
-        "code": "us-sd",
-        "name": "South Dakota"
-      },
-      {
-        "code": "us-ok",
-        "name": "Oklahoma"
-      },
-      {
         "code": "us-ar",
         "name": "Arkansas"
+      },
+      {
+        "code": "us-fl",
+        "name": "Florida"
+      },
+      {
+        "code": "us-va",
+        "name": "Virginia"
       }
     ],
     "cluster_links": [
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-ut",
-    "content_hash": "4aa2d0d2261034a4938fa5fa3dc3de9289ee35b9edc528fd23bd0518e3ea7c8c",
+    "content_hash": "f3bb03a6b7ca656a5e6460e74222661e4c95ccb409ff035d934fbf56b445d324",
     "notes_hash": "8e6054d948459fdf6a669affdd22200e9c0a7cfd342bddd3a7ea6e9af3ba41b9",
-    "model_hash": "8d0d3626963defff128a1cd11f0f2cd6fb09ce19aa4d3ea647780cb2326a73ac"
+    "model_hash": "89a1a4330db9ae3412eaf37498f9d021a5c708c7b18d9664df83edad8b228417"
   },
   "updated_at": "2026-04-10"
 }

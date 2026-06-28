@@ -64,6 +64,12 @@
           "type": "summary"
         },
         {
+          "title": "Cannabis in Bhutan",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bhutan",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
           "title": "Bhutan",
           "url": "https://www.unodc.org/pdf/india/publications/south_Asia_Regional_Profile_Sept_2005/09_bhutan.pdf",
           "depth": 2,
@@ -92,30 +98,25 @@
           "url": "https://thebhutanese.bt/41-dead-and-counting-bhutans-growing-drug-problem/",
           "depth": 2,
           "type": "reference"
-        },
-        {
-          "title": "Report of the International Narcotics Control Board for 2012",
-          "url": "https://www.incb.org/incb/en/publications/annual-reports/annual-report-2012.html",
-          "depth": 2,
-          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Bhutan / འབྲུག་ཡུལ་ | type: summary | priority: 1 | scope: cultivation",
         "rule: illegal | source: Bhutan / འབྲུག་ཡུལ་ | type: summary | priority: 1 | scope: cultivation",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Bhutan | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Bhutan | type: traversal | priority: 3 | scope: general"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 148,
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": "illegal",
-          "distribution_article": null
+          "distribution_article": "illegal"
         }
       }
     },
@@ -224,9 +225,9 @@
   },
   "hashes": {
     "code": "btn",
-    "content_hash": "20f6020cca4515e9b3f2c49c2475c6dbd724c648daa59c6e1783792938bf4c9d",
+    "content_hash": "300610c145eefecaca395e320b2cb895bd031e9fec6d7ae75a190c829316e0f2",
     "notes_hash": "cec92f6f8f088b0b453f72d9417c64373f3af1593e4a988201b09dec7521d332",
-    "model_hash": "6b5f50b1d16b3029c5f12bb0d28ff9bfffc803e88acde53590e8a477d7d17e9e"
+    "model_hash": "ba2ea5895e003e4e2e61934ec0ea27f68b122b8487d3c821e8b6ac735c6b3213"
   },
   "geo_code": "BT",
   "node_type": "country",

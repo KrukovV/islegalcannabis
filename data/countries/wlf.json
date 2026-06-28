@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Wallis and Futuna / Wallis et Futuna. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "wlf",
-    "content_hash": "9a495a22b875a93928adfe68ea946945cdbaf61bfadb6fd783db1e92233786c3",
+    "content_hash": "2e4617e7e7cda32b99605fbb929fa1a1b13dabafe9cad3bad6f8028e9edd2468",
     "notes_hash": "f00fcd26793949decea21272d6d901bb5e33386693268f4f777a8c3898aec603",
-    "model_hash": "4646356b47347a8ff72a49d517a466e0131a0bdb395aa66e856a0e5dd8561daf"
+    "model_hash": "f79fdb34b9ce7731928bfa5c164591264841472b67c2f018468b02ffc6096eff"
   },
   "geo_code": "WF",
   "node_type": "country",

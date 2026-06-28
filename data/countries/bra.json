@@ -22,7 +22,7 @@
         "possession": "restricted",
         "use": "restricted",
         "sale": "regulated",
-        "cultivation": null,
+        "cultivation": "tolerated",
         "import": null,
         "trafficking": "illegal"
       },
@@ -32,7 +32,11 @@
         "sale_regulated",
         "distribution_mixed_strong_penalty"
       ],
-      "modifiers": []
+      "modifiers": [
+        "but",
+        "up_to",
+        "however"
+      ]
     },
     "signals": {
       "status": "illegal",
@@ -67,6 +71,12 @@
         },
         {
           "title": "Cannabis in Brazil",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Brazil",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Cannabis in Brazil",
           "url": "https://www.planalto.gov.br/ccivil_03/_Ato2004-2006/2006/Lei/L11343.htm",
           "depth": 2,
           "type": "reference"
@@ -94,33 +104,33 @@
           "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-a-legal-roadmap-to-cannabis/brazil",
           "depth": 2,
           "type": "reference"
-        },
-        {
-          "title": "Cannabis: Evolution and Ethnobotany",
-          "url": "https://books.google.com/books?id=poenY6QMq8UC&pg=PA182",
-          "depth": 2,
-          "type": "reference"
         }
       ],
       "explain": [
         "rule: penalty_prison | source: Brazil / Brasil | type: summary | priority: 1 | scope: general",
         "rule: penalty_prison | source: Brazil / Brasil | type: summary | priority: 1 | scope: trafficking",
         "rule: trafficking_illegal | source: Brazil / Brasil | type: summary | priority: 1 | scope: trafficking",
+        "rule: raw_illegal | source: Cannabis in Brazil | type: traversal | priority: 3 | scope: cultivation",
+        "rule: private_cultivation | source: Cannabis in Brazil | type: traversal | priority: 3 | scope: cultivation",
+        "rule: possession_decriminalized | source: Cannabis in Brazil | type: traversal | priority: 3 | scope: cultivation",
+        "rule: illegal | source: Cannabis in Brazil | type: traversal | priority: 3 | scope: cultivation",
+        "rule: raw_illegal | source: Cannabis in Brazil | type: traversal | priority: 3 | scope: possession",
+        "rule: illegal | source: Cannabis in Brazil | type: traversal | priority: 3 | scope: possession",
+        "rule: legal | source: Cannabis in Brazil | type: traversal | priority: 3 | scope: use",
         "rule: sale_regulated | source: Brazil approves sale of medical cannabis in pharmacies | type: reference | priority: 2 | scope: sale",
-        "rule: medical_legal | source: Brazil approves sale of medical cannabis in pharmacies | type: reference | priority: 2 | scope: sale",
-        "no traversal evidence"
+        "rule: medical_legal | source: Brazil approves sale of medical cannabis in pharmacies | type: reference | priority: 2 | scope: sale"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 642,
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": true,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": "illegal",
-          "distribution_article": "regulated"
+          "distribution_article": "illegal"
         }
       }
     },
@@ -128,6 +138,9 @@
     "applied_rules": [
       "penalty_prison",
       "trafficking_illegal",
+      "raw_illegal",
+      "private_cultivation",
+      "possession_decriminalized",
       "sale_regulated",
       "distribution_mixed_strong_penalty"
     ],
@@ -232,9 +245,9 @@
   },
   "hashes": {
     "code": "bra",
-    "content_hash": "4c045c349931e66be6bff2abb2e73c4891aa916318a9523906e52dfb37f0e0cb",
+    "content_hash": "f9495d334e96e542a283a66c57e4d529a39d51b8773ce3a8da8fb4257a9350c0",
     "notes_hash": "b9b79ffed742fb2d97a769a6c2e7e086e9865d39e8236f631a3fac448d413e86",
-    "model_hash": "e5d7e8763d961cbb7122bf0daaa4032f35c66410b6fe4a52e0abda340db9918b"
+    "model_hash": "038c12cc72fa040ac158e350dc3cdc2d52b2af4d6c876f08bffb7aebfe576361"
   },
   "geo_code": "BR",
   "node_type": "country",

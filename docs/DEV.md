@@ -17,6 +17,8 @@
 - dev: `npm run web:dev`
 - build: `npm run web:build`
 - validate:laws: `npm run validate:laws`
+- popup visual audit (targeted): `PLAYWRIGHT_BASE_URL=http://127.0.0.1:3000 npm -w apps/web run popup:visual:audit`
+- popup visual audit (full 307 GEO): `PLAYWRIGHT_BASE_URL=http://127.0.0.1:3000 npm -w apps/web run popup:visual:audit:full`
 - full pass cycle: `bash tools/pass_cycle.sh`
 
 ## How to verify
@@ -25,6 +27,19 @@
 - CI: `bash tools/pass_cycle.sh`
 - Contract smoke: use pass_cycle unless a narrower task explicitly names a smoke script.
 - Final handoff CI requires `VERCEL_AUTOMATION_BYPASS_SECRET` in env because `pass_cycle` runs the live `/new-map` render gate, payload/long-task metrics, country/city ZoomIn label timing, stale-GPS refresh/hover/ZoomIn/ZoomOut checks, and JS/source-map thresholds. Cookie evidence stays diagnostic.
+
+## Popup/wiki audit
+- Use the already running singleton UI at `http://127.0.0.1:3000`. Do not start a second dev server for popup audit runs.
+- For a narrow regression check, set `NEW_MAP_POPUP_VISUAL_AUDIT=1` and `NEW_MAP_POPUP_VISUAL_AUDIT_GEOS=...` with the Playwright popup spec.
+- For any data/render/source change that affects popup or SEO wiki-backed content, regenerate the full `307/307` audit:
+
+```bash
+PLAYWRIGHT_BASE_URL=http://127.0.0.1:3000 npm -w apps/web run popup:visual:audit:full
+```
+
+- Full-audit artifacts live in `Artifacts/popup-visual-audit/`. Heavy archives stay outside the repo.
+- `pass_cycle` will fail if `Artifacts/popup-visual-audit/full-manifest.json` is older than relevant popup/render/data inputs.
+- Regression example to keep covered: ambiguous cannabis titles such as `Cannabis in Georgia` must not cross-contaminate `GE` and `US-GA` in popup or SEO output.
 
 ## Vercel production bypass quick run
 - Keep the bypass secret only in the shell/CI secret named `VERCEL_AUTOMATION_BYPASS_SECRET`; never write the secret into docs, configs, reports, screenshots, or URLs.

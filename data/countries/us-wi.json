@@ -13,8 +13,8 @@
       "scope": "NONE"
     },
     "medical": {
-      "raw_status": "LIMITED",
-      "status": "LIMITED",
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
       "enforcement": "STRICT",
       "scope": "NONE",
       "override_reason": null
@@ -36,8 +36,8 @@
     "enforcement_flags": [],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is illegal in Wisconsin for recreational use under state law, but medical cannabis is available only in limited form. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}} The current legal status of cannabis in Wisconsin is uniquely transitory, in a semi-legal grey state. De-Jure at the state level, the possession, distribution, and manufacturing of THC (defined as any product that contains over 0.3% Delta-9 THC) is illegal for both medical and recreational use unless prescribed by a licensed medical professional or other qualified professional. CBD Products are Legal. De-Facto however, the enforcement of state law is uneven due to a patchwork mixture of local ordinance decriminalization and the legal gray area referred to as the \"hemp-derived THC loophole\", which allows products less than 0.3% Delta-9 THC with similar effects (such as THC-A, concentrated Delta-9, and Delta-8 products) to be sold legally in the state. Moore case, the Wisconsin Supreme Court upheld in a 4-3 decision that the odor of cannabis guarantees probable cause for a police search. Industrial hemp was grown experimentally in Wisconsin as early as 1908 on state farms under the direction of the Wisconsin Agricultural Experiment Station. By 1917 there were 7,000 acres dedicated to hemp farming in the state, and by the 1940s Wisconsin led the nation in industrial hemp production. The Rens Hemp Company of Brandon, Wisconsin, closed in 1958, was the last legal hemp producer in the U.S. following World War II. De-Facto however, the enforcement of state law is uneven due to a patchwork mixture of local ordinance decriminalization and the legal gray area referred to as the \"hemp-derived THC loophole\", which allows products less than 0.3% Delta-9 THC with similar effects (such as THC-A, concentrated Delta-9, and Delta-8 products) to be sold legally in the state. The 1939 legislation \"161.275 Possession and use of marijuana; penalty\" stated that the penalty for \"growing, cultivating, mixing, compounding, having control of, preparing, possessing, using, prescribing, selling, administering or dispensing marijuana or hemp\" would be no less than one year and no more than two years in the state prison. Currently, possession of any amount (first offense) is a misdemeanor, punishable by up to 6 months in prison and a $1,000 fine. Possession of any amount for a subsequent offense is a felony, punishable by up to 3.5 years in prison and a $10,000 fine, which is also the penalty for selling 200 grams (7 oz) or less. State law allows possession of less than 25 grams (9/10 oz) to be prosecuted as an ordinance violation at the municipal and county level, permitting those entities to issue a penalty of monetary forfeiture (fines) with no jail time if the amount specified by the ordinance is received. Van Wanggaard proposed an amendment to remove penalties for possession of CBD oil, negating prescription requirements, but the amendment still would not provide a legal way to create or obtain CBD oil. As of 2025, it is common for local jurisdictions to have ordinances which lessen penalties or decriminalize possession of less than 25 or 28 grams of cannabis due to the state law provision allowing municipalities to do so. Many cities and villages in the state of Wisconsin have Penalties vary by municipality, with some stricter ordinances issuing additional penalties such as suspension of a driver's license along with the fine, while the laxest ordinances issue no penalties for possession of 1 ounce or less in private or public areas where smoking cigarettes is allowed. Note also that while these types of ordinances are common, the practice is not consistent and some cities or villages do not have these provisions, relying on county or state-level resources for enforcement.",
+  "notes_normalized": "Cannabis is illegal in Wisconsin under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}} De-Facto however, the enforcement of state law is uneven due to a patchwork mixture of local ordinance decriminalization and the legal gray area referred to as the \"hemp-derived THC loophole\", which allows products less than 0.3% Delta-9 THC with similar effects (such as THC-A, concentrated Delta-9, and Delta-8 products) to be sold legally in the state. Moore case, the Wisconsin Supreme Court upheld in a 4-3 decision that the odor of cannabis guarantees probable cause for a police search. The 1939 legislation \"161.275 Possession and use of marijuana; penalty\" stated that the penalty for \"growing, cultivating, mixing, compounding, having control of, preparing, possessing, using, prescribing, selling, administering or dispensing marijuana or hemp\" would be no less than one year and no more than two years in the state prison. Currently, possession of any amount (first offense) is a misdemeanor, punishable by up to 6 months in prison and a $1,000 fine. Possession of any amount for a subsequent offense is a felony, punishable by up to 3.5 years in prison and a $10,000 fine, which is also the penalty for selling 200 grams (7 oz) or less. State law allows possession of less than 25 grams (9/10 oz) to be prosecuted as an ordinance violation at the municipal and county level, permitting those entities to issue a penalty of monetary forfeiture (fines) with no jail time if the amount specified by the ordinance is received. Penalties vary by municipality, with some stricter ordinances issuing additional penalties such as suspension of a driver's license along with the fine, while the laxest ordinances issue no penalties for possession of 1 ounce or less in private or public areas where smoking cigarettes is allowed. Note also that while these types of ordinances are common, the practice is not consistent and some cities or villages do not have these provisions, relying on county or state-level resources for enforcement. For possession in public, offenders would be subject to a $109 fine unless used under the care of a doctor. Use within 1000 feet of a school, where tobacco smoking is prohibited, or without the consent of the property owner remain illegal under the law (reduced to a $1 fine).",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -57,8 +57,8 @@
   "related_codes": [
     "usa",
     "us-mo",
-    "us-ky",
-    "us-oh"
+    "us-oh",
+    "us-tn"
   ],
   "related_names": [
     {
@@ -70,12 +70,12 @@
       "name": "Missouri"
     },
     {
-      "code": "us-ky",
-      "name": "Kentucky"
-    },
-    {
       "code": "us-oh",
       "name": "Ohio"
+    },
+    {
+      "code": "us-tn",
+      "name": "Tennessee"
     }
   ],
   "graph": {
@@ -105,8 +105,8 @@
         "name": "Indiana"
       },
       {
-        "code": "us-ks",
-        "name": "Kansas"
+        "code": "us-ky",
+        "name": "Kentucky"
       }
     ],
     "cluster_links": [
@@ -115,8 +115,8 @@
         "name": "United States"
       },
       {
-        "code": "us-tn",
-        "name": "Tennessee"
+        "code": "us-ar",
+        "name": "Arkansas"
       }
     ],
     "same_country_states": [
@@ -125,12 +125,12 @@
         "name": "Missouri"
       },
       {
-        "code": "us-ky",
-        "name": "Kentucky"
-      },
-      {
         "code": "us-oh",
         "name": "Ohio"
+      },
+      {
+        "code": "us-tn",
+        "name": "Tennessee"
       }
     ],
     "federal_parent": {
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-wi",
-    "content_hash": "be5e1b3b50a8f17604e0335ff7bfd0e0db00906886d7dfc4990e11e48cc409d4",
-    "notes_hash": "eb2cd4784746ba6fcbc988a218a03304354933932ef3020787f2934b73ff103b",
-    "model_hash": "f2bcebe56490f4cd4e8e4e949993aebc8403737e50cbc9b21d0ea9205d62be22"
+    "content_hash": "e2d44292cb4582e9ea780e66f8eada14a9f5b4bfe1768e95893e35509cdd786e",
+    "notes_hash": "e8df7447c5087fb5901351a4f10c30010f23f6e48705fa04526bfd35f67c6e5c",
+    "model_hash": "bfba50613315a46d3e33f0b48e1a7928a2be7db2ea07e02a96f9680186859199"
   },
   "updated_at": "2026-04-10"
 }

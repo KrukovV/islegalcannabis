@@ -13,8 +13,8 @@
       "scope": "NONE"
     },
     "medical": {
-      "raw_status": "LIMITED",
-      "status": "LIMITED",
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
       "enforcement": "STRICT",
       "scope": "NONE",
       "override_reason": null
@@ -36,8 +36,8 @@
     "enforcement_flags": [],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is illegal in Iowa for recreational use under state law, but medical cannabis is available only in limited form. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|5}} Cannabis in Iowa is illegal for recreational use if classified as marijuana but consumable hemp products including CBD products are legal for consumers to possess and registered retailers to sell. Possession of even small amounts of marijuana is a misdemeanor crime. The state has a medical program for patients with qualifying debilitating medical conditions that allows for the legal sale and possession of no more than 4.5g of THC per patient every 90-day period. Amidst an early 20th century trend of limiting the drug, Iowa prohibited cannabis in 1923. The city of Cedar Falls proposed to deprioritize municipal police enforcement of marijuana offenses for possession under. Medical marijuana. From late 1979 to mid-1981, Iowa's administrative rules allowed for medical use of marijuana through a therapeutic research center. 2014: Legalization of CBD oil. In early 2014, House File 2313 was proposed, which would have reduced the penalty for possession of under to a fine of $300, and possession of under a kilogram. The city of Cedar Falls proposed to deprioritize municipal police enforcement of marijuana offenses for possession under. Law enforcement CBD seizures. In 2018 law enforcement in Iowa began seizing products that say they contain CBD without testing.",
+  "notes_normalized": "Cannabis is illegal in Iowa under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|5}} The city of Cedar Falls proposed to deprioritize municipal police enforcement of marijuana offenses for possession under. Some of the products seized in Muscatine Iowa were sent to the state crime lab for test.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -56,8 +56,8 @@
   },
   "related_codes": [
     "usa",
+    "us-ks",
     "us-ne",
-    "us-sd",
     "us-ar"
   ],
   "related_names": [
@@ -66,12 +66,12 @@
       "name": "United States"
     },
     {
-      "code": "us-ne",
-      "name": "Nebraska"
+      "code": "us-ks",
+      "name": "Kansas"
     },
     {
-      "code": "us-sd",
-      "name": "South Dakota"
+      "code": "us-ne",
+      "name": "Nebraska"
     },
     {
       "code": "us-ar",
@@ -101,8 +101,8 @@
         "name": "Wisconsin"
       },
       {
-        "code": "us-ks",
-        "name": "Kansas"
+        "code": "us-sd",
+        "name": "South Dakota"
       },
       {
         "code": "us-in",
@@ -121,12 +121,12 @@
     ],
     "same_country_states": [
       {
-        "code": "us-ne",
-        "name": "Nebraska"
+        "code": "us-ks",
+        "name": "Kansas"
       },
       {
-        "code": "us-sd",
-        "name": "South Dakota"
+        "code": "us-ne",
+        "name": "Nebraska"
       },
       {
         "code": "us-ar",
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-ia",
-    "content_hash": "b72c1814424e81106ec821ed5fca3d9ed050c8973cb95e7438c7c50c2ef6174e",
-    "notes_hash": "9a4ea33259e46a28a5ef8ed338815dfac1c87749e96b8351dcbd4f28288c2eb2",
-    "model_hash": "00df0a6861b28b71d4b7ea1cc4d450b9fb1f7adb3c51ef5bf46fb91be3bd0654"
+    "content_hash": "16eb74b0dbe25dd709accc6ac7c0aafb34c205b07fe485b28c12a4156505f9f7",
+    "notes_hash": "5d629a08adfbf1d5de4bab4943c18a9e0ca54d0b3b1b37bd9ef4073b285af8be",
+    "model_hash": "3ae411bfae1d5773a3dd7317590b1fb568665a8ec770e655c63d7376b3f3953a"
   },
   "updated_at": "2026-04-10"
 }

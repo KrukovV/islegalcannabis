@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Aruba. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "abw",
-    "content_hash": "7a51c338962bb2d99ba83f493c1a5ccb9a1d44a92988efbc178122969f9faa6b",
+    "content_hash": "7baa1c1f26d2ec010d146eca6348eea972a65918ebc262768b2217d51ff32b38",
     "notes_hash": "449cac62787b845364aef7cda987fe1680b99a6423d71eb79330cf1dac94b9ef",
-    "model_hash": "dd7b9e003947bb457245d5cda6bf7465af63a19033226d15b0dbf1a89a625051"
+    "model_hash": "ba847e13aa9f77abdb49b651c699d99b3bff8348898dd670d86872c7acb8c0d3"
   },
   "geo_code": "AW",
   "node_type": "country",

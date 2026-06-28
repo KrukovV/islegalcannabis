@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Maine under state law for recreational adult use. Medical cannabis is not broadly legal in Maine. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Cannabis in Maine is legal for recreational use. The state's first medical cannabis law was passed in 1999, allowing patients to grow their own plants. The cities of Portland and South Portland decriminalized the possession and recreational use of marijuana in 2013 and 2014, respectively. In 2016, a ballot initiative proposed the statewide legalization of marijuana use and sale. Opponents of the measure conceded their effort on December 17, after the recount showed no change in the outcome and that the legalization of cannabis in Maine would go forward. As part of a larger trend of restricting marijuana in the early 20th century, Maine banned the drug in 1913; Massachusetts having been the first to ban sale without a prescription, in 1911. In 1976, Maine decriminalized possession of small amounts of cannabis (following 1975 legislation), becoming the third state to do so. Medical marijuana (1999). Possession of small amounts of the drug was decriminalized in 1976 under state legislation passed the previous year. The cities of Portland and South Portland decriminalized the possession and recreational use of marijuana in 2013 and 2014, respectively. In 1976, Maine decriminalized possession of small amounts of cannabis (following 1975 legislation), becoming the third state to do so. On May 1, 2009, Maine decriminalized marijuana when Governor John Baldacci signed legislation (LD 250) which made possession of or less a civil infraction.",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -103,12 +103,12 @@
         "name": "Delaware"
       },
       {
-        "code": "us-mn",
-        "name": "Minnesota"
+        "code": "us-md",
+        "name": "Maryland"
       },
       {
-        "code": "us-nm",
-        "name": "New Mexico"
+        "code": "us-mn",
+        "name": "Minnesota"
       }
     ],
     "cluster_links": [
@@ -174,9 +174,9 @@
   },
   "hashes": {
     "code": "us-me",
-    "content_hash": "10e0f622ddb4ca6b3f94bae467a5064469f79fbc65391f1f8135369c237c90bc",
+    "content_hash": "8f7a5b7ba31016710be1f77ec9fd6f3342c8b028774868a1b2b0319d0ead3396",
     "notes_hash": "4ba33de9c160597ed340d7a67a1bf4f135ad5622e692b31185e353c4b5e3612e",
-    "model_hash": "9861f3d2aa526e69856a5de6ffc17e0cd01f4f1a9dcb530683995fdc06301f7a"
+    "model_hash": "945cbdb412334a56bcf2daad646a81266da2ced09603ca7f77365a2b67fcae81"
   },
   "updated_at": "2026-04-10"
 }

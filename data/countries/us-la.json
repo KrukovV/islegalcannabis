@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is decriminalized in Louisiana in limited state-level practice, but it is not fully legal under state law. Medical cannabis is not broadly legal in Louisiana. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#80CE69; color:#000000; text-align:center;\" | {{Hs|2}} <span style=\"font-size:25px;\">●</span> Cannabis in Louisiana is legal only for medicinal use; recreational possession of 14 grams or less is decriminalized punishable by a fine of no more than $100. Prior to statewide decriminalization, possession of small amounts of marijuana was first decriminalized in the cities of New Orleans, Baton Rouge, and Shreveport. Sources give varying dates for the prohibition of cannabis in Louisiana, generally either 1924 or 1927. Despite this law, and newspaper accounts of contemporaneous cannabis use in New Orleans, in 1930 there were only 30 marijuana convictions in the entire state. On June 30, 2015, Governor Bobby Jindal signed SB 143, which significantly reduced penalties for possession of cannabis. On June 15, 2021, Governor John Bel Edwards signed HB 652 which decriminalized possession of small amounts of marijuana statewide. Under the bill, possession of less than 14 grams of cannabis is punishable by a $100 fine and no threat of jail time for the first and every subsequent offense. According to Louisiana legislature, cannabis is described as any part of the cannabis plant that can be used to either grow more of the cannabis plant or any part that can be used as a drug. Cannabis in Louisiana is legal only for medicinal use; recreational possession of 14 grams or less is decriminalized punishable by a fine of no more than $100. Prior to statewide decriminalization, possession of small amounts of marijuana was first decriminalized in the cities of New Orleans, Baton Rouge, and Shreveport. Reduction of criminal penalties. On June 30, 2015, Governor Bobby Jindal signed SB 143, which significantly reduced penalties for possession of cannabis. Under the bill, first time possession is punishable by a $300 fine and 15 days in jail, a second offense by up to a $1,000 fine and six months in jail, a third offense by up a $2,500 fine and up to two years in jail, and fourth or subsequent offenses by up to a $5,000 fine and eight years in prison. On June 15, 2021, Governor John Bel Edwards signed HB 652 which decriminalized possession of small amounts of marijuana statewide. Under the bill, possession of less than 14 grams of cannabis is punishable by a $100 fine and no threat of jail time for the first and every subsequent offense. The reduced penalties took effect August 1, 2021. Possession of more than 14 grams and illegal distribution still carry harsh penalties. Punishment for possession over 14 grams, distribution, and cultivation can range anywhere from 6 months to 30 years in prison, and $500 to $50,000 in fines.",
+  "notes_raw": "style=\"background:#80CE69; color:#000000; text-align:center;\" | {{Hs|2}} <span style=\"font-size:25px;\">●</span> Cannabis in Louisiana is legal only for medicinal use; recreational possession of 14 grams or less is decriminalized punishable by a fine of no more than $100. On June 30, 2015, Governor Bobby Jindal signed SB 143, which significantly reduced penalties for possession of cannabis. Under the bill, first time possession is punishable by a $300 fine and 15 days in jail, a second offense by up to a $1,000 fine and six months in jail, a third offense by up a $2,500 fine and up to two years in jail, and fourth or subsequent offenses by up to a $5,000 fine and eight years in prison. On June 15, 2021, Governor John Bel Edwards signed HB 652 which decriminalized possession of small amounts of marijuana statewide. Under the bill, possession of less than 14 grams of cannabis is punishable by a $100 fine and no threat of jail time for the first and every subsequent offense. The reduced penalties took effect August 1, 2021. Possession of more than 14 grams and illegal distribution still carry harsh penalties. Punishment for possession over 14 grams, distribution, and cultivation can range anywhere from 6 months to 30 years in prison, and $500 to $50,000 in fines. Despite medical marijuana being decriminalized, it is still possible to be arrested if you are operating a motor vehicle under the influence. In 1996, a study was performed that studied the bail amounts of white and non-white inmates who were arrested for possession of marijuana.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -98,6 +98,10 @@
       }
     ],
     "legal_similarity": [
+      {
+        "code": "us-nd",
+        "name": "North Dakota"
+      },
       {
         "code": "us-nh",
         "name": "New Hampshire"
@@ -170,9 +174,9 @@
   },
   "hashes": {
     "code": "us-la",
-    "content_hash": "79a57ee9d9637ce1cba93e055519cc7598873f708575246f6fcdbcc994cee35f",
+    "content_hash": "30f14e273d874e59c4c8ad0ab37b813bf507b995a8840e34bbd006f770466afb",
     "notes_hash": "4cd96884bb5634832df758b2f765b1c906d1d5747dfa49af60c80eeb299c3ebe",
-    "model_hash": "a4760592086de1716ab8def6ee03fed64ee39062df31d94701986dccd01e6b57"
+    "model_hash": "74c6ee38506cba60d224ff7d08fa8680194c042eac219223710aedba8807c532"
   },
   "updated_at": "2026-04-10"
 }

@@ -86,7 +86,7 @@
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 536,
+        "article_len": 516,
         "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
@@ -204,9 +204,9 @@
   },
   "hashes": {
     "code": "zmb",
-    "content_hash": "18c7e95bd17297fa8976588a58b02d587e0354e31a87bf28037473fb83b82f19",
+    "content_hash": "d662f033c0a0f6ab8c5f1b69e1f5bb1df71c6168903cdb809c19f7b1c24ec801",
     "notes_hash": "078f30f0525830864bd32a29ed2c2272794a7f127f50dfedd6bd6745e9ba2d3e",
-    "model_hash": "903b1fbfbbf611b55af245f07c2ff9525d80e04fcf78fcff5b2b34e219edea2f"
+    "model_hash": "53d1359e059125943b6081c3fd5eaf9e033bacc4eb61efc0d5ccf8a9655eefdf"
   },
   "geo_code": "ZM",
   "node_type": "country",

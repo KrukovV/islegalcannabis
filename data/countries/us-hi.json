@@ -99,6 +99,10 @@
     ],
     "legal_similarity": [
       {
+        "code": "us-nd",
+        "name": "North Dakota"
+      },
+      {
         "code": "us-la",
         "name": "Louisiana"
       },
@@ -170,9 +174,9 @@
   },
   "hashes": {
     "code": "us-hi",
-    "content_hash": "b6c92ac29c51aabca53c0974a35c023dc29e3699b5fb5018ef5a07491deadec5",
+    "content_hash": "cf7eb63f46de73ae2c12599b4edeec03863273a7fcc5b35a03198d3040f1057a",
     "notes_hash": "fcdae0f5d4a6a1719654e5cc03fa43c49048939f39d9783d9e735668b004a34b",
-    "model_hash": "8e2b5a89ca88571ab1e59c9cd4d9f3483ddaf3ea0d16ce1639fccb08c6a0294f"
+    "model_hash": "150b757a33689498b9adb26453db3c09547b8f58f1d1245cc595079cfb505d9a"
   },
   "updated_at": "2026-04-10"
 }

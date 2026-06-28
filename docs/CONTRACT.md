@@ -62,6 +62,36 @@ Standard app API responses built with `apps/web/src/lib/api/response.ts` include
 - Protected registry source: `data/official/official_domains.ssot.json`.
 - Official geo ownership source: `data/ssot/official_link_ownership.json`.
 
+## Popup and SEO wiki-evidence contract
+- Popup and SEO text for the same geo must resolve from the same canonical wiki-backed source family; stale generated country storage must not override newer cannabis-profile evidence.
+- Ambiguous generic cannabis titles such as `Cannabis in Georgia` must resolve through the shared resolver/merge path to the proven disambiguated page (`(country)`, `(U.S. state)`, and similar) when upstream cache/article metadata proves the target. This is a general resolver rule, not a per-geo patch.
+- Cache-title collisions from different page IDs must never silently collapse into one generic cannabis title. Ambiguous generic aliases must be dropped until a canonical disambiguated title is proven.
+- Popup/SEO source quotes must not surface unattributed quote fragments.
+- Territory, parent-jurisdiction, root-only, and synthetic fallback cases may stay law/source-only; fake thematic sections are forbidden.
+
+## Full popup/wiki visual audit contract
+- The popup/wiki visual audit universe is `307` GEO total: countries, US states, territories, and synthetic/disputed jurisdictions from the runtime dataset.
+- Canonical local full-run command: `PLAYWRIGHT_BASE_URL=http://127.0.0.1:3000 npm -w apps/web run popup:visual:audit:full`
+- A valid full audit must regenerate these repo artifacts together after any popup/render/data/source change that affects wiki-backed content:
+  - `Artifacts/popup-visual-audit/full-manifest.json`
+  - `Artifacts/popup-visual-audit/full-report.csv`
+  - `Artifacts/popup-visual-audit/full-summary.json`
+  - `Artifacts/popup-visual-audit/full-index.html`
+  - `Artifacts/popup-visual-audit/full-validation.json`
+- Required counters after a valid full run:
+  - `total_geo_count=307`
+  - `processed_geo_count=307`
+  - `popupCaptured=307`
+  - `wikiCaptured=307`
+- Hard fail gates:
+  - any GEO without screenshot pair
+  - stale full manifest relative to popup/render/data inputs
+  - raw URL visible in popup text
+  - repeated sentence across multiple semantic sections
+  - claim without source page + source section/source kind
+  - fake thematic sections for `root_only` / `no_individual_wiki_page` / `synthetic_no_wiki`
+  - section-count regressions for previously enriched rows without an explicit reason
+
 ## SSOT snapshot and diff contract
 - Snapshot files live in `data/ssot_snapshots/`; latest snapshots must have `row_count=300`.
 - Each snapshot row contains `geo`, `rec_status`, `med_status`, `notes_hash`, `official_sources`, and `wiki_page_url`.

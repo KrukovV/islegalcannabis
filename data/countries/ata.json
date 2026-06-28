@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Antarctica. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "ata",
-    "content_hash": "429cd254ff9bdf95f057aa3e221a08fbcc90f067ca5c7e0760aebd0ee4e98d71",
+    "content_hash": "72c7844e9efa3eb92449821c1a979623be2343cfe291ea4323327f42300fbcd9",
     "notes_hash": "adaef347a4a6723cc333a4f11c43fde86e515afd0bce93f02b28ec7cd9e701a4",
-    "model_hash": "7591ed37588599a1c16a864f1dfc665af0b21cf63c70a1877ae7a32bc500078e"
+    "model_hash": "9cfbc5b844de0203b743f9a556a380fa299c4009a1d0ff1e97c64d4e7d9a2894"
   },
   "geo_code": "AQ",
   "node_type": "country",

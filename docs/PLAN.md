@@ -50,4 +50,5 @@ Statuses: pending | in_progress | done
 - [done] Add stale-GPS refresh, desktop hover, ZoomIn city/village, ZoomOut country, and legacy-polyfill hardening to local/prod `/new-map` gates
 - [done] Prove production-audit regression root cause from last known working state without changing product behavior
 - [done] Capture HTTP-first prod audit restore evidence for current Vercel bypass secret without product or infrastructure changes
+- [done] Document the popup/wiki full-audit contract, stale-manifest guard, and generic ambiguous-title resolver rules for popup + SEO content
 - [in_progress] Restore repeatable production screenshots with cookie as diagnostic only and produce repeatability report

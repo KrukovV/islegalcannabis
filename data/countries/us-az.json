@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Arizona under state law for recreational adult use. Medical cannabis is also legal under a regulated state program in Arizona. Cannabis remains federally illegal in United States. Possession is limited to varies (see official sources).",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Cannabis in Arizona is legal for recreational use. Possession and cultivation of recreational cannabis became legal on November 30, 2020, with the first state-licensed sales occurring on January 22, 2021. In 1996, 65% of Arizona voters approved Proposition 200 (the \"Drug Medicalization, Prevention and Control Act\"), a drug policy reform initiative that contained a provision allowing physicians to prescribe cannabis. Included in the initiative were requirements to: (a) allow patients to possess up to of cannabis and grow 2 plants; (b) establish a state-run system for the distribution of medical cannabis to patients; (c) decriminalize up to of cannabis for any use (punishable by a $250 fine); and (d) enact new sentencing reforms for non-violent drug offenses (expanding upon the 1996 reforms). The initiative allowed patients with a doctor's recommendation to possess up to of cannabis for treatment of certain qualifying conditions. It limited the number of dispensaries to 124 and specified that only patients who reside more than from a dispensary could cultivate their own cannabis. Citing this uncertainty, the state also announced that it would suspend the issuance of licenses for medical cannabis dispensaries. In May 2012, Brewer signed legislation that made illegal the possession of medical cannabis on college campuses. Included in the initiative were requirements to: (a) allow patients to possess up to of cannabis and grow 2 plants; (b) establish a state-run system for the distribution of medical cannabis to patients; (c) decriminalize up to of cannabis for any use (punishable by a $250 fine); and (d) enact new sentencing reforms for non-violent drug offenses (expanding upon the 1996 reforms). Proposition 203 was opposed by the state's law enforcement community, both major party gubernatorial candidates (Democrat Janet Napolitano and Republican Matt Salmon), and drug czar John P. The lawsuit sought a ruling on whether state employees involved in implementing certain provisions were subject to federal prosecution. The lawsuit was dismissed in January 2012; a federal judge found that the issue was not ripe as there was no indication that the federal government would prosecute Arizona officials for implementing the act.",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} The lawsuit sought a ruling on whether state employees involved in implementing certain provisions were subject to federal prosecution. In Arizona, United States Air Force Veteran Robert Deals, represented by the Last Prisoner Project, remains incarcerated for an 18-year cannabis sentence while recreational use is legal in the state.",
   "facts": {
     "possession_limit": "varies (see official sources)",
     "cultivation": null,
@@ -107,8 +107,8 @@
         "name": "California"
       },
       {
-        "code": "us-mt",
-        "name": "Montana"
+        "code": "us-or",
+        "name": "Oregon"
       }
     ],
     "cluster_links": [
@@ -117,8 +117,8 @@
         "name": "United States"
       },
       {
-        "code": "us-or",
-        "name": "Oregon"
+        "code": "us-mt",
+        "name": "Montana"
       }
     ],
     "same_country_states": [
@@ -181,9 +181,9 @@
   },
   "hashes": {
     "code": "us-az",
-    "content_hash": "ba50197f69ea5bbb9f606792b9d9cc649b4250eaf02942b516e3f2360c5f67ac",
+    "content_hash": "4a6fc92fdf69e242c09322c865407c423c497a8bd2ea176ef10cbd81facc2426",
     "notes_hash": "d3b5358b2d6d712a4606aa16392c0fa53a6bf75fd7ed9bb7fcbff8d29c2200ab",
-    "model_hash": "8f5f6e80dab219fd4e53f7084e256d4e1edbff923e30345d8b3538de3c3da113"
+    "model_hash": "9b6df72775266c261dc8f9968420f51da7c03af8b81372910b5d4f0dec650825"
   },
   "updated_at": "2024-01-01"
 }

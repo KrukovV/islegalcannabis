@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Guernsey / Guernesey. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "ggy",
-    "content_hash": "0155ac5f79cef7b93ce471c45b36f92883caaa1e8091fa0908507cb2b4c2b578",
+    "content_hash": "324d4f4bef0bcc6f2c9b2414142c7def788e029c3ef432a3c0a4cee0f557ca9e",
     "notes_hash": "f3a00c27349810d1a080b6a99fe51e8c7e73599d0c5bcc6f8763baab20404a1a",
-    "model_hash": "ce438a189c8ec93c32d5f3cacbfdc8e6fb9af7c5dbbfbd8a6a619a70b002c82a"
+    "model_hash": "9a911dea6f09ca2c140a601f47a60166244b9c3cf68e23178e7213a583268761"
   },
   "geo_code": "GG",
   "node_type": "country",

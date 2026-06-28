@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Norfolk Island / Norf'k Ailen. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "nfk",
-    "content_hash": "5843ed018bbb51a90e740581a914a6d9a9bb5fc35fa67df13e7919d274126e97",
+    "content_hash": "638838da8af02b8b3624d14bdce290d810e3adfe45c3105477fe151e66eb94f1",
     "notes_hash": "6c0febed6a159b7717230186a7e1540887de40d803d2d1b28338a55a94822b83",
-    "model_hash": "c93a07a51088e7d8a63576eb34dfa53a586e3ae6947b4d61f05405ddbfb98514"
+    "model_hash": "863fdb92e1b23eeb88268bfb809e3d606c6155178f54cf5e41d116493aa8b44d"
   },
   "geo_code": "NF",
   "node_type": "country",

@@ -265,6 +265,12 @@ function canonicalizeCannabisArticleTitle(value) {
   return isCannabisArticle(title) ? title : "";
 }
 
+function cannabisArticleFamilyTitle(value) {
+  const canonical = canonicalizeCannabisArticleTitle(value);
+  if (!canonical) return "";
+  return canonical.replace(/\s+\([^()]+\)$/, "").trim();
+}
+
 function uniqueUrls(items) {
   const seen = new Set();
   const result = [];
@@ -1258,13 +1264,19 @@ function sameKnowledgeSource(existing, harvested) {
   const existingUrl = normalizeWhitespace(existing?.wiki_url || existing?.wikiUrl || "");
   const harvestedUrl = normalizeWhitespace(harvested?.wiki_url || harvested?.wikiUrl || "");
   if (existingUrl && harvestedUrl && existingUrl === harvestedUrl) return true;
-  const existingTitle = normalizeKey(
-    canonicalizeCannabisArticleTitle(existing?.wiki_title || existing?.wikiTitle || titleFromWikiUrl(existingUrl))
-  );
-  const harvestedTitle = normalizeKey(
-    canonicalizeCannabisArticleTitle(harvested?.wiki_title || harvested?.wikiTitle || titleFromWikiUrl(harvestedUrl))
-  );
-  return Boolean(existingTitle && harvestedTitle && existingTitle === harvestedTitle);
+  const existingCanonicalTitle = canonicalizeCannabisArticleTitle(existing?.wiki_title || existing?.wikiTitle || titleFromWikiUrl(existingUrl));
+  const harvestedCanonicalTitle = canonicalizeCannabisArticleTitle(harvested?.wiki_title || harvested?.wikiTitle || titleFromWikiUrl(harvestedUrl));
+  const existingTitle = normalizeKey(existingCanonicalTitle);
+  const harvestedTitle = normalizeKey(harvestedCanonicalTitle);
+  if (existingTitle && harvestedTitle && existingTitle === harvestedTitle) return true;
+  const existingFamily = normalizeKey(cannabisArticleFamilyTitle(existingCanonicalTitle));
+  const harvestedFamily = normalizeKey(cannabisArticleFamilyTitle(harvestedCanonicalTitle));
+  const existingIsGeneric = existingCanonicalTitle && !/\s+\([^()]+\)$/.test(existingCanonicalTitle);
+  const harvestedIsGeneric = harvestedCanonicalTitle && !/\s+\([^()]+\)$/.test(harvestedCanonicalTitle);
+  if (existingFamily && harvestedFamily && existingFamily === harvestedFamily && (existingIsGeneric || harvestedIsGeneric)) {
+    return true;
+  }
+  return false;
 }
 
 export function mergeProfiles(existing, harvested) {
@@ -1635,6 +1647,7 @@ function inferCannabisArticleTitleFromWikitext(wikitext) {
 function buildLocalCannabisCacheIndex(root) {
   const dir = path.join(root, "data", "wiki", "cache");
   const index = new Map();
+  const ambiguousTitles = new Set();
   if (!fs.existsSync(dir)) return index;
   for (const fileName of fs.readdirSync(dir)) {
     if (!fileName.endsWith(".json") || fileName === "legality_of_cannabis.json" || fileName === "legality_us_states.json") {
@@ -1653,6 +1666,12 @@ function buildLocalCannabisCacheIndex(root) {
       wiki_url: wikiUrlFromTitle(title)
     };
     const existing = index.get(title);
+    if (existing && existing.pageid && nextEntry.pageid && existing.pageid !== nextEntry.pageid) {
+      ambiguousTitles.add(title);
+      index.delete(title);
+      continue;
+    }
+    if (ambiguousTitles.has(title)) continue;
     if (!existing || String(existing.wikitext || "").length < wikitext.length) {
       index.set(title, nextEntry);
     }

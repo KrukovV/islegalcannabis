@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Northern Mariana Islands / Na Islas Mariånas. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "mnp",
-    "content_hash": "274613162133afaba80b712296a15d63c9dbd0333351f3914a1da3884eefb096",
+    "content_hash": "1161c16823319a16f2ad2672c4f3e7b94e2748fe2d33af839af7dbc3dbf7f333",
     "notes_hash": "afe33255eb37375a1e4d8e88b96b5b4d74554555214775be8fa5a897dd7c8b95",
-    "model_hash": "2e4670e01465af1c3dd6802b8bdf8d22e201ea2c44fee1fc4a284e1c3ae1ed6d"
+    "model_hash": "42f0a833914a71a41f1a65f66a0c371c49dc41ff2da51b0712c62589e112c926"
   },
   "geo_code": "MP",
   "node_type": "country",

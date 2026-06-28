@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Jersey / Jèrri. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "jey",
-    "content_hash": "7ec92253a2f4155e0b85cd051ec1938d377168af97d4244a0e6b6e2448aa2d8d",
+    "content_hash": "7758230e94f446e2c59424ca36b4e113833b07dbb0a1cb41743cdf0716cd9a5e",
     "notes_hash": "ac2a4a77c91ddfe8ad71b3e49d6859fcae5db50ca9ccaadf601818a52045a302",
-    "model_hash": "9f5557114c733c00603adaf0b0a344d96b4e4d6e4d84444be6bc5690b4b0968d"
+    "model_hash": "4c42823a1804d87d4cab615b754a610d8eae2ba6d48ad9869831bbe76b3e768b"
   },
   "geo_code": "JE",
   "node_type": "country",

@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in French Polynesia / Polynésie française. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "pyf",
-    "content_hash": "d3450cb6b8eb49940833f5b4f276ce7381235ed0d40a8b1284ad579e10e0265d",
+    "content_hash": "274b38649a85a19144345e2e4d0f3efa41d2fbf3be7148770103e14de86ed83a",
     "notes_hash": "c6c8298fdae0aac5fdedbb9cb3161a2c491233ba0c2d4bc95bc8d07620402654",
-    "model_hash": "fc7bdfd20af0c44bf5807b643518dc6da96300c443a50f290eecdf734217cff3"
+    "model_hash": "4c410a0a7b0885872046a28a398dfae78fef714cdb1afcfe0b8bfdf7cb44344c"
   },
   "geo_code": "PF",
   "node_type": "country",

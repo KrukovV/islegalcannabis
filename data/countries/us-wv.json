@@ -37,7 +37,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is illegal in West Virginia under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}} Cannabis in West Virginia is illegal for recreational use, but decriminalized in the city of Charleston and partially decriminalized in the city of Morgantown. Medical cannabis bills were introduced in West Virginia in each year between 2010 and 2015, when Senate Bill 546 and House Bill 2909 sought to legalize cannabis for medical use, but failed to advance prior to the end of the legislative session on March 14. In 2017, Senate Bill 386 was passed, legalizing medical cannabis for specific chronic medical conditions via pill, oil, topical form, including gels, creams, and ointments, tincture, liquid, and dermal patch. However, the WV DHHR states that it wasn't until July 1, 2019, that effects of the law allowed the state to \"issue the patient and caregiver identification cards necessary to obtain medical cannabis.\" SB 339, passed and signed into law by Gov. Justice in 2020, permitted the sale of medical cannabis in dry leaf and plant form for vaporization. The sale of commercially produced medical cannabis edibles remains prohibited under state law. Under state law, registered medical cannabis patients may possess a 30-day supply of medical cannabis, defined as six ounces per 30 day period. The state's first medical cannabis dispensary, Trulieve, on Earl L. Cannabis in West Virginia is illegal for recreational use, but decriminalized in the city of Charleston and partially decriminalized in the city of Morgantown.",
+  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}}",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -58,7 +58,7 @@
     "usa",
     "us-md",
     "us-pa",
-    "us-sc"
+    "us-de"
   ],
   "related_names": [
     {
@@ -74,8 +74,8 @@
       "name": "Pennsylvania"
     },
     {
-      "code": "us-sc",
-      "name": "South Carolina"
+      "code": "us-de",
+      "name": "Delaware"
     }
   ],
   "graph": {
@@ -97,12 +97,16 @@
     ],
     "legal_similarity": [
       {
-        "code": "us-ga",
-        "name": "Georgia"
+        "code": "us-sc",
+        "name": "South Carolina"
       },
       {
-        "code": "us-id",
-        "name": "Idaho"
+        "code": "us-ky",
+        "name": "Kentucky"
+      },
+      {
+        "code": "us-in",
+        "name": "Indiana"
       }
     ],
     "cluster_links": [
@@ -111,8 +115,8 @@
         "name": "United States"
       },
       {
-        "code": "us-ky",
-        "name": "Kentucky"
+        "code": "us-tn",
+        "name": "Tennessee"
       }
     ],
     "same_country_states": [
@@ -125,8 +129,8 @@
         "name": "Pennsylvania"
       },
       {
-        "code": "us-sc",
-        "name": "South Carolina"
+        "code": "us-de",
+        "name": "Delaware"
       }
     ],
     "federal_parent": {
@@ -168,9 +172,9 @@
   },
   "hashes": {
     "code": "us-wv",
-    "content_hash": "474054a7656c51751926b780ccc959648bc0b9c251230ce936956bbcd2c4bb01",
+    "content_hash": "b9a3e3ba8f91b66c13a6bb54f0714399e1d39ba03f7e0ff0436284c90c6118b5",
     "notes_hash": "b9dd9c0ef65b367c4e3ee3db65a2f9dc96f53213c7fe46a6f5f4fc01b10f0abb",
-    "model_hash": "bfa8c85816aefc2f68838411e0bd15f03ad945e176881bdcb4fb5dcb0d1faa14"
+    "model_hash": "dab573c0f1180102b95aa9d13e49f7f27dce8c54cd4b6b498c8ea48a070d4210"
   },
   "updated_at": "2026-04-10"
 }

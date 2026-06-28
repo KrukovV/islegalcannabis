@@ -17,38 +17,36 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "tolerated",
+      "status": "illegal",
       "scopes": {
         "possession": null,
         "use": null,
         "sale": null,
-        "cultivation": "tolerated",
+        "cultivation": null,
         "import": null,
         "trafficking": null
       },
-      "enforcement": "fine-based",
-      "flags": [],
-      "modifiers": [
-        "up_to",
-        "may",
-        "but"
-      ]
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "final_risk": "RESTRICTED",
       "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": false,
-        "fine": true,
-        "severity_score": 4,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
           "fine": false,
-          "severe": true
+          "severe": false
         },
         "trafficking": {
           "prison": false,
@@ -57,19 +55,13 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Zimbabwe",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Zimbabwe",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Zimbabwe",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Cannabis in Zimbabwe",
@@ -100,46 +92,38 @@
           "url": "https://www.thezimbabwemail.com/parliament-parliament/mps-want-cannabis-fees-reduced/",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Zimbabwe: Govt Offers Mbanje Growers 100 Percent Farm Ownership",
+          "url": "https://allafrica.com/stories/202005260497.html",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Zimbabwe | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_prison | source: Cannabis in Zimbabwe | type: traversal | priority: 3 | scope: possession",
-        "rule: raw_illegal | source: Cannabis in Zimbabwe | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_years | source: Cannabis in Zimbabwe | type: traversal | priority: 3 | scope: possession",
-        "rule: private_cultivation | source: Cannabis in Zimbabwe | type: traversal | priority: 3 | scope: cultivation",
-        "rule: medical_legal | source: Cannabis in Zimbabwe | type: traversal | priority: 3 | scope: cultivation",
-        "rule: penalty_fine | source: Cannabis in Zimbabwe | type: traversal | priority: 3 | scope: general",
-        "rule: legal | source: Cannabis in Zimbabwe | type: traversal | priority: 3 | scope: general"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 3085,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal",
-      "penalty_prison",
-      "penalty_years",
-      "private_cultivation",
-      "medical_legal",
-      "penalty_fine"
+      "distribution_fallback_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Zimbabwe. Medical cannabis is legal. Distribution is tolerated. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Zimbabwe. Medical cannabis is legal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Zimbabwe. Medical cannabis is legal. Distribution is tolerated. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Zimbabwe. Medical cannabis is legal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Zimbabwe}}",
   "facts": {
     "possession_limit": null,
@@ -238,9 +222,9 @@
   },
   "hashes": {
     "code": "zwe",
-    "content_hash": "7b1652b4c34dd420dd34ace0d279546d6174c8fd124bd29d70504e7b8c0f2e2b",
-    "notes_hash": "ce6f2d393218f60cf08c664122f3fcddcd145bab6db9ddd8395fcd970812a615",
-    "model_hash": "f3e992505742b31d7583c27cc4fe106fe029f9ddb7d9f992068cd3db92b6473e"
+    "content_hash": "1b5bf63833d6c0754e75737443235538aee886b6e8b4d33f8501f02197bfe48c",
+    "notes_hash": "8f787912a611106f50e3ecac698ce9d4ab3a15f5ec8859b5dc638d0e6a11ff5a",
+    "model_hash": "e604513fdff0b526191d51ecf449545ccae65d85ae8cc8f78f3cfb2f46489b0c"
   },
   "geo_code": "ZW",
   "node_type": "country",

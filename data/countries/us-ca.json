@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in California under state law for recreational adult use. Medical cannabis is also legal under a regulated state program in California. Cannabis remains federally illegal in United States. Possession is limited to up to 28.5 g (adult).",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Cannabis in California is illegal under United States federal law, yet legally sanctioned for medical use since 1996 and for recreational use since late 2016 under California law. The state of California has been at the forefront of efforts to liberalize cannabis laws in the United States, beginning in 1972 with the nation's first ballot initiative attempting to legalize cannabis (Proposition 19). Although it was unsuccessful, California would later become the first state to legalize medical cannabis through the Compassionate Use Act of 1996 (Proposition 215), which passed with 56% voter approval. In November 2016, California voters approved the Adult Use of Marijuana Act (Proposition 64) with 57% of the vote, which legalized the recreational use of cannabis. As a result of recreational legalization, local governments (city and county) may not prohibit adults from growing, using, or transporting marijuana for personal use. Following recreational legalization, existing growers and suppliers of medical cannabis were required to register, comply with regulations, and apply for permits. Over half of the nonprofit dispensaries legally providing medical marijuana closed. Local agencies have been slow to approve retail stores selling cannabis for recreational purposes with most cities and counties banning retail with a wait and see approach. Drug Enforcement Administration considers it a Schedule I drug. Raids and confiscation by law enforcement of illegal retail and grow operations have continued and in some cases stepped up after legalization. They are concerned about the perceived lack of sufficient enforcement against illegal activities. An appeals court ruled that inmates who possess small amounts of marijuana in prison are not guilty of a felony crime. Attorney General Xavier Becerra's office had argued that possessing small amounts of marijuana is legally banned in prison which can result in significantly increasing a prisoner's sentence. Unlicensed growing continues in remote rural areas and has expanded according to law enforcement reports. Raids and confiscation of illegal grow operations by law enforcement has continued and in some cases stepped up after legalization. They complain about the lack of effective enforcement against unlicensed shops. In 1925, possession, which had previously been treated the same as distribution, became punishable by up to 6 years in prison, and black market sale, which had initially been a misdemeanor punishable by a $100–$400 fine and/or 50–180 days in jail for first offenders, became punishable by 6 months–6 years. In 1954, penalties for marijuana possession were hiked to a minimum 1–10 years in prison, and sale was made punishable by 5–15 years with a mandatory 3 years before eligibility for parole; two prior felonies raised the maximum sentences for both offenses to life imprisonment.",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Drug Enforcement Administration considers it a Schedule I drug. Raids and confiscation by law enforcement of illegal retail and grow operations have continued and in some cases stepped up after legalization. They are concerned about the perceived lack of sufficient enforcement against illegal activities. An appeals court ruled that inmates who possess small amounts of marijuana in prison are not guilty of a felony crime. They complain about the lack of effective enforcement against unlicensed shops. Vague wording became a major criticism of Proposition 215, though the law has since been clarified through state Supreme Court rulings and the passage of subsequent laws. In January 2010 the California Supreme Court ruled in People v. Kelly that SB 420 did not limit the quantity of cannabis that a patient can possess. The Supreme Court of California has ruled there are no specified limits as to what a patient may possess in their private residence if the cannabis is strictly for the patient's own use. Gutwillig argued that because of the law, 200,000 patients in the state had safe and affordable access to medical cannabis to relieve pain and treat medical conditions, without having to risk arrest or buy off the black market. Proposition 64 is not meant in any way to affect, amend, or restrict the statutes provided for medical cannabis in California under Proposition 215. as access to banking services has been a problem due to the additional burdens mandated by the Financial Crimes Enforcement Network (FinCEN) on financial institutions to assure that any marijuana related business clients are in compliance with all state laws.",
   "facts": {
     "possession_limit": "up to 28.5 g (adult)",
     "cultivation": "Home grow allowed.",
@@ -107,8 +107,8 @@
         "name": "Washington"
       },
       {
-        "code": "us-mt",
-        "name": "Montana"
+        "code": "us-co",
+        "name": "Colorado"
       }
     ],
     "cluster_links": [
@@ -117,8 +117,8 @@
         "name": "United States"
       },
       {
-        "code": "us-co",
-        "name": "Colorado"
+        "code": "us-mt",
+        "name": "Montana"
       }
     ],
     "same_country_states": [
@@ -181,9 +181,9 @@
   },
   "hashes": {
     "code": "us-ca",
-    "content_hash": "c5133c8d9d3b337cc4499f0f4867098555aebd49b449192e43bb489671946fef",
+    "content_hash": "f76c533d8751d8e89459d2e2ed58c8694270a7d35c1298a1d75cf8ea2500bfca",
     "notes_hash": "236ab6cecd77a850a2d7bfd90044f799f9bdc92613abf301c61ba8e1a1316ae6",
-    "model_hash": "e673234f3238905d73f7ffcd99116f741c7530d227319f1979fa89f1567d64be"
+    "model_hash": "fbc843023b993201291f315137ee716f1ef47ee574ec4794ba898ee029f4192e"
   },
   "updated_at": "2025-12-14"
 }

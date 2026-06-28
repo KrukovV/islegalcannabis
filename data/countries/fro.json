@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Faroe Islands / Færøerne. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "fro",
-    "content_hash": "037c3182a76ac0ea32e433c97d758e0ded3c6f7df4a2643d03a89d701e6b0140",
+    "content_hash": "6ed476fbce5156bbcf5f43377cdf13bd3e917f4b6f4160309be57de369483d3f",
     "notes_hash": "92266083c5820fe0d551b5a7c0aba82aeb2224977ed51ed4ca863cf14d19e551",
-    "model_hash": "622ff4f51b8fe3255059fa09bf2de04a921e294de9eb52da4c5849f56a89cc52"
+    "model_hash": "0c3329b3f4a8b872016fddbd5d36e6fb4be504e9c1202c65b78f96243d880dbc"
   },
   "geo_code": "FO",
   "node_type": "country",

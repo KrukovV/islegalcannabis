@@ -5,6 +5,8 @@ The current primary runtime is the MapLibre `/new-map` experience. The root rout
 ## Current Project Contracts
 
 - `bash tools/pass_cycle.sh` is the single CI/checkpoint/ledger command.
+- Popup/wiki evidence is guarded by a full local visual audit over `307` GEO. After popup/render/data wiki-content changes, regenerate `Artifacts/popup-visual-audit/full-*` with `PLAYWRIGHT_BASE_URL=http://127.0.0.1:3000 npm -w apps/web run popup:visual:audit:full`.
+- Generic ambiguous cannabis titles such as `Cannabis in Georgia` must resolve through the shared canonical resolver to the proven disambiguated article; popup and SEO content must not cross-contaminate country/state pages.
 - Final `pass_cycle` includes the mandatory one-request root cookie-seed production `/new-map` gate, production payload/long-task checks, JS country/city-label zoom checks, and production browser source-map build checks, with PNG screenshots, timing measurements, and degradation thresholds from `data/baselines/prod_live_quality_baseline.json`, `data/baselines/new_map_payload_quality_baseline.json`, and `data/baselines/new_map_js_city_quality_baseline.json`.
 - Lint is mandatory before smoke/UI checks; lint failures fail the run.
 - DNS is diagnostic only. Online state comes only from HTTP/API/CONNECT/FALLBACK truth probes.
@@ -64,6 +66,12 @@ Use the pass cycle as the project-level verification command:
 
 ```bash
 bash tools/pass_cycle.sh
+```
+
+For popup/wiki evidence refresh:
+
+```bash
+PLAYWRIGHT_BASE_URL=http://127.0.0.1:3000 npm -w apps/web run popup:visual:audit:full
 ```
 
 For final handoff, `VERCEL_AUTOMATION_BYPASS_SECRET` must be present in the shell so the production live gate can run against `https://www.islegal.info/new-map`.

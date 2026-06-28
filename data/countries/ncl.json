@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in New Caledonia / Nouvelle-Calédonie. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "ncl",
-    "content_hash": "cf61c4cb23f4620bd0429befe37ce1547228c3320510d6c88565d1ed17bbe052",
+    "content_hash": "4bbd35af4be87a48c1c0ca19dc9604c570d015afc43985dbfba8b0bde2fdc42d",
     "notes_hash": "501077d0625884b2a6d24a768438e3496fbe0c5f2d46fa3ddeabe468a355618e",
-    "model_hash": "3e161048e2db366b8d0bafac2793ffc9cb8f3c225bd6fa13209c6e177b753387"
+    "model_hash": "888f02e71e8de3e4ceefb72f01c3fb3ba1f4ac4459352aefb76cb2de1fa9511e"
   },
   "geo_code": "NC",
   "node_type": "country",

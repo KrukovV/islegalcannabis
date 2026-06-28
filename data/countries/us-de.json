@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Delaware under state law for recreational adult use. Medical cannabis is not broadly legal in Delaware. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Cannabis in Delaware is legal for medicinal and recreational use. Medical cannabis (2011). State data on patients who received marijuana cards in 2015 showed that the primary medical conditions being treated for cardholders were pain (36.3%), muscle spasms (21.6%), and cancer (9.3%). The first medical marijuana clinic in Delaware opened in Wilmington in June 2015. As of that date, some 340 Delaware residents held cards from the Delaware Health and Social Services, allowing them to purchase marijuana in order to treat their medical conditions. Under the legislation, it remains illegal for minors (persons under age 21) to possess cannabis. Additionally, smoking cannabis \"in a moving vehicle, in public areas, or outdoors on private property within of a street, sidewalk or other area accessible to the public\" is also a misdemeanor. but such bills failed to receive the required number of votes in the Delaware legislature. The first licensed cannabis sales occurred over two years later on August 1, 2025.",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Possession of marijuana remains a civil infraction that carries a $100 fine.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -176,7 +176,7 @@
     "code": "us-de",
     "content_hash": "ece61aac1d0c7e2df391ee50155bd66b4f5d62abf2fbbdc6959e4e886375cf0d",
     "notes_hash": "9fadf182aec990d53ce1d6cf4a360ce722b3be794c5420b8bb7870b3048782b7",
-    "model_hash": "aef2537ae411ec9c87496de708208a6c9c5e1606a2eed489fe845cf9ae0b7adb"
+    "model_hash": "88fb767ee4537d7c3420d342910c4e25521f0ba0e8e3ad95d13b46aa39a242d1"
   },
   "updated_at": "2026-04-10"
 }

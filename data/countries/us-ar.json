@@ -56,9 +56,9 @@
   },
   "related_codes": [
     "usa",
-    "us-il",
-    "us-ky",
-    "us-ks"
+    "us-ok",
+    "us-al",
+    "us-tn"
   ],
   "related_names": [
     {
@@ -66,16 +66,16 @@
       "name": "United States"
     },
     {
-      "code": "us-il",
-      "name": "Illinois"
+      "code": "us-ok",
+      "name": "Oklahoma"
     },
     {
-      "code": "us-ky",
-      "name": "Kentucky"
+      "code": "us-al",
+      "name": "Alabama"
     },
     {
-      "code": "us-ks",
-      "name": "Kansas"
+      "code": "us-tn",
+      "name": "Tennessee"
     }
   ],
   "graph": {
@@ -97,6 +97,30 @@
     ],
     "legal_similarity": [
       {
+        "code": "us-fl",
+        "name": "Florida"
+      },
+      {
+        "code": "us-va",
+        "name": "Virginia"
+      },
+      {
+        "code": "us-pa",
+        "name": "Pennsylvania"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "usa",
+        "name": "United States"
+      },
+      {
+        "code": "us-il",
+        "name": "Illinois"
+      }
+    ],
+    "same_country_states": [
+      {
         "code": "us-ok",
         "name": "Oklahoma"
       },
@@ -107,30 +131,6 @@
       {
         "code": "us-tn",
         "name": "Tennessee"
-      }
-    ],
-    "cluster_links": [
-      {
-        "code": "usa",
-        "name": "United States"
-      },
-      {
-        "code": "us-ia",
-        "name": "Iowa"
-      }
-    ],
-    "same_country_states": [
-      {
-        "code": "us-il",
-        "name": "Illinois"
-      },
-      {
-        "code": "us-ky",
-        "name": "Kentucky"
-      },
-      {
-        "code": "us-ks",
-        "name": "Kansas"
       }
     ],
     "federal_parent": {
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-ar",
-    "content_hash": "1f043940d18a80c27837aeb0926c2f6409201b2e6ec8e8a1cbea49f505689cf4",
+    "content_hash": "030f99820ba4d66b3987672fe6c2f2e31b6db68ad34d449ebc65d839918ed580",
     "notes_hash": "d9e41a506d9a0e5f7b34a22b95367c0e4ec3af14766e7766e5367cf8d09d8f66",
-    "model_hash": "0f85bdcafb02e4178690866d64aaf2efa00a3c9f505ee6ef6dac7a3b07f0266f"
+    "model_hash": "72779e5525d1cbc865e28b3b1a13e9ccd1112741a1cf19520002e6486c8d9472"
   },
   "updated_at": "2026-04-10"
 }

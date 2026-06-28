@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Curaçao / Pais Kòrsou. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "cuw",
-    "content_hash": "8c063fd587d7c65da066fa285fa4dedfb02486a76bc7b58cdc7924aafc03ec51",
+    "content_hash": "d14799613a57d5bb9c064f59d9e18e05f0e166b69fde5f35f3734e7f18a0e1e7",
     "notes_hash": "13868ba5742e7a78756ea5e36ffd581d0f7f7eeb5e52f72baa4298a8b59d7af8",
-    "model_hash": "17dfc6fe33586c2baf5351acf4acd1d10b98d30556a8fb2613a743cc1680c178"
+    "model_hash": "69f764e33eb21af26474096d79087ba55d2125350823ab49bcdee800aa6220f0"
   },
   "geo_code": "CW",
   "node_type": "country",

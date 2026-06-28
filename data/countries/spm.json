@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Saint Pierre and Miquelon / Saint-Pierre-et-Miquelon. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "spm",
-    "content_hash": "724b9fbfe26746122f4b9a5fc9a3a5a3d440bcc003d45b5c60292107cd6be3a7",
+    "content_hash": "dd18016db3139d1eea4ddda89ccb60ed9f8884109b9b738f45cf4179afe89017",
     "notes_hash": "f4ec16ce111e82fe997c7bf08983685599789de39a2a57dd0b9587fc7c0e514d",
-    "model_hash": "f99c60e03abf21ab4d9305c30805f3eb0869e6e57751eb45cab7183f528594e8"
+    "model_hash": "a05ad6cb3c9bab85c5834983d8a4e3b4eab343a04e0645400a5c3b750c8d26db"
   },
   "geo_code": "PM",
   "node_type": "country",

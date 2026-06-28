@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Saint Helena, Ascension and Tristan da Cunha. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "shn",
-    "content_hash": "a2272018270cd275664627bd5ba20c3f7caaa10c22af0754ba158d521f333839",
+    "content_hash": "e52f2961e1a58541b17d853784a23ad3c3d63ad8a7cbb5b5ec3a7720a91c300e",
     "notes_hash": "040c23c880594a399ec06125ebd85675447381e14d749151ca21a55decc8dc51",
-    "model_hash": "c733dae12c37f94a2715d177230b1464d82a672af3c5740c1257634567bd9cb0"
+    "model_hash": "9c7c20674368ddcf302f52faef7bee1dfe531962e01cf8a18fc616d839632a7e"
   },
   "geo_code": "SH",
   "node_type": "country",

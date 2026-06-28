@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Cayman Islands. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "cym",
-    "content_hash": "838c2913483c6766089ac5d5fa66fca44aa87528b6ee047d46e041db79dc8c6a",
+    "content_hash": "7037ea79acc7397f39ef402d18146e5ed3279ee3ded0347e0b97b629bbf6c7bc",
     "notes_hash": "52bd27f8f96ad00eee65febfa2124fd97636aa98ff0d89f7fca2d45b609c3eac",
-    "model_hash": "f423ffe6a19a95a6024ac5f158b99f3bda5abecead1342e7e8094937e907c225"
+    "model_hash": "ecd1a8320731b9d55e678c98da2427e969a5dcf84670cd6a985d537cd3efb052"
   },
   "geo_code": "KY",
   "node_type": "country",

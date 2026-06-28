@@ -37,7 +37,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is illegal in Pennsylvania for recreational use under state law, but medical cannabis is legal under a regulated state program. Cannabis remains federally illegal in United States. Possession is limited to varies (see official sources).",
-  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}} Cannabis in Pennsylvania is illegal for recreational use, but possession of small amounts is decriminalized in several of the state's largest cities. On April 17, 2016, Governor Tom Wolf signed Senate Bill 3 to legalize the medical use of cannabis. The bill allowed the use of cannabis with a physician's approval for treatment of 17 qualifying conditions listed in the bill. It also set up a state-licensed system for the distribution of cannabis to patients, with the requirement (later eliminated in 2018) that only non-smokable forms be sold. In September 2017, the Pennsylvania Democratic State Committee approved a platform position stating that \"cannabis is safe enough, and ubiquitous enough in society, that it does not need to be restricted or prohibited by the Controlled Substances Act\". The resolution urged the state Democratic Party to \"support Democratic candidates and policies which promote the full repeal of cannabis prohibition by its removal from the Controlled Substances Act, and to support the creation of new laws which regulate it in a manner similar to other culturally accepted commodities\". It repealed a policy known as \"Smoke a joint, lose your license\" under which possession of cannabis or any other illegal drug was punished with a mandatory six month driver's license suspension. With the release of the listening tour report, the governor and lieutenant governor called for three actions to be taken by the state legislature: # Passage of legislation to decriminalize possession of small amounts of cannabis. # Passage of legislation to expunge prior cannabis convictions. # Debate and consideration of legislation to legalize cannabis for recreational use. Cannabis in Pennsylvania is illegal for recreational use, but possession of small amounts is decriminalized in several of the state's largest cities. Jurisdictions in the below table have revised their municipal ordinances to lessen penalties for cannabis offenses. On January 20, 2015, Constable Ed Quiggle, Jr. of Sunbury signed the Compassionate Medical Cannabis Reform Resolution, making it official policy for the Office of Constable for the 9th Ward of the City to not enforce or cooperate in the enforcement of any acts which prohibit, penalize, or criminalize the possession, cultivation, or use of medical cannabis, hemp, cannabinoids, and other illegal or experimental drug.",
+  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}} Jurisdictions in the below table have revised their municipal ordinances to lessen penalties for cannabis offenses.",
   "facts": {
     "possession_limit": "varies (see official sources)",
     "cultivation": "Home grow remains illegal.",
@@ -97,16 +97,16 @@
     ],
     "legal_similarity": [
       {
-        "code": "us-ky",
-        "name": "Kentucky"
+        "code": "us-fl",
+        "name": "Florida"
       },
       {
-        "code": "us-tn",
-        "name": "Tennessee"
+        "code": "us-ar",
+        "name": "Arkansas"
       },
       {
-        "code": "us-al",
-        "name": "Alabama"
+        "code": "us-ut",
+        "name": "Utah"
       }
     ],
     "cluster_links": [
@@ -179,9 +179,9 @@
   },
   "hashes": {
     "code": "us-pa",
-    "content_hash": "3a943683af9db05df89f79e7ad257dc50f86945818fe0b4821704e6a831ee115",
+    "content_hash": "f28c5a0419c2e74ff6896526c222bf19aa3d9dc3e1684961752530f0895e3bcf",
     "notes_hash": "360686df23c245e4a59d4e354d044a5481d523b5cb8bcc163cb8c4facd9bf32a",
-    "model_hash": "00e8c1ce55072b91f5fc669ed5bcaeffed77c4c382390fb89c340a4b0199aede"
+    "model_hash": "5b70f6932b1149d9f3156164d1035c942b1414fb1c16c02f3f90b1c5c727f528"
   },
   "updated_at": "2024-01-01"
 }

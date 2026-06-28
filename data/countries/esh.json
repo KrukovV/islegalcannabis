@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Western Sahara / الصحراء الغربية. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "esh",
-    "content_hash": "9600dfb0d8ce48c3e9e446c5353af5634584fa7a3dbda85a43b192558bed7a82",
+    "content_hash": "3dbf65ab5b7b47129d5a5a5fe6b45bb267aea039e92ee8ef80680a00d6fd228b",
     "notes_hash": "831e341045f60fb8c9bb89a1e641f1924a14b2802f6e7aa48e388beba9ba04b7",
-    "model_hash": "e21b69edbe123b39a9540bd27f034437cf17e97395e761c1bd37b6fc29825e6b"
+    "model_hash": "9cd8f234dae46b672e2ca3ec49dacb4ea7ffb1023902a2cee6201eb39ab1931a"
   },
   "geo_code": "EH",
   "node_type": "country",

@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Saint Barthélemy. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "blm",
-    "content_hash": "7b1084c8b92caca0b5166eec36bf6cbcde350a7edc55671cf5590cd550a64a5c",
+    "content_hash": "cc729df91e4713f081a3189a6143c89f2839458d7cbd650ddf822c3f3cacfe59",
     "notes_hash": "7653a22be545be003630c7a1f73ea7ded160a83673c25d3e4ffe61fec623b526",
-    "model_hash": "c4b2fa96cb3f22c44474a755737aafa633e7732ab8f428d74d20efd883d48717"
+    "model_hash": "9193ea043ff60ef43df5f98acbd2cfbe3d7e3ecd5f4dc3775ca02e98c7b057be"
   },
   "geo_code": "BL",
   "node_type": "country",

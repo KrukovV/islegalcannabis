@@ -13,14 +13,14 @@
       "scope": "NONE"
     },
     "medical": {
-      "raw_status": "LEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
       "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
         "possession": "illegal",
         "use": "illegal",
@@ -36,8 +36,8 @@
     "enforcement_flags": [],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is illegal in Tennessee for recreational use under state law, but medical cannabis is legal under a regulated state program. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}} Cannabis in Tennessee is illegal for most use, with the exceptions of limited medical purposes and Hemp derived products containing less than 0.3% THC. Possession of even small amounts is a criminal misdemeanor, but there are limited legal allowances for non-psychoactive CBD oil as medical cannabis, and the authorities have not been able to enforce the law. 2015 legalization of CBD oil. The bill legalized the possession and use of marijuana to treat a limited number of severe conditions, including epilepsy. The bill has no provisions for legal sale, thus requiring patients to acquire the drug outside the state of Tennessee; possession of CBD oil without proof that it was obtained legally outside of Tennessee was a misdemeanor. At the start of 2015 the Tennessee chapter of the National Organization for the Reform of Marijuana Laws launched a petition to place a referendum on the November ballot for Davidson County to defund local law enforcement prosecution against possession of small amounts of marijuana. In 2016, both Nashville and Memphis succeeded in decriminalizing possession of small amounts of cannabis, with Memphis reducing punishment to a $50 fine. In July 2020, Nashville partially decriminalized cannabis possession, with the district attorney dropping all charges of marijuana possession under. At the start of 2015 the Tennessee chapter of the National Organization for the Reform of Marijuana Laws launched a petition to place a referendum on the November ballot for Davidson County to defund local law enforcement prosecution against possession of small amounts of marijuana. In 2016, both Nashville and Memphis succeeded in decriminalizing possession of small amounts of cannabis, with Memphis reducing punishment to a $50 fine. In July 2020, Nashville partially decriminalized cannabis possession, with the district attorney dropping all charges of marijuana possession under.",
+  "notes_normalized": "Cannabis is illegal in Tennessee under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}}",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -52,22 +52,18 @@
     "medical": "override",
     "enforcement_strength": "HIGH",
     "federal_conflict": "Cannabis remains federally illegal in United States.",
-    "legalization_status": "Medical only"
+    "legalization_status": "State illegal"
   },
   "related_codes": [
     "usa",
-    "us-in",
     "us-ms",
-    "us-oh"
+    "us-oh",
+    "us-il"
   ],
   "related_names": [
     {
       "code": "usa",
       "name": "United States"
-    },
-    {
-      "code": "us-in",
-      "name": "Indiana"
     },
     {
       "code": "us-ms",
@@ -76,6 +72,10 @@
     {
       "code": "us-oh",
       "name": "Ohio"
+    },
+    {
+      "code": "us-il",
+      "name": "Illinois"
     }
   ],
   "graph": {
@@ -97,16 +97,16 @@
     ],
     "legal_similarity": [
       {
-        "code": "us-ar",
-        "name": "Arkansas"
+        "code": "us-in",
+        "name": "Indiana"
       },
       {
-        "code": "us-va",
-        "name": "Virginia"
+        "code": "us-sc",
+        "name": "South Carolina"
       },
       {
-        "code": "us-fl",
-        "name": "Florida"
+        "code": "us-wv",
+        "name": "West Virginia"
       }
     ],
     "cluster_links": [
@@ -115,15 +115,11 @@
         "name": "United States"
       },
       {
-        "code": "us-il",
-        "name": "Illinois"
+        "code": "us-ar",
+        "name": "Arkansas"
       }
     ],
     "same_country_states": [
-      {
-        "code": "us-in",
-        "name": "Indiana"
-      },
       {
         "code": "us-ms",
         "name": "Mississippi"
@@ -131,6 +127,10 @@
       {
         "code": "us-oh",
         "name": "Ohio"
+      },
+      {
+        "code": "us-il",
+        "name": "Illinois"
       }
     ],
     "federal_parent": {
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-tn",
-    "content_hash": "f8b08180212952553bdc72bdd2610d84968092c5a763a3a08953664b6bca6785",
-    "notes_hash": "615791be2eea3d2053a8a9c25e72a0299e7a8e686cf18e278f8bc3ec46017e6e",
-    "model_hash": "b81d3ea3a8d77bd81e5d4e784447e59f60f7ee103e022b8774943b719a7fbcf9"
+    "content_hash": "9211d316e32c65945bce980d61ddb04e024bd71c1dd1bc8420554946810cbd14",
+    "notes_hash": "b8c7fff480177229a23e5406e58eac8728d92e171858e878a9ecf183002494d1",
+    "model_hash": "748ccd69bddffc549a947ec7251b629b00ec9e809873038ea19f41a99d20412f"
   },
   "updated_at": "2026-04-10"
 }

@@ -37,7 +37,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is illegal in Texas for recreational use under state law, but medical cannabis is available only in limited form. Cannabis remains federally illegal in United States. Possession is limited to Medical only.",
-  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|5}} Cannabis in Texas is illegal for recreational use. In May 2025, the Texas Legislature passed Senate Bill 3, a law banning the sale and possession of hemp-derived products containing any amount of THC, effectively criminalizing much of the state’s legal hemp industry starting September 1. Medical use is allowed only in the form of low-THC cannabis oil, less than 1% THC with a doctor's approval and less than 0.3% THC without. Prior to 1973, Texas had the harshest cannabis laws of any state in the nation, with possession of any amount classified as a felony offense punishable by two years to life in prison. John Gregory Bourke described the use of \"mariguan\", which he identifies as Cannabis indica or Indian hemp, by Mexican residents of the Rio Grande region of Texas in 1894. The Texas city of El Paso was the first American city to individually restrict cannabis in 1915. In 1919, legislation was enacted to prohibit the transfer of narcotics, including cannabis, for non-medical use. Transfer of cannabis in this manner was made a misdemeanor crime; however, possession of the drug still remained legal. Possession of up to two ounces is a class B misdemeanor, punishable by up to 180 days in prison and a fine of up to $2000. Prior to 1973, Texas had the harshest cannabis laws of any state in the nation, with possession of any amount classified as a felony offense punishable by two years to life in prison. There are instances where the drug crazed victim has been placed in jail, but in many cases officers have been compelled to slay the fiend in order to save their own lives. Prior to its passage, Texas had the harshest cannabis laws of any state in the nation, with possession of any amount classified as a felony offense punishable by two years to life in prison. With the passage of the bill, possession of up to two ounces was reduced to a class B misdemeanor, punishable by a $1000 fine and a prison sentence of no more than 180 days. Under the law, police can \"cite and release\" for certain misdemeanor crimes instead of subjecting offenders to immediate arrest (though the same penalties still apply). House approves reduced penalties (2019). It sought to make possession of up to one ounce of cannabis a Class C (rather than a Class B) misdemeanor, eliminate the threat of jail time, and reduce the fine to $500. House approves reduced penalties (2023). The bill would make possession of up to one ounce of marijuana a Class C misdemeanor with a maximum fine of $500 and no jail time.",
+  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|5}} Possession of up to two ounces is a class B misdemeanor, punishable by up to 180 days in prison and a fine of up to $2000. Prior to 1973, Texas had the harshest cannabis laws of any state in the nation, with possession of any amount classified as a felony offense punishable by two years to life in prison. There are instances where the drug crazed victim has been placed in jail, but in many cases officers have been compelled to slay the fiend in order to save their own lives. Transfer of cannabis in this manner was made a misdemeanor crime; however, possession of the drug still remained legal. It sought to make possession of up to one ounce of cannabis a Class C (rather than a Class B) misdemeanor, eliminate the threat of jail time, and reduce the fine to $500. HB 1325 passed the Senate 31–0 and the House 140–3. many marijuana possession charges across the state were soon dropped due to a shortage of THC testing equipment available. Prosecutors in the counties of Harris, Tarrant, Bexar, Travis, Williamson, and several others soon announced the dismissal of hundreds of marijuana cases and a moratorium on pursuing new charges. The Texas Department of State Health Services later classified the drug as an illegal substance in October 2021, but a November 2021 injunction from a district court judge prevented the prohibition from taking effect until a final ruling on the matter can be made. The bill would make possession of up to one ounce of marijuana a Class C misdemeanor with a maximum fine of $500 and no jail time. Under the program, persons possessing less than two ounces of cannabis would still be subject to arrest, but could avoid a criminal conviction by attending drug education classes or performing community service.",
   "facts": {
     "possession_limit": "Medical only",
     "cultivation": "Home grow remains illegal.",
@@ -97,16 +97,8 @@
     ],
     "legal_similarity": [
       {
-        "code": "us-ia",
-        "name": "Iowa"
-      },
-      {
         "code": "us-wy",
         "name": "Wyoming"
-      },
-      {
-        "code": "us-in",
-        "name": "Indiana"
       }
     ],
     "cluster_links": [
@@ -179,9 +171,9 @@
   },
   "hashes": {
     "code": "us-tx",
-    "content_hash": "b7cbe109c7a9ffa8b22a416c11e2a26b8fa0ddd6e90f96ae9ab343e5577c8c3e",
+    "content_hash": "3049b1236cfaccc06c50225c73cb59d11a1f5a65c4adac701b59ddd117c35f73",
     "notes_hash": "7e0b40447397946ef20ddb16e534b3aa6d6fa6077f55036c194ae2b3b9a0649c",
-    "model_hash": "0221632dd6637270c6cccbad8ed7ce4bc012f584a852b33b2b5a3066c4e881a8"
+    "model_hash": "45d90481a9c85ef4e28ed9794e8493a7f13202a00e9ba99899debd8ee97b7a81"
   },
   "updated_at": "2024-01-01"
 }

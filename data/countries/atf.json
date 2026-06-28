@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in French Southern and Antarctic Lands / Terres australes et antarctiques françaises. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "atf",
-    "content_hash": "9402a9f01638a9750244d81f53fd86c516b19ca4a348ecdca48dd1596b9c0fc2",
+    "content_hash": "f20795c230f473dda0c16483ee3bed3ad13d6a38dfe2ffd0370d3b1dbf4e759b",
     "notes_hash": "ce27a7c2bf6b2e109e01a4e39d7fe95ec6e15b6e1c1320528e0d9ac001e334a8",
-    "model_hash": "aa9006246db909832730fed4f6f71b803283179741f19e6ff596e5f45e7f5486"
+    "model_hash": "f24f48ef0d027a329b24751030177e8e56d779b166d3aabdbc4a5ec0d85462c2"
   },
   "geo_code": "TF",
   "node_type": "country",

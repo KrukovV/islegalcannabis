@@ -29,7 +29,9 @@
       "enforcement": "fine-based",
       "flags": [],
       "modifiers": [
-        "up_to"
+        "up_to",
+        "but",
+        "only"
       ]
     },
     "signals": {
@@ -107,11 +109,13 @@
         "rule: penalty_fine | source: Cannabis in Trinidad and Tobago | type: traversal | priority: 3 | scope: cultivation",
         "rule: private_cultivation | source: Cannabis in Trinidad and Tobago | type: traversal | priority: 3 | scope: cultivation",
         "rule: legal | source: Cannabis in Trinidad and Tobago | type: traversal | priority: 3 | scope: cultivation",
+        "rule: illegal | source: Cannabis in Trinidad and Tobago | type: traversal | priority: 3 | scope: general",
+        "rule: possession_decriminalized | source: Cannabis in Trinidad and Tobago | type: traversal | priority: 3 | scope: general",
         "rule: private_cultivation | source: Four female plants to be allowed under Cannabis Control Bill | type: reference | priority: 2 | scope: cultivation"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 350,
+        "article_len": 2076,
         "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
@@ -119,7 +123,7 @@
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": "illegal",
-          "distribution_article": "restricted"
+          "distribution_article": "illegal"
         }
       }
     },
@@ -234,9 +238,9 @@
   },
   "hashes": {
     "code": "tto",
-    "content_hash": "bee693c410710b468323c7cbb5472141219b8f03c9197ebb4ed2feb41f2e1cfb",
+    "content_hash": "f3583294b6bfc192c16221e1d4ecc3cde015e459b837f52f920ffca827e4dce6",
     "notes_hash": "8c430bc1924ce58217ef8e69637bcf785f8666bd066f75af2af6414229bcc585",
-    "model_hash": "0d23d21bb2d2494c7f829af8dc35a85b8e6127c966f265033d7041e028ff9797"
+    "model_hash": "5256165106de832ca9bedbf68b2276987e2b86094eed15e279bf3ea9ed5fe30d"
   },
   "geo_code": "TT",
   "node_type": "country",

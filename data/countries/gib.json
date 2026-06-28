@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Gibraltar. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "gib",
-    "content_hash": "46c199e7e66bdb1ff628c32eba102e549e9dbc91e82fbc8f97b5e2baead0948b",
+    "content_hash": "4b8c220cb60b743a4870dc0d520d0d336f5958f2779f8840d837a600c6d49ab2",
     "notes_hash": "28a40d1c48af70e3610b0e1d95c55baa4d8554a6c6d0df29fc4c976c25309ea1",
-    "model_hash": "e2e561e9c074ec620efdadb65db5c564b5adde7847fc829fbad94d237be71d6e"
+    "model_hash": "25df87ac7e118685a65f3a1e4d5563a9ade60dd2924f73b9875c705b514efc37"
   },
   "geo_code": "GI",
   "node_type": "country",

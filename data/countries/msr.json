@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Montserrat. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "msr",
-    "content_hash": "3ce4e2e5e7dd4f5ec139411873af95c906ca197b77eae127d583384ebaa213a9",
+    "content_hash": "74e9b9fbd55607f31ef53d4e158f41fc88805a6d28d0fb58d804da0cd3ffbc86",
     "notes_hash": "90779d1719494e44baa73bf3af873df49afba2c7ee96ff57dd3469aae601ff3a",
-    "model_hash": "5fc5b519ff73101805c14697088394b76c8db9dd0cf9169a9945171257c981d0"
+    "model_hash": "b699dafd23d186d3ecc4e60e8f5eaaf3762a545cdc3e46cbed78d3451d5e34b9"
   },
   "geo_code": "MS",
   "node_type": "country",

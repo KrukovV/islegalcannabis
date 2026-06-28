@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in British Virgin Islands. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "vgb",
-    "content_hash": "0e26b73e62f5526db3ba712b99239c9ae3b74e093e1f592cd94fe0ce5503454d",
+    "content_hash": "b89b562b8d706d1be671586b6a79ab1faf6ee7a90a687c6ce7fd16a35aa364ac",
     "notes_hash": "bd9bd24c49154b17d97c37019810e2f385fee9590d5e14f691e2c42d4f021513",
-    "model_hash": "aec886929b1f6d13585665fc816bfcb3cef56ba323e4e9cb70fb864378b21a0e"
+    "model_hash": "45fd26061a916dcd5da04cb7fa612a920fedea14bfcd011b1937555caf0ab445"
   },
   "geo_code": "VG",
   "node_type": "country",

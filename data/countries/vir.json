@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in United States Virgin Islands. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "vir",
-    "content_hash": "6a05c41cecf7d6a72dd43ccf48c4164e85d490f192fff1db58b9dccab3b27918",
+    "content_hash": "2319dfae6bd0b96b9c6e005a6b7a6c4332dfbf0ee38a2e5a9a0cd65938e0a5ff",
     "notes_hash": "531ff3aef46e91efb91dda9ba0eadab2a0ac421c1a5f8ac4f23d83ac97d311c1",
-    "model_hash": "ab0fb0be8f295ded776b72e353414649caedd0a4a29eb910133a186fef45b6c2"
+    "model_hash": "fb37b98048a2afcb8fb2e408971b424eff4aea0e44feb8412855e2243f256bdf"
   },
   "geo_code": "VI",
   "node_type": "country",

@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Sint Maarten / Saint-Martin. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "sxm",
-    "content_hash": "ea0cb0f7ae79cd4843480c8693d420cf7bbce6921df9ab10d0c66097a1b3e870",
+    "content_hash": "3464a64b02ea0560502c21c7f6c35ae90ed517a3d7e0cf605e34c04fc46974aa",
     "notes_hash": "8347e76bf5407b3798a4cd853482b32d4ff81d618b860a6eaec280d19d3854e0",
-    "model_hash": "b50b4029f42832de038acd0f677ecefc84171dd3ae37394fc15ad4467b361f9a"
+    "model_hash": "f215d25673e60bec2077e15369ecf6c75483690d4857686724d89e4bfed2a891"
   },
   "geo_code": "SX",
   "node_type": "country",

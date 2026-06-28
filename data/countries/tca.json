@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Turks and Caicos Islands. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "tca",
-    "content_hash": "6372a40dfdc04bccaf3a5d51132aa9f3c435bfb3bf7ea9b2b5daa53cea61d1db",
+    "content_hash": "4b799086ec45e96e6feb3046b4d78c11f64a56c1de3bc8ed9f85df0e7141495f",
     "notes_hash": "e9854ee66af4bcc5f0040af00a3fe5ec9697abab143cb62d611dd2a7ce61e268",
-    "model_hash": "ae60555d482232639f8898fa169244286bae490281bfe3ee656901789cd9f3cf"
+    "model_hash": "73f021499e16d84f0f3980d2ea8b2e84974dbc77e280c49f6cce67368c3782d0"
   },
   "geo_code": "TC",
   "node_type": "country",

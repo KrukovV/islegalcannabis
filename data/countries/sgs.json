@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in South Georgia. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "sgs",
-    "content_hash": "661dad392540211cd98ed2eefaadf3feb1184043d0204f438e5e7eb9a27c9382",
+    "content_hash": "6bc29c460886f283a3abfa088439767c96b6bc3620dcc12ca88ed8a55e37f801",
     "notes_hash": "24af8c2e8d89d3209aecf71fa3f2096e8fbe9f2718a5ab7ead0a157dad1174f1",
-    "model_hash": "bd6b5559f5f68a1f2389faa92516766aea18552f205d169501dae361dcfe7c2e"
+    "model_hash": "761e3e09d92a68c4d9aa004405bcefa6046302bb6d86dd31c2aad2f50c824041"
   },
   "geo_code": "GS",
   "node_type": "country",

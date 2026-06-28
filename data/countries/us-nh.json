@@ -103,6 +103,10 @@
         "name": "Louisiana"
       },
       {
+        "code": "us-nd",
+        "name": "North Dakota"
+      },
+      {
         "code": "us-hi",
         "name": "Hawaii"
       }
@@ -170,9 +174,9 @@
   },
   "hashes": {
     "code": "us-nh",
-    "content_hash": "a31aaf71b7670651597c488b97cb83ecaa1e632d6aaf5b353e31367c6cb16307",
+    "content_hash": "f31bd6717bfa043f39e8f08505384097f8fd584dc167373f663b8d4682548e25",
     "notes_hash": "80caa221285ca4a49edeb7babdf207adac8e9cb3f606be89a1fb34d371d0df7b",
-    "model_hash": "36353b486a074d99fd04f02b8bb6ca916d956d327d7e1894c1b02511f90eda99"
+    "model_hash": "6b50364d1db33cdf35262ceebb041f8b99dc7cdfa96fe2bb6ca93935eee0e5b8"
   },
   "updated_at": "2026-04-10"
 }

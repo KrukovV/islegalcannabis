@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Washington under state law for recreational adult use. Medical cannabis is also legal under a regulated state program in Washington. Cannabis remains federally illegal in United States. Possession is limited to Up to 1 oz flower.",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Cannabis in Washington relates to a number of legislative, legal, and cultural events surrounding the use of cannabis (marijuana, hashish, THC, kief, etc.). On December 6, 2012, Washington became the first U.S. state to legalize recreational use of marijuana and the first to allow recreational marijuana sales, alongside Colorado. The state had previously legalized medical marijuana in 1998. Under state law, cannabis is legal for medical purposes and for any purpose by adults over 21. Washington was among many states to criminalize cannabis in the 1920s. The Washington State Legislature passed House Bill 3 in 1923, which defined \"cannabis americana\" and \"cannabis indica\" as narcotic drugs. Nevertheless, enforcement of the law was rare, as cannabis use was not common in the state. In western states such as Washington, cannabis prohibition was largely motivated by the drug's association with the growing number of Mexican American immigrants. Possession was punishable by one to 10 years in prison. Nevertheless, enforcement of the law was rare, as cannabis use was not common in the state. These dispensaries operated in defiance of state and federal law, but were rarely targeted by law enforcement. In 1995, the Green Cross Patient Co-op of Bainbridge Island became the first buyers club in the country to be raided by law enforcement. In reaction to the raid against the Green Cross Patient Co-op, an attorney from Tacoma named Ralph Seeley sued the state of Washington, seeking to have cannabis rescheduled as a Schedule II drug. Although the law did not explicitly allow dispensaries, many were established and often went ignored by law enforcement. Governor Christine Gregoire, however, vetoed most of the new legislation, explaining that she would \"not subject [.] state employees to federal prosecution.\" In April 2011, United States Attorney for the Eastern District of Washington Michael C. In 2003, Seattle passed an initiative making adult marijuana possession the lowest priority of law enforcement agencies in the city. A 2010 poll by the University of Washington found that 52% of Washington voters supported removing criminal and civil penalties for marijuana possession. One would have allowed cannabis sales in state liquor stores, and the other would have decriminalized possession of forty grams or less.",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Possession was punishable by one to 10 years in prison. Diana, a Spokane man with multiple sclerosis appealed his conviction of possession of a controlled substance on the grounds that the drug was necessary to treat his medical condition. The court held that the medical defense exists, but only in very specific circumstances. Medical marijuana patients, however, had no legal way of obtaining the drug. Both McKee and Miller were arrested, and around 130 cannabis plants were seized. In reaction to the raid against the Green Cross Patient Co-op, an attorney from Tacoma named Ralph Seeley sued the state of Washington, seeking to have cannabis rescheduled as a Schedule II drug. This would have allowed doctors to write prescriptions for medical marijuana. The passage of I-692 allowed physicians to recommend medical marijuana to patients with terminal or debilitating illnesses including: \"chemotherapy-related nausea and vomiting in cancer patients; AIDS wasting syndrome; severe muscle spasms associated with multiple sclerosis and other spasticity disorders; epilepsy; acute or chronic glaucoma; and some forms of intractable pain.\" The initiative also allowed the stat. Most complied, but several owners who refused to close their stores were arrested. Cannabis activists responded by filing Initiative 1068, which would have removed all state-level criminal and civil penalties for cannabis use or possession by adults over the age of 18.",
   "facts": {
     "possession_limit": "Up to 1 oz flower",
     "cultivation": null,
@@ -58,14 +58,18 @@
   },
   "related_codes": [
     "usa",
+    "us-mt",
     "us-ut",
-    "us-wy",
-    "us-co"
+    "us-wy"
   ],
   "related_names": [
     {
       "code": "usa",
       "name": "United States"
+    },
+    {
+      "code": "us-mt",
+      "name": "Montana"
     },
     {
       "code": "us-ut",
@@ -74,10 +78,6 @@
     {
       "code": "us-wy",
       "name": "Wyoming"
-    },
-    {
-      "code": "us-co",
-      "name": "Colorado"
     }
   ],
   "graph": {
@@ -99,16 +99,16 @@
     ],
     "legal_similarity": [
       {
-        "code": "us-mt",
-        "name": "Montana"
-      },
-      {
         "code": "us-ca",
         "name": "California"
       },
       {
         "code": "us-az",
         "name": "Arizona"
+      },
+      {
+        "code": "us-co",
+        "name": "Colorado"
       }
     ],
     "cluster_links": [
@@ -123,16 +123,16 @@
     ],
     "same_country_states": [
       {
+        "code": "us-mt",
+        "name": "Montana"
+      },
+      {
         "code": "us-ut",
         "name": "Utah"
       },
       {
         "code": "us-wy",
         "name": "Wyoming"
-      },
-      {
-        "code": "us-co",
-        "name": "Colorado"
       }
     ],
     "federal_parent": {
@@ -181,9 +181,9 @@
   },
   "hashes": {
     "code": "us-wa",
-    "content_hash": "52bb347c77744781275bcc474a1ddcc1e6fbf74f04ff656ebaa36844e65b0802",
+    "content_hash": "f8474493808412e5c4581aed108cdcdf976ef138720d134d29068d72552810b7",
     "notes_hash": "26160adc462efef864c17984e1c14154de15288763f4f61c8492aa1733a5a809",
-    "model_hash": "b54dc8557199bb3c910dc72a6e17a7a3a2bd8d6b35fa02a6580fb527f15d664e"
+    "model_hash": "6a6930b465dad6e0ad73292dcc6369a0868435b314d31c28c7e2135a42dd1af3"
   },
   "updated_at": "2024-01-01"
 }

@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Saint Martin. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "maf",
-    "content_hash": "47f1013ee987b639bee4a707ad047f81c03d17463fe2ae1f6011d4ae2d2f1174",
+    "content_hash": "a7f897adc45c83c80d1d1ca559c66787c1784a4166da3d011a867bc6648657df",
     "notes_hash": "30338b0ae646e90c7c63a80d0806349545ce0e523e6692019d019e5d9a7c0366",
-    "model_hash": "5a1b9a51b18140512e92854115be7787231e60c4c58583a156a0caee46643757"
+    "model_hash": "bc77611d3b5dfbe1046e7e265ca7e7956f84db8ed7f8037ad31886f86cd33904"
   },
   "geo_code": "MF",
   "node_type": "country",

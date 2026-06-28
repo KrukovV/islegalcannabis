@@ -1,11 +1,11 @@
 {
   "schema_version": "cannabis_knowledge_v1",
-  "generated_at": "2026-06-27T18:36:28.350Z",
+  "generated_at": "2026-06-28T09:58:15.315Z",
   "source": "Wikipedia Cannabis_in_<Jurisdiction> and related pages",
   "status_engine_touched": false,
   "scope": [
-    "SV",
-    "NC"
+    "US-GA",
+    "GE"
   ],
   "fields": [
     "history",
@@ -2749,41 +2749,47 @@
     {
       "geo": "GE",
       "country": "Georgia / საქართველო",
-      "wikiTitle": "Cannabis in Georgia",
-      "wikiUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Georgia",
-      "revisionId": "1354063077",
+      "wikiTitle": "Cannabis in Georgia (country)",
+      "wikiUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Georgia_(country)",
+      "revisionId": "1341946694",
       "sourceType": "wikipedia_cannabis_article",
       "history": [
-        "Cannabis in Georgia is illegal for recreational use, but decriminalized in the cities of Atlanta, Savannah, Macon, Athens, and others.",
-        "Limited medical use was legalized in 2015 through low THC cannabis oil, and later legislation expanded the medical cannabis program in the state.",
-        "The first licensed dispensaries opened in 2023.",
-        "In February 1980, a 50-0 Senate vote and a 156-8 House vote passed Mona Taft's bill supporting legal medical marijuana in Georgia for people diagnosed with glaucoma and cancer patients undergoing chemotherapy and radiation.",
-        "14, 1980, Knight-Ridder wire report about the bill, Broun hugged Taft when the legislation passed the Senate.",
-        "The bill's sponsor, Rep.",
-        "As a result, the law has lingered on the books for the last 30 years.",
-        "A measure to allow medical cannabis oil up to 5% tetrahydrocannabinol (THC) passed the Georgia House in February 2015.",
-        "On April 16, 2015, the low-THC cannabis oil (rich in cannabidiol, or CBD) was legalized for medical use in the state under HB 1, the Haleigh’s Hope Act.",
-        "The bill was immediately enacted after being signed by Governor Nathan Deal."
+        "This makes Georgia one of the first countries in the world to legalize cannabis for both recreational and medical use, and the only former-communist state in the world to do so.",
+        "In the political arena, Girchi and its founder and former leader Zurab Japaridze emerged as one of the strongest supporters of more liberal cannabis policies, although this view has then been picked up by other political forces as well to some extent.",
+        "Before Georgia legalized cannabis it had a strict anti-drug policy, under which offenders could have been jailed for up to 14 years.",
+        "Following the 2006 strengthening of the drug laws, Georgia collected $11.3 million in drug-related fines in the first year.",
+        "Beginning in 2013 there were calls from various advocacy groups and opposition politicians to decriminalize cannabis, but the government remained opposed.",
+        "In May–June 2015, End the Drug War and June 2nd Movement organized protests in favor of decriminalization.",
+        "In December 2016 the White Noise Movement held a protest outside the Parliament building calling for decriminalization of drugs, including cannabis.",
+        "On New Year's Eve of 2016, Girchi Party activists planted cannabis plants in 84 pots in the party's Tbilisi headquarters, in defiance of Georgian drug policy.",
+        "On 20 October 2018 Girchi Party activists held the Cannabis Legalization Festival in the downtown of Tbilisi protesting the new aim of Parliament to pass a bill restricting the consumption of cannabis."
       ],
-      "culture": [],
+      "culture": [
+        "Cannabis culture in Georgia, particularly among the Svans, remains a topic of speculation.",
+        "While some believe these practices vanished during the Soviet era, others think the Svans might still secretly indulge.",
+        "Cannabis has a historical presence in Georgia, with evidence suggesting it has been cultivated in the region for at least 2,700 years.",
+        "Despite limited concrete evidence, the potential historical use of cannabis in Svan cuisine reflects a broader cultural and historical significance in the region."
+      ],
       "localNames": [],
-      "products": [],
-      "traditionalUse": [],
+      "products": [
+        "Local rumors suggest that historically the Svans plied the stem fibers into cloth and rope, pressed the seeds for oil, and consumed cannabis-infused dishes, including Kubdari, Khachapuri and Pkhali."
+      ],
+      "traditionalUse": [
+        "The plant was likely used for various purposes, including medicinal and possibly recreational.",
+        "Insights from neighboring regions support the idea that cannabis was cultivated for domestic purposes and used for its psychoactive effects."
+      ],
       "cultivation": [
-        "The bill allowed possession of the oil for eight qualifying medical conditions but did not provide for cultivation or distribution within the state.",
-        "In April 2019 legislation was approved (House Bill 324) to allow in-state cultivation of cannabis and sale of the low-THC oil."
+        "Large scale cultivation and sale of cannabis remains illegal, although there have been active discussions in Georgia's political circles on commercializing marijuana.",
+        "Georgia illegally cultivates some small amounts of cannabis, mostly for local consumption.",
+        "As of 2005, Georgia also served as a transit route for drugs coming from Central Asia, headed for Russia and Europe."
       ],
-      "market": [
-        "Davis' case parallels that of a number of other former moonshiners who segued into the cannabis trade.",
-        "Citizens and a congressman objected, noting paraquat's dangers, and a temporary restraining order was placed on further spraying.",
-        "The federal Drug Abuse Policy Officer Pat McKelvey rebutted that paraquat is a safe and widely used herbicide, and alleged that the objections to the DEA spraying had been raised by cannabis growers and legalization advocates."
-      ],
+      "market": [],
       "enforcementReality": [
-        "In the 1970s and 1980s, a number of county sheriffs and deputies were prosecuted for their involvement in the drug trade, including Sheriff John David Davis, a former moonshiner who had been pardoned by President Nixon and was convicted in 1984 of smuggling cannabis into South Georgia.",
-        "In 1983, amidst controversy, the Drug Enforcement Administration conducted aerial spraying of illegal cannabis plots in the Chattahoochee National Forest in northern Georgia, using the herbicide paraquat.",
-        "Cannabis policy in the state of Georgia has been discussed in relation to racial disparities in enforcement.",
-        "According to the American Civil Liberties Union of Georgia, Black people in Georgia were three times more likely than white people to be arrested for marijuana possession, despite similar usage rates nationally.",
-        "The ACLU of Georgia also reported that Georgia had more than 52,000 marijuana arrests in 2018, most of them for possession."
+        "Cannabis in Georgia is legal in terms of its possession and consumption due to a ruling by the Constitutional Court of Georgia on 30 July 2018.",
+        "In October 2015, the Constitutional Court of Georgia ruled that the norm of the country's Constitution about imprisonment for personal use of cannabis was \"too strict\" and needed to be relaxed.",
+        "In December 2016, the Court further declared that imprisonment for use of small amounts of cannabis, as well as its purchase, retention, and production for personal use, was unconstitutional.",
+        "On 30 July 2018, the Constitutional Court of Georgia ruled that \"consumption of marijuana is an action protected by the right to free personality\" and that \"[Marijuana] can only harm the user's health, making that user him/herself responsible for the outcome.",
+        "The responsibility for such actions does not cause dangerous consequences for the public.\" The ruling made legal the use and possession of cannabis in Georgia but kept in place penalties for cultivation and sale of the drug."
       ],
       "notes": []
     },
@@ -8598,8 +8604,8 @@
     {
       "geo": "US-GA",
       "country": "Georgia",
-      "wikiTitle": "Cannabis in Georgia",
-      "wikiUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Georgia",
+      "wikiTitle": "Cannabis in Georgia (U.S. state)",
+      "wikiUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Georgia_(U.S._state)",
       "revisionId": "1354063077",
       "sourceType": "wikipedia_cannabis_article",
       "history": [
@@ -8618,10 +8624,7 @@
       "localNames": [],
       "products": [],
       "traditionalUse": [],
-      "cultivation": [
-        "The bill allowed possession of the oil for eight qualifying medical conditions but did not provide for cultivation or distribution within the state.",
-        "In April 2019 legislation was approved (House Bill 324) to allow in-state cultivation of cannabis and sale of the low-THC oil."
-      ],
+      "cultivation": [],
       "market": [
         "Davis' case parallels that of a number of other former moonshiners who segued into the cannabis trade.",
         "Citizens and a congressman objected, noting paraquat's dangers, and a temporary restraining order was placed on further spraying.",

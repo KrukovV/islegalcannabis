@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in United States Minor Outlying Islands. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "umi",
-    "content_hash": "e9fcfcd1aeaf10ff64700593a0bb64f39e0fab82d33a5a706335fe60aa0d51f0",
+    "content_hash": "b3198bac52da7bc36e3bace514289de96c6e331e204c052c57a2f94631047c62",
     "notes_hash": "6dcb55825f927d31b2e8d0d1b422970aa2a8f02d3f3e1bf0f742ab2e775d7c09",
-    "model_hash": "ab92e511fb217600e6ca505ddf741cd332ac88d9cdbd34d2ef0bc59e990f13d0"
+    "model_hash": "fac61b1af04cdd48caec6f4b4f0ce2cab36d0d8b8c925eb562336e230d4dad73"
   },
   "geo_code": "UM",
   "node_type": "country",

@@ -37,7 +37,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is illegal in Georgia under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|5}} Cannabis in Georgia is legal in terms of its possession and consumption due to a ruling by the Constitutional Court of Georgia on 30 July 2018. This makes Georgia one of the first countries in the world to legalize cannabis for both recreational and medical use, and the only former-communist state in the world to do so. Large scale cultivation and sale of cannabis remains illegal, although there have been active discussions in Georgia's political circles on commercializing marijuana. In the political arena, Girchi and its founder and former leader Zurab Japaridze emerged as one of the strongest supporters of more liberal cannabis policies, although this view has then been picked up by other political forces as well to some extent. Georgia illegally cultivates some small amounts of cannabis, mostly for local consumption. Before Georgia legalized cannabis it had a strict anti-drug policy, under which offenders could have been jailed for up to 14 years. Beginning in 2013 there were calls from various advocacy groups and opposition politicians to decriminalize cannabis, but the government remained opposed. In October 2015, the Constitutional Court of Georgia ruled that the norm of the country's Constitution about imprisonment for personal use of cannabis was \"too strict\" and needed to be relaxed. The responsibility for such actions does not cause dangerous consequences for the public.\" The ruling made legal the use and possession of cannabis in Georgia but kept in place penalties for cultivation and sale of the drug.",
+  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|5}} In the 1970s and 1980s, a number of county sheriffs and deputies were prosecuted for their involvement in the drug trade, including Sheriff John David Davis, a former moonshiner who had been pardoned by President Nixon and was convicted in 1984 of smuggling cannabis into South Georgia. In 1983, amidst controversy, the Drug Enforcement Administration conducted aerial spraying of illegal cannabis plots in the Chattahoochee National Forest in northern Georgia, using the herbicide paraquat. Cannabis policy in the state of Georgia has been discussed in relation to racial disparities in enforcement. According to the American Civil Liberties Union of Georgia, Black people in Georgia were three times more likely than white people to be arrested for marijuana possession, despite similar usage rates nationally. The ACLU of Georgia also reported that Georgia had more than 52,000 marijuana arrests in 2018, most of them for possession.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -56,18 +56,14 @@
   },
   "related_codes": [
     "usa",
-    "us-ky",
     "us-nc",
-    "us-fl"
+    "us-fl",
+    "us-ms"
   ],
   "related_names": [
     {
       "code": "usa",
       "name": "United States"
-    },
-    {
-      "code": "us-ky",
-      "name": "Kentucky"
     },
     {
       "code": "us-nc",
@@ -76,6 +72,10 @@
     {
       "code": "us-fl",
       "name": "Florida"
+    },
+    {
+      "code": "us-ms",
+      "name": "Mississippi"
     }
   ],
   "graph": {
@@ -97,12 +97,16 @@
     ],
     "legal_similarity": [
       {
+        "code": "us-ky",
+        "name": "Kentucky"
+      },
+      {
         "code": "us-wv",
         "name": "West Virginia"
       },
       {
-        "code": "us-id",
-        "name": "Idaho"
+        "code": "us-in",
+        "name": "Indiana"
       }
     ],
     "cluster_links": [
@@ -111,15 +115,11 @@
         "name": "United States"
       },
       {
-        "code": "us-ms",
-        "name": "Mississippi"
+        "code": "us-va",
+        "name": "Virginia"
       }
     ],
     "same_country_states": [
-      {
-        "code": "us-ky",
-        "name": "Kentucky"
-      },
       {
         "code": "us-nc",
         "name": "North Carolina"
@@ -127,6 +127,10 @@
       {
         "code": "us-fl",
         "name": "Florida"
+      },
+      {
+        "code": "us-ms",
+        "name": "Mississippi"
       }
     ],
     "federal_parent": {
@@ -168,9 +172,9 @@
   },
   "hashes": {
     "code": "us-ga",
-    "content_hash": "3c09c602da6a043263c97b18dfd55cdf33797cf78896ac9d804bfa219b4fa799",
+    "content_hash": "d3e376acf59dc3d38a69a18a1a096fe60d3d7b6c750998c10405ae7ee8dc482a",
     "notes_hash": "801e4ebdcddf8d4622c0cbc2f708ba542b0dc0f6494a8988c1c4f115edbf223e",
-    "model_hash": "600efa328cdffceddfabbcbb47453b903ece922fe7083568a79dfd3296ba30b0"
+    "model_hash": "633cfdc28bbafcfd9af7065a7265144d20924e64a4176a666ea3bf37aadffabe"
   },
   "updated_at": "2026-04-10"
 }

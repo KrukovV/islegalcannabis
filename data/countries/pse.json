@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Palestine / فلسطين. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "pse",
-    "content_hash": "4877b3dfee28c65fb6114c8af75e7434e3f06c0f7efc3cdd3bbdaa78d5924c06",
+    "content_hash": "52c87e3fc4edca442cf3323d249508eefc938c1df63326b8b6f36c6a24903cb9",
     "notes_hash": "b728d847a58abf6f3d6c5961cd0cd389025bee5906d9cfe8c79d13d74f2961ca",
-    "model_hash": "c5faedfe78bed8871981b1a9b8b3dfe1dc4c9fd88cbdc2e80aaf55c9902d7046"
+    "model_hash": "2a3514a9549088e439ee34851846a34d30a57a1f3007fceffccf8579c5ec2aa9"
   },
   "geo_code": "PS",
   "node_type": "country",

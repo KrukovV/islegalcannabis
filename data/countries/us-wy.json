@@ -103,10 +103,6 @@
       {
         "code": "us-tx",
         "name": "Texas"
-      },
-      {
-        "code": "us-ia",
-        "name": "Iowa"
       }
     ],
     "cluster_links": [
@@ -172,9 +168,9 @@
   },
   "hashes": {
     "code": "us-wy",
-    "content_hash": "13dd46fc1688e693149f1ad069dfb33aded74d6a0e1bf013ab5b6a307528f282",
+    "content_hash": "d1ee94539501db81bf2a6ef286e791c590724dd679b0c435ef8110564f5622d1",
     "notes_hash": "53e0fe70c092f2784ed21fc0a53a5aeb90f0faf391184cde580453e03e2abb3c",
-    "model_hash": "ec27abac1cc0cf7e4ec770dc3e0743f88a96848a27fe873472568509b77ea51d"
+    "model_hash": "c919cd87d44450ea97d021b9dcc748c7d371bde810cad6bf1e484e98f3d74d9a"
   },
   "updated_at": "2026-04-10"
 }

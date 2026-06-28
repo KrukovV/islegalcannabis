@@ -87,7 +87,7 @@
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 478,
+        "article_len": 351,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": true,
@@ -209,9 +209,9 @@
   },
   "hashes": {
     "code": "twn",
-    "content_hash": "ae28146693c53932ff6964d14c8fb81b60eb65303e454289935bf24577b0133b",
+    "content_hash": "e843570c1891f30d78d22fbace9be4e6c31b8737f9e28d01e00501ad5bca647a",
     "notes_hash": "29a748c8a21061f9d3497d3c7805ca2b1c0d39db4fabb2363a48844b462b0ba7",
-    "model_hash": "e9b590279a47f011fc1c0afbf98823af00762fe177af9d9fed8ef1d55f2546ea"
+    "model_hash": "364cc9d689381d3af8372c9ab9b1eb5dc0d1d1f4b3566affe5387c9dc35767fd"
   },
   "geo_code": "TW",
   "node_type": "country",

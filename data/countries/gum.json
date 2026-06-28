@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Guam / Guåhån. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "gum",
-    "content_hash": "f69e162d6ae866db1c3cd7f102dd751e4479d6c1c68f3c3dc628fbbb7262667c",
+    "content_hash": "b7702198dce84fa8863337c794882aa1a7095a0299972fd1f4af63332f2e475b",
     "notes_hash": "dde21738d34563fbd41029fe3cfc4442bdc27244192f80662dd4dc3e101c3f19",
-    "model_hash": "931383adbf7a7f33a875dd99d2a7a3c115d0e798fc0b31e151a0d1f28dcf1f23"
+    "model_hash": "7f379ca3f3105651395ff7d40b57684d553600178f952d8307685264dc8a17ce"
   },
   "geo_code": "GU",
   "node_type": "country",

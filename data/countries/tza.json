@@ -26,27 +26,27 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [],
       "modifiers": [
-        "but"
+        "may"
       ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
       "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
           "fine": false,
-          "severe": false
+          "severe": true
         },
         "trafficking": {
           "prison": false,
@@ -55,7 +55,7 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Tanzania",
@@ -95,16 +95,20 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Tanzania | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Tanzania | type: traversal | priority: 3 | scope: general"
+        "rule: raw_illegal | source: Cannabis in Tanzania | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_prison | source: Cannabis in Tanzania | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_criminal_offense | source: Cannabis in Tanzania | type: traversal | priority: 3 | scope: possession",
+        "rule: legal | source: Cannabis in Tanzania | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Tanzania | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_criminal_offense | source: Cannabis in Tanzania | type: traversal | priority: 3 | scope: general"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 267,
-        "source_confidence": "no_prison_signal",
+        "article_len": 3093,
+        "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
-          "prison_article": false,
+          "prison_article": true,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
@@ -112,13 +116,18 @@
         }
       }
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "raw_illegal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in Tanzania. Medical cannabis is illegal. Distribution is illegal."
+    "applied_rules": [
+      "raw_illegal",
+      "penalty_prison",
+      "penalty_criminal_offense",
+      "penalty_fine"
+    ],
+    "notes_normalized": "Cannabis is illegal in Tanzania. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Tanzania. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Tanzania. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Tanzania}}",
   "facts": {
     "possession_limit": null,
@@ -217,9 +226,9 @@
   },
   "hashes": {
     "code": "tza",
-    "content_hash": "0b4c2aa01407995585f86742e865ac3e031f1cfc08a6b6517a18ee6640002f51",
-    "notes_hash": "3a68839b381fff1b45873cde10095732eefb36380a753a5aeb36c8e8ddc32581",
-    "model_hash": "9796ab3fd3db71c236189c85e271d689f3795effb5346bd81e774afd9e15427d"
+    "content_hash": "825c32486ba4596b612e381107521cfae4ab1580ea798899e1372902a912b6c0",
+    "notes_hash": "90f51097afec1341d0fb2a15398f15d50fde687babd5f3d8de181fbe3115b90f",
+    "model_hash": "b8db163d999873bf37cec2b3556201e36780cd5f3477bed7f3244d22278c6b0a"
   },
   "geo_code": "TZ",
   "node_type": "country",

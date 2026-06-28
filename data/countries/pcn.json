@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Pitcairn Islands. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "pcn",
-    "content_hash": "d5ac6f6c1c2fc9ff8fa405ec6f31b1e91488337a3d1802efd39a6658db1ba7dd",
+    "content_hash": "aeb8713a63ffc6a90cd4ce0ba3ea34ac5782b0042e97653666d70356d290ea3a",
     "notes_hash": "780b2dcc88430caa9310ab02df015ae8656634ad2e90bd9f807e69e52700ef68",
-    "model_hash": "b644946f27638ca1c69a81a53265735ed0f733ed3aed524def3c34426b88edaa"
+    "model_hash": "93058f1c0c838c121ee77eb408c696fff3e404187104c9d7b57f1658f6b08159"
   },
   "geo_code": "PN",
   "node_type": "country",

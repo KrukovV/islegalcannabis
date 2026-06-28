@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in American Samoa / Sāmoa Amelika. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "asm",
-    "content_hash": "342fa18503fccf3976ad436cf6ff52e47be3d33c01f1fd007cda5225690ebc80",
+    "content_hash": "7f3daccd1a56c719e3353105b35ad71539dcf1996a3c8ee0a55782d37d216efe",
     "notes_hash": "3efc5582a79f8ad058bf357bbf5d7d484222d40bc242fcb904a210e547dc5b49",
-    "model_hash": "441d737cea748278d4e2c758191a5163b21c81accbcfd13b672e7b7c4130f93c"
+    "model_hash": "1e83c62e049314f825e2ff58387b73b61e559b513e0c33577ceb0784aa562712"
   },
   "geo_code": "AS",
   "node_type": "country",

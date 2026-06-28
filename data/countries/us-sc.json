@@ -13,8 +13,8 @@
       "scope": "NONE"
     },
     "medical": {
-      "raw_status": "LIMITED",
-      "status": "LIMITED",
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
       "enforcement": "STRICT",
       "scope": "NONE",
       "override_reason": null
@@ -36,8 +36,8 @@
     "enforcement_flags": [],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is illegal in South Carolina for recreational use under state law, but medical cannabis is available only in limited form. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}} Cannabis in South Carolina is illegal for recreational use. Use of low-THC CBD oil is allowed for certain medical conditions. But THC-A hemp is federally legal, per 2018 farm bill. The cultivation of industrial hemp in South Carolina dates back to at least the 18th century. In 1733, an act was passed in the colony to encourage the growth of hemp for its \"useful manufacture to his Majesty's Royal Navy\". The cultivation of industrial hemp was greatly limited nationwide as a result of the federal 1937 Marihuana Tax Act. In 2017, South Carolina re-legalized the growing of industrial hemp, under the auspices of the federal 2014 Farm Bill. 2014 legalization of CBD.",
+  "notes_normalized": "Cannabis is illegal in South Carolina under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}}",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -56,9 +56,9 @@
   },
   "related_codes": [
     "usa",
-    "us-wv",
-    "us-tn",
-    "us-ky"
+    "us-al",
+    "us-fl",
+    "us-oh"
   ],
   "related_names": [
     {
@@ -66,16 +66,16 @@
       "name": "United States"
     },
     {
-      "code": "us-wv",
-      "name": "West Virginia"
+      "code": "us-al",
+      "name": "Alabama"
     },
     {
-      "code": "us-tn",
-      "name": "Tennessee"
+      "code": "us-fl",
+      "name": "Florida"
     },
     {
-      "code": "us-ky",
-      "name": "Kentucky"
+      "code": "us-oh",
+      "name": "Ohio"
     }
   ],
   "graph": {
@@ -97,30 +97,6 @@
     ],
     "legal_similarity": [
       {
-        "code": "us-in",
-        "name": "Indiana"
-      },
-      {
-        "code": "us-wi",
-        "name": "Wisconsin"
-      },
-      {
-        "code": "us-ia",
-        "name": "Iowa"
-      }
-    ],
-    "cluster_links": [
-      {
-        "code": "usa",
-        "name": "United States"
-      },
-      {
-        "code": "us-al",
-        "name": "Alabama"
-      }
-    ],
-    "same_country_states": [
-      {
         "code": "us-wv",
         "name": "West Virginia"
       },
@@ -131,6 +107,30 @@
       {
         "code": "us-ky",
         "name": "Kentucky"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "usa",
+        "name": "United States"
+      },
+      {
+        "code": "us-md",
+        "name": "Maryland"
+      }
+    ],
+    "same_country_states": [
+      {
+        "code": "us-al",
+        "name": "Alabama"
+      },
+      {
+        "code": "us-fl",
+        "name": "Florida"
+      },
+      {
+        "code": "us-oh",
+        "name": "Ohio"
       }
     ],
     "federal_parent": {
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-sc",
-    "content_hash": "587063e83be2ebeb962e5c54e9fa88f197ad54162306971c7086cbedb6c638da",
-    "notes_hash": "28a954da3d6e632f864e14f3787e785ba6c8577861e82336e21daea5f1ae359e",
-    "model_hash": "02776cc41217bcd6865b92b170d640e4d82bb042d8621eed530c60033c9f2f4d"
+    "content_hash": "2553d7a11f388ccaed614026dc25aee35697db11607712f69458faa8f8caf1c0",
+    "notes_hash": "49b54284052c322f9fb99bd07a89e3420a0faba6c492973d422cc0f000c4a471",
+    "model_hash": "f3fff1eda570ce8b783ea171e7b8f2d197a31617bcaf664dabc2596a620207a2"
   },
   "updated_at": "2026-04-10"
 }

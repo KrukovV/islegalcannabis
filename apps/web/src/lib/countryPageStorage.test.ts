@@ -281,6 +281,9 @@ describe("countryPageStorage", () => {
     expect(cardIndex.GE?.cannabisProfile?.sourceUrl).toBe(country?.sources.legal);
     expect(cardIndex["US-GA"]?.cannabisProfile?.sourceUrl).toBe(state?.sources.legal);
     expect(cardIndex.GE?.cannabisProfile?.sourceUrl).not.toBe(cardIndex["US-GA"]?.cannabisProfile?.sourceUrl);
+    expect(cardIndex.GE?.cannabisProfile?.history.join(" ")).not.toMatch(/Atlanta|Savannah|Macon|Athens/i);
+    expect(cardIndex["US-GA"]?.cannabisProfile?.history.join(" ")).toMatch(/Atlanta|Savannah|Macon|Athens/i);
+    expect(cardIndex.GE?.cannabisProfile?.history.join(" ")).toMatch(/Constitutional Court of Georgia|Tbilisi|former-communist/i);
   });
 
   it("keeps Georgia state route coordinates and details distinct from the USA parent", () => {

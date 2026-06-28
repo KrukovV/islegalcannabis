@@ -91,11 +91,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -115,6 +117,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Vatican City / Vaticano. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -211,9 +214,9 @@
   },
   "hashes": {
     "code": "vat",
-    "content_hash": "b8768c4e955f0becaaf63c4c7149f5c7e6bd91708ce9cb9f6a8ca8976f5b2483",
+    "content_hash": "da76918e407c970d9fa21bc9db1a4a377438f2ec90cd519a0fd0a0ab372f9152",
     "notes_hash": "c2b57c2f1f4e4854a6eba2ec6764a3a51df551f219fffe93689b33aa1185a886",
-    "model_hash": "9c945a06f86deb1a34afeb00468e7255ed4d3f6fc15f9c4c6b5e7dd5345e5fc4"
+    "model_hash": "5aad0f0f95bd4c46d2b5ac386b5df89692ff2234d51f18f3f1ff8be514c8103f"
   },
   "geo_code": "VA",
   "node_type": "country",

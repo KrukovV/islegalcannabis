@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Colorado under state law for recreational adult use. Medical cannabis is also legal under a regulated state program in Colorado. Cannabis remains federally illegal in United States. Possession is limited to varies (see official sources).",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} In Colorado, cannabis has been legal for medical use since 2000 and for recreational use since late 2012. On November 7, 2000, 54% of Colorado voters approved Amendment 20, which amended the State Constitution to allow the use of marijuana in the state for approved patients with written medical consent. Under this law, patients may possess up to of medical marijuana and may cultivate no more than six marijuana plants (no more than three of these mature flowering plants at a time). The policy has led to cannabis tourism. There are two sets of policies in Colorado relating to cannabis use: those for medicinal cannabis and for recreational drug use along with a third set of rules governing hemp. Amidst an early 20th century trend of limiting the drug, Colorado first restricted cannabis on March 30, 1917. This made the use and cultivation of cannabis a misdemeanor, which was subject to a fine of between $10 and $100 (equivalent to $ and $ in ) and up to a month in jail. In 1929, the Colorado Legislature passed a law making the second offense of sale, possession and distribution of marijuana a felony by one to five years in prison. This made the use and cultivation of cannabis a misdemeanor, which was subject to a fine of between $10 and $100 (equivalent to $ and $ in ) and up to a month in jail. In 1929, the Colorado Legislature passed a law making the second offense of sale, possession and distribution of marijuana a felony by one to five years in prison. Baca and Caldwell's arrest made them the first marijuana convictions under U.S. federal law for not paying the marijuana tax. In 1975, during a short-lived wave of decriminalization in the country, Colorado decriminalized possession of cannabis of up to, which was made a petty offense with a maximum fine of $100 ( ). That amount was increased to in 2010, still with a maximum fine of $100 ( ). A contributing factor in the favor of decriminalization was the work on behalf of NORML by Pitkin County Deputy District Attorney Jay Moore, who helped win over the legislature's Republican leadership with arguments as to money wasted on needless enforcement of marijuana laws. General regulations for the legal commercial production and vending of marijuana in the state, which continue to be updated by the General Assembly, are published through the Marijuana Enforcement Division of the Department of Revenue. The Governors' office worked and is still working hand in hand with individuals involved in law enforcement, public and environmental health, human services, and education to find solutions. This has been attributed to both additional funding raised from taxation and law enforcement's increasing involvement in the oversight of production and sales.",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Amidst an early 20th century trend of limiting the drug, Colorado first restricted cannabis on March 30, 1917. This made the use and cultivation of cannabis a misdemeanor, which was subject to a fine of between $10 and $100 (equivalent to $ and $ in ) and up to a month in jail. In 1929, the Colorado Legislature passed a law making the second offense of sale, possession and distribution of marijuana a felony by one to five years in prison. Shortly after the 1937 Marihuana Tax Act went into effect on October 1, 1937, the Federal Bureau of Narcotics and Denver Police Department arrested Moses Baca for possession and Samuel Caldwell for dealing. Baca and Caldwell's arrest made them the first marijuana convictions under U.S. federal law for not paying the marijuana tax. Judge Foster Symes sentenced Baca to 18 months and Caldwell to four years in Leavenworth Penitentiary for violating the 1937 Marihuana Tax Act. At the same time, the poll indicated 66 percent of voters there think marijuana use should be legal in private homes and in members-only clubs, but should not be legal in bars, clubs or entertainment venues where alcohol is served. General regulations for the legal commercial production and vending of marijuana in the state, which continue to be updated by the General Assembly, are published through the Marijuana Enforcement Division of the Department of Revenue.",
   "facts": {
     "possession_limit": "varies (see official sources)",
     "cultivation": null,
@@ -103,12 +103,12 @@
         "name": "Arizona"
       },
       {
-        "code": "us-mt",
-        "name": "Montana"
-      },
-      {
         "code": "us-nv",
         "name": "Nevada"
+      },
+      {
+        "code": "us-mo",
+        "name": "Missouri"
       }
     ],
     "cluster_links": [
@@ -117,8 +117,8 @@
         "name": "United States"
       },
       {
-        "code": "us-id",
-        "name": "Idaho"
+        "code": "us-mt",
+        "name": "Montana"
       }
     ],
     "same_country_states": [
@@ -181,9 +181,9 @@
   },
   "hashes": {
     "code": "us-co",
-    "content_hash": "d1f2a93a32677bd5dc4408a53fac3fee15fa3e1effe91988ddd6f57b97f42866",
+    "content_hash": "5669a646cb064b0425c1943da77a04d932ad3576fc1a19bb2f65b7675887a09b",
     "notes_hash": "e2713e99aeb0425b8df4ff921368123731bb5d24b4a11482542c859178cf98db",
-    "model_hash": "cb4cec74cf5cf500824d14d75d7ea87878412abefd2e12c9d07e950d201901db"
+    "model_hash": "e497b8debbeea43e57faa10ba9f58b784f5d55a039b53175e797b835675f3c69"
   },
   "updated_at": "2024-01-01"
 }

@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Åland Islands / Åland. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "ala",
-    "content_hash": "0b6ce267ba2a9d9f968375719d24959f524eff5e84c71476412dd794bcf94468",
+    "content_hash": "c222f855ca2c7cc65cc8763abc7097a4c2b99e4e684467dd2094f21e25b76ae4",
     "notes_hash": "b4e9e6a3d038bc65b7108202133043249dd91284510ba63f8207b0ade9a9e42f",
-    "model_hash": "6fdea92d60f74cc987ce70735019e37e6e695782364d1f8d7ec35ecede6d8f77"
+    "model_hash": "d7c94bf53db825242497b1fa689911d8c4ba6dff9d391a56865dc4ad4e41a73e"
   },
   "geo_code": "AX",
   "node_type": "country",

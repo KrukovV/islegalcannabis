@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in British Indian Ocean Territory. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "iot",
-    "content_hash": "491b49186823e5c4c6217d5ef52fdc1d87070ff016fe8f1dd9683f7a02b05ece",
+    "content_hash": "dde99bebfc60bbb4f4ba5cba3cb11ff7b6087d31438a6a50bb3c3309f0a43724",
     "notes_hash": "f989f6a9b762f2fdd7331e01a02519caf35ed13e6666b81b8bf024893c55414b",
-    "model_hash": "7b61319e4f1d2c51c96bfc605cc392f64769f5fcecf913464e256442fed003cc"
+    "model_hash": "a943c34da37a075b9f6663a78ffc084c577817478c0900b7f1b7f314aa602959"
   },
   "geo_code": "IO",
   "node_type": "country",

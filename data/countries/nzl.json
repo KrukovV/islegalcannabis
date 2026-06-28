@@ -98,11 +98,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -123,7 +125,8 @@
       "raw_illegal",
       "penalty_prison",
       "penalty_fine",
-      "sale_tolerated"
+      "sale_tolerated",
+      "penalty_years"
     ],
     "notes_normalized": "Cannabis is illegal in New Zealand / Aotearoa. Medical cannabis is legal. Distribution is tolerated. Prison exposure detected."
   },
@@ -219,9 +222,9 @@
   },
   "hashes": {
     "code": "nzl",
-    "content_hash": "70cc5384a68ce01a4e3dc52048525dadb608de4518943e2aaeaf50f85e0a1346",
+    "content_hash": "81e2b21f148631d0fbc5cc80cdf3476df90976d05886da5e46666c53cc00e064",
     "notes_hash": "0f1875790e75090314297a217c060811f02189b4c90a01e63a6dbe290a3cd919",
-    "model_hash": "00598ed063b361408082ce962d2d07dfe91b334ba4d6d8cf987482f6e84357a1"
+    "model_hash": "ac4bd41af87e4dc47b0d1ee4fca79d3986e429711afe4c3bcf89f3a373a30c5c"
   },
   "geo_code": "NZ",
   "node_type": "country",

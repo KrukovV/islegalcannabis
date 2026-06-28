@@ -175,6 +175,39 @@ test("mergeProfiles replaces stale alias-titled state cannabis pages with canoni
   assert.equal(merged.wiki_title, "Cannabis in Washington (state)");
 });
 
+test("mergeProfiles replaces stale generic cannabis titles with disambiguated harvested content for the same geo", () => {
+  const existing = {
+    geo: "GE",
+    country: "Georgia / საქართველო",
+    wiki_title: "Cannabis in Georgia",
+    wiki_url: "https://en.wikipedia.org/wiki/Cannabis_in_Georgia",
+    source_type: "wikipedia_cannabis_article",
+    sections: {
+      ...blankSections(),
+      history: ["Cannabis in Georgia is illegal for recreational use, but decriminalized in the cities of Atlanta, Savannah, Macon, Athens, and others."]
+    },
+    local_names: []
+  };
+  const harvested = {
+    geo: "GE",
+    country: "Georgia / საქართველო",
+    wiki_title: "Cannabis in Georgia (country)",
+    wiki_url: "https://en.wikipedia.org/wiki/Cannabis_in_Georgia_(country)",
+    source_type: "wikipedia_cannabis_article",
+    sections: {
+      ...blankSections(),
+      history: ["Cannabis in Georgia is legal in terms of its possession and consumption due to a ruling by the Constitutional Court of Georgia in 2018."]
+    },
+    local_names: []
+  };
+
+  const merged = mergeProfiles(existing, harvested);
+
+  assert.match(merged.sections.history.join(" "), /Constitutional Court of Georgia/i);
+  assert.ok(!merged.sections.history.some((sentence) => /Atlanta|Savannah|Macon|Athens/i.test(sentence)));
+  assert.equal(merged.wiki_title, "Cannabis in Georgia (country)");
+});
+
 test("heading-aware extraction keeps history separate from penalties and market boilerplate", () => {
   const profile = extractKnowledgeFromText({
     geo: "JP",
@@ -1078,6 +1111,12 @@ test("buildLocalCannabisCacheIndex maps cached dedicated cannabis articles by ca
   assert.ok(cacheIndex.get("Cannabis in Kenya"));
   assert.ok(cacheIndex.get("Cannabis in Micronesia"));
   assert.ok(cacheIndex.get("Cannabis in the Maldives"));
+});
+
+test("buildLocalCannabisCacheIndex drops ambiguous generic cannabis titles when multiple cached pages collide", () => {
+  const cacheIndex = buildLocalCannabisCacheIndex(projectRoot());
+
+  assert.equal(cacheIndex.has("Cannabis in Georgia"), false);
 });
 
 test("fetchProfileForScopeItem consumes local cache in cache-only mode", async () => {

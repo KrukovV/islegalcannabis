@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Niue / Niuē. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "niu",
-    "content_hash": "b8d386d25ad876bb0c4e943df7a7cf1312e76af3ca20048d4d280f31e810e9a7",
+    "content_hash": "c833eb4bfa045cf08e7010404f2ad512246933bba4e9df6295a831f386431144",
     "notes_hash": "d4ce454ab2434a1750a362149c4be57dd8d1291068612536015648504981cc8f",
-    "model_hash": "ebb7281ec1114d3254d8d1d15eb01e1603135328623c9049657bfe33a8c88051"
+    "model_hash": "acadf74f048c079e95da283aa939c130c68561c078a34ff97b565d9876f1fa26"
   },
   "geo_code": "NU",
   "node_type": "country",

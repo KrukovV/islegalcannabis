@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Isle of Man / Mannin. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "imn",
-    "content_hash": "b948cfc440e4e09dc10b025b835b227fa49f0192e38a63e06e3de742b87c01ae",
+    "content_hash": "54bd872db3c9469a631db962336416d1d4d17f7838e08dd9ef9e39e4c48ce7db",
     "notes_hash": "b2adb8c39e55beea2bc0bf2ecbed3fc90c4e7bd42a90bd8dd48bfa1636565576",
-    "model_hash": "a697664fa8fc1eca50e248e73126f09d6f5c7679312ce0088b6c0aadea6d6335"
+    "model_hash": "7eb027993a4fb84ab5a8a94d7997b2959832403c2fc1ad4f467892a5bb13309f"
   },
   "geo_code": "IM",
   "node_type": "country",

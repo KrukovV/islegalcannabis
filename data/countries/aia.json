@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Anguilla. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "aia",
-    "content_hash": "4332439a9dbccab1fd249bdf85ea0a0344538c9302caa204d70a59b82eee45ca",
+    "content_hash": "bf2d3876c547adf4a5b5a54f93bb79e324efa79e7837bae98f4b715a95620fb5",
     "notes_hash": "9a5b928fc7c0d21a65f9e611781297ceb6f99a8237f8e237e09d636e43064b13",
-    "model_hash": "fe4758b93718a98d2428a720e39a20de474bf9fe6aab4d1a263ed54dc63bfd7f"
+    "model_hash": "9d30dd4e1befbc3478817a1bdbafb504ef328cfc6a0d2556d60001cb0e9a4f98"
   },
   "geo_code": "AI",
   "node_type": "country",

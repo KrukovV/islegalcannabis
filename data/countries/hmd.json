@@ -89,11 +89,13 @@
         "rule: illegal | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Legality of cannabis | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
         "has_article": true,
-        "article_len": 4262,
+        "article_len": 4693,
         "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
@@ -113,6 +115,7 @@
       "penalty_prison",
       "penalty_fine",
       "sale_tolerated",
+      "penalty_years",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Heard Island and McDonald Islands. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
@@ -201,9 +204,9 @@
   },
   "hashes": {
     "code": "hmd",
-    "content_hash": "3ebecd6d31f97664b8d1df028486bedb032636696722a5d9d0040c3c95418d76",
+    "content_hash": "2cc582ce67ec54ad32d65de208c3f033d5442c1d1ef3b8ee08b287d9a51afc78",
     "notes_hash": "313beceed710ecf93bbcf64fc867f47fa2480de60a4b3bb1890159961532aa24",
-    "model_hash": "e61b3ef2377f1c69cb1a3f33c02cc970ad8bfe07b144ea3d6b57d731a4640166"
+    "model_hash": "b19da85975db217c72d2bcec43bdd990400a3f54d98093e3a5f80d3174b7d598"
   },
   "geo_code": "HM",
   "node_type": "country",

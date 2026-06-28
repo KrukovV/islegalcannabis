@@ -13,10 +13,10 @@
       "scope": "PERSONAL_USE"
     },
     "medical": {
-      "raw_status": "LEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
       "override_reason": null
     },
     "distribution": {
@@ -38,8 +38,8 @@
     ],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is decriminalized in North Dakota in limited state-level practice, but it is not fully legal under state law. Medical cannabis is legal under a regulated state program in North Dakota. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#80CE69; color:#000000; text-align:center;\" | {{Hs|2}} <span style=\"font-size:25px;\">●</span> Cannabis in North Dakota is legal for medical use but illegal for recreational use. The cultivation of hemp is currently legal in North Dakota. In November 2018, the state's voters voted on recreational marijuana legalization, along with Michigan; the measure was rejected 59% to 41%. Two groups attempted to put marijuana legalization measures on the June 2020 Primary and the November 2020 elections, but were prevented from doing so by the COVID-19 pandemic. After a failed attempt in 2021 to legislatively legalize recreational cannabis, advocates successfully placed an initiative on the November 2022 ballot. Marijuana was made illegal in North Dakota in 1933; Oklahoma made it illegal the same year, and South Dakota in 1931. In May 2019, penalties were reduced in the state, with possession resulting in a fine instead of jail time, however possession of any amount of hashish or concentrates is still a felony, with punishment up to 5 years in prison. Medical marijuana. Since 2019 however, possession under a 1/2 ounce has been decriminalized in the sense that there is no threat of jail time, though a criminal infraction fine up to $1,000 still applies. In May 2019, penalties were reduced in the state, with possession resulting in a fine instead of jail time, however possession of any amount of hashish or concentrates is still a felony, with punishment up to 5 years in prison. In May 2019, Governor Doug Burgum signed HB 1050, which eliminated the threat of jail time for adults over 21 that possess up to half an ounce of cannabis, although the maximum allowable fine was not modified. The bill also reduced penalties for possession of larger amounts. Personal use possession of less than is a Class B misdemeanor punishable by a maximum sentence of 30 days imprisonment and a maximum fine of $1,000. Personal use possession of less than half an ounce while operating a motor vehicle is a Class A misdemeanor punishable by a maximum sentence of 1 year imprisonment and a maximum fine of $1,000. Personal use possession of is a Class A misdemeanor punishable by a maximum sentence of 1 year imprisonment and a maximum fine of $1,000.",
+  "notes_normalized": "Cannabis is decriminalized in North Dakota in limited state-level practice, but it is not fully legal under state law. Medical cannabis is not broadly legal in North Dakota. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#80CE69; color:#000000; text-align:center;\" | {{Hs|2}} <span style=\"font-size:25px;\">●</span> Since 2019 however, possession under a 1/2 ounce has been decriminalized in the sense that there is no threat of jail time, though a criminal infraction fine up to $1,000 still applies. Marijuana was made illegal in North Dakota in 1933; Oklahoma made it illegal the same year, and South Dakota in 1931. In May 2019, penalties were reduced in the state, with possession resulting in a fine instead of jail time, however possession of any amount of hashish or concentrates is still a felony, with punishment up to 5 years in prison. Personal use possession of less than is a Class B misdemeanor punishable by a maximum sentence of 30 days imprisonment and a maximum fine of $1,000. Personal use possession of less than half an ounce while operating a motor vehicle is a Class A misdemeanor punishable by a maximum sentence of 1 year imprisonment and a maximum fine of $1,000. Personal use possession of is a Class A misdemeanor punishable by a maximum sentence of 1 year imprisonment and a maximum fine of $1,000.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -54,7 +54,7 @@
     "medical": "override",
     "enforcement_strength": "MEDIUM",
     "federal_conflict": "Cannabis remains federally illegal in United States.",
-    "legalization_status": "Medical only"
+    "legalization_status": "State decriminalized"
   },
   "related_codes": [
     "usa",
@@ -99,12 +99,16 @@
     ],
     "legal_similarity": [
       {
-        "code": "us-ms",
-        "name": "Mississippi"
+        "code": "us-la",
+        "name": "Louisiana"
       },
       {
-        "code": "us-nc",
-        "name": "North Carolina"
+        "code": "us-nh",
+        "name": "New Hampshire"
+      },
+      {
+        "code": "us-hi",
+        "name": "Hawaii"
       }
     ],
     "cluster_links": [
@@ -170,9 +174,9 @@
   },
   "hashes": {
     "code": "us-nd",
-    "content_hash": "64d8f736aadd8b1092df40cd192711e08c6fe526c4ec7e14c021fe0e8e02f4a5",
-    "notes_hash": "24639be319a019c1bd5c6f2684259dfa6ca6f21d10b87db243404b072c1ad770",
-    "model_hash": "1a236a3e057936911afb63dbae675ee238ee1904e2455e81097e7a5bbcae2654"
+    "content_hash": "0de19196516cc6b54241a75757d25d857bdb7328b380663f1af8a9e903310b0e",
+    "notes_hash": "8cb630cebac1a92aafe03b7e39e01e43128c3b37475bac6243172b5a8c64ae51",
+    "model_hash": "e46a115015e06944066f09e8e3bc2bfe23b59656bdec3cb7637c2553cfeca6e9"
   },
   "updated_at": "2026-04-10"
 }
