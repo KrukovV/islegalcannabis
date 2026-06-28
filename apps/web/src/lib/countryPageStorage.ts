@@ -642,14 +642,17 @@ export function deriveCountryCardEntryFromCountryPageData(data: CountryPageData)
   const rawNotes = `${data.notes_normalized || ""} ${data.notes_raw || ""}`.trim();
   const profileSeedNotes = legalSourceUrl ? rawNotes : null;
   const derivedProfile = buildCannabisProfileCard(data.geo_code, undefined, profileSeedNotes);
-  const cannabisProfile = isEmptyCannabisProfile(derivedProfile)
+  const preferredProfileSourceTitle =
+    legalSourceUrl || rootSourceUrl ? `Wikipedia: ${data.name}` : derivedProfile?.sourceTitle;
+  const nonEmptyDerivedProfile = isEmptyCannabisProfile(derivedProfile) ? null : derivedProfile;
+  const cannabisProfile = !nonEmptyDerivedProfile
     ? null
     : {
-        ...derivedProfile,
+        ...nonEmptyDerivedProfile,
         ...resolveCanonicalCannabisSource(
-          derivedProfile,
+          nonEmptyDerivedProfile,
           legalSourceUrl || rootSourceUrl,
-          legalSourceUrl || rootSourceUrl ? `Wikipedia: ${data.name}` : derivedProfile.sourceTitle
+          preferredProfileSourceTitle
         )
       };
 

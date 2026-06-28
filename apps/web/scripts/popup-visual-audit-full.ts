@@ -202,7 +202,7 @@ function deriveSparseCoverageReason(row: AuditRow) {
   if (popupSectionsFound.length > 1) return null;
 
   if (coverageClass === "substantive_article") {
-    if (!hasComparableCannabisProfile || sourceKind === "fallback_wikipedia_source") {
+    if (!hasComparableCannabisProfile) {
       return "Fallback territory/parent article is not cannabis-specific, so popup stays at law/source-only coverage.";
     }
     if (wikiSectionsFound.length <= 1) {
