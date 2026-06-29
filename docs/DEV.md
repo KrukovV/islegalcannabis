@@ -41,6 +41,20 @@ PLAYWRIGHT_BASE_URL=http://127.0.0.1:3000 npm -w apps/web run popup:visual:audit
 - `pass_cycle` will fail if `Artifacts/popup-visual-audit/full-manifest.json` is older than relevant popup/render/data inputs.
 - Regression example to keep covered: ambiguous cannabis titles such as `Cannabis in Georgia` must not cross-contaminate `GE` and `US-GA` in popup or SEO output.
 
+## Unified geo-sync release requirement
+- Popup/wiki audit is necessary but not always sufficient.
+- If the change touches resolver, extractor, canonical knowledge, map color/status logic, popup badge logic, or SEO legality rendering, the active release requirement expands to the full `307` GEO map/popup/SEO/wiki/color sync contract in `docs/GEO_SYNC_AUDIT.md`.
+- The current required checks for that workstream are:
+  - no same-name country/state leakage
+  - `map_color_bucket == popup_badge_bucket == seo_badge_bucket == normalized_color_bucket`
+  - SEO richer than popup for substantive wiki articles
+  - the two checks above must also be true in rendered screenshots, not only in extracted strings/JSON
+  - screenshot comparison must cover both project-internal parity (`map↔popup↔SEO`) and project-vs-wiki parity
+  - if popup or SEO panel scrolls internally, capture both the full page and an expanded panel screenshot before judging visual richness
+  - honest sparse output for `root_only` / `no_page` / synthetic GEO
+  - no hardcoded country/state patches outside tests
+- Do not document or claim closure of resolver/color sync work using popup-only screenshots or string-only comparisons.
+
 ## Vercel production bypass quick run
 - Keep the bypass secret only in the shell/CI secret named `VERCEL_AUTOMATION_BYPASS_SECRET`; never write the secret into docs, configs, reports, screenshots, or URLs.
 - Production audit starts with a root diagnostic seed request and then proceeds to browser navigation. Direct access is diagnostic only.

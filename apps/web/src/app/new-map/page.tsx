@@ -12,15 +12,24 @@ export const metadata: Metadata = {
   }
 };
 
-export default function NewMapPage() {
+export default async function NewMapPage({
+  searchParams
+}: {
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
+}) {
   const runtimeIdentity = getNewMapRuntimeIdentity();
   const visibleStamp = formatVisibleRuntimeStamp(runtimeIdentity);
   const countriesUrl = getStaticCountriesAsset().url;
+  const resolvedSearchParams = searchParams ? await searchParams : {};
+  const initialGeoCode =
+    (typeof resolvedSearchParams?.geo === "string" ? resolvedSearchParams.geo : null) ||
+    (typeof resolvedSearchParams?.code === "string" ? resolvedSearchParams.code : null);
   return (
     <NewMapClientEntry
       countriesUrl={countriesUrl}
       visibleStamp={visibleStamp}
       runtimeIdentity={runtimeIdentity}
+      initialGeoCode={initialGeoCode}
     />
   );
 }

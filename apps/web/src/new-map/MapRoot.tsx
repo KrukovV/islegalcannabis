@@ -5,14 +5,13 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import maplibregl, { type StyleSpecification } from "maplibre-gl";
 import type { RuntimeIdentity } from "@/lib/runtimeIdentity";
 import type { CountryPageData } from "@/lib/countryPageStorage";
-import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntry";
 import type { SeoLocale } from "@/lib/seo/i18n";
 import { createMap } from "./createMap";
-import type { CountryCardEntry, LegalCountryCollection, NewMapBootResult } from "./map.types";
+import type { CountryCardEntry, CountryCardSeed, LegalCountryCollection, NewMapBootResult } from "./map.types";
 import styles from "./MapRoot.module.css";
 import { NEW_MAP_WATER_COLOR } from "./mapPalette";
 import { NEW_MAP_BASEMAP_STYLE_URL } from "./runtimeUrls";
-import { hasFirstVisualReady, onFirstVisualReady, resetFirstVisualReady, setNewMapMetric } from "./startupTrace";
+import { hasFirstVisualReady, markNewMapTrace, onFirstVisualReady, resetFirstVisualReady, setNewMapMetric } from "./startupTrace";
 import {
   readVisualViewportKeyboardOffset,
   readVisualViewportSnapshot,
@@ -75,21 +74,6 @@ type NewMapDebug = {
   map?: import("maplibre-gl").Map | null;
   labelGroups?: Record<string, string[]>;
   lastPointerLng?: number | null;
-  popupTrace?: PopupPipelineTrace;
-};
-
-type PopupPipelineTrace = {
-  COUNTRY_ID?: string | null;
-  DEBUG_ID?: string | null;
-  GEO_ID?: string | null;
-  FEATURE_ID?: string | null;
-  CARD_INDEX_KEY?: string | null;
-  CARD_INDEX_HIT?: boolean;
-  POPUP_DATA_FOUND?: boolean;
-  POPUP_RENDERED?: boolean;
-  CLICK_RECEIVED?: boolean;
-  CLICK_LAYER?: string | null;
-  SELECTED_DISPLAY_NAME?: string | null;
 };
 
 type NewMapQaController = {
@@ -157,10 +141,8 @@ function markCountriesCacheState(countriesUrl: string) {
   setNewMapMetric("NM_COUNTRIES_TRANSFER_SIZE", transferSize);
   setNewMapMetric("NM_COUNTRIES_DECODED_BODY_SIZE", decodedBodySize);
   if (transferSize === 0 && decodedBodySize > 0) {
-    window.console.debug(`[new-map-trace] NM_COUNTRIES_CACHE_HIT=1 transfer=${transferSize} decoded=${decodedBodySize}`);
     return;
   }
-  window.console.debug(`[new-map-trace] NM_COUNTRIES_CACHE_MISS=1 transfer=${transferSize} decoded=${decodedBodySize}`);
 }
 
 function setDebugState(partial: Partial<NewMapDebug>) {
@@ -175,17 +157,77 @@ function setDebugState(partial: Partial<NewMapDebug>) {
   host.__NEW_MAP_DEBUG__ = current;
 }
 
-function updatePopupTrace(partial: PopupPipelineTrace) {
-  const host = globalThis as typeof globalThis & {
-    __NEW_MAP_DEBUG__?: NewMapDebug;
-  };
-  const current = host.__NEW_MAP_DEBUG__?.popupTrace || {};
-  setDebugState({
-    popupTrace: {
-      ...current,
-      ...partial
-    }
-  });
+function seedSummary(mapCategory: CountryCardEntry["mapCategory"]) {
+  return (
+    {
+      LEGAL_OR_DECRIM: "Legal access.",
+      LIMITED_OR_MEDICAL: "Restricted access.",
+      ILLEGAL: "Prohibited access.",
+      UNKNOWN: "Status unknown."
+    }[mapCategory || "UNKNOWN"] || "Status unknown."
+  );
+}
+
+function buildSeedCardEntry(seed: CountryCardSeed): CountryCardEntry {
+  const geo = String(seed.geo || "").trim().toUpperCase();
+  const displayName = String(seed.displayName || geo).trim() || geo;
+  const summary = seedSummary(seed.mapCategory);
+  const levelTitle =
+    seed.mapCategory === "LEGAL_OR_DECRIM"
+      ? "GREEN"
+      : seed.mapCategory === "ILLEGAL"
+        ? "RED"
+        : seed.mapCategory === "LIMITED_OR_MEDICAL"
+          ? "YELLOW"
+          : "UNKNOWN";
+  return {
+    geo,
+    code: geo.toLowerCase(),
+    pageHref: `/new-map?geo=${encodeURIComponent(geo)}`,
+    displayName,
+    iso2: geo,
+    result: {
+      status: seed.mapCategory === "LEGAL_OR_DECRIM" ? "LEGAL" : seed.mapCategory === "UNKNOWN" ? "UNKNOWN" : "ILLEGAL",
+      color: levelTitle
+    },
+    mapCategory: seed.mapCategory,
+    panel: {
+      levelTitle,
+      summary,
+      critical: [],
+      info: [],
+      why: []
+    },
+    sources: []
+  } as unknown as CountryCardEntry;
+}
+
+function seedPopupPosition(anchor: { x: number; y: number }) {
+  if (typeof window === "undefined") {
+    return { left: 16, top: 16 };
+  }
+  const width = Math.min(420, Math.max(280, window.innerWidth - 32));
+  const preferRight = anchor.x < window.innerWidth * 0.5;
+  const left = Math.min(Math.max(16, preferRight ? anchor.x + 18 : anchor.x - width - 18), Math.max(16, window.innerWidth - width - 16));
+  const top = Math.min(Math.max(16, anchor.y - 120), Math.max(16, window.innerHeight - 260));
+  return { left, top };
+}
+
+function showImmediateSeedPopup(seed: CountryCardSeed | null | undefined, anchor: { x: number; y: number } | null | undefined) {
+  if (!seed?.geo || !anchor || typeof document === "undefined") return;
+  document.getElementById("new-map-immediate-seed-popup")?.remove();
+  const entry = buildSeedCardEntry(seed);
+  const position = seedPopupPosition(anchor);
+  const panel = document.createElement("aside");
+  panel.id = "new-map-immediate-seed-popup";
+  panel.className = styles.viewportPopupPanel;
+  panel.dataset.testid = "new-map-country-popup";
+  panel.style.left = `${position.left}px`;
+  panel.style.top = `${position.top}px`;
+  panel.style.zIndex = "31";
+  panel.textContent = `${entry.displayName}\nISO2: ${entry.iso2 || entry.geo}\n${entry.panel.levelTitle}\nStatus\n${entry.panel.summary}`;
+  document.body.append(panel);
+  window.setTimeout(() => panel.remove(), 15000);
 }
 
 function isNewMapQaEnabled() {
@@ -274,9 +316,12 @@ export default function MapRoot({
   const [hoveredGeo, setHoveredGeo] = useState<SelectedGeo>(null);
   const [seoPanelOpen, setSeoPanelOpen] = useState(Boolean(initialGeoCode));
   const [cardIndex, setCardIndex] = useState<Record<string, CountryCardEntry>>({});
+  const [selectedGeoSeedEntry, setSelectedGeoSeedEntry] = useState<CountryCardEntry | null>(null);
   const [popupAnchor, setPopupAnchor] = useState<{ x: number; y: number } | null>(null);
   const [activeRouteSeoData, setActiveRouteSeoData] = useState<CountryPageData | null>(seoCountryData);
+  const [activeSeoDerivedEntry, setActiveSeoDerivedEntry] = useState<CountryCardEntry | null>(null);
   const cardIndexRequestedRef = useRef(false);
+  const cardEntryRequestsRef = useRef<Record<string, Promise<CountryCardEntry | null>>>({});
   const selectedFeatureStateRef = useRef<{ source: "legal-countries" | "us-states"; id: string } | null>(null);
   const seoDataByCodeRef = useRef<Record<string, CountryPageData>>({});
   const showDebugOverlay = runtimeIdentity.runtimeMode !== "production";
@@ -363,30 +408,56 @@ export default function MapRoot({
     }
     return activeRouteSeoData;
   }, [activeRouteSeoData, seoCountryIndex, seoRouteGeoCode]);
-  const showSeoOverlay = Boolean(activeSeoData && seoPanelOpen);
+
+  useEffect(() => {
+    if (!activeSeoData) {
+      setActiveSeoDerivedEntry(null);
+      return;
+    }
+    let cancelled = false;
+    import("@/lib/countryCardEntry")
+      .then(({ deriveCountryCardEntryFromCountryPageData }) => {
+        if (!cancelled) setActiveSeoDerivedEntry(deriveCountryCardEntryFromCountryPageData(activeSeoData));
+      })
+      .catch(() => {
+        if (!cancelled) setActiveSeoDerivedEntry(null);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [activeSeoData]);
+
+  const activeSeoEntry = useMemo(() => {
+    if (activeSeoData) return activeSeoDerivedEntry;
+    if (!seoPanelOpen || !selectedGeo) return null;
+    return cardIndex[selectedGeo] || null;
+  }, [activeSeoData, activeSeoDerivedEntry, cardIndex, selectedGeo, seoPanelOpen]);
+  const showSeoOverlay = Boolean(activeSeoEntry && seoPanelOpen);
   const popupGeoCode =
     selectedGeo &&
-    !(showSeoOverlay && selectedGeo === String(activeSeoData?.geo_code || "").trim().toUpperCase())
+    !(showSeoOverlay && selectedGeo === String(activeSeoEntry?.geo || activeSeoData?.geo_code || "").trim().toUpperCase())
       ? selectedGeo
       : null;
   const selectedGeoEntry = useMemo(() => {
     if (!popupGeoCode) return null;
     const indexed = cardIndex[popupGeoCode];
     if (indexed) return indexed;
+    if (selectedGeoSeedEntry?.geo === popupGeoCode) return selectedGeoSeedEntry;
     if (activeSeoData && popupGeoCode === activeSeoData.geo_code) {
-      return deriveCountryCardEntryFromCountryPageData(activeSeoData);
+      return activeSeoDerivedEntry;
     }
     return null;
-  }, [activeSeoData, cardIndex, popupGeoCode]);
+  }, [activeSeoData, activeSeoDerivedEntry, cardIndex, popupGeoCode, selectedGeoSeedEntry]);
   const seoMarkerEntry = useMemo(() => {
-    if (!activeSeoData) return null;
-    const cardEntry = cardIndex[activeSeoData.geo_code];
+    if (!activeSeoEntry) return null;
+    const geoCode = activeSeoData?.geo_code || activeSeoEntry.geo;
+    const cardEntry = cardIndex[geoCode];
     return {
-      code: activeSeoData.geo_code,
-      name: activeSeoData.name,
-      coordinates: activeSeoData.coordinates || cardEntry?.coordinates || null
+      code: geoCode,
+      name: activeSeoData?.name || activeSeoEntry.displayName,
+      coordinates: activeSeoData?.coordinates || activeSeoEntry.coordinates || cardEntry?.coordinates || null
     };
-  }, [activeSeoData, cardIndex]);
+  }, [activeSeoData, activeSeoEntry, cardIndex]);
   const selectedGeoView: ActiveGeo = useMemo(() => {
     if (!selectedGeoEntry) return null;
     return {
@@ -398,28 +469,13 @@ export default function MapRoot({
   }, [selectedGeoEntry]);
 
   useEffect(() => {
-    if (!popupGeoCode) {
-      updatePopupTrace({
-        CARD_INDEX_KEY: null,
-        CARD_INDEX_HIT: false,
-        POPUP_DATA_FOUND: false,
-        POPUP_RENDERED: false
-      });
-      return;
-    }
-    updatePopupTrace({
-      CARD_INDEX_KEY: popupGeoCode,
-      CARD_INDEX_HIT: Boolean(cardIndex[popupGeoCode]),
-      POPUP_DATA_FOUND: Boolean(selectedGeoEntry)
-    });
-  }, [cardIndex, popupGeoCode, selectedGeoEntry]);
-
-  useEffect(() => {
     if (!popupGeoCode) return;
-    updatePopupTrace({
-      POPUP_RENDERED: Boolean(selectedGeoEntry && popupAnchor)
-    });
-  }, [popupAnchor, popupGeoCode, selectedGeoEntry]);
+    if (!selectedGeoEntry || !popupAnchor) return;
+    markNewMapTrace("NM_POPUP_RENDER_READY");
+    if (selectedGeoSeedEntry && selectedGeoEntry !== selectedGeoSeedEntry) {
+      document.getElementById("new-map-immediate-seed-popup")?.remove();
+    }
+  }, [popupAnchor, popupGeoCode, selectedGeoEntry, selectedGeoSeedEntry]);
 
   const handleSeoMarkerToggle = useCallback(() => {
     if (!seoMarkerEntry) return;
@@ -482,6 +538,7 @@ export default function MapRoot({
   );
 
   const handleCountryPopupClose = useCallback(() => {
+    document.getElementById("new-map-immediate-seed-popup")?.remove();
     setSelectedGeo(null);
   }, []);
 
@@ -489,15 +546,16 @@ export default function MapRoot({
     if (cardIndexRequestedRef.current) return null;
     cardIndexRequestedRef.current = true;
     const prefetched = getNewMapPrefetchCache();
-    const requestCardIndex = () =>
-      fetch("/api/new-map/card-index", {
+    const requestCardIndex = async () => {
+      const response = await fetch("/api/new-map/card-index", {
         credentials: "same-origin"
-      }).then((response) => {
-        if (!response.ok) {
-          throw new Error(`card_index_fetch_failed:${response.status}`);
-        }
-        return response.json() as Promise<Record<string, CountryCardEntry>>;
       });
+      if (!response.ok) {
+        throw new Error(`card_index_fetch_failed:${response.status}`);
+      }
+      const json = (await response.json()) as Record<string, CountryCardEntry>;
+      return json;
+    };
     try {
       const nextCardIndex = prefetched?.cardIndex
         ? await prefetched.cardIndex.then((value) => value || requestCardIndex())
@@ -509,6 +567,37 @@ export default function MapRoot({
       setCardIndex({});
       return null;
     }
+  }, []);
+
+  const loadCardEntry = useCallback(async (geo: string) => {
+    const normalizedGeo = String(geo || "").trim().toUpperCase();
+    if (!normalizedGeo) return null;
+    const existingRequest = cardEntryRequestsRef.current[normalizedGeo];
+    if (existingRequest) return existingRequest;
+
+    const request = fetch(`/api/new-map/card-entry?geo=${encodeURIComponent(normalizedGeo)}`, {
+      credentials: "same-origin"
+    })
+      .then(async (response) => {
+        if (!response.ok) return null;
+        const entry = (await response.json()) as CountryCardEntry;
+        setCardIndex((current) => {
+          const entryGeo = String(entry?.geo || normalizedGeo).trim().toUpperCase();
+          if (!entryGeo || current[entryGeo]) return current;
+          return {
+            ...current,
+            [entryGeo]: entry
+          };
+        });
+        return entry || null;
+      })
+      .catch(() => {
+        delete cardEntryRequestsRef.current[normalizedGeo];
+        return null;
+      });
+
+    cardEntryRequestsRef.current[normalizedGeo] = request;
+    return request;
   }, []);
 
   const handleOpenDetails = useCallback(
@@ -805,13 +894,20 @@ export default function MapRoot({
   useEffect(() => {
     if (!selectedGeo || cardIndex[selectedGeo]) return;
     let cancelled = false;
+    let timeoutId = 0;
     queueMicrotask(() => {
-      if (!cancelled) void loadCardIndex();
+      if (!cancelled) {
+        void loadCardEntry(selectedGeo);
+        timeoutId = window.setTimeout(() => {
+          if (!cancelled) void loadCardIndex();
+        }, 800);
+      }
     });
     return () => {
       cancelled = true;
+      window.clearTimeout(timeoutId);
     };
-  }, [cardIndex, loadCardIndex, selectedGeo]);
+  }, [cardIndex, loadCardEntry, loadCardIndex, selectedGeo]);
 
   useEffect(() => {
     let cancelled = false;
@@ -837,7 +933,10 @@ export default function MapRoot({
           : loadStyle()).catch(() => null);
         const runtime = createMap(containerRef.current, {
           style,
-          onSelectGeo: (geo) => {
+          onSelectGeo: (geo, anchor, seed) => {
+            showImmediateSeedPopup(seed, anchor);
+            if (anchor) setPopupAnchor(anchor);
+            setSelectedGeoSeedEntry(seed?.geo ? buildSeedCardEntry(seed) : null);
             setSelectedGeo(geo);
             setDebugState({ selectedId: geo });
           }
@@ -853,12 +952,6 @@ export default function MapRoot({
               throw new Error(`MAP_WITHOUT_STATUS: ${String(feature.properties?.geo || "UNKNOWN")}`);
             }
           }
-          console.warn(
-            `MAP_RENDER_STATUS sample=${countries.features
-              .slice(0, 5)
-              .map((feature) => `${feature.properties.geo}:${feature.properties.result.status}:${feature.properties.baseColor}:${feature.properties.hoverColor}`)
-              .join(",")}`
-          );
           runtime.setData(countries);
           return countries;
         });
@@ -974,8 +1067,8 @@ export default function MapRoot({
           </div>
         </div>
       ) : null}
-      {showSeoOverlay && activeSeoData ? (
-        <UnifiedSeoStatusPanel data={activeSeoData} locale={locale} onClose={handleSeoPanelClose} />
+      {showSeoOverlay && activeSeoEntry ? (
+        <UnifiedSeoStatusPanel data={activeSeoData} entry={activeSeoEntry} locale={locale} onClose={handleSeoPanelClose} />
       ) : null}
       {selectedGeoEntry && popupAnchor ? (
         <ViewportCountryPopup

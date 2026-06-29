@@ -87,6 +87,12 @@ export type CountryCardEntry = {
   coordinates?: { lat: number; lng: number };
 };
 
+export type CountryCardSeed = {
+  geo: string;
+  displayName: string;
+  mapCategory: CountryCardEntry["mapCategory"];
+};
+
 export type NewMapBootResult = {
   map: import("maplibre-gl").Map;
   basemapReady: Promise<void>;

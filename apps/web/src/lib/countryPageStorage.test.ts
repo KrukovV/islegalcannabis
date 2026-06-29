@@ -86,7 +86,7 @@ describe("countryPageStorage", () => {
 
     expect(frenchGuiana?.displayName).toBe("French Guiana");
     expect(frenchGuiana?.iso2).toBe("GF");
-    expect(frenchGuiana?.pageHref).toBe("/c/fra");
+    expect(frenchGuiana?.pageHref).toBe("/new-map?geo=GF");
     expect(frenchGuiana?.detailsHref).toBeNull();
     expect(frenchGuiana?.coordinates?.lat).toEqual(expect.any(Number));
     expect(frenchGuiana?.coordinates?.lng).toEqual(expect.any(Number));

@@ -196,9 +196,8 @@ function deriveSparseCoverageReason(row: AuditRow) {
   const popupSectionsFound = row.popup_sections_found || [];
   const wikiSectionsFound = row.wiki_sections_found || [];
   const missingSections = row.missing_sections || [];
-  const coverageClass = row.coverage_class || "resolver_failed";
-  const sourceKind = row.source_kind || "no_wiki_source";
-  const hasComparableCannabisProfile = sourceKind === "dedicated_profile";
+  const coverageClass = row.coverage_class;
+  const hasComparableCannabisProfile = row.source_kind === "dedicated_profile";
   if (popupSectionsFound.length > 1) return null;
 
   if (coverageClass === "substantive_article") {

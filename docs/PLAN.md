@@ -52,3 +52,6 @@ Statuses: pending | in_progress | done
 - [done] Capture HTTP-first prod audit restore evidence for current Vercel bypass secret without product or infrastructure changes
 - [done] Document the popup/wiki full-audit contract, stale-manifest guard, and generic ambiguous-title resolver rules for popup + SEO content
 - [in_progress] Restore repeatable production screenshots with cookie as diagnostic only and produce repeatability report
+- [done] Refresh project docs/spec so popup/wiki `307/307` is no longer presented as sufficient evidence for resolver/color/SEO sync changes
+- [in_progress] Implement full `307` GEO unified geo-sync audit across map color, popup, SEO, and wiki-backed canonical evidence
+- [in_progress] Eliminate same-name GEO collisions through canonical resolver identity (`geo + entity_type + parent + jurisdiction_kind`) with no country-specific patches

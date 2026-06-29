@@ -69,6 +69,20 @@ Standard app API responses built with `apps/web/src/lib/api/response.ts` include
 - Popup/SEO source quotes must not surface unattributed quote fragments.
 - Territory, parent-jurisdiction, root-only, and synthetic fallback cases may stay law/source-only; fake thematic sections are forbidden.
 
+## Unified geo-sync contract
+- Popup/wiki screenshot parity is not enough when canonical resolver, normalized legal model, map color, or SEO rendering changes.
+- The active release gate for those changes is the full `307` GEO unified geo-sync audit documented in `docs/GEO_SYNC_AUDIT.md`.
+- Canonical GEO identity must be stronger than display name and include at least geo code, entity type, parent, and jurisdiction kind.
+- Map color bucket, popup badge bucket, SEO badge bucket, and normalized legality/color model must agree for the same GEO unless an explicit `status_color_conflict` + `needs_review` record is emitted.
+- Agreement above must be proven both by model fields and by rendered screenshots; string-only or JSON-only confirmation is not enough.
+- Screenshot comparison is required in two planes:
+  - inside the project (`map ↔ popup ↔ SEO`)
+  - project against Wiki (`popup/SEO/color outcome ↔ wiki article`)
+- For scrollable popup or SEO side panels, screenshot evidence must include the expanded panel surface itself; full-page PNG alone is not enough because internal overflow can hide richer content and create false visual verdicts.
+- Popup and SEO for the same GEO must share one `canonical_record_hash`.
+- For substantive individual cannabis articles, SEO content must be richer than popup content. If SEO is shorter than popup, or looks shorter in rendered screenshot evidence, the GEO fails unless coverage class is a documented sparse/no-page case.
+- Any resolver/extractor fix must be documented as a general rule with provenance, not as a one-GEO patch.
+
 ## Full popup/wiki visual audit contract
 - The popup/wiki visual audit universe is `307` GEO total: countries, US states, territories, and synthetic/disputed jurisdictions from the runtime dataset.
 - Canonical local full-run command: `PLAYWRIGHT_BASE_URL=http://127.0.0.1:3000 npm -w apps/web run popup:visual:audit:full`
@@ -91,6 +105,7 @@ Standard app API responses built with `apps/web/src/lib/api/response.ts` include
   - claim without source page + source section/source kind
   - fake thematic sections for `root_only` / `no_individual_wiki_page` / `synthetic_no_wiki`
   - section-count regressions for previously enriched rows without an explicit reason
+  - use of popup/wiki audit as sole release evidence for map/popup/SEO/color changes covered by `docs/GEO_SYNC_AUDIT.md`
 
 ## SSOT snapshot and diff contract
 - Snapshot files live in `data/ssot_snapshots/`; latest snapshots must have `row_count=300`.

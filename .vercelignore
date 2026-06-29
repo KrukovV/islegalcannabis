@@ -1,0 +1,69 @@
+# Vercel deploy context hygiene.
+# Keep product source/data; exclude local builds, test evidence, caches, and archives.
+
+# VCS / local metadata
+.git
+.github
+.vercel
+.worktrees
+.DS_Store
+
+# Dependencies and build outputs
+node_modules
+**/node_modules
+.next
+**/.next
+out
+build
+dist
+coverage
+**/*.tsbuildinfo
+
+# Operational artifacts and screenshots
+Artifacts
+Artifacts/**
+Reports
+Reports/**
+QA
+QA/**
+QUARANTINE
+QUARANTINE/**
+.checkpoints
+.checkpoints/**
+test-results
+test-results/**
+playwright-report
+playwright-report/**
+apps/web/Artifacts
+apps/web/Artifacts/**
+apps/web/Reports
+apps/web/Reports/**
+apps/web/test-results
+apps/web/test-results/**
+apps/web/playwright-report
+apps/web/playwright-report/**
+
+# Local caches / scratch
+/cache
+/cache/**
+/logs
+/logs/**
+/tmp
+/tmp/**
+/.cache
+/.cache/**
+
+# Heavy generated archives and bundles
+*.tgz
+*.tar
+*.tar.gz
+*.zip
+Artifacts/**/*.tgz
+Artifacts/**/*.tar
+Artifacts/**/*.tar.gz
+Artifacts/**/*.zip
+
+# Local env and editor noise
+.env*
+*.log
+*.pem

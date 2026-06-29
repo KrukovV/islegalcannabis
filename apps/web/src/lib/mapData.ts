@@ -12,6 +12,7 @@ import { buildStatusContract } from "./statusPairMatrix";
 import { buildStatusSnapshotMeta } from "./statusDomainModel";
 import { evaluateStatusEngineV9, type StatusEngineV9Result } from "./statusEngineV9";
 import { buildSSOTStatusModel, type SSOTStatusModel } from "./mapDataStatusModel";
+import { DISPUTED_GEO_SOURCE_MAPPINGS } from "./disputedGeoSources";
 import { findRepoRoot, readLatestSnapshot } from "./ssotDiff/ssotSnapshotStore";
 import {
   extractFeaturePolygons,
@@ -54,6 +55,12 @@ type GeoJsonFeature = {
 };
 
 type GeoJsonGeometry = GeoJsonFeature["geometry"];
+type GeometryBounds = {
+  minLng: number;
+  maxLng: number;
+  minLat: number;
+  maxLat: number;
+};
 
 type RegionEntry = {
   geo: string;
@@ -147,6 +154,7 @@ let SNAPSHOT_META_CACHE: { finalSnapshotId: string; builtAt: string; datasetHash
 let SNAPSHOT_CACHE_SOURCE_BUILT_AT: string | null = null;
 const MAP_RENDER_FALLBACK_GEOS = new Set(["EH"]);
 const PARENT_POLYGON_COVERED_POINT_FALLBACK_GEOS = new Set(["GF", "GP", "MQ", "RE", "YT"]);
+const TINY_SYNTHETIC_FALLBACK_AREA_DEGREES = 0.001;
 
 function compactSnapshotBuiltAt(value: string) {
   return String(value || "").replace(/[-:TZ.]/g, "").slice(0, 14) || "snapshot";
@@ -368,6 +376,53 @@ function buildMapRenderFallbackEntry(params: {
   };
 }
 
+function resolveMapFallbackName(props: Record<string, unknown>, geo: string, forceFallback?: boolean) {
+  const disputedDisplayName = forceFallback ? DISPUTED_GEO_SOURCE_MAPPINGS[geo]?.displayName : null;
+  if (disputedDisplayName) return disputedDisplayName;
+  const candidates = forceFallback
+    ? [props?.NAME, props?.NAME_LONG, props?.ADMIN, props?.NAME_EN, geo]
+    : [props?.NAME_EN, props?.NAME, props?.ADMIN, geo];
+  return String(candidates.find((value) => String(value || "").trim()) || geo);
+}
+
+function collectGeometryBounds(coordinates: unknown, bounds: GeometryBounds) {
+  if (!Array.isArray(coordinates)) return bounds;
+  if (typeof coordinates[0] === "number") {
+    const lng = Number(coordinates[0]);
+    const lat = Number(coordinates[1]);
+    if (Number.isFinite(lng) && Number.isFinite(lat)) {
+      bounds.minLng = Math.min(bounds.minLng, lng);
+      bounds.maxLng = Math.max(bounds.maxLng, lng);
+      bounds.minLat = Math.min(bounds.minLat, lat);
+      bounds.maxLat = Math.max(bounds.maxLat, lat);
+    }
+    return bounds;
+  }
+  for (const item of coordinates) {
+    collectGeometryBounds(item, bounds);
+  }
+  return bounds;
+}
+
+function geometryBoundsArea(coordinates: unknown) {
+  const bounds = collectGeometryBounds(coordinates, {
+    minLng: Number.POSITIVE_INFINITY,
+    maxLng: Number.NEGATIVE_INFINITY,
+    minLat: Number.POSITIVE_INFINITY,
+    maxLat: Number.NEGATIVE_INFINITY
+  });
+  if (!Number.isFinite(bounds.minLng) || !Number.isFinite(bounds.minLat)) return Number.POSITIVE_INFINITY;
+  const width = Math.max(0, bounds.maxLng - bounds.minLng);
+  const height = Math.max(0, bounds.maxLat - bounds.minLat);
+  return width * height;
+}
+
+function shouldRenderSyntheticFallbackAsPoint(geometry: GeoJsonGeometry) {
+  const componentAreas = extractFeaturePolygons(geometry).map((polygon) => geometryBoundsArea(polygon));
+  const largestComponentArea = Math.max(...componentAreas.filter(Number.isFinite));
+  return largestComponentArea > 0 && largestComponentArea < TINY_SYNTHETIC_FALLBACK_AREA_DEGREES;
+}
+
 export function buildRegions() {
   invalidateSnapshotCachesIfStale();
   if (REGIONS_CACHE) return REGIONS_CACHE;
@@ -531,7 +586,7 @@ export function buildRegions() {
       centroid: centroids[geo],
       sourceProps: props,
       forceFallback: true,
-      fallbackName: String(props?.NAME_EN || props?.NAME || props?.ADMIN || geo),
+      fallbackName: resolveMapFallbackName(props, geo, specialGeoResolution?.forceFallback),
       reasonCode: specialGeoResolution?.forceFallback ? "MAP_RENDER_SPECIAL_TERRITORY_FALLBACK" : "MAP_RENDER_TERRITORY_FALLBACK",
       truthLevel: specialGeoResolution?.forceFallback ? "UNKNOWN" : undefined,
       officialSources: getEffectiveOfficialLinksByGeo(geo, officialOwnershipDataset)
@@ -1031,12 +1086,35 @@ export function buildGeoJson(type: string) {
               centroid: centroids[geo],
               sourceProps: props,
               forceFallback: specialGeoResolution?.forceFallback,
-              fallbackName: String(props?.NAME_EN || props?.NAME || props?.ADMIN || geo),
+              fallbackName: resolveMapFallbackName(props, geo, specialGeoResolution?.forceFallback),
               reasonCode: specialGeoResolution?.forceFallback ? "MAP_RENDER_SPECIAL_TERRITORY_FALLBACK" : undefined,
               truthLevel: specialGeoResolution?.forceFallback ? "UNKNOWN" : undefined
             })
           : null);
       if (!entry) return [];
+      if (!isState && specialGeoResolution?.forceFallback && shouldRenderSyntheticFallbackAsPoint(feature.geometry)) {
+        const coords = entry.coordinates || {
+          lng: Number(props?.LABEL_X),
+          lat: Number(props?.LABEL_Y)
+        };
+        if (Number.isFinite(coords.lng) && Number.isFinite(coords.lat)) {
+          return [{
+            type: "Feature",
+            geometry: {
+              type: "Point",
+              coordinates: [coords.lng, coords.lat]
+            },
+            properties: {
+              ...makeProperties(
+                entry,
+                String(props?.NAME || props?.name || entry.geo),
+                props
+              ),
+              pointFallbackVisibility: "visible"
+            }
+          } as GeoJsonFeature];
+        }
+      }
       return [{
         type: "Feature",
         geometry: feature.geometry,

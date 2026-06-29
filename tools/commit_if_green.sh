@@ -238,7 +238,12 @@ write_git_bundle() {
 set -euo pipefail
 cd "$(pwd)"
 git apply --binary "${patch_path}"
-git add -- tools data/wiki README.md CONTINUITY.md .gitignore
+stage_paths=(.gitignore .vercelignore README.md CONTINUITY.md apps docs packages tools Tools data/wiki data/ssot_snapshots data/ssot_diffs.json data/official cache/ssot_diff_cache.json package.json package-lock.json)
+existing_paths=()
+for path in "\${stage_paths[@]}"; do
+  [ -e "\${path}" ] && existing_paths+=("\${path}")
+done
+git add -- "\${existing_paths[@]}"
 git commit -m "${COMMIT_SUBJECT:-chore: apply git bundle}"
 git tag -a -f good/now -m "green: $(date -u +%FT%TZ)"
 git push origin HEAD
@@ -447,7 +452,29 @@ if [ "${DRY_RUN}" = "1" ]; then
   exit 0
 fi
 
-git add -- tools data/wiki README.md CONTINUITY.md .gitignore
+stage_paths=(
+  .gitignore
+  .vercelignore
+  README.md
+  CONTINUITY.md
+  apps
+  docs
+  packages
+  tools
+  Tools
+  data/wiki
+  data/ssot_snapshots
+  data/ssot_diffs.json
+  data/official
+  cache/ssot_diff_cache.json
+  package.json
+  package-lock.json
+)
+existing_paths=()
+for path in "${stage_paths[@]}"; do
+  [ -e "${path}" ] && existing_paths+=("${path}")
+done
+git add -- "${existing_paths[@]}"
 
 if [ -z "$(git status --porcelain)" ]; then
   echo "NO_CHANGES"

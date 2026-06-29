@@ -102,6 +102,28 @@ describe("mapTruthDataset", () => {
     expect(birTawil?.properties?.reasons).toContain("MAP_RENDER_SPECIAL_TERRITORY_FALLBACK");
   });
 
+  test("renders tiny synthetic fallback territories as visible points without changing larger disputed polygons", () => {
+    const geojsonData = buildGeoJson("countries");
+
+    for (const geo of ["BJN", "PGA", "SCR", "SER"]) {
+      const feature = geojsonData.features.find((item) => String(item.properties?.geo || "") === geo);
+      expect(feature?.geometry.type).toBe("Point");
+      expect(feature?.properties?.pointFallbackVisibility).toBe("visible");
+      expect(["LEGAL_OR_DECRIM", "LIMITED_OR_MEDICAL", "ILLEGAL"]).toContain(feature?.properties?.mapCategory);
+    }
+
+    for (const geo of ["BRT", "KAS", "SPI"]) {
+      const feature = geojsonData.features.find((item) => String(item.properties?.geo || "") === geo);
+      expect(feature?.geometry.type).not.toBe("Point");
+      expect(feature?.properties?.pointFallbackVisibility).toBeUndefined();
+    }
+
+    expect(geojsonData.features.find((item) => String(item.properties?.geo || "") === "PGA")?.properties?.displayName)
+      .toBe("Spratly Islands");
+    expect(geojsonData.features.find((item) => String(item.properties?.geo || "") === "SCR")?.properties?.displayName)
+      .toBe("Scarborough Shoal");
+  });
+
   test("covers territory geos that exist on the map even when legal SSOT has no country row", () => {
     const regions = buildRegions();
     const geojsonData = buildGeoJson("countries");

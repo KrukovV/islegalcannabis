@@ -37,7 +37,6 @@ export function markNewMapTrace(name: string) {
   const trace = ensureTrace(host);
   if (typeof trace.marks?.[name] === "number") return;
   trace.marks![name] = performance.now();
-  window.console.debug(`[new-map-trace] ${name}=${Math.round(trace.marks![name] - trace.t0!)}`);
 }
 
 export function setNewMapMetric(name: string, value: number) {

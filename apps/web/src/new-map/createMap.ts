@@ -1,5 +1,5 @@
 import maplibregl, { type StyleSpecification } from "maplibre-gl";
-import type { LegalCountryCollection, NewMapBootResult } from "./map.types";
+import type { CountryCardSeed, LegalCountryCollection, NewMapBootResult } from "./map.types";
 import { emitFirstVisualReady, markNewMapTrace } from "./startupTrace";
 import { NEW_MAP_BASEMAP_STYLE_URL, NEW_MAP_MAPLIBRE_WORKER_URL } from "./runtimeUrls";
 export const NEW_MAP_ADMIN_SOURCE_ID = "admin-boundaries";
@@ -35,7 +35,7 @@ let workerUrlConfigured = false;
 type SelectedGeoCallback = (_geo: { iso2: string; country: string; lng: number; lat: number } | null) => void;
 type CreateMapOptions = {
   style?: StyleSpecification | string | null;
-  onSelectGeo?: (_geo: string | null) => void;
+  onSelectGeo?: (_geo: string | null, _anchor?: { x: number; y: number } | null, _seed?: CountryCardSeed | null) => void;
 };
 type SymbolLayerSpecification = Extract<NonNullable<StyleSpecification["layers"]>[number], { type: "symbol" }>;
 type SymbolTextFieldSpecification = NonNullable<SymbolLayerSpecification["layout"]>["text-field"];
@@ -755,6 +755,9 @@ export function createMap(
     });
 
     moveNativeWaterLayersAboveCountries(map);
+    if (map.getLayer(NEW_MAP_POINT_LAYER_ID) && map.getLayer(NEW_MAP_ADMIN_LAYER_ID)) {
+      map.moveLayer(NEW_MAP_POINT_LAYER_ID, NEW_MAP_ADMIN_LAYER_ID);
+    }
 
     const labelGroups = findLabelGroups(map);
     if (host.__NEW_MAP_DEBUG__) {
@@ -807,8 +810,11 @@ export function createMap(
       loadUsStates();
     }
   };
-  map.on("click", (event) => {
-    const feature = getUsStateFeatureAtPoint(map, event.point) || getCountryFeatureAtPoint(map, event.point);
+  const selectFeatureAtPoint = (
+    point: { x: number; y: number },
+    lngLat: { lng: number; lat: number }
+  ) => {
+    const feature = getUsStateFeatureAtPoint(map, point) || getCountryFeatureAtPoint(map, point);
     if (!feature) return;
     const country = String(
       feature.properties?.displayName ||
@@ -826,27 +832,22 @@ export function createMap(
       ""
     ).trim().toUpperCase();
     if (!country || !iso2) return;
-    const featureId = String(feature.id || feature.properties?.geo || iso2 || "").trim() || null;
-    const layerId = String((feature as { layer?: { id?: string } }).layer?.id || "").trim() || null;
-    host.__NEW_MAP_DEBUG__ = {
-      ...(host.__NEW_MAP_DEBUG__ || {}),
-      popupTrace: {
-        ...((host.__NEW_MAP_DEBUG__?.popupTrace as Record<string, unknown> | undefined) || {}),
-        COUNTRY_ID: country,
-        DEBUG_ID: iso2,
-        GEO_ID: iso2,
-        FEATURE_ID: featureId,
-        CLICK_LAYER: layerId,
-        CLICK_RECEIVED: true,
-        CARD_INDEX_KEY: iso2,
-        CARD_INDEX_HIT: undefined,
-        POPUP_DATA_FOUND: undefined,
-        POPUP_RENDERED: false,
-        SELECTED_DISPLAY_NAME: country
-      }
+    const canvasRect = map.getCanvas().getBoundingClientRect();
+    const popupAnchor = {
+      x: canvasRect.left + point.x,
+      y: canvasRect.top + point.y
     };
-    options?.onSelectGeo?.(iso2);
-    host.__MAP_SELECTED_GEO__?.({ iso2, country, lng: event.lngLat.lng, lat: event.lngLat.lat });
+    const seed: CountryCardSeed = {
+      geo: iso2,
+      displayName: country || iso2,
+      mapCategory: (String(feature.properties?.mapCategory || "UNKNOWN").trim() || "UNKNOWN") as CountryCardSeed["mapCategory"]
+    };
+    markNewMapTrace("NM_POPUP_CLICK_RECEIVED");
+    options?.onSelectGeo?.(iso2, popupAnchor, seed);
+    host.__MAP_SELECTED_GEO__?.({ iso2, country, lng: lngLat.lng, lat: lngLat.lat });
+  };
+  map.on("click", (event) => {
+    selectFeatureAtPoint(event.point, event.lngLat);
   });
 
   map.on("styledata", () => {
