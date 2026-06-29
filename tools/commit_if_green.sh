@@ -502,7 +502,7 @@ if ! git tag -a -f "${tag}" -m "green: $(date -u +%FT%TZ)"; then
 fi
 append_ci_final "TAG_CREATED name=${tag}"
 echo "TAG_CREATED=1 name=${tag}"
-if ! git show-ref --tags | grep -q "refs/tags/${tag}"; then
+if ! git show-ref --verify --quiet "refs/tags/${tag}"; then
   echo "TAG_FAIL=1 Not committing."
   append_ci_final "TAG_FAIL=1"
   report_git_clean
@@ -517,7 +517,7 @@ if [ "${PROD_TAG_REQUESTED}" = "1" ] || [ "${ENABLE_PROD_TAG:-0}" = "1" ]; then
   fi
   append_ci_final "TAG_CREATED name=${prod_tag}"
   echo "TAG_CREATED=1 name=${prod_tag}"
-  if ! git show-ref --tags | grep -q "refs/tags/${prod_tag}"; then
+  if ! git show-ref --verify --quiet "refs/tags/${prod_tag}"; then
     echo "TAG_FAIL=1 Not committing."
     append_ci_final "TAG_FAIL=1"
     report_git_clean
