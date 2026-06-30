@@ -234,6 +234,7 @@ describe("countryPageStorage", () => {
 
   it("builds state-level SEO nodes derived from USA", () => {
     const california = getCountryPageData("us-ca");
+    const alabama = getCountryPageData("us-al");
     const texas = getCountryPageData("us-tx");
     const florida = getCountryPageData("us-fl");
     const idaho = getCountryPageData("us-id");
@@ -243,6 +244,11 @@ describe("countryPageStorage", () => {
     expect(california?.parent_country?.code).toBe("usa");
     expect(california?.legal_model.recreational.status).toBe("LEGAL");
     expect(california?.notes_normalized).toContain("federally illegal in United States");
+    expect(alabama?.legal_model.recreational.status).toBe("ILLEGAL");
+    expect(alabama?.legal_model.medical.status).toBe("LEGAL");
+    expect(alabama?.notes_normalized).toContain("medical cannabis is legal under a regulated state program");
+    expect(alabama?.notes_raw).toContain("Medical use was legalized in 2021");
+    expect(alabama?.notes_raw).toContain("first medical cannabis sales in Alabama");
     expect(texas?.legal_model.recreational.status).toBe("ILLEGAL");
     expect(texas?.legal_model.medical.status).toBe("LIMITED");
     expect(florida?.legal_model.recreational.status).toBe("ILLEGAL");
@@ -349,6 +355,7 @@ describe("countryPageStorage", () => {
       { code: "lux", expectedCategory: "LEGAL_OR_DECRIM" },
       { code: "aus", expectedCategory: "LEGAL_OR_DECRIM" },
       { code: "can", expectedCategory: "LEGAL_OR_DECRIM" },
+      { code: "us-al", expectedCategory: "LEGAL_OR_DECRIM" },
       { code: "us-ca", expectedCategory: "LEGAL_OR_DECRIM" },
       { code: "us-tx", expectedCategory: "LIMITED_OR_MEDICAL" }
     ] as const;
@@ -429,8 +436,12 @@ describe("countryPageStorage", () => {
     const saudiArabia = getCountryPageData("sau");
     const singapore = getCountryPageData("sgp");
     const china = getCountryPageData("chn");
+    const northKorea = getCountryPageData("prk");
     expect(deriveResultStatusFromCountryPageData(china!)).toBe("ILLEGAL");
     expect(deriveMapCategoryFromCountryPageData(china!)).toBe("ILLEGAL");
+    expect(northKorea?.legal_model.medical.override_reason).toBe("article_conflicts_with_root_medical_legal");
+    expect(deriveResultStatusFromCountryPageData(northKorea!)).toBe("ILLEGAL");
+    expect(deriveMapCategoryFromCountryPageData(northKorea!)).toBe("LIMITED_OR_MEDICAL");
     expect(deriveResultStatusFromCountryPageData(iran!)).toBe("ILLEGAL");
     expect(deriveMapCategoryFromCountryPageData(iran!)).toBe("LIMITED_OR_MEDICAL");
     expect(deriveResultStatusFromCountryPageData(saudiArabia!)).toBe("ILLEGAL");

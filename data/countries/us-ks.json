@@ -37,7 +37,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is illegal in Kansas for recreational use under state law, but medical cannabis is available only in limited form. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}} Cannabis is only legal in Kansas in the form of THC free cannabidiol oil, also known as CBD. Patients would be allowed to own 12 plants or of marijuana for therapeutic purposes. Banda faced up to 30 years for her use and possession of cannabis. Supreme Court refused to hear the case. The first possession charge of less than will result in a class-B misdemeanor with up to 6 month incarceration sentence and a $1,000 fine maximum. A subsequent offense for possessing any amount can result in a fine of up to $100,000 and a sentence of up to 3½ years. Sale or distribution of any amount can result in a $300,000 to $500,000 fine and an incarceration sentence depending on the quantity and severity of the offense.",
+  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}} Cannabis is only legal in Kansas in the form of THC free cannabidiol oil, also known as CBD. In the early 20th century, most states west of the Mississippi enacted laws banning cannabis, with Kansas doing so in 1927. Senate bill 9 was pre-filed by David Haley (D) on January 10, 2013. This cannabis compassion and care act will allow the use of medical marijuana for certain debilitating conditions. During the 2015 legislative session, the equivalent bill was passed in the House in mid-2015, but stalled in the Senate, who intend to reopen discussion of the bill in 2016. The bill would also decrease penalties for cannabis possession, and order a state study of industrial hemp. In April 2015, the city of Wichita voted to decriminalize cannabis municipally, with a vote of 54-45, reducing first time possession to a criminal infraction with a $50 fine, rather than a misdemeanor with fines up to $2500 and a year of jail time, as under state law. The Kansas Attorney General stated that he would sue the city if the measure passed, arguing the city does not have legal authority to reduce cannabis penalties. The Kansas Attorney General subsequently sued the city to hold the initiative. The Wichita City Council later unanimously voted to approve a similar ordinance in 2017. In March 2015, Garden City resident Shona Banda, who uses medical cannabis to treat her debilitating Crohn's disease, was arrested and charged with five felony counts in relation to cannabis. Patients would be allowed to own 12 plants or of marijuana for therapeutic purposes. Banda faced up to 30 years for her use and possession of cannabis. Supreme Court refused to hear the case. The first possession charge of less than will result in a class-B misdemeanor with up to 6 month incarceration sentence and a $1,000 fine maximum. A subsequent offense for possessing any amount can result in a fine of up to $100,000 and a sentence of up to 3½ years. Sale or distribution of any amount can result in a $300,000 to $500,000 fine and an incarceration sentence depending on the quantity and severity of the offense.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -56,18 +56,14 @@
   },
   "related_codes": [
     "usa",
-    "us-ia",
     "us-sd",
-    "us-ar"
+    "us-ar",
+    "us-co"
   ],
   "related_names": [
     {
       "code": "usa",
       "name": "United States"
-    },
-    {
-      "code": "us-ia",
-      "name": "Iowa"
     },
     {
       "code": "us-sd",
@@ -76,6 +72,10 @@
     {
       "code": "us-ar",
       "name": "Arkansas"
+    },
+    {
+      "code": "us-co",
+      "name": "Colorado"
     }
   ],
   "graph": {
@@ -97,6 +97,10 @@
     ],
     "legal_similarity": [
       {
+        "code": "us-ia",
+        "name": "Iowa"
+      },
+      {
         "code": "us-tx",
         "name": "Texas"
       },
@@ -111,15 +115,11 @@
         "name": "United States"
       },
       {
-        "code": "us-co",
-        "name": "Colorado"
+        "code": "us-nm",
+        "name": "New Mexico"
       }
     ],
     "same_country_states": [
-      {
-        "code": "us-ia",
-        "name": "Iowa"
-      },
       {
         "code": "us-sd",
         "name": "South Dakota"
@@ -127,6 +127,10 @@
       {
         "code": "us-ar",
         "name": "Arkansas"
+      },
+      {
+        "code": "us-co",
+        "name": "Colorado"
       }
     ],
     "federal_parent": {
@@ -168,9 +172,9 @@
   },
   "hashes": {
     "code": "us-ks",
-    "content_hash": "f671e16564157f9cf7a69df77fcef3931fa433fed785b3f027834b511ab3b49b",
+    "content_hash": "6ffa8e20e88310c3dc8266a6e3322acf0f58236a3d9b99b22aa67be2af7b1da6",
     "notes_hash": "4691d2eb025fbc3a2940b391c2a8e2faa5e1a6fa0e305251f72e9b5004eb290f",
-    "model_hash": "d6ff3d678c23bb429170a92040d8012648b5c0a8676b483188bf84a90dc4daf8"
+    "model_hash": "4a366e35c2e4a14688e0dd5994ddcbf644441cfc919ec6e627fc1f0862052473"
   },
   "updated_at": "2026-04-10"
 }

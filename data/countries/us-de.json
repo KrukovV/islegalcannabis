@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Delaware under state law for recreational adult use. Medical cannabis is not broadly legal in Delaware. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Possession of marijuana remains a civil infraction that carries a $100 fine.",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Possession and use by adults 21 and older became legal on April 23, 2023, with the first licensed sales occurring on August 1, 2025. In May 2011, Governor Jack Markell signed legislation allowing patients 18 and older to possess up to six ounces if they had certain qualifying medical conditions such as cancer, Alzheimer's disease, post-traumatic stress disorder, and conditions that cause intractable nausea, severe pain or seizures, among others. State data on patients who received marijuana cards in 2015 showed that the primary medical conditions being treated for cardholders were pain (36.3%), muscle spasms (21.6%), and cancer (9.3%). The first medical marijuana clinic in Delaware opened in Wilmington in June 2015. However, as of 2016, medical-marijuana cardholders still struggled to obtain approved cannabis. The medical marijuana legislation provided that all three of the state's counties – New Castle, Kent, and Sussex – must have a licensed dispensary - known in Delaware as a Compassion Center - by January 1, 2013. However, only a single facility (the Wilmington facility in New Castle County) had opened as of 2016. In June 2015, Markell signed a law that decriminalized the possession of one ounce or less of marijuana by adults. The bill passed along party lines, with all Republican legislators opposing it. The decriminalization bill took effect in December 2015. Possession of marijuana remains a civil infraction that carries a $100 fine. Additionally, smoking cannabis \"in a moving vehicle, in public areas, or outdoors on private property within of a street, sidewalk or other area accessible to the public\" is also a misdemeanor. As of that date, some 340 Delaware residents held cards from the Delaware Health and Social Services, allowing them to purchase marijuana in order to treat their medical conditions.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -99,16 +99,8 @@
     ],
     "legal_similarity": [
       {
-        "code": "us-me",
-        "name": "Maine"
-      },
-      {
         "code": "us-mn",
         "name": "Minnesota"
-      },
-      {
-        "code": "us-nm",
-        "name": "New Mexico"
       }
     ],
     "cluster_links": [
@@ -174,9 +166,9 @@
   },
   "hashes": {
     "code": "us-de",
-    "content_hash": "ece61aac1d0c7e2df391ee50155bd66b4f5d62abf2fbbdc6959e4e886375cf0d",
+    "content_hash": "7b48ffd3dc3be3c9629cee1cb0d29f53e11b4b6c539d9af39d898976da650fc3",
     "notes_hash": "9fadf182aec990d53ce1d6cf4a360ce722b3be794c5420b8bb7870b3048782b7",
-    "model_hash": "88fb767ee4537d7c3420d342910c4e25521f0ba0e8e3ad95d13b46aa39a242d1"
+    "model_hash": "2d83ae7f33c6b49095bdbdd5a8ec2f6bb541d7f4320eefd78022a2ceceadfa29"
   },
   "updated_at": "2026-04-10"
 }

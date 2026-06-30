@@ -37,7 +37,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is illegal in Wyoming for recreational use under state law, but medical cannabis is available only in limited form. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}} Cannabis is strictly illegal in Wyoming. The state has some of the strictest cannabis laws in the United States. Cannabis itself is not allowed for medical purposes, but a 2015 law allows limited use of non-psychoactive Cannabidiol. An effort was made to place two initiatives on the 2022 ballot, one to legalize medical cannabis, and the other to decriminalize personal use. Possession of under of cannabis is a misdemeanor that can be punished with up to a year in jail and a $1000 fine; possession of over three ounces is a felony. Wyoming passed laws banning cannabis in the early 20th century, though sources differ as to the exact date: 1913 or 1929. In 2015, the Wyoming chapter of the National Organization for the Reform of Marijuana Laws (NORML) gathered signatures to place legal medical marijuana on the 2016 election ballot as a ballot initiative. In 2016, legislation in the Wyoming House of Representatives to decriminalize possession of or less of marijuana (sponsored by State Representative James Byrd of Cheyenne) failed for the third year in a row. Possession of under of cannabis is a misdemeanor that can be punished with up to a year in jail and a $1000 fine; possession of over three ounces is a felony. On September 19, 2023 a Joint Judiciary meeting was held and the topic of lessening penalties for cannabis was mentioned.",
+  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}} Cannabis is strictly illegal in Wyoming. The state has some of the strictest cannabis laws in the United States. Cannabis itself is not allowed for medical purposes, but a 2015 law allows limited use of non-psychoactive Cannabidiol. An effort was made to place two initiatives on the 2022 ballot, one to legalize medical cannabis, and the other to decriminalize personal use. Possession of under of cannabis is a misdemeanor that can be punished with up to a year in jail and a $1000 fine; possession of over three ounces is a felony. Wyoming passed laws banning cannabis in the early 20th century, though sources differ as to the exact date: 1913 or 1929. In 2015, the Wyoming chapter of the National Organization for the Reform of Marijuana Laws (NORML) gathered signatures to place legal medical marijuana on the 2016 election ballot as a ballot initiative. In 2016, legislation in the Wyoming House of Representatives to decriminalize possession of or less of marijuana (sponsored by State Representative James Byrd of Cheyenne) failed for the third year in a row. Cannabis itself is not allowed for medical purposes, but a 2015 law allows limited use of non-psychoactive Cannabidiol. Wyoming passed laws banning cannabis in the early 20th century, though sources differ as to the exact date: 1913 or 1929. In July 2015, a law took effect allowing the use of cannabidiol to treat seizures. The law is narrow and does not provide for in-state access. In 2015, the Wyoming chapter of the National Organization for the Reform of Marijuana Laws (NORML) gathered signatures to place legal medical marijuana on the 2016 election ballot as a ballot initiative. Wyoming has some of the most stringent ballot initiative requirements in the country, due to which the state has not seen a public initiative reach the ballot since 1991. In 2016, legislation in the Wyoming House of Representatives to decriminalize possession of or less of marijuana (sponsored by State Representative James Byrd of Cheyenne) failed for the third year in a row. In 2017, supporters sought 25,000 signatures to put the Peggy A. Kelley Wyoming Cannabis Act of 2016 on the 2018 ballot as a public initiative, but failed to gather the required signatures by the February 14 deadline. In 2021, a bill was filed by lawmakers that would legalize cannabis both for recreational and medical use. Possession of under of cannabis is a misdemeanor that can be punished with up to a year in jail and a $1000 fine; possession of over three ounces is a felony. On September 19, 2023 a Joint Judiciary meeting was held and the topic of lessening penalties for cannabis was mentioned.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -56,18 +56,14 @@
   },
   "related_codes": [
     "usa",
-    "us-id",
     "us-sd",
-    "us-ne"
+    "us-ne",
+    "us-nd"
   ],
   "related_names": [
     {
       "code": "usa",
       "name": "United States"
-    },
-    {
-      "code": "us-id",
-      "name": "Idaho"
     },
     {
       "code": "us-sd",
@@ -76,6 +72,10 @@
     {
       "code": "us-ne",
       "name": "Nebraska"
+    },
+    {
+      "code": "us-nd",
+      "name": "North Dakota"
     }
   ],
   "graph": {
@@ -97,12 +97,16 @@
     ],
     "legal_similarity": [
       {
+        "code": "us-id",
+        "name": "Idaho"
+      },
+      {
         "code": "us-ks",
         "name": "Kansas"
       },
       {
-        "code": "us-tx",
-        "name": "Texas"
+        "code": "us-ok",
+        "name": "Oklahoma"
       }
     ],
     "cluster_links": [
@@ -111,15 +115,11 @@
         "name": "United States"
       },
       {
-        "code": "us-nd",
-        "name": "North Dakota"
+        "code": "us-nm",
+        "name": "New Mexico"
       }
     ],
     "same_country_states": [
-      {
-        "code": "us-id",
-        "name": "Idaho"
-      },
       {
         "code": "us-sd",
         "name": "South Dakota"
@@ -127,6 +127,10 @@
       {
         "code": "us-ne",
         "name": "Nebraska"
+      },
+      {
+        "code": "us-nd",
+        "name": "North Dakota"
       }
     ],
     "federal_parent": {
@@ -168,9 +172,9 @@
   },
   "hashes": {
     "code": "us-wy",
-    "content_hash": "d1ee94539501db81bf2a6ef286e791c590724dd679b0c435ef8110564f5622d1",
+    "content_hash": "34467711512d877ddce9b1a2b1fa91bd413ed7c6a2a0f64bd29ee324caf324ab",
     "notes_hash": "53e0fe70c092f2784ed21fc0a53a5aeb90f0faf391184cde580453e03e2abb3c",
-    "model_hash": "c919cd87d44450ea97d021b9dcc748c7d371bde810cad6bf1e484e98f3d74d9a"
+    "model_hash": "52f2fcab0b6b905523214c9116a9d38a38020654cf411847a1594d706dd72b20"
   },
   "updated_at": "2026-04-10"
 }

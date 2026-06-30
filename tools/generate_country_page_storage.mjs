@@ -445,7 +445,13 @@ function buildKnowledgeLegalSummary(entry) {
   if (!entry || typeof entry !== "object") return "";
   return mergeManyText([
     ...(Array.isArray(entry.notes) ? entry.notes : []),
-    ...(Array.isArray(entry.enforcementReality) ? entry.enforcementReality : [])
+    ...(Array.isArray(entry.history) ? entry.history : []),
+    ...(Array.isArray(entry.enforcementReality) ? entry.enforcementReality : []),
+    ...(Array.isArray(entry.market) ? entry.market : []),
+    ...(Array.isArray(entry.products) ? entry.products : []),
+    ...(Array.isArray(entry.cultivation) ? entry.cultivation : []),
+    ...(Array.isArray(entry.traditionalUse) ? entry.traditionalUse : []),
+    ...(Array.isArray(entry.culture) ? entry.culture : [])
   ]);
 }
 

@@ -37,7 +37,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is illegal in Texas for recreational use under state law, but medical cannabis is available only in limited form. Cannabis remains federally illegal in United States. Possession is limited to Medical only.",
-  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|5}} Possession of up to two ounces is a class B misdemeanor, punishable by up to 180 days in prison and a fine of up to $2000. Prior to 1973, Texas had the harshest cannabis laws of any state in the nation, with possession of any amount classified as a felony offense punishable by two years to life in prison. There are instances where the drug crazed victim has been placed in jail, but in many cases officers have been compelled to slay the fiend in order to save their own lives. Transfer of cannabis in this manner was made a misdemeanor crime; however, possession of the drug still remained legal. It sought to make possession of up to one ounce of cannabis a Class C (rather than a Class B) misdemeanor, eliminate the threat of jail time, and reduce the fine to $500. HB 1325 passed the Senate 31–0 and the House 140–3. many marijuana possession charges across the state were soon dropped due to a shortage of THC testing equipment available. Prosecutors in the counties of Harris, Tarrant, Bexar, Travis, Williamson, and several others soon announced the dismissal of hundreds of marijuana cases and a moratorium on pursuing new charges. The Texas Department of State Health Services later classified the drug as an illegal substance in October 2021, but a November 2021 injunction from a district court judge prevented the prohibition from taking effect until a final ruling on the matter can be made. The bill would make possession of up to one ounce of marijuana a Class C misdemeanor with a maximum fine of $500 and no jail time. Under the program, persons possessing less than two ounces of cannabis would still be subject to arrest, but could avoid a criminal conviction by attending drug education classes or performing community service.",
+  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|5}} In May 2025, the Texas Legislature passed Senate Bill 3, a law banning the sale and possession of hemp-derived products containing any amount of THC, effectively criminalizing much of the state’s legal hemp industry starting September 1. As of June 22, Governor Greg Abbott has decided to veto the bill, calling for regulation instead of a full prohibition. Legislation allowing for medical use was first approved in 2015. Possession was banned statewide in 1931. John Gregory Bourke described the use of \"mariguan\", which he identifies as Cannabis indica or Indian hemp, by Mexican residents of the Rio Grande region of Texas in 1894. He described its uses for treating asthma, expediting delivery, warding off witches, and as a love-philtre. He also wrote that many Mexicans added the herb to their cigarritos or mescal, often taking a bite of sugar afterward to intensify the effect. Bourke wrote that because it was often used in a mixture with toloachi (which he inaccurately describes as Datura stramonium), mariguan was one of the several plants known as \"loco weed\". Bourke compared mariguan to hasheesh, which he called \"one of the greatest curses of the East\", citing reports that users \"become maniacs and are apt to commit all sorts of acts of violence and murder\", causing degeneration of the body and an idiotic appearance, and mentioned laws against sale of hasheesh \"in most Eastern countries\". The Texas city of El Paso was the first American city to individually restrict cannabis in 1915. Possession of up to two ounces is a class B misdemeanor, punishable by up to 180 days in prison and a fine of up to $2000. Prior to 1973, Texas had the harshest cannabis laws of any state in the nation, with possession of any amount classified as a felony offense punishable by two years to life in prison. There are instances where the drug crazed victim has been placed in jail, but in many cases officers have been compelled to slay the fiend in order to save their own lives. Transfer of cannabis in this manner was made a misdemeanor crime; however, possession of the drug still remained legal. It sought to make possession of up to one ounce of cannabis a Class C (rather than a Class B) misdemeanor, eliminate the threat of jail time, and reduce the fine to $500. HB 1325 passed the Senate 31–0 and the House 140–3. many marijuana possession charges across the state were soon dropped due to a shortage of THC testing equipment available. Prosecutors in the counties of Harris, Tarrant, Bexar, Travis, Williamson, and several others soon announced the dismissal of hundreds of marijuana cases and a moratorium on pursuing new charges. The Texas Department of State Health Services later classified the drug as an illegal substance in October 2021, but a November 2021 injunction from a district court judge prevented the prohibition from taking effect until a final ruling on the matter can be made. The bill would make possession of up to one ounce of marijuana a Class C misdemeanor with a maximum fine of $500 and no jail time. Under the program, persons possessing less than two ounces of cannabis would still be subject to arrest, but could avoid a criminal conviction by attending drug education classes or performing community service. Most Mexicans in this section are addicted to the habit, and it is a growing habit among Americans. The enactment of HB 1325 also caused the psychoactive cannabinoid delta-8-THC to become legal when produced from legally cultivated hemp.",
   "facts": {
     "possession_limit": "Medical only",
     "cultivation": "Home grow remains illegal.",
@@ -97,8 +97,16 @@
     ],
     "legal_similarity": [
       {
+        "code": "us-ia",
+        "name": "Iowa"
+      },
+      {
         "code": "us-wy",
         "name": "Wyoming"
+      },
+      {
+        "code": "us-tn",
+        "name": "Tennessee"
       }
     ],
     "cluster_links": [
@@ -171,9 +179,9 @@
   },
   "hashes": {
     "code": "us-tx",
-    "content_hash": "3049b1236cfaccc06c50225c73cb59d11a1f5a65c4adac701b59ddd117c35f73",
+    "content_hash": "b97f6573c8371c8e5dbec008cd88a15ab3ef21018cb3d7d2f51dce8facef0de8",
     "notes_hash": "7e0b40447397946ef20ddb16e534b3aa6d6fa6077f55036c194ae2b3b9a0649c",
-    "model_hash": "45d90481a9c85ef4e28ed9794e8493a7f13202a00e9ba99899debd8ee97b7a81"
+    "model_hash": "38ebbfc12d2a39e49888b062ac5155e967ebc00d214a0d0d993a79d0219ae28c"
   },
   "updated_at": "2024-01-01"
 }

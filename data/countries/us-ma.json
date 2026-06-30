@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Massachusetts under state law for recreational adult use. Medical cannabis is also legal under a regulated state program in Massachusetts. Cannabis remains federally illegal in United States. Possession is limited to Up to 1 oz in public; up to 10 oz at home.",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} On November 4, 2008, Massachusetts voters passed a ballot initiative that decriminalized the possession of small amounts of marijuana. Before decriminalization, people charged faced up to six months in jail and a $500 fine. The proponents of the change argued that: The change would keep the existing policies regarding growing, trafficking, and driving under the influence of the drug, while protecting those caught from a tainted criminal record Massachusetts could save $130 million each year Convictions of less than have been shown to have little or no impact on drug use The opponents argued that the decriminalization would: Promote u. The law took effect on January 1, 2013, eliminating criminal and civil penalties for the possessions and use of up to a 60-day supply of marijuana for patients possessing a state issued registration card. While the recreational marijuana industry in Massachusetts was initially overseen by the Department of Health, the Cannabis Control Commission took charge of the administration of the industry in December 2018. The Commission is responsible for promulgating regulations relating to marijuana, processing business applications and issuing licenses, and creating policies and procedures which \"promote and encourage full participation in the regulated marijuana industry by people from communities that have previously been disproportionately harmed by marijuana prohibition and enforcement and to positively impact those communit. Similar problems exist in transporting marijuana to and from islands in Hawaii but as of 2018 it appears the Coast Guard has not taken enforcement action against those legally possessing marijuana under state law, despite asserting it will do so. People transporting marijuana by plane are subject to arrest by the Federal Bureau of Investigation, Drug Enforcement Administration, Federal Air Marshal Service, though in practice minor violations are typically referred to local law enforcement.",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} A century after becoming the first U.S. state to criminalize recreational cannabis, Massachusetts voters elected to legalize it in 2016. In 2008 Massachusetts voters decriminalized the possession of small amounts of marijuana. Massachusetts became the eighteenth state to legalize medical marijuana when voters passed a ballot measure in 2012, even though the federal government still lists marijuana as a Schedule 1 controlled substance with no medical value. Recreational marijuana is legal in Massachusetts as of December 15, 2016, following a ballot initiative in November of that year. Recreational marijuana is regulated and taxed but legal in Massachusetts, with retail sales from licensed dealers becoming legal on November 20, 2018. In the November 8, 2016 election, Massachusetts voters passed a ballot initiative (Question 4) making recreational cannabis legal in the state. The law legalizing recreational cannabis in Massachusetts was signed into effect on July 28, 2017. The law permits an individual to carry up to on their person and have up to in their home. However, the law mandates that a ban must be approved by a local referendum if the majority of voters in the municipality were in favor of the statewide Question 4; otherwise, the city council can approve a ban on its own. Retail and medical marijuana businesses must also negotiate a Community Host Agreement with the city or town in which it is located pursuant to Massachusetts Law. On November 4, 2008, Massachusetts voters passed a ballot initiative that decriminalized the possession of small amounts of marijuana. Before decriminalization, people charged faced up to six months in jail and a $500 fine. The proponents of the change argued that: The change would keep the existing policies regarding growing, trafficking, and driving under the influence of the drug, while protecting those caught from a tainted criminal record Massachusetts could save $130 million each year Convictions of less than have been shown to have little or no impact on drug use The opponents argued that the decriminalization would: Promote u. The law took effect on January 1, 2013, eliminating criminal and civil penalties for the possessions and use of up to a 60-day supply of marijuana for patients possessing a state issued registration card. While the recreational marijuana industry in Massachusetts was initially overseen by the Department of Health, the Cannabis Control Commission took charge of the administration of the industry in December 2018. The Commission is responsible for promulgating regulations relating to marijuana, processing business applications and issuing licenses, and creating policies and procedures which \"promote and encourage full participation in the regulated marijuana industry by people from communities that have previously been disproportionately harmed by marijuana prohibition and enforcement and to positively impact those communit. Similar problems exist in transporting marijuana to and from islands in Hawaii but as of 2018 it appears the Coast Guard has not taken enforcement action against those legally possessing marijuana under state law, despite asserting it will do so. People transporting marijuana by plane are subject to arrest by the Federal Bureau of Investigation, Drug Enforcement Administration, Federal Air Marshal Service, though in practice minor violations are typically referred to local law enforcement. Marijuana cultivators have a several tier system for the kind of licenses they can apply for, but have the added stipulation that they can only sell to marijuana establishments like dispensaries but cannot directly sell to customers. Governor Charlie Baker signed legislation on December 30, 2016 extending the start date for legal licensed recreational cannabis sales by six months, to July 2018. The extended ban eventually lasted 8 months past the original effective date of the initiative. It is codified at G.L. Applicants must also hold a community meeting and negotiate an agreement with the host municipality in order to get a state license. As of March 2018, 59 municipalities had enacted a permanent ban, and 130 had enacted a temporary moratorium (all of which end sometime in 2018). Cities and towns are permitted to assess a community impact fee of up to 3% of the businesses annual revenue. The agreement may be in place for no more than 5 years. However, towns and cities throughout Massachusetts have not followed these requirements. Retail sales have a 10.75% excise tax on the marijuana, on top of the general 6.25% state sales tax, and up to a 3% local option tax, for a total of 17%–20% tax. Provisions for home use and cultivation went into effect on December 15, 2016. Each household can grow up to six plants, or twelve for those with more than one adult, but the plants cannot be visible from the street. Households can store up to, or more if harvested from a home crop. Assessing the total cultivation of marijuana in the United States was difficult, and even more difficult by a statewide basis due to the now diminishing illegality of the drug. In the ballot of 2016, growing and cultivating the plant was legalized. In 2006 it was estimated that there was 22 million pounds of domestic crop. Including the imported crop from Mexico and Canada, Dr. Jon Gettman estimates there is approximately $100 billion worth of crop available in the United States. Gettman's study, Marijuana Production in the United States, shows that Massachusetts ranks 44th marijuana cultivation by state, producing of marijuana worth $20 million, though this statistic was realized prior to the legalization of recreational marijuana and the large-scale commercial grow operations that supply the substantial recreational cannabis market that exists as of 2021. It also relates to the legal and cultural events surrounding the use of cannabis. A 2007 survey showed that over 100 million US citizens over the age of 12 have used marijuana. More teenagers are current users of marijuana than cigarettes. The following chart shows percentages of Massachusetts' population's marijuana usage using data from the Substance Abuse and Mental Health Services Administration based on surveys from 2010 and 2011. The Boston Freedom Rally is an annual event on the third Saturday in September. It is the second largest annual gathering demanding marijuana law reform in the United States. The Massachusetts Cannabis Reform Coalition organizes the event. The event began in 1989, and has been held on the Boston Common since 1992. The city of Boston has tried to stop the event, but has been unable to do so.",
   "facts": {
     "possession_limit": "Up to 1 oz in public; up to 10 oz at home",
     "cultivation": "Home grow allowed.",
@@ -58,7 +58,7 @@
   },
   "related_codes": [
     "usa",
-    "us-me",
+    "us-nj",
     "us-de",
     "us-pa"
   ],
@@ -68,8 +68,8 @@
       "name": "United States"
     },
     {
-      "code": "us-me",
-      "name": "Maine"
+      "code": "us-nj",
+      "name": "New Jersey"
     },
     {
       "code": "us-de",
@@ -103,12 +103,12 @@
         "name": "Vermont"
       },
       {
-        "code": "us-ny",
-        "name": "New York"
+        "code": "us-me",
+        "name": "Maine"
       },
       {
-        "code": "us-nj",
-        "name": "New Jersey"
+        "code": "us-ny",
+        "name": "New York"
       }
     ],
     "cluster_links": [
@@ -123,8 +123,8 @@
     ],
     "same_country_states": [
       {
-        "code": "us-me",
-        "name": "Maine"
+        "code": "us-nj",
+        "name": "New Jersey"
       },
       {
         "code": "us-de",
@@ -181,9 +181,9 @@
   },
   "hashes": {
     "code": "us-ma",
-    "content_hash": "eefac00e76601ecc76a5c8dfc611fb3430edee68d71eeda5a657c383515d7959",
+    "content_hash": "8e3fd24305492f1386ef89fb7ce16a71c83963bff81289546b65dc67d24b1c13",
     "notes_hash": "5ccbc3aaf9ef9a0f95ae85eccb27e899734a063f54052ec98d223cf17d6fabe3",
-    "model_hash": "df00e302207f39421c179b5ccbc5a4ce498cceee32cb72794b9f7ad06841905f"
+    "model_hash": "37709e83e565d9ea735b7eabbbac9456cd9409d03879266eb578098117ab880c"
   },
   "updated_at": "2024-01-01"
 }

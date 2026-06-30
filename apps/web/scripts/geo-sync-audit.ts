@@ -1,8 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
 import { chromium, type Page } from "@playwright/test";
 import { buildVercelBypassHeaders } from "../../../tools/vercel_bypass.mjs";
-import { buildCardIndexSnapshot } from "../src/new-map/countrySource";
+import { buildCardIndexSnapshot, buildCountrySourceSnapshot } from "../src/new-map/countrySource";
 import {
   deriveMapCategoryFromCountryPageData,
   getCountryPageData,
@@ -53,6 +54,11 @@ type RuntimeJurisdiction = {
     notes?: string[];
     cannabisFoods?: string[];
   } | null;
+};
+
+type LngLat = {
+  lng: number;
+  lat: number;
 };
 
 type PopupSnapshot = {
@@ -318,6 +324,46 @@ const CHANGED_FILES = [
   "apps/web/src/new-map/components/ViewportCountryPopup.tsx",
   "apps/web/src/new-map/components/UnifiedSeoStatusPanel.tsx"
 ];
+const LIVE_FAILURES_PATH = path.join(GEO_SYNC_DIR, "live-failures.jsonl");
+const LIVE_SUMMARY_PATH = path.join(GEO_SYNC_DIR, "live-summary.json");
+const LIVE_REVIEW_PATH = path.join(GEO_SYNC_DIR, "live-review.jsonl");
+const RISK_GEO_PRIORITY = [
+  "GE",
+  "US-GA",
+  "US-WA",
+  "US-WI",
+  "CO",
+  "US-CT",
+  "IO",
+  "MH",
+  "MC",
+  "NR",
+  "SX",
+  "TV",
+  "UM",
+  "VA",
+  "SPI",
+  "BJN",
+  "BRT",
+  "KAS",
+  "PGA",
+  "SCR",
+  "SER",
+  "BQ",
+  "BV",
+  "CX",
+  "CC",
+  "TK",
+  "GF",
+  "XK",
+  "NC",
+  "SV",
+  "AQ",
+  "AR",
+  "KP",
+  "SE"
+];
+const RISK_GEO_SET = new Set(RISK_GEO_PRIORITY);
 
 type GeoSyncManifest = {
   generatedAt: string;
@@ -383,6 +429,82 @@ function bucketToSemanticColor(bucket: string | null | undefined) {
   return "UNKNOWN";
 }
 
+function hasWikiMedicalNegation(text: string) {
+  return (
+    /\bmedicinal\s+likely not prescribed by doctors\b/i.test(text) ||
+    /\bmedical (?:cannabis|marijuana|use)\s+(?:is|remains|was|were)\s+(?:illegal|not allowed|not permitted|prohibited|banned)\b/i.test(text) ||
+    /\bnot allowed for medical purposes\b/i.test(text) ||
+    /\bno (?:comprehensive )?medical cannabis\b/i.test(text)
+  );
+}
+
+function hasWikiControlledNarcoticConflict(text: string) {
+  return (
+    /\bcannabis(?: and hemp resin)? is listed.{0,160}\bnarcotics?\b/i.test(text) ||
+    /\bcannabis and hemp resin is listed.{0,160}\bnarcotics?\b/i.test(text) ||
+    /\bofficially illegal\b/i.test(text) ||
+    /\buse is still illegal\b/i.test(text) ||
+    /\bcriminal offe[nc]e to smoke\b/i.test(text) ||
+    /\blegal status.{0,100}\bunclear\b/i.test(text)
+  );
+}
+
+function hasWikiRecreationalIllegal(text: string) {
+  return /\brecreational\s+illegal\b/i.test(text) || /\brecreational.{0,80}\billegal\b/i.test(text);
+}
+
+function deriveSemanticStatusConflicts(params: {
+  wikiText: string;
+  popupText: string;
+  seoText: string;
+  mapColorBucket: string | null;
+  popupBadgeBucket: string | null;
+  seoBadgeBucket: string | null;
+  normalizedColorBucket: string | null;
+  normalizedStatus: string | null;
+}) {
+  const wikiText = params.wikiText || "";
+  const projectText = `${params.popupText || ""} ${params.seoText || ""}`;
+  const projectSaysMedicalAccess =
+    /\bmedical access exists\b/i.test(projectText) ||
+    /\bmedical cannabis is legal\b/i.test(projectText) ||
+    /\bmedical\s+legal\b/i.test(projectText);
+  const anyGreen = [
+    params.mapColorBucket,
+    params.popupBadgeBucket,
+    params.seoBadgeBucket,
+    params.normalizedColorBucket
+  ].some((bucket) => bucketToSemanticColor(bucket) === "GREEN");
+  const recreationalIllegal = hasWikiRecreationalIllegal(wikiText);
+  const medicalNegation = hasWikiMedicalNegation(wikiText);
+  const controlledConflict = hasWikiControlledNarcoticConflict(wikiText);
+  return stableUnique([
+    anyGreen && recreationalIllegal && medicalNegation ? "wiki_recreational_illegal_medical_negation_green" : "",
+    anyGreen && recreationalIllegal && controlledConflict ? "wiki_controlled_narcotic_conflict_green" : "",
+    projectSaysMedicalAccess && medicalNegation ? "project_medical_access_contradicts_wiki" : "",
+    String(params.normalizedStatus || "").toUpperCase() === "ILLEGAL" &&
+      bucketToSemanticColor(params.normalizedColorBucket) === "GREEN" &&
+      (medicalNegation || controlledConflict)
+      ? "normalized_illegal_green_with_wiki_conflict"
+      : ""
+  ].filter(Boolean));
+}
+
+function stableSerialize(value: unknown): string {
+  if (Array.isArray(value)) return `[${value.map(stableSerialize).join(",")}]`;
+  if (value && typeof value === "object") {
+    return `{${Object.entries(value as Record<string, unknown>)
+      .sort(([left], [right]) => left.localeCompare(right))
+      .map(([key, item]) => `${JSON.stringify(key)}:${stableSerialize(item)}`)
+      .join(",")}}`;
+  }
+  return JSON.stringify(value);
+}
+
+function buildCanonicalRecordHash(payload: Record<string, unknown>) {
+  return crypto.createHash("sha256").update(stableSerialize(payload)).digest("hex");
+}
+
 function rgbaToHex(rgba: [number, number, number, number] | null) {
   if (!rgba) return null;
   return `#${rgba.slice(0, 3).map((value) => value.toString(16).padStart(2, "0")).join("")}`.toUpperCase();
@@ -423,6 +545,18 @@ function resolveRepoPath(relativePath: string | null | undefined) {
 function fileExists(relativePath: string | null | undefined) {
   const resolved = resolveRepoPath(relativePath);
   return Boolean(resolved && fs.existsSync(resolved));
+}
+
+function readArtifactText(relativePath: string | null | undefined) {
+  const resolved = resolveRepoPath(relativePath);
+  if (!resolved || !fs.existsSync(resolved)) return "";
+  return fs.readFileSync(resolved, "utf8");
+}
+
+function artifactSiblingText(screenshotPath: string | null | undefined, fileName: string) {
+  const resolved = resolveRepoPath(screenshotPath);
+  if (!resolved) return "";
+  return readArtifactText(path.join(path.dirname(resolved), fileName));
 }
 
 async function computeScreenshotStats(screenshotPath: string): Promise<ScreenshotStats | null> {
@@ -828,6 +962,85 @@ function buildValidation(rows: GeoSyncRow[], total: number): GeoSyncValidation {
   };
 }
 
+function evaluateLiveRow(row: GeoSyncRow) {
+  const wikiText = artifactSiblingText(row.wiki_screenshot || row.wiki_fullpage_screenshot, "wiki-fullpage.txt");
+  const popupText = artifactSiblingText(row.popup_screenshot || row.project_popup_screenshot, "project-popup.txt");
+  const seoText = artifactSiblingText(row.seo_screenshot, "project-seo-fullpage.txt");
+  const semanticStatusConflicts = deriveSemanticStatusConflicts({
+    wikiText,
+    popupText,
+    seoText,
+    mapColorBucket: row.map_color_bucket,
+    popupBadgeBucket: row.popup_badge_bucket,
+    seoBadgeBucket: row.seo_badge_bucket,
+    normalizedColorBucket: row.normalized_color_bucket,
+    normalizedStatus: row.normalized_status
+  });
+  const failures = stableUnique([
+    fileExists(row.map_screenshot) ? "" : "MAP_SCREENSHOT_MISSING",
+    fileExists(row.popup_screenshot || row.project_popup_screenshot) ? "" : "POPUP_SCREENSHOT_MISSING",
+    fileExists(row.seo_screenshot) ? "" : "SEO_SCREENSHOT_MISSING",
+    fileExists(row.project_seo_panel_screenshot) ? "" : "SEO_PANEL_SCREENSHOT_MISSING",
+    fileExists(row.wiki_screenshot || row.wiki_fullpage_screenshot) ? "" : "WIKI_SCREENSHOT_MISSING",
+    fileExists(row.geo_analysis_json) ? "" : "GEO_ANALYSIS_JSON_MISSING",
+    String(row.canonical_record_hash || "").trim() ? "" : "CANONICAL_RECORD_HASH_MISSING",
+    ...row.notes.filter((item) => /=FAIL\b/.test(item)),
+    row.notes.includes("SEO_NOT_RICHER_THAN_POPUP") ? "SEO_NOT_RICHER_THAN_POPUP" : "",
+    row.source_trace_errors.length > 0 || row.source_errors.length > 0 ? "SOURCE_TRACE_ERRORS_PRESENT" : "",
+    row.raw_urls.length > 0 ? "RAW_URLS_PRESENT" : "",
+    row.repeated_text.length > 0 ? "REPEATED_TEXT_PRESENT" : "",
+    row.wrong_geo_text.length > 0 ? "WRONG_GEO_TEXT_PRESENT" : "",
+    row.duplicate_with_geo.length > 0 ? "DUPLICATE_GEO_TEXT_PRESENT" : "",
+    row.status_color_conflicts.length > 0 ? "STATUS_COLOR_CONFLICTS_PRESENT" : "",
+    row.color_mismatch_kind.length > 0 ? "COLOR_MISMATCH_PRESENT" : "",
+    ...semanticStatusConflicts.map((item) => `SEMANTIC_STATUS_CONFLICT:${item}`)
+  ].filter(Boolean));
+  const geo = String(row.canonical_key || row.code || "").split("|")[0].toUpperCase() || row.code.toUpperCase();
+  const warnings = stableUnique([
+    row.low_coverage_reason ? `LOW_COVERAGE=${row.low_coverage_reason}` : "",
+    RISK_GEO_SET.has(geo) ? "RISK_GEO_VISUAL_REVIEW_REQUIRED" : ""
+  ].filter(Boolean));
+  return {
+    ok: failures.length === 0,
+    code: geo,
+    name: row.name,
+    failures,
+    warnings,
+    screenshots: {
+      map: row.map_screenshot,
+      popup: row.popup_screenshot,
+      seo: row.seo_screenshot,
+      wiki: row.wiki_screenshot,
+      analysis: row.geo_analysis_json
+    }
+  };
+}
+
+function writeLiveSummary(options: {
+  rows: GeoSyncRow[];
+  total: number;
+  liveFailures: ReturnType<typeof evaluateLiveRow>[];
+  startedAt: number;
+  current: ReturnType<typeof evaluateLiveRow>;
+}) {
+  const summary = {
+    generatedAt: new Date().toISOString(),
+    total_geo_count: options.total,
+    processed_geo_count: options.rows.length,
+    remaining_geo_count: Math.max(0, options.total - options.rows.length),
+    live_fail_count: options.liveFailures.length,
+    live_fail_codes: options.liveFailures.map((item) => item.code),
+    current: options.current,
+    visual_pass: {
+      map_color: options.rows.filter((row) => row.notes.some((item) => item === "MAP_COLOR_VISUAL_VERDICT=PASS")).length,
+      popup_vs_seo: options.rows.filter((row) => row.notes.some((item) => item === "POPUP_VS_SEO_VISUAL_VERDICT=PASS")).length,
+      seo_vs_wiki: options.rows.filter((row) => row.notes.some((item) => item === "SEO_VS_WIKI_VISUAL_VERDICT=PASS")).length
+    },
+    elapsed_ms: Date.now() - options.startedAt
+  };
+  fs.writeFileSync(LIVE_SUMMARY_PATH, `${JSON.stringify(summary, null, 2)}\n`);
+}
+
 function classifyCoverage(params: {
   geo: string;
   wikiUrl: string;
@@ -864,7 +1077,7 @@ function buildAuditGeoList(
   const requested = options.requested || new Set<string>();
   const offset = Math.max(0, Number(options.offset || 0) || 0);
   const limit = Number.isFinite(Number(options.limit)) && Number(options.limit) > 0 ? Math.floor(Number(options.limit)) : null;
-  const allGeos = Array.from(
+  const allGeosSorted = Array.from(
     new Set(
       Object.entries(cardIndex)
         .map(([geo, entry]) => {
@@ -883,6 +1096,11 @@ function buildAuditGeoList(
     const rightName = String(cardIndex[right]?.displayName || right).trim();
     return leftName.localeCompare(rightName, "en", { sensitivity: "base" }) || left.localeCompare(right);
   });
+  const requestedOrder = Array.from(requested).filter((geo) => allGeosSorted.includes(geo));
+  const riskOrder = RISK_GEO_PRIORITY.filter((geo) => allGeosSorted.includes(geo));
+  const allGeos = requested.size
+    ? [...requestedOrder, ...allGeosSorted.filter((geo) => !requested.has(geo))]
+    : [...riskOrder, ...allGeosSorted.filter((geo) => !RISK_GEO_SET.has(geo))];
   const geos = limit === null ? allGeos.slice(offset) : allGeos.slice(offset, offset + limit);
   return { total: allGeos.length, geos };
 }
@@ -919,8 +1137,99 @@ async function loadRuntimeCardIndex(page: Page) {
   );
 }
 
-async function focusGeo(page: Page, entry: RuntimeJurisdiction, geo: string, zoomOverride?: number) {
-  const coords = entry.coordinates;
+function normalizeLngLat(coords: unknown): LngLat | null {
+  if (!coords || typeof coords !== "object") return null;
+  const candidate = coords as { lng?: unknown; lat?: unknown };
+  const lng = Number(candidate.lng);
+  const lat = Number(candidate.lat);
+  if (!Number.isFinite(lng) || !Number.isFinite(lat)) return null;
+  return { lng, lat };
+}
+
+function collectCoordinatePairs(value: unknown, output: LngLat[] = []) {
+  if (!Array.isArray(value)) return output;
+  if (typeof value[0] === "number" && typeof value[1] === "number") {
+    const lng = Number(value[0]);
+    const lat = Number(value[1]);
+    if (Number.isFinite(lng) && Number.isFinite(lat)) output.push({ lng, lat });
+    return output;
+  }
+  for (const item of value) collectCoordinatePairs(item, output);
+  return output;
+}
+
+function boundsForPoints(points: LngLat[]) {
+  const bounds = points.reduce(
+    (acc, point) => ({
+      minLng: Math.min(acc.minLng, point.lng),
+      maxLng: Math.max(acc.maxLng, point.lng),
+      minLat: Math.min(acc.minLat, point.lat),
+      maxLat: Math.max(acc.maxLat, point.lat)
+    }),
+    {
+      minLng: Number.POSITIVE_INFINITY,
+      maxLng: Number.NEGATIVE_INFINITY,
+      minLat: Number.POSITIVE_INFINITY,
+      maxLat: Number.NEGATIVE_INFINITY
+    }
+  );
+  if (!Number.isFinite(bounds.minLng) || !Number.isFinite(bounds.minLat)) return null;
+  return bounds;
+}
+
+function geometryAnchorFromCoordinateGroup(value: unknown): { point: LngLat; area: number } | null {
+  const points = collectCoordinatePairs(value);
+  if (points.length === 0) return null;
+  const bounds = boundsForPoints(points);
+  if (!bounds) return null;
+  const area = Math.max(0, bounds.maxLng - bounds.minLng) * Math.max(0, bounds.maxLat - bounds.minLat);
+  const averaged = points.reduce(
+    (acc, point) => ({ lng: acc.lng + point.lng, lat: acc.lat + point.lat }),
+    { lng: 0, lat: 0 }
+  );
+  return {
+    point: {
+      lng: averaged.lng / points.length,
+      lat: averaged.lat / points.length
+    },
+    area
+  };
+}
+
+function coordinateGroupsForGeometry(geometry: { type?: string; coordinates?: unknown } | null | undefined) {
+  if (!geometry || !Array.isArray(geometry.coordinates)) return [];
+  if (geometry.type === "Point") return [geometry.coordinates];
+  if (geometry.type === "Polygon") return geometry.coordinates;
+  if (geometry.type === "MultiPolygon") {
+    return geometry.coordinates.flatMap((polygon) => (Array.isArray(polygon) ? polygon : []));
+  }
+  return [];
+}
+
+function buildMapVisualAnchors(geo: string, entry: RuntimeJurisdiction): LngLat[] {
+  const anchors: LngLat[] = [];
+  const entryCoords = normalizeLngLat(entry.coordinates);
+  if (entryCoords) anchors.push(entryCoords);
+  const snapshot = buildCountrySourceSnapshot();
+  const geometryAnchors = snapshot.features
+    .filter((feature) => String(feature.properties?.geo || "").trim().toUpperCase() === geo)
+    .flatMap((feature) => coordinateGroupsForGeometry(feature.geometry)
+      .map(geometryAnchorFromCoordinateGroup)
+      .filter((anchor): anchor is { point: LngLat; area: number } => Boolean(anchor)))
+    .sort((left, right) => right.area - left.area)
+    .map((anchor) => anchor.point);
+  for (const anchor of geometryAnchors) anchors.push(anchor);
+  const seen = new Set<string>();
+  return anchors.filter((anchor) => {
+    if (!Number.isFinite(anchor.lng) || !Number.isFinite(anchor.lat)) return false;
+    const key = `${anchor.lng.toFixed(4)},${anchor.lat.toFixed(4)}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  }).slice(0, 12);
+}
+
+async function focusGeoAt(page: Page, coords: LngLat | null, geo: string, zoomOverride?: number) {
   if (!coords || !Number.isFinite(coords.lng) || !Number.isFinite(coords.lat)) return;
   await page.evaluate(({ lng, lat, zoom }) => {
     const host = window as typeof window & {
@@ -953,35 +1262,45 @@ async function openPopupForGeo(page: Page, geo: string, mapEvidence: MapFeatureE
 }
 
 async function readPopupSnapshot(page: Page): Promise<PopupSnapshot | null> {
-  return page.evaluate(() => {
-    const popup = document.querySelector('[data-testid="new-map-country-popup"]');
-    if (!popup) return null;
-    const sectionMap: Record<string, string[]> = {};
-    for (const section of Array.from(popup.querySelectorAll("section"))) {
-      const heading = String(section.querySelector("div")?.textContent || "").replace(/\s+/g, " ").trim();
-      if (!heading) continue;
-      sectionMap[heading] = Array.from(section.querySelectorAll("li"))
-        .map((item) => String(item.textContent || "").replace(/\s+/g, " ").trim())
-        .filter(Boolean);
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    try {
+      return await page.evaluate(() => {
+        const popup = document.querySelector('[data-testid="new-map-country-popup"]');
+        if (!popup) return null;
+        const sectionMap: Record<string, string[]> = {};
+        for (const section of Array.from(popup.querySelectorAll("section"))) {
+          const heading = String(section.querySelector("div")?.textContent || "").replace(/\s+/g, " ").trim();
+          if (!heading) continue;
+          sectionMap[heading] = Array.from(section.querySelectorAll("li"))
+            .map((item) => String(item.textContent || "").replace(/\s+/g, " ").trim())
+            .filter(Boolean);
+        }
+        const badgeNode = popup.querySelector('[data-category]') as HTMLElement | null;
+        const statusItems = sectionMap.Status || [];
+        return {
+          title: String(popup.querySelector('[class*="viewportPopupTitle"]')?.textContent || "").replace(/\s+/g, " ").trim(),
+          meta: String(popup.querySelector('[class*="viewportPopupMeta"]')?.textContent || "").replace(/\s+/g, " ").trim(),
+          status_badge: String(badgeNode?.textContent || "").replace(/\s+/g, " ").trim(),
+          status_badge_category: String(badgeNode?.getAttribute("data-category") || "").trim() || null,
+          status_summary: String(statusItems[0] || "").trim(),
+          raw_text: String((popup as HTMLElement).innerText || popup.textContent || "").replace(/\s+/g, " ").trim(),
+          section_map: sectionMap,
+          source_links: Array.from(popup.querySelectorAll("a"))
+            .map((link) => ({
+              href: String(link.getAttribute("href") || "").trim(),
+              text: String(link.textContent || "").replace(/\s+/g, " ").trim()
+            }))
+            .filter((item) => item.href || item.text)
+        };
+      });
+    } catch (error) {
+      if (!/Execution context was destroyed|Cannot find context|Target closed/i.test(String(error)) || attempt === 2) {
+        throw error;
+      }
+      await page.waitForTimeout(250);
     }
-    const badgeNode = popup.querySelector('[data-category]') as HTMLElement | null;
-    const statusItems = sectionMap.Status || [];
-    return {
-      title: String(popup.querySelector('[class*="viewportPopupTitle"]')?.textContent || "").replace(/\s+/g, " ").trim(),
-      meta: String(popup.querySelector('[class*="viewportPopupMeta"]')?.textContent || "").replace(/\s+/g, " ").trim(),
-      status_badge: String(badgeNode?.textContent || "").replace(/\s+/g, " ").trim(),
-      status_badge_category: String(badgeNode?.getAttribute("data-category") || "").trim() || null,
-      status_summary: String(statusItems[0] || "").trim(),
-      raw_text: String((popup as HTMLElement).innerText || popup.textContent || "").replace(/\s+/g, " ").trim(),
-      section_map: sectionMap,
-      source_links: Array.from(popup.querySelectorAll("a"))
-        .map((link) => ({
-          href: String(link.getAttribute("href") || "").trim(),
-          text: String(link.textContent || "").replace(/\s+/g, " ").trim()
-        }))
-        .filter((item) => item.href || item.text)
-    };
-  });
+  }
+  return null;
 }
 
 async function readPopupVisualEvidence(page: Page): Promise<PopupVisualEvidence | null> {
@@ -1318,7 +1637,12 @@ async function captureCleanMapScreenshot(page: Page, screenshotPath: string) {
   }
 }
 
-async function readMapFeatureEvidence(page: Page, geo: string, entry: RuntimeJurisdiction): Promise<MapFeatureEvidence> {
+async function readMapFeatureEvidence(
+  page: Page,
+  geo: string,
+  entry: RuntimeJurisdiction,
+  preferredCoordinates?: LngLat
+): Promise<MapFeatureEvidence> {
   const acceptedGeos = stableUnique([geo, entry?.geo, entry?.iso2, entry?.code]
     .map((item) => String(item || "").trim().toUpperCase())
     .filter(Boolean));
@@ -1365,59 +1689,88 @@ async function readMapFeatureEvidence(page: Page, geo: string, entry: RuntimeJur
       };
     }
     const rect = map.getCanvas().getBoundingClientRect();
-    const windows: Array<{ startX: number; endX: number; startY: number; endY: number; step: number }> = [];
+    const candidatePoints: Array<{ x: number; y: number }> = [];
     if (preferred) {
       const projected = map.project({ lng: preferred.lng, lat: preferred.lat });
-      windows.push({
-        startX: Math.max(20, projected.x - 180),
-        endX: Math.min(rect.width - 20, projected.x + 180),
-        startY: Math.max(20, projected.y - 140),
-        endY: Math.min(rect.height - 20, projected.y + 140),
-        step: 12
-      });
+      const localScans = [
+        { radius: 0, step: 1 },
+        { radius: 8, step: 2 },
+        { radius: 24, step: 3 },
+        { radius: 56, step: 4 },
+        { radius: 120, step: 8 }
+      ];
+      for (const scan of localScans) {
+        if (scan.radius === 0) {
+          candidatePoints.push({ x: projected.x, y: projected.y });
+          continue;
+        }
+        const startX = Math.max(20, projected.x - scan.radius);
+        const endX = Math.min(rect.width - 20, projected.x + scan.radius);
+        const startY = Math.max(20, projected.y - scan.radius);
+        const endY = Math.min(rect.height - 20, projected.y + scan.radius);
+        for (let y = startY; y <= endY; y += scan.step) {
+          for (let x = startX; x <= endX; x += scan.step) {
+            candidatePoints.push({ x, y });
+          }
+        }
+      }
     }
-    windows.push({
-      startX: 40,
-      endX: rect.width - 40,
-      startY: 40,
-      endY: rect.height - 40,
-      step: 24
-    });
+
+    const windows: Array<{ startX: number; endX: number; startY: number; endY: number; step: number }> = [
+      {
+        startX: 40,
+        endX: rect.width - 40,
+        startY: 40,
+        endY: rect.height - 40,
+        step: 24
+      }
+    ];
     for (const windowBox of windows) {
       for (let y = windowBox.startY; y < windowBox.endY; y += windowBox.step) {
         for (let x = windowBox.startX; x < windowBox.endX; x += windowBox.step) {
-          const features = map.queryRenderedFeatures([x, y], { layers: layerIds });
-          for (const feature of features) {
-            const props = (feature.properties || {}) as Record<string, unknown>;
-            const resultProps =
-              props.result && typeof props.result === "object"
-                ? (props.result as Record<string, unknown>)
-                : null;
-            const candidateGeo = String(
-              props.geo || props.iso2 || props.iso_a2 || props.ISO_A2 || feature.id || ""
-            ).trim().toUpperCase();
-            if (!acceptedGeoSet.has(candidateGeo)) continue;
-            return {
-              found: true,
-              layer_id: String(feature.layer?.id || fallbackLayerId || ""),
-              source_id: String(feature.source || sourceId || ""),
-              geo: candidateGeo,
-              display_name: String(props.displayName || props.name_en || props.name || candidateGeo || "").trim() || null,
-              map_category: String(props.mapCategory || "").trim() || null,
-              status: String(props.status || resultProps?.status || "").trim() || null,
-              color: String(resultProps?.color || "").trim() || null,
-              base_color: String(props.baseColor || "").trim() || null,
-              feature_id: String(feature.id || "").trim() || null,
-              projected_x: x,
-              projected_y: y,
-              canvas_left: Math.round(rect.left),
-              canvas_top: Math.round(rect.top),
-              screenshot_sample_hex: null,
-              screenshot_sample_rgba: null,
-              screenshot_sample_distance: null
-            };
+          candidatePoints.push({ x, y });
+        }
+      }
+    }
+    for (const point of candidatePoints) {
+      const features = map.queryRenderedFeatures([point.x, point.y], { layers: layerIds });
+      for (const feature of features) {
+        const props = (feature.properties || {}) as Record<string, unknown>;
+        let parsedResult: Record<string, unknown> | null = null;
+        if (typeof props.result === "string") {
+          try {
+            parsedResult = JSON.parse(String(props.result)) as Record<string, unknown>;
+          } catch {
+            parsedResult = null;
           }
         }
+        const resultProps =
+          props.result && typeof props.result === "object"
+            ? (props.result as Record<string, unknown>)
+            : parsedResult;
+        const candidateGeo = String(
+          props.geo || props.iso2 || props.iso_a2 || props.ISO_A2 || feature.id || ""
+        ).trim().toUpperCase();
+        if (!acceptedGeoSet.has(candidateGeo)) continue;
+        return {
+          found: true,
+          layer_id: String(feature.layer?.id || fallbackLayerId || ""),
+          source_id: String(feature.source || sourceId || ""),
+          geo: candidateGeo,
+          display_name: String(props.displayName || props.name_en || props.name || candidateGeo || "").trim() || null,
+          map_category: String(props.mapCategory || "").trim() || null,
+          status: String(props.status || resultProps?.status || "").trim() || null,
+          color: String(resultProps?.color || "").trim() || null,
+          base_color: String(props.baseColor || resultProps?.color || "").trim() || null,
+          feature_id: String(feature.id || "").trim() || null,
+          projected_x: point.x,
+          projected_y: point.y,
+          canvas_left: Math.round(rect.left),
+          canvas_top: Math.round(rect.top),
+          screenshot_sample_hex: null,
+          screenshot_sample_rgba: null,
+          screenshot_sample_distance: null
+        };
       }
     }
     return {
@@ -1444,7 +1797,7 @@ async function readMapFeatureEvidence(page: Page, geo: string, entry: RuntimeJur
     acceptedGeos,
     sourceId: geo.startsWith("US-") ? US_STATES_SOURCE_ID : LEGAL_COUNTRIES_SOURCE_ID,
     layerIds,
-    preferred: entry.coordinates ? { lng: entry.coordinates.lng, lat: entry.coordinates.lat } : null
+    preferred: preferredCoordinates || normalizeLngLat(entry.coordinates)
   });
 }
 
@@ -1597,7 +1950,12 @@ async function main() {
     return acc;
   }, {});
   fs.mkdirSync(GEO_SYNC_DIR, { recursive: true });
+  fs.writeFileSync(LIVE_FAILURES_PATH, "");
+  fs.writeFileSync(LIVE_REVIEW_PATH, "");
   const previousSectionCounts = readPreviousSectionCounts();
+  const liveStartedAt = Date.now();
+  const failFast = process.env.GEO_SYNC_AUDIT_FAIL_FAST === "1";
+  const liveFailures: ReturnType<typeof evaluateLiveRow>[] = [];
 
   const browser = await chromium.launch({ headless: process.env.PLAYWRIGHT_HEADFUL === "1" ? false : true });
   const context = await browser.newContext({
@@ -1635,15 +1993,25 @@ async function main() {
       const geoDir = path.join(GEO_SYNC_DIR, geo);
       fs.mkdirSync(geoDir, { recursive: true });
 
-      await focusGeo(mapPage, entry, geo, isSyntheticGeo(geo) ? 7.8 : undefined);
+      const mapVisualAnchors = buildMapVisualAnchors(geo, entry);
+      await focusGeoAt(mapPage, mapVisualAnchors[0] || null, geo, isSyntheticGeo(geo) ? 7.8 : undefined);
       await setSelectedGeo(mapPage, null);
       await setSelectedGeo(mapPage, geo);
 
-      let mapEvidence = await readMapFeatureEvidence(mapPage, geo, entry);
-      if (!mapEvidence.found && entry?.coordinates) {
-        await focusGeo(mapPage, entry, geo, geo.startsWith("US-") ? 6.4 : 7.8);
-        await setSelectedGeo(mapPage, geo);
-        mapEvidence = await readMapFeatureEvidence(mapPage, geo, entry);
+      let mapEvidence = await readMapFeatureEvidence(mapPage, geo, entry, mapVisualAnchors[0] || undefined);
+      if (!mapEvidence.found && mapVisualAnchors.length > 0) {
+        const zooms = geo.startsWith("US-") ? [6.4] : [7.8, 10.5, 12.5, 13.5];
+        for (const anchor of mapVisualAnchors) {
+          for (const zoom of zooms) {
+            await focusGeoAt(mapPage, anchor, geo, zoom);
+            await setSelectedGeo(mapPage, geo);
+            mapEvidence = await readMapFeatureEvidence(mapPage, geo, entry, anchor);
+            if (mapEvidence.found) {
+              break;
+            }
+          }
+          if (mapEvidence.found) break;
+        }
       }
       const mapScreenshotPath = path.join(geoDir, "project-map.png");
       await captureCleanMapScreenshot(mapPage, mapScreenshotPath);
@@ -1776,6 +2144,16 @@ async function main() {
         mapColorBucket && normalizedColorBucket && mapColorBucket !== normalizedColorBucket ? "map_vs_model" : "",
         seoBadgeBucket && normalizedColorBucket && seoBadgeBucket !== normalizedColorBucket ? "seo_vs_model" : ""
       ].filter(Boolean));
+      const semanticStatusConflicts = deriveSemanticStatusConflicts({
+        wikiText: wikiSnapshot?.raw_text || "",
+        popupText: popupSnapshot?.raw_text || "",
+        seoText: seoSnapshot?.raw_text || "",
+        mapColorBucket,
+        popupBadgeBucket,
+        seoBadgeBucket,
+        normalizedColorBucket,
+        normalizedStatus
+      });
 
       const sourceErrors = stableUnique([
         popupSnapshot && !wikiUrl ? "SOURCE_PAGE_MISSING" : "",
@@ -1786,6 +2164,7 @@ async function main() {
 
       const statusColorConflicts = stableUnique([
         colorMismatchKind.length > 0 ? "status_color_conflict" : "",
+        ...semanticStatusConflicts,
         popupSnapshot && popupComparableItems.length > 0 && seoChars <= popupChars ? "seo_not_richer_than_popup" : ""
       ].filter(Boolean));
 
@@ -1816,6 +2195,20 @@ async function main() {
         popupSections,
         wikiSections,
         popupMissing
+      });
+      const canonicalRecordHash = pageData?.hashes?.model_hash || buildCanonicalRecordHash({
+        canonical_key: canonicalKey,
+        code: pageData?.code || entry?.code || geo.toLowerCase(),
+        display_name: entry?.displayName || pageData?.name || geo,
+        source_kind: sourceKind,
+        wiki_page: wikiUrl || null,
+        normalized_color_bucket: normalizedColorBucket,
+        normalized_status: pageData ? deriveResultStatusFromCountryPageData(pageData) : entry?.result?.status || null,
+        map_category: entry?.mapCategory || null,
+        parent,
+        cannabis_profile: entry?.cannabisProfile || null,
+        sources: entry?.sources || [],
+        low_coverage_reason: lowCoverageReason
       });
       const sourceTraceErrors = stableUnique([
         ...sourceErrors,
@@ -1959,7 +2352,7 @@ async function main() {
         code: pageData?.code || entry?.code || geo.toLowerCase(),
         geo,
         canonical_key: canonicalKey,
-        canonical_record_hash: pageData?.hashes?.model_hash || null,
+        canonical_record_hash: canonicalRecordHash,
         model_rule_id: [
           "resolver_canonical_entity_key",
           "status_bucket_single_source",
@@ -2066,7 +2459,7 @@ async function main() {
       const analysisPath = path.join(geoDir, "geo-analysis.json");
       fs.writeFileSync(analysisPath, `${JSON.stringify(analysis, null, 2)}\n`);
 
-      rows.push({
+      const row: GeoSyncRow = {
         code: analysis.code,
         name: String(entry?.displayName || pageData?.name || geo),
         type: String(entry?.type || pageData?.node_type || (geo.startsWith("US-") ? "state" : "country")),
@@ -2140,9 +2533,23 @@ async function main() {
           pageData ? "" : "NO_COUNTRY_PAGE_DATA",
           analysis.sync_score.popup_vs_seo_facts.seo_richer_than_popup ? "" : "SEO_NOT_RICHER_THAN_POPUP"
         ].filter(Boolean))
-      });
+      };
+      rows.push(row);
+      const liveVerdict = evaluateLiveRow(row);
+      if (!liveVerdict.ok) {
+        liveFailures.push(liveVerdict);
+        fs.appendFileSync(LIVE_FAILURES_PATH, `${JSON.stringify({ generatedAt: new Date().toISOString(), index: index + 1, ...liveVerdict })}\n`);
+      }
+      if (liveVerdict.warnings.some((warning) => warning === "RISK_GEO_VISUAL_REVIEW_REQUIRED")) {
+        fs.appendFileSync(LIVE_REVIEW_PATH, `${JSON.stringify({ generatedAt: new Date().toISOString(), index: index + 1, ...liveVerdict })}\n`);
+        console.warn(`GEO_SYNC_AUDIT_REVIEW geo=${geo} map=${row.map_screenshot || ""} popup=${row.popup_screenshot || ""} seo=${row.seo_screenshot || ""} wiki=${row.wiki_screenshot || ""}`);
+      }
+      writeLiveSummary({ rows, total, liveFailures, startedAt: liveStartedAt, current: liveVerdict });
+      if (failFast && !liveVerdict.ok) {
+        throw new Error(`GEO_SYNC_AUDIT_LIVE_FAIL:${geo}:${liveVerdict.failures.join("|")}`);
+      }
 
-      console.warn(`GEO_SYNC_AUDIT_ROW ${index + 1}/${geos.length} geo=${geo} map=1 popup=${popupSnapshot ? 1 : 0} seo=${seoSnapshot ? 1 : 0} wiki=${wikiSnapshot ? 1 : 0}`);
+      console.warn(`GEO_SYNC_AUDIT_ROW ${index + 1}/${geos.length} geo=${geo} map=1 popup=${popupSnapshot ? 1 : 0} seo=${seoSnapshot ? 1 : 0} wiki=${wikiSnapshot ? 1 : 0} live=${liveVerdict.ok ? "PASS" : `FAIL:${liveVerdict.failures.join("|")}`}`);
     }
 
     const report: GeoSyncManifest = {

@@ -13,10 +13,10 @@
       "scope": "PERSONAL_USE"
     },
     "medical": {
-      "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
       "override_reason": null
     },
     "distribution": {
@@ -38,8 +38,8 @@
     ],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is decriminalized in New Hampshire in limited state-level practice, but it is not fully legal under state law. Medical cannabis is not broadly legal in New Hampshire. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#80CE69; color:#000000; text-align:center;\" | {{Hs|2}} <span style=\"font-size:25px;\">●</span> Cannabis in New Hampshire is illegal for recreational use and decriminalized for possession of up to as of July 18, 2017. As of December 2024, New Hampshire is the only state left within the New England and North-East corner area of the USA yet to legally allow recreational cannabis. Medical cannabis (2013). In July 2013, then-Governor Maggie Hassan signed into law a bill allowing the use of medical cannabis for patients with \"chronic or terminal diseases\" and \"debilitating medical conditions.\" The bill was noted as one of the stricter medical marijuana bills in the nation, allowing cannabis only after all other treatment methods have failed. Hassan also modified the measure, prohibiting patients from growing their own cannabis. On January 15, 2014, New Hampshire's legislature voted preliminarily 170 to 162 in favor of House Bill 492, based on Colorado Amendment 64, which would have legalized the personal use of up to of marijuana by those over 21 years old as well as production and sale by licensed facilities and dispensaries. On July 18, 2017, New Hampshire decriminalized cannabis, replacing misdemeanor charges with a $100 fine for a first or second offense and $300 for a third offense. Support of legalization of cannabis policy (2023). Cannabis in New Hampshire is illegal for recreational use and decriminalized for possession of up to as of July 18, 2017. On July 18, 2017, New Hampshire decriminalized cannabis, replacing misdemeanor charges with a $100 fine for a first or second offense and $300 for a third offense. Individuals who refuse to identify themselves to police could still be subject to arrest.",
+  "notes_normalized": "Cannabis is decriminalized in New Hampshire in limited state-level practice, but it is not fully legal under state law. Medical cannabis is legal under a regulated state program in New Hampshire. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#80CE69; color:#000000; text-align:center;\" | {{Hs|2}} <span style=\"font-size:25px;\">●</span> Cannabis in New Hampshire is illegal for recreational use and decriminalized for possession of up to as of July 18, 2017. As of December 2024, New Hampshire is the only state left within the New England and North-East corner area of the USA yet to legally allow recreational cannabis. Medical cannabis (2013). In July 2013, then-Governor Maggie Hassan signed into law a bill allowing the use of medical cannabis for patients with \"chronic or terminal diseases\" and \"debilitating medical conditions.\" The bill was noted as one of the stricter medical marijuana bills in the nation, allowing cannabis only after all other treatment methods have failed. Hassan also modified the measure, prohibiting patients from growing their own cannabis. On January 15, 2014, New Hampshire's legislature voted preliminarily 170 to 162 in favor of House Bill 492, based on Colorado Amendment 64, which would have legalized the personal use of up to of marijuana by those over 21 years old as well as production and sale by licensed facilities and dispensaries. On July 18, 2017, New Hampshire decriminalized cannabis, replacing misdemeanor charges with a $100 fine for a first or second offense and $300 for a third offense. Support of legalization of cannabis policy (2023). Cannabis in New Hampshire is illegal for recreational use and decriminalized for possession of up to as of July 18, 2017. Medical use is legal through legislation passed in 2013. In July 2013, then-Governor Maggie Hassan signed into law a bill allowing the use of medical cannabis for patients with \"chronic or terminal diseases\" and \"debilitating medical conditions.\" The bill was noted as one of the stricter medical marijuana bills in the nation, allowing cannabis only after all other treatment methods have failed. On January 15, 2014, New Hampshire's legislature voted preliminarily 170 to 162 in favor of House Bill 492, based on Colorado Amendment 64, which would have legalized the personal use of up to of marijuana by those over 21 years old as well as production and sale by licensed facilities and dispensaries. On July 18, 2017, New Hampshire decriminalized cannabis, replacing misdemeanor charges with a $100 fine for a first or second offense and $300 for a third offense. In May 2023, then-Governor Chris Sununu said he supports, in principle, the legalization of cannabis with conditions—despite for years being completely surrounded by jurisdictions already with legalized cannabis in Vermont, Maine, and Massachusetts; plus Canada to the north. The New Hampshire House of Representatives passed several bills on cannabis legalization for years—but the New Hampshire Senate has taken no action, tabling or rejecting the bills for years. In July 2024, Sununu signed an extensive omnibus bill that passed the legislature further enhancing reforms and expansion of medical cannabis and other related items. Cannabis in New Hampshire is illegal for recreational use and decriminalized for possession of up to as of July 18, 2017. On July 18, 2017, New Hampshire decriminalized cannabis, replacing misdemeanor charges with a $100 fine for a first or second offense and $300 for a third offense. Individuals who refuse to identify themselves to police could still be subject to arrest. On January 15, 2014, New Hampshire's legislature voted preliminarily 170 to 162 in favor of House Bill 492, based on Colorado Amendment 64, which would have legalized the personal use of up to of marijuana by those over 21 years old as well as production and sale by licensed facilities and dispensaries. Hassan also modified the measure, prohibiting patients from growing their own cannabis. On January 15, 2014, New Hampshire's legislature voted preliminarily 170 to 162 in favor of House Bill 492, based on Colorado Amendment 64, which would have legalized the personal use of up to of marijuana by those over 21 years old as well as production and sale by licensed facilities and dispensaries.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -54,7 +54,7 @@
     "medical": "override",
     "enforcement_strength": "MEDIUM",
     "federal_conflict": "Cannabis remains federally illegal in United States.",
-    "legalization_status": "State decriminalized"
+    "legalization_status": "Medical only"
   },
   "related_codes": [
     "usa",
@@ -99,16 +99,16 @@
     ],
     "legal_similarity": [
       {
-        "code": "us-la",
-        "name": "Louisiana"
+        "code": "us-nc",
+        "name": "North Carolina"
       },
       {
-        "code": "us-nd",
-        "name": "North Dakota"
+        "code": "us-ms",
+        "name": "Mississippi"
       },
       {
-        "code": "us-hi",
-        "name": "Hawaii"
+        "code": "us-ne",
+        "name": "Nebraska"
       }
     ],
     "cluster_links": [
@@ -174,9 +174,9 @@
   },
   "hashes": {
     "code": "us-nh",
-    "content_hash": "f31bd6717bfa043f39e8f08505384097f8fd584dc167373f663b8d4682548e25",
-    "notes_hash": "80caa221285ca4a49edeb7babdf207adac8e9cb3f606be89a1fb34d371d0df7b",
-    "model_hash": "6b50364d1db33cdf35262ceebb041f8b99dc7cdfa96fe2bb6ca93935eee0e5b8"
+    "content_hash": "ef24d445ee888fd283ae1265795819840fb0cfa19f5c7ad58b257bd3ba3b212d",
+    "notes_hash": "679fed3d573a0c0c332f66af3c73de82d3f15b5444c8ac378f5d468cd4b6c557",
+    "model_hash": "40ea70a73d8a6f26d784e35866920c748fbf376c511a50bebd12a3047624a9b2"
   },
   "updated_at": "2026-04-10"
 }

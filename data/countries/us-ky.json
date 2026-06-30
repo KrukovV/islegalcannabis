@@ -13,14 +13,14 @@
       "scope": "NONE"
     },
     "medical": {
-      "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
       "override_reason": null
     },
     "distribution": {
-      "status": "illegal",
+      "status": "restricted",
       "scopes": {
         "possession": "illegal",
         "use": "illegal",
@@ -36,8 +36,8 @@
     "enforcement_flags": [],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is illegal in Kentucky under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}}",
+  "notes_normalized": "Cannabis is illegal in Kentucky for recreational use under state law, but medical cannabis is legal under a regulated state program. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}} Cannabis in Kentucky is illegal for recreational use, and legal for medical use under executive order, with full medical legalization statute taking effect in 2025. Non-psychoactive CBD oil is also legal in the state, and Kentucky has a history of cultivating industrial hemp for fiber since 1775. In April 2014, Governor Steve Beshear signed a law permitting patients to use non-psychoactive cannabidiol (CBD) derivatives with a physician's recommendation, under clinical trials at the University of Kentucky in the treatment of epilepsy, but the law did not include provisions to legally produce or sell CBD. In 2015, House Bill 3 and Senate Bill 40 both proposed establishing a medical cannabis framework in Kentucky; both failed to pass out of committee. The anti-cannabis National Marijuana Initiative and the Kentucky Baptist Convention took credit for the defeat of the bills, and vowed to oppose medical cannabis bills in 2016. NMI coordinator Ed Shemelya stated: \"The ultimate end game for proponents of – and I don't even like to call it medical marijuana – the proponents of marijuana as medicine is not to sanction marijuana as medicine but the outright legalization of recreational use of marijuana.\" On February 20, 2020, House Bill 136 passed 65 to 30. It was the first time a medical marijuana bill has been taken up by the full House. The bill proposes restrictions on who can have medical marijuana and where it can be used, and prohibits smoking medical marijuana. The sponsor, Representative Jason Nemes of Louisville, stated that he would be re-submitting the Bill for the 2021 General Assembly. Hemp was first cultivated for fiber in Kentucky near Danville in 1775, and cultivation there continued into the 20th century even though cultivation had diminished in other states. A 1914 USDA report noted: It is unclear when cannabis first became popular as a drug in Kentucky, but The Encyclopedia of Louisville notes mention of the popularity of the drug in The Louisville Times in 1930:",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -52,7 +52,7 @@
     "medical": "override",
     "enforcement_strength": "HIGH",
     "federal_conflict": "Cannabis remains federally illegal in United States.",
-    "legalization_status": "State illegal"
+    "legalization_status": "Medical only"
   },
   "related_codes": [
     "usa",
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-ky",
-    "content_hash": "41a611d626216b044a8d79ddeb7142e1d8b8efe20a34622e102ce3725e95427e",
-    "notes_hash": "f5a90c87c8c5fd5160a82764b0a2d668b4acb07c2880e62a7c540cbb0a6d10dd",
-    "model_hash": "8447ef4c02730aca7585e832bd8768082fea20088e23667ffcb219bb475fe8a7"
+    "content_hash": "840da55c74fe406211e76d8ac1982be8f6565d6b628eaf422c9df85a0702035f",
+    "notes_hash": "11f945eb6e238b90128fd28a9aa32d3a66dd3f84b8a6518092df9f1b8b2d0950",
+    "model_hash": "5a26a7ff0466926dbdff026abf2cb808fabd64fd17ef36e21842424e09a6e5fb"
   },
   "updated_at": "2026-04-10"
 }

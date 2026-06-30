@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Vermont under state law for recreational adult use. Medical cannabis is also legal under a regulated state program in Vermont. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Cannabis in Vermont as of May 2004 is legal for medical use, and legal for recreational use as of July 1, 2018. As part of a larger trend of restricting cannabis in the early 20th century, Vermont banned the drug in 1915. On May 19, 2004, Vermont legalized medical cannabis when Governor James Douglas announced he would allow Senate Bill 76 to pass without his signature. In April 2015, as a form of political theater, two state representatives facetiously introduced HB502, which would re-illegalize alcohol, giving it penalties equivalent to those for cannabis. In 2015, Senate Bill 95 and House bill 277 were submitted, proposing a regulated system of legal recreational cannabis sales, however neither bill passed during the 2015 legislative session. In May 2017, the Vermont House approved a bill to allow personal possession, use, and cultivation of cannabis but not commercial sales by a 74–68 vote, while the Vermont Senate in April approved a broader bill allowing cannabis commercial sale by a 21–9 vote. On May 10, 2017, a joint bill formerly concerning fentanyl was amended to legalize cannabis, and approved by the entire state legislature, for the first time in U.S. history. The bill, titled S.22 \"An act relating to increased penalties for possession, sale, and dispensation of fentanyl\", was amended to allow possession of an ounce of cannabis under title 18 of the Vermont Statutes Annotated. On June 6, 2013, Governor Peter Shumlin signed HB200 which decriminalized the possession of 1 ounce or less to a civil infraction. In April 2015, as a form of political theater, two state representatives facetiously introduced HB502, which would re-illegalize alcohol, giving it penalties equivalent to those for cannabis. The bill, titled S.22 \"An act relating to increased penalties for possession, sale, and dispensation of fentanyl\", was amended to allow possession of an ounce of cannabis under title 18 of the Vermont Statutes Annotated.",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Cannabis in Vermont as of May 2004 is legal for medical use, and legal for recreational use as of July 1, 2018. As part of a larger trend of restricting cannabis in the early 20th century, Vermont banned the drug in 1915. On May 19, 2004, Vermont legalized medical cannabis when Governor James Douglas announced he would allow Senate Bill 76 to pass without his signature. In April 2015, as a form of political theater, two state representatives facetiously introduced HB502, which would re-illegalize alcohol, giving it penalties equivalent to those for cannabis. In 2015, Senate Bill 95 and House bill 277 were submitted, proposing a regulated system of legal recreational cannabis sales, however neither bill passed during the 2015 legislative session. In May 2017, the Vermont House approved a bill to allow personal possession, use, and cultivation of cannabis but not commercial sales by a 74–68 vote, while the Vermont Senate in April approved a broader bill allowing cannabis commercial sale by a 21–9 vote. On May 10, 2017, a joint bill formerly concerning fentanyl was amended to legalize cannabis, and approved by the entire state legislature, for the first time in U.S. history. The bill, titled S.22 \"An act relating to increased penalties for possession, sale, and dispensation of fentanyl\", was amended to allow possession of an ounce of cannabis under title 18 of the Vermont Statutes Annotated. Prohibition (1915). As part of a larger trend of restricting cannabis in the early 20th century, Vermont banned the drug in 1915. On May 19, 2004, Vermont legalized medical cannabis when Governor James Douglas announced he would allow Senate Bill 76 to pass without his signature. The law was further expanded in June 2007 when Senate Bill 7 passed without Governor Douglas' signature once again. On June 6, 2013, Governor Peter Shumlin signed HB200 which decriminalized the possession of 1 ounce or less to a civil infraction. In April 2015, as a form of political theater, two state representatives facetiously introduced HB502, which would re-illegalize alcohol, giving it penalties equivalent to those for cannabis. In 2015, Senate Bill 95 and House bill 277 were submitted, proposing a regulated system of legal recreational cannabis sales, however neither bill passed during the 2015 legislative session. On May 10, 2017, a joint bill formerly concerning fentanyl was amended to legalize cannabis, and approved by the entire state legislature, for the first time in U.S. history. The bill, titled S.22 \"An act relating to increased penalties for possession, sale, and dispensation of fentanyl\", was amended to allow possession of an ounce of cannabis under title 18 of the Vermont Statutes Annotated. The bill legalized adult personal possession of one ounce of cannabis and allows individuals to cultivate two plants. On June 6, 2013, Governor Peter Shumlin signed HB200 which decriminalized the possession of 1 ounce or less to a civil infraction. In April 2015, as a form of political theater, two state representatives facetiously introduced HB502, which would re-illegalize alcohol, giving it penalties equivalent to those for cannabis. The bill, titled S.22 \"An act relating to increased penalties for possession, sale, and dispensation of fentanyl\", was amended to allow possession of an ounce of cannabis under title 18 of the Vermont Statutes Annotated. A Rand Corporation study commissioned by the state in May 2014 and released in January 2015 stated that Vermont could gain $20 million and $75 million a year in tax revenue, but noted too that these sums would be vulnerable to either federal interference, or market competition if a neighboring state were also to legalize; in the latter case, Rand stated, \"It is not clear that Vermont has any long-run comparative a. In May 2017, the Vermont House approved a bill to allow personal possession, use, and cultivation of cannabis but not commercial sales by a 74–68 vote, while the Vermont Senate in April approved a broader bill allowing cannabis commercial sale by a 21–9 vote. The bill, titled S.22 \"An act relating to increased penalties for possession, sale, and dispensation of fentanyl\", was amended to allow possession of an ounce of cannabis under title 18 of the Vermont Statutes Annotated. In May 2017, the Vermont House approved a bill to allow personal possession, use, and cultivation of cannabis but not commercial sales by a 74–68 vote, while the Vermont Senate in April approved a broader bill allowing cannabis commercial sale by a 21–9 vote. The bill legalized adult personal possession of one ounce of cannabis and allows individuals to cultivate two plants.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -58,7 +58,7 @@
   },
   "related_codes": [
     "usa",
-    "us-me",
+    "us-nj",
     "us-pa",
     "us-de"
   ],
@@ -68,8 +68,8 @@
       "name": "United States"
     },
     {
-      "code": "us-me",
-      "name": "Maine"
+      "code": "us-nj",
+      "name": "New Jersey"
     },
     {
       "code": "us-pa",
@@ -107,8 +107,8 @@
         "name": "Rhode Island"
       },
       {
-        "code": "us-nj",
-        "name": "New Jersey"
+        "code": "us-me",
+        "name": "Maine"
       }
     ],
     "cluster_links": [
@@ -123,8 +123,8 @@
     ],
     "same_country_states": [
       {
-        "code": "us-me",
-        "name": "Maine"
+        "code": "us-nj",
+        "name": "New Jersey"
       },
       {
         "code": "us-pa",
@@ -174,9 +174,9 @@
   },
   "hashes": {
     "code": "us-vt",
-    "content_hash": "0032b753083d30cbeac562652ab1badd7953a217f292481c19d6b84f1da05845",
+    "content_hash": "3d7291f5609c86ca346c897529580739a2f0cdbde0c07e4d50dec0d61db01652",
     "notes_hash": "7df67e382cdcf317441d1fb377e1749593559cd09486aa6ecc08afd253f1e5d4",
-    "model_hash": "45b1e2b95265bb4b94a7e1c9b5eb9f78eea940985cdd2af5e871b6d8dd567f65"
+    "model_hash": "36f7846c4c675ebe9b5f0ae1072ee6f572384ca63ec205a97cc6ff91664826a0"
   },
   "updated_at": "2026-04-10"
 }

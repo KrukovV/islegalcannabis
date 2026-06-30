@@ -13,10 +13,10 @@
       "scope": "PERSONAL_USE"
     },
     "medical": {
-      "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
       "override_reason": null
     },
     "distribution": {
@@ -38,8 +38,8 @@
     ],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is legal in Montana under state law for recreational adult use. Medical cannabis is not broadly legal in Montana. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
+  "notes_normalized": "Cannabis is legal in Montana under state law for recreational adult use. Medical cannabis is also legal under a regulated state program in Montana. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Cannabis in Montana has been legal for both medical and recreational use since January 1, 2021, when Initiative 190 went into effect. Prior to the November 2020 initiative, marijuana was illegal for recreational use starting in 1929. Medical cannabis was legalized by ballot initiative in 2004. The Montana Legislature passed a repeal to tighten Montana Medical Marijuana (MMJ) laws which were never approved by the governor. In November 2016 Bill I-182 was passed, revising the 2004 law and allowing providers to service more than three patients. In May 2023, numerous further bills on cannabis legalization and other related purposes passed the Montana Legislature. The Governor of Montana is yet to either sign or veto the bill. Cannabis was banned in Montana in 1929, following a Health Committee meeting which was described in the local paper as \"great fun\", during which representative Dr Fred Fulsher of Mineral County justified the ban due to marijuana's effects on Mexicans: \"When some beet field peon takes a few rares of this stuff. he thinks he has just been elected president of Mexico so he starts out to execute all his political enemies.\" In 1985, the Kurth family of Fort Benton turned to growing cannabis to save their failing beef ranch. Their efforts were successful, and after reducing their debts they decided to scale back their cannabis business, but were then threatened by drug traffickers they had done business with.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -58,18 +58,14 @@
   },
   "related_codes": [
     "usa",
-    "us-co",
     "us-nd",
-    "us-sd"
+    "us-sd",
+    "us-or"
   ],
   "related_names": [
     {
       "code": "usa",
       "name": "United States"
-    },
-    {
-      "code": "us-co",
-      "name": "Colorado"
     },
     {
       "code": "us-nd",
@@ -78,6 +74,10 @@
     {
       "code": "us-sd",
       "name": "South Dakota"
+    },
+    {
+      "code": "us-or",
+      "name": "Oregon"
     }
   ],
   "graph": {
@@ -99,16 +99,16 @@
     ],
     "legal_similarity": [
       {
-        "code": "us-nm",
-        "name": "New Mexico"
+        "code": "us-co",
+        "name": "Colorado"
       },
       {
-        "code": "us-mn",
-        "name": "Minnesota"
+        "code": "us-nv",
+        "name": "Nevada"
       },
       {
-        "code": "us-md",
-        "name": "Maryland"
+        "code": "us-wa",
+        "name": "Washington"
       }
     ],
     "cluster_links": [
@@ -117,15 +117,11 @@
         "name": "United States"
       },
       {
-        "code": "us-nv",
-        "name": "Nevada"
+        "code": "us-ne",
+        "name": "Nebraska"
       }
     ],
     "same_country_states": [
-      {
-        "code": "us-co",
-        "name": "Colorado"
-      },
       {
         "code": "us-nd",
         "name": "North Dakota"
@@ -133,6 +129,10 @@
       {
         "code": "us-sd",
         "name": "South Dakota"
+      },
+      {
+        "code": "us-or",
+        "name": "Oregon"
       }
     ],
     "federal_parent": {
@@ -174,9 +174,9 @@
   },
   "hashes": {
     "code": "us-mt",
-    "content_hash": "1beaa57ee61c8243ee5993033e00472f8c2ef9d9995761ea37dbd315d1dadb8c",
-    "notes_hash": "acb0261d962f2707ce0a6214aa0d066907bdf090c41b79cea554df315794973a",
-    "model_hash": "bb84f50e1ff78e2985bbb94ab1a51b05c77ebfedb12d8ca467eebda056f8a309"
+    "content_hash": "a81fc78d7c52e9ba406e4876b9f150cd694bb5d03e1c8ef4028c7b570fa9db6b",
+    "notes_hash": "11aabce5d5c576917b986e69b9d9cc72ff63661a374128069fd94e55cbf5386a",
+    "model_hash": "0f94b2a1f37f21996f3b9a8748b2b88c0d8d52c79f7cda2460359a85dd3fb22f"
   },
   "updated_at": "2026-04-10"
 }

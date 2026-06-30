@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Illinois under state law for recreational adult use. Medical cannabis is also legal under a regulated state program in Illinois. Cannabis remains federally illegal in United States. Possession is limited to Up to 30 g flower or 5 g concentrate (adult).",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} A first in the nation, Illinois will also expunge an estimated 700,000 marijuana-related police records and court convictions in a phased approach forecast to be completed by 2025. On December 31, 2020, Governor JB Pritzker announced that his administration granted pardons for 9,210 low-level cannabis convictions and the wiping of 492,000 non-felony cannabis-related arrest records.",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Illinois became the eleventh state in the US to legalize recreational marijuana effective January 1, 2020. With the passage of the Illinois Cannabis Regulation and Tax Act in 2019, Illinois became the first state in the nation to legalize recreational sales by an act of the state legislature, as previous states had legalized sales by voter initiatives. Vermont legalized recreational use, but not sales, through its legislature (later legalizing sales after Illinois had already done so). Retail sales from recreational cannabis in Illinois average an estimated $40 million in revenue each month since legalization and have allowed police to acquire an estimated $3 million from marijuana related civil asset forfeitures each year. Since 2014, the Illinois Medical Cannabis Patient Program (MCPP) has also enrolled over 172,000 qualifying patients in the state's medical cannabis and opioid alternative programs across 110 dispensaries offering a lower tax rate when compared to recreational transactions. In 2022, the 113 dispensaries across Illinois sold $1.5 billion worth of marijuana products. In 1931, Illinois prohibited recreational use of cannabis, as part of a nationwide trend across 29 states in the early 20th century. Illinois passed the Cannabis Control Act in 1978, which technically allows for medical marijuana. The Illinois General Assembly passed the Compassionate Use of Medical Cannabis Pilot Program Act in 2013 (MCPP). The law legalizes the use of medical cannabis in tightly controlled circumstances. A first in the nation, Illinois will also expunge an estimated 700,000 marijuana-related police records and court convictions in a phased approach forecast to be completed by 2025. On December 31, 2020, Governor JB Pritzker announced that his administration granted pardons for 9,210 low-level cannabis convictions and the wiping of 492,000 non-felony cannabis-related arrest records. Some estimate the expansion could bring in up to 365,000 new patients into the medical marijuana program generating an additional $425 million in revenue for the state. On May 31, 2019, the Illinois General Assembly passed the Illinois Cannabis Regulation and Tax Act to legalize recreational marijuana use starting on January 1, 2020. Recreational-use revenue in Illinois is expected to reach an estimated $1.6 billion a year. Under the Illinois Cannabis Regulation and Tax Act, which took effect on January 1, 2020, stipulated that medical marijuana patients could grow up to five plants at a time in their home or on their property. The measure would also allow residents to possess up to of cannabis and to grow five plants. However, recreational users cannot grow marijuana in their home nor on their premises at all. In regards to cultivating cannabis commercially, only Illinois's existing licensed medical marijuana facilities were able to grow the crop initially. However, in 2020 \"craft growers\" will be able to apply for licenses to cultivate cannabis for commercial use for no larger than of crop.",
   "facts": {
     "possession_limit": "Up to 30 g flower or 5 g concentrate (adult)",
     "cultivation": "Home grow allowed.",
@@ -107,8 +107,8 @@
         "name": "Ohio"
       },
       {
-        "code": "us-ny",
-        "name": "New York"
+        "code": "us-md",
+        "name": "Maryland"
       }
     ],
     "cluster_links": [
@@ -181,9 +181,9 @@
   },
   "hashes": {
     "code": "us-il",
-    "content_hash": "d62915f68cfd230ff01d37f4e3a24c94a34c441cc4012ff400eaf999c03ea951",
+    "content_hash": "ac1660800a306aaa8ff5c998f199d215083dcfa20bc51c70fd7798606a89048d",
     "notes_hash": "f8ac6cf67f6e7bd02701c5faad0495a3b503de9546d986d97dc19bada3e49910",
-    "model_hash": "53442bb9658e8a59b2000b3bfd0a30e33fbe4731e4dfdf4245984b362006e72c"
+    "model_hash": "099e53ad7713eb5f1e1f5eaccaf70940c074d7d4c631bd69724556dfee48fee4"
   },
   "updated_at": "2024-01-01"
 }

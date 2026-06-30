@@ -108,6 +108,7 @@ function normalizeMedicalStatus(data: CountryPageData, sourceText: string): {
   const conflicts: string[] = [];
   const status = String(data.legal_model.medical.status || "").trim().toUpperCase();
   const raw = String(data.legal_model.medical.raw_status || "").trim().toUpperCase();
+  const overrideReason = String(data.legal_model.medical.override_reason || "").trim();
   const folded = sourceText.toLowerCase();
   const positiveMedical =
     /\bmedical (?:use|cannabis|marijuana).{0,80}\b(?:legalized|legalised|allowed|approved|regulated|licensed)\b/i.test(sourceText) ||
@@ -118,6 +119,7 @@ function normalizeMedicalStatus(data: CountryPageData, sourceText: string): {
   const limitedMedical =
     /\brule:\s*medical_limited\b/i.test(sourceText) ||
     /\blimited medical\b/i.test(sourceText) ||
+    /\bmedical cannabis is available only in limited form\b/i.test(sourceText) ||
     /\bcbd oil\b/i.test(sourceText) ||
     /\bcannabidiol\b/i.test(sourceText) ||
     /\blow[- ]thc\b/i.test(sourceText) ||
@@ -136,27 +138,24 @@ function normalizeMedicalStatus(data: CountryPageData, sourceText: string): {
       "does not have a comprehensive medical cannabis program",
       "no comprehensive medical cannabis program",
       "no medical cannabis",
-      "continues to ban medical"
+      "continues to ban medical",
+      "likely not prescribed by doctors"
     ]);
 
   if (positiveMedical && negativeMedical) {
     conflicts.push("medical negative and positive signals conflict");
   }
-  if (status === "LEGAL" || raw === "LEGAL") {
+  if (status === "LEGAL" || (raw === "LEGAL" && status !== "ILLEGAL" && !overrideReason)) {
     reason.push("medical structured status is legal");
     return { medical: "REGULATED", reason, missing, conflicts };
   }
-  if (limitedMedical) {
+  if (status === "LIMITED" || raw === "LIMITED" || limitedMedical) {
     reason.push(status === "LIMITED" || raw === "LIMITED" ? "medical structured status is limited" : "medical source text says limited/CBD-only access");
     return { medical: "LIMITED", reason, missing, conflicts };
   }
   if (positiveMedical) {
     reason.push("medical source text says legal or regulated");
     return { medical: "REGULATED", reason, missing, conflicts };
-  }
-  if (status === "LIMITED" || raw === "LIMITED" || limitedMedical) {
-    reason.push(status === "LIMITED" || raw === "LIMITED" ? "medical structured status is limited" : "medical source text says limited/CBD-only access");
-    return { medical: "LIMITED", reason, missing, conflicts };
   }
   if (status === "ILLEGAL" || raw === "ILLEGAL" || negativeMedical) {
     reason.push(status === "ILLEGAL" || raw === "ILLEGAL" ? "medical structured status is none/illegal" : "medical source text says none/illegal");

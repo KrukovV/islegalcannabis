@@ -324,4 +324,30 @@ describe("countryStatusDerivation", () => {
     expect(derived.recreational.status).toBe("ILLEGAL");
     expect(derived.signals.status).toBe("illegal");
   });
+
+  test("does not let weak root medical legal override a contradictory cannabis article", () => {
+    const derived = deriveCountryStatusModel({
+      geo: "KP",
+      countryName: "North Korea",
+      wikiRecStatus: "Legal",
+      wikiMedStatus: "Legal",
+      notes:
+        "Cannabis is listed in Appendix 1 Narcotics in the DPRK. Narcotics Control Law (2005) states that narcotics may be used when prescribed. There are conflicting reports on the legal status of cannabis in North Korea. However, other reports claim that cannabis is illegal.",
+      traversalPages: [
+        {
+          title: "Cannabis in North Korea",
+          url: "https://en.wikipedia.org/wiki/Cannabis_in_North_Korea",
+          depth: 1,
+          text:
+            "Medicinal likely not prescribed by doctors. Recreational illegal but possibly often unenforced. Cannabis and hemp resin is listed in Appendix 1 Narcotics. A Swedish ambassador said drugs, including marijuana, are illegal."
+        }
+      ]
+    });
+
+    expect(derived.recreational.status).toBe("ILLEGAL");
+    expect(derived.medical.status).toBe("ILLEGAL");
+    expect(derived.medical.override_reason).toBe("article_conflicts_with_root_medical_legal");
+    expect(derived.applied_rules).toContain("medical_root_legal_overridden_by_article_conflict");
+    expect(derived.signals.status).not.toBe("legal");
+  });
 });

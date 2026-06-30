@@ -53,6 +53,23 @@ PLAYWRIGHT_BASE_URL=http://127.0.0.1:3000 npm -w apps/web run popup:visual:audit
   - if popup or SEO panel scrolls internally, capture both the full page and an expanded panel screenshot before judging visual richness
   - honest sparse output for `root_only` / `no_page` / synthetic GEO
   - no hardcoded country/state patches outside tests
+- The geo-sync audit is live-gated. Do not wait for the end of a full run to inspect failures:
+  - `Artifacts/geo-sync/live-summary.json` is updated after every GEO
+  - `Artifacts/geo-sync/live-failures.jsonl` receives row-level hard failures immediately
+  - `Artifacts/geo-sync/live-review.jsonl` lists high-risk screenshot paths for manual visual review
+  - stdout shows `live=PASS` or `live=FAIL:<reasons>` per row
+- Use fail-fast for targeted debugging:
+
+```bash
+GEO_SYNC_AUDIT_GEOS=GE,US-GA,MH,TV,SPI GEO_SYNC_AUDIT_FAIL_FAST=1 PLAYWRIGHT_BASE_URL=http://127.0.0.1:3000 npm -w apps/web run geo:sync:audit
+```
+
+- Use the full run only after targeted/live failures are clean:
+
+```bash
+PLAYWRIGHT_BASE_URL=http://127.0.0.1:3000 npm -w apps/web run geo:sync:audit
+```
+
 - Do not document or claim closure of resolver/color sync work using popup-only screenshots or string-only comparisons.
 
 ## Vercel production bypass quick run

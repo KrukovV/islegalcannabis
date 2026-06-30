@@ -88,6 +88,34 @@ function baseMedStatus(value) {
   return "UNKNOWN";
 }
 
+function joinedEvidenceText(input) {
+  const traversalText = Array.isArray(input?.traversalPages)
+    ? input.traversalPages.map((page) => page?.text || "").join(" ")
+    : "";
+  return normalizeText(`${input?.notes || ""} ${input?.rawNotes || ""} ${traversalText}`);
+}
+
+function hasMedicalAccessNegation(input) {
+  const text = joinedEvidenceText(input);
+  return (
+    /\bmedical (?:cannabis|marijuana|use).{0,80}\b(?:illegal|not allowed|not permitted|prohibited|banned)\b/.test(text) ||
+    /\bno (?:comprehensive )?medical cannabis\b/.test(text) ||
+    /\blikely not prescribed by doctors\b/.test(text)
+  );
+}
+
+function hasControlledNarcoticConflict(input) {
+  const text = joinedEvidenceText(input);
+  return (
+    /\bcannabis(?: and hemp resin)? is listed.{0,120}\bnarcotics?\b/.test(text) ||
+    /\bcannabis and hemp resin is listed.{0,120}\bnarcotics?\b/.test(text) ||
+    /\bofficially illegal\b/.test(text) ||
+    /\buse is still illegal\b/.test(text) ||
+    /\bcriminal offe[nc]e to smoke\b/.test(text) ||
+    /\blegal status.{0,80}\bunclear\b/.test(text)
+  );
+}
+
 function distributionRank(status) {
   switch (status) {
     case "illegal":
@@ -810,6 +838,15 @@ function resolveRecFinal(state) {
 function resolveMedFinal(state, recFinalStatus) {
   const med = state.med.status || "UNKNOWN";
   const wikiRecStatus = baseRecStatus(state.input?.wikiRecStatus);
+  const hasExplicitMedicalLegalRule = state.applied_rules.includes("medical_legal");
+  const hasWeakRootMedicalLegal =
+    med === "LEGAL" &&
+    baseMedStatus(state.input?.wikiMedStatus) === "LEGAL" &&
+    !hasExplicitMedicalLegalRule;
+  if (hasWeakRootMedicalLegal && (hasMedicalAccessNegation(state.input) || hasControlledNarcoticConflict(state.input))) {
+    pushUnique(state.applied_rules, "medical_root_legal_overridden_by_article_conflict");
+    return { status: "ILLEGAL", override_reason: "article_conflicts_with_root_medical_legal" };
+  }
   if ((REC_MED_FLOOR_STATUSES.has(recFinalStatus) || REC_MED_FLOOR_STATUSES.has(wikiRecStatus)) && (med === "ILLEGAL" || med === "UNKNOWN")) {
     pushUnique(state.applied_rules, "rec_implies_med_floor");
     return { status: "LIMITED", override_reason: "rec_implies_med_floor" };

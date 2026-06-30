@@ -18,6 +18,46 @@ The audit universe is all `307` runtime GEO:
 
 Partial samples are diagnostics only. Release evidence must use the full universe.
 
+## Productive full-run workflow
+
+The audit must not wait until the end of a heavy `307` run before surfacing obvious failures.
+
+Required behavior:
+
+- full runs still process all `307` GEO and remain the only final release proof
+- high-risk/canary GEO run first inside the full universe, including same-name collisions, previously failed tiny islands, disputed/synthetic GEO, known sparse/fallback cases, and user-reported examples
+- each completed GEO is evaluated immediately against the same hard invariants used by the final guard
+- live failures are written incrementally to `Artifacts/geo-sync/live-failures.jsonl`
+- current counters and the latest row verdict are written to `Artifacts/geo-sync/live-summary.json`
+- high-risk rows emit review entries to `Artifacts/geo-sync/live-review.jsonl` with paths to map, popup, SEO, wiki, and analysis artifacts
+- stdout must include `live=PASS` or `live=FAIL:<reasons>` for each row
+- `GEO_SYNC_AUDIT_FAIL_FAST=1` is available for development runs where the first live failure should stop the run immediately
+
+This live gate is not a replacement for the final `full-manifest/full-report/full-summary/full-validation/full-index` bundle. It is an early-warning and visual-review loop so defects are found while the browser is still running.
+
+Repeatable full release proof:
+
+```bash
+GEO_SYNC_AUDIT_FAIL_FAST=1 PLAYWRIGHT_BASE_URL=http://127.0.0.1:3000 npm -w apps/web run geo:sync:audit
+node tools/gates/geo_sync_audit_guard.mjs
+node tools/reports/generate_geo_sync_completion_reports.mjs
+```
+
+The completion report step is part of `bash tools/pass_cycle.sh` when `Artifacts/geo-sync/full-manifest.json` exists. It produces:
+
+- `Artifacts/geo-sync/color-consistency-report.json`
+- `Artifacts/geo-sync/anti-patch-report.json`
+
+These reports are lightweight release evidence. Heavy per-GEO screenshots and HTML/JSON payloads may be archived outside the repo, but the full manifest and HTML index must link to real existing paths.
+
+Manual visual review is also part of the workflow. For high-risk rows, the agent must open the emitted screenshots and record what is visibly true, especially for:
+
+- selected map feature and sampled color
+- popup badge/text/source separation
+- SEO richness relative to popup
+- wiki page identity and visible article richness
+- sparse/fallback cases where the correct result is intentionally short
+
 ## Core objective
 
 One canonical normalized knowledge/legal/color record must drive all three consumers:

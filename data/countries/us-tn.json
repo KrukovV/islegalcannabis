@@ -13,8 +13,8 @@
       "scope": "NONE"
     },
     "medical": {
-      "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
+      "raw_status": "LIMITED",
+      "status": "LIMITED",
       "enforcement": "STRICT",
       "scope": "NONE",
       "override_reason": null
@@ -36,8 +36,8 @@
     "enforcement_flags": [],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is illegal in Tennessee under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}}",
+  "notes_normalized": "Cannabis is illegal in Tennessee for recreational use under state law, but medical cannabis is available only in limited form. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}} Possession of even small amounts is a criminal misdemeanor, but there are limited legal allowances for non-psychoactive CBD oil as medical cannabis, and the authorities have not been able to enforce the law. In May 2015, Tennessee governor Bill Haslam signed Senate Bill 280 into law, against his earlier opposition. The bill legalized the possession and use of marijuana to treat a limited number of severe conditions, including epilepsy. At the start of 2015 the Tennessee chapter of the National Organization for the Reform of Marijuana Laws launched a petition to place a referendum on the November ballot for Davidson County to defund local law enforcement prosecution against possession of small amounts of marijuana. In 2016, both Nashville and Memphis succeeded in decriminalizing possession of small amounts of cannabis, with Memphis reducing punishment to a $50 fine. Seven months later, however, a repeal was signed into Tennessee law. In July 2020, Nashville partially decriminalized cannabis possession, with the district attorney dropping all charges of marijuana possession under. On March 3, 2021 a bill was filed by representatives Janice Bowling and Iris Rudder that would legalize medicinal cannabis to treat severe medical conditions. On March 23, 2021 the bill however later died in the state senate.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -101,12 +101,12 @@
         "name": "Indiana"
       },
       {
-        "code": "us-sc",
-        "name": "South Carolina"
+        "code": "us-wi",
+        "name": "Wisconsin"
       },
       {
-        "code": "us-wv",
-        "name": "West Virginia"
+        "code": "us-ia",
+        "name": "Iowa"
       }
     ],
     "cluster_links": [
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-tn",
-    "content_hash": "9211d316e32c65945bce980d61ddb04e024bd71c1dd1bc8420554946810cbd14",
-    "notes_hash": "b8c7fff480177229a23e5406e58eac8728d92e171858e878a9ecf183002494d1",
-    "model_hash": "748ccd69bddffc549a947ec7251b629b00ec9e809873038ea19f41a99d20412f"
+    "content_hash": "ae414a5da7adf3905e22c5b441c6e2e902fc0e2eadf49c012240807640e97a04",
+    "notes_hash": "30c9ff277b18526cbb58d7c0a45841eac29bb38dfc21e8d636771e5272289d09",
+    "model_hash": "a418eb0cb90f99cdd1110fd06e5974e9f7640761899db28d7fde2f83b7617614"
   },
   "updated_at": "2026-04-10"
 }

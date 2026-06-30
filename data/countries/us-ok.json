@@ -13,8 +13,8 @@
       "scope": "NONE"
     },
     "medical": {
-      "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
+      "raw_status": "LIMITED",
+      "status": "LIMITED",
       "enforcement": "STRICT",
       "scope": "NONE",
       "override_reason": null
@@ -36,8 +36,8 @@
     "enforcement_flags": [],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is illegal in Oklahoma under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}} Through the decades, Oklahoma authorities actively prosecuted cannabis users, sellers and growers including through the use of helicopter patrols. Unlicensed simple possession of up to is now punishable by a misdemeanor conviction and a $400 fine. It would have placed the Oklahoma Medical Marijuana Authority in charge of business regulation.",
+  "notes_normalized": "Cannabis is illegal in Oklahoma for recreational use under state law, but medical cannabis is available only in limited form. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}} As part of a larger trend nationwide to restrict cannabis, Oklahoma banned the drug in 1933. In April 2015, The Governor signed HB 2154 allowing the Sale of CBD oil with less than 0.3% THC under specified restrictions. The use of CBD oil manufactured from industrial hemp (which was sold over the counter, without restrictions) became widespread in Oklahoma during the mid-late 2010s. Later in 2015, Green the Vote announced that they were beginning a new petition drive to place medical legalization on the 2016 ballot. The initiative gathered the required number of signatures, but backers alleged that Attorney General Scott Pruitt had changed the verbiage of the initiative in a misleading way. After Oklahomans for Health sued over the ballot rewrite, the Oklahoma Supreme Court ordered the original language be restored. As result of the legal dispute, the vote for the initiative was pushed back to 2018. Governor Mary Fallin established a ballot date on January 4, 2018, of June 26, 2018 as a referendum initiative. The referendum (State Question 788) ultimately passed 57%-43%, making Oklahoma the 30th US state to legalize medical use of cannabis. This approval by popular vote was noteworthy as it happened during a primary election rather than in a general election. Through the decades, Oklahoma authorities actively prosecuted cannabis users, sellers and growers including through the use of helicopter patrols. Unlicensed simple possession of up to is now punishable by a misdemeanor conviction and a $400 fine. It would have placed the Oklahoma Medical Marijuana Authority in charge of business regulation. Under SQ 788, an individual who obtains a Medical Marijuana License from the state of Oklahoma may consume marijuana legally and may legally possess up to: of marijuana 6 mature marijuana plants (defined as plants that are in the budding stage) 6 seedling plants (defined as plants that are in the vegetative stage and are not yet budding) of concentrated marijuana of edible marijuana of marijuana in their residence. In December 2025, The New York Times reported that dozens of illicit cannabis cultivation operations in Oklahoma are owned by leaders of several Chinese hometown associations in New York City, some having links to pro-Chinese Communist Party united front groups. In 2018 Hempyre Genetics was hired to research strains of feral cannabis growing at undisclosed locations in Oklahoma, in order to advise legal hemp farmers as to what genetic traits were thriving in the state.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -101,12 +101,12 @@
         "name": "Iowa"
       },
       {
-        "code": "us-sd",
-        "name": "South Dakota"
+        "code": "us-tn",
+        "name": "Tennessee"
       },
       {
-        "code": "us-al",
-        "name": "Alabama"
+        "code": "us-wi",
+        "name": "Wisconsin"
       }
     ],
     "cluster_links": [
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-ok",
-    "content_hash": "c8fa908c6181539e6708f08a9bcec1bd6d8ca66a2367655a0d31ead79f0470a8",
-    "notes_hash": "3d118b91b98885357217368bd81cdab101669006290aa8c2742a412a8ccb214e",
-    "model_hash": "4937f56730853a6ff0d069b4449231cb81281c46a46fde0563cb4039ca3b7fb9"
+    "content_hash": "a49ca370be531a741efcb81bc49f41b390beb8f6cf966af63e181bdeb48448b5",
+    "notes_hash": "e8663985aa4390f1bf7545768d2fc29f82ddaf5653b74c5aed31343ef5786a59",
+    "model_hash": "7c2b3564f4eba0cf18d416eda4fddf654a4015685ee0589782326430061b9108"
   },
   "updated_at": "2026-04-10"
 }

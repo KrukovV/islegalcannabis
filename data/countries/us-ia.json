@@ -13,8 +13,8 @@
       "scope": "NONE"
     },
     "medical": {
-      "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
+      "raw_status": "LIMITED",
+      "status": "LIMITED",
       "enforcement": "STRICT",
       "scope": "NONE",
       "override_reason": null
@@ -36,8 +36,8 @@
     "enforcement_flags": [],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is illegal in Iowa under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|5}} The city of Cedar Falls proposed to deprioritize municipal police enforcement of marijuana offenses for possession under. Some of the products seized in Muscatine Iowa were sent to the state crime lab for test.",
+  "notes_normalized": "Cannabis is illegal in Iowa for recreational use under state law, but medical cannabis is available only in limited form. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|5}} The state has a medical program for patients with qualifying debilitating medical conditions that allows for the legal sale and possession of no more than 4.5g of THC per patient every 90-day period. Amidst an early 20th century trend of limiting the drug, Iowa prohibited cannabis in 1923. In the 1970s, Iowa introduced decriminalization legislation which failed. In early 2014, House File 2313 was proposed, which would have reduced the penalty for possession of under to a fine of $300, and possession of under a kilogram. The bill failed to progress before the expiry of a procedural deadline, so it was rejected. The resolution was voted down in January 2015 by a majority of the city council, with one member stating: \"We are a governing body tasked with making laws, not ignoring laws.\" From late 1979 to mid-1981, Iowa's administrative rules allowed for medical use of marijuana through a therapeutic research center. Introduced by a committee, placed on Ways and Means calendar, Senate Bill 2360 on April 23, 2014 passed in the Senate by a vote of 36-12 on April 24, 2014. Bill 2360 was read for the first time in the House, referred to the Public Safety Committee, and passed by a subcommittee on April 25, 2014; Committee reports recommended amendments be made as well as passage; committee amendments were filed on April 29, 2014. Senate Bill 2360 allows the possession or use of cannabidiol that has less than 3% tetrahydrocannabinol for the treatment of intractable epilepsy, through the written recommendation of a neurologist. The city of Cedar Falls proposed to deprioritize municipal police enforcement of marijuana offenses for possession under. Some of the products seized in Muscatine Iowa were sent to the state crime lab for test. Feral hemp, descended from plants once farmed for industrial hemp, grows wild in Iowa and many neighboring states. It is very low in tetrahydrocannabinol content. In 2019, in response to the 2018 United States farm bill, the Iowa Legislature passed and Governor Reynolds signed into law the Iowa Hemp Act that defined a plan to allow the growth of industrial hemp, defined as cannabis with 0.3% or less of THC. The USDA approved the plan in March 2020. On June 17, 2020 Governor Reynolds signed HF2581 which explicitly legalized the possession and sale of consumable hemp products including CBD. Iowa law classifies hemp products \"intended to be introduced into the human body by any method of inhalation\" as marijuana and are therefore illegal.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -56,8 +56,8 @@
   },
   "related_codes": [
     "usa",
-    "us-ks",
     "us-ne",
+    "us-sd",
     "us-ar"
   ],
   "related_names": [
@@ -66,12 +66,12 @@
       "name": "United States"
     },
     {
-      "code": "us-ks",
-      "name": "Kansas"
-    },
-    {
       "code": "us-ne",
       "name": "Nebraska"
+    },
+    {
+      "code": "us-sd",
+      "name": "South Dakota"
     },
     {
       "code": "us-ar",
@@ -101,8 +101,8 @@
         "name": "Wisconsin"
       },
       {
-        "code": "us-sd",
-        "name": "South Dakota"
+        "code": "us-ks",
+        "name": "Kansas"
       },
       {
         "code": "us-in",
@@ -121,12 +121,12 @@
     ],
     "same_country_states": [
       {
-        "code": "us-ks",
-        "name": "Kansas"
-      },
-      {
         "code": "us-ne",
         "name": "Nebraska"
+      },
+      {
+        "code": "us-sd",
+        "name": "South Dakota"
       },
       {
         "code": "us-ar",
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-ia",
-    "content_hash": "16eb74b0dbe25dd709accc6ac7c0aafb34c205b07fe485b28c12a4156505f9f7",
-    "notes_hash": "5d629a08adfbf1d5de4bab4943c18a9e0ca54d0b3b1b37bd9ef4073b285af8be",
-    "model_hash": "3ae411bfae1d5773a3dd7317590b1fb568665a8ec770e655c63d7376b3f3953a"
+    "content_hash": "b72c1814424e81106ec821ed5fca3d9ed050c8973cb95e7438c7c50c2ef6174e",
+    "notes_hash": "9a4ea33259e46a28a5ef8ed338815dfac1c87749e96b8351dcbd4f28288c2eb2",
+    "model_hash": "9e8a9e56f6b4349605533499bf14c7306531b6b81eee78cab7d3c9ba66ce7c59"
   },
   "updated_at": "2026-04-10"
 }

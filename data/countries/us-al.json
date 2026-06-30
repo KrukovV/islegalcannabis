@@ -13,14 +13,14 @@
       "scope": "NONE"
     },
     "medical": {
-      "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
       "override_reason": null
     },
     "distribution": {
-      "status": "illegal",
+      "status": "restricted",
       "scopes": {
         "possession": "illegal",
         "use": "illegal",
@@ -36,8 +36,8 @@
     "enforcement_flags": [],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is illegal in Alabama under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}} First-time possession of personal amounts is a misdemeanor, punishable by up to a year in prison, a fine of up to $6000, and a mandatory six months driver's license suspension. It expanded the affirmative defense allowed under Carly's Law to include any individual who has a debilitating disease or condition involving seizures. As with Carly's Law, the THC content was not allowed to exceed 3%. The case, which gave 72 year old Brooker life without parole for marijuana possession, was described by Roy Moore as \"excessive and unjustified\". In 2019, a bill by Bobby Singleton to reduce cannabis penalties advanced in the state senate. It would have eliminated the felony charge for a second personal use possession offense, saying instead that a person commits first-degree possession when they have or more, and that first-degree possession is not a felony until the third conviction. Also, second-degree possession would have been reduced from a misdemeanor to a violation. Also in 2019, a bill by Patricia Todd to reduce the penalty for possession was voted down in the House Judiciary Committee. Her bill would have made possession of or less punishable only as a violation. That offense is classified as a misdemeanor, and the maximum penalty authorized is a one-year jail term (although it can be suspended with probation ordered) and a $6,000 fine.",
+  "notes_normalized": "Cannabis is illegal in Alabama for recreational use under state law, but medical cannabis is legal under a regulated state program. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}} Medical use was legalized in 2021 through a bill passed by the legislature and signed by Governor Kay Ivey. Previous bills enacted in 2014 (Carly's Law) and 2016 (Leni's Law) allowed only for the use of CBD oil to treat seizure disorders. Cannabis was banned in Alabama in 1931. In April 2014, Governor Robert Bentley signed Carly's Law, which permits the University of Alabama at Birmingham to provide non-psychoactive CBD oil to children with debilitating seizures as a clinical study. Leni's Law was signed into law by Governor Bentley on May 4, 2016. In 2012, Representative Koven Brown, a Republican representing the state's 40th House District, introduced model legislation as \"The Alabama Medical Marijuana Patients Rights Act,\" which would \"authorize the medical use of marijuana only for certain qualifying patients who have been diagnosed by a physician as having a serious medical condition.\" In part, it enumerated 24 serious medical conditions, or any other \". Three years later, it was reintroduced with minor changes in the State Senate as SB326 and sponsored by State Senator Bobby Singleton. In 2015 state Senator Bobby Singleton proposed the Medical Marijuana Patient Safe Access Act, which would have allowed patients with 25 severe conditions to access medical cannabis. The bill was passed by the Senate Judiciary Committee with near-unanimous approval, but failed to reach the Senate floor. Senator Jabo Waggoner, head of the Senate Rules Committee, blocked the bills further progress, stating: \"It is bad legislation. First-time possession of personal amounts is a misdemeanor, punishable by up to a year in prison, a fine of up to $6000, and a mandatory six months driver's license suspension. It expanded the affirmative defense allowed under Carly's Law to include any individual who has a debilitating disease or condition involving seizures. As with Carly's Law, the THC content was not allowed to exceed 3%. The case, which gave 72 year old Brooker life without parole for marijuana possession, was described by Roy Moore as \"excessive and unjustified\". In 2019, a bill by Bobby Singleton to reduce cannabis penalties advanced in the state senate. It would have eliminated the felony charge for a second personal use possession offense, saying instead that a person commits first-degree possession when they have or more, and that first-degree possession is not a felony until the third conviction. Also, second-degree possession would have been reduced from a misdemeanor to a violation. Also in 2019, a bill by Patricia Todd to reduce the penalty for possession was voted down in the House Judiciary Committee. Her bill would have made possession of or less punishable only as a violation. That offense is classified as a misdemeanor, and the maximum penalty authorized is a one-year jail term (although it can be suspended with probation ordered) and a $6,000 fine. The first medical cannabis sales in Alabama occurred in June 2026, after years of litigation.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -52,12 +52,12 @@
     "medical": "override",
     "enforcement_strength": "HIGH",
     "federal_conflict": "Cannabis remains federally illegal in United States.",
-    "legalization_status": "State illegal"
+    "legalization_status": "Medical only"
   },
   "related_codes": [
     "usa",
-    "us-ar",
     "us-la",
+    "us-in",
     "us-fl"
   ],
   "related_names": [
@@ -66,12 +66,12 @@
       "name": "United States"
     },
     {
-      "code": "us-ar",
-      "name": "Arkansas"
-    },
-    {
       "code": "us-la",
       "name": "Louisiana"
+    },
+    {
+      "code": "us-in",
+      "name": "Indiana"
     },
     {
       "code": "us-fl",
@@ -101,12 +101,12 @@
         "name": "Kentucky"
       },
       {
-        "code": "us-sc",
-        "name": "South Carolina"
+        "code": "us-ar",
+        "name": "Arkansas"
       },
       {
-        "code": "us-in",
-        "name": "Indiana"
+        "code": "us-sc",
+        "name": "South Carolina"
       }
     ],
     "cluster_links": [
@@ -121,12 +121,12 @@
     ],
     "same_country_states": [
       {
-        "code": "us-ar",
-        "name": "Arkansas"
-      },
-      {
         "code": "us-la",
         "name": "Louisiana"
+      },
+      {
+        "code": "us-in",
+        "name": "Indiana"
       },
       {
         "code": "us-fl",
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-al",
-    "content_hash": "f90a72b928b2e22f5ba5a8c4d3900f0f9aba79043d951c644f23bedd7f731b04",
-    "notes_hash": "3c61cc8e6a13b07b3cc11193634f9270224c4ea66f1518a59836e4c93f4a6220",
-    "model_hash": "7ce3931cfd97187fae189f101d725d21517e78aff8ed9e179f6a33be01de9267"
+    "content_hash": "9ccf41f61821f0ff81dce61587f7ad1cc663e59659c1e5dd7d4c8e28591ec18c",
+    "notes_hash": "5c89bc27b74b9940608683dc84ebad5a659a88da59b0e7a9d5efa8e0cdfb2793",
+    "model_hash": "ecfb5be4ec287cd2014393e19e80267fcb3f0f4ef3fa38d6bc1af55dcbb4632e"
   },
   "updated_at": "2026-04-10"
 }

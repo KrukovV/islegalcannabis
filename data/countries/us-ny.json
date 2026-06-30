@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in New York under state law for recreational adult use. Medical cannabis is also legal under a regulated state program in New York. Cannabis remains federally illegal in United States. Possession is limited to Up to 3 oz flower or 24g concentrate.",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Smoking marijuana in public is subject to the same enforcement and penalties as smoking tobacco. In an amendment to the Boylan Bill, they added \"Cannabis indica, which is the Indian hemp from which the East Indian drug called hashish is manufactured,\" to the city's list of restricted drugs. Whitebread note that \"only four articles about marijuana appeared in the major New York newspaper during the entire period from 1914 until 1927.\" In 1927, New York removed the medical purposes and restricted cannabis completely. The Brooklyn Public Library reports: this group was held to a high moral standard and was prohibited from \"entering saloons, using foul language, and neglecting horses.\" The Squad found the most weed in Queens but even in Brooklyn dug up \"millions of dollars\" worth of the plants, many as \"tall as Christmas trees\". In 1973, New York governor Nelson Rockefeller signed legislation increasing the penalty for selling or more of heroin, morphine, \"raw or prepared opium,\" cocaine, or cannabis or possessing or more of the same substances, was a minimum of 15 years to life in prison, and a maximum of 25 years to life in prison. Possession of less than of marijuana, in any form, is unlawful possession of marijuana, punishable by a fine of no more than $100 if the defendant has no convictions for the offense within the last three years. Amounts in the range are fourth-degree criminal possession of marijuana, a Class A misdemeanor applies to amounts between, or one pound. Those convicted of second-degree criminal possession of marijuana, a Class D felony with a maximum sentence of seven years, will have been in possession of up to and can expect to serve up to seven years at most. First-degree criminal possession of marijuana applies to those with more than 10 pounds, a Class C felony for which offenders may spend 15 years in prison. Offenses related to the sale of marijuana start with fifth-degree criminal sale of marijuana, a class B misdemeanor that covers amounts less than.",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Cannabis in New York has been legal for medical purposes under New York law since 2016, and recreational purposes since 2021. On March 30, 2021, both houses of the New York State Legislature approved legislation to legalize recreational marijuana. The bill was signed into law by former New York Governor Andrew Cuomo on March 31, 2021. The law also resulted in previous marijuana-related criminal records in the state of New York being expunged. As of October 2021, New York State prohibited employers from testing both prospective and current employees for cannabis use or otherwise discriminating against employees who use cannabis outside of work hours. Local laws such as the Smoke Free Air Act prohibit the burning of marijuana or its use in electronic cigarettes in most public spaces. The New York Times on the following day commented: \"Devotees of hashish are now hardly numerous enough here to count, but they are likely to increase as other narcotics become harder to obtain.\" In their study of the history of marijuana prohibition, Richard J. In 1939, New York Mayor Fiorello LaGuardia assigned a committee to investigate the issue of cannabis in his city. The committee released its report in 1944, concluding that the \"gateway theory\" was largely false, and that cannabis was not widely associated with addiction, school children, or juvenile delinquency. The report infuriated Harry Anslinger, commissioner of the Federal Bureau of Narcotics, who branded it unscientific. Smoking marijuana in public is subject to the same enforcement and penalties as smoking tobacco. In an amendment to the Boylan Bill, they added \"Cannabis indica, which is the Indian hemp from which the East Indian drug called hashish is manufactured,\" to the city's list of restricted drugs. Whitebread note that \"only four articles about marijuana appeared in the major New York newspaper during the entire period from 1914 until 1927.\" In 1927, New York removed the medical purposes and restricted cannabis completely. The Brooklyn Public Library reports: this group was held to a high moral standard and was prohibited from \"entering saloons, using foul language, and neglecting horses.\" The Squad found the most weed in Queens but even in Brooklyn dug up \"millions of dollars\" worth of the plants, many as \"tall as Christmas trees\". In 1973, New York governor Nelson Rockefeller signed legislation increasing the penalty for selling or more of heroin, morphine, \"raw or prepared opium,\" cocaine, or cannabis or possessing or more of the same substances, was a minimum of 15 years to life in prison, and a maximum of 25 years to life in prison. Possession of less than of marijuana, in any form, is unlawful possession of marijuana, punishable by a fine of no more than $100 if the defendant has no convictions for the offense within the last three years. Amounts in the range are fourth-degree criminal possession of marijuana, a Class A misdemeanor applies to amounts between, or one pound. Those convicted of second-degree criminal possession of marijuana, a Class D felony with a maximum sentence of seven years, will have been in possession of up to and can expect to serve up to seven years at most. First-degree criminal possession of marijuana applies to those with more than 10 pounds, a Class C felony for which offenders may spend 15 years in prison. Offenses related to the sale of marijuana start with fifth-degree criminal sale of marijuana, a class B misdemeanor that covers amounts less than. As of 2022, recreational cannabis is for sale legally in the state (including Native American reservations), only through state-approved dispensaries. Between 2018 and 2021, New York lawmakers repeatedly attempted to legalize recreational cannabis via the legislative process, but disagreements over allocation of tax revenue from cannabis sales (and in the case of the 2020 session, the COVID-19 pandemic) prevented legislation from moving forward. The final state budget includes provisions for licensed cannabis businesses to take ordinary tax deductions for tax years beginning in 2023. The medical cannabis certification provided by the healthcare provider contains a registry ID number, which can be used alongside a valid government-issued ID to purchase medical cannabis at registered dispensaries. In addition, home cultivation of up to three mature and three immature cannabis plants per individual will be permitted, with a maximum of twelve plants per household, once regulations for home grow are in place. As of April 2022, 52 recreational cannabis cultivation licenses have been granted and approved within New York State. In February 2022, a bill signed into law by the Governor Kathy Hochul legally allows New York State hemp farmers to start growing cannabis crops. The law also promotes equity for minorities and other related purposes.",
   "facts": {
     "possession_limit": "Up to 3 oz flower or 24g concentrate",
     "cultivation": "Home grow allowed.",
@@ -60,7 +60,7 @@
     "usa",
     "us-pa",
     "us-nh",
-    "us-md"
+    "us-de"
   ],
   "related_names": [
     {
@@ -76,8 +76,8 @@
       "name": "New Hampshire"
     },
     {
-      "code": "us-md",
-      "name": "Maryland"
+      "code": "us-de",
+      "name": "Delaware"
     }
   ],
   "graph": {
@@ -107,8 +107,8 @@
         "name": "Rhode Island"
       },
       {
-        "code": "us-oh",
-        "name": "Ohio"
+        "code": "us-md",
+        "name": "Maryland"
       }
     ],
     "cluster_links": [
@@ -117,8 +117,8 @@
         "name": "United States"
       },
       {
-        "code": "us-de",
-        "name": "Delaware"
+        "code": "us-va",
+        "name": "Virginia"
       }
     ],
     "same_country_states": [
@@ -131,8 +131,8 @@
         "name": "New Hampshire"
       },
       {
-        "code": "us-md",
-        "name": "Maryland"
+        "code": "us-de",
+        "name": "Delaware"
       }
     ],
     "federal_parent": {
@@ -181,9 +181,9 @@
   },
   "hashes": {
     "code": "us-ny",
-    "content_hash": "b583c379e05860c17514ba72d89951c83f43940c0dc4382e761cb1baceb60f5b",
+    "content_hash": "367273446bea798645182b45e72b12fd48b1f5a0d1cb88f2bd580c04b7c31f20",
     "notes_hash": "9745b57b93a9ee55b30b64423ad784a0647314407de07b3783034930ff54b286",
-    "model_hash": "018cbbca5267012d34f8c3c5a786a8f8988581e9b760bc6efaa24a972a5f8405"
+    "model_hash": "155a2a1f18ff4fcaddc4a35626f29fcfb89705e6804f47d4505e53724aa79d8e"
   },
   "updated_at": "2024-01-01"
 }

@@ -13,10 +13,10 @@
       "scope": "PERSONAL_USE"
     },
     "medical": {
-      "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
       "override_reason": null
     },
     "distribution": {
@@ -38,8 +38,8 @@
     ],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is legal in Alaska under state law for recreational adult use. Medical cannabis is not broadly legal in Alaska. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} It was first legalized by the court ruling Ravin v. State in 1975, but later recriminalized by Measure 2 in 1990. The Alaska Supreme Court thereby became the first and only U.S. state or federal court to announce a constitutional right to privacy that protects some level of marijuana use and possession. The measure imposed a penalty of up to 90 days in jail and a fine of up to $1000 for simple possession. The measure allowed patients with a doctor's recommendation to possess up to of cannabis or grow six plants. Possession of was made a misdemeanor punishable by up to a year in jail. Possession of over was made a felony.",
+  "notes_normalized": "Cannabis is legal in Alaska under state law for recreational adult use. Medical cannabis is also legal under a regulated state program in Alaska. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Cannabis in Alaska is legal for recreational use since 2014. Ballot measures in 2000 and 2004 attempted (but failed) to legalize recreational use, until finally Measure 2 in 2014 passed with 53.2% of the vote. Medical use was legalized by way of Measure 8 in 1998. On May 16, 1975, Alaska became the second state in the U.S. to decriminalize cannabis. The law imposed a $100 fine ( ) for persons possessing cannabis, and became law without the governor's signature. It passed just a week before the Ravin ruling. Ravin v. State was a 1975 decision by the Alaska Supreme Court that held the Alaska Constitution's right to privacy protects an adult's ability to use and possess a small amount of marijuana in the home for personal use. In 1982, following the Ravin decision, the state legislature decriminalized possession of up to of cannabis in the home, or outside the home. In 1990, Measure 2 to recriminalize cannabis passed with 54.3% of the vote. In 1998, Measure 8 to legalize the medical use of cannabis passed with 58.7% of the vote. It was first legalized by the court ruling Ravin v. State in 1975, but later recriminalized by Measure 2 in 1990. The Alaska Supreme Court thereby became the first and only U.S. state or federal court to announce a constitutional right to privacy that protects some level of marijuana use and possession. The measure imposed a penalty of up to 90 days in jail and a fine of up to $1000 for simple possession. The measure allowed patients with a doctor's recommendation to possess up to of cannabis or grow six plants. Possession of was made a misdemeanor punishable by up to a year in jail. Possession of over was made a felony. The measure allows adults 21 and over to possess up to of cannabis and cultivate six plants, effective February 24, 2015.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -59,8 +59,8 @@
   "related_codes": [
     "usa",
     "us-id",
-    "us-nv",
-    "us-hi"
+    "us-hi",
+    "us-ut"
   ],
   "related_names": [
     {
@@ -72,12 +72,12 @@
       "name": "Idaho"
     },
     {
-      "code": "us-nv",
-      "name": "Nevada"
-    },
-    {
       "code": "us-hi",
       "name": "Hawaii"
+    },
+    {
+      "code": "us-ut",
+      "name": "Utah"
     }
   ],
   "graph": {
@@ -99,16 +99,16 @@
     ],
     "legal_similarity": [
       {
+        "code": "us-nv",
+        "name": "Nevada"
+      },
+      {
         "code": "us-mt",
         "name": "Montana"
       },
       {
-        "code": "us-nm",
-        "name": "New Mexico"
-      },
-      {
-        "code": "us-mn",
-        "name": "Minnesota"
+        "code": "us-az",
+        "name": "Arizona"
       }
     ],
     "cluster_links": [
@@ -117,8 +117,8 @@
         "name": "United States"
       },
       {
-        "code": "us-ut",
-        "name": "Utah"
+        "code": "us-wy",
+        "name": "Wyoming"
       }
     ],
     "same_country_states": [
@@ -127,12 +127,12 @@
         "name": "Idaho"
       },
       {
-        "code": "us-nv",
-        "name": "Nevada"
-      },
-      {
         "code": "us-hi",
         "name": "Hawaii"
+      },
+      {
+        "code": "us-ut",
+        "name": "Utah"
       }
     ],
     "federal_parent": {
@@ -174,9 +174,9 @@
   },
   "hashes": {
     "code": "us-ak",
-    "content_hash": "107b6981dd8965c0da5984c04ef8f720e98ce55ab7114c093d8d475e6f0e909b",
-    "notes_hash": "8ff5c42af895b3a8dba7c61a1f4fbdedbee6cf9a2869c1e90e2a38f389f2ed90",
-    "model_hash": "e6c36f4d2e85b5adf5790fb76fbcde840ddcd139748264b39ade9dcda79ab998"
+    "content_hash": "31044e8a8a2a47ea4fb2004f738f5c6deb3b247fa8002c75b560c7b8c37d2bb6",
+    "notes_hash": "cd92c0742cd83aec770a6dc81fc136f57ffac9fc509af45fd1de05643a415ab1",
+    "model_hash": "d81992b43c8a5a51f0deab80a33fcfcacc08dd5c2db456c10e8ca72175143952"
   },
   "updated_at": "2026-04-10"
 }

@@ -13,8 +13,8 @@
       "scope": "NONE"
     },
     "medical": {
-      "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
+      "raw_status": "LIMITED",
+      "status": "LIMITED",
       "enforcement": "STRICT",
       "scope": "NONE",
       "override_reason": null
@@ -36,8 +36,8 @@
     "enforcement_flags": [],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is illegal in Wisconsin under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}} De-Facto however, the enforcement of state law is uneven due to a patchwork mixture of local ordinance decriminalization and the legal gray area referred to as the \"hemp-derived THC loophole\", which allows products less than 0.3% Delta-9 THC with similar effects (such as THC-A, concentrated Delta-9, and Delta-8 products) to be sold legally in the state. Moore case, the Wisconsin Supreme Court upheld in a 4-3 decision that the odor of cannabis guarantees probable cause for a police search. The 1939 legislation \"161.275 Possession and use of marijuana; penalty\" stated that the penalty for \"growing, cultivating, mixing, compounding, having control of, preparing, possessing, using, prescribing, selling, administering or dispensing marijuana or hemp\" would be no less than one year and no more than two years in the state prison. Currently, possession of any amount (first offense) is a misdemeanor, punishable by up to 6 months in prison and a $1,000 fine. Possession of any amount for a subsequent offense is a felony, punishable by up to 3.5 years in prison and a $10,000 fine, which is also the penalty for selling 200 grams (7 oz) or less. State law allows possession of less than 25 grams (9/10 oz) to be prosecuted as an ordinance violation at the municipal and county level, permitting those entities to issue a penalty of monetary forfeiture (fines) with no jail time if the amount specified by the ordinance is received. Penalties vary by municipality, with some stricter ordinances issuing additional penalties such as suspension of a driver's license along with the fine, while the laxest ordinances issue no penalties for possession of 1 ounce or less in private or public areas where smoking cigarettes is allowed. Note also that while these types of ordinances are common, the practice is not consistent and some cities or villages do not have these provisions, relying on county or state-level resources for enforcement. For possession in public, offenders would be subject to a $109 fine unless used under the care of a doctor. Use within 1000 feet of a school, where tobacco smoking is prohibited, or without the consent of the property owner remain illegal under the law (reduced to a $1 fine).",
+  "notes_normalized": "Cannabis is illegal in Wisconsin for recreational use under state law, but medical cannabis is available only in limited form. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}} In April 2014, Wisconsin Act 267 (2013 Assembly Bill 726) was enacted. The legislation nominally legalized the use of cannabidiol (CBD) in the state for treatment of seizure disorders. It was passed by a voice vote in the Assembly and a unanimous 33–0 vote in the Senate. It was renamed \"Lydia's Law\" by an act a month later in honor of a seven-year-old girl who suffered from a rare form of epilepsy; the girl's parents had pushed for CBD legislation in the state. The bill was criticized as being largely symbolic, as in order to gain support for passage in the Senate, its sponsors added a clause specifying that CBD oil must have FDA approval to be prescribed; prior to that clause the bill had support in the Assembly but was stalled in the Senate. Because CBD did not yet have FDA approval, and because a complex series of steps were required to allow trial usage, Wisconsin doctors were not allowed to prescribe CBD. As a result, CBD advocates stated that they could not find a doctor in Wisconsin willing to prescribe CBD. In mid-2015, state Sen. Van Wanggaard proposed an amendment to remove penalties for possession of CBD oil, negating prescription requirements, but the amendment still would not provide a legal way to create or obtain CBD oil. In 2017, Governor Scott Walker signed into law a bill that amended Lydia's Law to legalize access to CBD oil for people whose doctors certify that the oil is used to treat a medical condition. De-Facto however, the enforcement of state law is uneven due to a patchwork mixture of local ordinance decriminalization and the legal gray area referred to as the \"hemp-derived THC loophole\", which allows products less than 0.3% Delta-9 THC with similar effects (such as THC-A, concentrated Delta-9, and Delta-8 products) to be sold legally in the state. Moore case, the Wisconsin Supreme Court upheld in a 4-3 decision that the odor of cannabis guarantees probable cause for a police search. The 1939 legislation \"161.275 Possession and use of marijuana; penalty\" stated that the penalty for \"growing, cultivating, mixing, compounding, having control of, preparing, possessing, using, prescribing, selling, administering or dispensing marijuana or hemp\" would be no less than one year and no more than two years in the state prison. Currently, possession of any amount (first offense) is a misdemeanor, punishable by up to 6 months in prison and a $1,000 fine. Possession of any amount for a subsequent offense is a felony, punishable by up to 3.5 years in prison and a $10,000 fine, which is also the penalty for selling 200 grams (7 oz) or less. State law allows possession of less than 25 grams (9/10 oz) to be prosecuted as an ordinance violation at the municipal and county level, permitting those entities to issue a penalty of monetary forfeiture (fines) with no jail time if the amount specified by the ordinance is received. Penalties vary by municipality, with some stricter ordinances issuing additional penalties such as suspension of a driver's license along with the fine, while the laxest ordinances issue no penalties for possession of 1 ounce or less in private or public areas where smoking cigarettes is allowed. Note also that while these types of ordinances are common, the practice is not consistent and some cities or villages do not have these provisions, relying on county or state-level resources for enforcement. For possession in public, offenders would be subject to a $109 fine unless used under the care of a doctor. Use within 1000 feet of a school, where tobacco smoking is prohibited, or without the consent of the property owner remain illegal under the law (reduced to a $1 fine). 2026 analysis and advocates have suggested that Wisconsin's powerful alcohol industry has contributed to resistance to cannabis legalization. Wisconsin's Public Radio reported that lobbying groups associated with the states beer industry have been cited as a possible factor in slowing legislation action on marijuana reform. Industrial hemp was grown experimentally in Wisconsin as early as 1908 on state farms under the direction of the Wisconsin Agricultural Experiment Station. By 1917 there were 7,000 acres dedicated to hemp farming in the state, and by the 1940s Wisconsin led the nation in industrial hemp production. The Rens Hemp Company of Brandon, Wisconsin, closed in 1958, was the last legal hemp producer in the U.S. following World War II. Prior to its 1958 shutdown, Rens had been the primary provider of hemp rope for the United States Navy. In November 2017, Governor Scott Walker signed a law legalizing the cultivation of industrial hemp (containing under 0.3% THC), following unanimous passage of the bill in the Wisconsin legislature. In 2018, the Farm Bill was passed at the Federal Level. This bill legalized hemp and its derivatives as long as they contain less than 0.3% Delta-9 THC by dry weight. Because the law did not specifically address other intoxicating cannabinoids found in hemp, such as Delta-8 THC and THC-A, these products are being sold legally in the state. They are commonly available in forms such as THC-A flower, edibles, beverages, and vape cartridges. As of late 2025, State Assembly Member Lindee Brill made a proposal that would redefine hemp to include all psychoactive cannabinoids and effectively close this loophole.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -57,8 +57,8 @@
   "related_codes": [
     "usa",
     "us-mo",
-    "us-oh",
-    "us-tn"
+    "us-ky",
+    "us-oh"
   ],
   "related_names": [
     {
@@ -70,12 +70,12 @@
       "name": "Missouri"
     },
     {
-      "code": "us-oh",
-      "name": "Ohio"
+      "code": "us-ky",
+      "name": "Kentucky"
     },
     {
-      "code": "us-tn",
-      "name": "Tennessee"
+      "code": "us-oh",
+      "name": "Ohio"
     }
   ],
   "graph": {
@@ -105,8 +105,8 @@
         "name": "Indiana"
       },
       {
-        "code": "us-ky",
-        "name": "Kentucky"
+        "code": "us-tn",
+        "name": "Tennessee"
       }
     ],
     "cluster_links": [
@@ -125,12 +125,12 @@
         "name": "Missouri"
       },
       {
-        "code": "us-oh",
-        "name": "Ohio"
+        "code": "us-ky",
+        "name": "Kentucky"
       },
       {
-        "code": "us-tn",
-        "name": "Tennessee"
+        "code": "us-oh",
+        "name": "Ohio"
       }
     ],
     "federal_parent": {
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-wi",
-    "content_hash": "e2d44292cb4582e9ea780e66f8eada14a9f5b4bfe1768e95893e35509cdd786e",
-    "notes_hash": "e8df7447c5087fb5901351a4f10c30010f23f6e48705fa04526bfd35f67c6e5c",
-    "model_hash": "bfba50613315a46d3e33f0b48e1a7928a2be7db2ea07e02a96f9680186859199"
+    "content_hash": "a0b83f8fd391eae637f16ef044b51d68b744180104f12db5252f0b615019559f",
+    "notes_hash": "eb2cd4784746ba6fcbc988a218a03304354933932ef3020787f2934b73ff103b",
+    "model_hash": "ef9c0bc75ce951af9df0297dbc05834affa5a4bef20d1112113863e0a10e3cec"
   },
   "updated_at": "2026-04-10"
 }

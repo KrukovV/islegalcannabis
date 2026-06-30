@@ -13,14 +13,14 @@
       "scope": "NONE"
     },
     "medical": {
-      "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
       "override_reason": null
     },
     "distribution": {
-      "status": "illegal",
+      "status": "restricted",
       "scopes": {
         "possession": "illegal",
         "use": "illegal",
@@ -36,8 +36,8 @@
     "enforcement_flags": [],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is illegal in Georgia under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|5}} In the 1970s and 1980s, a number of county sheriffs and deputies were prosecuted for their involvement in the drug trade, including Sheriff John David Davis, a former moonshiner who had been pardoned by President Nixon and was convicted in 1984 of smuggling cannabis into South Georgia. In 1983, amidst controversy, the Drug Enforcement Administration conducted aerial spraying of illegal cannabis plots in the Chattahoochee National Forest in northern Georgia, using the herbicide paraquat. Cannabis policy in the state of Georgia has been discussed in relation to racial disparities in enforcement. According to the American Civil Liberties Union of Georgia, Black people in Georgia were three times more likely than white people to be arrested for marijuana possession, despite similar usage rates nationally. The ACLU of Georgia also reported that Georgia had more than 52,000 marijuana arrests in 2018, most of them for possession.",
+  "notes_normalized": "Cannabis is illegal in Georgia for recreational use under state law, but medical cannabis is legal under a regulated state program. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|5}} Cannabis in Georgia is illegal for recreational use, but decriminalized in the cities of Atlanta, Savannah, Macon, Athens, and others. Limited medical use was legalized in 2015 through low THC cannabis oil, and later legislation expanded the medical cannabis program in the state. The first licensed dispensaries opened in 2023. In February 1980, a 50-0 Senate vote and a 156-8 House vote passed Mona Taft's bill supporting legal medical marijuana in Georgia for people diagnosed with glaucoma and cancer patients undergoing chemotherapy and radiation. 14, 1980, Knight-Ridder wire report about the bill, Broun hugged Taft when the legislation passed the Senate. The bill's sponsor, Rep. As a result, the law has lingered on the books for the last 30 years. A measure to allow medical cannabis oil up to 5% tetrahydrocannabinol (THC) passed the Georgia House in February 2015. On April 16, 2015, the low-THC cannabis oil (rich in cannabidiol, or CBD) was legalized for medical use in the state under HB 1, the Haleigh’s Hope Act. The bill was immediately enacted after being signed by Governor Nathan Deal. In the 1970s and 1980s, a number of county sheriffs and deputies were prosecuted for their involvement in the drug trade, including Sheriff John David Davis, a former moonshiner who had been pardoned by President Nixon and was convicted in 1984 of smuggling cannabis into South Georgia. In 1983, amidst controversy, the Drug Enforcement Administration conducted aerial spraying of illegal cannabis plots in the Chattahoochee National Forest in northern Georgia, using the herbicide paraquat. Cannabis policy in the state of Georgia has been discussed in relation to racial disparities in enforcement. According to the American Civil Liberties Union of Georgia, Black people in Georgia were three times more likely than white people to be arrested for marijuana possession, despite similar usage rates nationally. The ACLU of Georgia also reported that Georgia had more than 52,000 marijuana arrests in 2018, most of them for possession. Davis' case parallels that of a number of other former moonshiners who segued into the cannabis trade. Citizens and a congressman objected, noting paraquat's dangers, and a temporary restraining order was placed on further spraying. The federal Drug Abuse Policy Officer Pat McKelvey rebutted that paraquat is a safe and widely used herbicide, and alleged that the objections to the DEA spraying had been raised by cannabis growers and legalization advocates.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -52,13 +52,13 @@
     "medical": "override",
     "enforcement_strength": "HIGH",
     "federal_conflict": "Cannabis remains federally illegal in United States.",
-    "legalization_status": "State illegal"
+    "legalization_status": "Medical only"
   },
   "related_codes": [
     "usa",
     "us-nc",
-    "us-fl",
-    "us-ms"
+    "us-ms",
+    "us-va"
   ],
   "related_names": [
     {
@@ -70,12 +70,12 @@
       "name": "North Carolina"
     },
     {
-      "code": "us-fl",
-      "name": "Florida"
-    },
-    {
       "code": "us-ms",
       "name": "Mississippi"
+    },
+    {
+      "code": "us-va",
+      "name": "Virginia"
     }
   ],
   "graph": {
@@ -101,12 +101,12 @@
         "name": "Kentucky"
       },
       {
-        "code": "us-wv",
-        "name": "West Virginia"
+        "code": "us-fl",
+        "name": "Florida"
       },
       {
-        "code": "us-in",
-        "name": "Indiana"
+        "code": "us-wv",
+        "name": "West Virginia"
       }
     ],
     "cluster_links": [
@@ -115,8 +115,8 @@
         "name": "United States"
       },
       {
-        "code": "us-va",
-        "name": "Virginia"
+        "code": "us-oh",
+        "name": "Ohio"
       }
     ],
     "same_country_states": [
@@ -125,12 +125,12 @@
         "name": "North Carolina"
       },
       {
-        "code": "us-fl",
-        "name": "Florida"
-      },
-      {
         "code": "us-ms",
         "name": "Mississippi"
+      },
+      {
+        "code": "us-va",
+        "name": "Virginia"
       }
     ],
     "federal_parent": {
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-ga",
-    "content_hash": "d3e376acf59dc3d38a69a18a1a096fe60d3d7b6c750998c10405ae7ee8dc482a",
-    "notes_hash": "801e4ebdcddf8d4622c0cbc2f708ba542b0dc0f6494a8988c1c4f115edbf223e",
-    "model_hash": "633cfdc28bbafcfd9af7065a7265144d20924e64a4176a666ea3bf37aadffabe"
+    "content_hash": "7196950f6bc3275baef2e00a9239bf8a7f0ea57eab0422b0c9aa4108ccb166d3",
+    "notes_hash": "e35d213e96ec72b7fb2705b3fed9b2c87d8361259cc3138bdfba02c1a377e590",
+    "model_hash": "54c796cf2f4bc99c344b633bc36a3ba7fba4593d294a5bf39e363a1d730a9568"
   },
   "updated_at": "2026-04-10"
 }

@@ -3579,9 +3579,9 @@
         "us-ca"
       ],
       "legal_similarity": [
+        "us-nv",
         "us-mt",
-        "us-nm",
-        "us-mn"
+        "us-az"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -3595,8 +3595,8 @@
       ],
       "legal_similarity": [
         "us-ky",
-        "us-sc",
-        "us-in"
+        "us-ar",
+        "us-sc"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -3609,9 +3609,9 @@
         "us-la"
       ],
       "legal_similarity": [
-        "us-fl",
-        "us-va",
-        "us-pa"
+        "us-al",
+        "us-ky",
+        "us-ga"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -3626,7 +3626,7 @@
       "legal_similarity": [
         "us-co",
         "us-ca",
-        "us-or"
+        "us-mt"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -3641,7 +3641,7 @@
       "legal_similarity": [
         "us-az",
         "us-wa",
-        "us-co"
+        "us-nm"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -3655,8 +3655,8 @@
       ],
       "legal_similarity": [
         "us-az",
-        "us-nv",
-        "us-mo"
+        "us-mt",
+        "us-nv"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -3684,9 +3684,7 @@
         "us-pa"
       ],
       "legal_similarity": [
-        "us-me",
-        "us-mn",
-        "us-nm"
+        "us-mn"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -3699,9 +3697,9 @@
         "us-al"
       ],
       "legal_similarity": [
+        "us-ky",
         "us-va",
-        "us-ar",
-        "us-pa"
+        "us-wv"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -3715,8 +3713,8 @@
       ],
       "legal_similarity": [
         "us-ky",
-        "us-wv",
-        "us-in"
+        "us-fl",
+        "us-wv"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -3729,9 +3727,9 @@
         "us-ak"
       ],
       "legal_similarity": [
+        "us-ne",
         "us-nd",
-        "us-la",
-        "us-nh"
+        "us-ms"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -3745,7 +3743,7 @@
       ],
       "legal_similarity": [
         "us-wi",
-        "us-sd",
+        "us-ks",
         "us-in"
       ],
       "seo_cluster": "USA_CLUSTER"
@@ -3759,9 +3757,9 @@
         "us-nv"
       ],
       "legal_similarity": [
-        "us-sd",
-        "us-ok",
-        "us-ia"
+        "us-wy",
+        "us-ks",
+        "us-tx"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -3776,7 +3774,7 @@
       "legal_similarity": [
         "us-mi",
         "us-oh",
-        "us-ny"
+        "us-md"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -3790,8 +3788,8 @@
       ],
       "legal_similarity": [
         "us-tn",
-        "us-wv",
-        "us-wi"
+        "us-wi",
+        "us-ia"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -3804,6 +3802,7 @@
         "us-mo"
       ],
       "legal_similarity": [
+        "us-ia",
         "us-tx",
         "us-wy"
       ],
@@ -3832,11 +3831,7 @@
         "us-ar",
         "us-al"
       ],
-      "legal_similarity": [
-        "us-nd",
-        "us-nh",
-        "us-hi"
-      ],
+      "legal_similarity": [],
       "seo_cluster": "USA_CLUSTER"
     },
     {
@@ -3849,8 +3844,8 @@
       ],
       "legal_similarity": [
         "us-vt",
-        "us-ny",
-        "us-nj"
+        "us-me",
+        "us-ny"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -3863,9 +3858,9 @@
         "us-va"
       ],
       "legal_similarity": [
-        "us-me",
-        "us-mn",
-        "us-nm"
+        "us-nj",
+        "us-ny",
+        "us-ct"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -3878,9 +3873,9 @@
         "us-vt"
       ],
       "legal_similarity": [
-        "us-de",
-        "us-md",
-        "us-mn"
+        "us-ri",
+        "us-ct",
+        "us-ny"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -3895,7 +3890,7 @@
       "legal_similarity": [
         "us-il",
         "us-mo",
-        "us-ny"
+        "us-md"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -3908,9 +3903,7 @@
         "us-il"
       ],
       "legal_similarity": [
-        "us-mt",
-        "us-nm",
-        "us-md"
+        "us-de"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -3939,7 +3932,8 @@
       ],
       "legal_similarity": [
         "us-nc",
-        "us-ne"
+        "us-ne",
+        "us-nd"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -3952,9 +3946,9 @@
         "us-ut"
       ],
       "legal_similarity": [
-        "us-nm",
-        "us-mn",
-        "us-md"
+        "us-co",
+        "us-nv",
+        "us-wa"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -3967,6 +3961,7 @@
         "us-wv"
       ],
       "legal_similarity": [
+        "us-nh",
         "us-ms",
         "us-ne"
       ],
@@ -3981,9 +3976,9 @@
         "us-mn"
       ],
       "legal_similarity": [
-        "us-la",
-        "us-nh",
-        "us-hi"
+        "us-ms",
+        "us-nc",
+        "us-nh"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -3997,7 +3992,8 @@
       ],
       "legal_similarity": [
         "us-ms",
-        "us-nc"
+        "us-nc",
+        "us-nh"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -4010,9 +4006,9 @@
         "us-ri"
       ],
       "legal_similarity": [
-        "us-la",
-        "us-nd",
-        "us-hi"
+        "us-nc",
+        "us-ms",
+        "us-ne"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -4040,9 +4036,9 @@
         "us-tx"
       ],
       "legal_similarity": [
+        "us-nv",
         "us-mt",
-        "us-mn",
-        "us-md"
+        "us-ca"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -4072,7 +4068,7 @@
       "legal_similarity": [
         "us-ma",
         "us-ri",
-        "us-oh"
+        "us-md"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -4086,8 +4082,8 @@
       ],
       "legal_similarity": [
         "us-mi",
-        "us-il",
-        "us-ny"
+        "us-md",
+        "us-il"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -4101,8 +4097,8 @@
       ],
       "legal_similarity": [
         "us-ia",
-        "us-sd",
-        "us-al"
+        "us-tn",
+        "us-wi"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -4116,8 +4112,8 @@
       ],
       "legal_similarity": [
         "us-ca",
-        "us-az",
-        "us-co"
+        "us-mt",
+        "us-az"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -4130,9 +4126,9 @@
         "us-va"
       ],
       "legal_similarity": [
-        "us-fl",
-        "us-ar",
-        "us-ut"
+        "us-wv",
+        "us-sc",
+        "us-ky"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -4161,8 +4157,8 @@
       ],
       "legal_similarity": [
         "us-wv",
-        "us-tn",
-        "us-ky"
+        "us-ky",
+        "us-al"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -4175,9 +4171,9 @@
         "us-ks"
       ],
       "legal_similarity": [
-        "us-ia",
-        "us-ok",
-        "us-wi"
+        "us-ut",
+        "us-ar",
+        "us-ky"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -4191,8 +4187,8 @@
       ],
       "legal_similarity": [
         "us-in",
-        "us-sc",
-        "us-wv"
+        "us-wi",
+        "us-ia"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -4205,7 +4201,9 @@
         "us-ks"
       ],
       "legal_similarity": [
-        "us-wy"
+        "us-ia",
+        "us-wy",
+        "us-tn"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -4218,9 +4216,9 @@
         "us-wy"
       ],
       "legal_similarity": [
+        "us-sd",
         "us-ar",
-        "us-fl",
-        "us-va"
+        "us-al"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -4234,8 +4232,8 @@
       ],
       "legal_similarity": [
         "us-pa",
-        "us-fl",
-        "us-ar"
+        "us-sc",
+        "us-ga"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -4250,7 +4248,7 @@
       "legal_similarity": [
         "us-ny",
         "us-ri",
-        "us-nj"
+        "us-me"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -4263,9 +4261,9 @@
         "us-nv"
       ],
       "legal_similarity": [
+        "us-mt",
         "us-ca",
-        "us-az",
-        "us-co"
+        "us-az"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -4280,7 +4278,7 @@
       "legal_similarity": [
         "us-ia",
         "us-in",
-        "us-ky"
+        "us-tn"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -4293,9 +4291,9 @@
         "us-nc"
       ],
       "legal_similarity": [
+        "us-pa",
         "us-sc",
-        "us-ky",
-        "us-in"
+        "us-ky"
       ],
       "seo_cluster": "USA_CLUSTER"
     },
@@ -4308,8 +4306,9 @@
         "us-ut"
       ],
       "legal_similarity": [
+        "us-id",
         "us-ks",
-        "us-tx"
+        "us-ok"
       ],
       "seo_cluster": "USA_CLUSTER"
     }
@@ -14202,17 +14201,17 @@
     },
     {
       "from": "us-ak",
+      "to": "us-nv",
+      "type": "LEGAL_SIMILARITY"
+    },
+    {
+      "from": "us-ak",
       "to": "us-mt",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-ak",
-      "to": "us-nm",
-      "type": "LEGAL_SIMILARITY"
-    },
-    {
-      "from": "us-ak",
-      "to": "us-mn",
+      "to": "us-az",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -14222,7 +14221,7 @@
     },
     {
       "from": "us-ak",
-      "to": "us-ut",
+      "to": "us-wy",
       "type": "CULTURAL_CLUSTER"
     },
     {
@@ -14232,12 +14231,12 @@
     },
     {
       "from": "us-ak",
-      "to": "us-nv",
+      "to": "us-hi",
       "type": "SAME_COUNTRY_STATES"
     },
     {
       "from": "us-ak",
-      "to": "us-hi",
+      "to": "us-ut",
       "type": "SAME_COUNTRY_STATES"
     },
     {
@@ -14247,17 +14246,17 @@
     },
     {
       "from": "us-ak",
+      "to": "us-nv",
+      "type": "POLICY_CONTINUUM"
+    },
+    {
+      "from": "us-ak",
       "to": "us-mt",
       "type": "POLICY_CONTINUUM"
     },
     {
       "from": "us-ak",
-      "to": "us-nm",
-      "type": "POLICY_CONTINUUM"
-    },
-    {
-      "from": "us-ak",
-      "to": "us-mn",
+      "to": "us-az",
       "type": "POLICY_CONTINUUM"
     },
     {
@@ -14282,12 +14281,12 @@
     },
     {
       "from": "us-al",
-      "to": "us-sc",
+      "to": "us-ar",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-al",
-      "to": "us-in",
+      "to": "us-sc",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -14302,12 +14301,12 @@
     },
     {
       "from": "us-al",
-      "to": "us-ar",
+      "to": "us-la",
       "type": "SAME_COUNTRY_STATES"
     },
     {
       "from": "us-al",
-      "to": "us-la",
+      "to": "us-in",
       "type": "SAME_COUNTRY_STATES"
     },
     {
@@ -14337,17 +14336,17 @@
     },
     {
       "from": "us-ar",
-      "to": "us-fl",
+      "to": "us-al",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-ar",
-      "to": "us-va",
+      "to": "us-ky",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-ar",
-      "to": "us-pa",
+      "to": "us-ga",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -14357,7 +14356,7 @@
     },
     {
       "from": "us-ar",
-      "to": "us-il",
+      "to": "us-ks",
       "type": "CULTURAL_CLUSTER"
     },
     {
@@ -14367,12 +14366,12 @@
     },
     {
       "from": "us-ar",
-      "to": "us-al",
+      "to": "us-tn",
       "type": "SAME_COUNTRY_STATES"
     },
     {
       "from": "us-ar",
-      "to": "us-tn",
+      "to": "us-il",
       "type": "SAME_COUNTRY_STATES"
     },
     {
@@ -14407,7 +14406,7 @@
     },
     {
       "from": "us-az",
-      "to": "us-or",
+      "to": "us-mt",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -14417,7 +14416,7 @@
     },
     {
       "from": "us-az",
-      "to": "us-mt",
+      "to": "us-or",
       "type": "CULTURAL_CLUSTER"
     },
     {
@@ -14452,7 +14451,7 @@
     },
     {
       "from": "us-az",
-      "to": "us-or",
+      "to": "us-mt",
       "type": "POLICY_CONTINUUM"
     },
     {
@@ -14482,7 +14481,7 @@
     },
     {
       "from": "us-ca",
-      "to": "us-co",
+      "to": "us-nm",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -14492,7 +14491,7 @@
     },
     {
       "from": "us-ca",
-      "to": "us-mt",
+      "to": "us-co",
       "type": "CULTURAL_CLUSTER"
     },
     {
@@ -14507,7 +14506,7 @@
     },
     {
       "from": "us-ca",
-      "to": "us-nm",
+      "to": "us-mt",
       "type": "SAME_COUNTRY_STATES"
     },
     {
@@ -14527,7 +14526,7 @@
     },
     {
       "from": "us-ca",
-      "to": "us-co",
+      "to": "us-nm",
       "type": "POLICY_CONTINUUM"
     },
     {
@@ -14552,12 +14551,12 @@
     },
     {
       "from": "us-co",
-      "to": "us-nv",
+      "to": "us-mt",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-co",
-      "to": "us-mo",
+      "to": "us-nv",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -14567,7 +14566,7 @@
     },
     {
       "from": "us-co",
-      "to": "us-mt",
+      "to": "us-id",
       "type": "CULTURAL_CLUSTER"
     },
     {
@@ -14597,12 +14596,12 @@
     },
     {
       "from": "us-co",
-      "to": "us-nv",
+      "to": "us-mt",
       "type": "POLICY_CONTINUUM"
     },
     {
       "from": "us-co",
-      "to": "us-mo",
+      "to": "us-nv",
       "type": "POLICY_CONTINUUM"
     },
     {
@@ -14697,17 +14696,7 @@
     },
     {
       "from": "us-de",
-      "to": "us-me",
-      "type": "LEGAL_SIMILARITY"
-    },
-    {
-      "from": "us-de",
       "to": "us-mn",
-      "type": "LEGAL_SIMILARITY"
-    },
-    {
-      "from": "us-de",
-      "to": "us-nm",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -14742,17 +14731,7 @@
     },
     {
       "from": "us-de",
-      "to": "us-me",
-      "type": "POLICY_CONTINUUM"
-    },
-    {
-      "from": "us-de",
       "to": "us-mn",
-      "type": "POLICY_CONTINUUM"
-    },
-    {
-      "from": "us-de",
-      "to": "us-nm",
       "type": "POLICY_CONTINUUM"
     },
     {
@@ -14772,17 +14751,17 @@
     },
     {
       "from": "us-fl",
+      "to": "us-ky",
+      "type": "LEGAL_SIMILARITY"
+    },
+    {
+      "from": "us-fl",
       "to": "us-va",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-fl",
-      "to": "us-ar",
-      "type": "LEGAL_SIMILARITY"
-    },
-    {
-      "from": "us-fl",
-      "to": "us-pa",
+      "to": "us-wv",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -14792,7 +14771,7 @@
     },
     {
       "from": "us-fl",
-      "to": "us-ky",
+      "to": "us-la",
       "type": "CULTURAL_CLUSTER"
     },
     {
@@ -14837,12 +14816,12 @@
     },
     {
       "from": "us-ga",
-      "to": "us-wv",
+      "to": "us-fl",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-ga",
-      "to": "us-in",
+      "to": "us-wv",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -14852,7 +14831,7 @@
     },
     {
       "from": "us-ga",
-      "to": "us-va",
+      "to": "us-oh",
       "type": "CULTURAL_CLUSTER"
     },
     {
@@ -14862,12 +14841,12 @@
     },
     {
       "from": "us-ga",
-      "to": "us-fl",
+      "to": "us-ms",
       "type": "SAME_COUNTRY_STATES"
     },
     {
       "from": "us-ga",
-      "to": "us-ms",
+      "to": "us-va",
       "type": "SAME_COUNTRY_STATES"
     },
     {
@@ -14892,17 +14871,17 @@
     },
     {
       "from": "us-hi",
+      "to": "us-ne",
+      "type": "LEGAL_SIMILARITY"
+    },
+    {
+      "from": "us-hi",
       "to": "us-nd",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-hi",
-      "to": "us-la",
-      "type": "LEGAL_SIMILARITY"
-    },
-    {
-      "from": "us-hi",
-      "to": "us-nh",
+      "to": "us-ms",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -14937,17 +14916,17 @@
     },
     {
       "from": "us-hi",
+      "to": "us-ne",
+      "type": "POLICY_CONTINUUM"
+    },
+    {
+      "from": "us-hi",
       "to": "us-nd",
       "type": "POLICY_CONTINUUM"
     },
     {
       "from": "us-hi",
-      "to": "us-la",
-      "type": "POLICY_CONTINUUM"
-    },
-    {
-      "from": "us-hi",
-      "to": "us-nh",
+      "to": "us-ms",
       "type": "POLICY_CONTINUUM"
     },
     {
@@ -14972,7 +14951,7 @@
     },
     {
       "from": "us-ia",
-      "to": "us-sd",
+      "to": "us-ks",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -14992,12 +14971,12 @@
     },
     {
       "from": "us-ia",
-      "to": "us-ks",
+      "to": "us-ne",
       "type": "SAME_COUNTRY_STATES"
     },
     {
       "from": "us-ia",
-      "to": "us-ne",
+      "to": "us-sd",
       "type": "SAME_COUNTRY_STATES"
     },
     {
@@ -15027,17 +15006,17 @@
     },
     {
       "from": "us-id",
-      "to": "us-sd",
+      "to": "us-wy",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-id",
-      "to": "us-ok",
+      "to": "us-ks",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-id",
-      "to": "us-ia",
+      "to": "us-tx",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -15047,7 +15026,7 @@
     },
     {
       "from": "us-id",
-      "to": "us-ca",
+      "to": "us-co",
       "type": "CULTURAL_CLUSTER"
     },
     {
@@ -15057,12 +15036,12 @@
     },
     {
       "from": "us-id",
-      "to": "us-wy",
+      "to": "us-wa",
       "type": "SAME_COUNTRY_STATES"
     },
     {
       "from": "us-id",
-      "to": "us-wa",
+      "to": "us-ca",
       "type": "SAME_COUNTRY_STATES"
     },
     {
@@ -15097,7 +15076,7 @@
     },
     {
       "from": "us-il",
-      "to": "us-ny",
+      "to": "us-md",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -15142,7 +15121,7 @@
     },
     {
       "from": "us-il",
-      "to": "us-ny",
+      "to": "us-md",
       "type": "POLICY_CONTINUUM"
     },
     {
@@ -15167,12 +15146,12 @@
     },
     {
       "from": "us-in",
-      "to": "us-wv",
+      "to": "us-wi",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-in",
-      "to": "us-wi",
+      "to": "us-ia",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -15182,7 +15161,7 @@
     },
     {
       "from": "us-in",
-      "to": "us-ga",
+      "to": "us-al",
       "type": "CULTURAL_CLUSTER"
     },
     {
@@ -15192,12 +15171,12 @@
     },
     {
       "from": "us-in",
-      "to": "us-mo",
+      "to": "us-wv",
       "type": "SAME_COUNTRY_STATES"
     },
     {
       "from": "us-in",
-      "to": "us-al",
+      "to": "us-mo",
       "type": "SAME_COUNTRY_STATES"
     },
     {
@@ -15222,6 +15201,11 @@
     },
     {
       "from": "us-ks",
+      "to": "us-ia",
+      "type": "LEGAL_SIMILARITY"
+    },
+    {
+      "from": "us-ks",
       "to": "us-tx",
       "type": "LEGAL_SIMILARITY"
     },
@@ -15237,13 +15221,8 @@
     },
     {
       "from": "us-ks",
-      "to": "us-co",
+      "to": "us-nm",
       "type": "CULTURAL_CLUSTER"
-    },
-    {
-      "from": "us-ks",
-      "to": "us-ia",
-      "type": "SAME_COUNTRY_STATES"
     },
     {
       "from": "us-ks",
@@ -15253,6 +15232,11 @@
     {
       "from": "us-ks",
       "to": "us-ar",
+      "type": "SAME_COUNTRY_STATES"
+    },
+    {
+      "from": "us-ks",
+      "to": "us-co",
       "type": "SAME_COUNTRY_STATES"
     },
     {
@@ -15337,21 +15321,6 @@
     },
     {
       "from": "us-la",
-      "to": "us-nd",
-      "type": "LEGAL_SIMILARITY"
-    },
-    {
-      "from": "us-la",
-      "to": "us-nh",
-      "type": "LEGAL_SIMILARITY"
-    },
-    {
-      "from": "us-la",
-      "to": "us-hi",
-      "type": "LEGAL_SIMILARITY"
-    },
-    {
-      "from": "us-la",
       "to": "usa",
       "type": "CULTURAL_CLUSTER"
     },
@@ -15381,21 +15350,6 @@
       "type": "FEDERAL_PARENT_LINK"
     },
     {
-      "from": "us-la",
-      "to": "us-nd",
-      "type": "POLICY_CONTINUUM"
-    },
-    {
-      "from": "us-la",
-      "to": "us-nh",
-      "type": "POLICY_CONTINUUM"
-    },
-    {
-      "from": "us-la",
-      "to": "us-hi",
-      "type": "POLICY_CONTINUUM"
-    },
-    {
       "from": "us-ma",
       "to": "us-ri",
       "type": "GEO_ADJACENCY"
@@ -15417,12 +15371,12 @@
     },
     {
       "from": "us-ma",
-      "to": "us-ny",
+      "to": "us-me",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-ma",
-      "to": "us-nj",
+      "to": "us-ny",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -15437,7 +15391,7 @@
     },
     {
       "from": "us-ma",
-      "to": "us-me",
+      "to": "us-nj",
       "type": "SAME_COUNTRY_STATES"
     },
     {
@@ -15462,12 +15416,12 @@
     },
     {
       "from": "us-ma",
-      "to": "us-ny",
+      "to": "us-me",
       "type": "POLICY_CONTINUUM"
     },
     {
       "from": "us-ma",
-      "to": "us-nj",
+      "to": "us-ny",
       "type": "POLICY_CONTINUUM"
     },
     {
@@ -15487,17 +15441,17 @@
     },
     {
       "from": "us-md",
-      "to": "us-me",
+      "to": "us-nj",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-md",
-      "to": "us-mn",
+      "to": "us-ny",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-md",
-      "to": "us-nm",
+      "to": "us-ct",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -15507,13 +15461,8 @@
     },
     {
       "from": "us-md",
-      "to": "us-nc",
+      "to": "us-ri",
       "type": "CULTURAL_CLUSTER"
-    },
-    {
-      "from": "us-md",
-      "to": "us-nj",
-      "type": "SAME_COUNTRY_STATES"
     },
     {
       "from": "us-md",
@@ -15522,7 +15471,12 @@
     },
     {
       "from": "us-md",
-      "to": "us-ny",
+      "to": "us-nc",
+      "type": "SAME_COUNTRY_STATES"
+    },
+    {
+      "from": "us-md",
+      "to": "us-oh",
       "type": "SAME_COUNTRY_STATES"
     },
     {
@@ -15532,17 +15486,17 @@
     },
     {
       "from": "us-md",
-      "to": "us-me",
+      "to": "us-nj",
       "type": "POLICY_CONTINUUM"
     },
     {
       "from": "us-md",
-      "to": "us-mn",
+      "to": "us-ny",
       "type": "POLICY_CONTINUUM"
     },
     {
       "from": "us-md",
-      "to": "us-nm",
+      "to": "us-ct",
       "type": "POLICY_CONTINUUM"
     },
     {
@@ -15562,17 +15516,17 @@
     },
     {
       "from": "us-me",
-      "to": "us-de",
+      "to": "us-ri",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-me",
-      "to": "us-md",
+      "to": "us-ct",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-me",
-      "to": "us-mn",
+      "to": "us-ny",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -15582,22 +15536,22 @@
     },
     {
       "from": "us-me",
-      "to": "us-nj",
+      "to": "us-md",
       "type": "CULTURAL_CLUSTER"
     },
     {
       "from": "us-me",
-      "to": "us-ri",
+      "to": "us-nj",
       "type": "SAME_COUNTRY_STATES"
     },
     {
       "from": "us-me",
-      "to": "us-ct",
+      "to": "us-de",
       "type": "SAME_COUNTRY_STATES"
     },
     {
       "from": "us-me",
-      "to": "us-ny",
+      "to": "us-pa",
       "type": "SAME_COUNTRY_STATES"
     },
     {
@@ -15607,17 +15561,17 @@
     },
     {
       "from": "us-me",
-      "to": "us-de",
+      "to": "us-ri",
       "type": "POLICY_CONTINUUM"
     },
     {
       "from": "us-me",
-      "to": "us-md",
+      "to": "us-ct",
       "type": "POLICY_CONTINUUM"
     },
     {
       "from": "us-me",
-      "to": "us-mn",
+      "to": "us-ny",
       "type": "POLICY_CONTINUUM"
     },
     {
@@ -15647,7 +15601,7 @@
     },
     {
       "from": "us-mi",
-      "to": "us-ny",
+      "to": "us-md",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -15692,7 +15646,7 @@
     },
     {
       "from": "us-mi",
-      "to": "us-ny",
+      "to": "us-md",
       "type": "POLICY_CONTINUUM"
     },
     {
@@ -15712,17 +15666,7 @@
     },
     {
       "from": "us-mn",
-      "to": "us-mt",
-      "type": "LEGAL_SIMILARITY"
-    },
-    {
-      "from": "us-mn",
-      "to": "us-nm",
-      "type": "LEGAL_SIMILARITY"
-    },
-    {
-      "from": "us-mn",
-      "to": "us-md",
+      "to": "us-de",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -15757,17 +15701,7 @@
     },
     {
       "from": "us-mn",
-      "to": "us-mt",
-      "type": "POLICY_CONTINUUM"
-    },
-    {
-      "from": "us-mn",
-      "to": "us-nm",
-      "type": "POLICY_CONTINUUM"
-    },
-    {
-      "from": "us-mn",
-      "to": "us-md",
+      "to": "us-de",
       "type": "POLICY_CONTINUUM"
     },
     {
@@ -15872,6 +15806,11 @@
     },
     {
       "from": "us-ms",
+      "to": "us-nd",
+      "type": "LEGAL_SIMILARITY"
+    },
+    {
+      "from": "us-ms",
       "to": "usa",
       "type": "CULTURAL_CLUSTER"
     },
@@ -15908,6 +15847,11 @@
     {
       "from": "us-ms",
       "to": "us-ne",
+      "type": "POLICY_CONTINUUM"
+    },
+    {
+      "from": "us-ms",
+      "to": "us-nd",
       "type": "POLICY_CONTINUUM"
     },
     {
@@ -15927,17 +15871,17 @@
     },
     {
       "from": "us-mt",
-      "to": "us-nm",
+      "to": "us-co",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-mt",
-      "to": "us-mn",
+      "to": "us-nv",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-mt",
-      "to": "us-md",
+      "to": "us-wa",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -15947,13 +15891,8 @@
     },
     {
       "from": "us-mt",
-      "to": "us-nv",
+      "to": "us-ne",
       "type": "CULTURAL_CLUSTER"
-    },
-    {
-      "from": "us-mt",
-      "to": "us-co",
-      "type": "SAME_COUNTRY_STATES"
     },
     {
       "from": "us-mt",
@@ -15967,22 +15906,27 @@
     },
     {
       "from": "us-mt",
+      "to": "us-or",
+      "type": "SAME_COUNTRY_STATES"
+    },
+    {
+      "from": "us-mt",
       "to": "usa",
       "type": "FEDERAL_PARENT_LINK"
     },
     {
       "from": "us-mt",
-      "to": "us-nm",
+      "to": "us-co",
       "type": "POLICY_CONTINUUM"
     },
     {
       "from": "us-mt",
-      "to": "us-mn",
+      "to": "us-nv",
       "type": "POLICY_CONTINUUM"
     },
     {
       "from": "us-mt",
-      "to": "us-md",
+      "to": "us-wa",
       "type": "POLICY_CONTINUUM"
     },
     {
@@ -15999,6 +15943,11 @@
       "from": "us-nc",
       "to": "us-wv",
       "type": "GEO_ADJACENCY"
+    },
+    {
+      "from": "us-nc",
+      "to": "us-nh",
+      "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-nc",
@@ -16042,6 +15991,11 @@
     },
     {
       "from": "us-nc",
+      "to": "us-nh",
+      "type": "POLICY_CONTINUUM"
+    },
+    {
+      "from": "us-nc",
       "to": "us-ms",
       "type": "POLICY_CONTINUUM"
     },
@@ -16067,17 +16021,17 @@
     },
     {
       "from": "us-nd",
-      "to": "us-la",
+      "to": "us-ms",
+      "type": "LEGAL_SIMILARITY"
+    },
+    {
+      "from": "us-nd",
+      "to": "us-nc",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-nd",
       "to": "us-nh",
-      "type": "LEGAL_SIMILARITY"
-    },
-    {
-      "from": "us-nd",
-      "to": "us-hi",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -16112,17 +16066,17 @@
     },
     {
       "from": "us-nd",
-      "to": "us-la",
+      "to": "us-ms",
+      "type": "POLICY_CONTINUUM"
+    },
+    {
+      "from": "us-nd",
+      "to": "us-nc",
       "type": "POLICY_CONTINUUM"
     },
     {
       "from": "us-nd",
       "to": "us-nh",
-      "type": "POLICY_CONTINUUM"
-    },
-    {
-      "from": "us-nd",
-      "to": "us-hi",
       "type": "POLICY_CONTINUUM"
     },
     {
@@ -16148,6 +16102,11 @@
     {
       "from": "us-ne",
       "to": "us-nc",
+      "type": "LEGAL_SIMILARITY"
+    },
+    {
+      "from": "us-ne",
+      "to": "us-nh",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -16191,6 +16150,11 @@
       "type": "POLICY_CONTINUUM"
     },
     {
+      "from": "us-ne",
+      "to": "us-nh",
+      "type": "POLICY_CONTINUUM"
+    },
+    {
       "from": "us-nh",
       "to": "us-vt",
       "type": "GEO_ADJACENCY"
@@ -16207,17 +16171,17 @@
     },
     {
       "from": "us-nh",
-      "to": "us-la",
+      "to": "us-nc",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-nh",
-      "to": "us-nd",
+      "to": "us-ms",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-nh",
-      "to": "us-hi",
+      "to": "us-ne",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -16252,17 +16216,17 @@
     },
     {
       "from": "us-nh",
-      "to": "us-la",
+      "to": "us-nc",
       "type": "POLICY_CONTINUUM"
     },
     {
       "from": "us-nh",
-      "to": "us-nd",
+      "to": "us-ms",
       "type": "POLICY_CONTINUUM"
     },
     {
       "from": "us-nh",
-      "to": "us-hi",
+      "to": "us-ne",
       "type": "POLICY_CONTINUUM"
     },
     {
@@ -16357,17 +16321,17 @@
     },
     {
       "from": "us-nm",
+      "to": "us-nv",
+      "type": "LEGAL_SIMILARITY"
+    },
+    {
+      "from": "us-nm",
       "to": "us-mt",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-nm",
-      "to": "us-mn",
-      "type": "LEGAL_SIMILARITY"
-    },
-    {
-      "from": "us-nm",
-      "to": "us-md",
+      "to": "us-ca",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -16402,17 +16366,17 @@
     },
     {
       "from": "us-nm",
+      "to": "us-nv",
+      "type": "POLICY_CONTINUUM"
+    },
+    {
+      "from": "us-nm",
       "to": "us-mt",
       "type": "POLICY_CONTINUUM"
     },
     {
       "from": "us-nm",
-      "to": "us-mn",
-      "type": "POLICY_CONTINUUM"
-    },
-    {
-      "from": "us-nm",
-      "to": "us-md",
+      "to": "us-ca",
       "type": "POLICY_CONTINUUM"
     },
     {
@@ -16517,7 +16481,7 @@
     },
     {
       "from": "us-ny",
-      "to": "us-oh",
+      "to": "us-md",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -16527,7 +16491,7 @@
     },
     {
       "from": "us-ny",
-      "to": "us-de",
+      "to": "us-va",
       "type": "CULTURAL_CLUSTER"
     },
     {
@@ -16542,7 +16506,7 @@
     },
     {
       "from": "us-ny",
-      "to": "us-md",
+      "to": "us-de",
       "type": "SAME_COUNTRY_STATES"
     },
     {
@@ -16562,7 +16526,7 @@
     },
     {
       "from": "us-ny",
-      "to": "us-oh",
+      "to": "us-md",
       "type": "POLICY_CONTINUUM"
     },
     {
@@ -16587,12 +16551,12 @@
     },
     {
       "from": "us-oh",
-      "to": "us-il",
+      "to": "us-md",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-oh",
-      "to": "us-ny",
+      "to": "us-il",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -16602,7 +16566,7 @@
     },
     {
       "from": "us-oh",
-      "to": "us-tn",
+      "to": "us-nc",
       "type": "CULTURAL_CLUSTER"
     },
     {
@@ -16617,7 +16581,7 @@
     },
     {
       "from": "us-oh",
-      "to": "us-md",
+      "to": "us-tn",
       "type": "SAME_COUNTRY_STATES"
     },
     {
@@ -16632,12 +16596,12 @@
     },
     {
       "from": "us-oh",
-      "to": "us-il",
+      "to": "us-md",
       "type": "POLICY_CONTINUUM"
     },
     {
       "from": "us-oh",
-      "to": "us-ny",
+      "to": "us-il",
       "type": "POLICY_CONTINUUM"
     },
     {
@@ -16662,12 +16626,12 @@
     },
     {
       "from": "us-ok",
-      "to": "us-sd",
+      "to": "us-tn",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-ok",
-      "to": "us-al",
+      "to": "us-wi",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -16722,12 +16686,12 @@
     },
     {
       "from": "us-or",
-      "to": "us-az",
+      "to": "us-mt",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-or",
-      "to": "us-co",
+      "to": "us-az",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -16747,12 +16711,12 @@
     },
     {
       "from": "us-or",
-      "to": "us-mt",
+      "to": "us-wy",
       "type": "SAME_COUNTRY_STATES"
     },
     {
       "from": "us-or",
-      "to": "us-wy",
+      "to": "us-co",
       "type": "SAME_COUNTRY_STATES"
     },
     {
@@ -16767,12 +16731,12 @@
     },
     {
       "from": "us-or",
-      "to": "us-az",
+      "to": "us-mt",
       "type": "POLICY_CONTINUUM"
     },
     {
       "from": "us-or",
-      "to": "us-co",
+      "to": "us-az",
       "type": "POLICY_CONTINUUM"
     },
     {
@@ -16792,17 +16756,17 @@
     },
     {
       "from": "us-pa",
-      "to": "us-fl",
+      "to": "us-wv",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-pa",
-      "to": "us-ar",
+      "to": "us-sc",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-pa",
-      "to": "us-ut",
+      "to": "us-ky",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -16812,7 +16776,7 @@
     },
     {
       "from": "us-pa",
-      "to": "us-ct",
+      "to": "us-oh",
       "type": "CULTURAL_CLUSTER"
     },
     {
@@ -16827,7 +16791,7 @@
     },
     {
       "from": "us-pa",
-      "to": "us-wv",
+      "to": "us-ct",
       "type": "SAME_COUNTRY_STATES"
     },
     {
@@ -16932,12 +16896,12 @@
     },
     {
       "from": "us-sc",
-      "to": "us-tn",
+      "to": "us-ky",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-sc",
-      "to": "us-ky",
+      "to": "us-al",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -16952,7 +16916,7 @@
     },
     {
       "from": "us-sc",
-      "to": "us-al",
+      "to": "us-tn",
       "type": "SAME_COUNTRY_STATES"
     },
     {
@@ -16987,17 +16951,17 @@
     },
     {
       "from": "us-sd",
-      "to": "us-ia",
+      "to": "us-ut",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-sd",
-      "to": "us-ok",
+      "to": "us-ar",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-sd",
-      "to": "us-wi",
+      "to": "us-ky",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -17007,7 +16971,7 @@
     },
     {
       "from": "us-sd",
-      "to": "us-mo",
+      "to": "us-wy",
       "type": "CULTURAL_CLUSTER"
     },
     {
@@ -17017,12 +16981,12 @@
     },
     {
       "from": "us-sd",
-      "to": "us-co",
+      "to": "us-ia",
       "type": "SAME_COUNTRY_STATES"
     },
     {
       "from": "us-sd",
-      "to": "us-wy",
+      "to": "us-co",
       "type": "SAME_COUNTRY_STATES"
     },
     {
@@ -17052,12 +17016,12 @@
     },
     {
       "from": "us-tn",
-      "to": "us-sc",
+      "to": "us-wi",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-tn",
-      "to": "us-wv",
+      "to": "us-ia",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -17107,7 +17071,17 @@
     },
     {
       "from": "us-tx",
+      "to": "us-ia",
+      "type": "LEGAL_SIMILARITY"
+    },
+    {
+      "from": "us-tx",
       "to": "us-wy",
+      "type": "LEGAL_SIMILARITY"
+    },
+    {
+      "from": "us-tx",
+      "to": "us-tn",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -17157,17 +17131,17 @@
     },
     {
       "from": "us-ut",
+      "to": "us-sd",
+      "type": "LEGAL_SIMILARITY"
+    },
+    {
+      "from": "us-ut",
       "to": "us-ar",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-ut",
-      "to": "us-fl",
-      "type": "LEGAL_SIMILARITY"
-    },
-    {
-      "from": "us-ut",
-      "to": "us-va",
+      "to": "us-al",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -17222,12 +17196,12 @@
     },
     {
       "from": "us-va",
-      "to": "us-fl",
+      "to": "us-sc",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-va",
-      "to": "us-ar",
+      "to": "us-ga",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -17237,7 +17211,7 @@
     },
     {
       "from": "us-va",
-      "to": "us-oh",
+      "to": "us-ny",
       "type": "CULTURAL_CLUSTER"
     },
     {
@@ -17252,7 +17226,7 @@
     },
     {
       "from": "us-va",
-      "to": "us-sc",
+      "to": "us-oh",
       "type": "SAME_COUNTRY_STATES"
     },
     {
@@ -17287,7 +17261,7 @@
     },
     {
       "from": "us-vt",
-      "to": "us-nj",
+      "to": "us-me",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -17302,7 +17276,7 @@
     },
     {
       "from": "us-vt",
-      "to": "us-me",
+      "to": "us-nj",
       "type": "SAME_COUNTRY_STATES"
     },
     {
@@ -17332,7 +17306,7 @@
     },
     {
       "from": "us-vt",
-      "to": "us-nj",
+      "to": "us-me",
       "type": "POLICY_CONTINUUM"
     },
     {
@@ -17352,17 +17326,17 @@
     },
     {
       "from": "us-wa",
+      "to": "us-mt",
+      "type": "LEGAL_SIMILARITY"
+    },
+    {
+      "from": "us-wa",
       "to": "us-ca",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-wa",
       "to": "us-az",
-      "type": "LEGAL_SIMILARITY"
-    },
-    {
-      "from": "us-wa",
-      "to": "us-co",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -17377,11 +17351,6 @@
     },
     {
       "from": "us-wa",
-      "to": "us-mt",
-      "type": "SAME_COUNTRY_STATES"
-    },
-    {
-      "from": "us-wa",
       "to": "us-ut",
       "type": "SAME_COUNTRY_STATES"
     },
@@ -17392,8 +17361,18 @@
     },
     {
       "from": "us-wa",
+      "to": "us-co",
+      "type": "SAME_COUNTRY_STATES"
+    },
+    {
+      "from": "us-wa",
       "to": "usa",
       "type": "FEDERAL_PARENT_LINK"
+    },
+    {
+      "from": "us-wa",
+      "to": "us-mt",
+      "type": "POLICY_CONTINUUM"
     },
     {
       "from": "us-wa",
@@ -17403,11 +17382,6 @@
     {
       "from": "us-wa",
       "to": "us-az",
-      "type": "POLICY_CONTINUUM"
-    },
-    {
-      "from": "us-wa",
-      "to": "us-co",
       "type": "POLICY_CONTINUUM"
     },
     {
@@ -17437,7 +17411,7 @@
     },
     {
       "from": "us-wi",
-      "to": "us-ky",
+      "to": "us-tn",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -17457,12 +17431,12 @@
     },
     {
       "from": "us-wi",
-      "to": "us-oh",
+      "to": "us-ky",
       "type": "SAME_COUNTRY_STATES"
     },
     {
       "from": "us-wi",
-      "to": "us-tn",
+      "to": "us-oh",
       "type": "SAME_COUNTRY_STATES"
     },
     {
@@ -17487,17 +17461,17 @@
     },
     {
       "from": "us-wv",
+      "to": "us-pa",
+      "type": "LEGAL_SIMILARITY"
+    },
+    {
+      "from": "us-wv",
       "to": "us-sc",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-wv",
       "to": "us-ky",
-      "type": "LEGAL_SIMILARITY"
-    },
-    {
-      "from": "us-wv",
-      "to": "us-in",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -17517,12 +17491,12 @@
     },
     {
       "from": "us-wv",
-      "to": "us-pa",
+      "to": "us-de",
       "type": "SAME_COUNTRY_STATES"
     },
     {
       "from": "us-wv",
-      "to": "us-de",
+      "to": "us-in",
       "type": "SAME_COUNTRY_STATES"
     },
     {
@@ -17547,12 +17521,17 @@
     },
     {
       "from": "us-wy",
+      "to": "us-id",
+      "type": "LEGAL_SIMILARITY"
+    },
+    {
+      "from": "us-wy",
       "to": "us-ks",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "us-wy",
-      "to": "us-tx",
+      "to": "us-ok",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -17562,13 +17541,8 @@
     },
     {
       "from": "us-wy",
-      "to": "us-nd",
+      "to": "us-nm",
       "type": "CULTURAL_CLUSTER"
-    },
-    {
-      "from": "us-wy",
-      "to": "us-id",
-      "type": "SAME_COUNTRY_STATES"
     },
     {
       "from": "us-wy",
@@ -17578,6 +17552,11 @@
     {
       "from": "us-wy",
       "to": "us-ne",
+      "type": "SAME_COUNTRY_STATES"
+    },
+    {
+      "from": "us-wy",
+      "to": "us-nd",
       "type": "SAME_COUNTRY_STATES"
     },
     {

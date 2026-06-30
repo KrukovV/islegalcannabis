@@ -13,8 +13,8 @@
       "scope": "NONE"
     },
     "medical": {
-      "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
+      "raw_status": "LIMITED",
+      "status": "LIMITED",
       "enforcement": "STRICT",
       "scope": "NONE",
       "override_reason": null
@@ -36,8 +36,8 @@
     "enforcement_flags": [],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is illegal in Indiana under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}} Possession of any amount is a Class B misdemeanor, punishable by up to 180 days in prison and a fine of up to $1000. Following that, the Senate offered an amendment to the previously approved House Bill 1006, which had included decreased penalties for cannabis possession, with an amendment to instead raise certain types of possession from misdemeanors to felonies. Governor Mike Pence stated: \"I think we need to focus on reducing crime, not reducing penalties.\" Sale or cultivation of more than 10 lbs or within 1,000 feet of a school, or any other specialized area, will result in a minimum of 2–8 years and a $10,000 fine.",
+  "notes_normalized": "Cannabis is illegal in Indiana for recreational use under state law, but medical cannabis is available only in limited form. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}} In 1913, Indiana banned the sale of marijuana without a prescription. In February 2013, a bill to decriminalize small amounts of marijuana was killed in committee. On September 30, 2019, possession of of marijuana or less was decriminalized in Marion County. Under Indiana law, delta-9 products are illegal, but delta-8 products are not. State Senators Michael Young and Liz Brown introduced a bill during the 2022 session to outlaw delta-8 products, but it died in session due to concerns that it would outlaw CBD oil. Pending the 2015 passage of Indiana's Religious Freedom Restoration Act (RFRA), Bill Levin created the First Church of Cannabis in Indiana. The church was founded in March 2015, and received its recognition as a religious non-profit entity on March 26, the same day that the governor signed the RFRA. Prior to the RFRA's taking effect, an Indiana police chief warned the church that the RFRA would not protect the church's use of sacramental marijuana. The church held its first service on July 1—the same day that the RFRA took effect—and promptly filed a lawsuit against the state, alleging that the state's marijuana laws infringe on the church's freedom of religion. In early 2015, bills were introduced both in the House and Senate to legalize medical cannabis for certain severe conditions with a doctor's recommendation, but the House Bill failed to advance, and the Senate bill did not receive a hearing. Possession of any amount is a Class B misdemeanor, punishable by up to 180 days in prison and a fine of up to $1000. Following that, the Senate offered an amendment to the previously approved House Bill 1006, which had included decreased penalties for cannabis possession, with an amendment to instead raise certain types of possession from misdemeanors to felonies. Governor Mike Pence stated: \"I think we need to focus on reducing crime, not reducing penalties.\" Sale or cultivation of more than 10 lbs or within 1,000 feet of a school, or any other specialized area, will result in a minimum of 2–8 years and a $10,000 fine.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -57,8 +57,8 @@
   "related_codes": [
     "usa",
     "us-mi",
-    "us-mo",
-    "us-al"
+    "us-wv",
+    "us-mo"
   ],
   "related_names": [
     {
@@ -70,12 +70,12 @@
       "name": "Michigan"
     },
     {
-      "code": "us-mo",
-      "name": "Missouri"
+      "code": "us-wv",
+      "name": "West Virginia"
     },
     {
-      "code": "us-al",
-      "name": "Alabama"
+      "code": "us-mo",
+      "name": "Missouri"
     }
   ],
   "graph": {
@@ -101,12 +101,12 @@
         "name": "Tennessee"
       },
       {
-        "code": "us-wv",
-        "name": "West Virginia"
-      },
-      {
         "code": "us-wi",
         "name": "Wisconsin"
+      },
+      {
+        "code": "us-ia",
+        "name": "Iowa"
       }
     ],
     "cluster_links": [
@@ -115,8 +115,8 @@
         "name": "United States"
       },
       {
-        "code": "us-ga",
-        "name": "Georgia"
+        "code": "us-al",
+        "name": "Alabama"
       }
     ],
     "same_country_states": [
@@ -125,12 +125,12 @@
         "name": "Michigan"
       },
       {
-        "code": "us-mo",
-        "name": "Missouri"
+        "code": "us-wv",
+        "name": "West Virginia"
       },
       {
-        "code": "us-al",
-        "name": "Alabama"
+        "code": "us-mo",
+        "name": "Missouri"
       }
     ],
     "federal_parent": {
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-in",
-    "content_hash": "53feb467e54b71af89537f271b1f29990cfa89f7fe09b9254e0d207fb54146c5",
-    "notes_hash": "763be14f0b725fdcbed91eb09de6913e0c46b0100a10172c58169c7e949c0e90",
-    "model_hash": "f6f25554505d3922b042e6fdf8ce06c684a0d0a635cb70b93fec8548b54881a0"
+    "content_hash": "8b4fa93a25afdb6f88082d8032587f42062651ee78ddbb518822bb5d2b91ebe7",
+    "notes_hash": "6c67489299f91972d945cc00c37a26a449755fe8aff2133f2e15383b374ea38e",
+    "model_hash": "e005f28818b6c772725e197afced26bf2feb6f9451be49cda321c4dfb3e0a79b"
   },
   "updated_at": "2026-04-10"
 }

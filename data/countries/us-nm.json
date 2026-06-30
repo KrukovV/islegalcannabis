@@ -13,10 +13,10 @@
       "scope": "PERSONAL_USE"
     },
     "medical": {
-      "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
       "override_reason": null
     },
     "distribution": {
@@ -38,8 +38,8 @@
     ],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is legal in New Mexico under state law for recreational adult use. Medical cannabis is not broadly legal in New Mexico. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} His comments regarding legalization were soon condemned by various law enforcement officials, the lieutenant governor, and the Republican Party. It made first-time possession of up to of cannabis a petty misdemeanor offense, punishable by a $50 fine.",
+  "notes_normalized": "Cannabis is legal in New Mexico under state law for recreational adult use. Medical cannabis is also legal under a regulated state program in New Mexico. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Cannabis in New Mexico is legal for recreational use as of June 29, 2021. A bill to legalize recreational use – House Bill 2, the Cannabis Regulation Act – was signed by Governor Michelle Lujan Grisham on April 12, 2021. The first licensed sales of recreational cannabis began on April 1, 2022. Medical use was legalized in 2007 through a bill signed by Governor Bill Richardson. A 1978 law also allowed for medical use, but only through a federally-approved research program. It was the first medical cannabis law enacted by any state. In 1923, New Mexico banned the cultivation, importation, and sale of cannabis. In 1978 New Mexico became the first state to pass legislation allowing the medical use of cannabis in some form. Known as the Controlled Substances Therapeutic Research Act, the bill allowed the use of cannabis through a research program approved by the Food and Drug Administration, using cannabis supplied by the National Institute on Drug Abuse. The bill was spurred by the efforts of cancer patient Lynn Pierson, who found relief from using cannabis and pleaded his case to state lawmakers that he should be allowed to use the drug. His comments regarding legalization were soon condemned by various law enforcement officials, the lieutenant governor, and the Republican Party. It made first-time possession of up to of cannabis a petty misdemeanor offense, punishable by a $50 fine. A 12% excise tax will apply in addition to regular sales taxes. Governor Lujan Grisham visited a dispensary in Albuquerque to mark the occasion.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -99,16 +99,16 @@
     ],
     "legal_similarity": [
       {
+        "code": "us-nv",
+        "name": "Nevada"
+      },
+      {
         "code": "us-mt",
         "name": "Montana"
       },
       {
-        "code": "us-mn",
-        "name": "Minnesota"
-      },
-      {
-        "code": "us-md",
-        "name": "Maryland"
+        "code": "us-ca",
+        "name": "California"
       }
     ],
     "cluster_links": [
@@ -174,9 +174,9 @@
   },
   "hashes": {
     "code": "us-nm",
-    "content_hash": "c8b759c42665627da05bccaca6e2434b08706f07b8d97713aa46242183cfb4a6",
-    "notes_hash": "125f914e33e4a315323441aaf794db3bf6831f192dec639b5229e77e9c1144e6",
-    "model_hash": "dee1478364eefda4f1703ef8ec66fd418353855971623be686ae89c79461cef3"
+    "content_hash": "25bc6589ec94d87f2885b829baa41b4b4896440b901446d290d8edfcb5a911a1",
+    "notes_hash": "63592453cf5b75cdccf3f13492b1f2a472e287d925f11a1775632346c8559102",
+    "model_hash": "780ac267f8010534efacf1a7c4568b5b71b31449b5507a4020569e75f76d3c70"
   },
   "updated_at": "2026-04-10"
 }

@@ -13,8 +13,8 @@
       "scope": "PERSONAL_USE"
     },
     "medical": {
-      "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
+      "raw_status": "LIMITED",
+      "status": "LIMITED",
       "enforcement": "STRICT",
       "scope": "NONE",
       "override_reason": null
@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is decriminalized in Louisiana in limited state-level practice, but it is not fully legal under state law. Medical cannabis is not broadly legal in Louisiana. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#80CE69; color:#000000; text-align:center;\" | {{Hs|2}} <span style=\"font-size:25px;\">●</span> Cannabis in Louisiana is legal only for medicinal use; recreational possession of 14 grams or less is decriminalized punishable by a fine of no more than $100. On June 30, 2015, Governor Bobby Jindal signed SB 143, which significantly reduced penalties for possession of cannabis. Under the bill, first time possession is punishable by a $300 fine and 15 days in jail, a second offense by up to a $1,000 fine and six months in jail, a third offense by up a $2,500 fine and up to two years in jail, and fourth or subsequent offenses by up to a $5,000 fine and eight years in prison. On June 15, 2021, Governor John Bel Edwards signed HB 652 which decriminalized possession of small amounts of marijuana statewide. Under the bill, possession of less than 14 grams of cannabis is punishable by a $100 fine and no threat of jail time for the first and every subsequent offense. The reduced penalties took effect August 1, 2021. Possession of more than 14 grams and illegal distribution still carry harsh penalties. Punishment for possession over 14 grams, distribution, and cultivation can range anywhere from 6 months to 30 years in prison, and $500 to $50,000 in fines. Despite medical marijuana being decriminalized, it is still possible to be arrested if you are operating a motor vehicle under the influence. In 1996, a study was performed that studied the bail amounts of white and non-white inmates who were arrested for possession of marijuana.",
+  "notes_raw": "style=\"background:#80CE69; color:#000000; text-align:center;\" | {{Hs|2}} <span style=\"font-size:25px;\">●</span> Prior to statewide decriminalization, possession of small amounts of marijuana was first decriminalized in the cities of New Orleans, Baton Rouge, and Shreveport. Sources give varying dates for the prohibition of cannabis in Louisiana, generally either 1924 or 1927. Despite this law, and newspaper accounts of contemporaneous cannabis use in New Orleans, in 1930 there were only 30 marijuana convictions in the entire state. On June 30, 2015, Governor Bobby Jindal signed HB 149, which sets up a framework for dispensing marijuana for medical purposes. On Tuesday, August 6, 2019, medical cannabis was dispensed in the state for the first time, supplied by cannabis grower GB Sciences. In August 2020, HB 819, signed by Governor John Bel Edwards, greatly expanded access to medical cannabis. HB 819 allows any licensed doctor in good standing with the state to recommend cannabis for any condition the doctor \"considers debilitating to an individual patient and is qualified through his medical education and training to treat.\" The bill expanded access to candidates with conditions not limited to, but including \"neuro-degenerative diseases, traumatic brain injury, chronic pain, and any conditions requirin. As of July 2022, each of the nine regions has only one dispensary. A study was conducted during the height of the COVID-19 pandemic studying how recreational marijuana usage is prevalent in college students. The hypothesis of this study is that if people are recreationally smoking marijuana during the pandemic, they will start to attain psychosocial tendencies and lose the ability to function as normal. Cannabis in Louisiana is legal only for medicinal use; recreational possession of 14 grams or less is decriminalized punishable by a fine of no more than $100. On June 30, 2015, Governor Bobby Jindal signed SB 143, which significantly reduced penalties for possession of cannabis. Under the bill, first time possession is punishable by a $300 fine and 15 days in jail, a second offense by up to a $1,000 fine and six months in jail, a third offense by up a $2,500 fine and up to two years in jail, and fourth or subsequent offenses by up to a $5,000 fine and eight years in prison. On June 15, 2021, Governor John Bel Edwards signed HB 652 which decriminalized possession of small amounts of marijuana statewide. Under the bill, possession of less than 14 grams of cannabis is punishable by a $100 fine and no threat of jail time for the first and every subsequent offense. The reduced penalties took effect August 1, 2021. Possession of more than 14 grams and illegal distribution still carry harsh penalties. Punishment for possession over 14 grams, distribution, and cultivation can range anywhere from 6 months to 30 years in prison, and $500 to $50,000 in fines. Despite medical marijuana being decriminalized, it is still possible to be arrested if you are operating a motor vehicle under the influence. In 1996, a study was performed that studied the bail amounts of white and non-white inmates who were arrested for possession of marijuana. Currently, dispensaries in Louisiana can only operate in their respective region, assigned to them by the Louisiana Department of Health. A study was conducted of around 1200 people who frequented medical marijuana dispensaries around Louisiana; over 85% of them were of white descent, while only 11% were of black descent. The patients who were interviewed had an average age of 51 with around 65% of them having a history of smoking non-medically prescribed marijuana. These patients were also asked how they ingested the THC/CBD before they were prescribed medical marijuana, with the most common being smoking (no specific form) and the least common being topical cream. Men were also found to be three times more likely to be taking prescription opioids while taking medical marijuana than women. Their findings have also stated that women are much more likely to have suffered some form of psychosis in the past before their medical marijuana prescription. According to Louisiana legislature, cannabis is described as any part of the cannabis plant that can be used to either grow more of the cannabis plant or any part that can be used as a drug.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -97,20 +97,7 @@
         "name": "Alabama"
       }
     ],
-    "legal_similarity": [
-      {
-        "code": "us-nd",
-        "name": "North Dakota"
-      },
-      {
-        "code": "us-nh",
-        "name": "New Hampshire"
-      },
-      {
-        "code": "us-hi",
-        "name": "Hawaii"
-      }
-    ],
+    "legal_similarity": [],
     "cluster_links": [
       {
         "code": "usa",
@@ -174,9 +161,9 @@
   },
   "hashes": {
     "code": "us-la",
-    "content_hash": "30f14e273d874e59c4c8ad0ab37b813bf507b995a8840e34bbd006f770466afb",
+    "content_hash": "ba22937f0e8df099e0971a87652bdd65b0bd5394e562267c0a481b8743812c49",
     "notes_hash": "4cd96884bb5634832df758b2f765b1c906d1d5747dfa49af60c80eeb299c3ebe",
-    "model_hash": "74c6ee38506cba60d224ff7d08fa8680194c042eac219223710aedba8807c532"
+    "model_hash": "e0408364f36e848cbde0867647993d0f58ec8d405d55b712d08ef62fef173cb7"
   },
   "updated_at": "2026-04-10"
 }

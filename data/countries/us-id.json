@@ -13,8 +13,8 @@
       "scope": "NONE"
     },
     "medical": {
-      "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
+      "raw_status": "LIMITED",
+      "status": "LIMITED",
       "enforcement": "STRICT",
       "scope": "NONE",
       "override_reason": null
@@ -36,8 +36,8 @@
     "enforcement_flags": [],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is illegal in Idaho under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}} Skaug also introduced “House Bill 7” to place minimum sentences and fines on citizens arrested in Idaho with possession of any small amount of marijuana.",
+  "notes_normalized": "Cannabis is illegal in Idaho for recreational use under state law, but medical cannabis is available only in limited form. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}} The laws on cannabis prohibition in Idaho are among the most severe in the United States, with possession of even small amounts of it a misdemeanor crime, and no legality of medical marijuana. As of 2018, support for the legalization of medical cannabis is broadly popular in the state, while legalization of the drug recreationally remains a wedge issue. Both the state's legislature as a whole and its governor, Brad Little, remain staunchly opposed to its legalization for medicinal or recreational purposes. In February 2021, cannabidiol with up to 0.1% THC content was descheduled in the form of the prescription drug Epidiolex. Two months later, production and transport of hemp with a THC content of up to 0.3% was legalized. In the early 20th century, amidst a nationwide trend of cannabis prohibition, Idaho outlawed the drug in 1927. On February 3, 2021, as a response to the legalization of cannabis in surrounding states, the Idaho Senate approved a constitutional amendment introduced by C. Attempts to field ballot initiatives to vote on medical cannabis failed in 2012 and 2014 due to insufficient signatures, and a 2016 attempt was withdrawn before the signatures were counted. In 2018 another attempt was drawn when its organizer had to quit to care for her ailing son. In 2020, another effort to put medical marijuana on the ballot was suspended due to the COVID-19 pandemic. Skaug also introduced “House Bill 7” to place minimum sentences and fines on citizens arrested in Idaho with possession of any small amount of marijuana. On April 16, after a 44–26 vote in the House and a 30–5 vote in the Senate, Little signed House Bill 126, legalizing the production and transport of hemp with up to 0.3% THC content, making Idaho the final state to legalize the crop after it was legalized federally in 2018.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -57,8 +57,8 @@
   "related_codes": [
     "usa",
     "us-or",
-    "us-wy",
-    "us-wa"
+    "us-wa",
+    "us-ca"
   ],
   "related_names": [
     {
@@ -70,12 +70,12 @@
       "name": "Oregon"
     },
     {
-      "code": "us-wy",
-      "name": "Wyoming"
-    },
-    {
       "code": "us-wa",
       "name": "Washington"
+    },
+    {
+      "code": "us-ca",
+      "name": "California"
     }
   ],
   "graph": {
@@ -97,16 +97,16 @@
     ],
     "legal_similarity": [
       {
-        "code": "us-sd",
-        "name": "South Dakota"
+        "code": "us-wy",
+        "name": "Wyoming"
       },
       {
-        "code": "us-ok",
-        "name": "Oklahoma"
+        "code": "us-ks",
+        "name": "Kansas"
       },
       {
-        "code": "us-ia",
-        "name": "Iowa"
+        "code": "us-tx",
+        "name": "Texas"
       }
     ],
     "cluster_links": [
@@ -115,8 +115,8 @@
         "name": "United States"
       },
       {
-        "code": "us-ca",
-        "name": "California"
+        "code": "us-co",
+        "name": "Colorado"
       }
     ],
     "same_country_states": [
@@ -125,12 +125,12 @@
         "name": "Oregon"
       },
       {
-        "code": "us-wy",
-        "name": "Wyoming"
-      },
-      {
         "code": "us-wa",
         "name": "Washington"
+      },
+      {
+        "code": "us-ca",
+        "name": "California"
       }
     ],
     "federal_parent": {
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-id",
-    "content_hash": "04eaad45891a2ae429495d565f9d312f1d84fe3c9bc26b1e00191e9b885b88dd",
-    "notes_hash": "1c3aed61ed4aaf9c1cb2d6b5337cfd146fba750576636e8059ecd2a665535f7a",
-    "model_hash": "649796da61e7af48b894ac5b8b823e406e6e2ed52d640b9795440209712f2a9b"
+    "content_hash": "b55f35c67f4f359023ef4b3b47a2c055c5dd2bee3e18e0a98c14cfcc9d64b82a",
+    "notes_hash": "38843526f033abdcfc58f759110915e59f6ae23c571cd3a525e504dcc592a0d1",
+    "model_hash": "6985b6d0186c642ee93f283d30ea51577cac4dfb7cc1cd4217e75eb8ec10411b"
   },
   "updated_at": "2026-04-10"
 }

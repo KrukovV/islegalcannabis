@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in California under state law for recreational adult use. Medical cannabis is also legal under a regulated state program in California. Cannabis remains federally illegal in United States. Possession is limited to up to 28.5 g (adult).",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Drug Enforcement Administration considers it a Schedule I drug. Raids and confiscation by law enforcement of illegal retail and grow operations have continued and in some cases stepped up after legalization. They are concerned about the perceived lack of sufficient enforcement against illegal activities. An appeals court ruled that inmates who possess small amounts of marijuana in prison are not guilty of a felony crime. They complain about the lack of effective enforcement against unlicensed shops. Vague wording became a major criticism of Proposition 215, though the law has since been clarified through state Supreme Court rulings and the passage of subsequent laws. In January 2010 the California Supreme Court ruled in People v. Kelly that SB 420 did not limit the quantity of cannabis that a patient can possess. The Supreme Court of California has ruled there are no specified limits as to what a patient may possess in their private residence if the cannabis is strictly for the patient's own use. Gutwillig argued that because of the law, 200,000 patients in the state had safe and affordable access to medical cannabis to relieve pain and treat medical conditions, without having to risk arrest or buy off the black market. Proposition 64 is not meant in any way to affect, amend, or restrict the statutes provided for medical cannabis in California under Proposition 215. as access to banking services has been a problem due to the additional burdens mandated by the Financial Crimes Enforcement Network (FinCEN) on financial institutions to assure that any marijuana related business clients are in compliance with all state laws.",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Cannabis in California is illegal under United States federal law, yet legally sanctioned for medical use since 1996 and for recreational use since late 2016 under California law. The state of California has been at the forefront of efforts to liberalize cannabis laws in the United States, beginning in 1972 with the nation's first ballot initiative attempting to legalize cannabis (Proposition 19). Although it was unsuccessful, California would later become the first state to legalize medical cannabis through the Compassionate Use Act of 1996 (Proposition 215), which passed with 56% voter approval. In November 2016, California voters approved the Adult Use of Marijuana Act (Proposition 64) with 57% of the vote, which legalized the recreational use of cannabis. As a result of recreational legalization, local governments (city and county) may not prohibit adults from growing, using, or transporting marijuana for personal use. Commercial activities can be regulated or prohibited by local governments although deliveries cannot be prohibited. Following recreational legalization, existing growers and suppliers of medical cannabis were required to register, comply with regulations, and apply for permits. Their responsibilities were merged under the Department of Cannabis Control in 2021. However, since January 2019, local governments may not prohibit deliveries by state-licensed companies. Distributors are required to act as intermediaries between cannabis producers and retailers. Drug Enforcement Administration considers it a Schedule I drug. Raids and confiscation by law enforcement of illegal retail and grow operations have continued and in some cases stepped up after legalization. They are concerned about the perceived lack of sufficient enforcement against illegal activities. An appeals court ruled that inmates who possess small amounts of marijuana in prison are not guilty of a felony crime. They complain about the lack of effective enforcement against unlicensed shops. Vague wording became a major criticism of Proposition 215, though the law has since been clarified through state Supreme Court rulings and the passage of subsequent laws. In January 2010 the California Supreme Court ruled in People v. Kelly that SB 420 did not limit the quantity of cannabis that a patient can possess. The Supreme Court of California has ruled there are no specified limits as to what a patient may possess in their private residence if the cannabis is strictly for the patient's own use. Gutwillig argued that because of the law, 200,000 patients in the state had safe and affordable access to medical cannabis to relieve pain and treat medical conditions, without having to risk arrest or buy off the black market. Proposition 64 is not meant in any way to affect, amend, or restrict the statutes provided for medical cannabis in California under Proposition 215. as access to banking services has been a problem due to the additional burdens mandated by the Financial Crimes Enforcement Network (FinCEN) on financial institutions to assure that any marijuana related business clients are in compliance with all state laws. Over half of the nonprofit dispensaries legally providing medical marijuana closed. Local agencies have been slow to approve retail stores selling cannabis for recreational purposes with most cities and counties banning retail with a wait and see approach. The export of marijuana to other states remains illegal since the U.S. Many people do not have nearby retail stores selling cannabis and continue to buy from unlicensed sellers. Many communities have adopted zoning rules that prohibit cannabis retail stores. California prohibits the export of marijuana to other states, as the U.S. Calaveras County registered more than seven hundred cultivators after county voters approved a tax in 2016. Stores selling cannabis for recreational purposes have been banned from 80% of the 482 municipalities in California. In September 2019, 873 cannabis sellers had been licensed by the state while the United Cannabis Business Assn. conducted an audit that estimated there are approximately 2,835 unlicensed dispensaries and delivery services based on advertising. Legal retailers say the illegal market is larger than the legal market due to the high costs they pay in start-up permit costs and on-going taxes. Other products sold illegally that have not been tested include edible products and vaping pens. California's main regulatory agencies were initially the Bureau of Cannabis Control (BCC), Department of Food and Agriculture, and Department of Public Health. Companies must obtain a license from a local agency in each jurisdiction to cultivate, test, or sell cannabis. The Department of Food and Agriculture’s CalCannabis Cultivation Licensing Division oversaw cultivators. Other estimates suggest that about 80% of the crop is shipped to other states. Local governments may not prohibit adults from growing, using or transporting marijuana for personal use. Cannabis is estimated to be the largest cash crop in California with a value of more than $11 billion. Smaller farms were given five years to become established under legalization before larger growers were allowed to enter the market. Under the regulations set to expire in 2023, growers can have only one medium licence but there is no limit on the number of small licenses an individual grower can have. This loophole has allowed larger growers to operate. Humboldt, Mendocino, and Trinity counties have long been known as Northern California's Emerald Triangle as it is estimated that 60 percent or more of all cannabis consumed in the United States is grown there. Under the permits, they can let anyone 21 and older buy and smoke weed at the festival.",
   "facts": {
     "possession_limit": "up to 28.5 g (adult)",
     "cultivation": "Home grow allowed.",
@@ -60,7 +60,7 @@
     "usa",
     "us-id",
     "us-wy",
-    "us-nm"
+    "us-mt"
   ],
   "related_names": [
     {
@@ -76,8 +76,8 @@
       "name": "Wyoming"
     },
     {
-      "code": "us-nm",
-      "name": "New Mexico"
+      "code": "us-mt",
+      "name": "Montana"
     }
   ],
   "graph": {
@@ -107,8 +107,8 @@
         "name": "Washington"
       },
       {
-        "code": "us-co",
-        "name": "Colorado"
+        "code": "us-nm",
+        "name": "New Mexico"
       }
     ],
     "cluster_links": [
@@ -117,8 +117,8 @@
         "name": "United States"
       },
       {
-        "code": "us-mt",
-        "name": "Montana"
+        "code": "us-co",
+        "name": "Colorado"
       }
     ],
     "same_country_states": [
@@ -131,8 +131,8 @@
         "name": "Wyoming"
       },
       {
-        "code": "us-nm",
-        "name": "New Mexico"
+        "code": "us-mt",
+        "name": "Montana"
       }
     ],
     "federal_parent": {
@@ -181,9 +181,9 @@
   },
   "hashes": {
     "code": "us-ca",
-    "content_hash": "f76c533d8751d8e89459d2e2ed58c8694270a7d35c1298a1d75cf8ea2500bfca",
+    "content_hash": "7746be0ac084310a555c5e5f31f4a5fb77e90b81c8b3313c8f0f949c6d23949d",
     "notes_hash": "236ab6cecd77a850a2d7bfd90044f799f9bdc92613abf301c61ba8e1a1316ae6",
-    "model_hash": "fbc843023b993201291f315137ee716f1ef47ee574ec4794ba898ee029f4192e"
+    "model_hash": "db6eb8de573abb973dd23e630178f75651b5aef35755df2757aaf48abb9158fb"
   },
   "updated_at": "2025-12-14"
 }

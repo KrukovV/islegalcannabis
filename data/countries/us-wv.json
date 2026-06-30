@@ -13,14 +13,14 @@
       "scope": "NONE"
     },
     "medical": {
-      "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
       "override_reason": null
     },
     "distribution": {
-      "status": "illegal",
+      "status": "restricted",
       "scopes": {
         "possession": "illegal",
         "use": "illegal",
@@ -36,8 +36,8 @@
     "enforcement_flags": [],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is illegal in West Virginia under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}}",
+  "notes_normalized": "Cannabis is illegal in West Virginia for recreational use under state law, but medical cannabis is legal under a regulated state program. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}} Cannabis in West Virginia is illegal for recreational use, but decriminalized in the city of Charleston and partially decriminalized in the city of Morgantown. Medical use was legalized in 2017 through legislation signed by Governor Jim Justice. Medical cannabis bills were introduced in West Virginia in each year between 2010 and 2015, when Senate Bill 546 and House Bill 2909 sought to legalize cannabis for medical use, but failed to advance prior to the end of the legislative session on March 14. In 2017, Senate Bill 386 was passed, legalizing medical cannabis for specific chronic medical conditions via pill, oil, topical form, including gels, creams, and ointments, tincture, liquid, and dermal patch. Governor Justice signed it into law on April 19, 2017, and it went into effect in July 2018. However, the WV DHHR states that it wasn't until July 1, 2019, that effects of the law allowed the state to \"issue the patient and caregiver identification cards necessary to obtain medical cannabis.\" SB 339, passed and signed into law by Gov. Justice in 2020, permitted the sale of medical cannabis in dry leaf and plant form for vaporization. The sale of commercially produced medical cannabis edibles remains prohibited under state law. Under state law, registered medical cannabis patients may possess a 30-day supply of medical cannabis, defined as six ounces per 30 day period. Up to 100 dispensary licenses, 10 processor licenses, and 10 grower licenses can be issued under state law. The state's first medical cannabis dispensary, Trulieve, on Earl L.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -52,13 +52,13 @@
     "medical": "override",
     "enforcement_strength": "HIGH",
     "federal_conflict": "Cannabis remains federally illegal in United States.",
-    "legalization_status": "State illegal"
+    "legalization_status": "Medical only"
   },
   "related_codes": [
     "usa",
     "us-md",
-    "us-pa",
-    "us-de"
+    "us-de",
+    "us-in"
   ],
   "related_names": [
     {
@@ -70,12 +70,12 @@
       "name": "Maryland"
     },
     {
-      "code": "us-pa",
-      "name": "Pennsylvania"
-    },
-    {
       "code": "us-de",
       "name": "Delaware"
+    },
+    {
+      "code": "us-in",
+      "name": "Indiana"
     }
   ],
   "graph": {
@@ -97,16 +97,16 @@
     ],
     "legal_similarity": [
       {
+        "code": "us-pa",
+        "name": "Pennsylvania"
+      },
+      {
         "code": "us-sc",
         "name": "South Carolina"
       },
       {
         "code": "us-ky",
         "name": "Kentucky"
-      },
-      {
-        "code": "us-in",
-        "name": "Indiana"
       }
     ],
     "cluster_links": [
@@ -125,12 +125,12 @@
         "name": "Maryland"
       },
       {
-        "code": "us-pa",
-        "name": "Pennsylvania"
-      },
-      {
         "code": "us-de",
         "name": "Delaware"
+      },
+      {
+        "code": "us-in",
+        "name": "Indiana"
       }
     ],
     "federal_parent": {
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-wv",
-    "content_hash": "b9a3e3ba8f91b66c13a6bb54f0714399e1d39ba03f7e0ff0436284c90c6118b5",
-    "notes_hash": "b9dd9c0ef65b367c4e3ee3db65a2f9dc96f53213c7fe46a6f5f4fc01b10f0abb",
-    "model_hash": "dab573c0f1180102b95aa9d13e49f7f27dce8c54cd4b6b498c8ea48a070d4210"
+    "content_hash": "ea5da72ad6e0f45530aad9b73628011fb2004b6b0c06021c05d71c0cbaa89ee2",
+    "notes_hash": "7f4eccd24ed2dd14b6b37ee3b09d4d68ea58f2201c87ffcf12b9b8e88d631b39",
+    "model_hash": "22f8377f987f312d71d45aac7f736de576fa91d0db143d071dec0ef1cf653c68"
   },
   "updated_at": "2026-04-10"
 }

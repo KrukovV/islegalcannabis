@@ -3420,6 +3420,48 @@ if [ -f "${ROOT}/Artifacts/popup-visual-audit/full-manifest.json" ]; then
   fi
 fi
 
+if [ -f "${ROOT}/Artifacts/geo-sync/full-manifest.json" ]; then
+  GEO_SYNC_AUDIT_GUARD_OUTPUT=""
+  CURRENT_STEP="geo_sync_audit_guard"
+  CURRENT_CMD="${NODE_BIN} tools/gates/geo_sync_audit_guard.mjs"
+  set +e
+  GEO_SYNC_AUDIT_GUARD_OUTPUT=$(${NODE_BIN} tools/gates/geo_sync_audit_guard.mjs 2>&1)
+  GEO_SYNC_AUDIT_GUARD_RC=$?
+  set -e
+  printf "%s\n" "${GEO_SYNC_AUDIT_GUARD_OUTPUT}" >> "${REPORTS_FINAL}"
+  printf "%s\n" "${GEO_SYNC_AUDIT_GUARD_OUTPUT}" >> "${RUN_REPORT_FILE}"
+  if [ "${CI_WRITE_ROOT}" = "1" ]; then
+    printf "%s\n" "${GEO_SYNC_AUDIT_GUARD_OUTPUT}" >> "${ROOT}/ci-final.txt"
+  fi
+  if [ "${GEO_SYNC_AUDIT_GUARD_RC}" -ne 0 ]; then
+    FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${GEO_SYNC_AUDIT_GUARD_OUTPUT}"
+    FAIL_STEP="geo_sync_audit_guard"
+    FAIL_CMD="${CURRENT_CMD}"
+    FAIL_RC="${GEO_SYNC_AUDIT_GUARD_RC}"
+    fail_with_reason "GEO_SYNC_AUDIT_GUARD_FAIL"
+  fi
+
+  GEO_SYNC_COMPLETION_REPORTS_OUTPUT=""
+  CURRENT_STEP="geo_sync_completion_reports"
+  CURRENT_CMD="${NODE_BIN} tools/reports/generate_geo_sync_completion_reports.mjs"
+  set +e
+  GEO_SYNC_COMPLETION_REPORTS_OUTPUT=$(${NODE_BIN} tools/reports/generate_geo_sync_completion_reports.mjs 2>&1)
+  GEO_SYNC_COMPLETION_REPORTS_RC=$?
+  set -e
+  printf "%s\n" "${GEO_SYNC_COMPLETION_REPORTS_OUTPUT}" >> "${REPORTS_FINAL}"
+  printf "%s\n" "${GEO_SYNC_COMPLETION_REPORTS_OUTPUT}" >> "${RUN_REPORT_FILE}"
+  if [ "${CI_WRITE_ROOT}" = "1" ]; then
+    printf "%s\n" "${GEO_SYNC_COMPLETION_REPORTS_OUTPUT}" >> "${ROOT}/ci-final.txt"
+  fi
+  if [ "${GEO_SYNC_COMPLETION_REPORTS_RC}" -ne 0 ]; then
+    FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${GEO_SYNC_COMPLETION_REPORTS_OUTPUT}"
+    FAIL_STEP="geo_sync_completion_reports"
+    FAIL_CMD="${CURRENT_CMD}"
+    FAIL_RC="${GEO_SYNC_COMPLETION_REPORTS_RC}"
+    fail_with_reason "GEO_SYNC_COMPLETION_REPORTS_FAIL"
+  fi
+fi
+
 flag_from_env_or_default() {
   local default="$1"
   shift
