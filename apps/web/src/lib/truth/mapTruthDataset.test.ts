@@ -102,14 +102,20 @@ describe("mapTruthDataset", () => {
     expect(birTawil?.properties?.reasons).toContain("MAP_RENDER_SPECIAL_TERRITORY_FALLBACK");
   });
 
-  test("renders tiny synthetic fallback territories as visible points without changing larger disputed polygons", () => {
+  test("renders tiny synthetic fallback territories as painted geometry with hidden hitboxes", () => {
     const geojsonData = buildGeoJson("countries");
 
     for (const geo of ["BJN", "PGA", "SCR", "SER"]) {
-      const feature = geojsonData.features.find((item) => String(item.properties?.geo || "") === geo);
-      expect(feature?.geometry.type).toBe("Point");
-      expect(feature?.properties?.pointFallbackVisibility).toBe("visible");
-      expect(["LEGAL_OR_DECRIM", "LIMITED_OR_MEDICAL", "ILLEGAL"]).toContain(feature?.properties?.mapCategory);
+      const features = geojsonData.features.filter((item) => String(item.properties?.geo || "") === geo);
+      const paintedFeature = features.find((item) => item.geometry.type !== "Point");
+      const hiddenHitbox = features.find(
+        (item) => item.geometry.type === "Point" && item.properties?.pointFallbackVisibility === "hidden"
+      );
+
+      expect(paintedFeature).toBeTruthy();
+      expect(hiddenHitbox).toBeTruthy();
+      expect(features.some((item) => item.properties?.pointFallbackVisibility === "visible")).toBe(false);
+      expect(["LEGAL_OR_DECRIM", "LIMITED_OR_MEDICAL", "ILLEGAL"]).toContain(paintedFeature?.properties?.mapCategory);
     }
 
     for (const geo of ["BRT", "KAS", "SPI"]) {
@@ -122,6 +128,22 @@ describe("mapTruthDataset", () => {
       .toBe("Spratly Islands");
     expect(geojsonData.features.find((item) => String(item.properties?.geo || "") === "SCR")?.properties?.displayName)
       .toBe("Scarborough Shoal");
+  });
+
+  test("renders small territory components as painted land instead of visible marker dots", () => {
+    const geojsonData = buildGeoJson("countries");
+    const snapshot = buildCountrySourceSnapshot();
+
+    for (const geo of ["BQ", "BV", "SJ", "TK"]) {
+      const sourceFeatures = geojsonData.features.filter((feature) => String(feature.properties?.geo || "") === geo);
+      const clientFeatures = snapshot.features.filter((feature) => String(feature.properties?.geo || "") === geo);
+
+      expect(sourceFeatures.some((feature) => feature.geometry.type !== "Point")).toBe(true);
+      expect(sourceFeatures.some((feature) => feature.properties?.pointFallbackVisibility === "hidden")).toBe(true);
+      expect(sourceFeatures.some((feature) => feature.properties?.pointFallbackVisibility === "visible")).toBe(false);
+      expect(clientFeatures.some((feature) => feature.geometry.type !== "Point")).toBe(true);
+      expect(clientFeatures.some((feature) => feature.properties?.pointFallbackVisibility === "visible")).toBe(false);
+    }
   });
 
   test("covers territory geos that exist on the map even when legal SSOT has no country row", () => {

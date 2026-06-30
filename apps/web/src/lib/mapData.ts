@@ -155,6 +155,15 @@ let SNAPSHOT_CACHE_SOURCE_BUILT_AT: string | null = null;
 const MAP_RENDER_FALLBACK_GEOS = new Set(["EH"]);
 const PARENT_POLYGON_COVERED_POINT_FALLBACK_GEOS = new Set(["GF", "GP", "MQ", "RE", "YT"]);
 const TINY_SYNTHETIC_FALLBACK_AREA_DEGREES = 0.001;
+const TERRITORY_COMPONENT_FALLBACKS: Record<
+  string,
+  { parentAdm0A3: string; minLng: number; maxLng: number; minLat: number; maxLat: number }
+> = {
+  BQ: { parentAdm0A3: "NLD", minLng: -69, maxLng: -62, minLat: 11.5, maxLat: 18 },
+  BV: { parentAdm0A3: "NOR", minLng: 3, maxLng: 4, minLat: -55, maxLat: -54 },
+  SJ: { parentAdm0A3: "NOR", minLng: -15, maxLng: 40, minLat: 70, maxLat: 82 },
+  TK: { parentAdm0A3: "NZL", minLng: -173, maxLng: -170.5, minLat: -10, maxLat: -8 }
+};
 
 function compactSnapshotBuiltAt(value: string) {
   return String(value || "").replace(/[-:TZ.]/g, "").slice(0, 14) || "snapshot";
@@ -415,6 +424,31 @@ function geometryBoundsArea(coordinates: unknown) {
   const width = Math.max(0, bounds.maxLng - bounds.minLng);
   const height = Math.max(0, bounds.maxLat - bounds.minLat);
   return width * height;
+}
+
+function geometryBounds(coordinates: unknown) {
+  const bounds = collectGeometryBounds(coordinates, {
+    minLng: Number.POSITIVE_INFINITY,
+    maxLng: Number.NEGATIVE_INFINITY,
+    minLat: Number.POSITIVE_INFINITY,
+    maxLat: Number.NEGATIVE_INFINITY
+  });
+  return Number.isFinite(bounds.minLng) && Number.isFinite(bounds.minLat) ? bounds : null;
+}
+
+function boundsCenterWithin(
+  bounds: GeometryBounds | null,
+  selector: { minLng: number; maxLng: number; minLat: number; maxLat: number }
+) {
+  if (!bounds) return false;
+  const centerLng = (bounds.minLng + bounds.maxLng) / 2;
+  const centerLat = (bounds.minLat + bounds.maxLat) / 2;
+  return (
+    centerLng >= selector.minLng &&
+    centerLng <= selector.maxLng &&
+    centerLat >= selector.minLat &&
+    centerLat <= selector.maxLat
+  );
 }
 
 function shouldRenderSyntheticFallbackAsPoint(geometry: GeoJsonGeometry) {
@@ -1026,6 +1060,55 @@ export function buildGeoJson(type: string) {
       updatedAt: entry.updatedAt
     };
   };
+  const makeHiddenPointFeature = (
+    entry: RegionEntry,
+    fallbackName?: string,
+    sourceProps?: Record<string, unknown>
+  ) => {
+    const coords = entry.coordinates || {
+      lng: Number(sourceProps?.LABEL_X),
+      lat: Number(sourceProps?.LABEL_Y)
+    };
+    if (!Number.isFinite(coords.lng) || !Number.isFinite(coords.lat)) return null;
+    const pointFallbackLabel = getDisplayName(entry.geo, "en") || entry.name || fallbackName || entry.geo;
+    return {
+      type: "Feature",
+      geometry: {
+        type: "Point",
+        coordinates: [coords.lng, coords.lat]
+      },
+      properties: {
+        ...makeProperties(entry, fallbackName, sourceProps),
+        pointFallbackVisibility: "hidden",
+        pointFallbackLabel
+      }
+    } as GeoJsonFeature;
+  };
+  const buildTerritoryComponentFallbackFeatures = (entry: RegionEntry) => {
+    if (isState) return [] as GeoJsonFeature[];
+    const selector = TERRITORY_COMPONENT_FALLBACKS[entry.geo];
+    if (!selector) return [] as GeoJsonFeature[];
+    const parentFeature = geojson.features.find((feature) => {
+      const props = feature.properties || {};
+      return String(props?.ADM0_A3 || props?.ADM0_A3_US || props?.SOV_A3 || "").toUpperCase() === selector.parentAdm0A3;
+    });
+    if (!parentFeature?.geometry) return [] as GeoJsonFeature[];
+    const polygons = extractFeaturePolygons(parentFeature.geometry).filter((polygon) =>
+      boundsCenterWithin(geometryBounds(polygon), selector)
+    );
+    if (polygons.length === 0) return [] as GeoJsonFeature[];
+    const fallbackName = entry.name || getDisplayName(entry.geo, "en") || entry.geo;
+    const polygonFeature = {
+      type: "Feature",
+      geometry: {
+        type: polygons.length === 1 ? "Polygon" : "MultiPolygon",
+        coordinates: polygons.length === 1 ? polygons[0] : polygons
+      },
+      properties: makeProperties(entry, fallbackName, parentFeature.properties || {})
+    } as GeoJsonFeature;
+    const hiddenPoint = makeHiddenPointFeature(entry, fallbackName, parentFeature.properties || {});
+    return hiddenPoint ? [polygonFeature, hiddenPoint] : [polygonFeature];
+  };
   const buildSpecialCountryFeatures = (feature: { geometry: GeoJsonGeometry; properties?: Record<string, unknown> }) => {
     if (isState) return [] as GeoJsonFeature[];
     const props = feature.properties || {};
@@ -1093,27 +1176,14 @@ export function buildGeoJson(type: string) {
           : null);
       if (!entry) return [];
       if (!isState && specialGeoResolution?.forceFallback && shouldRenderSyntheticFallbackAsPoint(feature.geometry)) {
-        const coords = entry.coordinates || {
-          lng: Number(props?.LABEL_X),
-          lat: Number(props?.LABEL_Y)
-        };
-        if (Number.isFinite(coords.lng) && Number.isFinite(coords.lat)) {
-          return [{
-            type: "Feature",
-            geometry: {
-              type: "Point",
-              coordinates: [coords.lng, coords.lat]
-            },
-            properties: {
-              ...makeProperties(
-                entry,
-                String(props?.NAME || props?.name || entry.geo),
-                props
-              ),
-              pointFallbackVisibility: "visible"
-            }
-          } as GeoJsonFeature];
-        }
+        const fallbackName = String(props?.NAME || props?.name || entry.geo);
+        const polygonFeature = {
+          type: "Feature",
+          geometry: feature.geometry,
+          properties: makeProperties(entry, fallbackName, props)
+        } as GeoJsonFeature;
+        const hiddenPoint = makeHiddenPointFeature(entry, fallbackName, props);
+        return hiddenPoint ? [polygonFeature, hiddenPoint] : [polygonFeature];
       }
       return [{
         type: "Feature",
@@ -1130,12 +1200,14 @@ export function buildGeoJson(type: string) {
   const fallbackPoints = regions
     .filter((entry) => entry.type === (isState ? "state" : "country"))
     .filter((entry) => !existing.has(entry.geo))
-    .map((entry) => {
+    .flatMap((entry) => {
+      const componentFallbackFeatures = buildTerritoryComponentFallbackFeatures(entry);
+      if (componentFallbackFeatures.length > 0) return componentFallbackFeatures;
       const coords = entry.coordinates || { lat: 0, lng: 0 };
       const pointFallbackVisibility =
         !isState && PARENT_POLYGON_COVERED_POINT_FALLBACK_GEOS.has(entry.geo)
           ? "hidden"
-          : "visible";
+          : "hidden";
       const pointFallbackLabel =
         !isState && pointFallbackVisibility === "hidden"
           ? getDisplayName(entry.geo, "en") || entry.name || entry.geo

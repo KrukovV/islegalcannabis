@@ -156,6 +156,7 @@ Minimum visual checks per GEO:
   - selected GEO is the clicked GEO
   - visible fill color matches the normalized bucket
   - rendered color is not inherited from a neighboring or parent GEO
+  - territory evidence must reject visible colored point fallback dots when a real polygon or parent island component is available; hidden point hitboxes/label anchors are allowed only for targeting
 - popup screenshot:
   - visible badge color/category matches the normalized bucket
   - visible text blocks correspond to the extracted popup text
