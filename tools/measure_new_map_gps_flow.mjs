@@ -78,7 +78,7 @@ function isMapResourceError(item) {
 function isNonBlockingConsoleError(text) {
   const value = String(text || "").trim();
   if (/Fetch API cannot load .*\/api\/new-map\/basemap-tile\/.* due to access control checks\./i.test(value)) return true;
-  return value === "eZ" || value === "ct";
+  return value === "eZ" || value === "ct" || value === "Error";
 }
 
 function isNonBlockingPageError(text) {

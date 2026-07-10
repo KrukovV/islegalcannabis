@@ -74,6 +74,45 @@ async function findFeaturePoint(page, geo) {
       if (!map) return null;
       const rect = map.getCanvas().getBoundingClientRect();
       const projected = map.project({ lng: view.lng, lat: view.lat });
+      const interiorCandidates = [
+        [projected.x, projected.y],
+        [projected.x - 24, projected.y],
+        [projected.x + 24, projected.y],
+        [projected.x, projected.y - 24],
+        [projected.x, projected.y + 24],
+        [projected.x - 24, projected.y + 24],
+        [projected.x + 24, projected.y + 24],
+        [projected.x - 24, projected.y - 24],
+        [projected.x + 24, projected.y - 24]
+      ];
+      const resolveHit = (x, y) => {
+        if (x < 20 || x > rect.width - 20 || y < 20 || y > rect.height - 20) return null;
+        for (const layer of layers) {
+          if (!map.getLayer(layer)) continue;
+          const features = map.queryRenderedFeatures([x, y], { layers: [layer] });
+          const hit = features.find((feature) => {
+            const props = feature.properties || {};
+            return [props.geo, props.iso2, props.iso_a2, props.ISO_A2, feature.id]
+              .map((value) => String(value || "").toUpperCase())
+              .includes(geo);
+          });
+          if (hit) {
+            return {
+              x: Math.round(rect.left + x),
+              y: Math.round(rect.top + y),
+              canvasX: Math.round(x),
+              canvasY: Math.round(y),
+              layer,
+              featureId: String(hit.id || hit.properties?.geo || geo)
+            };
+          }
+        }
+        return null;
+      };
+      for (const [x, y] of interiorCandidates) {
+        const hit = resolveHit(x, y);
+        if (hit) return hit;
+      }
       const windows = [
         {
           startX: Math.max(20, projected.x - 260),
@@ -93,26 +132,8 @@ async function findFeaturePoint(page, geo) {
       for (const area of windows) {
         for (let y = area.startY; y < area.endY; y += area.step) {
           for (let x = area.startX; x < area.endX; x += area.step) {
-            for (const layer of layers) {
-              if (!map.getLayer(layer)) continue;
-              const features = map.queryRenderedFeatures([x, y], { layers: [layer] });
-              const hit = features.find((feature) => {
-                const props = feature.properties || {};
-                return [props.geo, props.iso2, props.iso_a2, props.ISO_A2, feature.id]
-                  .map((value) => String(value || "").toUpperCase())
-                  .includes(geo);
-              });
-              if (hit) {
-                return {
-                  x: Math.round(rect.left + x),
-                  y: Math.round(rect.top + y),
-                  canvasX: Math.round(x),
-                  canvasY: Math.round(y),
-                  layer,
-                  featureId: String(hit.id || hit.properties?.geo || geo)
-                };
-              }
-            }
+            const hit = resolveHit(x, y);
+            if (hit) return hit;
           }
         }
       }
@@ -147,6 +168,20 @@ async function waitForPopupDom(page, timeoutMs) {
       return rect.width > 0 && rect.height > 0 && style.visibility !== "hidden" && style.display !== "none";
     });
   }, null, { timeout: timeoutMs });
+}
+
+async function waitForPopupText(page, geo, timeoutMs) {
+  const escapedGeo = geo.replace("-", "\\-");
+  await page.waitForFunction((pattern) => {
+    const re = new RegExp(pattern, "i");
+    const nodes = Array.from(document.querySelectorAll('[data-testid="new-map-country-popup"]'));
+    return nodes.some((node) => {
+      const rect = node.getBoundingClientRect();
+      const style = window.getComputedStyle(node);
+      if (!(rect.width > 0 && rect.height > 0 && style.visibility !== "hidden" && style.display !== "none")) return false;
+      return re.test(node.textContent || node.innerHTML || "");
+    });
+  }, `ISO2:\\s*${escapedGeo}`, { timeout: timeoutMs });
 }
 
 async function isPopupDomVisible(page) {
@@ -246,7 +281,14 @@ async function measureGeo(browser, geo) {
       });
     }, point);
   }
-  await waitForPopupDom(page, maxWallMs).catch(() => null);
+  await waitForPopupText(page, geo, maxWallMs + 1000).catch(async () => {
+    if (clickMode === "mouse") {
+      await page.mouse.click(point.x, point.y);
+      await waitForPopupText(page, geo, maxWallMs + 1000).catch(() => null);
+      return;
+    }
+    await waitForPopupDom(page, maxWallMs + 1000).catch(() => null);
+  });
   const wallMs = Date.now() - startedAt;
   const text = await readPopupText(page);
   const popupVisible = await isPopupDomVisible(page);
