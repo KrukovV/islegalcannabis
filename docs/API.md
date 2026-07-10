@@ -133,11 +133,11 @@ Compatibility endpoint for older callers. It redirects to the immutable static c
 
 Ответ:
 ```text
-308 Location: /static/countries/countries.<hash>.json
+308 Location: /static/countries/countries.<hash>.json.br
 X-New-Map-Countries-Hash: <hash>
 ```
 
-The map runtime should load `/static/countries/countries.<hash>.json` directly when the precomputed asset URL is available.
+The map runtime should load `/static/countries/countries.<hash>.json.br` directly when the precomputed asset URL is available. The resource is an exact-byte Brotli representation and sends `Content-Encoding: br`.
 
 ## GET /api/ssot/changes
 Reads the SSOT diff cache/registry used by `/changes`.

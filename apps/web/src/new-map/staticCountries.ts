@@ -10,6 +10,12 @@ const SIMPLIFY_TOLERANCE_DEGREES = 0.03;
 const SIMPLIFY_TOLERANCE_SQ = SIMPLIFY_TOLERANCE_DEGREES * SIMPLIFY_TOLERANCE_DEGREES;
 const COUNTRIES_CACHE_CONTROL = "public, max-age=31536000, s-maxage=31536000, immutable";
 
+// Build-time content address for the current slim country snapshot. Keeping the
+// URL cheap to import prevents every cold HTML runtime from rebuilding and
+// Brotli-compressing the full GeoJSON just to discover its public URL.
+export const STATIC_COUNTRIES_HASH = "af012691a07e";
+export const STATIC_COUNTRIES_URL = `/static/countries/countries.${STATIC_COUNTRIES_HASH}.json.br`;
+
 export type StaticCountriesAsset = {
   hash: string;
   url: string;
@@ -170,9 +176,14 @@ export function getStaticCountriesAsset(): StaticCountriesAsset {
   });
   const gzip = gzipSync(json);
   const hash = createHash("sha256").update(json).digest("hex").slice(0, 12);
+  if (hash !== STATIC_COUNTRIES_HASH) {
+    throw new Error(
+      `STATIC_COUNTRIES_HASH_MISMATCH expected=${STATIC_COUNTRIES_HASH} actual=${hash}`
+    );
+  }
   assetCache = {
     hash,
-    url: `/static/countries/countries.${hash}.json`,
+    url: STATIC_COUNTRIES_URL,
     json,
     brotli,
     gzip,

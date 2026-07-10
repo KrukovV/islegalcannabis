@@ -3402,10 +3402,11 @@ if [ -f "${ROOT}/Artifacts/popup-visual-audit/full-manifest.json" ]; then
   POPUP_VISUAL_AUDIT_GUARD_OUTPUT=""
   CURRENT_STEP="popup_visual_audit_guard"
   CURRENT_CMD="${NODE_BIN} tools/gates/popup_visual_audit_guard.mjs"
-  set +e
-  POPUP_VISUAL_AUDIT_GUARD_OUTPUT=$(${NODE_BIN} tools/gates/popup_visual_audit_guard.mjs 2>&1)
-  POPUP_VISUAL_AUDIT_GUARD_RC=$?
-  set -e
+  if POPUP_VISUAL_AUDIT_GUARD_OUTPUT=$(trap - ERR; ${NODE_BIN} tools/gates/popup_visual_audit_guard.mjs 2>&1); then
+    POPUP_VISUAL_AUDIT_GUARD_RC=0
+  else
+    POPUP_VISUAL_AUDIT_GUARD_RC=$?
+  fi
   printf "%s\n" "${POPUP_VISUAL_AUDIT_GUARD_OUTPUT}" >> "${REPORTS_FINAL}"
   printf "%s\n" "${POPUP_VISUAL_AUDIT_GUARD_OUTPUT}" >> "${RUN_REPORT_FILE}"
   if [ "${CI_WRITE_ROOT}" = "1" ]; then

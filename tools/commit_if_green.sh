@@ -108,11 +108,19 @@ git_health() {
   local ok=1
   local reason="OK"
   local ls_out=""
+  local git_dir=""
+  local index_lock=""
+  local index_file=""
+  local writetest=""
   if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
     ok=0
     reason="NO_REPO"
     details="not inside worktree"
   else
+    git_dir="$(git rev-parse --git-dir 2>/dev/null || echo ".git")"
+    index_lock="$(git rev-parse --git-path index.lock 2>/dev/null || echo "${git_dir}/index.lock")"
+    index_file="$(git rev-parse --git-path index 2>/dev/null || echo "${git_dir}/index")"
+    writetest="${git_dir}/.writetest"
     if ! git status --porcelain >/dev/null 2> /tmp/git_health_err.$$; then
       if grep -qi "dubious ownership" /tmp/git_health_err.$$; then
         ok=0
@@ -125,9 +133,9 @@ git_health() {
       fi
     fi
   fi
-  if [ "${ok}" -eq 1 ] && [ -e .git/index.lock ]; then
+  if [ "${ok}" -eq 1 ] && [ -n "${index_lock}" ] && [ -e "${index_lock}" ]; then
     if command -v lsof >/dev/null 2>&1; then
-      ls_out=$(lsof -nP .git/index.lock 2>/dev/null | tail -n +2)
+      ls_out=$(lsof -nP "${index_lock}" 2>/dev/null | tail -n +2)
       if [ -n "${ls_out}" ]; then
         ok=0
         reason="LOCK"
@@ -141,7 +149,7 @@ git_health() {
     fi
   fi
   if [ "${ok}" -eq 1 ]; then
-    if ! touch .git/.writetest 2>/tmp/git_health_write.$$; then
+    if ! touch "${writetest}" 2>/tmp/git_health_write.$$; then
       ok=0
       if grep -qi "Operation not permitted" /tmp/git_health_write.$$; then
         reason="SANDBOX"
@@ -151,7 +159,7 @@ git_health() {
         details="$(tr '\n' ' ' < /tmp/git_health_write.$$)"
       fi
     else
-      rm -f .git/.writetest 2>/dev/null || true
+      rm -f "${writetest}" 2>/dev/null || true
     fi
   fi
   rm -f /tmp/git_health_err.$$ /tmp/git_health_write.$$ 2>/dev/null || true
@@ -165,22 +173,33 @@ git_health() {
 }
 
 print_git_diag() {
+  local git_dir
+  local index_file
+  local index_lock
+  git_dir="$(git rev-parse --git-dir 2>/dev/null || echo ".git")"
+  index_file="$(git rev-parse --git-path index 2>/dev/null || echo "${git_dir}/index")"
+  index_lock="$(git rev-parse --git-path index.lock 2>/dev/null || echo "${git_dir}/index.lock")"
   echo "pwd=$(pwd)"
   ls -ld .git
-  ls -la .git | sed -n '1,80p'
-  stat -f "%Su %Sg %Sp %N" .git .git/index 2>/dev/null || true
+  ls -ld "${git_dir}" 2>/dev/null || true
+  if [ -d .git ]; then
+    ls -la .git | sed -n '1,80p'
+  elif [ -f .git ]; then
+    sed -n '1,5p' .git
+  fi
+  stat -f "%Su %Sg %Sp %N" .git "${index_file}" 2>/dev/null || true
   id -un
   id -gn
-  if [ -d .git ]; then
-    if [ -w .git ]; then
+  if [ -d "${git_dir}" ]; then
+    if [ -w "${git_dir}" ]; then
       echo "GIT_DIR_WRITABLE=1"
       append_ci_final "GIT_DIR_WRITABLE=1"
     else
       echo "GIT_DIR_WRITABLE=0"
       append_ci_final "GIT_DIR_WRITABLE=0"
     fi
-    if [ -e .git/index ]; then
-      if [ -w .git/index ]; then
+    if [ -e "${index_file}" ]; then
+      if [ -w "${index_file}" ]; then
         echo "GIT_INDEX_WRITABLE=1"
         append_ci_final "GIT_INDEX_WRITABLE=1"
       else
@@ -192,7 +211,8 @@ print_git_diag() {
       append_ci_final "GIT_INDEX_WRITABLE=0"
     fi
   fi
-  find .git -maxdepth 1 -name "index.lock" -print -exec stat -f "%m %N" {} \; || true
+  find "${git_dir}" -maxdepth 1 -name "index.lock" -print -exec stat -f "%m %N" {} \; || true
+  [ -e "${index_lock}" ] && stat -f "%m %N" "${index_lock}" 2>/dev/null || true
 }
 
 print_fail_diag() {
@@ -200,7 +220,8 @@ print_fail_diag() {
     tail -n 80 Reports/ci-final.txt || true
   fi
   git status --porcelain || true
-  ls -la .git/index* .git/*.lock 2>/dev/null || true
+  git_dir="$(git rev-parse --git-dir 2>/dev/null || echo ".git")"
+  ls -la "${git_dir}"/index* "${git_dir}"/*.lock 2>/dev/null || true
 }
 
 write_git_blocked_artifacts() {
@@ -267,12 +288,13 @@ check_git_dir_writable() {
         git_health || true
       fi
     elif [ "${GIT_HEALTH_REASON}" = "LOCK" ]; then
+      index_lock="$(git rev-parse --git-path index.lock 2>/dev/null || echo ".git/index.lock")"
       if command -v lsof >/dev/null 2>&1; then
-        if [ -z "$(lsof -nP .git/index.lock 2>/dev/null | tail -n +2)" ]; then
-          rm -f .git/index.lock 2>/dev/null || true
+        if [ -z "$(lsof -nP "${index_lock}" 2>/dev/null | tail -n +2)" ]; then
+          rm -f "${index_lock}" 2>/dev/null || true
         fi
       else
-        rm -f .git/index.lock 2>/dev/null || true
+        rm -f "${index_lock}" 2>/dev/null || true
       fi
       git_health || true
     fi
@@ -338,12 +360,18 @@ report_git_clean() {
 
 ensure_git_writable() {
   print_git_diag
+  local git_dir
+  local index_file
+  local index_lock
+  git_dir="$(git rev-parse --git-dir 2>/dev/null || echo ".git")"
+  index_file="$(git rev-parse --git-path index 2>/dev/null || echo "${git_dir}/index")"
+  index_lock="$(git rev-parse --git-path index.lock 2>/dev/null || echo "${git_dir}/index.lock")"
   local lock_present=0
-  if [ -e .git/index.lock ]; then
+  if [ -e "${index_lock}" ]; then
     lock_present=1
-    lock_age_s=$(node -e 'const fs=require("fs");const stat=fs.statSync(".git/index.lock");const age=(Date.now()-stat.mtimeMs)/1000;console.log(Math.floor(age));')
+    lock_age_s=$(LOCK_PATH="${index_lock}" node -e 'const fs=require("fs");const stat=fs.statSync(process.env.LOCK_PATH);const age=(Date.now()-stat.mtimeMs)/1000;console.log(Math.floor(age));')
     if [ "${lock_age_s}" -gt 600 ]; then
-      rm -f .git/index.lock
+      rm -f "${index_lock}"
       echo "GIT_LOCK_REMOVED=1 age_s=${lock_age_s}"
       append_ci_final "GIT_LOCK_REMOVED=1 age_s=${lock_age_s}"
     else
@@ -361,15 +389,15 @@ ensure_git_writable() {
     echo "GIT_LOCK_PRESENT=0"
     append_ci_final "GIT_LOCK_PRESENT=0"
   fi
-  if [ ! -w .git ] || { [ -e .git/index ] && [ ! -w .git/index ]; }; then
-    chmod -R u+rwX .git 2>/dev/null || true
+  if [ ! -w "${git_dir}" ] || { [ -e "${index_file}" ] && [ ! -w "${index_file}" ]; }; then
+    chmod -R u+rwX "${git_dir}" 2>/dev/null || true
   fi
-  if [ ! -w .git ] || { [ -e .git/index ] && [ ! -w .git/index ]; }; then
+  if [ ! -w "${git_dir}" ] || { [ -e "${index_file}" ] && [ ! -w "${index_file}" ]; }; then
     if [ "${ALLOW_GIT_ESCALATION:-0}" = "1" ]; then
       set +e
-      sudo chown -R "$(id -un)":"$(id -gn)" .git
+      sudo chown -R "$(id -un)":"$(id -gn)" "${git_dir}"
       SUDO_CHOWN_STATUS=$?
-      sudo chmod -R u+rwX .git
+      sudo chmod -R u+rwX "${git_dir}"
       SUDO_CHMOD_STATUS=$?
       set -e
       if [ "${SUDO_CHOWN_STATUS}" -ne 0 ] || [ "${SUDO_CHMOD_STATUS}" -ne 0 ]; then
@@ -384,7 +412,7 @@ ensure_git_writable() {
       append_ci_final "GIT_ESCALATION_SKIPPED=1"
     fi
   fi
-  if [ ! -w .git ] || { [ -e .git/index ] && [ ! -w .git/index ]; }; then
+  if [ ! -w "${git_dir}" ] || { [ -e "${index_file}" ] && [ ! -w "${index_file}" ]; }; then
     echo "GIT_NOT_WRITABLE=1"
     append_ci_final "GIT_NOT_WRITABLE=1"
     echo "Not committing."

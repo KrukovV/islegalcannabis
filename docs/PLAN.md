@@ -55,3 +55,14 @@ Statuses: pending | in_progress | done
 - [done] Refresh project docs/spec so popup/wiki `307/307` is no longer presented as sufficient evidence for resolver/color/SEO sync changes
 - [in_progress] Implement full `307` GEO unified geo-sync audit across map color, popup, SEO, and wiki-backed canonical evidence
 - [in_progress] Eliminate same-name GEO collisions through canonical resolver identity (`geo + entity_type + parent + jurisdiction_kind`) with no country-specific patches
+- [done] Move the countries GeoJSON/Brotli asset out of cold runtime into exact-byte SSG and verify unchanged map behavior with production build, WebKit regressions, and full `307/307` popup audit
+- [done] Make `popup_visual_audit_guard` nonzero capture compatible with the inherited Bash `ERR` trap without weakening the guard
+- [done] Restore the required ignored `data/source_snapshots` runtime directory without fabricating snapshot data
+- [done] Move the `307/307` visual-audit payload to the required external archive and restore `log_size_guard`
+- [done] Refresh the full `307/307` geo-sync evidence with map/popup/SEO/wiki live PASS and external heavy-artifact storage
+- [done] Complete `pass_cycle` and verify final report contains `POST_CHECKS_OK=1` and `HUB_STAGE_REPORT_OK=1`
+- [in_progress] Build and push an isolated production release from `origin/main` containing only the verified countries-SSG performance patch
+- [done] Restore clean-worktree operational prerequisites and matching Playwright browser binaries without weakening gates
+- [in_progress] Make the strict repository-root guard support an explicitly named isolated release worktree
+- [pending] Poll `/api/build-meta` at bounded intervals until the release commit is live on `www.islegal.info`
+- [pending] Run serial production access, payload, JS/city, GPS/hover/zoom, geo-sync canary, and PageSpeed checks against the deployed commit

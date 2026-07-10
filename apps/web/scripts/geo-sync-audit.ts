@@ -307,6 +307,10 @@ type WikiVisualEvidence = {
 
 const ROOT = path.resolve(process.cwd(), "..", "..");
 const GEO_SYNC_DIR = path.join(ROOT, "Artifacts", "geo-sync");
+const GEO_SYNC_ARCHIVE_BASE = String(process.env.GEO_SYNC_AUDIT_ARCHIVE_BASE || "").trim();
+const GEO_SYNC_ARTIFACT_DIR = GEO_SYNC_ARCHIVE_BASE
+  ? path.join(path.resolve(GEO_SYNC_ARCHIVE_BASE), "geo-sync")
+  : GEO_SYNC_DIR;
 const NEW_MAP_ROUTE = "/new-map?qa=1";
 const LEGAL_COUNTRIES_SOURCE_ID = "legal-countries";
 const US_STATES_SOURCE_ID = "us-states";
@@ -1950,6 +1954,7 @@ async function main() {
     return acc;
   }, {});
   fs.mkdirSync(GEO_SYNC_DIR, { recursive: true });
+  fs.mkdirSync(GEO_SYNC_ARTIFACT_DIR, { recursive: true });
   fs.writeFileSync(LIVE_FAILURES_PATH, "");
   fs.writeFileSync(LIVE_REVIEW_PATH, "");
   const previousSectionCounts = readPreviousSectionCounts();
@@ -1990,7 +1995,7 @@ async function main() {
       const entry = runtimeCardIndex[geo] || buildCardIndexSnapshot({ fresh: true })[geo];
       const pageData = entry?.code ? getCountryPageData(entry.code) : pageIndexByGeo.get(geo) || null;
       const canonicalEntry = pageData ? deriveCountryCardEntryFromCountryPageData(pageData) : null;
-      const geoDir = path.join(GEO_SYNC_DIR, geo);
+      const geoDir = path.join(GEO_SYNC_ARTIFACT_DIR, geo);
       fs.mkdirSync(geoDir, { recursive: true });
 
       const mapVisualAnchors = buildMapVisualAnchors(geo, entry);

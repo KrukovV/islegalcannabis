@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-expected="/Users/james/Projects/isLegal"
+expected="${ISLEGAL_EXPECTED_ROOT:-/Users/james/Projects/isLegal}"
 
 current_pwd="$(pwd)"
 current_realpath="$(realpath "${current_pwd}")"

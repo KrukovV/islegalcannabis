@@ -32,10 +32,10 @@ Standard app API responses built with `apps/web/src/lib/api/response.ts` include
 
 ## New Map cold-start contract
 - `/new-map`, `/`, and `/c/[code]` must use one MapLibre runtime and one countries SSOT payload.
-- Runtime countries data is served from `/static/countries/countries.<content-hash>.json`.
+- Runtime countries data is served from `/static/countries/countries.<content-hash>.json.br`.
 - The hash is content-derived and deterministic; changing map truth or geometry changes the URL.
 - The static countries asset must send `Cache-Control: public, max-age=31536000, immutable`.
-- The static countries route must negotiate `br`/`gzip` by `Accept-Encoding`, emit `Vary: Accept-Encoding`, and expose encoded/raw byte headers for measurement.
+- The static countries route serves one exact-byte Brotli representation with `Content-Encoding: br`. Because the encoding is part of the immutable URL, it must not negotiate variants or emit `Vary: Accept-Encoding`; encoded/raw byte headers remain available for measurement.
 - `/api/new-map/countries` remains a compatibility endpoint and must point to the same static asset, not rebuild a second payload truth.
 - Runtime payload slimming may remove map-unused properties and reduce coordinate precision, but must preserve `geo`, `displayName`, `result.status`, `result.color`, `baseColor`, `hoverColor`, geometry, popup selection, and visual palette.
 - Parent-covered territories that lack standalone Natural Earth polygons, such as `GF`, `GP`, `MQ`, `RE`, and `YT`, must remain first-class map jurisdictions. Their fallback point dots may be hidden when the parent polygon already covers the land, but the runtime must preserve `pointFallbackVisibility`, `pointFallbackLabel`, transparent click hitboxes, and card-index popup entries so clicks resolve to the territory (`GF`) rather than the parent country (`FR`).

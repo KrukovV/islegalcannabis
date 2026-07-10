@@ -84,6 +84,11 @@ type NewMapQaController = {
 
 type SelectedGeo = string | null;
 
+type DerivedSeoEntryState = {
+  geo: string;
+  entry: CountryCardEntry | null;
+};
+
 type ActiveGeo = {
   country: string;
   iso2?: string;
@@ -319,7 +324,7 @@ export default function MapRoot({
   const [selectedGeoSeedEntry, setSelectedGeoSeedEntry] = useState<CountryCardEntry | null>(null);
   const [popupAnchor, setPopupAnchor] = useState<{ x: number; y: number } | null>(null);
   const [activeRouteSeoData, setActiveRouteSeoData] = useState<CountryPageData | null>(seoCountryData);
-  const [activeSeoDerivedEntry, setActiveSeoDerivedEntry] = useState<CountryCardEntry | null>(null);
+  const [derivedSeoEntryState, setDerivedSeoEntryState] = useState<DerivedSeoEntryState | null>(null);
   const cardIndexRequestedRef = useRef(false);
   const cardEntryRequestsRef = useRef<Record<string, Promise<CountryCardEntry | null>>>({});
   const selectedFeatureStateRef = useRef<{ source: "legal-countries" | "us-states"; id: string } | null>(null);
@@ -410,22 +415,31 @@ export default function MapRoot({
   }, [activeRouteSeoData, seoCountryIndex, seoRouteGeoCode]);
 
   useEffect(() => {
-    if (!activeSeoData) {
-      setActiveSeoDerivedEntry(null);
-      return;
-    }
+    if (!activeSeoData) return;
     let cancelled = false;
+    const activeGeo = String(activeSeoData.geo_code || activeSeoData.code || "").trim().toUpperCase();
     import("@/lib/countryCardEntry")
       .then(({ deriveCountryCardEntryFromCountryPageData }) => {
-        if (!cancelled) setActiveSeoDerivedEntry(deriveCountryCardEntryFromCountryPageData(activeSeoData));
+        if (!cancelled) {
+          setDerivedSeoEntryState({
+            geo: activeGeo,
+            entry: deriveCountryCardEntryFromCountryPageData(activeSeoData)
+          });
+        }
       })
       .catch(() => {
-        if (!cancelled) setActiveSeoDerivedEntry(null);
+        if (!cancelled) setDerivedSeoEntryState({ geo: activeGeo, entry: null });
       });
     return () => {
       cancelled = true;
     };
   }, [activeSeoData]);
+
+  const activeSeoDerivedEntry = useMemo(() => {
+    if (!activeSeoData || !derivedSeoEntryState) return null;
+    const activeGeo = String(activeSeoData.geo_code || activeSeoData.code || "").trim().toUpperCase();
+    return derivedSeoEntryState.geo === activeGeo ? derivedSeoEntryState.entry : null;
+  }, [activeSeoData, derivedSeoEntryState]);
 
   const activeSeoEntry = useMemo(() => {
     if (activeSeoData) return activeSeoDerivedEntry;
@@ -472,10 +486,8 @@ export default function MapRoot({
     if (!popupGeoCode) return;
     if (!selectedGeoEntry || !popupAnchor) return;
     markNewMapTrace("NM_POPUP_RENDER_READY");
-    if (selectedGeoSeedEntry && selectedGeoEntry !== selectedGeoSeedEntry) {
-      document.getElementById("new-map-immediate-seed-popup")?.remove();
-    }
-  }, [popupAnchor, popupGeoCode, selectedGeoEntry, selectedGeoSeedEntry]);
+    document.getElementById("new-map-immediate-seed-popup")?.remove();
+  }, [popupAnchor, popupGeoCode, selectedGeoEntry]);
 
   const handleSeoMarkerToggle = useCallback(() => {
     if (!seoMarkerEntry) return;

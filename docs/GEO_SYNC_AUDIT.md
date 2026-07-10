@@ -38,7 +38,10 @@ This live gate is not a replacement for the final `full-manifest/full-report/ful
 Repeatable full release proof:
 
 ```bash
-GEO_SYNC_AUDIT_FAIL_FAST=1 PLAYWRIGHT_BASE_URL=http://127.0.0.1:3000 npm -w apps/web run geo:sync:audit
+GEO_SYNC_AUDIT_FAIL_FAST=1 \
+GEO_SYNC_AUDIT_ARCHIVE_BASE="$HOME/islegalcannabis_archive/<run-id>" \
+PLAYWRIGHT_BASE_URL=http://127.0.0.1:3000 \
+npm -w apps/web run geo:sync:audit
 node tools/gates/geo_sync_audit_guard.mjs
 node tools/reports/generate_geo_sync_completion_reports.mjs
 ```
@@ -49,6 +52,7 @@ The completion report step is part of `bash tools/pass_cycle.sh` when `Artifacts
 - `Artifacts/geo-sync/anti-patch-report.json`
 
 These reports are lightweight release evidence. Heavy per-GEO screenshots and HTML/JSON payloads may be archived outside the repo, but the full manifest and HTML index must link to real existing paths.
+When `GEO_SYNC_AUDIT_ARCHIVE_BASE` is set, heavy per-GEO artifacts are written directly under `<archive-base>/geo-sync`, while the compact release bundle remains in the repository.
 
 Manual visual review is also part of the workflow. For high-risk rows, the agent must open the emitted screenshots and record what is visibly true, especially for:
 

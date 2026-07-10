@@ -61,7 +61,7 @@ CI will fail on disk bloat (QUARANTINE > 500MB or Reports > 1GB).
 - `/trust-view`: stable localhost alias for `/wiki-truth`.
 - `/changes`: SSOT diff view.
 - `/api/check`: jurisdiction legality API.
-- `/api/new-map/countries`: compatibility redirect to immutable `/static/countries/countries.<hash>.json`.
+- `/api/new-map/countries`: compatibility redirect to immutable `/static/countries/countries.<hash>.json.br`.
 - `/api/ssot/changes`: cached SSOT diff API.
 
 ## Local CI

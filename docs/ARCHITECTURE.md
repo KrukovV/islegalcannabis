@@ -6,7 +6,7 @@ The web product is a Next.js App Router app in `apps/web`.
 
 - `/` and `/new-map` render the canonical MapLibre map.
 - `/c/[code]` and `/[lang]/c/[code]` open country panels over the same map runtime.
-- `/api/new-map/countries` is compatibility only and redirects to `/static/countries/countries.<hash>.json`.
+- `/api/new-map/countries` is compatibility only and redirects to `/static/countries/countries.<hash>.json.br`.
 - `/api/check` remains the legality API for app, SEO, and mobile consumers.
 - `/wiki-truth`, `/trust-view`, `/changes`, and `/api/ssot/changes` are audit/change surfaces over prebuilt SSOT data.
 
@@ -33,7 +33,7 @@ Presentation code uses `apps/web/src/lib/linkDisplayPolicy.ts` to classify and n
 The map has one MapLibre runtime across `/`, `/new-map`, and country routes. The countries payload is immutable and content-addressed:
 
 ```text
-/static/countries/countries.<content-hash>.json
+/static/countries/countries.<content-hash>.json.br
 ```
 
 Map optimization is allowed only when it preserves geometry, palette, popups, route behavior, geolocation precedence, and single-canvas runtime behavior.

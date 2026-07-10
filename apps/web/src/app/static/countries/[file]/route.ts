@@ -1,23 +1,23 @@
-import { getStaticCountriesAsset } from "@/new-map/staticCountries";
+import {
+  getStaticCountriesAsset,
+  STATIC_COUNTRIES_HASH
+} from "@/new-map/staticCountries";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 86400;
+export const dynamic = "force-static";
+export const dynamicParams = false;
+export const revalidate = false;
 
-function acceptsEncoding(request: Request, encoding: "br" | "gzip") {
-  return request.headers
-    .get("accept-encoding")
-    ?.split(",")
-    .map((value) => value.trim().toLowerCase())
-    .some((value) => value === encoding || value.startsWith(`${encoding};`)) ?? false;
+export function generateStaticParams() {
+  return [{ file: `countries.${STATIC_COUNTRIES_HASH}.json.br` }];
 }
 
 export async function GET(
-  request: Request,
+  _request: Request,
   { params }: { params: Promise<{ file: string }> }
 ) {
   const asset = getStaticCountriesAsset();
   const { file } = await params;
-  if (file !== `countries.${asset.hash}.json`) {
+  if (file !== `countries.${asset.hash}.json.br`) {
     return new Response("not found", {
       status: 404,
       headers: {
@@ -25,31 +25,16 @@ export async function GET(
       }
     });
   }
-  const encoding = acceptsEncoding(request, "br")
-    ? "br"
-    : acceptsEncoding(request, "gzip")
-      ? "gzip"
-      : "";
-  const encodedBody = encoding === "br" ? asset.brotli : encoding === "gzip" ? asset.gzip : null;
-  const body: BodyInit = encodedBody
-    ? new Blob([new Uint8Array(encodedBody)])
-    : asset.json;
-  const encodedLength = encoding === "br"
-    ? asset.brotliByteLength
-    : encoding === "gzip"
-      ? asset.gzipByteLength
-      : asset.byteLength;
-  return new Response(body, {
+  return new Response(new Blob([new Uint8Array(asset.brotli)]), {
     headers: {
       "Content-Type": "application/json; charset=utf-8",
       "Cache-Control": asset.cacheControl,
-      "Vary": "Accept-Encoding",
-      ...(encoding ? { "Content-Encoding": encoding } : {}),
-      "Content-Length": String(encodedLength),
+      "Content-Encoding": "br",
+      "Content-Length": String(asset.brotliByteLength),
       "X-New-Map-Countries-Hash": asset.hash,
       "X-New-Map-Countries-Bytes": String(asset.byteLength),
-      "X-New-Map-Countries-Encoding": encoding || "identity",
-      "X-New-Map-Countries-Encoded-Bytes": String(encodedLength)
+      "X-New-Map-Countries-Encoding": "br",
+      "X-New-Map-Countries-Encoded-Bytes": String(asset.brotliByteLength)
     }
   });
 }

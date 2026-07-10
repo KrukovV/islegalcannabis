@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import NewMapClientEntry from "./NewMapClientEntry";
 import { formatVisibleRuntimeStamp } from "@/lib/runtimeIdentity";
-import { getStaticCountriesAsset } from "@/new-map/staticCountries";
+import { STATIC_COUNTRIES_URL } from "@/new-map/staticCountries";
 import { getNewMapRuntimeIdentity } from "./runtimeConfig";
 
 export const dynamic = "force-dynamic";
@@ -19,7 +19,7 @@ export default async function NewMapPage({
 }) {
   const runtimeIdentity = getNewMapRuntimeIdentity();
   const visibleStamp = formatVisibleRuntimeStamp(runtimeIdentity);
-  const countriesUrl = getStaticCountriesAsset().url;
+  const countriesUrl = STATIC_COUNTRIES_URL;
   const resolvedSearchParams = searchParams ? await searchParams : {};
   const initialGeoCode =
     (typeof resolvedSearchParams?.geo === "string" ? resolvedSearchParams.geo : null) ||

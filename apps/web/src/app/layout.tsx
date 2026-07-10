@@ -6,10 +6,10 @@ import NewMapDeferredRuntime from "./_components/NewMapDeferredRuntime";
 import "./globals.css";
 import ServiceWorkerGuard from "@/plugins/serviceWorkerGuard";
 import { NEW_MAP_WATER_COLOR } from "@/new-map/mapPalette";
-import { getStaticCountriesAsset } from "@/new-map/staticCountries";
+import { STATIC_COUNTRIES_URL } from "@/new-map/staticCountries";
 import { NEW_MAP_BASEMAP_STYLE_URL } from "@/new-map/runtimeUrls";
 
-const NEW_MAP_COUNTRIES_URL = getStaticCountriesAsset().url;
+const NEW_MAP_COUNTRIES_URL = STATIC_COUNTRIES_URL;
 const YANDEX_METRIKA_ID = 108419114;
 const MS_VALIDATE_CONTENT = "8160A885E417B2396DD1C0633F13C70F";
 const NEW_MAP_FIRST_VISUAL_EVENT = "new-map:first-visual-ready";

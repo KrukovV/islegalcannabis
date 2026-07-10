@@ -4,7 +4,7 @@
 
 This repository powers an educational cannabis legality product with a MapLibre web map, country routes, legality APIs, audit views, and SSOT refresh tooling.
 
-The current product entrypoint is `/new-map`; `/` re-exports it, and `/c/[code]` plus `/[lang]/c/[code]` use the same map runtime. The countries map payload is content-addressed under `/static/countries/countries.<hash>.json`; `/api/new-map/countries` is only a compatibility redirect.
+The current product entrypoint is `/new-map`; `/` re-exports it, and `/c/[code]` plus `/[lang]/c/[code]` use the same map runtime. The countries map payload is content-addressed under `/static/countries/countries.<hash>.json.br`; `/api/new-map/countries` is only a compatibility redirect.
 
 Truth/audit work is centered on `/wiki-truth`, `/trust-view`, `/changes`, `/api/ssot/changes`, SSOT snapshots, and official link ownership. CI and checkpointing are standardized through `bash tools/pass_cycle.sh`.
 
