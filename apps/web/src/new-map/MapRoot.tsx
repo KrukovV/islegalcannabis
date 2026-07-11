@@ -227,11 +227,13 @@ function showImmediateSeedPopup(seed: CountryCardSeed | null | undefined, anchor
   panel.id = "new-map-immediate-seed-popup";
   panel.className = styles.viewportPopupPanel;
   panel.dataset.testid = "new-map-country-popup";
+  panel.dataset.popupStage = "seed";
   panel.style.left = `${position.left}px`;
   panel.style.top = `${position.top}px`;
   panel.style.zIndex = "31";
   panel.textContent = `${entry.displayName}\nISO2: ${entry.iso2 || entry.geo}\n${entry.panel.levelTitle}\nStatus\n${entry.panel.summary}`;
   document.body.append(panel);
+  markNewMapTrace("NM_POPUP_RENDER_READY");
   window.setTimeout(() => panel.remove(), 15000);
 }
 
@@ -452,16 +454,15 @@ export default function MapRoot({
     !(showSeoOverlay && selectedGeo === String(activeSeoEntry?.geo || activeSeoData?.geo_code || "").trim().toUpperCase())
       ? selectedGeo
       : null;
-  const selectedGeoEntry = useMemo(() => {
+  const selectedGeoRichEntry = useMemo(() => {
     if (!popupGeoCode) return null;
     const indexed = cardIndex[popupGeoCode];
     if (indexed) return indexed;
-    if (selectedGeoSeedEntry?.geo === popupGeoCode) return selectedGeoSeedEntry;
     if (activeSeoData && popupGeoCode === activeSeoData.geo_code) {
       return activeSeoDerivedEntry;
     }
     return null;
-  }, [activeSeoData, activeSeoDerivedEntry, cardIndex, popupGeoCode, selectedGeoSeedEntry]);
+  }, [activeSeoData, activeSeoDerivedEntry, cardIndex, popupGeoCode]);
   const seoMarkerEntry = useMemo(() => {
     if (!activeSeoEntry) return null;
     const geoCode = activeSeoData?.geo_code || activeSeoEntry.geo;
@@ -473,6 +474,7 @@ export default function MapRoot({
     };
   }, [activeSeoData, activeSeoEntry, cardIndex]);
   const selectedGeoView: ActiveGeo = useMemo(() => {
+    const selectedGeoEntry = selectedGeoRichEntry || (popupGeoCode && selectedGeoSeedEntry?.geo === popupGeoCode ? selectedGeoSeedEntry : null);
     if (!selectedGeoEntry) return null;
     return {
       country: selectedGeoEntry.displayName,
@@ -480,14 +482,14 @@ export default function MapRoot({
       lat: selectedGeoEntry.coordinates?.lat,
       lng: selectedGeoEntry.coordinates?.lng
     };
-  }, [selectedGeoEntry]);
+  }, [popupGeoCode, selectedGeoRichEntry, selectedGeoSeedEntry]);
 
   useEffect(() => {
     if (!popupGeoCode) return;
-    if (!selectedGeoEntry || !popupAnchor) return;
-    markNewMapTrace("NM_POPUP_RENDER_READY");
+    if (!selectedGeoRichEntry || !popupAnchor) return;
+    markNewMapTrace("NM_POPUP_RICH_RENDER_READY");
     document.getElementById("new-map-immediate-seed-popup")?.remove();
-  }, [popupAnchor, popupGeoCode, selectedGeoEntry]);
+  }, [popupAnchor, popupGeoCode, selectedGeoRichEntry]);
 
   const handleSeoMarkerToggle = useCallback(() => {
     if (!seoMarkerEntry) return;
@@ -552,6 +554,7 @@ export default function MapRoot({
   const handleCountryPopupClose = useCallback(() => {
     document.getElementById("new-map-immediate-seed-popup")?.remove();
     setSelectedGeo(null);
+    setSelectedGeoSeedEntry(null);
   }, []);
 
   const loadCardIndex = useCallback(async () => {
@@ -755,7 +758,7 @@ export default function MapRoot({
   useEffect(() => {
     const map = mapRef.current;
     const container = containerRef.current;
-    const coords = selectedGeoEntry?.coordinates;
+    const coords = selectedGeoRichEntry?.coordinates;
     if (!map || !container || typeof coords?.lng !== "number" || typeof coords?.lat !== "number") {
       setPopupAnchor(null);
       return;
@@ -778,7 +781,7 @@ export default function MapRoot({
       map.off("move", updatePopupAnchor);
       map.off("resize", updatePopupAnchor);
     };
-  }, [selectedGeoEntry?.geo, selectedGeoEntry?.coordinates, selectedGeoEntry?.coordinates?.lat, selectedGeoEntry?.coordinates?.lng]);
+  }, [selectedGeoRichEntry?.geo, selectedGeoRichEntry?.coordinates, selectedGeoRichEntry?.coordinates?.lat, selectedGeoRichEntry?.coordinates?.lng]);
 
   useEffect(() => {
     const map = mapRef.current;
@@ -1018,6 +1021,7 @@ export default function MapRoot({
           setVisualReady(false);
           runtime.destroy();
           setSelectedGeo(null);
+          setSelectedGeoSeedEntry(null);
           setHoveredGeo(null);
           setDebugState({ mounted: false, selectedId: null, map: null, setSelectedGeo: undefined });
         };
@@ -1082,9 +1086,9 @@ export default function MapRoot({
       {showSeoOverlay && activeSeoEntry ? (
         <UnifiedSeoStatusPanel data={activeSeoData} entry={activeSeoEntry} locale={locale} onClose={handleSeoPanelClose} />
       ) : null}
-      {selectedGeoEntry && popupAnchor ? (
+      {selectedGeoRichEntry && popupAnchor ? (
         <ViewportCountryPopup
-          entry={selectedGeoEntry}
+          entry={selectedGeoRichEntry}
           locale={locale}
           anchor={popupAnchor}
           onClose={handleCountryPopupClose}

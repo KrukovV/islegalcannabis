@@ -83,6 +83,9 @@ data/sources/**/*.bak
 
 # local/import scratch (rebuildable)
 data/import/
+data/reviews/**
+!data/reviews/
+!data/reviews/DE.review.json
 Artifacts/
 .checkpoints/
 Reports/.checkpoints/

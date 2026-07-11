@@ -1,5 +1,5 @@
-Goal: Deploy the verified map-performance change through the project-approved release path and complete production tests without weakening map/truth contracts.
-State: checkpoint=.checkpoints/20260711-021803.patch; CI=PASS; Smoke=PASS
-Done: Countries GeoJSON generation/compression moved from cold runtime to an exact-byte Brotli SSG artifact (`422502 B`, hash `af012691a07e`); compatibility API now redirects from build-time constants without rebuilding; docs/spec consistently define the immutable `.json.br` resource; clean lint PASS; focused route/payload tests `3/3 PASS`; clean Next production build PASS with `354/354` pages and the hashed Brotli asset pre-rendered; WebKit production regression `13/13 PASS`; model unit suite `56/56 PASS`; popup visual audit `307/307`; geo-sync audit `307/307` with `0` failures; heavy evidence archived externally.
-Now: Running full `pass_cycle` for the prod-gate tooling fix, then committing/pushing via the approved release script and rerunning production gates.
-Open questions: production PSI delta remains UNCONFIRMED until the PageSpeed API check completes.
+Goal: Restore first production popup opening speed to historical-best behavior without weakening map, hover, GPS, popup, or assistant-input contracts.
+State: checkpoint=.checkpoints/20260712-012154.patch; CI=PASS; Smoke=PASS
+Done: Historical first-click evidence compared against June best (`47-74ms` FR wall) and July regressions (`~1.6-2.2s` card-entry waits); implemented immediate seed popup render independent of rich card-entry network; rich popup now upgrades after card-entry; card-entry/card-index runtime responses changed from `no-store` to CDN cacheable `s-maxage=86400, stale-while-revalidate=604800`.
+Now: Running focused tests, mandatory pass_cycle from `/Users/james/Projects/isLegal`, deployment, and honest production checks for first popup, map, hover/GPS regressions, and no production assistant input opening.
+Open questions: UNCONFIRMED final production post-deploy popup wall time and full prod gate status until deployment completes.
