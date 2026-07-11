@@ -487,8 +487,29 @@ export default function MapRoot({
   useEffect(() => {
     if (!popupGeoCode) return;
     if (!selectedGeoRichEntry || !popupAnchor) return;
-    markNewMapTrace("NM_POPUP_RICH_RENDER_READY");
-    document.getElementById("new-map-immediate-seed-popup")?.remove();
+    let cancelled = false;
+    let frame = 0;
+    const removeSeedAfterRichPopupMount = () => {
+      if (cancelled) return;
+      const richPopup = Array.from(document.querySelectorAll('[data-testid="new-map-country-popup"]')).find((node) => {
+        const element = node as HTMLElement;
+        if (element.id === "new-map-immediate-seed-popup") return false;
+        const rect = element.getBoundingClientRect();
+        const style = window.getComputedStyle(element);
+        return rect.width > 0 && rect.height > 0 && style.visibility !== "hidden" && style.display !== "none";
+      });
+      if (richPopup) {
+        markNewMapTrace("NM_POPUP_RICH_RENDER_READY");
+        document.getElementById("new-map-immediate-seed-popup")?.remove();
+        return;
+      }
+      frame = window.requestAnimationFrame(removeSeedAfterRichPopupMount);
+    };
+    frame = window.requestAnimationFrame(removeSeedAfterRichPopupMount);
+    return () => {
+      cancelled = true;
+      if (frame) window.cancelAnimationFrame(frame);
+    };
   }, [popupAnchor, popupGeoCode, selectedGeoRichEntry]);
 
   const handleSeoMarkerToggle = useCallback(() => {
