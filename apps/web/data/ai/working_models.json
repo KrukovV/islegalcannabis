@@ -1,8 +1,6 @@
 {
-  "updatedAt": 1780356204776,
-  "workingModels": [
-    "qwen2.5:1.5b"
-  ],
+  "updatedAt": 1784410901545,
+  "workingModels": [],
   "stats": {
     "qwen2.5:1.5b": {
       "name": "qwen2.5:1.5b",
