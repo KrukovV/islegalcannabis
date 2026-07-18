@@ -86,6 +86,7 @@ data/import/
 data/reviews/**
 !data/reviews/
 !data/reviews/DE.review.json
+!data/reviews/wiki-truth-cannabis-law-matrix-307.json
 Artifacts/
 .checkpoints/
 Reports/.checkpoints/

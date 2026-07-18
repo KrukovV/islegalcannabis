@@ -8,6 +8,7 @@ import { findRepoRoot } from "@/lib/ssotDiff/ssotSnapshotStore";
 import { buildWikiTruthAudit } from "@/lib/wikiTruthAudit";
 import { buildExpectedWikiPageByIso } from "@/lib/wikiTruthNormalization";
 import { getStatusSnapshotMeta } from "@/lib/mapData";
+import { emptyWikiTruthCannabisLawMatrix, type WikiTruthCannabisLawMatrix } from "@/lib/wikiTruthCannabisLawMatrix";
 
 const ROOT = findRepoRoot(process.cwd());
 
@@ -69,6 +70,7 @@ export const buildWikiTruthPageModel = cache(() => {
   const officialRegistrySummary = readOfficialRegistrySummary(ROOT);
   const officialOwnershipDataset = readOfficialLinkOwnership(ROOT);
   const officialOwnershipIndex = buildOfficialLinkOwnershipIndex(officialOwnershipDataset);
+  const cannabisLawMatrix = (readJson(path.join(ROOT, "data", "reviews", "wiki-truth-cannabis-law-matrix-307.json")) || emptyWikiTruthCannabisLawMatrix) as WikiTruthCannabisLawMatrix;
   return {
     root: ROOT,
     generatedAt: String(legalityPayload.generated_at || "-"),
@@ -85,7 +87,8 @@ export const buildWikiTruthPageModel = cache(() => {
       usStatesWikiKeys,
       officialRegistrySummary,
       officialOwnershipIndex,
-      officialOwnershipDataset
+      officialOwnershipDataset,
+      cannabisLawMatrix
     })
   };
 });

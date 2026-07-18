@@ -3,6 +3,7 @@
 import type { WikiTruthAuditModel, WikiTruthAuditRow } from "@/lib/wikiTruthAudit";
 import OfficialOwnershipSummary from "./OfficialOwnershipSummary";
 import OfficialOwnershipTable from "./OfficialOwnershipTable";
+import CannabisLawMatrix from "./CannabisLawMatrix";
 
 function renderLinks(items: Array<{ url?: string; title?: string; isOfficial?: boolean }>) {
   if (!items.length) return "-";
@@ -201,6 +202,7 @@ export default function WikiTruthTable({ audit }: { audit: WikiTruthAuditModel }
 
       <OfficialOwnershipSummary view={audit.officialOwnershipView} />
       <OfficialOwnershipTable view={audit.officialOwnershipView} />
+      <CannabisLawMatrix matrix={audit.cannabisLawMatrix} />
 
       <section>
         <h2>All countries truth table</h2>

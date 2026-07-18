@@ -1,0 +1,710 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-07-16T20:40:00.000Z",
+  "scope": "Official cannabis-law evidence for the /wiki-truth audit. This file records reviewed source candidates and conclusions only; it never mutates project status SSOT.",
+  "review_standard": {
+    "official_domain_required": true,
+    "cannabis_specific_visible_text_required": true,
+    "redirect_and_soft_404_rejected": true,
+    "territorial_applicability_required": true,
+    "visual_screenshot_review_required": true
+  },
+  "rows": [
+    {
+      "geo": "US-AK",
+      "territory": "Alaska",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "LEGAL", "medical": "REGULATED" },
+      "project_comparison": {
+        "status": "PROJECT_STATUS_MISMATCH",
+        "reason": "The official Alaska page states that adult personal use is legal and that the state has rules for both medical and retail marijuana; project medical=NONE is not supported."
+      },
+      "sources": [
+        {
+          "title": "Marijuana Statutes and Regulations",
+          "url": "https://www.commerce.alaska.gov/web/amco/MarijuanaRegulations",
+          "publisher": "Alaska Alcohol & Marijuana Control Office",
+          "source_kind": "STATE_RULES_INDEX",
+          "document_type": "STATUTES_AND_REGULATIONS_INDEX"
+        },
+        {
+          "title": "Marijuana",
+          "url": "https://health.alaska.gov/en/education/drugs-and-alcohol/marijuana/",
+          "publisher": "Alaska Department of Health",
+          "source_kind": "STATE_AGENCY_LAW_SUMMARY",
+          "document_type": "OFFICIAL_LAW_GUIDANCE"
+        }
+      ]
+    },
+    {
+      "geo": "US-AZ",
+      "territory": "Arizona",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "LEGAL", "medical": "REGULATED" },
+      "project_comparison": { "status": "MATCH", "reason": "Arizona law authorizes specified adult possession and maintains a regulated medical marijuana program." },
+      "sources": [
+        {
+          "title": "A.R.S. 36-2852 - Allowable possession and transfer",
+          "url": "https://www.azleg.gov/ars/36/02852.htm",
+          "publisher": "Arizona State Legislature",
+          "source_kind": "STATE_STATUTE",
+          "document_type": "STATUTE_SECTION"
+        },
+        {
+          "title": "Marijuana Licensing",
+          "url": "https://www.azdhs.gov/licensing/marijuana/index.php",
+          "publisher": "Arizona Department of Health Services",
+          "source_kind": "STATE_AGENCY_PROGRAM",
+          "document_type": "OFFICIAL_PROGRAM_PAGE"
+        }
+      ]
+    },
+    {
+      "geo": "US-AR",
+      "territory": "Arkansas",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "ILLEGAL", "medical": "REGULATED" },
+      "project_comparison": { "status": "MATCH", "reason": "The official rules implement the Arkansas Medical Marijuana Amendment; no adult-use authorization is established by this source." },
+      "sources": [
+        {
+          "title": "Rules Governing Medical Marijuana Registration, Testing, and Labeling",
+          "url": "https://codeofarrules.arkansas.gov/Rules/Rule?chapterID=32&levelType=part&partID=1331&subChapterID=127&titleID=20",
+          "publisher": "Code of Arkansas Rules",
+          "source_kind": "STATE_RULE",
+          "document_type": "CODIFIED_RULE"
+        }
+      ]
+    },
+    {
+      "geo": "US-CO",
+      "territory": "Colorado",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "LEGAL", "medical": "REGULATED" },
+      "project_comparison": { "status": "MATCH", "reason": "Colorado's official cannabis page identifies both adult-use and medical legalization." },
+      "sources": [
+        {
+          "title": "Cannabis in Colorado",
+          "url": "https://cannabis.colorado.gov/marijuana-in-colorado",
+          "publisher": "State of Colorado",
+          "source_kind": "STATE_AGENCY_LAW_SUMMARY",
+          "document_type": "OFFICIAL_LAW_GUIDANCE"
+        },
+        {
+          "title": "Medical Marijuana Registry Laws and Policies",
+          "url": "https://cdphe.colorado.gov/index.php/medical-marijuana-registry-laws-policies",
+          "publisher": "Colorado Department of Public Health and Environment",
+          "source_kind": "STATE_RULES_INDEX",
+          "document_type": "STATUTES_AND_REGULATIONS_INDEX"
+        }
+      ]
+    },
+    {
+      "geo": "US-FL",
+      "territory": "Florida",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "ILLEGAL", "medical": "REGULATED" },
+      "project_comparison": { "status": "MATCH", "reason": "Florida Statutes section 381.986 authorizes and regulates medical use of marijuana, without authorizing adult use." },
+      "sources": [
+        {
+          "title": "Florida Statutes 381.986 - Medical use of marijuana",
+          "url": "https://www.leg.state.fl.us/statutes/index.cfm/Sections/index.cfm?App_mode=Display_Statute&URL=0300-0399%2F0381%2FSections%2F0381.986.html",
+          "publisher": "Florida Legislature",
+          "source_kind": "STATE_STATUTE",
+          "document_type": "STATUTE_SECTION"
+        }
+      ]
+    },
+    {
+      "geo": "US-HI",
+      "territory": "Hawaii",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "ILLEGAL", "medical": "REGULATED" },
+      "project_comparison": { "status": "MATCH", "reason": "The Hawaii Department of Health links the medical-cannabis statutes and administrative rules and separately identifies non-program possession penalties." },
+      "sources": [
+        {
+          "title": "Medical Cannabis Laws and Rules",
+          "url": "https://health.hawaii.gov/medicalcannabisregistry/general-information/marijuana-laws-and-related-documents/",
+          "publisher": "Hawaii Department of Health",
+          "source_kind": "STATE_RULES_INDEX",
+          "document_type": "STATUTES_AND_REGULATIONS_INDEX"
+        }
+      ]
+    },
+    {
+      "geo": "US-ID",
+      "territory": "Idaho",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "ILLEGAL", "medical": "NONE" },
+      "project_comparison": { "status": "MATCH", "reason": "Idaho's Office of Drug Policy states that marijuana is a Schedule I substance and that use and sale for any purpose are illegal in Idaho." },
+      "sources": [
+        {
+          "title": "Marijuana - Policy and Legal Classification",
+          "url": "https://odp.idaho.gov/issues-trends/marijuana/",
+          "publisher": "Idaho Office of Drug Policy",
+          "source_kind": "STATE_AGENCY_LAW_SUMMARY",
+          "document_type": "OFFICIAL_LAW_GUIDANCE"
+        }
+      ]
+    },
+    {
+      "geo": "US-IA",
+      "territory": "Iowa",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "ILLEGAL", "medical": "LIMITED" },
+      "project_comparison": { "status": "MATCH", "reason": "Iowa Code chapter 124E creates a restricted Medical Cannabidiol Act rather than general adult-use legalization." },
+      "sources": [
+        {
+          "title": "Iowa Code Chapter 124E - Medical Cannabidiol Act",
+          "url": "https://www.legis.iowa.gov/law/iowaCode/sections?codeChapter=124E",
+          "publisher": "Iowa Legislature",
+          "source_kind": "STATE_STATUTE",
+          "document_type": "STATUTE_CHAPTER"
+        },
+        {
+          "title": "Medical Cannabis - Laws and Regulations",
+          "url": "https://hhs.iowa.gov/health-prevention/medical-cannabis",
+          "publisher": "Iowa Health and Human Services",
+          "source_kind": "STATE_AGENCY_LAW_SUMMARY",
+          "document_type": "OFFICIAL_PROGRAM_PAGE"
+        }
+      ]
+    },
+    {
+      "geo": "US-KS",
+      "territory": "Kansas",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "ILLEGAL", "medical": "LIMITED" },
+      "project_comparison": { "status": "MATCH", "reason": "Claire and Lola's law creates only a narrow cannabidiol-treatment defense and expressly does not authorize other forms of cannabis." },
+      "sources": [
+        {
+          "title": "K.S.A. 65-6235 - Claire and Lola's law",
+          "url": "https://www.kslegislature.gov/li_2020/b2019_20/statute/065_000_0000_chapter/065_062_0000_article/065_062_0035_section/065_062_0035_k/",
+          "publisher": "Kansas State Legislature",
+          "source_kind": "STATE_STATUTE",
+          "document_type": "STATUTE_SECTION"
+        },
+        {
+          "title": "K.S.A. 21-5706 - Unlawful possession of controlled substances",
+          "url": "https://ksrevisor.gov/statutes/chapters/ch21/021_057_0006.html",
+          "publisher": "Kansas Office of Revisor of Statutes",
+          "source_kind": "STATE_STATUTE",
+          "document_type": "STATUTE_SECTION"
+        }
+      ]
+    },
+    {
+      "geo": "US-KY",
+      "territory": "Kentucky",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "ILLEGAL", "medical": "REGULATED" },
+      "project_comparison": { "status": "MATCH", "reason": "KRS Chapter 218B establishes Kentucky's regulated medicinal-cannabis program and does not authorize adult use." },
+      "sources": [
+        {
+          "title": "KRS Chapter 218B - Medicinal Cannabis",
+          "url": "https://apps.legislature.ky.gov/LAW/STATUTES/chapter.aspx?id=53446",
+          "publisher": "Kentucky Legislature",
+          "source_kind": "STATE_STATUTE",
+          "document_type": "STATUTE_CHAPTER"
+        }
+      ]
+    },
+    {
+      "geo": "US-LA",
+      "territory": "Louisiana",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "ILLEGAL", "medical": "REGULATED" },
+      "project_comparison": { "status": "PROJECT_STATUS_MISMATCH", "reason": "Louisiana R.S. 40:1046 authorizes recommendation, regulated production, and sale of marijuana for therapeutic use; project medical=NONE is incorrect." },
+      "sources": [
+        {
+          "title": "Louisiana R.S. 40:1046 - Therapeutic use of marijuana",
+          "url": "https://www.legis.la.gov/Legis/Law.aspx?d=96986",
+          "publisher": "Louisiana State Legislature",
+          "source_kind": "STATE_STATUTE",
+          "document_type": "STATUTE_SECTION"
+        }
+      ]
+    },
+    {
+      "geo": "US-ME",
+      "territory": "Maine",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "LEGAL", "medical": "REGULATED" },
+      "project_comparison": { "status": "PROJECT_STATUS_MISMATCH", "reason": "Maine statutes expressly authorize personal adult use and maintain the Maine Medical Use of Cannabis Act; project medical=NONE is incorrect." },
+      "sources": [
+        {
+          "title": "Title 28-B Chapter 3 - Personal Adult Use of Cannabis",
+          "url": "https://legislature.maine.gov/legis/statutes/28-B/title28-Bch3sec0.html",
+          "publisher": "Maine Legislature",
+          "source_kind": "STATE_STATUTE",
+          "document_type": "STATUTE_CHAPTER"
+        },
+        {
+          "title": "Title 22 Chapter 558-C - Maine Medical Use of Cannabis Act",
+          "url": "https://www.legislature.maine.gov/legis/statutes/22/title22ch558-C.pdf",
+          "publisher": "Maine Legislature",
+          "source_kind": "STATE_STATUTE",
+          "document_type": "STATUTE_PDF"
+        }
+      ]
+    },
+    {
+      "geo": "US-MD",
+      "territory": "Maryland",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "LEGAL", "medical": "REGULATED" },
+      "project_comparison": { "status": "MATCH", "reason": "Maryland's Alcoholic Beverages and Cannabis statute expressly distinguishes authorized adult-use and medical cannabis sales." },
+      "sources": [
+        {
+          "title": "Maryland Alcoholic Beverages and Cannabis §36-1101",
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?archived=False&article=gab&enactments=False&section=36-1101",
+          "publisher": "Maryland General Assembly",
+          "source_kind": "STATE_STATUTE",
+          "document_type": "STATUTE_SECTION"
+        }
+      ]
+    },
+    {
+      "geo": "US-MN",
+      "territory": "Minnesota",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "LEGAL", "medical": "REGULATED" },
+      "project_comparison": { "status": "PROJECT_STATUS_MISMATCH", "reason": "Minnesota's official Cannabis Law page states that Chapter 342 legalized adult use and transitions the existing medical cannabis program; project medical=NONE is incorrect." },
+      "sources": [
+        {
+          "title": "Cannabis Law - Minnesota Statutes Chapter 342",
+          "url": "https://mn.gov/ocm/laws/cannabis-law.jsp",
+          "publisher": "Minnesota Office of Cannabis Management",
+          "source_kind": "STATE_AGENCY_LAW_SUMMARY",
+          "document_type": "OFFICIAL_LAW_GUIDANCE"
+        }
+      ]
+    },
+    {
+      "geo": "US-MS",
+      "territory": "Mississippi",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "ILLEGAL", "medical": "REGULATED" },
+      "project_comparison": { "status": "MATCH", "reason": "The Mississippi Medical Cannabis Act and current Department of Health regulations authorize a regulated medical program only." },
+      "sources": [
+        {
+          "title": "Medical Cannabis Act",
+          "url": "https://www.msbml.ms.gov/mississippi-medical-practice-act",
+          "publisher": "Mississippi State Board of Medical Licensure",
+          "source_kind": "STATE_AGENCY_STATUTE_REPRODUCTION",
+          "document_type": "OFFICIAL_STATUTE_REPRODUCTION"
+        },
+        {
+          "title": "Medical Cannabis Regulations",
+          "url": "https://www.mmcp.ms.gov/regulations-reports",
+          "publisher": "Mississippi Medical Cannabis Program",
+          "source_kind": "STATE_RULES_INDEX",
+          "document_type": "REGULATIONS_INDEX"
+        }
+      ]
+    },
+    {
+      "geo": "US-MO",
+      "territory": "Missouri",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "LEGAL", "medical": "REGULATED" },
+      "project_comparison": { "status": "MATCH", "reason": "Article XIV of the Missouri Constitution authorizes regulated medical and adult-use marijuana." },
+      "sources": [
+        {
+          "title": "Missouri Constitution Article XIV Section 2 - Marijuana legalization, regulation, and taxation",
+          "url": "https://www.revisor.mo.gov/main/OneSection.aspx?section=XIV+++2",
+          "publisher": "Missouri Revisor of Statutes",
+          "source_kind": "STATE_CONSTITUTION",
+          "document_type": "CONSTITUTION_SECTION"
+        }
+      ]
+    },
+    {
+      "geo": "US-MT",
+      "territory": "Montana",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "LEGAL", "medical": "REGULATED" },
+      "project_comparison": { "status": "MATCH", "reason": "Montana Code Title 16 Chapter 12 regulates adult-use dispensaries and a medical-marijuana system." },
+      "sources": [
+        {
+          "title": "Montana Code 16-12-102 - Marijuana Regulation and Taxation definitions",
+          "url": "https://leg.mt.gov/bills/mca/title_0160/chapter_0120/part_0010/section_0020/0160-0120-0010-0020.html",
+          "publisher": "Montana Legislature",
+          "source_kind": "STATE_STATUTE",
+          "document_type": "STATUTE_SECTION"
+        }
+      ]
+    },
+    {
+      "geo": "US-NE",
+      "territory": "Nebraska",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "ILLEGAL", "medical": "REGULATED" },
+      "project_comparison": { "status": "MATCH", "reason": "Current Nebraska statutes protect qualified medical cannabis use and establish a state Medical Cannabis Regulation Act; adult use remains outside that authorization." },
+      "sources": [
+        {
+          "title": "Nebraska Revised Statute 71-24,105 - Protected medical cannabis conduct",
+          "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=71-24%2C105",
+          "publisher": "Nebraska Legislature",
+          "source_kind": "STATE_STATUTE",
+          "document_type": "STATUTE_SECTION"
+        },
+        {
+          "title": "Nebraska Revised Statute 71-24,106 - Medical Cannabis Regulation Act",
+          "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=71-24%2C106",
+          "publisher": "Nebraska Legislature",
+          "source_kind": "STATE_STATUTE",
+          "document_type": "STATUTE_SECTION"
+        }
+      ]
+    },
+    {
+      "geo": "US-NV",
+      "territory": "Nevada",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "LEGAL", "medical": "REGULATED" },
+      "project_comparison": { "status": "MATCH", "reason": "Nevada's Cannabis Compliance Board identifies legal adult possession and a continuing medical-cannabis program." },
+      "sources": [
+        {
+          "title": "Cannabis Laws and Regulations",
+          "url": "https://ccb.nv.gov/laws-regulations/",
+          "publisher": "Nevada Cannabis Compliance Board",
+          "source_kind": "STATE_AGENCY_LAW_SUMMARY",
+          "document_type": "OFFICIAL_LAW_GUIDANCE"
+        }
+      ]
+    },
+    {
+      "geo": "US-NM",
+      "territory": "New Mexico",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "LEGAL", "medical": "REGULATED" },
+      "project_comparison": { "status": "MATCH", "reason": "New Mexico's Cannabis Regulation Act and medical-cannabis rules govern legal adult-use and medical markets." },
+      "sources": [
+        {
+          "title": "Cannabis Laws, Rules, and Regulations",
+          "url": "https://www.rld.nm.gov/cannabis/laws-rules-regulations/",
+          "publisher": "New Mexico Regulation and Licensing Department",
+          "source_kind": "STATE_RULES_INDEX",
+          "document_type": "STATUTES_AND_REGULATIONS_INDEX"
+        }
+      ]
+    },
+    {
+      "geo": "US-NC",
+      "territory": "North Carolina",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "ILLEGAL", "medical": "LIMITED" },
+      "project_comparison": { "status": "PROJECT_STATUS_MISMATCH", "reason": "North Carolina lists marijuana in Schedule VI and has no statewide regulated medical-cannabis market; project medical=REGULATED is too broad. Any tribal program has a different jurisdictional scope." },
+      "sources": [
+        {
+          "title": "G.S. 90-94 - Schedule VI controlled substances",
+          "url": "https://www.ncleg.gov/enactedlegislation/statutes/html/bysection/chapter_90/gs_90-94.html",
+          "publisher": "North Carolina General Assembly",
+          "source_kind": "STATE_STATUTE",
+          "document_type": "STATUTE_SECTION"
+        }
+      ]
+    },
+    {
+      "geo": "US-ND",
+      "territory": "North Dakota",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "ILLEGAL", "medical": "REGULATED" },
+      "project_comparison": { "status": "MATCH", "reason": "North Dakota publishes a medical-marijuana statute and administrative rules; the 2024 adult-use initiative did not itself establish current adult-use law." },
+      "sources": [
+        {
+          "title": "Medical Marijuana State Laws and Administrative Rules",
+          "url": "https://www.hhs.nd.gov/mm/state-laws-and-administrative-rules",
+          "publisher": "North Dakota Health and Human Services",
+          "source_kind": "STATE_RULES_INDEX",
+          "document_type": "STATUTES_AND_REGULATIONS_INDEX"
+        }
+      ]
+    },
+    {
+      "geo": "US-OH",
+      "territory": "Ohio",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "LEGAL", "medical": "REGULATED" },
+      "project_comparison": { "status": "MATCH", "reason": "Ohio Revised Code 3796.221 grants adult-use possession and use rights within limits, alongside the regulated medical program." },
+      "sources": [
+        {
+          "title": "Ohio Revised Code 3796.221 - Rights of adult-use users",
+          "url": "https://codes.ohio.gov/ohio-revised-code/section-3796.221",
+          "publisher": "Ohio Laws",
+          "source_kind": "STATE_STATUTE",
+          "document_type": "STATUTE_SECTION"
+        }
+      ]
+    },
+    {
+      "geo": "US-OK",
+      "territory": "Oklahoma",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "ILLEGAL", "medical": "REGULATED" },
+      "project_comparison": { "status": "MATCH", "reason": "OMMA administers a statutory medical-marijuana program; the identified official material does not authorize adult use." },
+      "sources": [
+        {
+          "title": "Patient Rights and Responsibilities",
+          "url": "https://oklahoma.gov/omma/patients-caregivers/patient-rights-and-responsibilities.html",
+          "publisher": "Oklahoma Medical Marijuana Authority",
+          "source_kind": "STATE_AGENCY_LAW_SUMMARY",
+          "document_type": "OFFICIAL_LAW_GUIDANCE"
+        },
+        {
+          "title": "OMMA Rules",
+          "url": "https://oklahoma.gov/omma/rules-and-legislation/rules.html",
+          "publisher": "Oklahoma Medical Marijuana Authority",
+          "source_kind": "STATE_RULES_INDEX",
+          "document_type": "REGULATIONS_INDEX"
+        }
+      ]
+    },
+    {
+      "geo": "US-OR",
+      "territory": "Oregon",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "LEGAL", "medical": "REGULATED" },
+      "project_comparison": { "status": "MATCH", "reason": "Oregon's official Cannabis Laws page states that adults may possess and use cannabis within limits and that the Medical Marijuana Act authorizes medical use." },
+      "sources": [
+        {
+          "title": "Cannabis Laws in Oregon",
+          "url": "https://www.oregon.gov/oha/ph/preventionwellness/marijuana/pages/laws.aspx",
+          "publisher": "Oregon Health Authority",
+          "source_kind": "STATE_AGENCY_LAW_SUMMARY",
+          "document_type": "OFFICIAL_LAW_GUIDANCE"
+        }
+      ]
+    },
+    {
+      "geo": "US-RI",
+      "territory": "Rhode Island",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "LEGAL", "medical": "REGULATED" },
+      "project_comparison": { "status": "MATCH", "reason": "Rhode Island's Cannabis Control Commission states that adult use is legal and that the Commission regulates adult and medical cannabis." },
+      "sources": [
+        {
+          "title": "Cannabis Control Commission FAQ",
+          "url": "https://ccc.ri.gov/faq",
+          "publisher": "Rhode Island Cannabis Control Commission",
+          "source_kind": "STATE_AGENCY_LAW_SUMMARY",
+          "document_type": "OFFICIAL_LAW_GUIDANCE"
+        },
+        {
+          "title": "Medical Marijuana",
+          "url": "https://health.ri.gov/medical-marijuana",
+          "publisher": "Rhode Island Department of Health",
+          "source_kind": "STATE_AGENCY_PROGRAM",
+          "document_type": "OFFICIAL_PROGRAM_PAGE"
+        }
+      ]
+    },
+    {
+      "geo": "US-SC",
+      "territory": "South Carolina",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "ILLEGAL", "medical": "LIMITED" },
+      "project_comparison": { "status": "MATCH", "reason": "South Carolina retains marijuana offenses while only narrow cannabinoid/research exceptions support the project's LIMITED medical category." },
+      "sources": [
+        {
+          "title": "South Carolina Code Title 44 Chapter 53 - Poisons, Drugs and Other Controlled Substances",
+          "url": "https://www.scstatehouse.gov/code/t44c053.php",
+          "publisher": "South Carolina Legislature",
+          "source_kind": "STATE_STATUTE",
+          "document_type": "STATUTE_CHAPTER"
+        }
+      ]
+    },
+    {
+      "geo": "US-TN",
+      "territory": "Tennessee",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "ILLEGAL", "medical": "LIMITED" },
+      "project_comparison": { "status": "PROJECT_STATUS_MISMATCH", "reason": "Tennessee's enacted law creates narrow low-THC cannabidiol-oil exceptions, not a regulated in-state medical cannabis market; project medical=REGULATED is too broad." },
+      "sources": [
+        {
+          "title": "HB 0490 / Public Chapter 577 - Medical cannabis commission and low-THC exceptions",
+          "url": "https://wapp.capitol.tn.gov/apps/BillInfo/Default?BillNumber=HB0490&GA=112",
+          "publisher": "Tennessee General Assembly",
+          "source_kind": "STATE_SESSION_LAW",
+          "document_type": "ENACTED_BILL_RECORD"
+        }
+      ]
+    },
+    {
+      "geo": "US-TX",
+      "territory": "Texas",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "ILLEGAL", "medical": "LIMITED" },
+      "project_comparison": { "status": "MATCH", "reason": "Texas authorizes low-THC cannabis only through the restricted Compassionate Use Program." },
+      "sources": [
+        {
+          "title": "Low-THC Cannabis Medical Use",
+          "url": "https://www.dshs.texas.gov/health-promotion-chronic-disease-prevention-section/low-thc-cannabis-medical-use",
+          "publisher": "Texas Department of State Health Services",
+          "source_kind": "STATE_AGENCY_LAW_SUMMARY",
+          "document_type": "OFFICIAL_LAW_GUIDANCE"
+        }
+      ]
+    },
+    {
+      "geo": "US-UT",
+      "territory": "Utah",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "ILLEGAL", "medical": "REGULATED" },
+      "project_comparison": { "status": "MATCH", "reason": "Utah Code Title 26B Chapter 4 Part 2 establishes regulated medical-cannabis cards, purchase, and use limits without adult-use authorization." },
+      "sources": [
+        {
+          "title": "Utah Code 26B-4-245 - Medical cannabis purchasing and use limitations",
+          "url": "https://le.utah.gov/xcode/Title26B/Chapter4/26B-4-S245.html",
+          "publisher": "Utah Legislature",
+          "source_kind": "STATE_STATUTE",
+          "document_type": "STATUTE_SECTION"
+        }
+      ]
+    },
+    {
+      "geo": "US-VT",
+      "territory": "Vermont",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "LEGAL", "medical": "REGULATED" },
+      "project_comparison": { "status": "MATCH", "reason": "Vermont statutes establish a medical registry and a regulated adult-use cannabis framework." },
+      "sources": [
+        {
+          "title": "7 V.S.A. §952 - Medical Cannabis Registry",
+          "url": "https://legislature.vermont.gov/statutes/section/07/035/00952",
+          "publisher": "Vermont Legislature",
+          "source_kind": "STATE_STATUTE",
+          "document_type": "STATUTE_SECTION"
+        },
+        {
+          "title": "Cannabis Control Board Rules",
+          "url": "https://ccb.vermont.gov/laws-rules-and-regulations",
+          "publisher": "Vermont Cannabis Control Board",
+          "source_kind": "STATE_RULES_INDEX",
+          "document_type": "STATUTES_AND_REGULATIONS_INDEX"
+        }
+      ]
+    },
+    {
+      "geo": "US-VA",
+      "territory": "Virginia",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "LEGAL", "medical": "REGULATED" },
+      "project_comparison": { "status": "PROJECT_STATUS_MISMATCH", "reason": "Virginia officially permits limited adult possession, private use, sharing, and home cultivation even though non-medical retail sales remain unavailable; project recreational=ILLEGAL collapses this mixed legal scope." },
+      "sources": [
+        {
+          "title": "Cannabis Laws and Regulations",
+          "url": "https://cca.virginia.gov/laws",
+          "publisher": "Virginia Cannabis Control Authority",
+          "source_kind": "STATE_AGENCY_LAW_SUMMARY",
+          "document_type": "OFFICIAL_LAW_GUIDANCE"
+        },
+        {
+          "title": "Code of Virginia Chapter 16 - Medical Cannabis Program",
+          "url": "https://law.lis.virginia.gov/vacodefull/title4.1/chapter16/",
+          "publisher": "Virginia Legislative Information System",
+          "source_kind": "STATE_STATUTE",
+          "document_type": "STATUTE_CHAPTER"
+        }
+      ]
+    },
+    {
+      "geo": "US-WA",
+      "territory": "Washington",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "LEGAL", "medical": "REGULATED" },
+      "project_comparison": { "status": "MATCH", "reason": "Washington's official pages identify legal adult non-medical use and codified medical-cannabis statutes and rules." },
+      "sources": [
+        {
+          "title": "Know the Cannabis Laws",
+          "url": "https://lcb.wa.gov/education2ckl/know_the_laws",
+          "publisher": "Washington State Liquor and Cannabis Board",
+          "source_kind": "STATE_AGENCY_LAW_SUMMARY",
+          "document_type": "OFFICIAL_LAW_GUIDANCE"
+        },
+        {
+          "title": "Medical Cannabis Laws and Rules",
+          "url": "https://doh.wa.gov/you-and-your-family/cannabis/medical-cannabis/laws-and-rules",
+          "publisher": "Washington State Department of Health",
+          "source_kind": "STATE_RULES_INDEX",
+          "document_type": "STATUTES_AND_REGULATIONS_INDEX"
+        }
+      ]
+    },
+    {
+      "geo": "US-WV",
+      "territory": "West Virginia",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "ILLEGAL", "medical": "REGULATED" },
+      "project_comparison": { "status": "PROJECT_STATUS_MISMATCH", "reason": "West Virginia's Office of Medical Cannabis states that the Medical Cannabis Act authorizes certified medical use; project medical=NONE is incorrect." },
+      "sources": [
+        {
+          "title": "Medical Cannabis Act FAQ",
+          "url": "https://omc.wv.gov/rules/FAQ/Pages/default.aspx",
+          "publisher": "West Virginia Office of Medical Cannabis",
+          "source_kind": "STATE_AGENCY_LAW_SUMMARY",
+          "document_type": "OFFICIAL_LAW_GUIDANCE"
+        }
+      ]
+    },
+    {
+      "geo": "US-WI",
+      "territory": "Wisconsin",
+      "authority_scope": "STATE",
+      "review_status": "SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
+      "official_status": { "recreational": "ILLEGAL", "medical": "LIMITED" },
+      "project_comparison": { "status": "TAXONOMY_REVIEW_REQUIRED", "reason": "Wisconsin criminalizes marijuana possession but has narrow cannabidiol provisions; LIMITED is plausible only if the project taxonomy includes CBD-only physician documentation and research access." },
+      "sources": [
+        {
+          "title": "Wisconsin Statute 961.41 - Prohibited acts and penalties",
+          "url": "https://docs.legis.wisconsin.gov/statutes/statutes/961/iv/41",
+          "publisher": "Wisconsin Legislature",
+          "source_kind": "STATE_STATUTE",
+          "document_type": "STATUTE_SECTION"
+        },
+        {
+          "title": "2013 Wisconsin Act 267 - Cannabidiol exception",
+          "url": "https://docs.legis.wisconsin.gov/2013/related/acts/267",
+          "publisher": "Wisconsin Legislature",
+          "source_kind": "STATE_SESSION_LAW",
+          "document_type": "ENACTED_ACT"
+        }
+      ]
+    }
+  ]
+}

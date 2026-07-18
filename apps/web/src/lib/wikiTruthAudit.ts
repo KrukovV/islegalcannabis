@@ -18,6 +18,10 @@ import {
   normalizeWikiDisplayTitle,
   type WikiTruthResolutionReason
 } from "@/lib/wikiTruthNormalization";
+import {
+  emptyWikiTruthCannabisLawMatrix,
+  type WikiTruthCannabisLawMatrix
+} from "@/lib/wikiTruthCannabisLawMatrix";
 
 type LegalityRow = {
   country?: string;
@@ -181,6 +185,7 @@ export type WikiTruthAuditModel = {
     discrepancyExplanation: string;
   };
   officialOwnershipView: OfficialOwnershipViewModel;
+  cannabisLawMatrix: WikiTruthCannabisLawMatrix;
 };
 
 type BuildInput = {
@@ -195,6 +200,7 @@ type BuildInput = {
   officialRegistrySummary: OfficialRegistrySummary;
   officialOwnershipIndex: ReturnType<typeof buildOfficialLinkOwnershipIndex>;
   officialOwnershipDataset: OfficialLinkOwnershipDataset;
+  cannabisLawMatrix?: WikiTruthCannabisLawMatrix;
 };
 
 function classifyNotes(text: string, kind?: string): string {
@@ -649,6 +655,7 @@ export function buildWikiTruthAudit(input: BuildInput): WikiTruthAuditModel {
       assignedGlobalLinks: input.officialOwnershipDataset.diagnostics.assigned_global_links,
       discrepancyExplanation: input.officialOwnershipDataset.diagnostics.raw_vs_effective_explainer
     },
-    officialOwnershipView
+    officialOwnershipView,
+    cannabisLawMatrix: input.cannabisLawMatrix || emptyWikiTruthCannabisLawMatrix
   };
 }

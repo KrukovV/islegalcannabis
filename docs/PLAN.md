@@ -2,6 +2,11 @@
 
 Statuses: pending | in_progress | done
 
+- [done] Manually open and visually inspect official cannabis-law evidence for all 307 rows; current checkpoint 307/307, and a saved screenshot is mandatory before any link is accepted as law evidence
+- [done] Re-audit every former 62 automated direct-label row by eye; all 62 are manually complete, candidate rows awaiting visual review are 0, and term matches/path guesses were never accepted as evidence
+- [done] Update the prebuilt cannabis-law matrix and `/wiki-truth` UI so verified evidence, pending candidates, context-only links, screenshots, status divergence, and scope reasons stay visibly separate without editing status SSOT
+- [done] Prove final 307/307 manual-review completeness in live UI and `pass_cycle`, including screenshot artifact coverage and no fabricated direct territorial pages
+
 - [done] Fix checkpoint -> CONTINUITY State always matches latest .checkpoints/*.patch
 - [done] Harden CI determinism (free port, no silent fallbacks) + smoke contract checks
 - [done] Ledger compact discipline: Done<=10, archive older entries without dupes
