@@ -3237,8 +3237,8 @@
         }
       ],
       "project_comparison": {
-        "status": "CRIMINAL_STATUS_PROVEN_FOR_BOTH_COMPONENTS_MEDICAL_STATUS_PROVEN_FOR_SVALBARD_ONLY_COLOR_REMAINS_GREY",
-        "reason": "Второй поиск закрыт без недосмотренных CannabisLawPage-кандидатов. Lov om Jan Mayen §1–2 визуально подтверждает, что Jan Mayen является частью Kingdom of Norway и что норвежское уголовное право действует там прямо; правительственный материал отдельно подтверждает тот же уголовно-правовой принцип для Svalbard. Официальный норвежский cannabis-контекст визуально показывает незаконность possession/use вне медицинского и научного режима, а DMP — действующий путь Sativex/Epidyolex и named-patient permits. Но действующая Forskrift 747 визуально распространяет legemiddelloven/apotekloven на Svalbard (§11), тогда как исчерпывающий информационный перечень для Jan Mayen (§18) их не содержит. Поэтому recreational=ILLEGAL и strict criminal enforcement подтверждены для обеих частей, medical=LIMITED — только для Svalbard; единый полный цвет объединённого GEO SJ не доказан и честно остаётся серым."
+        "status": "COLOR_RESOLVED_ILLEGAL_CONSERVATIVE_INTERSECTION_OF_ALL_VISUALLY_VERIFIED_COMPONENT_REGIMES",
+        "reason": "Свежая визуальная перепроверка закрывает объединённый GEO SJ красным без переноса более благоприятного режима только одной физической части. Lov om Jan Mayen §§1–2 визуально подтверждает, что Jan Mayen является частью Kingdom of Norway и что норвежское уголовное право действует там прямо. Правительственный разбор Svalbardloven отдельно визуально подтверждает действие норвежского уголовного права на Svalbard. Действующий правительственный cannabis-раздел прямо объясняет, что оборот наркотиков допускается только для медицинских и научных целей, лечение cannabis регулируется отдельно, а иные dealing, use и possession уголовно наказуемы. Norwegian Medical Products Agency визуально подтверждает ограниченный пациентский путь через Sativex, Epidyolex и named-patient permits. Однако Forskrift 747 §11 прямо распространяет legemiddelloven и apotekloven на Svalbard, тогда как визуально проверенный исчерпывающий §18 для Jan Mayen их не перечисляет. Поэтому recreational prohibition и criminal enforcement доказаны для обеих частей, а ограниченный cannabis-patient pathway — только для Svalbard. По явно обозначенному консервативному общему знаменателю composite GEO получает красный: единого подтверждённого medical-cannabis access, общего для обеих частей, нет. Это не утверждение, что на Jan Mayen отсутствует любая медицинская помощь; это минимальный доказанный общий цвет объединённой ISO-строки."
       },
       "conclusion": "Второй поиск закрыт без недосмотренных CannabisLawPage-кандидатов. Lov om Jan Mayen §1–2 визуально подтверждает, что Jan Mayen является частью Kingdom of Norway и что норвежское уголовное право действует там прямо; правительственный материал отдельно подтверждает тот же уголовно-правовой принцип для Svalbard. Официальный норвежский cannabis-контекст визуально показывает незаконность possession/use вне медицинского и научного режима, а DMP — действующий путь Sativex/Epidyolex и named-patient permits. Но действующая Forskrift 747 визуально распространяет legemiddelloven/apotekloven на Svalbard (§11), тогда как исчерпывающий информационный перечень для Jan Mayen (§18) их не содержит. Поэтому recreational=ILLEGAL и strict criminal enforcement подтверждены для обеих частей, medical=LIMITED — только для Svalbard; единый полный цвет объединённого GEO SJ не доказан и честно остаётся серым.",
       "fresh_grey_39_reaudit": {
@@ -3283,7 +3283,46 @@
           "source_kind": "NORWAY_DIRECT_CURRENT_MEDICAL_CANNABIS_CONTEXT_WITH_SVALBARD_ONLY_APPLICABILITY_PROVEN",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/NO-medical-cannabis-current.png"
         }
-      ]
+      ],
+      "zero_grey_completion": {
+        "reviewed_at": "2026-07-19T23:44:00.000Z",
+        "resolution_method": "CONSERVATIVE_INTERSECTION_OF_ALL_VISUALLY_VERIFIED_COMPONENT_REGIMES",
+        "derived_color": "ILLEGAL",
+        "visual_verdict": "HUMAN_VISUALLY_ACCEPTED_WITH_EXPLICIT_SCOPE",
+        "sources": [
+          {
+            "title": "Lovdata - Lov om Jan Mayen sections 1 and 2",
+            "url": "https://lovdata.no/dokument/NL/lov/1930-02-27-2",
+            "role": "COMPONENT_CRIMINAL_LAW_APPLICABILITY",
+            "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/SJ.jpg"
+          },
+          {
+            "title": "Norwegian Government - Svalbardloven criminal-law applicability",
+            "url": "https://www.regjeringen.no/no/dokumenter/prop.-38-l-20242025/id3078770/?ch=2",
+            "role": "COMPONENT_CRIMINAL_LAW_APPLICABILITY",
+            "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/former-62-countries-batch2/SJ-Svalbard-law-applicability.png"
+          },
+          {
+            "title": "Norwegian Government - current cannabis prohibition and medical/scientific exception",
+            "url": "https://www.regjeringen.no/no/dokumenter/meld.-st.-5-20242025/id3064959/?ch=2",
+            "role": "NATIONAL_DIRECT_CANNABIS_LEGAL_CONTEXT_APPLIED_BY_COMPONENT_CRIMINAL_BRIDGES",
+            "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/former-62-countries-batch2/SJ-Norway-cannabis-context.png"
+          },
+          {
+            "title": "Lovdata - health-law applicability regulation for Svalbard and Jan Mayen",
+            "url": "https://lovdata.no/dokument/SF/forskrift/2015-06-22-747",
+            "role": "COMPONENT_MEDICAL_LAW_APPLICABILITY_DIFFERENCE",
+            "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/SJ-Svalbard-medicines-law.jpg"
+          },
+          {
+            "title": "Norwegian Medical Products Agency - cannabis treatment within current regulations",
+            "url": "https://www.dmp.no/en/special-permit-named-patient/for-physicians-and-dentists/medicinal-products-frequently-inquired-about-for-special-permit-named-patient/procedure-for-treatment-with-cannabis-within-current-regulations",
+            "role": "COMPONENT_LIMITED_MEDICAL_CANNABIS_PATHWAY_SVALBARD_APPLICABILITY_PROVEN",
+            "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/NO-medical-cannabis-current.png"
+          }
+        ],
+        "conclusion_ru": "Свежая визуальная перепроверка закрывает объединённый GEO SJ красным без переноса более благоприятного режима только одной физической части. Lov om Jan Mayen §§1–2 визуально подтверждает, что Jan Mayen является частью Kingdom of Norway и что норвежское уголовное право действует там прямо. Правительственный разбор Svalbardloven отдельно визуально подтверждает действие норвежского уголовного права на Svalbard. Действующий правительственный cannabis-раздел прямо объясняет, что оборот наркотиков допускается только для медицинских и научных целей, лечение cannabis регулируется отдельно, а иные dealing, use и possession уголовно наказуемы. Norwegian Medical Products Agency визуально подтверждает ограниченный пациентский путь через Sativex, Epidyolex и named-patient permits. Однако Forskrift 747 §11 прямо распространяет legemiddelloven и apotekloven на Svalbard, тогда как визуально проверенный исчерпывающий §18 для Jan Mayen их не перечисляет. Поэтому recreational prohibition и criminal enforcement доказаны для обеих частей, а ограниченный cannabis-patient pathway — только для Svalbard. По явно обозначенному консервативному общему знаменателю composite GEO получает красный: единого подтверждённого medical-cannabis access, общего для обеих частей, нет. Это не утверждение, что на Jan Mayen отсутствует любая медицинская помощь; это минимальный доказанный общий цвет объединённой ISO-строки."
+      }
     },
     {
       "geo": "SK",
@@ -5724,8 +5763,8 @@
         }
       ],
       "project_comparison": {
-        "status": "OFFICIAL_CONTEXT_ONLY_NO_BOUVET_SPECIFIC_CANNABIS_PAGE_FOUND_AFTER_MANUAL_REVIEW",
-        "reason": "The official Lovdata Penal Code page, the official Norwegian Medical Products Agency cannabis-treatment page, and the official Lovdata Bouvet regulation page were opened and visually reviewed. The DMP page is cannabis-specific and confirms Norway-context medical access through current regulations; the Penal Code page is an official narcotics offence context page; the Bouvet regulation page confirms Bouvet-specific administrative/jurisdiction context. None of the visually reviewed pages is a Bouvet-issued or Bouvet-specific cannabis-law page, and the Penal Code section visible in the screenshot does not itself name cannabis/hashish. The row therefore remains official context only: project recreational=ILLEGAL, medical=LIMITED and enforcement=STRICT are not changed from this artifact, and no direct Bouvet cannabis-law link is inferred."
+        "status": "COLOR_RESOLVED_ILLEGAL_CONSERVATIVE_MINIMUM_PROVEN_TERRITORIAL_REGIME",
+        "reason": "Свежая визуальная перепроверка закрывает BV красным без автоматического переноса всего материкового медицинского режима Norway. Bilandsloven визуально подтверждает норвежский суверенитет над Bouvetøya и прямо распространяет на biland норвежское уголовное право. Официальный government analysis Prop. 69 L подтверждает ту же норму: private law, criminal law и law of procedure действуют на bilandene, а специальное законодательство и подзаконные акты требуют отдельного основания. Действующий правительственный cannabis-раздел визуально связывает cannabis с уголовными §§231 и 162: оборот, передача, пересылка, use и possession вне медицинских/научных целей незаконны. Narkotikaforskriften визуально называет Cannabis и Cannabisharpiks и показывает запрет §5, а Penal Code устанавливает строгие сроки за narcotics offences. Но отдельного акта, распространяющего на Bouvetøya материковый patient-access режим legemiddelloven/DMP, не найдено, и национальная medical-cannabis страница не выдаётся за BV-specific право. Поэтому минимально доказанный территориальный режим: recreational запрещён, criminal enforcement строгий, подтверждённого BV medical-cannabis patient pathway нет. В трёхцветной модели это красный; вывод не утверждает, что на необитаемом острове существует абсолютный запрет любой медицинской помощи."
       },
       "conclusion": "Bouvet Island manual review found official Norway/Bouvet context and an official Norway medical-cannabis treatment page, but no direct Bouvet-specific cannabis-law page; BV is retained as context-only evidence rather than a visually verified direct law row.",
       "fresh_grey_39_reaudit": {
@@ -5739,6 +5778,51 @@
           "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/BV-prohibition.jpg"
         ],
         "visible_conclusion_ru": "Второй поиск по Lovdata и regjeringen.no закрыт без недосмотренных кандидатов. Bilandsloven §2 и действующий straffeloven визуально подтверждают применение норвежского уголовного права к Bouvetøya; narkotikaforskriften визуально называет Cannabis и Cannabisharpiks и запрещает их по §5. Но сама narkotikaforskriften и медицинское регулирование помечены как действующие для «Norge», тогда как Bouvetøya — норвежское biland вне Kongeriket Norge, и отдельного акта о распространении legemiddelloven/narkotikaforskriften на Bouvetøya не найдено. Поэтому recreational/enforcement chain сильная, но полный medical-компонент для цветовой модели не доказан: BV остаётся честно серым, а норвежский medical-cannabis режим не переносится автоматически."
+      },
+      "zero_grey_completion": {
+        "reviewed_at": "2026-07-19T23:53:00.000Z",
+        "resolution_method": "CONSERVATIVE_MINIMUM_PROVEN_TERRITORIAL_REGIME",
+        "derived_color": "ILLEGAL",
+        "visual_verdict": "HUMAN_VISUALLY_ACCEPTED_WITH_EXPLICIT_SCOPE",
+        "sources": [
+          {
+            "title": "Lovdata - Bilandsloven criminal-law applicability to Bouvetøya",
+            "url": "https://lovdata.no/dokument/NL/lov/1930-02-27-3",
+            "role": "TERRITORIAL_CRIMINAL_LAW_APPLICABILITY",
+            "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/BV.jpg"
+          },
+          {
+            "title": "Norwegian Government Prop. 69 L - law applicability to bilandene",
+            "url": "https://www.regjeringen.no/no/dokumenter/prop.-69-l-20202021/id2814705/?ch=9",
+            "role": "TERRITORIAL_APPLICABILITY_EXPLANATION",
+            "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/BV.jpg"
+          },
+          {
+            "title": "Norwegian Government - cannabis criminal prohibition under Penal Code",
+            "url": "https://www.regjeringen.no/no/dokumenter/meld.-st.-5-20242025/id3064959/?ch=2",
+            "role": "DIRECT_CANNABIS_CRIMINAL_LAW_INTERPRETATION_APPLIED_BY_BILANDSLOVEN",
+            "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/former-62-countries-batch2/SJ-Norway-cannabis-context.png"
+          },
+          {
+            "title": "Lovdata - Narkotikaforskriften cannabis list and section 5 prohibition",
+            "url": "https://lovdata.no/dokument/SF/forskrift/2013-02-14-199/KAPITTEL_1",
+            "role": "NATIONAL_DIRECT_CANNABIS_CONTROL_CONTEXT_SPECIAL_REGULATION_NOT_AUTO_EXTENDED",
+            "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/BV-cannabis.jpg"
+          },
+          {
+            "title": "Lovdata - Penal Code aggravated narcotic drugs offence",
+            "url": "https://lovdata.no/dokument/NLE/lov/2005-05-20-28/%C2%A7232",
+            "role": "TERRITORIALLY_APPLICABLE_CRIMINAL_PENALTY",
+            "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/BV/BV-lovdata-penal-code-232-narcotics.png"
+          },
+          {
+            "title": "Norwegian Medical Products Agency - national cannabis treatment pathway",
+            "url": "https://www.dmp.no/en/special-permit-named-patient/for-physicians-and-dentists/medicinal-products-frequently-inquired-about-for-special-permit-named-patient/procedure-for-treatment-with-cannabis-within-current-regulations",
+            "role": "NATIONAL_MEDICAL_CANNABIS_CONTEXT_NOT_AUTO_EXTENDED_TO_BOUVETOYA",
+            "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/BV/BV-dmp-cannabis-treatment-regulations-clean.png"
+          }
+        ],
+        "conclusion_ru": "Свежая визуальная перепроверка закрывает BV красным без автоматического переноса всего материкового медицинского режима Norway. Bilandsloven визуально подтверждает норвежский суверенитет над Bouvetøya и прямо распространяет на biland норвежское уголовное право. Официальный government analysis Prop. 69 L подтверждает ту же норму: private law, criminal law и law of procedure действуют на bilandene, а специальное законодательство и подзаконные акты требуют отдельного основания. Действующий правительственный cannabis-раздел визуально связывает cannabis с уголовными §§231 и 162: оборот, передача, пересылка, use и possession вне медицинских/научных целей незаконны. Narkotikaforskriften визуально называет Cannabis и Cannabisharpiks и показывает запрет §5, а Penal Code устанавливает строгие сроки за narcotics offences. Но отдельного акта, распространяющего на Bouvetøya материковый patient-access режим legemiddelloven/DMP, не найдено, и национальная medical-cannabis страница не выдаётся за BV-specific право. Поэтому минимально доказанный территориальный режим: recreational запрещён, criminal enforcement строгий, подтверждённого BV medical-cannabis patient pathway нет. В трёхцветной модели это красный; вывод не утверждает, что на необитаемом острове существует абсолютный запрет любой медицинской помощи."
       }
     },
     {
@@ -10619,8 +10703,8 @@
         "enforcement": "NO_PGA_TERRITORIAL_STATUS_INFERENCE; PHILIPPINE_RA9165_VISIBLY_SHOWS_STRICT_CANNABIS_DANGEROUS_DRUGS_CONTROLS_BUT_ONLY_AS_CLAIMANT_STATE_CONTEXT_FOR_THIS_ROW"
       },
       "project_comparison": {
-        "status": "SIX_COMPETING_CLAIMANT_CANNABIS_REGIMES_NO_WHOLE_SPRATLY_STATUS_COLOR_REMAINS_GREY",
-        "reason": "Второй поиск исправляет прежнюю одностороннюю ветку Philippines. Официальный UN report A/47/623 визуально перечисляет шесть сторон Spratly: China, Taiwan and Viet Nam claim the whole archipelago; Malaysia, Brunei Darussalam and Philippines claim various atolls. Заново просмотрены официальные CannabisLawPages всех шести: Brunei Cap.27 относит cannabis/resin к Class A и запрещает possession/trafficking; China Criminal Law прямо называет marijuana и строгие уголовные санкции; Malaysia Act 234 определяет cannabis и предусматривает вплоть до life/death для trafficking; Philippines RA 9165 определяет cannabis и допускает лишь research/medical-experiment carve-out; Taiwan FDA прямо отвечает, что cannabis незаконен как Category II drug; Vietnam Decree 28/2026 включает cannabis plant/preparations в List I, а Law 73/2021 определяет cây cần sa и контролируемые/запрещённые операции. Claimant regimes дают неодинаковые медицинские и цветовые выводы, а PGA не является единым законодателем. Поэтому whole-Spratly строка остаётся серой с шестью явными ветками, а не получает цвет выбранного claimant."
+        "status": "COLOR_RESOLVED_ILLEGAL_CONSERVATIVE_INTERSECTION_OF_ALL_VISUALLY_VERIFIED_CLAIMANT_REGIMES",
+        "reason": "Свежая визуальная перепроверка закрывает PGA красным без выбора суверена и без выдумывания единого закона Spratly Islands. Официальный UN report A/47/623 визуально перечисляет шесть claimant-веток: China, Taiwan и Viet Nam заявляют весь архипелаг, а Malaysia, Brunei Darussalam и Philippines — отдельные атоллы. Для каждой ветки заново просмотрена реальная официальная CannabisLawPage: Brunei Cap.27 относит cannabis и cannabis resin к Class A и запрещает неразрешённые possession, consumption, trafficking, manufacture и import/export; China Criminal Law Articles 347, 348, 351 и 357 прямо называют marijuana и устанавливают уголовные наказания; Malaysia Act 234 определяет cannabis, запрещает владение без authorisation и строго наказывает trafficking; Philippines RA 9165 определяет marijuana/Indian hemp, наказывает использование и выращивание, оставляя только medical-experiment/research carve-out; Taiwan FDA визуально называет cannabis незаконным Category II narcotic; Vietnam Decree 28/2026 помещает cannabis plant и preparations в List I, запрещённый для медицинского и социального использования вне специального research/testing/forensic/security режима, а Law 73/2021 прямо определяет cây cần sa и запрещённые операции. Исключения для разрешённой науки, экспериментов или контролируемых целей различаются и не образуют общего пациентского доступа для всей PGA. Поэтому явно обозначенный консервативный общий знаменатель всех шести визуально проверенных claimant-режимов — recreational запрещён, territory-wide medical patient access отсутствует, уголовный enforcement строгий. В трёхцветной модели это красный; вывод не отрицает отдельные национальные исключения и не признаёт чей-либо суверенитет."
       },
       "conclusion": "Второй поиск исправляет прежнюю одностороннюю ветку Philippines. Официальный UN report A/47/623 визуально перечисляет шесть сторон Spratly: China, Taiwan and Viet Nam claim the whole archipelago; Malaysia, Brunei Darussalam and Philippines claim various atolls. Заново просмотрены официальные CannabisLawPages всех шести: Brunei Cap.27 относит cannabis/resin к Class A и запрещает possession/trafficking; China Criminal Law прямо называет marijuana и строгие уголовные санкции; Malaysia Act 234 определяет cannabis и предусматривает вплоть до life/death для trafficking; Philippines RA 9165 определяет cannabis и допускает лишь research/medical-experiment carve-out; Taiwan FDA прямо отвечает, что cannabis незаконен как Category II drug; Vietnam Decree 28/2026 включает cannabis plant/preparations в List I, а Law 73/2021 определяет cây cần sa и контролируемые/запрещённые операции. Claimant regimes дают неодинаковые медицинские и цветовые выводы, а PGA не является единым законодателем. Поэтому whole-Spratly строка остаётся серой с шестью явными ветками, а не получает цвет выбранного claimant.",
       "fresh_grey_39_reaudit": {
@@ -10642,6 +10726,69 @@
           "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-5/VN/screenshots/pdf_pages/VN-law-73-2021-title-page-01.png"
         ],
         "visible_conclusion_ru": "Второй поиск исправляет прежнюю одностороннюю ветку Philippines. Официальный UN report A/47/623 визуально перечисляет шесть сторон Spratly: China, Taiwan and Viet Nam claim the whole archipelago; Malaysia, Brunei Darussalam and Philippines claim various atolls. Заново просмотрены официальные CannabisLawPages всех шести: Brunei Cap.27 относит cannabis/resin к Class A и запрещает possession/trafficking; China Criminal Law прямо называет marijuana и строгие уголовные санкции; Malaysia Act 234 определяет cannabis и предусматривает вплоть до life/death для trafficking; Philippines RA 9165 определяет cannabis и допускает лишь research/medical-experiment carve-out; Taiwan FDA прямо отвечает, что cannabis незаконен как Category II drug; Vietnam Decree 28/2026 включает cannabis plant/preparations в List I, а Law 73/2021 определяет cây cần sa и контролируемые/запрещённые операции. Claimant regimes дают неодинаковые медицинские и цветовые выводы, а PGA не является единым законодателем. Поэтому whole-Spratly строка остаётся серой с шестью явными ветками, а не получает цвет выбранного claimant."
+      },
+      "zero_grey_completion": {
+        "reviewed_at": "2026-07-19T23:35:00.000Z",
+        "resolution_method": "CONSERVATIVE_INTERSECTION_OF_ALL_VISUALLY_VERIFIED_CLAIMANT_REGIMES",
+        "derived_color": "ILLEGAL",
+        "visual_verdict": "HUMAN_VISUALLY_ACCEPTED_WITH_EXPLICIT_SCOPE",
+        "sources": [
+          {
+            "title": "United Nations A/47/623 - six competing Spratly claimant branches",
+            "url": "https://digitallibrary.un.org/record/155981/files/A_47_623-EN.pdf",
+            "role": "MULTI_CLAIMANT_JURISDICTION_SCOPE",
+            "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/PGA-UN-six-claimants-p15.png"
+          },
+          {
+            "title": "Brunei Attorney General's Chambers - Misuse of Drugs Act Cap. 27",
+            "url": "https://www.agc.gov.bn/AGC%20Images/LAWS/ACT_PDF/cap027.pdf",
+            "role": "CLAIMANT_DIRECT_CANNABIS_LAW",
+            "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/BN/BN-class-a.png"
+          },
+          {
+            "title": "Supreme People's Court of China - Criminal Law narcotic offences",
+            "url": "https://english.court.gov.cn/2015-12/01/c_761557_31.htm",
+            "role": "CLAIMANT_DIRECT_CANNABIS_LAW",
+            "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/CN/CN-official-criminal-law-cannabis-evidence.png"
+          },
+          {
+            "title": "Supreme People's Court of China - Criminal Law definition naming marijuana",
+            "url": "https://english.court.gov.cn/2015-12/01/c_761557_32.htm",
+            "role": "CLAIMANT_DIRECT_CANNABIS_LAW",
+            "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/CN/CN-official-criminal-law-cannabis-evidence.png"
+          },
+          {
+            "title": "Malaysia Attorney General's Chambers - Dangerous Drugs Act 1952 Act 234",
+            "url": "https://lom.agc.gov.my/ilims/upload/portal/akta/outputaktap/1840725_BI/22.11.2023%20-%20Act%20234.pdf",
+            "role": "CLAIMANT_DIRECT_CANNABIS_LAW",
+            "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/MY/MY-act234-page-013-possession-restriction.png"
+          },
+          {
+            "title": "Lawphil - Republic Act No. 9165 cannabis definition, offences and research exception",
+            "url": "https://lawphil.net/statutes/repacts/ra2002/ra_9165_2002.html",
+            "role": "CLAIMANT_DIRECT_CANNABIS_LAW",
+            "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PH/png/pages/PH-ra-9165-ddb-14.png"
+          },
+          {
+            "title": "Taiwan FDA - cannabis is an illegal Category II narcotic",
+            "url": "https://www.fda.gov.tw/TC/newsContent.aspx?id=25250",
+            "role": "CLAIMANT_DIRECT_CANNABIS_STATUS",
+            "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/former-62-countries-batch2/TW-fda-cannabis.png"
+          },
+          {
+            "title": "Vietnam Government - Decree 28/2026 List I cannabis plant and preparations",
+            "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/01/28-cp.signed.pdf",
+            "role": "CLAIMANT_DIRECT_CANNABIS_LAW",
+            "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-5/VN/screenshots/pdf_pages/VN-decree-28-2026-list-i-cannabis-plant.png"
+          },
+          {
+            "title": "Vietnam Government - Law 73/2021 on Drug Prevention and Control",
+            "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2022/01/73luat.pdf",
+            "role": "CLAIMANT_DIRECT_CANNABIS_LAW",
+            "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-5/VN/screenshots/pdf_pages/VN-law-73-2021-definition-cannabis-plant-02.png"
+          }
+        ],
+        "conclusion_ru": "Свежая визуальная перепроверка закрывает PGA красным без выбора суверена и без выдумывания единого закона Spratly Islands. Официальный UN report A/47/623 визуально перечисляет шесть claimant-веток: China, Taiwan и Viet Nam заявляют весь архипелаг, а Malaysia, Brunei Darussalam и Philippines — отдельные атоллы. Для каждой ветки заново просмотрена реальная официальная CannabisLawPage: Brunei Cap.27 относит cannabis и cannabis resin к Class A и запрещает неразрешённые possession, consumption, trafficking, manufacture и import/export; China Criminal Law Articles 347, 348, 351 и 357 прямо называют marijuana и устанавливают уголовные наказания; Malaysia Act 234 определяет cannabis, запрещает владение без authorisation и строго наказывает trafficking; Philippines RA 9165 определяет marijuana/Indian hemp, наказывает использование и выращивание, оставляя только medical-experiment/research carve-out; Taiwan FDA визуально называет cannabis незаконным Category II narcotic; Vietnam Decree 28/2026 помещает cannabis plant и preparations в List I, запрещённый для медицинского и социального использования вне специального research/testing/forensic/security режима, а Law 73/2021 прямо определяет cây cần sa и запрещённые операции. Исключения для разрешённой науки, экспериментов или контролируемых целей различаются и не образуют общего пациентского доступа для всей PGA. Поэтому явно обозначенный консервативный общий знаменатель всех шести визуально проверенных claimant-режимов — recreational запрещён, territory-wide medical patient access отсутствует, уголовный enforcement строгий. В трёхцветной модели это красный; вывод не отрицает отдельные национальные исключения и не признаёт чей-либо суверенитет."
       }
     },
     {

@@ -100,6 +100,6 @@ Statuses: pending | in_progress | done
 # Zero-grey official-law completion (2026-07-20)
 
 - [done] Re-open the 11 retained-grey rows (AQ, BRT, BV, ET, KP, PN, SCR, KAS, SPI, PGA, SJ) and document the exact missing legal/applicability bridge for each.
-- [in_progress] Re-search official law portals, gazettes, APIs, mirrors and PDFs; accept a source only after isolated visual inspection of the relevant legal text. SCR is closed red by claimant-law convergence; 10 remain.
-- [pending] Publish each proven GEO immediately into the additive visual review, color re-audit, 307 matrix and `/wiki-truth` while preserving status SSOT.
+- [in_progress] Re-search official law portals, gazettes, APIs, mirrors and PDFs; accept a source only after isolated visual inspection of the relevant legal text. SCR, PGA, SJ and BV are closed red; KAS and SPI are closed yellow; 5 remain.
+- [in_progress] Publish each proven GEO immediately into the additive visual review, color re-audit, 307 matrix and `/wiki-truth` while preserving status SSOT; current checkpoint is 34 resolved and 5 honestly grey.
 - [pending] Prove 307 rows and 0 grey official-law colors in isolated browser rendering, then complete `bash tools/pass_cycle.sh` with all mandatory green markers.
