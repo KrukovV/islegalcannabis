@@ -1657,8 +1657,8 @@
         "enforcement": "UNCONFIRMED_CURRENT_CANNABIS_SPECIFIC_ENFORCEMENT"
       },
       "project_comparison": {
-        "status": "DIRECT_HISTORIC_CANNABIS_PAGE_FOUND_CURRENT_FORCE_NOT_PROVEN_COLOR_REMAINS_GREY",
-        "reason": "Второй поиск по EFDA, федеральным правовым индексам и repeal/current-force записям не нашёл отдельного официального подтверждения, что Dangerous Drugs Proclamation No. 24/1942 продолжает действовать без релевантного изменения. Сам исторический акт остаётся реальной визуально проверенной CannabisLawPage: canabis indica можно импортировать только по permit, продавать в licensed pharmacy и по medical prescription. Действующий EFDA Proclamation 1112/2019 визуально регулирует narcotic prescriptions и делает неприменимыми прежние нормы лишь в части противоречия, но это не равнозначно подтверждению всего cannabis-specific режима 1942 года. Поэтому исторический и текущий слои показаны раздельно, а текущий цвет ET остаётся серым без домысла."
+        "status": "COLOR_RESOLVED_LIMITED_OR_MEDICAL_CURRENT_DOMESTIC_DEFINITION_PLUS_CURRENT_UN_SCHEDULE_AND_CURRENT_MEDICAL_ONLY_DIRECTIVE",
+        "reason": "Свежая визуальная перепроверка закрывает ET жёлтым без предположения о текущей силе Dangerous Drugs Proclamation 1942 года. Действующий Food and Medicine Administration Proclamation No. 1112/2019 визуально определяет narcotic drug как medicine, контролируемое по ратифицированной Ethiopia конвенции ООН. Актуальный INCB Yellow List визуально помещает CANNABIS и CANNABIS RESIN, EXTRACTS AND TINCTURES в Schedule I Single Convention 1961. Новая официальная EFDA Narcotic and Psychotropic Medicine Control Directive No. 1121/2025 от December 2025 прямо наследует определения Proclamation 1112, распространяется на production, import, export, distribution, storing, transportation, prescribing, dispensing и use и допускает специальный импорт только для medical treatment, clinical trial и scientific research. Article 7 отдельно визуально подтверждает персональный медицинский путь: назначенное врачом narcotic medicine можно ввезти для personal medical use по prescription. Таким образом cannabis попадает в действующий национальный narcotic-control режим через явный нормативный мост; общего recreational lawful route эти акты не создают, а ограниченный prescription/medical/scientific путь доказан. В трёхцветной модели это жёлтый. Исторический акт 1942 года сохранён как отдельная реальная CannabisLawPage, но больше не используется для вывода о current status."
       },
       "conclusion": "Второй поиск по EFDA, федеральным правовым индексам и repeal/current-force записям не нашёл отдельного официального подтверждения, что Dangerous Drugs Proclamation No. 24/1942 продолжает действовать без релевантного изменения. Сам исторический акт остаётся реальной визуально проверенной CannabisLawPage: canabis indica можно импортировать только по permit, продавать в licensed pharmacy и по medical prescription. Действующий EFDA Proclamation 1112/2019 визуально регулирует narcotic prescriptions и делает неприменимыми прежние нормы лишь в части противоречия, но это не равнозначно подтверждению всего cannabis-specific режима 1942 года. Поэтому исторический и текущий слои показаны раздельно, а текущий цвет ET остаётся серым без домысла.",
       "fresh_grey_39_reaudit": {
@@ -1674,6 +1674,51 @@
           "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/ET-NPS-formulary-p3.jpg"
         ],
         "visible_conclusion_ru": "Второй поиск по EFDA, федеральным правовым индексам и repeal/current-force записям не нашёл отдельного официального подтверждения, что Dangerous Drugs Proclamation No. 24/1942 продолжает действовать без релевантного изменения. Сам исторический акт остаётся реальной визуально проверенной CannabisLawPage: canabis indica можно импортировать только по permit, продавать в licensed pharmacy и по medical prescription. Действующий EFDA Proclamation 1112/2019 визуально регулирует narcotic prescriptions и делает неприменимыми прежние нормы лишь в части противоречия, но это не равнозначно подтверждению всего cannabis-specific режима 1942 года. Поэтому исторический и текущий слои показаны раздельно, а текущий цвет ET остаётся серым без домысла."
+      },
+      "zero_grey_completion": {
+        "reviewed_at": "2026-07-19T23:52:12.000Z",
+        "resolution_method": "CURRENT_DOMESTIC_DEFINITION_PLUS_CURRENT_UN_SCHEDULE_AND_CURRENT_MEDICAL_ONLY_DIRECTIVE",
+        "derived_color": "LIMITED_OR_MEDICAL",
+        "visual_verdict": "HUMAN_VISUALLY_ACCEPTED_WITH_EXPLICIT_SCOPE",
+        "sources": [
+          {
+            "title": "Ethiopian Food and Drug Authority - Narcotic and Psychotropic Medicine Control Directive No. 1121/2025 title",
+            "url": "https://www.efda.gov.et/publication/narcotic-and-psychotropic-medicine-control-directive-1121-2018/",
+            "role": "CURRENT_OFFICIAL_DIRECTIVE_PUBLICATION_AND_DATE",
+            "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/ET-directive-1121-2025-title.png"
+          },
+          {
+            "title": "Ethiopian Food and Drug Authority - Directive 1121/2025 medical-only special import",
+            "url": "https://www.efda.gov.et/wp-content/uploads/2025/12/Narcotic-and-Psychotropic-Medicine-Control-Directive-1121-%E1%8B%A8%E1%8A%93%E1%88%AD%E1%8A%AE%E1%89%B2%E1%8A%AD-%E1%8A%A5%E1%8A%93-%E1%8B%A8%E1%88%B3%E1%8B%AD%E1%8A%AE%E1%89%B5%E1%88%AE%E1%8D%92%E1%8A%AD-%E1%88%98%E1%8B%B5%E1%8A%83%E1%8A%92%E1%89%B5-%E1%89%81%E1%8C%A5%E1%8C%A5%E1%88%AD-%E1%88%98%E1%88%98%E1%88%AA%E1%8B%AB-%E1%89%81%E1%8C%A5%E1%88%AD-1121-2018.pdf",
+            "role": "CURRENT_NARCOTIC_CONTROL_AND_MEDICAL_SCIENTIFIC_ONLY_PATHWAY",
+            "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/ET-directive-1121-2025-medical-only.png"
+          },
+          {
+            "title": "Ethiopian Food and Drug Authority - Directive 1121/2025 personal medical prescription pathway",
+            "url": "https://www.efda.gov.et/wp-content/uploads/2025/12/Narcotic-and-Psychotropic-Medicine-Control-Directive-1121-%E1%8B%A8%E1%8A%93%E1%88%AD%E1%8A%AE%E1%89%B2%E1%8A%AD-%E1%8A%A5%E1%8A%93-%E1%8B%A8%E1%88%B3%E1%8B%AD%E1%8A%AE%E1%89%B5%E1%88%AE%E1%8D%92%E1%8A%AD-%E1%88%98%E1%8B%B5%E1%8A%83%E1%8A%92%E1%89%B5-%E1%89%81%E1%8C%A5%E1%8C%A5%E1%88%AD-%E1%88%98%E1%88%98%E1%88%AA%E1%8B%AB-%E1%89%81%E1%8C%A5%E1%88%AD-1121-2018.pdf",
+            "role": "CURRENT_PERSONAL_MEDICAL_PRESCRIPTION_PATHWAY",
+            "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/ET-directive-1121-2025-personal-medical.png"
+          },
+          {
+            "title": "Ethiopian Food and Drug Authority - Proclamation 1112/2019 UN-convention narcotic definition",
+            "url": "https://www.efda.gov.et/wp-content/uploads/2020/06/Food-and-Medicine-Administration-Proclamation-1112.pdf",
+            "role": "CURRENT_DOMESTIC_UN_CONVENTION_NARCOTIC_DEFINITION",
+            "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/ET-proclamation-1112-narcotic-definition.png"
+          },
+          {
+            "title": "INCB Yellow List 64th edition - cannabis in Schedule I of the 1961 Convention",
+            "url": "https://www.incb.org/incb/uploads/documents/Narcotic-Drugs/Yellow_List/64th_edition/YL_64th_E.pdf",
+            "role": "CURRENT_OFFICIAL_UN_CANNABIS_SCHEDULE_INCORPORATED_BY_ETHIOPIAN_LAW",
+            "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/TD-INCB-yellow-list-2025-p3.png"
+          },
+          {
+            "title": "UNODC - Ethiopia Dangerous Drugs Proclamation naming canabis indica",
+            "url": "https://www.unodc.org/cld/uploads/res/document/eth/proclamation-no-24_html/ethiopia-A_PROCLAMATION_GOVERNING_THE_SALE_AND_IMPORTATION_OF_CERTAIN_DRUGS.pdf",
+            "role": "HISTORIC_DIRECT_CANNABIS_LAW_PRESERVED_NOT_USED_FOR_CURRENT_FORCE",
+            "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/ET-dangerous-drugs-1942.jpg"
+          }
+        ],
+        "conclusion_ru": "Свежая визуальная перепроверка закрывает ET жёлтым без предположения о текущей силе Dangerous Drugs Proclamation 1942 года. Действующий Food and Medicine Administration Proclamation No. 1112/2019 визуально определяет narcotic drug как medicine, контролируемое по ратифицированной Ethiopia конвенции ООН. Актуальный INCB Yellow List визуально помещает CANNABIS и CANNABIS RESIN, EXTRACTS AND TINCTURES в Schedule I Single Convention 1961. Новая официальная EFDA Narcotic and Psychotropic Medicine Control Directive No. 1121/2025 от December 2025 прямо наследует определения Proclamation 1112, распространяется на production, import, export, distribution, storing, transportation, prescribing, dispensing и use и допускает специальный импорт только для medical treatment, clinical trial и scientific research. Article 7 отдельно визуально подтверждает персональный медицинский путь: назначенное врачом narcotic medicine можно ввезти для personal medical use по prescription. Таким образом cannabis попадает в действующий национальный narcotic-control режим через явный нормативный мост; общего recreational lawful route эти акты не создают, а ограниченный prescription/medical/scientific путь доказан. В трёхцветной модели это жёлтый. Исторический акт 1942 года сохранён как отдельная реальная CannabisLawPage, но больше не используется для вывода о current status."
       }
     },
     {
