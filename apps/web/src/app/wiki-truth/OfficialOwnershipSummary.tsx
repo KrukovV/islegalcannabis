@@ -2,91 +2,97 @@
 
 import type { OfficialOwnershipViewModel } from "@/lib/officialSources/officialOwnershipView";
 
-export default function OfficialOwnershipSummary({ view }: { view: OfficialOwnershipViewModel }) {
+export default function OfficialOwnershipSummary({
+  view,
+}: {
+  view: OfficialOwnershipViewModel;
+}) {
   return (
     <section className="sectionCard" data-testid="official-ownership-summary">
-      <h2>Official ownership summary</h2>
+      <h2>Сводка владения официальными ссылками</h2>
       <div className="boundaryGrid">
         <div>
-          <strong>Raw protected registry</strong>
+          <strong>Исходный защищённый реестр</strong>
           <div>
             {view.rawTotal} / {view.rawTotal}
           </div>
         </div>
         <div>
-          <strong>Resolved ownership rows</strong>
+          <strong>Строк с определённым владельцем</strong>
           <div>{view.resolvedOwnershipTotal}</div>
         </div>
         <div>
-          <strong>Effective ownership rows</strong>
+          <strong>Эффективных строк владения</strong>
           <div>{view.effectiveRowsTotal}</div>
         </div>
         <div>
-          <strong>Filtered rows</strong>
+          <strong>Отфильтрованных строк</strong>
           <div>{view.filteredRowsTotal}</div>
         </div>
         <div>
-          <strong>Excluded rows</strong>
+          <strong>Исключённых строк</strong>
           <div>{view.excludedRowsTotal}</div>
         </div>
         <div>
-          <strong>Filtered registry total</strong>
+          <strong>Итого после фильтрации</strong>
           <div>{view.effectiveTotal}</div>
         </div>
         <div>
-          <strong>Global regulatory references</strong>
+          <strong>Глобальных нормативных ссылок</strong>
           <div>{view.globalTotal}</div>
         </div>
         <div>
-          <strong>Countries with strong official links</strong>
+          <strong>Стран с сильными официальными ссылками</strong>
           <div>{view.countriesWithStrongOfficialLinks}</div>
         </div>
         <div>
-          <strong>Countries with weak-only links</strong>
+          <strong>Стран только со слабыми ссылками</strong>
           <div>{view.countriesWithWeakOnlyOfficialLinks}</div>
         </div>
         <div>
-          <strong>Countries with fallback-only links</strong>
+          <strong>Стран только с резервными ссылками</strong>
           <div>{view.countriesWithFallbackOnlyLinks}</div>
         </div>
         <div>
-          <strong>Countries with effective links</strong>
+          <strong>Стран с эффективными ссылками</strong>
           <div>{view.countriesWithEffectiveLinks}</div>
         </div>
         <div>
-          <strong>Excluded protected links</strong>
+          <strong>Исключённых защищённых ссылок</strong>
           <div>{view.excludedProtectedTotal}</div>
         </div>
         <div>
-          <strong>Banned filtered</strong>
+          <strong>Запрещённых и отфильтрованных</strong>
           <div>{view.bannedFilteredTotal}</div>
         </div>
         <div>
-          <strong>Unknown ownership</strong>
+          <strong>С неизвестным владельцем</strong>
           <div>{view.unknownOwnershipTotal}</div>
         </div>
         <div>
-          <strong>Multi-geo / global</strong>
+          <strong>Несколько GEO / глобальные</strong>
           <div>
             {view.multiGeoTotal} / {view.globalTotal}
           </div>
         </div>
         <div>
-          <strong>Countries without effective links</strong>
+          <strong>Стран без эффективных ссылок</strong>
           <div>{view.countriesWithoutEffectiveLinks}</div>
         </div>
         <div>
-          <strong>Countries with 2+ effective links</strong>
+          <strong>Стран с 2+ эффективными ссылками</strong>
           <div>{view.countriesWithMultipleEffectiveLinks}</div>
         </div>
         <div>
-          <strong>States with effective links</strong>
+          <strong>Штатов с эффективными ссылками</strong>
           <div>{view.statesWithEffectiveLinks}</div>
         </div>
       </div>
       <p className="sectionHint">
-        Raw registry rows remain protected and non-shrinking. Coverage and `Official=yes` use only effective
-        owner-matched rows. Global regulatory references stay visible here, but do not count as official country links.
+        Строки исходного реестра защищены от уменьшения. Для покрытия и признака
+        «официальный: да» учитываются только эффективные строки, совпавшие с
+        владельцем GEO. Глобальные нормативные ссылки видимы, но не считаются
+        официальными ссылками конкретной страны.
       </p>
     </section>
   );

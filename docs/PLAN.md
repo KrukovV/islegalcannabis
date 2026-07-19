@@ -6,6 +6,17 @@ Statuses: pending | in_progress | done
 - [done] Re-audit every former 62 automated direct-label row by eye; all 62 are manually complete, candidate rows awaiting visual review are 0, and term matches/path guesses were never accepted as evidence
 - [done] Update the prebuilt cannabis-law matrix and `/wiki-truth` UI so verified evidence, pending candidates, context-only links, screenshots, status divergence, and scope reasons stay visibly separate without editing status SSOT
 - [done] Prove final 307/307 manual-review completeness in live UI and `pass_cycle`, including screenshot artifact coverage and no fabricated direct territorial pages
+- [done] Publish at least one visually reviewed official direct/context/negative-evidence URL for every one of 307 rows; preserve the three honest no-direct conclusions for BF, ET, and VE
+- [done] Close all direct-law status comparisons: 0 pending comparisons and 0 direct rows without a visually confirmed official status; retain 55 supported project mismatches without editing status SSOT
+- [done] Reorganize `/wiki-truth` around the 307-row cannabis matrix with search/coverage/difference filters, combined evidence columns, and collapsed secondary audit tables without removing data
+- [done] Enforce localhost-only `/wiki-truth` and `/trust-view` with Next 16 proxy plus server-page host guards; production hostname HTTP checks return 404
+- [done] Add non-shrinking cannabis-audit CI guard: 307 reviews, 274 direct rows, 501 direct URLs, 611 published official URLs, all 307 rows linked, and no silent URL removal
+- [done] Audit `/wiki-truth` table provenance, remove duplicate ownership-registry projections, and group distinct audit universes without losing rows
+- [done] Translate `/wiki-truth` interface, controls, table headings, and rendered machine statuses into Russian while preserving country names and original source evidence
+- [done] Verify localized `/wiki-truth` in isolated headless Chromium/WebKit and complete `pass_cycle`
+- [done] Make the build-update banner establish a route-local runtime baseline and perform one real cache-busted reload when «Обновить» is clicked
+- [done] Add a 307-row territory/current-map-color/official-law-color/color-comment table sourced from the actual map resolver and reviewed official statuses
+- [done] Verify refresh navigation and the 307-row color table in isolated headless Chromium/WebKit, then complete `pass_cycle`
 
 - [done] Fix checkpoint -> CONTINUITY State always matches latest .checkpoints/*.patch
 - [done] Harden CI determinism (free port, no silent fallbacks) + smoke contract checks
@@ -71,3 +82,17 @@ Statuses: pending | in_progress | done
 - [in_progress] Make the strict repository-root guard support an explicitly named isolated release worktree
 - [pending] Poll `/api/build-meta` at bounded intervals until the release commit is live on `www.islegal.info`
 - [pending] Run serial production access, payload, JS/city, GPS/hover/zoom, geo-sync canary, and PageSpeed checks against the deployed commit
+# Grey official-law color re-audit (2026-07-19)
+
+- [done] Extract the complete set of 307-matrix rows whose official-law color is grey and classify each reason.
+- [done] Re-search every grey GEO for an official source or a CannabisLawPages evidence page and inspect every result visually.
+- [done] Merge only verified evidence into the additive re-audit layer and regenerate the matrix without mutating SSOT statuses.
+- [done] Prove the updated 307-row table in isolated Chromium/WebKit and run `bash tools/pass_cycle.sh`.
+
+# Deep visual CannabisLawPages audit for all original 39 grey GEOs (2026-07-19)
+
+- [completed] Build a 39-GEO acceptance manifest and deep-search official sites, mirrors, APIs, gazettes and PDFs with cannabis synonyms; the 10 provisional recolors receive no credit without a fresh complete visual proof.
+- [completed] Open every discovered candidate in isolated headless rendering, capture the relevant legal fragment, and classify direct law versus context/negative evidence.
+- [completed] Merge each visually accepted closure immediately into the evidence model and regenerate every `/wiki-truth` derivative; all 39 closures were published incrementally, yielding 28 resolved colors and 11 honestly grey rows with project SSOT statuses unchanged.
+- [completed] Finish the second official-source search over every honest-grey GEO, including SJ; criminal applicability is proven for both Svalbard and Jan Mayen, while medical-cannabis applicability is proven only for Svalbard.
+- [completed] Run the final isolated Chromium/WebKit `/wiki-truth` smoke, prove the update button performs a real document reload, and finish with `bash tools/pass_cycle.sh`.

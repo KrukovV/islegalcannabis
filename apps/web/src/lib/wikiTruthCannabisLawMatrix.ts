@@ -9,6 +9,20 @@ export type WikiTruthCannabisLawLink = {
   visualReview?: string;
 };
 
+export type WikiTruthCannabisLawReauditSource = {
+  title: string;
+  url: string;
+  role: string;
+  visualReview: string;
+};
+
+export type WikiTruthCannabisLawColorReaudit = {
+  reviewedAt: string;
+  result: "COLOR_RESOLVED" | "HONEST_GREY_RETAINED";
+  reasonRu: string;
+  freshOfficialSources: WikiTruthCannabisLawReauditSource[];
+};
+
 export type WikiTruthCannabisLawRow = {
   geo: string;
   territory: string;
@@ -43,6 +57,7 @@ export type WikiTruthCannabisLawRow = {
   screenshotPaths: string[];
   reviewConfidence: string;
   reviewNotes: string;
+  latestColorReaudit: WikiTruthCannabisLawColorReaudit | null;
 };
 
 export type WikiTruthCannabisLawMatrix = {
@@ -65,6 +80,13 @@ export type WikiTruthCannabisLawMatrix = {
     taxonomyReviewRequired: number;
     visualCaptureBlocked: number;
     noProjectStatus: number;
+    colorReauditRows: number;
+    colorReauditResolved: number;
+    colorReauditRetainedGrey: number;
+    colorReauditHumanVisualAccepted: number;
+    colorReauditDirectOrComposite: number;
+    colorReauditContextClaimantOrNegative: number;
+    rowsWithPublishedOfficialLinks: number;
   };
   rows: WikiTruthCannabisLawRow[];
 };
@@ -88,7 +110,14 @@ export const emptyWikiTruthCannabisLawMatrix: WikiTruthCannabisLawMatrix = {
     projectStatusMismatch: 0,
     taxonomyReviewRequired: 0,
     visualCaptureBlocked: 0,
-    noProjectStatus: 0
+    noProjectStatus: 0,
+    colorReauditRows: 0,
+    colorReauditResolved: 0,
+    colorReauditRetainedGrey: 0,
+    colorReauditHumanVisualAccepted: 0,
+    colorReauditDirectOrComposite: 0,
+    colorReauditContextClaimantOrNegative: 0,
+    rowsWithPublishedOfficialLinks: 0
   },
   rows: []
 };

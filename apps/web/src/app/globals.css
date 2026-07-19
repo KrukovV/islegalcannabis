@@ -35,7 +35,12 @@ body > div:first-child {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -62,4 +67,437 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+/* Local-only /wiki-truth audit UI. Kept global because Turbopack does not emit
+   the legacy styled-jsx blocks used by the audit client components. */
+.auditView {
+  display: grid;
+  gap: 18px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  color: #111827;
+}
+
+.auditView > * {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.auditView .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.auditView .card,
+.auditView .sectionCard,
+.auditView .diagnostics {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 14px;
+  background: #fff;
+}
+
+.auditView .card h2 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.auditView .numbers {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.auditView .numbers strong {
+  font-size: 22px;
+}
+
+.auditView .meta,
+.auditView .sectionHint {
+  font-size: 12px;
+  color: #4b5563;
+}
+
+.auditView .sectionHint {
+  margin: 4px 0 10px;
+  font-size: 13px;
+}
+
+.auditView .issueBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #374151;
+  font-size: 13px;
+}
+
+.auditView .boundaryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  color: #4b5563;
+  font-size: 13px;
+}
+
+.auditView .boundaryGrid strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #111827;
+}
+
+.auditView .secondaryAuditGroup {
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 12px;
+  background: #f8fafc;
+}
+
+.auditView .secondaryAuditGroup > summary,
+.auditView details > summary {
+  cursor: pointer;
+  color: #334155;
+}
+
+.auditView .secondaryAuditGroup > summary {
+  font-weight: 700;
+}
+
+.auditView .secondaryAuditGroup[open] > summary {
+  margin-bottom: 12px;
+}
+
+.auditView .tableWrap {
+  overflow-x: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.auditView .truthTable {
+  width: max-content;
+  min-width: 2300px;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 13px;
+}
+
+.auditView .truthTable th,
+.auditView .truthTable td {
+  max-width: 360px;
+  padding: 10px 12px;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: top;
+  text-align: left;
+}
+
+.auditView .truthTable th {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  overflow: visible;
+  background: #f8fafc;
+  white-space: nowrap;
+}
+
+.auditView .stickyCol1,
+.auditView .stickyCol2,
+.auditView .stickyCell {
+  position: sticky;
+  left: 0;
+  z-index: 4;
+  background: #fff;
+}
+
+.auditView th.stickyCol1,
+.auditView th.stickyCol2 {
+  z-index: 6;
+  background: #f8fafc;
+}
+
+.auditView .stickyCol2 {
+  left: 96px;
+}
+
+.auditView .colGeo {
+  width: 96px;
+  min-width: 96px;
+}
+.auditView .colCountry {
+  width: 220px;
+  min-width: 220px;
+}
+.auditView .colStatus {
+  min-width: 240px;
+}
+.auditView .colLinks {
+  min-width: 280px;
+}
+.auditView .colOfficialLinks {
+  min-width: 420px;
+}
+.auditView .colNotes {
+  min-width: 360px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.auditView .colMeta {
+  min-width: 120px;
+}
+.auditView .colDelta {
+  min-width: 180px;
+  white-space: normal;
+}
+.auditView .colUrl {
+  min-width: 320px;
+}
+.auditView .colFlags {
+  min-width: 220px;
+}
+
+.auditView .linkList,
+.auditView .linkItem,
+.auditView .flagList {
+  display: grid;
+  gap: 6px;
+}
+
+.auditView .link,
+.auditView .linkList a {
+  color: #075985;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.auditView .flagPill {
+  display: inline-flex;
+  width: fit-content;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #3730a3;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.auditView .cannabisMatrix {
+  margin-top: 4px;
+}
+
+.auditView .hardRule {
+  margin-top: 10px;
+  border: 1px solid #b45309;
+  border-radius: 8px;
+  padding: 12px;
+  background: #fffbeb;
+  color: #78350f;
+}
+
+.auditView .matrixCounters {
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  margin-top: 14px;
+}
+
+.auditView .matrixToolbar {
+  position: sticky;
+  top: 0;
+  z-index: 12;
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(220px, 1fr) auto auto;
+  align-items: end;
+  gap: 12px;
+  margin: 14px 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 12px;
+  background: rgba(248, 250, 252, 0.98);
+}
+
+.auditView .matrixToolbar label {
+  display: grid;
+  gap: 5px;
+  color: #475569;
+  font-size: 12px;
+}
+
+.auditView .matrixToolbar input:not([type]),
+.auditView .matrixToolbar select {
+  min-height: 38px;
+  border: 1px solid #94a3b8;
+  border-radius: 7px;
+  padding: 7px 9px;
+  background: #fff;
+  color: #0f172a;
+}
+
+.auditView .matrixToolbar .checkLabel {
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  min-height: 38px;
+}
+
+.auditView .showing {
+  align-self: center;
+  white-space: nowrap;
+}
+
+.auditView .matrixTableWrap {
+  width: min(100%, calc(100vw - 64px));
+  max-width: 100%;
+  max-height: 78vh;
+  overflow: auto;
+}
+
+.auditView .matrixTable {
+  min-width: 2050px;
+}
+
+.auditView .linkItem {
+  border-left: 3px solid #94a3b8;
+  padding: 8px;
+  background: #f8fafc;
+}
+
+.auditView .linkItem.verified {
+  border-left-color: #15803d;
+  background: #f0fdf4;
+}
+.auditView .linkItem.candidate {
+  border-left-color: #d97706;
+  background: #fffbeb;
+}
+
+.auditView .url,
+.auditView .screenshot,
+.auditView .reviewNote {
+  display: block;
+  color: #64748b;
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+.auditView .statusLine {
+  display: block;
+  margin: 3px 0 9px;
+  overflow-wrap: anywhere;
+}
+.auditView .screenshot {
+  margin-top: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+.auditView .reviewNote {
+  margin-top: 6px;
+}
+
+.auditView .coverage {
+  display: inline-block;
+  max-width: 220px;
+  border-radius: 999px;
+  padding: 4px 8px;
+  background: #e2e8f0;
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+.auditView .coverage.VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW {
+  background: #dcfce7;
+  color: #166534;
+}
+.auditView .coverage.OFFICIAL_SOURCE_AWAITING_VISUAL_REVIEW,
+.auditView .coverage.CANDIDATE_LINKS_AWAITING_VISUAL_REVIEW {
+  background: #fef3c7;
+  color: #92400e;
+}
+.auditView .coverage.OFFICIAL_CONTEXT_ONLY {
+  background: #dbeafe;
+  color: #1e40af;
+}
+.auditView .coverage.NO_CANDIDATE_PAGE_FOUND {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.auditView .diagBlock + .diagBlock {
+  margin-top: 16px;
+}
+
+@media (max-width: 900px) {
+  .auditView .matrixToolbar {
+    position: static;
+    grid-template-columns: 1fr;
+  }
+}
+.colorToolbar {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 14px 0;
+}
+
+.colorToolbar label {
+  display: grid;
+  gap: 5px;
+  font-size: 12px;
+  color: #475569;
+}
+
+.colorToolbar input:not([type="checkbox"]) {
+  min-height: 38px;
+  border: 1px solid #94a3b8;
+  border-radius: 7px;
+  padding: 7px 9px;
+}
+
+.colorToolbar .checkLabel {
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  min-height: 38px;
+}
+
+.colorTableWrap {
+  max-height: 72vh;
+  overflow: auto;
+}
+
+.auditView .colorTableWrap .truthTable {
+  width: 100%;
+  min-width: 1200px;
+}
+
+.colorTableWrap .geoCode,
+.colorTableWrap .colorValue small {
+  display: block;
+  margin-top: 3px;
+  color: #64748b;
+  font-size: 11px;
+}
+
+.colorTableWrap .colorValue {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 210px;
+}
+
+.colorTableWrap .colorSwatch {
+  display: block;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  border: 1px solid #64748b;
+  border-radius: 7px;
+}
+
+.colorTableWrap .colorComment {
+  min-width: 330px;
+  line-height: 1.45;
 }

@@ -6,6 +6,7 @@ const CHECK_MS = 30_000;
 const DISMISSED_BUILD_KEY = "build-watcher-dismissed-stamp";
 const PENDING_BUILD_KEY = "build-watcher-pending-stamp";
 const PENDING_RELOAD_COUNT_KEY = "build-watcher-pending-reload-count";
+const ACTIVE_BUILD_KEY = "build-watcher-active-stamp";
 const REFRESH_PARAM = "__runtime_refresh";
 const MAX_PENDING_RELOADS = 3;
 
@@ -49,7 +50,7 @@ function normalizePayload(payload: BuildMeta): RuntimeStamp {
     runtimeMode: String(payload.runtimeMode || "UNCONFIRMED"),
     mapRuntime: String(payload.mapRuntime || "UNCONFIRMED"),
     origin,
-    expectedOrigin: String(payload.expectedOrigin || origin)
+    expectedOrigin: String(payload.expectedOrigin || origin),
   };
 }
 
@@ -64,27 +65,46 @@ function stampToKey(stamp: RuntimeStamp): string {
     stamp.runtimeMode,
     stamp.mapRuntime,
     stamp.origin,
-    stamp.expectedOrigin
+    stamp.expectedOrigin,
   ].join("|");
 }
 
-function getClientRuntimeStamp(): RuntimeStamp {
+function getClientRuntimeStamp(): RuntimeStamp | null {
   if (typeof window === "undefined") {
-    return normalizePayload({});
+    return null;
   }
-  const nextData = (window as unknown as { __NEXT_DATA__?: { buildId?: string } }).__NEXT_DATA__;
+  const nextData = (
+    window as unknown as { __NEXT_DATA__?: { buildId?: string } }
+  ).__NEXT_DATA__;
   const node = document.querySelector("[data-testid='runtime-stamp']");
+  if (!node) {
+    return null;
+  }
   return {
-    buildId: String(node?.getAttribute("data-build-id") || nextData?.buildId || "dev"),
+    buildId: String(
+      node?.getAttribute("data-build-id") || nextData?.buildId || "dev",
+    ),
     commit: String(node?.getAttribute("data-commit") || "unknown"),
     builtAt: String(node?.getAttribute("data-built-at") || "UNCONFIRMED"),
-    datasetHash: String(node?.getAttribute("data-dataset-hash") || "UNCONFIRMED"),
-    finalSnapshotId: String(node?.getAttribute("data-final-snapshot-id") || "UNCONFIRMED"),
-    snapshotBuiltAt: String(node?.getAttribute("data-snapshot-built-at") || "UNCONFIRMED"),
-    runtimeMode: String(node?.getAttribute("data-runtime-mode") || "UNCONFIRMED"),
+    datasetHash: String(
+      node?.getAttribute("data-dataset-hash") || "UNCONFIRMED",
+    ),
+    finalSnapshotId: String(
+      node?.getAttribute("data-final-snapshot-id") || "UNCONFIRMED",
+    ),
+    snapshotBuiltAt: String(
+      node?.getAttribute("data-snapshot-built-at") || "UNCONFIRMED",
+    ),
+    runtimeMode: String(
+      node?.getAttribute("data-runtime-mode") || "UNCONFIRMED",
+    ),
     mapRuntime: String(node?.getAttribute("data-map-runtime") || "UNCONFIRMED"),
     origin: String(window.location.origin || "UNCONFIRMED"),
-    expectedOrigin: String(node?.getAttribute("data-expected-origin") || window.location.origin || "UNCONFIRMED")
+    expectedOrigin: String(
+      node?.getAttribute("data-expected-origin") ||
+        window.location.origin ||
+        "UNCONFIRMED",
+    ),
   };
 }
 
@@ -103,8 +123,19 @@ function buildRefreshUrl(expectedStamp: string) {
     return "/";
   }
   const url = new URL(window.location.href);
-  url.searchParams.set(REFRESH_PARAM, `${Date.now()}-${expectedStamp.slice(0, 12)}`);
+  url.searchParams.set(
+    REFRESH_PARAM,
+    `${Date.now()}-${expectedStamp.slice(0, 12)}`,
+  );
   return url.toString();
+}
+
+function removeRefreshParam() {
+  if (typeof window === "undefined") return;
+  const url = new URL(window.location.href);
+  if (!url.searchParams.has(REFRESH_PARAM)) return;
+  url.searchParams.delete(REFRESH_PARAM);
+  window.history.replaceState(null, "", url.toString());
 }
 
 function formatVisibleRuntimeStamp(payload: BuildMeta) {
@@ -116,7 +147,7 @@ function formatVisibleRuntimeStamp(payload: BuildMeta) {
     `DATASET=${String(payload.datasetHash || "UNCONFIRMED")}`,
     `MODE=${String(payload.runtimeMode || "UNCONFIRMED").toUpperCase()}`,
     "MAP=NONE",
-    `RUNTIME=${String(payload.mapRuntime || "UNCONFIRMED").toUpperCase()}`
+    `RUNTIME=${String(payload.mapRuntime || "UNCONFIRMED").toUpperCase()}`,
   ].join(" · ");
 }
 
@@ -125,17 +156,46 @@ function syncRuntimeDom(payload: BuildMeta) {
     return;
   }
   const runtimeNode = document.querySelector("[data-testid='runtime-stamp']");
-  runtimeNode?.setAttribute("data-build-id", String(payload.buildId || "UNCONFIRMED"));
-  runtimeNode?.setAttribute("data-commit", String(payload.commit || "UNCONFIRMED"));
-  runtimeNode?.setAttribute("data-built-at", String(payload.builtAt || "UNCONFIRMED"));
-  runtimeNode?.setAttribute("data-dataset-hash", String(payload.datasetHash || "UNCONFIRMED"));
-  runtimeNode?.setAttribute("data-final-snapshot-id", String(payload.finalSnapshotId || "UNCONFIRMED"));
-  runtimeNode?.setAttribute("data-snapshot-built-at", String(payload.snapshotBuiltAt || "UNCONFIRMED"));
-  runtimeNode?.setAttribute("data-runtime-mode", String(payload.runtimeMode || "UNCONFIRMED"));
-  runtimeNode?.setAttribute("data-map-runtime", String(payload.mapRuntime || "UNCONFIRMED"));
-  runtimeNode?.setAttribute("data-expected-origin", String(payload.expectedOrigin || window.location.origin));
+  runtimeNode?.setAttribute(
+    "data-build-id",
+    String(payload.buildId || "UNCONFIRMED"),
+  );
+  runtimeNode?.setAttribute(
+    "data-commit",
+    String(payload.commit || "UNCONFIRMED"),
+  );
+  runtimeNode?.setAttribute(
+    "data-built-at",
+    String(payload.builtAt || "UNCONFIRMED"),
+  );
+  runtimeNode?.setAttribute(
+    "data-dataset-hash",
+    String(payload.datasetHash || "UNCONFIRMED"),
+  );
+  runtimeNode?.setAttribute(
+    "data-final-snapshot-id",
+    String(payload.finalSnapshotId || "UNCONFIRMED"),
+  );
+  runtimeNode?.setAttribute(
+    "data-snapshot-built-at",
+    String(payload.snapshotBuiltAt || "UNCONFIRMED"),
+  );
+  runtimeNode?.setAttribute(
+    "data-runtime-mode",
+    String(payload.runtimeMode || "UNCONFIRMED"),
+  );
+  runtimeNode?.setAttribute(
+    "data-map-runtime",
+    String(payload.mapRuntime || "UNCONFIRMED"),
+  );
+  runtimeNode?.setAttribute(
+    "data-expected-origin",
+    String(payload.expectedOrigin || window.location.origin),
+  );
 
-  const visibleNode = document.querySelector("[data-testid='visible-runtime-stamp']");
+  const visibleNode = document.querySelector(
+    "[data-testid='visible-runtime-stamp']",
+  );
   if (visibleNode) {
     visibleNode.textContent = formatVisibleRuntimeStamp(payload);
   }
@@ -157,15 +217,14 @@ export default function BuildWatcher() {
     }
     let cancelled = false;
     const pendingStamp = window.sessionStorage.getItem(PENDING_BUILD_KEY);
-    const currentStamp = stampToKey(getClientRuntimeStamp());
+    const runtimeStamp = getClientRuntimeStamp();
+    const currentStamp = runtimeStamp
+      ? stampToKey(runtimeStamp)
+      : window.sessionStorage.getItem(ACTIVE_BUILD_KEY);
     if (pendingStamp && pendingStamp === currentStamp) {
       window.sessionStorage.removeItem(PENDING_BUILD_KEY);
       window.sessionStorage.removeItem(PENDING_RELOAD_COUNT_KEY);
-      const url = new URL(window.location.href);
-      if (url.searchParams.has(REFRESH_PARAM)) {
-          url.searchParams.delete(REFRESH_PARAM);
-          window.history.replaceState(null, "", url.toString());
-      }
+      removeRefreshParam();
       queueMicrotask(() => {
         if (cancelled) return;
         setNextRuntimeStamp(null);
@@ -176,10 +235,20 @@ export default function BuildWatcher() {
         cancelled = true;
       };
     }
-    if (pendingStamp && pendingStamp !== currentStamp) {
-      const attempts = Number(window.sessionStorage.getItem(PENDING_RELOAD_COUNT_KEY) || "0");
+    if (
+      pendingStamp &&
+      runtimeStamp &&
+      currentStamp &&
+      pendingStamp !== currentStamp
+    ) {
+      const attempts = Number(
+        window.sessionStorage.getItem(PENDING_RELOAD_COUNT_KEY) || "0",
+      );
       if (attempts < MAX_PENDING_RELOADS) {
-        window.sessionStorage.setItem(PENDING_RELOAD_COUNT_KEY, String(attempts + 1));
+        window.sessionStorage.setItem(
+          PENDING_RELOAD_COUNT_KEY,
+          String(attempts + 1),
+        );
         resetClientRuntimePrefetch();
         window.location.replace(buildRefreshUrl(pendingStamp));
         return;
@@ -193,6 +262,7 @@ export default function BuildWatcher() {
         .finally(() => {
           window.sessionStorage.removeItem(PENDING_BUILD_KEY);
           window.sessionStorage.removeItem(PENDING_RELOAD_COUNT_KEY);
+          removeRefreshParam();
           if (!cancelled) setRefreshing(false);
         });
     }
@@ -211,10 +281,10 @@ export default function BuildWatcher() {
         window.localStorage.removeItem(DISMISSED_BUILD_KEY);
         window.sessionStorage.setItem(PENDING_BUILD_KEY, nextRuntimeStamp);
         window.sessionStorage.setItem(PENDING_RELOAD_COUNT_KEY, "0");
-        setNextRuntimeStamp(null);
-        setDismissed(false);
         resetClientRuntimePrefetch();
-        window.location.replace(buildRefreshUrl(nextRuntimeStamp));
+        const refreshUrl = buildRefreshUrl(nextRuntimeStamp);
+        window.history.replaceState(null, "", refreshUrl);
+        window.location.reload();
         return;
       }
     } finally {
@@ -235,24 +305,46 @@ export default function BuildWatcher() {
         const observedStamp = normalizePayload(payload);
         const observed = stampToKey(observedStamp);
         const currentRuntimeStamp = getClientRuntimeStamp();
-        if (!observed || runtimeMatches(observedStamp, currentRuntimeStamp)) {
+        const activeStamp = currentRuntimeStamp
+          ? stampToKey(currentRuntimeStamp)
+          : typeof window !== "undefined"
+            ? window.sessionStorage.getItem(ACTIVE_BUILD_KEY)
+            : null;
+        if (!activeStamp && typeof window !== "undefined") {
+          window.sessionStorage.setItem(ACTIVE_BUILD_KEY, observed);
+          setNextRuntimeStamp(null);
+          setDismissed(false);
+          return;
+        }
+        if (
+          !observed ||
+          activeStamp === observed ||
+          (currentRuntimeStamp &&
+            runtimeMatches(observedStamp, currentRuntimeStamp))
+        ) {
           setNextRuntimeStamp(null);
           setDismissed(false);
           return;
         }
         const pendingStamp =
-          typeof window !== "undefined" ? window.sessionStorage.getItem(PENDING_BUILD_KEY) : null;
+          typeof window !== "undefined"
+            ? window.sessionStorage.getItem(PENDING_BUILD_KEY)
+            : null;
         if (pendingStamp && pendingStamp === observed) {
           syncRuntimeDom(payload);
+          window.sessionStorage.setItem(ACTIVE_BUILD_KEY, observed);
           window.sessionStorage.removeItem(PENDING_BUILD_KEY);
           window.sessionStorage.removeItem(PENDING_RELOAD_COUNT_KEY);
+          removeRefreshParam();
           setNextRuntimeStamp(null);
           setDismissed(false);
           setRefreshing(false);
           return;
         }
         const dismissedStamp =
-          typeof window !== "undefined" ? window.localStorage.getItem(DISMISSED_BUILD_KEY) : null;
+          typeof window !== "undefined"
+            ? window.localStorage.getItem(DISMISSED_BUILD_KEY)
+            : null;
         if (dismissedStamp === observed) {
           setDismissed(true);
           setNextRuntimeStamp(observed);
@@ -294,12 +386,15 @@ export default function BuildWatcher() {
         background: "rgba(255,255,255,0.96)",
         boxShadow: "0 10px 24px rgba(0,0,0,0.14)",
         padding: "12px 14px",
-        color: "#1f2937"
+        color: "#1f2937",
       }}
     >
-      <div style={{ fontWeight: 600, marginBottom: 6 }}>Доступно обновление</div>
+      <div style={{ fontWeight: 600, marginBottom: 6 }}>
+        Доступно обновление
+      </div>
       <div style={{ fontSize: 13, opacity: 0.85, marginBottom: 10 }}>
-        Появилась новая сборка приложения. Обновите страницу, когда будет удобно.
+        Появилась новая сборка приложения. Обновите страницу, когда будет
+        удобно.
       </div>
       <div style={{ display: "flex", gap: 8 }}>
         <button
@@ -315,7 +410,7 @@ export default function BuildWatcher() {
             background: "#0f766e",
             color: "#fff",
             cursor: refreshing ? "wait" : "pointer",
-            opacity: refreshing ? 0.72 : 1
+            opacity: refreshing ? 0.72 : 1,
           }}
         >
           {refreshing ? "Обновляем…" : "Обновить"}
@@ -324,7 +419,10 @@ export default function BuildWatcher() {
           type="button"
           onClick={() => {
             if (nextRuntimeStamp && typeof window !== "undefined") {
-              window.localStorage.setItem(DISMISSED_BUILD_KEY, nextRuntimeStamp);
+              window.localStorage.setItem(
+                DISMISSED_BUILD_KEY,
+                nextRuntimeStamp,
+              );
             }
             setDismissed(true);
           }}
@@ -335,7 +433,7 @@ export default function BuildWatcher() {
             background: "transparent",
             color: "#1f2937",
             cursor: refreshing ? "default" : "pointer",
-            opacity: refreshing ? 0.5 : 1
+            opacity: refreshing ? 0.5 : 1,
           }}
           disabled={refreshing}
         >

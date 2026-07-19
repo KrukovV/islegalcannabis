@@ -4,25 +4,11 @@ import path from "node:path";
 const modernNoopPolyfill = "./src/polyfills/modern-noop.ts";
 const modernNoopPolyfillPath = path.resolve(__dirname, "src/polyfills/modern-noop.ts");
 
+// Keep both bundlers on the same explicit browser-safe no-op module.
 const nextConfig: NextConfig = {
   productionBrowserSourceMaps: true,
   experimental: {
     externalDir: true
-  },
-  async redirects() {
-    return [
-      {
-        source: "/:path*",
-        has: [
-          {
-            type: "host",
-            value: "islegal.info"
-          }
-        ],
-        destination: "https://www.islegal.info/:path*",
-        permanent: true
-      }
-    ];
   },
   transpilePackages: ["@islegal/shared"],
   turbopack: {

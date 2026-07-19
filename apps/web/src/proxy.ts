@@ -1,13 +1,21 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { resolveBrowserLocaleRedirect, resolveSeoRouteLocale } from "@/lib/seo/wikiLocaleContent";
+import { isLocalAuditHost } from "@/lib/privateAuditHost";
 
-function isLocalHost(hostname: string) {
-  return hostname === "localhost" || hostname === "127.0.0.1";
+function isPrivateTruthAuditPath(pathname: string) {
+  return pathname === "/wiki-truth" ||
+    pathname.startsWith("/wiki-truth/") ||
+    pathname === "/trust-view" ||
+    pathname.startsWith("/trust-view/");
 }
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   const { pathname, hostname } = req.nextUrl;
+
+  if (isPrivateTruthAuditPath(pathname) && !isLocalAuditHost(hostname)) {
+    return new NextResponse(null, { status: 404 });
+  }
 
   if (hostname === "islegal.info") {
     const nextUrl = req.nextUrl.clone();
@@ -23,15 +31,6 @@ export function middleware(req: NextRequest) {
     const nextUrl = req.nextUrl.clone();
     nextUrl.pathname = redirectPath;
     return NextResponse.redirect(nextUrl);
-  }
-
-  if (pathname.startsWith("/wiki-truth")) {
-    const allow =
-      process.env.ALLOW_WIKI_TRUTH === "1" || isLocalHost(hostname);
-
-    if (!allow) {
-      return new NextResponse(null, { status: 404 });
-    }
   }
 
   const requestHeaders = new Headers(req.headers);
