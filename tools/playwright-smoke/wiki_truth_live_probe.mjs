@@ -143,9 +143,9 @@ try {
     details.rowCount > 0 &&
     details.cannabisMatrixRowCount === 307 &&
     details.cannabisColorRowCount === 307 &&
-    details.cannabisOfficialGreyCount === 11 &&
-    details.cannabisColorReauditResolvedCount === 28 &&
-    details.cannabisColorReauditRetainedGreyCount === 11 &&
+    details.cannabisOfficialGreyCount === 10 &&
+    details.cannabisColorReauditResolvedCount === 29 &&
+    details.cannabisColorReauditRetainedGreyCount === 10 &&
     details.cannabisOfficialUrlGeoCount === 307 &&
     details.buildMeta?.expectedOrigin === BASE_URL,
   );

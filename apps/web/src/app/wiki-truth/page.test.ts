@@ -124,9 +124,9 @@ describe("/wiki-truth", () => {
     expect(matrix).toContain("Повторно проверено серых строк");
     expect(matrix).toContain(">39<");
     expect(matrix).toContain("Цвет закрыт повторной проверкой");
-    expect(matrix).toContain(">28<");
+    expect(matrix).toContain(">29<");
     expect(matrix).toContain("Честно осталось серыми");
-    expect(matrix).toContain(">11<");
+    expect(matrix).toContain(">10<");
     expect(matrix).toContain("Показано 307 / 307");
     expect(matrix).toContain('data-geo="BF"');
     expect(matrix).toContain('data-geo="ET"');
@@ -155,9 +155,9 @@ describe("/wiki-truth", () => {
     expect(table).toContain("Цвет по официальному закону");
     expect(table).toContain("Комментарий по цветам");
     expect((table.match(/data-geo=/g) || []).length).toBe(307);
-    expect((table.match(/data-reaudit-result="COLOR_RESOLVED"/g) || []).length).toBe(28);
-    expect((table.match(/data-reaudit-result="HONEST_GREY_RETAINED"/g) || []).length).toBe(11);
-    expect((table.match(/data-official-color="UNKNOWN"/g) || []).length).toBe(11);
+    expect((table.match(/data-reaudit-result="COLOR_RESOLVED"/g) || []).length).toBe(29);
+    expect((table.match(/data-reaudit-result="HONEST_GREY_RETAINED"/g) || []).length).toBe(10);
+    expect((table.match(/data-official-color="UNKNOWN"/g) || []).length).toBe(10);
     expect(table).toContain("#cde7cf");
     expect(table).toContain("#f4e9c2");
     expect(table).toContain("#ead0d1");

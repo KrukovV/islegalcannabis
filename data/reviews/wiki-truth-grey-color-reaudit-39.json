@@ -1,10 +1,10 @@
 {
   "schemaVersion": 2,
-  "reviewedAt": "2026-07-19T22:28:00.000Z",
+  "reviewedAt": "2026-07-19T22:46:00.000Z",
   "method": "Каждый из исходных 39 GEO повторно открыт и просмотрен глазами: HTML только в изолированном headless Chromium; PDF — по отрендеренной релевантной странице. Контекст, claimant law и negative evidence не выдаются за прямой территориальный cannabis-law.",
   "sourceGreyCount": 39,
-  "resolvedColorCount": 28,
-  "retainedGreyCount": 11,
+  "resolvedColorCount": 29,
+  "retainedGreyCount": 10,
   "rows": [
     {
       "geo": "AL",
@@ -675,22 +675,45 @@
     },
     {
       "geo": "SCR",
-      "result": "HONEST_GREY_RETAINED",
-      "reasonRu": "Второй поиск закрыт по официальным источникам обеих конкурирующих юрисдикций. Philippines RA 9522 визуально включает Bajo de Masinloc / Scarborough Shoal в режим островов, над которыми государство заявляет sovereignty and jurisdiction, а RA 9165 визуально определяет cannabis/marijuana/Indian hemp, количественные пороги и строгие наказания. Официальная Embassy of China визуально заявляет Huangyan Island частью территории China и описывает государственную деятельность/юрисдикцию; официальный текст Criminal Law China визуально называет marijuana в статьях 351 и 357 и устанавливает строгие уголовные санкции. Источники подтверждают два claimant-law режима, но не дают нейтрально установленного единого суверена или отдельного SCR lawgiver. Поэтому ни филиппинский, ни китайский цвет автоматически не присваивается объединённой спорной строке SCR; она остаётся серой с явным конфликтом scope.",
+      "result": "COLOR_RESOLVED",
+      "reasonRu": "Свежая визуальная перепроверка закрывает SCR красным без выбора спорного суверена. Philippines RA 9522 относит Bajo de Masinloc / Scarborough Shoal к островам под заявленной юрисдикцией Philippines, а RA 9165 прямо определяет cannabis/marijuana/Indian hemp и устанавливает строгие уголовные запреты и наказания. Официальная китайская ветка заявляет Huangyan Island территорией China, а Criminal Law PRC в статьях 351 и 357 прямо называет marijuana и предусматривает строгую уголовную ответственность. Суверенитет остаётся спорным, но цветовой результат не спорен: каждая визуально проверенная применимая claimant-ветка даёт recreational=ILLEGAL, medical=NONE для общего территориального вывода и enforcement=STRICT. Поэтому SCR получает красный по правилу совпадения всех claimant-режимов; это не признание чьего-либо суверенитета.",
       "freshOfficialSources": [
         {
-          "title": "Филиппины — Republic Act 9165",
+          "title": "Philippines Supreme Court E-Library — RA 9522, Bajo de Masinloc scope",
           "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/23187",
-          "role": "CLAIMANT_CONTEXT",
-          "visualReview": "EXISTING_SCREENSHOT_RECHECK"
+          "role": "CLAIMANT_JURISDICTION_SCOPE",
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
         },
         {
-          "title": "Повторно визуально проверенный источник SCR",
+          "title": "Philippines Dangerous Drugs Board — RA 9165 cannabis definition and penalties",
+          "url": "https://ddb.gov.ph//images/RA_9165/RA%209165.pdf",
+          "role": "CLAIMANT_DIRECT_CANNABIS_LAW",
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
+        },
+        {
+          "title": "Embassy of China — Huangyan Island sovereignty and jurisdiction statement",
+          "url": "https://ph.china-embassy.gov.cn/eng/xwfb/201206/t20120608_1180427.htm",
+          "role": "CLAIMANT_JURISDICTION_SCOPE",
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
+        },
+        {
+          "title": "Supreme People's Court of China — Criminal Law articles 351 and 357 naming marijuana",
+          "url": "https://english.court.gov.cn/2015-12/01/c_761557_32.htm",
+          "role": "CLAIMANT_DIRECT_CANNABIS_LAW",
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
+        },
+        {
+          "title": "Lawphil — RA 9165 cannabis definition and penalties",
           "url": "https://lawphil.net/statutes/repacts/ra2002/ra_9165_2002.html",
-          "role": "COMPETING_CLAIMANT_CANNABIS_LAWS_CONTEXT_ONLY_NO_SETTLED_TERRITORIAL_LAW",
+          "role": "CLAIMANT_DIRECT_CANNABIS_LAW_OFFICIAL_MIRROR",
           "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
         }
-      ]
+      ],
+      "officialStatusPatch": {
+        "recreational": "ILLEGAL_UNDER_EVERY_VISUALLY_VERIFIED_CLAIMANT_REGIME",
+        "medical": "NONE_NO_TERRITORY_WIDE_MEDICAL_CANNABIS_ACCESS_PROVEN_UNDER_EITHER_CLAIMANT_BRANCH",
+        "enforcement": "STRICT_UNDER_EVERY_VISUALLY_VERIFIED_CLAIMANT_REGIME"
+      }
     },
     {
       "geo": "SER",

@@ -96,3 +96,10 @@ Statuses: pending | in_progress | done
 - [completed] Merge each visually accepted closure immediately into the evidence model and regenerate every `/wiki-truth` derivative; all 39 closures were published incrementally, yielding 28 resolved colors and 11 honestly grey rows with project SSOT statuses unchanged.
 - [completed] Finish the second official-source search over every honest-grey GEO, including SJ; criminal applicability is proven for both Svalbard and Jan Mayen, while medical-cannabis applicability is proven only for Svalbard.
 - [completed] Run the final isolated Chromium/WebKit `/wiki-truth` smoke, prove the update button performs a real document reload, and finish with `bash tools/pass_cycle.sh`.
+
+# Zero-grey official-law completion (2026-07-20)
+
+- [done] Re-open the 11 retained-grey rows (AQ, BRT, BV, ET, KP, PN, SCR, KAS, SPI, PGA, SJ) and document the exact missing legal/applicability bridge for each.
+- [in_progress] Re-search official law portals, gazettes, APIs, mirrors and PDFs; accept a source only after isolated visual inspection of the relevant legal text. SCR is closed red by claimant-law convergence; 10 remain.
+- [pending] Publish each proven GEO immediately into the additive visual review, color re-audit, 307 matrix and `/wiki-truth` while preserving status SSOT.
+- [pending] Prove 307 rows and 0 grey official-law colors in isolated browser rendering, then complete `bash tools/pass_cycle.sh` with all mandatory green markers.

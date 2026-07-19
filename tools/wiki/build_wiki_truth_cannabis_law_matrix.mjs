@@ -207,10 +207,10 @@ const rows = geoList.map((geo) => {
   ].map((link) => [normalizedUrlKey(link.url), link])).values()]
     .filter((link) => !directUrlKeys.has(normalizedUrlKey(link.url)));
 
-  const officialStatus = visualRow?.official_status ? {
-    recreational: visualRow.official_status.recreational,
-    medical: visualRow.official_status.medical,
-    enforcement: visualRow.official_status.enforcement || null,
+  const officialStatus = visualRow?.official_status || greyReauditRow?.officialStatusPatch ? {
+    recreational: visualRow?.official_status?.recreational || null,
+    medical: visualRow?.official_status?.medical || null,
+    enforcement: visualRow?.official_status?.enforcement || null,
     ...(greyReauditRow?.officialStatusPatch || {})
   } : null;
   const screenshotPaths = visualRow?.screenshot_paths || [];
