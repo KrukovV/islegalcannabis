@@ -352,6 +352,110 @@ const resolutions = {
       },
     ],
   },
+  KP: {
+    reviewedAt: "2026-07-20T00:20:00.000Z",
+    color: "LIMITED_OR_MEDICAL",
+    method: "BINDING_UN_CANNABIS_TREATY_PLUS_CURRENT_DPRK_NARCOTIC_CONTROL",
+    reasonRu: "Свежая визуальная перепроверка закрывает KP жёлтым композитным, а не одиночным источником. Актуальная UN Treaty Collection визуально показывает Democratic People's Republic of Korea стороной amended Single Convention с 19 March 2007. Официальный текст UNODC самой Convention визуально определяет Cannabis, Cannabis plant и Cannabis resin, определяет drug через Schedules I и II и в Article 4 обязывает стороны реализовать Convention на своей территории и ограничить производство, оборот, use и possession drugs исключительно medical and scientific purposes. Актуальный INCB Yellow List визуально помещает CANNABIS и CANNABIS RESIN, EXTRACTS AND TINCTURES в Schedule I. Действующий DPRK Drug Management Law в редакции 14 December 2021, опубликованный в официальной Unification Law Database Ministry of Government Legislation Republic of Korea, визуально запрещает general-sale supply и разрешает narcotic use только для medicine manufacture, treatment, education and scientific research; пациентский путь требует diagnosis/prescription и контролируемого possession/use. Drug Crime Prevention Act от 1 July 2021 визуально распространяется на учреждения, граждан и иностранцев в DPRK и вводит строгие запреты и ответственность за неразрешённые производство, хранение, торговлю, ввоз и use narcotics. Государственный отчёт DPRK CRC/C/PRK/4 дополнительно визуально подтверждает accession к трём международным drug-control conventions и отсутствие заявленного non-prescription narcotic use. Поэтому cannabis связан с действующим режимом не через непубличный Cabinet list, а через обязательную для DPRK Convention, её прямое cannabis-определение и Schedule I, вместе с текущим внутренним narcotic-control режимом. Общий recreational route незаконен; ограниченный prescription/medical/scientific правовой путь доказан, но фактическая доступность конкретного cannabis medicine не доказана. В трёхцветной модели это жёлтый.",
+    officialStatusPatch: {
+      recreational: "ILLEGAL_OUTSIDE_MEDICAL_AND_SCIENTIFIC_SCOPE_UNDER_BINDING_UN_TREATY_AND_CURRENT_DPRK_NARCOTIC_CONTROL",
+      medical: "LIMITED_GENERIC_NARCOTIC_PRESCRIPTION_PATHWAY_CANNABIS_PRODUCT_AVAILABILITY_NOT_PROVEN",
+      enforcement: "STRICT_CURRENT_CRIMINAL_PROHIBITIONS_FOR_UNAUTHORISED_NARCOTIC_PRODUCTION_POSSESSION_TRADE_IMPORT_AND_USE",
+    },
+    sources: [
+      {
+        title: "UN Treaty Collection - DPRK participation in amended Single Convention from 19 March 2007",
+        url: "https://treaties.un.org/doc/Publication/MTDSG/Volume%20I/Chapter%20VI/vi-18.en.pdf",
+        role: "CURRENT_BINDING_TREATY_PARTICIPATION",
+        screenshotPath: "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/KP-UNTC-amended-single-convention-party.png",
+      },
+      {
+        title: "UNODC - amended Single Convention cannabis definitions",
+        url: "https://www.unodc.org/pdf/convention_1961_en.pdf",
+        role: "BINDING_TREATY_DIRECT_CANNABIS_DEFINITION",
+        screenshotPath: "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/KP-UNODC-convention-cannabis-definition.png",
+      },
+      {
+        title: "UNODC - amended Single Convention Article 4 medical and scientific limitation",
+        url: "https://www.unodc.org/pdf/convention_1961_en.pdf",
+        role: "BINDING_TREATY_TERRITORIAL_IMPLEMENTATION_AND_MEDICAL_SCIENTIFIC_ONLY_RULE",
+        screenshotPath: "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/KP-UNODC-convention-medical-scientific-only.png",
+      },
+      {
+        title: "INCB Yellow List 64th edition - cannabis in Schedule I of the 1961 Convention",
+        url: "https://www.incb.org/incb/uploads/documents/Narcotic-Drugs/Yellow_List/64th_edition/YL_64th_E.pdf",
+        role: "CURRENT_OFFICIAL_UN_CANNABIS_SCHEDULE",
+        screenshotPath: "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/TD-INCB-yellow-list-2025-p3.png",
+      },
+      {
+        title: "Unification Law Database - DPRK Drug Management Law amended 14 December 2021",
+        url: "https://www.unilaw.go.kr/bbs/selectBoardArticle.do?alike=&alikeYn=&authFlag=Y&bbsAttrbCode=BBSA02&bbsId=BBSMSTR_000000000021&bbsSubId=&bbsTyCode=BBST01&menuNo=3010000&nttId=112&pageIndex=3&passwordConfirmAt=&recordCountPerPage=10&searchCnd=&searchWrd=&sidx=NTT_ID&sord=DESC&upperMenuId=3000000",
+        role: "CURRENT_DPRK_NARCOTIC_CONTROL_LAW_OFFICIAL_FOREIGN_GOVERNMENT_MIRROR",
+        screenshotPath: "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/KP-drug-law-2021-title.png",
+      },
+      {
+        title: "Unification Law Database - DPRK Drug Management Law prescription medical and scientific pathway",
+        url: "https://www.unilaw.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000001294&fileSn=2&mblSe=W",
+        role: "CURRENT_DPRK_PRESCRIPTION_MEDICAL_SCIENTIFIC_NARCOTIC_PATHWAY",
+        screenshotPath: "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/KP-drug-law-2021-medical-use.png",
+      },
+      {
+        title: "Unification Law Database - DPRK Drug Crime Prevention Act territorial scope and offences",
+        url: "https://www.unilaw.go.kr/cmm/fms/FileDown.do?atchFileId=META_000000000036791&fileSn=0&mblSe=W",
+        role: "CURRENT_DPRK_TERRITORY_WIDE_NARCOTIC_CRIMINAL_CONTROL",
+        screenshotPath: "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/KP-drug-crime-law-title-scope.png",
+      },
+      {
+        title: "OHCHR state-party report CRC/C/PRK/4 - DPRK treaty accession",
+        url: "https://docstore.ohchr.org/SelfServices/FilesHandler.ashx?enc=5Wvm71qLUpWitbKSUnsRBXfhC9SLPOOFf7%2FgtjdbxU4PUmqQmi7JOtYSvuzJwV08qCTHmWWuD4C7E77kz5qWyw%3D%3D",
+        role: "DPRK_STATE_PARTY_REPORT_TREATY_ACCESSION_CONTEXT",
+        screenshotPath: "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/KP-OHCHR-state-report-treaty-accession.png",
+      },
+      {
+        title: "OHCHR state-party report CRC/C/PRK/4 - narcotic penalties and prescription-only context",
+        url: "https://docstore.ohchr.org/SelfServices/FilesHandler.ashx?enc=5Wvm71qLUpWitbKSUnsRBXfhC9SLPOOFf7%2FgtjdbxU4PUmqQmi7JOtYSvuzJwV08qCTHmWWuD4C7E77kz5qWyw%3D%3D",
+        role: "DPRK_STATE_PARTY_REPORT_HISTORIC_DRUG_CONTROL_CONTEXT",
+        screenshotPath: "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/KP-OHCHR-state-report-drug-control.png",
+      },
+    ],
+  },
+  PN: {
+    reviewedAt: "2026-07-20T00:35:00.000Z",
+    color: "LIMITED_OR_MEDICAL",
+    method: "TERRITORY_ALL_DRUG_IMPORT_RULE_PLUS_CURRENT_PRESCRIPTION_PATHWAY",
+    reasonRu: "Свежая визуальная перепроверка закрывает PN жёлтым по прямому универсальному тексту территории, а не по автоматическому совпадению термина и не переносом UK Misuse of Drugs Act. Действующий официальный laws portal Pitcairn по-прежнему публикует Summary Offences Ordinance. Его §7 визуально устанавливает, что любой человек, кроме Medical Officer, совершает offence, если imports drugs of any kind into Pitcairn Island; одновременно §7 прямо оставляет исключение для ввоза any drug for medical purposes с согласия Medical Officer или по письменному рецепту qualified medical practitioner и допускает конфискацию незаконного ввоза. Актуальный INCB Yellow List визуально называет CANNABIS, CANNABIS RESIN, EXTRACTS AND TINCTURES наркотическими средствами Schedule I; здесь он используется только как официальный прямой cannabis-идентификатор для универсальной фразы any drug, а не как недоказанное распространение международного договора или британского закона на PN. Действующая GPI Pitcairn Health Centre Operational Policy July 2025 визуально подтверждает реальный локальный механизм: PI Medical Officer назначает medications, Pitcairn Nurse выдаёт их под его надзором, а конкретное лекарство можно заказать через Clinic. Поэтому доказан запрет неразрешённого recreational import и ограниченный prescription/medical import pathway; в трёхцветной модели это жёлтый. При этом не утверждается, что найден отдельный cannabis-named PN Act, что UK possession/cultivation rules автоматически действуют на PN, что местное право отдельно запрещает любое владение или выращивание либо что конкретный cannabis medicine фактически доступен. Статус SSOT не изменён.",
+    officialStatusPatch: {
+      recreational: "ILLEGAL_UNAUTHORISED_RECREATIONAL_IMPORT_NO_COMPREHENSIVE_POSSESSION_OR_CULTIVATION_RULE_PROVEN",
+      medical: "LIMITED_STATUTORY_PRESCRIPTION_AND_MEDICAL_OFFICER_IMPORT_PATHWAY_CANNABIS_PRODUCT_AVAILABILITY_NOT_PROVEN",
+      enforcement: "CRIMINAL_IMPORT_OFFENCE_WITH_CONFISCATION_NO_CANNABIS_SPECIFIC_POSSESSION_PENALTY_PROVEN",
+    },
+    sources: [
+      {
+        title: "Pitcairn Government - current laws portal and territorial law sources",
+        url: "https://www.government.pn/laws",
+        role: "CURRENT_TERRITORY_LAW_PORTAL_AND_SCOPE",
+        screenshotPath: "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/PN.jpg",
+      },
+      {
+        title: "Pitcairn Government - Summary Offences Ordinance section 7 all-drug import prohibition and prescription exception",
+        url: "https://www.government.pn/s/Cap-5-Summary-Offences.pdf",
+        role: "TERRITORY_DIRECT_ALL_DRUG_IMPORT_PROHIBITION_AND_MEDICAL_PRESCRIPTION_EXCEPTION",
+        screenshotPath: "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PN/png/pages/PN-volume1-summary-offences-drugs-220.png",
+      },
+      {
+        title: "Pitcairn Government - Health Centre Operational Policy July 2025 prescribing, dispensing and medication orders",
+        url: "https://www.government.pn/s/GPI_PITCAIRN_HEALTH_CENTRE_OPERATIONAL_POLICY_July6_2025_-1.pdf",
+        role: "CURRENT_TERRITORY_PRESCRIBING_DISPENSING_AND_SPECIAL_ORDER_PATHWAY",
+        screenshotPath: "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/PN-health-centre-2025-prescription-order.png",
+      },
+      {
+        title: "INCB Yellow List 64th edition - cannabis in Schedule I",
+        url: "https://www.incb.org/incb/uploads/documents/Narcotic-Drugs/Yellow_List/64th_edition/YL_64th_E.pdf",
+        role: "CURRENT_OFFICIAL_CANNABIS_IDENTIFIER_CONTEXT_NOT_PN_TREATY_OR_UK_LAW_TRANSPLANT",
+        screenshotPath: "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/TD-INCB-yellow-list-2025-p3.png",
+      },
+    ],
+  },
 };
 
 const requested = process.argv.slice(2);
