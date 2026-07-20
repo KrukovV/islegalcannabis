@@ -505,6 +505,61 @@ const resolutions = {
       },
     ],
   },
+  BRT: {
+    reviewedAt: "2026-07-20T01:12:53.000Z",
+    color: "LIMITED_OR_MEDICAL",
+    method: "UNCLAIMED_GEO_OPERATIONAL_ACCESS_FALLBACK_EGYPT_SUDAN",
+    reasonRu: "Свежая визуальная перепроверка закрывает BRT жёлтым, не изобретая государство, территориальный уголовный кодекс или CannabisLawPage Bir Tawil. В отчёте Генерального секретаря ООН A/80/304 формулировка unclaimed territory приведена в разделе вкладов неправительственных организаций: это официально опубликованное negative/context evidence, но не обязательное юридическое решение ООН. Официальные заявления Egypt и Sudan, опубликованные в UN Law of the Sea Bulletin No. 94, визуально показывают несовместимые пограничные позиции: Egypt считает международной границей 22-ю параллель и относит территории к югу от неё к Sudan, тогда как Sudan заявляет Hala'ib к северу от 22-й параллели по унаследованной границе. Ни одна из просмотренных государственных веток не публикует орган Bir Tawil, территориальный cannabis-law, полицию, суд или patient programme; частные micronation-декларации поэтому отвергнуты. Для обязательного трёхцветного отображения применяется явно обозначенный operational-access fallback, а не территориальный закон: физический сухопутный доступ возможен только через Egypt или Sudan, и обе реальные CannabisLawPage просмотрены глазами. Egypt EDA публикует Law No. 182/1960 и актуальный индекс поправок до 2020 года; закон помещает Cannabis sativa/Indian hemp в запрещённые к выращиванию растения, запрещает неразрешённые cultivation, import, possession и trade, допускает только лицензируемые medical/scientific операции и предусматривает строгие наказания. Sudan Judiciary на действующем официальном сайте в 2026 году продолжает применять Narcotic Drugs and Psychotropic Substances Act 1994 и его таблицы, включая дела о hashish; визуально проверенная копия UNODC Legal Library определяет hashish как Indian hemp, перечисляет cannabis, cannabis resin и tetrahydrocannabinols, запрещает import, production, possession, transport и trade, оставляя только minister-authorized medical/scientific purposes и строгие уголовные наказания. Поэтому доказанного общего recreational legal market нет, а допустимость ограничена разрешительными медицинскими/научными режимами двух единственных сухопутных access states. В трёхцветной модели это жёлтый: зелёный ложно утверждал бы доказанную легальность, красный ложно приписал бы BRT собственный запрет. Enforcement строг на маршрутах Egypt/Sudan, но отдельной BRT enforcement authority нет. Вывод не распространяет автоматически суверенитет Egypt или Sudan на Bir Tawil, не создаёт BRT patient programme и не меняет статус SSOT.",
+    officialStatusPatch: {
+      recreational: "NO_GENERAL_LEGAL_MARKET_OPERATIONAL_ACCESS_RESTRICTED_UNDER_BOTH_BORDERING_REGIMES_NO_BRT_TERRITORIAL_LAWMAKER",
+      medical: "LIMITED_MEDICAL_SCIENTIFIC_AUTHORIZATION_ONLY_UNDER_BOTH_BORDERING_ACCESS_REGIMES_NO_BRT_PATIENT_PROGRAM",
+      enforcement: "STRICT_AT_EGYPT_SUDAN_ACCESS_REGIMES_NO_BRT_TERRITORIAL_ENFORCEMENT_AUTHORITY",
+    },
+    sources: [
+      {
+        title: "United Nations A/80/304 - NGO contribution describing Bir Tawil as unclaimed territory",
+        url: "https://digitallibrary.un.org/record/4087607/files/A_80_304-EN.pdf#page=10",
+        role: "UN_OFFICIAL_HOSTED_UNCLAIMED_CONTEXT_RELAYED_FROM_NGO_NOT_BINDING_LEGAL_DETERMINATION",
+        screenshotPath: "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/BRT-UN-A-80-304-unclaimed-p10.png",
+      },
+      {
+        title: "UN Law of the Sea Bulletin No. 94 - Egypt Ministry of Foreign Affairs 22nd-parallel position",
+        url: "https://digitallibrary.un.org/record/3890922/files/LOS_94_WEB.pdf#page=25",
+        role: "EGYPT_OFFICIAL_BOUNDARY_POSITION_NO_BRT_TERRITORIAL_LAWMAKER",
+        screenshotPath: "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/BRT-UN-LOS94-Egypt-22nd-parallel.png",
+      },
+      {
+        title: "UN Law of the Sea Bulletin No. 94 - Sudan Ministry of Foreign Affairs Hala'ib position",
+        url: "https://digitallibrary.un.org/record/3890922/files/LOS_94_WEB.pdf#page=26",
+        role: "SUDAN_OFFICIAL_BOUNDARY_POSITION_NO_BRT_TERRITORIAL_LAWMAKER",
+        screenshotPath: "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/BRT-UN-LOS94-Sudan-Halaib-claim.png",
+      },
+      {
+        title: "Egyptian Drug Authority - Law No. 182 of 1960 cannabis plant and controlled operations",
+        url: "https://www.edaegypt.gov.eg/media/ekgifxb3/1960-182.pdf#page=13",
+        role: "EGYPT_ACCESS_STATE_DIRECT_CANNABIS_LAW",
+        screenshotPath: "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/EG/pdf_pages/EG-law-182-1960-page-13.png",
+      },
+      {
+        title: "Egyptian Drug Authority - current Law No. 182/1960 amendments index",
+        url: "https://edaegypt.gov.eg/ar/%D8%A7%D9%84%D9%85%D8%B1%D8%AC%D8%B9-%D8%A7%D9%84%D8%AA%D9%86%D8%B8%D9%8A%D9%85%D9%8A-%D9%84%D9%87%D9%8A%D8%A6%D8%A9-%D8%A7%D9%84%D8%AF%D9%88%D8%A7%D8%A1-%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A%D8%A9/%D8%A7%D9%84%D9%82%D9%88%D8%A7%D9%86%D9%8A%D9%86-%D9%88%D8%A7%D9%84%D9%84%D9%88%D8%A7%D8%A6%D8%AD-%D8%A7%D9%84%D8%AA%D9%86%D9%81%D9%8A%D8%B0%D9%8A%D8%A9/%D8%AA%D8%B9%D8%AF%D9%8A%D9%84%D8%A7%D8%AA-%D9%82%D8%A7%D9%86%D9%88%D9%86-%D8%B1%D9%82%D9%85-182-%D9%84%D8%B3%D9%86%D8%A9-1960/",
+        role: "EGYPT_ACCESS_STATE_CURRENT_LAW_AND_AMENDMENTS_INDEX",
+        screenshotPath: "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/BRT-Egypt-EDA-law-182-amendments.png",
+      },
+      {
+        title: "Sudan Judiciary - Supreme Court hashish possession and trafficking judgment applying the 1994 Act",
+        url: "https://sj.gov.sd/ar/content/book/%D8%AD%D9%83%D9%88%D9%85%D8%A9-%D8%A7%D9%84%D8%B3%D9%88%D8%AF%D8%A7%D9%86-%D8%B6%D8%AF-%D8%B2-%D8%B9-%D8%B9-%D8%AC-%D9%85-%D8%B9%D9%85-%D9%83-%D8%A7%D9%85%D8%A4%D8%A8%D8%AF152018%D9%85",
+        role: "SUDAN_ACCESS_STATE_CURRENT_JUDICIARY_CANNABIS_ENFORCEMENT_CONFIRMATION",
+        screenshotPath: "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/BRT-Sudan-Judiciary-current-1994-act.png",
+      },
+      {
+        title: "UNODC Legal Library archive - Sudan Narcotic Drugs and Psychotropic Substances Act 1994",
+        url: "https://web.archive.org/web/20071004220747/http://www.unodc.org/unodc/en/legal_library/sd/legal_library_1996-12-18_1996-77.html?print=yes",
+        role: "SUDAN_ACCESS_STATE_DIRECT_CANNABIS_LAW_OFFICIAL_UNODC_ARCHIVE_COPY",
+        screenshotPath: "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-27/SD/screenshots/SD-unodc-prohibition-medical-scientific-exception.png",
+      },
+    ],
+  },
 };
 
 const requested = process.argv.slice(2);
