@@ -456,6 +456,55 @@ const resolutions = {
       },
     ],
   },
+  AQ: {
+    reviewedAt: "2026-07-20T00:50:46.000Z",
+    color: "LIMITED_OR_MEDICAL",
+    method: "ANTARCTIC_TREATY_PERMIT_CONTROL_PLUS_NATIONAL_JURISDICTION",
+    reasonRu: "Свежая визуальная перепроверка закрывает AQ жёлтым и не выдаёт Antarctica за единое государство или единый уголовный кодекс. Официальная страница Antarctic Treaty Secretariat прямо говорит, что Parties реализуют Treaty и Environment Protocol через собственные national legislations, а посетители получают разрешения у соответствующих National Competent Authorities. Визуально проверенный Article VIII самого Antarctic Treaty закрепляет национальную юрисдикцию для observers, exchanged scientific personnel и сопровождающего персонала, а споры о юрисдикции для иных случаев решаются консультациями сторон. Одновременно действующий Annex II Article 4 устанавливает общий для Antarctic Treaty area материальный минимум: никакой не местный живой организм нельзя вводить на сушу, ледовые шельфы или в воду без permit; разрешения допускают cultivated plants и reproductive propagules только для controlled use, а living organisms — для controlled experimental use, после чего их требуется удалить или обезвредить. Официальный UNODC Single Convention визуально определяет Cannabis, Cannabis plant и Cannabis resin и показывает международный medical/scientific-only контроль, а актуальный INCB Yellow List визуально включает cannabis и cannabis resin/extracts/tinctures в Schedule I; эти документы используются как прямой cannabis-идентификатор и общий международный контекст, а не как выдуманный единый AQ criminal code. Поэтому для whole-Antarctica нет общего recreational legal market или общего права на выращивание: введение живого cannabis plant permit-only, а медицинское/научное обращение и иные possession/use вопросы зависят от национальной юрисдикции и компетентного органа. В трёхцветной модели такой ограниченный условный режим — жёлтый. Не утверждается, что все национальные режимы одинаковы, что найден единый AQ possession offence, что существует AQ patient programme или что конкретный cannabis medicine доступен. Статус SSOT не изменён.",
+    officialStatusPatch: {
+      recreational: "NO_GENERAL_LEGAL_MARKET_LIVE_CANNABIS_PLANT_INTRODUCTION_PERMIT_ONLY_NATIONAL_LAW_DEPENDENT",
+      medical: "LIMITED_NATIONAL_AUTHORITY_AND_CONTROLLED_SCIENTIFIC_PATHWAY_NO_UNITARY_AQ_PATIENT_PROGRAM_PROVEN",
+      enforcement: "PERMIT_AND_NATIONAL_JURISDICTION_DEPENDENT_NO_UNITARY_CANNABIS_POSSESSION_PENALTY_PROVEN",
+    },
+    sources: [
+      {
+        title: "Antarctic Treaty Secretariat - National Competent Authorities and national legislation",
+        url: "https://www.ats.aq/devAS/Ats/NationalCompetentAuthorities?lang=e",
+        role: "CURRENT_TREATY_AREA_NATIONAL_LEGISLATION_AND_PERMITTING_SCOPE",
+        screenshotPath: "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/AQ.jpg",
+      },
+      {
+        title: "Antarctic Treaty - Article VIII national jurisdiction",
+        url: "https://documents.ats.aq/recatt/att005_e.pdf",
+        role: "CURRENT_TREATY_JURISDICTION_SCOPE",
+        screenshotPath: "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/AQ-treaty-article8-jurisdiction.png",
+      },
+      {
+        title: "Antarctic Treaty Environment Protocol Annex II - Article 4 non-native living-organism permit control",
+        url: "https://documents.ats.aq/recatt/Att432_e.pdf",
+        role: "DIRECT_TREATY_AREA_NON_NATIVE_PLANT_INTRODUCTION_PROHIBITION_AND_CONTROLLED_USE_PERMIT",
+        screenshotPath: "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/AQ-annex-II-article4-non-native-plants.png",
+      },
+      {
+        title: "UNODC - amended Single Convention cannabis definitions",
+        url: "https://www.unodc.org/pdf/convention_1961_en.pdf",
+        role: "OFFICIAL_CANNABIS_AND_CANNABIS_PLANT_IDENTIFIER_CONTEXT_NOT_UNITARY_AQ_CRIMINAL_CODE",
+        screenshotPath: "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/KP-UNODC-convention-cannabis-definition.png",
+      },
+      {
+        title: "UNODC - amended Single Convention Article 4 medical and scientific limitation",
+        url: "https://www.unodc.org/pdf/convention_1961_en.pdf",
+        role: "INTERNATIONAL_MEDICAL_SCIENTIFIC_CONTROL_CONTEXT_NOT_UNITARY_AQ_CRIMINAL_CODE",
+        screenshotPath: "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/KP-UNODC-convention-medical-scientific-only.png",
+      },
+      {
+        title: "INCB Yellow List 64th edition - cannabis in Schedule I",
+        url: "https://www.incb.org/incb/uploads/documents/Narcotic-Drugs/Yellow_List/64th_edition/YL_64th_E.pdf",
+        role: "CURRENT_OFFICIAL_CANNABIS_SCHEDULE_IDENTIFIER_CONTEXT_NOT_UNITARY_AQ_CRIMINAL_CODE",
+        screenshotPath: "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/TD-INCB-yellow-list-2025-p3.png",
+      },
+    ],
+  },
 };
 
 const requested = process.argv.slice(2);
