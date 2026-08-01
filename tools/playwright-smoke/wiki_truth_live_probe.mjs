@@ -349,6 +349,16 @@ const expectedBlockerExitConditionCounts = expectedBlockerExitRows.reduce(
 );
 const expectedFinalTruthColorCounts =
   finalReconciliationArtifact.counts?.truthColors || {};
+const expectedFinalReconciliationComplete =
+  finalReconciliationArtifact.complete === true;
+const finalReconciliationHasDocumentedBlocker =
+  !expectedFinalReconciliationComplete &&
+  Object.values(finalReconciliationArtifact.acceptance?.flags || {}).some(
+    (value) => value === false,
+  );
+const expectedFinalReconciliationStateToken = expectedFinalReconciliationComplete
+  ? "FINAL_RECONCILIATION_COMPLETE"
+  : "FINAL_RECONCILIATION_HAS_OPEN_TRUTH_BLOCKERS";
 const expectedLegalAxisMatrixRows = Array.isArray(legalKnowledgeAxisMatrixArtifact.rows)
   ? legalKnowledgeAxisMatrixArtifact.rows
   : [];
@@ -1576,6 +1586,9 @@ try {
       finalReconciliationNoMutationAttr:
         document.querySelector("[data-testid='wiki-truth-final-reconciliation']")
           ?.getAttribute("data-no-mutation") || "",
+      finalReconciliationStateText:
+        document.querySelector("[data-testid='wiki-truth-final-reconciliation']")
+          ?.textContent || "",
       finalReconciliationTruthRedAttr: Number(
         document.querySelector("[data-testid='wiki-truth-final-reconciliation']")
           ?.getAttribute("data-truth-red") || -1,
@@ -2085,16 +2098,21 @@ try {
     details.legalAxisMatrixNoMissingAxisCellsAttr === "1" &&
     details.finalReconciliationPresent &&
     details.finalReconciliationCompleteAttr ===
-      (finalReconciliationArtifact.complete === true ? "1" : "0") &&
+      (expectedFinalReconciliationComplete ? "1" : "0") &&
     finalReconciliationArtifact.acceptance?.complete ===
-      (acceptanceAuditArtifact.complete === true) &&
+      expectedFinalReconciliationComplete &&
+    (expectedFinalReconciliationComplete ||
+      finalReconciliationHasDocumentedBlocker) &&
+    details.finalReconciliationStateText.includes(
+      expectedFinalReconciliationStateToken,
+    ) &&
     finalReconciliationArtifact.noMutationProof?.unchanged === true &&
     details.finalReconciliationRowsTotalAttr ===
       Number(finalReconciliationArtifact.rowsTotal || 0) &&
     details.finalReconciliationRowsExpectedAttr ===
       Number(finalReconciliationArtifact.rowsExpected || 0) &&
     details.finalReconciliationCompleteAttr ===
-      (finalReconciliationArtifact.complete === true ? "1" : "0") &&
+      (expectedFinalReconciliationComplete ? "1" : "0") &&
     details.finalReconciliationCrossLayerConflictsAttr ===
       Number(finalReconciliationArtifact.acceptance?.crossLayerConflictRows?.length || 0) &&
     details.finalReconciliationUnprovenGreenAttr ===

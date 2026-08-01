@@ -285,6 +285,12 @@ function protectedHashProof(baseline) {
   );
 }
 
+function isDerivedAuditCachePath(item) {
+  return String(item?.path || "")
+    .replaceAll("\\", "/")
+    .startsWith("cache/");
+}
+
 function falseClass(previousColor, truthColor) {
   if (previousColor === truthColor) return null;
   return `FALSE_${previousColor}`;
@@ -394,22 +400,51 @@ function main() {
     const truthColor = String(truthRow?.truth?.color || "UNKNOWN");
     const previousColor = String(baselineRow?.truthColor || "UNKNOWN");
     const officialSources = normalizeLinks(matrixRow);
+    const freshAxisOfficialSources = Array.isArray(
+      truthRow?.truth?.officialSources,
+    )
+      ? truthRow.truth.officialSources
+      : [];
+    const evidenceSourcesByUrl = new Map();
+    for (const source of [...officialSources, ...freshAxisOfficialSources]) {
+      const url = String(source?.url || "").trim();
+      if (!url) continue;
+      const current = evidenceSourcesByUrl.get(url) || {};
+      evidenceSourcesByUrl.set(url, { ...current, ...source, url });
+    }
+    const reconciledOfficialSources = [...evidenceSourcesByUrl.values()];
     const truthRuleId = String(
       truthRow?.truth?.ruleId || truthRow?.truth?.source || "NO_RULE",
     );
     const patientFacts = truthRow?.truth?.facts || {};
+    const adultUseStatus = String(
+      truthRow?.truth?.axisFindings?.adult_use?.status || "",
+    ).toUpperCase();
+    const adultUseGreenProof =
+      truthRuleId === "OFFICIAL_STATUS_RECREATIONAL_LEGAL" ||
+      /(?:^|_)PROVEN_(?:ADULT_USE_)?LEGAL(?:_|$)|(?:^|_)LEGAL_ADULT_USE(?:_|$)|(?:^|_)ADULT_USE_LEGAL(?:_|$)|(?:^|_)RECREATIONAL_LEGAL(?:_|$)/.test(
+        adultUseStatus,
+      );
+    const patientAccessGreenProof =
+      patientFacts.patient === true &&
+      patientFacts.lawfulRoute === true &&
+      patientFacts.supply === true &&
+      patientFacts.operational === true;
     const currentMapColor = String(
       truthRow?.diagnostics?.color?.current?.color || "UNKNOWN",
     );
     const greenProof =
       truthColor !== "GREEN" ||
-      truthRuleId === "OFFICIAL_STATUS_RECREATIONAL_LEGAL" ||
-      (
-        patientFacts.patient === true &&
-        patientFacts.lawfulRoute === true &&
-        patientFacts.supply === true &&
-        patientFacts.operational === true
-      );
+      adultUseGreenProof ||
+      patientAccessGreenProof;
+    const greenProofKind =
+      truthColor !== "GREEN"
+        ? "NOT_GREEN"
+        : adultUseGreenProof
+          ? "PROVEN_ADULT_USE_LEGALITY"
+          : patientAccessGreenProof
+            ? "PROVEN_OPERATIONAL_PATIENT_ACCESS"
+            : "UNPROVEN";
     const layerColors = {
       detailedReview: String(
         truthRow?.diagnostics?.color?.truth?.color || "MISSING",
@@ -453,6 +488,7 @@ function main() {
       truthReason: String(truthRow?.truth?.reason || ""),
       patientAccessFacts: patientFacts,
       greenProof,
+      greenProofKind,
       layerColors,
       layerConflict,
       verdict,
@@ -461,8 +497,10 @@ function main() {
         effectiveSourceCoverage: String(
           truthRow.effectiveSourceCoverage || "MISSING",
         ),
-        officialSources,
-        primaryLawUrl: officialSources[0]?.url || "",
+        officialSources: reconciledOfficialSources,
+        freshAxisOfficialSources,
+        primaryLawUrl:
+          officialSources[0]?.url || freshAxisOfficialSources[0]?.url || "",
       },
       legalInterpretation: truthRow.legalInterpretation || {},
       wikipedia: {
@@ -552,6 +590,12 @@ function main() {
   };
   const unknownRows = rows.filter((row) => row.truthColor === "UNKNOWN");
   const hashProof = protectedHashProof(baseline);
+  const authoritativeHashProof = hashProof.filter(
+    (row) => !isDerivedAuditCachePath(row),
+  );
+  const derivedAuditCacheProof = hashProof.filter((row) =>
+    isDerivedAuditCachePath(row),
+  );
   const crossLayerConflictRows = rows
     .filter((row) => row.layerConflict)
     .map((row) => row.geo);
@@ -597,35 +641,7 @@ function main() {
         ),
     ),
   ].some(Boolean);
-
-  const flags = {
-    rows307Reconciled:
-      rows.length === Number(truth.rowsExpected || rows.length) &&
-      duplicateGeos.length === 0,
-    oneTruthColorPerGeo:
-      invalidColorRows.length === 0 && duplicateGeos.length === 0,
-    allCurrentLayersAgree: crossLayerConflictRows.length === 0,
-    allGreenOperationallyProven: unprovenGreenRows.length === 0,
-    everyColoredGeoHasOfficialEvidence:
-      coloredWithoutOfficialEvidence.length === 0,
-    unknownRowsUncolored: unknownRows.every(
-      (row) => row.truthColor === "UNKNOWN",
-    ),
-    noLegacyUiReads: !staleUiReads,
-    acceptanceArtifactComplete: acceptance.complete === true,
-    ssotMapProductionRuntimeUnchanged:
-      hashProof.length > 0 && hashProof.every((row) => row.unchanged),
-  };
-  const complete = Object.values(flags).every(Boolean);
-  const runtimeSnapshotDeltaRows = rows
-    .filter((row) => row.runtimeSnapshot.relation !== "MATCH")
-    .map((row) => ({
-      geo: row.geo,
-      runtimeColor: row.runtimeSnapshot.color,
-      truthColor: row.truthColor,
-      relation: row.runtimeSnapshot.relation,
-    }));
-  const matrixCounts = matrix.counts || {};
+  const rowsExpected = Number(truth.rowsExpected || rows.length);
   const freshSelectedGeos = new Set(
     sourceLog.queue
       .map((row) => String(row?.geo || "").toUpperCase())
@@ -638,17 +654,59 @@ function main() {
       )
       .map((row) => row.geo),
   );
+  const liveMapCapturedGeos = new Set(
+    rows
+      .filter((row) => {
+        const source = String(row?.currentMapSnapshot?.source || "").toUpperCase();
+        return /LIVE_(MAP|DOM|UI|RENDER)|BROWSER_(MAP|DOM|VISUAL)|VISUAL_(MAP|DOM)/.test(source);
+      })
+      .map((row) => row.geo),
+  );
+  const freshOfficialVisualReviewComplete =
+    freshSelectedGeos.size === rowsExpected &&
+    freshRenderedGeos.size === rowsExpected;
+  const currentMapCaptureComplete = liveMapCapturedGeos.size === rowsExpected;
 
+  const flags = {
+    rows307Reconciled: rows.length === rowsExpected && duplicateGeos.length === 0,
+    oneTruthColorPerGeo:
+      invalidColorRows.length === 0 && duplicateGeos.length === 0,
+    currentMapCaptureComplete,
+    freshOfficialVisualReviewComplete,
+    allCurrentLayersAgree:
+      currentMapCaptureComplete && crossLayerConflictRows.length === 0,
+    allGreenOperationallyProven: unprovenGreenRows.length === 0,
+    everyColoredGeoHasOfficialEvidence:
+      coloredWithoutOfficialEvidence.length === 0,
+    unknownRowsUncolored: unknownRows.every(
+      (row) => row.truthColor === "UNKNOWN",
+    ),
+    noLegacyUiReads: !staleUiReads,
+    acceptanceArtifactComplete: acceptance.complete === true,
+    ssotMapProductionRuntimeUnchanged:
+      authoritativeHashProof.length > 0 &&
+      authoritativeHashProof.every((row) => row.unchanged),
+  };
+  const complete = Object.values(flags).every(Boolean);
+  const runtimeSnapshotDeltaRows = rows
+    .filter((row) => row.runtimeSnapshot.relation !== "MATCH")
+    .map((row) => ({
+      geo: row.geo,
+      runtimeColor: row.runtimeSnapshot.color,
+      truthColor: row.truthColor,
+      relation: row.runtimeSnapshot.relation,
+    }));
+  const matrixCounts = matrix.counts || {};
   const output = {
     generatedAt: new Date().toISOString(),
-    reportVersion: "2.0.0-final-reconciliation",
+    reportVersion: "2.1.0-final-reconciliation-fail-closed-live-proof",
     deterministicColorFunction:
       "deriveOfficialTruthColor(Primary Law applicability + independent legal facts)",
     nonMutating: true,
     localOnly: true,
     complete,
     rowsTotal: rows.length,
-    rowsExpected: Number(truth.rowsExpected || rows.length),
+    rowsExpected,
     inputs: Object.fromEntries(
       Object.entries(INPUTS).map(([key, value]) => [
         key,
@@ -664,6 +722,9 @@ function main() {
       "International convention/INCB identification no longer makes context law locally applicable.",
       "Combined or component-divergent GEOs remain UNKNOWN without one unitary applicable regime.",
       "RED from no-patient evidence requires a proved recreational prohibition.",
+      "Derived audit caches are reported separately and never make SSOT/map/production/runtime mutation proof fail.",
+      "FINAL_RECONCILIATION_COMPLETE requires fresh visual official review for every GEO, not historical screenshots alone.",
+      "FINAL_RECONCILIATION_COMPLETE requires a live user-visible map capture for every GEO; PROJECT_PAIR and MAP=NONE are not map proof.",
     ],
     counts: {
       truthColors: countBy(rows, (row) => row.truthColor),
@@ -694,6 +755,7 @@ function main() {
       freshSourceRecheck: {
         selectedGeos: freshSelectedGeos.size,
         browserRenderedGeos: freshRenderedGeos.size,
+        liveMapCapturedGeos: liveMapCapturedGeos.size,
         browserAttempts: sourceLog.browser.length,
         httpAttempts: sourceLog.http.length,
       },
@@ -717,13 +779,19 @@ function main() {
       coloredWithoutOfficialEvidence,
       invalidColorRows,
       duplicateGeos,
+      freshOfficialVisualReviewComplete,
+      currentMapCaptureComplete,
+      freshOfficialVisualReviewGeos: [...freshRenderedGeos].sort(),
+      liveMapCapturedGeos: [...liveMapCapturedGeos].sort(),
       runtimeSnapshotDeltaRows,
       upstreamAcceptanceComplete: acceptance.complete === true,
     },
     noMutationProof: {
       unchanged:
-        hashProof.length > 0 && hashProof.every((row) => row.unchanged),
-      protectedHashProof: hashProof,
+        authoritativeHashProof.length > 0 &&
+        authoritativeHashProof.every((row) => row.unchanged),
+      protectedHashProof: authoritativeHashProof,
+      derivedAuditCacheProof,
       appliedRows: 0,
       ssotMutationAttempted: false,
       mapMutationAttempted: false,

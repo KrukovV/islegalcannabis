@@ -31,13 +31,18 @@ export default function CannabisLawFinalReconciliation({
       data-truth-unknown={reconciliation.counts.truthColors.UNKNOWN || 0}
     >
       <h2>
-        Финальная Truth-First сверка: {reconciliation.rowsTotal}/
+        {reconciliation.acceptance.complete
+          ? "Финальная Truth-First сверка"
+          : "Текущая Truth-First proposal сверка"}
+        : {reconciliation.rowsTotal}/
         {reconciliation.rowsExpected} GEO
       </h2>
       <p className="sectionHint">
-        Единственный текущий вывод строится функцией{" "}
+        Текущий proposal вывод строится функцией{" "}
         <code>{reconciliation.deterministicColorFunction}</code>. Wikipedia и
-        SSOT показаны только как независимые объекты сравнения.
+        SSOT показаны только как независимые объекты сравнения. Исторические
+        screenshots, `PROJECT_PAIR`, `MAP=NONE` и `RUNTIME=REMOVED` не являются
+        live proof карты или полной независимой юридической проверкой.
       </p>
       <div
         className={

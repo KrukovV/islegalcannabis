@@ -600,12 +600,24 @@ function freshAxisOfficialSources(evidence) {
   const sources = Array.isArray(evidence?.officialSources)
     ? evidence.officialSources
     : (Array.isArray(evidence?.freshOfficialSources) ? evidence.freshOfficialSources : []);
+  const validation = evidence?.validation || {};
   return sources
     .map((source) => ({
       title: String(source?.title || "Official source"),
       url: String(source?.url || ""),
       sourceKind: String(source?.sourceKind || ""),
       evidenceRole: String(source?.evidenceRole || ""),
+      officialPublisher: String(source?.officialPublisher || ""),
+      officialOwnerVisible:
+        source?.visualEvidence?.officialOwnerVisible === true ||
+        source?.officialOwnerVisible === true ||
+        validation.officialOwnerVisible === true ||
+        validation.sourceOwnershipVerified === true,
+      screenshotValid:
+        source?.visualEvidence?.screenshotValid === true ||
+        source?.screenshotValid === true ||
+        validation.screenshotValid === true ||
+        validation.visualReviewComplete === true,
       factCount: Math.max(
         Number(source?.factCount || 0),
         Array.isArray(source?.observedOfficialFacts) ? source.observedOfficialFacts.length : 0,
@@ -617,12 +629,30 @@ function freshAxisOfficialSources(evidence) {
 function freshAxisOfficialFactCount(evidence, sources = freshAxisOfficialSources(evidence)) {
   const explicit = Number(evidence?.officialFactCount || evidence?.factCount || 0);
   const fromSources = sources.reduce((sum, source) => sum + Number(source.factCount || 0), 0);
-  return Math.max(explicit, fromSources);
+  const provenAxes = Object.values(freshAxisFindings(evidence)).filter((finding) =>
+    /^PROVEN(?:_|$)/.test(String(finding?.status || finding || "").toUpperCase()),
+  ).length;
+  return Math.max(explicit, fromSources, provenAxes);
+}
+
+function freshAxisFindings(evidence) {
+  const evidenceAxes = evidence?.evidenceAxes;
+  const legacyAxisFindings = evidence?.axisFindings;
+  return {
+    ...(evidenceAxes && typeof evidenceAxes === "object" ? evidenceAxes : {}),
+    ...(legacyAxisFindings && typeof legacyAxisFindings === "object"
+      ? legacyAxisFindings
+      : {}),
+  };
 }
 
 function freshAxisFindingStatus(evidence, axis) {
-  const finding = evidence?.axisFindings?.[axis];
+  const finding = freshAxisFindings(evidence)[axis];
   return String(finding?.status || finding || "").toUpperCase();
+}
+
+function freshAxisFindingStatusAny(evidence, axes) {
+  return axes.map((axis) => freshAxisFindingStatus(evidence, axis)).find(Boolean) || "";
 }
 
 function freshAxisEvidenceText(evidence) {
@@ -634,7 +664,9 @@ function freshAxisEvidenceText(evidence) {
     evidence?.freshTruthRule,
     conclusion?.freshTruthRule,
     conclusion?.reason,
-    ...Object.values(evidence?.axisFindings || {}).flatMap((finding) => [
+    conclusion?.rule,
+    conclusion?.rationale,
+    ...Object.values(freshAxisFindings(evidence)).flatMap((finding) => [
       finding?.status,
       finding?.basis,
     ]),
@@ -655,9 +687,18 @@ function freshAxisEvidenceHasOnlyOfficialSources(evidence) {
   const sources = freshAxisOfficialSources(evidence);
   if (sources.length < 2) return false;
   return sources.every((source) => {
-    const text = `${source.url} ${source.sourceKind} ${source.evidenceRole}`.toUpperCase();
+    const text = `${source.url} ${source.sourceKind} ${source.evidenceRole} ${source.officialPublisher}`.toUpperCase();
     if (/WIKIPEDIA|WIKIDATA|OPENSTREETMAP/.test(text)) return false;
-    return /OFFICIAL|GOV|GOVERNMENT|MINISTRY|PARLIAMENT|LEGIS|GAZETTE|REGULATOR|COMMISSION|DEPARTMENT|COURT|HEALTH|STATUTE|LAW|ACT|RULE/.test(text);
+    const authorityClaimed = /OFFICIAL|GOV|GOVERNMENT|MINISTRY|PARLIAMENT|LEGIS|GAZETTE|REGULATOR|COMMISSION|DEPARTMENT|COURT|HEALTH|STATUTE|LAW|ACT|RULE/.test(text);
+    const officialGovernmentHost = /(^|[./-])GOV([./-]|$)/.test(String(source.url || "").toUpperCase());
+    const visualOwnershipProof =
+      source.officialOwnerVisible &&
+      source.screenshotValid &&
+      (
+        evidence?.validation?.sourceOwnershipVerified === true ||
+        evidence?.validation?.officialOwnerVisible === true
+      );
+    return authorityClaimed && (officialGovernmentHost || visualOwnershipProof);
   });
 }
 
@@ -667,15 +708,29 @@ function freshAxisHasAdultUseLegal(evidence) {
 }
 
 function freshAxisHasOperationalPatientAccess(evidence) {
-  const patientAccess = freshAxisFindingStatus(evidence, "patient_access");
-  const dispensing = freshAxisFindingStatus(evidence, "dispensing");
-  const registry = freshAxisFindingStatus(evidence, "patient_registry");
-  const operational = freshAxisFindingStatus(evidence, "operational_status");
+  const patientAccess = freshAxisFindingStatusAny(evidence, [
+    "patient_access",
+    "patient_eligible",
+  ]);
+  const prescriberRoute = freshAxisFindingStatusAny(evidence, [
+    "physician_certification",
+    "prescriber_route",
+  ]);
+  const supplyRoute = freshAxisFindingStatusAny(evidence, [
+    "dispensing",
+    "lawful_supply",
+    "pharmacy_or_dispensary",
+    "import_route",
+  ]);
+  const operational = freshAxisFindingStatusAny(evidence, [
+    "operational_status",
+    "programme_operational",
+  ]);
   return (
-    /PROVEN_OPERATIONAL_PATIENT_ACCESS|OPERATIONAL_PATIENT_ACCESS/.test(patientAccess) &&
-    /PROVEN_.*(DISPENS|PHARMACY|PHARMACIES|LICENSED)/.test(dispensing) &&
-    /PROVEN_.*(REGISTRY|CARD|PATIENT)/.test(registry) &&
-    /PROVEN_OPERATIONAL|OPERATIONAL/.test(operational)
+    /^PROVEN(?:_|$)/.test(patientAccess) &&
+    /PROVEN_.*(PRESCRIB|PHYSICIAN|PRACTITIONER|CERTIF|AUTHORI[ZS]ED.*PRESCRIBER|SAS|AP|REQUIRES?|REQUIRED)/.test(prescriberRoute) &&
+    /^PROVEN(?:_|$)/.test(supplyRoute) &&
+    /^PROVEN(?:_|$)/.test(operational)
   );
 }
 
@@ -691,7 +746,16 @@ function freshAxisGreenIsNotShortcut(evidence) {
     "notSativexOnly",
     "notBillOnly",
   ];
-  const flagsPass = requiredFlags.every((flag) => conclusion[flag] === true || validation[flag] === true);
+  const explicitFlagsPresent = requiredFlags.some(
+    (flag) => conclusion[flag] !== undefined || validation[flag] !== undefined,
+  );
+  const flagsPass = explicitFlagsPresent
+    ? requiredFlags.every((flag) => conclusion[flag] === true || validation[flag] === true)
+    : (
+      freshAxisHasOperationalPatientAccess(evidence) &&
+      conclusion.adultUseInference !== true &&
+      validation.pharmaceuticalShortcutNotGreen !== false
+    );
   const noShortcutText =
     !/PHARMACEUTICAL_SHORTCUT|PHARMACEUTICAL_ONLY_GREEN|CBD_ONLY_GREEN|SATIVEX_ONLY_GREEN|PRODUCTION_ONLY_GREEN|RESEARCH_ONLY_GREEN|EXPORT_ONLY_GREEN|BILL_ONLY_GREEN/.test(text);
   return flagsPass && noShortcutText && validation.pharmaceuticalShortcutNotGreen !== false;
@@ -766,7 +830,7 @@ function disputedNoOwnRegimeDecision(row, disputedGeoMappings = new Map()) {
 
 function freshAxisFindingsSummary(evidence) {
   return Object.fromEntries(
-    Object.entries(evidence?.axisFindings || {}).map(([axis, finding]) => [
+    Object.entries(freshAxisFindings(evidence)).map(([axis, finding]) => [
       axis,
       {
         status: String(finding?.status || finding || ""),
@@ -778,13 +842,21 @@ function freshAxisFindingsSummary(evidence) {
 
 function buildFreshAxisTruthOverride(evidence) {
   const conclusion = freshAxisColorConclusion(evidence);
-  const color = String(conclusion?.freshTruthColor || evidence?.freshTruthColor || "").toUpperCase();
+  const color = String(
+    conclusion?.freshTruthColor ||
+    conclusion?.color ||
+    evidence?.freshTruthColor ||
+    "",
+  ).toUpperCase();
   const sources = freshAxisOfficialSources(evidence);
   const factCount = freshAxisOfficialFactCount(evidence, sources);
-  const status = String(evidence?.rowStatus || evidence?.reconciliationStatus || "").toUpperCase();
+  const status = [evidence?.rowStatus, evidence?.reconciliationStatus]
+    .filter(Boolean)
+    .join(" ")
+    .toUpperCase();
 
   if (!THREE_TRUTH_COLORS.has(color)) return null;
-  if (status && !/FRESH_AXIS_RECONCILED|RECONCILED/.test(status)) return null;
+  if (status && !/FRESH_AXIS_RECONCILED|RECONCILED|INDEPENDENT_OFFICIAL_VISUAL_REVIEW_COMPLETED/.test(status)) return null;
   if (!freshAxisEvidenceHasOnlyOfficialSources(evidence)) return null;
   if (factCount < 3) return null;
   if (!freshAxisEvidenceSupportsColor(evidence, color)) return null;
@@ -794,30 +866,44 @@ function buildFreshAxisTruthOverride(evidence) {
     source: "FRESH_PRIMARY_LAW_AXIS_RECONCILIATION",
     reason: String(
       conclusion?.reason ||
+      conclusion?.rationale ||
       `Fresh official legal-axis reconciliation supports ${color}.`,
     ),
     ruleId: String(
       conclusion?.freshTruthRule ||
+      conclusion?.rule ||
       evidence?.freshTruthRule ||
       `FRESH_PRIMARY_LAW_AXIS_${color}`,
     ),
     facts: {
-      patient:
-        /PROVEN.*PATIENT/.test(
-          freshAxisFindingStatus(evidence, "patient_access"),
-        ),
-      lawfulRoute:
-        /PROVEN/.test(
-          freshAxisFindingStatus(evidence, "physician_certification"),
-        ) ||
-        /PROVEN/.test(
-          freshAxisFindingStatus(evidence, "patient_registry"),
-        ),
-      supply: /PROVEN/.test(
-        freshAxisFindingStatus(evidence, "dispensing"),
+      patient: /^PROVEN(?:_|$)/.test(
+        freshAxisFindingStatusAny(evidence, [
+          "patient_access",
+          "patient_eligible",
+        ]),
       ),
-      operational: /PROVEN_OPERATIONAL/.test(
-        freshAxisFindingStatus(evidence, "operational_status"),
+      lawfulRoute:
+        /^PROVEN(?:_|$)/.test(
+          freshAxisFindingStatusAny(evidence, [
+            "physician_certification",
+            "prescriber_route",
+            "patient_registry",
+            "registration_route",
+          ]),
+        ),
+      supply: /^PROVEN(?:_|$)/.test(
+        freshAxisFindingStatusAny(evidence, [
+          "dispensing",
+          "lawful_supply",
+          "pharmacy_or_dispensary",
+          "import_route",
+        ]),
+      ),
+      operational: /^PROVEN(?:_|$)/.test(
+        freshAxisFindingStatusAny(evidence, [
+          "operational_status",
+          "programme_operational",
+        ]),
       ),
     },
     sourceEvidenceSeed: path.relative(ROOT, RUNTIME_BLOCKER_AXIS_EVIDENCE_SEED_PATH),
@@ -866,11 +952,31 @@ function augmentTruthLayersWithFreshAxisEvidence(truthLayers, freshAxisEvidence)
   if (!freshTruth) return truthLayers;
 
   const axisPatch = {
-    patient_access: freshAxisFindingStatus(freshAxisEvidence, "patient_access") || "UNKNOWN",
-    prescription: freshAxisFindingStatus(freshAxisEvidence, "physician_certification") || "UNKNOWN",
-    pharmacy_access: freshAxisFindingStatus(freshAxisEvidence, "dispensing") || "UNKNOWN",
-    distribution: freshAxisFindingStatus(freshAxisEvidence, "dispensing") || "UNKNOWN",
-    legal_state: freshAxisFindingStatus(freshAxisEvidence, "operational_status") || "UNKNOWN",
+    patient_access:
+      freshAxisFindingStatusAny(freshAxisEvidence, ["patient_access", "patient_eligible"]) ||
+      "UNKNOWN",
+    prescription:
+      freshAxisFindingStatusAny(freshAxisEvidence, ["physician_certification", "prescriber_route"]) ||
+      "UNKNOWN",
+    pharmacy_access:
+      freshAxisFindingStatusAny(freshAxisEvidence, [
+        "dispensing",
+        "pharmacy_or_dispensary",
+        "lawful_supply",
+        "import_route",
+      ]) || "UNKNOWN",
+    distribution:
+      freshAxisFindingStatusAny(freshAxisEvidence, [
+        "dispensing",
+        "lawful_supply",
+        "pharmacy_or_dispensary",
+        "import_route",
+      ]) || "UNKNOWN",
+    legal_state:
+      freshAxisFindingStatusAny(freshAxisEvidence, [
+        "operational_status",
+        "programme_operational",
+      ]) || "UNKNOWN",
   };
   const notesSuffix =
     `Fresh primary-law axis reconciliation applied from ${freshTruth.sourceEvidenceSeed}; rule=${freshTruth.ruleId}; sources=${freshTruth.officialSourceCount}; facts=${freshTruth.officialFactCount}.`;

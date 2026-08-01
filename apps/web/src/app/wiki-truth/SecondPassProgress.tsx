@@ -32,12 +32,14 @@ export default function SecondPassProgress({
       data-goal-achieved={progress.goal_achieved ? "1" : "0"}
     >
       <h2>
-        Финальная Truth-First сверка {progress.processed_geo_count}/
+        Truth-First proposal re-audit {progress.processed_geo_count}/
         {progress.total_geo_count}: gate status
       </h2>
       <p className="sectionHint">
-        Данные поступают из текущего final-reconciliation artifact. Browser и
-        HTTP recheck считаются отдельно от сохранённого visual-law evidence.
+        Данные поступают из текущего proposal reconciliation artifact. Browser,
+        HTTP recheck и live-map capture считаются отдельно от сохранённого
+        historical visual-law evidence; 307 обработанных строк не являются
+        доказательством 307 текущих юридических проверок.
       </p>
       <p className={gateComplete ? "gate ok" : "gate pending"}>
         {gateComplete

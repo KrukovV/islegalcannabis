@@ -6,7 +6,7 @@ Statuses: pending | in_progress | done
 
 - [in_progress] Freeze and compare the live map, SSOT, `/wiki-truth`, and PDF baselines without treating any derived proposal as legal truth.
 - [pending] Produce the 307-row independent official-law, visual-evidence, ownership/applicability, and map-reconciliation proposal artifacts defined in `docs/TRUTH_FIRST_307_REAUDIT_SPEC.md`.
-- [pending] Close only general-model defects with regression evidence; retain `APPLY_ALLOWED=false` until all statutory, operational, visual, and map-capture gates are met and the user authorizes apply.
+- [in_progress] Close only general-model defects with regression evidence; the universal registry/card prerequisite has been removed after the official TGA multi-source case, while `APPLY_ALLOWED=false` remains until all statutory, operational, visual, and map-capture gates are met and the user authorizes apply.
 
 ## Uganda 2025 Primary Law refresh
 

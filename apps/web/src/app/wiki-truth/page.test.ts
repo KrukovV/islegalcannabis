@@ -115,7 +115,7 @@ describe("/wiki-truth", () => {
     expect(html).toContain('data-testid="wiki-truth-summary"');
   });
 
-  it("renders the current complete Truth-First reconciliation without legacy counters", () => {
+  it("keeps the current Truth-First reconciliation fail-closed until live proof is complete", () => {
     const html = renderToStaticMarkup(createElement(WikiTruthPageContent));
     const final = readFinalReconciliation();
     const section =
@@ -124,15 +124,23 @@ describe("/wiki-truth", () => {
       )?.[0] || "";
     expect(final.rowsTotal).toBe(307);
     expect(final.rowsExpected).toBe(307);
-    expect(final.complete).toBe(true);
-    expect(final.acceptance?.complete).toBe(true);
-    expect(final.acceptance?.crossLayerConflictRows).toEqual([]);
+    expect(final.complete).toBe(false);
+    expect(final.acceptance?.complete).toBe(false);
+    expect(final.acceptance?.flags?.freshOfficialVisualReviewComplete).toBe(
+      false,
+    );
+    expect(final.acceptance?.flags?.currentMapCaptureComplete).toBe(false);
+    const conflictRows = final.acceptance?.crossLayerConflictRows || [];
+    expect(new Set(conflictRows).size).toBe(conflictRows.length);
     expect(final.acceptance?.unprovenGreenRows).toEqual([]);
     expect(final.noMutationProof?.unchanged).toBe(true);
-    expect(section).toContain('data-complete="1"');
-    expect(section).toContain('data-cross-layer-conflicts="0"');
+    expect(section).toContain('data-complete="0"');
+    expect(section).toContain(
+      `data-cross-layer-conflicts="${conflictRows.length}"`,
+    );
     expect(section).toContain('data-unproven-green="0"');
     expect(section).toContain('data-no-mutation="1"');
+    expect(section).toContain("FINAL_RECONCILIATION_HAS_OPEN_TRUTH_BLOCKERS");
     expect(section).toContain(
       `>${final.counts?.truthColors?.UNKNOWN || 0}<`,
     );
