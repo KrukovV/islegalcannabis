@@ -18,7 +18,6 @@ import {
   extractFeaturePolygons,
   geoFromStateProps,
   getPolygonAnchor,
-  isoFromCountryProps,
   loadCentroids,
   loadGeoJsonFile,
   loadLegalSsot,
@@ -32,7 +31,7 @@ import {
   loadWikiClaimsMap,
   loadWikiLegalityTableByIso,
   resolveDataPath,
-  resolveSpecialCountryGeoFromProps,
+  resolveCountryGeoFromProps,
   squaredDistance
 } from "./mapDataSources";
 import type { TruthLevel } from "./statusUi";
@@ -181,6 +180,13 @@ function resolveLatestSnapshotBuiltAt() {
 function mapRecPairToStatusEngine(value: string | null | undefined) {
   const normalized = String(value || "").trim().toLowerCase();
   if (normalized === "legal") return "LEGAL" as const;
+  if (
+    ["decrim", "decriminalized", "decrim", "restricted", "mixed", "unenforced", "tolerated", "limited"].includes(
+      normalized
+    )
+  ) {
+    return "DECRIMINALIZED" as const;
+  }
   if (normalized === "unknown" || !normalized) return null;
   return "ILLEGAL" as const;
 }
@@ -212,36 +218,30 @@ function deriveStatusEngineFromNormalizedPair(params: {
 }): StatusEngineV9Result {
   const recreational = mapRecPairToStatusEngine(params.recStatus);
   const medical = mapMedPairToStatusEngine(params.medStatus);
-  const enforcementText = `${params.recEnforcement || ""} ${params.recStatus || ""} ${params.notes || ""}`.toLowerCase();
-  const soft =
-    recreational === "LEGAL" ||
-    /\b(unenforced|not enforced|rarely enforced|rarely prosecuted|decrim|decriminal|tolerated|opportunistically enforced|publicly offer|lax)\b/i.test(enforcementText);
-  const strict =
-    /\b(strict|illegal enforced|zero tolerance|death penalty|capital punishment|imprisonment| jail)\b/i.test(enforcementText);
-  const enforcement = soft ? "SOFT" : strict ? "STRICT" : null;
+  const missingSignal: string[] = [];
+  if (!recreational) missingSignal.push("recreational");
+  if (!medical) missingSignal.push("medical");
   return evaluateStatusEngineV9({
     recreational,
     medical,
-    enforcement,
+    enforcement: null,
     reason: [
       ...(recreational ? [`recreational=${recreational}`] : []),
-      ...(medical ? [`medical=${medical}`] : []),
-      ...(enforcement ? [`enforcement=${enforcement}`] : [])
+      ...(medical ? [`medical=${medical}`] : [])
     ],
-    missingSignal: [
-      ...(recreational ? [] : ["recreational"]),
-      ...(medical ? [] : ["medical"]),
-      ...(enforcement ? [] : ["enforcement"])
-    ],
+    missingSignal,
     conflictingFacts: [],
-    triggeredSignals: soft ? ["SOFT_ENFORCEMENT_SIGNAL"] : strict ? ["STRICT_ENFORCEMENT_SIGNAL"] : [],
+    triggeredSignals: [],
     sourceUrl: null,
-    confidence: recreational && medical && enforcement ? "MEDIUM" : "LOW"
+    confidence: recreational && medical ? "MEDIUM" : "LOW"
   });
 }
 
 function deriveStatusEngineFromSsotEntry(entry: StatusEngineV9SsotEntry | null | undefined) {
-  if (!entry?.recreational || !entry?.medical || !entry?.enforcement) return null;
+  if (!entry?.recreational && !entry?.medical) return null;
+  const missingSignal: string[] = [];
+  if (!entry?.recreational) missingSignal.push("recreational");
+  if (!entry?.medical) missingSignal.push("medical");
   return evaluateStatusEngineV9({
     recreational: entry.recreational,
     medical: entry.medical,
@@ -251,11 +251,11 @@ function deriveStatusEngineFromSsotEntry(entry: StatusEngineV9SsotEntry | null |
       `status_ssot_v9.medical=${entry.medical}`,
       `status_ssot_v9.enforcement=${entry.enforcement}`
     ],
-    missingSignal: [],
+    missingSignal,
     conflictingFacts: [],
     triggeredSignals: ["STATUS_ENGINE_V9_SSOT"],
     sourceUrl: entry.sourceUrl || null,
-    confidence: "HIGH"
+    confidence: missingSignal.length ? "LOW" : "HIGH"
   });
 }
 
@@ -331,6 +331,9 @@ function buildMapRenderFallbackEntry(params: {
         ? "WIKI_ONLY"
         : "UNKNOWN");
   const reasonCode = String(params.reasonCode || "MAP_RENDER_FALLBACK").trim() || "MAP_RENDER_FALLBACK";
+  const renderMapCategory = truthLevel === "UNKNOWN"
+    ? "UNKNOWN"
+    : statusEngine.mapCategory;
 
   return {
     geo,
@@ -350,8 +353,8 @@ function buildMapRenderFallbackEntry(params: {
     effectiveMed: contract.finalMedStatus,
     finalRecStatus: contract.finalRecStatus,
     finalMedStatus: contract.finalMedStatus,
-    finalMapCategory: statusEngine.mapCategory as MapCategory,
-    mapCategory: statusEngine.mapCategory as MapCategory,
+    finalMapCategory: renderMapCategory as MapCategory,
+    mapCategory: renderMapCategory as MapCategory,
     notesOur: null,
     notesWiki: params.wiki?.notes ?? params.wiki?.notes_text ?? null,
     normalizedStatusSummary: normalizedWiki.summary,
@@ -606,8 +609,8 @@ export function buildRegions() {
   const existingCountryGeos = new Set(regions.filter((entry) => entry.type === "country").map((entry) => entry.geo));
   countryGeoJson?.features.forEach((feature) => {
     const props = feature.properties || {};
-    const specialGeoResolution = resolveSpecialCountryGeoFromProps(props);
-    const geo = isoFromCountryProps(props) || specialGeoResolution?.geo || "";
+    const resolvedGeo = resolveCountryGeoFromProps(props);
+    const geo = resolvedGeo?.geo || "";
     if (!geo || existingCountryGeos.has(geo)) return;
     const fallbackEntry = buildMapRenderFallbackEntry({
       geo,
@@ -619,10 +622,10 @@ export function buildRegions() {
       },
       centroid: centroids[geo],
       sourceProps: props,
-      forceFallback: true,
-      fallbackName: resolveMapFallbackName(props, geo, specialGeoResolution?.forceFallback),
-      reasonCode: specialGeoResolution?.forceFallback ? "MAP_RENDER_SPECIAL_TERRITORY_FALLBACK" : "MAP_RENDER_TERRITORY_FALLBACK",
-      truthLevel: specialGeoResolution?.forceFallback ? "UNKNOWN" : undefined,
+      forceFallback: resolvedGeo?.forceFallback ?? false,
+      fallbackName: resolveMapFallbackName(props, geo, resolvedGeo?.forceFallback ?? false),
+      reasonCode: "MAP_RENDER_TERRITORY_FALLBACK",
+      truthLevel: resolvedGeo?.forceFallback ? "UNKNOWN" : undefined,
       officialSources: getEffectiveOfficialLinksByGeo(geo, officialOwnershipDataset)
         .map((officialEntry) => officialEntry.url.startsWith("http") ? officialEntry.url : `https://${officialEntry.url}`)
         .filter((url) => matchesOfficialGeoOwnership(String(url || ""), geo, officialOwnershipIndex))
@@ -1152,8 +1155,8 @@ export function buildGeoJson(type: string) {
       const props = feature.properties || {};
       const specialFeatures = buildSpecialCountryFeatures(feature);
       if (specialFeatures.length > 0) return specialFeatures;
-      const specialGeoResolution = !isState ? resolveSpecialCountryGeoFromProps(props) : null;
-      const geo = isState ? geoFromStateProps(props) : isoFromCountryProps(props) || specialGeoResolution?.geo || "";
+      const resolvedGeo = !isState ? resolveCountryGeoFromProps(props) : null;
+      const geo = isState ? geoFromStateProps(props) : resolvedGeo?.geo || "";
       if (!geo) return [];
       const entry =
         lookup.get(geo) ||
@@ -1168,14 +1171,14 @@ export function buildGeoJson(type: string) {
               },
               centroid: centroids[geo],
               sourceProps: props,
-              forceFallback: specialGeoResolution?.forceFallback,
-              fallbackName: resolveMapFallbackName(props, geo, specialGeoResolution?.forceFallback),
-              reasonCode: specialGeoResolution?.forceFallback ? "MAP_RENDER_SPECIAL_TERRITORY_FALLBACK" : undefined,
-              truthLevel: specialGeoResolution?.forceFallback ? "UNKNOWN" : undefined
+              forceFallback: resolvedGeo?.forceFallback,
+              fallbackName: resolveMapFallbackName(props, geo, resolvedGeo?.forceFallback),
+              reasonCode: resolvedGeo?.forceFallback ? "MAP_RENDER_TERRITORY_FALLBACK" : undefined,
+              truthLevel: resolvedGeo?.forceFallback ? "UNKNOWN" : undefined
             })
           : null);
       if (!entry) return [];
-      if (!isState && specialGeoResolution?.forceFallback && shouldRenderSyntheticFallbackAsPoint(feature.geometry)) {
+      if (!isState && resolvedGeo?.forceFallback && shouldRenderSyntheticFallbackAsPoint(feature.geometry)) {
         const fallbackName = String(props?.NAME || props?.name || entry.geo);
         const polygonFeature = {
           type: "Feature",

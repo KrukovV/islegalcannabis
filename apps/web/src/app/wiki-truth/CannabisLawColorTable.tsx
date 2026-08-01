@@ -30,6 +30,12 @@ export default function CannabisLawColorTable({
   const [query, setQuery] = useState("");
   const [differencesOnly, setDifferencesOnly] = useState(false);
   const normalizedQuery = query.trim().toLocaleLowerCase();
+  const currentGreyCount = rows.filter(
+    (row) => row.current.category === "UNKNOWN",
+  ).length;
+  const officialGreyCount = rows.filter(
+    (row) => row.official.category === "UNKNOWN",
+  ).length;
   const visibleRows = useMemo(
     () =>
       rows.filter((row) => {
@@ -47,18 +53,24 @@ export default function CannabisLawColorTable({
     <section
       className="sectionCard"
       data-testid="cannabis-law-color-comparison"
+      data-current-grey-count={currentGreyCount}
+      data-official-grey-count={officialGreyCount}
     >
       <h2>Цвет карты: текущий и подтверждённый официальным законом</h2>
       <p className="sectionHint">
-        Текущий цвет взят из фактического Status Engine карты. Правовой цвет
-        рассчитан по вручную проверенному официальному статусу теми же
-        правилами: зелёный, жёлтый или красный. Серый означает, что прямого
-        официального статуса недостаточно для честного вывода.
+        Текущий цвет взят из итогового 307-строчного снимка рендера — того же
+        набора данных, из которого фактически красится карта после применения
+        данных страниц стран и штатов. Правовой цвет независимо рассчитан по
+        вручную проверенному официальному статусу. У семи GEO без статуса
+        проекта фактический снимок рендера не окрашивает территорию; остальные 300 строк
+        имеют реальный зелёный, жёлтый или красный цвет карты, а для спорных
+        территорий возвращается отсутствие цвета.
       </p>
       <div className="colorToolbar">
         <label>
           <span>Найти территорию</span>
           <input
+            suppressHydrationWarning
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="например: BF, Maine"
@@ -66,6 +78,7 @@ export default function CannabisLawColorTable({
         </label>
         <label className="checkLabel">
           <input
+            suppressHydrationWarning
             type="checkbox"
             checked={differencesOnly}
             onChange={(event) => setDifferencesOnly(event.target.checked)}
@@ -83,7 +96,9 @@ export default function CannabisLawColorTable({
               <th>Территория / страна</th>
               <th>Текущий цвет на карте</th>
               <th>Цвет по официальному закону</th>
-              <th>Комментарий по цветам</th>
+              <th>Комментарий по цветам (честный audit)</th>
+              <th>Wiki vs SSOT</th>
+              <th>Примечание Wiki-аудита</th>
             </tr>
           </thead>
           <tbody>
@@ -93,8 +108,10 @@ export default function CannabisLawColorTable({
                 data-geo={row.geo}
                 data-color-diff={row.differs ? "1" : "0"}
                 data-current-color={row.current.category}
+                data-current-label={row.current.label}
                 data-official-color={row.official.category}
                 data-reaudit-result={row.reauditResult || "NOT_REAUDITED"}
+                data-wiki-mismatch={row.wikiMismatchStatus}
               >
                 <td>
                   <strong>{row.territory}</strong>
@@ -106,7 +123,23 @@ export default function CannabisLawColorTable({
                 <td>
                   <ColorCell value={row.official} />
                 </td>
-                <td className="colorComment">{row.comment}</td>
+                <td className="colorComment">
+                  <span>{row.comment}</span>
+                  <details>
+                    <summary>Техническая сверка осей</summary>
+                    <span>{row.projectStatusSummary}</span>
+                    <span>{row.officialStatusSummary}</span>
+                    <span>{row.differenceReason}</span>
+                    {row.reauditReason ? (
+                      <span>Повторная проверка: {row.reauditReason}</span>
+                    ) : null}
+                  </details>
+                </td>
+                <td>
+                  <strong>{row.wikiMismatchStatusLabel}</strong>
+                  <small>{row.wikiMismatchStatus}</small>
+                </td>
+                <td>{row.wikiMismatchReason || "—"}</td>
               </tr>
             ))}
           </tbody>

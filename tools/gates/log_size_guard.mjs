@@ -12,7 +12,8 @@ function dirBytes(dirPath) {
   if (!fs.existsSync(dirPath)) return 0;
   return fs.readdirSync(dirPath).reduce((sum, entry) => {
     const filePath = path.join(dirPath, entry);
-    const stat = fs.statSync(filePath);
+    const stat = fs.lstatSync(filePath);
+    if (stat.isSymbolicLink()) return sum + stat.size;
     if (stat.isDirectory()) return sum + dirBytes(filePath);
     return sum + stat.size;
   }, 0);

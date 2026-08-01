@@ -192,7 +192,7 @@
 }
 
 .unifiedPanelStatusBadge[data-category="UNKNOWN"] {
-  background: #e0e3e3;
+  background: transparent;
   color: #465761;
 }
 
@@ -226,7 +226,7 @@
 }
 
 .unifiedPanelStatusDot[data-level="UNKNOWN"] {
-  background: #d7dcdc;
+  background: transparent;
 }
 
 .unifiedPanelStatusTitle {
@@ -648,7 +648,7 @@
 }
 
 .countryPopupBadge[data-category="UNKNOWN"] {
-  background: #e0e3e3;
+  background: transparent;
   color: #465761;
 }
 
@@ -822,7 +822,7 @@
 }
 
 .viewportPopupBadge[data-category="UNKNOWN"] {
-  background: #e0e3e3;
+  background: transparent;
   color: #465761;
 }
 

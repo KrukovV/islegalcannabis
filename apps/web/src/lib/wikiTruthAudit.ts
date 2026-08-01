@@ -22,6 +22,10 @@ import {
   emptyWikiTruthCannabisLawMatrix,
   type WikiTruthCannabisLawMatrix
 } from "@/lib/wikiTruthCannabisLawMatrix";
+import {
+  emptyWikiTruthSecondPassProgress,
+  type WikiTruthSecondPassProgress
+} from "@/lib/wikiTruthSecondPass";
 
 type LegalityRow = {
   country?: string;
@@ -186,6 +190,7 @@ export type WikiTruthAuditModel = {
   };
   officialOwnershipView: OfficialOwnershipViewModel;
   cannabisLawMatrix: WikiTruthCannabisLawMatrix;
+  secondPassProgress: WikiTruthSecondPassProgress;
 };
 
 type BuildInput = {
@@ -201,6 +206,7 @@ type BuildInput = {
   officialOwnershipIndex: ReturnType<typeof buildOfficialLinkOwnershipIndex>;
   officialOwnershipDataset: OfficialLinkOwnershipDataset;
   cannabisLawMatrix?: WikiTruthCannabisLawMatrix;
+  secondPassProgress?: WikiTruthSecondPassProgress;
 };
 
 function classifyNotes(text: string, kind?: string): string {
@@ -396,7 +402,6 @@ export function buildWikiTruthAudit(input: BuildInput): WikiTruthAuditModel {
         : filteredOwnershipRows.some((entry) => entry.ownership_quality === "GLOBAL_FALLBACK")
           ? "fallback"
           : "no";
-    const officialExpected = Number(input.officialItems[geoKey]?.sources_official ?? input.officialItems[geoKey]?.official ?? 0) > 0;
     const flags = Array.from(
       new Set(
         [
@@ -405,7 +410,7 @@ export function buildWikiTruthAudit(input: BuildInput): WikiTruthAuditModel {
           medWiki !== "Unknown" && finalMed !== "Unknown" && medWiki !== finalMed ? "STATUS_MISMATCH" : "",
           !sources.length ? "SOURCES_MISSING" : "",
           !notesWikiRaw ? "WIKI_NOTES_MISSING" : "",
-          officialExpected && !effectiveOwnershipSources.length ? "OFFICIAL_SOURCES_MISSING" : "",
+          !effectiveOwnershipSources.length ? "OFFICIAL_SOURCES_MISSING" : "",
           !isSupportedStatusPair(finalRec, finalMed) ? "FORBIDDEN_STATUS_PAIR" : "",
           resolverStatus?.notesAffectFinalStatus && !resolverStatus?.evidenceDeltaApproved ? "NOTES_OVERRIDE_UNAPPROVED" : ""
         ].filter(Boolean)
@@ -547,7 +552,7 @@ export function buildWikiTruthAudit(input: BuildInput): WikiTruthAuditModel {
       covered: Number(input.coverageSummary.COUNTRIES_WIKI_COVERED || wikiMetrics.WIKI_COUNTRY_ROWS_MATCHED_ISO || 0),
       total: Number(input.coverageSummary.COUNTRIES_ISO_TOTAL || wikiMetrics.COUNTRY_UNIVERSE_TOTAL || 0),
       missing: Number(input.coverageSummary.COUNTRIES_MISSING || wikiMetrics.WIKI_COUNTRY_MISSING || 0),
-      inclusionRule: "All ISO countries; territories are excluded."
+      inclusionRule: "All 249 ISO2 entries compared with the physical Wikipedia country-table rows."
     }),
     buildSummaryCard({
       id: "REF_SSOT",
@@ -656,6 +661,7 @@ export function buildWikiTruthAudit(input: BuildInput): WikiTruthAuditModel {
       discrepancyExplanation: input.officialOwnershipDataset.diagnostics.raw_vs_effective_explainer
     },
     officialOwnershipView,
-    cannabisLawMatrix: input.cannabisLawMatrix || emptyWikiTruthCannabisLawMatrix
+    cannabisLawMatrix: input.cannabisLawMatrix || emptyWikiTruthCannabisLawMatrix,
+    secondPassProgress: input.secondPassProgress || emptyWikiTruthSecondPassProgress
   };
 }

@@ -4,12 +4,16 @@
 - Node.js 20 LTS (минимум 20.x). Рекомендуется управлять через nvm.
 
 ## Рабочий каталог
-- Работаем только в `/Users/james/Projects/isLegal`.
+- По умолчанию работаем в `/Users/james/Projects/isLegal`.
 - Перед любой работой запускать: `npm run where`.
+- Для именованного изолированного release-worktree используйте один из вариантов:
+  - `ISLEGAL_WORKTREE_NAME=<release-worktree-name> npm run where` (например, `ISLEGAL_WORKTREE_NAME=islegal-release`).
+  - `ISLEGAL_WORKTREE_PATH=/path/to/release-worktree npm run where`.
+  - `ISLEGAL_EXPECTED_ROOT=/path/to/release-worktree npm run where`.
 - Если нужен только path-check в широком незакоммиченном worktree, используйте `ALLOW_SCOPE_OVERRIDE=1 npm run where`.
 
 ## КАНОН ПУТИ
-Все команды и изменения выполняются только из `/Users/james/Projects/isLegal`; запуск из другого каталога запрещен и должен завершаться ошибкой.
+По умолчанию все команды и изменения выполняются только из `/Users/james/Projects/isLegal`; запуск из другого каталога должен завершаться ошибкой. Для явного именованного изолированного worktree разрешите корректный root через `ISLEGAL_WORKTREE_NAME`, `ISLEGAL_WORKTREE_PATH` или `ISLEGAL_EXPECTED_ROOT`.
 
 ## Команды
 - lint: `npm run lint`
@@ -40,6 +44,13 @@ PLAYWRIGHT_BASE_URL=http://127.0.0.1:3000 npm -w apps/web run popup:visual:audit
 - Full-audit artifacts live in `Artifacts/popup-visual-audit/`. Heavy archives stay outside the repo.
 - `pass_cycle` will fail if `Artifacts/popup-visual-audit/full-manifest.json` is older than relevant popup/render/data inputs.
 - Regression example to keep covered: ambiguous cannabis titles such as `Cannabis in Georgia` must not cross-contaminate `GE` and `US-GA` in popup or SEO output.
+
+## Independent 307-GEO Truth-First re-audit
+- The complete execution contract is [TRUTH_FIRST_307_REAUDIT_SPEC.md](TRUTH_FIRST_307_REAUDIT_SPEC.md). It is stricter than the normal popup/wiki visual audit.
+- Start from `data/reviews/geo-list-307.json`, not a status-derived list. Record the production map fill, popup, API, SEO, SSOT, and `/wiki-truth` proposal as separate baseline layers.
+- Read applicable official law before comparing any color. Existing `/wiki-truth` rows, SSOT, the map, Wikipedia, and previous PDF exports are audit baselines, not truth inputs.
+- Use the singleton UI for local evidence review. A live production capture is required for each map color; generated layer agreement and `MAP=NONE` are insufficient.
+- Preserve proposal-only execution. Do not invoke an apply tool or set `SSOT_WRITE=1` while the independent audit is in progress.
 
 ## Unified geo-sync release requirement
 - Popup/wiki audit is necessary but not always sufficient.

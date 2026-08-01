@@ -1,11 +1,27 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-expected="${ISLEGAL_EXPECTED_ROOT:-/Users/james/Projects/isLegal}"
+expected_base_dir="/Users/james/Projects"
+if [ -n "${ISLEGAL_WORKTREE_NAME:-}" ]; then
+  if [[ "${ISLEGAL_WORKTREE_NAME}" == /* ]]; then
+    expected="${ISLEGAL_WORKTREE_NAME}"
+  else
+    expected="${expected_base_dir}/${ISLEGAL_WORKTREE_NAME}"
+  fi
+elif [ -n "${ISLEGAL_WORKTREE_PATH:-}" ]; then
+  expected="${ISLEGAL_WORKTREE_PATH}"
+elif [ -n "${ISLEGAL_EXPECTED_ROOT:-}" ]; then
+  expected="${ISLEGAL_EXPECTED_ROOT}"
+else
+  expected="/Users/james/Projects/isLegal"
+fi
 
 current_pwd="$(pwd)"
 current_realpath="$(realpath "${current_pwd}")"
-expected_realpath="$(realpath "${expected}")"
+if ! expected_realpath="$(realpath "${expected}" 2>/dev/null)"; then
+  echo "ERROR: Expected root does not exist: ${expected}" >&2
+  exit 1
+fi
 
 echo "pwd: ${current_pwd}"
 echo "pwd (realpath): ${current_realpath}"
@@ -28,7 +44,7 @@ if [[ "${current_realpath}" != "${expected_realpath}" ]]; then
   fail
 fi
 
-if [[ "${top_level}" != "${expected}" ]]; then
+if [[ "$(realpath "${top_level}")" != "${expected_realpath}" ]]; then
   fail
 fi
 

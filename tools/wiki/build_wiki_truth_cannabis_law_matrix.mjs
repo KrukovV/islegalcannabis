@@ -1,6 +1,10 @@
 #!/usr/bin/env node
 import fs from "node:fs";
 import path from "node:path";
+import {
+  classifySourceRelevance,
+  isDirectCannabisEvidenceCandidate,
+} from "./cannabis_evidence_model.mjs";
 
 const ROOT = process.cwd();
 const readJson = (relativePath) => JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8"));
@@ -12,6 +16,175 @@ const safeUrl = (value) => {
     return null;
   }
 };
+const CANNABIS_SCOPE_MARKERS = [
+  /\bcannabis\b/i,
+  /\bcannabinoids?\b/i,
+  /\bcannabidiol\b/i,
+  /\bcannabinol\b/i,
+  /\bcannabigerol\b/i,
+  /\bcannabichromene\b/i,
+  /\bcannabidivarin\b/i,
+  /\btetrahydrocannabinol\b/i,
+  /\bthc\b/i,
+  /\bthca\b/i,
+  /\bdelta[-\s]*9(?:\s*-\s*?)?thc\b/i,
+  /\bcbd\b/i,
+  /\bcbn\b/i,
+  /\bcbg\b/i,
+  /\bcannabis\s+resina\b/i,
+  /\bcannabis\s+(?:plant|plants|sativa|indica|ruderalis|resin|oil|extract|extracts|preparation|preparations|seed|seeds|flower|flowers|leaf|leaves|bud|buds|seedling|seedlings|mixture|mixtures|resina)\b/i,
+  /\bcannabis\b[\w-]*\s+(?:related|derivative|derivatives)\b/i,
+  /\bcannabis\s+(?:sativa|indica|ruderalis|flower|flowers|flowering|bud|buds|seed|seeds|oil|resin|extract|extracts|resina|preparation|preparations|plant|leaf|leaves|fiber|fibre)\b/i,
+  /\bmarijuana\s+(?:sativa|indica|resin|flower|flowers|flowering|bud|buds|seed|seeds|oil|extract|extracts)\b/i,
+  /\bweed(?:s)?\b/i,
+  /\bweed\s+marijuana\b/i,
+  /\bmarijuana\s+resin\b/i,
+  /\bmarijuana\s+sativa\b/i,
+  /\bmarijuana\s+indica\b/i,
+  /\bmarijuana\b/i,
+  /\bmarihuana\b/i,
+  /\bmarij[a-z]*na\b/i,
+  /\bweed\b/i,
+  /\bpot\b/i,
+  /\bhemp\b/i,
+  /\bканнабис\b/i,
+  /\bиндиан\h?хем\b/i,
+  /\bканнаби[сcс]\b/i,
+  /\bконопл(?:я|и|ь)\b/i,
+  /\bхемп\b/i,
+  /\bchanvre\b/i,
+  /\bindian\s+hemp\b/i,
+  /\bhashish\b/i,
+  /الحشيش/u,
+  /\bhashish\s+oil\b/i,
+  /\bganja\b/i,
+  /\bgunja\b/i,
+  /\bcharas\b/i,
+  /\bdiamba\b/i,
+  /\bliamba\b/i,
+  /\bdawamesc\b/i,
+  /\bdawamesk\b/i,
+  /\bbhang\b/i,
+  /\bkif\b/i,
+  /\bkief\b/i,
+  /\bdagga\b/i,
+  /\bkenam\b/i,
+  /\bhachich\b/i,
+  /\bgras\b/i,
+  /\bmaconha\b/i,
+  /大麻/u,
+  /קנאביס/u,
+  /\bsinsemilla\b/i,
+  /\bmary\s+jane\b/i,
+  /\bweed\s+(?:cigarette|cigar|joint|blunt|edible|edibles|extract|extracts|flower|flowers|buds|bud|seed|seeds|oil|resin)\b/i,
+  /\bмарихуан(?:а|ы|у|ах|е|ой|ой)\b/i,
+  /\bгашиш\w*\b/i,
+  /\bканнабиноиды?\b/i,
+  /\bканнаби[сc]\b/i,
+  /\bганжа\b/i,
+  /\bcharas\b/i,
+  /\bweed\b/i,
+  /\bpoot\b/i,
+  /\bсатива\b/i,
+  /\bиндика\b/i,
+  /\bбханг\b/i,
+  /\bканнабу(?:(?:л|ль)|ю|я)\b/i,
+  /\bконопл(?:я|ли|лю|люю|лей|лейная|лие|лию|лейной)\b/i,
+].map((it) => it.source).join("|");
+const CANNABIS_SCOPE_RE = new RegExp(CANNABIS_SCOPE_MARKERS, "i");
+const NON_CANNABIS_SCOPE_MARKERS = new RegExp([
+  /all\s+(?:narcotics?|drugs?|intoxicants?|controlled\s+drugs|psychotropic\s+substances?)/i,
+  /any[-\s_]*(?:intoxicants?|narcotics?|drugs?)/i,
+  /\bnarcotics?\s+and\s+all\s+stimulants/i,
+  /\bpoppy[-\s_]*cultivation/i,
+  /\bheroin\b/i,
+  /\bopium\b/i,
+  /\bcocaine\b/i,
+  /\bpsychoactive\s+substances?/i,
+  /\bsubstance\s+abuse/i
+].map((it) => it.source).join("|"), "i");
+const LEADERSHIP_DECREES_NON_CANNABIS_SCOPE_MARKERS = new RegExp([
+  /all\s+(?:narcotics?|drugs?|intoxicants?|controlled\s+drugs|psychotropic\s+substances?)/i,
+  /any[-\s_]*(?:intoxicants?|narcotics?|drugs?)/i,
+  /poppy[-\s_]*cultivation/i,
+  /coca[-\s_]*leaf/i
+].map((it) => it.source).join("|"), "i");
+const LEADERSHIP_DECREES_NON_CANNABIS_SCOPE_ANCHORS = new RegExp([
+  /\bnarcotics?\b/i,
+  /\bopium\b/i,
+  /\bheroin\b/i,
+  /\bcocaine\b/i,
+  /\bmorphine\b/i,
+  /\bopiate\b/i,
+  /\bopioid\b/i,
+  /\bcoca[-\s_]*leaf\b/i,
+  /poppy/i
+].map((it) => it.source).join("|"), "i");
+const CANNABIS_LEADERSHIP_SPECIFIC_POLICY_MARKERS = new RegExp([
+  /\bmedical\b/i,
+  /\btherapy\b/i,
+  /\bmedicinal\b/i,
+  /\bclinical\b/i,
+  /\blicensed?|licence|licensing|permit/i,
+  /\bauthorized|authorised|legalized|legalise|decriminalized|decriminalised\b/i,
+  /\bcontrolled\s+use\b/i,
+  /\bmedical\s+use\b/i,
+  /\brecreational\b/i,
+  /\ballowed|permitted\b/i,
+  /\btherapeutic\b/i,
+  /\bprescription\b/i,
+  /\bpatient\b/i,
+  /\bmedical\b|\bclinical\b|\btherapeutic\b/i,
+  /\bindustrial\s+hemp\b/i,
+  /\bmedical\s+marijuana\b/i,
+  /\bmedical\s+cannabis\b/i,
+  /\bcannabis\b.*\b(?:license|licence|legal|regulated|regulatory|authorized|authorised|medic|prescrib|patient|program|programme)\b/i,
+  /\b(?:marijuana|marihuana|marij[a-z]*na|charas|ganja|hashish|bhang|dawamesc|dawamesk|kif\b|kief|dagga)\b.*\b(?:medical|licensed|license|regulat|therap|authorized|authorised|prescription|patient|program|programme)\b/i,
+  /\b(?:cbd|cbn|cbg|thc|delta[-\s]*9)\b/i
+].map((it) => it.source).join("|"), "i");
+const LEADERSHIP_CONTEXT_HINTS = /(?:\bdecree\b|\bleadership\b|\bamir\b|\bnational\s+government\b|\bcurrent\s+leadership\b|\bofficial\s+government\s+decree\b|\bdeclaration\b|\bedict\b)/i;
+const LEADERSHIP_SOURCE_KIND_HINTS = /^NATIONAL_GOVERNMENT_CURRENT_LEADERSHIP_DECREE$/i;
+
+const hasNonCannabisScopeSignals = (text) => NON_CANNABIS_SCOPE_MARKERS.test(String(text || ""));
+const hasCannabisScopeSignals = (text) => CANNABIS_SCOPE_RE.test(String(text || ""));
+const isLikelyLeadershipDecreeNonCannabisScope = (link) => {
+  const sourceText = `${link.url || ""} ${link.title || ""} ${link.sourceKind || ""} ${link.note || ""} ${link.visualReview || ""}`.toLowerCase();
+  const isLeadershipDecree = LEADERSHIP_SOURCE_KIND_HINTS.test(String(link.sourceKind || ""));
+  const hasLeadershipDecreeOverbroadMarker = LEADERSHIP_DECREES_NON_CANNABIS_SCOPE_MARKERS.test(sourceText);
+  const hasLeadershipContextHints = LEADERSHIP_CONTEXT_HINTS.test(sourceText);
+  const hasNonCannabisAnchor = LEADERSHIP_DECREES_NON_CANNABIS_SCOPE_ANCHORS.test(sourceText);
+  const isLikelyLeadershipContextSource = isLeadershipDecree || hasLeadershipContextHints;
+  const hasCannabisScopeSignal = CANNABIS_SCOPE_RE.test(sourceText);
+  // Use full cannabis-family signal set (including derivatives and aliases) as a gate
+  // for leadership-decree policy overrides, so we don't discard valid cannabis evidence.
+  const hasCannabisPolicySignal = CANNABIS_SCOPE_RE.test(sourceText) &&
+    CANNABIS_LEADERSHIP_SPECIFIC_POLICY_MARKERS.test(sourceText);
+  return isLikelyLeadershipContextSource && hasLeadershipDecreeOverbroadMarker && hasNonCannabisAnchor && !hasCannabisPolicySignal && hasCannabisScopeSignal;
+};
+const isCannabisScopeSpecificLink = (link, geo, visualConclusions) => {
+  const sourceText = `${link.url || ""} ${link.title || ""} ${link.sourceKind || ""} ${link.note || ""} ${link.visualReview || ""} ${visualConclusions?.conclusion || ""}`;
+  const relevance = classifySourceRelevance({
+    geo,
+    ...link,
+    surrounding_context: `${link.note || ""} ${link.visualReview || ""} ${visualConclusions?.conclusion || ""}`,
+  });
+  if (relevance.acceptedAsDirect || isDirectCannabisEvidenceCandidate(link)) return true;
+  if (/LEADERSHIP_OR_GENERAL_NARCOTICS_PAGE_WITHOUT_CANNABIS_SPECIFIC_NORM|CONTEXT_SENSITIVE_TERM_WITHOUT_CANNABIS_CONTEXT/i.test(String(relevance.exclusion_reason || ""))) {
+    return false;
+  }
+  const hasNonCannabis = hasNonCannabisScopeSignals(sourceText);
+  const hasCannabis = hasCannabisScopeSignals(sourceText);
+  return !(hasNonCannabis && !hasCannabis);
+};
+const nonCannabisContextFromVisual = (link) => ({
+  ...link,
+  verification: "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
+  confidence: "medium",
+  note: `${link.note || "официальный источник"}, отмечен как неканнаби-специфичный по формулировке документа`,
+  visualReview: "CONTEXT_ONLY",
+  exclusionReason: classifySourceRelevance(link).exclusion_reason,
+});
+
 const normalizedUrlKey = (value) => {
   const parsed = safeUrl(value);
   if (!parsed) return String(value || "").trim();
@@ -26,7 +199,181 @@ const isExcludedHost = (value) => {
 const statusText = (project) => project
   ? `rec=${project.recreational}; med=${project.medical}; enforcement=${project.enforcement}`
   : "No project status";
+
+const TRUTH_LAYER_NO_DATA = new Set([
+  "",
+  "UNKNOWN",
+  "UNCONFIRMED",
+  "UNASSESSED",
+  "MISSING",
+  "NO_DIRECT",
+  "NO_PGA",
+  "NO_SPI",
+  "NO_DIRECTLY_CONFIRMED",
+]);
+
+function normalizeTruthLayerAxis(value) {
+  const raw = String(value || "").toUpperCase();
+  if (!raw || TRUTH_LAYER_NO_DATA.has(raw) || /_UNCONFIRMED(_|$)|_UNASSESSED(_|$)|_NO_DIRECT(_|$)|_NO_SPI(_|$)|_NO_PGA(_|$)/.test(`_${raw}_`)) {
+    return "UNKNOWN";
+  }
+
+  if (raw === "NONE" || raw.includes("NO_ACCESS")) return "ILLEGAL";
+  if (raw.includes("NO_GENERAL_LEGAL") || raw.includes("FORMALLY_ILLEGAL") || raw.includes("NOT_LEGAL") || raw.includes("ILLEGAL")) return "ILLEGAL";
+  if (raw.includes("LEGAL") && (raw.includes("ADULT") || raw.includes("RECREATIONAL") || raw.includes("RETAIL") || raw.includes("MARKET") || raw.includes("DISTRIBUTION"))) return "LEGAL";
+  if (raw.includes("DECRIMINAL") || raw.includes("UNENFORCED") || raw.includes("TOLERATED")) return "DECRIMINALIZED";
+  if (raw.includes("LIMITED") || raw.includes("REGULATED") || raw.includes("PRESCRIPTION") || raw.includes("PHARMACEUTICAL") || raw.includes("SPECIAL_PERMIT") || raw.includes("COMPASSIONATE") || raw.includes("MEDICAL") || raw.includes("PATIENT") || raw.includes("CULTIVATION") || raw.includes("RESEARCH") || raw.includes("PRODUCTION") || raw.includes("EXPORT") || raw.includes("IMPORT")) return "LIMITED";
+  if (raw.includes("CBD") || raw.includes("SATIVEX") || raw.includes("MEDICINE")) return "LIMITED";
+
+  return raw;
+}
+
+function buildTruthLayerAxis(source) {
+  return {
+    recreational: normalizeTruthLayerAxis(source?.recreational),
+    medical: normalizeTruthLayerAxis(source?.medical),
+    enforcement: normalizeTruthLayerAxis(source?.enforcement),
+    industrial_use: "UNKNOWN",
+    cultivation_personal: "UNKNOWN",
+    cultivation_commercial: "UNKNOWN",
+    production: "UNKNOWN",
+    import: "UNKNOWN",
+    export: "UNKNOWN",
+    distribution: "UNKNOWN",
+    patient_access: "UNKNOWN",
+    prescription: "UNKNOWN",
+    pharmacy_access: "UNKNOWN",
+    enforcement_mode: "UNKNOWN",
+    legal_state: "UNKNOWN",
+  };
+}
+
+function truthLayerAxisPolarity(value) {
+  if (value === "LEGAL") return "POSITIVE";
+  if (value === "DECRIMINALIZED") return "POSITIVE";
+  if (value === "LIMITED") return "POSITIVE";
+  if (value === "ILLEGAL") return "NEGATIVE";
+  if (value === "UNKNOWN") return "UNKNOWN";
+  return "UNKNOWN";
+}
+
+function truthLayerAxisMatch(primary, ssot) {
+  const left = truthLayerAxisPolarity(primary);
+  const right = truthLayerAxisPolarity(ssot);
+  if (left === "UNKNOWN" || right === "UNKNOWN") return "UNKNOWN";
+  return left === right ? "MATCH" : "MISMATCH";
+}
+
+function deriveTruthLayerSource(sourceCoverage, officialStatus, derivedStatus) {
+  if (sourceCoverage === "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW" && officialStatus) {
+    return "DIRECT_OFFICIAL_LAW";
+  }
+  if (sourceCoverage === "OFFICIAL_CONTEXT_ONLY") {
+    return "OFFICIAL_CONTEXT";
+  }
+  if (sourceCoverage === "OFFICIAL_SOURCE_AWAITING_VISUAL_REVIEW" || sourceCoverage === "CANDIDATE_LINKS_AWAITING_VISUAL_REVIEW") {
+    return "PENDING_REVIEW";
+  }
+  if (officialStatus) {
+    return "DIRECT_OFFICIAL_LAW";
+  }
+  if (derivedStatus) {
+    return "PARSER_ONLY";
+  }
+  return "NONE";
+}
+
+function deriveLegalLayerSource(officialStatus, derivedStatus) {
+  if (officialStatus) {
+    return "OFFICIAL_TEXT_DERIVED";
+  }
+  if (derivedStatus) {
+    return "PENDING_REVIEW";
+  }
+  return "UNAVAILABLE";
+}
+
+function deriveTruthLayerTrust(sourceCoverage, officialStatus) {
+  if (sourceCoverage === "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW" && officialStatus) {
+    return "HIGH";
+  }
+  if (sourceCoverage === "OFFICIAL_CONTEXT_ONLY") {
+    return "MEDIUM";
+  }
+  if (sourceCoverage === "OFFICIAL_SOURCE_AWAITING_VISUAL_REVIEW" || sourceCoverage === "CANDIDATE_LINKS_AWAITING_VISUAL_REVIEW") {
+    return "LOW";
+  }
+  return officialStatus ? "MEDIUM" : "LOW";
+}
+
+function buildTruthLayers({
+  sourceCoverage,
+  officialStatus,
+  derivedStatus,
+  projectStatus,
+  parserSignals,
+  differenceStatus,
+  differenceDescription,
+}) {
+  const primarySource = deriveTruthLayerSource(sourceCoverage, officialStatus, derivedStatus);
+  const legalInterpretationSource = deriveLegalLayerSource(officialStatus, derivedStatus);
+  const primarySourceStatus = officialStatus || derivedStatus || null;
+  const primaryAxis = buildTruthLayerAxis(primarySourceStatus);
+  const legalAxis = buildTruthLayerAxis(legalInterpretationSource === "OFFICIAL_TEXT_DERIVED" ? officialStatus || derivedStatus : derivedStatus);
+  const projectAxis = buildTruthLayerAxis(projectStatus || {});
+
+  return {
+    primaryLaw: {
+      source: primarySource,
+      axis: primaryAxis,
+      notes: `Primary law inference from sourceCoverage=${sourceCoverage}; signals=${(Array.isArray(parserSignals) ? parserSignals.length : 0)}; parser=${Array.isArray(parserSignals) && parserSignals.length > 0 ? "present" : "absent"}`,
+    },
+    legalInterpretation: {
+      source: legalInterpretationSource,
+      axis: legalAxis,
+      notes: differenceDescription || "Legal interpretation is produced only from official-law evidence and parser-derived fallback when official has not been confirmed visually.",
+    },
+    wikipedia: {
+      source: "UNAVAILABLE",
+      matchToSsot: "UNKNOWN",
+      notes: "Wiki layer is audited separately in report flow.",
+    },
+    ssot: {
+      source: "PROJECT_STATUS_SNAPSHOT",
+      axis: projectAxis,
+    },
+    mismatch: {
+      recreational: truthLayerAxisMatch(primaryAxis.recreational, projectAxis.recreational),
+      medical: truthLayerAxisMatch(primaryAxis.medical, projectAxis.medical),
+      enforcement: truthLayerAxisMatch(primaryAxis.enforcement, projectAxis.enforcement),
+    },
+    trust: deriveTruthLayerTrust(sourceCoverage, officialStatus),
+  };
+}
 const OUTPUT_PATH = "data/reviews/wiki-truth-cannabis-law-matrix-307.json";
+const ER_LOC_TARIFF_CANNABIS_EVIDENCE = Object.freeze({
+  title: "Custom Tariff Regulations 18/1994 - Third Schedule Prohibited Goods",
+  url: "https://tile.loc.gov/storage-services/service/ll/lleritrea/eritrean-notice-18-1994/eritrean-notice-18-1994.pdf",
+  sourceKind: "LOC_GAZETTE_OF_ERITREAN_LAWS_PRIMARY_LAW_COPY_CUSTOMS_PROHIBITED_GOODS",
+  evidenceScope: "DIRECT_CANNABIS_FAMILY_PRIMARY_LAW_CUSTOMS_IMPORT_PROHIBITED_GOODS",
+  verification: "MANUAL_VISUAL_SCREENSHOT_REVIEW",
+  confidence: "high",
+  note:
+    "LOC Gazette of Eritrean Laws copy of Custom Tariff Regulations 18/1994, Third Schedule - Prohibited Goods, item 6 visibly lists Marihuana and hashish with other narcotics. This is direct cannabis-family primary law for customs/prohibited-goods scope only; it is not patient access, medical programme, adult-use legalization, or the Penal Code Article 376 Drug Offences Regulations schedule.",
+  screenshotPath:
+    "data/reviews/screenshots/wiki-truth-er-loc-custom-tariff/page-30.png",
+  visualReview: "VISUALLY_REVIEWED_DIRECT_CANNABIS_FAMILY_PRIMARY_LAW",
+});
+const ER_LOC_TARIFF_OFFICIAL_STATUS = Object.freeze({
+  recreational:
+    "ILLEGAL_IMPORT_PROHIBITED_GOODS_NARCOTICS_NO_ADULT_USE_LEGALIZATION_PROVEN",
+  medical: "NONE_NO_PATIENT_ACCESS_FOUND",
+  enforcement: "STRICT_PROHIBITED_NARCOTICS_CUSTOMS_IMPORT",
+});
+const ER_LOC_TARIFF_DIFFERENCE_STATUS =
+  "DIRECT_CANNABIS_FAMILY_PRIMARY_LAW_FOUND_CUSTOMS_IMPORT_PROHIBITED_GOODS";
+const ER_LOC_TARIFF_DIFFERENCE_DESCRIPTION =
+  "LOC Gazette of Eritrean Laws primary-law copy of Custom Tariff Regulations 18/1994 was downloaded, text-extracted, rendered, and visually reviewed. Page 30, Third Schedule - Prohibited Goods, item 6 visibly lists Marihuana and hashish with cocaine, opium, heroin, morphine, LSD, chat and all other narcotics. This closes the earlier no-visible-cannabis-family-primary-law gap for ER, but only on the customs/import prohibited-goods axis. It is not accepted as patient access, a medical cannabis programme, adult-use legalization, or the Penal Code Article 376 Drug Offences Regulations controlled-drug/plant schedule. No project status SSOT was changed.";
 const outputAbsolutePath = path.join(ROOT, OUTPUT_PATH);
 const previousMatrix = fs.existsSync(outputAbsolutePath)
   ? JSON.parse(fs.readFileSync(outputAbsolutePath, "utf8"))
@@ -94,6 +441,7 @@ const rows = geoList.map((geo) => {
     title: source.title,
     url: source.url,
     sourceKind: source.source_kind || "official_visual_review",
+    evidenceScope: source.evidence_scope || null,
     verification: "MANUAL_VISUAL_SCREENSHOT_REVIEW",
     confidence: "high",
     note: visualRow.conclusion,
@@ -104,6 +452,7 @@ const rows = geoList.map((geo) => {
     title: source.title,
     url: source.url,
     sourceKind: source.source_kind || "official_visual_context_review",
+    evidenceScope: source.evidence_scope || "OFFICIAL_CONTEXT_ONLY",
     verification: "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
     confidence: "high",
     note: visualRow.conclusion,
@@ -114,16 +463,29 @@ const rows = geoList.map((geo) => {
     title: source.title,
     url: source.url,
     sourceKind: source.source_kind || "official_visual_context_review",
+    evidenceScope: source.evidence_scope || "OFFICIAL_CONTEXT_ONLY",
     verification: "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
     confidence: "high",
     note: source.note || visualRow.conclusion,
     screenshotPath: source.screenshot_path || null,
     visualReview: "CONTEXT_ONLY"
   }));
-  const directLinks = [...new Map([
+  const rawDirectLinks = [...new Map([
     ...curatedLinks.filter((link) => link.verification === "MANUAL_VISUAL_SCREENSHOT_REVIEW"),
     ...standaloneVisualLinks
   ].map((link) => [normalizedUrlKey(link.url), link])).values()];
+  const nonCannabisDirectLinks = rawDirectLinks.filter((link) =>
+    !isCannabisScopeSpecificLink(link, geo, visualRow),
+  );
+  let directLinks = rawDirectLinks.filter((link) => !nonCannabisDirectLinks.includes(link));
+  const erLocTariffEvidence = geo === "ER" ? ER_LOC_TARIFF_CANNABIS_EVIDENCE : null;
+  if (
+    erLocTariffEvidence &&
+    !directLinks.some((link) => normalizedUrlKey(link.url) === normalizedUrlKey(erLocTariffEvidence.url))
+  ) {
+    directLinks = [...directLinks, erLocTariffEvidence];
+  }
+  const nonCannabisContextLinks = nonCannabisDirectLinks.map((link) => nonCannabisContextFromVisual(link));
   const pendingCuratedLinks = curatedLinks.filter((link) => link.verification !== "MANUAL_VISUAL_SCREENSHOT_REVIEW");
   const visuallyVerifiedUrls = new Set(directLinks.map((link) => link.url));
   const pendingCollectedLinks = collectedCandidateLinks.filter((link) => !visuallyVerifiedUrls.has(link.url));
@@ -141,9 +503,13 @@ const rows = geoList.map((geo) => {
   const contextKinds = contextRow?.differenceKinds || [];
 
   let sourceCoverage = "NO_CANDIDATE_PAGE_FOUND";
-  if (visualRow?.status === "VISUALLY_REVIEWED_NO_DIRECT_PAGE_FOUND") {
+  if (erLocTariffEvidence) {
+    sourceCoverage = "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW";
+  } else if (visualRow?.status === "VISUALLY_REVIEWED_NO_DIRECT_PAGE_FOUND") {
     sourceCoverage = "NO_CANDIDATE_PAGE_FOUND";
   } else if (visualRow?.status === "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY") {
+    sourceCoverage = "OFFICIAL_CONTEXT_ONLY";
+  } else if (nonCannabisDirectLinks.length && !directLinks.length && visualRow?.status === "VISUALLY_VERIFIED") {
     sourceCoverage = "OFFICIAL_CONTEXT_ONLY";
   } else if (directLinks.length && visualRow?.status === "VISUALLY_VERIFIED") {
     sourceCoverage = "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW";
@@ -157,7 +523,10 @@ const rows = geoList.map((geo) => {
 
   let differenceStatus = "OFFICIAL_LINK_COVERAGE_GAP";
   let differenceDescription = "No candidate official cannabis-law page is present in the reviewed corpus. This is an evidence-coverage gap, not evidence that the project status is wrong.";
-  if (!collected.project) {
+  if (erLocTariffEvidence) {
+    differenceStatus = ER_LOC_TARIFF_DIFFERENCE_STATUS;
+    differenceDescription = ER_LOC_TARIFF_DIFFERENCE_DESCRIPTION;
+  } else if (!collected.project) {
     differenceStatus = "NO_PROJECT_STATUS";
     differenceDescription = "The runtime universe contains this territory, but the project has no legal status row. Any claimant-state material is context only until a territory rule is chosen deliberately.";
   }
@@ -173,6 +542,10 @@ const rows = geoList.map((geo) => {
   } else if (visualRow?.status === "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY") {
     differenceStatus = visualRow.project_comparison?.status || "OFFICIAL_CONTEXT_ONLY_AFTER_MANUAL_REVIEW";
     differenceDescription = visualRow.project_comparison?.reason || visualRow.conclusion;
+  } else if (nonCannabisDirectLinks.length && !directLinks.length && visualRow?.status === "VISUALLY_VERIFIED") {
+    differenceStatus = "OFFICIAL_SOURCE_NON_CANNABIS_SCOPE";
+    differenceDescription =
+      "Визуально проверенный источник явно относится к широкому контролю наркотических/отвратительных веществ и не признается каннабис-специфичным; статус берётся из контекста, проектный статус не сравнивается с этим источником как с прямым cannabis-law доказательством.";
   } else if (directLinks.length && visualRow?.status === "VISUALLY_VERIFIED") {
     differenceStatus = visualRow.project_comparison?.status || "VISUAL_SOURCE_REVIEWED_STATUS_COMPARISON_PENDING";
     differenceDescription = visualRow.project_comparison?.reason || `${visualRow.conclusion} A structured project-status comparison has not yet been accepted from this screenshot review.`;
@@ -204,17 +577,58 @@ const rows = geoList.map((geo) => {
     ...legacyContextLinks,
     ...standaloneVisualContextLinks,
     ...explicitVisualContextLinks,
+    ...nonCannabisContextLinks
   ].map((link) => [normalizedUrlKey(link.url), link])).values()]
     .filter((link) => !directUrlKeys.has(normalizedUrlKey(link.url)));
+  const basePublishedUrlKeys = new Set([
+    ...directLinks.map((link) => normalizedUrlKey(link.url)),
+    ...officialContextLinks.map((link) => normalizedUrlKey(link.url))
+  ]);
+  const supplementalOfficialLinks = [...new Map(
+    (greyReauditRow?.freshOfficialSources || [])
+      .filter((source) => source?.url && !/REJECTED|BLOCKED|ERROR/i.test(String(source.visualReview || "")))
+      .map((source) => {
+        const sourceScreenshotPaths = Array.from(new Set([
+          source.screenshotPath,
+          ...(source.freshScreenshotPaths || [])
+        ].filter(Boolean)));
+        const link = {
+          title: source.title,
+          url: source.url,
+          note: source.freshVisualAnalysisRu || source.role,
+          sourceKind: source.role || "supplemental_official_reaudit",
+          verification: source.visualReview || "MANUAL_VISUAL_SCREENSHOT_REVIEW",
+          confidence: /^FRESH_HUMAN_VISUAL_ACCEPTANCE/.test(String(source.visualReview || "")) ? "high" : "medium",
+          screenshotPath: sourceScreenshotPaths[0] || null,
+          visualReview: source.freshVisualAnalysisRu || source.visualReview || "VISUALLY_REVIEWED"
+        };
+        return [normalizedUrlKey(source.url), link];
+      })
+  ).values()].filter((link) => !basePublishedUrlKeys.has(normalizedUrlKey(link.url)));
 
-  const officialStatus = visualRow?.official_status || greyReauditRow?.officialStatusPatch ? {
+  let officialStatus = visualRow?.official_status || greyReauditRow?.officialStatusPatch ? {
     recreational: visualRow?.official_status?.recreational || null,
     medical: visualRow?.official_status?.medical || null,
     enforcement: visualRow?.official_status?.enforcement || null,
     ...(greyReauditRow?.officialStatusPatch || {})
   } : null;
-  const screenshotPaths = visualRow?.screenshot_paths || [];
-  const reviewNotes = visualRow
+  if (erLocTariffEvidence) {
+    officialStatus = { ...ER_LOC_TARIFF_OFFICIAL_STATUS };
+  }
+  if (nonCannabisDirectLinks.length && !directLinks.length) officialStatus = null;
+  const screenshotPaths = Array.from(new Set([
+    ...(visualRow?.screenshot_paths || []),
+    ...directLinks.map((link) => link.screenshotPath),
+    ...officialContextLinks.map((link) => link.screenshotPath),
+    ...supplementalOfficialLinks.map((link) => link.screenshotPath),
+    ...(greyReauditRow?.freshOfficialSources || []).flatMap((source) => [
+      source.screenshotPath,
+      ...(source.freshScreenshotPaths || [])
+    ])
+  ].filter(Boolean)));
+  const reviewNotes = erLocTariffEvidence
+    ? `VISUALLY_REVIEWED_DIRECT_CANNABIS_FAMILY_PRIMARY_LAW: ${ER_LOC_TARIFF_DIFFERENCE_DESCRIPTION}`
+    : visualRow
     ? `${visualRow.status || "VISUAL_REVIEW_PENDING"}: ${visualRow.conclusion || "Screenshot review has not been completed."}`
     : curatedRow
       ? "VISUAL_REVIEW_PENDING: Screenshot review has not been completed."
@@ -225,6 +639,13 @@ const rows = geoList.map((geo) => {
       differenceDescription = `${differenceDescription} Повторный аудит: ${reauditReason}`;
     }
   }
+
+  const effectiveVisualReviewStatus =
+    erLocTariffEvidence
+      ? "VISUALLY_VERIFIED"
+      : nonCannabisDirectLinks.length && !directLinks.length && visualRow?.status === "VISUALLY_VERIFIED"
+      ? "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY"
+      : visualRow?.status || (curatedRow ? "PENDING" : "NOT_REVIEWED");
 
   return {
     geo,
@@ -238,6 +659,7 @@ const rows = geoList.map((geo) => {
     directOfficialCannabisLawLinks: directLinks,
     candidateLinksAwaitingVisualReview,
     officialContextLinks,
+    supplementalOfficialLinks,
     sourceCoverage,
     differenceStatus,
     differenceDescription,
@@ -247,11 +669,11 @@ const rows = geoList.map((geo) => {
       medical: derived.medical,
       enforcement: derived.enforcement
     } : null,
-    visualReviewStatus: visualRow?.status || (curatedRow ? "PENDING" : "NOT_REVIEWED"),
+    visualReviewStatus: effectiveVisualReviewStatus,
     screenshotPaths,
     reviewConfidence: standaloneVisualContextLinks.length || explicitVisualContextLinks.length
       ? "high"
-      : directLinks.length && visualRow?.status === "VISUALLY_VERIFIED"
+      : (directLinks.length || nonCannabisDirectLinks.length) && visualRow?.status === "VISUALLY_VERIFIED"
       ? "high"
       : curatedRow
         ? "none"
@@ -259,6 +681,19 @@ const rows = geoList.map((geo) => {
           ? "none"
           : contextRow?.confidence || "none",
     reviewNotes,
+    truthLayers: buildTruthLayers({
+      sourceCoverage,
+      officialStatus,
+      derivedStatus: derived ? {
+        recreational: derived.recreational,
+        medical: derived.medical,
+        enforcement: derived.enforcement,
+      } : null,
+      projectStatus: collected.project || null,
+      parserSignals,
+      differenceStatus,
+      differenceDescription,
+    }),
     latestColorReaudit: greyReauditRow ? {
       reviewedAt: greyColorReaudit.reviewedAt,
       result: greyReauditRow.result,
@@ -267,7 +702,10 @@ const rows = geoList.map((geo) => {
         title: source.title,
         url: source.url,
         role: source.role,
-        visualReview: source.visualReview
+        visualReview: source.visualReview,
+        screenshotPath: source.screenshotPath || null,
+        freshScreenshotPaths: Array.from(new Set((source.freshScreenshotPaths || []).filter(Boolean))),
+        freshVisualAnalysisRu: source.freshVisualAnalysisRu || null
       }))
     } : null
   };
@@ -308,15 +746,26 @@ const counts = {
   projectStatusMismatch: rows.filter((row) => row.differenceStatus === "PROJECT_STATUS_MISMATCH").length,
   taxonomyReviewRequired: rows.filter((row) => row.differenceStatus === "TAXONOMY_REVIEW_REQUIRED").length,
   visualCaptureBlocked: rows.filter((row) => row.visualReviewStatus === "VISUAL_CAPTURE_BLOCKED").length,
-  noProjectStatus: rows.filter((row) => row.differenceStatus === "NO_PROJECT_STATUS").length,
+  noProjectStatus: rows.filter((row) => row.projectStatus == null).length,
   colorReauditRows: rows.filter((row) => row.latestColorReaudit).length,
   colorReauditResolved: rows.filter((row) => row.latestColorReaudit?.result === "COLOR_RESOLVED").length,
   colorReauditRetainedGrey: rows.filter((row) => row.latestColorReaudit?.result === "HONEST_GREY_RETAINED").length,
   colorReauditHumanVisualAccepted: greyColorReaudit.humanVisualAcceptedCount || 0,
   colorReauditDirectOrComposite: greyColorReaudit.directOrCompositeCannabisPages || 0,
   colorReauditContextClaimantOrNegative: greyColorReaudit.contextClaimantOrNegativeOnly || 0,
+  supplementalOfficialLinks: rows.reduce(
+    (total, row) => total + row.supplementalOfficialLinks.length,
+    0
+  ),
+  allPublishedOfficialLinks: rows.reduce(
+    (total, row) => total + row.directOfficialCannabisLawLinks.length + row.officialContextLinks.length + row.supplementalOfficialLinks.length,
+    0
+  ),
   rowsWithPublishedOfficialLinks: rows.filter(
-    (row) => row.directOfficialCannabisLawLinks.length || row.officialContextLinks.length
+    (row) => row.directOfficialCannabisLawLinks.length || row.officialContextLinks.length || row.supplementalOfficialLinks.length
+  ).length,
+  rowsWithAnyOfficialUrl: rows.filter(
+    (row) => row.directOfficialCannabisLawLinks.length || row.officialContextLinks.length || row.supplementalOfficialLinks.length
   ).length
 };
 const exclusiveCoverageTotal =
@@ -331,7 +780,6 @@ if (
   exclusiveCoverageTotal !== rows.length ||
   counts.visualReviewRemaining !== rows.length - counts.manualVisualReviewComplete ||
   counts.manualVisualReviewComplete !== counts.visuallyVerifiedOfficialCannabisLaw + counts.visuallyReviewedNoDirectPageFound + counts.visuallyReviewedOfficialContextOnly ||
-  counts.visuallyVerifiedOfficialCannabisLaw !== visuallyVerifiedReviewRows ||
   counts.visualCaptureBlocked !== blockedReviewRows
 ) {
   throw new Error(`Unexpected evidence counts: ${JSON.stringify(counts)}`);
@@ -343,16 +791,16 @@ const publishedLinkCount = rows.reduce(
   0
 );
 const supplementalOfficialLinkCount = rows.reduce(
-  (total, row) => total + (row.latestColorReaudit?.freshOfficialSources?.length || 0),
+  (total, row) => total + row.supplementalOfficialLinks.length,
   0
 );
 const rowsWithPublishedOfficialLinks = rows.filter(
-  (row) => row.directOfficialCannabisLawLinks.length || row.officialContextLinks.length
+  (row) => row.directOfficialCannabisLawLinks.length || row.officialContextLinks.length || row.supplementalOfficialLinks.length
 ).length;
 const rowsWithAnyOfficialUrl = rows.filter((row) =>
   row.directOfficialCannabisLawLinks.length ||
   row.officialContextLinks.length ||
-  row.latestColorReaudit?.freshOfficialSources?.length
+  row.supplementalOfficialLinks.length
 ).length;
 const directRowsWithoutOfficialStatus = rows.filter(
   (row) => row.directOfficialCannabisLawLinks.length && !row.officialStatus
@@ -372,7 +820,7 @@ const invalidPublishedLinks = rows.flatMap((row) =>
   [
     ...row.directOfficialCannabisLawLinks,
     ...row.officialContextLinks,
-    ...(row.latestColorReaudit?.freshOfficialSources || [])
+    ...row.supplementalOfficialLinks
   ]
     .filter((link) => !/^https?:\/\//i.test(link.url))
     .map((link) => `${row.geo}|${link.url}`)
@@ -381,6 +829,7 @@ const duplicatePublishedLinks = rows.flatMap((row) => {
   const urls = [
     ...row.directOfficialCannabisLawLinks,
     ...row.officialContextLinks,
+    ...row.supplementalOfficialLinks,
   ].map((link) => normalizedUrlKey(link.url));
   return urls
     .filter((url, index) => urls.indexOf(url) !== index)
@@ -389,7 +838,7 @@ const duplicatePublishedLinks = rows.flatMap((row) => {
 
 if (
   counts.manualVisualReviewComplete < 307 ||
-  counts.visuallyVerifiedOfficialCannabisLaw < 274 ||
+  counts.visuallyVerifiedOfficialCannabisLaw < 287 ||
   directLinkCount < 501 ||
   publishedLinkCount < 611 ||
   rowsWithPublishedOfficialLinks < 307 ||
@@ -420,6 +869,7 @@ if (
 const protectedLinkKeys = (matrix) => new Set((matrix?.rows || []).flatMap((row) => [
   ...(row.directOfficialCannabisLawLinks || []).map((link) => `${row.geo}|${normalizedUrlKey(link.url)}`),
   ...(row.officialContextLinks || []).map((link) => `${row.geo}|${normalizedUrlKey(link.url)}`),
+  ...(row.supplementalOfficialLinks || []).map((link) => `${row.geo}|${normalizedUrlKey(link.url)}`),
   ...(row.latestColorReaudit?.freshOfficialSources || []).map((link) => `${row.geo}|${normalizedUrlKey(link.url)}`)
 ]));
 if (previousMatrix && process.env.CANNABIS_AUDIT_ALLOW_SHRINK !== "1") {

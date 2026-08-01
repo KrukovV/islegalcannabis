@@ -21,7 +21,7 @@ export function resolveLegalFillOpacity(mapCategory: MapCategory) {
     case "ILLEGAL":
       return 0.56;
     case "UNKNOWN":
-      return 0.5;
+      return 0;
     default:
       throw new Error(`UNKNOWN_MAP_CATEGORY_OPACITY: ${mapCategory}`);
   }

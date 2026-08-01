@@ -6,9 +6,28 @@ import type {
 } from "@/lib/wikiTruthAudit";
 import OfficialOwnershipSummary from "./OfficialOwnershipSummary";
 import OfficialOwnershipTable from "./OfficialOwnershipTable";
+import SecondPassProgress from "./SecondPassProgress";
 import CannabisLawMatrix from "./CannabisLawMatrix";
+import CannabisLawAcceptanceAudit from "./CannabisLawAcceptanceAudit";
 import CannabisLawColorTable from "./CannabisLawColorTable";
+import CannabisLawColorApplyGate from "./CannabisLawColorApplyGate";
+import CannabisLawColorApplyPlan from "./CannabisLawColorApplyPlan";
+import CannabisLawColorProposals from "./CannabisLawColorProposals";
+import CannabisLawColorReviewDossier from "./CannabisLawColorReviewDossier";
+import CannabisLawLegalKnowledgeAxisMatrix from "./CannabisLawLegalKnowledgeAxisMatrix";
+import CannabisLawPrimaryLawBlockers from "./CannabisLawPrimaryLawBlockers";
+import CannabisLawRuntimeApplyPipeline from "./CannabisLawRuntimeApplyPipeline";
+import CannabisLawFinalReconciliation from "./CannabisLawFinalReconciliation";
+import type { WikiTruthAcceptanceAuditView } from "@/lib/wikiTruthAcceptanceAudit";
 import type { WikiTruthColorComparisonRow } from "@/lib/wikiTruthColorComparison";
+import type { WikiTruthColorApplyGateView } from "@/lib/wikiTruthColorApplyGate";
+import type { WikiTruthColorApplyPlanView } from "@/lib/wikiTruthColorApplyPlan";
+import type { WikiTruthColorProposalsView } from "@/lib/wikiTruthColorProposals";
+import type { WikiTruthColorReviewDossierView } from "@/lib/wikiTruthColorReviewDossier";
+import type { WikiTruthLegalKnowledgeAxisMatrixView } from "@/lib/wikiTruthLegalKnowledgeAxisMatrix";
+import type { WikiTruthPrimaryLawBlockersView } from "@/lib/wikiTruthPrimaryLawBlockers";
+import type { WikiTruthRuntimeApplyPipelineView } from "@/lib/wikiTruthRuntimeApplyPipeline";
+import type { WikiTruthFinalReconciliationView } from "@/lib/wikiTruthFinalReconciliation";
 import { ruAuditValue, ruBoolean, SUMMARY_LABELS } from "./wikiTruthRu";
 
 function renderLinks(
@@ -123,10 +142,28 @@ function Row({ row }: { row: WikiTruthAuditRow }) {
 
 export default function WikiTruthTable({
   audit,
+  acceptanceAudit,
   colorComparison,
+  colorApplyGate,
+  colorApplyPlan,
+  colorProposals,
+  colorReviewDossier,
+  legalKnowledgeAxisMatrix,
+  primaryLawBlockers,
+  runtimeApplyPipeline,
+  finalReconciliation,
 }: {
   audit: WikiTruthAuditModel;
+  acceptanceAudit: WikiTruthAcceptanceAuditView;
   colorComparison: WikiTruthColorComparisonRow[];
+  colorApplyGate: WikiTruthColorApplyGateView;
+  colorApplyPlan: WikiTruthColorApplyPlanView;
+  colorProposals: WikiTruthColorProposalsView;
+  colorReviewDossier: WikiTruthColorReviewDossierView;
+  legalKnowledgeAxisMatrix: WikiTruthLegalKnowledgeAxisMatrixView;
+  primaryLawBlockers: WikiTruthPrimaryLawBlockersView;
+  runtimeApplyPipeline: WikiTruthRuntimeApplyPipelineView;
+  finalReconciliation: WikiTruthFinalReconciliationView;
 }) {
   return (
     <div className="auditView">
@@ -154,20 +191,48 @@ export default function WikiTruthTable({
         ))}
       </section>
 
-      <section className="issueBar" data-testid="wiki-truth-issues">
+      <section
+        className="issueBar"
+        data-testid="wiki-truth-issues"
+        data-official-ownership-missing={
+          audit.issueCounters.officialSourcesMissing
+        }
+      >
         <span>РАСХОЖДЕНИЕ СТАТУСА: {audit.issueCounters.statusMismatch}</span>
         <span>НЕТ ИТОГОВОЙ СТРОКИ: {audit.issueCounters.noOurRow}</span>
         <span>
-          НЕТ ОФИЦИАЛЬНЫХ ИСТОЧНИКОВ:{" "}
+          НЕТ ПРИВЯЗКИ ВЛАДЕЛЬЦА ОФИЦИАЛЬНОЙ ССЫЛКИ:{" "}
           {audit.issueCounters.officialSourcesMissing}
         </span>
         <span>НЕТ ИСТОЧНИКОВ: {audit.issueCounters.sourcesMissing}</span>
         <span>НЕТ ПРИМЕЧАНИЙ WIKI: {audit.issueCounters.wikiNotesMissing}</span>
       </section>
 
+      <SecondPassProgress progress={audit.secondPassProgress} />
+
+      <CannabisLawFinalReconciliation
+        reconciliation={finalReconciliation}
+      />
+
       <CannabisLawMatrix matrix={audit.cannabisLawMatrix} />
 
       <CannabisLawColorTable rows={colorComparison} />
+
+      <CannabisLawAcceptanceAudit acceptance={acceptanceAudit} />
+
+      <CannabisLawPrimaryLawBlockers blockers={primaryLawBlockers} />
+
+      <CannabisLawColorProposals proposals={colorProposals} />
+
+      <CannabisLawColorApplyPlan plan={colorApplyPlan} />
+
+      <CannabisLawColorReviewDossier dossier={colorReviewDossier} />
+
+      <CannabisLawLegalKnowledgeAxisMatrix matrix={legalKnowledgeAxisMatrix} />
+
+      <CannabisLawColorApplyGate gate={colorApplyGate} />
+
+      <CannabisLawRuntimeApplyPipeline pipeline={runtimeApplyPipeline} />
 
       <details className="secondaryAuditGroup">
         <summary>Официальный реестр и владение ссылками</summary>
@@ -395,6 +460,7 @@ export default function WikiTruthTable({
                     <th className="colStatus">Итоговый статус</th>
                     <th className="colMeta">Основание правила</th>
                     <th className="colMeta">Причина переопределения</th>
+                    <th className="colMeta">Снимок</th>
                     <th className="colDelta">Изменение</th>
                     <th className="colMeta">ID правила</th>
                     <th className="colMeta">Переопределение одобрено</th>
@@ -407,6 +473,9 @@ export default function WikiTruthTable({
                     <th className="colNotes">Примечания Wiki</th>
                     <th className="colNotes">Нормализованные примечания</th>
                     <th className="colNotes">Объяснение примечаний</th>
+                    <th className="colNotes">Контекст</th>
+                    <th className="colNotes">Правоприменение</th>
+                    <th className="colNotes">Практическая ситуация</th>
                     <th className="colFlags">Флаги</th>
                   </tr>
                 </thead>
@@ -831,6 +900,53 @@ export default function WikiTruthTable({
         }
         .diagBlock + .diagBlock {
           margin-top: 16px;
+        }
+
+        @media print {
+          .tableWrap {
+            overflow-x: visible !important;
+            overflow-y: visible !important;
+            width: auto !important;
+            max-width: none !important;
+          }
+
+          .truthTable {
+            width: auto !important;
+            min-width: 0 !important;
+            max-width: none !important;
+            table-layout: auto !important;
+            font-size: 10px !important;
+          }
+
+          th,
+          td {
+            max-width: none !important;
+            white-space: normal !important;
+            word-break: break-word !important;
+            overflow: visible !important;
+          }
+
+          .stickyCol1,
+          .stickyCol2,
+          .stickyCell,
+          th {
+            position: static !important;
+            left: auto !important;
+          }
+
+          .colGeo,
+          .colCountry,
+          .colStatus,
+          .colLinks,
+          .colOfficialLinks,
+          .colNotes,
+          .colMeta,
+          .colDelta,
+          .colUrl,
+          .colFlags {
+            min-width: auto !important;
+            width: auto !important;
+          }
         }
       `}</style>
     </div>

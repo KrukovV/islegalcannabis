@@ -2,6 +2,28 @@
 
 Statuses: pending | in_progress | done
 
+## Independent Truth-First 307-GEO Re-Audit
+
+- [in_progress] Freeze and compare the live map, SSOT, `/wiki-truth`, and PDF baselines without treating any derived proposal as legal truth.
+- [pending] Produce the 307-row independent official-law, visual-evidence, ownership/applicability, and map-reconciliation proposal artifacts defined in `docs/TRUTH_FIRST_307_REAUDIT_SPEC.md`.
+- [pending] Close only general-model defects with regression evidence; retain `APPLY_ALLOWED=false` until all statutory, operational, visual, and map-capture gates are met and the user authorizes apply.
+
+## Uganda 2025 Primary Law refresh
+
+- [done] Read and visually verify the supplied Parliament Act PDF, its cannabis schedules, prescription, cultivation and licensing provisions.
+- [done] Verify the official commencement instrument and current consolidated citation.
+- [done] Update the local evidence ledger and rebuild all affected Truth artifacts without SSOT/map/runtime/production mutation.
+- [done] Refresh and verify the singleton `/wiki-truth` UI, then complete the mandatory read-only pass cycle.
+
+## Truth-First Final Reconciliation
+
+- [done] Freeze audit-only baseline and build one 307-GEO cross-layer reconciliation manifest.
+- [done] Freshly verify every GREEN, high-risk YELLOW, and UNKNOWN against applicable Primary Law.
+- [done] Correct only general legal-model rules; forbid country-specific exceptions and Wikipedia influence.
+- [done] Remove legacy/hardcoded /wiki-truth lineage and source all UI values from the current Truth Pipeline.
+- [done] Publish final Truth Report with color changes, legal proof, UNKNOWN reasons, false-color classes, and no-mutation proof.
+- [done] Prove rendered 307/307 acceptance and finish with tools/pass_cycle.sh.
+
 - [done] Manually open and visually inspect official cannabis-law evidence for all 307 rows; current checkpoint 307/307, and a saved screenshot is mandatory before any link is accepted as law evidence
 - [done] Re-audit every former 62 automated direct-label row by eye; all 62 are manually complete, candidate rows awaiting visual review are 0, and term matches/path guesses were never accepted as evidence
 - [done] Update the prebuilt cannabis-law matrix and `/wiki-truth` UI so verified evidence, pending candidates, context-only links, screenshots, status divergence, and scope reasons stay visibly separate without editing status SSOT
@@ -70,7 +92,7 @@ Statuses: pending | in_progress | done
 - [in_progress] Restore repeatable production screenshots with cookie as diagnostic only and produce repeatability report
 - [done] Refresh project docs/spec so popup/wiki `307/307` is no longer presented as sufficient evidence for resolver/color/SEO sync changes
 - [in_progress] Implement full `307` GEO unified geo-sync audit across map color, popup, SEO, and wiki-backed canonical evidence
-- [in_progress] Eliminate same-name GEO collisions through canonical resolver identity (`geo + entity_type + parent + jurisdiction_kind`) with no country-specific patches
+- [done] Eliminate same-name GEO collisions through canonical resolver identity (`geo + entity_type + parent + jurisdiction_kind`) with no country-specific patches
 - [done] Move the countries GeoJSON/Brotli asset out of cold runtime into exact-byte SSG and verify unchanged map behavior with production build, WebKit regressions, and full `307/307` popup audit
 - [done] Make `popup_visual_audit_guard` nonzero capture compatible with the inherited Bash `ERR` trap without weakening the guard
 - [done] Restore the required ignored `data/source_snapshots` runtime directory without fabricating snapshot data
@@ -79,8 +101,8 @@ Statuses: pending | in_progress | done
 - [done] Complete `pass_cycle` and verify final report contains `POST_CHECKS_OK=1` and `HUB_STAGE_REPORT_OK=1`
 - [in_progress] Build and push an isolated production release from `origin/main` containing only the verified countries-SSG performance patch
 - [done] Restore clean-worktree operational prerequisites and matching Playwright browser binaries without weakening gates
-- [in_progress] Make the strict repository-root guard support an explicitly named isolated release worktree
-- [pending] Poll `/api/build-meta` at bounded intervals until the release commit is live on `www.islegal.info`
+- [done] Make the strict repository-root guard support an explicitly named isolated release worktree
+- [done] Poll `/api/build-meta` at bounded intervals until the release commit is live on `www.islegal.info` (local `HEAD` already matches prod build meta commit).
 - [pending] Run serial production access, payload, JS/city, GPS/hover/zoom, geo-sync canary, and PageSpeed checks against the deployed commit
 # Grey official-law color re-audit (2026-07-19)
 
@@ -101,5 +123,13 @@ Statuses: pending | in_progress | done
 
 - [done] Re-open the 11 retained-grey rows (AQ, BRT, BV, ET, KP, PN, SCR, KAS, SPI, PGA, SJ) and document the exact missing legal/applicability bridge for each.
 - [done] Re-search official law portals, gazettes, APIs, mirrors and PDFs; accept a source only after isolated visual inspection of the relevant legal text. SCR, PGA, SJ and BV are closed red; KAS, SPI, ET, KP, PN, AQ and BRT are closed yellow. The original 39-row re-audit now has 39 resolved colors and 0 grey rows.
-- [in_progress] Publish each proven GEO immediately into the additive visual review, color re-audit, 307 matrix and `/wiki-truth` while preserving status SSOT; current checkpoint is 38 resolved and 1 honestly grey.
-- [pending] Prove 307 rows and 0 grey official-law colors in isolated browser rendering, then complete `bash tools/pass_cycle.sh` with all mandatory green markers.
+- [done] Publish each proven GEO immediately into the additive visual review, color re-audit, 307 matrix and `/wiki-truth` while preserving status SSOT; final checkpoint is 39 resolved official-law colors and 0 official-law grey rows.
+- [done] Prove 307 rows and 0 grey official-law colors in isolated browser rendering, then complete `bash tools/pass_cycle.sh` with all mandatory green markers.
+
+# Seven project-null GEO corrective re-audit (2026-07-20)
+
+- [done] Re-search BJN, BRT, SCR, SER, KAS, SPI and PGA on official sites and visually inspect each accepted HTML/PDF fragment in isolated headless rendering; 32 of 34 captures accepted and two blocked/error captures explicitly rejected.
+- [done] Publish fresh per-GEO screenshot analytics additively while keeping all seven projectStatus values null and all project SSOT statuses unchanged.
+- [done] Read current colors from the exact 307-row country/state render snapshots; preserve UNKNOWN only for BJN, BRT, SCR, SER, KAS, SPI and PGA and restore the visible page-freshness/update control.
+- [done] Expose 41 deduplicated supplemental official re-audit links, repair no-project and ownership counters, table column parity and duplicate screenshot keys without shrinkage.
+- [done] Prove the corrected 307-row UI and real refresh in isolated Chromium/WebKit and complete `bash tools/pass_cycle.sh` with mandatory green markers; exact render-snapshot, false-grey, table/link, freshness and document-navigation checks pass in both engines.

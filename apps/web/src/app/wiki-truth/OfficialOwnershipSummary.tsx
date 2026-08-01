@@ -1,6 +1,11 @@
 "use client";
 
 import type { OfficialOwnershipViewModel } from "@/lib/officialSources/officialOwnershipView";
+import { getDisplayName } from "@/lib/countryNames";
+
+function renderGeoName(geo: string) {
+  return getDisplayName(geo) || geo;
+}
 
 export default function OfficialOwnershipSummary({
   view,
@@ -79,6 +84,24 @@ export default function OfficialOwnershipSummary({
           <strong>Стран без эффективных ссылок</strong>
           <div>{view.countriesWithoutEffectiveLinks}</div>
         </div>
+        {view.countriesWithoutEffectiveLinksRows?.length ? (
+          <details>
+            <summary>
+              Список стран без эффективной официальной привязки ({view.countriesWithoutEffectiveLinksRows.length})
+            </summary>
+            <div className="sectionHint" style={{ marginTop: 8 }}>
+              Эти страны попадают в denominator покрытия “Official geo coverage”,
+              но сейчас не имеют действующих effective официальных ссылок:
+            </div>
+            <ul style={{ margin: "8px 0 0", paddingLeft: 22 }}>
+              {view.countriesWithoutEffectiveLinksRows.map((geo) => (
+                <li key={geo}>
+                  {geo} — {renderGeoName(geo)}
+                </li>
+              ))}
+            </ul>
+          </details>
+        ) : null}
         <div>
           <strong>Стран с 2+ эффективными ссылками</strong>
           <div>{view.countriesWithMultipleEffectiveLinks}</div>

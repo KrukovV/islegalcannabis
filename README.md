@@ -18,8 +18,9 @@ The current primary runtime is the MapLibre `/new-map` experience. The root rout
 - Official registry and official geo coverage are separate universes.
 - SSOT snapshots stay at `row_count=300`; confirmed diffs are append-only and require two consecutive refresh cycles.
 - Status Engine Audit v3 is review-only, emits only `GREEN`/`YELLOW`/`RED`, and stores Cannabis Profile data separately from color decisions.
+- The independent, proposal-only 307-GEO Official Truth re-audit has a separate source-first contract in [docs/TRUTH_FIRST_307_REAUDIT_SPEC.md](docs/TRUTH_FIRST_307_REAUDIT_SPEC.md). It does not treat prior `/wiki-truth` proposals as legal truth and cannot modify SSOT, map, or production without explicit user authorization.
 
-See [docs/CONTRACT.md](docs/CONTRACT.md), [docs/GEO_SYNC_AUDIT.md](docs/GEO_SYNC_AUDIT.md), [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), and [docs/STATUS_ENGINE_AUDIT.md](docs/STATUS_ENGINE_AUDIT.md).
+See [docs/CONTRACT.md](docs/CONTRACT.md), [docs/GEO_SYNC_AUDIT.md](docs/GEO_SYNC_AUDIT.md), [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), [docs/STATUS_ENGINE_AUDIT.md](docs/STATUS_ENGINE_AUDIT.md), and [docs/TRUTH_FIRST_307_REAUDIT_SPEC.md](docs/TRUTH_FIRST_307_REAUDIT_SPEC.md).
 
 ## Getting Started
 

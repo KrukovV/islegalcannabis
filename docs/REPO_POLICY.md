@@ -16,6 +16,14 @@
 ## Данные законов
 - data/laws содержит только JSON и источники (url) в полях sources.
 
+## Truth-First legal audit data
+- `data/reviews/**` may contain evidence, screenshots, snapshots, and proposal-only legal conclusions. It is not SSOT and must never silently alter production map colors or runtime statuses.
+- Every re-audit artifact must keep source provenance, applicability, review date, and an explicit distinction between Primary Law, legal interpretation, current map, SSOT, and Wikipedia audit result.
+- Existing derived truth artifacts are not admissible as an input to an independent Official Truth conclusion. They may be compared only after the official-law result is recorded.
+- New source evidence must be schema-driven. Country-specific code paths, color overrides, Green allowlists, and one-off status patches are forbidden in the derivation path.
+- Large screenshot archives stay outside the repository. The repository may keep only the bounded evidence captures required by the active audit manifest and CI storage guards.
+- An audit-only commit must preserve `APPLY_ALLOWED=false`, `PRODUCTION_TOUCHED=false`, `MAP_COLORS_CHANGED=false`, and `SSOT_CHANGED=false` unless the user separately authorizes an apply operation.
+
 ## Storage Hygiene
 - `QUARANTINE` должен содержать ровно один PASS snapshot.
 - `Reports` хранит только операционные логи текущих проверок, не историю.

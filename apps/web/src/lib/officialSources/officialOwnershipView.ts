@@ -67,6 +67,7 @@ export type OfficialOwnershipViewModel = {
   countriesWithoutEffectiveLinks: number;
   countriesWithMultipleEffectiveLinks: number;
   statesWithEffectiveLinks: number;
+  countriesWithoutEffectiveLinksRows: string[];
   rows: OfficialOwnershipRowView[];
   effectiveAssignedRows: OfficialOwnershipRowView[];
   unknownRows: OfficialOwnershipRowView[];
@@ -213,6 +214,10 @@ export function buildOfficialOwnershipView(input: {
     const hasFallback = assigned.some((entry) => entry.ownershipQuality === "GLOBAL_FALLBACK");
     return !hasEffective && hasFallback;
   }).length;
+  const countriesWithoutEffectiveLinksRows = countryRows
+    .filter((row) => (geoSummaryMap.get(row.geoKey)?.effectiveCount || 0) === 0)
+    .map((row) => row.geoKey)
+    .sort();
 
   return {
     rawTotal: input.dataset.raw_registry_total,
@@ -233,6 +238,7 @@ export function buildOfficialOwnershipView(input: {
     countriesWithWeakOnlyOfficialLinks,
     countriesWithFallbackOnlyLinks,
     countriesWithoutEffectiveLinks,
+    countriesWithoutEffectiveLinksRows,
     countriesWithMultipleEffectiveLinks,
     statesWithEffectiveLinks,
     rows,

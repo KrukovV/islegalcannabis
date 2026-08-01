@@ -136,6 +136,7 @@ export default function OfficialOwnershipTable({
         <label>
           Поиск{" "}
           <input
+            suppressHydrationWarning
             value={search}
             onChange={(event) => setSearch(event.target.value)}
             placeholder="домен, ISO, страна"

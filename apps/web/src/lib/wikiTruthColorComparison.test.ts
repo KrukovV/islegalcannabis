@@ -1,0 +1,468 @@
+import fs from "node:fs";
+import path from "node:path";
+import { describe, expect, test } from "vitest";
+import type { WikiTruthCannabisLawMatrix } from "@/lib/wikiTruthCannabisLawMatrix";
+import type { WikiTruthCannabisLawRow } from "@/lib/wikiTruthCannabisLawMatrix";
+import {
+  buildWikiTruthColorComparison,
+  deriveOfficialLawMapCategory,
+} from "@/lib/wikiTruthColorComparison";
+import {
+  buildCountrySourceSnapshot,
+  buildUsStateSourceSnapshot,
+} from "@/new-map/countrySource";
+
+const PROJECT_NULL_GEOS = ["BJN", "BRT", "SCR", "SER", "KAS", "SPI", "PGA"];
+const EXPECTED_OFFICIAL_COLORS = {
+  BJN: "UNKNOWN",
+  BRT: "UNKNOWN",
+  SCR: "UNKNOWN",
+  SER: "UNKNOWN",
+  KAS: "UNKNOWN",
+  SPI: "UNKNOWN",
+  PGA: "UNKNOWN",
+} as const;
+
+function findRepoRoot(start: string): string {
+  let current = start;
+  for (let index = 0; index < 6; index += 1) {
+    if (
+      fs.existsSync(
+        path.join(
+          current,
+          "data",
+          "reviews",
+          "wiki-truth-cannabis-law-matrix-307.json",
+        ),
+      )
+    ) {
+      return current;
+    }
+    const parent = path.dirname(current);
+    if (!parent || parent === current) break;
+    current = parent;
+  }
+  return start;
+}
+
+function readMatrix(): WikiTruthCannabisLawMatrix {
+  const root = findRepoRoot(process.cwd());
+  return JSON.parse(
+    fs.readFileSync(
+      path.join(
+        root,
+        "data",
+        "reviews",
+        "wiki-truth-cannabis-law-matrix-307.json",
+      ),
+      "utf8",
+    ),
+  ) as WikiTruthCannabisLawMatrix;
+}
+
+function readTruthColorByGeo(): ReadonlyMap<string, string> {
+  const root = findRepoRoot(process.cwd());
+  const payload = JSON.parse(
+    fs.readFileSync(
+      path.join(
+        root,
+        "data",
+        "reviews",
+        "wiki-truth-307-final-reconciliation.json",
+      ),
+      "utf8",
+    ),
+  ) as { rows?: Array<{ geo?: string; truthColor?: string }> };
+  return new Map(
+    (payload.rows || [])
+      .filter((row) => row.geo && row.truthColor)
+      .map((row) => [String(row.geo).toUpperCase(), String(row.truthColor)]),
+  );
+}
+
+function asOfficialRow(overrides: {
+  recreational: string;
+  medical: string;
+  enforcement?: string;
+  sourceCoverage?: WikiTruthCannabisLawRow["sourceCoverage"];
+}, sourceCoverageOverride?: WikiTruthCannabisLawRow["sourceCoverage"]): WikiTruthCannabisLawRow {
+  return {
+    geo: "ZZZ",
+    territory: "ZZ",
+    projectStatus: {
+      recreational: overrides.recreational,
+      medical: overrides.medical,
+      enforcement: overrides.enforcement || "STRICT",
+    },
+    officialStatus: {
+      recreational: overrides.recreational,
+      medical: overrides.medical,
+      enforcement: overrides.enforcement || null,
+    },
+    directOfficialCannabisLawLinks: [],
+    candidateLinksAwaitingVisualReview: [],
+    officialContextLinks: [],
+    supplementalOfficialLinks: [],
+    sourceCoverage:
+      sourceCoverageOverride || overrides.sourceCoverage || "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
+    differenceStatus: "-",
+    differenceDescription: "",
+    parserSignals: [],
+    derivedStatus: null,
+    visualReviewStatus: "verified",
+    screenshotPaths: [],
+    reviewConfidence: "high",
+    reviewNotes: "",
+    latestColorReaudit: null,
+  };
+}
+
+describe("wiki-truth cannabis color comparison", () => {
+  test("keeps all seven project-null scope exclusions uncolored", () => {
+    const matrix = readMatrix();
+    const mapRows = [
+      ...buildCountrySourceSnapshot().features,
+      ...buildUsStateSourceSnapshot().features,
+    ].map((feature) => ({
+      geo: String(feature.properties?.geo || ""),
+      finalMapCategory: feature.properties?.mapCategory,
+    }));
+    const comparison = buildWikiTruthColorComparison(
+      matrix,
+      mapRows,
+      [],
+      readTruthColorByGeo(),
+    );
+    const seven = comparison.filter((row) => PROJECT_NULL_GEOS.includes(row.geo));
+    const currentGreyGeos = comparison
+      .filter((row) => row.current.category === "UNKNOWN")
+      .map((row) => row.geo)
+      .sort();
+
+    expect(matrix.counts.noProjectStatus).toBe(7);
+    expect(new Set(mapRows.map((row) => row.geo)).size).toBe(307);
+    expect(currentGreyGeos).toEqual([...PROJECT_NULL_GEOS].sort());
+    expect(seven).toHaveLength(7);
+    for (const row of seven) {
+      expect(row.current.category, row.geo).toBe("UNKNOWN");
+      expect(row.current.label, row.geo).toBe("Без цвета — нет статуса проекта");
+      expect(row.official.category, row.geo).toBe(
+        EXPECTED_OFFICIAL_COLORS[row.geo as keyof typeof EXPECTED_OFFICIAL_COLORS],
+      );
+    }
+  });
+
+  test("publishes supplemental official re-audit links without duplicate row URLs", () => {
+    const matrix = readMatrix();
+
+    expect(matrix.counts.supplementalOfficialLinks).toBeGreaterThanOrEqual(41);
+    expect(matrix.counts.rowsWithAnyOfficialUrl).toBe(307);
+    for (const row of matrix.rows) {
+      expect(new Set(row.screenshotPaths).size, row.geo).toBe(
+        row.screenshotPaths.length,
+      );
+      const urls = [
+        ...row.directOfficialCannabisLawLinks,
+        ...row.officialContextLinks,
+        ...row.supplementalOfficialLinks,
+      ].map((link) => link.url.replace(/#.*$/, "").replace(/\/+$/, ""));
+      expect(new Set(urls).size, row.geo).toBe(urls.length);
+    }
+  });
+
+  test("derives official truth-first colors by explicit legal mode rules", () => {
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "LEGAL_ADULT_USE_REGULATED",
+          medical: "NONE",
+        }),
+      ),
+    ).toBe("LEGAL_OR_DECRIM");
+
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "DECRIMINALIZED_OR_LIMITED_PRIVATE_USE_SCOPE__NON_GUILTY",
+          medical: "NONE",
+        }),
+      ),
+    ).toBe("LIMITED_OR_MEDICAL");
+
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "ILLEGAL_UNDER_ARTICLE_1",
+          medical: "PRESCRIPTION_CANNABIS_MEDICINES",
+        }),
+      ),
+    ).toBe("LIMITED_OR_MEDICAL");
+
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "ILLEGAL",
+          medical: "NONE_NO_PATIENT_ACCESS_FOUND",
+        }),
+      ),
+    ).toBe("ILLEGAL");
+
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "ILLEGAL",
+          medical: "REGULATED_PATIENT_RECOMMENDATION_CARD_AND_DISPENSARY_FRAMEWORK",
+        }),
+      ),
+    ).toBe("LEGAL_OR_DECRIM");
+  });
+
+  test("keeps cultivation/association modes from being treated as adult-use legal", () => {
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational:
+            "LEGAL_FOR_ADULT_POSSESSION_UP_TO_TWO_OUNCES_HOME_CULTIVATION_AND_NONCOMMERCIAL_SHARING; BUYING_AND_SELLING_EXCLUDED",
+          medical: "NONE",
+        }),
+      ),
+    ).not.toBe("LEGAL_OR_DECRIM");
+
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "ILLEGAL",
+          medical: "PHARMACEUTICAL_PRODUCTION_EXCEPTIONS",
+        }),
+      ),
+    ).toBe("LIMITED_OR_MEDICAL");
+  });
+
+  test("classifies medical-only variants and explicit patient-access variants", () => {
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "ILLEGAL",
+          medical: "ONLY_CBD_MEDICINES",
+        }),
+      ),
+    ).toBe("LIMITED_OR_MEDICAL");
+
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "ILLEGAL",
+          medical: "SATIVEX_ONLY",
+        }),
+      ),
+    ).toBe("LIMITED_OR_MEDICAL");
+
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "ILLEGAL",
+          medical: "ONLY_CBD_MEDICINES; PATIENT_ACCESS; REGISTRY; PATIENT_CARD",
+        }),
+      ),
+    ).toBe("LIMITED_OR_MEDICAL");
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "ILLEGAL",
+          medical:
+            "LICENSED_PRODUCTION_FOR_MEDICAL_AND_EXPORT_ONLY_NO_DOMESTIC_PATIENT_ACCESS",
+        }),
+      ),
+    ).toBe("LIMITED_OR_MEDICAL");
+  });
+
+  test("treats lifecycle-only law states as non-green and evidence-gapped", () => {
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "LEGAL_ADULT_USE_REGULATED_BILL_PROPOSAL",
+          medical: "NONE",
+        }),
+      ),
+    ).toBe("UNKNOWN");
+
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "ILLEGAL_WITHOUT_ENACTED_IMPLEMENTATION_DRAFT",
+          medical: "NONE",
+        }),
+      ),
+    ).toBe("UNKNOWN");
+
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "LEGAL_ADULT_USE_REPEALED_ACT_IN_EFFECT",
+          medical: "NONE",
+        }),
+      ),
+    ).toBe("UNKNOWN");
+
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "LEGAL_FOR_ADULT_POSSESSION_UP_TO_TWO_OUNCES_HOME_CULTIVATION_AND_NONCOMMERCIAL_SHARING; ADULT_RETAIL_SALES_NOT_YET_GENERAL",
+          medical: "NONE",
+        }),
+      ),
+    ).toBe("LIMITED_OR_MEDICAL");
+  });
+
+  test("never uses non-patient modes as green triggers", () => {
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "ILLEGAL",
+          medical: "PRODUCTION_ONLY; MEDICAL_ACCESS_CONTEXT_PROVISIONAL",
+        }),
+      ),
+    ).toBe("UNKNOWN");
+
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "ILLEGAL",
+          medical: "RESEARCH_EXEMPTIONS; IMPORT_ONLY_WITHOUT_PATIENT_ACCESS",
+        }),
+      ),
+    ).toBe("LIMITED_OR_MEDICAL");
+
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "ILLEGAL_PROHIBITED_NARCOTICS_IMPORT",
+          medical: "NONE_NO_PATIENT_ACCESS_FOUND",
+          enforcement: "STRICT",
+        }),
+      ),
+    ).toBe("ILLEGAL");
+
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "ILLEGAL",
+          medical: "EXPORT_ONLY; COMMERCIAL_DISPATCH_PERMITS",
+        }),
+      ),
+    ).toBe("LIMITED_OR_MEDICAL");
+
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "ILLEGAL",
+          medical: "PATIENT_ACCESS_PRODUCT_SCOPE_NOT_PROVEN; REGULATED_CULTIVATION",
+        }),
+      ),
+    ).toBe("LIMITED_OR_MEDICAL");
+
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "ILLEGAL",
+          medical: "CBD_MEDICINES_AND_SATIVEX_PRODUCT_PATH_ONLY",
+        }),
+      ),
+    ).toBe("LIMITED_OR_MEDICAL");
+
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "ILLEGAL",
+          medical:
+            "LIMITED_FOR_CANNABINOID_PHARMACEUTICALS_ONLY; STRICT_SUPPLY_PRESCRIPTION_AND_DISPENSATION_FRAMEWORKS_FOR_HSA_REGISTERED_CONDITIONS",
+        }),
+      ),
+    ).toBe("LIMITED_OR_MEDICAL");
+  });
+
+  test("treats operational patient-program infrastructure as green patient access", () => {
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "ILLEGAL",
+          medical: "REGULATED_PATIENT_RECOMMENDATION_CARD_AND_DISPENSARY_FRAMEWORK",
+        }),
+      ),
+    ).toBe("LEGAL_OR_DECRIM");
+
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "ILLEGAL",
+          medical: "REGULATED_CERTIFIED_PATIENT_PROGRAM",
+        }),
+      ),
+    ).toBe("LIMITED_OR_MEDICAL");
+
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "UNCONFIRMED_BY_THIS_PAGE",
+          medical: "REGULATED",
+        }),
+      ),
+    ).toBe("LIMITED_OR_MEDICAL");
+
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "ILLEGAL",
+          medical: "AUTHORISED_PROGRAM_WITH_IMPLEMENTATION_LIMITS",
+        }),
+      ),
+    ).toBe("LIMITED_OR_MEDICAL");
+  });
+
+  test("treats prescription access to own patients as operational patient access", () => {
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "ILLEGAL",
+          medical: "REGULATED; OFFICIAL_TEXT_ALLOWS_LISTED_PROFESSIONALS_TO_SUPPLY_TO_OWN_PATIENTS_WITH_OFFICIAL_PRESCRIPTION",
+        }),
+      ),
+    ).toBe("LEGAL_OR_DECRIM");
+  });
+
+  test("keeps claimant-only rows non-authoritative for truth-first color", () => {
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "UNDER_VISUALLY_VERIFIED_CLAIMANT_REGIME",
+          medical: "UNDER_VISUALLY_VERIFIED_CLAIMANT_REGIME",
+        }),
+      ),
+    ).toBe("UNKNOWN");
+  });
+
+  test("returns UNKNOWN for OFFICIAL_CONTEXT_ONLY rows, regardless of parsed signals", () => {
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow(
+          {
+            recreational: "LEGAL_ADULT_USE_REGULATED",
+            medical: "REGULATED_PATIENT_ACCESS",
+          },
+          "OFFICIAL_CONTEXT_ONLY",
+        ),
+      ),
+    ).toBe("UNKNOWN");
+  });
+
+  test("returns UNKNOWN for mixed federal/state jurisdictional signals", () => {
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "LEGAL_ADULT_USE_REGULATED; FEDERAL",
+          medical: "REGULATED_PATIENT_ACCESS; STATE_SCOPE",
+        }),
+      ),
+    ).toBe("UNKNOWN");
+  });
+});

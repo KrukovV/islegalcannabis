@@ -9,9 +9,20 @@ for arg in "$@"; do
   fi
 done
 
+SCRIPT_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 START_DIR="$(pwd)"
-ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-if [ "${START_DIR}" != "${ROOT}" ]; then
+START_DIR_REAL="$(realpath "${START_DIR}")"
+if [ -n "${ISLEGAL_EXPECTED_ROOT:-}" ]; then
+  if ! ROOT="$(realpath "${ISLEGAL_EXPECTED_ROOT}" 2>/dev/null)"; then
+    printf "❌ CI FAIL\n"
+    printf "Root override invalid: %s\n" "${ISLEGAL_EXPECTED_ROOT}" >&2
+    exit 2
+  fi
+else
+  ROOT="$(realpath "${SCRIPT_ROOT}")"
+fi
+
+if [ "${START_DIR_REAL}" != "${ROOT}" ]; then
   printf "WHERE: repo_root=%s\n" "${ROOT}"
   exit 2
 fi

@@ -56,6 +56,8 @@ type RuntimeJurisdiction = {
   } | null;
 };
 
+type CanonicalEntityType = "country" | "state";
+
 type LngLat = {
   lng: number;
   lat: number;
@@ -691,6 +693,23 @@ function normalizeWikiComparableUrl(value: string) {
 
 function isSyntheticGeo(geo: string) {
   return /^[A-Z]{3}$/.test(String(geo || "").trim().toUpperCase());
+}
+
+function resolveEntityType(params: { geo: string; entry?: RuntimeJurisdiction | null; pageData?: { node_type?: string } | null }) {
+  const normalizedGeo = String(params.geo || "").toUpperCase();
+  if (params.entry?.type === "state" || params.pageData?.node_type === "state") return "state";
+  if (params.entry?.type === "country" || params.pageData?.node_type === "country") return "country";
+  return normalizedGeo.startsWith("US-") ? "state" : "country";
+}
+
+function resolveJurisdictionKind(params: {
+  geo: string;
+  entityType: CanonicalEntityType;
+  parent: string | null;
+}) {
+  if (params.entityType === "state") return "state";
+  if (isSyntheticGeo(params.geo)) return "synthetic";
+  return "country";
 }
 
 function popupSemanticHeading(value: string) {
@@ -2174,7 +2193,13 @@ async function main() {
       ].filter(Boolean));
 
       const parent = pageData?.parent_country?.code || entry?.parentCountry?.code || null;
-      const canonicalKey = `${geo}|${entry?.type || (geo.startsWith("US-") ? "state" : "country")}|${parent || "-"}|${isSyntheticGeo(geo) ? "synthetic" : (entry?.type || "country")}`;
+      const entityType = resolveEntityType({ geo, entry, pageData });
+      const jurisdictionKind = resolveJurisdictionKind({
+        geo,
+        entityType,
+        parent
+      });
+      const canonicalKey = `${geo}|${entityType}|${parent || "-"}|${jurisdictionKind}`;
       const wikiTitle = decodeWikiTitleFromUrl(wikiUrl);
       const canonicalTitle = String(pageData?.sources.legal || entry?.detailsHref || "").trim();
       const resolverScore: ResolverScore = {
@@ -2269,6 +2294,7 @@ async function main() {
           mapScreenshotStats &&
           (mapEvidence.screenshot_sample_distance ?? Number.POSITIVE_INFINITY) < 56
         ),
+        sparse: !pageData || ["root_only", "synthetic_no_wiki", "no_individual_wiki_page"].includes(coverageClass),
         reasons: [
           mapEvidence.found ? "" : "MAP_FEATURE_NOT_FOUND",
           mapEvidence.screenshot_sample_hex ? "" : "MAP_SCREEN_PIXEL_MISSING",

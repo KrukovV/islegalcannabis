@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const CHECK_MS = 30_000;
 const DISMISSED_BUILD_KEY = "build-watcher-dismissed-stamp";
@@ -20,6 +21,7 @@ type BuildMeta = {
   runtimeMode?: string;
   mapRuntime?: string;
   expectedOrigin?: string;
+  at?: string;
 };
 
 type RuntimeStamp = {
@@ -207,9 +209,15 @@ function runtimeMatches(left: RuntimeStamp, right: RuntimeStamp) {
 
 export default function BuildWatcher() {
   const isProduction = process.env.NODE_ENV === "production";
+  const pathname = usePathname();
+  const showPersistentAuditStatus =
+    pathname === "/wiki-truth" || pathname === "/trust-view";
   const [nextRuntimeStamp, setNextRuntimeStamp] = useState<string | null>(null);
   const [dismissed, setDismissed] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
+  const [observedMeta, setObservedMeta] = useState<BuildMeta | null>(null);
+  const [lastCheckedAt, setLastCheckedAt] = useState<string | null>(null);
+  const [checkFailed, setCheckFailed] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -283,14 +291,26 @@ export default function BuildWatcher() {
         window.sessionStorage.setItem(PENDING_RELOAD_COUNT_KEY, "0");
         resetClientRuntimePrefetch();
         const refreshUrl = buildRefreshUrl(nextRuntimeStamp);
-        window.history.replaceState(null, "", refreshUrl);
-        window.location.reload();
+        window.location.replace(refreshUrl);
         return;
       }
     } finally {
       setRefreshing(false);
     }
   }, [nextRuntimeStamp, refreshing]);
+
+  const handleManualReload = useCallback(async () => {
+    if (refreshing) return;
+    if (nextRuntimeStamp) {
+      await handleApplyUpdate();
+      return;
+    }
+    setRefreshing(true);
+    resetClientRuntimePrefetch();
+    if (typeof window !== "undefined") {
+      window.location.reload();
+    }
+  }, [handleApplyUpdate, nextRuntimeStamp, refreshing]);
 
   useEffect(() => {
     let alive = true;
@@ -299,9 +319,13 @@ export default function BuildWatcher() {
       try {
         const res = await fetch("/api/build-meta", { cache: "no-store" });
         if (!res.ok || !alive) {
+          if (alive) setCheckFailed(true);
           return;
         }
         const payload = (await res.json()) as BuildMeta;
+        setObservedMeta(payload);
+        setLastCheckedAt(new Date().toISOString());
+        setCheckFailed(false);
         const observedStamp = normalizePayload(payload);
         const observed = stampToKey(observedStamp);
         const currentRuntimeStamp = getClientRuntimeStamp();
@@ -330,7 +354,14 @@ export default function BuildWatcher() {
           typeof window !== "undefined"
             ? window.sessionStorage.getItem(PENDING_BUILD_KEY)
             : null;
-        if (pendingStamp && pendingStamp === observed) {
+        const completedRefreshNavigation =
+          typeof window !== "undefined" &&
+          new URL(window.location.href).searchParams.has(REFRESH_PARAM);
+        if (
+          pendingStamp &&
+          (pendingStamp === observed ||
+            (!currentRuntimeStamp && completedRefreshNavigation))
+        ) {
           syncRuntimeDom(payload);
           window.sessionStorage.setItem(ACTIVE_BUILD_KEY, observed);
           window.sessionStorage.removeItem(PENDING_BUILD_KEY);
@@ -353,7 +384,7 @@ export default function BuildWatcher() {
         setDismissed(false);
         setNextRuntimeStamp(observed);
       } catch {
-        // build check is best-effort only
+        if (alive) setCheckFailed(true);
       }
     };
 
@@ -368,13 +399,40 @@ export default function BuildWatcher() {
     };
   }, []);
 
-  if (isProduction || !nextRuntimeStamp || dismissed) {
+  if (
+    isProduction ||
+    (!showPersistentAuditStatus && (!nextRuntimeStamp || dismissed))
+  ) {
     return null;
   }
+
+  const freshnessStatus = nextRuntimeStamp
+    ? dismissed
+      ? "UPDATE_DEFERRED"
+      : "UPDATE_AVAILABLE"
+    : checkFailed
+      ? "CHECK_FAILED"
+      : observedMeta
+        ? "CURRENT"
+        : "CHECKING";
+  const title =
+    freshnessStatus === "UPDATE_AVAILABLE"
+      ? "Доступно обновление"
+      : freshnessStatus === "UPDATE_DEFERRED"
+        ? "Обновление отложено"
+        : freshnessStatus === "CURRENT"
+          ? "Страница актуальна"
+          : freshnessStatus === "CHECK_FAILED"
+            ? "Актуальность не подтверждена"
+            : "Проверяем актуальность…";
+  const checkedLabel = lastCheckedAt
+    ? new Date(lastCheckedAt).toLocaleTimeString("ru-RU")
+    : "ещё не проверено";
 
   return (
     <div
       data-testid="build-update-banner"
+      data-freshness-status={freshnessStatus}
       style={{
         position: "fixed",
         right: 16,
@@ -389,18 +447,19 @@ export default function BuildWatcher() {
         color: "#1f2937",
       }}
     >
-      <div style={{ fontWeight: 600, marginBottom: 6 }}>
-        Доступно обновление
-      </div>
+      <div style={{ fontWeight: 600, marginBottom: 6 }}>{title}</div>
       <div style={{ fontSize: 13, opacity: 0.85, marginBottom: 10 }}>
-        Появилась новая сборка приложения. Обновите страницу, когда будет
-        удобно.
+        {nextRuntimeStamp
+          ? "Появилась новая сборка приложения. Кнопка выполнит полную навигационную перезагрузку."
+          : checkFailed
+            ? "Не удалось проверить /api/build-meta. Текущая версия не объявляется актуальной."
+            : `Проверено: ${checkedLabel}. Сборка: ${String(observedMeta?.buildId || "—")}; коммит: ${String(observedMeta?.commit || "—")}; снимок: ${String(observedMeta?.finalSnapshotId || "—")}.`}
       </div>
       <div style={{ display: "flex", gap: 8 }}>
         <button
           type="button"
           onClick={() => {
-            void handleApplyUpdate();
+            void handleManualReload();
           }}
           disabled={refreshing}
           style={{
@@ -415,7 +474,7 @@ export default function BuildWatcher() {
         >
           {refreshing ? "Обновляем…" : "Обновить"}
         </button>
-        <button
+        {nextRuntimeStamp ? <button
           type="button"
           onClick={() => {
             if (nextRuntimeStamp && typeof window !== "undefined") {
@@ -438,7 +497,7 @@ export default function BuildWatcher() {
           disabled={refreshing}
         >
           Позже
-        </button>
+        </button> : null}
       </div>
     </div>
   );

@@ -13,6 +13,9 @@ const PENDING_PATH = path.join(ROOT, "cache", "ssot_diff_pending.json");
 const CACHE_PATH = path.join(ROOT, "cache", "ssot_diff_cache.json");
 const LOG_PATH = path.join(ROOT, "logs", "ssot_diff.log");
 const KEEP_LAST = 50;
+const READ_ONLY =
+  process.env.SSOT_DIFF_READ_ONLY === "1" ||
+  process.argv.includes("--read-only");
 
 function readJson(filePath, fallback) {
   try {
@@ -152,9 +155,11 @@ function timestampName(nowIso) {
 
 const nowIso = new Date().toISOString();
 const currentSnapshot = buildSnapshot(nowIso);
-fs.mkdirSync(SNAPSHOT_DIR, { recursive: true });
-writeJson(path.join(SNAPSHOT_DIR, timestampName(nowIso)), currentSnapshot);
-writeJson(LATEST_PATH, currentSnapshot);
+if (!READ_ONLY) {
+  fs.mkdirSync(SNAPSHOT_DIR, { recursive: true });
+  writeJson(path.join(SNAPSHOT_DIR, timestampName(nowIso)), currentSnapshot);
+  writeJson(LATEST_PATH, currentSnapshot);
+}
 const stable = readJson(STABLE_PATH, null);
 let registry = readRegistry();
 let pending = readJson(PENDING_PATH, []);
@@ -162,18 +167,22 @@ let status = "baseline";
 let confirmedCount = 0;
 
 if (!stable) {
-  writeJson(STABLE_PATH, currentSnapshot);
   pending = [];
-  writeJson(PENDING_PATH, pending);
-  writeCache(nowIso, registry, pending);
+  if (!READ_ONLY) {
+    writeJson(STABLE_PATH, currentSnapshot);
+    writeJson(PENDING_PATH, pending);
+    writeCache(nowIso, registry, pending);
+  }
 } else {
   const rawChanges = diffSnapshots(stable, currentSnapshot);
   if (!rawChanges.length) {
     status = "stable";
     pending = [];
-    writeJson(STABLE_PATH, currentSnapshot);
-    writeJson(PENDING_PATH, pending);
-    writeCache(nowIso, registry, pending);
+    if (!READ_ONLY) {
+      writeJson(STABLE_PATH, currentSnapshot);
+      writeJson(PENDING_PATH, pending);
+      writeCache(nowIso, registry, pending);
+    }
   } else {
     const previous = new Map(pending.map((entry) => [entry.change_key, entry]));
     pending = rawChanges.map((entry) => {
@@ -203,24 +212,37 @@ if (!stable) {
           (a, b) => Date.parse(b.ts) - Date.parse(a.ts)
         )
       };
-      writeJson(REGISTRY_PATH, registry);
-      writeJson(STABLE_PATH, currentSnapshot);
       pending = [];
-      fs.mkdirSync(path.dirname(LOG_PATH), { recursive: true });
-      fs.appendFileSync(
-        LOG_PATH,
-        `${confirmed.map((entry) => `${entry.ts} ${entry.type} ${entry.geo} ${entry.old_value || "-"} -> ${entry.new_value || "-"}`).join("\n")}\n`
-      );
+      if (!READ_ONLY) {
+        writeJson(REGISTRY_PATH, registry);
+        writeJson(STABLE_PATH, currentSnapshot);
+        fs.mkdirSync(path.dirname(LOG_PATH), { recursive: true });
+        fs.appendFileSync(
+          LOG_PATH,
+          `${confirmed.map((entry) => `${entry.ts} ${entry.type} ${entry.geo} ${entry.old_value || "-"} -> ${entry.new_value || "-"}`).join("\n")}\n`
+        );
+      }
     } else {
       status = "pending";
     }
-    writeJson(PENDING_PATH, pending);
-    writeCache(nowIso, registry, pending);
+    if (!READ_ONLY) {
+      writeJson(PENDING_PATH, pending);
+      writeCache(nowIso, registry, pending);
+    }
   }
 }
 
-const snapshotCount = pruneSnapshots();
+const snapshotCount = READ_ONLY
+  ? fs.existsSync(SNAPSHOT_DIR)
+    ? fs
+        .readdirSync(SNAPSHOT_DIR)
+        .filter((name) =>
+          /^snapshot_\d{4}_\d{2}_\d{2}_\d{2}\.json$/.test(name),
+        ).length
+    : 0
+  : pruneSnapshots();
 console.log(`SSOT_DIFF_ENGINE_OK=1`);
+console.log(`SSOT_DIFF_READ_ONLY=${READ_ONLY ? 1 : 0}`);
 console.log(`SSOT_DIFF_STATUS=${status}`);
 console.log(`SSOT_SNAPSHOT_ROWS=${currentSnapshot.row_count}`);
 console.log(`SSOT_SNAPSHOT_COUNT=${snapshotCount}`);

@@ -46,6 +46,74 @@ function textFromHtml(html) {
     .replace(/<[^>]+>/g, " ")));
 }
 
+const CANNABIS_SCOPE_MARKERS = [
+  /\bcannabis\b/i,
+  /\bcannabinoids?\b/i,
+  /\bcannabidiol\b/i,
+  /\bcannabinol\b/i,
+  /\bcannabigerol\b/i,
+  /\bcannabichromene\b/i,
+  /\bcannabidivarin\b/i,
+  /\btetrahydrocannabinol\b/i,
+  /\bthc\b/i,
+  /\bthca\b/i,
+  /\bdelta[-\s]*9(?:\s*-\s*?)?thc\b/i,
+  /\bcbd\b/i,
+  /\bcbn\b/i,
+  /\bcbg\b/i,
+  /\bcannabis\s+resina\b/i,
+  /\bcannabis\s+(?:plant|plants|sativa|indica|ruderalis|resin|oil|extract|extracts|preparation|preparations|seed|seeds|flower|flowers|leaf|leaves|bud|buds|seedling|seedlings|mixture|mixtures|resina)\b/i,
+  /\bcannabis\b[\w-]*\s+(?:related|derivative|derivatives)\b/i,
+  /\bcannabis\s+(?:sativa|indica|ruderalis|flower|flowers|flowering|bud|buds|seed|seeds|oil|resin|extract|extracts|resina|preparation|preparations|plant|leaf|leaves|fiber|fibre)\b/i,
+  /\bmarijuana\s+(?:sativa|indica|resin|flower|flowers|flowering|bud|buds|seed|seeds|oil|extract|extracts)\b/i,
+  /\bweed(?:s)?\b/i,
+  /\bweed\s+marijuana\b/i,
+  /\bmarijuana\s+resin\b/i,
+  /\bmarijuana\s+sativa\b/i,
+  /\bmarijuana\s+indica\b/i,
+  /\bmarijuana\b/i,
+  /\bmarihuana\b/i,
+  /\bmarij[a-z]*na\b/i,
+  /\bweed\b/i,
+  /\bpot\b/i,
+  /\bhemp\b/i,
+  /\bканнабис\b/i,
+  /\bмарихуан(?:а|ы|у|ах|е|ой|ой)\b/i,
+  /\bгашиш\w*\b/i,
+  /\bконопл(?:я|и|ь)\b/i,
+  /\bхемп\b/i,
+  /\bchanvre\b/i,
+  /\bindian\s+hemp\b/i,
+  /\bhashish\b/i,
+  /\bhashish\s+oil\b/i,
+  /\bganja\b/i,
+  /\bgunja\b/i,
+  /\bcharas\b/i,
+  /\bdawamesc\b/i,
+  /\bdawamesk\b/i,
+  /\bbhang\b/i,
+  /\bkif\b/i,
+  /\bkief\b/i,
+  /\bdagga\b/i,
+  /\bdiamba\b/i,
+  /\bliamba\b/i,
+  /\bkenam\b/i,
+  /\bhachich\b/i,
+  /\bsinsemilla\b/i,
+  /\bmary\s+jane\b/i,
+  /\bweed\s+(?:cigarette|cigar|joint|blunt|edible|edibles|extract|extracts|flower|flowers|buds|bud|seed|seeds|oil|resin)\b/i,
+  /\bpoot\b/i,
+  /\bсатива\b/i,
+  /\bиндика\b/i,
+  /\bбханг\b/i,
+  /\bканнабиноиды?\b/i,
+  /\bканнаби[сc]\b/i,
+  /\bконопл(?:я|и|ь|и|е|ою|ы|ах)\b/i,
+  /\bганжа\b/i,
+  /\bcharas\b/i
+];
+const CANNABIS_SCOPE_RE = new RegExp(CANNABIS_SCOPE_MARKERS.map((it) => it.source).join("|"), "i");
+
 function firstMatch(value, pattern) {
   const match = String(value || "").match(pattern);
   return normalizeWhitespace(decodeHtml(match?.[1] || ""));
@@ -79,7 +147,7 @@ async function probe(job) {
     const rawText = isHtml ? bytes.toString("utf8") : "";
     const visibleText = isHtml ? textFromHtml(rawText) : "";
     const lowerText = visibleText.toLowerCase();
-    const cannabisMatches = lowerText.match(/\b(cannabis|marijuana|marihuana|cannabidiol|tetrahydrocannabinol|thc)\b/g) || [];
+    const cannabisMatches = lowerText.match(CANNABIS_SCOPE_RE) || [];
     const title = isHtml ? firstMatch(rawText, /<title\b[^>]*>([\s\S]*?)<\/title>/i) : "";
     const h1 = isHtml ? firstMatch(rawText, /<h1\b[^>]*>([\s\S]*?)<\/h1>/i) : "";
     const soft404 = classifySoft404({ status: response.status, title, h1 });

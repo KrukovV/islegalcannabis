@@ -11,6 +11,7 @@ describe("statusPairMatrix", () => {
   test("maps final status pair to one map category", () => {
     expect(resolveMapCategoryFromPair("Legal", "Illegal")).toBe("LEGAL_OR_DECRIM");
     expect(resolveMapCategoryFromPair("Decriminalized", "Illegal")).toBe("LIMITED_OR_MEDICAL");
+    expect(resolveMapCategoryFromPair("Decriminalized", "Legal")).toBe("LEGAL_OR_DECRIM");
     expect(resolveMapCategoryFromPair("Illegal", "Legal")).toBe("LEGAL_OR_DECRIM");
     expect(resolveMapCategoryFromPair("Illegal", "Limited")).toBe("LIMITED_OR_MEDICAL");
     expect(resolveMapCategoryFromPair("Illegal", "Illegal")).toBe("ILLEGAL");
@@ -35,6 +36,20 @@ describe("statusPairMatrix", () => {
     expect(resolveColorKeyFromContract(contract)).toBe("yellow");
   });
 
+  test("maps unknown pair category to no color token", () => {
+    const contract = buildStatusContract({
+      wikiRecStatus: "unknown",
+      wikiMedStatus: "unknown",
+      finalRecStatus: "unknown",
+      finalMedStatus: "unknown",
+      evidenceDelta: "NONE",
+      evidenceDeltaApproved: false
+    });
+
+    expect(contract.mapCategory).toBe("UNKNOWN");
+    expect(resolveColorKeyFromContract(contract)).toBe("transparent");
+  });
+
   test("rejects unsupported rec/med combinations", () => {
     expect(isSupportedStatusPair("Unknown", "Unknown")).toBe(true);
     expect(isSupportedStatusPair("Illegal", "Legal")).toBe(true);
@@ -42,7 +57,7 @@ describe("statusPairMatrix", () => {
     expect(isSupportedStatusPair("Limited", "Illegal")).toBe(true);
   });
 
-  test("canonicalizes rec freedom to medical floor", () => {
+  test("does not infer medical floor from recreational legality", () => {
     const contract = buildStatusContract({
       wikiRecStatus: "legal",
       wikiMedStatus: "illegal",
@@ -51,8 +66,8 @@ describe("statusPairMatrix", () => {
     });
 
     expect(contract.finalRecStatus).toBe("Legal");
-    expect(contract.finalMedStatus).toBe("Limited");
-    expect(contract.ruleId).toBe("REC_IMPLIES_MED_FLOOR");
+    expect(contract.finalMedStatus).toBe("Unknown");
+    expect(contract.ruleId).toBe("DIRECT_FINAL_PAIR");
   });
 
   test("keeps decriminalized recreational status yellow in v9 fallback", () => {

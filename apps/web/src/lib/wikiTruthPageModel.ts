@@ -10,12 +10,29 @@ import { readSsotDiffCache } from "@/lib/ssotDiff/ssotDiffRegistry";
 import { findRepoRoot } from "@/lib/ssotDiff/ssotSnapshotStore";
 import { buildWikiTruthAudit } from "@/lib/wikiTruthAudit";
 import { buildExpectedWikiPageByIso } from "@/lib/wikiTruthNormalization";
-import { buildRegions, getStatusSnapshotMeta } from "@/lib/mapData";
+import { getStatusSnapshotMeta } from "@/lib/mapData";
+import {
+  buildCountrySourceSnapshot,
+  buildUsStateSourceSnapshot,
+} from "@/new-map/countrySource";
 import {
   emptyWikiTruthCannabisLawMatrix,
   type WikiTruthCannabisLawMatrix,
 } from "@/lib/wikiTruthCannabisLawMatrix";
+import { type WikiTruthSecondPassProgress } from "@/lib/wikiTruthSecondPass";
+import {
+  emptyWikiTruthFinalReconciliation,
+  normalizeWikiTruthFinalReconciliation,
+} from "@/lib/wikiTruthFinalReconciliation";
+import { normalizeWikiTruthAcceptanceAudit } from "@/lib/wikiTruthAcceptanceAudit";
 import { buildWikiTruthColorComparison } from "@/lib/wikiTruthColorComparison";
+import { normalizeWikiTruthColorApplyGate } from "@/lib/wikiTruthColorApplyGate";
+import { normalizeWikiTruthColorApplyPlan } from "@/lib/wikiTruthColorApplyPlan";
+import { normalizeWikiTruthColorProposals } from "@/lib/wikiTruthColorProposals";
+import { normalizeWikiTruthColorReviewDossier } from "@/lib/wikiTruthColorReviewDossier";
+import { normalizeWikiTruthLegalKnowledgeAxisMatrix } from "@/lib/wikiTruthLegalKnowledgeAxisMatrix";
+import { normalizeWikiTruthPrimaryLawBlockers } from "@/lib/wikiTruthPrimaryLawBlockers";
+import { normalizeWikiTruthRuntimeApplyPipeline } from "@/lib/wikiTruthRuntimeApplyPipeline";
 
 const ROOT = findRepoRoot(process.cwd());
 
@@ -101,7 +118,7 @@ export const buildWikiTruthPageModel = cache(() => {
   const officialOwnershipIndex = buildOfficialLinkOwnershipIndex(
     officialOwnershipDataset,
   );
-  const cannabisLawMatrix = (readJson(
+  const baseCannabisLawMatrix = (readJson(
     path.join(
       ROOT,
       "data",
@@ -109,9 +126,177 @@ export const buildWikiTruthPageModel = cache(() => {
       "wiki-truth-cannabis-law-matrix-307.json",
     ),
   ) || emptyWikiTruthCannabisLawMatrix) as WikiTruthCannabisLawMatrix;
+  const cannabisLawMatrix = baseCannabisLawMatrix;
+  const cannabisLawFinalReconciliation =
+    normalizeWikiTruthFinalReconciliation(
+      readJson(
+        path.join(
+          ROOT,
+          "data",
+          "reviews",
+          "wiki-truth-307-final-reconciliation.json",
+        ),
+      ) || emptyWikiTruthFinalReconciliation,
+    );
+  const secondPassProgress = (
+    cannabisLawFinalReconciliation.progress ||
+    emptyWikiTruthFinalReconciliation.progress
+  ) as WikiTruthSecondPassProgress;
+  const cannabisLawAcceptanceAudit = normalizeWikiTruthAcceptanceAudit(
+    readJson(
+      path.join(
+        ROOT,
+        "data",
+        "reviews",
+        "wiki-truth-307-acceptance-audit.json",
+      ),
+    ),
+  );
+  const cannabisLawColorProposals = normalizeWikiTruthColorProposals(
+    readJson(
+      path.join(
+        ROOT,
+        "data",
+        "reviews",
+        "wiki-truth-307-color-proposals.json",
+      ),
+    ),
+  );
+  const cannabisLawColorApplyPlan = normalizeWikiTruthColorApplyPlan(
+    readJson(
+      path.join(
+        ROOT,
+        "data",
+        "reviews",
+        "wiki-truth-307-color-apply-plan.json",
+      ),
+    ),
+  );
+  const cannabisLawColorApplyGate = normalizeWikiTruthColorApplyGate(
+    readJson(
+      path.join(
+        ROOT,
+        "data",
+        "reviews",
+        "wiki-truth-307-color-apply-gate.json",
+      ),
+    ),
+  );
+  const cannabisLawColorReviewDossier = normalizeWikiTruthColorReviewDossier(
+    readJson(
+      path.join(
+        ROOT,
+        "data",
+        "reviews",
+        "wiki-truth-307-color-review-dossier.json",
+      ),
+    ),
+  );
+  const cannabisLawPrimaryLawBlockers = normalizeWikiTruthPrimaryLawBlockers(
+    readJson(
+      path.join(
+        ROOT,
+        "data",
+        "reviews",
+        "wiki-truth-307-primary-law-blockers.json",
+      ),
+    ),
+  );
+  const cannabisLawRuntimeApplyPipeline = normalizeWikiTruthRuntimeApplyPipeline(
+    readJson(
+      path.join(
+        ROOT,
+        "data",
+        "reviews",
+        "wiki-truth-307-runtime-apply-dry-run-diff.json",
+      ),
+    ),
+    readJson(
+      path.join(
+        ROOT,
+        "data",
+        "reviews",
+        "wiki-truth-307-runtime-apply-preflight.json",
+      ),
+    ),
+    readJson(
+      path.join(
+        ROOT,
+        "data",
+        "reviews",
+        "wiki-truth-307-runtime-apply-execution.json",
+      ),
+    ),
+    readJson(
+      path.join(
+        ROOT,
+        "data",
+        "reviews",
+        "wiki-truth-307-runtime-post-apply-verification.json",
+      ),
+    ),
+    readJson(
+      path.join(
+        ROOT,
+        "data",
+        "reviews",
+        "wiki-truth-307-blocker-exit-dossier.json",
+      ),
+    ),
+  );
+  const cannabisLawLegalKnowledgeAxisMatrix =
+    normalizeWikiTruthLegalKnowledgeAxisMatrix(
+      readJson(
+        path.join(
+          ROOT,
+          "data",
+          "reviews",
+          "wiki-truth-307-legal-knowledge-axis-matrix.json",
+        ),
+      ),
+    );
+  const audit = buildWikiTruthAudit({
+    legalityRows: (Array.isArray(legalityPayload.rows)
+      ? legalityPayload.rows
+      : []) as Parameters<typeof buildWikiTruthAudit>[0]["legalityRows"],
+    claimsItems: readRecord(claimsPayload.items) as Parameters<
+      typeof buildWikiTruthAudit
+    >[0]["claimsItems"],
+    officialItems: readRecord(officialPayload.items) as Parameters<
+      typeof buildWikiTruthAudit
+    >[0]["officialItems"],
+    officialBadgeItems: readRecord(officialBadgesPayload.items) as Parameters<
+      typeof buildWikiTruthAudit
+    >[0]["officialBadgeItems"],
+    enrichedItems: readRecord(enrichedPayload.items) as Parameters<
+      typeof buildWikiTruthAudit
+    >[0]["enrichedItems"],
+    coverageSummary: readCoverageSummary(ROOT),
+    expectedWikiPageByIso,
+    usStatesWikiKeys,
+    officialRegistrySummary,
+    officialOwnershipIndex,
+    officialOwnershipDataset,
+    cannabisLawMatrix,
+    secondPassProgress,
+  });
   const cannabisLawColorComparison = buildWikiTruthColorComparison(
     cannabisLawMatrix,
-    buildRegions(),
+    [
+      ...buildCountrySourceSnapshot().features,
+      ...buildUsStateSourceSnapshot().features,
+    ].map((feature) => ({
+      geo: String(feature.properties?.geo || "").trim().toUpperCase(),
+      finalMapCategory: feature.properties?.mapCategory,
+      mapCategory: feature.properties?.mapCategory,
+    })),
+    audit.allRows,
+    new Map(
+      cannabisLawFinalReconciliation.rows.map((row) => [
+        row.geo.toUpperCase(),
+        row.truthColor,
+      ]),
+    ),
   );
   return {
     root: ROOT,
@@ -119,29 +304,15 @@ export const buildWikiTruthPageModel = cache(() => {
     snapshot: getStatusSnapshotMeta(),
     diffCache: readSsotDiffCache(ROOT),
     cannabisLawColorComparison,
-    audit: buildWikiTruthAudit({
-      legalityRows: (Array.isArray(legalityPayload.rows)
-        ? legalityPayload.rows
-        : []) as Parameters<typeof buildWikiTruthAudit>[0]["legalityRows"],
-      claimsItems: readRecord(claimsPayload.items) as Parameters<
-        typeof buildWikiTruthAudit
-      >[0]["claimsItems"],
-      officialItems: readRecord(officialPayload.items) as Parameters<
-        typeof buildWikiTruthAudit
-      >[0]["officialItems"],
-      officialBadgeItems: readRecord(officialBadgesPayload.items) as Parameters<
-        typeof buildWikiTruthAudit
-      >[0]["officialBadgeItems"],
-      enrichedItems: readRecord(enrichedPayload.items) as Parameters<
-        typeof buildWikiTruthAudit
-      >[0]["enrichedItems"],
-      coverageSummary: readCoverageSummary(ROOT),
-      expectedWikiPageByIso,
-      usStatesWikiKeys,
-      officialRegistrySummary,
-      officialOwnershipIndex,
-      officialOwnershipDataset,
-      cannabisLawMatrix,
-    }),
+    cannabisLawAcceptanceAudit,
+    cannabisLawColorProposals,
+    cannabisLawColorApplyPlan,
+    cannabisLawColorApplyGate,
+    cannabisLawColorReviewDossier,
+    cannabisLawPrimaryLawBlockers,
+    cannabisLawRuntimeApplyPipeline,
+    cannabisLawLegalKnowledgeAxisMatrix,
+    cannabisLawFinalReconciliation,
+    audit,
   };
 });

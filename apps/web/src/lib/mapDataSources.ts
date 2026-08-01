@@ -125,17 +125,6 @@ type Retailer = {
   geo?: string;
 };
 
-const SPECIAL_COUNTRY_OWNER_GEO_BY_ADM0_A3: Record<string, string> = {
-  SOL: "SO",
-  CYN: "CY",
-  CNM: "CY",
-  WSB: "CY",
-  ESB: "CY",
-  USG: "CU"
-};
-
-const SPECIAL_COUNTRY_UNKNOWN_FALLBACK_BY_ADM0_A3 = new Set(["BJN", "BRT", "KAS", "PGA", "SCR", "SER", "SPI"]);
-
 let OFFICIAL_OWNERSHIP_INDEX_CACHE:
   | ReturnType<typeof buildOfficialLinkOwnershipIndex>
   | null = null;
@@ -357,10 +346,30 @@ export function isoFromCountryProps(props: Record<string, unknown>) {
   return candidates[0] || "";
 }
 
-export function resolveSpecialCountryGeoFromProps(props: Record<string, unknown>) {
+const TERRITORY_GEO_ALIASES: Record<string, string> = {
+  USG: "CU",
+  USNB: "CU",
+  CNM: "CY",
+  CYN: "CY",
+  ESB: "GB",
+  SOL: "SO",
+  WSB: "GB"
+};
+
+export function resolveCountryGeoFromProps(props: Record<string, unknown>) {
+  const directIso2 = isoFromCountryProps(props);
+  if (directIso2) {
+    return {
+      geo: directIso2,
+      forceFallback: false
+    };
+  }
+
   const featureIdCandidates = [
     props?.ADM0_A3,
     props?.adm0_a3,
+    props?.ADM0_A3_US,
+    props?.adm0_a3_us,
     props?.GU_A3,
     props?.gu_a3,
     props?.SU_A3,
@@ -371,16 +380,26 @@ export function resolveSpecialCountryGeoFromProps(props: Record<string, unknown>
     .map((value) => String(value || "").toUpperCase().trim())
     .filter(Boolean);
   for (const featureId of featureIdCandidates) {
-    const ownerGeo = SPECIAL_COUNTRY_OWNER_GEO_BY_ADM0_A3[featureId];
-    if (ownerGeo) {
+    if (/^[A-Z]{2}$/.test(featureId) && featureId !== "-99") {
       return {
-        geo: ownerGeo,
+        geo: featureId,
         forceFallback: false
       };
     }
-    if (SPECIAL_COUNTRY_UNKNOWN_FALLBACK_BY_ADM0_A3.has(featureId)) {
+    if (/^[A-Z]{3}$/.test(featureId) && featureId !== "-99") {
+      const mappedGeo = TERRITORY_GEO_ALIASES[featureId] ?? featureId;
       return {
-        geo: featureId,
+        geo: mappedGeo,
+        forceFallback: true
+      };
+    }
+    if (/^[A-Z]{4}$/.test(featureId) && featureId !== "-99") {
+      const mappedGeo = TERRITORY_GEO_ALIASES[featureId];
+      if (!mappedGeo) {
+        return null;
+      }
+      return {
+        geo: mappedGeo,
         forceFallback: true
       };
     }

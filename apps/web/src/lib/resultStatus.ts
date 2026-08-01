@@ -24,14 +24,14 @@ export const REFERENCE_MAP_CATEGORY_COLORS: Record<MapCategory, string> = Object
   LEGAL_OR_DECRIM: "#cde7cf",
   LIMITED_OR_MEDICAL: "#f4e9c2",
   ILLEGAL: "#ead0d1",
-  UNKNOWN: "#d7dcdc"
+  UNKNOWN: "transparent"
 });
 
 export const REFERENCE_MAP_CATEGORY_HOVER_COLORS: Record<MapCategory, string> = Object.freeze({
   LEGAL_OR_DECRIM: "#daf0dc",
   LIMITED_OR_MEDICAL: "#f7edd0",
   ILLEGAL: "#efdadb",
-  UNKNOWN: "#e0e3e3"
+  UNKNOWN: "transparent"
 });
 
 type InputStatus =
@@ -282,16 +282,7 @@ function applyStatusModifiers(base: ResultStatus, flags: StatusFlags): ResultSta
   return "UNKNOWN";
 }
 
-function deriveUsaStatus(data: CountryPageData): ResultStatus {
-  if (data.node_type === "country" && data.iso2 === "US") {
-    return "MIXED";
-  }
-  return "UNKNOWN";
-}
-
 export function deriveResultStatusFromCountryPageData(data: CountryPageData): ResultStatus {
-  const usaStatus = deriveUsaStatus(data);
-  if (usaStatus !== "UNKNOWN") return usaStatus;
   const recreational = normalizeInputStatus(data.legal_model.recreational.status || "");
   const base = getBaseStatus(recreational);
   const flags = extractStatusFlags(data);

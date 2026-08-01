@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-21",
+  "purpose": "Нормализованный словарь терминов каннабиса, производных и продуктов, фактически встречающихся в двух предоставленных выгрузках поисковых запросов. Это словарь для обнаружения кандидатов, а не самостоятельное доказательство применимого cannabis-law.",
+  "sourceExports": [
+    {
+      "sourceFile": "Популярные запросы Kлики Показы washington state marijuana laws 0 56 washington…",
+      "sha256": "9c9e6a5ffb129f3b117f62748c79da1766439588169d5e7bc2c49e44acc13a19",
+      "queryRows": 502
+    },
+    {
+      "sourceFile": "Популярные запросы Kлики Показы ハワイ 大麻 0 1 قانون الحشيش الطبي في مصر 0 1 קנאביס…",
+      "sha256": "7204a953e41d85e6322fed3cfe878e0f4bf7a6e52c2503fd3675ed89599b26b9",
+      "queryRows": 497
+    }
+  ],
+  "input": {
+    "queryRows": 999,
+    "uniqueQueriesCaseInsensitive": 775,
+    "queriesContainingAtLeastOneListedTerm": 945,
+    "uniqueQueriesContainingAtLeastOneListedTerm": 734,
+    "impressionsForMatchingRows": 3142,
+    "clicksForMatchingRows": 4
+  },
+  "terms": [
+    {
+      "term": "cannabis",
+      "canonicalConcept": "cannabis",
+      "classification": "plant_or_legal_term",
+      "queryRows": 174,
+      "uniqueQueries": 142,
+      "impressions": 755,
+      "clicks": 2
+    },
+    {
+      "term": "marijuana",
+      "canonicalConcept": "marijuana",
+      "classification": "plant_or_legal_term",
+      "queryRows": 199,
+      "uniqueQueries": 152,
+      "impressions": 899,
+      "clicks": 0
+    },
+    {
+      "term": "marijuanas",
+      "canonicalConcept": "marijuana",
+      "classification": "query_spelling_or_inflection",
+      "queryRows": 30,
+      "uniqueQueries": 23,
+      "impressions": 57,
+      "clicks": 0
+    },
+    {
+      "term": "weed",
+      "canonicalConcept": "cannabis",
+      "classification": "slang",
+      "queryRows": 472,
+      "uniqueQueries": 355,
+      "impressions": 1293,
+      "clicks": 2
+    },
+    {
+      "term": "pot",
+      "canonicalConcept": "cannabis",
+      "classification": "slang",
+      "queryRows": 31,
+      "uniqueQueries": 27,
+      "impressions": 75,
+      "clicks": 0
+    },
+    {
+      "term": "hemp",
+      "canonicalConcept": "hemp",
+      "classification": "plant_or_legal_term",
+      "queryRows": 1,
+      "uniqueQueries": 1,
+      "impressions": 1,
+      "clicks": 0
+    },
+    {
+      "term": "hashish",
+      "canonicalConcept": "hashish",
+      "classification": "cannabis_derivative",
+      "queryRows": 1,
+      "uniqueQueries": 1,
+      "impressions": 2,
+      "clicks": 0
+    },
+    {
+      "term": "ganja",
+      "canonicalConcept": "cannabis",
+      "classification": "regional_name",
+      "queryRows": 1,
+      "uniqueQueries": 1,
+      "impressions": 2,
+      "clicks": 0
+    },
+    {
+      "term": "THC",
+      "canonicalConcept": "tetrahydrocannabinol",
+      "classification": "cannabinoid",
+      "queryRows": 10,
+      "uniqueQueries": 10,
+      "impressions": 15,
+      "clicks": 0
+    },
+    {
+      "term": "CBD",
+      "canonicalConcept": "cannabidiol",
+      "classification": "cannabinoid",
+      "queryRows": 5,
+      "uniqueQueries": 5,
+      "impressions": 11,
+      "clicks": 0
+    },
+    {
+      "term": "edibles",
+      "canonicalConcept": "cannabis_edible_product",
+      "classification": "product_category_requires_cannabis_context",
+      "queryRows": 6,
+      "uniqueQueries": 6,
+      "impressions": 13,
+      "clicks": 0
+    },
+    {
+      "term": "大麻",
+      "canonicalConcept": "cannabis",
+      "language": "ja",
+      "classification": "language_specific_name",
+      "queryRows": 1,
+      "uniqueQueries": 1,
+      "impressions": 1,
+      "clicks": 0
+    },
+    {
+      "term": "الحشيش",
+      "canonicalConcept": "hashish",
+      "language": "ar",
+      "classification": "language_specific_name",
+      "queryRows": 2,
+      "uniqueQueries": 1,
+      "impressions": 2,
+      "clicks": 0
+    },
+    {
+      "term": "קנאביס",
+      "canonicalConcept": "cannabis",
+      "language": "he",
+      "classification": "language_specific_name",
+      "queryRows": 5,
+      "uniqueQueries": 3,
+      "impressions": 7,
+      "clicks": 0
+    },
+    {
+      "term": "Gras",
+      "canonicalConcept": "cannabis",
+      "language": "de",
+      "classification": "regional_slang",
+      "queryRows": 5,
+      "uniqueQueries": 4,
+      "impressions": 7,
+      "clicks": 0
+    },
+    {
+      "term": "maconha",
+      "canonicalConcept": "cannabis",
+      "language": "pt",
+      "classification": "language_specific_name",
+      "queryRows": 2,
+      "uniqueQueries": 2,
+      "impressions": 2,
+      "clicks": 0
+    }
+  ],
+  "classificationPolicy": {
+    "directEvidence": "Термин повышает полноту поиска, но прямым доказательством становится только официальный источник, визуально просмотренный как cannabis-specific law или regulation.",
+    "contextSensitiveTerms": [
+      "edibles"
+    ],
+    "explicitlyNotIncluded": "Служебные слова запроса, страны, штаты, слова legal/law/medical/recreational/dispensary и общий запрос drugs не являются названиями каннабиса или его производных и не добавлены в словарь."
+  }
+}

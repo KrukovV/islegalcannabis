@@ -14,7 +14,7 @@ describe("static countries route", () => {
     const asset = getStaticCountriesAsset();
 
     expect(dynamic).toBe("force-static");
-    expect(dynamicParams).toBe(false);
+    expect(dynamicParams).toBe(true);
     expect(revalidate).toBe(false);
     expect(generateStaticParams()).toEqual([
       { file: `countries.${STATIC_COUNTRIES_HASH}.json.br` }

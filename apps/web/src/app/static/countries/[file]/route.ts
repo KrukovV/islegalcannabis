@@ -4,7 +4,7 @@ import {
 } from "@/new-map/staticCountries";
 
 export const dynamic = "force-static";
-export const dynamicParams = false;
+export const dynamicParams = true;
 export const revalidate = false;
 
 export function generateStaticParams() {
@@ -17,7 +17,7 @@ export async function GET(
 ) {
   const asset = getStaticCountriesAsset();
   const { file } = await params;
-  if (file !== `countries.${asset.hash}.json.br`) {
+  if (!/^countries\.[a-f0-9]{12}\.json\.br$/.test(file)) {
     return new Response("not found", {
       status: 404,
       headers: {

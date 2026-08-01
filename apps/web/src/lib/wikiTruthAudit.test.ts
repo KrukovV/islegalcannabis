@@ -160,4 +160,15 @@ describe("buildWikiTruthAudit", () => {
     );
     expect(mismatched).toEqual([]);
   });
+
+  it("reports every Wiki-country row missing an ownership-matched official link", () => {
+    const audit = buildAudit();
+    const missingOwnershipGeos = audit.allRows
+      .filter((row) => row.flags.includes("OFFICIAL_SOURCES_MISSING"))
+      .map((row) => row.geoKey)
+      .sort();
+
+    expect(audit.issueCounters.officialSourcesMissing).toBe(6);
+    expect(missingOwnershipGeos).toEqual(["CD", "CK", "GE", "GQ", "MR", "TL"]);
+  });
 });

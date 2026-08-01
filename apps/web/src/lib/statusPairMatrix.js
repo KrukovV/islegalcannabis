@@ -1,3 +1,5 @@
+import { buildStatusEngineFromPairStatuses } from "./statusEngineV9";
+
 export const STATUS_VALUES = [
   "Legal",
   "Decrim",
@@ -11,7 +13,7 @@ export const MAP_CATEGORY_COLOR_KEY = {
   LEGAL_OR_DECRIM: "green",
   LIMITED_OR_MEDICAL: "yellow",
   ILLEGAL: "red",
-  UNKNOWN: "gray"
+  UNKNOWN: "transparent"
 };
 
 export const VALID_MAP_CATEGORIES = Object.keys(MAP_CATEGORY_COLOR_KEY);
@@ -56,13 +58,6 @@ export function normalizeMapCategory(value) {
 export function canonicalizeStatusPair(recValue, medValue) {
   const rec = normalizeStatus(recValue);
   const med = normalizeStatus(medValue);
-  if (rec === "Legal" && med !== "Legal" && med !== "Limited") {
-    return {
-      finalRecStatus: rec,
-      finalMedStatus: "Limited",
-      ruleId: "REC_IMPLIES_MED_FLOOR"
-    };
-  }
   return {
     finalRecStatus: rec,
     finalMedStatus: med,
@@ -72,12 +67,7 @@ export function canonicalizeStatusPair(recValue, medValue) {
 
 export function isSupportedStatusPair(recValue, medValue) {
   const { finalRecStatus: rec, finalMedStatus: med } = canonicalizeStatusPair(recValue, medValue);
-  if (rec === "Unknown") return true;
-  if (rec === "Legal") return med === "Legal" || med === "Limited";
-  if (rec === "Decrim") return true;
-  if (rec === "Limited" || rec === "Unenforced") return true;
-  if (rec === "Illegal") return true;
-  return false;
+  return STATUS_VALUES.includes(rec) && STATUS_VALUES.includes(med);
 }
 
 export function explainUnsupportedStatusPair(recValue, medValue) {
@@ -89,13 +79,8 @@ export function explainUnsupportedStatusPair(recValue, medValue) {
 
 export function resolveMapCategoryFromPair(recValue, medValue) {
   const { finalRecStatus: rec, finalMedStatus: med } = canonicalizeStatusPair(recValue, medValue);
-  if (rec === "Legal") return "LEGAL_OR_DECRIM";
-  if (rec === "Decrim") return "LIMITED_OR_MEDICAL";
-  if (rec === "Limited" || rec === "Unenforced") return "LIMITED_OR_MEDICAL";
-  if (med === "Legal") return "LEGAL_OR_DECRIM";
-  if (med === "Limited" || med === "Unenforced") return "LIMITED_OR_MEDICAL";
-  if (rec === "Illegal" || med === "Illegal") return "ILLEGAL";
-  return "UNKNOWN";
+  const engineResult = buildStatusEngineFromPairStatuses(rec, med, []);
+  return engineResult.mapCategory;
 }
 
 export function resolveColorKeyFromPair(recValue, medValue) {
@@ -146,5 +131,5 @@ export function buildStatusContractFromSources(primary, fallback) {
 }
 
 export function resolveColorKeyFromContract(contract) {
-  return MAP_CATEGORY_COLOR_KEY[normalizeMapCategory(contract?.mapCategory)] || "gray";
+  return MAP_CATEGORY_COLOR_KEY[normalizeMapCategory(contract?.mapCategory)] || "transparent";
 }

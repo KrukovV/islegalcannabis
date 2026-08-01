@@ -501,3 +501,94 @@ a {
   min-width: 330px;
   line-height: 1.45;
 }
+
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 6mm;
+  }
+
+  html,
+  body,
+  #__next,
+  body > div:first-child {
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    max-width: none !important;
+    width: auto !important;
+  }
+
+  .auditView {
+    width: auto !important;
+    max-width: none !important;
+  }
+
+  .auditView details {
+    break-inside: auto !important;
+  }
+
+  .auditView details summary {
+    display: none !important;
+  }
+
+  .auditView details > :not(summary),
+  .auditView details:not([open]) > :not(summary),
+  .auditView details[open] > :not(summary) {
+    display: block !important;
+  }
+
+  .auditView .tableWrap,
+  .auditView .matrixTableWrap,
+  .auditView .colorTableWrap {
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    width: auto !important;
+    max-width: none !important;
+    max-height: none !important;
+  }
+
+  .auditView .truthTable,
+  .auditView .matrixTable,
+  .auditView .colorTableWrap .truthTable,
+  .auditView .matrixTableWrap .matrixTable {
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    table-layout: auto !important;
+    font-size: 10px !important;
+  }
+
+  .auditView .truthTable th,
+  .auditView .truthTable td {
+    max-width: none !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+
+  .auditView th,
+  .auditView td {
+    overflow: visible !important;
+  }
+
+  .auditView .colGeo,
+  .auditView .colCountry,
+  .auditView .colStatus,
+  .auditView .colLinks,
+  .auditView .colOfficialLinks,
+  .auditView .colNotes,
+  .auditView .colMeta,
+  .auditView .colDelta,
+  .auditView .colUrl,
+  .auditView .colFlags {
+    min-width: auto !important;
+    width: auto !important;
+  }
+
+  .auditView .stickyCol1,
+  .auditView .stickyCol2,
+  .auditView .stickyCell,
+  .auditView th {
+    position: static !important;
+    left: auto !important;
+  }
+}

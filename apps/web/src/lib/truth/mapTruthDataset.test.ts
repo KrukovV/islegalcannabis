@@ -2,8 +2,14 @@ import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, test } from "vitest";
 import { buildGeoJson, buildRegions } from "@/lib/mapData";
-import { buildCountrySourceSnapshot } from "@/new-map/countrySource";
+import {
+  buildCountrySourceSnapshot,
+  buildUsStateSourceSnapshot,
+} from "@/new-map/countrySource";
 import { buildMapTruthDataset, resolveMapPaintStatus } from "@/lib/truth/mapTruthDataset";
+
+const PROJECT_NULL_GEOS = ["BJN", "BRT", "KAS", "PGA", "SCR", "SER", "SPI"];
+const PAINTED_CATEGORIES = ["LEGAL_OR_DECRIM", "LIMITED_OR_MEDICAL", "ILLEGAL"];
 
 function resolveRepoPath(...parts: string[]) {
   const roots = [process.cwd(), path.resolve(process.cwd(), ".."), path.resolve(process.cwd(), "..", "..")];
@@ -27,7 +33,7 @@ describe("mapTruthDataset", () => {
     expect(resolveMapPaintStatus({})).toBe("UNKNOWN");
   });
 
-  test("builds a paintable country dataset from SSOT truth rows", () => {
+  test("reports the raw SSOT truth layer without mistaking it for the rendered map snapshot", () => {
     const regions = buildRegions();
     const geojsonData = buildGeoJson("countries");
     const dataset = buildMapTruthDataset({ regions, geojsonData });
@@ -40,12 +46,58 @@ describe("mapTruthDataset", () => {
     expect(dataset.diagnostics.greenCount).toBeGreaterThan(0);
     expect(dataset.diagnostics.yellowCount).toBeGreaterThan(0);
     expect(dataset.diagnostics.redCount).toBeGreaterThan(0);
-    expect(dataset.diagnostics.greyCount).toBe(0);
+    expect(
+      dataset.diagnostics.greenCount +
+        dataset.diagnostics.yellowCount +
+        dataset.diagnostics.redCount +
+        dataset.diagnostics.greyCount,
+    ).toBe(dataset.diagnostics.truthCountryRowsTotal);
+    expect(dataset.diagnostics.greyCount).toBe(
+      regions.filter(
+        (row) =>
+          row.type === "country" &&
+          dataset.statusIndex[row.geo]?.mapPaintStatus === "UNKNOWN",
+      ).length,
+    );
     expect(dataset.diagnostics.medicalLikeRowsTotal).toBeGreaterThan(0);
     expect(dataset.diagnostics.medicalLikeRowsPaintedYellow).toBeGreaterThanOrEqual(0);
     expect(dataset.diagnostics.medicalLikeRowsNotYellow).toBeGreaterThan(0);
     expect(dataset.diagnostics.officialCoveredMedicalLikeRowsNotYellow).toBeGreaterThanOrEqual(0);
     expect(Object.keys(dataset.statusIndex).length).toBeGreaterThanOrEqual(dataset.diagnostics.truthCountryRowsTotal);
+  });
+
+  test("keeps the exact rendered 307-GEO map snapshot coloured except for seven project-null GEOs", () => {
+    const features = [
+      ...buildCountrySourceSnapshot().features,
+      ...buildUsStateSourceSnapshot().features,
+    ];
+    const categoryByGeo = new Map<string, string>();
+
+    for (const feature of features) {
+      const geo = String(feature.properties?.geo || "").trim().toUpperCase();
+      const category = String(feature.properties?.mapCategory || "UNKNOWN");
+      expect(geo).not.toBe("");
+      if (categoryByGeo.has(geo)) {
+        expect(category, geo).toBe(categoryByGeo.get(geo));
+      } else {
+        categoryByGeo.set(geo, category);
+      }
+    }
+
+    const unknownGeos = [...categoryByGeo]
+      .filter(([, category]) => category === "UNKNOWN")
+      .map(([geo]) => geo)
+      .sort();
+
+    expect(categoryByGeo.size).toBe(307);
+    expect(unknownGeos).toEqual([...PROJECT_NULL_GEOS].sort());
+    for (const [geo, category] of categoryByGeo) {
+      if (PROJECT_NULL_GEOS.includes(geo)) {
+        expect(category, geo).toBe("UNKNOWN");
+      } else {
+        expect(PAINTED_CATEGORIES, geo).toContain(category);
+      }
+    }
   });
 
   test("keeps Western Sahara renderable as explicit unknown fallback instead of white basemap land", () => {
@@ -99,10 +151,10 @@ describe("mapTruthDataset", () => {
     expect(guantanamo?.properties?.geo).toBe("CU");
     expect(birTawil?.properties?.geo).toBe("BRT");
     expect(birTawil?.properties?.legalStatusGlobal).toBe("Unknown");
-    expect(birTawil?.properties?.reasons).toContain("MAP_RENDER_SPECIAL_TERRITORY_FALLBACK");
+    expect(birTawil?.properties?.reasons).toContain("MAP_RENDER_TERRITORY_FALLBACK");
   });
 
-  test("renders tiny synthetic fallback territories as painted geometry with hidden hitboxes", () => {
+  test("renders project-null synthetic territories as grey geometry with hidden hitboxes", () => {
     const geojsonData = buildGeoJson("countries");
 
     for (const geo of ["BJN", "PGA", "SCR", "SER"]) {
@@ -115,13 +167,14 @@ describe("mapTruthDataset", () => {
       expect(paintedFeature).toBeTruthy();
       expect(hiddenHitbox).toBeTruthy();
       expect(features.some((item) => item.properties?.pointFallbackVisibility === "visible")).toBe(false);
-      expect(["LEGAL_OR_DECRIM", "LIMITED_OR_MEDICAL", "ILLEGAL"]).toContain(paintedFeature?.properties?.mapCategory);
+      expect(paintedFeature?.properties?.mapCategory).toBe("UNKNOWN");
     }
 
     for (const geo of ["BRT", "KAS", "SPI"]) {
       const feature = geojsonData.features.find((item) => String(item.properties?.geo || "") === geo);
       expect(feature?.geometry.type).not.toBe("Point");
       expect(feature?.properties?.pointFallbackVisibility).toBeUndefined();
+      expect(feature?.properties?.mapCategory).toBe("UNKNOWN");
     }
 
     expect(geojsonData.features.find((item) => String(item.properties?.geo || "") === "PGA")?.properties?.displayName)
@@ -146,15 +199,22 @@ describe("mapTruthDataset", () => {
     }
   });
 
-  test("covers territory geos that exist on the map even when legal SSOT has no country row", () => {
+  test("colours territory GEOs from the final render snapshot even when the raw truth layer is unresolved", () => {
     const regions = buildRegions();
     const geojsonData = buildGeoJson("countries");
     const dataset = buildMapTruthDataset({ regions, geojsonData });
+    const snapshot = buildCountrySourceSnapshot();
 
     for (const geo of ["PR", "FK", "GS", "AQ", "NC"]) {
       expect(dataset.statusIndex[geo]).toBeTruthy();
-      expect(["LEGAL_OR_DECRIM", "LIMITED_OR_MEDICAL", "ILLEGAL"]).toContain(dataset.statusIndex[geo]?.mapPaintStatus);
       expect(geojsonData.features.find((feature) => String(feature.properties?.geo || "") === geo)).toBeTruthy();
+      const renderedFeature = snapshot.features.find(
+        (feature) => String(feature.properties?.geo || "") === geo,
+      );
+      expect(renderedFeature, geo).toBeTruthy();
+      expect(PAINTED_CATEGORIES, geo).toContain(
+        renderedFeature?.properties?.mapCategory,
+      );
     }
   });
 

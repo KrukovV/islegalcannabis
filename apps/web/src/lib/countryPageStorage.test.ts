@@ -187,7 +187,7 @@ describe("countryPageStorage", () => {
   it("builds human-readable popup panel data for disputed map colors", () => {
     const cambodia = deriveCountryCardEntryFromCountryPageData(getCountryPageData("khm")!);
     const india = deriveCountryCardEntryFromCountryPageData(getCountryPageData("ind")!);
-    expect(cambodia.panel.why[0]?.text).toBe("Cannabis remains restricted, but enforcement is limited or access is partially allowed.");
+    expect(cambodia.panel.why[0]?.text).toBe("Cannabis remains prohibited and criminal penalties remain in force.");
     expect(cambodia.panel.critical.length).toBeGreaterThan(0);
     expect(india.panel.why[0]?.text).toBe("Cannabis can be legally accessed through recreational or regulated medical programs.");
     expect(india.panel.info.length).toBeGreaterThan(0);
@@ -342,22 +342,22 @@ describe("countryPageStorage", () => {
 
   it("keeps map categories aligned with the canonical SSOT -> MAP contract", () => {
     const fixtures = [
-      { code: "dza", expectedCategory: "LIMITED_OR_MEDICAL" },
+      { code: "dza", expectedCategory: "ILLEGAL" },
       { code: "chn", expectedCategory: "ILLEGAL" },
       { code: "jpn", expectedCategory: "ILLEGAL" },
-      { code: "sgp", expectedCategory: "LIMITED_OR_MEDICAL" },
+      { code: "sgp", expectedCategory: "ILLEGAL" },
       { code: "fra", expectedCategory: "LEGAL_OR_DECRIM" },
       { code: "nor", expectedCategory: "LEGAL_OR_DECRIM" },
       { code: "est", expectedCategory: "LEGAL_OR_DECRIM" },
       { code: "nld", expectedCategory: "LEGAL_OR_DECRIM" },
-      { code: "fin", expectedCategory: "LEGAL_OR_DECRIM" },
       { code: "ind", expectedCategory: "LEGAL_OR_DECRIM" },
       { code: "lux", expectedCategory: "LEGAL_OR_DECRIM" },
       { code: "aus", expectedCategory: "LEGAL_OR_DECRIM" },
       { code: "can", expectedCategory: "LEGAL_OR_DECRIM" },
       { code: "us-al", expectedCategory: "LEGAL_OR_DECRIM" },
       { code: "us-ca", expectedCategory: "LEGAL_OR_DECRIM" },
-      { code: "us-tx", expectedCategory: "LIMITED_OR_MEDICAL" }
+      { code: "us-tx", expectedCategory: "LIMITED_OR_MEDICAL" },
+      { code: "fin", expectedCategory: "LIMITED_OR_MEDICAL" }
     ] as const;
     const snapshot = buildCountrySourceSnapshot();
     const usStateSnapshot = buildUsStateSourceSnapshot();
@@ -411,13 +411,13 @@ describe("countryPageStorage", () => {
       LEGAL_OR_DECRIM: "#cde7cf",
       LIMITED_OR_MEDICAL: "#f4e9c2",
       ILLEGAL: "#ead0d1",
-      UNKNOWN: "#d7dcdc"
+      UNKNOWN: "transparent"
     });
     expect(REFERENCE_MAP_CATEGORY_HOVER_COLORS).toEqual({
       LEGAL_OR_DECRIM: "#daf0dc",
       LIMITED_OR_MEDICAL: "#f7edd0",
       ILLEGAL: "#efdadb",
-      UNKNOWN: "#e0e3e3"
+      UNKNOWN: "transparent"
     });
     expect(NEW_MAP_WATER_COLOR).toBe("#d7dcdc");
   });
@@ -441,13 +441,13 @@ describe("countryPageStorage", () => {
     expect(deriveMapCategoryFromCountryPageData(china!)).toBe("ILLEGAL");
     expect(northKorea?.legal_model.medical.override_reason).toBe("article_conflicts_with_root_medical_legal");
     expect(deriveResultStatusFromCountryPageData(northKorea!)).toBe("ILLEGAL");
-    expect(deriveMapCategoryFromCountryPageData(northKorea!)).toBe("LIMITED_OR_MEDICAL");
+    expect(deriveMapCategoryFromCountryPageData(northKorea!)).toBe("ILLEGAL");
     expect(deriveResultStatusFromCountryPageData(iran!)).toBe("ILLEGAL");
-    expect(deriveMapCategoryFromCountryPageData(iran!)).toBe("LIMITED_OR_MEDICAL");
+    expect(deriveMapCategoryFromCountryPageData(iran!)).toBe("ILLEGAL");
     expect(deriveResultStatusFromCountryPageData(saudiArabia!)).toBe("ILLEGAL");
-    expect(deriveMapCategoryFromCountryPageData(saudiArabia!)).toBe("LIMITED_OR_MEDICAL");
+    expect(deriveMapCategoryFromCountryPageData(saudiArabia!)).toBe("ILLEGAL");
     expect(deriveResultStatusFromCountryPageData(singapore!)).toBe("ILLEGAL");
-    expect(deriveMapCategoryFromCountryPageData(singapore!)).toBe("LIMITED_OR_MEDICAL");
+    expect(deriveMapCategoryFromCountryPageData(singapore!)).toBe("ILLEGAL");
   });
 
   it("keeps result status and map categories aligned through the explicit view layer", () => {
@@ -468,7 +468,7 @@ describe("countryPageStorage", () => {
     const georgia = getCountryPageData("geo");
     const iran = getCountryPageData("irn");
     expect(deriveResultStatusFromCountryPageData(algeria!)).toBe("ILLEGAL");
-    expect(deriveMapCategoryFromCountryPageData(algeria!)).toBe("LIMITED_OR_MEDICAL");
+    expect(deriveMapCategoryFromCountryPageData(algeria!)).toBe("ILLEGAL");
     expect(deriveResultStatusFromCountryPageData(china!)).toBe("ILLEGAL");
     expect(deriveMapCategoryFromCountryPageData(china!)).toBe("ILLEGAL");
     expect(deriveResultStatusFromCountryPageData(estonia!)).toBe("DECRIM");
@@ -482,7 +482,7 @@ describe("countryPageStorage", () => {
     expect(deriveResultStatusFromCountryPageData(norway!)).toBe("DECRIM");
     expect(deriveMapCategoryFromCountryPageData(norway!)).toBe("LEGAL_OR_DECRIM");
     expect(deriveResultStatusFromCountryPageData(finland!)).toBe("DECRIM");
-    expect(deriveMapCategoryFromCountryPageData(finland!)).toBe("LEGAL_OR_DECRIM");
+    expect(deriveMapCategoryFromCountryPageData(finland!)).toBe("LIMITED_OR_MEDICAL");
     expect(deriveResultStatusFromCountryPageData(india!)).toBe("MIXED");
     expect(deriveMapCategoryFromCountryPageData(india!)).toBe("LEGAL_OR_DECRIM");
     expect(deriveResultStatusFromCountryPageData(australia!)).toBe("ILLEGAL");
@@ -492,7 +492,7 @@ describe("countryPageStorage", () => {
     expect(deriveResultStatusFromCountryPageData(georgia!)).toBe("DECRIM");
     expect(deriveMapCategoryFromCountryPageData(georgia!)).toBe("LIMITED_OR_MEDICAL");
     expect(deriveResultStatusFromCountryPageData(iran!)).toBe("ILLEGAL");
-    expect(deriveMapCategoryFromCountryPageData(iran!)).toBe("LIMITED_OR_MEDICAL");
+    expect(deriveMapCategoryFromCountryPageData(iran!)).toBe("ILLEGAL");
     expect(deriveResultStatusFromCountryPageData(usa!)).toBe("MIXED");
     expect(deriveMapCategoryFromCountryPageData(usa!)).toBe("LEGAL_OR_DECRIM");
     expect(deriveResultStatusFromCountryPageData(japan!)).toBe("ILLEGAL");

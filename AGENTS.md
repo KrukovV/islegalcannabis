@@ -105,3 +105,20 @@ Network Truth Policy:
   - official registry falls below protected floor
   - snapshot/diff schema drift is detected
 - `/changes` and `/api/ssot/changes` must stay stable on localhost and read from the SSOT diff cache/registry rather than rebuilding alternate truth in the UI.
+
+## Independent Truth-First 307-GEO Re-Audit
+
+- The canonical re-audit universe is exactly `data/reviews/geo-list-307.json`. Do not substitute an ISO, Wikipedia, SSOT, map, or archive subset for the 307-GEO universe.
+- Run the re-audit only from the canonical Git root. Archive copies, temporary worktrees, old PDFs, and existing `/wiki-truth` color proposals are comparison inputs, never legal-truth inputs.
+- The current production map fill, popup badge, API status, SEO status, SSOT status, and `/wiki-truth` proposal are separate layers. Capture the live user-visible map color before deriving Official Truth; `MAP=NONE`, a static JSON value, or agreement between derived layers is not live-map proof.
+- Derive Official Truth from applicable official evidence first. Wikipedia is audit-only. Existing matrix, reconciliation, project summaries, and SSOT values must not seed the legal conclusion.
+- Evidence aggregation is axis-based: `patient_eligible`, `prescriber_route`, `registration_route`, `lawful_supply`, `pharmacy_or_dispensary`, `import_route`, `programme_operational`, `programme_commenced`, `recreational_possession`, `recreational_supply`, `recreational_cultivation`, and `penalty_regime`. Each non-UNKNOWN axis requires URL, source type, exact fragment, effective date, applicability, confidence, and human visual-review metadata.
+- `GREEN` requires proven operational adult-use or operational patient access. A patient path may combine multiple official sources, but must prove eligibility, a lawful route to obtain cannabis medicine, and an active supply, dispensing, or import route.
+- `YELLOW` requires a proven limited lawful cannabis-related regime without the Green threshold. Production, cultivation, research, export, CBD/pharmaceutical-only products, a bill, an enacted-but-inoperative rule, generic controlled-drug wording, or a general ministerial permission do not alone prove a Yellow color.
+- `RED` requires positive, current, applicable proof of recreational prohibition and absence or prohibition of medical patient access after exceptions, amendments, and special medicinal rules are checked. Absence of a search hit or a broad drug-control page is not Red proof.
+- `UNKNOWN` remains unpainted and requires one explicit applicability reason: `NO_UNITARY_APPLICABLE_REGIME`, `DISPUTED_GEO_NO_OWN_REGIME`, `COMPONENTS_HAVE_DIFFERENT_REGIMES`, `NO_VERIFIABLE_PRIMARY_LAW_AFTER_EXHAUSTIVE_SEARCH`, or `LEGAL_APPLICABILITY_UNRESOLVED`.
+- No `if (geo === ...)`, color allowlist, hand-written status patch, or country-specific branch may affect source applicability, evidence aggregation, legal status, or color derivation. One-off source-import tools may record evidence only and must be replaced by schema-driven input before a re-audit can be accepted.
+- Each official link must record source owner, `applies_to_geo`, legal basis for extension, authority, source type, primary/context role, cannabis specificity, current/effective state, exact fragment, and screenshot state. A metropolitan or claimant source is not territorial proof without applicability.
+- An audit row is incomplete until a human has visually reviewed the official evidence screenshot and recorded that the official owner, cannabis fragment, and effective rule are visible and that the capture is not a challenge, error, or cookie wall.
+- Re-audit outputs are proposal-only. `APPLY_ALLOWED=false`, `PRODUCTION_TOUCHED=false`, `MAP_COLORS_CHANGED=false`, and `SSOT_CHANGED=false` remain mandatory until the 307-row gate is complete and the user explicitly authorizes application.
+- The required execution specification and artifact schema live in `docs/TRUTH_FIRST_307_REAUDIT_SPEC.md`.

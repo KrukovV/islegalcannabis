@@ -38,4 +38,15 @@ describe("mapDataStatusModel normalization", () => {
     expect(statusIndex.get("WS")?.mapCategory).toBe("ILLEGAL");
     expect(statusIndex.get("XK")?.mapCategory).toBe("ILLEGAL");
   });
+
+  test("keeps synthetic disputed-territory fallbacks grey without project status", () => {
+    const statusIndex = buildSSOTStatusIndex(buildRegions());
+    const projectNullGeos = ["BJN", "BRT", "SCR", "SER", "KAS", "SPI", "PGA"];
+
+    for (const geo of projectNullGeos) {
+      expect(statusIndex.get(geo)?.mapCategory, geo).toBe("UNKNOWN");
+      expect(statusIndex.get(geo)?.finalMapCategory, geo).toBe("UNKNOWN");
+      expect(statusIndex.get(geo)?.truthLevel, geo).toBe("UNKNOWN");
+    }
+  });
 });

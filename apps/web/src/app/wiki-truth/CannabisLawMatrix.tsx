@@ -1,26 +1,54 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Image from "next/image";
 import type {
   WikiTruthCannabisLawLink,
   WikiTruthCannabisLawMatrix,
   WikiTruthCannabisLawRow,
 } from "@/lib/wikiTruthCannabisLawMatrix";
-import { ruAuditValue } from "./wikiTruthRu";
+import {
+  ruAuditDifferenceStatus,
+  ruAuditValue,
+  ruDifferenceEvidenceSummary,
+  ruOfficialStatusLine,
+  ruProjectStatusLine,
+} from "./wikiTruthRu";
 
 function renderStatus(
   status:
     | WikiTruthCannabisLawRow["projectStatus"]
     | WikiTruthCannabisLawRow["officialStatus"],
+  missingLabel: string,
+  sourceType: "project" | "official" = "project",
 ) {
-  return status
-    ? `рекреационный=${ruAuditValue(status.recreational)}; медицинский=${ruAuditValue(status.medical)}; применение=${ruAuditValue(status.enforcement)}`
-    : "НЕ ПОДТВЕРЖДЕНО ВРУЧНУЮ";
+  if (!status && sourceType === "official") {
+    return ruOfficialStatusLine(null, `рекреационный=${ruAuditValue("unknown")}; медицинский=${ruAuditValue("unknown")}; применение=${ruAuditValue("unknown")}`);
+  }
+  if (!status) return missingLabel;
+  if (sourceType === "official") {
+    return ruOfficialStatusLine(status, missingLabel);
+  }
+  return ruProjectStatusLine(status, missingLabel);
+}
+
+function linkHostname(url: string) {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return "";
+  }
+}
+
+function faviconUrl(url: string) {
+  const hostname = linkHostname(url);
+  if (!hostname) return "";
+  return `/api/favicon?domain=${encodeURIComponent(hostname)}`;
 }
 
 function renderLinks(
   items: WikiTruthCannabisLawLink[],
-  mode: "verified" | "candidate" | "context",
+  mode: "verified" | "fresh" | "candidate" | "context" | "supplemental",
 ) {
   if (!items.length) return "-";
   const content = (
@@ -31,9 +59,22 @@ function renderLinks(
             href={item.url}
             target="_blank"
             rel="noreferrer noopener"
-            className="link"
+            className="link sourceLink"
           >
-            <span>{item.title}</span>
+            <span className="sourceTitleLine">
+              {faviconUrl(item.url) ? (
+                <Image
+                  src={faviconUrl(item.url)}
+                  alt=""
+                  aria-hidden="true"
+                  className="sourceFavicon"
+                  width={16}
+                  height={16}
+                  unoptimized
+                />
+              ) : null}
+              <span>{item.title}</span>
+            </span>
             <span className="url">{item.url}</span>
           </a>
           <span className="meta">
@@ -48,14 +89,16 @@ function renderLinks(
       ))}
     </div>
   );
-  if (mode === "verified") return content;
+  if (mode === "verified" || mode === "fresh") return content;
   return (
     <details>
       <summary>
         {items.length}{" "}
         {mode === "candidate"
           ? "непроверенных ссылок-кандидатов"
-          : "контекстных ссылок"}
+          : mode === "context"
+            ? "контекстных ссылок"
+            : "дополнительных официальных ссылок повторного аудита"}
       </summary>
       {content}
     </details>
@@ -114,20 +157,39 @@ export default function CannabisLawMatrix({
     (total, row) => total + row.officialContextLinks.length,
     0,
   );
+  const supplementalLinkCount = matrix.rows.reduce(
+    (total, row) => total + row.supplementalOfficialLinks.length,
+    0,
+  );
+  const allPublishedLinkCount =
+    directLinkCount + contextLinkCount + supplementalLinkCount;
 
   return (
     <section
       className="sectionCard cannabisMatrix"
       data-testid="cannabis-law-matrix-307"
       data-official-url-geos={matrix.counts.rowsWithPublishedOfficialLinks}
-      data-color-reaudit-rows={matrix.counts.colorReauditRows}
-      data-color-reaudit-resolved={matrix.counts.colorReauditResolved}
-      data-color-reaudit-retained-grey={matrix.counts.colorReauditRetainedGrey}
+      data-no-project-status={matrix.counts.noProjectStatus}
+      data-supplemental-official-links={supplementalLinkCount}
+      data-all-published-official-links={allPublishedLinkCount}
     >
-      <h2>Ручная проверка официальных законов о каннабисе: все 307 территорий</h2>
+      <h2>
+        Ручная проверка официальных законов о каннабисе: все{" "}
+        {matrix.counts.total} территорий
+      </h2>
       <p className="sectionHint">
-        Полная матрица из 307 GEO: прямые нормы, официальный контекст и честные
+        Полная матрица из {matrix.counts.total} GEO: прямые нормы, официальный контекст и честные
         отрицательные результаты разделены.
+      </p>
+      <p className="sectionHint">
+        Здесь показаны все {matrix.counts.total} строк каннабис-матрицы и все официальные URL по ним.
+        Важно не смешивать эти цифры с карточкой «Покрытие GEO официальными ссылками» в
+        сводке: там считается отдельная вселенная для ISO-страна через
+        official_link_ownership.
+      </p>
+      <p className="sectionMeta" style={{ fontSize: 11, color: "#475569" }}>
+        Последнее обновление матрицы: {matrix.generatedAt || "—"}; база
+        источников: {matrix.sourceCorpusGeneratedAt || "—"}
       </p>
       <p className="hardRule">
         Ручная проверка означает, что официальный материал открыт и просмотрен
@@ -182,8 +244,12 @@ export default function CannabisLawMatrix({
           <div>{matrix.counts.rawParserSignalRows}</div>
         </div>
         <div>
-          <strong>Подтверждённых расхождений с проектом</strong>
+          <strong>Строк с кодом PROJECT_STATUS_MISMATCH</strong>
           <div>{matrix.counts.projectStatusMismatch}</div>
+        </div>
+        <div>
+          <strong>Строк без статуса проекта</strong>
+          <div>{matrix.counts.noProjectStatus}</div>
         </div>
         <div>
           <strong>Сохранение снимка заблокировано</strong>
@@ -198,38 +264,26 @@ export default function CannabisLawMatrix({
           <div>{contextLinkCount}</div>
         </div>
         <div>
+          <strong>Дополнительных официальных URL повторного аудита</strong>
+          <div>{supplementalLinkCount}</div>
+        </div>
+        <div>
+          <strong>Всего опубликованных официальных URL</strong>
+          <div>{allPublishedLinkCount}</div>
+        </div>
+        <div>
           <strong>GEO с опубликованным официальным URL</strong>
-          <div>{matrix.counts.rowsWithPublishedOfficialLinks} / 307</div>
-        </div>
-        <div>
-          <strong>Повторно проверено серых строк</strong>
-          <div>{matrix.counts.colorReauditRows}</div>
-        </div>
-        <div>
-          <strong>Свежий просмотр глазами</strong>
-          <div>{matrix.counts.colorReauditHumanVisualAccepted} / 39</div>
-        </div>
-        <div>
-          <strong>Прямые или составные cannabis-law доказательства</strong>
-          <div>{matrix.counts.colorReauditDirectOrComposite}</div>
-        </div>
-        <div>
-          <strong>Только контекст, claimant или отрицательный результат</strong>
-          <div>{matrix.counts.colorReauditContextClaimantOrNegative}</div>
-        </div>
-        <div>
-          <strong>Цвет закрыт повторной проверкой</strong>
-          <div>{matrix.counts.colorReauditResolved}</div>
-        </div>
-        <div>
-          <strong>Честно осталось серыми</strong>
-          <div>{matrix.counts.colorReauditRetainedGrey}</div>
+          <div>
+            {matrix.counts.rowsWithPublishedOfficialLinks} /{" "}
+            {matrix.counts.total}
+          </div>
         </div>
       </div>
       <div className="matrixToolbar" aria-label="Фильтры матрицы законов о каннабисе">
         <label>
           <span>Найти GEO или территорию</span>
           <input
+            suppressHydrationWarning
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="например: BF, Maine, Venezuela"
@@ -263,6 +317,7 @@ export default function CannabisLawMatrix({
         </label>
         <label className="checkLabel">
           <input
+            suppressHydrationWarning
             type="checkbox"
             checked={differencesOnly}
             onChange={(event) => setDifferencesOnly(event.target.checked)}
@@ -280,13 +335,13 @@ export default function CannabisLawMatrix({
               <th className="stickyCol1 colGeo">GEO</th>
               <th className="stickyCol2 colCountry">Территория</th>
               <th className="colStatus">
-                Проект и подтверждённый официальный статус
+                Статус проекта и официальный вывод по тем же осям
               </th>
               <th className="colMeta">Покрытие доказательствами</th>
               <th className="colOfficialLinks">
-                Официальные доказательства и контекстные URL
+                Официальные доказательства, контекст и повторный аудит
               </th>
-              <th className="colNotes">Расхождение и причина</th>
+              <th className="colNotes">Сравнение и причина</th>
               <th className="colNotes">Проверка снимков</th>
               <th className="colNotes">Диагностика парсера</th>
             </tr>
@@ -305,11 +360,19 @@ export default function CannabisLawMatrix({
                 <td className="colStatus">
                   <strong>Проект</strong>
                   <span className="statusLine">
-                    {renderStatus(row.projectStatus)}
+                    {renderStatus(
+                      row.projectStatus,
+                      "НЕТ СТРОКИ СТАТУСА ПРОЕКТА",
+                      "project",
+                    )}
                   </span>
-                  <strong>Официальный источник</strong>
+                  <strong>Официальный вывод по источникам</strong>
                   <span className="statusLine">
-                    {renderStatus(row.officialStatus)}
+                    {renderStatus(
+                      row.officialStatus,
+                      "ОФИЦИАЛЬНЫЙ СТАТУС НЕ ПОДТВЕРЖДЁН ВРУЧНУЮ",
+                      "official",
+                    )}
                   </span>
                 </td>
                 <td className="colMeta">
@@ -319,16 +382,41 @@ export default function CannabisLawMatrix({
                 </td>
                 <td className="colOfficialLinks">
                   {renderLinks(row.directOfficialCannabisLawLinks, "verified")}
+                  {row.freshSecondPassOfficialLinks?.length
+                    ? renderLinks(row.freshSecondPassOfficialLinks, "fresh")
+                    : null}
                   {renderLinks(row.officialContextLinks, "context")}
+                  {renderLinks(
+                    row.supplementalOfficialLinks,
+                    "supplemental",
+                  )}
                   {renderLinks(
                     row.candidateLinksAwaitingVisualReview,
                     "candidate",
                   )}
                 </td>
                 <td className="colNotes">
-                  <strong>{ruAuditValue(row.differenceStatus)}</strong>
+                  <strong>{ruAuditDifferenceStatus(row.differenceStatus)}</strong>
                   <span className="reviewNote">
-                    {row.differenceDescription}
+                    <span className="reviewLine">
+                      <strong>Честный вывод:</strong>{" "}
+                      {ruDifferenceEvidenceSummary(row)}
+                    </span>
+                    <details>
+                      <summary>
+                        Техническая сверка осей и исходный журнал
+                      </summary>
+                      <span className="reviewLine">
+                        <strong>Проект:</strong> {renderStatus(row.projectStatus, "—")}
+                      </span>
+                      <span className="reviewLine">
+                        <strong>Официальный вывод:</strong>{" "}
+                        {renderStatus(row.officialStatus, "—", "official")}
+                      </span>
+                      <span className="reviewNote">
+                        {row.differenceDescription || "—"}
+                      </span>
+                    </details>
                   </span>
                 </td>
                 <td className="colNotes">
@@ -451,6 +539,30 @@ export default function CannabisLawMatrix({
           color: #075985;
           overflow-wrap: anywhere;
         }
+        .sourceLink {
+          display: grid;
+          gap: 3px;
+          text-decoration: none;
+        }
+        .sourceLink:hover .sourceTitleLine span {
+          text-decoration: underline;
+        }
+        .sourceTitleLine {
+          display: inline-flex;
+          align-items: center;
+          gap: 7px;
+          color: #1d4ed8;
+          font-weight: 650;
+          line-height: 1.25;
+        }
+        .sourceFavicon {
+          width: 18px;
+          height: 18px;
+          flex: 0 0 18px;
+          border-radius: 4px;
+          background: #e2e8f0;
+          object-fit: contain;
+        }
         .url,
         .meta,
         .screenshot,
@@ -459,6 +571,12 @@ export default function CannabisLawMatrix({
           font-size: 11px;
           color: #64748b;
           overflow-wrap: anywhere;
+        }
+        .reviewLine {
+          display: block;
+          margin: 2px 0;
+          color: #334155;
+          font-size: 11px;
         }
         .statusLine {
           display: block;

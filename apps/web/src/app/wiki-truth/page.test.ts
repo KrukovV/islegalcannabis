@@ -1,7 +1,106 @@
+import fs from "node:fs";
+import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import { createElement } from "react";
 import { WikiTruthPageContent } from "./page";
+
+type CannabisLawMatrixRowForCounts = {
+  directOfficialCannabisLawLinks?: unknown[];
+  officialContextLinks?: unknown[];
+  supplementalOfficialLinks?: unknown[];
+};
+
+type FinalReconciliationForCounts = {
+  rowsTotal?: number;
+  rowsExpected?: number;
+  complete?: boolean;
+  counts?: {
+    truthColors?: Record<string, number>;
+  };
+  acceptance?: {
+    complete?: boolean;
+    crossLayerConflictRows?: string[];
+    unprovenGreenRows?: string[];
+  };
+  noMutationProof?: {
+    unchanged?: boolean;
+  };
+};
+
+function findRepoRoot(start: string): string {
+  let current = start;
+  for (let index = 0; index < 6; index += 1) {
+    if (
+      fs.existsSync(
+        path.join(
+          current,
+          "data",
+          "reviews",
+          "wiki-truth-cannabis-law-matrix-307.json",
+        ),
+      )
+    ) {
+      return current;
+    }
+    const parent = path.dirname(current);
+    if (!parent || parent === current) break;
+    current = parent;
+  }
+  return start;
+}
+
+function asArray(value: unknown): unknown[] {
+  return Array.isArray(value) ? value : [];
+}
+
+function readCannabisMatrixLinkCounts(): {
+  direct: number;
+  context: number;
+  supplemental: number;
+  total: number;
+} {
+  const root = findRepoRoot(process.cwd());
+  const matrix = JSON.parse(
+    fs.readFileSync(
+      path.join(
+        root,
+        "data",
+        "reviews",
+        "wiki-truth-cannabis-law-matrix-307.json",
+      ),
+      "utf8",
+    ),
+  ) as { rows?: CannabisLawMatrixRowForCounts[] };
+  const counts = (matrix.rows || []).reduce(
+    (accumulator, row) => {
+      accumulator.direct += asArray(row.directOfficialCannabisLawLinks).length;
+      accumulator.context += asArray(row.officialContextLinks).length;
+      accumulator.supplemental += asArray(row.supplementalOfficialLinks).length;
+      return accumulator;
+    },
+    { direct: 0, context: 0, supplemental: 0 },
+  );
+  return {
+    ...counts,
+    total: counts.direct + counts.context + counts.supplemental,
+  };
+}
+
+function readFinalReconciliation(): FinalReconciliationForCounts {
+  const root = findRepoRoot(process.cwd());
+  return JSON.parse(
+    fs.readFileSync(
+      path.join(
+        root,
+        "data",
+        "reviews",
+        "wiki-truth-307-final-reconciliation.json",
+      ),
+      "utf8",
+    ),
+  ) as FinalReconciliationForCounts;
+}
 
 describe("/wiki-truth", () => {
   it("renders a clean audit header with separated universes", () => {
@@ -14,6 +113,32 @@ describe("/wiki-truth", () => {
     expect(html).toContain("Официальный реестр");
     expect(html).toContain("Покрытие GEO официальными ссылками");
     expect(html).toContain('data-testid="wiki-truth-summary"');
+  });
+
+  it("renders the current complete Truth-First reconciliation without legacy counters", () => {
+    const html = renderToStaticMarkup(createElement(WikiTruthPageContent));
+    const final = readFinalReconciliation();
+    const section =
+      html.match(
+        /data-testid="wiki-truth-final-reconciliation"[\s\S]*?<\/section>/,
+      )?.[0] || "";
+    expect(final.rowsTotal).toBe(307);
+    expect(final.rowsExpected).toBe(307);
+    expect(final.complete).toBe(true);
+    expect(final.acceptance?.complete).toBe(true);
+    expect(final.acceptance?.crossLayerConflictRows).toEqual([]);
+    expect(final.acceptance?.unprovenGreenRows).toEqual([]);
+    expect(final.noMutationProof?.unchanged).toBe(true);
+    expect(section).toContain('data-complete="1"');
+    expect(section).toContain('data-cross-layer-conflicts="0"');
+    expect(section).toContain('data-unproven-green="0"');
+    expect(section).toContain('data-no-mutation="1"');
+    expect(section).toContain(
+      `>${final.counts?.truthColors?.UNKNOWN || 0}<`,
+    );
+    expect(html).not.toContain("Честно осталось серыми");
+    expect(html).not.toContain("Цвет закрыт повторной проверкой");
+    expect(html).not.toContain("Повторно проверено серых строк");
   });
 
   it("keeps parser leftovers out of the main audit table", () => {
@@ -108,25 +233,30 @@ describe("/wiki-truth", () => {
 
   it("renders the complete protected cannabis-law matrix as the primary ordered audit", () => {
     const html = renderToStaticMarkup(createElement(WikiTruthPageContent));
+    const linkCounts = readCannabisMatrixLinkCounts();
     const matrix =
       html.match(
         /data-testid="cannabis-law-matrix-307"[\s\S]*?<\/section>/,
       )?.[0] || "";
+    expect(linkCounts.direct).toBeGreaterThanOrEqual(532);
+    expect(linkCounts.context).toBeGreaterThanOrEqual(159);
+    expect(linkCounts.supplemental).toBeGreaterThanOrEqual(41);
+    expect(linkCounts.total).toBeGreaterThanOrEqual(732);
     expect(matrix).toContain(
       "Ручная проверка официальных законов о каннабисе: все 307 территорий",
     );
     expect(matrix).toContain("Опубликованных прямых официальных URL");
-    expect(matrix).toContain(">531<");
+    expect(matrix).toContain(`>${linkCounts.direct}<`);
     expect(matrix).toContain("Опубликованных официальных контекстных URL");
-    expect(matrix).toContain(">143<");
+    expect(matrix).toContain(`>${linkCounts.context}<`);
+    expect(matrix).toContain("Дополнительных официальных URL повторного аудита");
+    expect(matrix).toContain(`>${linkCounts.supplemental}<`);
+    expect(matrix).toContain("Всего опубликованных официальных URL");
+    expect(matrix).toContain(`>${linkCounts.total}<`);
+    expect(matrix).toContain("Строк без статуса проекта");
+    expect(matrix).toContain(">7<");
     expect(matrix).toContain("GEO с опубликованным официальным URL");
     expect(matrix).toContain(">307 / 307<");
-    expect(matrix).toContain("Повторно проверено серых строк");
-    expect(matrix).toContain(">39<");
-    expect(matrix).toContain("Цвет закрыт повторной проверкой");
-    expect(matrix).toContain(">39<");
-    expect(matrix).toContain("Честно осталось серыми");
-    expect(matrix).toContain(">0<");
     expect(matrix).toContain("Показано 307 / 307");
     expect(matrix).toContain('data-geo="BF"');
     expect(matrix).toContain('data-geo="ET"');
@@ -155,12 +285,12 @@ describe("/wiki-truth", () => {
     expect(table).toContain("Цвет по официальному закону");
     expect(table).toContain("Комментарий по цветам");
     expect((table.match(/data-geo=/g) || []).length).toBe(307);
-    expect((table.match(/data-reaudit-result="COLOR_RESOLVED"/g) || []).length).toBe(39);
-    expect((table.match(/data-reaudit-result="HONEST_GREY_RETAINED"/g) || []).length).toBe(0);
-    expect((table.match(/data-official-color="UNKNOWN"/g) || []).length).toBe(0);
+    expect((table.match(/data-official-color="UNKNOWN"/g) || []).length).toBe(
+      readFinalReconciliation().counts?.truthColors?.UNKNOWN,
+    );
     expect(table).toContain("#cde7cf");
     expect(table).toContain("#f4e9c2");
     expect(table).toContain("#ead0d1");
-    expect(table).toContain("Статус SSOT автоматически не изменён");
+    expect(table).toContain("Статус SSOT проекта не меняется автоматически");
   });
 });

@@ -10,7 +10,6 @@ import {
 } from "../src/lib/countryPageStorage";
 import { getStatusReviewOverride } from "../src/lib/statusReviewOverrides";
 
-const SPECIAL_MAP_EXTRAS = new Set(["BJN", "BRT", "KAS", "PGA", "SCR", "SER", "SPI"]);
 const PROFILE_SECTION_IDS = [
   "history",
   "localNames",
@@ -184,7 +183,7 @@ function buildRows() {
 
   for (const claim of claims) {
     const geo = normalizeText(String(claim.geo_key || "")).toUpperCase();
-    if (!geo || SPECIAL_MAP_EXTRAS.has(geo)) continue;
+    if (!geo) continue;
     const entry = cardIndex[geo];
     const page = pageIndex.get(geo) || null;
     const knowledge = knowledgeByGeo.get(geo) || null;

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "reviewedAt": "2026-07-20T01:12:53.000Z",
+  "reviewedAt": "2026-07-20T09:24:56.000Z",
   "method": "Каждый из исходных 39 GEO повторно открыт и просмотрен глазами: HTML только в изолированном headless Chromium; PDF — по отрендеренной релевантной странице. Контекст, claimant law и negative evidence не выдаются за прямой территориальный cannabis-law.",
   "sourceGreyCount": 39,
   "resolvedColorCount": 39,
@@ -135,19 +135,41 @@
           "title": "Повторно визуально проверенный источник BJN",
           "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=80394",
           "role": "CLAIMANT_STATE_CONTEXT_ONLY",
-          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "freshVisualAnalysisRu": "На странице закона виден Article 1: национальный режим безопасного медицинского и научного использования cannabis и его производных действует на всей территории Colombia.",
+          "freshScreenshotPaths": [
+            "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/BJN-SER-colombia-medical-cannabis.png"
+          ]
         },
         {
           "title": "Повторно визуально проверенный источник BJN",
           "url": "https://www1.funcionpublica.gov.co/eva/gestornormativo/norma_pdf.php?i=80394",
           "role": "COMPOSITE_DIRECT_COLOMBIA_CANNABIS_LAW_AND_TERRITORIAL_JURISDICTION",
           "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
+        },
+        {
+          "title": "ICJ — решение 2012 года о суверенитете Colombia над Bajo Nuevo и Serranilla",
+          "url": "https://www.icj-cij.org/node/103212",
+          "role": "NEUTRAL_JURISDICTION_SCOPE",
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/BJN-SER-icj-sovereignty.png",
+          "freshVisualAnalysisRu": "На читаемом фрагменте пункта 251 Международный суд ООН единогласно фиксирует суверенитет Colombia над Bajo Nuevo и Serranilla. Это юрисдикционный мост, а не cannabis-law."
         }
       ],
       "officialStatusPatch": {
         "recreational": "NOT_LEGAL_PERSONAL_DOSE_PROTECTED_SUBJECT_TO_CONTEXTUAL_PUBLIC_SPACE_LIMITS_UNDER_COLOMBIAN_JURISDICTION",
         "medical": "REGULATED_UNDER_COLOMBIA_NATIONAL_MEDICAL_AND_SCIENTIFIC_CANNABIS_FRAMEWORK",
         "enforcement": "SOFT_FOR_PERSONAL_POSSESSION_CONTEXTUAL_PUBLIC_RESTRICTIONS_AND_SUPPLY_OFFENCES_REMAIN_UNDER_COLOMBIAN_JURISDICTION"
+      },
+      "freshProjectNull7Reaudit": {
+        "reviewedAt": "2026-07-20T09:24:56.000Z",
+        "currentMapColor": "UNKNOWN",
+        "officialLawColor": "LEGAL_OR_DECRIMINALIZED",
+        "acceptedScreenshotPaths": [
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/BJN-SER-icj-sovereignty.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/BJN-SER-colombia-medical-cannabis.png"
+        ],
+        "analysisRu": "ICJ даёт нейтральный мост к юрисдикции Colombia; Ley 1787 действует на всей национальной территории и создаёт medical/scientific cannabis framework. Текущий цвет карты остаётся серым, потому что projectStatus отсутствует; официальный вывод остаётся зелёным и не подменяет карту."
       }
     },
     {
@@ -165,13 +187,22 @@
           "title": "United Nations A/80/304 - NGO contribution describing Bir Tawil as unclaimed territory",
           "url": "https://digitallibrary.un.org/record/4087607/files/A_80_304-EN.pdf#page=10",
           "role": "UN_OFFICIAL_HOSTED_UNCLAIMED_CONTEXT_RELAYED_FROM_NGO_NOT_BINDING_LEGAL_DETERMINATION",
-          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20"
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "freshVisualAnalysisRu": "На странице 10 формулировка unclaimed territory находится в разделе вкладов неправительственных организаций. Это полезное negative/context evidence, но не правовое решение ООН и не территориальный закон BRT.",
+          "freshScreenshotPaths": [
+            "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/BRT-un-ngo-unclaimed-context.png"
+          ]
         },
         {
           "title": "UN Law of the Sea Bulletin No. 94 - Egypt Ministry of Foreign Affairs 22nd-parallel position",
           "url": "https://digitallibrary.un.org/record/3890922/files/LOS_94_WEB.pdf#page=25",
           "role": "EGYPT_OFFICIAL_BOUNDARY_POSITION_NO_BRT_TERRITORIAL_LAWMAKER",
-          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20"
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "freshVisualAnalysisRu": "На странице 26 видна противоположная позиция Sudan по Hala'ib и унаследованной границе. Вместе с позицией Egypt она подтверждает отсутствие единого BRT-законодателя.",
+          "freshScreenshotPaths": [
+            "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/BRT-un-los-egypt-boundary.png",
+            "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/BRT-un-los-sudan-boundary.png"
+          ]
         },
         {
           "title": "UN Law of the Sea Bulletin No. 94 - Sudan Ministry of Foreign Affairs Hala'ib position",
@@ -183,7 +214,11 @@
           "title": "Egyptian Drug Authority - Law No. 182 of 1960 cannabis plant and controlled operations",
           "url": "https://www.edaegypt.gov.eg/media/ekgifxb3/1960-182.pdf#page=13",
           "role": "EGYPT_ACCESS_STATE_DIRECT_CANNABIS_LAW",
-          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20"
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "freshVisualAnalysisRu": "На отрендеренной арабской странице 13 в таблице запрещённых к выращиванию растений читается القنب الهندي / Cannabis sativa. Это прямой закон Egypt, но не закон, изданный BRT.",
+          "freshScreenshotPaths": [
+            "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/BRT-egypt-law-182-cannabis.png"
+          ]
         },
         {
           "title": "Egyptian Drug Authority - current Law No. 182/1960 amendments index",
@@ -202,12 +237,42 @@
           "url": "https://web.archive.org/web/20071004220747/http://www.unodc.org/unodc/en/legal_library/sd/legal_library_1996-12-18_1996-77.html?print=yes",
           "role": "SUDAN_ACCESS_STATE_DIRECT_CANNABIS_LAW_OFFICIAL_UNODC_ARCHIVE_COPY",
           "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20"
+        },
+        {
+          "title": "Egyptian Drug Authority — действующий индекс Law 182/1960 и поправок",
+          "url": "https://www.edaegypt.gov.eg/en/the-regulatory-reference-of-the-egyptian-drug-authority-eda/laws-and-executive-regulations/",
+          "role": "EGYPT_ACCESS_STATE_CURRENT_LAW_INDEX",
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/BRT-egypt-current-amendments-index.png",
+          "freshVisualAnalysisRu": "На официальной странице EDA видна строка Law No. 182 of 1960 and its amendments с описанием anti-narcotics regulation. Индекс подтверждает актуальную нормативную ветку Egypt."
+        },
+        {
+          "title": "Sudan Judiciary — актуальное применение закона 1994 года к hashish/Indian hemp",
+          "url": "https://sj.gov.sd/ar/content/book/%D8%AD%D9%83%D9%88%D9%85%D8%A9-%D8%A7%D9%84%D8%B3%D9%88%D8%AF%D8%A7%D9%86-%D8%B6%D8%AF-%D8%A2-%D9%8A-%D8%A3-%D8%A3-%D8%A7-%D9%85-%D8%B9%D8%BA-%D8%A5%D9%85%D8%A4%D8%A8%D8%AF542017%D9%85",
+          "role": "SUDAN_ACCESS_STATE_CURRENT_JUDICIARY_CANNABIS_ENFORCEMENT",
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/BRT-sudan-current-cannabis-enforcement.png",
+          "freshVisualAnalysisRu": "На официальной странице суда видны Indian hemp, THC и ссылка на Narcotic Drugs and Psychotropic Substances Act 1994; это реальное уголовное правоприменение Sudan, но не отдельная BRT-юрисдикция."
         }
       ],
       "officialStatusPatch": {
         "recreational": "NO_GENERAL_LEGAL_MARKET_OPERATIONAL_ACCESS_RESTRICTED_UNDER_BOTH_BORDERING_REGIMES_NO_BRT_TERRITORIAL_LAWMAKER",
         "medical": "LIMITED_MEDICAL_SCIENTIFIC_AUTHORIZATION_ONLY_UNDER_BOTH_BORDERING_ACCESS_REGIMES_NO_BRT_PATIENT_PROGRAM",
         "enforcement": "STRICT_AT_EGYPT_SUDAN_ACCESS_REGIMES_NO_BRT_TERRITORIAL_ENFORCEMENT_AUTHORITY"
+      },
+      "freshProjectNull7Reaudit": {
+        "reviewedAt": "2026-07-20T09:24:56.000Z",
+        "currentMapColor": "UNKNOWN",
+        "officialLawColor": "LIMITED_OR_MEDICAL",
+        "acceptedScreenshotPaths": [
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/BRT-un-ngo-unclaimed-context.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/BRT-un-los-egypt-boundary.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/BRT-un-los-sudan-boundary.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/BRT-egypt-law-182-cannabis.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/BRT-egypt-current-amendments-index.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/BRT-sudan-current-cannabis-enforcement.png"
+        ],
+        "analysisRu": "Публичного BRT-законодателя нет. UN-hosted NGO context не является обязательным правом; позиции Egypt и Sudan несовместимы. Для operational-access fallback обе государственные cannabis-law ветки просмотрены и дают только ограниченные разрешительные medical/scientific режимы при строгом запрете остального. Карта — серая, официальный аналитический fallback — жёлтый."
       }
     },
     {
@@ -880,7 +945,11 @@
           "title": "Philippines Supreme Court E-Library — RA 9522, Bajo de Masinloc scope",
           "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/23187",
           "role": "CLAIMANT_JURISDICTION_SCOPE",
-          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "freshVisualAnalysisRu": "На читаемом Section 2 Bajo de Masinloc прямо назван Scarborough Shoal и отнесён к regime of islands под заявленной юрисдикцией Philippines.",
+          "freshScreenshotPaths": [
+            "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/SCR-philippines-scope.png"
+          ]
         },
         {
           "title": "Philippines Dangerous Drugs Board — RA 9165 cannabis definition and penalties",
@@ -892,25 +961,71 @@
           "title": "Embassy of China — Huangyan Island sovereignty and jurisdiction statement",
           "url": "https://ph.china-embassy.gov.cn/eng/xwfb/201206/t20120608_1180427.htm",
           "role": "CLAIMANT_JURISDICTION_SCOPE",
-          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "freshVisualAnalysisRu": "На официальной странице посольства заголовок и текст прямо заявляют sovereignty China over Huangyan Island/Scarborough Shoal. Это claimant scope, а не нейтральное разрешение спора.",
+          "freshScreenshotPaths": [
+            "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/SCR-china-scope.png"
+          ]
         },
         {
           "title": "Supreme People's Court of China — Criminal Law articles 351 and 357 naming marijuana",
           "url": "https://english.court.gov.cn/2015-12/01/c_761557_32.htm",
           "role": "CLAIMANT_DIRECT_CANNABIS_LAW",
-          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "freshVisualAnalysisRu": "На видимом фрагменте Articles 356–357 marijuana прямо включена в narcotic drugs; соседние нормы устанавливают уголовную ответственность за незаконные операции.",
+          "freshScreenshotPaths": [
+            "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/SCR-PGA-china-cannabis-law.png"
+          ]
         },
         {
           "title": "Lawphil — RA 9165 cannabis definition and penalties",
           "url": "https://lawphil.net/statutes/repacts/ra2002/ra_9165_2002.html",
           "role": "CLAIMANT_DIRECT_CANNABIS_LAW_OFFICIAL_MIRROR",
           "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
+        },
+        {
+          "title": "Philippines RA 9165 — cannabis, marijuana и Indian hemp",
+          "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/1435",
+          "role": "PHILIPPINES_CLAIMANT_DIRECT_CANNABIS_LAW",
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/SCR-PGA-philippines-ra9165.png",
+          "freshVisualAnalysisRu": "На официальной E-Library странице видна развернутая cannabis/marijuana/Indian hemp definition. Закон образует прямую claimant cannabis-law ветку для SCR и PGA."
+        },
+        {
+          "title": "Taiwan MOFA — официальная claimant-позиция по Scarborough Shoal",
+          "url": "https://en.mofa.gov.tw/News_Content.aspx?n=1330&s=118583",
+          "role": "TAIWAN_CLAIMANT_SCOPE",
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/SCR-taiwan-scope.png",
+          "freshVisualAnalysisRu": "На странице MOFA видны Scarborough Shoal/Huangyan Island и заявление, что South China Sea islands являются частью ROC (Taiwan) territory. Это явно маркированная claimant-позиция."
+        },
+        {
+          "title": "Taiwan FDA — cannabis относится к Category II narcotic и незаконен",
+          "url": "https://www.fda.gov.tw/TC/newsContent.aspx?id=25250",
+          "role": "TAIWAN_CLAIMANT_DIRECT_CANNABIS_STATUS",
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/SCR-PGA-taiwan-cannabis-schedule.png",
+          "freshVisualAnalysisRu": "На официальной странице FDA читается, что cannabis и изделия относятся ко второй категории наркотиков, а изготовление, перевозка, продажа, ввоз, хранение и употребление незаконны."
         }
       ],
       "officialStatusPatch": {
         "recreational": "ILLEGAL_UNDER_EVERY_VISUALLY_VERIFIED_CLAIMANT_REGIME",
         "medical": "NONE_NO_TERRITORY_WIDE_MEDICAL_CANNABIS_ACCESS_PROVEN_UNDER_EITHER_CLAIMANT_BRANCH",
         "enforcement": "STRICT_UNDER_EVERY_VISUALLY_VERIFIED_CLAIMANT_REGIME"
+      },
+      "freshProjectNull7Reaudit": {
+        "reviewedAt": "2026-07-20T09:24:56.000Z",
+        "currentMapColor": "UNKNOWN",
+        "officialLawColor": "ILLEGAL",
+        "acceptedScreenshotPaths": [
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/SCR-philippines-scope.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/SCR-PGA-philippines-ra9165.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/SCR-china-scope.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/SCR-PGA-china-cannabis-law.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/SCR-taiwan-scope.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/SCR-PGA-taiwan-cannabis-schedule.png"
+        ],
+        "analysisRu": "Philippines, China и Taiwan claimant-ветки визуально проверены: каждая запрещает recreational cannabis. Суверен не выбирается; совпадающий минимальный вывод — красный. Карта остаётся серой из-за отсутствующего projectStatus."
       }
     },
     {
@@ -928,19 +1043,41 @@
           "title": "Повторно визуально проверенный источник SER",
           "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=80394",
           "role": "CLAIMANT_STATE_CONTEXT_ONLY",
-          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "freshVisualAnalysisRu": "На странице закона виден Article 1: национальный режим безопасного медицинского и научного использования cannabis и его производных действует на всей территории Colombia.",
+          "freshScreenshotPaths": [
+            "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/BJN-SER-colombia-medical-cannabis.png"
+          ]
         },
         {
           "title": "Повторно визуально проверенный источник SER",
           "url": "https://www1.funcionpublica.gov.co/eva/gestornormativo/norma_pdf.php?i=80394",
           "role": "COMPOSITE_DIRECT_COLOMBIA_CANNABIS_LAW_AND_TERRITORIAL_JURISDICTION",
           "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
+        },
+        {
+          "title": "ICJ — решение 2012 года о суверенитете Colombia над Bajo Nuevo и Serranilla",
+          "url": "https://www.icj-cij.org/node/103212",
+          "role": "NEUTRAL_JURISDICTION_SCOPE",
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/BJN-SER-icj-sovereignty.png",
+          "freshVisualAnalysisRu": "На читаемом фрагменте пункта 251 Международный суд ООН единогласно фиксирует суверенитет Colombia над Bajo Nuevo и Serranilla. Это юрисдикционный мост, а не cannabis-law."
         }
       ],
       "officialStatusPatch": {
         "recreational": "NOT_LEGAL_PERSONAL_DOSE_PROTECTED_SUBJECT_TO_CONTEXTUAL_PUBLIC_SPACE_LIMITS_UNDER_COLOMBIAN_JURISDICTION",
         "medical": "REGULATED_UNDER_COLOMBIA_NATIONAL_MEDICAL_AND_SCIENTIFIC_CANNABIS_FRAMEWORK",
         "enforcement": "SOFT_FOR_PERSONAL_POSSESSION_CONTEXTUAL_PUBLIC_RESTRICTIONS_AND_SUPPLY_OFFENCES_REMAIN_UNDER_COLOMBIAN_JURISDICTION"
+      },
+      "freshProjectNull7Reaudit": {
+        "reviewedAt": "2026-07-20T09:24:56.000Z",
+        "currentMapColor": "UNKNOWN",
+        "officialLawColor": "LEGAL_OR_DECRIMINALIZED",
+        "acceptedScreenshotPaths": [
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/BJN-SER-icj-sovereignty.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/BJN-SER-colombia-medical-cannabis.png"
+        ],
+        "analysisRu": "ICJ даёт нейтральный мост к юрисдикции Colombia; Ley 1787 действует на всей национальной территории и создаёт medical/scientific cannabis framework. Текущий цвет карты остаётся серым, потому что projectStatus отсутствует; официальный вывод остаётся зелёным и не подменяет карту."
       }
     },
     {
@@ -958,7 +1095,11 @@
           "title": "Pakistan Code - Control of Narcotic Substances Act 1997, consolidated cannabis prohibitions",
           "url": "https://pakistancode.gov.pk/pdffiles/administrator739c7aa745c5afab5decf2e100caf1c5.pdf",
           "role": "CLAIMANT_DIRECT_CANNABIS_LAW",
-          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "freshVisualAnalysisRu": "На странице 6 официального консолидированного акта видны cannabis (hemp), cannabis resin/charas, ganja и cannabis plant.",
+          "freshScreenshotPaths": [
+            "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/KAS-pakistan-cnsa-cannabis.png"
+          ]
         },
         {
           "title": "Pakistan Code - Cannabis Control and Regulatory Authority Act 2024",
@@ -970,19 +1111,69 @@
           "title": "Ministry of Foreign Affairs Pakistan - Kashmir dispute and Siachen context",
           "url": "https://mofa.gov.pk/storage/files/1/65451083a984b.pdf",
           "role": "CLAIMANT_JURISDICTION_SCOPE",
-          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "freshVisualAnalysisRu": "На официально опубликованной странице видны Siachen, ceasefire/LoC и Pakistan-side изложение Kashmir dispute. Это claimant context, не нейтральное решение суверенитета.",
+          "freshScreenshotPaths": [
+            "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/KAS-pakistan-siachen-scope.png"
+          ]
         },
         {
           "title": "Ministry of External Affairs India - Siachen and NJ 9842 context",
           "url": "https://www.mea.gov.in/Uploads/PublicationDocs/23460_IWM_Book__11-06-2014_.pdf",
           "role": "CLAIMANT_JURISDICTION_SCOPE",
-          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "freshVisualAnalysisRu": "На странице 157 публикации MEA видны Siachen, NJ 9842 и противоположные интерпретации India/Pakistan. Документ подтверждает спорный scope и запрещает выбирать одного суверена автоматически.",
+          "freshScreenshotPaths": [
+            "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/KAS-india-siachen-scope.png"
+          ]
+        },
+        {
+          "title": "India NDPS Act 1985 — определение cannabis (hemp)",
+          "url": "https://www.indiacode.nic.in/bitstream/123456789/6834/1/narcotic-drugs-and-psychotropic-substances-act-1985.pdf",
+          "role": "INDIA_CLAIMANT_DIRECT_CANNABIS_LAW",
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/KAS-india-ndps-cannabis.png",
+          "freshVisualAnalysisRu": "На странице 12 виден общий запрет операций с narcotic drugs и явное исключение для medical or scientific purposes; ниже отдельно упомянута cannabis plant/ganja.",
+          "freshScreenshotPaths": [
+            "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/KAS-india-medical-scientific-exception.png"
+          ]
+        },
+        {
+          "title": "Pakistan Cannabis Control and Regulatory Authority Act 2024",
+          "url": "https://www.pakistancode.gov.pk/pdffiles/administrator135567794d629a6ce6f1b32daadc651d.pdf",
+          "role": "PAKISTAN_CLAIMANT_REGULATED_MEDICINAL_CANNABIS_LAW",
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/KAS-pakistan-ccra-2024.png",
+          "freshVisualAnalysisRu": "На странице 3 видны название закона, medicinal and industrial use, действие на весь Pakistan и подробное определение cannabis."
+        },
+        {
+          "title": "Pakistan CCRA Amendment Act 2026",
+          "url": "https://na.gov.pk/uploads/documents/69d4e17704917_332.pdf",
+          "role": "PAKISTAN_CLAIMANT_CURRENT_CANNABIS_LAW_AMENDMENT",
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/KAS-pakistan-ccra-amendment-2026.png",
+          "freshVisualAnalysisRu": "На первой странице Gazette of Pakistan читается Act XIX of 2026, президентское одобрение и прямое назначение: amend the Cannabis Control and Regulatory Authority Act, 2024."
         }
       ],
       "officialStatusPatch": {
         "recreational": "ILLEGAL_OUTSIDE_AUTHORISED_SCOPE_UNDER_EVERY_VISUALLY_VERIFIED_CLAIMANT_REGIME",
         "medical": "LIMITED_OR_REGULATED_MEDICAL_SCIENTIFIC_ACCESS_UNDER_EVERY_VISUALLY_VERIFIED_CLAIMANT_REGIME",
         "enforcement": "STRICT_OUTSIDE_AUTHORISED_SCOPE_UNDER_EVERY_VISUALLY_VERIFIED_CLAIMANT_REGIME"
+      },
+      "freshProjectNull7Reaudit": {
+        "reviewedAt": "2026-07-20T09:24:56.000Z",
+        "currentMapColor": "UNKNOWN",
+        "officialLawColor": "LIMITED_OR_MEDICAL",
+        "acceptedScreenshotPaths": [
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/KAS-india-ndps-cannabis.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/KAS-india-medical-scientific-exception.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/KAS-pakistan-cnsa-cannabis.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/KAS-pakistan-ccra-2024.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/KAS-pakistan-ccra-amendment-2026.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/KAS-pakistan-siachen-scope.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/KAS-india-siachen-scope.png"
+        ],
+        "analysisRu": "India и Pakistan claimant-ветки обе запрещают recreational cannabis, но сохраняют medical/scientific либо medicinal/industrial authorization. Siachen scope остаётся спорным. Общий официальный вывод — жёлтый; текущая карта — серая."
       }
     },
     {
@@ -994,7 +1185,11 @@
           "title": "Argentina - updated Law 27,350 medical and scientific cannabis",
           "url": "https://www.argentina.gob.ar/normativa/nacional/ley-27350-273801/actualizacion",
           "role": "CLAIMANT_DIRECT_CANNABIS_LAW",
-          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "freshVisualAnalysisRu": "На официальной актуализированной странице видны Ley 27350 и заголовок Uso medicinal de la planta de cannabis; Article 1 создаёт медицинский, терапевтический и научный framework.",
+          "freshScreenshotPaths": [
+            "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/SPI-argentina-medical-cannabis.png"
+          ]
         },
         {
           "title": "Argentina - updated Law 23,737 possession rule",
@@ -1006,7 +1201,11 @@
           "title": "Argentina federal judiciary - 2025 Arriola application to private personal possession",
           "url": "https://www.csjn.gov.ar/tribunales-federales-nacionales/d/sentencia-SGU-c6f9c533-7cd8-4163-83f2-2d1ee9733d14.pdf",
           "role": "CLAIMANT_CURRENT_JUDICIAL_ENFORCEMENT_SCOPE",
-          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "freshVisualAnalysisRu": "На подписанной странице решения видны tenencia para consumo personal, ссылка на Arriola и фактические 17 граммов marijuana. Это актуальная судебная enforcement-ветка, а не общий закон о легальном рынке.",
+          "freshScreenshotPaths": [
+            "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/SPI-argentina-current-personal-possession.png"
+          ]
         },
         {
           "title": "Chile BCN LeyChile - Ley 20.000 Article 8 cannabis cultivation and medical prescription",
@@ -1018,19 +1217,48 @@
           "title": "Chile BCN LeyChile - Decreto 404 cannabis prohibition and pharmaceutical authorization",
           "url": "https://www.bcn.cl/leychile/navegar?idNorma=13057",
           "role": "CLAIMANT_DIRECT_CANNABIS_LAW",
-          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "freshVisualAnalysisRu": "На Article 5 видны cannabis, resin, extracts и tinctures: операции запрещены, но возможны контролируемые research и human-use pharmaceutical authorizations.",
+          "freshScreenshotPaths": [
+            "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/SPI-chile-cannabis-control.png"
+          ]
         },
         {
           "title": "Chile Ministry of Foreign Affairs - Southern Patagonian Ice Field boundary work",
           "url": "https://www.minrel.gob.cl/sala-de-prensa/comunicado-por-inventario-nacional-de-glaciares-de-argentina",
           "role": "CLAIMANT_JURISDICTION_SCOPE",
-          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "freshVisualAnalysisRu": "Официальная страница подтверждает Agreement 1998 и незавершённую совместную картографию Section B. Поэтому общий SPI-суверен не выбирается.",
+          "freshScreenshotPaths": [
+            "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/SPI-chile-boundary-scope.png"
+          ]
+        },
+        {
+          "title": "Chile Ley 21.575 — cultivation of cannabis for medical treatment",
+          "url": "https://www.bcn.cl/leychile/navegar?idNorma=1192530&idParte=10432735",
+          "role": "CHILE_CLAIMANT_DIRECT_MEDICAL_CANNABIS_LAW",
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/SPI-chile-medical-cannabis-2023.png",
+          "freshVisualAnalysisRu": "На странице LeyChile читается норма, признающая оправданным выращивание cannabis для лечения при наличии врачебного рецепта с диагнозом, лечением и сроком."
         }
       ],
       "officialStatusPatch": {
         "recreational": "ILLEGAL_OR_NOT_GENERALLY_LEGAL_UNDER_EVERY_VISUALLY_VERIFIED_CLAIMANT_REGIME",
         "medical": "LIMITED_OR_REGULATED_MEDICAL_ACCESS_UNDER_EVERY_VISUALLY_VERIFIED_CLAIMANT_REGIME",
         "enforcement": "SOFT_OR_STRICT_DEPENDING_ON_CLAIMANT_AND_FACTS"
+      },
+      "freshProjectNull7Reaudit": {
+        "reviewedAt": "2026-07-20T09:24:56.000Z",
+        "currentMapColor": "UNKNOWN",
+        "officialLawColor": "LIMITED_OR_MEDICAL",
+        "acceptedScreenshotPaths": [
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/SPI-argentina-medical-cannabis.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/SPI-argentina-current-personal-possession.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/SPI-chile-medical-cannabis-2023.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/SPI-chile-cannabis-control.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/SPI-chile-boundary-scope.png"
+        ],
+        "analysisRu": "Argentina и Chile обе имеют регулируемые medical cannabis ветки, но не общий legal recreational market; enforcement различается. Незавершённая Section B не позволяет выбрать суверена. Официальный общий вывод — жёлтый, карта — серая."
       }
     },
     {
@@ -1048,13 +1276,21 @@
           "title": "United Nations A/47/623 - six competing Spratly claimant branches",
           "url": "https://digitallibrary.un.org/record/155981/files/A_47_623-EN.pdf",
           "role": "MULTI_CLAIMANT_JURISDICTION_SCOPE",
-          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "freshVisualAnalysisRu": "На странице 14 отчёта перечислены China, Taiwan, Viet Nam, Malaysia, Brunei Darussalam и Philippines, а ниже прямо сказано six parties concerned. Это нейтральный scope для проверки всех веток.",
+          "freshScreenshotPaths": [
+            "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/PGA-un-six-claimants.png"
+          ]
         },
         {
           "title": "Brunei Attorney General's Chambers - Misuse of Drugs Act Cap. 27",
           "url": "https://www.agc.gov.bn/AGC%20Images/LAWS/ACT_PDF/cap027.pdf",
           "role": "CLAIMANT_DIRECT_CANNABIS_LAW",
-          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "freshVisualAnalysisRu": "На странице закона видны определения cannabis, cannabis mixture и cannabis resin и связь controlled drugs с First Schedule.",
+          "freshScreenshotPaths": [
+            "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/PGA-brunei-cannabis-law.png"
+          ]
         },
         {
           "title": "Supreme People's Court of China - Criminal Law narcotic offences",
@@ -1066,37 +1302,83 @@
           "title": "Supreme People's Court of China - Criminal Law definition naming marijuana",
           "url": "https://english.court.gov.cn/2015-12/01/c_761557_32.htm",
           "role": "CLAIMANT_DIRECT_CANNABIS_LAW",
-          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "freshVisualAnalysisRu": "На видимом фрагменте Articles 356–357 marijuana прямо включена в narcotic drugs; соседние нормы устанавливают уголовную ответственность за незаконные операции.",
+          "freshScreenshotPaths": [
+            "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/SCR-PGA-china-cannabis-law.png"
+          ]
         },
         {
           "title": "Malaysia Attorney General's Chambers - Dangerous Drugs Act 1952 Act 234",
           "url": "https://lom.agc.gov.my/ilims/upload/portal/akta/outputaktap/1840725_BI/22.11.2023%20-%20Act%20234.pdf",
           "role": "CLAIMANT_DIRECT_CANNABIS_LAW",
-          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "freshVisualAnalysisRu": "На странице 13 Section 6 запрещает possession/custody/control cannabis без authorization и устанавливает уголовную ответственность.",
+          "freshScreenshotPaths": [
+            "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/PGA-malaysia-cannabis-definition.png",
+            "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/PGA-malaysia-possession.png"
+          ]
         },
         {
           "title": "Taiwan FDA - cannabis is an illegal Category II narcotic",
           "url": "https://www.fda.gov.tw/TC/newsContent.aspx?id=25250",
           "role": "CLAIMANT_DIRECT_CANNABIS_STATUS",
-          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "freshVisualAnalysisRu": "На официальной странице FDA читается, что cannabis и изделия относятся ко второй категории наркотиков, а изготовление, перевозка, продажа, ввоз, хранение и употребление незаконны.",
+          "freshScreenshotPaths": [
+            "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/SCR-PGA-taiwan-cannabis-schedule.png"
+          ]
         },
         {
           "title": "Vietnam Government - Decree 28/2026 List I cannabis plant and preparations",
           "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/01/28-cp.signed.pdf",
           "role": "CLAIMANT_DIRECT_CANNABIS_LAW",
-          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "freshVisualAnalysisRu": "На странице 2 приложения List I в строках 9–10 читаются Cây cần sa и Cannabis preparations containing THC. Заголовок определяет список как запрещённый для медицинского и социального использования вне специального режима.",
+          "freshScreenshotPaths": [
+            "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/PGA-vietnam-decree-28-2026.png"
+          ]
         },
         {
           "title": "Vietnam Government - Law 73/2021 on Drug Prevention and Control",
           "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2022/01/73luat.pdf",
           "role": "CLAIMANT_DIRECT_CANNABIS_LAW",
-          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "freshVisualAnalysisRu": "На первой странице закона виден официальный заголовок; в Article 2(6) cannabis plant (cây cần sa) прямо включена в narcotic-containing plants.",
+          "freshScreenshotPaths": [
+            "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/PGA-vietnam-law-73-2021.png"
+          ]
+        },
+        {
+          "title": "Philippines RA 9165 — cannabis, marijuana и Indian hemp",
+          "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/1435",
+          "role": "PHILIPPINES_CLAIMANT_DIRECT_CANNABIS_LAW",
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/SCR-PGA-philippines-ra9165.png",
+          "freshVisualAnalysisRu": "На официальной E-Library странице видна развернутая cannabis/marijuana/Indian hemp definition. Закон образует прямую claimant cannabis-law ветку для SCR и PGA."
         }
       ],
       "officialStatusPatch": {
         "recreational": "ILLEGAL_UNDER_EVERY_VISUALLY_VERIFIED_CLAIMANT_REGIME",
         "medical": "NONE_NO_TERRITORY_WIDE_PATIENT_ACCESS_COMMON_TO_ALL_VISUALLY_VERIFIED_CLAIMANT_REGIMES",
         "enforcement": "STRICT_CRIMINAL_PROHIBITION_UNDER_EVERY_VISUALLY_VERIFIED_CLAIMANT_REGIME"
+      },
+      "freshProjectNull7Reaudit": {
+        "reviewedAt": "2026-07-20T09:24:56.000Z",
+        "currentMapColor": "UNKNOWN",
+        "officialLawColor": "ILLEGAL",
+        "acceptedScreenshotPaths": [
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/SCR-PGA-philippines-ra9165.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/SCR-PGA-china-cannabis-law.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/SCR-PGA-taiwan-cannabis-schedule.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/PGA-un-six-claimants.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/PGA-brunei-cannabis-law.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/PGA-malaysia-cannabis-definition.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/PGA-malaysia-possession.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/PGA-vietnam-decree-28-2026.png",
+          "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/PGA-vietnam-law-73-2021.png"
+        ],
+        "analysisRu": "Проверены все шесть claimant-веток из UN A/47/623: Brunei, China, Malaysia, Philippines, Taiwan и Vietnam. Общего patient-access режима нет, recreational cannabis запрещён во всех ветках. Официальный общий вывод — красный; карта остаётся серой."
       }
     },
     {
