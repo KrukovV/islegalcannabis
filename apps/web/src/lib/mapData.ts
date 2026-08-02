@@ -239,17 +239,20 @@ function deriveStatusEngineFromNormalizedPair(params: {
 
 function deriveStatusEngineFromSsotEntry(entry: StatusEngineV9SsotEntry | null | undefined) {
   if (!entry?.recreational && !entry?.medical) return null;
+  const recreational = entry.recreational ?? null;
+  const medical = entry.medical ?? null;
+  const enforcement = entry.enforcement ?? null;
   const missingSignal: string[] = [];
-  if (!entry?.recreational) missingSignal.push("recreational");
-  if (!entry?.medical) missingSignal.push("medical");
+  if (!recreational) missingSignal.push("recreational");
+  if (!medical) missingSignal.push("medical");
   return evaluateStatusEngineV9({
-    recreational: entry.recreational,
-    medical: entry.medical,
-    enforcement: entry.enforcement,
+    recreational,
+    medical,
+    enforcement,
     reason: [
-      `status_ssot_v9.recreational=${entry.recreational}`,
-      `status_ssot_v9.medical=${entry.medical}`,
-      `status_ssot_v9.enforcement=${entry.enforcement}`
+      `status_ssot_v9.recreational=${recreational}`,
+      `status_ssot_v9.medical=${medical}`,
+      `status_ssot_v9.enforcement=${enforcement}`
     ],
     missingSignal,
     conflictingFacts: [],

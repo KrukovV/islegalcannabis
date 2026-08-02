@@ -118,8 +118,13 @@ if [ "${READONLY_CI}" = "1" ]; then
   SSOT_WRITE="0"
   UPDATE_MODE="0"
 fi
+if [ "${READONLY_CI}" = "1" ]; then
+  SSOT_DIFF_READ_ONLY="1"
+else
+  SSOT_DIFF_READ_ONLY="${SSOT_DIFF_READ_ONLY:-0}"
+fi
 SSOT_WRITE_LINE="SSOT_WRITE=${SSOT_WRITE}"
-export SSOT_WRITE RUN_STARTED_AT
+export SSOT_WRITE SSOT_DIFF_READ_ONLY RUN_STARTED_AT
 export READONLY_CI
 export UPDATE_MODE
 DATA_DIRTY_BEFORE=$(git -C "${ROOT}" status --porcelain -- data | sed '/^$/d' || true)

@@ -10,6 +10,7 @@ import {
   hasFreshIndependentVisualEvidence,
   hasLiveMapCapture,
   hasProvenAdultUse,
+  normalizeLiveMapCapture,
 } from "./build_wiki_truth_307_final_reconciliation.mjs";
 import {
   assertCanonicalGeoUniverse,
@@ -787,4 +788,32 @@ test("claimant-state cannabis law cannot color a disputed territory without dire
   });
   assert.equal(result.color, "UNKNOWN");
   assert.equal(result.ruleId, "OFFICIAL_SCOPE_EXCLUSION");
+});
+
+test("live browser map evidence is normalized separately from legal truth", () => {
+  const screenshot = new URL("./truth_first_reconciliation.test.mjs", import.meta.url).pathname;
+  const capture = normalizeLiveMapCapture({
+    geo: "TEST",
+    capture_status: "LIVE_CAPTURED",
+    map_color_bucket: "LIMITED_OR_MEDICAL",
+    map_color_evidence: "#f4e9c2",
+    map_visual_verdict: "PASS",
+    map_screenshot: screenshot,
+    runtime_url: "http://127.0.0.1:3000/new-map?qa=1",
+    captured_at: "2026-08-02T14:34:27.986Z",
+  });
+  assert.equal(capture?.color, "YELLOW");
+  assert.equal(capture?.source, "BROWSER_MAP_DOM_VISUAL_MANIFEST");
+  assert.equal(hasLiveMapCapture(capture), true);
+});
+
+test("incomplete map metadata cannot be promoted to a live map capture", () => {
+  assert.equal(normalizeLiveMapCapture({
+    capture_status: "LIVE_CAPTURED",
+    map_color_bucket: "ILLEGAL",
+    map_visual_verdict: "PASS",
+    map_screenshot: "/missing/evidence.png",
+    runtime_url: "http://127.0.0.1:3000/new-map?qa=1",
+    captured_at: "2026-08-02T14:34:27.986Z",
+  }), null);
 });

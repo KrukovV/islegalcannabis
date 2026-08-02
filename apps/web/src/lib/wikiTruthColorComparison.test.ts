@@ -214,7 +214,7 @@ describe("wiki-truth cannabis color comparison", () => {
           medical: "REGULATED_PATIENT_RECOMMENDATION_CARD_AND_DISPENSARY_FRAMEWORK",
         }),
       ),
-    ).toBe("LEGAL_OR_DECRIM");
+    ).toBe("LIMITED_OR_MEDICAL");
   });
 
   test("keeps cultivation/association modes from being treated as adult-use legal", () => {
@@ -273,7 +273,7 @@ describe("wiki-truth cannabis color comparison", () => {
             "LICENSED_PRODUCTION_FOR_MEDICAL_AND_EXPORT_ONLY_NO_DOMESTIC_PATIENT_ACCESS",
         }),
       ),
-    ).toBe("LIMITED_OR_MEDICAL");
+    ).toBe("ILLEGAL");
   });
 
   test("treats lifecycle-only law states as non-green and evidence-gapped", () => {
@@ -331,7 +331,7 @@ describe("wiki-truth cannabis color comparison", () => {
           medical: "RESEARCH_EXEMPTIONS; IMPORT_ONLY_WITHOUT_PATIENT_ACCESS",
         }),
       ),
-    ).toBe("LIMITED_OR_MEDICAL");
+    ).toBe("UNKNOWN");
 
     expect(
       deriveOfficialLawMapCategory(
@@ -350,7 +350,7 @@ describe("wiki-truth cannabis color comparison", () => {
           medical: "EXPORT_ONLY; COMMERCIAL_DISPATCH_PERMITS",
         }),
       ),
-    ).toBe("LIMITED_OR_MEDICAL");
+    ).toBe("UNKNOWN");
 
     expect(
       deriveOfficialLawMapCategory(
@@ -359,7 +359,7 @@ describe("wiki-truth cannabis color comparison", () => {
           medical: "PATIENT_ACCESS_PRODUCT_SCOPE_NOT_PROVEN; REGULATED_CULTIVATION",
         }),
       ),
-    ).toBe("LIMITED_OR_MEDICAL");
+    ).toBe("UNKNOWN");
 
     expect(
       deriveOfficialLawMapCategory(
@@ -381,7 +381,7 @@ describe("wiki-truth cannabis color comparison", () => {
     ).toBe("LIMITED_OR_MEDICAL");
   });
 
-  test("treats operational patient-program infrastructure as green patient access", () => {
+  test("keeps patient-program infrastructure yellow until operational patient supply is proven", () => {
     expect(
       deriveOfficialLawMapCategory(
         asOfficialRow({
@@ -389,7 +389,7 @@ describe("wiki-truth cannabis color comparison", () => {
           medical: "REGULATED_PATIENT_RECOMMENDATION_CARD_AND_DISPENSARY_FRAMEWORK",
         }),
       ),
-    ).toBe("LEGAL_OR_DECRIM");
+    ).toBe("LIMITED_OR_MEDICAL");
 
     expect(
       deriveOfficialLawMapCategory(
@@ -398,7 +398,7 @@ describe("wiki-truth cannabis color comparison", () => {
           medical: "REGULATED_CERTIFIED_PATIENT_PROGRAM",
         }),
       ),
-    ).toBe("LIMITED_OR_MEDICAL");
+    ).toBe("UNKNOWN");
 
     expect(
       deriveOfficialLawMapCategory(
@@ -407,7 +407,7 @@ describe("wiki-truth cannabis color comparison", () => {
           medical: "REGULATED",
         }),
       ),
-    ).toBe("LIMITED_OR_MEDICAL");
+    ).toBe("UNKNOWN");
 
     expect(
       deriveOfficialLawMapCategory(
@@ -419,7 +419,7 @@ describe("wiki-truth cannabis color comparison", () => {
     ).toBe("LIMITED_OR_MEDICAL");
   });
 
-  test("treats prescription access to own patients as operational patient access", () => {
+  test("keeps prescription access to own patients yellow without proven operational supply", () => {
     expect(
       deriveOfficialLawMapCategory(
         asOfficialRow({
@@ -427,7 +427,7 @@ describe("wiki-truth cannabis color comparison", () => {
           medical: "REGULATED; OFFICIAL_TEXT_ALLOWS_LISTED_PROFESSIONALS_TO_SUPPLY_TO_OWN_PATIENTS_WITH_OFFICIAL_PRESCRIPTION",
         }),
       ),
-    ).toBe("LEGAL_OR_DECRIM");
+    ).toBe("LIMITED_OR_MEDICAL");
   });
 
   test("keeps claimant-only rows non-authoritative for truth-first color", () => {

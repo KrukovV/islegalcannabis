@@ -115,7 +115,7 @@ describe("/wiki-truth", () => {
     expect(html).toContain('data-testid="wiki-truth-summary"');
   });
 
-  it("keeps the current Truth-First reconciliation fail-closed until live proof is complete", () => {
+  it("keeps the current Truth-First reconciliation fail-closed until official visual proof is complete", () => {
     const html = renderToStaticMarkup(createElement(WikiTruthPageContent));
     const final = readFinalReconciliation();
     const section =
@@ -129,7 +129,7 @@ describe("/wiki-truth", () => {
     expect(final.acceptance?.flags?.freshOfficialVisualReviewComplete).toBe(
       false,
     );
-    expect(final.acceptance?.flags?.currentMapCaptureComplete).toBe(false);
+    expect(final.acceptance?.flags?.currentMapCaptureComplete).toBe(true);
     const conflictRows = final.acceptance?.crossLayerConflictRows || [];
     expect(new Set(conflictRows).size).toBe(conflictRows.length);
     expect(final.acceptance?.unprovenGreenRows).toEqual([]);

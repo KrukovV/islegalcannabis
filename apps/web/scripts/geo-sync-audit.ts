@@ -309,10 +309,8 @@ type WikiVisualEvidence = {
 
 const ROOT = path.resolve(process.cwd(), "..", "..");
 const GEO_SYNC_DIR = path.join(ROOT, "Artifacts", "geo-sync");
+const CURRENT_MAP_COLORS_PATH = path.join(ROOT, "data", "reviews", "map-current-colors-307.json");
 const GEO_SYNC_ARCHIVE_BASE = String(process.env.GEO_SYNC_AUDIT_ARCHIVE_BASE || "").trim();
-const GEO_SYNC_ARTIFACT_DIR = GEO_SYNC_ARCHIVE_BASE
-  ? path.join(path.resolve(GEO_SYNC_ARCHIVE_BASE), "geo-sync")
-  : GEO_SYNC_DIR;
 const NEW_MAP_ROUTE = "/new-map?qa=1";
 const LEGAL_COUNTRIES_SOURCE_ID = "legal-countries";
 const US_STATES_SOURCE_ID = "us-states";
@@ -330,9 +328,6 @@ const CHANGED_FILES = [
   "apps/web/src/new-map/components/ViewportCountryPopup.tsx",
   "apps/web/src/new-map/components/UnifiedSeoStatusPanel.tsx"
 ];
-const LIVE_FAILURES_PATH = path.join(GEO_SYNC_DIR, "live-failures.jsonl");
-const LIVE_SUMMARY_PATH = path.join(GEO_SYNC_DIR, "live-summary.json");
-const LIVE_REVIEW_PATH = path.join(GEO_SYNC_DIR, "live-review.jsonl");
 const RISK_GEO_PRIORITY = [
   "GE",
   "US-GA",
@@ -1040,6 +1035,7 @@ function evaluateLiveRow(row: GeoSyncRow) {
 }
 
 function writeLiveSummary(options: {
+  outputPath: string;
   rows: GeoSyncRow[];
   total: number;
   liveFailures: ReturnType<typeof evaluateLiveRow>[];
@@ -1061,7 +1057,146 @@ function writeLiveSummary(options: {
     },
     elapsed_ms: Date.now() - options.startedAt
   };
-  fs.writeFileSync(LIVE_SUMMARY_PATH, `${JSON.stringify(summary, null, 2)}\n`);
+  fs.writeFileSync(options.outputPath, `${JSON.stringify(summary, null, 2)}\n`);
+}
+
+function resolveAuditRunDir(isFullRun: boolean) {
+  if (isFullRun) return GEO_SYNC_DIR;
+  if (!GEO_SYNC_ARCHIVE_BASE) {
+    throw new Error("GEO_SYNC_AUDIT_PARTIAL_REQUIRES_EXTERNAL_ARCHIVE_BASE");
+  }
+  const archiveBase = path.resolve(GEO_SYNC_ARCHIVE_BASE);
+  if (archiveBase === ROOT || archiveBase.startsWith(`${ROOT}${path.sep}`)) {
+    throw new Error("GEO_SYNC_AUDIT_PARTIAL_ARCHIVE_MUST_BE_OUTSIDE_REPOSITORY");
+  }
+  const runId = `partial-${new Date().toISOString().replace(/[:.]/g, "-")}-${process.pid}`;
+  return path.join(archiveBase, "geo-sync", runId);
+}
+
+function rowGeo(row: Pick<GeoSyncRow, "canonical_key" | "code">) {
+  return String(row.canonical_key || row.code || "").split("|")[0].trim().toUpperCase();
+}
+
+function mergeFullResumeRows(params: {
+  previousReport: GeoSyncManifest;
+  retryRows: GeoSyncRow[];
+  requestedGeos: string[];
+}) {
+  const previousRows = Array.isArray(params.previousReport.rows) ? params.previousReport.rows : [];
+  const expectedTotal = Number(params.previousReport.total_geo_count || 0);
+  const incompleteGeos = previousRows
+    .filter((row) => !row.map_screenshot || !row.popup_screenshot || !row.seo_screenshot || !row.wiki_screenshot)
+    .map(rowGeo)
+    .filter(Boolean)
+    .sort();
+  const requested = [...new Set(params.requestedGeos.map((geo) => geo.trim().toUpperCase()).filter(Boolean))].sort();
+  if (
+    expectedTotal <= 0 ||
+    previousRows.length !== expectedTotal ||
+    requested.length === 0 ||
+    incompleteGeos.length === 0 ||
+    requested.join("|") !== incompleteGeos.join("|")
+  ) {
+    throw new Error(`GEO_SYNC_AUDIT_RESUME_SET_MISMATCH expected=${incompleteGeos.join(",")} requested=${requested.join(",")}`);
+  }
+  const retryByGeo = new Map(params.retryRows.map((row) => [rowGeo(row), row]));
+  if (retryByGeo.size !== requested.length || requested.some((geo) => !retryByGeo.has(geo))) {
+    throw new Error("GEO_SYNC_AUDIT_RESUME_ROWS_INCOMPLETE");
+  }
+  const merged = previousRows.map((row) => retryByGeo.get(rowGeo(row)) || row);
+  const mergedGeos = merged.map(rowGeo).filter(Boolean);
+  if (merged.length !== expectedTotal || new Set(mergedGeos).size !== expectedTotal || mergedGeos.some((geo) => !geo)) {
+    throw new Error("GEO_SYNC_AUDIT_RESUME_UNIVERSE_INVALID");
+  }
+  return { rows: merged, total: expectedTotal };
+}
+
+function currentMapColorFromBucket(bucket: string | null | undefined) {
+  const normalized = String(bucket || "").toUpperCase();
+  if (normalized === "LEGAL_OR_DECRIM") return "GREEN";
+  if (normalized === "LIMITED_OR_MEDICAL") return "YELLOW";
+  if (normalized === "ILLEGAL") return "RED";
+  return "UNCOLORED";
+}
+
+function writeCurrentMapColors(params: {
+  report: GeoSyncManifest;
+  fullManifestPath: string;
+  runtimeUrl: string;
+}) {
+  const rows = params.report.rows.map((row) => {
+    const mapVisualVerdict = row.notes.find((note) => note.startsWith("MAP_COLOR_VISUAL_VERDICT="))
+      ?.replace("MAP_COLOR_VISUAL_VERDICT=", "") || "FAIL";
+    const mapScreenshot = path.resolve(ROOT, String(row.map_screenshot || ""));
+    return {
+      geo: rowGeo(row),
+      capture_status: "LIVE_CAPTURED",
+      current_map_color: currentMapColorFromBucket(row.map_color_bucket),
+      map_color_bucket: row.map_color_bucket,
+      map_color_evidence: row.map_color_evidence,
+      map_visual_verdict: mapVisualVerdict,
+      map_screenshot: mapScreenshot,
+      popup_screenshot: path.resolve(ROOT, String(row.popup_screenshot || "")),
+      seo_screenshot: path.resolve(ROOT, String(row.seo_screenshot || "")),
+      wiki_screenshot: path.resolve(ROOT, String(row.wiki_screenshot || "")),
+      captured_at: params.report.generatedAt,
+      runtime_url: params.runtimeUrl,
+      build_id: row.generator_run_id,
+      evidence_manifest: params.fullManifestPath,
+      automated_capture_complete: true,
+      human_visual_review: "NOT_YET_HUMAN_OPENED",
+      map_layer_id: row.map_layer_id,
+      popup_visual_verdict: row.notes.find((note) => note.startsWith("POPUP_VISUAL_VERDICT="))
+        ?.replace("POPUP_VISUAL_VERDICT=", "") || "FAIL",
+      seo_visual_verdict: row.notes.find((note) => note.startsWith("SEO_VISUAL_VERDICT="))
+        ?.replace("SEO_VISUAL_VERDICT=", "") || "FAIL"
+    };
+  });
+  const capture = {
+    generatedAt: params.report.generatedAt,
+    schemaVersion: 1,
+    nonMutating: true,
+    applyAllowed: false,
+    rowsExpected: params.report.total_geo_count,
+    currentLiveMapCaptureCount: rows.length,
+    directMapVisualPassCount: rows.filter((row) => row.map_visual_verdict === "PASS").length,
+    sparseMapVisualCaptureCount: rows.filter((row) => row.map_visual_verdict === "SPARSE").length,
+    source: {
+      kind: "BROWSER_MAP_DOM_VISUAL_MANIFEST",
+      manifest: params.fullManifestPath,
+      capturedAt: params.report.generatedAt,
+      runtimeUrl: params.runtimeUrl
+    },
+    rows,
+    captureManifests: [params.fullManifestPath]
+  };
+  fs.writeFileSync(CURRENT_MAP_COLORS_PATH, `${JSON.stringify(capture, null, 2)}\n`);
+}
+
+function publishCurrentMapColorsFromValidatedManifest() {
+  const fullManifestPath = path.join(GEO_SYNC_DIR, "full-manifest.json");
+  const report = JSON.parse(fs.readFileSync(fullManifestPath, "utf8")) as GeoSyncManifest;
+  const validation = buildValidation(report.rows, report.total_geo_count);
+  if (
+    report.total_geo_count !== 307 ||
+    report.processed_geo_count !== 307 ||
+    validation.screenshot_pairs_ok !== true ||
+    validation.existing_paths_ok !== true ||
+    validation.regressions.length > 0
+  ) {
+    throw new Error("GEO_SYNC_AUDIT_PUBLISH_REQUIRES_VALIDATED_FULL_MANIFEST");
+  }
+  fs.writeFileSync(fullManifestPath, `${JSON.stringify(report, null, 2)}\n`);
+  fs.writeFileSync(
+    path.join(GEO_SYNC_DIR, "full-validation.json"),
+    `${JSON.stringify(validation, null, 2)}\n`,
+  );
+  writeCurrentMapColors({
+    report,
+    fullManifestPath,
+    runtimeUrl: String(process.env.PLAYWRIGHT_BASE_URL || "http://127.0.0.1:3000")
+  });
+  console.warn(`GEO_SYNC_AUDIT_PUBLISH_CURRENT_MAP rows=${report.rows.length} output=${CURRENT_MAP_COLORS_PATH}`);
 }
 
 function classifyCoverage(params: {
@@ -1512,6 +1647,28 @@ async function captureFullPageScreenshot(page: Page, screenshotPath: string) {
   } catch (error) {
     await captureTiledFullPageScreenshot(page, screenshotPath, error);
   }
+}
+
+async function gotoWithDomContentLoadedRetry(options: {
+  page: Page;
+  url: string;
+  createPage: () => Promise<Page>;
+}) {
+  let page = options.page;
+  let lastError: unknown;
+  for (const [attempt, timeout] of [30_000, 90_000].entries()) {
+    try {
+      await page.goto(options.url, { waitUntil: "domcontentloaded", timeout });
+      return page;
+    } catch (error) {
+      lastError = error;
+      if (attempt === 0) {
+        await page.close().catch(() => undefined);
+        page = await options.createPage();
+      }
+    }
+  }
+  throw lastError instanceof Error ? lastError : new Error(String(lastError));
 }
 
 async function captureTiledFullPageScreenshot(page: Page, screenshotPath: string, originalError: unknown) {
@@ -1972,21 +2129,24 @@ async function main() {
     if (typeof value === "string" && value) acc[key] = value;
     return acc;
   }, {});
-  fs.mkdirSync(GEO_SYNC_DIR, { recursive: true });
-  fs.mkdirSync(GEO_SYNC_ARTIFACT_DIR, { recursive: true });
-  fs.writeFileSync(LIVE_FAILURES_PATH, "");
-  fs.writeFileSync(LIVE_REVIEW_PATH, "");
   const previousSectionCounts = readPreviousSectionCounts();
   const liveStartedAt = Date.now();
   const failFast = process.env.GEO_SYNC_AUDIT_FAIL_FAST === "1";
   const liveFailures: ReturnType<typeof evaluateLiveRow>[] = [];
 
+  if (process.env.GEO_SYNC_AUDIT_PUBLISH_CURRENT_MAP === "1") {
+    publishCurrentMapColorsFromValidatedManifest();
+    return;
+  }
+
   const browser = await chromium.launch({ headless: process.env.PLAYWRIGHT_HEADFUL === "1" ? false : true });
-  const context = await browser.newContext({
+  const contextOptions = {
     ...(Object.keys(cleanedBypassHeaders).length > 0 ? { extraHTTPHeaders: cleanedBypassHeaders } : {})
-  });
+  };
+  const context = await browser.newContext(contextOptions);
   const mapPage = await context.newPage();
-  const seoPage = await context.newPage();
+  let seoContext = await browser.newContext(contextOptions);
+  let seoPage = await seoContext.newPage();
   const wikiPage = await context.newPage();
 
   try {
@@ -2007,6 +2167,17 @@ async function main() {
       limit: requestedLimitRaw
     });
     const isFullRun = requestedGeos.length === 0 && requestedOffset === 0 && requestedLimitRaw === 0 && geos.length === total;
+    const resumeFull = process.env.GEO_SYNC_AUDIT_RESUME_FULL === "1";
+    if (resumeFull && (isFullRun || requestedOffset !== 0 || requestedLimitRaw !== 0)) {
+      throw new Error("GEO_SYNC_AUDIT_RESUME_REQUIRES_EXPLICIT_GEOS_ONLY");
+    }
+    const auditRunDir = resolveAuditRunDir(isFullRun || resumeFull);
+    const liveFailuresPath = path.join(auditRunDir, "live-failures.jsonl");
+    const liveSummaryPath = path.join(auditRunDir, "live-summary.json");
+    const liveReviewPath = path.join(auditRunDir, "live-review.jsonl");
+    fs.mkdirSync(auditRunDir, { recursive: true });
+    fs.writeFileSync(liveFailuresPath, "");
+    fs.writeFileSync(liveReviewPath, "");
     const pageIndexByGeo = getCountryPageIndexByGeoCode();
     const rows: GeoSyncRow[] = [];
 
@@ -2014,7 +2185,7 @@ async function main() {
       const entry = runtimeCardIndex[geo] || buildCardIndexSnapshot({ fresh: true })[geo];
       const pageData = entry?.code ? getCountryPageData(entry.code) : pageIndexByGeo.get(geo) || null;
       const canonicalEntry = pageData ? deriveCountryCardEntryFromCountryPageData(pageData) : null;
-      const geoDir = path.join(GEO_SYNC_ARTIFACT_DIR, geo);
+      const geoDir = path.join(auditRunDir, geo);
       fs.mkdirSync(geoDir, { recursive: true });
 
       const mapVisualAnchors = buildMapVisualAnchors(geo, entry);
@@ -2071,7 +2242,15 @@ async function main() {
         : String(entry?.pageHref || "").trim() || `/new-map?geo=${encodeURIComponent(geo)}`;
       if (seoHref) {
         try {
-          await seoPage.goto(`${baseUrl}${seoHref}`, { waitUntil: "domcontentloaded" });
+          seoPage = await gotoWithDomContentLoadedRetry({
+            page: seoPage,
+            url: `${baseUrl}${seoHref}`,
+            createPage: async () => {
+              await seoContext.close().catch(() => undefined);
+              seoContext = await browser.newContext(contextOptions);
+              return seoContext.newPage();
+            }
+          });
           const isMapSeoRoute = /^\/new-map\b/i.test(seoHref);
           if (isMapSeoRoute) {
             await waitForMapReady(seoPage).catch((error) => {
@@ -2569,13 +2748,13 @@ async function main() {
       const liveVerdict = evaluateLiveRow(row);
       if (!liveVerdict.ok) {
         liveFailures.push(liveVerdict);
-        fs.appendFileSync(LIVE_FAILURES_PATH, `${JSON.stringify({ generatedAt: new Date().toISOString(), index: index + 1, ...liveVerdict })}\n`);
+        fs.appendFileSync(liveFailuresPath, `${JSON.stringify({ generatedAt: new Date().toISOString(), index: index + 1, ...liveVerdict })}\n`);
       }
       if (liveVerdict.warnings.some((warning) => warning === "RISK_GEO_VISUAL_REVIEW_REQUIRED")) {
-        fs.appendFileSync(LIVE_REVIEW_PATH, `${JSON.stringify({ generatedAt: new Date().toISOString(), index: index + 1, ...liveVerdict })}\n`);
+        fs.appendFileSync(liveReviewPath, `${JSON.stringify({ generatedAt: new Date().toISOString(), index: index + 1, ...liveVerdict })}\n`);
         console.warn(`GEO_SYNC_AUDIT_REVIEW geo=${geo} map=${row.map_screenshot || ""} popup=${row.popup_screenshot || ""} seo=${row.seo_screenshot || ""} wiki=${row.wiki_screenshot || ""}`);
       }
-      writeLiveSummary({ rows, total, liveFailures, startedAt: liveStartedAt, current: liveVerdict });
+      writeLiveSummary({ outputPath: liveSummaryPath, rows, total, liveFailures, startedAt: liveStartedAt, current: liveVerdict });
       if (failFast && !liveVerdict.ok) {
         throw new Error(`GEO_SYNC_AUDIT_LIVE_FAIL:${geo}:${liveVerdict.failures.join("|")}`);
       }
@@ -2583,18 +2762,24 @@ async function main() {
       console.warn(`GEO_SYNC_AUDIT_ROW ${index + 1}/${geos.length} geo=${geo} map=1 popup=${popupSnapshot ? 1 : 0} seo=${seoSnapshot ? 1 : 0} wiki=${wikiSnapshot ? 1 : 0} live=${liveVerdict.ok ? "PASS" : `FAIL:${liveVerdict.failures.join("|")}`}`);
     }
 
+    const resumeSource = resumeFull
+      ? JSON.parse(fs.readFileSync(path.join(GEO_SYNC_DIR, "full-manifest.json"), "utf8")) as GeoSyncManifest
+      : null;
+    const completed = resumeSource
+      ? mergeFullResumeRows({ previousReport: resumeSource, retryRows: rows, requestedGeos })
+      : { rows, total };
     const report: GeoSyncManifest = {
       generatedAt: new Date().toISOString(),
-      total_geo_count: total,
-      processed_geo_count: rows.length,
-      mapCaptured: rows.filter((row) => Boolean(row.map_screenshot)).length,
-      popupCaptured: rows.filter((row) => Boolean(row.popup_screenshot)).length,
-      seoCaptured: rows.filter((row) => Boolean(row.seo_screenshot)).length,
-      wikiCaptured: rows.filter((row) => Boolean(row.wiki_screenshot)).length,
-      coverage_summary: buildCoverageSummary(rows),
-      rows
+      total_geo_count: completed.total,
+      processed_geo_count: completed.rows.length,
+      mapCaptured: completed.rows.filter((row) => Boolean(row.map_screenshot)).length,
+      popupCaptured: completed.rows.filter((row) => Boolean(row.popup_screenshot)).length,
+      seoCaptured: completed.rows.filter((row) => Boolean(row.seo_screenshot)).length,
+      wikiCaptured: completed.rows.filter((row) => Boolean(row.wiki_screenshot)).length,
+      coverage_summary: buildCoverageSummary(completed.rows),
+      rows: completed.rows
     };
-    const validation = buildValidation(rows, total);
+    const validation = buildValidation(completed.rows, completed.total);
     const summary = {
       generatedAt: report.generatedAt,
       total_geo_count: report.total_geo_count,
@@ -2605,27 +2790,30 @@ async function main() {
       wikiCaptured: report.wikiCaptured,
       coverage_summary: report.coverage_summary,
       visual_pass_summary: {
-        map_color: rows.filter((row) => row.notes.some((item) => item === "MAP_COLOR_VISUAL_VERDICT=PASS")).length,
-        popup_vs_seo: rows.filter((row) => row.notes.some((item) => item === "POPUP_VS_SEO_VISUAL_VERDICT=PASS")).length,
-        seo_vs_wiki: rows.filter((row) => row.notes.some((item) => item === "SEO_VS_WIKI_VISUAL_VERDICT=PASS")).length
+        map_color: completed.rows.filter((row) => row.notes.some((item) => item === "MAP_COLOR_VISUAL_VERDICT=PASS")).length,
+        popup_vs_seo: completed.rows.filter((row) => row.notes.some((item) => item === "POPUP_VS_SEO_VISUAL_VERDICT=PASS")).length,
+        seo_vs_wiki: completed.rows.filter((row) => row.notes.some((item) => item === "SEO_VS_WIKI_VISUAL_VERDICT=PASS")).length
       },
       sparse_summary: {
-        low_coverage: rows.filter((row) => Boolean(row.low_coverage_reason)).length,
-        no_page_or_synthetic: rows.filter((row) => ["no_individual_wiki_page", "synthetic_no_wiki", "root_only"].includes(row.coverage_class)).length
+        low_coverage: completed.rows.filter((row) => Boolean(row.low_coverage_reason)).length,
+        no_page_or_synthetic: completed.rows.filter((row) => ["no_individual_wiki_page", "synthetic_no_wiki", "root_only"].includes(row.coverage_class)).length
       },
       validation
     };
-    fs.writeFileSync(path.join(GEO_SYNC_DIR, "manifest.json"), `${JSON.stringify(report, null, 2)}\n`);
-    fs.writeFileSync(path.join(GEO_SYNC_DIR, "report.csv"), renderCsv(rows));
-    if (isFullRun) {
-      fs.writeFileSync(path.join(GEO_SYNC_DIR, "full-manifest.json"), `${JSON.stringify(report, null, 2)}\n`);
-      fs.writeFileSync(path.join(GEO_SYNC_DIR, "full-report.csv"), renderCsv(rows));
-      fs.writeFileSync(path.join(GEO_SYNC_DIR, "full-summary.json"), `${JSON.stringify(summary, null, 2)}\n`);
-      fs.writeFileSync(path.join(GEO_SYNC_DIR, "full-validation.json"), `${JSON.stringify(validation, null, 2)}\n`);
-      fs.writeFileSync(path.join(GEO_SYNC_DIR, "full-index.html"), renderHtmlIndex(rows, report));
+    fs.writeFileSync(path.join(auditRunDir, "manifest.json"), `${JSON.stringify(report, null, 2)}\n`);
+    fs.writeFileSync(path.join(auditRunDir, "report.csv"), renderCsv(completed.rows));
+    if (isFullRun || resumeFull) {
+      const fullManifestPath = path.join(auditRunDir, "full-manifest.json");
+      fs.writeFileSync(fullManifestPath, `${JSON.stringify(report, null, 2)}\n`);
+      fs.writeFileSync(path.join(auditRunDir, "full-report.csv"), renderCsv(completed.rows));
+      fs.writeFileSync(path.join(auditRunDir, "full-summary.json"), `${JSON.stringify(summary, null, 2)}\n`);
+      fs.writeFileSync(path.join(auditRunDir, "full-validation.json"), `${JSON.stringify(validation, null, 2)}\n`);
+      fs.writeFileSync(path.join(auditRunDir, "full-index.html"), renderHtmlIndex(completed.rows, report));
+      writeCurrentMapColors({ report, fullManifestPath, runtimeUrl: baseUrl });
     }
-    console.warn(`GEO_SYNC_AUDIT_DONE total=${report.total_geo_count} processed=${report.processed_geo_count} map=${report.mapCaptured} popup=${report.popupCaptured} seo=${report.seoCaptured} wiki=${report.wikiCaptured}`);
+    console.warn(`GEO_SYNC_AUDIT_DONE total=${report.total_geo_count} processed=${report.processed_geo_count} map=${report.mapCaptured} popup=${report.popupCaptured} seo=${report.seoCaptured} wiki=${report.wikiCaptured} output=${auditRunDir}`);
   } finally {
+    await seoContext.close();
     await context.close();
     await browser.close();
   }

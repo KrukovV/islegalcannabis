@@ -21,7 +21,7 @@ export type WorkingModelsStore = {
   roles?: Record<string, ModelRole>;
 };
 
-const DEFAULT_HEALTH_FILE = path.resolve(process.cwd(), "data/ai/working_models.json");
+const DEFAULT_HEALTH_FILE = path.resolve(process.cwd(), ".cache/ai/working_models.json");
 
 function getHealthFile() {
   return process.env.AI_WORKING_MODELS_FILE || DEFAULT_HEALTH_FILE;

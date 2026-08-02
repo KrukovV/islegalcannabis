@@ -66,6 +66,7 @@ data/wiki/cache/**
 **/.DS_Store
 tmp/**
 .cache/**
+apps/web/.cache/**
 node_modules/**
 .build/**
 .swiftpm/**

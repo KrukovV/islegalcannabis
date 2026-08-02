@@ -632,14 +632,14 @@ function buildSystemGuards() {
     guardCase(
       "production_not_patient_access",
       { officialStatus: { recreational: "ILLEGAL", medical: "AUTHORIZED_PRODUCTION_ONLY_CULTIVATION_EXPORT", enforcement: "STRICT" } },
-      "YELLOW",
-      "LIMITED_LAWFUL_MODE",
+      "UNKNOWN",
+      "STATUS_INDETERMINATE",
     ),
     guardCase(
       "research_not_patient_programme",
       { officialStatus: { recreational: "ILLEGAL", medical: "RESEARCH_ONLY_SCIENTIFIC_AUTHORIZATION", enforcement: "STRICT" } },
-      "YELLOW",
-      "LIMITED_LAWFUL_MODE",
+      "UNKNOWN",
+      "STATUS_INDETERMINATE",
     ),
     guardCase(
       "cbd_or_sativex_not_full_medical_cannabis",

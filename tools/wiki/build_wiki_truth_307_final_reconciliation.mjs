@@ -20,6 +20,7 @@ const INPUTS = {
   applyPlan: "wiki-truth-307-color-apply-plan.json",
   reviewDossier: "wiki-truth-307-color-review-dossier.json",
   runtimeTruthConflicts: "wiki-truth-307-runtime-truth-conflict-audit.json",
+  liveMapCaptures: "map-current-colors-307.json",
 };
 
 const OUT_JSON = path.join(
@@ -135,6 +136,59 @@ function isModeMixingText(reason = "", rule = "") {
 function hasLiveMapCapture(snapshot) {
   const source = String(snapshot?.source || "").toUpperCase();
   return /LIVE_(MAP|DOM|UI|RENDER)|BROWSER_(MAP|DOM|VISUAL)|VISUAL_(MAP|DOM)/.test(source);
+}
+
+const LIVE_MAP_BUCKET_TO_COLOR = Object.freeze({
+  LEGAL_OR_DECRIM: "GREEN",
+  LIMITED_OR_MEDICAL: "YELLOW",
+  ILLEGAL: "RED",
+  UNKNOWN: "UNCOLORED",
+});
+
+function normalizeLiveMapCapture(capture) {
+  if (String(capture?.capture_status || "").toUpperCase() !== "LIVE_CAPTURED") {
+    return null;
+  }
+  const bucket = String(capture?.map_color_bucket || "").toUpperCase();
+  const color = LIVE_MAP_BUCKET_TO_COLOR[bucket];
+  const screenshot = String(capture?.map_screenshot || "").trim();
+  const runtimeUrl = String(capture?.runtime_url || "").trim();
+  const capturedAt = String(capture?.captured_at || "").trim();
+  const visualVerdict = String(capture?.map_visual_verdict || "").toUpperCase();
+  if (
+    !color ||
+    !screenshot ||
+    !fs.existsSync(screenshot) ||
+    !/^https?:\/\//i.test(runtimeUrl) ||
+    !Number.isFinite(Date.parse(capturedAt)) ||
+    !new Set(["PASS", "SPARSE"]).has(visualVerdict)
+  ) {
+    return null;
+  }
+  return {
+    color,
+    source: "BROWSER_MAP_DOM_VISUAL_MANIFEST",
+    reason: `Live browser map capture (${visualVerdict}) from ${runtimeUrl}`,
+    capturedAt,
+    runtimeUrl,
+    rawBucket: bucket,
+    rawColorEvidence: String(capture?.map_color_evidence || ""),
+    visualVerdict,
+    screenshot,
+  };
+}
+
+function indexLiveMapCaptures(payload) {
+  const index = new Map();
+  for (const capture of asArray(payload)) {
+    const geo = String(capture?.geo || "").toUpperCase();
+    if (!geo) continue;
+    if (index.has(geo)) {
+      throw new Error(`LIVE_MAP_CAPTURE_DUPLICATE_GEO:${geo}`);
+    }
+    index.set(geo, capture);
+  }
+  return index;
 }
 
 function hasCompleteSourceVisualLinkage(source) {
@@ -731,6 +785,7 @@ function main() {
   const applyPlan = readJson(INPUTS.applyPlan);
   const reviewDossier = readJson(INPUTS.reviewDossier);
   const runtimeTruthConflicts = readJson(INPUTS.runtimeTruthConflicts);
+  const liveMapCaptures = readJson(INPUTS.liveMapCaptures);
   const truthRows = asArray(truth);
   const matrixByGeo = indexByGeo(asArray(matrix));
   const baselineByGeo = indexByGeo(asArray(baseline));
@@ -740,6 +795,7 @@ function main() {
   const applyByGeo = indexByGeo(asArray(applyPlan));
   const dossierByGeo = indexByGeo(asArray(reviewDossier));
   const runtimeConflictByGeo = indexByGeo(asArray(runtimeTruthConflicts));
+  const liveMapCaptureByGeo = indexLiveMapCaptures(liveMapCaptures);
   const sourceLog = sourceRowsByUrl(sourceRechecks);
 
   const rows = truthRows.map((truthRow) => {
@@ -782,7 +838,11 @@ function main() {
       patientFacts.lawfulRoute === true &&
       patientFacts.supply === true &&
       patientFacts.operational === true;
-    const rawCurrentMapSnapshot = truthRow?.diagnostics?.color?.current || {};
+    const persistedLiveMapSnapshot = normalizeLiveMapCapture(
+      liveMapCaptureByGeo.get(geo),
+    );
+    const rawCurrentMapSnapshot =
+      persistedLiveMapSnapshot || truthRow?.diagnostics?.color?.current || {};
     const currentMapCaptured = hasLiveMapCapture(rawCurrentMapSnapshot);
     const currentMapColor = currentMapCaptured
       ? String(rawCurrentMapSnapshot.color || "UNCOLORED")
@@ -1233,6 +1293,7 @@ export {
   hasFreshIndependentVisualEvidence,
   hasLiveMapCapture,
   hasProvenAdultUse,
+  normalizeLiveMapCapture,
 };
 
 if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {

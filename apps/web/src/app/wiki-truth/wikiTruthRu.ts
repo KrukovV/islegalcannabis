@@ -567,7 +567,9 @@ function normalizeProjectStatusTextValue(value: string | null | undefined) {
 }
 
 export function ruProjectStatusLine(
-  status: WikiTruthCannabisLawRow["projectStatus"],
+  status:
+    | WikiTruthCannabisLawRow["projectStatus"]
+    | WikiTruthCannabisLawRow["officialStatus"],
   missingLabel = "статус проекта отсутствует",
 ) {
   if (!status) {
