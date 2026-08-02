@@ -1,6 +1,5 @@
 import fs from "node:fs";
 import path from "node:path";
-import { cache } from "react";
 import {
   buildOfficialLinkOwnershipIndex,
   readOfficialLinkOwnership,
@@ -63,7 +62,7 @@ function readRecord(value: unknown): Record<string, unknown> {
     : {};
 }
 
-export const buildWikiTruthPageModel = cache(() => {
+export function buildWikiTruthPageModel() {
   const legalityPayload = (readJson(
     path.join(ROOT, "data", "wiki", "ssot_legality_table.json"),
   ) || {}) as {
@@ -315,4 +314,4 @@ export const buildWikiTruthPageModel = cache(() => {
     cannabisLawFinalReconciliation,
     audit,
   };
-});
+}

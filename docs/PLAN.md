@@ -17,12 +17,21 @@ Statuses: pending | in_progress | done
 
 ## Truth-First Final Reconciliation
 
-- [done] Freeze audit-only baseline and build one 307-GEO cross-layer reconciliation manifest.
-- [done] Freshly verify every GREEN, high-risk YELLOW, and UNKNOWN against applicable Primary Law.
-- [done] Correct only general legal-model rules; forbid country-specific exceptions and Wikipedia influence.
-- [done] Remove legacy/hardcoded /wiki-truth lineage and source all UI values from the current Truth Pipeline.
-- [done] Publish final Truth Report with color changes, legal proof, UNKNOWN reasons, false-color classes, and no-mutation proof.
-- [done] Prove rendered 307/307 acceptance and finish with tools/pass_cycle.sh.
+- [in_progress] Freeze the audit-only baseline and maintain one 307-GEO cross-layer reconciliation manifest.
+- [pending] Independently verify every GREEN, high-risk YELLOW, and UNKNOWN against applicable Primary Law before treating any proposal as true.
+- [in_progress] Correct only general legal-model rules; forbid country-specific exceptions and Wikipedia influence.
+- [in_progress] Remove legacy/hardcoded `/wiki-truth` lineage and source all UI values from the current Truth Pipeline.
+- [pending] Publish a final Truth Report only after every color change has direct legal proof, UNKNOWN reason, and no-mutation proof.
+- [pending] Prove rendered 307/307 acceptance and complete `tools/pass_cycle.sh` only after the independent audit gate is satisfied.
+
+## Truth-first integrity corrections
+
+- [x] Keep the 307-GEO reconciliation proposal-only; SSOT, map, runtime, and production remain unchanged.
+- [x] Reject generic prohibition vocabulary as a decriminalization signal.
+- [x] Preserve independently current legal clauses when lifecycle context is present on the same axis.
+- [x] Separate legal derivation from strict visual acceptance and live-map evidence.
+- [x] Make pass-cycle stale-lock cleanup fail closed without recursive directory deletion.
+- [ ] Complete the independent 307-GEO audit gate before any apply authorization.
 
 - [done] Manually open and visually inspect official cannabis-law evidence for all 307 rows; current checkpoint 307/307, and a saved screenshot is mandatory before any link is accepted as law evidence
 - [done] Re-audit every former 62 automated direct-label row by eye; all 62 are manually complete, candidate rows awaiting visual review are 0, and term matches/path guesses were never accepted as evidence

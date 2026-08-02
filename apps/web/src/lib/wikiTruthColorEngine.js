@@ -175,13 +175,14 @@ function hasNonCurrentLifecycleSignal(status) {
     hasOfficialTokenMatch(status, "EXPIRED");
 }
 
-function stripNonCurrentLifecycleClauses(status) {
-  const text = String(status || "");
-  if (!text) return "";
-  return text
-    .split(/[;\n]+/)
-    .filter((clause) => !hasNonCurrentLifecycleSignal(parseOfficialStatusText(clause)))
-    .join("; ");
+function currentOnlyAxis(status) {
+  const clauses = String(status || "")
+    .split(/\s*(?:;|\||\n)\s*/)
+    .filter(Boolean);
+  const currentClauses = clauses.filter((clause) => (
+    !hasNonCurrentLifecycleSignal(parseOfficialStatusText(clause))
+  ));
+  return currentClauses.join("; ");
 }
 
 function hasEnactedNotOperationalSignal(status) {
@@ -220,65 +221,8 @@ function hasExplicitRecreationalProhibition(parsed) {
   );
 }
 
-function hasRecreationalMarketRestriction(parsed) {
-  const limitationTokens = [
-    "LIMITED",
-    "LIMITATION",
-    "LIMITING",
-    "PERSONAL_DOSE",
-    "HOME_CULTIVATION",
-    "NONCOMMERCIAL",
-    "NON_COMMERCIAL",
-    "NONCOMMERCIAL_SHARING",
-    "NOT_YET",
-    "POSSESSION_UP_TO",
-    "CULTIVATION",
-    "BUYING_AND_SELLING_EXCLUDED",
-    "NO_GENERAL_ADULT_RETAIL_RIGHT",
-    "NOT_GENERAL_LEGAL_MARKET",
-    "INTERNATIONAL_SCOPE_ONLY",
-  ];
-
-  return limitationTokens.some((token) => (
-    hasOfficialToken(parsed, token) || hasOfficialPhrase(parsed, token)
-  ));
-}
-
-function normalizeOfficialRecreational(statusValue) {
-  const parsed = parseOfficialStatusText(statusValue);
-  if (isOfficialStatusMissingEvidence(parsed)) return null;
-
-  const genericLegalRecreational =
-    hasOfficialToken(parsed, "LEGAL") &&
-    !hasOfficialToken(parsed, "OR") &&
-    !hasOfficialToken(parsed, "DECRIMINALIZED") &&
-    !hasOfficialToken(parsed, "DECRIM") &&
-    !hasNonCurrentLifecycleSignal(parsed) &&
-    !hasExplicitRecreationalProhibition(parsed) &&
-    !hasOfficialTokenMatch(parsed, "MEDICAL") &&
-    !hasOfficialTokenMatch(parsed, "SCIENTIFIC") &&
-    !hasOfficialTokenMatch(parsed, "RESEARCH") &&
-    !hasOfficialTokenMatch(parsed, "INDUSTRIAL");
-  const explicitAdultUse = (
-    hasOfficialPhrase(parsed, "LEGAL_ADULT_USE") ||
-    hasOfficialPhrase(parsed, "LEGAL_RECREATIONAL") ||
-    hasOfficialPhrase(parsed, "LEGAL_AND_REGULATED") ||
-    hasOfficialPhrase(parsed, "LEGAL_WITH_LIMITS") ||
-    hasOfficialPhrase(parsed, "LEGAL_AT_HOME_WITH_LIMITS") ||
-    hasOfficialPhrase(parsed, "ADULT_USE") ||
-    hasOfficialPhrase(parsed, "RECREATIONAL") ||
-    genericLegalRecreational ||
-    (
-      hasOfficialToken(parsed, "LEGAL") &&
-      (hasOfficialToken(parsed, "ADULT") || hasOfficialToken(parsed, "RECREATIONAL"))
-    )
-  ) && !hasExplicitRecreationalProhibition(parsed);
-
-  if (explicitAdultUse && !hasNonCurrentLifecycleSignal(parsed)) {
-    return hasRecreationalMarketRestriction(parsed) ? "LIMITED" : "LEGAL";
-  }
-
-  const isDecriminalized =
+function hasDecriminalizedRecreationalSignal(parsed) {
+  return (
     hasOfficialPhrase(parsed, "DECRIMINALIZED") ||
     hasOfficialToken(parsed, "DECRIMINALIZED") ||
     hasOfficialToken(parsed, "DECRIM") ||
@@ -303,8 +247,42 @@ function normalizeOfficialRecreational(statusValue) {
     hasOfficialPhrase(parsed, "NOT_GUILTY") ||
     hasOfficialPhrase(parsed, "FORMALLY_ILLEGAL") ||
     hasOfficialPhrase(parsed, "PUNISH") ||
-    hasOfficialPhrase(parsed, "UNLAWFUL") ||
-    hasOfficialPhrase(parsed, "CONVICTION");
+    hasOfficialPhrase(parsed, "CONVICTION")
+  );
+}
+
+function normalizeOfficialRecreational(statusValue) {
+  const parsed = parseOfficialStatusText(statusValue);
+  if (isOfficialStatusMissingEvidence(parsed)) return null;
+
+  const genericLegalRecreational =
+    hasOfficialToken(parsed, "LEGAL") &&
+    !hasOfficialToken(parsed, "OR") &&
+    !hasOfficialToken(parsed, "DECRIMINALIZED") &&
+    !hasOfficialToken(parsed, "DECRIM") &&
+    !hasNonCurrentLifecycleSignal(parsed) &&
+    !hasExplicitRecreationalProhibition(parsed) &&
+    !hasOfficialTokenMatch(parsed, "MEDICAL") &&
+    !hasOfficialTokenMatch(parsed, "SCIENTIFIC") &&
+    !hasOfficialTokenMatch(parsed, "RESEARCH") &&
+    !hasOfficialTokenMatch(parsed, "INDUSTRIAL");
+  const isDecriminalized = hasDecriminalizedRecreationalSignal(parsed);
+  const explicitAdultUse = (
+    hasOfficialPhrase(parsed, "LEGAL_ADULT_USE") ||
+    hasOfficialPhrase(parsed, "LEGAL_RECREATIONAL") ||
+    hasOfficialPhrase(parsed, "LEGAL_AND_REGULATED") ||
+    hasOfficialPhrase(parsed, "LEGAL_WITH_LIMITS") ||
+    hasOfficialPhrase(parsed, "LEGAL_AT_HOME_WITH_LIMITS") ||
+    genericLegalRecreational ||
+    (
+      hasOfficialToken(parsed, "LEGAL") &&
+      (hasOfficialToken(parsed, "ADULT") || hasOfficialToken(parsed, "RECREATIONAL"))
+    )
+  ) && !isDecriminalized && !hasExplicitRecreationalProhibition(parsed);
+
+  if (explicitAdultUse && !hasNonCurrentLifecycleSignal(parsed)) {
+    return "LEGAL";
+  }
 
   if (isDecriminalized) return "DECRIMINALIZED";
 
@@ -353,38 +331,10 @@ function hasMedicalYellowSignals(parsed) {
     "PHARMACEUTICAL",
     "PHARMACEUTICALS",
     "SPECIAL_PERMIT",
-    "PERMIT",
-    "LICENCE",
-    "LICENSE",
-    "LICENCED",
-    "LICENSED",
-    "REGULATED",
   ];
   if (limitedModeTokens.some((token) => hasOfficialTokenMatch(parsed, token))) {
     return true;
   }
-
-  const hasAuthorizedMedicalScientificScope =
-    hasOfficialTokenMatch(parsed, "MEDICAL") &&
-    hasOfficialTokenMatch(parsed, "SCIENTIFIC") &&
-    (
-      hasOfficialTokenMatch(parsed, "AUTHORITY") ||
-      hasOfficialTokenMatch(parsed, "AUTHORIZATION") ||
-      hasOfficialTokenMatch(parsed, "AUTHORISED") ||
-      hasOfficialTokenMatch(parsed, "AUTHORIZED") ||
-      hasOfficialTokenMatch(parsed, "PERMIT") ||
-      hasOfficialTokenMatch(parsed, "CONTROLLED_DRUG_SCOPE")
-    );
-  if (hasAuthorizedMedicalScientificScope) return true;
-
-  const hasExplicitResearchUseOnly =
-    hasOfficialTokenMatch(parsed, "RESEARCH") &&
-    (
-      hasOfficialPhrase(parsed, "RESEARCH_TEACHING_EXPERT_USE_ONLY") ||
-      hasOfficialPhrase(parsed, "RESEARCH_USE_ONLY") ||
-      hasOfficialPhrase(parsed, "SCIENTIFIC_USE_ONLY")
-    );
-  if (hasExplicitResearchUseOnly) return true;
 
   const hasApprovedDrugException =
     hasOfficialTokenMatch(parsed, "FDA") &&
@@ -392,38 +342,6 @@ function hasMedicalYellowSignals(parsed) {
     hasOfficialTokenMatch(parsed, "DRUG") &&
     hasOfficialTokenMatch(parsed, "EXCEPTION");
   if (hasApprovedDrugException) return true;
-
-  const nonPatientActivityTokens = [
-    "PRODUCTION",
-    "CULTIVATION",
-    "EXPORT",
-    "IMPORT",
-    "RESEARCH",
-    "SCIENTIFIC",
-    "MANUFACTURING",
-    "PROCESSING",
-  ];
-  const positiveAuthorizationTokens = [
-    "AUTHORIZATION",
-    "AUTHORISED",
-    "AUTHORIZED",
-    "LICENSE",
-    "LICENCE",
-    "LICENSED",
-    "LICENCED",
-    "PERMIT",
-    "PERMITS",
-    "PERMITTED",
-    "EXEMPTION",
-    "EXEMPTIONS",
-    "ALLOWED",
-    "REGULATED",
-    "APPROVED",
-  ];
-  const hasAuthorizedNonPatientActivity =
-    nonPatientActivityTokens.some((token) => hasOfficialTokenMatch(parsed, token)) &&
-    positiveAuthorizationTokens.some((token) => hasOfficialTokenMatch(parsed, token));
-  if (hasAuthorizedNonPatientActivity) return true;
 
   const explicitLimitedLawPhrases = [
     "LAW_ENACTED_NOT_OPERATIONAL",
@@ -525,8 +443,7 @@ function buildPatientPathFacts(status, evidence) {
     (
       (
         hasOfficialTokenMatch(combined, "PROGRAM") ||
-        hasOfficialTokenMatch(combined, "PROGRAMME") ||
-        hasOfficialTokenMatch(combined, "REGULATED")
+        hasOfficialTokenMatch(combined, "PROGRAMME")
       ) &&
       patient &&
       lawfulRoute &&
@@ -571,6 +488,16 @@ function hasEnactedNotOperationalSignalsMerged(officialStatus) {
 
 function isAxisMissingEvidence(parsed) {
   return !parsed || isOfficialStatusMissingEvidence(parsed);
+}
+
+function hasExplicitScopeGap(parsed) {
+  if (!parsed) return true;
+  return (
+    hasOfficialPhrase(parsed, "NOT_EXHAUSTIVELY_ASSESSED") ||
+    hasOfficialPhrase(parsed, "APPLICABILITY_UNRESOLVED") ||
+    hasOfficialPhrase(parsed, "LEGAL_APPLICABILITY_UNRESOLVED") ||
+    hasOfficialPhrase(parsed, "GENERAL_EXCEPTION_NOT_ASSESSED")
+  );
 }
 
 function normalizeAxisPolarity(value) {
@@ -626,21 +553,35 @@ export function deriveOfficialTruthColor(input = {}) {
 
   const rawRec = String(official.recreational || "");
   const rawMed = String(official.medical || "");
+  const rawEnf = String(official.enforcement || "");
   const rawEvidenceText = String(input.legalEvidenceText || "");
+  const recHasNonCurrentLifecycle = hasNonCurrentLifecycleSignal(
+    parseOfficialStatusText(rawRec),
+  );
+  const medHasNonCurrentLifecycle = hasNonCurrentLifecycleSignal(
+    parseOfficialStatusText(rawMed),
+  );
+  const enfHasNonCurrentLifecycle = hasNonCurrentLifecycleSignal(
+    parseOfficialStatusText(rawEnf),
+  );
+  const evidenceHasNonCurrentLifecycle = hasNonCurrentLifecycleSignal(
+    parseOfficialStatusText(rawEvidenceText),
+  );
   const hasNonCurrentLifecycleEvidence =
-    hasNonCurrentLifecycleSignal(parseOfficialStatusText(rawRec)) ||
-    hasNonCurrentLifecycleSignal(parseOfficialStatusText(rawMed)) ||
-    hasNonCurrentLifecycleSignal(parseOfficialStatusText(rawEvidenceText));
-  const rec = stripNonCurrentLifecycleClauses(rawRec);
-  const med = stripNonCurrentLifecycleClauses(rawMed);
-  const enf = String(official.enforcement || "");
+    recHasNonCurrentLifecycle ||
+    medHasNonCurrentLifecycle ||
+    enfHasNonCurrentLifecycle ||
+    evidenceHasNonCurrentLifecycle;
+  const rec = currentOnlyAxis(rawRec);
+  const med = currentOnlyAxis(rawMed);
+  const enf = currentOnlyAxis(rawEnf);
+  const evidenceText = currentOnlyAxis(rawEvidenceText);
   const parsedRec = parseOfficialStatusText(rec);
   const parsedMed = parseOfficialStatusText(med);
-  const evidenceStatus = parseOfficialStatusText(
-    stripNonCurrentLifecycleClauses(rawEvidenceText),
-  );
+  const evidenceStatus = parseOfficialStatusText(evidenceText);
   const recDataMissing = isAxisMissingEvidence(parsedRec);
-  const medDataMissing = isAxisMissingEvidence(parsedMed);
+  const medDataMissing =
+    isAxisMissingEvidence(parsedMed) || hasExplicitScopeGap(parsedMed);
   const recHasClaimantSignal = hasClaimantJurisdictionSignal(parsedRec);
   const medHasClaimantSignal = hasClaimantJurisdictionSignal(parsedMed);
   const jurisdictionBoundaryMismatch = hasCrossJurisdictionBoundary(parsedRec, parsedMed);
@@ -691,7 +632,11 @@ export function deriveOfficialTruthColor(input = {}) {
     );
   }
 
-  if (hasEnactedNotOperational && !hasOperationalPatientAccess) {
+  if (
+    hasEnactedNotOperational &&
+    !hasOperationalPatientAccess &&
+    (recDataMissing || normalizeOfficialRecreational(rec) !== "LEGAL")
+  ) {
     return buildTruthResult(
       "YELLOW",
       "OFFICIAL_ENACTED_NOT_OPERATIONAL",
@@ -743,7 +688,13 @@ export function deriveOfficialTruthColor(input = {}) {
     );
   }
 
+  const hasLimitedPatientSupplyFramework =
+    patientFacts.patient &&
+    patientFacts.supply &&
+    !patientFacts.operational;
+
   if (
+    hasLimitedPatientSupplyFramework ||
     hasMedicalYellowSignals(parsedRecStatus) ||
     hasMedicalYellowSignals(parsedMedStatus)
   ) {

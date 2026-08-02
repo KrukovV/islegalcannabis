@@ -19,6 +19,14 @@ export default function CannabisLawAcceptanceAudit({
       requirement.status,
     ]),
   );
+  const finalGate = acceptance.globalRequirements.find(
+    (requirement) => requirement.key === "currentFinalReconciliationGate",
+  );
+  const finalEvidence = finalGate?.evidence || {};
+  const finalRowsExpected = Number(finalEvidence.rowsExpected || acceptance.rowsExpected);
+  const freshVisualGeoCount = Number(finalEvidence.freshVisualEvidenceGeoCount || 0);
+  const liveMapCaptureGeoCount = Number(finalEvidence.liveMapCaptureGeoCount || 0);
+
   return (
     <section
       className="sectionCard acceptanceAudit"
@@ -40,12 +48,16 @@ export default function CannabisLawAcceptanceAudit({
         requirementStatusByKey.colorApplyGateFailClosed || "UNKNOWN"
       }
       data-blocker-geos={acceptance.blockerGeos.join(",")}
+      data-current-final-reconciliation={finalGate?.status || "UNKNOWN"}
+      data-fresh-visual-geo-count={freshVisualGeoCount}
+      data-live-map-capture-geo-count={liveMapCaptureGeoCount}
     >
       <h2>Truth-first {acceptance.rowsExpected} acceptance audit</h2>
       <p className="sectionHint">
         Эта секция показывает итоговую приёмку pasted Truth-First требований.
-        Она читает только локальный acceptance artifact и намеренно оставляет
-        цель незакрытой, пока primary-law и color-review blockers не закрыты.
+        Она читает только локальные acceptance и final-reconciliation artifacts.
+        Historical matrix reviews не заменяют strict source visual proof или
+        live user-visible map capture.
       </p>
       <div className="hardRule">
         Acceptance complete: {acceptance.complete ? "TRUE" : "FALSE"}.
@@ -57,6 +69,18 @@ export default function CannabisLawAcceptanceAudit({
           <div>
             {acceptance.rowsTotal} / {acceptance.rowsExpected}
           </div>
+        </div>
+        <div>
+          <strong>Current reconciliation</strong>
+          <div>{finalGate?.status || "UNKNOWN"}</div>
+        </div>
+        <div>
+          <strong>Strict visual GEO</strong>
+          <div>{freshVisualGeoCount} / {finalRowsExpected}</div>
+        </div>
+        <div>
+          <strong>Live map GEO</strong>
+          <div>{liveMapCaptureGeoCount} / {finalRowsExpected}</div>
         </div>
         <div>
           <strong>Primary Law {acceptance.rowsExpected}</strong>

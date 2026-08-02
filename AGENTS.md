@@ -122,3 +122,12 @@ Network Truth Policy:
 - An audit row is incomplete until a human has visually reviewed the official evidence screenshot and recorded that the official owner, cannabis fragment, and effective rule are visible and that the capture is not a challenge, error, or cookie wall.
 - Re-audit outputs are proposal-only. `APPLY_ALLOWED=false`, `PRODUCTION_TOUCHED=false`, `MAP_COLORS_CHANGED=false`, and `SSOT_CHANGED=false` remain mandatory until the 307-row gate is complete and the user explicitly authorizes application.
 - The required execution specification and artifact schema live in `docs/TRUTH_FIRST_307_REAUDIT_SPEC.md`.
+
+## Truth-color derivation integrity
+
+- A prohibition word such as `UNLAWFUL`, `ILLEGAL`, `PUNISHABLE`, `CONVICTION`, or `STRICT` is never evidence of decriminalization. The decriminalized pathway requires affirmative limited-penalty or non-criminal evidence.
+- Lifecycle context must be evaluated per clause. A future, enacted-but-inoperative clause cannot erase an independently current adult-use or patient-access clause in the same evidence axis. A lifecycle-only axis remains non-operational.
+- The resolver must retain the complete evidence chain and test the legal result separately from strict visual acceptance. Address-bar/domain visibility is an acceptance requirement, not a legal-truth input.
+- When `CI_WRITE_ROOT=0`, the latest `Artifacts/runs/<RUN_ID>/ci-final.txt` is the run result and `Reports/ci-final.txt` is only a mirror that may be stale. A release still requires a fresh root mirror satisfying `Tools/commit_if_green.sh`.
+- Pass-cycle stale-lock recovery must remove only the verified owner marker and an empty lock directory. Recursive lock-directory deletion is forbidden.
+- `OFFICIAL_SHRINK_OK=1` is a computed result only after the protected raw and filtered registry floors pass. It is never an environment override or a substitute for the non-shrinking registry guard.

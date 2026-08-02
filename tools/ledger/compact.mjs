@@ -33,6 +33,11 @@ const overrideCheckpoint = argMap.get("checkpoint")
 const ledgerPath = path.join(root, "CONTINUITY.md");
 const archivePath = path.join(root, "ARCHIVE.md");
 
+if (minimal && !dryRun) {
+  console.error("Refusing destructive CONTINUITY.md minimal rewrite. Use --dry-run to inspect compaction.");
+  process.exit(2);
+}
+
 const headers = [
   "Goal (incl. success criteria):",
   "Constraints/Assumptions:",

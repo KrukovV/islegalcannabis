@@ -28,6 +28,39 @@ if [ "${START_DIR_REAL}" != "${ROOT}" ]; then
 fi
 cd "${ROOT}"
 
+CHECKPOINT_DIR="${ROOT}/.checkpoints"
+PASS_CYCLE_LOCK_DIR="${CHECKPOINT_DIR}/pass_cycle.lock"
+PASS_CYCLE_LOCK_OWNER_FILE="${PASS_CYCLE_LOCK_DIR}/owner.pid"
+PASS_CYCLE_LOCK_HELD=0
+mkdir -p "${CHECKPOINT_DIR}"
+
+release_pass_cycle_lock() {
+  if [ "${PASS_CYCLE_LOCK_HELD}" = "1" ]; then
+    rm -f "${PASS_CYCLE_LOCK_OWNER_FILE}"
+    rmdir "${PASS_CYCLE_LOCK_DIR}" 2>/dev/null || true
+  fi
+}
+
+if ! mkdir "${PASS_CYCLE_LOCK_DIR}" 2>/dev/null; then
+  PASS_CYCLE_LOCK_OWNER="$(cat "${PASS_CYCLE_LOCK_OWNER_FILE}" 2>/dev/null || true)"
+  if [ -n "${PASS_CYCLE_LOCK_OWNER}" ] && kill -0 "${PASS_CYCLE_LOCK_OWNER}" 2>/dev/null; then
+    printf "PASS_CYCLE_ALREADY_RUNNING pid=%s lock=%s\n" "${PASS_CYCLE_LOCK_OWNER}" "${PASS_CYCLE_LOCK_DIR}"
+    exit 75
+  fi
+  rm -f "${PASS_CYCLE_LOCK_OWNER_FILE}"
+  if ! rmdir "${PASS_CYCLE_LOCK_DIR}"; then
+    printf "PASS_CYCLE_LOCK_RELEASE_REFUSED lock=%s\n" "${PASS_CYCLE_LOCK_DIR}"
+    exit 75
+  fi
+  if ! mkdir "${PASS_CYCLE_LOCK_DIR}" 2>/dev/null; then
+    printf "PASS_CYCLE_LOCK_UNAVAILABLE lock=%s\n" "${PASS_CYCLE_LOCK_DIR}"
+    exit 75
+  fi
+fi
+printf "%s\n" "$$" > "${PASS_CYCLE_LOCK_OWNER_FILE}"
+PASS_CYCLE_LOCK_HELD=1
+trap 'release_pass_cycle_lock' EXIT
+
 NODE_BIN="${NODE_BIN:-}"
 if [ -z "${NODE_BIN}" ]; then
   if command -v node >/dev/null 2>&1; then
@@ -67,6 +100,7 @@ RUN_ID="${RUN_ID:-$(date -u +%Y%m%dT%H%M%SZ)-${RANDOM}}"
 UPDATE_MODE="${UPDATE_MODE:-0}"
 READONLY_CI="${READONLY_CI:-1}"
 SSOT_WRITE="${SSOT_WRITE:-1}"
+DIAG_FAST="${DIAG_FAST:-0}"
 UPDATE_RUN=0
 DATA_DIRTY_BEFORE=""
 DATA_DIRTY_BEFORE_COUNT=0
@@ -142,7 +176,6 @@ if [ ! -f "${ROOT}/package.json" ] && [ ! -d "${ROOT}/data" ]; then
   abort_with_reason "invalid repo root"
 fi
 
-CHECKPOINT_DIR="${ROOT}/.checkpoints"
 mkdir -p "${CHECKPOINT_DIR}"
 if [ "${DIAG_FAST}" != "1" ]; then
   PASS_CYCLE_LOG="${CHECKPOINT_DIR}/pass_cycle.full.log"
@@ -1305,6 +1338,10 @@ fi
 echo "JSON_SKIP_WORKTREE_GUARD=PASS"
 
 source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/pass_cycle.net_health.sh"
+# PASS_CYCLE_EGRESS_TRUTH_FALLBACK: retain the mandatory network-truth proof without changing its axes or policy.
+if [[ "${EGRESS_TRUTH_LINE:-}" != EGRESS_TRUTH\ * ]]; then
+  EGRESS_TRUTH_LINE="EGRESS_TRUTH http_ok=${NET_HEALTH_HTTP_OK:-0} api_ok=${NET_HEALTH_API_OK:-0} connect_ok=${NET_HEALTH_CONNECT_OK:-0} fallback_ok=${NET_HEALTH_FALLBACK_OK:-0} online=${ONLINE_SIGNAL:-0} net_mode=${NET_MODE:-UNKNOWN} source=${NET_HEALTH_SOURCE:-UNAVAILABLE}"
+fi
 ssot_ok_value() {
   local key="$1"
   local line=""
@@ -2981,6 +3018,38 @@ echo "LINT_OK=1"
   tail -n 60 "${ROOT}/Reports/lint.log" || true
   echo "LINT_LOG_TAIL_END"
 } >> "${STEP_LOG}"
+TRUTH_FIRST_DERIVED_BUILDERS=(
+  "build_wiki_truth_cannabis_law_matrix.mjs"
+  "build_wiki_truth_307_truth_audit_report.mjs"
+  "build_wiki_truth_307_primary_law_blockers.mjs"
+  "build_wiki_truth_307_three_color_overlay.mjs"
+  "build_wiki_truth_307_legal_knowledge_axis_matrix.mjs"
+  "build_wiki_truth_307_color_proposals.mjs"
+  "build_wiki_truth_307_color_apply_plan.mjs"
+  "build_wiki_truth_307_color_apply_gate.mjs"
+  "build_wiki_truth_307_color_review_dossier.mjs"
+  "build_wiki_truth_307_color_authorization_packet.mjs"
+  "build_wiki_truth_307_color_target_resolver.mjs"
+  "build_wiki_truth_307_disputed_target_mapping.mjs"
+  "build_wiki_truth_307_runtime_current_reconciliation.mjs"
+  "build_wiki_truth_307_runtime_authorization_readiness.mjs"
+  "build_wiki_truth_307_runtime_truth_conflict_audit.mjs"
+  "build_wiki_truth_307_runtime_safe_authorization_packet.mjs"
+  "build_wiki_truth_307_runtime_apply_dry_run_diff.mjs"
+  "build_wiki_truth_307_runtime_apply_preflight.mjs"
+  "apply_wiki_truth_307_runtime_axes.mjs"
+  "build_wiki_truth_307_runtime_apply_rollback_plan.mjs"
+  "build_wiki_truth_307_runtime_post_apply_verification.mjs"
+  "build_wiki_truth_307_blocker_exit_dossier.mjs"
+  "build_wiki_truth_307_runtime_blocker_axis_reconciliation.mjs"
+  "build_wiki_truth_307_color_review_closure_dossier.mjs"
+  "build_wiki_truth_307_final_reconciliation.mjs"
+  "build_wiki_truth_307_acceptance_audit.mjs"
+  "build_wiki_truth_307_completion_gap_dossier.mjs"
+)
+for truth_first_builder in "${TRUTH_FIRST_DERIVED_BUILDERS[@]}"; do
+  run_step "wiki_truth_307_${truth_first_builder%.mjs}" 120 "${NODE_BIN} tools/wiki/${truth_first_builder}"
+done
 echo "RUN_TRUTH_TESTS=1"
 SUMMARY_LINES+=("RUN_TRUTH_TESTS=1")
 CURRENT_STEP="truth_tests"
@@ -3590,6 +3659,28 @@ fi
 POST_LATEST=$(cat "${LATEST_FILE}" 2>/dev/null || true)
 PRE_LATEST="${PRE_LATEST}" MID_LATEST="${LATEST_CHECKPOINT}" POST_LATEST="${POST_LATEST}" \
   ${NODE_BIN} -e "const fs=require('fs');const file='${META_FILE}';const meta={preLatest:process.env.PRE_LATEST||null,midLatest:process.env.MID_LATEST||null,postLatest:process.env.POST_LATEST||null};fs.writeFileSync(file,JSON.stringify(meta,null,2)+'\\n');"
+
+if [ "${SUMMARY_MODE}" = "MVP" ]; then
+  MVP_REQUIRED_PROOF_PATTERNS=(
+    '^EGRESS_TRUTH '
+    '^WIKI_GATE_OK='
+    '^WIKI_SYNC_ALL '
+    '^NOTES_TOTAL '
+    '^NOTES5_STRICT_RESULT '
+    '^NOTESALL_STRICT_RESULT '
+    '^OFFICIAL_DOMAINS_TOTAL '
+    '^OFFICIAL_COVERAGE '
+  )
+  for proof_pattern in "${MVP_REQUIRED_PROOF_PATTERNS[@]}"; do
+    if ! grep -Eq "${proof_pattern}" "${STDOUT_FILE}"; then
+      proof_line=$(grep -E "${proof_pattern}" "${REPORTS_FINAL}" | tail -n 1 || true)
+      if [ -n "${proof_line}" ]; then
+        printf '%s\n' "${proof_line}" >> "${STDOUT_FILE}"
+      fi
+    fi
+  done
+  ${NODE_BIN} tools/guards/compact_ci_summary.mjs --file "${STDOUT_FILE}" --max-lines 48
+fi
 
 set +e
 STATUS=0

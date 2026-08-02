@@ -14,6 +14,9 @@ import { buildRuntimeIdentity, formatVisibleRuntimeStamp } from "@/lib/runtimeId
 import { getStatusSnapshotMeta } from "@/lib/mapData";
 import { checkNearLegalEnabled, checkPremium } from "@/middleware/featureGate";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export const metadata: Metadata = {
   robots: {
     index: false,

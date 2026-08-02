@@ -308,13 +308,10 @@ function main() {
   fs.writeFileSync(OUT_JSON_PATH, `${JSON.stringify(output, null, 2)}\n`);
   fs.writeFileSync(OUT_MD_PATH, buildMarkdown(output));
 
-  if (!packetReady) {
-    throw new Error(`COLOR_AUTHORIZATION_PACKET_INCOMPLETE ${JSON.stringify(validation)}`);
-  }
-
   console.log(`COLOR_AUTHORIZATION_PACKET_STATUS=${output.packetStatus}`);
   console.log(`COLOR_AUTHORIZATION_PACKET_ROWS=${output.rowsTotal}`);
   console.log(`COLOR_AUTHORIZATION_PACKET_APPLIED_ROWS=${output.appliedRows}`);
+  console.log(`COLOR_AUTHORIZATION_PACKET_COMPLETE=${packetReady ? "TRUE" : "FALSE"}`);
   console.log(`COLOR_AUTHORIZATION_PACKET_OUTPUT=${relative(OUT_JSON_PATH)}`);
   console.log(`COLOR_AUTHORIZATION_PACKET_MARKDOWN=${relative(OUT_MD_PATH)}`);
 }

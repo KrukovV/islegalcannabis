@@ -3,7 +3,8 @@ import path from "node:path";
 import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, "../..");
 const REVIEWS = path.join(ROOT, "data/reviews");
 const EXPECTED_COLORS = new Set(["GREEN", "YELLOW", "RED", "UNKNOWN"]);
@@ -18,7 +19,6 @@ const INPUTS = {
   proposals: "wiki-truth-307-color-proposals.json",
   applyPlan: "wiki-truth-307-color-apply-plan.json",
   reviewDossier: "wiki-truth-307-color-review-dossier.json",
-  acceptance: "wiki-truth-307-acceptance-audit.json",
   runtimeTruthConflicts: "wiki-truth-307-runtime-truth-conflict-audit.json",
 };
 
@@ -30,6 +30,27 @@ const OUT_MD = path.join(
   REVIEWS,
   "wiki-truth-307-final-reconciliation.md",
 );
+
+const INDEPENDENT_AUDIT_ARTIFACTS = {
+  matrixJson: path.join(REVIEWS, "all_307_independent_evidence_matrix.json"),
+  matrixCsv: path.join(REVIEWS, "all_307_independent_evidence_matrix.csv"),
+  report: path.join(REVIEWS, "all_307_independent_evidence_report.md"),
+  mapVsTruth: path.join(REVIEWS, "current_map_vs_verified_truth.csv"),
+  wikiVsTruth: path.join(REVIEWS, "wiki_truth_vs_verified_truth.csv"),
+  colorConflicts: path.join(REVIEWS, "color_conflicts_verified.csv"),
+  axisOnly: path.join(REVIEWS, "axis_only_conflicts.csv"),
+  insufficient: path.join(REVIEWS, "insufficient_evidence.csv"),
+  temporal: path.join(REVIEWS, "temporal_conflicts.csv"),
+  scopeMode: path.join(REVIEWS, "scope_and_mode_mixing_errors.csv"),
+  officialLinks: path.join(REVIEWS, "official_links_invalid_or_insufficient.csv"),
+  disputed: path.join(REVIEWS, "disputed_geo_decisions.md"),
+  colorPolicy: path.join(REVIEWS, "color_policy.md"),
+  screenshots: path.join(REVIEWS, "screenshots_manifest.json"),
+  sourceFreshness: path.join(REVIEWS, "source_freshness_report.csv"),
+  ssotPatch: path.join(REVIEWS, "proposed_ssot_patch.json"),
+  mapPatch: path.join(REVIEWS, "proposed_map_color_patch.json"),
+  noMutation: path.join(REVIEWS, "no_mutation_acceptance_report.md"),
+};
 
 function readJson(name, fallback = {}) {
   const filePath = path.join(REVIEWS, name);
@@ -96,23 +117,80 @@ function readGeoSetFromCsv(fileName, geoField = "geo") {
 
 function isScopeMixingText(reason = "", rule = "") {
   const text = `${String(reason || "").toUpperCase()} ${String(rule || "").toUpperCase()}`;
-  return /DISPUTED|CLAIMANT|ADMINISTER|SCOPE|FEDERAL|NATIONAL|STATE|COMPONENT|UNCLAIMED/.test(
+  return /\b(?:DISPUTED|CLAIMANT|ADMINISTERING(?:[_ -]?STATE)?|SCOPE|COMPONENT|UNCLAIMED|DEPENDENT|PARENT[_ -]?COUNTRY|TERRITORIAL[_ -]?APPLICABILITY)\b/.test(
     text,
   );
 }
 
-function classifyColorVerdict(row, diagnostics) {
-  const geo = String(row.geo || "").toUpperCase();
-  if (diagnostics.temporal.has(geo)) return "TEMPORAL_CONFLICT";
-  if (diagnostics.insufficient.has(geo)) return "INSUFFICIENT_EVIDENCE";
-  if (diagnostics.axisOnly.has(geo)) return "AXIS_MISMATCH_COLOR_MATCH";
-  if (diagnostics.scopeMode.has(geo)) {
-    return isScopeMixingText(row.truthReason, row.truthRuleId)
-      ? "SCOPE_MIXING"
-      : "MODE_MIXING";
+function isTemporalText(reason = "", rule = "") {
+  const text = `${String(reason || "").toUpperCase()} ${String(rule || "").toUpperCase()}`;
+  return /REPEAL|FUTURE[_ -]?EFFECT|NOT[_ -]?COMMENCED|NOT[_ -]?OPERATIONAL|ENACTED[_ -]?NOT|PENDING[_ -]?COMMENCEMENT|EXPIRED/.test(text);
+}
+
+function isModeMixingText(reason = "", rule = "") {
+  const text = `${String(reason || "").toUpperCase()} ${String(rule || "").toUpperCase()}`;
+  return /MODE[_ -]?MIX/.test(text);
+}
+
+function hasLiveMapCapture(snapshot) {
+  const source = String(snapshot?.source || "").toUpperCase();
+  return /LIVE_(MAP|DOM|UI|RENDER)|BROWSER_(MAP|DOM|VISUAL)|VISUAL_(MAP|DOM)/.test(source);
+}
+
+function hasCompleteSourceVisualLinkage(source) {
+  return (
+    source?.officialOwnerVisible === true &&
+    source?.officialDomainVisible === true &&
+    source?.screenshotValid === true
+  );
+}
+
+function hasFreshIndependentVisualEvidence(row) {
+  const sources = Array.isArray(row?.primaryLaw?.freshAxisOfficialSources)
+    ? row.primaryLaw.freshAxisOfficialSources
+    : [];
+  return (
+    /^FRESH_PRIMARY_LAW_AXIS_RECONCILIATION$/.test(String(row?.truthSource || "")) &&
+    sources.length > 0 &&
+    sources.every(hasCompleteSourceVisualLinkage)
+  );
+}
+
+function isPositiveLegalAxisStatus(status) {
+  const normalized = String(status || "").toUpperCase();
+  return (
+    /^PROVEN(?:_|$)/.test(normalized) &&
+    !/^PROVEN_(?:NO|NOT|ABSENT|ILLEGAL|UNAVAILABLE|UNRESOLVED)(?:_|$)/.test(normalized)
+  );
+}
+
+function hasProvenAdultUse(axisFindings, truthRuleId) {
+  if (truthRuleId === "OFFICIAL_STATUS_RECREATIONAL_LEGAL") return true;
+  const adultUseStatus = String(axisFindings?.adult_use?.status || "").toUpperCase();
+  const possessionStatus = axisFindings?.recreational_possession?.status;
+  const useStatus = axisFindings?.recreational_use?.status;
+  const cultivationStatus = axisFindings?.recreational_cultivation?.status;
+  if (/(?:^|_)PROVEN_(?:ADULT_USE_)?LEGAL(?:_|$)|(?:^|_)LEGAL_ADULT_USE(?:_|$)|(?:^|_)ADULT_USE_LEGAL(?:_|$)|(?:^|_)RECREATIONAL_LEGAL(?:_|$)/.test(adultUseStatus)) {
+    return true;
   }
-  if (row.previousColor === row.truthColor) {
-    return "AXIS_MISMATCH_COLOR_MATCH";
+  return (
+    isPositiveLegalAxisStatus(possessionStatus) &&
+    (isPositiveLegalAxisStatus(useStatus) || isPositiveLegalAxisStatus(cultivationStatus))
+  );
+}
+
+function classifyColorVerdict(row) {
+  if (!row.currentMapCaptured || !row.currentMapColor) {
+    return "INSUFFICIENT_EVIDENCE";
+  }
+  if (isScopeMixingText(row.truthReason, row.truthRuleId)) return "SCOPE_MIXING";
+  if (isModeMixingText(row.truthReason, row.truthRuleId)) return "MODE_MIXING";
+  if (isTemporalText(row.truthReason, row.truthRuleId)) return "TEMPORAL_CONFLICT";
+  if (row.currentMapColor === row.truthColor) {
+    return row.layerConflict ? "AXIS_MISMATCH_COLOR_MATCH" : "NO_REAL_DIFFERENCE";
+  }
+  if (!row.freshIndependentVisualEvidence) {
+    return "INSUFFICIENT_EVIDENCE";
   }
   return "MAP_WRONG_TRUTH_RIGHT";
 }
@@ -291,9 +369,9 @@ function isDerivedAuditCachePath(item) {
     .startsWith("cache/");
 }
 
-function falseClass(previousColor, truthColor) {
-  if (previousColor === truthColor) return null;
-  return `FALSE_${previousColor}`;
+function falseClass(mapColor, truthColor, verdict) {
+  if (mapColor === truthColor || verdict !== "MAP_WRONG_TRUTH_RIGHT") return null;
+  return `FALSE_${mapColor}`;
 }
 
 function markdown(report) {
@@ -355,6 +433,293 @@ function markdown(report) {
   return lines.join("\n");
 }
 
+function csvCell(value) {
+  return `"${String(value ?? "").replaceAll('"', '""')}"`;
+}
+
+function writeCsv(filePath, headers, rows) {
+  const body = [headers.join(",")];
+  for (const row of rows) {
+    body.push(headers.map((header) => csvCell(row?.[header])).join(","));
+  }
+  fs.writeFileSync(filePath, `${body.join("\n")}\n`);
+}
+
+function sourceScreenshotPaths(sources) {
+  return [...new Set(
+    (Array.isArray(sources) ? sources : [])
+      .flatMap((source) => Array.isArray(source?.screenshotPaths) ? source.screenshotPaths : [])
+      .map((item) => String(item || "").trim())
+      .filter(Boolean),
+  )];
+}
+
+function capturedMapColor(row) {
+  return row.currentMapCaptured
+    ? String(row?.currentMapSnapshot?.color || "UNCOLORED")
+    : "UNVERIFIED_NO_LIVE_MAP_CAPTURE";
+}
+
+function evidenceReviewStatus(row) {
+  return row.freshIndependentVisualEvidence
+    ? "FRESH_OFFICIAL_VISUAL_EVIDENCE_RECONCILED"
+    : "INDEPENDENT_VISUAL_EVIDENCE_INCOMPLETE";
+}
+
+function independentArtifactRows(report) {
+  return report.rows.map((row) => {
+    const screenshots = sourceScreenshotPaths(row.primaryLaw.freshAxisOfficialSources);
+    return {
+      geo: row.geo,
+      territory: row.territory,
+      current_map_color: capturedMapColor(row),
+      current_map_capture: row.currentMapCaptured ? "LIVE_CAPTURED" : "NOT_CAPTURED",
+      baseline_reference_color: row.previousColor,
+      ssot_color: String(
+        row?.ssot?.project?.truthColor ||
+          row?.ssot?.project?.color ||
+          row?.ssot?.project?.statusColor ||
+          "UNVERIFIED_NO_SEPARATE_SSOT_COLOR",
+      ),
+      ssot_color_source: "SSOT_PROJECT_EMBEDDED_COLOR_ONLY",
+      ssot_recreational: String(row?.ssot?.project?.recreational || "MISSING"),
+      ssot_medical: String(row?.ssot?.project?.medical || "MISSING"),
+      ssot_enforcement: String(row?.ssot?.project?.enforcement || "MISSING"),
+      wiki_truth_proposal_color: String(row?.layerColors?.ui || "UNVERIFIED"),
+      independent_truth_color: row.truthColor,
+      truth_status: row.truthStatus,
+      truth_rule: row.truthRuleId,
+      recreational_status: String(row?.legalInterpretation?.recreational || "MISSING"),
+      medical_status: String(row?.legalInterpretation?.medical || "MISSING"),
+      operational_status: row?.patientAccessFacts?.operational === true ? "PROVEN_OPERATIONAL" : "UNPROVEN",
+      enforcement_status: String(row?.legalInterpretation?.enforcement || "MISSING"),
+      verdict: row.verdict,
+      evidence_review_status: evidenceReviewStatus(row),
+      fresh_independent_visual_evidence: row.freshIndependentVisualEvidence,
+      official_urls: row.primaryLaw.officialSources.map((source) => source.url).filter(Boolean),
+      fresh_official_urls: row.primaryLaw.freshAxisOfficialSources.map((source) => source.url).filter(Boolean),
+      screenshots,
+      evidence_axes: row.patientAccessFacts,
+      legal_interpretation: row.legalInterpretation,
+      wikipedia_status: row.wikipedia.status,
+      ssot_status: row.ssot.status,
+      recommended_action:
+        row.changed && row.verdict === "MAP_WRONG_TRUTH_RIGHT"
+          ? "PROPOSAL_ONLY_PENDING_HUMAN_APPLY_AUTHORIZATION"
+          : "NO_APPLY_INSUFFICIENT_OR_UNCAPTURED_EVIDENCE",
+    };
+  });
+}
+
+function writeIndependentAuditArtifacts(report) {
+  const rows = independentArtifactRows(report);
+  const generatedAt = report.generatedAt;
+  const csvRows = rows.map((row) => ({
+    geo: row.geo,
+    territory: row.territory,
+    current_map_color: row.current_map_color,
+    current_map_capture: row.current_map_capture,
+    baseline_reference_color: row.baseline_reference_color,
+    ssot_color: row.ssot_color,
+    ssot_color_source: row.ssot_color_source,
+    ssot_recreational: row.ssot_recreational,
+    ssot_medical: row.ssot_medical,
+    ssot_enforcement: row.ssot_enforcement,
+    wiki_truth_proposal_color: row.wiki_truth_proposal_color,
+    independent_truth_color: row.independent_truth_color,
+    truth_status: row.truth_status,
+    truth_rule: row.truth_rule,
+    recreational_status: row.recreational_status,
+    medical_status: row.medical_status,
+    operational_status: row.operational_status,
+    enforcement_status: row.enforcement_status,
+    verdict: row.verdict,
+    evidence_review_status: row.evidence_review_status,
+    fresh_independent_visual_evidence: row.fresh_independent_visual_evidence,
+    official_urls: row.official_urls.join(" | "),
+    fresh_official_urls: row.fresh_official_urls.join(" | "),
+    screenshots: row.screenshots.join(" | "),
+    evidence_axes: JSON.stringify(row.evidence_axes),
+    legal_interpretation: JSON.stringify(row.legal_interpretation),
+    wikipedia_status: row.wikipedia_status,
+    ssot_status: row.ssot_status,
+    recommended_action: row.recommended_action,
+  }));
+  const headers = Object.keys(csvRows[0] || { geo: "" });
+  const changedRows = csvRows.filter((row) => row.baseline_reference_color !== row.independent_truth_color);
+  const insufficientRows = csvRows.filter(
+    (row) => row.verdict === "INSUFFICIENT_EVIDENCE" || row.evidence_review_status !== "FRESH_OFFICIAL_VISUAL_EVIDENCE_RECONCILED",
+  );
+  const temporalRows = csvRows.filter((row) => row.verdict === "TEMPORAL_CONFLICT");
+  const scopeModeRows = csvRows.filter((row) => /^(SCOPE|MODE)_MIXING$/.test(row.verdict));
+  const axisOnlyRows = csvRows.filter((row) => row.verdict === "AXIS_MISMATCH_COLOR_MATCH");
+  const officialInsufficientRows = csvRows.filter(
+    (row) => !row.official_urls || row.evidence_review_status !== "FRESH_OFFICIAL_VISUAL_EVIDENCE_RECONCILED",
+  );
+
+  fs.writeFileSync(
+    INDEPENDENT_AUDIT_ARTIFACTS.matrixJson,
+    `${JSON.stringify({
+      generatedAt,
+      schemaVersion: 2,
+      nonMutating: true,
+      applyAllowed: false,
+      rowsExpected: report.rowsExpected,
+      rows,
+    }, null, 2)}\n`,
+  );
+  writeCsv(INDEPENDENT_AUDIT_ARTIFACTS.matrixCsv, headers, csvRows);
+  writeCsv(INDEPENDENT_AUDIT_ARTIFACTS.mapVsTruth, [
+    "geo", "territory", "current_map_color", "current_map_capture", "independent_truth_color", "verdict", "recommended_action",
+  ], csvRows);
+  writeCsv(INDEPENDENT_AUDIT_ARTIFACTS.wikiVsTruth, [
+    "geo", "territory", "wiki_truth_proposal_color", "independent_truth_color", "verdict", "evidence_review_status",
+  ], csvRows);
+  writeCsv(INDEPENDENT_AUDIT_ARTIFACTS.colorConflicts, headers, changedRows);
+  writeCsv(INDEPENDENT_AUDIT_ARTIFACTS.axisOnly, headers, axisOnlyRows);
+  writeCsv(INDEPENDENT_AUDIT_ARTIFACTS.insufficient, headers, insufficientRows);
+  writeCsv(INDEPENDENT_AUDIT_ARTIFACTS.temporal, headers, temporalRows);
+  writeCsv(INDEPENDENT_AUDIT_ARTIFACTS.scopeMode, headers, scopeModeRows);
+  writeCsv(INDEPENDENT_AUDIT_ARTIFACTS.officialLinks, headers, officialInsufficientRows);
+
+  const screenshots = rows.map((row) => ({
+    geo: row.geo,
+    territory: row.territory,
+    visual_review_status: row.evidence_review_status,
+    screenshots: row.screenshots,
+    screenshot_count: row.screenshots.length,
+    current_live_map_capture: row.current_map_capture,
+  }));
+  fs.writeFileSync(
+    INDEPENDENT_AUDIT_ARTIFACTS.screenshots,
+    `${JSON.stringify({
+      generatedAt,
+      schemaVersion: 2,
+      nonMutating: true,
+      currentLiveMapCaptureCount: report.acceptance.liveMapCapturedGeos.length,
+      rows: screenshots,
+    }, null, 2)}\n`,
+  );
+  const freshnessRows = report.rows.flatMap((row) => {
+    const sources = row.primaryLaw.officialSources;
+    if (sources.length === 0) {
+      return [{
+        geo: row.geo,
+        territory: row.territory,
+        url: "",
+        source_kind: "NO_OFFICIAL_SOURCE",
+        fresh_visual_evidence: row.freshIndependentVisualEvidence,
+        source_recheck_attempts: row.sourceRecheck.attempts.length,
+        source_recheck_successes: row.sourceRecheck.successfulAttempts,
+      }];
+    }
+    return sources.map((source) => ({
+      geo: row.geo,
+      territory: row.territory,
+      url: source.url,
+      source_kind: source.sourceKind || "UNCLASSIFIED",
+      fresh_visual_evidence: row.freshIndependentVisualEvidence,
+      source_recheck_attempts: row.sourceRecheck.attempts.length,
+      source_recheck_successes: row.sourceRecheck.successfulAttempts,
+    }));
+  });
+  writeCsv(INDEPENDENT_AUDIT_ARTIFACTS.sourceFreshness, [
+    "geo", "territory", "url", "source_kind", "fresh_visual_evidence", "source_recheck_attempts", "source_recheck_successes",
+  ], freshnessRows);
+
+  const disputedRows = rows.filter((row) => isScopeMixingText(row.truthReason, row.truthRuleId));
+  fs.writeFileSync(
+    INDEPENDENT_AUDIT_ARTIFACTS.disputed,
+    [
+      "# Disputed and composite GEO decisions",
+      "",
+      `Generated: ${generatedAt}`,
+      "",
+      ...(disputedRows.length
+        ? disputedRows.map((row) => `- ${row.geo} ${row.territory}: ${row.truthColor}; ${row.truthRuleId}; ${row.truthReason}`)
+        : ["- No disputed/composite decision was independently proved in this reconciliation." ]),
+      "",
+      "Claimant, parent-country, or context law is never painted onto a GEO without a documented applicability rule.",
+      "",
+    ].join("\n"),
+  );
+  fs.writeFileSync(
+    INDEPENDENT_AUDIT_ARTIFACTS.colorPolicy,
+    [
+      "# Truth-First Color Policy",
+      "",
+      "GREEN requires proven adult-use legality or proven operational patient access.",
+      "YELLOW is limited lawful cannabis status: decriminalization, narrow prescription/permit, production, cultivation, export, research, pharmaceutical-only, or enacted-but-not-operational law.",
+      "RED requires positive proof of recreational prohibition and no lawful patient access in the applicable current regime.",
+      "UNKNOWN remains uncolored when applicability or direct current primary-law proof is unresolved.",
+      "Production, cultivation, research, export, CBD/hemp, a bill, generic drug control, and claimant law do not independently establish patient access or a territorial color.",
+      "",
+    ].join("\n"),
+  );
+  const candidates = rows
+    .filter((row) => row.baseline_reference_color !== row.independent_truth_color)
+    .map((row) => ({
+      geo: row.geo,
+      territory: row.territory,
+      baselineReferenceColor: row.baseline_reference_color,
+      independentTruthColor: row.independent_truth_color,
+      verdict: row.verdict,
+      evidenceReviewStatus: row.evidence_review_status,
+      liveMapCaptured: row.current_map_capture === "LIVE_CAPTURED",
+      action: "REVIEW_ONLY_NO_APPLY",
+    }));
+  const patchEnvelope = {
+    generatedAt,
+    nonMutating: true,
+    applyAllowed: false,
+    productionTouched: false,
+    ssotChanged: false,
+    mapColorsChanged: false,
+    patches: [],
+    candidates,
+    blocker: "No candidate is applyable until every underlying law review and live map capture gate is complete and a human authorizes application.",
+  };
+  fs.writeFileSync(INDEPENDENT_AUDIT_ARTIFACTS.ssotPatch, `${JSON.stringify(patchEnvelope, null, 2)}\n`);
+  fs.writeFileSync(INDEPENDENT_AUDIT_ARTIFACTS.mapPatch, `${JSON.stringify(patchEnvelope, null, 2)}\n`);
+  fs.writeFileSync(
+    INDEPENDENT_AUDIT_ARTIFACTS.report,
+    [
+      "# Independent 307-GEO evidence report",
+      "",
+      `Generated: ${generatedAt}`,
+      `Rows: ${rows.length}/${report.rowsExpected}`,
+      `Fresh independent visual evidence: ${rows.filter((row) => row.fresh_independent_visual_evidence).length}/${rows.length}`,
+      `Live map capture: ${rows.filter((row) => row.current_map_capture === "LIVE_CAPTURED").length}/${rows.length}`,
+      `Candidate color differences: ${changedRows.length}`,
+      `Insufficient evidence rows: ${insufficientRows.length}`,
+      "",
+      "The baseline reference color is not represented as a production-map observation. Without a live browser capture, map verdicts remain INSUFFICIENT_EVIDENCE.",
+      "All patch lists are intentionally empty and apply is disabled.",
+      "",
+    ].join("\n"),
+  );
+  fs.writeFileSync(
+    INDEPENDENT_AUDIT_ARTIFACTS.noMutation,
+    [
+      "# No-mutation acceptance report",
+      "",
+      `Generated: ${generatedAt}`,
+      "APPLY_ALLOWED=false",
+      `GOAL_ACHIEVED=${report.complete}`,
+      "SSOT_CHANGED=false",
+      "MAP_COLORS_CHANGED=false",
+      "PRODUCTION_TOUCHED=false",
+      "RUNTIME_TOUCHED=false",
+      `LIVE_MAP_CAPTURE_COMPLETE=${report.acceptance.currentMapCaptureComplete}`,
+      `FRESH_OFFICIAL_VISUAL_REVIEW_COMPLETE=${report.acceptance.freshOfficialVisualReviewComplete}`,
+      `PROTECTED_FILES_UNCHANGED=${report.noMutationProof.unchanged}`,
+      "",
+      "No mutation is authorized or materialized by this audit output.",
+      "",
+    ].join("\n"),
+  );
+}
+
 function main() {
   const baseline = readJson(INPUTS.baseline);
   const sourceRechecks = readJson(INPUTS.sourceRechecks);
@@ -365,15 +730,7 @@ function main() {
   const proposals = readJson(INPUTS.proposals);
   const applyPlan = readJson(INPUTS.applyPlan);
   const reviewDossier = readJson(INPUTS.reviewDossier);
-  const acceptance = readJson(INPUTS.acceptance);
   const runtimeTruthConflicts = readJson(INPUTS.runtimeTruthConflicts);
-  const diagnostics = {
-    insufficient: readGeoSetFromCsv("insufficient_evidence.csv"),
-    temporal: readGeoSetFromCsv("temporal_conflicts.csv"),
-    scopeMode: readGeoSetFromCsv("scope_and_mode_mixing_errors.csv"),
-    axisOnly: readGeoSetFromCsv("axis_only_conflicts.csv"),
-  };
-
   const truthRows = asArray(truth);
   const matrixByGeo = indexByGeo(asArray(matrix));
   const baselineByGeo = indexByGeo(asArray(baseline));
@@ -382,7 +739,6 @@ function main() {
   const proposalByGeo = indexByGeo(asArray(proposals, ["proposals", "rows"]));
   const applyByGeo = indexByGeo(asArray(applyPlan));
   const dossierByGeo = indexByGeo(asArray(reviewDossier));
-  const acceptanceByGeo = indexByGeo(asArray(acceptance));
   const runtimeConflictByGeo = indexByGeo(asArray(runtimeTruthConflicts));
   const sourceLog = sourceRowsByUrl(sourceRechecks);
 
@@ -395,7 +751,6 @@ function main() {
     const proposalRow = proposalByGeo.get(geo) || {};
     const applyRow = applyByGeo.get(geo) || {};
     const dossierRow = dossierByGeo.get(geo) || {};
-    const acceptanceRow = acceptanceByGeo.get(geo) || {};
     const runtimeConflictRow = runtimeConflictByGeo.get(geo) || {};
     const truthColor = String(truthRow?.truth?.color || "UNKNOWN");
     const previousColor = String(baselineRow?.truthColor || "UNKNOWN");
@@ -416,23 +771,33 @@ function main() {
     const truthRuleId = String(
       truthRow?.truth?.ruleId || truthRow?.truth?.source || "NO_RULE",
     );
+    const truthSource = String(truthRow?.truth?.source || "NO_SOURCE");
     const patientFacts = truthRow?.truth?.facts || {};
-    const adultUseStatus = String(
-      truthRow?.truth?.axisFindings?.adult_use?.status || "",
-    ).toUpperCase();
-    const adultUseGreenProof =
-      truthRuleId === "OFFICIAL_STATUS_RECREATIONAL_LEGAL" ||
-      /(?:^|_)PROVEN_(?:ADULT_USE_)?LEGAL(?:_|$)|(?:^|_)LEGAL_ADULT_USE(?:_|$)|(?:^|_)ADULT_USE_LEGAL(?:_|$)|(?:^|_)RECREATIONAL_LEGAL(?:_|$)/.test(
-        adultUseStatus,
-      );
+    const adultUseGreenProof = hasProvenAdultUse(
+      truthRow?.truth?.axisFindings,
+      truthRuleId,
+    );
     const patientAccessGreenProof =
       patientFacts.patient === true &&
       patientFacts.lawfulRoute === true &&
       patientFacts.supply === true &&
       patientFacts.operational === true;
-    const currentMapColor = String(
-      truthRow?.diagnostics?.color?.current?.color || "UNKNOWN",
-    );
+    const rawCurrentMapSnapshot = truthRow?.diagnostics?.color?.current || {};
+    const currentMapCaptured = hasLiveMapCapture(rawCurrentMapSnapshot);
+    const currentMapColor = currentMapCaptured
+      ? String(rawCurrentMapSnapshot.color || "UNCOLORED")
+      : null;
+    const currentMapSnapshot = currentMapCaptured
+      ? rawCurrentMapSnapshot
+      : {
+          color: null,
+          source: "UNVERIFIED_NO_LIVE_MAP_CAPTURE",
+          reason: "No live user-visible map capture is available; PROJECT_PAIR and derived layers are not map proof.",
+        };
+    const freshIndependentVisualEvidence = hasFreshIndependentVisualEvidence({
+      truthSource,
+      primaryLaw: { freshAxisOfficialSources },
+    });
     const greenProof =
       truthColor !== "GREEN" ||
       adultUseGreenProof ||
@@ -466,25 +831,27 @@ function main() {
       (color) => color !== truthColor,
     );
     const sourceRecheck = sourceRecheckForGeo(geo, sourceLog);
-    const verdict = classifyColorVerdict(
-      {
-        geo,
-        previousColor,
-        truthColor,
-        truthRuleId,
-        truthReason: String(truthRow?.truth?.reason || ""),
-      },
-      diagnostics,
-    );
+    const verdict = classifyColorVerdict({
+      geo,
+      previousColor,
+      truthColor,
+      truthRuleId,
+      truthReason: String(truthRow?.truth?.reason || ""),
+      layerConflict,
+      currentMapCaptured,
+      currentMapColor,
+      freshIndependentVisualEvidence,
+    });
     return {
       geo,
       territory: String(truthRow.territory || matrixRow.territory || ""),
       previousColor,
       truthColor,
-      falseClass: falseClass(previousColor, truthColor),
+      falseClass: falseClass(currentMapColor, truthColor, verdict),
       changed: previousColor !== truthColor,
       truthStatus: truthRuleId,
       truthRuleId,
+      truthSource,
       truthReason: String(truthRow?.truth?.reason || ""),
       patientAccessFacts: patientFacts,
       greenProof,
@@ -492,6 +859,8 @@ function main() {
       layerColors,
       layerConflict,
       verdict,
+      currentMapCaptured,
+      freshIndependentVisualEvidence,
       primaryLaw: {
         sourceCoverage: String(truthRow.sourceCoverage || "MISSING"),
         effectiveSourceCoverage: String(
@@ -521,7 +890,7 @@ function main() {
         project: truthRow.project || {},
         mutationApplied: false,
       },
-      currentMapSnapshot: truthRow?.diagnostics?.color?.current || {},
+      currentMapSnapshot,
       runtimeSnapshot: runtimeConflictRow.geo
         ? {
             color: runtimeConflictRow.currentRuntimeColor || "UNKNOWN",
@@ -529,11 +898,8 @@ function main() {
             mutationAllowed: false,
           }
         : {
-            color: previousColor,
-            relation:
-              previousColor === truthColor
-                ? "MATCH"
-                : "CURRENT_RUNTIME_OR_MAP_DELTA_TRACKED_BY_PROPOSAL",
+            color: "UNVERIFIED_NO_LIVE_RUNTIME_CAPTURE",
+            relation: "UNVERIFIED_NO_LIVE_RUNTIME_CAPTURE",
             mutationAllowed: false,
           },
       sourceRecheck,
@@ -541,7 +907,7 @@ function main() {
         proposalAction: String(proposalRow?.proposalAction || "NO_CHANGE"),
         applyDisposition: String(applyRow?.applyDisposition || "NO_CHANGE"),
         reviewDecision: String(dossierRow?.reviewDecision || "NO_CHANGE"),
-        acceptanceStatus: String(acceptanceRow?.status || "UNKNOWN"),
+        acceptanceStatus: "NOT_USED_FINAL_RECONCILIATION",
       },
     };
   });
@@ -647,24 +1013,18 @@ function main() {
       .map((row) => String(row?.geo || "").toUpperCase())
       .filter(Boolean),
   );
-  const freshRenderedGeos = new Set(
+  const freshVisualEvidenceGeos = new Set(
     rows
-      .filter((row) =>
-        row.sourceRecheck.attempts.some((attempt) => attempt.browserRendered),
-      )
+      .filter((row) => row.freshIndependentVisualEvidence)
       .map((row) => row.geo),
   );
   const liveMapCapturedGeos = new Set(
     rows
-      .filter((row) => {
-        const source = String(row?.currentMapSnapshot?.source || "").toUpperCase();
-        return /LIVE_(MAP|DOM|UI|RENDER)|BROWSER_(MAP|DOM|VISUAL)|VISUAL_(MAP|DOM)/.test(source);
-      })
+      .filter((row) => row.currentMapCaptured)
       .map((row) => row.geo),
   );
   const freshOfficialVisualReviewComplete =
-    freshSelectedGeos.size === rowsExpected &&
-    freshRenderedGeos.size === rowsExpected;
+    freshVisualEvidenceGeos.size === rowsExpected;
   const currentMapCaptureComplete = liveMapCapturedGeos.size === rowsExpected;
 
   const flags = {
@@ -682,7 +1042,6 @@ function main() {
       (row) => row.truthColor === "UNKNOWN",
     ),
     noLegacyUiReads: !staleUiReads,
-    acceptanceArtifactComplete: acceptance.complete === true,
     ssotMapProductionRuntimeUnchanged:
       authoritativeHashProof.length > 0 &&
       authoritativeHashProof.every((row) => row.unchanged),
@@ -699,7 +1058,7 @@ function main() {
   const matrixCounts = matrix.counts || {};
   const output = {
     generatedAt: new Date().toISOString(),
-    reportVersion: "2.1.0-final-reconciliation-fail-closed-live-proof",
+    reportVersion: "2.2.0-final-reconciliation-independent-of-acceptance",
     deterministicColorFunction:
       "deriveOfficialTruthColor(Primary Law applicability + independent legal facts)",
     nonMutating: true,
@@ -723,6 +1082,7 @@ function main() {
       "Combined or component-divergent GEOs remain UNKNOWN without one unitary applicable regime.",
       "RED from no-patient evidence requires a proved recreational prohibition.",
       "Derived audit caches are reported separately and never make SSOT/map/production/runtime mutation proof fail.",
+      "Reconciliation artifacts are generated from current truth output and never reused as verdict input.",
       "FINAL_RECONCILIATION_COMPLETE requires fresh visual official review for every GEO, not historical screenshots alone.",
       "FINAL_RECONCILIATION_COMPLETE requires a live user-visible map capture for every GEO; PROJECT_PAIR and MAP=NONE are not map proof.",
     ],
@@ -754,7 +1114,7 @@ function main() {
       ),
       freshSourceRecheck: {
         selectedGeos: freshSelectedGeos.size,
-        browserRenderedGeos: freshRenderedGeos.size,
+        browserRenderedGeos: freshVisualEvidenceGeos.size,
         liveMapCapturedGeos: liveMapCapturedGeos.size,
         browserAttempts: sourceLog.browser.length,
         httpAttempts: sourceLog.http.length,
@@ -781,10 +1141,10 @@ function main() {
       duplicateGeos,
       freshOfficialVisualReviewComplete,
       currentMapCaptureComplete,
-      freshOfficialVisualReviewGeos: [...freshRenderedGeos].sort(),
+      freshOfficialVisualReviewGeos: [...freshVisualEvidenceGeos].sort(),
       liveMapCapturedGeos: [...liveMapCapturedGeos].sort(),
       runtimeSnapshotDeltaRows,
-      upstreamAcceptanceComplete: acceptance.complete === true,
+      finalReconciliationUsesAcceptanceArtifact: false,
     },
     noMutationProof: {
       unchanged:
@@ -806,7 +1166,7 @@ function main() {
       working_search_artifact_count: sourceLog.queue.length,
       working_review_artifact_count: rows.length,
       fresh_search_count: freshSelectedGeos.size,
-      fresh_visual_review_count: freshRenderedGeos.size,
+      fresh_visual_review_count: freshVisualEvidenceGeos.size,
       screenshot_count: Number(matrixCounts.manualVisualReviewComplete || 0),
       baseline_screenshot_count: Number(
         matrixCounts.manualVisualReviewComplete || 0,
@@ -851,6 +1211,10 @@ function main() {
           "data/reviews/wiki-truth-307-final-source-rechecks.json",
         baseline:
           "data/reviews/wiki-truth-307-final-reconciliation-baseline.json",
+        independentMatrix:
+          "data/reviews/all_307_independent_evidence_matrix.json",
+        noMutationAcceptance:
+          "data/reviews/no_mutation_acceptance_report.md",
       },
     },
     rows,
@@ -858,9 +1222,19 @@ function main() {
 
   fs.writeFileSync(OUT_JSON, `${JSON.stringify(output, null, 2)}\n`);
   fs.writeFileSync(OUT_MD, markdown(output));
+  writeIndependentAuditArtifacts(output);
   console.log(
     `FINAL_RECONCILIATION rows=${output.rowsTotal}/${output.rowsExpected} colors=${JSON.stringify(output.counts.truthColors)} changes=${changes.length} conflicts=${crossLayerConflictRows.length} unprovenGreen=${unprovenGreenRows.length} unknown=${unknownRows.length} complete=${complete}`,
   );
 }
 
-main();
+export {
+  classifyColorVerdict,
+  hasFreshIndependentVisualEvidence,
+  hasLiveMapCapture,
+  hasProvenAdultUse,
+};
+
+if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
+  main();
+}

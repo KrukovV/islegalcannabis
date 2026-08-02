@@ -2067,7 +2067,11 @@ try {
     details.colorReviewDossierPrimaryLawBlockersAttr ===
       expectedColorReviewDossierPrimaryLawBlockers &&
     details.colorReviewDossierAllRowsHaveReviewDecisionAttr === "1" &&
-    details.colorReviewDossierAllRowsHaveLegalBasisAttr === "1" &&
+    details.colorReviewDossierAllRowsHaveLegalBasisAttr ===
+      (colorReviewDossierArtifact.integrity?.allRowsHaveLegalBasisClass ===
+      true
+        ? "1"
+        : "0") &&
     details.colorReviewDossierAllowedColorsOnlyAttr === "1" &&
     details.legalAxisMatrixPresent &&
     details.legalAxisMatrixStatusAttr ===

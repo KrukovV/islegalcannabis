@@ -74,3 +74,13 @@ const second = run();
 assert.strictEqual(second.status, 0);
 const archiveAfter = fs.readFileSync(archivePath, "utf8");
 assert.strictEqual(archive, archiveAfter);
+
+const beforeMinimal = fs.readFileSync(ledgerPath, "utf8");
+const minimal = spawnSync("node", [
+  path.join(process.cwd(), "tools", "ledger", "compact.mjs"),
+  "--root",
+  tmpDir,
+  "--minimal"
+], { stdio: "inherit" });
+assert.strictEqual(minimal.status, 2);
+assert.strictEqual(fs.readFileSync(ledgerPath, "utf8"), beforeMinimal);

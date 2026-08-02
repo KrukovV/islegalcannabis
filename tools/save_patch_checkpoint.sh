@@ -39,7 +39,7 @@ else
   echo "No changes detected."
 fi
 
-LEDGER_PATH="${ROOT_DIR}/CONTINUITY.md"
-if [ -f "${LEDGER_PATH}" ]; then
-  LEDGER_MINIMAL=1 node tools/ledger/compact.mjs --root "${ROOT_DIR}" --checkpoint "checkpoint=${PATCH_PATH}"
+CONTINUITY_PATH="${ROOT_DIR}/CONTINUITY.md"
+if [ -f "${CONTINUITY_PATH}" ]; then
+  node tools/update_continuity_status.mjs --checkpoint "checkpoint=${PATCH_PATH}"
 fi

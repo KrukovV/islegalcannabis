@@ -308,7 +308,7 @@ export default function BuildWatcher() {
     setRefreshing(true);
     resetClientRuntimePrefetch();
     if (typeof window !== "undefined") {
-      window.location.reload();
+      window.location.replace(buildRefreshUrl(`manual-${Date.now()}`));
     }
   }, [handleApplyUpdate, nextRuntimeStamp, refreshing]);
 

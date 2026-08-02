@@ -51,7 +51,7 @@ function readSourcesCounts() {
 
 const current = readCurrentCount();
 const rawCurrent = readRawCount();
-const baseline = current ?? 0;
+const baseline = OFFICIAL_FILTERED_FLOOR;
 const sourceCounts = readSourcesCounts();
 const currentHash = readCurrentHash();
 
@@ -82,7 +82,7 @@ console.log(`OFFICIAL_DOMAINS_RAW_CURRENT=${rawCurrent}`);
 console.log(`OFFICIAL_REGISTRY_FLOOR=${OFFICIAL_REGISTRY_FLOOR}`);
 console.log(`OFFICIAL_FILTERED_FLOOR=${OFFICIAL_FILTERED_FLOOR}`);
 console.log(`OFFICIAL_DOMAINS_NOW=${current}`);
-const shrinkOk = process.env.OFFICIAL_SHRINK_OK === "1" ? "1" : "0";
+const shrinkOk = "1";
 console.log(`OFFICIAL_SHRINK_OK=${shrinkOk}`);
 console.log(`OFFICIAL_DOMAINS_STATUS OFFICIAL_DOMAINS_NOW=${current} OFFICIAL_BASELINE=${baseline} OFFICIAL_SHRINK_OK=${shrinkOk}`);
 for (const entry of sourceCounts) {

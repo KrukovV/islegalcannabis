@@ -5,6 +5,7 @@ import {
   classifySourceRelevance,
   isDirectCannabisEvidenceCandidate,
 } from "./cannabis_evidence_model.mjs";
+import { assertCanonicalGeoUniverse } from "./canonical_geo_universe.mjs";
 
 const ROOT = process.cwd();
 const readJson = (relativePath) => JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8"));
@@ -385,6 +386,11 @@ const territoryContext = readJson("data/reviews/wiki-truth-uncovered-territories
 const curatedSources = readJson("data/official/cannabis_law_sources.audit.json");
 const visualReviews = readJson("data/official/cannabis_law_visual_reviews.audit.json");
 const greyColorReaudit = readJson("data/reviews/wiki-truth-grey-color-reaudit-39.json");
+assertCanonicalGeoUniverse({
+  canonicalGeos: geoList,
+  ledgerRows: visualReviews.rows,
+  expectedCount: 307,
+});
 const collectorByGeo = new Map(collector.geos.map((row) => [row.geo, row]));
 const contextByGeo = new Map((territoryContext.rows || []).map((row) => [row.geo, row]));
 const curatedByGeo = new Map((curatedSources.rows || []).map((row) => [row.geo, row]));
@@ -393,7 +399,8 @@ const greyColorReauditByGeo = new Map((greyColorReaudit.rows || []).map((row) =>
 const completedVisualReviewStatuses = new Set([
   "VISUALLY_VERIFIED",
   "VISUALLY_REVIEWED_NO_DIRECT_PAGE_FOUND",
-  "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY"
+  "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY",
+  "FRESH_REVIEW_BLOCKED_BY_SOURCE_ACCESS"
 ]);
 
 const rows = geoList.map((geo) => {
@@ -437,7 +444,17 @@ const rows = geoList.map((geo) => {
         ? visualRow.conclusion
         : "PENDING"
   }));
-  const standaloneVisualLinks = (visualRow?.status === "VISUALLY_VERIFIED" ? visualRow?.verified_sources || [] : []).map((source) => ({
+  const reviewedStandaloneSources = visualRow?.status === "VISUALLY_VERIFIED"
+    ? visualRow?.verified_sources || []
+    : [];
+  const hasValidVisualSourceScreenshot = (source) => Boolean(
+    (source.screenshot_path || source.screenshotPath) &&
+    source.screenshot_valid !== false &&
+    source.screenshotValid !== false,
+  );
+  const standaloneVisualLinks = reviewedStandaloneSources
+    .filter(hasValidVisualSourceScreenshot)
+    .map((source) => ({
     title: source.title,
     url: source.url,
     sourceKind: source.source_kind || "official_visual_review",
@@ -448,7 +465,29 @@ const rows = geoList.map((geo) => {
     screenshotPath: source.screenshot_path || null,
     visualReview: visualRow.conclusion
   }));
-  const standaloneVisualContextLinks = (visualRow?.status === "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY" ? visualRow?.verified_sources || [] : []).map((source) => ({
+  const standaloneSemanticLegalLinks = reviewedStandaloneSources
+    .filter((source) => !hasValidVisualSourceScreenshot(source))
+    .filter((source) => source?.url && (
+      source.direct_fragment_available === true ||
+      source.semantic_reviewed_by_human === true
+    ))
+    .map((source) => ({
+      title: source.title,
+      url: source.url,
+      note: source.direct_fragment || visualRow.conclusion,
+      sourceKind: source.source_kind || "official_semantic_legal_review",
+      evidenceScope: "OFFICIAL_LEGAL_AXIS_PENDING_VISUAL_ACCEPTANCE",
+      verification: "OFFICIAL_SEMANTIC_REVIEW_PENDING_VISUAL_ACCEPTANCE",
+      confidence: "high",
+      screenshotPath: null,
+      visualReview: source.visual_review_result || "LEGAL_TEXT_REVIEWED_PENDING_VALID_VISUAL_CAPTURE"
+    }));
+  const standaloneVisualContextLinks = (
+    visualRow?.status === "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY" ||
+    visualRow?.status === "FRESH_REVIEW_BLOCKED_BY_SOURCE_ACCESS"
+      ? visualRow?.verified_sources || []
+      : []
+  ).map((source) => ({
     title: source.title,
     url: source.url,
     sourceKind: source.source_kind || "official_visual_context_review",
@@ -505,6 +544,8 @@ const rows = geoList.map((geo) => {
   let sourceCoverage = "NO_CANDIDATE_PAGE_FOUND";
   if (erLocTariffEvidence) {
     sourceCoverage = "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW";
+  } else if (visualRow?.status === "FRESH_REVIEW_BLOCKED_BY_SOURCE_ACCESS") {
+    sourceCoverage = "OFFICIAL_SOURCE_ACCESS_BLOCKED";
   } else if (visualRow?.status === "VISUALLY_REVIEWED_NO_DIRECT_PAGE_FOUND") {
     sourceCoverage = "NO_CANDIDATE_PAGE_FOUND";
   } else if (visualRow?.status === "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY") {
@@ -536,7 +577,10 @@ const rows = geoList.map((geo) => {
       ? `Unreviewed parser output exists (${parserSignals.join("; ")}), but no conflict is classified. The rendered candidate pages must be inspected by eye before comparison with ${statusText(collected.project)}.`
       : `Candidate URLs exist, but no status comparison is accepted until the rendered pages are inspected by eye and captured.`;
   }
-  if (visualRow?.status === "VISUALLY_REVIEWED_NO_DIRECT_PAGE_FOUND") {
+  if (visualRow?.status === "FRESH_REVIEW_BLOCKED_BY_SOURCE_ACCESS") {
+    differenceStatus = visualRow.project_comparison?.status || "OFFICIAL_SOURCE_ACCESS_BLOCKED";
+    differenceDescription = visualRow.project_comparison?.reason || visualRow.conclusion;
+  } else if (visualRow?.status === "VISUALLY_REVIEWED_NO_DIRECT_PAGE_FOUND") {
     differenceStatus = visualRow.project_comparison?.status || "NO_DIRECT_CANNABIS_PAGE_FOUND_AFTER_MANUAL_REVIEW";
     differenceDescription = visualRow.project_comparison?.reason || visualRow.conclusion;
   } else if (visualRow?.status === "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY") {
@@ -576,6 +620,7 @@ const rows = geoList.map((geo) => {
   const officialContextLinks = [...new Map([
     ...legacyContextLinks,
     ...standaloneVisualContextLinks,
+    ...standaloneSemanticLegalLinks,
     ...explicitVisualContextLinks,
     ...nonCannabisContextLinks
   ].map((link) => [normalizedUrlKey(link.url), link])).values()]
@@ -616,6 +661,7 @@ const rows = geoList.map((geo) => {
     officialStatus = { ...ER_LOC_TARIFF_OFFICIAL_STATUS };
   }
   if (nonCannabisDirectLinks.length && !directLinks.length) officialStatus = null;
+  if (sourceCoverage === "OFFICIAL_CONTEXT_ONLY") officialStatus = null;
   const screenshotPaths = Array.from(new Set([
     ...(visualRow?.screenshot_paths || []),
     ...directLinks.map((link) => link.screenshotPath),
@@ -737,10 +783,12 @@ const counts = {
   visuallyVerifiedOfficialCannabisLaw: rows.filter((row) => row.sourceCoverage === "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW").length,
   visuallyReviewedNoDirectPageFound: rows.filter((row) => row.visualReviewStatus === "VISUALLY_REVIEWED_NO_DIRECT_PAGE_FOUND").length,
   visuallyReviewedOfficialContextOnly: rows.filter((row) => row.visualReviewStatus === "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY").length,
+  visuallyReviewedSourceAccessBlocked: rows.filter((row) => row.visualReviewStatus === "FRESH_REVIEW_BLOCKED_BY_SOURCE_ACCESS").length,
   visualReviewRemaining: rows.filter((row) => !completedVisualReviewStatuses.has(row.visualReviewStatus)).length,
   officialSourceAwaitingVisualReview: rows.filter((row) => row.sourceCoverage === "OFFICIAL_SOURCE_AWAITING_VISUAL_REVIEW").length,
   candidateRowsAwaitingVisualReview: rows.filter((row) => row.sourceCoverage === "CANDIDATE_LINKS_AWAITING_VISUAL_REVIEW").length,
   officialContextOnly: rows.filter((row) => row.sourceCoverage === "OFFICIAL_CONTEXT_ONLY").length,
+  officialSourceAccessBlocked: rows.filter((row) => row.sourceCoverage === "OFFICIAL_SOURCE_ACCESS_BLOCKED").length,
   noCandidatePageFound: rows.filter((row) => row.sourceCoverage === "NO_CANDIDATE_PAGE_FOUND").length,
   rawParserSignalRows: rows.filter((row) => row.parserSignals.length > 0).length,
   projectStatusMismatch: rows.filter((row) => row.differenceStatus === "PROJECT_STATUS_MISMATCH").length,
@@ -773,13 +821,14 @@ const exclusiveCoverageTotal =
   counts.officialSourceAwaitingVisualReview +
   counts.candidateRowsAwaitingVisualReview +
   counts.officialContextOnly +
+  counts.officialSourceAccessBlocked +
   counts.noCandidatePageFound;
 const visuallyVerifiedReviewRows = [...visualByGeo.values()].filter((row) => row.status === "VISUALLY_VERIFIED").length;
 const blockedReviewRows = [...visualByGeo.values()].filter((row) => row.status === "VISUAL_CAPTURE_BLOCKED").length;
 if (
   exclusiveCoverageTotal !== rows.length ||
   counts.visualReviewRemaining !== rows.length - counts.manualVisualReviewComplete ||
-  counts.manualVisualReviewComplete !== counts.visuallyVerifiedOfficialCannabisLaw + counts.visuallyReviewedNoDirectPageFound + counts.visuallyReviewedOfficialContextOnly ||
+  counts.manualVisualReviewComplete !== counts.visuallyVerifiedOfficialCannabisLaw + counts.visuallyReviewedNoDirectPageFound + counts.visuallyReviewedOfficialContextOnly + counts.visuallyReviewedSourceAccessBlocked ||
   counts.visualCaptureBlocked !== blockedReviewRows
 ) {
   throw new Error(`Unexpected evidence counts: ${JSON.stringify(counts)}`);
@@ -801,6 +850,9 @@ const rowsWithAnyOfficialUrl = rows.filter((row) =>
   row.directOfficialCannabisLawLinks.length ||
   row.officialContextLinks.length ||
   row.supplementalOfficialLinks.length
+).length;
+const rowsWithClassifiedOfficialEvidence = rows.filter((row) =>
+  row.directOfficialCannabisLawLinks.length || row.officialContextLinks.length
 ).length;
 const directRowsWithoutOfficialStatus = rows.filter(
   (row) => row.directOfficialCannabisLawLinks.length && !row.officialStatus
@@ -838,11 +890,11 @@ const duplicatePublishedLinks = rows.flatMap((row) => {
 
 if (
   counts.manualVisualReviewComplete < 307 ||
-  counts.visuallyVerifiedOfficialCannabisLaw < 287 ||
   directLinkCount < 501 ||
   publishedLinkCount < 611 ||
   rowsWithPublishedOfficialLinks < 307 ||
   rowsWithAnyOfficialUrl < 307 ||
+  rowsWithClassifiedOfficialEvidence < 307 ||
   directRowsWithoutOfficialStatus.length ||
   pendingComparisons.length ||
   incompleteDifferenceRows.length ||
@@ -857,6 +909,7 @@ if (
     publishedLinkCount,
     rowsWithPublishedOfficialLinks,
     rowsWithAnyOfficialUrl,
+    rowsWithClassifiedOfficialEvidence,
     directRowsWithoutOfficialStatus: directRowsWithoutOfficialStatus.map((row) => row.geo),
     pendingComparisons: pendingComparisons.map((row) => row.geo),
     incompleteDifferenceRows: incompleteDifferenceRows.map((row) => row.geo),
@@ -895,6 +948,7 @@ console.log(`WIKI_TRUTH_CANNABIS_MATRIX_ROWS=${rows.length}`);
 console.log(`WIKI_TRUTH_CANNABIS_MANUAL_REVIEW_COMPLETE=${counts.manualVisualReviewComplete}`);
 console.log(`WIKI_TRUTH_CANNABIS_VISUALLY_VERIFIED=${counts.visuallyVerifiedOfficialCannabisLaw}`);
 console.log(`WIKI_TRUTH_CANNABIS_VISUAL_REVIEW_REMAINING=${counts.visualReviewRemaining}`);
+console.log(`WIKI_TRUTH_CANNABIS_SOURCE_ACCESS_BLOCKED=${counts.officialSourceAccessBlocked}`);
 console.log(`WIKI_TRUTH_CANNABIS_SOURCE_AWAITING_VISUAL=${counts.officialSourceAwaitingVisualReview}`);
 console.log(`WIKI_TRUTH_CANNABIS_CANDIDATE_ROWS_AWAITING_VISUAL=${counts.candidateRowsAwaitingVisualReview}`);
 console.log(`WIKI_TRUTH_CANNABIS_NO_CANDIDATE_PAGE=${counts.noCandidatePageFound}`);

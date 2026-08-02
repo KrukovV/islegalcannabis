@@ -18,6 +18,7 @@ const { deriveOfficialTruthColor } = await import(path.join(
 
 const TOTAL_GEO_EXPECTED = 307;
 const REPORT_PATH = path.join(ROOT, "data/reviews/wiki-truth-307-truth-audit-report.json");
+const FINAL_RECONCILIATION_PATH = path.join(ROOT, "data/reviews/wiki-truth-307-final-reconciliation.json");
 const MATRIX_PATH = path.join(ROOT, "data/reviews/wiki-truth-cannabis-law-matrix-307.json");
 const COLOR_PROPOSALS_PATH = path.join(ROOT, "data/reviews/wiki-truth-307-color-proposals.json");
 const COLOR_APPLY_PLAN_PATH = path.join(ROOT, "data/reviews/wiki-truth-307-color-apply-plan.json");
@@ -255,7 +256,7 @@ function isContextOnlyLegalConclusion(matrixRow) {
       .filter(Boolean)
       .join(" "),
   );
-  return /context[- ]only|official context|not accepted as|not accepted|no direct|no single|not found|не призна|не найден|нет прям|контекст/i.test(text);
+  return /context[- ]only|official context|claimant context|claimant[- ]jurisdiction context|not accepted as|not accepted|no direct|no single|not found|не призна|не найден|нет прям|контекст/i.test(text);
 }
 
 function hasDocumentedNoApplicableTerritoryLaw(matrixRow) {
@@ -413,11 +414,22 @@ function evaluatePrimaryLaw(reportRow, matrixRow, primaryLawBlocker) {
   });
 }
 
-function evaluateLegalInterpretation(reportRow, matrixRow) {
+export function evaluateLegalInterpretation(reportRow, matrixRow) {
   const layer = matrixRow?.truthLayers?.legalInterpretation || {};
   const source = layer.source || "NONE";
   const hasKnownAxis = hasAnyKnownAxis(layer.axis);
   const hasReview = hasInterpretiveLegalReview(matrixRow);
+  const documentedScopeException =
+    source === "UNAVAILABLE" &&
+    isContextOnlyLegalConclusion(matrixRow) &&
+    hasDocumentedNoApplicableTerritoryLaw(matrixRow);
+  if (documentedScopeException) {
+    return evaluation("PROVEN", "Independent review proves that no single applicable territorial cannabis-law regime can be selected.", {
+      source,
+      knownAxis: hasKnownAxis,
+      scopeException: true,
+    });
+  }
   if (source === "MANUAL_LEGAL_INTERPRETATION" && (hasKnownAxis || hasReview)) {
     return evaluation("PROVEN", "Independent manual legal interpretation layer is present.", {
       source,
@@ -643,7 +655,7 @@ function buildSystemGuards() {
     ),
     guardCase(
       "operational_patient_access_can_green",
-      { officialStatus: { recreational: "ILLEGAL", medical: "REGULATED_PATIENT_ACCESS_WITH_DOCTOR_PRESCRIPTION_AND_PHARMACY_DISPENSING", enforcement: "STRICT" } },
+      { officialStatus: { recreational: "ILLEGAL", medical: "OPERATIONAL_PATIENT_PROGRAMME_WITH_DOCTOR_PRESCRIPTION_AND_PHARMACY_DISPENSING", enforcement: "STRICT" } },
       "GREEN",
       "PATIENT_ACCESS_OPERATIONAL",
     ),
@@ -688,8 +700,18 @@ function buildSystemGuards() {
 
 function sourceHasGeoException(sourcePath, geos) {
   const text = fs.readFileSync(sourcePath, "utf8");
-  const hits = geos.filter((geo) => new RegExp(`['"\`]${geo}['"\`]`).test(text));
-  return hits;
+  return geos.filter((geo) => {
+    const escapedGeo = geo.replaceAll("-", "\\-");
+    const quotedGeo = "[\"'\\x60]" + escapedGeo + "[\"'\\x60]";
+    const branchByGeo = new RegExp(
+      "\\b(?:if|else\\s+if)\\s*\\([^\\n)]*\\b(?:geo|country|territory)\\b\\s*(?:===|!==|==|!=)\\s*" + quotedGeo,
+    );
+    const branchByLiteral = new RegExp(
+      "\\b(?:if|else\\s+if)\\s*\\([^\\n)]*" + quotedGeo + "\\s*(?:===|!==|==|!=)\\s*\\b(?:geo|country|territory)\\b",
+    );
+    const switchCase = new RegExp("\\bcase\\s+" + quotedGeo + "\\s*:");
+    return branchByGeo.test(text) || branchByLiteral.test(text) || switchCase.test(text);
+  });
 }
 
 function buildColorProposalCoverage(report, colorProposals) {
@@ -1847,72 +1869,6 @@ function buildLegalKnowledgeAxisMatrixCoverage(legalKnowledgeAxisMatrix) {
   };
 }
 
-function buildCompletionGapDossierCoverage(completionGapDossier) {
-  return {
-    artifactExists: Boolean(completionGapDossier),
-    nonMutating: completionGapDossier?.nonMutating === true,
-    localOnly: completionGapDossier?.localOnly === true,
-    dossierStatus: completionGapDossier?.dossierStatus || "MISSING",
-    overallComplete: completionGapDossier?.overallComplete === true,
-    completionClaimAllowed: completionGapDossier?.completionClaimAllowed === true,
-    blockingGate: completionGapDossier?.blockingGate || "MISSING",
-    upstreamAcceptanceComplete:
-      completionGapDossier?.upstreamAcceptance?.complete === true,
-    upstreamAcceptanceRows: Number(
-      completionGapDossier?.upstreamAcceptance?.rowsTotal || 0,
-    ),
-    upstreamColorReviewClosed:
-      completionGapDossier?.upstreamAcceptance?.colorReviewClosedAll307 || "MISSING",
-    requirementsTotal: Number(completionGapDossier?.summary?.requirementsTotal || 0),
-    provenRequirements: Number(completionGapDossier?.summary?.provenRequirements || 0),
-    incompleteRequirements: Number(completionGapDossier?.summary?.incompleteRequirements || 0),
-    failedRequirements: Number(completionGapDossier?.summary?.failedRequirements || 0),
-    blockedCompletionRequirements: Number(
-      completionGapDossier?.summary?.blockedCompletionRequirements || 0,
-    ),
-    hardBlockers: Number(completionGapDossier?.summary?.hardBlockers || 0),
-    blockerExitReadyNow: Number(
-      completionGapDossier?.summary?.blockerExitReadyNow || 0,
-    ),
-    safeRows: Number(completionGapDossier?.summary?.safeRows || 0),
-    noOpRows: Number(completionGapDossier?.summary?.noOpRows || 0),
-    postApplyTruthAlignedRows: Number(
-      completionGapDossier?.summary?.postApplyTruthAlignedRows || 0,
-    ),
-    postApplyCoverageRows: Number(
-      completionGapDossier?.summary?.postApplyCoverageRows || 0,
-    ),
-    legalAxisRows: Number(completionGapDossier?.summary?.legalAxisRows || 0),
-    legalAxisRequiredAxes: Number(
-      completionGapDossier?.summary?.legalAxisRequiredAxes || 0,
-    ),
-    legalAxisCellsTotal: Number(
-      completionGapDossier?.summary?.legalAxisCellsTotal || 0,
-    ),
-    legalAxisKnownCells: Number(
-      completionGapDossier?.summary?.legalAxisKnownCells || 0,
-    ),
-    legalAxisUnknownCells: Number(
-      completionGapDossier?.summary?.legalAxisUnknownCells || 0,
-    ),
-    appliedRows: Number(completionGapDossier?.appliedRows || 0),
-    productionTouched: completionGapDossier?.productionTouched === true,
-    ssotMutationAttempted: completionGapDossier?.ssotMutationAttempted === true,
-    mapMutationAttempted: completionGapDossier?.mapMutationAttempted === true,
-    validation: completionGapDossier?.validation || {},
-    guardrails: Array.isArray(completionGapDossier?.guardrails)
-      ? completionGapDossier.guardrails
-      : [],
-    hashProofCount: Array.isArray(completionGapDossier?.hashProof)
-      ? completionGapDossier.hashProof.filter((item) => item?.exists === true).length
-      : 0,
-    sourceArtifactCount: Array.isArray(completionGapDossier?.sourceArtifacts)
-      ? completionGapDossier.sourceArtifacts.filter((item) => item?.exists === true).length
-      : 0,
-    artifactPath: path.relative(ROOT, COMPLETION_GAP_DOSSIER_PATH),
-  };
-}
-
 function buildRuntimeBlockerAxisReconciliationCoverage(runtimeBlockerAxisReconciliation) {
   return {
     artifactExists: Boolean(runtimeBlockerAxisReconciliation),
@@ -1964,8 +1920,29 @@ function buildRuntimeBlockerAxisReconciliationCoverage(runtimeBlockerAxisReconci
   };
 }
 
-function buildGlobalRequirements(report, rowAudits, matrixRows, colorProposals, primaryLawBlockersByGeo, colorApplyPlan, colorApplyGate, colorReviewDossier, colorReviewClosureDossier, colorAuthorizationPacket, colorApplyPreview, colorTargetResolver, disputedTargetMapping, runtimeCurrentReconciliation, runtimeAuthorizationReadiness, runtimeTruthConflictAudit, runtimeSafeAuthorizationPacket, threeColorOverlay, runtimeApplyDryRunDiff, runtimeApplyPreflight, runtimeApplyExecution, runtimeApplyRollbackPlan, runtimePostApplyVerification, blockerExitDossier, legalKnowledgeAxisMatrix, completionGapDossier, runtimeBlockerAxisReconciliation) {
+function buildGlobalRequirements(report, rowAudits, matrixRows, colorProposals, primaryLawBlockersByGeo, colorApplyPlan, colorApplyGate, colorReviewDossier, colorReviewClosureDossier, colorAuthorizationPacket, colorApplyPreview, colorTargetResolver, disputedTargetMapping, runtimeCurrentReconciliation, runtimeAuthorizationReadiness, runtimeTruthConflictAudit, runtimeSafeAuthorizationPacket, threeColorOverlay, runtimeApplyDryRunDiff, runtimeApplyPreflight, runtimeApplyExecution, runtimeApplyRollbackPlan, runtimePostApplyVerification, blockerExitDossier, legalKnowledgeAxisMatrix, runtimeBlockerAxisReconciliation, finalReconciliation) {
   const geos = report.rows.map((row) => row.geo);
+  const finalReconciliationEvidence = {
+    artifactExists: Boolean(finalReconciliation),
+    reportVersion: String(finalReconciliation?.reportVersion || "MISSING"),
+    complete: finalReconciliation?.complete === true,
+    rowsTotal: Number(finalReconciliation?.rowsTotal || 0),
+    rowsExpected: Number(finalReconciliation?.rowsExpected || 0),
+    currentMapCaptureComplete:
+      finalReconciliation?.acceptance?.currentMapCaptureComplete === true,
+    freshOfficialVisualReviewComplete:
+      finalReconciliation?.acceptance?.freshOfficialVisualReviewComplete === true,
+    freshVisualEvidenceGeoCount: Array.isArray(
+      finalReconciliation?.acceptance?.freshOfficialVisualReviewGeos,
+    )
+      ? finalReconciliation.acceptance.freshOfficialVisualReviewGeos.length
+      : 0,
+    liveMapCaptureGeoCount: Array.isArray(
+      finalReconciliation?.acceptance?.liveMapCapturedGeos,
+    )
+      ? finalReconciliation.acceptance.liveMapCapturedGeos.length
+      : 0,
+  };
   const sourceFiles = [
     path.join(ROOT, "apps/web/src/lib/wikiTruthColorEngine.js"),
     path.join(ROOT, "apps/web/src/lib/wikiTruthColorComparison.ts"),
@@ -2082,9 +2059,6 @@ function buildGlobalRequirements(report, rowAudits, matrixRows, colorProposals, 
   const legalKnowledgeAxisMatrixCoverage = buildLegalKnowledgeAxisMatrixCoverage(
     legalKnowledgeAxisMatrix,
   );
-  const completionGapDossierCoverage = buildCompletionGapDossierCoverage(
-    completionGapDossier,
-  );
   const runtimeBlockerAxisReconciliationCoverage =
     buildRuntimeBlockerAxisReconciliationCoverage(
       runtimeBlockerAxisReconciliation,
@@ -2103,6 +2077,18 @@ function buildGlobalRequirements(report, rowAudits, matrixRows, colorProposals, 
         : "FAILED",
       "Report and matrix must both cover the full 307-GEO universe.",
       { reportRows: report.rowsTotal, matrixRows: matrixRows.length, expected: TOTAL_GEO_EXPECTED },
+    ),
+    currentFinalReconciliationGate: evaluation(
+      finalReconciliationEvidence.artifactExists &&
+      finalReconciliationEvidence.rowsTotal === TOTAL_GEO_EXPECTED &&
+      finalReconciliationEvidence.rowsExpected === TOTAL_GEO_EXPECTED &&
+      finalReconciliationEvidence.complete === true &&
+      finalReconciliationEvidence.currentMapCaptureComplete === true &&
+      finalReconciliationEvidence.freshOfficialVisualReviewComplete === true
+        ? "PROVEN"
+        : "INCOMPLETE",
+      "Acceptance must mirror the current independent final reconciliation: every GEO needs strict official visual evidence and a live user-visible map capture before the audit can be complete.",
+      finalReconciliationEvidence,
     ),
     primaryLawAll307: evaluation(
       rowAudits.every((row) => row.requirements.primaryLaw.status === "PROVEN")
@@ -3103,80 +3089,6 @@ function buildGlobalRequirements(report, rowAudits, matrixRows, colorProposals, 
       "The local Truth-First model must expose the full required legal-axis schema for all 307 GEO and keep every unproven detailed axis explicitly UNKNOWN instead of deriving it from color, Wikipedia, parser summaries, industry activity, claimant law, or federal/state scope mixing.",
       legalKnowledgeAxisMatrixCoverage,
     ),
-    truthFirstCompletionGapDossierReady: evaluation(
-      completionGapDossierCoverage.artifactExists &&
-      completionGapDossierCoverage.nonMutating &&
-      completionGapDossierCoverage.localOnly &&
-      completionGapDossierCoverage.dossierStatus ===
-        "TRUTH_FIRST_COMPLETION_GAP_DOSSIER_READY_NO_MUTATION" &&
-      completionGapDossierCoverage.overallComplete === true &&
-      completionGapDossierCoverage.completionClaimAllowed === true &&
-      completionGapDossierCoverage.blockingGate ===
-        "LOCAL_COLOR_REVIEW_CLOSED_ALL_307_NO_MUTATION" &&
-      completionGapDossierCoverage.upstreamAcceptanceComplete === true &&
-      completionGapDossierCoverage.upstreamAcceptanceRows === 307 &&
-      completionGapDossierCoverage.upstreamColorReviewClosed === "PROVEN" &&
-      completionGapDossierCoverage.requirementsTotal >= 30 &&
-      completionGapDossierCoverage.provenRequirements > 0 &&
-      completionGapDossierCoverage.incompleteRequirements === 0 &&
-      completionGapDossierCoverage.failedRequirements === 0 &&
-      completionGapDossierCoverage.blockedCompletionRequirements === 0 &&
-      completionGapDossierCoverage.hardBlockers ===
-        blockerExitDossierCoverage.blockedRowsTotal &&
-      completionGapDossierCoverage.blockerExitReadyNow === 0 &&
-      completionGapDossierCoverage.safeRows ===
-        runtimeSafeAuthorizationPacketCoverage.safeRowsTotal &&
-      completionGapDossierCoverage.noOpRows ===
-        runtimeAuthorizationReadinessCoverage.noOpRuntimeAlreadyTruthTarget &&
-      completionGapDossierCoverage.postApplyTruthAlignedRows +
-        completionGapDossierCoverage.hardBlockers ===
-        completionGapDossierCoverage.postApplyCoverageRows &&
-      completionGapDossierCoverage.postApplyCoverageRows === 307 &&
-      completionGapDossierCoverage.legalAxisRows === 307 &&
-      completionGapDossierCoverage.legalAxisRequiredAxes === 58 &&
-      completionGapDossierCoverage.legalAxisCellsTotal === 307 * 58 &&
-      completionGapDossierCoverage.legalAxisKnownCells > 0 &&
-      completionGapDossierCoverage.legalAxisUnknownCells > 0 &&
-      completionGapDossierCoverage.appliedRows === 0 &&
-      completionGapDossierCoverage.productionTouched === false &&
-      completionGapDossierCoverage.ssotMutationAttempted === false &&
-      completionGapDossierCoverage.mapMutationAttempted === false &&
-      completionGapDossierCoverage.validation.rows307 === true &&
-      completionGapDossierCoverage.validation.upstreamAcceptanceCompleteMatchesClaim === true &&
-      completionGapDossierCoverage.validation.completionClaimAllowedMatchesAcceptance === true &&
-      completionGapDossierCoverage.validation.colorReviewClosedStatusProven === true &&
-      completionGapDossierCoverage.validation.legalAxisRows307 === true &&
-      completionGapDossierCoverage.validation.legalAxisRequiredAxes58 === true &&
-      completionGapDossierCoverage.validation.legalAxisUnknownCellsExplicit === true &&
-      completionGapDossierCoverage.validation.legalAxisNoMutation === true &&
-      completionGapDossierCoverage.validation.blockerExitRowsMatchRuntimeBlocked === true &&
-      completionGapDossierCoverage.validation.blockerExitReadyNowZero === true &&
-      completionGapDossierCoverage.validation.blockerRowsHaveExitConditions === true &&
-      completionGapDossierCoverage.validation.runtimeSafeRowsMatchCurrentDryRun === true &&
-      completionGapDossierCoverage.validation.runtimeNoOpRowsTracked === true &&
-      completionGapDossierCoverage.validation.runtimeBlockedRowsMatchExitDossier === true &&
-      completionGapDossierCoverage.validation.runtimePostApplyAlignedRowsMatchUniverse === true &&
-      completionGapDossierCoverage.validation.runtimeCoverageRows307 === true &&
-      completionGapDossierCoverage.validation.appliedRowsZero === true &&
-      completionGapDossierCoverage.validation.noProdMutation === true &&
-      completionGapDossierCoverage.validation.noSsotMutation === true &&
-      completionGapDossierCoverage.validation.noMapMutation === true &&
-      completionGapDossierCoverage.validation.noMutation === true &&
-      completionGapDossierCoverage.validation.noAutomaticStatusOrColorChange === true &&
-      completionGapDossierCoverage.validation.threeColorOverlayPaletteOnly === true &&
-      completionGapDossierCoverage.guardrails.includes("DO_NOT_MARK_GOAL_COMPLETE_UNLESS_ACCEPTANCE_COMPLETE_TRUE") &&
-      completionGapDossierCoverage.guardrails.includes("DO_NOT_APPLY_SSOT_OR_MAP_WITHOUT_EXPLICIT_AUTHORIZATION") &&
-      completionGapDossierCoverage.guardrails.includes("KEEP_WIKIPEDIA_AUDIT_ONLY") &&
-      completionGapDossierCoverage.guardrails.includes("KEEP_UNKNOWN_AXES_EXPLICIT") &&
-      completionGapDossierCoverage.guardrails.includes("KEEP_BLOCKED_ROWS_EXCLUDED_FROM_SAFE_APPLY") &&
-      completionGapDossierCoverage.guardrails.includes("LOCAL_ONLY_NO_PRODUCTION_MUTATION") &&
-      completionGapDossierCoverage.hashProofCount >= 5 &&
-      completionGapDossierCoverage.sourceArtifactCount >= 5
-        ? "PROVEN"
-        : "INCOMPLETE",
-      "A local non-mutating completion/gap dossier must make the honest final state explicit: local Truth-First review can be complete only when acceptance is complete, colorReviewClosedAll307 is proven, blockers are zero, and SSOT/map/prod mutation remains zero.",
-      completionGapDossierCoverage,
-    ),
     runtimeBlockerAxisReconciliationProgressReady: evaluation(
       runtimeBlockerAxisReconciliationCoverage.artifactExists &&
       runtimeBlockerAxisReconciliationCoverage.nonMutating &&
@@ -3482,6 +3394,7 @@ function buildMarkdown(output) {
 function main() {
   const report = readJson(REPORT_PATH);
   const matrix = readJson(MATRIX_PATH);
+  const finalReconciliation = readJsonIfExists(FINAL_RECONCILIATION_PATH);
   const colorProposals = readJsonIfExists(COLOR_PROPOSALS_PATH);
   const colorApplyPlan = readJsonIfExists(COLOR_APPLY_PLAN_PATH);
   const colorApplyGate = readJsonIfExists(COLOR_APPLY_GATE_PATH);
@@ -3503,7 +3416,6 @@ function main() {
   const runtimePostApplyVerification = readJsonIfExists(RUNTIME_POST_APPLY_VERIFICATION_PATH);
   const blockerExitDossier = readJsonIfExists(BLOCKER_EXIT_DOSSIER_PATH);
   const legalKnowledgeAxisMatrix = readJsonIfExists(LEGAL_KNOWLEDGE_AXIS_MATRIX_PATH);
-  const completionGapDossier = readJsonIfExists(COMPLETION_GAP_DOSSIER_PATH);
   const runtimeBlockerAxisReconciliation = readJsonIfExists(RUNTIME_BLOCKER_AXIS_RECONCILIATION_PATH);
   const primaryLawBlockers = readJsonIfExists(PRIMARY_LAW_BLOCKERS_PATH);
   const matrixRows = Array.isArray(matrix.rows) ? matrix.rows : [];
@@ -3552,16 +3464,17 @@ function main() {
     runtimePostApplyVerification,
     blockerExitDossier,
     legalKnowledgeAxisMatrix,
-    completionGapDossier,
     runtimeBlockerAxisReconciliation,
+    finalReconciliation,
   );
   const globalStatuses = Object.values(globalRequirements).map((item) => item.status);
   const complete = globalStatuses.every((status) => status === "PROVEN");
   const output = {
     generatedAt: new Date().toISOString(),
-    reportVersion: "2.19.0",
+    reportVersion: "2.21.0",
     inputTruthReport: path.relative(ROOT, REPORT_PATH),
     inputMatrix: path.relative(ROOT, MATRIX_PATH),
+    inputFinalReconciliation: path.relative(ROOT, FINAL_RECONCILIATION_PATH),
     rowsTotal: rows.length,
     rowsExpected: TOTAL_GEO_EXPECTED,
     complete,
@@ -3666,9 +3579,6 @@ function main() {
       ),
       legalKnowledgeAxisMatrix: buildLegalKnowledgeAxisMatrixCoverage(
         legalKnowledgeAxisMatrix,
-      ),
-      completionGapDossier: buildCompletionGapDossierCoverage(
-        completionGapDossier,
       ),
       runtimeBlockerAxisReconciliation: buildRuntimeBlockerAxisReconciliationCoverage(
         runtimeBlockerAxisReconciliation,
