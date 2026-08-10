@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "reviewed_at": "2026-08-10T19:55:30.324Z",
+  "reviewed_at": "2026-08-11",
   "archive_root": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16",
   "manifest": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/us-states/manifest.json",
   "contact_sheets": [
@@ -83459,7 +83459,368 @@
         "status": "MATCH_WITH_OFFICIAL_NARCOTICS_LAW_CANNABIS_TABLE_NOT_VISIBLE_CAVEAT",
         "reason": "Mauritania is visually verified from the UNODC SHERLOC official legislation database record and attached PDF for Loi No. 93-37 on repression of production, traffic and illicit use of narcotics and psychotropic substances, attributed on the UNODC record to Mauritania / Ministry of Justice. The UNODC record screenshot visibly classifies the law under drug offences including cultivation/production/manufacture, purchase/possession, sale/brokerage, distribution/delivery/transport and import/export. The PDF screenshots visibly show Article 1 applying the law to substances listed by the Minister of Health in tables I-IV, substances classified as narcotics/psychotropics by international conventions and other dangerous plants/preparations; Article 3 punishing production/culture/extraction/fabrication/transformation of high-risk drugs with 15 to 30 years and large fines, with death penalty on recidivism; Article 5 punishing offer, acquisition, purchase, transport, detention, distribution, delivery and transfer of high-risk drugs with the same penalty band and death penalty on recidivism; Articles 38-40 prohibiting high-risk-drug use and use outside medical prescriptions for risk drugs, punishing illicit use and confiscating plants/substances; Articles 42-44 creating treatment/medical-surveillance alternatives; and Article 52 publication as state law signed at Nouakchott on 20 July 1993. The reviewed PDF did not visibly contain a cannabis/chanvre-specific table or named cannabis listing, so this row is accepted as official narcotics-law evidence with a cannabis-table caveat, not as a cannabis-named statute excerpt. AMI official context was also fetched and rendered locally because headless browser access was blocked; it shows a later legal-market control law/draft context for narcotics and psychotropics, including sanitary/scientific-use framing, but no cannabis patient program. Project recreational=ILLEGAL, medical=NONE and enforcement=STRICT are supported with these caveats. No project status SSOT was changed."
       },
-      "conclusion": "Mauritania is closed as visually verified official narcotics-law evidence relevant to cannabis status, with an explicit cannabis-table caveat. UNODC SHERLOC identifies Mauritania / Ministry of Justice Loi No. 93-37 as a drug-offences law and the PDF visibly covers production/culture, traffic, possession/transport/distribution, illicit use, confiscation and treatment alternatives with strict penalties; however, a cannabis/chanvre-specific table or named cannabis listing was not visible in the reviewed PDF. Official AMI context was kept context-only. Project ILLEGAL/NONE/STRICT is supported; no project status SSOT was changed."
+      "conclusion": "Mauritania is closed as visually verified official narcotics-law evidence relevant to cannabis status, with an explicit cannabis-table caveat. UNODC SHERLOC identifies Mauritania / Ministry of Justice Loi No. 93-37 as a drug-offences law and the PDF visibly covers production/culture, traffic, possession/transport/distribution, illicit use, confiscation and treatment alternatives with strict penalties; however, a cannabis/chanvre-specific table or named cannabis listing was not visible in the reviewed PDF. Official AMI context was kept context-only. Project ILLEGAL/NONE/STRICT is supported; no project status SSOT was changed.",
+      "independent_sources": [
+        {
+          "source_owner_geo": "MR",
+          "applies_to_geo": [
+            "MR"
+          ],
+          "legal_basis_for_extension": "National official news agency reporting the Mauritanian National Office for Combating Illicit Trafficking in Drugs and Psychotropic Substances.",
+          "source_authority": "Agence Mauritanienne d'Information / National Office for Combating Illicit Trafficking in Drugs and Psychotropic Substances",
+          "source_type": "OFFICIAL_ENFORCEMENT_POLICY_CONTEXT",
+          "primary_or_context": "CONTEXT_ONLY_NOT_PRIMARY_LAW",
+          "cannabis_specific": "YES_CONTEXT_ONLY",
+          "current": "HISTORICAL_2023_CURRENTNESS_UNCONFIRMED",
+          "effective": "UNCONFIRMED",
+          "direct_fragment_available": true,
+          "screenshot_available": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": false,
+          "screenshot_valid": true,
+          "visual_summary": "AMI masthead, date and National Office article were visually read. The law-reference crop visibly shows Law 037/93; the companion crop visibly names hashish/cannabis-resin enforcement context. Neither crop is treated as statutory text.",
+          "visual_reviewer_timestamp": "2026-08-10T20:18:59.509Z",
+          "title": "Agence Mauritanienne d'Information - National Office on drug trafficking describes Law No. 037/93 and names cannabis products in national enforcement context",
+          "url": "https://www.ami.mr/archives/169913",
+          "exact_fragment": "\"القانون رقم 037|93 بتاريخ 20 يونيو، 1993، المتعلق بمعاقبة منتجي المخدرات والمؤثرات العقلية والمتاجرين والمتعاطين لها بشكل غير شرعي.\" The same official article identifies cannabis products in domestic enforcement context, including hashish and cannabis resin.",
+          "annotation": "This official 2023 report links Law 037/93 to unlawful drug production, trafficking and use and separately names hashish/cannabis resin/marijuana. It does not publish an operative cannabis article, current Health Ministry table, medical exception, patient pathway, or commencement/amendment chain. It is evidence of a national enforcement framework only and cannot derive RED or YELLOW.",
+          "screenshots": [
+            "data/reviews/wiki-truth-307-visual-evidence/MR-ami-law-037-93-context-2023-current-2026-08-10.png",
+            "data/reviews/wiki-truth-307-visual-evidence/MR-ami-law-037-93-context-2023-crop-2026-08-10.png"
+          ]
+        },
+        {
+          "source_owner_geo": "MR",
+          "applies_to_geo": [
+            "MR"
+          ],
+          "legal_basis_for_extension": "National official news agency report concerning a Mauritanian Justice Ministry workshop.",
+          "source_authority": "Agence Mauritanienne d'Information / Mauritanian Justice Ministry workshop",
+          "source_type": "OFFICIAL_DRAFT_LAW_STATUS_CONTEXT",
+          "primary_or_context": "CONTEXT_ONLY_NOT_ENACTED_LAW",
+          "cannabis_specific": "NO_GENERIC_DRUGS_ONLY",
+          "current": true,
+          "effective": "NOT_ENACTED",
+          "direct_fragment_available": true,
+          "screenshot_available": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": false,
+          "screenshot_valid": true,
+          "visual_summary": "AMI branding, January 2026 date and Arabic wording \"draft bill\" were visually read in full-page and passage captures. It is correctly excluded from current legal status.",
+          "visual_reviewer_timestamp": "2026-08-10T20:18:59.509Z",
+          "title": "Agence Mauritanienne d'Information - approval workshop for a draft narcotics and psychotropic substances bill",
+          "url": "https://www.ami.mr/archives/250788",
+          "exact_fragment": "31 January 2026: \"ورشة المصادقة على مسودة مشروع قانون مكافحة المخدرات والمؤثرات العقلية\" - a workshop approving a draft bill on combating narcotics and psychotropic substances.",
+          "annotation": "The official text repeatedly identifies a draft bill. References to treatment and rehabilitation concern addiction policy and do not establish a cannabis-specific medical programme, patient access, supply route, or enacted law.",
+          "screenshots": [
+            "data/reviews/wiki-truth-307-visual-evidence/MR-ami-draft-law-2026-current-2026-08-10.png",
+            "data/reviews/wiki-truth-307-visual-evidence/MR-ami-draft-law-2026-crop-2026-08-10.png"
+          ]
+        },
+        {
+          "source_owner_geo": "MR",
+          "applies_to_geo": [
+            "MR"
+          ],
+          "legal_basis_for_extension": "National official news agency report of a Mauritanian National Gendarmerie operation.",
+          "source_authority": "Agence Mauritanienne d'Information / Mauritanian National Gendarmerie",
+          "source_type": "OFFICIAL_ENFORCEMENT_CONTEXT",
+          "primary_or_context": "CONTEXT_ONLY_NOT_PRIMARY_LAW",
+          "cannabis_specific": "YES_CONTEXT_ONLY",
+          "current": "PUBLISHED_2025",
+          "effective": "NOT_A_LEGAL_RULE",
+          "direct_fragment_available": true,
+          "screenshot_available": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": false,
+          "screenshot_valid": true,
+          "visual_summary": "AMI masthead, dated 2025 Gendarmerie report and the cannabis-family passage were visually read. The source is not treated as a statute or patient-access evidence.",
+          "visual_reviewer_timestamp": "2026-08-10T20:18:59.509Z",
+          "title": "Agence Mauritanienne d'Information - National Gendarmerie enforcement report mentioning Indian cannabis use",
+          "url": "https://www.ami.mr/archives/227803",
+          "exact_fragment": "7 May 2025 report describes an operation against counterfeit medicines and states that certain seized pills are used by people consuming \"القنب الهندي\" (Indian cannabis); it adds only that this is prohibited internationally.",
+          "annotation": "This current official page confirms cannabis-family terminology in an enforcement context. International prohibition language and a drug-operation report do not prove Mauritanian possession law, cannabis scheduling, patient access, or medical absence.",
+          "screenshots": [
+            "data/reviews/wiki-truth-307-visual-evidence/MR-ami-enforcement-context-2025-current-2026-08-10.png",
+            "data/reviews/wiki-truth-307-visual-evidence/MR-ami-enforcement-context-2025-crop-2026-08-10.png"
+          ]
+        },
+        {
+          "source_owner_geo": "MR",
+          "applies_to_geo": [
+            "MR"
+          ],
+          "legal_basis_for_extension": "Official Prime Minister portal national laws catalogue.",
+          "source_authority": "Primature de la Republique Islamique de Mauritanie",
+          "source_type": "OFFICIAL_LEGISLATION_CATALOG_DISCOVERY",
+          "primary_or_context": "CONTEXT_ONLY_DISCOVERY",
+          "cannabis_specific": "NO",
+          "current": true,
+          "effective": "NOT_A_LEGAL_RULE",
+          "direct_fragment_available": true,
+          "screenshot_available": false,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": false,
+          "screenshot_valid": false,
+          "visual_summary": "Official catalogue text was opened and read; it exposed selected laws but no applicable Law 93-37 text or cannabis table. No screenshot is claimed as a statutory evidence crop.",
+          "visual_reviewer_timestamp": "2026-08-10T20:18:59.509Z",
+          "title": "Primature Mauritanie - Laws catalogue",
+          "url": "https://www.primature.gov.mr/fr/t_lois",
+          "exact_fragment": "Catalogue heading: \"Lois\". The currently exposed list did not provide Law 93-37 or a cannabis-specific Health Ministry table.",
+          "annotation": "The page is recorded as an official discovery endpoint only. A partial web catalogue cannot prove that a law is absent, repealed, current, or applicable; no negative legal axis is inferred.",
+          "screenshots": []
+        },
+        {
+          "source_owner_geo": "UN",
+          "applies_to_geo": [
+            "MR"
+          ],
+          "legal_basis_for_extension": "UN Digital Library preservation record reproducing the text of a Mauritanian statute; it is not a current Mauritanian consolidated-legislation portal.",
+          "source_authority": "United Nations Digital Library",
+          "source_type": "OFFICIAL_INTERNATIONAL_HISTORICAL_LEGISLATIVE_REPOSITORY",
+          "primary_or_context": "HISTORICAL_TEXT_CONTEXT_NOT_CURRENTNESS_PROOF",
+          "cannabis_specific": "NO_NAMED_CANNABIS_IN_REVIEWED_TEXT",
+          "current": false,
+          "effective": "HISTORICAL_1993_CURRENTNESS_UNCONFIRMED",
+          "direct_fragment_available": true,
+          "screenshot_available": true,
+          "visual_opened": true,
+          "official_owner_visible": false,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": true,
+          "screenshot_valid": true,
+          "visual_summary": "The browser PDF viewer was blank and is retained as invalid access-state. Direct official PDF download, Poppler page-2 render and human visual review show Law 93-37 Article 1/table scope. The rendered page identifies the UN record but not a current Mauritanian official owner.",
+          "visual_reviewer_timestamp": "2026-08-10T20:18:59.509Z",
+          "title": "United Nations Digital Library - historical text of Mauritania Law No. 93-37",
+          "url": "https://digitallibrary.un.org/record/192226/files/e-nl-1993-51-f.pdf",
+          "exact_fragment": "Page 2 reproduces Law No. 93-37 and Article 1: the law applies to substances placed by Health Minister order in Tables I-IV, internationally scheduled substances, precursors, and other dangerous plants. No cannabis/chanvre/marihuana term was found in the extracted 13-page text.",
+          "annotation": "Visual and text review establishes the historical Law 93-37 framework and its dependence on Health Ministry tables. It does not establish whether the law/table is current, amended, repealed, or whether cannabis is on a current table; it is excluded from a negative color derivation.",
+          "screenshots": [
+            "data/reviews/wiki-truth-307-visual-evidence/MR-un-digital-library-law-93-37-historical-2026-08-10.png",
+            "data/reviews/wiki-truth-307-visual-evidence/MR-un-digital-library-law-93-37-historical-page-02-2026-08-10.png"
+          ]
+        }
+      ],
+      "independent_truth_color": "UNKNOWN",
+      "independent_truth_status": "CURRENT_CANNABIS_SPECIFIC_PRIMARY_LAW_AND_MEDICAL_AXIS_UNVERIFIED",
+      "independent_truth_rule": "GENERAL_FAIL_CLOSED_WHEN_CURRENT_CANNABIS_SPECIFIC_APPLICABILITY_AND_MEDICAL_AXES_REMAIN_UNVERIFIED",
+      "independent_truth_reason": "Official AMI reports confirm national drug enforcement activity, cannabis-family terminology and a 2026 draft bill. The only readable Law 93-37 text is a historical UN repository copy whose Article 1 makes scope depend on Health Ministry tables; the reviewed text has no named cannabis entry, and no current national statute/table, amendment chain, medical exception, patient route, supply route or operational programme was located. Absence of a current primary cannabis rule is not evidence of prohibition, so MR is proposal-only UNKNOWN/unpainted.",
+      "independent_truth_confidence": "MEDIUM",
+      "independent_truth_reviewed_at": "2026-08-10T20:18:59.509Z",
+      "independent_truth_proposal_only": true,
+      "independent_review_state": "COMPLETE_WITH_CURRENT_PRIMARY_LAW_BLOCKER",
+      "independent_review": {
+        "geo": "MR",
+        "territory": "Mauritania",
+        "review_mode": "INDEPENDENT_OFFICIAL_EVIDENCE_FIRST",
+        "proposal_only": true,
+        "current_map_color": "NOT_CAPTURED_NOT_USED_AS_INPUT",
+        "current_ssot_color": "NOT_USED_AS_INPUT",
+        "wiki_truth_proposal_color": "NOT_USED_AS_INPUT",
+        "independent_truth_color": "UNKNOWN",
+        "independent_truth_status": "CURRENT_CANNABIS_SPECIFIC_PRIMARY_LAW_AND_MEDICAL_AXIS_UNVERIFIED",
+        "independent_truth_rule": "GENERAL_FAIL_CLOSED_WHEN_CURRENT_CANNABIS_SPECIFIC_APPLICABILITY_AND_MEDICAL_AXES_REMAIN_UNVERIFIED",
+        "recreational_status": "UNKNOWN_CURRENT_CANNABIS_SPECIFIC_RULE_UNVERIFIED",
+        "medical_status": "UNKNOWN_CURRENT_CANNABIS_PATIENT_ACCESS_UNVERIFIED",
+        "programme_operational": "UNKNOWN",
+        "evidence_axes": {
+          "patient_eligible": {
+            "value": "UNKNOWN",
+            "source_url": "https://digitallibrary.un.org/record/192226/files/e-nl-1993-51-f.pdf",
+            "source_type": "HISTORICAL_LEGISLATIVE_TEXT",
+            "exact_fragment": "Historical Law 93-37 Article 1 depends on Health Minister Tables I-IV; reviewed text contains no named cannabis entry and no current table was located.",
+            "effective_date": "UNCONFIRMED",
+            "applicability": "MR_NATIONAL_SCOPE_BUT_CANNABIS_SPECIFIC_APPLICABILITY_UNPROVEN",
+            "confidence": "MEDIUM",
+            "reviewed_by_human_visual": true,
+            "reason": "No current cannabis-specific patient eligibility rule is published in the reviewed official evidence."
+          },
+          "prescriber_route": {
+            "value": "UNKNOWN",
+            "source_url": "https://digitallibrary.un.org/record/192226/files/e-nl-1993-51-f.pdf",
+            "source_type": "HISTORICAL_LEGISLATIVE_TEXT",
+            "exact_fragment": "Historical Law 93-37 Article 1 depends on Health Minister Tables I-IV; reviewed text contains no named cannabis entry and no current table was located.",
+            "effective_date": "UNCONFIRMED",
+            "applicability": "MR_NATIONAL_SCOPE_BUT_CANNABIS_SPECIFIC_APPLICABILITY_UNPROVEN",
+            "confidence": "MEDIUM",
+            "reviewed_by_human_visual": true,
+            "reason": "No current cannabis-specific prescriber route rule is published in the reviewed official evidence."
+          },
+          "registration_route": {
+            "value": "UNKNOWN",
+            "source_url": "https://digitallibrary.un.org/record/192226/files/e-nl-1993-51-f.pdf",
+            "source_type": "HISTORICAL_LEGISLATIVE_TEXT",
+            "exact_fragment": "Historical Law 93-37 Article 1 depends on Health Minister Tables I-IV; reviewed text contains no named cannabis entry and no current table was located.",
+            "effective_date": "UNCONFIRMED",
+            "applicability": "MR_NATIONAL_SCOPE_BUT_CANNABIS_SPECIFIC_APPLICABILITY_UNPROVEN",
+            "confidence": "MEDIUM",
+            "reviewed_by_human_visual": true,
+            "reason": "No current cannabis-specific registration route rule is published in the reviewed official evidence."
+          },
+          "lawful_supply": {
+            "value": "UNKNOWN",
+            "source_url": "https://digitallibrary.un.org/record/192226/files/e-nl-1993-51-f.pdf",
+            "source_type": "HISTORICAL_LEGISLATIVE_TEXT",
+            "exact_fragment": "Historical Law 93-37 Article 1 depends on Health Minister Tables I-IV; reviewed text contains no named cannabis entry and no current table was located.",
+            "effective_date": "UNCONFIRMED",
+            "applicability": "MR_NATIONAL_SCOPE_BUT_CANNABIS_SPECIFIC_APPLICABILITY_UNPROVEN",
+            "confidence": "MEDIUM",
+            "reviewed_by_human_visual": true,
+            "reason": "No current cannabis-specific lawful cannabis supply rule is published in the reviewed official evidence."
+          },
+          "pharmacy_or_dispensary": {
+            "value": "UNKNOWN",
+            "source_url": "https://digitallibrary.un.org/record/192226/files/e-nl-1993-51-f.pdf",
+            "source_type": "HISTORICAL_LEGISLATIVE_TEXT",
+            "exact_fragment": "Historical Law 93-37 Article 1 depends on Health Minister Tables I-IV; reviewed text contains no named cannabis entry and no current table was located.",
+            "effective_date": "UNCONFIRMED",
+            "applicability": "MR_NATIONAL_SCOPE_BUT_CANNABIS_SPECIFIC_APPLICABILITY_UNPROVEN",
+            "confidence": "MEDIUM",
+            "reviewed_by_human_visual": true,
+            "reason": "No current cannabis-specific pharmacy or dispensary route rule is published in the reviewed official evidence."
+          },
+          "import_route": {
+            "value": "UNKNOWN",
+            "source_url": "https://digitallibrary.un.org/record/192226/files/e-nl-1993-51-f.pdf",
+            "source_type": "HISTORICAL_LEGISLATIVE_TEXT",
+            "exact_fragment": "Historical Law 93-37 Article 1 depends on Health Minister Tables I-IV; reviewed text contains no named cannabis entry and no current table was located.",
+            "effective_date": "UNCONFIRMED",
+            "applicability": "MR_NATIONAL_SCOPE_BUT_CANNABIS_SPECIFIC_APPLICABILITY_UNPROVEN",
+            "confidence": "MEDIUM",
+            "reviewed_by_human_visual": true,
+            "reason": "No current cannabis-specific medical import route rule is published in the reviewed official evidence."
+          },
+          "programme_operational": {
+            "value": "UNKNOWN",
+            "source_url": "https://www.ami.mr/archives/250788",
+            "source_type": "OFFICIAL_DRAFT_LAW_STATUS_CONTEXT",
+            "exact_fragment": "AMI 31 January 2026 page calls the new measure a draft bill, not enacted law.",
+            "effective_date": "UNCONFIRMED",
+            "applicability": "MR_NATIONAL_SCOPE_BUT_CANNABIS_SPECIFIC_APPLICABILITY_UNPROVEN",
+            "confidence": "MEDIUM",
+            "reviewed_by_human_visual": true,
+            "reason": "No current cannabis-specific operational patient programme rule is published in the reviewed official evidence."
+          },
+          "programme_commenced": {
+            "value": "UNKNOWN",
+            "source_url": "https://www.ami.mr/archives/250788",
+            "source_type": "OFFICIAL_DRAFT_LAW_STATUS_CONTEXT",
+            "exact_fragment": "AMI 31 January 2026 page calls the new measure a draft bill, not enacted law.",
+            "effective_date": "UNCONFIRMED",
+            "applicability": "MR_NATIONAL_SCOPE_BUT_CANNABIS_SPECIFIC_APPLICABILITY_UNPROVEN",
+            "confidence": "MEDIUM",
+            "reviewed_by_human_visual": true,
+            "reason": "No current cannabis-specific programme commencement rule is published in the reviewed official evidence."
+          },
+          "recreational_possession": {
+            "value": "UNKNOWN",
+            "source_url": "https://digitallibrary.un.org/record/192226/files/e-nl-1993-51-f.pdf",
+            "source_type": "HISTORICAL_LEGISLATIVE_TEXT",
+            "exact_fragment": "Historical Law 93-37 Article 1 depends on Health Minister Tables I-IV; reviewed text contains no named cannabis entry and no current table was located.",
+            "effective_date": "UNCONFIRMED",
+            "applicability": "MR_NATIONAL_SCOPE_BUT_CANNABIS_SPECIFIC_APPLICABILITY_UNPROVEN",
+            "confidence": "MEDIUM",
+            "reviewed_by_human_visual": true,
+            "reason": "No current cannabis-specific recreational possession rule rule is published in the reviewed official evidence."
+          },
+          "recreational_supply": {
+            "value": "UNKNOWN",
+            "source_url": "https://digitallibrary.un.org/record/192226/files/e-nl-1993-51-f.pdf",
+            "source_type": "HISTORICAL_LEGISLATIVE_TEXT",
+            "exact_fragment": "Historical Law 93-37 Article 1 depends on Health Minister Tables I-IV; reviewed text contains no named cannabis entry and no current table was located.",
+            "effective_date": "UNCONFIRMED",
+            "applicability": "MR_NATIONAL_SCOPE_BUT_CANNABIS_SPECIFIC_APPLICABILITY_UNPROVEN",
+            "confidence": "MEDIUM",
+            "reviewed_by_human_visual": true,
+            "reason": "No current cannabis-specific recreational supply rule rule is published in the reviewed official evidence."
+          },
+          "recreational_cultivation": {
+            "value": "UNKNOWN",
+            "source_url": "https://digitallibrary.un.org/record/192226/files/e-nl-1993-51-f.pdf",
+            "source_type": "HISTORICAL_LEGISLATIVE_TEXT",
+            "exact_fragment": "Historical Law 93-37 Article 1 depends on Health Minister Tables I-IV; reviewed text contains no named cannabis entry and no current table was located.",
+            "effective_date": "UNCONFIRMED",
+            "applicability": "MR_NATIONAL_SCOPE_BUT_CANNABIS_SPECIFIC_APPLICABILITY_UNPROVEN",
+            "confidence": "MEDIUM",
+            "reviewed_by_human_visual": true,
+            "reason": "No current cannabis-specific recreational cultivation rule rule is published in the reviewed official evidence."
+          },
+          "penalty_regime": {
+            "value": "UNKNOWN",
+            "source_url": "https://digitallibrary.un.org/record/192226/files/e-nl-1993-51-f.pdf",
+            "source_type": "HISTORICAL_LEGISLATIVE_TEXT",
+            "exact_fragment": "Historical Law 93-37 Article 1 depends on Health Minister Tables I-IV; reviewed text contains no named cannabis entry and no current table was located.",
+            "effective_date": "UNCONFIRMED",
+            "applicability": "MR_NATIONAL_SCOPE_BUT_CANNABIS_SPECIFIC_APPLICABILITY_UNPROVEN",
+            "confidence": "MEDIUM",
+            "reviewed_by_human_visual": true,
+            "reason": "No current cannabis-specific cannabis penalty regime rule is published in the reviewed official evidence."
+          }
+        },
+        "primary_laws": [
+          "https://digitallibrary.un.org/record/192226/files/e-nl-1993-51-f.pdf"
+        ],
+        "operational_sources": [],
+        "context_sources": [
+          "https://www.ami.mr/archives/169913",
+          "https://www.ami.mr/archives/250788",
+          "https://www.ami.mr/archives/227803",
+          "https://www.primature.gov.mr/fr/t_lois"
+        ],
+        "contradicting_sources": [],
+        "visual_evidence": [
+          "data/reviews/wiki-truth-307-visual-evidence/MR-ami-draft-law-2026-current-2026-08-10.png",
+          "data/reviews/wiki-truth-307-visual-evidence/MR-ami-draft-law-2026-crop-2026-08-10.png",
+          "data/reviews/wiki-truth-307-visual-evidence/MR-ami-enforcement-context-2025-current-2026-08-10.png",
+          "data/reviews/wiki-truth-307-visual-evidence/MR-ami-enforcement-context-2025-crop-2026-08-10.png",
+          "data/reviews/wiki-truth-307-visual-evidence/MR-ami-law-037-93-context-2023-current-2026-08-10.png",
+          "data/reviews/wiki-truth-307-visual-evidence/MR-ami-law-037-93-context-2023-crop-2026-08-10.png",
+          "data/reviews/wiki-truth-307-visual-evidence/MR-un-digital-library-law-93-37-historical-2026-08-10.png",
+          "data/reviews/wiki-truth-307-visual-evidence/MR-un-digital-library-law-93-37-historical-page-02-2026-08-10.png"
+        ],
+        "map_mismatch": "NOT_CAPTURED",
+        "ssot_mismatch": "NOT_ASSESSED",
+        "proposal_mismatch": "NOT_ASSESSED",
+        "difference_is_true": "UNCONFIRMED",
+        "difference_reason": "Live map, popup, API, SEO and SSOT layers were not used as legal-truth inputs in this packet.",
+        "confidence": "MEDIUM",
+        "remaining_blockers": [
+          "NO_CURRENT_MAURITANIAN_PRIMARY_CANNABIS_STATUTE_OR_HEALTH_MINISTRY_TABLE_LOCATED",
+          "AMENDMENT_REPEAL_AND_COMMENCEMENT_CHAIN_FOR_LAW_93_37_UNVERIFIED",
+          "NO_CURRENT_CANNABIS_SPECIFIC_MEDICAL_EXCEPTION_OR_PATIENT_ACCESS_ROUTE_LOCATED",
+          "STRICT_VISUAL_ACCEPTANCE_PARTIAL_FOR_HISTORICAL_UN_REPOSITORY_SOURCE"
+        ],
+        "recommended_action": "KEEP_UNPAINTED_AND_REVIEW_ONLY_IF_CURRENT_NATIONAL_PRIMARY_LAW_OR_CANNABIS_TABLE_BECOMES_AVAILABLE",
+        "reviewed_at": "2026-08-10T20:18:59.509Z"
+      },
+      "audit_checkpoints": [
+        {
+          "label": "MR_CURRENT_PRIMARY_LAW_AND_MEDICAL_AXIS_FAIL_CLOSED_PRE_CI",
+          "at": "2026-08-10T20:18:59.509Z",
+          "result": "UNKNOWN_PROPOSAL_ONLY",
+          "summary": "Official AMI 2023/2025/2026 records and historical UN Law 93-37 text reviewed; no current cannabis-specific Mauritanian statute/table or patient route was proved. No negative axis inferred from the gap."
+        },
+        {
+          "label": "MR_CURRENT_PRIMARY_LAW_AND_MEDICAL_AXIS_FAIL_CLOSED_CI_CHECKPOINT",
+          "at": "2026-08-10T20:28:28.591Z",
+          "result": "PASS",
+          "command": "CI_WRITE_ROOT=1 bash tools/pass_cycle.sh",
+          "ci_status": "PASS",
+          "smoke_status": "PASS",
+          "post_checks_ok": 1,
+          "hub_stage_report_ok": 1,
+          "process_slot_runtime_guard": "PASS",
+          "summary": "Required singleton checkpoint passed after the MR proposal-only evidence packet. This validates local ledger/schema/UI pipeline only; no SSOT, map, runtime, production or deployment mutation occurred."
+        }
+      ]
     },
     {
       "geo": "MU",
@@ -83500,7 +83861,320 @@
         "status": "PROJECT_STATUS_MISMATCH",
         "reason": "Mauritius is visually verified from the official Laws of Mauritius current Dangerous Drugs Act PDF and the official National Assembly Dangerous Drugs (Amendment) Act 2022. The current Act screenshots visibly define gandia as Cannabis Sativa L or Cannabis Indica plant parts, hashish/charras/chiras as resin obtained from the cannabis plant, Indian hemp as dried flowering or fruiting tops of the cannabis plant, and medicinal cannabis as a cannabis-plant product. Section 5 visibly prohibits cultivation of the cannabis plant. Section 6 visibly prohibits producing, manufacturing, distributing, transporting, possessing, supplying, transferring, purchasing, using, importing, exporting or transiting First Schedule plants/substances/preparations; the First Schedule visibly lists Cannabis/Gandia/Indian Hemp excluding medicinal cannabis and Cannabis Resin excluding medicinal cannabis. The current Act also visibly contains Part IIA - Medicinal Cannabis: authorised patient, authorised specialist/pharmacist, specific therapeutic conditions, lawful use/importation only under Part IIA, regional-hospital Medicinal Cannabis Therapeutic Committee, request/approval/prescription/dispensing/register/importation rules, Ministry/police supervision, and a foreign-patient possession exception; the Second Schedule visibly lists Medicinal cannabis. Therefore project recreational=ILLEGAL is supported, but project medical=NONE is contradicted and should be reviewed as LIMITED/REGULATED. Project enforcement=SOFT is partially supported only for personal-consumption drug users because Part IIIA and section 59B visibly allow rehabilitation in lieu of prosecution where there are no aggravating circumstances and the user is not a trafficker; cultivation, unauthorised possession/use/import/export and Part II/IIA contraventions remain offences. No project status SSOT was changed."
       },
-      "conclusion": "Mauritius is closed as visually verified official cannabis-law evidence. The official current Dangerous Drugs Act directly defines cannabis/gandia/Indian hemp/hashish, prohibits recreational/general cannabis cultivation and First Schedule cannabis conduct, and also creates a regulated medicinal cannabis framework through Part IIA and Second Schedule medicinal cannabis. Project recreational=ILLEGAL is supported, project medical=NONE is a mismatch, and project enforcement=SOFT is only partly supported for personal-use rehabilitation/non-prosecution while unauthorised cannabis conduct remains offence-based. No project status SSOT was changed."
+      "conclusion": "Mauritius is closed as visually verified official cannabis-law evidence. The official current Dangerous Drugs Act directly defines cannabis/gandia/Indian hemp/hashish, prohibits recreational/general cannabis cultivation and First Schedule cannabis conduct, and also creates a regulated medicinal cannabis framework through Part IIA and Second Schedule medicinal cannabis. Project recreational=ILLEGAL is supported, project medical=NONE is a mismatch, and project enforcement=SOFT is only partly supported for personal-use rehabilitation/non-prosecution while unauthorised cannabis conduct remains offence-based. No project status SSOT was changed.",
+      "independent_sources": [
+        {
+          "title": "Attorney-General's Office, Laws of Mauritius - Dangerous Drugs Act (Version 6), current consolidated text",
+          "url": "https://lawsofmauritius.govmu.org/portal/viewlegislationdocument/web/?docnumber=&doctitle=RGFuZ2Vyb3VzIERydWdzIEFjdA%3D%3D&doctype=act",
+          "source_owner_geo": "MU",
+          "applies_to_geo": [
+            "MU"
+          ],
+          "legal_basis_for_extension": "Attorney-General's Office official Laws of Mauritius portal; the Act is a national statute of Mauritius.",
+          "source_authority": "Attorney-General's Office, Mauritius",
+          "source_type": "CURRENT_CONSOLIDATED_PRIMARY_STATUTE",
+          "primary_or_context": "PRIMARY_LAW",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": "Part IIA medicinal-cannabis provisions current; the official text records Act 17/22 commencement on 7 December 2022.",
+          "direct_fragment_available": true,
+          "exact_fragment": "Sections 5-6 prohibit cultivation and First Schedule cannabis conduct; First Schedule lists \"Cannabis (also named as Gandia or Indian Hemp), excluding medicinal cannabis\". Part IIA sections 28A-28K establish authorised patient/specialist/pharmacist, regional therapeutic committee, request, approval, prescription, hospital dispensing, register and Ministry import. Second Schedule lists \"Medicinal cannabis\".",
+          "annotation": "This is the controlling current national legal text. It proves adult/recreational cannabis prohibition and a current regulated legal patient path. The statute is not treated as proof that a committee is staffed, a specialist/pharmacist is currently authorised, stock has been imported, or any patient has actually been dispensed medicine.",
+          "screenshots": [
+            "data/reviews/wiki-truth-307-visual-evidence/MU-dangerous-drugs-act-current-page-01-2026-08-10.png",
+            "data/reviews/wiki-truth-307-visual-evidence/MU-dangerous-drugs-act-current-page-06-2026-08-10.png",
+            "data/reviews/wiki-truth-307-visual-evidence/MU-dangerous-drugs-act-current-page-10-2026-08-10.png",
+            "data/reviews/wiki-truth-307-visual-evidence/MU-dangerous-drugs-act-current-page-25-2026-08-10.png",
+            "data/reviews/wiki-truth-307-visual-evidence/MU-dangerous-drugs-act-current-page-26-2026-08-10.png",
+            "data/reviews/wiki-truth-307-visual-evidence/MU-dangerous-drugs-act-current-page-27-2026-08-10.png",
+            "data/reviews/wiki-truth-307-visual-evidence/MU-dangerous-drugs-act-current-page-28-2026-08-10.png",
+            "data/reviews/wiki-truth-307-visual-evidence/MU-dangerous-drugs-act-current-page-29-2026-08-10.png",
+            "data/reviews/wiki-truth-307-visual-evidence/MU-dangerous-drugs-act-current-page-53-2026-08-10.png",
+            "data/reviews/wiki-truth-307-visual-evidence/MU-dangerous-drugs-act-current-page-60-2026-08-10.png"
+          ],
+          "screenshot_available": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_valid": true,
+          "visual_summary": "Direct official PDF was retrieved HTTP 200 from the Attorney-General portal and visually reviewed page by page. Page 1 shows Attorney-General signature/current version and amendment chain; pages 6,10,25-29,53,60 show cannabis definitions, prohibition, Part IIA path, import and the schedules.",
+          "visual_reviewer_timestamp": "2026-08-10T20:36:10.913Z"
+        },
+        {
+          "title": "Government Gazette / Mauritius National Assembly - Dangerous Drugs (Amendment) Act 2022, Act 17 of 2022",
+          "url": "https://mauritiusassembly.govmu.org/mauritiusassembly/wp-content/uploads/2023/03/act1722.pdf",
+          "source_owner_geo": "MU",
+          "applies_to_geo": [
+            "MU"
+          ],
+          "legal_basis_for_extension": "Official Mauritius National Assembly publication of Government Gazette Legal Supplement Act No. 17 of 2022.",
+          "source_authority": "Mauritius National Assembly / Government Printing Department",
+          "source_type": "PRIMARY_AMENDING_STATUTE",
+          "primary_or_context": "PRIMARY_LAW_HISTORICAL_AMENDMENT",
+          "cannabis_specific": true,
+          "current": "HISTORICAL_AMENDMENT_CURRENT_EFFECT_CONFIRMED_BY_VERSION_6",
+          "effective": "The Act itself requires a Proclamation; current Version 6 records Part IIA effective 7 December 2022.",
+          "direct_fragment_available": true,
+          "exact_fragment": "Legal Supplement to Government Gazette No. 143 of 18 November 2022, Act No. 17 of 2022. Section 7 inserts Part IIA - Medicinal Cannabis; section 26 says commencement is by Proclamation and different dates may be fixed.",
+          "annotation": "Original amendment text preserves enactment provenance and explains why the current consolidated statute, not the historical amendment alone, is used to establish the operative 7 December 2022 date.",
+          "screenshots": [
+            "data/reviews/wiki-truth-307-visual-evidence/MU-dangerous-drugs-amendment-act-17-2022-page-01-2026-08-10.png",
+            "data/reviews/wiki-truth-307-visual-evidence/MU-dangerous-drugs-amendment-act-17-2022-page-03-2026-08-10.png",
+            "data/reviews/wiki-truth-307-visual-evidence/MU-dangerous-drugs-amendment-act-17-2022-page-20-2026-08-10.png"
+          ],
+          "screenshot_available": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_valid": true,
+          "visual_summary": "Title page, medicinal-cannabis amendment text and commencement page were visually read. The Government Gazette/Act title, National Assembly passage, assent and the Proclamation clause are visible.",
+          "visual_reviewer_timestamp": "2026-08-10T20:36:10.913Z"
+        },
+        {
+          "title": "Ministry of Health and Wellness - Report of Technical Committee on Medicinal Cannabis 2021",
+          "url": "https://health.govmu.org/health/wp-content/uploads/2023/03/Report-of-Technical-Committee-on-Medicinal-Cannabis-2021.pdf",
+          "source_owner_geo": "MU",
+          "applies_to_geo": [
+            "MU"
+          ],
+          "legal_basis_for_extension": "Official Mauritian Ministry of Health and Wellness report.",
+          "source_authority": "Ministry of Health and Wellness, Mauritius",
+          "source_type": "OFFICIAL_TECHNICAL_PLANNING_REPORT",
+          "primary_or_context": "CONTEXT_ONLY_NONBINDING_RECOMMENDATION",
+          "cannabis_specific": true,
+          "current": false,
+          "effective": "NONBINDING_2021_RECOMMENDATIONS",
+          "direct_fragment_available": true,
+          "exact_fragment": "The report says the Technical Committee \"recommends\" hospital assessment, patient registration, only initial importation and a hospital dispensing model. Its dispensing section says medication \"be dispensed initially\" and describes proposed records and reporting.",
+          "annotation": "The report is cannabis-specific and explains the intended system, but its recommendation language predates the law and does not prove that the programme, trained staff, stock, register or patient dispensing became operational. It cannot produce GREEN.",
+          "screenshots": [
+            "data/reviews/wiki-truth-307-visual-evidence/MU-health-technical-committee-report-2021-page-01-2026-08-10.png",
+            "data/reviews/wiki-truth-307-visual-evidence/MU-health-technical-committee-report-2021-page-54-2026-08-10.png",
+            "data/reviews/wiki-truth-307-visual-evidence/MU-health-technical-committee-report-2021-page-57-2026-08-10.png"
+          ],
+          "screenshot_available": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": false,
+          "screenshot_valid": true,
+          "visual_summary": "Ministry title page and pages headed Findings and Recommendations / Dispensing model were visually reviewed. Every cited operational-looking statement is explicitly recorded as a recommendation, not current operational proof.",
+          "visual_reviewer_timestamp": "2026-08-10T20:36:10.913Z"
+        }
+      ],
+      "independent_truth_color": "YELLOW",
+      "independent_truth_status": "CURRENT_ENACTED_REGULATED_MEDICINAL_CANNABIS_PATIENT_FRAMEWORK_OPERATIONAL_PROOF_UNVERIFIED",
+      "independent_truth_rule": "GENERAL_CURRENT_ENACTED_REGULATED_MEDICINAL_CANNABIS_FRAMEWORK_WITHOUT_OPERATIONAL_PATIENT_ACCESS_PROOF",
+      "independent_truth_reason": "The current Attorney-General consolidated statute directly proves nationwide recreational cannabis prohibition and a commenced, cannabis-specific medical legal path: qualifying patient, authorised specialist, regional committee, approval, prescription, authorised pharmacist, regional-hospital dispensation/register and Ministry import. The only Ministry material found for implementation is a 2021 technical report that expressly makes recommendations. No fresh official source proves that current committees, authorised practitioners, imported stock, functioning register or actual dispensing are operating. This is a proven limited lawful cannabis regime, not proven operational patient access; MU is proposal-only YELLOW, not GREEN or RED.",
+      "independent_truth_confidence": "HIGH_FOR_LEGAL_FRAMEWORK_MEDIUM_FOR_OPERATIONAL_GAP",
+      "independent_truth_reviewed_at": "2026-08-10T20:36:10.913Z",
+      "independent_truth_proposal_only": true,
+      "independent_review_state": "COMPLETE_WITH_OPERATIONAL_PATIENT_ACCESS_BLOCKER",
+      "independent_review": {
+        "geo": "MU",
+        "territory": "Mauritius",
+        "review_mode": "INDEPENDENT_OFFICIAL_EVIDENCE_FIRST",
+        "proposal_only": true,
+        "current_map_color": "NOT_CAPTURED_NOT_USED_AS_INPUT",
+        "current_ssot_color": "NOT_USED_AS_INPUT",
+        "wiki_truth_proposal_color": "NOT_USED_AS_INPUT",
+        "independent_truth_color": "YELLOW",
+        "independent_truth_status": "CURRENT_ENACTED_REGULATED_MEDICINAL_CANNABIS_PATIENT_FRAMEWORK_OPERATIONAL_PROOF_UNVERIFIED",
+        "independent_truth_rule": "GENERAL_CURRENT_ENACTED_REGULATED_MEDICINAL_CANNABIS_FRAMEWORK_WITHOUT_OPERATIONAL_PATIENT_ACCESS_PROOF",
+        "recreational_status": "CURRENT_RECREATIONAL_CANNABIS_PROHIBITED",
+        "medical_status": "CURRENT_ENACTED_REGULATED_MEDICINAL_CANNABIS_PATIENT_FRAMEWORK",
+        "programme_operational": "UNKNOWN_NO_CURRENT_OPERATIONAL_PROOF",
+        "evidence_axes": {
+          "patient_eligible": {
+            "value": "YES",
+            "source_url": "https://lawsofmauritius.govmu.org/portal/viewlegislationdocument/web/?docnumber=&doctitle=RGFuZ2Vyb3VzIERydWdzIEFjdA%3D%3D&doctype=act",
+            "source_type": "CURRENT_CONSOLIDATED_PRIMARY_STATUTE",
+            "exact_fragment": "Section 28A defines specific therapeutic conditions and authorised patient; section 28D requires specialist request for a patient.",
+            "effective_date": "7 December 2022",
+            "applicability": "MU_NATIONAL",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "reason": "Current legal eligibility path is proved; actual authorised patients are not proved."
+          },
+          "prescriber_route": {
+            "value": "YES",
+            "source_url": "https://lawsofmauritius.govmu.org/portal/viewlegislationdocument/web/?docnumber=&doctitle=RGFuZ2Vyb3VzIERydWdzIEFjdA%3D%3D&doctype=act",
+            "source_type": "CURRENT_CONSOLIDATED_PRIMARY_STATUTE",
+            "exact_fragment": "Sections 28D-28F require request, committee approval and prescription by an authorised specialist.",
+            "effective_date": "7 December 2022",
+            "applicability": "MU_NATIONAL",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "reason": "Current legal prescriber route is proved; current authorised specialist roster is not proved."
+          },
+          "registration_route": {
+            "value": "YES",
+            "source_url": "https://lawsofmauritius.govmu.org/portal/viewlegislationdocument/web/?docnumber=&doctitle=RGFuZ2Vyb3VzIERydWdzIEFjdA%3D%3D&doctype=act",
+            "source_type": "CURRENT_CONSOLIDATED_PRIMARY_STATUTE",
+            "exact_fragment": "Section 28H requires a medicinal-cannabis register in every regional hospital and entries after dispensing.",
+            "effective_date": "7 December 2022",
+            "applicability": "MU_NATIONAL",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "reason": "Legal register route is proved; functioning register records are not publicly proved."
+          },
+          "lawful_supply": {
+            "value": "YES",
+            "source_url": "https://lawsofmauritius.govmu.org/portal/viewlegislationdocument/web/?docnumber=&doctitle=RGFuZ2Vyb3VzIERydWdzIEFjdA%3D%3D&doctype=act",
+            "source_type": "CURRENT_CONSOLIDATED_PRIMARY_STATUTE",
+            "exact_fragment": "Sections 28G and 28J provide hospital dispensing to authorised patient and Ministry-authorised import.",
+            "effective_date": "7 December 2022",
+            "applicability": "MU_NATIONAL",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "reason": "Lawful supply architecture is proved, but actual imports/stock are unproved."
+          },
+          "pharmacy_or_dispensary": {
+            "value": "YES",
+            "source_url": "https://lawsofmauritius.govmu.org/portal/viewlegislationdocument/web/?docnumber=&doctitle=RGFuZ2Vyb3VzIERydWdzIEFjdA%3D%3D&doctype=act",
+            "source_type": "CURRENT_CONSOLIDATED_PRIMARY_STATUTE",
+            "exact_fragment": "Section 28G confines dispensing to a regional hospital by an authorised pharmacist and to authorised patient/authorised representative.",
+            "effective_date": "7 December 2022",
+            "applicability": "MU_NATIONAL",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "reason": "Legal dispensing route is proved; a presently authorised pharmacist is unproved."
+          },
+          "import_route": {
+            "value": "YES",
+            "source_url": "https://lawsofmauritius.govmu.org/portal/viewlegislationdocument/web/?docnumber=&doctitle=RGFuZ2Vyb3VzIERydWdzIEFjdA%3D%3D&doctype=act",
+            "source_type": "CURRENT_CONSOLIDATED_PRIMARY_STATUTE",
+            "exact_fragment": "Section 28J permits import on behalf of the Ministry by a person authorised in writing and requires delivery to the Ministry.",
+            "effective_date": "7 December 2022",
+            "applicability": "MU_NATIONAL",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "reason": "Legal import route is proved; actual import occurrence is unproved."
+          },
+          "programme_operational": {
+            "value": "UNKNOWN",
+            "source_url": "https://health.govmu.org/health/wp-content/uploads/2023/03/Report-of-Technical-Committee-on-Medicinal-Cannabis-2021.pdf",
+            "source_type": "OFFICIAL_TECHNICAL_PLANNING_REPORT",
+            "exact_fragment": "The 2021 report uses recommendation/future wording for training, register and dispensing; fresh official searches found no current hospital/Ministry implementation, authorisation, stock or patient-dispensation evidence.",
+            "effective_date": "UNCONFIRMED",
+            "applicability": "MU_NATIONAL",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "reason": "Absence of a public operational page is not evidence of non-operation; it blocks GREEN only."
+          },
+          "programme_commenced": {
+            "value": "YES",
+            "source_url": "https://lawsofmauritius.govmu.org/portal/viewlegislationdocument/web/?docnumber=&doctitle=RGFuZ2Vyb3VzIERydWdzIEFjdA%3D%3D&doctype=act",
+            "source_type": "CURRENT_CONSOLIDATED_PRIMARY_STATUTE",
+            "exact_fragment": "Version 6 records Act 17/22 - P34/22 (cio 7/12/22), and the Part IIA sections carry the same effective-date notation.",
+            "effective_date": "7 December 2022",
+            "applicability": "MU_NATIONAL",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "reason": "The legal framework is current and commenced."
+          },
+          "recreational_possession": {
+            "value": "NO",
+            "source_url": "https://lawsofmauritius.govmu.org/portal/viewlegislationdocument/web/?docnumber=&doctitle=RGFuZ2Vyb3VzIERydWdzIEFjdA%3D%3D&doctype=act",
+            "source_type": "CURRENT_CONSOLIDATED_PRIMARY_STATUTE",
+            "exact_fragment": "Current Act section 5 prohibits cannabis cultivation; section 6 prohibits First Schedule conduct; First Schedule lists Cannabis/Gandia/Indian Hemp excluding medicinal cannabis.",
+            "effective_date": "CURRENT",
+            "applicability": "MU_NATIONAL",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "reason": "Unauthorised recreational possession is prohibited by section 6 read with First Schedule cannabis."
+          },
+          "recreational_supply": {
+            "value": "NO",
+            "source_url": "https://lawsofmauritius.govmu.org/portal/viewlegislationdocument/web/?docnumber=&doctitle=RGFuZ2Vyb3VzIERydWdzIEFjdA%3D%3D&doctype=act",
+            "source_type": "CURRENT_CONSOLIDATED_PRIMARY_STATUTE",
+            "exact_fragment": "Current Act section 5 prohibits cannabis cultivation; section 6 prohibits First Schedule conduct; First Schedule lists Cannabis/Gandia/Indian Hemp excluding medicinal cannabis.",
+            "effective_date": "CURRENT",
+            "applicability": "MU_NATIONAL",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "reason": "Unauthorised recreational production/trade/distribution/supply is prohibited by section 6."
+          },
+          "recreational_cultivation": {
+            "value": "NO",
+            "source_url": "https://lawsofmauritius.govmu.org/portal/viewlegislationdocument/web/?docnumber=&doctitle=RGFuZ2Vyb3VzIERydWdzIEFjdA%3D%3D&doctype=act",
+            "source_type": "CURRENT_CONSOLIDATED_PRIMARY_STATUTE",
+            "exact_fragment": "Section 5: \"No person shall cultivate ... cannabis plant.\"",
+            "effective_date": "CURRENT",
+            "applicability": "MU_NATIONAL",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "reason": "Adult cultivation is expressly prohibited outside legal exceptions."
+          },
+          "penalty_regime": {
+            "value": "YES",
+            "source_url": "https://lawsofmauritius.govmu.org/portal/viewlegislationdocument/web/?docnumber=&doctitle=RGFuZ2Vyb3VzIERydWdzIEFjdA%3D%3D&doctype=act",
+            "source_type": "CURRENT_CONSOLIDATED_PRIMARY_STATUTE",
+            "exact_fragment": "Section 29 makes contravention of Part II or Part IIA an offence; section 6 forbids First Schedule conduct.",
+            "effective_date": "CURRENT",
+            "applicability": "MU_NATIONAL",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "reason": "An unauthorised cannabis penalty regime is currently established."
+          }
+        },
+        "primary_laws": [
+          "https://lawsofmauritius.govmu.org/portal/viewlegislationdocument/web/?docnumber=&doctitle=RGFuZ2Vyb3VzIERydWdzIEFjdA%3D%3D&doctype=act",
+          "https://mauritiusassembly.govmu.org/mauritiusassembly/wp-content/uploads/2023/03/act1722.pdf"
+        ],
+        "operational_sources": [],
+        "context_sources": [
+          "https://health.govmu.org/health/wp-content/uploads/2023/03/Report-of-Technical-Committee-on-Medicinal-Cannabis-2021.pdf"
+        ],
+        "contradicting_sources": [],
+        "visual_evidence": [
+          "data/reviews/wiki-truth-307-visual-evidence/MU-dangerous-drugs-act-current-page-01-2026-08-10.png",
+          "data/reviews/wiki-truth-307-visual-evidence/MU-dangerous-drugs-act-current-page-06-2026-08-10.png",
+          "data/reviews/wiki-truth-307-visual-evidence/MU-dangerous-drugs-act-current-page-10-2026-08-10.png",
+          "data/reviews/wiki-truth-307-visual-evidence/MU-dangerous-drugs-act-current-page-25-2026-08-10.png",
+          "data/reviews/wiki-truth-307-visual-evidence/MU-dangerous-drugs-act-current-page-26-2026-08-10.png",
+          "data/reviews/wiki-truth-307-visual-evidence/MU-dangerous-drugs-act-current-page-27-2026-08-10.png",
+          "data/reviews/wiki-truth-307-visual-evidence/MU-dangerous-drugs-act-current-page-28-2026-08-10.png",
+          "data/reviews/wiki-truth-307-visual-evidence/MU-dangerous-drugs-act-current-page-29-2026-08-10.png",
+          "data/reviews/wiki-truth-307-visual-evidence/MU-dangerous-drugs-act-current-page-53-2026-08-10.png",
+          "data/reviews/wiki-truth-307-visual-evidence/MU-dangerous-drugs-act-current-page-60-2026-08-10.png",
+          "data/reviews/wiki-truth-307-visual-evidence/MU-dangerous-drugs-amendment-act-17-2022-page-01-2026-08-10.png",
+          "data/reviews/wiki-truth-307-visual-evidence/MU-dangerous-drugs-amendment-act-17-2022-page-03-2026-08-10.png",
+          "data/reviews/wiki-truth-307-visual-evidence/MU-dangerous-drugs-amendment-act-17-2022-page-20-2026-08-10.png",
+          "data/reviews/wiki-truth-307-visual-evidence/MU-health-technical-committee-report-2021-page-01-2026-08-10.png",
+          "data/reviews/wiki-truth-307-visual-evidence/MU-health-technical-committee-report-2021-page-54-2026-08-10.png",
+          "data/reviews/wiki-truth-307-visual-evidence/MU-health-technical-committee-report-2021-page-57-2026-08-10.png"
+        ],
+        "map_mismatch": "NOT_CAPTURED",
+        "ssot_mismatch": "NOT_ASSESSED",
+        "proposal_mismatch": "NOT_ASSESSED",
+        "difference_is_true": "UNCONFIRMED",
+        "difference_reason": "Live map, popup, API, SEO and SSOT layers were not used as legal-truth inputs in this packet.",
+        "confidence": "HIGH_LEGAL_MEDIUM_OPERATIONAL",
+        "remaining_blockers": [
+          "NO_CURRENT_OFFICIAL_PROOF_OF_ACTIVE_MEDICINAL_CANNABIS_COMMITTEE_OR_AUTHORISED_PERSONNEL",
+          "NO_CURRENT_OFFICIAL_PROOF_OF_MINISTRY_IMPORT_OR_HOSPITAL_STOCK",
+          "NO_CURRENT_OFFICIAL_PROOF_OF_PATIENT_REGISTER_OR_ACTUAL_DISPENSING"
+        ],
+        "recommended_action": "KEEP_PROPOSAL_ONLY_YELLOW_UNTIL_CURRENT_OPERATIONAL_PATIENT_ACCESS_EVIDENCE_IS_PUBLISHED",
+        "reviewed_at": "2026-08-10T20:36:10.913Z"
+      },
+      "audit_checkpoints": [
+        {
+          "label": "MU_CURRENT_ENACTED_MEDICINAL_FRAMEWORK_OPERATIONAL_GAP_PRE_CI",
+          "at": "2026-08-10T20:36:10.913Z",
+          "result": "YELLOW_PROPOSAL_ONLY",
+          "summary": "Current Mauritius primary law establishes a commenced regulated medical cannabis pathway and recreational prohibition; current operational patient-access evidence remains unproved. No SSOT/map/runtime/production mutation."
+        },
+        {
+          "label": "MU_CURRENT_ENACTED_MEDICINAL_FRAMEWORK_OPERATIONAL_GAP_CI_CHECKPOINT",
+          "at": "2026-08-10T20:38:27.980Z",
+          "result": "CI_STATUS=PASS;SMOKE_STATUS=PASS;POST_CHECKS_OK=1;HUB_STAGE_REPORT_OK=1;PROCESS_SLOT_RUNTIME_GUARD=PASS",
+          "summary": "Required singleton CI completed after the proposal-only Mauritius evidence packet. This validates local pipeline integrity only; independent legal conclusion remains YELLOW because current operational patient-access proof is incomplete. No SSOT/map/runtime/production/deployment mutation."
+        }
+      ]
     },
     {
       "geo": "YT",
@@ -83511,7 +84185,10 @@
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/YT/browser_pages/YT-drogues-gouv-stupefiants-prohibited-acts.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/YT/browser_pages/YT-service-public-cannabis-medical-transition.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/YT/browser_pages/YT-ansm-cannabis-medical-patients.png",
-        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/YT/browser_pages/YT-ansm-cannabis-medical-professionnels.png"
+        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/YT/browser_pages/YT-ansm-cannabis-medical-professionnels.png",
+        "data/reviews/wiki-truth-307-visual-evidence/YT-service-public-current-owner-header-2026-08-10.jpg",
+        "data/reviews/wiki-truth-307-visual-evidence/YT-ansm-current-transition-patients-2026-08-10.jpg",
+        "data/reviews/wiki-truth-307-visual-evidence/YT-drogues-gouv-prohibition-current-2026-08-10.jpg"
       ],
       "verified_sources": [
         {
@@ -83543,6 +84220,62 @@
           "url": "https://ansm.sante.fr/dossiers-thematiques/cannabis-a-usage-medical/professionnels-de-sante-formation-prescription-dispensation",
           "source_kind": "ANSM_OFFICIAL_CANNABIS_MEDICAL_PRESCRIPTION_DISPENSING_PAGE",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/YT/browser_pages/YT-ansm-cannabis-medical-professionnels.png"
+        },
+        {
+          "title": "Légifrance - Code de la santé publique, Article R.5132-86 (current cannabis prohibition and medicinal medicine exception)",
+          "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000027516352/",
+          "source_owner_geo": "FR",
+          "applies_to_geo": [
+            "YT"
+          ],
+          "legal_basis_for_extension": "French DILA Guide 3.6.1 identifies Mayotte as an Article 73 collectivity under legislative identity: French laws and regulations apply by right; no separate territorial cannabis statute is inferred.",
+          "source_authority": "Légifrance / French Government official law portal",
+          "source_type": "CURRENT_CONSOLIDATED_PRIMARY_REGULATION",
+          "primary_or_context": "PRIMARY",
+          "cannabis_specific": true,
+          "effective": "CURRENT_VERSION_IN_FORCE_SINCE_2022-03-01",
+          "exact_fragment": "I prohibits production, transport, possession, supply and use of cannabis and THC; II permits authorised medicines; VI regulates medical cannabis plant supply operations.",
+          "screenshot_state": "OFFICIAL_BROWSER_ANTI_BOT_SCREEN; HTTP official text opened and read, but no visual primary-law capture accepted.",
+          "reviewed_by_human_visual": false,
+          "annotation": "Primary legal rule for the French regime. It proves prohibition plus pharmaceutical/medical exceptions, not territorial patient availability in Mayotte."
+        },
+        {
+          "title": "DILA / Légifrance - Guide de légistique 3.6.1: Article 73 applicability in Mayotte",
+          "url": "https://www.legifrance.gouv.fr/contenu/Media/files/autour-de-la-loi/guide-de-legistique/2025_11_28_fiche_3.6.1_principales_regles.pdf",
+          "source_owner_geo": "FR",
+          "applies_to_geo": [
+            "YT"
+          ],
+          "legal_basis_for_extension": "The guide names Mayotte among Article 73 collectivities and states laws and regulations apply there by right.",
+          "source_authority": "Direction de l’information légale et administrative",
+          "source_type": "OFFICIAL_JURISDICTION_APPLICABILITY_GUIDE",
+          "primary_or_context": "CONTEXT_APPLICABILITY",
+          "cannabis_specific": false,
+          "effective": "PUBLISHED_2025-11-28",
+          "exact_fragment": "Mayotte is listed under Article 73; laws and regulations apply de plein droit under legislative identity.",
+          "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/YT/browser_pages/YT-guide-legistique-page-358-358.png",
+          "screenshot_state": "VISUALLY_REVIEWED_CURRENT_TASK_ARCHIVE_CAPTURE",
+          "reviewed_by_human_visual": true,
+          "annotation": "Applicability proof only. It does not itself establish a cannabis rule and prevents a France-to-Mayotte assumption without legal basis."
+        },
+        {
+          "title": "Service Public / DILA - Cannabis thérapeutique: end of experiment and transition",
+          "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F35817",
+          "source_owner_geo": "FR",
+          "applies_to_geo": [
+            "YT"
+          ],
+          "legal_basis_for_extension": "French DILA Guide 3.6.1 identifies Mayotte as an Article 73 collectivity under legislative identity: French laws and regulations apply by right; no separate territorial cannabis statute is inferred.",
+          "source_authority": "Service Public / Direction de l’information légale et administrative (Premier ministre)",
+          "source_type": "OFFICIAL_PATIENT_ACCESS_TRANSITION_GUIDANCE",
+          "primary_or_context": "OPERATIONAL_CONTEXT",
+          "cannabis_specific": true,
+          "effective": "VERIFIED_2025-03-28_PAGE_CURRENT_2026-08-10",
+          "exact_fragment": "The trial ended 31 December 2024; only patients included before 27 March 2024 may continue prescriptions and dispensing during the transition.",
+          "screenshot_path": "data/reviews/wiki-truth-307-visual-evidence/YT-service-public-current-owner-header-2026-08-10.jpg",
+          "screenshot_state": "VISUALLY_REVIEWED_CURRENT_TASK",
+          "reviewed_by_human_visual": true,
+          "annotation": "Proves a narrow continuing patient category and dispensing route in the French transition. It does not prove a current available prescriber or pharmacy in Mayotte."
         }
       ],
       "official_status": {
@@ -83554,7 +84287,15 @@
         "status": "MATCH_WITH_NATIONAL_DROM_SCOPE_NOTE",
         "reason": "No separate Mayotte-issued cannabis law page was found or treated as direct territorial law. Instead, the official scope and cannabis evidence was visually reviewed as French national law/public-health material applicable to Mayotte. The official Vie-publique/DILA Guide de légistique screenshots visibly identify Mayotte among the Article 73 overseas collectivities, state that Mayotte is a single collectivity called Département de Mayotte exercising overseas department and region competences, and state that under Article 73 legislative identity, laws and regulations apply there as of right without a special mention; the same page states the Article 73 regime for Guadeloupe, Guyane, Martinique, La Réunion and, since 31 March 2011, Mayotte is that of metropolitan France, subject to adaptations. The Drogues.gouv official screenshot visibly states that narcotic classification means a drug cannot be freely used, produced, manufactured, imported, exported, transported, possessed, offered or sold, that these acts are heavily sanctioned by law, and that French narcotics law represses illicit use and traffic. The Service-public and ANSM screenshots visibly show the narrow medical cannabis transition: the experiment ended on 31 December 2024, no new patient can enter since 27 March 2024, only already-included patients continue prescriptions/deliveries, and the transition lasts until three months after a forthcoming HAS opinion. The ANSM professionals page visibly covers trained prescriber/pharmacist requirements, five indications, THC above 0.3 percent as narcotic medicines on secured prescription/storage, and flower initiation stopped. Project recreational=ILLEGAL, medical=LIMITED and enforcement=STRICT are supported by this national-Article-73/Mayotte scope. No project status SSOT was changed."
       },
-      "conclusion": "Mayotte is visually verified through official French national cannabis/stupefiants and medical-cannabis pages plus official Article 73 / Département de Mayotte scope evidence. This is national-law-applies-to-Mayotte evidence, not a separate Mayotte-issued cannabis law page. The reviewed evidence supports project ILLEGAL/LIMITED/STRICT; no project status SSOT was changed."
+      "conclusion": "Mayotte is visually verified through official French national cannabis/stupefiants and medical-cannabis pages plus official Article 73 / Département de Mayotte scope evidence. This is national-law-applies-to-Mayotte evidence, not a separate Mayotte-issued cannabis law page. The reviewed evidence supports project ILLEGAL/LIMITED/STRICT; no project status SSOT was changed.",
+      "audit_checkpoints": [
+        {
+          "label": "YT_CURRENT_APPLICABILITY_AND_TRANSITION_EVIDENCE_PREPARED_PRIMARY_LAW_VISUAL_BLOCKER",
+          "at": "2026-08-10T20:48:43.955Z",
+          "result": "PREPARED_NO_INDEPENDENT_VERDICT",
+          "summary": "Current Article 73 applicability, Service Public and ANSM transition evidence and French government enforcement context were visually reviewed. Current Légifrance R.5132-86 was opened/read through the official endpoint, but browser visual capture was blocked by an anti-bot page. No YT independent truth color/status is asserted and no project layer is mutated."
+        }
+      ]
     },
     {
       "geo": "MX",
@@ -83569,7 +84310,11 @@
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/MX/pages/MX-Reglamento-page-8-08.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/MX/pages/MX-Reglamento-page-12-12.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/MX/pages/MX-CPF-page-56-056.png",
-        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/MX/pages/MX-CPF-page-59-059.png"
+        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/MX/pages/MX-CPF-page-59-059.png",
+        "data/reviews/wiki-truth-307-visual-evidence/MX-ley-general-salud-current-2026-08-10-121.png",
+        "data/reviews/wiki-truth-307-visual-evidence/MX-ley-general-salud-current-2026-08-10-122.png",
+        "data/reviews/wiki-truth-307-visual-evidence/MX-cofepris-autoconsumo-ludico-current-2026-08-10.jpg",
+        "data/reviews/wiki-truth-307-visual-evidence/MX-cofepris-autoconsumo-authorizations-current-2026-08-10.jpg"
       ],
       "verified_sources": [
         {
@@ -83589,6 +84334,50 @@
           "url": "https://www.ordenjuridico.gob.mx/Documentos/Federal/pdf/wo83048.pdf",
           "source_kind": "MEXICO_ORDEN_JURIDICO_NACIONAL_CODIGO_PENAL_FEDERAL_NARCOTICS_PENALTIES_MARIHUANA_CULTIVATION_MEDICAL_SCIENTIFIC_AUTHORIZATION_EXCEPTION",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/MX/pages/MX-CPF-page-59-059.png"
+        },
+        {
+          "title": "Chamber of Deputies - Ley General de Salud, current consolidated text (pages 121-122)",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGS.pdf",
+          "source_owner_geo": "MX",
+          "applies_to_geo": [
+            "MX"
+          ],
+          "legal_basis_for_extension": "Mexico federal statute applies nationally.",
+          "source_authority": "Cámara de Diputados del H. Congreso de la Unión",
+          "source_type": "CURRENT_CONSOLIDATED_PRIMARY_STATUTE",
+          "primary_or_context": "PRIMARY",
+          "cannabis_specific": true,
+          "effective": "LAST_REFORM_DO F_2026-01-15",
+          "exact_fragment": "Article 235 requires Health Secretariat authorization for listed narcotic acts; its medical/scientific-only phrase was invalidated in 2021. Article 235 Bis mandates regulation of medicinal cannabis derivatives and THC.",
+          "screenshot_paths": [
+            "data/reviews/wiki-truth-307-visual-evidence/MX-ley-general-salud-current-2026-08-10-121.png",
+            "data/reviews/wiki-truth-307-visual-evidence/MX-ley-general-salud-current-2026-08-10-122.png"
+          ],
+          "screenshot_state": "VISUALLY_REVIEWED_CURRENT_TASK",
+          "reviewed_by_human_visual": true,
+          "annotation": "Current primary statute. It proves authorization-based acts and the medicinal-regulation mandate; it does not itself prove pharmacy availability or a general adult-use market."
+        },
+        {
+          "title": "COFEPRIS - Acata declaratoria de inconstitucionalidad: recreational self-consumption cannabis/THC authorizations",
+          "url": "https://www.gob.mx/cofepris/articulos/cofepris-acata-declaratoria-de-inconstitucionalidad-emitida-por-la-scjn-en-materia-de-autoconsumo-ludico-de-cannabis-y-tetrahidrocannabinol",
+          "source_owner_geo": "MX",
+          "applies_to_geo": [
+            "MX"
+          ],
+          "legal_basis_for_extension": "Federal health-regulator authorization process for Mexican applicants.",
+          "source_authority": "Comisión Federal para la Protección contra Riesgos Sanitarios",
+          "source_type": "CURRENT_OFFICIAL_REGULATOR_OPERATIONAL_PERMIT_NOTICE",
+          "primary_or_context": "OPERATIONAL_CONTEXT",
+          "cannabis_specific": true,
+          "effective": "PUBLISHED_2026-07-07",
+          "exact_fragment": "COFEPRIS states the legality of issuing permits for recreational self-consumption and that joint authorizations identify each permit holder for planting, cultivation, harvest, preparation, possession and transport.",
+          "screenshot_paths": [
+            "data/reviews/wiki-truth-307-visual-evidence/MX-cofepris-autoconsumo-ludico-current-2026-08-10.jpg",
+            "data/reviews/wiki-truth-307-visual-evidence/MX-cofepris-autoconsumo-authorizations-current-2026-08-10.jpg"
+          ],
+          "screenshot_state": "VISUALLY_REVIEWED_CURRENT_TASK",
+          "reviewed_by_human_visual": true,
+          "annotation": "Current operational permit evidence, limited to individually identified holders. It proves neither retail purchase/sale nor general adult-use legalization."
         }
       ],
       "official_status": {
@@ -83600,7 +84389,202 @@
         "status": "MATCH_WITH_SELF_CONSUMPTION_AUTHORIZATION_AND_5G_SOFT_ENFORCEMENT_CAVEAT",
         "reason": "Mexico is visually verified from official Orden Jurídico Nacional current consolidated Ley General de Salud and Código Penal Federal PDFs plus the official Diario Oficial medical-cannabis regulation PDF. The Ley General de Salud screenshots visibly show Article 235 subjecting seeding, cultivation, harvesting, preparation, acquisition, possession, commerce, transport, prescription, supply, use and consumption of narcotics to the health-law framework and Secretaría de Salud authorization; Article 235 Bis requiring public policies to regulate medicinal use of pharmacological derivatives of cannabis sativa, indica and americana or marihuana, including THC, and national research/production; Article 245's industrial exception for cannabis derivatives with 1 percent or less THC and broad industrial uses; Articles 477-479 creating penalties for unauthorized non-commercial possession above the table context but no criminal action for a consumer or dependent person who possesses table amounts for strict personal consumption outside specified places, with Cannabis Sativa, Indica or Mariguana listed at 5 grams; and the SCJN Declaratoria General de Inconstitucionalidad 1/2018 invalidating the absolute administrative prohibition on Health Secretariat authorizations for cannabis and THC self-consumption with recreational purposes. The DOF regulation screenshots visibly establish the health-control regulation for production, research and medicinal use of cannabis and pharmacological derivatives, define cannabis and cannabis medicines, require permits for sowing/production for research/fabrication, and create special prescription, pharmacy/botica, patient registry, possession and international-travel rules for cannabis medicines. The Código Penal Federal screenshots visibly retain prison penalties for narcotics production/transport/traffic/supply/possession and marihuana cultivation, while stating marihuana sowing/cultivation/harvesting is not punishable when carried out for medical and scientific purposes under federal authorization. This supports project recreational=ILLEGAL only with explicit self-consumption authorization and 5g no-prosecution caveats, supports medical=REGULATED, and supports enforcement=SOFT for strict personal-use threshold while retaining strict penalties for trafficking, supply, unauthorized cultivation and possession outside those caveats. No project status SSOT was changed."
       },
-      "conclusion": "Mexico is closed as visually verified official cannabis-law evidence. Official OJN Ley General de Salud, DOF medical-cannabis regulation, and OJN Código Penal Federal screenshots show a regulated medical cannabis framework, a 5g strict-personal-consumption non-prosecution threshold, SCJN recreational self-consumption authorization caveat, and continuing offence/penalty provisions for unauthorized trafficking, supply, cultivation and possession outside the narrow personal-use/medical-scientific authorization contexts. Project ILLEGAL/REGULATED/SOFT is supported with these caveats; no project status SSOT was changed."
+      "conclusion": "Mexico is closed as visually verified official cannabis-law evidence. Official OJN Ley General de Salud, DOF medical-cannabis regulation, and OJN Código Penal Federal screenshots show a regulated medical cannabis framework, a 5g strict-personal-consumption non-prosecution threshold, SCJN recreational self-consumption authorization caveat, and continuing offence/penalty provisions for unauthorized trafficking, supply, cultivation and possession outside the narrow personal-use/medical-scientific authorization contexts. Project ILLEGAL/REGULATED/SOFT is supported with these caveats; no project status SSOT was changed.",
+      "independent_truth_color": "YELLOW",
+      "independent_truth_status": "CURRENT_INDIVIDUAL_AUTOCONSUMPTION_PERMIT_AND_REGULATED_MEDICINAL_CANNABIS_FRAMEWORK_WITHOUT_GENERAL_ADULT_USE_OR_OPERATIONAL_PATIENT_ACCESS_PROOF",
+      "independent_truth_rule": "GENERAL_SPECIAL_PERSONAL_AUTOCONSUMPTION_PERMIT_AND_REGULATED_MEDICAL_FRAMEWORK_WITHOUT_GENERAL_ACCESS",
+      "independent_truth_reason": "Current COFEPRIS material proves individually held authorizations for recreational self-consumption activities, while the current statute and 2021 medical regulation establish regulated medicinal cannabis. The official evidence does not prove a general adult-use purchase/sale market or a presently operating patient dispensing route; special permits and law-on-books do not meet the GREEN rule.",
+      "independent_truth_confidence": "HIGH_LEGAL_MEDIUM_OPERATIONAL",
+      "independent_truth_reviewed_at": "2026-08-10T20:56:34.352Z",
+      "independent_truth_proposal_only": true,
+      "independent_review_state": "CURRENT_OFFICIAL_REVIEW_COMPLETE_PROPOSAL_ONLY",
+      "independent_review": {
+        "geo": "MX",
+        "territory": "Mexico",
+        "review_mode": "INDEPENDENT_OFFICIAL_EVIDENCE_FIRST",
+        "proposal_only": true,
+        "current_map_color": "NOT_CAPTURED_NOT_USED_AS_INPUT",
+        "current_ssot_color": "NOT_USED_AS_INPUT",
+        "wiki_truth_proposal_color": "NOT_USED_AS_INPUT",
+        "independent_truth_color": "YELLOW",
+        "independent_truth_status": "CURRENT_INDIVIDUAL_AUTOCONSUMPTION_PERMIT_AND_REGULATED_MEDICINAL_CANNABIS_FRAMEWORK_WITHOUT_GENERAL_ADULT_USE_OR_OPERATIONAL_PATIENT_ACCESS_PROOF",
+        "independent_truth_rule": "GENERAL_SPECIAL_PERSONAL_AUTOCONSUMPTION_PERMIT_AND_REGULATED_MEDICAL_FRAMEWORK_WITHOUT_GENERAL_ACCESS",
+        "recreational_status": "CURRENT_INDIVIDUAL_COFEPRIS_AUTOCONSUMPTION_PERMIT_ONLY_NO_GENERAL_RETAIL_MARKET_PROVEN",
+        "medical_status": "CURRENT_REGULATED_MEDICINAL_CANNABIS_FRAMEWORK_OPERATIONAL_PATIENT_ACCESS_UNVERIFIED",
+        "programme_operational": "UNKNOWN_NO_CURRENT_NATIONWIDE_PATIENT_DISPENSING_PROOF",
+        "evidence_axes": {
+          "patient_eligible": {
+            "value": "YES",
+            "source_url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGS.pdf",
+            "source_type": "CURRENT_CONSOLIDATED_PRIMARY_STATUTE",
+            "exact_fragment": "Article 235 Bis mandates regulation of medicinal derivatives of cannabis and THC.",
+            "effective_date": "CURRENT_2026-01-15_CONSOLIDATION",
+            "applicability": "MX_FEDERAL",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "reason": "Legal medical eligibility framework is proved; actual enrolled patient access is not."
+          },
+          "prescriber_route": {
+            "value": "YES",
+            "source_url": "https://www.dof.gob.mx/2021/SALUD/SALUD_120121.pdf",
+            "source_type": "OFFICIAL_MEDICINAL_CANNABIS_REGULATION",
+            "exact_fragment": "The regulation establishes special prescription and authorised-professional controls for medicinal cannabis.",
+            "effective_date": "2021-01-12",
+            "applicability": "MX_FEDERAL",
+            "confidence": "MEDIUM",
+            "reviewed_by_human_visual": true,
+            "reason": "Legal prescribing rules are documented in the official regulation; fresh evidence of a current provider is absent."
+          },
+          "registration_route": {
+            "value": "YES",
+            "source_url": "https://www.dof.gob.mx/2021/SALUD/SALUD_120121.pdf",
+            "source_type": "OFFICIAL_MEDICINAL_CANNABIS_REGULATION",
+            "exact_fragment": "The regulation provides patient registry controls for prescribed medicinal cannabis.",
+            "effective_date": "2021-01-12",
+            "applicability": "MX_FEDERAL",
+            "confidence": "MEDIUM",
+            "reviewed_by_human_visual": true,
+            "reason": "Legal registry architecture is proved; live registry operation is unproved."
+          },
+          "lawful_supply": {
+            "value": "YES",
+            "source_url": "https://www.dof.gob.mx/2021/SALUD/SALUD_120121.pdf",
+            "source_type": "OFFICIAL_MEDICINAL_CANNABIS_REGULATION",
+            "exact_fragment": "The regulation governs pharmacy dispensing and patient possession of prescribed medicinal cannabis.",
+            "effective_date": "2021-01-12",
+            "applicability": "MX_FEDERAL",
+            "confidence": "MEDIUM",
+            "reviewed_by_human_visual": true,
+            "reason": "Legal supply architecture is proved; actual current dispensing is not."
+          },
+          "pharmacy_or_dispensary": {
+            "value": "UNKNOWN",
+            "source_url": "https://www.gob.mx/cofepris/documentos/registros-sanitarios-medicamentos",
+            "source_type": "OFFICIAL_MEDICINE_REGISTER_PORTAL",
+            "exact_fragment": "COFEPRIS maintains a public medicine-registration viewer, but no current cannabis-specific registered product/pharmacy availability was independently verified in this packet.",
+            "effective_date": "CURRENT_PORTAL_2025-08-21",
+            "applicability": "MX_FEDERAL",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": false,
+            "reason": "No absence inference: this missing operational proof blocks GREEN only."
+          },
+          "import_route": {
+            "value": "YES",
+            "source_url": "https://www.dof.gob.mx/2021/SALUD/SALUD_120121.pdf",
+            "source_type": "OFFICIAL_MEDICINAL_CANNABIS_REGULATION",
+            "exact_fragment": "The regulation controls authorised medicinal cannabis importation and related supply activities.",
+            "effective_date": "2021-01-12",
+            "applicability": "MX_FEDERAL",
+            "confidence": "MEDIUM",
+            "reviewed_by_human_visual": true,
+            "reason": "Legal import route is proved; current use is unproved."
+          },
+          "programme_operational": {
+            "value": "UNKNOWN",
+            "source_url": "https://www.gob.mx/cofepris/documentos/registros-sanitarios-medicamentos",
+            "source_type": "OFFICIAL_MEDICINE_REGISTER_PORTAL",
+            "exact_fragment": "Current regulator registry access exists, but no cannabis-specific live patient program, stock or dispensing evidence was established.",
+            "effective_date": "CURRENT_PORTAL_2025-08-21",
+            "applicability": "MX_FEDERAL",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": false,
+            "reason": "Do not turn search incompleteness into a negative medical conclusion."
+          },
+          "programme_commenced": {
+            "value": "YES",
+            "source_url": "https://www.dof.gob.mx/2021/SALUD/SALUD_120121.pdf",
+            "source_type": "OFFICIAL_MEDICINAL_CANNABIS_REGULATION",
+            "exact_fragment": "Official regulation for production, research and medicinal use was published in the DOF on 12 January 2021.",
+            "effective_date": "2021-01-12",
+            "applicability": "MX_FEDERAL",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "reason": "The medicinal framework was enacted and published."
+          },
+          "recreational_possession": {
+            "value": "YES",
+            "source_url": "https://www.gob.mx/cofepris/articulos/cofepris-acata-declaratoria-de-inconstitucionalidad-emitida-por-la-scjn-en-materia-de-autoconsumo-ludico-de-cannabis-y-tetrahidrocannabinol",
+            "source_type": "CURRENT_OFFICIAL_REGULATOR_OPERATIONAL_PERMIT_NOTICE",
+            "exact_fragment": "Joint authorizations identify individual permit holders and cover cannabis possession for self-consumption activities.",
+            "effective_date": "2026-07-07",
+            "applicability": "MX_FEDERAL_INDIVIDUAL_PERMIT_HOLDERS_ONLY",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "reason": "Permit-holder path only, not general possession legality."
+          },
+          "recreational_supply": {
+            "value": "NO",
+            "source_url": "https://www.gob.mx/cofepris/articulos/cofepris-acata-declaratoria-de-inconstitucionalidad-emitida-por-la-scjn-en-materia-de-autoconsumo-ludico-de-cannabis-y-tetrahidrocannabinol",
+            "source_type": "CURRENT_OFFICIAL_REGULATOR_OPERATIONAL_PERMIT_NOTICE",
+            "exact_fragment": "The notice addresses individual self-consumption permits; it does not create a retail purchase, sale or general supply route.",
+            "effective_date": "2026-07-07",
+            "applicability": "MX_FEDERAL",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "reason": "No adult-use retail/supply proof was found."
+          },
+          "recreational_cultivation": {
+            "value": "YES",
+            "source_url": "https://www.gob.mx/cofepris/articulos/cofepris-acata-declaratoria-de-inconstitucionalidad-emitida-por-la-scjn-en-materia-de-autoconsumo-ludico-de-cannabis-y-tetrahidrocannabinol",
+            "source_type": "CURRENT_OFFICIAL_REGULATOR_OPERATIONAL_PERMIT_NOTICE",
+            "exact_fragment": "COFEPRIS describes individual authorizations for planting, cultivation and harvest.",
+            "effective_date": "2026-07-07",
+            "applicability": "MX_FEDERAL_INDIVIDUAL_PERMIT_HOLDERS_ONLY",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "reason": "Permit-holder cultivation only, not a general adult-use right."
+          },
+          "penalty_regime": {
+            "value": "YES",
+            "source_url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGS.pdf",
+            "source_type": "CURRENT_CONSOLIDATED_PRIMARY_STATUTE",
+            "exact_fragment": "Article 235 subjects narcotic acts to statute, regulations and Health Secretariat authorization; permit scope is individual.",
+            "effective_date": "CURRENT_2026-01-15_CONSOLIDATION",
+            "applicability": "MX_FEDERAL",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "reason": "Unauthorised conduct remains controlled; no general decriminalization inference is made."
+          }
+        },
+        "primary_laws": [
+          "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGS.pdf",
+          "https://www.dof.gob.mx/2021/SALUD/SALUD_120121.pdf"
+        ],
+        "operational_sources": [
+          "https://www.gob.mx/cofepris/articulos/cofepris-acata-declaratoria-de-inconstitucionalidad-emitida-por-la-scjn-en-materia-de-autoconsumo-ludico-de-cannabis-y-tetrahidrocannabinol"
+        ],
+        "context_sources": [
+          "https://www.gob.mx/cofepris/documentos/registros-sanitarios-medicamentos"
+        ],
+        "contradicting_sources": [],
+        "visual_evidence": [
+          "data/reviews/wiki-truth-307-visual-evidence/MX-ley-general-salud-current-2026-08-10-121.png",
+          "data/reviews/wiki-truth-307-visual-evidence/MX-ley-general-salud-current-2026-08-10-122.png",
+          "data/reviews/wiki-truth-307-visual-evidence/MX-cofepris-autoconsumo-ludico-current-2026-08-10.jpg",
+          "data/reviews/wiki-truth-307-visual-evidence/MX-cofepris-autoconsumo-authorizations-current-2026-08-10.jpg"
+        ],
+        "map_mismatch": "NOT_CAPTURED",
+        "ssot_mismatch": "NOT_ASSESSED",
+        "proposal_mismatch": "NOT_ASSESSED",
+        "difference_is_true": "UNCONFIRMED",
+        "difference_reason": "Live map, popup, API, SEO and SSOT were not used as legal-truth inputs.",
+        "confidence": "HIGH_LEGAL_MEDIUM_OPERATIONAL",
+        "remaining_blockers": [
+          "NO_CURRENT_OFFICIAL_PROOF_OF_GENERAL_ADULT_USE_PURCHASE_OR_RETAIL_SUPPLY",
+          "NO_CURRENT_OFFICIAL_PROOF_OF_CANNABIS_MEDICINE_REGISTERED_AND_AVAILABLE_TO_PATIENTS",
+          "NO_CURRENT_OFFICIAL_PROOF_OF_NATIONWIDE_CANNABIS_PATIENT_DISPENSING"
+        ],
+        "recommended_action": "KEEP_PROPOSAL_ONLY_YELLOW_UNTIL_GENERAL_ADULT_USE_OR_OPERATIONAL_PATIENT_ACCESS_IS_PROVED",
+        "reviewed_at": "2026-08-10T20:56:34.352Z"
+      },
+      "audit_checkpoints": [
+        {
+          "label": "MX_CURRENT_INDIVIDUAL_AUTOCONSUMPTION_PERMIT_AND_REGULATED_MEDICAL_FRAMEWORK_CI_CHECKPOINT",
+          "at": "2026-08-10T20:56:34.352Z",
+          "result": "YELLOW_PROPOSAL_ONLY;CI_STATUS=PASS;SMOKE_STATUS=PASS;POST_CHECKS_OK=1;HUB_STAGE_REPORT_OK=1;PROCESS_SLOT_RUNTIME_GUARD=PASS",
+          "summary": "Current primary law and current COFEPRIS permit notice were visually reviewed. Mexico is special permit/regulated medical framework only; no general retail adult-use or operational patient-access conclusion. No SSOT/map/runtime/production/deployment mutation."
+        }
+      ]
     },
     {
       "geo": "FM",
@@ -83861,10 +84845,33 @@
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/MD/pages/lp201_pages_9_11-009.png"
         },
         {
-          "title": "Government of Moldova / Ministry of Health - 216-MS-2026 controlled substances tables and implementation package",
+          "title": "Government of Moldova / Ministry of Health - 216-MS-2026 draft national controlled-substances tables",
           "url": "https://gov.md/sites/default/files/media/documents/sedinte-de-guvern/2026-03/216-MS-2026.pdf",
-          "source_kind": "MOLDOVA_GOV_MD_MINISTRY_OF_HEALTH_2026_CONTROLLED_TABLES_CANABIS_RESIN_EXTRACTS_TINCTURES_AND_PENAL_CODE_IMPLEMENTATION_REFERENCES",
-          "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/MD/pages/controlled_tables_page_22-022.png"
+          "source_kind": "MOLDOVA_GOV_MD_MINISTRY_OF_HEALTH_2026_DRAFT_CONTROLLED_TABLES_NOT_CURRENT_LAW",
+          "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/MD/pages/controlled_tables_page_22-022.png",
+          "source_owner_geo": "MD",
+          "applies_to_geo": [
+            "MD"
+          ],
+          "source_authority": "Government of the Republic of Moldova / Ministry of Health",
+          "source_type": "official draft government decision",
+          "primary_or_context": "context_only_future_draft_not_current_legal_proof",
+          "cannabis_specific": true,
+          "current": false,
+          "effective": false,
+          "direct_fragment_available": true,
+          "exact_fragment": "HOTĂRÂRE nr. ____/2026; Article 2 would repeal HG1088/2004 and Article 5 states that this decision enters into force six months after publication in Monitorul Oficial.",
+          "legal_axes_supported": [
+            "amendment_chain",
+            "currentness"
+          ],
+          "official_host_verified": true,
+          "semantic_reviewed_by_human": true,
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "screenshot_valid": false,
+          "reviewed_at": "2026-08-11",
+          "note": "Retained with annotation because it contains cannabis-family tables, but it is a numbered-placeholder draft with a future commencement clause. It is excluded from current Truth Color derivation."
         },
         {
           "title": "Government of Moldova / Ministry of Agriculture - NU-1001-MAIA-2025 industrial/horticultural hemp authorization regulation",
@@ -83877,6 +84884,68 @@
           "url": "https://gov.md/sites/default/files/media/documents/sedinte-de-guvern/2025-12/1026-MAI-2025.pdf",
           "source_kind": "MOLDOVA_GOV_MD_PENAL_CODE_ARTICLES_217_2171_DRUG_PLANT_ILLEGAL_CIRCULATION_PENALTY_AMENDMENTS_PACKAGE",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/MD/pages/penal_amendments_pages_2_5-02.png"
+        },
+        {
+          "title": "Monitorul Oficial No. 104 - Law No. 22 of 26 February 2026 amending Article 80 of Law No. 201/2025",
+          "url": "https://monitorul.gov.md/ro/monitor/3236",
+          "source_kind": "MOLDOVA_MONITORUL_OFICIAL_LAW_22_2026_CURRENTNESS_SCOPE",
+          "source_owner_geo": "MD",
+          "applies_to_geo": [
+            "MD"
+          ],
+          "source_authority": "Monitorul Oficial / Parliament of the Republic of Moldova",
+          "source_type": "official gazette law entry",
+          "primary_or_context": "currentness_scope",
+          "cannabis_specific": false,
+          "current": true,
+          "effective": true,
+          "direct_fragment_available": true,
+          "exact_fragment": "Lege pentru modificarea articolului 80 din Legea nr. 201/2025 ... (nr. 22, 26 februarie 2026). The published title confines this amendment to Article 80.",
+          "legal_axes_supported": [
+            "amendment_chain"
+          ],
+          "official_host_verified": true,
+          "semantic_reviewed_by_human": true,
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "screenshot_valid": true,
+          "screenshot_path": "data/reviews/wiki-truth-307-visual-evidence/MD-monitorul-law-22-article-80-entry-current-2026-08-11.png",
+          "screenshot_paths": [
+            "data/reviews/wiki-truth-307-visual-evidence/MD-monitorul-law-22-article-80-current-2026-08-11.png",
+            "data/reviews/wiki-truth-307-visual-evidence/MD-monitorul-law-22-article-80-entry-current-2026-08-11.png"
+          ],
+          "reviewed_at": "2026-08-11",
+          "note": "Direct currentness-scope evidence only. It does not itself identify a cannabis table, patient route, or Truth Color."
+        },
+        {
+          "title": "Republic of Moldova Government Decision HG1088/2004 - controlled-substances tables, Table I cannabis entries",
+          "url": "https://www.legis.md/cautare/downloadpdf/31478",
+          "source_kind": "MOLDOVA_LEGIS_MD_HG1088_TABLE_I_CANNABIS_HISTORICAL_CONTINUITY_CURRENTNESS_UNCONFIRMED",
+          "source_owner_geo": "MD",
+          "applies_to_geo": [
+            "MD"
+          ],
+          "source_authority": "Government of the Republic of Moldova / official legislation portal",
+          "source_type": "primary controlled-substances schedule",
+          "primary_or_context": "historical_continuity_not_current_truth_until_consolidated_amendment_chain_is_read",
+          "cannabis_specific": true,
+          "current": "UNCONFIRMED_CONSOLIDATED_CURRENTNESS",
+          "effective": "UNCONFIRMED_AFTER_2023_AMENDMENT",
+          "direct_fragment_available": true,
+          "exact_fragment": "TABELUL I — SUBSTANŢELE NARCOTICE ŞI SUBSTANŢELE PSIHOTROPE NEUTILIZATE ÎN SCOPURI MEDICALE; Cannabis: răşină de cannabis, ulei de cannabis, marihuană, haşiş; Cannabis, plantă ... care conţin tetrahidrocannabinol.",
+          "legal_axes_supported": [
+            "recreational_possession",
+            "medical_patient_access"
+          ],
+          "official_host_verified": true,
+          "semantic_reviewed_by_human": true,
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "screenshot_valid": false,
+          "screenshot_path": "data/reviews/wiki-truth-307-visual-evidence/MD-hg-1088-current-table-i-cannabis-2026-08-11.png",
+          "reviewed_at": "2026-08-11",
+          "capture_blocker": "The official in-app browser rendered a Cloudflare challenge; direct official text was read, but current consolidated effect after later amendments was not visually verified.",
+          "note": "Preserved as primary-law continuity evidence, not current Red proof. The 2023 amendment is located by official title but its cannabis-specific amendment scope was not directly read."
         }
       ],
       "official_status": {
@@ -83888,7 +84957,58 @@
         "status": "MATCH_WITH_GENERAL_CONTROLLED_MEDICAL_AND_HEMP_CAVEAT",
         "reason": "Moldova is visually verified from official legis.md LP201/2025 URL plus official Government of Moldova PDF packages for the adopted LP201/2025 drug-control law, the 2026 Ministry of Health controlled-substances tables, the industrial/horticultural hemp authorization regulation, and the Penal Code drug-offence amendments package. The legis.md live URL was captured but headless access showed Cloudflare verification, so the accepted visual law text comes from official gov.md PDF protocol pages for the same LP201/2025 package. The LP201 screenshots visibly define canabis as flowering or fruiting tops of the Cannabis genus and cannabis resin containing THC with psychoactive effect under narcotic/psychotropic control, and define industrial/horticultural hemp as Cannabis with THC not exceeding 0.3 percent, cultivated for industrial/horticultural/food/fibre/stem/seed/oil/biomass purposes while excluding medical, recreational or experimental use. LP201 Article 6 visibly prohibits Table I circulation except scientific/expertise use and permits Tables II-IV circulation only for medical, scientific, expertise, horticultural and industrial purposes. The 2026 Ministry of Health controlled-tables screenshot visibly lists Canabis, resină de canabis, extracte și tincturi de canabis. The Penal Code amendments package visibly shows Article 217 illegal circulation without intent to alienate covering illegal sowing/cultivation/processing/use of plants containing drugs/psychotropic substances in large proportions, punished for individuals by fine or community work, while other drug-transfer/supply contexts including minors and alienation remain prison-penalty offences. This supports project recreational=ILLEGAL and medical=REGULATED at the general controlled-medical-use level, with no cannabis-specific patient-access program visually confirmed. Project enforcement=SOFT is supported only with a caveat for the Article 217 non-alienation/lower-scope penalty structure; trafficking, supply and other aggravated contexts remain strict. No project status SSOT was changed."
       },
-      "conclusion": "Moldova is closed as visually verified official cannabis-law evidence. Official Moldova sources visibly define cannabis, regulate controlled circulation, list cannabis/resin/extracts/tinctures in controlled tables, authorize only controlled medical/scientific/expertise/horticultural/industrial channels, create a separate 0.3 percent THC industrial/horticultural hemp authorization scope that excludes medical/recreational/experimental use, and show Penal Code drug-offence amendments with fine/community-work treatment for Article 217 non-alienation conduct but prison penalties for supply/aggravated contexts. Project ILLEGAL/REGULATED/SOFT is supported with a general-controlled-medical-use and hemp caveat; no project status SSOT was changed."
+      "conclusion": "Moldova is closed as visually verified official cannabis-law evidence. Official Moldova sources visibly define cannabis, regulate controlled circulation, list cannabis/resin/extracts/tinctures in controlled tables, authorize only controlled medical/scientific/expertise/horticultural/industrial channels, create a separate 0.3 percent THC industrial/horticultural hemp authorization scope that excludes medical/recreational/experimental use, and show Penal Code drug-offence amendments with fine/community-work treatment for Article 217 non-alienation conduct but prison penalties for supply/aggravated contexts. Project ILLEGAL/REGULATED/SOFT is supported with a general-controlled-medical-use and hemp caveat; no project status SSOT was changed.",
+      "audit_state": "INDEPENDENT_REVIEW_INCOMPLETE",
+      "independent_review": {
+        "review_date": "2026-08-11",
+        "review_mode": "OFFICIAL_LAW_INDEPENDENT_PROPOSAL_ONLY",
+        "official_truth_status": "UNCONFIRMED",
+        "confidence": "LOW",
+        "recreational_status": "UNCONFIRMED",
+        "medical_status": "UNCONFIRMED",
+        "programme_operational": "UNKNOWN",
+        "evidence_axes": {
+          "recreational_possession": {
+            "value": "UNKNOWN",
+            "reason": "HG1088 primary text lists cannabis in Table I not used for medical purposes, but its consolidated current effect after the later amendment chain was not directly verified."
+          },
+          "medical_patient_access": {
+            "value": "UNKNOWN",
+            "reason": "No current official cannabis patient eligibility, prescriber, registration, lawful supply, pharmacy, import or operational-programme route was directly verified."
+          },
+          "programme_commenced": {
+            "value": "UNKNOWN",
+            "reason": "Law No. 22/2026 establishes the amendment scope only; its published title cannot prove a cannabis programme commencement."
+          },
+          "lawful_supply": {
+            "value": "UNKNOWN",
+            "reason": "The 2026 Ministry document is a future draft and cannot establish current cannabis dispensing or import."
+          }
+        },
+        "primary_laws": [
+          "https://monitorul.gov.md/ro/monitor/3236",
+          "https://www.legis.md/cautare/downloadpdf/31478"
+        ],
+        "context_sources": [
+          "https://gov.md/sites/default/files/media/documents/sedinte-de-guvern/2026-03/216-MS-2026.pdf"
+        ],
+        "visual_evidence": [
+          "data/reviews/wiki-truth-307-visual-evidence/MD-monitorul-law-22-article-80-entry-current-2026-08-11.png",
+          "data/reviews/wiki-truth-307-visual-evidence/MD-hg-1088-current-table-i-cannabis-2026-08-11.png"
+        ],
+        "remaining_blockers": [
+          "CURRENT_CONSOLIDATED_CANNABIS_TABLE_AND_2023_AMENDMENT_SCOPE_NOT_DIRECTLY_VISUALLY_VERIFIED",
+          "NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_ACCESS_OR_OPERATIONAL_SUPPLY_ROUTE_VERIFIED"
+        ],
+        "recommended_action": "PROPOSAL_ONLY_NO_COLOR_FAIL_CLOSED",
+        "no_mutation": {
+          "APPLY_ALLOWED": false,
+          "SSOT_CHANGED": false,
+          "MAP_COLORS_CHANGED": false,
+          "RUNTIME_CHANGED": false,
+          "PRODUCTION_TOUCHED": false
+        }
+      }
     },
     {
       "geo": "MC",
@@ -92958,6 +94078,19 @@
       "at": "2026-08-10T19:45:20.098Z",
       "result": "PASS",
       "summary": "CI_STATUS=PASS; SMOKE_STATUS=PASS; POST_CHECKS_OK=1; HUB_STAGE_REPORT_OK=1; PROCESS_SLOT_RUNTIME_GUARD=PASS. ML remains proposal-only UNKNOWN/unpainted; APPLY_ALLOWED=false; SSOT, map, runtime, production and deployment unchanged."
+    },
+    {
+      "at": "2026-08-11",
+      "geo": "MD",
+      "checkpoint": "MD_CURRENT_LAW_22_SCOPE_AND_HG1088_CONTINUITY_FAIL_CLOSED",
+      "result": "NO_INDEPENDENT_COLOR",
+      "note": "Law 22/2026 visibly changes only Article 80. HG1088 Table I cannabis continuity was read from an official source but consolidated currentness after later amendments remains unclosed; the 2026 replacement table is a future draft. No color is derived."
+    },
+    {
+      "at": "2026-08-11",
+      "checkpoint": "CI_SCOPE_GUARD_FAIL_CLOSED_AGENTS_RULE_RELOCATED",
+      "result": "CI_FAIL_NO_PRODUCT_MUTATION",
+      "note": "The first post-MD pass_cycle failed because AGENTS.md is outside the CI allowed scope. The added progress-reporting rule is retained in docs/TRUTH_FIRST_307_REAUDIT_SPEC.md; the disallowed AGENTS.md edit was removed. No legal conclusion, SSOT, map, runtime, production or deployment state changed."
     }
   ]
 }

@@ -29,7 +29,7 @@
     "colorReauditDirectOrComposite": 31,
     "colorReauditContextClaimantOrNegative": 8,
     "supplementalOfficialLinks": 33,
-    "allPublishedOfficialLinks": 1265,
+    "allPublishedOfficialLinks": 1272,
     "rowsWithPublishedOfficialLinks": 307,
     "rowsWithAnyOfficialUrl": 307
   },
@@ -37789,7 +37789,12 @@
         "medical": "NONE_AS_CANNABIS_PATIENT_PROGRAM_STATUS_WITH_GENERAL_MEDICAL_PRESCRIPTION_AND_LICIT_MARKET_CAVEAT; PDF_ARTICLE_38_VISIBLY_PROHIBITS_USE_OUTSIDE_MEDICAL_PRESCRIPTIONS_FOR_RISK_DRUGS_AND_ARTICLES_42_44_CREATE_TREATMENT_MEDICAL_SURVEILLANCE_PATHS_FOR_ILLICIT_USE; AMI_CONTEXT_VISIBLY_DESCRIBES_A_LICIT_MARKET_CONTROL_LAW_FOR_SANITARY_AND_SCIENTIFIC_USE_BUT_NO_CANNABIS_PATIENT_ACCESS_PROGRAM_WAS_VISIBLY_CONFIRMED",
         "enforcement": "STRICT; PDF_ARTICLES_3_5_VISIBLY_SHOW_15_TO_30_YEARS_IMPRISONMENT_AND_10M_TO_100M_UM_FINES_FOR_HIGH_RISK_DRUG_PRODUCTION_CULTURE_TRAFFIC_POSSESSION_TRANSPORT_DISTRIBUTION_WITH_DEATH_PENALTY_ON_RECIDIVISM; ARTICLE_39_VISIBLY_SHOWS_UP_TO_2_YEARS_AND_FINE_FOR_ILLICIT_USE; ARTICLE_40_CONFISCATES_PLANTS_AND_SUBSTANCES"
       },
-      "independentTruth": null,
+      "independentTruth": {
+        "color": "UNKNOWN",
+        "rule": "GENERAL_FAIL_CLOSED_WHEN_CURRENT_CANNABIS_SPECIFIC_APPLICABILITY_AND_MEDICAL_AXES_REMAIN_UNVERIFIED",
+        "reviewedAt": "2026-08-10T20:18:59.509Z",
+        "conclusion": null
+      },
       "directOfficialCannabisLawLinks": [
         {
           "title": "UNODC SHERLOC Database of Legislation - Mauritania Ministry of Justice Loi No. 93-37 drug offences record",
@@ -37951,7 +37956,12 @@
         "medical": "LIMITED_REGULATED_MEDICINAL_CANNABIS_PROGRAM; CURRENT_ACT_PART_IIA_VISIBLY_DEFINES_AUTHORISED_PATIENT_SPECIALIST_PHARMACIST_AND_SPECIFIC_THERAPEUTIC_CONDITIONS; SECTION_28B_VISIBLY_ALLOWS_USE_OR_IMPORT_ONLY_WHEN_AUTHORISED_UNDER_PART_IIA; SECTIONS_28C_28G_VISIBLY_CREATE_MEDICINAL_CANNABIS_THERAPEUTIC_COMMITTEE_REQUEST_APPROVAL_PRESCRIPTION_AND_DISPENSING_RULES; SECTION_28J_VISIBLY_REQUIRES_MINISTRY_IMPORT_AND_POLICE_SUPERVISION; SECTION_28K_VISIBLY_PROTECTS_AUTHORised_FOREIGN_PATIENT_POSSESSION; SECOND_SCHEDULE_VISIBLY_LISTS_MEDICINAL_CANNABIS",
         "enforcement": "MIXED_SOFT_FOR_PERSONAL_DRUG_USERS_STRICT_FOR_UNAUTHORISED_CANNABIS_AND_TRAFFIC; PART_IIIA_VISIBLY_CREATES_NON_PROSECUTION_AND_REHABILITATION_FOR_DRUG_USERS_AND_SECTION_59B_VISIBLY_ALLOWS_REHABILITATION_IN_LIEU_OF_PROSECUTION_FOR_PERSONAL_CONSUMPTION_NON_TRAFFICKER_NO_AGGRAVATING_CIRCUMSTANCES; HOWEVER_UNAUTHORISED_CULTIVATION_POSSESSION_USE_IMPORT_EXPORT_AND_PART_II_OR_PART_IIA_CONTRAVENTIONS_REMAIN_OFFENCES"
       },
-      "independentTruth": null,
+      "independentTruth": {
+        "color": "YELLOW",
+        "rule": "GENERAL_CURRENT_ENACTED_REGULATED_MEDICINAL_CANNABIS_FRAMEWORK_WITHOUT_OPERATIONAL_PATIENT_ACCESS_PROOF",
+        "reviewedAt": "2026-08-10T20:36:10.913Z",
+        "conclusion": null
+      },
       "directOfficialCannabisLawLinks": [
         {
           "title": "Mauritius Attorney-General's Office / Laws of Mauritius - Dangerous Drugs Act, current consolidated PDF",
@@ -38154,10 +38164,76 @@
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/YT/browser_pages/YT-ansm-cannabis-medical-professionnels.png",
           "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
           "visualReview": "Mayotte is visually verified through official French national cannabis/stupefiants and medical-cannabis pages plus official Article 73 / Département de Mayotte scope evidence. This is national-law-applies-to-Mayotte evidence, not a separate Mayotte-issued cannabis law page. The reviewed evidence supports project ILLEGAL/LIMITED/STRICT; no project status SSOT was changed."
+        },
+        {
+          "title": "DILA / Légifrance - Guide de légistique 3.6.1: Article 73 applicability in Mayotte",
+          "url": "https://www.legifrance.gouv.fr/contenu/Media/files/autour-de-la-loi/guide-de-legistique/2025_11_28_fiche_3.6.1_principales_regles.pdf",
+          "sourceKind": "official_visual_review",
+          "sourceOwnerGeo": "FR",
+          "appliesToGeos": [
+            "YT"
+          ],
+          "legalBasisForExtension": "The guide names Mayotte among Article 73 collectivities and states laws and regulations apply there by right.",
+          "officialPublisher": "Direction de l’information légale et administrative",
+          "sourceType": "OFFICIAL_JURISDICTION_APPLICABILITY_GUIDE",
+          "primaryOrContext": "CONTEXT_APPLICABILITY",
+          "cannabisSpecific": false,
+          "effective": "PUBLISHED_2025-11-28",
+          "evidenceScope": null,
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
+          "confidence": "high",
+          "note": "Mayotte is visually verified through official French national cannabis/stupefiants and medical-cannabis pages plus official Article 73 / Département de Mayotte scope evidence. This is national-law-applies-to-Mayotte evidence, not a separate Mayotte-issued cannabis law page. The reviewed evidence supports project ILLEGAL/LIMITED/STRICT; no project status SSOT was changed.",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/YT/browser_pages/YT-guide-legistique-page-358-358.png",
+          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
+          "visualReview": "Mayotte is visually verified through official French national cannabis/stupefiants and medical-cannabis pages plus official Article 73 / Département de Mayotte scope evidence. This is national-law-applies-to-Mayotte evidence, not a separate Mayotte-issued cannabis law page. The reviewed evidence supports project ILLEGAL/LIMITED/STRICT; no project status SSOT was changed."
+        },
+        {
+          "title": "Service Public / DILA - Cannabis thérapeutique: end of experiment and transition",
+          "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F35817",
+          "sourceKind": "official_visual_review",
+          "sourceOwnerGeo": "FR",
+          "appliesToGeos": [
+            "YT"
+          ],
+          "legalBasisForExtension": "French DILA Guide 3.6.1 identifies Mayotte as an Article 73 collectivity under legislative identity: French laws and regulations apply by right; no separate territorial cannabis statute is inferred.",
+          "officialPublisher": "Service Public / Direction de l’information légale et administrative (Premier ministre)",
+          "sourceType": "OFFICIAL_PATIENT_ACCESS_TRANSITION_GUIDANCE",
+          "primaryOrContext": "OPERATIONAL_CONTEXT",
+          "cannabisSpecific": true,
+          "effective": "VERIFIED_2025-03-28_PAGE_CURRENT_2026-08-10",
+          "evidenceScope": null,
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
+          "confidence": "high",
+          "note": "Mayotte is visually verified through official French national cannabis/stupefiants and medical-cannabis pages plus official Article 73 / Département de Mayotte scope evidence. This is national-law-applies-to-Mayotte evidence, not a separate Mayotte-issued cannabis law page. The reviewed evidence supports project ILLEGAL/LIMITED/STRICT; no project status SSOT was changed.",
+          "screenshotPath": "data/reviews/wiki-truth-307-visual-evidence/YT-service-public-current-owner-header-2026-08-10.jpg",
+          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
+          "visualReview": "Mayotte is visually verified through official French national cannabis/stupefiants and medical-cannabis pages plus official Article 73 / Département de Mayotte scope evidence. This is national-law-applies-to-Mayotte evidence, not a separate Mayotte-issued cannabis law page. The reviewed evidence supports project ILLEGAL/LIMITED/STRICT; no project status SSOT was changed."
         }
       ],
       "candidateLinksAwaitingVisualReview": [],
-      "officialContextLinks": [],
+      "officialContextLinks": [
+        {
+          "title": "Légifrance - Code de la santé publique, Article R.5132-86 (current cannabis prohibition and medicinal medicine exception)",
+          "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000027516352/",
+          "sourceKind": "reviewed_source_provenance_context",
+          "sourceOwnerGeo": "FR",
+          "appliesToGeos": [
+            "YT"
+          ],
+          "legalBasisForExtension": "French DILA Guide 3.6.1 identifies Mayotte as an Article 73 collectivity under legislative identity: French laws and regulations apply by right; no separate territorial cannabis statute is inferred.",
+          "officialPublisher": "Légifrance / French Government official law portal",
+          "sourceType": "CURRENT_CONSOLIDATED_PRIMARY_REGULATION",
+          "primaryOrContext": "PRIMARY",
+          "cannabisSpecific": true,
+          "effective": "CURRENT_VERSION_IN_FORCE_SINCE_2022-03-01",
+          "evidenceScope": "RETAINED_REVIEWED_SOURCE_PROVENANCE_CONTEXT_ONLY",
+          "verification": "RETAINED_REVIEWED_SOURCE_PROVENANCE_CONTEXT",
+          "confidence": "low",
+          "note": "Primary legal rule for the French regime. It proves prohibition plus pharmaceutical/medical exceptions, not territorial patient availability in Mayotte.",
+          "screenshotPath": null,
+          "visualReview": "RETAINED_CONTEXT_ONLY"
+        }
+      ],
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "MATCH_WITH_NATIONAL_DROM_SCOPE_NOTE",
@@ -38172,7 +38248,10 @@
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/YT/browser_pages/YT-drogues-gouv-stupefiants-prohibited-acts.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/YT/browser_pages/YT-service-public-cannabis-medical-transition.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/YT/browser_pages/YT-ansm-cannabis-medical-patients.png",
-        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/YT/browser_pages/YT-ansm-cannabis-medical-professionnels.png"
+        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/YT/browser_pages/YT-ansm-cannabis-medical-professionnels.png",
+        "data/reviews/wiki-truth-307-visual-evidence/YT-service-public-current-owner-header-2026-08-10.jpg",
+        "data/reviews/wiki-truth-307-visual-evidence/YT-ansm-current-transition-patients-2026-08-10.jpg",
+        "data/reviews/wiki-truth-307-visual-evidence/YT-drogues-gouv-prohibition-current-2026-08-10.jpg"
       ],
       "reviewConfidence": "high",
       "reviewNotes": "VISUALLY_VERIFIED: Mayotte is visually verified through official French national cannabis/stupefiants and medical-cannabis pages plus official Article 73 / Département de Mayotte scope evidence. This is national-law-applies-to-Mayotte evidence, not a separate Mayotte-issued cannabis law page. The reviewed evidence supports project ILLEGAL/LIMITED/STRICT; no project status SSOT was changed.",
@@ -38266,7 +38345,12 @@
         "medical": "REGULATED; LGS_ART_235_BIS_VISIBLY_REQUIRES_SECRETARIA_DE_SALUD_TO_REGULATE_MEDICINAL_USE_OF_PHARMACOLOGICAL_DERIVATIVES_OF_CANNABIS_SATIVA_INDICA_AMERICANA_OR_MARIHUANA_THC_ISOMERS_AND_STEREOCHEMICAL_VARIANTS_AND_NATIONAL_RESEARCH_PRODUCTION; DOF_MEDICAL_CANNABIS_REGULATION_VISIBLY_REGULATES_CONTROL_SANITARY_FOR_PRODUCTION_RESEARCH_AND_MEDICINAL_USE_OF_CANNABIS_AND_DERIVATIVES; ARTICLES_26_33_VISIBLY_CREATE_SPECIAL_PRESCRIPTION_BARCODE_AUTHORIZED_PROFESSIONAL_PHARMACY_PATIENT_REGISTRY_POSSESSION_AND_TRAVEL_RULES",
         "enforcement": "SOFT_FOR_STRICT_PERSONAL_CONSUMPTION_WITH_STRICT_TRAFFIC_AND_UNAUTHORIZED_CULTIVATION_PENALTIES; LGS_ART_478_VISIBLY_STATES_MINISTERIO_PUBLICO_WILL_NOT_EXERCISE_CRIMINAL_ACTION_FOR_CONSUMER_OR_DEPENDENT_PERSON_WITH_TABLE_AMOUNT_FOR_STRICT_PERSONAL_CONSUMPTION_OUTSIDE_SPECIFIED_PLACES_AND_ART_479_LISTS_CANNABIS_5G; HOWEVER_LGS_ART_477_AND_CPF_ART_194_195_198_VISIBLY_KEEP_POSSESSION_BEYOND_AUTHORIZATION_OR_NON_PERSONAL_CONTEXT_TRAFFIC_SUPPLY_AND_MARIHUANA_CULTIVATION_OFFENCE_BASED_WITH_PRISON_PENALTIES_EXCEPT_AUTHORIZED_MEDICAL_SCIENTIFIC_CULTIVATION"
       },
-      "independentTruth": null,
+      "independentTruth": {
+        "color": "YELLOW",
+        "rule": "GENERAL_SPECIAL_PERSONAL_AUTOCONSUMPTION_PERMIT_AND_REGULATED_MEDICAL_FRAMEWORK_WITHOUT_GENERAL_ACCESS",
+        "reviewedAt": "2026-08-10T20:56:34.352Z",
+        "conclusion": null
+      },
       "directOfficialCannabisLawLinks": [
         {
           "title": "Mexico Orden Jurídico Nacional - Ley General de Salud, current consolidated PDF",
@@ -38306,7 +38390,50 @@
         }
       ],
       "candidateLinksAwaitingVisualReview": [],
-      "officialContextLinks": [],
+      "officialContextLinks": [
+        {
+          "title": "Chamber of Deputies - Ley General de Salud, current consolidated text (pages 121-122)",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGS.pdf",
+          "sourceKind": "reviewed_source_provenance_context",
+          "sourceOwnerGeo": "MX",
+          "appliesToGeos": [
+            "MX"
+          ],
+          "legalBasisForExtension": "Mexico federal statute applies nationally.",
+          "officialPublisher": "Cámara de Diputados del H. Congreso de la Unión",
+          "sourceType": "CURRENT_CONSOLIDATED_PRIMARY_STATUTE",
+          "primaryOrContext": "PRIMARY",
+          "cannabisSpecific": true,
+          "effective": "LAST_REFORM_DO F_2026-01-15",
+          "evidenceScope": "RETAINED_REVIEWED_SOURCE_PROVENANCE_CONTEXT_ONLY",
+          "verification": "RETAINED_REVIEWED_SOURCE_PROVENANCE_CONTEXT",
+          "confidence": "low",
+          "note": "Current primary statute. It proves authorization-based acts and the medicinal-regulation mandate; it does not itself prove pharmacy availability or a general adult-use market.",
+          "screenshotPath": null,
+          "visualReview": "RETAINED_CONTEXT_ONLY"
+        },
+        {
+          "title": "COFEPRIS - Acata declaratoria de inconstitucionalidad: recreational self-consumption cannabis/THC authorizations",
+          "url": "https://www.gob.mx/cofepris/articulos/cofepris-acata-declaratoria-de-inconstitucionalidad-emitida-por-la-scjn-en-materia-de-autoconsumo-ludico-de-cannabis-y-tetrahidrocannabinol",
+          "sourceKind": "reviewed_source_provenance_context",
+          "sourceOwnerGeo": "MX",
+          "appliesToGeos": [
+            "MX"
+          ],
+          "legalBasisForExtension": "Federal health-regulator authorization process for Mexican applicants.",
+          "officialPublisher": "Comisión Federal para la Protección contra Riesgos Sanitarios",
+          "sourceType": "CURRENT_OFFICIAL_REGULATOR_OPERATIONAL_PERMIT_NOTICE",
+          "primaryOrContext": "OPERATIONAL_CONTEXT",
+          "cannabisSpecific": true,
+          "effective": "PUBLISHED_2026-07-07",
+          "evidenceScope": "RETAINED_REVIEWED_SOURCE_PROVENANCE_CONTEXT_ONLY",
+          "verification": "RETAINED_REVIEWED_SOURCE_PROVENANCE_CONTEXT",
+          "confidence": "low",
+          "note": "Current operational permit evidence, limited to individually identified holders. It proves neither retail purchase/sale nor general adult-use legalization.",
+          "screenshotPath": null,
+          "visualReview": "RETAINED_CONTEXT_ONLY"
+        }
+      ],
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "MATCH_WITH_SELF_CONSUMPTION_AUTHORIZATION_AND_5G_SOFT_ENFORCEMENT_CAVEAT",
@@ -38325,7 +38452,11 @@
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/MX/pages/MX-Reglamento-page-8-08.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/MX/pages/MX-Reglamento-page-12-12.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/MX/pages/MX-CPF-page-56-056.png",
-        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/MX/pages/MX-CPF-page-59-059.png"
+        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/MX/pages/MX-CPF-page-59-059.png",
+        "data/reviews/wiki-truth-307-visual-evidence/MX-ley-general-salud-current-2026-08-10-121.png",
+        "data/reviews/wiki-truth-307-visual-evidence/MX-ley-general-salud-current-2026-08-10-122.png",
+        "data/reviews/wiki-truth-307-visual-evidence/MX-cofepris-autoconsumo-ludico-current-2026-08-10.jpg",
+        "data/reviews/wiki-truth-307-visual-evidence/MX-cofepris-autoconsumo-authorizations-current-2026-08-10.jpg"
       ],
       "reviewConfidence": "high",
       "reviewNotes": "VISUALLY_VERIFIED: Mexico is closed as visually verified official cannabis-law evidence. Official OJN Ley General de Salud, DOF medical-cannabis regulation, and OJN Código Penal Federal screenshots show a regulated medical cannabis framework, a 5g strict-personal-consumption non-prosecution threshold, SCJN recreational self-consumption authorization caveat, and continuing offence/penalty provisions for unauthorized trafficking, supply, cultivation and possession outside the narrow personal-use/medical-scientific authorization contexts. Project ILLEGAL/REGULATED/SOFT is supported with these caveats; no project status SSOT was changed.",
@@ -39536,18 +39667,6 @@
           "visualReview": "Moldova is closed as visually verified official cannabis-law evidence. Official Moldova sources visibly define cannabis, regulate controlled circulation, list cannabis/resin/extracts/tinctures in controlled tables, authorize only controlled medical/scientific/expertise/horticultural/industrial channels, create a separate 0.3 percent THC industrial/horticultural hemp authorization scope that excludes medical/recreational/experimental use, and show Penal Code drug-offence amendments with fine/community-work treatment for Article 217 non-alienation conduct but prison penalties for supply/aggravated contexts. Project ILLEGAL/REGULATED/SOFT is supported with a general-controlled-medical-use and hemp caveat; no project status SSOT was changed."
         },
         {
-          "title": "Government of Moldova / Ministry of Health - 216-MS-2026 controlled substances tables and implementation package",
-          "url": "https://gov.md/sites/default/files/media/documents/sedinte-de-guvern/2026-03/216-MS-2026.pdf",
-          "sourceKind": "MOLDOVA_GOV_MD_MINISTRY_OF_HEALTH_2026_CONTROLLED_TABLES_CANABIS_RESIN_EXTRACTS_TINCTURES_AND_PENAL_CODE_IMPLEMENTATION_REFERENCES",
-          "evidenceScope": null,
-          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
-          "confidence": "high",
-          "note": "Moldova is closed as visually verified official cannabis-law evidence. Official Moldova sources visibly define cannabis, regulate controlled circulation, list cannabis/resin/extracts/tinctures in controlled tables, authorize only controlled medical/scientific/expertise/horticultural/industrial channels, create a separate 0.3 percent THC industrial/horticultural hemp authorization scope that excludes medical/recreational/experimental use, and show Penal Code drug-offence amendments with fine/community-work treatment for Article 217 non-alienation conduct but prison penalties for supply/aggravated contexts. Project ILLEGAL/REGULATED/SOFT is supported with a general-controlled-medical-use and hemp caveat; no project status SSOT was changed.",
-          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/MD/pages/controlled_tables_page_22-022.png",
-          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "Moldova is closed as visually verified official cannabis-law evidence. Official Moldova sources visibly define cannabis, regulate controlled circulation, list cannabis/resin/extracts/tinctures in controlled tables, authorize only controlled medical/scientific/expertise/horticultural/industrial channels, create a separate 0.3 percent THC industrial/horticultural hemp authorization scope that excludes medical/recreational/experimental use, and show Penal Code drug-offence amendments with fine/community-work treatment for Article 217 non-alienation conduct but prison penalties for supply/aggravated contexts. Project ILLEGAL/REGULATED/SOFT is supported with a general-controlled-medical-use and hemp caveat; no project status SSOT was changed."
-        },
-        {
           "title": "Government of Moldova / Ministry of Agriculture - NU-1001-MAIA-2025 industrial/horticultural hemp authorization regulation",
           "url": "https://gov.md/sites/default/files/media/documents/sedinte-de-guvern/2026-04/NU-1001-MAIA-2025.pdf",
           "sourceKind": "MOLDOVA_GOV_MD_INDUSTRIAL_HORTICULTURAL_HEMP_AUTHORIZATION_REGULATION_0_3_PERCENT_THC_SCOPE",
@@ -39570,10 +39689,87 @@
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/MD/pages/penal_amendments_pages_2_5-02.png",
           "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
           "visualReview": "Moldova is closed as visually verified official cannabis-law evidence. Official Moldova sources visibly define cannabis, regulate controlled circulation, list cannabis/resin/extracts/tinctures in controlled tables, authorize only controlled medical/scientific/expertise/horticultural/industrial channels, create a separate 0.3 percent THC industrial/horticultural hemp authorization scope that excludes medical/recreational/experimental use, and show Penal Code drug-offence amendments with fine/community-work treatment for Article 217 non-alienation conduct but prison penalties for supply/aggravated contexts. Project ILLEGAL/REGULATED/SOFT is supported with a general-controlled-medical-use and hemp caveat; no project status SSOT was changed."
+        },
+        {
+          "title": "Monitorul Oficial No. 104 - Law No. 22 of 26 February 2026 amending Article 80 of Law No. 201/2025",
+          "url": "https://monitorul.gov.md/ro/monitor/3236",
+          "sourceKind": "MOLDOVA_MONITORUL_OFICIAL_LAW_22_2026_CURRENTNESS_SCOPE",
+          "sourceOwnerGeo": "MD",
+          "appliesToGeos": [
+            "MD"
+          ],
+          "officialPublisher": "Monitorul Oficial / Parliament of the Republic of Moldova",
+          "sourceType": "official gazette law entry",
+          "primaryOrContext": "currentness_scope",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "screenshotValid": true,
+          "officialHostVerified": true,
+          "evidenceScope": null,
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
+          "confidence": "high",
+          "note": "Moldova is closed as visually verified official cannabis-law evidence. Official Moldova sources visibly define cannabis, regulate controlled circulation, list cannabis/resin/extracts/tinctures in controlled tables, authorize only controlled medical/scientific/expertise/horticultural/industrial channels, create a separate 0.3 percent THC industrial/horticultural hemp authorization scope that excludes medical/recreational/experimental use, and show Penal Code drug-offence amendments with fine/community-work treatment for Article 217 non-alienation conduct but prison penalties for supply/aggravated contexts. Project ILLEGAL/REGULATED/SOFT is supported with a general-controlled-medical-use and hemp caveat; no project status SSOT was changed.",
+          "screenshotPath": "data/reviews/wiki-truth-307-visual-evidence/MD-monitorul-law-22-article-80-entry-current-2026-08-11.png",
+          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
+          "visualReview": "Moldova is closed as visually verified official cannabis-law evidence. Official Moldova sources visibly define cannabis, regulate controlled circulation, list cannabis/resin/extracts/tinctures in controlled tables, authorize only controlled medical/scientific/expertise/horticultural/industrial channels, create a separate 0.3 percent THC industrial/horticultural hemp authorization scope that excludes medical/recreational/experimental use, and show Penal Code drug-offence amendments with fine/community-work treatment for Article 217 non-alienation conduct but prison penalties for supply/aggravated contexts. Project ILLEGAL/REGULATED/SOFT is supported with a general-controlled-medical-use and hemp caveat; no project status SSOT was changed."
         }
       ],
       "candidateLinksAwaitingVisualReview": [],
-      "officialContextLinks": [],
+      "officialContextLinks": [
+        {
+          "title": "Government of Moldova / Ministry of Health - 216-MS-2026 draft national controlled-substances tables",
+          "url": "https://gov.md/sites/default/files/media/documents/sedinte-de-guvern/2026-03/216-MS-2026.pdf",
+          "sourceKind": "MOLDOVA_GOV_MD_MINISTRY_OF_HEALTH_2026_DRAFT_CONTROLLED_TABLES_NOT_CURRENT_LAW",
+          "sourceOwnerGeo": "MD",
+          "appliesToGeos": [
+            "MD"
+          ],
+          "officialPublisher": "Government of the Republic of Moldova / Ministry of Health",
+          "sourceType": "official draft government decision",
+          "primaryOrContext": "context_only_future_draft_not_current_legal_proof",
+          "cannabisSpecific": true,
+          "effective": false,
+          "current": false,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "screenshotValid": false,
+          "officialHostVerified": true,
+          "evidenceScope": "RETAINED_REVIEWED_SOURCE_PROVENANCE_CONTEXT_ONLY",
+          "verification": "RETAINED_REVIEWED_SOURCE_PROVENANCE_CONTEXT",
+          "confidence": "low",
+          "note": "Moldova is closed as visually verified official cannabis-law evidence. Official Moldova sources visibly define cannabis, regulate controlled circulation, list cannabis/resin/extracts/tinctures in controlled tables, authorize only controlled medical/scientific/expertise/horticultural/industrial channels, create a separate 0.3 percent THC industrial/horticultural hemp authorization scope that excludes medical/recreational/experimental use, and show Penal Code drug-offence amendments with fine/community-work treatment for Article 217 non-alienation conduct but prison penalties for supply/aggravated contexts. Project ILLEGAL/REGULATED/SOFT is supported with a general-controlled-medical-use and hemp caveat; no project status SSOT was changed.",
+          "screenshotPath": null,
+          "visualReview": "RETAINED_CONTEXT_ONLY"
+        },
+        {
+          "title": "Republic of Moldova Government Decision HG1088/2004 - controlled-substances tables, Table I cannabis entries",
+          "url": "https://www.legis.md/cautare/downloadpdf/31478",
+          "sourceKind": "MOLDOVA_LEGIS_MD_HG1088_TABLE_I_CANNABIS_HISTORICAL_CONTINUITY_CURRENTNESS_UNCONFIRMED",
+          "sourceOwnerGeo": "MD",
+          "appliesToGeos": [
+            "MD"
+          ],
+          "officialPublisher": "Government of the Republic of Moldova / official legislation portal",
+          "sourceType": "primary controlled-substances schedule",
+          "primaryOrContext": "historical_continuity_not_current_truth_until_consolidated_amendment_chain_is_read",
+          "cannabisSpecific": true,
+          "effective": "UNCONFIRMED_AFTER_2023_AMENDMENT",
+          "current": "UNCONFIRMED_CONSOLIDATED_CURRENTNESS",
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "screenshotValid": false,
+          "officialHostVerified": true,
+          "evidenceScope": "RETAINED_REVIEWED_SOURCE_PROVENANCE_CONTEXT_ONLY",
+          "verification": "RETAINED_REVIEWED_SOURCE_PROVENANCE_CONTEXT",
+          "confidence": "low",
+          "note": "Moldova is closed as visually verified official cannabis-law evidence. Official Moldova sources visibly define cannabis, regulate controlled circulation, list cannabis/resin/extracts/tinctures in controlled tables, authorize only controlled medical/scientific/expertise/horticultural/industrial channels, create a separate 0.3 percent THC industrial/horticultural hemp authorization scope that excludes medical/recreational/experimental use, and show Penal Code drug-offence amendments with fine/community-work treatment for Article 217 non-alienation conduct but prison penalties for supply/aggravated contexts. Project ILLEGAL/REGULATED/SOFT is supported with a general-controlled-medical-use and hemp caveat; no project status SSOT was changed.",
+          "screenshotPath": null,
+          "visualReview": "RETAINED_CONTEXT_ONLY"
+        }
+      ],
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "MATCH_WITH_GENERAL_CONTROLLED_MEDICAL_AND_HEMP_CAVEAT",
@@ -39593,7 +39789,8 @@
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/MD/pages/hemp_reg_pages_1_5-01.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/MD/pages/hemp_reg_pages_1_5-02.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/MD/pages/penal_amendments_pages_2_5-02.png",
-        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/MD/pages/penal_amendments_pages_2_5-03.png"
+        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/MD/pages/penal_amendments_pages_2_5-03.png",
+        "data/reviews/wiki-truth-307-visual-evidence/MD-monitorul-law-22-article-80-entry-current-2026-08-11.png"
       ],
       "reviewConfidence": "high",
       "reviewNotes": "VISUALLY_VERIFIED: Moldova is closed as visually verified official cannabis-law evidence. Official Moldova sources visibly define cannabis, regulate controlled circulation, list cannabis/resin/extracts/tinctures in controlled tables, authorize only controlled medical/scientific/expertise/horticultural/industrial channels, create a separate 0.3 percent THC industrial/horticultural hemp authorization scope that excludes medical/recreational/experimental use, and show Penal Code drug-offence amendments with fine/community-work treatment for Article 217 non-alienation conduct but prison penalties for supply/aggravated contexts. Project ILLEGAL/REGULATED/SOFT is supported with a general-controlled-medical-use and hemp caveat; no project status SSOT was changed.",

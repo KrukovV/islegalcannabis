@@ -250,3 +250,11 @@ A closed route for new patients does not by itself end a working legal route for
 ## Local audit database commit retention
 
 Every green local audit commit stages the canonical `data/official/**` ledger and all tracked `data/reviews/**` JSON databases, including the 307-row matrix and reconciliation artifacts. Large ignored visual-capture archives are not mass-staged; their paths, validity and annotations remain reproducible through the committed ledger. A commit must not omit a tracked accumulated audit database merely because its directory is ignored for new bulk captures.
+
+## Auditable stop checkpoint and remaining-GEO contract
+
+At every user-requested stop or local-audit commit, the canonical ledger must record the independently structured packet count, normalized independent-color count, remaining count, and exact remaining canonical GEO IDs. The figures must be calculated from `data/official/cannabis_law_visual_reviews.audit.json` using the compatible color aliases in this specification; no hard-coded progress total, stale PDF subtotal, map color or SSOT value may replace it. The record is progress metadata only and never a legal input, Truth Color override, or apply authorization.
+
+2026-08-11 local stop checkpoint: 216/307 structured independent packets; 248/307 normalized independent Truth Colors; 59/307 remaining.
+
+Remaining canonical GEO IDs: YT, MD, MC, MS, MZ, MM, NA, NR, NC, NI, NE, NG, NU, NF, KP, PK, PS, PA, PG, PE, PH, RE, RU, SH, KN, LC, SM, SA, SN, SER, KAS, SL, SX, SB, SO, GS, SS, LK, SD, SR, SY, TJ, TZ, TH, TL, TG, TO, TT, TN, TM, TC, TV, UG, UA, US, VI, EH, YE, ZM.

@@ -145,4 +145,14 @@ Statuses: pending | in_progress | done
 
 # Truth-First independent 307-GEO re-audit (2026-08-09)
 
-- [in_progress] Execute the canonical 307-GEO Truth-First independent official-law re-audit proposal-only. The sole current strict checkpoint is maintained in `CONTINUITY.md`; no stale duplicate count is published here.
+- [in_progress] Execute the canonical 307-GEO Truth-First independent official-law re-audit proposal-only. 216/307 structured packets and 248/307 normalized independent colors are recorded at the 2026-08-11 stop checkpoint; 59 GEO remain without an independent color. The exact list is maintained below and must be recomputed from the canonical ledger before any new claim or apply decision.
+
+<!-- truth-first-progress:start -->
+
+Current stop checkpoint (2026-08-11): 216/307 structured independent packets; 248/307 GEO with a normalized independent Truth Color; 59/307 without an independent color.
+
+Remaining GEO IDs: YT, MD, MC, MS, MZ, MM, NA, NR, NC, NI, NE, NG, NU, NF, KP, PK, PS, PA, PG, PE, PH, RE, RU, SH, KN, LC, SM, SA, SN, SER, KAS, SL, SX, SB, SO, GS, SS, LK, SD, SR, SY, TJ, TZ, TH, TL, TG, TO, TT, TN, TM, TC, TV, UG, UA, US, VI, EH, YE, ZM.
+
+This list is derived from the canonical ledger aliases defined in the re-audit specification; it is a progress record, not a legal input and not an apply authorization.
+
+<!-- truth-first-progress:end -->
