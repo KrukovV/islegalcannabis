@@ -29,7 +29,7 @@ const next = continuity.replace(
     let nextState = String(stateValue);
     if (checkpoint) {
       nextState = /(?:^|;)\s*checkpoint=[^;\s]+/.test(nextState)
-        ? nextState.replace(/checkpoint=[^;\s]+/, checkpoint)
+        ? nextState.replace(/(^|;\s*)checkpoint=[^;\s]+/, (_match, prefix) => `${prefix}${checkpoint}`)
         : `${nextState}; ${checkpoint}`;
     }
     if (ciStatus) {

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import CountrySeoPage, { getCountrySeoTitle } from "@/app/_components/CountrySeoPage";
+import CountrySeoPage, { ensureCountryPageHash, getCountrySeoTitle } from "@/app/_components/CountrySeoPage";
 import { getCountryPageData, listCountryPageCodes } from "@/lib/countryPageStorage";
 import { buildSeoLanguageAlternates } from "@/lib/seo/i18n";
 
@@ -51,5 +51,6 @@ export default async function CountryCodePage({
   const query = typeof resolvedSearchParams?.q === "string" ? resolvedSearchParams.q : null;
   const data = getCountryPageData(code);
   if (!data) notFound();
+  ensureCountryPageHash(data);
   return <CountrySeoPage data={data} locale="en" query={query} />;
 }

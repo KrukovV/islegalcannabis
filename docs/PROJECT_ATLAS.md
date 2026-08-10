@@ -64,7 +64,7 @@ Status Engine Audit v3 is present as a review-only evaluator. The current rerun 
 - Official truth: raw registry and geo ownership are different universes.
 - SSOT diffs: snapshots stay at `row_count=300`; confirmed diffs append only; pending changes need two consecutive refresh cycles.
 - Network truth: DNS diagnostic only; online state comes from HTTP/API/CONNECT/FALLBACK probes.
-- UI singleton: do not start another Next.js dev server if one is already running or may be locked.
+- UI singleton: do not start another Next.js dev server if one is already running or may be locked. The shared guard removes only a verified empty stale lock file after HTTP, listener and process checks; all ambiguous locks remain fail-closed.
 - Storage hygiene: `QUARANTINE` exactly one PASS snapshot; archives outside repo.
 
 ## Status Engine Audit v3

@@ -3,6 +3,10 @@ set -Eeuo pipefail
 
 DIAG_FAST=0
 OUTPUT_FD=1
+if [ "${PASS_CYCLE_ACTIVE:-0}" = "1" ]; then
+  printf "PASS_CYCLE_REENTRY_BLOCKED=1\n"
+  exit 75
+fi
 for arg in "$@"; do
   if [ "${arg}" = "--diag" ]; then
     DIAG_FAST=1
@@ -59,6 +63,7 @@ if ! mkdir "${PASS_CYCLE_LOCK_DIR}" 2>/dev/null; then
 fi
 printf "%s\n" "$$" > "${PASS_CYCLE_LOCK_OWNER_FILE}"
 PASS_CYCLE_LOCK_HELD=1
+export PASS_CYCLE_ACTIVE=1
 trap 'release_pass_cycle_lock' EXIT
 
 NODE_BIN="${NODE_BIN:-}"
@@ -203,6 +208,11 @@ STEP_LOG="${CHECKPOINT_DIR}/ci-steps.log"
 META_FILE="${CHECKPOINT_DIR}/pass_cycle.meta.json"
 PRE_LOG="${CHECKPOINT_DIR}/pass_cycle.pre.log"
 CI_WRITE_ROOT="${CI_WRITE_ROOT:-0}"
+: > "${SUMMARY_FILE}"
+: > "${CI_LOG}"
+: > "${STDOUT_FILE}"
+: > "${STEP_LOG}"
+: > "${PRE_LOG}"
 PREV_WIKI_SYNC_ALL_LINE=""
 if [ -f "${REPORTS_FINAL}" ]; then
   PREV_WIKI_SYNC_ALL_LINE=$(grep -E "^WIKI_SYNC_ALL " "${REPORTS_FINAL}" | tail -n 1 || true)
@@ -239,10 +249,18 @@ emit_final_output() {
       print;
       next;
     }
-    /^(CI_STATUS=|FAIL_REASON=|PROD_LIVE_|PROD_PAYLOAD_|PROD_JS_CITY_|PROD_FIRST_CLICK_|PROD_GPS_|POST_CHECKS_OK=|HUB_STAGE_REPORT_OK=|PASS_CYCLE_EXIT )/ {
+    /^(CI_STATUS=|FAIL_REASON=|SMOKE_STATUS=|PROCESS_SLOT_RUNTIME_GUARD=|PROD_LIVE_|PROD_PAYLOAD_|PROD_JS_CITY_|PROD_FIRST_CLICK_|PROD_GPS_|POST_CHECKS_OK=|HUB_STAGE_REPORT_OK=|PASS_CYCLE_EXIT )/ {
       print;
     }
   ' "${file}" >&${OUTPUT_FD}
+}
+
+emit_canonical_final_output() {
+  local file="${RUN_REPORT_FILE:-}"
+  if [ -z "${file}" ] || [ ! -f "${file}" ]; then
+    file="${STDOUT_FILE:-}"
+  fi
+  emit_final_output "${file}"
 }
 
 dedupe_ssot_keys_in_file() {
@@ -673,13 +691,6 @@ fail_with_reason() {
     ssot_badge=$(grep -E '^SSOT_PROOF_SMOKE_PRESENT=' "${REPORTS_FINAL}" | tail -n 1 | cut -d= -f2- || echo "-")
   fi
   printf "INFOGRAPH_STATUS=FAIL checked=%s/%s smoke_present=%s online=%s\n" "${VERIFY_SAMPLED:-0}" "${VERIFY_FAIL:-0}" "${smoke_present}" "${online_truth}" >> "${STDOUT_FILE}"
-  if [ -n "${FAIL_EXTRA_LINES:-}" ]; then
-    printf "%s\n" "${FAIL_EXTRA_LINES}" >> "${REPORTS_FINAL}" 2>/dev/null || true
-    printf "%s\n" "${FAIL_EXTRA_LINES}" >> "${RUN_REPORT_FILE}" 2>/dev/null || true
-    if [ "${CI_WRITE_ROOT}" = "1" ]; then
-      printf "%s\n" "${FAIL_EXTRA_LINES}" >> "${ROOT}/ci-final.txt" 2>/dev/null || true
-    fi
-  fi
   if [ "${stage_done}" -le 0 ] || [ "${stage_last}" = "-" ]; then
     reason_clean="INFOGRAPH_NO_SSOT_STAGE"
     stop_reason="${reason_clean}"
@@ -767,17 +778,21 @@ fail_with_reason() {
     ${NODE_BIN} tools/guards/final_response_only.mjs --file "${STDOUT_FILE}" || status=1
   fi
   set -e
+  quarantine_fail_artifacts "${reason_clean}"
+  run_mandatory_tail || true
   if [ -n "${FAIL_EXTRA_LINES:-}" ]; then
+    # Mandatory tails may replace operational report files. Append the child
+    # capture only after they complete, so the final failure artifact retains
+    # the real nonzero contract and cannot be reduced to a bare rc.
+    printf "%s\n" "${FAIL_EXTRA_LINES}" >> "${STDOUT_FILE}" 2>/dev/null || true
     printf "%s\n" "${FAIL_EXTRA_LINES}" >> "${RUN_REPORT_FILE}" 2>/dev/null || true
     printf "%s\n" "${FAIL_EXTRA_LINES}" >> "${REPORTS_FINAL}" 2>/dev/null || true
     if [ "${CI_WRITE_ROOT}" = "1" ]; then
       printf "%s\n" "${FAIL_EXTRA_LINES}" >> "${ROOT}/ci-final.txt" 2>/dev/null || true
     fi
   fi
-  quarantine_fail_artifacts "${reason_clean}"
-  run_mandatory_tail || true
   ${NODE_BIN} tools/update_continuity_status.mjs || true
-  emit_final_output "${STDOUT_FILE}"
+  emit_canonical_final_output
   exit "${status:-1}"
 }
 
@@ -1120,7 +1135,7 @@ run_wiki_db_gate_step() {
 
 run_ci_local_step() {
   local step_id="ci_local"
-  local limit="600"
+  local limit="${CI_LOCAL_TIMEOUT_SECONDS:-900}"
   local cmd="${CI_LOCAL_ENV} bash tools/ci-local.sh >\"${CI_LOG}\" 2>&1"
   local cmd_escaped
   local start
@@ -1129,6 +1144,10 @@ run_ci_local_step() {
   local rc
   local reason="RC_1"
   local err_trap
+  if ! [[ "${limit}" =~ ^[1-9][0-9]*$ ]]; then
+    echo "CI_LOCAL_TIMEOUT_SECONDS_INVALID value=${limit}; using=900" | tee -a "${STEP_LOG}"
+    limit="900"
+  fi
   cmd_escaped=$(escape_cmd "${cmd}")
   CURRENT_STEP="${step_id}"
   CURRENT_CMD="${cmd}"
@@ -3409,8 +3428,17 @@ WIKI_TRUTH_LIVE_CHROMIUM_OUTPUT=""
 CURRENT_STEP="wiki_truth_live_probe_chromium"
 CURRENT_CMD="NODE_PATH=${ROOT}/tools/playwright-smoke/node_modules BROWSER=chromium ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
 capture_timeout_output 180 "cd \"${ROOT}\" && NODE_PATH=\"${ROOT}/tools/playwright-smoke/node_modules\" BROWSER=chromium HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
-WIKI_TRUTH_LIVE_CHROMIUM_OUTPUT="${CAPTURE_TIMEOUT_OUTPUT}"
+WIKI_TRUTH_LIVE_CHROMIUM_OUTPUT="WIKI_TRUTH_LIVE_CHROMIUM_ATTEMPT=1 rc=${CAPTURE_TIMEOUT_RC}
+${CAPTURE_TIMEOUT_OUTPUT}"
 WIKI_TRUTH_LIVE_CHROMIUM_RC="${CAPTURE_TIMEOUT_RC}"
+if [ "${WIKI_TRUTH_LIVE_CHROMIUM_RC}" -ne 0 ]; then
+  sleep 5
+  capture_timeout_output 180 "cd \"${ROOT}\" && NODE_PATH=\"${ROOT}/tools/playwright-smoke/node_modules\" BROWSER=chromium HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
+  WIKI_TRUTH_LIVE_CHROMIUM_OUTPUT="${WIKI_TRUTH_LIVE_CHROMIUM_OUTPUT}
+WIKI_TRUTH_LIVE_CHROMIUM_ATTEMPT=2 rc=${CAPTURE_TIMEOUT_RC}
+${CAPTURE_TIMEOUT_OUTPUT}"
+  WIKI_TRUTH_LIVE_CHROMIUM_RC="${CAPTURE_TIMEOUT_RC}"
+fi
 printf "%s\n" "${WIKI_TRUTH_LIVE_CHROMIUM_OUTPUT}" >> "${REPORTS_FINAL}"
 printf "%s\n" "${WIKI_TRUTH_LIVE_CHROMIUM_OUTPUT}" >> "${RUN_REPORT_FILE}"
 if [ "${CI_WRITE_ROOT}" = "1" ]; then
@@ -3428,7 +3456,8 @@ WIKI_TRUTH_LIVE_WEBKIT_OUTPUT=""
 CURRENT_STEP="wiki_truth_live_probe_webkit"
 CURRENT_CMD="NODE_PATH=${ROOT}/tools/playwright-smoke/node_modules BROWSER=webkit ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
 capture_timeout_output 180 "cd \"${ROOT}\" && NODE_PATH=\"${ROOT}/tools/playwright-smoke/node_modules\" BROWSER=webkit HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
-WIKI_TRUTH_LIVE_WEBKIT_OUTPUT="${CAPTURE_TIMEOUT_OUTPUT}"
+WIKI_TRUTH_LIVE_WEBKIT_OUTPUT="WIKI_TRUTH_LIVE_WEBKIT_ATTEMPT=1 rc=${CAPTURE_TIMEOUT_RC}
+${CAPTURE_TIMEOUT_OUTPUT}"
 WIKI_TRUTH_LIVE_WEBKIT_RC="${CAPTURE_TIMEOUT_RC}"
 printf "%s\n" "${WIKI_TRUTH_LIVE_WEBKIT_OUTPUT}" >> "${REPORTS_FINAL}"
 printf "%s\n" "${WIKI_TRUTH_LIVE_WEBKIT_OUTPUT}" >> "${RUN_REPORT_FILE}"
@@ -3796,7 +3825,6 @@ if [ "${FINAL_SUMMARY_STATUS}" -ne 0 ]; then
   FAIL_RC="${FINAL_SUMMARY_STATUS}"
   fail_with_reason "FINAL_SUMMARY_GUARD_FAIL"
 fi
-emit_final_output "${STDOUT_FILE}"
 ${NODE_BIN} tools/update_continuity_status.mjs || true
 if [ -f "${NOTES_LINKS_SMOKE_FILE:-}" ]; then
   notes_links_line=$(grep -E "^NOTES_LINKS_SMOKE_OK=" "${NOTES_LINKS_SMOKE_FILE}" | tail -n 1 || true)
@@ -3828,9 +3856,26 @@ printf "%s\n" "${PASS_CYCLE_EXIT_LINE}" >> "${REPORTS_FINAL}"
 if [ "${CI_WRITE_ROOT}" = "1" ]; then
   printf "%s\n" "${PASS_CYCLE_EXIT_LINE}" >> "${ROOT}/ci-final.txt"
 fi
+
+# The per-run report is the only canonical final output. Earlier stages append
+# operational logs to the root mirrors, so replace those mirrors only after the
+# final status and exit line have been written. This prevents a stale header
+# from being combined with a newer successful tail.
+FINAL_REPORT_TMP="${REPORTS_FINAL}.tmp.${RUN_ID:-$$}"
+cp "${RUN_REPORT_FILE}" "${FINAL_REPORT_TMP}"
+mv "${FINAL_REPORT_TMP}" "${REPORTS_FINAL}"
+if [ "${CI_WRITE_ROOT}" = "1" ]; then
+  ROOT_FINAL_REPORT="${ROOT}/ci-final.txt"
+  ROOT_FINAL_REPORT_TMP="${ROOT_FINAL_REPORT}.tmp.${RUN_ID:-$$}"
+  cp "${RUN_REPORT_FILE}" "${ROOT_FINAL_REPORT_TMP}"
+  mv "${ROOT_FINAL_REPORT_TMP}" "${ROOT_FINAL_REPORT}"
+fi
+
 if [ "${CI_STATUS}" != "PASS" ] && [ "${CI_STATUS}" != "PASS_DEGRADED" ]; then
   ${NODE_BIN} tools/update_continuity_status.mjs || true
+  emit_canonical_final_output
   exit 1
 fi
 ${NODE_BIN} tools/update_continuity_status.mjs || true
+emit_canonical_final_output
 exit "${CI_RC}"

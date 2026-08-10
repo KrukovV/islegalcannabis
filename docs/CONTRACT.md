@@ -74,6 +74,10 @@ Standard app API responses built with `apps/web/src/lib/api/response.ts` include
 - Popup/wiki screenshot parity is not enough when canonical resolver, normalized legal model, map color, or SEO rendering changes.
 - The active release gate for those changes is the full `307` GEO unified geo-sync audit documented in `docs/GEO_SYNC_AUDIT.md`.
 - Canonical GEO identity must be stronger than display name and include at least geo code, entity type, parent, and jurisdiction kind.
+- Audit progress selection, evidence ownership, and legal derivation use an exact canonical GEO ID from `data/reviews/geo-list-307.json`; display names and continuity prose are never identifiers. A noncanonical alias must fail closed rather than be normalised, so a sovereign code such as `AZ` cannot merge with a subnational code such as `US-AZ`.
+- Where a legal-evidence record declares `applies_to_geo`, every target must be a canonical GEO and must include the exact GEO of the ledger row. Matrix generation fails closed on a source that is explicit for `US-AZ` but is recorded as evidence for `AZ`, or on any noncanonical alias.
+- Owner identity is an independent fail-closed check. A non-context source whose `source_owner_geo` and target have the same terminal segment but different canonical GEOs is rejected; therefore `US-AZ -> AZ` and `AZ -> US-AZ` can never be repaired by a display name, URL, or prose applicability note.
+- A territorial legal source may apply to more than one GEO only when `legal_basis_for_extension` is a non-empty exact-GEO map with a distinct legal basis for every target. A prose-only shared source is context-only until that applicability is recorded; matching names, abbreviations, language, or a shared prefix never creates legal applicability.
 - Map color bucket, popup badge bucket, SEO badge bucket, and normalized legality/color model must agree for the same GEO unless an explicit `status_color_conflict` + `needs_review` record is emitted.
 - Agreement above must be proven both by model fields and by rendered screenshots; string-only or JSON-only confirmation is not enough.
 - Screenshot comparison is required in two planes:
@@ -187,3 +191,7 @@ Example (ok response):
   }
 }
 ```
+
+## Annotated Official Evidence Contract
+
+Every 307-GEO legal conclusion is proposal-only until apply authorization and must preserve annotated direct official evidence in the audit ledger: URL, owner and territorial applicability, authority/source type, exact legal fragment, effective/currentness assessment, visual-review state and capture path. Unannotated links are leads, not evidence.

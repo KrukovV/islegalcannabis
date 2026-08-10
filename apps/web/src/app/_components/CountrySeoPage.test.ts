@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import CountrySeoPage, { getSafeSeoCountryData, sanitizeEvidenceQuoteText } from "./CountrySeoPage";
 import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntry";
-import { computeCountryHashes, getCountryPageData, listCountryPageCodes, stripCountryPageHashes } from "@/lib/countryPageStorage";
+import { getCountryPageData, listCountryPageCodes } from "@/lib/countryPageStorage";
 import { collectPopupComparableText } from "@/lib/popupComparableText";
 
 function decodeHtmlEntities(value: string) {
@@ -104,11 +104,7 @@ describe("CountrySeoPage quote sanitizer", () => {
       if (!data) continue;
       const popupItems = collectPopupComparableText(deriveCountryCardEntryFromCountryPageData(data));
       if (popupItems.length === 0) continue;
-      const safeData = {
-        ...data,
-        hashes: computeCountryHashes(stripCountryPageHashes(data))
-      };
-      const html = normalizeHtmlText(renderToStaticMarkup(CountrySeoPage({ data: safeData, locale: "en", query: null })));
+      const html = normalizeHtmlText(renderToStaticMarkup(CountrySeoPage({ data, locale: "en", query: null })));
       const missing = popupItems.filter((item) => !html.includes(item));
       if (missing.length > 0) failures.push(`${code}:${missing[0]}`);
     }

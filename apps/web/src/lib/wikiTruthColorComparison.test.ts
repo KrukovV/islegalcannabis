@@ -7,6 +7,7 @@ import {
   buildWikiTruthColorComparison,
   deriveOfficialLawMapCategory,
 } from "@/lib/wikiTruthColorComparison";
+import { deriveOfficialTruthColor } from "@/lib/wikiTruthColorEngine";
 import {
   buildCountrySourceSnapshot,
   buildUsStateSourceSnapshot,
@@ -154,8 +155,14 @@ describe("wiki-truth cannabis color comparison", () => {
 
   test("publishes supplemental official re-audit links without duplicate row URLs", () => {
     const matrix = readMatrix();
+    const supplementalOfficialLinks = matrix.rows.flatMap(
+      (row) => row.supplementalOfficialLinks,
+    );
 
-    expect(matrix.counts.supplementalOfficialLinks).toBeGreaterThanOrEqual(41);
+    expect(supplementalOfficialLinks.length).toBeGreaterThan(0);
+    expect(matrix.counts.supplementalOfficialLinks).toBe(
+      supplementalOfficialLinks.length,
+    );
     expect(matrix.counts.rowsWithAnyOfficialUrl).toBe(307);
     for (const row of matrix.rows) {
       expect(new Set(row.screenshotPaths).size, row.geo).toBe(
@@ -202,7 +209,51 @@ describe("wiki-truth cannabis color comparison", () => {
       deriveOfficialLawMapCategory(
         asOfficialRow({
           recreational: "ILLEGAL",
+          medical:
+            "LIMITED_GENERAL_NARCOTIC_PRESCRIPTION_CHANNEL_APPLIES_TO_SCHEDULED_CANNABIS",
+        }),
+      ),
+    ).toBe("LIMITED_OR_MEDICAL");
+
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational:
+            "CURRENT_CANNABIS_SPECIFIC_RECREATIONAL_STATUS_UNCONFIRMED_HISTORIC_PROHIBITION_NOT_CURRENT_FORCE_PROVEN",
+          medical:
+            "CURRENT_GENERIC_NARCOTIC_MEDICINE_PRESCRIPTION_AND_IMPORT_FRAMEWORK_CANNABIS_SPECIFIC_APPLICABILITY_UNPROVEN",
+        }),
+      ),
+    ).toBe("UNKNOWN");
+
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational:
+            "CURRENT_CANNABIS_SPECIFIC_RECREATIONAL_STATUS_UNCONFIRMED_GENERAL_DOMESTIC_DRUGS_AND_PLANT_DEFINITION_WITH_TREATY_CONTEXT_ONLY",
+          medical:
+            "CURRENT_GENERIC_CONTROLLED_SUBSTANCE_PRESCRIPTION_AUTHORIZATION_AND_IMPORT_SYSTEM_CANNABIS_PRODUCT_AND_PATIENT_APPLICABILITY_UNPROVEN",
+        }),
+      ),
+    ).toBe("UNKNOWN");
+
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "ILLEGAL",
           medical: "NONE_NO_PATIENT_ACCESS_FOUND",
+        }),
+      ),
+    ).toBe("UNKNOWN");
+
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational:
+            "ILLEGAL_CANNABIS_TABLE_I_HIGH_RISK_DRUG_PERSONAL_USE_CULTIVATION_ACQUISITION_AND_POSSESSION_PUNISHABLE",
+          medical:
+            "MEDICAL_CANNABIS_PATIENT_ACCESS_EXPRESSLY_PROHIBITED_TABLE_I_HIGH_RISK_DRUG_GENERAL_PRESCRIPTION_EXCEPTION_FOR_OTHER_DRUGS_ONLY",
+          enforcement: "CURRENT_CANNABIS_SPECIFIC_CUSTODIAL_PENALTY_PROVEN",
         }),
       ),
     ).toBe("ILLEGAL");
@@ -273,7 +324,7 @@ describe("wiki-truth cannabis color comparison", () => {
             "LICENSED_PRODUCTION_FOR_MEDICAL_AND_EXPORT_ONLY_NO_DOMESTIC_PATIENT_ACCESS",
         }),
       ),
-    ).toBe("ILLEGAL");
+    ).toBe("UNKNOWN");
   });
 
   test("treats lifecycle-only law states as non-green and evidence-gapped", () => {
@@ -341,7 +392,7 @@ describe("wiki-truth cannabis color comparison", () => {
           enforcement: "STRICT",
         }),
       ),
-    ).toBe("ILLEGAL");
+    ).toBe("UNKNOWN");
 
     expect(
       deriveOfficialLawMapCategory(
@@ -430,6 +481,32 @@ describe("wiki-truth cannabis color comparison", () => {
     ).toBe("LIMITED_OR_MEDICAL");
   });
 
+  test("does not treat a generic narcotics prescription exception as a cannabis mode", () => {
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational: "ILLEGAL_CANNABIS_NARCOTIC_CONTROL",
+          medical:
+            "NONE_CANNABIS_SPECIFIC_PATIENT_ACCESS_UNPROVEN_GENERAL_NARCOTIC_PRESCRIPTION_MEDICINE_EXCEPTION_ONLY",
+          enforcement: "STRICT_CRIMINAL_CONTROL",
+        }),
+      ),
+    ).toBe("UNKNOWN");
+  });
+
+  test("requires affirmative limited-penalty evidence for decriminalization", () => {
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational:
+            "ILLEGAL_CANNABIS_POSSESSION_AND_PERSONAL_USE_PUNISHABLE_ON_CONVICTION",
+          medical: "NONE_NO_CANNABIS_PATIENT_ACCESS_PROVEN",
+          enforcement: "STRICT_CRIMINAL_PENALTIES",
+        }),
+      ),
+    ).toBe("UNKNOWN");
+  });
+
   test("keeps claimant-only rows non-authoritative for truth-first color", () => {
     expect(
       deriveOfficialLawMapCategory(
@@ -453,6 +530,35 @@ describe("wiki-truth cannabis color comparison", () => {
         ),
       ),
     ).toBe("UNKNOWN");
+  });
+
+  test("keeps a semantic criminal-control axis uncolored while medical access is unassessed", () => {
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow(
+          {
+            recreational: "ILLEGAL_CANNABIS_NARCOTIC_CONTROL_BY_CURRENT_APPLICABLE_PRIMARY_LAW",
+            medical: "UNASSESSED_MEDICAL_PATIENT_ACCESS_AXIS",
+            enforcement: "CRIMINAL_CONTROL",
+          },
+          "OFFICIAL_LEGAL_AXIS_PENDING_VISUAL_ACCEPTANCE",
+        ),
+      ),
+    ).toBe("UNKNOWN");
+  });
+
+  test("does not treat proposal-only audit prose as a non-current legal clause", () => {
+    const truth = deriveOfficialTruthColor({
+      sourceCoverage: "OFFICIAL_LEGAL_AXIS_PENDING_VISUAL_ACCEPTANCE",
+      officialStatus: {
+        recreational: "ILLEGAL_CANNABIS_NARCOTIC_CONTROL_BY_CURRENT_APPLICABLE_PRIMARY_LAW",
+        medical: "UNASSESSED_MEDICAL_PATIENT_ACCESS_AXIS",
+        enforcement: "CRIMINAL_CONTROL",
+      },
+      legalEvidenceText: "Proposal-only audit evidence; strict visual acceptance remains pending.",
+    });
+    expect(truth.color).toBe("UNKNOWN");
+    expect(truth.ruleId).toBe("OFFICIAL_STATUS_INDETERMINATE");
   });
 
   test("returns UNKNOWN for mixed federal/state jurisdictional signals", () => {

@@ -2,7 +2,7 @@ import Script from "next/script";
 import Link from "next/link";
 import NewMapClientEntry from "@/app/new-map/NewMapClientEntry";
 import { getNewMapRuntimeIdentity } from "@/app/new-map/runtimeConfig";
-import { buildSeoCountryIndex, computeCountryHashes, stripCountryPageHashes, type CountryPageData } from "@/lib/countryPageStorage";
+import { buildSeoCountryIndex, type CountryPageData } from "@/lib/countryPageStorage";
 import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntry";
 import { getCannabisProfileCardSections } from "@/lib/cannabisProfile";
 import { formatVisibleRuntimeStamp } from "@/lib/runtimeIdentity";
@@ -22,6 +22,7 @@ export function getCountrySeoTitle(data: CountryPageData, locale: SeoLocale) {
 }
 
 export function ensureCountryPageHash(data: CountryPageData) {
+  const { computeCountryHashes, stripCountryPageHashes } = require("@/lib/countryPageStorage") as typeof import("@/lib/countryPageStorage");
   const expected = computeCountryHashes(stripCountryPageHashes(data));
   if (expected.model_hash === data.hashes.model_hash) return;
   const message = `COUNTRY_PAGE_HASH_MISMATCH:${data.code}`;
@@ -49,7 +50,6 @@ export default function CountrySeoPage({
   locale: SeoLocale;
   query: string | null;
 }) {
-  ensureCountryPageHash(data);
   const seo = getSeoText(locale);
   const runtimeIdentity = getNewMapRuntimeIdentity();
   const visibleStamp = formatVisibleRuntimeStamp(runtimeIdentity);

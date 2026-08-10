@@ -30,10 +30,10 @@ Statuses: pending | in_progress | done
 - [x] Reject generic prohibition vocabulary as a decriminalization signal.
 - [x] Preserve independently current legal clauses when lifecycle context is present on the same axis.
 - [x] Separate legal derivation from strict visual acceptance and live-map evidence.
-- [x] Make pass-cycle stale-lock cleanup fail closed without recursive directory deletion.
+- [x] Make pass-cycle stale-lock cleanup release only a verified empty marker and fail closed without recursive directory deletion.
 - [ ] Complete the independent 307-GEO audit gate before any apply authorization.
 
-- [done] Manually open and visually inspect official cannabis-law evidence for all 307 rows; current checkpoint 307/307, and a saved screenshot is mandatory before any link is accepted as law evidence
+- [in_progress] Independently re-open and visually inspect official cannabis-law evidence for all 307 GEO. The strict verified checkpoint is recorded only in `CONTINUITY.md` to prevent stale duplicate totals; every decisive link has a saved screenshot, and context-only links retain an explicit capture blocker and cannot derive a color.
 - [done] Re-audit every former 62 automated direct-label row by eye; all 62 are manually complete, candidate rows awaiting visual review are 0, and term matches/path guesses were never accepted as evidence
 - [done] Update the prebuilt cannabis-law matrix and `/wiki-truth` UI so verified evidence, pending candidates, context-only links, screenshots, status divergence, and scope reasons stay visibly separate without editing status SSOT
 - [done] Prove final 307/307 manual-review completeness in live UI and `pass_cycle`, including screenshot artifact coverage and no fabricated direct territorial pages
@@ -142,3 +142,7 @@ Statuses: pending | in_progress | done
 - [done] Read current colors from the exact 307-row country/state render snapshots; preserve UNKNOWN only for BJN, BRT, SCR, SER, KAS, SPI and PGA and restore the visible page-freshness/update control.
 - [done] Expose 41 deduplicated supplemental official re-audit links, repair no-project and ownership counters, table column parity and duplicate screenshot keys without shrinkage.
 - [done] Prove the corrected 307-row UI and real refresh in isolated Chromium/WebKit and complete `bash tools/pass_cycle.sh` with mandatory green markers; exact render-snapshot, false-grey, table/link, freshness and document-navigation checks pass in both engines.
+
+# Truth-First independent 307-GEO re-audit (2026-08-09)
+
+- [in_progress] Execute the canonical 307-GEO Truth-First independent official-law re-audit proposal-only. The sole current strict checkpoint is maintained in `CONTINUITY.md`; no stale duplicate count is published here.

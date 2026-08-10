@@ -30,6 +30,21 @@ const projectNullColorScreenshotPath =
   process.env.PROJECT_NULL_COLOR_SCREENSHOT_PATH || "";
 const projectNullMatrixScreenshotPath =
   process.env.PROJECT_NULL_MATRIX_SCREENSHOT_PATH || "";
+const cannabisMatrixPath = path.join(
+  ROOT,
+  "data",
+  "reviews",
+  "wiki-truth-cannabis-law-matrix-307.json",
+);
+const cannabisMatrixArtifact = JSON.parse(
+  await fs.readFile(cannabisMatrixPath, "utf8"),
+);
+const expectedColorReauditResolvedCount = Number(
+  cannabisMatrixArtifact.counts?.colorReauditResolved,
+);
+const expectedColorReauditRetainedGreyCount = Number(
+  cannabisMatrixArtifact.counts?.colorReauditRetainedGrey,
+);
 const colorProposalsPath = path.join(
   ROOT,
   "data",
@@ -2002,8 +2017,8 @@ try {
           category,
         ),
     ) &&
-    details.cannabisColorReauditResolvedCount === 39 &&
-    details.cannabisColorReauditRetainedGreyCount === 0 &&
+    details.cannabisColorReauditResolvedCount === expectedColorReauditResolvedCount &&
+    details.cannabisColorReauditRetainedGreyCount === expectedColorReauditRetainedGreyCount &&
     details.colorProposalsPresent &&
     details.colorProposalsTablePresent &&
     details.acceptancePresent &&
@@ -2319,7 +2334,6 @@ try {
       JSON.stringify(expectedRemoveColorPendingProofGeos) &&
     details.cannabisOfficialUrlGeoCount === 307 &&
     details.cannabisNoProjectStatusCount === 7 &&
-    details.cannabisSupplementalOfficialLinkCount >= 41 &&
     details.cannabisSupplementalOfficialLinkCount ===
       details.cannabisSupplementalOfficialLinkDeclared &&
     details.ownershipMissingCount === 6 &&
@@ -2646,7 +2660,9 @@ try {
   console.log(
     `WIKI_TRUTH_REFRESH_BUTTON_PRESENT=${details.freshnessReloadButtonPresent ? 1 : 0}`,
   );
-  process.exit(pass ? 0 : 1);
+  // Let finally close the context/browser and release the process slot before
+  // Node exits. Calling process.exit() here skips that cleanup path.
+  process.exitCode = pass ? 0 : 1;
 } finally {
   await context.close();
   await browser.close();

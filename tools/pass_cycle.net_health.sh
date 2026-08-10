@@ -732,19 +732,12 @@ if [ -f "${CI_LOG}" ]; then
     CI_LOCAL_RC="${CI_LOCAL_RESULT_RC}"
     CI_LOCAL_STEP_LINE="STEP_END name=ci_local rc=${CI_LOCAL_RC}"
   fi
-  CI_LOCAL_SKIP_LINE=$(grep -E "^CI_LOCAL_SKIP " "${CI_LOG}" | tail -n 1 || true)
-  CI_LOCAL_REASON_LINE=$(grep -E "^CI_LOCAL_REASON=" "${CI_LOG}" | tail -n 1 || true)
-  CI_LOCAL_SUBSTEP_LINE=$(grep -E "^CI_LOCAL_SUBSTEP=" "${CI_LOG}" | tail -n 1 || true)
-  CI_LOCAL_GUARDS_COUNTS_LINE=$(grep -E "^CI_LOCAL_GUARDS_COUNTS=" "${CI_LOG}" | tail -n 1 || true)
-  CI_LOCAL_GUARDS_TOP10_LINE=$(grep -E "^CI_LOCAL_GUARDS_TOP10=" "${CI_LOG}" | tail -n 1 || true)
-  CI_LOCAL_SCOPE_OK_LINE=$(grep -E "^CI_LOCAL_SCOPE_OK=" "${CI_LOG}" | tail -n 1 || true)
-  if [ -z "${CI_LOCAL_REASON_LINE}" ]; then
-    CI_LOCAL_REASON_LINE=$(grep -E "^CI_LOCAL_REASON=" "Reports/ci_local_fail.txt" 2>/dev/null | tail -n 1 || true)
-    CI_LOCAL_SUBSTEP_LINE=$(grep -E "^CI_LOCAL_SUBSTEP=" "Reports/ci_local_fail.txt" 2>/dev/null | tail -n 1 || true)
-    CI_LOCAL_GUARDS_COUNTS_LINE=$(grep -E "^CI_LOCAL_GUARDS_COUNTS=" "Reports/ci_local_fail.txt" 2>/dev/null | tail -n 1 || true)
-    CI_LOCAL_GUARDS_TOP10_LINE=$(grep -E "^CI_LOCAL_GUARDS_TOP10=" "Reports/ci_local_fail.txt" 2>/dev/null | tail -n 1 || true)
-    CI_LOCAL_SCOPE_OK_LINE=$(grep -E "^CI_LOCAL_SCOPE_OK=" "Reports/ci_local_fail.txt" 2>/dev/null | tail -n 1 || true)
-  fi
+  CI_LOCAL_SKIP_LINE=$(grep -E "^CI_LOCAL_SKIP " "${CI_LOG}" | head -n 1 || true)
+  CI_LOCAL_REASON_LINE=$(grep -E "^CI_LOCAL_REASON=" "${CI_LOG}" | head -n 1 || true)
+  CI_LOCAL_SUBSTEP_LINE=$(grep -E "^CI_LOCAL_SUBSTEP=" "${CI_LOG}" | head -n 1 || true)
+  CI_LOCAL_GUARDS_COUNTS_LINE=$(grep -E "^CI_LOCAL_GUARDS_COUNTS=" "${CI_LOG}" | head -n 1 || true)
+  CI_LOCAL_GUARDS_TOP10_LINE=$(grep -E "^CI_LOCAL_GUARDS_TOP10=" "${CI_LOG}" | head -n 1 || true)
+  CI_LOCAL_SCOPE_OK_LINE=$(grep -E "^CI_LOCAL_SCOPE_OK=" "${CI_LOG}" | head -n 1 || true)
 fi
 if [ -n "${CI_LOCAL_REASON_LINE}" ] && echo "${CI_LOCAL_REASON_LINE}" | grep -q "GUARDS_FAIL"; then
   CI_LOCAL_SOFT_FAIL=1
@@ -766,12 +759,16 @@ if [ "${CI_LOCAL_RC}" -ne 0 ]; then
     tail -n 50 "${CI_LOG}" || true
     echo "CI_LOCAL_FAIL tail_end"
   fi
-  if [ -f "${SUMMARY_FILE}" ]; then
-    REASON_LINE=$(sed -n '2p' "${SUMMARY_FILE}" | sed 's/^Reason: //')
-  fi
-  if [ -z "${REASON_LINE:-}" ]; then
-    LOG_REASON=$(grep -E "ERROR:" "${CI_LOG}" | tail -n 1 | sed 's/^ERROR: //' || true)
-    REASON_LINE="${LOG_REASON:-ci-local failed}"
+  if [ "${CI_LOCAL_RC}" -eq 124 ] || [ "${CI_LOCAL_RC}" -eq 137 ]; then
+    REASON_LINE="CI_LOCAL_TIMEOUT"
+  else
+    if [ -f "${SUMMARY_FILE}" ]; then
+      REASON_LINE=$(sed -n '2p' "${SUMMARY_FILE}" | sed 's/^Reason: //')
+    fi
+    if [ -z "${REASON_LINE:-}" ]; then
+      LOG_REASON=$(grep -E "ERROR:" "${CI_LOG}" | tail -n 1 | sed 's/^ERROR: //' || true)
+      REASON_LINE="${LOG_REASON:-ci-local failed}"
+    fi
   fi
   FAIL_STEP="ci_local"
   FAIL_RC="${CI_LOCAL_RC}"

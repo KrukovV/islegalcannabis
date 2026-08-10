@@ -1,4 +1,11 @@
-import { ASCII_BODY_SSOT, ASCII_JOINT_SSOT, type AsciiFacing, framesForFacing } from "./ascii-ssot";
+import {
+  ASCII_BODY_SSOT,
+  ASCII_JOINT_SSOT,
+  type AntarcticMascotKind,
+  type AsciiFacing,
+  framesForAntarcticMascot,
+  framesForFacing
+} from "./ascii-ssot";
 import { type AsciiTrigger, type GeoContext } from "./geo-store";
 
 export const SYMBOL_420 = "4:20" as const;
@@ -39,7 +46,7 @@ export const PASS_LEFT_FRAMES = ASCII_JOINT_SSOT.lift.left;
 export type SmokeState = "idle" | "lift" | "near" | "inhale" | "exhale" | "drop";
 
 export type ActorState = "enter" | "walk" | "idle" | "smoke" | "interact" | "build" | "dance" | "finale" | "exit";
-export type ActorRole = "walker" | "smoker" | "token";
+export type ActorRole = "walker" | "smoker" | "token" | "mascot";
 export type Actor = {
   anchorLng: number;
   anchorLat: number;
@@ -54,6 +61,7 @@ export type Actor = {
   ttl: number;
   t: number;
   role: ActorRole;
+  mascotKind?: AntarcticMascotKind;
   smokeState?: SmokeState;
   smokeTick?: number;
   targetOffsetX?: number;
@@ -226,6 +234,10 @@ function assignFrames(actor: Actor, state: ActorState) {
   actor.smokeState = undefined;
   actor.smokeTick = 0;
   actor.effectState = null;
+  if (actor.role === "mascot") {
+    actor.frames = framesForAntarcticMascot(actor.mascotKind || "penguin");
+    return;
+  }
   if (state === "dance" || state === "finale") {
     actor.frames = framesForFacing(ASCII_BODY_SSOT.dance, facing);
     return;

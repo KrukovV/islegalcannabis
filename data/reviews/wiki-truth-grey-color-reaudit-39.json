@@ -1,10 +1,10 @@
 {
   "schemaVersion": 2,
-  "reviewedAt": "2026-07-20T09:24:56.000Z",
+  "reviewedAt": "2026-08-03T00:00:00.000Z",
   "method": "Каждый из исходных 39 GEO повторно открыт и просмотрен глазами: HTML только в изолированном headless Chromium; PDF — по отрендеренной релевантной странице. Контекст, claimant law и negative evidence не выдаются за прямой территориальный cannabis-law.",
   "sourceGreyCount": 39,
-  "resolvedColorCount": 39,
-  "retainedGreyCount": 0,
+  "resolvedColorCount": 36,
+  "retainedGreyCount": 3,
   "rows": [
     {
       "geo": "AL",
@@ -373,7 +373,7 @@
     },
     {
       "geo": "TD",
-      "result": "COLOR_RESOLVED",
+      "result": "HONEST_GREY_RETAINED",
       "reasonRu": "Официальная копия Chad Loi 024/PR/2000 визуально показывает в Article 36, что Республика Чад принимает списки narcotics ратифицированных международных конвенций и регулирует их prescription/dispensing; актуальный официальный INCB Yellow List 64th edition (July 2025), страница 3, визуально включает CANNABIS и CANNABIS RESIN, EXTRACTS and TINCTURES в Schedule I. Articles 134–136 визуально устанавливают 1–6 лет за нарушения controlled-narcotic rules и удвоение за незаконное изготовление/выращивание. Это прямая составная cannabis-law цепочка: recreational незаконен, enforcement строгий, а medical — только узкий общий prescription framework без доказанной cannabis patient programme или доступного продукта. Официальный цвет TD — жёлтый; project medical=NONE требует пересмотра, SSOT не меняется.",
       "freshOfficialSources": [
         {
@@ -384,10 +384,12 @@
         }
       ],
       "officialStatusPatch": {
-        "recreational": "ILLEGAL_UNAUTHORISED_CANNABIS_OPERATIONS_AND_ILLICIT_CULTIVATION",
-        "medical": "LIMITED_GENERIC_NARCOTIC_PRESCRIPTION_AND_DISPENSING_FRAMEWORK_NO_CANNABIS_PATIENT_PROGRAM_OR_PRODUCT_AVAILABILITY_PROVEN",
-        "enforcement": "STRICT_ONE_TO_SIX_YEARS_WITH_DOUBLED_PENALTY_FOR_ILLICIT_CULTIVATION_OR_MANUFACTURE"
-      }
+        "recreational": "CURRENT_CANNABIS_SPECIFIC_RECREATIONAL_STATUS_UNCONFIRMED_SCHEDULE_ADOPTION_AND_REGULATORY_DELEGATION_WITHOUT_CURRENT_DECREE_PROVEN",
+        "medical": "CURRENT_GENERIC_NARCOTIC_PRESCRIPTION_AND_DISPENSING_DELEGATION_CANNABIS_PRODUCT_AND_OPERATIONAL_ACCESS_UNPROVEN",
+        "enforcement": "CURRENT_CANNABIS_SPECIFIC_ENFORCEMENT_UNCONFIRMED_GENERIC_ARTICLE_134_REQUIRES_UNPROVEN_REGULATORY_BREACH"
+      },
+      "reason": "Independent recheck: Chad Law No. 024/PR/2000 Article 36 adopts ratified international narcotic/psychotropic schedules but delegates possession, prescription and dispensing rules to decrees. The visually reviewed Article 34/36 crop is generic and has no cannabis-specific patient, product, supply or current implementing-decree proof. Article 134 penalizes contravention of regulatory provisions, not cannabis conduct by itself. The INCB Yellow List visibly names cannabis in the international Schedule I, but is international context, not evidence of a current Chadian cannabis regime. Fresh searches of the Chad Official Gazette, Presidency, Health Ministry and decree/order terms found no applicable current cannabis-specific implementing instrument. Therefore the prior limited-lawful Yellow inference mixed schedule adoption, generic prescription delegation and treaty context; neither a lawful route nor full negative proof is established. TD remains proposal-only UNKNOWN; current map RED and SSOT remain untouched.",
+      "reviewed_at": "2026-08-03T16:00:00.000Z"
     },
     {
       "geo": "DJ",
@@ -428,8 +430,8 @@
     },
     {
       "geo": "ET",
-      "result": "COLOR_RESOLVED",
-      "reasonRu": "Свежая визуальная перепроверка закрывает ET жёлтым без предположения о текущей силе Dangerous Drugs Proclamation 1942 года. Действующий Food and Medicine Administration Proclamation No. 1112/2019 визуально определяет narcotic drug как medicine, контролируемое по ратифицированной Ethiopia конвенции ООН. Актуальный INCB Yellow List визуально помещает CANNABIS и CANNABIS RESIN, EXTRACTS AND TINCTURES в Schedule I Single Convention 1961. Новая официальная EFDA Narcotic and Psychotropic Medicine Control Directive No. 1121/2025 от December 2025 прямо наследует определения Proclamation 1112, распространяется на production, import, export, distribution, storing, transportation, prescribing, dispensing и use и допускает специальный импорт только для medical treatment, clinical trial и scientific research. Article 7 отдельно визуально подтверждает персональный медицинский путь: назначенное врачом narcotic medicine можно ввезти для personal medical use по prescription. Таким образом cannabis попадает в действующий национальный narcotic-control режим через явный нормативный мост; общего recreational lawful route эти акты не создают, а ограниченный prescription/medical/scientific путь доказан. В трёхцветной модели это жёлтый. Исторический акт 1942 года сохранён как отдельная реальная CannabisLawPage, но больше не используется для вывода о current status.",
+      "result": "HONEST_GREY_RETAINED",
+      "reasonRu": "Независимая повторная визуальная проверка отменяет прежний жёлтый proposal. Current EFDA Directive No. 1121/2025 и Proclamation No. 1112/2019 регулируют только generic narcotic and psychotropic medicines; их английские параллельные тексты не называют cannabis или marihuana. Convention-based definition и Article 7 о personal import по prescription не являются local cannabis-specific status или cannabis patient programme. INCB Yellow List остаётся международным контекстом, а не доказательством применимого local cannabis law. Единственная cannabis-specific domestic норма в evidence packet — Dangerous Drugs Proclamation 1942, но её current force не подтверждён. EFDA search дал лишь historical/formulary/expired-policy cannabis references. Поэтому current recreational, patient-product и cannabis-supply axes остаются UNCONFIRMED; честный proposal-only outcome — UNKNOWN без окраски.",
       "freshOfficialSources": [
         {
           "title": "EFDA — формуляр наркотических и психотропных лекарств",
@@ -452,32 +454,32 @@
         {
           "title": "Ethiopian Food and Drug Authority - Narcotic and Psychotropic Medicine Control Directive No. 1121/2025 title",
           "url": "https://www.efda.gov.et/publication/narcotic-and-psychotropic-medicine-control-directive-1121-2018/",
-          "role": "CURRENT_OFFICIAL_DIRECTIVE_PUBLICATION_AND_DATE",
+          "role": "CURRENT_OFFICIAL_DIRECTIVE_NO_CANNABIS_TERM",
           "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
         },
         {
           "title": "Ethiopian Food and Drug Authority - Directive 1121/2025 personal medical prescription pathway",
           "url": "https://www.efda.gov.et/wp-content/uploads/2025/12/Narcotic-and-Psychotropic-Medicine-Control-Directive-1121-%E1%8B%A8%E1%8A%93%E1%88%AD%E1%8A%AE%E1%89%B2%E1%8A%AD-%E1%8A%A5%E1%8A%93-%E1%8B%A8%E1%88%B3%E1%8B%AD%E1%8A%AE%E1%89%B5%E1%88%AE%E1%8D%92%E1%8A%AD-%E1%88%98%E1%8B%B5%E1%8A%83%E1%8A%92%E1%89%B5-%E1%89%81%E1%8C%A5%E1%8C%A5%E1%88%AD-%E1%88%98%E1%88%98%E1%88%AA%E1%8B%AB-%E1%89%81%E1%8C%A5%E1%88%AD-1121-2018.pdf",
-          "role": "CURRENT_PERSONAL_MEDICAL_PRESCRIPTION_PATHWAY",
+          "role": "CURRENT_GENERIC_PERSONAL_NARCOTIC_MEDICINE_PRESCRIPTION_NOT_CANNABIS_SPECIFIC",
           "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
         },
         {
           "title": "Ethiopian Food and Drug Authority - Proclamation 1112/2019 UN-convention narcotic definition",
           "url": "https://www.efda.gov.et/wp-content/uploads/2020/06/Food-and-Medicine-Administration-Proclamation-1112.pdf",
-          "role": "CURRENT_DOMESTIC_UN_CONVENTION_NARCOTIC_DEFINITION",
+          "role": "CURRENT_DOMESTIC_GENERIC_CONVENTION_BASED_NARCOTIC_DEFINITION_NO_CANNABIS_TERM",
           "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
         },
         {
           "title": "INCB Yellow List 64th edition - cannabis in Schedule I of the 1961 Convention",
           "url": "https://www.incb.org/incb/uploads/documents/Narcotic-Drugs/Yellow_List/64th_edition/YL_64th_E.pdf",
-          "role": "CURRENT_OFFICIAL_UN_CANNABIS_SCHEDULE_INCORPORATED_BY_ETHIOPIAN_LAW",
+          "role": "INTERNATIONAL_CANNABIS_SCHEDULE_CONTEXT_NOT_DOMESTIC_APPLICABILITY_PROOF",
           "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_19"
         }
       ],
       "officialStatusPatch": {
-        "recreational": "ILLEGAL_OUTSIDE_AUTHORISED_MEDICAL_SCIENTIFIC_SCOPE_CANNABIS_CONTROLLED_AS_UN_SCHEDULE_I_NARCOTIC",
-        "medical": "LIMITED_PRESCRIPTION_AND_SPECIAL_IMPORT_PATHWAY_UNDER_DIRECTIVE_1121_2025",
-        "enforcement": "CONTROLLED_LICENSING_PRESCRIPTION_AND_USE_REGIME_OUTSIDE_AUTHORISED_SCOPE"
+        "recreational": "CURRENT_CANNABIS_SPECIFIC_RECREATIONAL_STATUS_UNCONFIRMED_HISTORIC_PROHIBITION_NOT_CURRENT_FORCE_PROVEN",
+        "medical": "CURRENT_GENERIC_NARCOTIC_MEDICINE_PRESCRIPTION_AND_IMPORT_FRAMEWORK_CANNABIS_SPECIFIC_APPLICABILITY_UNPROVEN",
+        "enforcement": "CURRENT_CANNABIS_SPECIFIC_ENFORCEMENT_UNCONFIRMED"
       }
     },
     {
@@ -812,39 +814,34 @@
     },
     {
       "geo": "PN",
-      "result": "COLOR_RESOLVED",
-      "reasonRu": "Свежая визуальная перепроверка закрывает PN жёлтым по прямому универсальному тексту территории, а не по автоматическому совпадению термина и не переносом UK Misuse of Drugs Act. Действующий официальный laws portal Pitcairn по-прежнему публикует Summary Offences Ordinance. Его §7 визуально устанавливает, что любой человек, кроме Medical Officer, совершает offence, если imports drugs of any kind into Pitcairn Island; одновременно §7 прямо оставляет исключение для ввоза any drug for medical purposes с согласия Medical Officer или по письменному рецепту qualified medical practitioner и допускает конфискацию незаконного ввоза. Актуальный INCB Yellow List визуально называет CANNABIS, CANNABIS RESIN, EXTRACTS AND TINCTURES наркотическими средствами Schedule I; здесь он используется только как официальный прямой cannabis-идентификатор для универсальной фразы any drug, а не как недоказанное распространение международного договора или британского закона на PN. Действующая GPI Pitcairn Health Centre Operational Policy July 2025 визуально подтверждает реальный локальный механизм: PI Medical Officer назначает medications, Pitcairn Nurse выдаёт их под его надзором, а конкретное лекарство можно заказать через Clinic. Поэтому доказан запрет неразрешённого recreational import и ограниченный prescription/medical import pathway; в трёхцветной модели это жёлтый. При этом не утверждается, что найден отдельный cannabis-named PN Act, что UK possession/cultivation rules автоматически действуют на PN, что местное право отдельно запрещает любое владение или выращивание либо что конкретный cannabis medicine фактически доступен. Статус SSOT не изменён.",
+      "result": "HONEST_GREY_RETAINED",
+      "reasonRu": "Независимая повторная проверка сохраняет PN неокрашенным. Summary Offences Ordinance section 7 регулирует импорт generic ‘drugs of any kind’ и содержит generic prescription/Medical Officer exception; Health Centre policy регулирует generic medications. Ни один из этих текстов не называет cannabis и не доказывает cannabis product, cannabis prescription, cannabis import, dispensing или patient programme. Current Pitcairn laws portal и lists of UK Orders in Council не дают documented extension of a UK cannabis or Misuse of Drugs Act. INCB Yellow List identifies cannabis internationally, но не является применимым законом Pitcairn. Поэтому generic territorial drug wording, generic prescription и external cannabis identifier не могут образовать YELLOW: PN остаётся UNKNOWN / LEGAL_APPLICABILITY_UNRESOLVED. SSOT не изменён.",
       "freshOfficialSources": [
         {
           "title": "Pitcairn Government - current laws portal and territorial law sources",
           "url": "https://www.government.pn/laws",
           "role": "CURRENT_TERRITORY_LAW_PORTAL_AND_SCOPE",
-          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20"
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_08_03"
         },
         {
           "title": "Pitcairn Government - Summary Offences Ordinance section 7 all-drug import prohibition and prescription exception",
           "url": "https://www.government.pn/s/Cap-5-Summary-Offences.pdf",
           "role": "TERRITORY_DIRECT_ALL_DRUG_IMPORT_PROHIBITION_AND_MEDICAL_PRESCRIPTION_EXCEPTION",
-          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20"
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_08_03"
         },
         {
           "title": "Pitcairn Government - Health Centre Operational Policy July 2025 prescribing, dispensing and medication orders",
           "url": "https://www.government.pn/s/GPI_PITCAIRN_HEALTH_CENTRE_OPERATIONAL_POLICY_July6_2025_-1.pdf",
           "role": "CURRENT_TERRITORY_PRESCRIBING_DISPENSING_AND_SPECIAL_ORDER_PATHWAY",
-          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20"
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_08_03"
         },
         {
           "title": "INCB Yellow List 64th edition - cannabis in Schedule I",
           "url": "https://www.incb.org/incb/uploads/documents/Narcotic-Drugs/Yellow_List/64th_edition/YL_64th_E.pdf",
           "role": "CURRENT_OFFICIAL_CANNABIS_IDENTIFIER_CONTEXT_NOT_PN_TREATY_OR_UK_LAW_TRANSPLANT",
-          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20"
+          "visualReview": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_08_03"
         }
-      ],
-      "officialStatusPatch": {
-        "recreational": "ILLEGAL_UNAUTHORISED_RECREATIONAL_IMPORT_NO_COMPREHENSIVE_POSSESSION_OR_CULTIVATION_RULE_PROVEN",
-        "medical": "LIMITED_STATUTORY_PRESCRIPTION_AND_MEDICAL_OFFICER_IMPORT_PATHWAY_CANNABIS_PRODUCT_AVAILABILITY_NOT_PROVEN",
-        "enforcement": "CRIMINAL_IMPORT_OFFENCE_WITH_CONFISCATION_NO_CANNABIS_SPECIFIC_POSSESSION_PENALTY_PROVEN"
-      }
+      ]
     },
     {
       "geo": "BL",

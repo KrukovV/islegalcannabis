@@ -18,7 +18,6 @@ const entries = fs
       name !== "summary_format.mjs" &&
       name !== "sanitize_stdout.mjs" &&
       name !== "stdout_sanitize.mjs" &&
-      name !== "temp_guard_64907.mjs" &&
       !name.endsWith(".test.mjs")
   )
   .sort();

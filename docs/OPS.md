@@ -29,6 +29,17 @@ Only one Next.js dev server instance is allowed. Use:
 npm run web:dev
 ```
 
+The shared UI guard first checks `127.0.0.1:3000`, the listener and matching
+Next process. If no owner exists, it may remove only an empty
+`apps/web/.next/dev/lock` marker. A nonempty lock or any possible owner remains
+fail-closed; never delete lock directories recursively or start on another port.
+The process pattern is self-excluding, so the guard never mistakes its own
+diagnostic matcher for a running Next instance.
+The standard smoke path allows a 45-second cold compilation by default and
+preserves child output when it fails; callers may set a stricter explicit timeout.
+Its guard launches the existing foreground `web:dev` script, while the separate
+`dev` command remains the user-facing persistent-server wrapper.
+
 If an existing dev server is detected at `http://127.0.0.1:3000/wiki-truth`, or `.next/dev/lock` exists while a dev process may be alive, the guard prints:
 
 ```text

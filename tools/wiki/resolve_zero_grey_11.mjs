@@ -420,15 +420,11 @@ const resolutions = {
     ],
   },
   PN: {
-    reviewedAt: "2026-07-20T00:35:00.000Z",
-    color: "LIMITED_OR_MEDICAL",
-    method: "TERRITORY_ALL_DRUG_IMPORT_RULE_PLUS_CURRENT_PRESCRIPTION_PATHWAY",
-    reasonRu: "Свежая визуальная перепроверка закрывает PN жёлтым по прямому универсальному тексту территории, а не по автоматическому совпадению термина и не переносом UK Misuse of Drugs Act. Действующий официальный laws portal Pitcairn по-прежнему публикует Summary Offences Ordinance. Его §7 визуально устанавливает, что любой человек, кроме Medical Officer, совершает offence, если imports drugs of any kind into Pitcairn Island; одновременно §7 прямо оставляет исключение для ввоза any drug for medical purposes с согласия Medical Officer или по письменному рецепту qualified medical practitioner и допускает конфискацию незаконного ввоза. Актуальный INCB Yellow List визуально называет CANNABIS, CANNABIS RESIN, EXTRACTS AND TINCTURES наркотическими средствами Schedule I; здесь он используется только как официальный прямой cannabis-идентификатор для универсальной фразы any drug, а не как недоказанное распространение международного договора или британского закона на PN. Действующая GPI Pitcairn Health Centre Operational Policy July 2025 визуально подтверждает реальный локальный механизм: PI Medical Officer назначает medications, Pitcairn Nurse выдаёт их под его надзором, а конкретное лекарство можно заказать через Clinic. Поэтому доказан запрет неразрешённого recreational import и ограниченный prescription/medical import pathway; в трёхцветной модели это жёлтый. При этом не утверждается, что найден отдельный cannabis-named PN Act, что UK possession/cultivation rules автоматически действуют на PN, что местное право отдельно запрещает любое владение или выращивание либо что конкретный cannabis medicine фактически доступен. Статус SSOT не изменён.",
-    officialStatusPatch: {
-      recreational: "ILLEGAL_UNAUTHORISED_RECREATIONAL_IMPORT_NO_COMPREHENSIVE_POSSESSION_OR_CULTIVATION_RULE_PROVEN",
-      medical: "LIMITED_STATUTORY_PRESCRIPTION_AND_MEDICAL_OFFICER_IMPORT_PATHWAY_CANNABIS_PRODUCT_AVAILABILITY_NOT_PROVEN",
-      enforcement: "CRIMINAL_IMPORT_OFFENCE_WITH_CONFISCATION_NO_CANNABIS_SPECIFIC_POSSESSION_PENALTY_PROVEN",
-    },
+    reviewedAt: "2026-08-03T00:00:00.000Z",
+    color: "UNKNOWN",
+    result: "HONEST_GREY_RETAINED",
+    method: "GENERIC_TERRITORIAL_DRUG_RULE_AND_EXTERNAL_CANNABIS_IDENTIFIER_NOT_APPLICABLE_CANNABIS_LAW",
+    reasonRu: "Независимая повторная проверка сохраняет PN неокрашенным. Summary Offences Ordinance section 7 регулирует импорт generic ‘drugs of any kind’ и содержит generic prescription/Medical Officer exception; Health Centre policy регулирует generic medications. Ни один из этих текстов не называет cannabis и не доказывает cannabis product, cannabis prescription, cannabis import, dispensing или patient programme. Current Pitcairn laws portal и lists of UK Orders in Council не дают documented extension of a UK cannabis or Misuse of Drugs Act. INCB Yellow List identifies cannabis internationally, но не является применимым законом Pitcairn. Поэтому generic territorial drug wording, generic prescription и external cannabis identifier не могут образовать YELLOW: PN остаётся UNKNOWN / LEGAL_APPLICABILITY_UNRESOLVED. SSOT не изменён.",
     sources: [
       {
         title: "Pitcairn Government - current laws portal and territorial law sources",
@@ -576,9 +572,11 @@ for (const geo of requested) {
   const review = reviews.rows.find((candidate) => candidate.geo === geo);
   if (!row || !review) throw new Error(`Missing audit row for ${geo}`);
 
-  row.result = "COLOR_RESOLVED";
+  const result = resolution.result || "COLOR_RESOLVED";
+  row.result = result;
   row.reasonRu = resolution.reasonRu;
-  row.officialStatusPatch = resolution.officialStatusPatch;
+  if (resolution.officialStatusPatch) row.officialStatusPatch = resolution.officialStatusPatch;
+  else delete row.officialStatusPatch;
   row.freshOfficialSources = [...new Map([
     ...(row.freshOfficialSources || []),
     ...resolution.sources.map((source) => ({
@@ -593,7 +591,9 @@ for (const geo of requested) {
     reviewed_at: resolution.reviewedAt,
     resolution_method: resolution.method,
     derived_color: resolution.color,
-    visual_verdict: "HUMAN_VISUALLY_ACCEPTED_WITH_EXPLICIT_SCOPE",
+    visual_verdict: result === "COLOR_RESOLVED"
+      ? "HUMAN_VISUALLY_ACCEPTED_WITH_EXPLICIT_SCOPE"
+      : "HUMAN_VISUALLY_REVIEWED_CONTEXT_ONLY",
     sources: resolution.sources.map((source) => ({
       title: source.title,
       url: source.url,
@@ -603,7 +603,7 @@ for (const geo of requested) {
     conclusion_ru: resolution.reasonRu,
   };
   review.project_comparison = {
-    status: `COLOR_RESOLVED_${resolution.color}_${resolution.method}`,
+    status: `${result}_${resolution.color}_${resolution.method}`,
     reason: resolution.reasonRu,
   };
 }

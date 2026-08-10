@@ -14,8 +14,11 @@ import {
 } from "./build_wiki_truth_307_final_reconciliation.mjs";
 import {
   assertCanonicalGeoUniverse,
+  assertLedgerSourceApplicability,
   auditCanonicalGeoUniverse,
+  selectNextCanonicalGeo,
 } from "./canonical_geo_universe.mjs";
+import { buildAxisCell } from "./build_wiki_truth_307_legal_knowledge_axis_matrix.mjs";
 import { evaluateLegalInterpretation } from "./build_wiki_truth_307_acceptance_audit.mjs";
 import { deriveOfficialTruthColor } from "../../apps/web/src/lib/wikiTruthColorEngine.js";
 
@@ -57,6 +60,178 @@ test("canonical GEO validator reports duplicate and missing rows", () => {
   assert.deepEqual(result.missing, ["BB"]);
 });
 
+test("canonical GEO selection keeps country and state IDs exact", () => {
+  const canonicalGeos = ["AZ", "US-AZ", "US-AR"];
+  assert.equal(
+    selectNextCanonicalGeo({ canonicalGeos, completedGeos: ["US-AZ"] }),
+    "AZ",
+  );
+  assert.throws(
+    () => selectNextCanonicalGeo({ canonicalGeos, completedGeos: ["US_AZ"] }),
+    /extras=US_AZ/,
+  );
+});
+
+test("source applicability keeps overlapping country and state GEOs exact", () => {
+  const canonicalGeos = ["AZ", "US-AZ"];
+  assert.doesNotThrow(() => assertLedgerSourceApplicability({
+    canonicalGeos,
+    ledgerRows: [{
+      geo: "AZ",
+      verified_sources: [{ applies_to_geo: ["AZ"] }],
+    }, {
+      geo: "US-AZ",
+      verified_sources: [{ applies_to_geo: ["US-AZ"] }],
+    }],
+  }));
+  assert.throws(
+    () => assertLedgerSourceApplicability({
+      canonicalGeos,
+      ledgerRows: [{
+        geo: "AZ",
+        verified_sources: [{ applies_to_geo: ["US-AZ"] }],
+      }],
+    }),
+    /rowMismatches=AZ:verified_sources\[0\]/,
+  );
+  assert.throws(
+    () => assertLedgerSourceApplicability({
+      canonicalGeos,
+      ledgerRows: [{
+        geo: "AZ",
+        verified_sources: [{ applies_to_geo: ["US_AZ"] }],
+      }],
+    }),
+    /invalidTargets=AZ:verified_sources\[0\]:US_AZ/,
+  );
+  assert.throws(
+    () => assertLedgerSourceApplicability({
+      canonicalGeos,
+      ledgerRows: [{
+        geo: "AZ",
+        verified_sources: [{
+          applies_to_geo: ["AZ", "US-AZ"],
+          legal_basis_for_extension: "Unscoped shared source.",
+        }],
+      }],
+    }),
+    /multiGeoMissingLegalBasis=AZ:verified_sources\[0\]:AZ,US-AZ/,
+  );
+  assert.doesNotThrow(() => assertLedgerSourceApplicability({
+    canonicalGeos,
+    ledgerRows: [{
+      geo: "AZ",
+      verified_sources: [{
+        applies_to_geo: ["AZ", "US-AZ"],
+        legal_basis_for_extension: {
+          AZ: "Direct Azerbaijan law applies to Azerbaijan.",
+          "US-AZ": "A separate Arizona law applies to Arizona.",
+        },
+      }],
+    }],
+  }));
+  assert.doesNotThrow(() => assertLedgerSourceApplicability({
+    canonicalGeos,
+    ledgerRows: [{
+      geo: "AZ",
+      verified_sources: [{
+        applies_to_geo: [],
+        primary_or_context: "CONTEXT_ONLY_NO_TERRITORIAL_APPLICABILITY",
+      }],
+    }],
+  }));
+});
+
+test("source ownership rejects country-state terminal-code collisions", () => {
+  const canonicalGeos = ["AZ", "US-AZ"];
+  assert.throws(
+    () => assertLedgerSourceApplicability({
+      canonicalGeos,
+      ledgerRows: [{
+        geo: "AZ",
+        verified_sources: [{
+          source_owner_geo: "US-AZ",
+          applies_to_geo: ["AZ"],
+          legal_basis_for_extension: "This must never be accepted as Azerbaijan evidence.",
+        }],
+      }],
+    }),
+    /ownerSuffixCollisions=AZ:verified_sources\[0\]:US-AZ->AZ/,
+  );
+  assert.throws(
+    () => assertLedgerSourceApplicability({
+      canonicalGeos,
+      ledgerRows: [{
+        geo: "US-AZ",
+        verified_sources: [{
+          source_owner_geo: "AZ",
+          applies_to_geo: ["US-AZ"],
+          legal_basis_for_extension: "This must never be accepted as Arizona evidence.",
+        }],
+      }],
+    }),
+    /ownerSuffixCollisions=US-AZ:verified_sources\[0\]:AZ->US-AZ/,
+  );
+});
+
+test("validated fresh primary-law axis findings remain direct matrix evidence", () => {
+  const row = {
+    truth: {
+      source: "FRESH_PRIMARY_LAW_AXIS_RECONCILIATION",
+      axisFindings: {
+        adult_use: { status: "PROVEN_ADULT_USE_LEGAL" },
+        recreational_cultivation: {
+          status: "PROVEN_LAWFUL_ADULT_PRIVATE_CULTIVATION_UP_TO_THREE_PLANTS",
+        },
+        programme_commenced: { status: "PROVEN_CURRENT_ACT_IN_FORCE" },
+      },
+      validation: {
+        visualEvidenceComplete: true,
+        cannabisSpecificFragmentVisible: true,
+        effectiveRuleVisible: true,
+        applicabilityResolved: true,
+      },
+    },
+    truthLayers: {},
+  };
+
+  for (const [group, axis, value] of [
+    ["recreational", "possession", "PROVEN_ADULT_USE_LEGAL"],
+    ["recreational", "use", "PROVEN_ADULT_USE_LEGAL"],
+    [
+      "recreational",
+      "cultivation_personal",
+      "PROVEN_LAWFUL_ADULT_PRIVATE_CULTIVATION_UP_TO_THREE_PLANTS",
+    ],
+    ["legal_state", "commenced", "PROVEN_CURRENT_ACT_IN_FORCE"],
+  ]) {
+    const cell = buildAxisCell(group, axis, row);
+    assert.equal(cell.status, "KNOWN");
+    assert.equal(cell.value, value);
+    assert.equal(cell.evidenceClass, "FRESH_PRIMARY_LAW_AXIS_FINDING");
+  }
+  assert.equal(buildAxisCell("recreational", "sale", row).status, "UNKNOWN");
+});
+
+test("unvalidated fresh findings cannot promote a matrix axis", () => {
+  const row = {
+    truth: {
+      source: "FRESH_PRIMARY_LAW_AXIS_RECONCILIATION",
+      axisFindings: {
+        adult_use: { status: "PROVEN_ADULT_USE_LEGAL" },
+      },
+      validation: {
+        visualEvidenceComplete: true,
+        cannabisSpecificFragmentVisible: true,
+        effectiveRuleVisible: false,
+        applicabilityResolved: true,
+      },
+    },
+    truthLayers: {},
+  };
+  assert.equal(buildAxisCell("recreational", "possession", row).status, "UNKNOWN");
+});
+
 test("narrow CBD medicine exception remains limited and cannot prove a full patient programme", () => {
   const result = deriveOfficialTruthColor({
     officialStatus: {
@@ -89,6 +264,18 @@ test("industrial cannabis authorization cannot create a Yellow color", () => {
     },
   });
   assert.equal(result.color, "UNKNOWN");
+});
+
+test("operational industry authority and pilot cultivation cannot create a Yellow color", () => {
+  const result = deriveOfficialTruthColor({
+    officialStatus: {
+      recreational: "CURRENT_RECREATIONAL_STATUS_UNRESOLVED; OPERATIONAL_CANNABIS_INDUSTRY_LICENSING_PROVEN",
+      medical: "NO_OPERATIONAL_PATIENT_ACCESS_PROOF; INDUSTRIAL_CULTIVATION_LICENSED",
+      enforcement: "NO_CURRENT_TRACEABLE_FULL_NEGATIVE_AXIS_DERIVED",
+    },
+  });
+  assert.equal(result.color, "UNKNOWN");
+  assert.equal(result.ruleId, "OFFICIAL_STATUS_INDETERMINATE");
 });
 
 test("unassessed generic licensing exception remains Unknown instead of Yellow or Red", () => {
@@ -386,6 +573,65 @@ test("direct ledger special-permit evidence remains YELLOW without a patient pro
   assert.equal(result?.facts.lawfulRoute, false);
   assert.equal(result?.facts.supply, false);
   assert.equal(result?.facts.operational, false);
+});
+
+test("traceable negative recreational and medical axes establish RED without a country override", () => {
+  const evidence = {
+    reconciliationStatus: "INDEPENDENT_OFFICIAL_LEGAL_REVIEW_COMPLETED",
+    independentTruthColor: "RED",
+    independentTruthRule: "GENERAL_CURRENT_RECREATIONAL_PROHIBITION_AND_EXPRESS_NON_MEDICAL_CANNABIS_LIST",
+    legalInterpretation: "Current official criminal law prohibits possession and current official list expressly excludes medical cannabis use.",
+    evidenceAxes: {
+      recreational_possession: {
+        value: "NO",
+        sourceUrl: "https://laws.example.gov/current-criminal-code",
+        exactFragment: "Unlawful possession of listed narcotic drugs is criminally punishable.",
+      },
+      recreational_supply: {
+        value: "NO",
+        sourceUrl: "https://laws.example.gov/current-criminal-code",
+        exactFragment: "Unlawful sale of listed narcotic drugs is criminally punishable.",
+      },
+      medical_cannabis_access: {
+        value: "NO",
+        sourceUrl: "https://health.example.gov/current-controlled-list",
+        exactFragment: "Cannabis forms are listed as not used for medical purposes.",
+      },
+    },
+    currentOfficialSources: [
+      {
+        url: "https://laws.example.gov/current-criminal-code",
+        sourceType: "CURRENT_PRIMARY_CRIMINAL_CODE",
+        sourceOwner: "Official legislature",
+        officialHostVerified: true,
+        sourceOwnerGeo: "TEST-RED",
+        appliesToGeos: ["TEST-RED"],
+        screenshot: "evidence/current-criminal-code.png",
+        visualReviewed: true,
+      },
+      {
+        url: "https://health.example.gov/current-controlled-list",
+        sourceType: "CURRENT_OFFICIAL_CONTROLLED_LIST",
+        sourceOwner: "Health ministry",
+        officialHostVerified: true,
+        sourceOwnerGeo: "TEST-RED",
+        appliesToGeos: ["TEST-RED"],
+        screenshot: "evidence/current-controlled-list.png",
+        visualReviewed: true,
+      },
+    ],
+  };
+  assert.equal(buildFreshAxisTruthOverride(evidence)?.color, "RED");
+  assert.equal(
+    buildFreshAxisTruthOverride({
+      ...evidence,
+      evidenceAxes: {
+        ...evidence.evidenceAxes,
+        medical_cannabis_access: { value: "NO" },
+      },
+    }),
+    null,
+  );
 });
 
 test("nested independent-review ledger packets normalize prefixed axes without a GEO-specific override", () => {
@@ -696,6 +942,32 @@ test("decriminalization stays YELLOW when adult use is not lawful", () => {
   assert.equal(result.ruleId, "OFFICIAL_STATUS_RECREATIONAL_DECRIMINALIZED");
 });
 
+test("an unproven medical-access absence cannot create RED", () => {
+  const result = deriveOfficialTruthColor({
+    sourceCoverage: "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
+    officialStatus: {
+      recreational: "CANNABIS_POSSESSION_PROHIBITED_BY_CURRENT_STATUTE",
+      medical: "NONE_NO_PATIENT_ACCESS_FOUND",
+      enforcement: "STRICT",
+    },
+  });
+  assert.equal(result.color, "UNKNOWN");
+  assert.equal(result.ruleId, "OFFICIAL_STATUS_INDETERMINATE");
+});
+
+test("an explicit current patient-access prohibition can create RED", () => {
+  const result = deriveOfficialTruthColor({
+    sourceCoverage: "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
+    officialStatus: {
+      recreational: "CANNABIS_POSSESSION_PROHIBITED_BY_CURRENT_STATUTE",
+      medical: "MEDICAL_CANNABIS_PATIENT_ACCESS_PROHIBITED_BY_CURRENT_STATUTE",
+      enforcement: "STRICT",
+    },
+  });
+  assert.equal(result.color, "RED");
+  assert.equal(result.ruleId, "OFFICIAL_STATUS_PATIENT_ACCESS_NEGATIVE");
+});
+
 test("regulated prescription and supply require an operational programme signal for GREEN", () => {
   const result = deriveOfficialTruthColor({
     sourceCoverage: "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
@@ -748,12 +1020,12 @@ test("a bill clause cannot erase a separately enacted, not-yet-operational progr
   assert.equal(result.ruleId, "OFFICIAL_ENACTED_NOT_OPERATIONAL");
 });
 
-test("prohibition terminology cannot become decriminalization", () => {
+test("explicit prohibition terminology cannot become decriminalization", () => {
   const result = deriveOfficialTruthColor({
     sourceCoverage: "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
     officialStatus: {
       recreational: "UNLAWFUL_CANNABIS_POSSESSION",
-      medical: "NONE_CONFIRMED_CANNABIS_PROGRAM",
+      medical: "MEDICAL_CANNABIS_PATIENT_ACCESS_PROHIBITED_BY_CURRENT_STATUTE",
       enforcement: "STRICT",
     },
   });

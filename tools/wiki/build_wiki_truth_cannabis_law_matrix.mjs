@@ -5,7 +5,10 @@ import {
   classifySourceRelevance,
   isDirectCannabisEvidenceCandidate,
 } from "./cannabis_evidence_model.mjs";
-import { assertCanonicalGeoUniverse } from "./canonical_geo_universe.mjs";
+import {
+  assertCanonicalGeoUniverse,
+  assertLedgerSourceApplicability,
+} from "./canonical_geo_universe.mjs";
 
 const ROOT = process.cwd();
 const readJson = (relativePath) => JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8"));
@@ -193,6 +196,37 @@ const normalizedUrlKey = (value) => {
   if (parsed.pathname !== "/") parsed.pathname = parsed.pathname.replace(/\/+$/, "");
   return parsed.toString();
 };
+const sourceProvenance = (source) => {
+  const appliesToGeos = Array.from(new Set([
+    ...(Array.isArray(source?.appliesToGeos) ? source.appliesToGeos : []),
+    ...(Array.isArray(source?.applies_to_geos) ? source.applies_to_geos : []),
+    ...(Array.isArray(source?.appliesToGeo) ? source.appliesToGeo : []),
+    ...(Array.isArray(source?.applies_to_geo) ? source.applies_to_geo : [])
+  ].map((geo) => String(geo || "").trim()).filter(Boolean)));
+  return Object.fromEntries(Object.entries({
+    sourceOwnerGeo: source?.sourceOwnerGeo || source?.source_owner_geo,
+    appliesToGeos: appliesToGeos.length ? appliesToGeos : undefined,
+    legalBasisForExtension: source?.legalBasisForExtension || source?.legal_basis_for_extension,
+    officialPublisher: source?.officialPublisher || source?.sourceAuthority || source?.source_authority,
+    sourceType: source?.sourceType || source?.source_type,
+    primaryOrContext: source?.primaryOrContext || source?.primary_or_context,
+    cannabisSpecific: source?.cannabisSpecific ?? source?.cannabis_specific,
+    effective: source?.effective,
+    current: source?.current,
+    directFragmentAvailable: source?.directFragmentAvailable ?? source?.direct_fragment_available,
+    screenshotAvailable: source?.screenshotAvailable ?? source?.screenshot_available,
+    visualOpened: source?.visualOpened ?? source?.visual_opened,
+    officialOwnerVisible: source?.officialOwnerVisible ?? source?.official_owner_visible,
+    officialDomainVisible: source?.officialDomainVisible ?? source?.official_domain_visible,
+    cannabisFragmentVisible: source?.cannabisFragmentVisible ?? source?.cannabis_fragment_visible,
+    effectiveRuleVisible: source?.effectiveRuleVisible ?? source?.effective_rule_visible,
+    screenshotValid: source?.screenshotValid ?? source?.screenshot_valid,
+    historicalScreenshotValid: source?.historicalScreenshotValid ?? source?.historical_screenshot_valid,
+    historicalScreenshotPath: source?.historicalScreenshotPath ?? source?.historical_screenshot_path,
+    visualReviewerTimestamp: source?.visualReviewerTimestamp ?? source?.visual_reviewer_timestamp,
+    officialHostVerified: source?.officialHostVerified ?? source?.official_host_verified
+  }).filter(([, value]) => value !== undefined && value !== null && value !== ""));
+};
 const isExcludedHost = (value) => {
   const parsed = safeUrl(value);
   return !parsed || /(^|\.)wikipedia\.org$|(^|\.)wikimedia\.org$/i.test(parsed.hostname);
@@ -269,6 +303,9 @@ function deriveTruthLayerSource(sourceCoverage, officialStatus, derivedStatus) {
   if (sourceCoverage === "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW" && officialStatus) {
     return "DIRECT_OFFICIAL_LAW";
   }
+  if (sourceCoverage === "OFFICIAL_LEGAL_AXIS_PENDING_VISUAL_ACCEPTANCE" && officialStatus) {
+    return "OFFICIAL_SEMANTIC_LAW_PENDING_VISUAL_ACCEPTANCE";
+  }
   if (sourceCoverage === "OFFICIAL_CONTEXT_ONLY") {
     return "OFFICIAL_CONTEXT";
   }
@@ -297,6 +334,9 @@ function deriveLegalLayerSource(officialStatus, derivedStatus) {
 function deriveTruthLayerTrust(sourceCoverage, officialStatus) {
   if (sourceCoverage === "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW" && officialStatus) {
     return "HIGH";
+  }
+  if (sourceCoverage === "OFFICIAL_LEGAL_AXIS_PENDING_VISUAL_ACCEPTANCE" && officialStatus) {
+    return "MEDIUM";
   }
   if (sourceCoverage === "OFFICIAL_CONTEXT_ONLY") {
     return "MEDIUM";
@@ -352,29 +392,6 @@ function buildTruthLayers({
   };
 }
 const OUTPUT_PATH = "data/reviews/wiki-truth-cannabis-law-matrix-307.json";
-const ER_LOC_TARIFF_CANNABIS_EVIDENCE = Object.freeze({
-  title: "Custom Tariff Regulations 18/1994 - Third Schedule Prohibited Goods",
-  url: "https://tile.loc.gov/storage-services/service/ll/lleritrea/eritrean-notice-18-1994/eritrean-notice-18-1994.pdf",
-  sourceKind: "LOC_GAZETTE_OF_ERITREAN_LAWS_PRIMARY_LAW_COPY_CUSTOMS_PROHIBITED_GOODS",
-  evidenceScope: "DIRECT_CANNABIS_FAMILY_PRIMARY_LAW_CUSTOMS_IMPORT_PROHIBITED_GOODS",
-  verification: "MANUAL_VISUAL_SCREENSHOT_REVIEW",
-  confidence: "high",
-  note:
-    "LOC Gazette of Eritrean Laws copy of Custom Tariff Regulations 18/1994, Third Schedule - Prohibited Goods, item 6 visibly lists Marihuana and hashish with other narcotics. This is direct cannabis-family primary law for customs/prohibited-goods scope only; it is not patient access, medical programme, adult-use legalization, or the Penal Code Article 376 Drug Offences Regulations schedule.",
-  screenshotPath:
-    "data/reviews/screenshots/wiki-truth-er-loc-custom-tariff/page-30.png",
-  visualReview: "VISUALLY_REVIEWED_DIRECT_CANNABIS_FAMILY_PRIMARY_LAW",
-});
-const ER_LOC_TARIFF_OFFICIAL_STATUS = Object.freeze({
-  recreational:
-    "ILLEGAL_IMPORT_PROHIBITED_GOODS_NARCOTICS_NO_ADULT_USE_LEGALIZATION_PROVEN",
-  medical: "NONE_NO_PATIENT_ACCESS_FOUND",
-  enforcement: "STRICT_PROHIBITED_NARCOTICS_CUSTOMS_IMPORT",
-});
-const ER_LOC_TARIFF_DIFFERENCE_STATUS =
-  "DIRECT_CANNABIS_FAMILY_PRIMARY_LAW_FOUND_CUSTOMS_IMPORT_PROHIBITED_GOODS";
-const ER_LOC_TARIFF_DIFFERENCE_DESCRIPTION =
-  "LOC Gazette of Eritrean Laws primary-law copy of Custom Tariff Regulations 18/1994 was downloaded, text-extracted, rendered, and visually reviewed. Page 30, Third Schedule - Prohibited Goods, item 6 visibly lists Marihuana and hashish with cocaine, opium, heroin, morphine, LSD, chat and all other narcotics. This closes the earlier no-visible-cannabis-family-primary-law gap for ER, but only on the customs/import prohibited-goods axis. It is not accepted as patient access, a medical cannabis programme, adult-use legalization, or the Penal Code Article 376 Drug Offences Regulations controlled-drug/plant schedule. No project status SSOT was changed.";
 const outputAbsolutePath = path.join(ROOT, OUTPUT_PATH);
 const previousMatrix = fs.existsSync(outputAbsolutePath)
   ? JSON.parse(fs.readFileSync(outputAbsolutePath, "utf8"))
@@ -391,6 +408,10 @@ assertCanonicalGeoUniverse({
   ledgerRows: visualReviews.rows,
   expectedCount: 307,
 });
+assertLedgerSourceApplicability({
+  canonicalGeos: geoList,
+  ledgerRows: visualReviews.rows,
+});
 const collectorByGeo = new Map(collector.geos.map((row) => [row.geo, row]));
 const contextByGeo = new Map((territoryContext.rows || []).map((row) => [row.geo, row]));
 const curatedByGeo = new Map((curatedSources.rows || []).map((row) => [row.geo, row]));
@@ -402,12 +423,72 @@ const completedVisualReviewStatuses = new Set([
   "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY",
   "FRESH_REVIEW_BLOCKED_BY_SOURCE_ACCESS"
 ]);
+const historicalVisualReviewStatusFor = (row) =>
+  row?.historical_visual_review_status || row?.status || null;
+const INDEPENDENT_TRUTH_COLORS = new Set(["GREEN", "YELLOW", "RED", "UNKNOWN"]);
+const firstNonEmptyString = (...values) =>
+  values.find((value) => typeof value === "string" && value.trim())?.trim() || null;
+const independentTruthProposalFor = (row) => {
+  const independentReview = row?.independent_review || {};
+  const independentTruthReaudit = row?.independent_truth_reaudit || {};
+  const color = firstNonEmptyString(
+    row?.independent_truth_color,
+    row?.independentTruthColor,
+    independentReview.official_truth_color,
+    independentReview.independent_truth_color,
+    independentReview.independentTruthColor,
+    row?.truth_color,
+    independentReview.truth_color,
+    independentTruthReaudit.official_truth_color,
+    independentTruthReaudit.truth_color,
+  )?.toUpperCase();
+  if (!INDEPENDENT_TRUTH_COLORS.has(color)) return null;
+
+  return {
+    color,
+    rule: firstNonEmptyString(
+      row?.independent_truth_rule,
+      row?.independent_truth_status,
+      row?.independentTruthStatus,
+      row?.truth_status,
+      independentTruthReaudit.official_truth_rule,
+      independentTruthReaudit.truth_rule,
+      independentTruthReaudit.legal_status,
+      row?.truth_rule,
+      independentReview.official_truth_status,
+      independentReview.independent_truth_rule,
+      independentReview.independent_truth_status,
+      independentReview.independentTruthStatus,
+      independentReview.truth_rule,
+      independentReview.truth_status,
+      independentReview.color_rule,
+    ),
+    reviewedAt: firstNonEmptyString(
+      row?.independent_truth_reviewed_at,
+      row?.independentTruthReviewedAt,
+      independentReview.reviewed_at,
+      independentReview.reviewedAt,
+      independentTruthReaudit.reviewed_at,
+      independentTruthReaudit.reviewedAt,
+    ),
+    conclusion: firstNonEmptyString(
+      row?.independent_conclusion,
+      independentReview.legal_interpretation,
+      independentReview.conclusion,
+      independentTruthReaudit.legal_interpretation,
+      independentTruthReaudit.conclusion,
+      independentTruthReaudit.legal_status,
+    ),
+  };
+};
 
 const rows = geoList.map((geo) => {
   const collected = collectorByGeo.get(geo) || { geo, name: geo, project: null, candidate_pages: [], mismatches: [] };
   const contextRow = contextByGeo.get(geo);
   const curatedRow = curatedByGeo.get(geo);
   const visualRow = visualByGeo.get(geo);
+  const historicalVisualReviewStatus = historicalVisualReviewStatusFor(visualRow);
+  const independentTruth = independentTruthProposalFor(visualRow);
   const greyReauditRow = greyColorReauditByGeo.get(geo);
   const collectedCandidateLinks = [...new Map((collected.candidate_pages || [])
     .filter((candidate) => candidate?.candidate_kind === "official" && candidate?.fetched?.ok && candidate?.derived?.hasCannabis)
@@ -432,6 +513,7 @@ const rows = geoList.map((geo) => {
     title: source.title,
     url: source.url,
     sourceKind: source.source_kind,
+    ...sourceProvenance(source),
     verification: visuallyReviewedIndexes.has(sourceIndex)
       ? "MANUAL_VISUAL_SCREENSHOT_REVIEW"
       : "OFFICIAL_SOURCE_IDENTIFIED_PENDING_VISUAL_REVIEW",
@@ -440,40 +522,82 @@ const rows = geoList.map((geo) => {
     screenshotPath: screenshotByIndex.get(sourceIndex) || null,
     visualReview: visuallyReviewedIndexes.has(sourceIndex)
       ? visualRow?.conclusion || "Visible cannabis-specific official material confirmed."
-      : visualRow?.status === "VISUAL_CAPTURE_BLOCKED"
+      : historicalVisualReviewStatus === "VISUAL_CAPTURE_BLOCKED"
         ? visualRow.conclusion
         : "PENDING"
   }));
-  const reviewedStandaloneSources = visualRow?.status === "VISUALLY_VERIFIED"
+  const reviewedStandaloneSources = historicalVisualReviewStatus === "VISUALLY_VERIFIED"
     ? visualRow?.verified_sources || []
     : [];
-  const hasValidVisualSourceScreenshot = (source) => Boolean(
-    (source.screenshot_path || source.screenshotPath) &&
-    source.screenshot_valid !== false &&
-    source.screenshotValid !== false,
-  );
+  const acceptedVisualEvidenceForSource = (source) => {
+    const currentPath = source?.screenshot_path || source?.screenshotPath;
+    const currentCaptureValid = currentPath &&
+      source?.screenshot_valid !== false &&
+      source?.screenshotValid !== false;
+    if (currentCaptureValid) {
+      return { kind: "CURRENT_STRICT_CAPTURE", path: currentPath };
+    }
+    const historicalPath = source?.historical_screenshot_path || source?.historicalScreenshotPath;
+    const historicalCaptureValid = historicalPath &&
+      (source?.historical_screenshot_valid === true || source?.historicalScreenshotValid === true) &&
+      source?.current === true &&
+      source?.effective === true &&
+      source?.direct_fragment_available === true &&
+      source?.reviewed_by_human_visual === true;
+    return historicalCaptureValid
+      ? { kind: "HISTORICAL_VALIDATED_CURRENT_SOURCE", path: historicalPath }
+      : null;
+  };
+  const hasValidVisualSourceScreenshot = (source) => Boolean(acceptedVisualEvidenceForSource(source));
+  const isDeclaredSemanticLegalAxisSource = (source) => {
+    const provenance = sourceProvenance(source);
+    const primaryRole = source?.primaryOrContext || source?.primary_or_context || "";
+    return source?.semantic_legal_axis === true &&
+      source?.semantic_reviewed_by_human === true &&
+      /^PRIMARY(?:_|$)/.test(primaryRole) &&
+      source?.current === true &&
+      source?.effective === true &&
+      provenance.officialHostVerified === true &&
+      provenance.directFragmentAvailable === true &&
+      Boolean(provenance.sourceOwnerGeo) &&
+      Boolean(provenance.appliesToGeos?.includes(geo));
+  };
   const standaloneVisualLinks = reviewedStandaloneSources
-    .filter(hasValidVisualSourceScreenshot)
-    .map((source) => ({
+    .map((source) => ({ source, visualEvidence: acceptedVisualEvidenceForSource(source) }))
+    .filter(({ visualEvidence }) => Boolean(visualEvidence))
+    .map(({ source, visualEvidence }) => ({
     title: source.title,
     url: source.url,
     sourceKind: source.source_kind || "official_visual_review",
+    ...sourceProvenance(source),
     evidenceScope: source.evidence_scope || null,
     verification: "MANUAL_VISUAL_SCREENSHOT_REVIEW",
     confidence: "high",
     note: visualRow.conclusion,
-    screenshotPath: source.screenshot_path || null,
-    visualReview: visualRow.conclusion
+    screenshotPath: visualEvidence.path,
+    visualEvidenceKind: visualEvidence.kind,
+    visualReview: visualEvidence.kind === "CURRENT_STRICT_CAPTURE"
+      ? visualRow.conclusion
+      : `${visualRow.conclusion} Historical validated evidence remains direct because the same source is explicitly current/effective and its direct fragment was rechecked; the current capture is access-state only.`
   }));
-  const standaloneSemanticLegalLinks = reviewedStandaloneSources
-    .filter((source) => !hasValidVisualSourceScreenshot(source))
-    .filter((source) => source?.url && (
+  const declaredSemanticLegalSources = (visualRow?.verified_sources || [])
+    .filter(isDeclaredSemanticLegalAxisSource);
+  const legacySemanticLegalSources = historicalVisualReviewStatus === "VISUALLY_VERIFIED"
+    ? reviewedStandaloneSources.filter((source) => source?.url && (
       source.direct_fragment_available === true ||
       source.semantic_reviewed_by_human === true
     ))
+    : [];
+  const semanticLegalSourcePool = [...new Map([
+    ...legacySemanticLegalSources,
+    ...declaredSemanticLegalSources
+  ].map((source) => [normalizedUrlKey(source.url), source])).values()];
+  const standaloneSemanticLegalLinks = semanticLegalSourcePool
+    .filter((source) => !hasValidVisualSourceScreenshot(source))
     .map((source) => ({
       title: source.title,
       url: source.url,
+      ...sourceProvenance(source),
       note: source.direct_fragment || visualRow.conclusion,
       sourceKind: source.source_kind || "official_semantic_legal_review",
       evidenceScope: "OFFICIAL_LEGAL_AXIS_PENDING_VISUAL_ACCEPTANCE",
@@ -482,15 +606,22 @@ const rows = geoList.map((geo) => {
       screenshotPath: null,
       visualReview: source.visual_review_result || "LEGAL_TEXT_REVIEWED_PENDING_VALID_VISUAL_CAPTURE"
     }));
+  const declaredSemanticLegalUrls = new Set(
+    declaredSemanticLegalSources.map((source) => normalizedUrlKey(source.url))
+  );
+  const hasPendingSemanticLegalAxis = standaloneSemanticLegalLinks.some((link) =>
+    declaredSemanticLegalUrls.has(normalizedUrlKey(link.url))
+  );
   const standaloneVisualContextLinks = (
-    visualRow?.status === "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY" ||
-    visualRow?.status === "FRESH_REVIEW_BLOCKED_BY_SOURCE_ACCESS"
+    historicalVisualReviewStatus === "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY" ||
+    historicalVisualReviewStatus === "FRESH_REVIEW_BLOCKED_BY_SOURCE_ACCESS"
       ? visualRow?.verified_sources || []
       : []
   ).map((source) => ({
     title: source.title,
     url: source.url,
     sourceKind: source.source_kind || "official_visual_context_review",
+    ...sourceProvenance(source),
     evidenceScope: source.evidence_scope || "OFFICIAL_CONTEXT_ONLY",
     verification: "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
     confidence: "high",
@@ -502,6 +633,7 @@ const rows = geoList.map((geo) => {
     title: source.title,
     url: source.url,
     sourceKind: source.source_kind || "official_visual_context_review",
+    ...sourceProvenance(source),
     evidenceScope: source.evidence_scope || "OFFICIAL_CONTEXT_ONLY",
     verification: "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
     confidence: "high",
@@ -517,18 +649,11 @@ const rows = geoList.map((geo) => {
     !isCannabisScopeSpecificLink(link, geo, visualRow),
   );
   let directLinks = rawDirectLinks.filter((link) => !nonCannabisDirectLinks.includes(link));
-  const erLocTariffEvidence = geo === "ER" ? ER_LOC_TARIFF_CANNABIS_EVIDENCE : null;
-  if (
-    erLocTariffEvidence &&
-    !directLinks.some((link) => normalizedUrlKey(link.url) === normalizedUrlKey(erLocTariffEvidence.url))
-  ) {
-    directLinks = [...directLinks, erLocTariffEvidence];
-  }
   const nonCannabisContextLinks = nonCannabisDirectLinks.map((link) => nonCannabisContextFromVisual(link));
   const pendingCuratedLinks = curatedLinks.filter((link) => link.verification !== "MANUAL_VISUAL_SCREENSHOT_REVIEW");
   const visuallyVerifiedUrls = new Set(directLinks.map((link) => link.url));
   const pendingCollectedLinks = collectedCandidateLinks.filter((link) => !visuallyVerifiedUrls.has(link.url));
-  const visualReviewComplete = completedVisualReviewStatuses.has(visualRow?.status);
+  const visualReviewComplete = completedVisualReviewStatuses.has(historicalVisualReviewStatus);
   const candidateLinksAwaitingVisualReview = visualReviewComplete
     ? []
     : curatedRow
@@ -542,18 +667,18 @@ const rows = geoList.map((geo) => {
   const contextKinds = contextRow?.differenceKinds || [];
 
   let sourceCoverage = "NO_CANDIDATE_PAGE_FOUND";
-  if (erLocTariffEvidence) {
+  if (directLinks.length && historicalVisualReviewStatus === "VISUALLY_VERIFIED") {
     sourceCoverage = "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW";
-  } else if (visualRow?.status === "FRESH_REVIEW_BLOCKED_BY_SOURCE_ACCESS") {
+  } else if (hasPendingSemanticLegalAxis) {
+    sourceCoverage = "OFFICIAL_LEGAL_AXIS_PENDING_VISUAL_ACCEPTANCE";
+  } else if (historicalVisualReviewStatus === "FRESH_REVIEW_BLOCKED_BY_SOURCE_ACCESS") {
     sourceCoverage = "OFFICIAL_SOURCE_ACCESS_BLOCKED";
-  } else if (visualRow?.status === "VISUALLY_REVIEWED_NO_DIRECT_PAGE_FOUND") {
+  } else if (historicalVisualReviewStatus === "VISUALLY_REVIEWED_NO_DIRECT_PAGE_FOUND") {
     sourceCoverage = "NO_CANDIDATE_PAGE_FOUND";
-  } else if (visualRow?.status === "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY") {
+  } else if (historicalVisualReviewStatus === "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY") {
     sourceCoverage = "OFFICIAL_CONTEXT_ONLY";
-  } else if (nonCannabisDirectLinks.length && !directLinks.length && visualRow?.status === "VISUALLY_VERIFIED") {
+  } else if (nonCannabisDirectLinks.length && !directLinks.length && historicalVisualReviewStatus === "VISUALLY_VERIFIED") {
     sourceCoverage = "OFFICIAL_CONTEXT_ONLY";
-  } else if (directLinks.length && visualRow?.status === "VISUALLY_VERIFIED") {
-    sourceCoverage = "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW";
   } else if (curatedLinks.length) {
     sourceCoverage = "OFFICIAL_SOURCE_AWAITING_VISUAL_REVIEW";
   } else if (collectedCandidateLinks.length) {
@@ -564,10 +689,7 @@ const rows = geoList.map((geo) => {
 
   let differenceStatus = "OFFICIAL_LINK_COVERAGE_GAP";
   let differenceDescription = "No candidate official cannabis-law page is present in the reviewed corpus. This is an evidence-coverage gap, not evidence that the project status is wrong.";
-  if (erLocTariffEvidence) {
-    differenceStatus = ER_LOC_TARIFF_DIFFERENCE_STATUS;
-    differenceDescription = ER_LOC_TARIFF_DIFFERENCE_DESCRIPTION;
-  } else if (!collected.project) {
+  if (!collected.project) {
     differenceStatus = "NO_PROJECT_STATUS";
     differenceDescription = "The runtime universe contains this territory, but the project has no legal status row. Any claimant-state material is context only until a territory rule is chosen deliberately.";
   }
@@ -577,20 +699,24 @@ const rows = geoList.map((geo) => {
       ? `Unreviewed parser output exists (${parserSignals.join("; ")}), but no conflict is classified. The rendered candidate pages must be inspected by eye before comparison with ${statusText(collected.project)}.`
       : `Candidate URLs exist, but no status comparison is accepted until the rendered pages are inspected by eye and captured.`;
   }
-  if (visualRow?.status === "FRESH_REVIEW_BLOCKED_BY_SOURCE_ACCESS") {
+  if (hasPendingSemanticLegalAxis) {
+    differenceStatus = visualRow?.project_comparison?.status || "OFFICIAL_LEGAL_AXIS_PENDING_VISUAL_ACCEPTANCE";
+    differenceDescription = visualRow?.project_comparison?.reason ||
+      "Current applicable primary-law axes were semantically reviewed from declared official sources. Strict visual screenshot acceptance remains pending and no runtime or SSOT status is applied.";
+  } else if (historicalVisualReviewStatus === "FRESH_REVIEW_BLOCKED_BY_SOURCE_ACCESS") {
     differenceStatus = visualRow.project_comparison?.status || "OFFICIAL_SOURCE_ACCESS_BLOCKED";
     differenceDescription = visualRow.project_comparison?.reason || visualRow.conclusion;
-  } else if (visualRow?.status === "VISUALLY_REVIEWED_NO_DIRECT_PAGE_FOUND") {
+  } else if (historicalVisualReviewStatus === "VISUALLY_REVIEWED_NO_DIRECT_PAGE_FOUND") {
     differenceStatus = visualRow.project_comparison?.status || "NO_DIRECT_CANNABIS_PAGE_FOUND_AFTER_MANUAL_REVIEW";
     differenceDescription = visualRow.project_comparison?.reason || visualRow.conclusion;
-  } else if (visualRow?.status === "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY") {
+  } else if (historicalVisualReviewStatus === "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY") {
     differenceStatus = visualRow.project_comparison?.status || "OFFICIAL_CONTEXT_ONLY_AFTER_MANUAL_REVIEW";
     differenceDescription = visualRow.project_comparison?.reason || visualRow.conclusion;
-  } else if (nonCannabisDirectLinks.length && !directLinks.length && visualRow?.status === "VISUALLY_VERIFIED") {
+  } else if (nonCannabisDirectLinks.length && !directLinks.length && historicalVisualReviewStatus === "VISUALLY_VERIFIED") {
     differenceStatus = "OFFICIAL_SOURCE_NON_CANNABIS_SCOPE";
     differenceDescription =
       "Визуально проверенный источник явно относится к широкому контролю наркотических/отвратительных веществ и не признается каннабис-специфичным; статус берётся из контекста, проектный статус не сравнивается с этим источником как с прямым cannabis-law доказательством.";
-  } else if (directLinks.length && visualRow?.status === "VISUALLY_VERIFIED") {
+  } else if (directLinks.length && historicalVisualReviewStatus === "VISUALLY_VERIFIED") {
     differenceStatus = visualRow.project_comparison?.status || "VISUAL_SOURCE_REVIEWED_STATUS_COMPARISON_PENDING";
     differenceDescription = visualRow.project_comparison?.reason || `${visualRow.conclusion} A structured project-status comparison has not yet been accepted from this screenshot review.`;
   } else if (curatedRow) {
@@ -604,11 +730,12 @@ const rows = geoList.map((geo) => {
     differenceDescription = contextRow.verifiedConclusion;
   }
 
-  const legacyContextLinks = visualRow?.status === "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY"
+  const legacyContextLinks = historicalVisualReviewStatus === "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY"
     ? []
     : (contextRow?.sources || []).map((source) => ({
       title: source.title,
       url: source.url,
+      ...sourceProvenance(source),
       note: source.note,
       sourceKind: "claimant_or_territory_context",
       verification: "MANUAL_OFFICIAL_REVIEW",
@@ -616,13 +743,34 @@ const rows = geoList.map((geo) => {
       screenshotPath: null,
       visualReview: "CONTEXT_ONLY"
     }));
+  // A reviewed URL is durable audit provenance even when it no longer meets the
+  // stricter direct-evidence gates (for example, an invalid fresh crop or an
+  // explicitly unofficial historical copy). Keep it published as context; the
+  // direct-url filter below prevents this fallback from changing legal truth.
+  const retainedReviewedSourceContextLinks = historicalVisualReviewStatus === "VISUALLY_VERIFIED"
+    ? reviewedStandaloneSources
+      .filter((source) => source?.url)
+      .map((source) => ({
+        title: source.title,
+        url: source.url,
+        sourceKind: source.source_kind || "reviewed_source_provenance_context",
+        ...sourceProvenance(source),
+        evidenceScope: "RETAINED_REVIEWED_SOURCE_PROVENANCE_CONTEXT_ONLY",
+        verification: "RETAINED_REVIEWED_SOURCE_PROVENANCE_CONTEXT",
+        confidence: "low",
+        note: source.annotation || source.legal_conclusion || visualRow.conclusion,
+        screenshotPath: null,
+        visualReview: source.visual_review_result || "RETAINED_CONTEXT_ONLY"
+      }))
+    : [];
   const directUrlKeys = new Set(directLinks.map((link) => normalizedUrlKey(link.url)));
   const officialContextLinks = [...new Map([
     ...legacyContextLinks,
     ...standaloneVisualContextLinks,
     ...standaloneSemanticLegalLinks,
     ...explicitVisualContextLinks,
-    ...nonCannabisContextLinks
+    ...nonCannabisContextLinks,
+    ...retainedReviewedSourceContextLinks
   ].map((link) => [normalizedUrlKey(link.url), link])).values()]
     .filter((link) => !directUrlKeys.has(normalizedUrlKey(link.url)));
   const basePublishedUrlKeys = new Set([
@@ -640,6 +788,7 @@ const rows = geoList.map((geo) => {
         const link = {
           title: source.title,
           url: source.url,
+          ...sourceProvenance(source),
           note: source.freshVisualAnalysisRu || source.role,
           sourceKind: source.role || "supplemental_official_reaudit",
           verification: source.visualReview || "MANUAL_VISUAL_SCREENSHOT_REVIEW",
@@ -657,9 +806,6 @@ const rows = geoList.map((geo) => {
     enforcement: visualRow?.official_status?.enforcement || null,
     ...(greyReauditRow?.officialStatusPatch || {})
   } : null;
-  if (erLocTariffEvidence) {
-    officialStatus = { ...ER_LOC_TARIFF_OFFICIAL_STATUS };
-  }
   if (nonCannabisDirectLinks.length && !directLinks.length) officialStatus = null;
   if (sourceCoverage === "OFFICIAL_CONTEXT_ONLY") officialStatus = null;
   const screenshotPaths = Array.from(new Set([
@@ -672,10 +818,8 @@ const rows = geoList.map((geo) => {
       ...(source.freshScreenshotPaths || [])
     ])
   ].filter(Boolean)));
-  const reviewNotes = erLocTariffEvidence
-    ? `VISUALLY_REVIEWED_DIRECT_CANNABIS_FAMILY_PRIMARY_LAW: ${ER_LOC_TARIFF_DIFFERENCE_DESCRIPTION}`
-    : visualRow
-    ? `${visualRow.status || "VISUAL_REVIEW_PENDING"}: ${visualRow.conclusion || "Screenshot review has not been completed."}`
+  const reviewNotes = visualRow
+    ? `${historicalVisualReviewStatus || "VISUAL_REVIEW_PENDING"}: ${visualRow.conclusion || "Screenshot review has not been completed."}${visualRow.strict_visual_acceptance ? ` Strict-current acceptance: ${visualRow.strict_visual_acceptance}.` : ""}`
     : curatedRow
       ? "VISUAL_REVIEW_PENDING: Screenshot review has not been completed."
     : contextRow?.notes || "No territory-specific manual note recorded in the source corpus.";
@@ -686,12 +830,17 @@ const rows = geoList.map((geo) => {
     }
   }
 
+  const strictVisualAcceptanceRejected =
+    visualRow?.final_visual_acceptance?.strict_acceptance === false ||
+    visualRow?.strict_visual_acceptance === false;
   const effectiveVisualReviewStatus =
-    erLocTariffEvidence
-      ? "VISUALLY_VERIFIED"
-      : nonCannabisDirectLinks.length && !directLinks.length && visualRow?.status === "VISUALLY_VERIFIED"
-      ? "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY"
-      : visualRow?.status || (curatedRow ? "PENDING" : "NOT_REVIEWED");
+    sourceCoverage === "OFFICIAL_SOURCE_AWAITING_VISUAL_REVIEW" || sourceCoverage === "CANDIDATE_LINKS_AWAITING_VISUAL_REVIEW"
+        ? "PENDING"
+        : hasPendingSemanticLegalAxis && strictVisualAcceptanceRejected
+          ? "FRESH_REVIEW_BLOCKED_BY_SOURCE_ACCESS"
+      : nonCannabisDirectLinks.length && !directLinks.length && historicalVisualReviewStatus === "VISUALLY_VERIFIED"
+        ? "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY"
+        : historicalVisualReviewStatus || (curatedRow ? "PENDING" : "NOT_REVIEWED");
 
   return {
     geo,
@@ -702,6 +851,7 @@ const rows = geoList.map((geo) => {
       enforcement: collected.project.enforcement
     } : null,
     officialStatus,
+    independentTruth,
     directOfficialCannabisLawLinks: directLinks,
     candidateLinksAwaitingVisualReview,
     officialContextLinks,
@@ -716,10 +866,11 @@ const rows = geoList.map((geo) => {
       enforcement: derived.enforcement
     } : null,
     visualReviewStatus: effectiveVisualReviewStatus,
+    strictVisualAcceptance: visualRow?.strict_visual_acceptance || null,
     screenshotPaths,
     reviewConfidence: standaloneVisualContextLinks.length || explicitVisualContextLinks.length
       ? "high"
-      : (directLinks.length || nonCannabisDirectLinks.length) && visualRow?.status === "VISUALLY_VERIFIED"
+      : (directLinks.length || nonCannabisDirectLinks.length) && historicalVisualReviewStatus === "VISUALLY_VERIFIED"
       ? "high"
       : curatedRow
         ? "none"
@@ -781,11 +932,13 @@ const counts = {
   total: rows.length,
   manualVisualReviewComplete: rows.filter((row) => completedVisualReviewStatuses.has(row.visualReviewStatus)).length,
   visuallyVerifiedOfficialCannabisLaw: rows.filter((row) => row.sourceCoverage === "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW").length,
+  visuallyVerifiedVisualReview: rows.filter((row) => row.visualReviewStatus === "VISUALLY_VERIFIED").length,
   visuallyReviewedNoDirectPageFound: rows.filter((row) => row.visualReviewStatus === "VISUALLY_REVIEWED_NO_DIRECT_PAGE_FOUND").length,
   visuallyReviewedOfficialContextOnly: rows.filter((row) => row.visualReviewStatus === "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY").length,
   visuallyReviewedSourceAccessBlocked: rows.filter((row) => row.visualReviewStatus === "FRESH_REVIEW_BLOCKED_BY_SOURCE_ACCESS").length,
   visualReviewRemaining: rows.filter((row) => !completedVisualReviewStatuses.has(row.visualReviewStatus)).length,
   officialSourceAwaitingVisualReview: rows.filter((row) => row.sourceCoverage === "OFFICIAL_SOURCE_AWAITING_VISUAL_REVIEW").length,
+  officialLegalAxisPendingVisualAcceptance: rows.filter((row) => row.sourceCoverage === "OFFICIAL_LEGAL_AXIS_PENDING_VISUAL_ACCEPTANCE").length,
   candidateRowsAwaitingVisualReview: rows.filter((row) => row.sourceCoverage === "CANDIDATE_LINKS_AWAITING_VISUAL_REVIEW").length,
   officialContextOnly: rows.filter((row) => row.sourceCoverage === "OFFICIAL_CONTEXT_ONLY").length,
   officialSourceAccessBlocked: rows.filter((row) => row.sourceCoverage === "OFFICIAL_SOURCE_ACCESS_BLOCKED").length,
@@ -818,17 +971,19 @@ const counts = {
 };
 const exclusiveCoverageTotal =
   counts.visuallyVerifiedOfficialCannabisLaw +
+  counts.officialLegalAxisPendingVisualAcceptance +
   counts.officialSourceAwaitingVisualReview +
   counts.candidateRowsAwaitingVisualReview +
   counts.officialContextOnly +
   counts.officialSourceAccessBlocked +
   counts.noCandidatePageFound;
-const visuallyVerifiedReviewRows = [...visualByGeo.values()].filter((row) => row.status === "VISUALLY_VERIFIED").length;
-const blockedReviewRows = [...visualByGeo.values()].filter((row) => row.status === "VISUAL_CAPTURE_BLOCKED").length;
+const visuallyVerifiedReviewRows = [...visualByGeo.values()].filter((row) => historicalVisualReviewStatusFor(row) === "VISUALLY_VERIFIED").length;
+const blockedReviewRows = [...visualByGeo.values()].filter((row) => historicalVisualReviewStatusFor(row) === "VISUAL_CAPTURE_BLOCKED").length;
 if (
   exclusiveCoverageTotal !== rows.length ||
   counts.visualReviewRemaining !== rows.length - counts.manualVisualReviewComplete ||
-  counts.manualVisualReviewComplete !== counts.visuallyVerifiedOfficialCannabisLaw + counts.visuallyReviewedNoDirectPageFound + counts.visuallyReviewedOfficialContextOnly + counts.visuallyReviewedSourceAccessBlocked ||
+  counts.manualVisualReviewComplete !== counts.visuallyVerifiedVisualReview + counts.visuallyReviewedNoDirectPageFound + counts.visuallyReviewedOfficialContextOnly + counts.visuallyReviewedSourceAccessBlocked ||
+  counts.visualReviewRemaining !== counts.officialSourceAwaitingVisualReview + counts.candidateRowsAwaitingVisualReview ||
   counts.visualCaptureBlocked !== blockedReviewRows
 ) {
   throw new Error(`Unexpected evidence counts: ${JSON.stringify(counts)}`);

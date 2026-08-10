@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import CountrySeoPage, { getCountrySeoTitle } from "@/app/_components/CountrySeoPage";
+import CountrySeoPage, { ensureCountryPageHash, getCountrySeoTitle } from "@/app/_components/CountrySeoPage";
 import { getCountryPageData, listCountryPageCodes } from "@/lib/countryPageStorage";
 import { buildSeoLanguageAlternates, isSeoAltLocale, type SeoAltLocale } from "@/lib/seo/i18n";
 import { getEffectiveSeoLocale, getSeoTranslation, listSeoTranslationEntries, type SeoLocale } from "@/lib/seo/wikiLocaleContent";
@@ -69,6 +69,7 @@ export default async function LocalizedCountryCodePage({
   const query = typeof resolvedSearchParams?.q === "string" ? resolvedSearchParams.q : null;
   const data = getCountryPageData(code);
   if (!data) notFound();
+  ensureCountryPageHash(data);
   const locale = getEffectiveSeoLocale(data.code, lang as SeoAltLocale) as SeoLocale;
   return <CountrySeoPage data={data} locale={locale} query={query} />;
 }

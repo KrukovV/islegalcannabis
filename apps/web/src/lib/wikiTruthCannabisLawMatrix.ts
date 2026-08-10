@@ -26,6 +26,13 @@ export type WikiTruthCannabisLawColorReaudit = {
   freshOfficialSources: WikiTruthCannabisLawReauditSource[];
 };
 
+export type WikiTruthIndependentTruthProposal = {
+  color: "GREEN" | "YELLOW" | "RED" | "UNKNOWN";
+  rule: string | null;
+  reviewedAt: string | null;
+  conclusion: string | null;
+};
+
 export type WikiTruthLayerMatchState = "MATCH" | "MISMATCH" | "UNKNOWN";
 
 export type WikiTruthLawAxis = {
@@ -102,6 +109,7 @@ export type WikiTruthCannabisLawRow = {
     medical: string;
     enforcement: string | null;
   } | null;
+  independentTruth?: WikiTruthIndependentTruthProposal | null;
   directOfficialCannabisLawLinks: WikiTruthCannabisLawLink[];
   candidateLinksAwaitingVisualReview: WikiTruthCannabisLawLink[];
   officialContextLinks: WikiTruthCannabisLawLink[];
@@ -109,6 +117,7 @@ export type WikiTruthCannabisLawRow = {
   freshSecondPassOfficialLinks?: WikiTruthCannabisLawLink[];
   sourceCoverage:
     | "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW"
+    | "OFFICIAL_LEGAL_AXIS_PENDING_VISUAL_ACCEPTANCE"
     | "OFFICIAL_SOURCE_AWAITING_VISUAL_REVIEW"
     | "CANDIDATE_LINKS_AWAITING_VISUAL_REVIEW"
     | "OFFICIAL_CONTEXT_ONLY"

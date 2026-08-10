@@ -108,6 +108,8 @@ function renderLinks(
 function coverageLabel(value: WikiTruthCannabisLawRow["sourceCoverage"]) {
   const labels: Record<WikiTruthCannabisLawRow["sourceCoverage"], string> = {
     VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW: "ЗАКОН ПРОВЕРЕН ВРУЧНУЮ",
+    OFFICIAL_LEGAL_AXIS_PENDING_VISUAL_ACCEPTANCE:
+      "ЮРИДИЧЕСКИЕ ОСИ ПРОВЕРЕНЫ; СТРОГАЯ ВИЗУАЛЬНАЯ ПРИЁМКА ОЖИДАЕТСЯ",
     OFFICIAL_SOURCE_AWAITING_VISUAL_REVIEW:
       "ОФИЦИАЛЬНЫЙ URL; ПРОСМОТР ЗАБЛОКИРОВАН ИЛИ ОЖИДАЕТСЯ",
     CANDIDATE_LINKS_AWAITING_VISUAL_REVIEW: "НЕПРОВЕРЕННЫЕ ССЫЛКИ-КАНДИДАТЫ",
@@ -374,6 +376,20 @@ export default function CannabisLawMatrix({
                       "official",
                     )}
                   </span>
+                  {row.independentTruth ? (
+                    <>
+                      <strong>Независимый Truth Color (только proposal)</strong>
+                      <span
+                        className="statusLine"
+                        data-independent-truth-color={row.independentTruth.color}
+                      >
+                        {row.independentTruth.color}
+                        {row.independentTruth.rule
+                          ? ` · ${row.independentTruth.rule}`
+                          : ""}
+                      </span>
+                    </>
+                  ) : null}
                 </td>
                 <td className="colMeta">
                   <span className={`coverage ${row.sourceCoverage}`}>

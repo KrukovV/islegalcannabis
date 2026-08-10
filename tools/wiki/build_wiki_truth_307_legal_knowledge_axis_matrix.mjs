@@ -177,6 +177,25 @@ const DIRECT_AXIS_MAP = Object.freeze({
   fine_only: ["enforcement", "enforcement_mode"],
 });
 
+const FRESH_PRIMARY_LAW_AXIS_PROJECTIONS = Object.freeze({
+  possession: {
+    finding: "adult_use",
+    status: /(?:^|_)ADULT_USE_LEGAL(?:_|$)/,
+  },
+  use: {
+    finding: "adult_use",
+    status: /(?:^|_)ADULT_USE_LEGAL(?:_|$)/,
+  },
+  cultivation_personal: {
+    finding: "recreational_cultivation",
+    status: /(?:^|_)LAWFUL_ADULT_PRIVATE_CULTIVATION(?:_|$)/,
+  },
+  commenced: {
+    finding: "programme_commenced",
+    status: /(?:^|_)(IN_FORCE|COMMENCED|EFFECTIVE)(?:_|$)/,
+  },
+});
+
 const GUARDRAILS = Object.freeze([
   "UNKNOWN_AXIS_MUST_REMAIN_UNKNOWN_UNTIL_PRIMARY_LAW_PROVES_IT",
   "NO_AXIS_VALUE_FROM_WIKIPEDIA",
@@ -288,6 +307,41 @@ function lookupDirectAxisValue(requiredAxis, sources) {
   return null;
 }
 
+function freshPrimaryLawAxisFindings(row) {
+  const truth = row?.truth || {};
+  const validation = truth.validation || {};
+  const findings = truth.axisFindings;
+  if (
+    truth.source !== "FRESH_PRIMARY_LAW_AXIS_RECONCILIATION" ||
+    !validation.visualEvidenceComplete ||
+    !validation.cannabisSpecificFragmentVisible ||
+    !validation.effectiveRuleVisible ||
+    !validation.applicabilityResolved ||
+    !findings ||
+    typeof findings !== "object"
+  ) {
+    return {};
+  }
+  return findings;
+}
+
+function lookupFreshPrimaryLawAxisValue(requiredAxis, row) {
+  const projection = FRESH_PRIMARY_LAW_AXIS_PROJECTIONS[requiredAxis];
+  if (!projection) return null;
+  const finding = freshPrimaryLawAxisFindings(row)[projection.finding];
+  const value = normalizeStatus(
+    typeof finding === "object" ? finding?.status : finding,
+  );
+  if (!value || !value.startsWith("PROVEN_") || !projection.status.test(value)) {
+    return null;
+  }
+  return {
+    value,
+    sourceLayer: "FRESH_PRIMARY_LAW_AXIS_RECONCILIATION",
+    evidenceClass: "FRESH_PRIMARY_LAW_AXIS_FINDING",
+  };
+}
+
 function inferCoarseAxisValue(group, axis, row, sourceText) {
   const truthRule = normalizeStatus(row.truth?.ruleId);
   const truthColor = normalizeStatus(row.truth?.color);
@@ -381,9 +435,11 @@ function inferCoarseAxisValue(group, axis, row, sourceText) {
   };
 }
 
-function buildAxisCell(group, axis, row) {
+export function buildAxisCell(group, axis, row) {
   const sources = axisSource(row);
-  const direct = lookupDirectAxisValue(axis, sources);
+  const direct =
+    lookupFreshPrimaryLawAxisValue(axis, row) ||
+    lookupDirectAxisValue(axis, sources);
   const sourceText = compact(
     [
       nestedText(row.official),
@@ -611,4 +667,6 @@ function main() {
   }
 }
 
-main();
+if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
+  main();
+}

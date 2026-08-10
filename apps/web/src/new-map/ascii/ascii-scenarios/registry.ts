@@ -11,7 +11,14 @@ import {
   type ScenarioDef,
   WALK_FRAMES
 } from "../ascii-engine";
-import { ASCII_BODY_SSOT, ASCII_JOINT_SSOT, type AsciiFacing, framesForFacing } from "../ascii-ssot";
+import {
+  ASCII_BODY_SSOT,
+  ASCII_JOINT_SSOT,
+  type AntarcticMascotKind,
+  type AsciiFacing,
+  framesForAntarcticMascot,
+  framesForFacing
+} from "../ascii-ssot";
 
 const AUTO = ["auto"] as const;
 const CENTER = { lng: 0, lat: -77 } as const;
@@ -31,7 +38,8 @@ function addActor(
     frames,
     tx,
     ty,
-    facing = x >= 0 ? "left" : "right"
+    facing = x >= 0 ? "left" : "right",
+    mascotKind
   }: {
     x: number;
     y: number;
@@ -44,6 +52,7 @@ function addActor(
     tx?: number;
     ty?: number;
     facing?: AsciiFacing;
+    mascotKind?: AntarcticMascotKind;
   }
 ) {
   engine.spawnActor({
@@ -57,6 +66,7 @@ function addActor(
     state,
     ttl,
     role,
+    mascotKind,
     facing,
     targetOffsetX: tx,
     targetOffsetY: ty
@@ -718,6 +728,363 @@ const scenarioDanceWaveLegacy = phased(
   ]
 );
 
+const ANTARCTIC_FACE_CHORUS = [
+  { kind: "penguin", x: -84, y: -18 },
+  { kind: "seal", x: -28, y: -4 },
+  { kind: "petrel", x: 28, y: -18 },
+  { kind: "orca", x: 84, y: -4 },
+  { kind: "seal", x: -56, y: 8 },
+  { kind: "skua", x: 56, y: 8 }
+] as const satisfies ReadonlyArray<{ kind: AntarcticMascotKind; x: number; y: number }>;
+
+const ANTARCTIC_FACE_PARADE = [
+  { kind: "penguin", x: -92, y: -22 },
+  { kind: "seal", x: -30, y: -22 },
+  { kind: "petrel", x: 32, y: -22 },
+  { kind: "orca", x: 94, y: -22 },
+  { kind: "skua", x: -62, y: 14 },
+  { kind: "penguin", x: 0, y: 14 },
+  { kind: "seal", x: 62, y: 14 }
+] as const satisfies ReadonlyArray<{ kind: AntarcticMascotKind; x: number; y: number }>;
+
+const ANTARCTIC_FACE_CONSTELLATION = [
+  { kind: "orca", x: 0, y: -32 },
+  { kind: "penguin", x: -68, y: -8 },
+  { kind: "petrel", x: 68, y: -8 },
+  { kind: "seal", x: -38, y: 20 },
+  { kind: "skua", x: 38, y: 20 },
+  { kind: "penguin", x: 0, y: 34 }
+] as const satisfies ReadonlyArray<{ kind: AntarcticMascotKind; x: number; y: number }>;
+
+const ANTARCTIC_FACE_TIDEPOOL = [
+  { kind: "albatross", x: -78, y: -24 },
+  { kind: "krill", x: -26, y: -8 },
+  { kind: "leopardSeal", x: 28, y: -18 },
+  { kind: "penguin", x: 80, y: -2 },
+  { kind: "krill", x: -52, y: 22 },
+  { kind: "seal", x: 4, y: 30 }
+] as const satisfies ReadonlyArray<{ kind: AntarcticMascotKind; x: number; y: number }>;
+
+const ANTARCTIC_FACE_AURORA = [
+  { kind: "albatross", x: 0, y: -34 },
+  { kind: "penguin", x: -72, y: -8 },
+  { kind: "petrel", x: 72, y: -8 },
+  { kind: "leopardSeal", x: -40, y: 22 },
+  { kind: "krill", x: 40, y: 22 },
+  { kind: "orca", x: 0, y: 36 }
+] as const satisfies ReadonlyArray<{ kind: AntarcticMascotKind; x: number; y: number }>;
+
+const ANTARCTIC_FACE_ROOKERY = [
+  { kind: "emperorPenguin", x: -82, y: -26 },
+  { kind: "penguin", x: -26, y: -28 },
+  { kind: "snowPetrel", x: 30, y: -26 },
+  { kind: "skua", x: 84, y: -24 },
+  { kind: "weddellSeal", x: -56, y: 18 },
+  { kind: "crabeaterSeal", x: 2, y: 22 },
+  { kind: "krill", x: 58, y: 16 },
+  { kind: "leopardSeal", x: 0, y: 42 }
+] as const satisfies ReadonlyArray<{ kind: AntarcticMascotKind; x: number; y: number }>;
+
+const ANTARCTIC_FACE_ICE_FLOE = [
+  { kind: "orca", x: -78, y: -18 },
+  { kind: "crabeaterSeal", x: -28, y: -30 },
+  { kind: "emperorPenguin", x: 30, y: -30 },
+  { kind: "snowPetrel", x: 82, y: -18 },
+  { kind: "weddellSeal", x: -48, y: 22 },
+  { kind: "penguin", x: 8, y: 18 },
+  { kind: "krill", x: 58, y: 24 }
+] as const satisfies ReadonlyArray<{ kind: AntarcticMascotKind; x: number; y: number }>;
+
+const ANTARCTIC_FACE_PACK_ICE = [
+  { kind: "minkeWhale", x: -86, y: -24 },
+  { kind: "adeliePenguin", x: -30, y: -30 },
+  { kind: "emperorPenguin", x: 30, y: -30 },
+  { kind: "snowPetrel", x: 86, y: -24 },
+  { kind: "elephantSeal", x: -58, y: 16 },
+  { kind: "crabeaterSeal", x: 0, y: 20 },
+  { kind: "weddellSeal", x: 58, y: 16 },
+  { kind: "krill", x: -28, y: 38 },
+  { kind: "orca", x: 30, y: 38 }
+] as const satisfies ReadonlyArray<{ kind: AntarcticMascotKind; x: number; y: number }>;
+
+const ANTARCTIC_FACE_POLYNYA = [
+  { kind: "minkeWhale", x: 0, y: -34 },
+  { kind: "adeliePenguin", x: -72, y: -8 },
+  { kind: "snowPetrel", x: 72, y: -8 },
+  { kind: "elephantSeal", x: -42, y: 22 },
+  { kind: "leopardSeal", x: 0, y: 24 },
+  { kind: "crabeaterSeal", x: 42, y: 22 },
+  { kind: "krill", x: -70, y: 40 },
+  { kind: "penguin", x: 70, y: 40 }
+] as const satisfies ReadonlyArray<{ kind: AntarcticMascotKind; x: number; y: number }>;
+
+const ANTARCTIC_FACE_ICEBERG = [
+  { kind: "giantPetrel", x: 0, y: -36 },
+  { kind: "chinstrapPenguin", x: -76, y: -10 },
+  { kind: "adeliePenguin", x: 76, y: -10 },
+  { kind: "antarcticFurSeal", x: -46, y: 20 },
+  { kind: "weddellSeal", x: 0, y: 24 },
+  { kind: "crabeaterSeal", x: 46, y: 20 },
+  { kind: "krill", x: -74, y: 42 },
+  { kind: "snowPetrel", x: 0, y: 42 },
+  { kind: "penguin", x: 74, y: 42 }
+] as const satisfies ReadonlyArray<{ kind: AntarcticMascotKind; x: number; y: number }>;
+
+const ANTARCTIC_FACE_SHELF = [
+  { kind: "giantPetrel", x: -82, y: -26 },
+  { kind: "chinstrapPenguin", x: -28, y: -28 },
+  { kind: "emperorPenguin", x: 28, y: -28 },
+  { kind: "albatross", x: 82, y: -26 },
+  { kind: "antarcticFurSeal", x: -54, y: 16 },
+  { kind: "elephantSeal", x: 0, y: 20 },
+  { kind: "leopardSeal", x: 54, y: 16 },
+  { kind: "minkeWhale", x: 0, y: 42 }
+] as const satisfies ReadonlyArray<{ kind: AntarcticMascotKind; x: number; y: number }>;
+
+function spawnAntarcticFaceFormation(
+  engine: Parameters<ScenarioDef["start"]>[0],
+  formation: ReadonlyArray<{ kind: AntarcticMascotKind; x: number; y: number }>
+) {
+  formation.forEach(({ kind, x, y }) => {
+    addActor(engine, {
+      x: x * 1.55,
+      y: y + 24,
+      tx: x,
+      ty: y,
+      role: "mascot",
+      mascotKind: kind,
+      state: "enter",
+      frames: framesForAntarcticMascot(kind)
+    });
+  });
+}
+
+const scenarioAntarcticFaceChorus = phased(
+  "antarctic-face-chorus",
+  660,
+  (engine) => {
+    spawnAntarcticFaceFormation(engine, ANTARCTIC_FACE_CHORUS);
+  },
+  [
+    [180, (engine) => engine.actors.forEach((actor, index) => {
+      const { x, y } = ANTARCTIC_FACE_CHORUS[index % ANTARCTIC_FACE_CHORUS.length];
+      actor.targetOffsetX = x;
+      actor.targetOffsetY = y + (index % 2 === 0 ? -6 : 6);
+      actor.state = "enter";
+    })],
+    [380, (engine) => engine.actors.forEach((actor, index) => {
+      actor.targetOffsetY = (actor.targetOffsetY ?? actor.offsetY) + (index % 2 === 0 ? 12 : -12);
+      actor.state = "enter";
+    })],
+    [560, (engine) => engine.finale()]
+  ],
+  2
+);
+
+const scenarioAntarcticFaceParade = phased(
+  "antarctic-face-parade",
+  720,
+  (engine) => {
+    spawnAntarcticFaceFormation(engine, ANTARCTIC_FACE_PARADE);
+  },
+  [
+    [180, (engine) => engine.actors.forEach((actor, index) => {
+      const { x, y } = ANTARCTIC_FACE_PARADE[index % ANTARCTIC_FACE_PARADE.length];
+      actor.targetOffsetX = x;
+      actor.targetOffsetY = y + (index % 3 - 1) * 10;
+      actor.state = "enter";
+    })],
+    [380, (engine) => engine.setStateAll("dance")],
+    [580, (engine) => engine.finale()]
+  ]
+);
+
+const scenarioAntarcticFaceConstellation = phased(
+  "antarctic-face-constellation",
+  720,
+  (engine) => {
+    spawnAntarcticFaceFormation(engine, ANTARCTIC_FACE_CONSTELLATION);
+  },
+  [
+    [180, (engine) => engine.actors.forEach((actor, index) => {
+      const { x, y } = ANTARCTIC_FACE_CONSTELLATION[index % ANTARCTIC_FACE_CONSTELLATION.length];
+      actor.targetOffsetX = x;
+      actor.targetOffsetY = y + (index % 2 === 0 ? -8 : 8);
+      actor.state = "enter";
+    })],
+    [400, (engine) => engine.setStateAll("dance")],
+    [600, (engine) => engine.finale()]
+  ]
+);
+
+const scenarioAntarcticFaceTidepool = phased(
+  "antarctic-face-tidepool",
+  720,
+  (engine) => {
+    spawnAntarcticFaceFormation(engine, ANTARCTIC_FACE_TIDEPOOL);
+  },
+  [
+    [180, (engine) => engine.actors.forEach((actor, index) => {
+      const { x, y } = ANTARCTIC_FACE_TIDEPOOL[index % ANTARCTIC_FACE_TIDEPOOL.length];
+      actor.targetOffsetX = x;
+      actor.targetOffsetY = y + (index % 2 === 0 ? -7 : 7);
+      actor.state = "enter";
+    })],
+    [400, (engine) => engine.actors.forEach((actor, index) => {
+      actor.targetOffsetX = (actor.targetOffsetX ?? actor.offsetX) + (index % 2 === 0 ? 10 : -10);
+      actor.state = "enter";
+    })],
+    [600, (engine) => engine.finale()]
+  ]
+);
+
+const scenarioAntarcticFaceAurora = phased(
+  "antarctic-face-aurora",
+  720,
+  (engine) => {
+    spawnAntarcticFaceFormation(engine, ANTARCTIC_FACE_AURORA);
+  },
+  [
+    [180, (engine) => engine.actors.forEach((actor, index) => {
+      const { x, y } = ANTARCTIC_FACE_AURORA[index % ANTARCTIC_FACE_AURORA.length];
+      actor.targetOffsetX = x + (index % 2 === 0 ? 8 : -8);
+      actor.targetOffsetY = y;
+      actor.state = "enter";
+    })],
+    [400, (engine) => engine.actors.forEach((actor, index) => {
+      actor.targetOffsetY = (actor.targetOffsetY ?? actor.offsetY) + (index % 2 === 0 ? -8 : 8);
+      actor.state = "enter";
+    })],
+    [600, (engine) => engine.finale()]
+  ]
+);
+
+const scenarioAntarcticFaceRookery = phased(
+  "antarctic-face-rookery",
+  720,
+  (engine) => {
+    spawnAntarcticFaceFormation(engine, ANTARCTIC_FACE_ROOKERY);
+  },
+  [
+    [180, (engine) => engine.actors.forEach((actor, index) => {
+      const { x, y } = ANTARCTIC_FACE_ROOKERY[index % ANTARCTIC_FACE_ROOKERY.length];
+      actor.targetOffsetX = x + (index % 2 === 0 ? -6 : 6);
+      actor.targetOffsetY = y + (index % 3 - 1) * 7;
+      actor.state = "enter";
+    })],
+    [400, (engine) => engine.actors.forEach((actor, index) => {
+      actor.targetOffsetY = (actor.targetOffsetY ?? actor.offsetY) + (index % 2 === 0 ? -9 : 9);
+      actor.state = "enter";
+    })],
+    [600, (engine) => engine.finale()]
+  ]
+);
+
+const scenarioAntarcticFaceIceFloe = phased(
+  "antarctic-face-ice-floe",
+  720,
+  (engine) => {
+    spawnAntarcticFaceFormation(engine, ANTARCTIC_FACE_ICE_FLOE);
+  },
+  [
+    [180, (engine) => engine.actors.forEach((actor, index) => {
+      const { x, y } = ANTARCTIC_FACE_ICE_FLOE[index % ANTARCTIC_FACE_ICE_FLOE.length];
+      actor.targetOffsetX = x;
+      actor.targetOffsetY = y + (index % 2 === 0 ? -8 : 8);
+      actor.state = "enter";
+    })],
+    [400, (engine) => engine.actors.forEach((actor, index) => {
+      actor.targetOffsetX = (actor.targetOffsetX ?? actor.offsetX) + (index % 2 === 0 ? 12 : -12);
+      actor.state = "enter";
+    })],
+    [600, (engine) => engine.finale()]
+  ]
+);
+
+const scenarioAntarcticFacePackIce = phased(
+  "antarctic-face-pack-ice",
+  720,
+  (engine) => {
+    spawnAntarcticFaceFormation(engine, ANTARCTIC_FACE_PACK_ICE);
+  },
+  [
+    [180, (engine) => engine.actors.forEach((actor, index) => {
+      const { x, y } = ANTARCTIC_FACE_PACK_ICE[index % ANTARCTIC_FACE_PACK_ICE.length];
+      actor.targetOffsetX = x + (index % 2 === 0 ? -6 : 6);
+      actor.targetOffsetY = y + (index % 3 - 1) * 7;
+      actor.state = "enter";
+    })],
+    [400, (engine) => engine.actors.forEach((actor, index) => {
+      actor.targetOffsetY = (actor.targetOffsetY ?? actor.offsetY) + (index % 2 === 0 ? -10 : 10);
+      actor.state = "enter";
+    })],
+    [600, (engine) => engine.finale()]
+  ]
+);
+
+const scenarioAntarcticFacePolynya = phased(
+  "antarctic-face-polynya",
+  720,
+  (engine) => {
+    spawnAntarcticFaceFormation(engine, ANTARCTIC_FACE_POLYNYA);
+  },
+  [
+    [180, (engine) => engine.actors.forEach((actor, index) => {
+      const { x, y } = ANTARCTIC_FACE_POLYNYA[index % ANTARCTIC_FACE_POLYNYA.length];
+      actor.targetOffsetX = x + (index % 2 === 0 ? 8 : -8);
+      actor.targetOffsetY = y;
+      actor.state = "enter";
+    })],
+    [400, (engine) => engine.actors.forEach((actor, index) => {
+      actor.targetOffsetX = (actor.targetOffsetX ?? actor.offsetX) + (index % 2 === 0 ? 10 : -10);
+      actor.state = "enter";
+    })],
+    [600, (engine) => engine.finale()]
+  ]
+);
+
+const scenarioAntarcticFaceIceberg = phased(
+  "antarctic-face-iceberg",
+  720,
+  (engine) => {
+    spawnAntarcticFaceFormation(engine, ANTARCTIC_FACE_ICEBERG);
+  },
+  [
+    [180, (engine) => engine.actors.forEach((actor, index) => {
+      const { x, y } = ANTARCTIC_FACE_ICEBERG[index % ANTARCTIC_FACE_ICEBERG.length];
+      actor.targetOffsetX = x + (index % 2 === 0 ? -7 : 7);
+      actor.targetOffsetY = y + (index % 3 - 1) * 7;
+      actor.state = "enter";
+    })],
+    [400, (engine) => engine.actors.forEach((actor, index) => {
+      actor.targetOffsetY = (actor.targetOffsetY ?? actor.offsetY) + (index % 2 === 0 ? -9 : 9);
+      actor.state = "enter";
+    })],
+    [600, (engine) => engine.finale()]
+  ]
+);
+
+const scenarioAntarcticFaceShelf = phased(
+  "antarctic-face-shelf",
+  720,
+  (engine) => {
+    spawnAntarcticFaceFormation(engine, ANTARCTIC_FACE_SHELF);
+  },
+  [
+    [180, (engine) => engine.actors.forEach((actor, index) => {
+      const { x, y } = ANTARCTIC_FACE_SHELF[index % ANTARCTIC_FACE_SHELF.length];
+      actor.targetOffsetX = x;
+      actor.targetOffsetY = y + (index % 2 === 0 ? -8 : 8);
+      actor.state = "enter";
+    })],
+    [400, (engine) => engine.actors.forEach((actor, index) => {
+      actor.targetOffsetX = (actor.targetOffsetX ?? actor.offsetX) + (index % 2 === 0 ? 10 : -10);
+      actor.state = "enter";
+    })],
+    [600, (engine) => engine.finale()]
+  ]
+);
+
 export const ASCII_SCENARIOS: ScenarioDef[] = [
   scenarioMeetWalk,
   scenarioWalkingSmoker,
@@ -741,5 +1108,16 @@ export const ASCII_SCENARIOS: ScenarioDef[] = [
   scenarioFinalBurst,
   scenarioStory4_20,
   scenarioSmokeCircleLegacy,
-  scenarioDanceWaveLegacy
+  scenarioDanceWaveLegacy,
+  scenarioAntarcticFaceChorus,
+  scenarioAntarcticFaceParade,
+  scenarioAntarcticFaceConstellation,
+  scenarioAntarcticFaceTidepool,
+  scenarioAntarcticFaceAurora,
+  scenarioAntarcticFaceRookery,
+  scenarioAntarcticFaceIceFloe,
+  scenarioAntarcticFacePackIce,
+  scenarioAntarcticFacePolynya,
+  scenarioAntarcticFaceIceberg,
+  scenarioAntarcticFaceShelf
 ];

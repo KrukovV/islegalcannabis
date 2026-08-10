@@ -155,7 +155,11 @@ async function run() {
 
   child.on("exit", () => {
     if (!resolved) {
-  if (SMOKE && /EADDRINUSE/.test(buffer)) {
+      // The guarded launcher may finish after announcing the URL while the
+      // background Next process is still compiling /wiki-truth. In that case
+      // the health retry already started in onData and is authoritative.
+      if (SMOKE && urlFound) return;
+      if (SMOKE && /EADDRINUSE/.test(buffer)) {
         checkExistingServer().then((existing) => {
           if (existing.ok) {
             console.log(`UI_URL=${existing.baseUrl}`);

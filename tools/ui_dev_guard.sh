@@ -58,7 +58,7 @@ if [ "${has_lsof}" -eq 1 ]; then
 fi
 
 proc_busy=0
-if ps aux | rg -q "next dev.*apps/web|apps/web.*next dev|next dev -p 3000"; then
+if ps aux | rg -q "[n]ext dev.*apps/web|apps/web.*[n]ext dev|[n]ext dev -p 3000"; then
   proc_busy=1
 fi
 
@@ -69,5 +69,25 @@ if [ "${lock_exists}" -eq 1 ] || [ "${port_busy}" -eq 1 ] || [ "${proc_busy}" -e
   fi
 fi
 
+# A lock is not permission to start a second server. When no server answers,
+# release only the verified empty marker; a nonempty or process-owned lock is
+# ambiguous and must remain fail-closed for manual recovery.
+if [ "${port_busy}" -eq 1 ] || [ "${proc_busy}" -eq 1 ]; then
+  echo "UI_LOCK_OWNER_UNRESOLVED path=${LOCK_PATH} port_busy=${port_busy} proc_busy=${proc_busy}"
+  exit 1
+fi
+
+if [ "${lock_exists}" -eq 1 ]; then
+  if [ -s "${LOCK_PATH}" ]; then
+    echo "UI_LOCK_NONEMPTY_NO_HTTP path=${LOCK_PATH}"
+    exit 1
+  fi
+  rm -f -- "${LOCK_PATH}"
+  echo "UI_STALE_EMPTY_LOCK_REMOVED path=${LOCK_PATH}"
+fi
+
 cd "${ROOT}"
-NEXT_DISABLE_TURBOPACK=1 npm -w apps/web run dev
+# `dev` is a persistent-server wrapper that forks and returns. The local smoke
+# supervisor needs the foreground Next process so it can wait for /wiki-truth
+# and terminate only its own child after a successful check.
+NEXT_DISABLE_TURBOPACK=1 npm -w apps/web run web:dev

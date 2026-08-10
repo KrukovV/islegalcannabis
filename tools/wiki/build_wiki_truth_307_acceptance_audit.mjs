@@ -692,8 +692,8 @@ function buildSystemGuards() {
         sourceCoverage: "COMPOSITE_APPLICABLE_PRIMARY_LAW",
         officialStatus: { recreational: "ILLEGAL_UNDER_APPLICABLE_CRIMINAL_LAW", medical: "NONE_NO_LOCAL_MEDICAL_CANNABIS_PATIENT_PATHWAY_PROVEN", enforcement: "STRICT" },
       },
-      "RED",
-      "PATIENT_ACCESS_NEGATIVE|FULL_NEGATIVE",
+      "UNKNOWN",
+      "OFFICIAL_STATUS_INDETERMINATE",
     ),
   ];
 }

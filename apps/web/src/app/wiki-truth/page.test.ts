@@ -248,7 +248,9 @@ describe("/wiki-truth", () => {
       )?.[0] || "";
     expect(linkCounts.direct).toBeGreaterThanOrEqual(532);
     expect(linkCounts.context).toBeGreaterThanOrEqual(159);
-    expect(linkCounts.supplemental).toBeGreaterThanOrEqual(41);
+    expect(linkCounts.direct + linkCounts.supplemental).toBeGreaterThanOrEqual(
+      573,
+    );
     expect(linkCounts.total).toBeGreaterThanOrEqual(732);
     expect(matrix).toContain(
       "Ручная проверка официальных законов о каннабисе: все 307 территорий",
@@ -266,6 +268,10 @@ describe("/wiki-truth", () => {
     expect(matrix).toContain("GEO с опубликованным официальным URL");
     expect(matrix).toContain(">307 / 307<");
     expect(matrix).toContain("Показано 307 / 307");
+    expect(matrix).toContain("Независимый Truth Color (только proposal)");
+    expect(matrix).toMatch(
+      /data-independent-truth-color="(?:GREEN|YELLOW|RED|UNKNOWN)"/,
+    );
     expect(matrix).toContain('data-geo="BF"');
     expect(matrix).toContain('data-geo="ET"');
     expect(matrix).toContain('data-geo="VE"');

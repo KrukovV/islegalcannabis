@@ -13,7 +13,10 @@ fi
 
 TIMEOUT_MS="${UI_LOCAL_TIMEOUT_MS:-30000}"
 if [ "${1:-}" = "--smoke" ]; then
-  TIMEOUT_MS=15000
+  # A cold Next.js compilation can exceed the old 15-second smoke budget even
+  # when the application is healthy. Callers may still set a tighter explicit
+  # budget, while the default leaves room for the first local compilation.
+  TIMEOUT_MS="${UI_LOCAL_SMOKE_TIMEOUT_MS:-45000}"
   export UI_LOCAL_SMOKE=1
 fi
 
@@ -25,7 +28,10 @@ export UI_LOCAL_TIMEOUT_MS="${TIMEOUT_MS}"
 export UI_LOCAL_SMOKE_TIMEOUT_MS="${TIMEOUT_MS}"
 
 NODE_BIN="${NODE_BIN:-node}"
+set +e
 OUTPUT="$(${NODE_BIN} "${ROOT}/tools/ui/ui_local.mjs" 2>&1)"
+RC=$?
+set -e
 printf "%s\n" "${OUTPUT}"
 
 UI_URL_LINE=$(printf "%s\n" "${OUTPUT}" | grep -E "^UI_URL=" | tail -n 1 || true)
@@ -36,3 +42,5 @@ if [ -n "${UI_URL_LINE}" ] || [ -n "${TRUTH_URL_LINE}" ]; then
     [ -n "${TRUTH_URL_LINE}" ] && printf "%s\n" "${TRUTH_URL_LINE}"
   } > "${ROOT}/Reports/ui_url.txt"
 fi
+
+exit "${RC}"

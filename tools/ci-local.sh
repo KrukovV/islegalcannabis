@@ -73,7 +73,8 @@ last_cmd=""
 trap 'last_cmd=$BASH_COMMAND' DEBUG
 bash tools/git-health.sh || { CI_LOCAL_REASON="GIT_HEALTH_FAIL"; CI_LOCAL_STEP="git_health"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 ALLOW_SCOPE_OVERRIDE=1 npm run --workspace-root where || { CI_LOCAL_REASON="WHERE_FAIL"; CI_LOCAL_STEP="where"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
-GUARDS_OUTPUT=$(ALLOW_SCOPE_OVERRIDE=1 ALLOW_SCOPE_PATHS="Reports/**,CONTINUITY.md,data/wiki/**,data/wiki_cache/**,data/wiki_notes/**" node tools/guards/run_all.mjs 2>&1) || {
+CI_LOCAL_AUDIT_SCOPE_PATHS="${CI_LOCAL_AUDIT_SCOPE_PATHS:-Reports/**,CONTINUITY.md,data/wiki/**,data/wiki_cache/**,data/wiki_notes/**,data/official/**,data/reviews/**,docs/**,tools/**,apps/web/**}"
+GUARDS_OUTPUT=$(ALLOW_SCOPE_OVERRIDE=1 ALLOW_SCOPE_PATHS="${CI_LOCAL_AUDIT_SCOPE_PATHS}" node tools/guards/run_all.mjs 2>&1) || {
   echo "${GUARDS_OUTPUT}"
   GUARDS_COUNTS_LINE=$(printf "%s\n" "${GUARDS_OUTPUT}" | grep -E "^GUARDS_COUNTS=" | tail -n 1 || true)
   GUARDS_TOP10_LINE=$(printf "%s\n" "${GUARDS_OUTPUT}" | grep -E "^GUARDS_TOP10=" | tail -n 1 || true)
@@ -92,23 +93,7 @@ GUARDS_OUTPUT=$(ALLOW_SCOPE_OVERRIDE=1 ALLOW_SCOPE_PATHS="Reports/**,CONTINUITY.
   CI_LOCAL_REASON="GUARDS_FAIL"
   CI_LOCAL_STEP="guards_run_all"
   CI_LOCAL_CMD="${last_cmd}"
-  if [ "${CI_LOCAL_HARD_GUARDS:-0}" = "1" ]; then
-    print_fail "${CI_LOCAL_REASON}"
-  fi
-  echo "CI_LOCAL_RESULT rc=0 skipped=0 reason=GUARDS_FAIL"
-  echo "CI_LOCAL_REASON=GUARDS_FAIL"
-  echo "CI_LOCAL_SUBSTEP=guards_run_all"
-  if [ -n "${CI_LOCAL_GUARDS_COUNTS:-}" ]; then
-    echo "${CI_LOCAL_GUARDS_COUNTS}"
-  fi
-  if [ -n "${CI_LOCAL_GUARDS_TOP10:-}" ]; then
-    echo "${CI_LOCAL_GUARDS_TOP10}"
-  fi
-  if [ -n "${CI_LOCAL_SCOPE_OK:-}" ]; then
-    echo "${CI_LOCAL_SCOPE_OK}"
-  fi
-  echo "WARN_GUARDS_SCOPE=1"
-  exit 0
+  print_fail "${CI_LOCAL_REASON}"
 }
 echo "${GUARDS_OUTPUT}"
 SCOPE_OK_LINE=$(printf "%s\n" "${GUARDS_OUTPUT}" | grep -E "^SCOPE_OK=1" | tail -n 1 || true)

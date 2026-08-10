@@ -234,7 +234,7 @@ write_git_blocked_artifacts() {
   git diff > "${dir}/diff.patch" 2>/dev/null || true
   git diff --name-only --cached > "${dir}/staged_files.txt" 2>/dev/null || true
   git tag --list "good/*" --sort=-creatordate | head -n 1 > "${dir}/last_good_tag.txt" 2>/dev/null || true
-  printf "%s\n" "tools/**" "data/wiki/**" "README.md" "CONTINUITY.md" ".gitignore" > "${dir}/staged_allowlist.txt"
+  printf "%s\n" "tools/**" "data/wiki/**" "data/reviews/**" "data/official/**" "README.md" "CONTINUITY.md" ".gitignore" > "${dir}/staged_allowlist.txt"
   GIT_BLOCKED_ARTIFACTS="${dir}"
   echo "GIT_BLOCKED_ARTIFACTS=${dir}"
   append_ci_final "GIT_BLOCKED_ARTIFACTS=${dir}"
@@ -259,7 +259,7 @@ write_git_bundle() {
 set -euo pipefail
 cd "$(pwd)"
 git apply --binary "${patch_path}"
-stage_paths=(.gitignore .vercelignore README.md CONTINUITY.md apps docs packages tools Tools data/wiki data/ssot_snapshots data/ssot_diffs.json data/official cache/ssot_diff_cache.json package.json package-lock.json)
+stage_paths=(.gitignore .vercelignore README.md CONTINUITY.md apps docs packages tools Tools data/wiki data/reviews data/ssot_snapshots data/ssot_diffs.json data/official cache/ssot_diff_cache.json package.json package-lock.json)
 existing_paths=()
 for path in "\${stage_paths[@]}"; do
   [ -e "\${path}" ] && existing_paths+=("\${path}")
@@ -491,6 +491,7 @@ stage_paths=(
   tools
   Tools
   data/wiki
+  data/reviews
   data/ssot_snapshots
   data/ssot_diffs.json
   data/official

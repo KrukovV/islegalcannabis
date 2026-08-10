@@ -12,6 +12,9 @@ test("run_all executes discovered guards", () => {
   const guardPath = path.join(guardsDir, `temp_guard_${process.pid}.mjs`);
   const checkpointsDir = path.join(process.cwd(), ".checkpoints");
   const summaryFile = path.join(checkpointsDir, "ci-summary.txt");
+  const originalSummary = fs.existsSync(summaryFile)
+    ? fs.readFileSync(summaryFile)
+    : null;
 
   fs.writeFileSync(
     guardPath,
@@ -43,14 +46,14 @@ test("run_all executes discovered guards", () => {
       stdio: "ignore",
       env: {
         ...process.env,
-        ALLOW_SCOPE_OVERRIDE: "1",
-        ALLOW_SCOPE_PATHS: "tools/**,docs/**,package.json,packages/**,data/sources/**,CONTINUITY.md"
+        ALLOW_SCOPE_OVERRIDE: "0"
       }
     });
     assert.equal(result.status, 0, "run_all should pass");
     assert.equal(fs.existsSync(marker), true, "marker should be created");
   } finally {
-    if (fs.existsSync(summaryFile)) fs.unlinkSync(summaryFile);
+    if (originalSummary !== null) fs.writeFileSync(summaryFile, originalSummary);
+    else if (fs.existsSync(summaryFile)) fs.unlinkSync(summaryFile);
     if (fs.existsSync(marker)) fs.unlinkSync(marker);
     if (fs.existsSync(guardPath)) fs.unlinkSync(guardPath);
   }

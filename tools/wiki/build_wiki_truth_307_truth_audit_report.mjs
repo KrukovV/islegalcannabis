@@ -201,12 +201,19 @@ function claimsForGeo(map, geo) {
   return map.get(geo) || {};
 }
 
+function activeColorReaudit(row) {
+  return row.latestColorReaudit?.result === "COLOR_RESOLVED"
+    ? row.latestColorReaudit
+    : null;
+}
+
 function firstOfficialEvidence(row) {
+  const reAudit = activeColorReaudit(row);
   const links = [
     ...(Array.isArray(row.directOfficialCannabisLawLinks) ? row.directOfficialCannabisLawLinks : []),
     ...(Array.isArray(row.supplementalOfficialLinks) ? row.supplementalOfficialLinks : []),
     ...(Array.isArray(row.officialContextLinks) ? row.officialContextLinks : []),
-    ...(Array.isArray(row.latestColorReaudit?.freshOfficialSources) ? row.latestColorReaudit.freshOfficialSources : []),
+    ...(Array.isArray(reAudit?.freshOfficialSources) ? reAudit.freshOfficialSources : []),
   ];
   const direct = links.find((link) => {
     const scope = String([
@@ -227,16 +234,17 @@ function firstOfficialEvidence(row) {
 }
 
 function lawTextBasis(row) {
+  const reAudit = activeColorReaudit(row);
   const links = [
     ...(Array.isArray(row.directOfficialCannabisLawLinks) ? row.directOfficialCannabisLawLinks : []),
     ...(Array.isArray(row.supplementalOfficialLinks) ? row.supplementalOfficialLinks : []),
     ...(Array.isArray(row.officialContextLinks) ? row.officialContextLinks : []),
-    ...(Array.isArray(row.latestColorReaudit?.freshOfficialSources) ? row.latestColorReaudit.freshOfficialSources : []),
+    ...(Array.isArray(reAudit?.freshOfficialSources) ? reAudit.freshOfficialSources : []),
   ];
   const text = [
     row.differenceDescription,
     row.reviewNotes,
-    row.latestColorReaudit?.reasonRu,
+    reAudit?.reasonRu,
     ...links.flatMap((link) => [
       link?.note,
       link?.visualReview,
@@ -254,24 +262,27 @@ function lawTextBasis(row) {
 }
 
 function compositeApplicabilityLinks(row) {
+  const reAudit = activeColorReaudit(row);
   return [
     ...(Array.isArray(row.officialContextLinks) ? row.officialContextLinks : []),
     ...(Array.isArray(row.supplementalOfficialLinks) ? row.supplementalOfficialLinks : []),
-    ...(Array.isArray(row.latestColorReaudit?.freshOfficialSources) ? row.latestColorReaudit.freshOfficialSources : []),
+    ...(Array.isArray(reAudit?.freshOfficialSources) ? reAudit.freshOfficialSources : []),
   ];
 }
 
 function compositeBridgeLinks(row) {
+  const reAudit = activeColorReaudit(row);
   return [
     ...(Array.isArray(row.supplementalOfficialLinks) ? row.supplementalOfficialLinks : []),
-    ...(Array.isArray(row.latestColorReaudit?.freshOfficialSources) ? row.latestColorReaudit.freshOfficialSources : []),
+    ...(Array.isArray(reAudit?.freshOfficialSources) ? reAudit.freshOfficialSources : []),
   ];
 }
 
 function compositeApplicabilityText(row, links = compositeApplicabilityLinks(row)) {
+  const reAudit = activeColorReaudit(row);
   return [
-    row.latestColorReaudit?.result,
-    row.latestColorReaudit?.reasonRu,
+    reAudit?.result,
+    reAudit?.reasonRu,
     row.differenceDescription,
     row.reviewNotes,
     ...links.flatMap((link) => [
@@ -911,10 +922,14 @@ function freshAxisOfficialSources(evidence) {
 function freshAxisOfficialFactCount(evidence, sources = freshAxisOfficialSources(evidence)) {
   const explicit = Number(evidence?.officialFactCount || evidence?.factCount || 0);
   const fromSources = sources.reduce((sum, source) => sum + Number(source.factCount || 0), 0);
-  const provenAxes = Object.values(freshAxisFindings(evidence)).filter((finding) =>
-    isPositiveProvenAxisStatus(normalizeAxisFindingStatus(finding)),
-  ).length;
-  return Math.max(explicit, fromSources, provenAxes);
+  const axisFacts = Object.values(freshAxisFindings(evidence)).filter((finding) => {
+    const status = normalizeAxisFindingStatus(finding);
+    return (
+      isPositiveProvenAxisStatus(status) ||
+      hasTraceableNegativeAxisFinding(finding)
+    );
+  }).length;
+  return Math.max(explicit, fromSources, axisFacts);
 }
 
 function freshAxisFindings(evidence) {
@@ -957,6 +972,15 @@ function isPositiveProvenAxisStatus(status) {
 
 function isNegativeProvenAxisStatus(status) {
   return /^PROVEN_(?:NO|NOT|ABSENT|ILLEGAL|UNAVAILABLE|UNRESOLVED)(?:_|$)/.test(status);
+}
+
+function hasTraceableNegativeAxisFinding(finding) {
+  if (!isNegativeProvenAxisStatus(normalizeAxisFindingStatus(finding))) return false;
+  const sourceUrl = String(finding?.sourceUrl ?? finding?.source_url ?? "").trim();
+  const exactFragment = String(
+    finding?.exactFragment ?? finding?.exact_fragment ?? finding?.basis ?? "",
+  ).trim();
+  return Boolean(sourceUrl && exactFragment);
 }
 
 function mergeAxisFindings(findings) {
@@ -1126,10 +1150,29 @@ function freshAxisEvidenceSupportsColor(evidence, color) {
     );
   }
   if (color === "RED") {
+    const findings = freshAxisFindings(evidence);
+    const recreationalProhibition = [
+      "adult_use",
+      "recreational_possession",
+      "recreational_use",
+      "recreational_supply",
+      "recreational_cultivation",
+    ].some((axis) => hasTraceableNegativeAxisFinding(findings[axis]));
+    const medicalAccessAbsentOrProhibited = [
+      "patient_access",
+      "medical_cannabis_access",
+      "medical_patient_access",
+      "prescriber_route",
+      "lawful_supply",
+      "pharmacy_or_dispensary",
+      "import_route",
+      "programme_operational",
+    ].some((axis) => hasTraceableNegativeAxisFinding(findings[axis]));
     return (
       !freshAxisHasAdultUseLegal(evidence) &&
       !freshAxisHasOperationalPatientAccess(evidence) &&
-      /NO_PATIENT_ACCESS|PATIENT_ACCESS.*ABSENT|PROVEN_ILLEGAL|NO_ADULT_USE|ILLEGAL/.test(text)
+      recreationalProhibition &&
+      medicalAccessAbsentOrProhibited
     );
   }
   return false;
@@ -1208,7 +1251,9 @@ function buildFreshAxisTruthOverride(evidence) {
   const sources = freshAxisOfficialSources(evidence);
   const factCount = freshAxisOfficialFactCount(evidence, sources);
   const adultUseLegal = freshAxisHasAdultUseLegal(evidence);
-  const minimumFactCount = color === "GREEN" && adultUseLegal ? 2 : 3;
+  const minimumFactCount = color === "GREEN" && adultUseLegal
+    ? 2
+    : (color === "RED" ? 2 : 3);
   const status = freshAxisEvidencePackets(evidence)
     .flatMap((packet) => [packet?.rowStatus, packet?.reconciliationStatus])
     .filter(Boolean)

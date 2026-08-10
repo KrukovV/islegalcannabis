@@ -245,9 +245,7 @@ function hasDecriminalizedRecreationalSignal(parsed) {
     hasOfficialPhrase(parsed, "POSSESSION_UP_TO") ||
     hasOfficialPhrase(parsed, "LIMITED_PERSONAL") ||
     hasOfficialPhrase(parsed, "NOT_GUILTY") ||
-    hasOfficialPhrase(parsed, "FORMALLY_ILLEGAL") ||
-    hasOfficialPhrase(parsed, "PUNISH") ||
-    hasOfficialPhrase(parsed, "CONVICTION")
+    hasOfficialPhrase(parsed, "NOT_GUILTY")
   );
 }
 
@@ -307,16 +305,47 @@ function hasNoPatientAccess(parsed) {
 
 function hasExplicitNoPatientAccess(parsed) {
   if (!parsed) return false;
+  const patientAccessProhibition =
+    hasOfficialToken(parsed, "PATIENT") &&
+    hasOfficialToken(parsed, "ACCESS") &&
+    (
+      hasOfficialToken(parsed, "PROHIBITED") ||
+      hasOfficialToken(parsed, "PROHIBITION") ||
+      hasOfficialToken(parsed, "BANNED")
+    );
   return (
-    hasOfficialPhrase(parsed, "NONE_NO_PATIENT_ACCESS_FOUND") ||
-    hasOfficialPhrase(parsed, "NO_PATIENT_ACCESS_FOUND") ||
-    hasOfficialPhrase(parsed, "NONE_CURRENT_PATIENT_ACCESS")
+    patientAccessProhibition ||
+    hasOfficialPhrase(parsed, "MEDICAL_CANNABIS_EXPRESSLY_PROHIBITED") ||
+    hasOfficialPhrase(parsed, "MEDICAL_CANNABIS_PATIENT_ACCESS_EXPRESSLY_PROHIBITED")
+  );
+}
+
+function hasGenericPrescriptionOnlySignal(parsed) {
+  if (!parsed) return false;
+  const genericPrescription =
+    (hasOfficialToken(parsed, "GENERAL") || hasOfficialToken(parsed, "GENERIC")) &&
+    hasOfficialToken(parsed, "PRESCRIPTION");
+  const patientApplicabilityUnproven = hasOfficialPhrase(
+    parsed,
+    "PATIENT_APPLICABILITY_UNPROVEN",
+  );
+  const cannabisSpecificLimitedRoute =
+    hasOfficialPhrase(parsed, "CANNABIS_MEDICINE_PRESCRIPTION") ||
+    hasOfficialPhrase(parsed, "CANNABIS_SPECIAL_PERMIT") ||
+    hasOfficialPhrase(parsed, "APPLIES_TO_SCHEDULED_CANNABIS");
+  return (
+    genericPrescription &&
+    (!hasPatientSignal(parsed) ||
+      hasNoPatientAccess(parsed) ||
+      patientApplicabilityUnproven) &&
+    !cannabisSpecificLimitedRoute
   );
 }
 
 function hasMedicalYellowSignals(parsed) {
   if (!parsed) return false;
   if (hasExplicitNoPatientAccess(parsed)) return false;
+  if (hasGenericPrescriptionOnlySignal(parsed)) return false;
 
   const limitedModeTokens = [
     "LIMITED",
@@ -564,14 +593,10 @@ export function deriveOfficialTruthColor(input = {}) {
   const enfHasNonCurrentLifecycle = hasNonCurrentLifecycleSignal(
     parseOfficialStatusText(rawEnf),
   );
-  const evidenceHasNonCurrentLifecycle = hasNonCurrentLifecycleSignal(
-    parseOfficialStatusText(rawEvidenceText),
-  );
   const hasNonCurrentLifecycleEvidence =
     recHasNonCurrentLifecycle ||
     medHasNonCurrentLifecycle ||
-    enfHasNonCurrentLifecycle ||
-    evidenceHasNonCurrentLifecycle;
+    enfHasNonCurrentLifecycle;
   const rec = currentOnlyAxis(rawRec);
   const med = currentOnlyAxis(rawMed);
   const enf = currentOnlyAxis(rawEnf);
@@ -723,7 +748,12 @@ export function deriveOfficialTruthColor(input = {}) {
     );
   }
 
-  if (!medDataMissing && recPol === "NEGATIVE" && medPol === "NEGATIVE") {
+  if (
+    !medDataMissing &&
+    recPol === "NEGATIVE" &&
+    medPol === "NEGATIVE" &&
+    hasExplicitNoPatientAccess(parsedMedStatus)
+  ) {
     return buildTruthResult(
       "RED",
       "OFFICIAL_STATUS",
