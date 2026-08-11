@@ -40,6 +40,7 @@ export type WikiTruthColorComparisonRow = {
   differenceStatusLabel: string;
   differenceReason: string;
   reauditReason?: string | null;
+  revalidationAuditSummary: string;
   wikiMismatchStatus:
     | "WIKI_CORRECT"
     | "WIKI_OUTDATED"
@@ -531,6 +532,8 @@ export function deriveOfficialLawMapCategory(
           ...row.supplementalOfficialLinks,
           ...(row.freshSecondPassOfficialLinks || []),
         ].flatMap((link) => [
+          // Revalidation metadata is intentionally excluded: HTTP/visual state
+          // is audit metadata and cannot become a legal-truth input.
           link.title,
           link.note,
           link.visualReview,
@@ -542,6 +545,35 @@ export function deriveOfficialLawMapCategory(
         .join(" "),
     }).color,
   );
+}
+
+export function summarizeOfficialEvidenceRevalidation(
+  row: WikiTruthCannabisLawRow,
+): string {
+  const metadata = [
+    ...row.directOfficialCannabisLawLinks,
+    ...row.officialContextLinks,
+    ...row.supplementalOfficialLinks,
+    ...(row.freshSecondPassOfficialLinks || []),
+  ].flatMap((link) => link.revalidation ? [link.revalidation] : []);
+  if (!metadata.length) return "Revalidation metadata: отсутствует.";
+  const states = new Map<string, number>();
+  for (const entry of metadata) {
+    states.set(
+      entry.revalidation_state,
+      (states.get(entry.revalidation_state) || 0) + 1,
+    );
+  }
+  const lastChecked = metadata
+    .map((entry) => entry.checked_at || "")
+    .filter(Boolean)
+    .sort()
+    .at(-1) || "—";
+  const stateSummary = [...states]
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([state, count]) => `${state}=${count}`)
+    .join(", ");
+  return `Revalidation audit metadata: Last checked ${lastChecked}; source states ${stateSummary}.`;
 }
 
 export function buildWikiTruthColorComparison(
@@ -585,6 +617,7 @@ export function buildWikiTruthColorComparison(
       ruDifferenceEvidenceSummary(row),
       360,
     );
+    const revalidationAuditSummary = summarizeOfficialEvidenceRevalidation(row);
     let comment: string;
     const ssotImmutableNote =
       " Статус SSOT проекта не меняется автоматически. Это audit projection: SSOT-статусы и карта здесь не меняются.";
@@ -631,6 +664,7 @@ export function buildWikiTruthColorComparison(
       differenceStatusLabel: differenceStatusLabelByName,
       differenceReason,
       reauditReason: row.latestColorReaudit?.reasonRu || null,
+      revalidationAuditSummary,
     };
   });
 }

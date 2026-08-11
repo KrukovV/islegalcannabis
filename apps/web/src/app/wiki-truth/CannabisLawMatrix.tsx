@@ -81,6 +81,19 @@ function renderLinks(
             проверка: {ruAuditValue(item.verification)}; уверенность:{" "}
             {ruAuditValue(item.confidence)}
           </span>
+          {item.revalidation ? (
+            <span
+              className="meta"
+              data-revalidation-state={item.revalidation.revalidation_state}
+            >
+              Last checked: {item.revalidation.checked_at || "—"}; source state:{" "}
+              {item.revalidation.revalidation_state}; reason:{" "}
+              {item.revalidation.change_reason || "—"}
+              {item.revalidation.queue?.length
+                ? `; queue: ${item.revalidation.queue.join("/")}`
+                : ""}
+            </span>
+          ) : null}
           {item.note ? <span className="meta">{item.note}</span> : null}
           {item.screenshotPath ? (
             <span className="screenshot">Снимок: {item.screenshotPath}</span>

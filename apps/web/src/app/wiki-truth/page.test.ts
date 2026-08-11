@@ -239,6 +239,18 @@ describe("/wiki-truth", () => {
     expect(html).not.toContain('data-testid="official-ownership-raw-table"');
   });
 
+  it("renders source revalidation only as audit metadata", () => {
+    const html = renderToStaticMarkup(createElement(WikiTruthPageContent));
+    const matrixSection =
+      html.match(
+        /data-testid="cannabis-law-matrix-307"[\s\S]*?<\/section>/,
+      )?.[0] || "";
+    expect(matrixSection).toContain("Last checked:");
+    expect(matrixSection).toContain("source state:");
+    expect(matrixSection).toContain("reason:");
+    expect(matrixSection).toContain("data-revalidation-state=");
+  });
+
   it("renders the complete protected cannabis-law matrix as the primary ordered audit", () => {
     const html = renderToStaticMarkup(createElement(WikiTruthPageContent));
     const linkCounts = readCannabisMatrixLinkCounts();

@@ -133,6 +133,7 @@ export default function CannabisLawColorTable({
                     {row.reauditReason ? (
                       <span>Повторная проверка: {row.reauditReason}</span>
                     ) : null}
+                    <span>{row.revalidationAuditSummary}</span>
                   </details>
                 </td>
                 <td>

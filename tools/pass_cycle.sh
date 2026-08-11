@@ -3036,6 +3036,24 @@ echo "LINT_OK=1"
   tail -n 60 "${ROOT}/Reports/lint.log" || true
   echo "LINT_LOG_TAIL_END"
 } >> "${STEP_LOG}"
+echo "RUN_OFFICIAL_EVIDENCE_REVALIDATION_TESTS=1"
+SUMMARY_LINES+=("RUN_OFFICIAL_EVIDENCE_REVALIDATION_TESTS=1")
+CURRENT_STEP="official_evidence_revalidation_tests"
+CURRENT_CMD="node --test tools/review/official_evidence_revalidation.test.mjs tools/wiki/truth_first_reconciliation.test.mjs"
+REVALIDATION_TEST_LOG="${ROOT}/Reports/official-evidence-revalidation-tests.log"
+rm -f "${REVALIDATION_TEST_LOG}" 2>/dev/null || true
+if ! (cd "${ROOT}" && "${NODE_BIN}" --test tools/review/official_evidence_revalidation.test.mjs tools/wiki/truth_first_reconciliation.test.mjs) 2>&1 | tee -a "${REVALIDATION_TEST_LOG}"; then
+  SUMMARY_LINES+=("OFFICIAL_EVIDENCE_REVALIDATION_TESTS_OK=0")
+  echo "OFFICIAL_EVIDENCE_REVALIDATION_TESTS_OK=0 reason=TESTS_FAILED"
+  {
+    echo "OFFICIAL_EVIDENCE_REVALIDATION_TEST_LOG_TAIL_BEGIN"
+    tail -n 80 "${REVALIDATION_TEST_LOG}" || true
+    echo "OFFICIAL_EVIDENCE_REVALIDATION_TEST_LOG_TAIL_END"
+  } >> "${STEP_LOG}"
+  fail_with_reason "OFFICIAL_EVIDENCE_REVALIDATION_TESTS_FAILED"
+fi
+SUMMARY_LINES+=("OFFICIAL_EVIDENCE_REVALIDATION_TESTS_OK=1")
+echo "OFFICIAL_EVIDENCE_REVALIDATION_TESTS_OK=1"
 TRUTH_FIRST_DERIVED_BUILDERS=(
   "build_wiki_truth_cannabis_law_matrix.mjs"
   "build_wiki_truth_307_truth_audit_report.mjs"

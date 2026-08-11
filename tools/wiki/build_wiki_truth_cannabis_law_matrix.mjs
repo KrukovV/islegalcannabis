@@ -224,7 +224,27 @@ const sourceProvenance = (source) => {
     historicalScreenshotValid: source?.historicalScreenshotValid ?? source?.historical_screenshot_valid,
     historicalScreenshotPath: source?.historicalScreenshotPath ?? source?.historical_screenshot_path,
     visualReviewerTimestamp: source?.visualReviewerTimestamp ?? source?.visual_reviewer_timestamp,
-    officialHostVerified: source?.officialHostVerified ?? source?.official_host_verified
+    officialHostVerified: source?.officialHostVerified ?? source?.official_host_verified,
+    revalidation: source?.revalidation && typeof source.revalidation === "object"
+      ? {
+          checked_at: source.revalidation.checked_at ?? null,
+          final_url: source.revalidation.final_url ?? null,
+          http_status: source.revalidation.http_status ?? null,
+          etag: source.revalidation.etag ?? null,
+          last_modified: source.revalidation.last_modified ?? null,
+          content_type: source.revalidation.content_type ?? null,
+          content_length: source.revalidation.content_length ?? null,
+          document_sha256: source.revalidation.document_sha256 ?? null,
+          relevant_fragment_sha256: source.revalidation.relevant_fragment_sha256 ?? null,
+          revalidation_state: source.revalidation.revalidation_state,
+          access_state: source.revalidation.access_state,
+          change_reason: source.revalidation.change_reason,
+          queue: Array.isArray(source.revalidation.queue) ? source.revalidation.queue : [],
+          dependent_geos: Array.isArray(source.revalidation.dependent_geos)
+            ? source.revalidation.dependent_geos
+            : []
+        }
+      : undefined
   }).filter(([, value]) => value !== undefined && value !== null && value !== ""));
 };
 const isExcludedHost = (value) => {

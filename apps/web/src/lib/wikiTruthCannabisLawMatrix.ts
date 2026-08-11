@@ -1,3 +1,27 @@
+export type WikiTruthOfficialEvidenceRevalidation = {
+  checked_at: string | null;
+  final_url: string | null;
+  http_status: number | null;
+  etag: string | null;
+  last_modified: string | null;
+  content_type: string | null;
+  content_length: number | null;
+  document_sha256: string | null;
+  relevant_fragment_sha256: string | null;
+  revalidation_state:
+    | "NOT_MODIFIED"
+    | "CONTENT_CHANGED"
+    | "REDIRECT_OR_OWNER_CHANGED"
+    | "EFFECTIVE_DATE_REVIEW_DUE"
+    | "ACCESS_BLOCKED"
+    | "NEEDS_SEMANTIC_REVIEW"
+    | "NEEDS_VISUAL_REVIEW";
+  access_state: string;
+  change_reason: string;
+  queue?: Array<"C2" | "C3">;
+  dependent_geos?: string[];
+};
+
 export type WikiTruthCannabisLawLink = {
   title: string;
   url: string;
@@ -7,6 +31,7 @@ export type WikiTruthCannabisLawLink = {
   confidence: string;
   screenshotPath?: string | null;
   visualReview?: string;
+  revalidation?: WikiTruthOfficialEvidenceRevalidation | null;
 };
 
 export type WikiTruthCannabisLawReauditSource = {

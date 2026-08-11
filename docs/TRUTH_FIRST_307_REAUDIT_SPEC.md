@@ -253,6 +253,76 @@ A primary act can prove a current limited regime without proving that a patient 
 
 A closed route for new patients does not by itself end a working legal route for patients already admitted to a programme. The general operational-patient-access rule may derive `GREEN` for a current transitional cohort only when applicable official evidence independently proves all of: the remaining cohort is eligible, a qualified prescriber can continue its care, and a lawful supply, pharmacy or other dispensing route remains active. Record closed new enrolment as its own `registration_route=NO` axis and retain its date; never treat it as a substitute for either operational proof or medical-access prohibition. This is an evidence-aggregation rule, not a country-specific exception.
 
+## Tiered official-evidence revalidation
+
+Repeated source checks use `tools/review/revalidate_official_evidence.mjs` and store their result only in the existing source records of `data/official/cannabis_law_visual_reviews.audit.json`. No parallel source database is permitted. Every current official source record carries:
+
+```json
+{
+  "revalidation": {
+    "checked_at": null,
+    "final_url": null,
+    "http_status": null,
+    "etag": null,
+    "last_modified": null,
+    "content_type": null,
+    "content_length": null,
+    "document_sha256": null,
+    "relevant_fragment_sha256": null,
+    "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+    "access_state": "NOT_CHECKED_LOCAL_ONLY",
+    "change_reason": "BASELINE_HASH_NOT_ESTABLISHED"
+  }
+}
+```
+
+`revalidation_state` is restricted to `NOT_MODIFIED`, `CONTENT_CHANGED`, `REDIRECT_OR_OWNER_CHANGED`, `EFFECTIVE_DATE_REVIEW_DUE`, `ACCESS_BLOCKED`, `NEEDS_SEMANTIC_REVIEW`, or `NEEDS_VISUAL_REVIEW`. The record may additionally retain deterministic `queue`, `queue_reasons`, `dependent_geos`, `schema_issues`, and PDF semantic-probe metadata. These are audit-routing fields only.
+
+### C0 local-only
+
+- collect current official records from the existing ledger and deduplicate evidence by owner, canonical URL and locator;
+- deduplicate network work separately by canonical URL so a shared document is fetched at most once per run;
+- validate owner, `applies_to_geo`, locator, exact fragment and screenshot state;
+- preserve source order and identity and assert that removing `revalidation` from the result yields the byte-equivalent structured ledger input;
+- perform no network request and make no legal-axis, independent-color, SSOT, map, runtime or production change;
+- the default and explicit `--dry-run` modes leave both ledger and matrix files unchanged;
+- `--apply-local` is the bootstrap-only local persistence mode for adding missing C0 revalidation metadata without network access.
+
+### C1 conditional HTTP
+
+- external requests require `--network`; `HEAD` is not required;
+- use a conditional `GET` with saved `If-None-Match` and `If-Modified-Since` metadata;
+- save final URL, response status, ETag, Last-Modified, content type, content length and document hash;
+- `304` becomes `NOT_MODIFIED`; `200` with the same document hash also becomes `NOT_MODIFIED`;
+- a changed document or relevant-fragment hash becomes `CONTENT_CHANGED` and queues dependent GEO only;
+- a redirect or host/owner boundary change becomes `REDIRECT_OR_OWNER_CHANGED`; applicability is never inherited from the old owner;
+- timeout, WAF, Cloudflare, `403`, challenge pages and blank viewers become `ACCESS_BLOCKED`. They are access diagnostics and cannot derive `RED`, `UNKNOWN`, or any other legal conclusion;
+- `--all --network --batch-size N` runs serial URL batches and never launches `pass_cycle`.
+
+### C2 semantic routing
+
+C2 is queued for changed content, redirect/owner changes, due effective/commencement/repeal dates, changed cannabis fragments, previous access blocks, missing schema/semantic baselines, GREEN/RED evidence, disputed/composite GEO, and current layer mismatches. The runner never changes legal axes itself. A later human legal review may change an axis only with a current applicable source, exact fragment, effective date, owner/applicability, cannabis-specific bridge, source annotation and visual state.
+
+For a changed PDF, extraction order is fixed: `pdftotext` first; search the existing query-derived cannabis term inventory; render only matched pages with `pdftoppm`; run OCR only when the PDF has no usable text layer. Extracted pages and OCR state are routing metadata, not legal truth.
+
+### C3 visual acceptance
+
+Chromium/WebKit or human visual review is reserved for changed/semantic/visual-review states, access barriers and blank viewers, evidence supporting GREEN/RED, map/popup/SEO proof, and final strict visual acceptance. Screenshot presence and `officialDomainVisible` affect only visual acceptance. They never enter legal Truth Color derivation.
+
+### Truth-First boundary and CLI
+
+Cultivation, production, processing, export, research, industrial hemp, CBD, prescription-product development, generic regulator licensing and generic controlled-drug wording do not satisfy patient-access axes. `NOT_MODIFIED` confirms only source stability; it is not a new legal conclusion.
+
+```bash
+node tools/review/revalidate_official_evidence.mjs --dry-run
+node tools/review/revalidate_official_evidence.mjs --geo PK,PS --network
+node tools/review/revalidate_official_evidence.mjs --all --network --batch-size 25
+```
+
+The matrix builder carries source-level revalidation metadata into the existing 307-row model. `/wiki-truth` displays Last checked, source state, reason and C2/C3 queue as audit metadata. The comparison resolver explicitly excludes revalidation and visual-access metadata from its legal-evidence text.
+
+Required tests cover `304`, unchanged `200`, changed body/ETag, redirect, timeout, WAF, blank viewer, shared-source single fetch, dependent-GEO routing, deterministic 307-row ordering, no source shrink, PDF text-first selective rendering, OCR fallback, generic regulator non-patient semantics, visual/legal separation, dry-run no mutation and absence of GEO-specific resolver branches.
+
 ## Local audit database commit retention
 
 Every green local audit commit stages the canonical `data/official/**` ledger and all tracked `data/reviews/**` JSON databases, including the 307-row matrix and reconciliation artifacts. Large ignored visual-capture archives are not mass-staged; their paths, validity and annotations remain reproducible through the committed ledger. A commit must not omit a tracked accumulated audit database merely because its directory is ignored for new bulk captures.
@@ -261,10 +331,12 @@ Every green local audit commit stages the canonical `data/official/**` ledger an
 
 At every user-requested stop or local-audit commit, the canonical ledger must record the independently structured packet count, normalized independent-color count, remaining count, and exact remaining canonical GEO IDs. The figures must be calculated from `data/official/cannabis_law_visual_reviews.audit.json` using the compatible color aliases in this specification; no hard-coded progress total, stale PDF subtotal, map color or SSOT value may replace it. The record is progress metadata only and never a legal input, Truth Color override, or apply authorization.
 
-2026-08-11 local checkpoint after PK CI PASS: 232/307 structured independent packets; 264/307 normalized independent Truth Colors; 43/307 remaining.
+2026-08-12 PS mandatory CI checkpoint PASS: 233/307 structured independent packets; 265/307 normalized independent Truth Colors; 42/307 remaining. The user-requested stop point permits no additional GEO review until new authorization.
 
-Remaining canonical GEO IDs: PS, PA, PG, PE, PH, RE, RU, SH, KN, LC, SM, SA, SN, SER, KAS, SL, SX, SB, SO, GS, SS, LK, SD, SR, SY, TJ, TZ, TH, TL, TG, TO, TT, TN, TM, TC, TV, UG, UA, US, VI, YE, ZM, EH.
+Remaining canonical GEO IDs: PA, PG, PE, PH, RE, RU, SH, KN, LC, SM, SA, SN, SER, KAS, SL, SX, SB, SO, GS, SS, LK, SD, SR, SY, TJ, TZ, TH, TL, TG, TO, TT, TN, TM, TC, TV, UG, UA, US, VI, YE, ZM, EH.
 
 General KP-derived evidence rule: an official current law commentary may establish a cannabis-family classification only when it identifies the exact domestic statute and appendix/schedule, the target jurisdiction and a visually reviewed fragment. That classification may be combined with current primary-law patient/prescription/supply clauses for a limited lawful-mode assessment. It must not be combined with an international treaty schedule, and it cannot establish an operational programme without separate current programme/supply evidence.
 
 General PK-derived evidence rule: current regulator e-licensing, cultivation, processing, manufacturing, pharmaceutical-product or export rules can corroborate a cannabis-specific limited lawful regime only. They never satisfy patient eligibility, prescriber, patient registration, pharmacy/dispensary, patient import or operational-patient-programme axes without a direct patient-facing official source. This is a general aggregation boundary, not a country override.
+
+General schedule-plus-authorisation evidence rule: a current primary law that preserves a defined medical/scientific authorisation or licensing class may establish a limited lawful cannabis mode only when a separately current, territorially applicable official schedule directly identifies cannabis (or an unambiguous cannabis-family product) in that legal class. The two sources must retain their own owner, effective-state, exact fragment and visual provenance. This aggregated rule derives `YELLOW`, never `GREEN`, unless separate current evidence proves patient eligibility, a clinical route and active lawful dispensing/import; it cannot derive `RED` while the current cannabis-linked authorisation remains express. This is a general evidence-aggregation rule, not a GEO override.

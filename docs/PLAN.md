@@ -148,13 +148,15 @@ Statuses: pending | in_progress | done
 
 # Truth-First independent 307-GEO re-audit (2026-08-09)
 
-- [in_progress] Execute the canonical 307-GEO Truth-First independent official-law re-audit proposal-only. 232/307 structured packets and 264/307 normalized independent colors are recorded at the 2026-08-11 PK CI checkpoint PASS; 43 GEO remain without an independent color.
+- [done] Implement tiered C0/C1/C2/C3 official-evidence revalidation in the canonical ledger. Local C0 bootstrap covers 1,459 current source records / 1,113 unique fetch URLs with zero network requests; 64/64 targeted Truth-First tests, 28/28 focused UI tests, dry-run, 307-row matrix rebuild and the one serial final pass-cycle are green. APPLY_ALLOWED=false and every product/SSOT/map/runtime no-mutation guard remains unchanged.
+
+- [in_progress] Execute the canonical 307-GEO Truth-First independent official-law re-audit proposal-only. 233/307 structured packets and 265/307 normalized independent colors are recorded after the 2026-08-12 PS CI checkpoint; 42 GEO remain without an independent color. The audit is paused at the user-requested stop point.
 
 <!-- truth-first-progress:start -->
 
-Current stop checkpoint (2026-08-11, PK CI checkpoint PASS): 232/307 structured independent packets; 264/307 GEO with a normalized independent Truth Color; 43/307 without an independent color.
+Current progress (2026-08-12, PS mandatory isLegal CI checkpoint PASS): 233/307 structured independent packets; 265/307 GEO with a normalized independent Truth Color; 42/307 without an independent color. No further GEO review is authorized at this stop point.
 
-Remaining GEO IDs: PS, PA, PG, PE, PH, RE, RU, SH, KN, LC, SM, SA, SN, SER, KAS, SL, SX, SB, SO, GS, SS, LK, SD, SR, SY, TJ, TZ, TH, TL, TG, TO, TT, TN, TM, TC, TV, UG, UA, US, VI, YE, ZM, EH.
+Remaining GEO IDs: PA, PG, PE, PH, RE, RU, SH, KN, LC, SM, SA, SN, SER, KAS, SL, SX, SB, SO, GS, SS, LK, SD, SR, SY, TJ, TZ, TH, TL, TG, TO, TT, TN, TM, TC, TV, UG, UA, US, VI, YE, ZM, EH.
 
 This list is derived from the canonical ledger aliases defined in the re-audit specification; it is a progress record, not a legal input and not an apply authorization.
 

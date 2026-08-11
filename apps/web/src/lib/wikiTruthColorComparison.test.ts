@@ -6,6 +6,7 @@ import type { WikiTruthCannabisLawRow } from "@/lib/wikiTruthCannabisLawMatrix";
 import {
   buildWikiTruthColorComparison,
   deriveOfficialLawMapCategory,
+  summarizeOfficialEvidenceRevalidation,
 } from "@/lib/wikiTruthColorComparison";
 import { deriveOfficialTruthColor } from "@/lib/wikiTruthColorEngine";
 import {
@@ -119,6 +120,46 @@ function asOfficialRow(overrides: {
 }
 
 describe("wiki-truth cannabis color comparison", () => {
+  test("keeps revalidation and visual-access state outside legal truth derivation", () => {
+    const row = asOfficialRow({
+      recreational: "ILLEGAL",
+      medical: "LIMITED",
+    });
+    row.directOfficialCannabisLawLinks = [{
+      title: "Current official cannabis law",
+      url: "https://official.example/law",
+      sourceKind: "CURRENT_PRIMARY_LAW",
+      verification: "MANUAL_LEGAL_REVIEW",
+      confidence: "high",
+      note: "Current cannabis-specific limited medical route.",
+      revalidation: {
+        checked_at: "2026-08-12T00:00:00.000Z",
+        final_url: "https://official.example/law",
+        http_status: 403,
+        etag: null,
+        last_modified: null,
+        content_type: "text/html",
+        content_length: 0,
+        document_sha256: null,
+        relevant_fragment_sha256: null,
+        revalidation_state: "ACCESS_BLOCKED",
+        access_state: "HTTP_STATUS_403",
+        change_reason: "HTTP_STATUS_403_IS_ACCESS_STATE_ONLY",
+        queue: ["C2", "C3"],
+        dependent_geos: ["ZZZ"],
+      },
+    }];
+    const before = deriveOfficialLawMapCategory(row);
+    row.directOfficialCannabisLawLinks[0].revalidation = {
+      ...row.directOfficialCannabisLawLinks[0].revalidation!,
+      revalidation_state: "NOT_MODIFIED",
+      access_state: "HTTP_OK",
+      change_reason: "HTTP_304_CONDITIONAL_GET",
+    };
+    expect(deriveOfficialLawMapCategory(row)).toBe(before);
+    expect(summarizeOfficialEvidenceRevalidation(row)).toContain("NOT_MODIFIED=1");
+  });
+
   test("keeps all seven project-null scope exclusions uncolored", () => {
     const matrix = readMatrix();
     const mapRows = [
