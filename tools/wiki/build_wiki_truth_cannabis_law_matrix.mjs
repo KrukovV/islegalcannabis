@@ -866,7 +866,7 @@ const rows = geoList.map((geo) => {
       enforcement: derived.enforcement
     } : null,
     visualReviewStatus: effectiveVisualReviewStatus,
-    strictVisualAcceptance: visualRow?.strict_visual_acceptance || null,
+    strictVisualAcceptance: visualRow?.strict_visual_acceptance ?? null,
     screenshotPaths,
     reviewConfidence: standaloneVisualContextLinks.length || explicitVisualContextLinks.length
       ? "high"

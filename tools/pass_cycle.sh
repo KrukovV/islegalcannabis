@@ -2561,7 +2561,7 @@ CI_RC=0
 if [ "${WIKI_GATE_OK_FLAG}" != "1" ]; then
   CI_RC=1
 fi
-if [ "${CI_LOCAL_HARD_GUARDS}" = "1" ] && [ "${CI_LOCAL_RC}" -ne 0 ]; then
+if [ "${CI_LOCAL_RC}" -ne 0 ]; then
   CI_RC=1
 fi
 if [ -n "${NOTES_STRICT_RESULT_5_LINE:-}" ]; then
@@ -2572,14 +2572,8 @@ if [ -n "${NOTES_STRICT_RESULT_5_LINE:-}" ]; then
 fi
 CI_STEP_FAIL_PRESENT=0
 if [ -f "${STEP_LOG}" ]; then
-  if [ "${CI_LOCAL_HARD_GUARDS}" = "1" ]; then
-    if grep -q "^CI_STEP_FAIL " "${STEP_LOG}"; then
-      CI_STEP_FAIL_PRESENT=1
-    fi
-  else
-    if grep -E "^CI_STEP_FAIL " "${STEP_LOG}" | grep -v "step=ci_local" >/dev/null 2>&1; then
-      CI_STEP_FAIL_PRESENT=1
-    fi
+  if grep -q "^CI_STEP_FAIL " "${STEP_LOG}"; then
+    CI_STEP_FAIL_PRESENT=1
   fi
 fi
 CI_GATES_OK=1

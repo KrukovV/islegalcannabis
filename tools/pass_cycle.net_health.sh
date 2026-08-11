@@ -710,6 +710,13 @@ if [ "${CI_LOCAL_OFFLINE_OK}" = "1" ]; then
 fi
 MAP_ENABLED="${MAP_ENABLED:-0}"
 export MAP_ENABLED
+if ! bash tools/save_patch_checkpoint.sh >"${CHECKPOINT_LOG}" 2>&1; then
+  fail_with_reason "CHECKPOINT_WRITE_FAILED"
+fi
+LATEST_CHECKPOINT=$(cat "${LATEST_FILE}" 2>/dev/null || true)
+if [ -z "${LATEST_CHECKPOINT}" ]; then
+  fail_with_reason "missing .checkpoints/LATEST"
+fi
 set +e
 run_ci_local_step
 CI_LOCAL_RC="${CI_LOCAL_STEP_RC:-1}"
@@ -1135,13 +1142,6 @@ if [ ! -f "${COVERAGE_PATH}" ]; then
 fi
 if [ "${SEO_TRENDS:-0}" = "1" ] && [ ! -f "${ROOT}/Reports/trends/meta.json" ]; then
   fail_with_reason "missing artifact: Reports/trends/meta.json"
-fi
-
-bash tools/save_patch_checkpoint.sh >"${CHECKPOINT_LOG}" 2>&1
-
-LATEST_CHECKPOINT=$(cat "${LATEST_FILE}" 2>/dev/null || true)
-if [ -z "${LATEST_CHECKPOINT}" ]; then
-  fail_with_reason "missing .checkpoints/LATEST"
 fi
 
 ${NODE_BIN} tools/checked/format_last_checked.mjs >/dev/null || {
