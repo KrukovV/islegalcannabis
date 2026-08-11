@@ -1265,11 +1265,13 @@ function buildAuditGeoList(
 
 async function waitForMapReady(page: Page) {
   await page.waitForFunction(() => {
-    return document.querySelector('[data-testid="new-map-surface"]')?.getAttribute("data-map-ready") === "1";
+    const isCompiling = /\bcompiling(?:…|\.\.\.)?\b/i.test(document.body?.innerText || "");
+    return !isCompiling && document.querySelector('[data-testid="new-map-surface"]')?.getAttribute("data-map-ready") === "1";
   }, { timeout: 20_000 });
   await page.waitForFunction(() => {
     const map = (window as typeof window & { __NEW_MAP_DEBUG__?: { map?: { isStyleLoaded: () => boolean } | null } }).__NEW_MAP_DEBUG__?.map;
-    return Boolean(map && typeof map.isStyleLoaded === "function" && map.isStyleLoaded());
+    const isCompiling = /\bcompiling(?:…|\.\.\.)?\b/i.test(document.body?.innerText || "");
+    return Boolean(!isCompiling && map && typeof map.isStyleLoaded === "function" && map.isStyleLoaded());
   }, { timeout: 20_000 });
 }
 
@@ -2232,6 +2234,30 @@ async function main() {
       }
       const popupVisual = popupSnapshot ? await readPopupVisualEvidence(mapPage) : null;
       const popupScreenshotStats = popupScreenshotPath ? await computeScreenshotStats(popupScreenshotPath) : null;
+      const wikiUrl = deriveWikiAuditUrl(entry);
+      const wikiEvidencePromise = !wikiUrl
+        ? Promise.resolve({
+            wikiSnapshot: null as WikiSnapshot | null,
+            wikiVisual: null as WikiVisualEvidence | null,
+            wikiScreenshotPath: null as string | null
+          })
+        : (async () => {
+            await wikiPage.goto(wikiUrl, { waitUntil: "domcontentloaded" });
+            await wikiPage.waitForTimeout(250);
+            const wikiSnapshot = await readWikiSnapshot(wikiPage);
+            const wikiVisual = await readWikiVisualEvidence(wikiPage);
+            const wikiScreenshotPath = path.join(geoDir, "wiki-fullpage.png");
+            await captureFullPageScreenshot(wikiPage, wikiScreenshotPath);
+            fs.writeFileSync(path.join(geoDir, "wiki-fullpage.txt"), `${wikiSnapshot.raw_text}\n`);
+            fs.writeFileSync(path.join(geoDir, "wiki-fullpage.html"), wikiSnapshot.html);
+            fs.writeFileSync(path.join(geoDir, "wiki-fullpage.json"), `${JSON.stringify({
+              title: wikiSnapshot.title,
+              final_url: wikiSnapshot.final_url,
+              lead_paragraphs: wikiSnapshot.lead_paragraphs,
+              section_map: wikiSnapshot.section_map
+            }, null, 2)}\n`);
+            return { wikiSnapshot, wikiVisual, wikiScreenshotPath };
+          })();
 
       let seoSnapshot: SeoSnapshot | null = null;
       let seoVisual: SeoVisualEvidence | null = null;
@@ -2290,27 +2316,7 @@ async function main() {
         }
       }
       const seoScreenshotStats = seoPanelScreenshotPath ? await computeScreenshotStats(seoPanelScreenshotPath) : null;
-
-      const wikiUrl = deriveWikiAuditUrl(entry);
-      let wikiSnapshot: WikiSnapshot | null = null;
-      let wikiVisual: WikiVisualEvidence | null = null;
-      let wikiScreenshotPath: string | null = null;
-      if (wikiUrl) {
-        await wikiPage.goto(wikiUrl, { waitUntil: "domcontentloaded" });
-        await wikiPage.waitForTimeout(250);
-        wikiSnapshot = await readWikiSnapshot(wikiPage);
-        wikiVisual = await readWikiVisualEvidence(wikiPage);
-        wikiScreenshotPath = path.join(geoDir, "wiki-fullpage.png");
-        await captureFullPageScreenshot(wikiPage, wikiScreenshotPath);
-        fs.writeFileSync(path.join(geoDir, "wiki-fullpage.txt"), `${wikiSnapshot.raw_text}\n`);
-        fs.writeFileSync(path.join(geoDir, "wiki-fullpage.html"), wikiSnapshot.html);
-        fs.writeFileSync(path.join(geoDir, "wiki-fullpage.json"), `${JSON.stringify({
-          title: wikiSnapshot.title,
-          final_url: wikiSnapshot.final_url,
-          lead_paragraphs: wikiSnapshot.lead_paragraphs,
-          section_map: wikiSnapshot.section_map
-        }, null, 2)}\n`);
-      }
+      const { wikiSnapshot, wikiVisual, wikiScreenshotPath } = await wikiEvidencePromise;
       const wikiScreenshotStats = wikiScreenshotPath ? await computeScreenshotStats(wikiScreenshotPath) : null;
 
       const popupSections = stableUnique(

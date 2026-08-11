@@ -219,6 +219,14 @@ const COUNTRY_DIR = path.join(DATA_ROOT, "countries");
 const GRAPH_PATH = path.join(DATA_ROOT, "graph", "country-graph.json");
 const INDEX_PATH = path.join(DATA_ROOT, "index.json");
 
+type CountryPageCacheEntry = {
+  mtimeMs: number;
+  size: number;
+  data: CountryPageData;
+};
+
+const countryPageReadCache = new Map<string, CountryPageCacheEntry>();
+
 function readJson<T>(filePath: string): T {
   return JSON.parse(fs.readFileSync(filePath, "utf8")) as T;
 }
@@ -405,6 +413,40 @@ export function listCountryPageData() {
     .filter((entry): entry is CountryPageData => Boolean(entry));
 }
 
+function getCachedCountryPageData(code: string): CountryPageData | null {
+  const normalized = String(code || "").trim().toLowerCase();
+  if (!/^(?:[a-z]{3}|us-[a-z]{2})$/.test(normalized)) return null;
+  const filePath = path.join(COUNTRY_DIR, `${normalized}.json`);
+  let stats: fs.Stats;
+  try {
+    stats = fs.statSync(filePath);
+  } catch {
+    countryPageReadCache.delete(normalized);
+    return null;
+  }
+
+  const cached = countryPageReadCache.get(normalized);
+  if (cached && cached.mtimeMs === stats.mtimeMs && cached.size === stats.size) return cached.data;
+
+  const data = ensureValidCountryPageData(readJson<CountryPageData>(filePath));
+  countryPageReadCache.set(normalized, {
+    mtimeMs: stats.mtimeMs,
+    size: stats.size,
+    data
+  });
+  return data;
+}
+
+/**
+ * Internal data source for renderers that derive separate values and never mutate page data.
+ * The cache is invalidated when a country source file changes.
+ */
+export function listCountryPageDataCached() {
+  return listCountryPageCodes()
+    .map((code) => getCachedCountryPageData(code))
+    .filter((entry): entry is CountryPageData => Boolean(entry));
+}
+
 export function getCountryPageData(code: string): CountryPageData | null {
   const normalized = String(code || "").trim().toLowerCase();
   if (!/^(?:[a-z]{3}|us-[a-z]{2})$/.test(normalized)) {
@@ -444,24 +486,22 @@ export function buildSeoCountryIndex(code: string) {
   const root = getCountryPageData(code);
   if (!root) return {};
 
-  const index = getCountryPageIndexByGeoCode();
-  const allEntries = listCountryPageData();
   const entries = new Map<string, CountryPageData>();
-  const addEntry = (geoCode: string | null | undefined) => {
-    const normalizedGeo = String(geoCode || "").trim().toUpperCase();
-    if (!normalizedGeo) return;
-    const entry = index.get(normalizedGeo) || getCountryPageData(normalizedGeo.toLowerCase());
+  const addEntry = (entry: CountryPageData | null | undefined) => {
     if (!entry) return;
     entries.set(entry.geo_code.toUpperCase(), entry);
   };
+  const addEntryByCode = (entryCode: string | null | undefined) => {
+    const normalizedCode = String(entryCode || "").trim().toLowerCase();
+    if (!normalizedCode) return;
+    addEntry(getCachedCountryPageData(normalizedCode));
+  };
 
-  addEntry(root.geo_code);
-  addEntry(root.parent_country?.code);
-  for (const sibling of root.graph.same_country_states) addEntry(sibling.code);
+  addEntry(root);
+  addEntryByCode(root.parent_country?.code);
+  for (const sibling of root.graph.same_country_states) addEntryByCode(sibling.code);
   if (root.code === "usa" || root.geo_code === "US" || root.parent_country?.code === "usa") {
-    for (const entry of allEntries) {
-      if (entry.parent_country?.code === "usa") addEntry(entry.geo_code);
-    }
+    for (const stateCode of listCountryPageCodes().filter((item) => item.startsWith("us-"))) addEntryByCode(stateCode);
   }
 
   return Object.fromEntries(entries.entries());

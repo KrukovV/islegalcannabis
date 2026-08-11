@@ -1,5 +1,5 @@
 import { getBuildStamp } from "@/lib/buildStamp";
-import { getCountryPageData, listCountryPageData } from "@/lib/countryPageStorage";
+import { listCountryPageDataCached, type CountryPageData } from "@/lib/countryPageStorage";
 import { buildSeoLanguageAlternates, getSeoLocaleHref, listSeoTranslationEntries } from "@/lib/seo/wikiLocaleContent";
 
 export const SEO_BASE_URL = "https://www.islegal.info";
@@ -23,8 +23,10 @@ function toCanonicalUrl(pathname: string) {
   return `${SEO_BASE_URL}${pathname}`;
 }
 
-function getPageLastModified(code: string) {
-  return toIsoDate(getCountryPageData(code)?.updated_at || null);
+function getCountryLastModifiedByCode(countryEntries: CountryPageData[]) {
+  return new Map(
+    countryEntries.map((entry) => [entry.code, toIsoDate(entry.updated_at)] as const)
+  );
 }
 
 function buildLocaleAlternates(code: string) {
@@ -54,40 +56,54 @@ export function buildMainSitemapEntries(): SitemapEntry[] {
 }
 
 export function buildPrimarySitemapEntries(): SitemapEntry[] {
+  const countryEntries = listCountryPageDataCached();
   return [
     ...buildMainSitemapEntries(),
-    ...buildCountrySitemapEntries(),
-    ...buildStateSitemapEntries(),
-    ...buildI18nSitemapEntries()
+    ...buildCountrySitemapEntriesFrom(countryEntries),
+    ...buildStateSitemapEntriesFrom(countryEntries),
+    ...buildI18nSitemapEntriesFrom(countryEntries)
   ];
 }
 
-export function buildCountrySitemapEntries(): SitemapEntry[] {
-  return listCountryPageData()
+function buildCountrySitemapEntriesFrom(countryEntries: CountryPageData[]): SitemapEntry[] {
+  return countryEntries
     .filter((entry) => entry.node_type === "country")
     .map((entry) => ({
       url: toCanonicalUrl(`/c/${entry.code}`),
-      lastModified: getPageLastModified(entry.code),
+      lastModified: toIsoDate(entry.updated_at),
       priority: "0.9"
     }));
 }
 
-export function buildStateSitemapEntries(): SitemapEntry[] {
-  return listCountryPageData()
+export function buildCountrySitemapEntries(): SitemapEntry[] {
+  return buildCountrySitemapEntriesFrom(listCountryPageDataCached());
+}
+
+function buildStateSitemapEntriesFrom(countryEntries: CountryPageData[]): SitemapEntry[] {
+  return countryEntries
     .filter((entry) => entry.node_type === "state")
     .map((entry) => ({
       url: toCanonicalUrl(`/c/${entry.code}`),
-      lastModified: getPageLastModified(entry.code),
+      lastModified: toIsoDate(entry.updated_at),
       priority: "0.8"
     }));
 }
 
-export function buildI18nSitemapEntries(): SitemapEntry[] {
+export function buildStateSitemapEntries(): SitemapEntry[] {
+  return buildStateSitemapEntriesFrom(listCountryPageDataCached());
+}
+
+function buildI18nSitemapEntriesFrom(countryEntries: CountryPageData[]): SitemapEntry[] {
+  const lastModifiedByCode = getCountryLastModifiedByCode(countryEntries);
   return listSeoTranslationEntries().map((entry) => ({
     url: toCanonicalUrl(getSeoLocaleHref(entry.code, entry.locale)),
-    lastModified: getPageLastModified(entry.code),
+    lastModified: lastModifiedByCode.get(entry.code) || toIsoDate(null),
     alternates: buildLocaleAlternates(entry.code)
   }));
+}
+
+export function buildI18nSitemapEntries(): SitemapEntry[] {
+  return buildI18nSitemapEntriesFrom(listCountryPageDataCached());
 }
 
 function escapeXml(value: string) {

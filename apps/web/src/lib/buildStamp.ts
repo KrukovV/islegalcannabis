@@ -10,6 +10,7 @@ export type BuildStamp = {
 };
 
 const BUILD_TIME_GLOBAL_KEY = "__ILC_PROCESS_BUILD_TIME__";
+const DEV_DIRTY_SHA_CACHE_TTL_MS = 1_000;
 const processGlobals = globalThis as typeof globalThis & {
   __ILC_PROCESS_BUILD_TIME__?: string;
 };
@@ -24,6 +25,7 @@ if (!processGlobals[BUILD_TIME_GLOBAL_KEY]) {
 
 const PROCESS_BUILD_TIME = String(processGlobals[BUILD_TIME_GLOBAL_KEY] || "UNCONFIRMED");
 const BUILD_ID_CANDIDATES = [".next/BUILD_ID", path.join("apps", "web", ".next", "BUILD_ID")] as const;
+let devDirtyShaCache: { root: string; value: string | null; expiresAt: number } | null = null;
 
 function readFirstNonEmpty(candidates: string[]) {
   for (const file of candidates) {
@@ -89,16 +91,24 @@ function readGitHeadShaWithDirty(root: string) {
   const sha = readGitHeadSha(root);
   if (!sha) return null;
   if (process.env.NODE_ENV === "production") return sha;
+  const now = Date.now();
+  if (devDirtyShaCache?.root === root && devDirtyShaCache.expiresAt > now) {
+    return devDirtyShaCache.value;
+  }
+
+  let value = sha;
   try {
     const output = execFileSync("git", ["status", "--short", "--untracked-files=all"], {
       cwd: root,
       encoding: "utf8",
       stdio: ["ignore", "pipe", "ignore"]
     }).trim();
-    return output ? `${sha}-dirty` : sha;
+    value = output ? `${sha}-dirty` : sha;
   } catch {
-    return sha;
+    // The SHA remains useful when git status is unavailable in a dev sandbox.
   }
+  devDirtyShaCache = { root, value, expiresAt: now + DEV_DIRTY_SHA_CACHE_TTL_MS };
+  return value;
 }
 
 function resolveDynamicBuildTime(root: string) {
