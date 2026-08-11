@@ -131630,22 +131630,213 @@
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PH/png/pages/PH-ra-9165-ddb-12.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PH/png/pages/PH-ra-9165-ddb-13.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PH/png/pages/PH-ra-9165-ddb-14.png",
-        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PH/png/pages/PH-controlled-substances-2022-ddb-02.png"
+        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PH/png/pages/PH-controlled-substances-2022-ddb-02.png",
+        "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ra-9165-definition-current-2026-08-12-05.png",
+        "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ra-9165-section-5-current-2026-08-12-07.png",
+        "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ra-9165-section-5-current-2026-08-12-08.png",
+        "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ra-9165-section-11-current-2026-08-12-11.png",
+        "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ra-9165-section-16-current-2026-08-12-14.png",
+        "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ddb-schedule-2022-page-2-current-2026-08-12-02.png",
+        "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ddb-resolution-6-2024-current-2026-08-12-1.png",
+        "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ddb-resolution-6-2024-current-2026-08-12-2.png"
       ],
       "verified_sources": [
         {
           "title": "Philippines Dangerous Drugs Board - Republic Act No. 9165 Comprehensive Dangerous Drugs Act of 2002",
           "url": "https://www.ddb.gov.ph/images/RA_9165/RA%209165.pdf",
+          "canonical_current_url": "https://ddb.gov.ph//images/RA_9165/RA%209165.pdf",
+          "source_url_history": [
+            "https://www.ddb.gov.ph/images/RA_9165/RA%209165.pdf",
+            "https://ddb.gov.ph//images/RA_9165/RA%209165.pdf"
+          ],
           "source_kind": "PHILIPPINES_DANGEROUS_DRUGS_BOARD_RA_9165_CANNABIS_MARIJUANA_DEFINITION_POSSESSION_THRESHOLDS_USE_CULTIVATION_AND_MEDICAL_RESEARCH_CAVEAT",
+          "source_owner_geo": "PH",
+          "applies_to_geo": [
+            "PH"
+          ],
+          "legal_basis_for_extension": "Republic Act No. 9165 is a national statute of the Philippines; the Dangerous Drugs Board is the statutory national drug-policy authority and official host. No extension outside PH is inferred.",
+          "source_authority": "Congress of the Philippines / Dangerous Drugs Board",
+          "source_type": "PRIMARY_NATIONAL_CONTROLLED_SUBSTANCES_STATUTE",
+          "primary_or_context": "PRIMARY",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "effective_date": "Republic Act No. 9165 enacted 7 June 2002; current DDB 2024 Board Resolution applies the statute's cannabis research limitation.",
+          "direct_fragment_urls": [
+            "https://ddb.gov.ph//images/RA_9165/RA%209165.pdf#page=5",
+            "https://ddb.gov.ph//images/RA_9165/RA%209165.pdf#page=7",
+            "https://ddb.gov.ph//images/RA_9165/RA%209165.pdf#page=8",
+            "https://ddb.gov.ph//images/RA_9165/RA%209165.pdf#page=11",
+            "https://ddb.gov.ph//images/RA_9165/RA%209165.pdf#page=14"
+          ],
+          "locator": "Current official DDB PDF pp. 5, 7-8, 11 and 14: statutory cannabis definition; Sections 5, 11 and 16; source baseline SHA-256 6f217733079513399c8568e8e117e232e97fc01d1319d61a07a820df62615a96.",
+          "exact_fragment": "Page 5 defines Cannabis/Marijuana as Cannabis sativa L. and its varieties, hashish, bhang, guaza, churrus, ganjab, marijuana, resin, extract and tincture. Section 5 (pp. 7-8) penalises sale, trading, administration, dispensation, delivery, distribution and transportation of a dangerous drug unless authorised by law. Section 11 (p. 11) penalises possession of a dangerous drug unless authorised by law. Section 16 (p. 14) penalises cultivation/culture of marijuana, with a narrow carve-out solely for medical laboratories and medical research centers conducting medical experiments, research or creation of new medicine under Board guidelines; it does not create a patient registration, prescription or dispensing route.",
+          "legal_relevance": "Primary cannabis-specific prohibition framework with a narrow research-only exception. Research, cultivation or generic regulator permission is not treated as patient access.",
+          "semantic_legal_axis": true,
+          "semantic_reviewed_by_human": true,
+          "official_host_verified": true,
+          "screenshot_state": "CURRENT_OFFICIAL_PDF_RENDERED_AND_READ; redirect final host manually confirmed as the same DDB authority; rendered crops have no browser address bar.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PH/png/pages/PH-ra-9165-ddb-05.png",
-          "note": "Official Dangerous Drugs Board hosted PDF of Republic Act No. 9165. Visual review confirms the RA 9165 title page, the definition of Cannabis commonly known as Marijuana or Indian Hemp covering Cannabis sativa L., Cannabis americana, hashish, bhang, guaza, churrus, ganjab, marijuana, resin, extract and tincture in any form, marijuana resin/oil and marijuana possession thresholds, strict imprisonment/fine bands for possession, use penalties, and Section 16 cultivation/culture penalties for marijuana with a narrow medical laboratory and medical research center carve-out subject to Board guidelines."
+          "historical_screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PH/png/pages/PH-ra-9165-ddb-05.png",
+          "current_screenshot_path": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ra-9165-section-16-current-2026-08-12-14.png",
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_owner_visible": false,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_valid": true,
+          "visual_review_result": "Current PDF pages 5, 7-8, 11 and 14 were rendered locally and read. Cannabis definition, sale/supply prohibition, possession prohibition and Section 16's research-only marijuana carve-out are visible. The C1 redirect resolves from www.ddb.gov.ph to ddb.gov.ph; both are manually confirmed DDB hosts, but the source record preserves the original URL and strict browser-domain acceptance remains separate.",
+          "note": "Official Dangerous Drugs Board hosted PDF of Republic Act No. 9165. Current C2 text extraction and C3 local rendering confirm the statutory cannabis definition, prohibited supply/possession/cultivation and narrow laboratory/research-only carve-out. No cultivation, research or generic controlled-drug wording is treated as patient access.",
+          "revalidation": {
+            "checked_at": "2026-08-11T23:41:51.865Z",
+            "final_url": "https://ddb.gov.ph//images/RA_9165/RA%209165.pdf",
+            "http_status": 304,
+            "etag": "\"4176c-4dd62062d2cc0\"",
+            "last_modified": "Thu, 23 May 2013 12:43:07 GMT",
+            "content_type": "application/pdf",
+            "content_length": 268140,
+            "document_sha256": "6f217733079513399c8568e8e117e232e97fc01d1319d61a07a820df62615a96",
+            "relevant_fragment_sha256": "646c1d18f99d1ac07f2eb34bff2708527aaff32893fc979fcf90b97b05454071",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_304_CONDITIONAL_GET",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "GREEN_OR_RED_CRITICAL_SOURCE"
+            ],
+            "dependent_geos": [
+              "PH"
+            ],
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 147137,
+              "ocr_used": false,
+              "relevant_pages": [
+                5,
+                6,
+                12,
+                13,
+                14,
+                54,
+                59,
+                60,
+                63,
+                64,
+                66
+              ],
+              "rendered_pages": [
+                5,
+                6,
+                12,
+                13,
+                14,
+                54,
+                59,
+                60,
+                63,
+                64,
+                66
+              ]
+            }
+          }
         },
         {
           "title": "Philippines Dangerous Drugs Board - Updated Lists of Scheduled Controlled Substances as of 25 April 2022",
           "url": "https://ddb.gov.ph/wp-content/uploads/2022/04/Updated-Lists-of-controlled-substances-as-of-25-April-2022.pdf",
           "source_kind": "PHILIPPINES_DANGEROUS_DRUGS_BOARD_UPDATED_SCHEDULED_CONTROLLED_SUBSTANCES_2022_CANNABIS_AND_CANNABIS_RESIN_SCHEDULE_1",
+          "source_owner_geo": "PH",
+          "applies_to_geo": [
+            "PH"
+          ],
+          "legal_basis_for_extension": "National controlled-substances list published by the Philippines Dangerous Drugs Board for PH; no extension outside PH is inferred.",
+          "source_authority": "Dangerous Drugs Board, Office of the President of the Philippines",
+          "source_type": "OFFICIAL_NATIONAL_CONTROLLED_SUBSTANCES_SCHEDULE",
+          "primary_or_context": "PRIMARY",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "effective_date": "DDB list dated 25 April 2022; currentness is rechecked against the 2024 DDB Board Resolution in this packet.",
+          "direct_fragment_urls": [
+            "https://ddb.gov.ph/wp-content/uploads/2022/04/Updated-Lists-of-controlled-substances-as-of-25-April-2022.pdf#page=2"
+          ],
+          "locator": "Current official DDB schedule PDF p. 2, Schedule I narcotic-drug items 26-27; source baseline SHA-256 eb1dd6a4bd7f3e73c0aec4deaf226d752c32a5db7ac6aff1b0a928a8b5efc61e.",
+          "exact_fragment": "The official Schedule I narcotic-drug list identifies Cannabis and Cannabis resin, extracts and tinctures as items 26 and 27.",
+          "legal_relevance": "Cannabis-specific schedule evidence. It must be reconciled with later DDB material and cannot itself establish a patient route.",
+          "semantic_legal_axis": true,
+          "semantic_reviewed_by_human": true,
+          "official_host_verified": true,
+          "screenshot_state": "CURRENT_OFFICIAL_PDF_RENDERED_AND_READ; current page 2 has no browser address bar.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PH/png/pages/PH-controlled-substances-2022-ddb-02.png",
-          "note": "Official Dangerous Drugs Board PDF. Visual review confirms the Office of the President / Dangerous Drugs Board header and the Updated Lists of Scheduled Controlled Substances as of 25 April 2022, with Cannabis listed as item 26 and Cannabis resin, extracts and tinctures listed as item 27 in the Schedule 1 narcotic-drug list."
+          "historical_screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PH/png/pages/PH-controlled-substances-2022-ddb-02.png",
+          "current_screenshot_path": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ddb-schedule-2022-page-2-current-2026-08-12-02.png",
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_valid": true,
+          "visual_review_result": "Current page 2 was extracted with pdftotext and rendered locally. The Office of the President/Dangerous Drugs Board header and Schedule I items 26 Cannabis and 27 Cannabis resin, extracts and tinctures are visible; strict browser-domain acceptance remains separate.",
+          "note": "Official Dangerous Drugs Board PDF. Current text-first extraction and local rendering confirm the Office of the President / Dangerous Drugs Board header and Schedule I items 26 Cannabis and 27 Cannabis resin, extracts and tinctures. The schedule is cannabis-specific classification evidence, not a patient route.",
+          "revalidation": {
+            "checked_at": "2026-08-11T23:41:51.865Z",
+            "final_url": "https://ddb.gov.ph/wp-content/uploads/2022/04/Updated-Lists-of-controlled-substances-as-of-25-April-2022.pdf",
+            "http_status": 304,
+            "etag": "\"5f0fa-5dd855fe84640\"",
+            "last_modified": "Tue, 26 Apr 2022 02:23:13 GMT",
+            "content_type": "application/pdf",
+            "content_length": 389370,
+            "document_sha256": "eb1dd6a4bd7f3e73c0aec4deaf226d752c32a5db7ac6aff1b0a928a8b5efc61e",
+            "relevant_fragment_sha256": "4ca504ca7229da8260a20efaffd946f0d055b692073e9dfad909eefa5ee8cedc",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_304_CONDITIONAL_GET",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "GREEN_OR_RED_CRITICAL_SOURCE"
+            ],
+            "dependent_geos": [
+              "PH"
+            ],
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 21234,
+              "ocr_used": false,
+              "relevant_pages": [
+                1,
+                2,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                17
+              ],
+              "rendered_pages": [
+                1,
+                2,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                17
+              ]
+            }
+          }
         }
       ],
       "verified_context_sources": [
@@ -131657,16 +131848,398 @@
           "note": "Official DDB IRR PDF was downloaded and text-inspected. It mirrors the RA 9165 cannabis definition and dangerous-drug control framework. It is retained as implementing context rather than the primary visual direct-law source because the RA 9165 PDF and the DDB controlled-substances schedule were visually reviewed and already provide direct cannabis evidence."
         }
       ],
+      "official_source_annotations": [
+        {
+          "title": "Philippines Dangerous Drugs Board - Board Resolution No. 6, Series of 2024",
+          "url": "https://ddb.gov.ph/wp-content/uploads/2024/04/Board-Resolution-No.-6-Series-of-2024-2.pdf",
+          "source_kind": "PHILIPPINES_DDB_2024_BOARD_RESOLUTION_CANNABIS_RESEARCH_AND_SCHEDULE_CONTEXT",
+          "source_owner_geo": "PH",
+          "applies_to_geo": [
+            "PH"
+          ],
+          "legal_basis_for_extension": "National DDB Board Resolution under Republic Act No. 9165, directly applicable in the Philippines; no territorial extension is inferred.",
+          "source_authority": "Dangerous Drugs Board, Office of the President of the Philippines",
+          "source_type": "OFFICIAL_CURRENT_DRUG_POLICY_RESOLUTION",
+          "primary_or_context": "PRIMARY",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "effective_date": "Board Resolution No. 6, Series of 2024, approved and adopted 8 March 2024; direct official PDF retrieved, OCR-reviewed and locally rendered on 12 August 2026.",
+          "direct_fragment_urls": [
+            "https://ddb.gov.ph/wp-content/uploads/2024/04/Board-Resolution-No.-6-Series-of-2024-2.pdf#page=1",
+            "https://ddb.gov.ph/wp-content/uploads/2024/04/Board-Resolution-No.-6-Series-of-2024-2.pdf#page=2"
+          ],
+          "locator": "Current official DDB PDF pp. 1-2: title/authority and resolved clause; scanned PDF has no usable text layer, so OCR was applied only to its two pages.",
+          "exact_fragment": "Page 2 states that, despite UN-CND reclassification, RA 9165 and the International Drug Conventions consistently classify cannabis and cannabis-related substances as dangerous drugs and legal access thereto is limited to medical experiments and research purposes only. It resolves to approve and adopt the recommendation denying the petition to reclassify Cannabis and Cannabis Resin in the Philippine schedules from Schedule 1 to Schedule 2, approved and adopted 8 March 2024.",
+          "legal_relevance": "Current cannabis-specific DDB primary resolution confirms that the statutory exception remains medical experiments/research only and that the requested reclassification was denied. It is positive evidence against a patient-access route; research is never converted into patient access.",
+          "screenshot_state": "CURRENT_OFFICIAL_SCANNED_PDF_OCR_RENDERED_AND_READ; pages 1-2 contain no browser address bar.",
+          "current_screenshot_path": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ddb-resolution-6-2024-current-2026-08-12-2.png",
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_valid": true,
+          "visual_review_result": "Page 1 visibly identifies the Republic of the Philippines, Office of the President and Dangerous Drugs Board, Board Resolution No. 6 Series of 2024 and its cannabis/reclassification subject. Page 2 visibly gives the research-only legal-access clause and denial/resolution. Strict browser-domain acceptance remains separate.",
+          "revalidation": {
+            "checked_at": "2026-08-11T23:41:51.865Z",
+            "final_url": "https://ddb.gov.ph/wp-content/uploads/2024/04/Board-Resolution-No.-6-Series-of-2024-2.pdf",
+            "http_status": 304,
+            "etag": "\"84ca9-6158bac6f281d\"",
+            "last_modified": "Mon, 08 Apr 2024 01:24:57 GMT",
+            "content_type": "application/pdf",
+            "content_length": 543913,
+            "document_sha256": "085024eb672f468f1e408fd03ff32b8f611c79f683a48ae4418de0e8fdc0e91d",
+            "relevant_fragment_sha256": "ef5b6afbe77892f6f0507c04bcc870eafec8a85ddbd5d6d5b28921af8d282884",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_304_CONDITIONAL_GET",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "GREEN_OR_RED_CRITICAL_SOURCE"
+            ],
+            "dependent_geos": [
+              "PH"
+            ],
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "ocr",
+              "text_layer_length": 0,
+              "ocr_used": true,
+              "relevant_pages": [
+                1,
+                2
+              ],
+              "rendered_pages": [
+                1,
+                2
+              ]
+            }
+          }
+        },
+        {
+          "title": "House of Representatives Philippines - Panel approves consolidated bill on medical cannabis",
+          "url": "https://www.congress.gov.ph/index.php/media/press-releases/9639",
+          "source_kind": "PHILIPPINES_HOUSE_2026_MEDICAL_CANNABIS_BILL_COMMITTEE_APPROVAL_PROPOSAL_CONTEXT",
+          "source_owner_geo": "PH",
+          "applies_to_geo": [
+            "PH"
+          ],
+          "legal_basis_for_extension": "Official national legislative press release records the status of proposed bills in the Philippines; it is not enacted law and has no legal extension.",
+          "source_authority": "House of Representatives of the Philippines",
+          "source_type": "OFFICIAL_LEGISLATIVE_PROPOSAL_CONTEXT",
+          "primary_or_context": "LEGISLATIVE_PROPOSAL_CONTEXT",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": false,
+          "current_effective_state": "PROPOSAL_ONLY_NOT_ENACTED",
+          "effective_date": "25 February 2026 committee approval subject to style and amendments.",
+          "direct_fragment_urls": [
+            "https://www.congress.gov.ph/index.php/media/press-releases/9639"
+          ],
+          "locator": "Official House press release, opening paragraphs on HBs 193, 2861, 367, 420, 1115 and 3864.",
+          "exact_fragment": "The House Committee on Dangerous Drugs and Committee on Health approved, subject to style and amendments, a consolidated bill on access to medical cannabis. The release states that a similar measure in the previous Congress was not enacted into law.",
+          "legal_relevance": "Current proposal-only context: it cannot establish a patient route, repeal RA 9165 or change Truth Color.",
+          "screenshot_state": "NOT_YET_RENDERED; proposal context queued for C1/C3 and excluded from legal-axis derivation.",
+          "reviewed_by_human_visual": false
+        },
+        {
+          "title": "House of Representatives Philippines Committee on Dangerous Drugs - current medical cannabis bill registry",
+          "url": "https://congress.gov.ph/committees/committee/view/D502",
+          "source_kind": "PHILIPPINES_HOUSE_CURRENT_COMMITTEE_REGISTRY_MEDICAL_CANNABIS_BILLS_PENDING_CONTEXT",
+          "source_owner_geo": "PH",
+          "applies_to_geo": [
+            "PH"
+          ],
+          "legal_basis_for_extension": "Official national House committee registry records legislative status only; it does not create legal applicability before enactment.",
+          "source_authority": "House of Representatives of the Philippines",
+          "source_type": "OFFICIAL_LEGISLATIVE_STATUS_CONTEXT",
+          "primary_or_context": "LEGISLATIVE_PROPOSAL_CONTEXT",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": false,
+          "current_effective_state": "PROPOSAL_ONLY_NOT_ENACTED",
+          "effective_date": "20th Congress registry current at direct retrieval; exact status/heading queued for C1/C2.",
+          "direct_fragment_urls": [
+            "https://congress.gov.ph/committees/committee/view/D502"
+          ],
+          "locator": "Current Committee on Dangerous Drugs registry, HB 193/HB 317/HB 367 and related medical cannabis measures.",
+          "exact_fragment": "DISCOVERY ANNOTATION ONLY: official House committee registry lists medical-cannabis bills as pending with the Committee on Dangerous Drugs. No legal axis is derived from pending bills.",
+          "legal_relevance": "Current legislative-status context only; it cannot promote or negate patient access.",
+          "screenshot_state": "NOT_YET_RENDERED; proposal context queued for C1/C3 and excluded from legal-axis derivation.",
+          "reviewed_by_human_visual": false
+        },
+        {
+          "title": "Senate of the Philippines - Medical Cannabis Act bill text, 20th Congress",
+          "url": "https://web.senate.gov.ph/lisdata/4648942492%21.pdf",
+          "source_kind": "PHILIPPINES_SENATE_20TH_CONGRESS_MEDICAL_CANNABIS_ACT_BILL_PROPOSAL_CONTEXT",
+          "source_owner_geo": "PH",
+          "applies_to_geo": [
+            "PH"
+          ],
+          "legal_basis_for_extension": "Official Senate legislative bill text records a proposal only; it has no legal applicability unless enacted.",
+          "source_authority": "Senate of the Philippines",
+          "source_type": "OFFICIAL_LEGISLATIVE_BILL_PROPOSAL_CONTEXT",
+          "primary_or_context": "LEGISLATIVE_PROPOSAL_CONTEXT",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": false,
+          "current_effective_state": "PROPOSAL_ONLY_NOT_ENACTED",
+          "effective_date": "20th Congress bill document; not an enacted statute.",
+          "direct_fragment_urls": [
+            "https://web.senate.gov.ph/lisdata/4648942492%21.pdf#page=1"
+          ],
+          "locator": "Official Senate PDF title and explanatory-note pages proposing a Medical Cannabis Authority and medical-cannabis regime.",
+          "exact_fragment": "PROPOSAL CONTEXT ONLY: the bill text proposes a Medical Cannabis Authority and a regulated medical-cannabis regime. It is not enacted law and no legal axis is derived from it.",
+          "legal_relevance": "Retained direct official legislative evidence of an un-enacted proposal. It cannot prove, repeal or negate present patient access, adult-use prohibition or Truth Color.",
+          "screenshot_state": "NOT_YET_RENDERED; proposal context excluded from legal-axis derivation.",
+          "reviewed_by_human_visual": false
+        }
+      ],
+      "independent_truth_color": "RED",
+      "independent_truth_status": "CURRENT_CANNABIS_SCHEDULE_I_RESEARCH_ONLY_ACCESS_AND_RECREATIONAL_PROHIBITION",
+      "independent_truth_rule": "GENERAL_CURRENT_CANNABIS_SPECIFIC_RECREATIONAL_PROHIBITION_WITH_NO_PATIENT_ACCESS_EXCEPTION",
+      "audit_state": "CURRENT_PRIMARY_LAW_AND_DDB_RESOLUTION_C2_C3_COMPLETE_PROPOSAL_ONLY",
+      "strict_visual_acceptance": false,
+      "strict_visual_acceptance_reason": "Current official PDFs were conditionally retrieved, text/OCR reviewed and locally rendered, but persisted page crops do not show a browser address bar or final-domain UI proof. This does not alter legal truth.",
+      "final_visual_acceptance": false,
+      "independent_review": {
+        "geo": "PH",
+        "territory": "Philippines",
+        "review_mode": "INDEPENDENT_OFFICIAL_EVIDENCE_FIRST",
+        "proposal_only": true,
+        "jurisdiction": {
+          "territory_type": "SOVEREIGN_STATE",
+          "applicable_law": "Republic Act No. 9165 as currently applied by Dangerous Drugs Board Board Resolution No. 6, Series of 2024, together with the DDB national Schedule I list.",
+          "source_owner_vs_jurisdiction": "Congress of the Philippines and the Dangerous Drugs Board are national PH authorities. The RA 9165 source redirected from www.ddb.gov.ph to ddb.gov.ph; the final host and authority were independently confirmed during C2 and the historical URL is retained.",
+          "disputed_or_composite": false
+        },
+        "official_truth_color": "RED",
+        "truth_color": "RED",
+        "truth_status": "CURRENT_CANNABIS_SCHEDULE_I_RESEARCH_ONLY_ACCESS_AND_RECREATIONAL_PROHIBITION",
+        "color_rule": "GENERAL_CURRENT_CANNABIS_SPECIFIC_RECREATIONAL_PROHIBITION_WITH_NO_PATIENT_ACCESS_EXCEPTION",
+        "reviewed_at": "2026-08-12",
+        "legal_interpretation": "Proposal-only RED under the general current cannabis-specific prohibition rule. RA 9165 identifies cannabis and cannabis derivatives, criminalises unauthorised sale/supply, possession and cultivation, and contains only a medical-laboratory/medical-research exception. Current DDB Resolution No. 6 expressly says legal access to cannabis and cannabis-related substances is limited to medical experiments and research purposes only, and denies the requested rescheduling. This result does not turn cultivation, production, research, industrial hemp, CBD, proposal bills, prescription-product development, generic licensing or generic drug-control wording into patient access.",
+        "source_record_refs": [
+          "https://ddb.gov.ph//images/RA_9165/RA%209165.pdf#page=5",
+          "https://ddb.gov.ph//images/RA_9165/RA%209165.pdf#page=7",
+          "https://ddb.gov.ph//images/RA_9165/RA%209165.pdf#page=8",
+          "https://ddb.gov.ph//images/RA_9165/RA%209165.pdf#page=11",
+          "https://ddb.gov.ph//images/RA_9165/RA%209165.pdf#page=14",
+          "https://ddb.gov.ph/wp-content/uploads/2022/04/Updated-Lists-of-controlled-substances-as-of-25-April-2022.pdf#page=2",
+          "https://ddb.gov.ph/wp-content/uploads/2024/04/Board-Resolution-No.-6-Series-of-2024-2.pdf#page=2"
+        ],
+        "evidence_axes": {
+          "patient_eligible": {
+            "value": "NO",
+            "source_url": "https://ddb.gov.ph/wp-content/uploads/2024/04/Board-Resolution-No.-6-Series-of-2024-2.pdf#page=2",
+            "source_type": "CURRENT_OFFICIAL_DDB_BOARD_RESOLUTION",
+            "exact_fragment": "The current DDB Resolution limits legal access to cannabis and cannabis-related substances to medical experiments and research purposes only; it creates no eligible patient class.",
+            "effective_date": "Board Resolution No. 6, Series of 2024, approved and adopted 8 March 2024; RA 9165/Schedule current DDB URLs retrieved 12 August 2026.",
+            "applicability": "PH national Dangerous Drugs Board / Republic Act No. 9165.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ddb-resolution-6-2024-current-2026-08-12-2.png"
+          },
+          "prescriber_route": {
+            "value": "NO",
+            "source_url": "https://ddb.gov.ph/wp-content/uploads/2024/04/Board-Resolution-No.-6-Series-of-2024-2.pdf#page=2",
+            "source_type": "CURRENT_OFFICIAL_DDB_BOARD_RESOLUTION",
+            "exact_fragment": "The current DDB Resolution limits legal access to medical experiments and research purposes only; it creates no patient prescription route.",
+            "effective_date": "Board Resolution No. 6, Series of 2024, approved and adopted 8 March 2024; RA 9165/Schedule current DDB URLs retrieved 12 August 2026.",
+            "applicability": "PH national Dangerous Drugs Board / Republic Act No. 9165.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ddb-resolution-6-2024-current-2026-08-12-2.png"
+          },
+          "registration_route": {
+            "value": "NO",
+            "source_url": "https://ddb.gov.ph/wp-content/uploads/2024/04/Board-Resolution-No.-6-Series-of-2024-2.pdf#page=2",
+            "source_type": "CURRENT_OFFICIAL_DDB_BOARD_RESOLUTION",
+            "exact_fragment": "The current DDB Resolution limits legal access to medical experiments and research purposes only; it identifies no patient registry or registration route.",
+            "effective_date": "Board Resolution No. 6, Series of 2024, approved and adopted 8 March 2024; RA 9165/Schedule current DDB URLs retrieved 12 August 2026.",
+            "applicability": "PH national Dangerous Drugs Board / Republic Act No. 9165.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ddb-resolution-6-2024-current-2026-08-12-2.png"
+          },
+          "lawful_supply": {
+            "value": "NO",
+            "source_url": "https://ddb.gov.ph//images/RA_9165/RA%209165.pdf#page=8",
+            "source_type": "CURRENT_PRIMARY_STATUTE_AND_DDB_RESOLUTION",
+            "exact_fragment": "RA 9165 Section 5 penalises sale, trading, administration, dispensation, delivery, distribution and transportation of dangerous drugs unless authorised by law; Resolution No. 6 confines lawful cannabis access to research only.",
+            "effective_date": "Board Resolution No. 6, Series of 2024, approved and adopted 8 March 2024; RA 9165/Schedule current DDB URLs retrieved 12 August 2026.",
+            "applicability": "PH national Dangerous Drugs Board / Republic Act No. 9165.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ra-9165-section-5-current-2026-08-12-08.png"
+          },
+          "pharmacy_or_dispensary": {
+            "value": "NO",
+            "source_url": "https://ddb.gov.ph/wp-content/uploads/2024/04/Board-Resolution-No.-6-Series-of-2024-2.pdf#page=2",
+            "source_type": "CURRENT_OFFICIAL_DDB_BOARD_RESOLUTION",
+            "exact_fragment": "The current DDB Resolution limits legal access to medical experiments and research purposes only; it does not authorise or identify a cannabis pharmacy or patient dispenser.",
+            "effective_date": "Board Resolution No. 6, Series of 2024, approved and adopted 8 March 2024; RA 9165/Schedule current DDB URLs retrieved 12 August 2026.",
+            "applicability": "PH national Dangerous Drugs Board / Republic Act No. 9165.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ddb-resolution-6-2024-current-2026-08-12-2.png"
+          },
+          "import_route": {
+            "value": "NO",
+            "source_url": "https://ddb.gov.ph/wp-content/uploads/2024/04/Board-Resolution-No.-6-Series-of-2024-2.pdf#page=2",
+            "source_type": "CURRENT_OFFICIAL_DDB_BOARD_RESOLUTION",
+            "exact_fragment": "The current DDB Resolution limits legal access to medical experiments and research purposes only; it creates no patient import route.",
+            "effective_date": "Board Resolution No. 6, Series of 2024, approved and adopted 8 March 2024; RA 9165/Schedule current DDB URLs retrieved 12 August 2026.",
+            "applicability": "PH national Dangerous Drugs Board / Republic Act No. 9165.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ddb-resolution-6-2024-current-2026-08-12-2.png"
+          },
+          "programme_operational": {
+            "value": "NO",
+            "source_url": "https://ddb.gov.ph/wp-content/uploads/2024/04/Board-Resolution-No.-6-Series-of-2024-2.pdf#page=2",
+            "source_type": "CURRENT_OFFICIAL_DDB_BOARD_RESOLUTION",
+            "exact_fragment": "The current DDB Resolution limits legal access to medical experiments and research purposes only; it identifies no operational patient programme.",
+            "effective_date": "Board Resolution No. 6, Series of 2024, approved and adopted 8 March 2024; RA 9165/Schedule current DDB URLs retrieved 12 August 2026.",
+            "applicability": "PH national Dangerous Drugs Board / Republic Act No. 9165.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ddb-resolution-6-2024-current-2026-08-12-2.png"
+          },
+          "programme_commenced": {
+            "value": "NO",
+            "source_url": "https://ddb.gov.ph/wp-content/uploads/2024/04/Board-Resolution-No.-6-Series-of-2024-2.pdf#page=2",
+            "source_type": "CURRENT_OFFICIAL_DDB_BOARD_RESOLUTION",
+            "exact_fragment": "The current DDB Resolution limits legal access to medical experiments and research purposes only; it gives no patient-programme commencement or operation evidence.",
+            "effective_date": "Board Resolution No. 6, Series of 2024, approved and adopted 8 March 2024; RA 9165/Schedule current DDB URLs retrieved 12 August 2026.",
+            "applicability": "PH national Dangerous Drugs Board / Republic Act No. 9165.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ddb-resolution-6-2024-current-2026-08-12-2.png"
+          },
+          "recreational_possession": {
+            "value": "NO",
+            "source_url": "https://ddb.gov.ph//images/RA_9165/RA%209165.pdf#page=11",
+            "source_type": "CURRENT_PRIMARY_STATUTE",
+            "exact_fragment": "RA 9165 Section 11 penalises possession of any dangerous drug unless authorised by law. The Act identifies cannabis and cannabis derivatives, and current DDB Resolution No. 6 confines lawful cannabis access to research only.",
+            "effective_date": "Board Resolution No. 6, Series of 2024, approved and adopted 8 March 2024; RA 9165/Schedule current DDB URLs retrieved 12 August 2026.",
+            "applicability": "PH national Dangerous Drugs Board / Republic Act No. 9165.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ra-9165-section-11-current-2026-08-12-11.png"
+          },
+          "recreational_supply": {
+            "value": "NO",
+            "source_url": "https://ddb.gov.ph//images/RA_9165/RA%209165.pdf#page=8",
+            "source_type": "CURRENT_PRIMARY_STATUTE",
+            "exact_fragment": "RA 9165 Section 5 penalises dangerous-drug sale, trading, administration, dispensation, delivery, distribution and transportation unless authorised by law. Current DDB Resolution No. 6 confines lawful cannabis access to research only.",
+            "effective_date": "Board Resolution No. 6, Series of 2024, approved and adopted 8 March 2024; RA 9165/Schedule current DDB URLs retrieved 12 August 2026.",
+            "applicability": "PH national Dangerous Drugs Board / Republic Act No. 9165.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ra-9165-section-5-current-2026-08-12-08.png"
+          },
+          "recreational_cultivation": {
+            "value": "NO",
+            "source_url": "https://ddb.gov.ph//images/RA_9165/RA%209165.pdf#page=14",
+            "source_type": "CURRENT_PRIMARY_STATUTE",
+            "exact_fragment": "RA 9165 Section 16 penalises cultivation or culture of marijuana and permits cultivation only by medical laboratories and medical research centers for medical experiments, research or new medicine under Board guidelines; this is not adult-use cultivation or patient access.",
+            "effective_date": "Board Resolution No. 6, Series of 2024, approved and adopted 8 March 2024; RA 9165/Schedule current DDB URLs retrieved 12 August 2026.",
+            "applicability": "PH national Dangerous Drugs Board / Republic Act No. 9165.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ra-9165-section-16-current-2026-08-12-14.png"
+          },
+          "penalty_regime": {
+            "value": "YES",
+            "source_url": "https://ddb.gov.ph//images/RA_9165/RA%209165.pdf#page=14",
+            "source_type": "CURRENT_PRIMARY_STATUTE",
+            "exact_fragment": "RA 9165 Section 16 provides life imprisonment to death and a P500,000 to P10,000,000 fine for marijuana cultivation/culture outside the narrow research carve-out; Sections 5 and 11 separately penalise supply and possession.",
+            "effective_date": "Board Resolution No. 6, Series of 2024, approved and adopted 8 March 2024; RA 9165/Schedule current DDB URLs retrieved 12 August 2026.",
+            "applicability": "PH national Dangerous Drugs Board / Republic Act No. 9165.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ra-9165-section-16-current-2026-08-12-14.png"
+          }
+        },
+        "visual_evidence": [
+          {
+            "path": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ddb-resolution-6-2024-current-2026-08-12-1.png",
+            "visual_opened": true,
+            "official_owner_visible": true,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": true,
+            "effective_rule_visible": true,
+            "screenshot_valid": true,
+            "visual_summary": "Current DDB Resolution page 1 visibly identifies the Republic, Office of the President, Dangerous Drugs Board, Resolution No. 6 Series of 2024 and the cannabis/cannabis-resin reclassification subject."
+          },
+          {
+            "path": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ddb-resolution-6-2024-current-2026-08-12-2.png",
+            "visual_opened": true,
+            "official_owner_visible": true,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": true,
+            "effective_rule_visible": true,
+            "screenshot_valid": true,
+            "visual_summary": "Current DDB Resolution page 2 visibly limits legal access to medical experiments/research only, denies the petition to reschedule Cannabis/Cannabis Resin and records adoption on 8 March 2024."
+          },
+          {
+            "path": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ra-9165-section-16-current-2026-08-12-14.png",
+            "visual_opened": true,
+            "official_owner_visible": false,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": true,
+            "effective_rule_visible": true,
+            "screenshot_valid": true,
+            "visual_summary": "Current RA 9165 page 14 visibly gives Section 16 marijuana cultivation penalties and its laboratory/research-only exception."
+          },
+          {
+            "path": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ddb-schedule-2022-page-2-current-2026-08-12-02.png",
+            "visual_opened": true,
+            "official_owner_visible": true,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": true,
+            "effective_rule_visible": true,
+            "screenshot_valid": true,
+            "visual_summary": "Current DDB Schedule page 2 visibly lists Cannabis and Cannabis resin, extracts and tinctures as Schedule I items 26-27."
+          }
+        ],
+        "visual_acceptance": {
+          "legal_truth_visual_review_complete": true,
+          "strict_visual_acceptance": false,
+          "reason": "All substantive current official PDFs were retrieved, text/OCR read and locally rendered without a visible browser. Persisted page crops contain official owner and legal text but not a browser address bar; strict visual acceptance is therefore separate and false."
+        },
+        "confidence": "HIGH_FOR_CURRENT_CANNABIS_SPECIFIC_RESEARCH_ONLY_EXCEPTION_AND_RECREATIONAL_PROHIBITION",
+        "remaining_blockers": [
+          "STRICT_VISUAL_ACCEPTANCE_FALSE_BECAUSE_PERSISTED_CURRENT_PDF_CROPS_LACK_BROWSER_ADDRESS_BAR",
+          "2026_HOUSE_AND_SENATE_MEDICAL_CANNABIS_BILLS_ARE_PROPOSAL_CONTEXT_ONLY_NOT_ENACTED_LAW"
+        ],
+        "current_layer_comparison": "NOT_CAPTURED_NOT_USED_AS_LEGAL_INPUT; no map, popup, SEO, API, SSOT or production value was read or changed in this packet.",
+        "recommended_action": "RETAIN_PROPOSAL_ONLY_RED; do not apply to SSOT, map, runtime, production or deployment without explicit user authorisation and final 307-row gate.",
+        "apply_gate": {
+          "APPLY_ALLOWED": false,
+          "PRODUCTION_TOUCHED": false,
+          "MAP_COLORS_CHANGED": false,
+          "SSOT_CHANGED": false
+        }
+      },
       "official_status": {
-        "recreational": "ILLEGAL; RA_9165_PAGE_5_VISIBLY_DEFINES_CANNABIS_MARIJUANA_INDIAN_HEMP_AS_CANNABIS_SATIVA_HASHISH_BHANG_GANJAB_MARIJUANA_RESIN_EXTRACT_TINCTURE_IN_ANY_FORM_AND_DDB_2022_SCHEDULE_PAGE_2_VISIBLY_LISTS_CANNABIS_AND_CANNABIS_RESIN_EXTRACTS_TINCTURES_IN_SCHEDULE_1",
-        "medical": "LIMITED; RA_9165_POLICY_TEXT_RECOGNIZES_LEGITIMATE_MEDICAL_NEEDS_FOR_DANGEROUS_DRUGS_AND_PAGE_14_VISIBLY_ALLOWS_MEDICAL_LABORATORIES_AND_MEDICAL_RESEARCH_CENTERS_TO_CULTIVATE_OR_CULTURE_MARIJUANA_FOR_MEDICAL_EXPERIMENTS_RESEARCH_OR_CREATION_OF_NEW_MEDICINE_SUBJECT_TO_DDB_GUIDELINES; NO_FULL_PATIENT_MEDICAL_CANNABIS_PROGRAM_WAS_VISIBLY_CONFIRMED",
-        "enforcement": "STRICT; RA_9165_PAGES_12_13_VISIBLY_SET_MARIJUANA_RESIN_OR_OIL_AND_MARIJUANA_POSSESSION_THRESHOLDS_WITH_TWELVE_TO_TWENTY_YEARS_THROUGH_LIFE_IMPRISONMENT_BANDS_AND_PAGE_14_VISIBLY_SETS_USE_PENALTIES_AND_LIFE_IMPRISONMENT_TO_DEATH_PLUS_P500K_TO_P10M_FINE_FOR_MARIJUANA_CULTIVATION_OR_CULTURE"
+        "recreational": "CURRENT_ILLEGAL; RA_9165_CURRENT_PAGES_7_8_11_14_PENALISE_UNAUTHORISED_CANNABIS_LINKED_SUPPLY_POSSESSION_AND_CULTIVATION, WITH_CANNABIS_AND_DERIVATIVES_IDENTIFIED_ON_PAGE_5_AND_DDB_SCHEDULE_1_PAGE_2",
+        "medical": "NO_CURRENT_PATIENT_ACCESS; DDB_BOARD_RESOLUTION_6_2024_PAGE_2_VISIBLY_STATES_LEGAL_ACCESS_TO_CANNABIS_AND_CANNABIS_RELATED_SUBSTANCES_IS_LIMITED_TO_MEDICAL_EXPERIMENTS_AND_RESEARCH_PURPOSES_ONLY_AND_DENIES_RESCHEDULING; RESEARCH_IS_NOT_PATIENT_ACCESS",
+        "enforcement": "CURRENT_STRICT; RA_9165_SECTION_5_UNAUTHORISED_SUPPLY_SECTION_11_POSSESSION_AND_SECTION_16_MARIJUANA_CULTIVATION_PENALTIES, INCLUDING_LIFE_IMPRISONMENT_TO_DEATH_AND_P500K_TO_P10M_FOR_CULTIVATION_OUTSIDE_THE_NARROW_RESEARCH_CARVE_OUT",
+        "currentness": "RA 9165, DDB Schedule and DDB Board Resolution No. 6 were revalidated/retrieved from DDB official URLs on 12 August 2026; Resolution No. 6 was approved and adopted 8 March 2024.",
+        "patient_access": "NOT_PROVED_AND_AFFIRMATIVELY_LIMITED_TO_MEDICAL_EXPERIMENTS_AND_RESEARCH_ONLY_BY_CURRENT_DDB_RESOLUTION"
       },
       "project_comparison": {
-        "status": "MATCH_WITH_PHILIPPINES_RA_9165_CANNABIS_SCHEDULE_1_STRICT_CONTROL_AND_LIMITED_MEDICAL_RESEARCH_CAVEAT",
-        "reason": "Philippines is visually verified from official Dangerous Drugs Board PDFs. RA 9165 page 1 visibly identifies Republic Act No. 9165, the Comprehensive Dangerous Drugs Act of 2002. Page 5 visibly defines Cannabis, commonly known as Marijuana or Indian Hemp, as Cannabis sativa L. and related varieties and forms including hashish, bhang, ganjab, marijuana, resin, extract and tincture. DDB's Updated Lists of Scheduled Controlled Substances page 2 visibly lists Cannabis and Cannabis resin, extracts and tinctures in Schedule 1. RA 9165 pages 12-13 visibly set marijuana resin/oil and marijuana possession thresholds with penalties ranging from twelve to twenty years through life imprisonment/fine bands depending on quantity. Page 14 visibly sets use penalties and states that marijuana cultivation/culture carries life imprisonment to death and a P500,000 to P10,000,000 fine, while allowing only medical laboratories and medical research centers to cultivate/culture marijuana for medical experiments, research, or creation of new medicine subject to Board guidelines. This supports project recreational=ILLEGAL and enforcement=STRICT. Medical is retained as LIMITED because official material shows narrow legitimate-medical/research carve-outs, but no visually confirmed full patient medical cannabis program or regulated commercial medical cannabis market. No project status SSOT was changed."
+        "status": "PROPOSAL_ONLY_INDEPENDENT_RED_RECORDED_WITHOUT_PRODUCT_LAYER_MUTATION",
+        "reason": "Current official DDB source retrieval, C2 text/OCR review and C3 local rendering prove a cannabis-specific national prohibition framework and a research-only exception. The prior project-layer fields were not read, changed or used to derive this legal proposal. No SSOT, map, runtime, production or deployment value was changed."
       },
-      "conclusion": "Philippines is closed as visually verified official cannabis-law evidence from Dangerous Drugs Board RA 9165 and the DDB Updated Lists of Scheduled Controlled Substances as of 25 April 2022. The reviewed pages directly show cannabis/marijuana definitions, Schedule 1 listing, possession thresholds, use and cultivation penalties, and a limited medical laboratory/research carve-out. Project ILLEGAL/LIMITED/STRICT is supported with a caveat that the limited medical status is research/legitimate-medical carve-out evidence rather than a full patient medical cannabis program. No project status SSOT was changed."
+      "conclusion": "Philippines is independently proposal-only RED from current official Dangerous Drugs Board RA 9165, the DDB Schedule I list and Board Resolution No. 6, Series of 2024. The primary evidence directly identifies cannabis/cannabis derivatives, proves unauthorised supply, possession and cultivation prohibitions, and confirms that legal access remains limited to medical experiments and research only; no patient pathway is inferred from that research carve-out. 2026 House/Senate medical-cannabis bills are preserved as official non-effective proposal context only. SSOT, map, runtime, production and deployment remain unchanged; APPLY_ALLOWED=false."
     },
     {
       "geo": "PN",
@@ -135355,25 +135928,23 @@
             "strict_visual_acceptance": "CURRENT_OFFICIAL_PDF_OPENED_WITH_HISTORICAL_PERSISTED_VISUAL_FRAGMENT"
           },
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-11T23:41:51.865Z",
             "final_url": "https://ddb.gov.ph//images/RA_9165/RA%209165.pdf",
-            "http_status": null,
-            "etag": null,
-            "last_modified": null,
+            "http_status": 304,
+            "etag": "\"4176c-4dd62062d2cc0\"",
+            "last_modified": "Thu, 23 May 2013 12:43:07 GMT",
             "content_type": null,
             "content_length": null,
             "document_sha256": null,
             "relevant_fragment_sha256": "655dce015843452340f57c25da77d3b401c3946ba64a27bbf4de10fcd78e48d8",
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:APPLICABILITY_MISSING,LOCATOR_MISSING",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_304_CONDITIONAL_GET",
             "queue": [
-              "C2",
-              "C3"
+              "C2"
             ],
             "queue_reasons": [
-              "DISPUTED_OR_COMPOSITE_GEO",
-              "NEEDS_SEMANTIC_REVIEW"
+              "DISPUTED_OR_COMPOSITE_GEO"
             ],
             "dependent_geos": [
               "SCR"
