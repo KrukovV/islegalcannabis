@@ -5170,6 +5170,67 @@
           }
         }
       ],
+      "official_source_annotations": [
+        {
+          "title": "Papua New Guinea National Parliament - Controlled Substance Act 2021 legislative index record",
+          "url": "https://parliament.gov.pg/index.php/bills-and-legislation/view/controlled-substance-act-2021",
+          "source_kind": "OFFICIAL_PARLIAMENT_LEGISLATIVE_INDEX_DISCOVERY_CURRENTNESS_CHECK",
+          "source_owner_geo": "PG",
+          "applies_to_geo": [
+            "PG"
+          ],
+          "legal_basis_for_extension": "Official National Parliament legislative-index route for a Papua New Guinea Act; this record may establish publication/currentness context only if the official page is retrievable and read.",
+          "checked_at": "2026-08-12",
+          "source_authority": "Papua New Guinea National Parliament",
+          "source_type": "OFFICIAL_LEGISLATIVE_INDEX_DISCOVERY",
+          "primary_or_context": "CURRENTNESS_DISCOVERY_ONLY",
+          "cannabis_specific": false,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "RECHECK_REQUIRED: direct GET returned HTTP 404 on 2026-08-12; search-index text is discovery only and is not evidence.",
+          "effective_date": "No current legal text retrieved.",
+          "direct_fragment_available": false,
+          "locator": "Direct official Parliament index route; GET on 2026-08-12 returned HTTP 404.",
+          "exact_fragment": "NO_LEGAL_TEXT_RETRIEVED: direct official Parliament index route returned HTTP 404 on 2026-08-12.",
+          "legal_relevance": "Official discovery/currentness route only; access failure cannot derive a legal axis or Truth Color.",
+          "screenshot_state": "NO_SCREENSHOT_HTTP_404",
+          "reviewed_by_human_visual": false,
+          "visual_opened": false,
+          "official_owner_visible": false,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": false,
+          "screenshot_valid": false,
+          "visual_review_result": "ACCESS_BLOCKED_HTTP_404; no legal content accepted.",
+          "revalidation": {
+            "checked_at": "2026-08-11T22:51:10.975Z",
+            "final_url": "https://parliament.gov.pg/bills-and-legislation/view/controlled-substance-act-2021",
+            "http_status": 404,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 162605,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "7ddbbf47901bae8221e95c01ddd468f97e0a227c5b38dd96a5294c13e66a5cfa",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "HTTP_STATUS_404",
+            "change_reason": "HTTP_STATUS_404_IS_NOT_LEGAL_EVIDENCE",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "ACCESS_BLOCKED"
+            ],
+            "dependent_geos": [
+              "AT",
+              "PG"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
+        }
+      ],
       "official_status": {
         "recreational": "UNASSESSED_NOT_NEEDED_FOR_LIMITED_PHARMACEUTICAL_COLOR",
         "medical": "CANNABIS_SPECIFIC_PRESCRIPTION_PHARMACY_FRAMEWORK_LIMITED",
@@ -130097,59 +130158,177 @@
           "title": "Panama Ministry of Health / Gaceta Oficial - Law 242 of 13 October 2021 regulating medicinal and therapeutic use of cannabis and derivatives",
           "url": "https://www.minsa.gob.pa/sites/default/files/normatividad/ley_242_de_13_de_octubre_de_2021_cannabis.pdf",
           "source_kind": "PANAMA_MINISTRY_OF_HEALTH_GACETA_OFICIAL_LAW_242_2021_MEDICINAL_THERAPEUTIC_CANNABIS_REGULATED_ACCESS_AND_CONTROL",
+          "source_owner_geo": "PA",
+          "applies_to_geo": [
+            "PA"
+          ],
+          "legal_basis_for_extension": "Law enacted by Panama's National Assembly and published in the national Gaceta Oficial applies in Panama; MINSA is the current official host. No territorial extension is inferred.",
+          "checked_at": "2026-08-12",
+          "source_authority": "Panama National Assembly / Gaceta Oficial; current official host: Ministry of Health",
+          "source_type": "PRIMARY_STATUTE",
+          "primary_or_context": "PRIMARY",
+          "cannabis_specific": true,
+          "current": true,
+          "effective_date": "Law dated 13 October 2021; Gaceta Oficial No. 29398-B dated 15 October 2021; current official file conditionally confirmed unchanged on 2026-08-11.",
+          "direct_fragment_urls": [
+            "https://www.minsa.gob.pa/sites/default/files/normatividad/ley_242_de_13_de_octubre_de_2021_cannabis.pdf#page=1"
+          ],
+          "locator": "Official PDF p. 1, Articles 1-3; current document SHA-256 327e2254a9dbf05486f748f146fafd3c74f2fa791275465750c0b9b7902c76c1.",
+          "exact_fragment": "Artículo 1 creates a regulatory framework for supervised and controlled use and access to medicinal cannabis and derivatives in national territory. Artículo 2 regulates import, export, cultivation, production, manufacture, commercialisation and distribution for medical, therapeutic, scientific and research purposes. Artículo 3 states the objective of regulating every patient's right to access medicinal-cannabis treatment under security, control, quality, surveillance and qualified medical care.",
+          "legal_relevance": "Current primary statutory patient-access and controlled medical-cannabis supply-chain framework. It is not evidence that a pharmacy, dispensing service or programme is operating in practice.",
+          "current_screenshot_path": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PA-law-242-page-1-current-2026-08-12.png",
+          "screenshot_state": "CURRENT_OFFICIAL_PDF_RENDERED_AND_READ; historical capture retained separately; rendered crop has no browser address bar.",
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_valid": true,
+          "visual_review_result": "CURRENT_OFFICIAL_PDF_RENDERED_AND_READ; Gaceta title, Law 242, Articles 1-3, patient right and controlled medical framework are visible. Strict browser-domain acceptance remains separate.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PA/png/pages/PA-law-242-2021-01.png",
+          "historical_screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PA/png/pages/PA-law-242-2021-01.png",
           "note": "Official Ministry of Health hosted Gaceta Oficial PDF. Visual review confirms Gaceta Oficial No. 29398-B, Law 242 of 13 October 2021, title regulating medicinal and therapeutic use of cannabis and derivatives, Article 1 creating a controlled and supervised framework for medical, therapeutic, veterinary, scientific and research purposes, Article 2 covering import, export, cultivation, production, manufacture, storage, transport, commercialization, distribution and use under authorization, and Article 3 patient access and regulatory-control objectives.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-11T22:24:40.472Z",
             "final_url": "https://www.minsa.gob.pa/sites/default/files/normatividad/ley_242_de_13_de_octubre_de_2021_cannabis.pdf",
-            "http_status": null,
-            "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
-            "queue": [
-              "C2",
-              "C3"
-            ],
-            "queue_reasons": [
-              "NEEDS_SEMANTIC_REVIEW"
-            ],
+            "http_status": 304,
+            "etag": "\"616d77fc-18b21a\"",
+            "last_modified": "Mon, 18 Oct 2021 13:34:52 GMT",
+            "content_type": "application/pdf",
+            "content_length": 1618458,
+            "document_sha256": "327e2254a9dbf05486f748f146fafd3c74f2fa791275465750c0b9b7902c76c1",
+            "relevant_fragment_sha256": "d9b80779641b9cf4535f56ac18154f72a09bc3c9a1789bbc8b1de9e237ec40d5",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_304_CONDITIONAL_GET",
+            "queue": [],
+            "queue_reasons": [],
             "dependent_geos": [
               "PA"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
-            "semantic_probe": null
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 1541,
+              "ocr_used": false,
+              "relevant_pages": [],
+              "rendered_pages": []
+            }
           }
         },
         {
           "title": "Panama Ministry of Health / Gaceta Oficial - Executive Decree No. 6 of 4 April 2025 regulating Law 242",
           "url": "https://www.minsa.gob.pa/sites/default/files/normatividad/decreto_ejecutivo_no_6_de_4-4-2025_reglamenta_ley_242_uso_medicina_y_terapeutico_de_cannabis.pdf",
           "source_kind": "PANAMA_MINISTRY_OF_HEALTH_GACETA_OFICIAL_EXECUTIVE_DECREE_6_2025_REGULATES_LAW_242_MEDICAL_THERAPEUTIC_CANNABIS_AND_NON_MEDICAL_ILLEGAL_CAVEAT",
+          "source_owner_geo": "PA",
+          "applies_to_geo": [
+            "PA"
+          ],
+          "legal_basis_for_extension": "Executive Decree issued under Panama Law 242 and published in the national Gaceta Oficial applies throughout Panama; MINSA is the current official host. No territorial extension is inferred.",
+          "checked_at": "2026-08-12",
+          "source_authority": "Panama Executive / Ministry of Health / Gaceta Oficial",
+          "source_type": "CURRENT_IMPLEMENTING_REGULATION",
+          "primary_or_context": "PRIMARY_IMPLEMENTATION",
+          "cannabis_specific": true,
+          "current": true,
+          "effective_date": "Executive Decree No. 6 dated and published 4 April 2025 in Gaceta Oficial No. 30251-B; current official file conditionally confirmed unchanged on 2026-08-11.",
+          "direct_fragment_urls": [
+            "https://www.minsa.gob.pa/sites/default/files/normatividad/decreto_ejecutivo_no_6_de_4-4-2025_reglamenta_ley_242_uso_medicina_y_terapeutico_de_cannabis.pdf#page=2"
+          ],
+          "locator": "Official PDF p. 2, recital and Articles 1-3; current document SHA-256 28e564b4bd8432a29adcd2471bf38a3188fb47f87356c6cd671c5cc8b4de44b6.",
+          "exact_fragment": "The recital states non-medical and non-scientific cannabis use remains illegal. Artículo 1 regulates Law 242's supervised and controlled medical-cannabis access in national territory. Artículo 2 applies the framework throughout national territory to entities that import, cultivate, produce, commercialise, distribute, dispense or use cannabis for medical or scientific purposes, and to patient users, health institutions and health professionals. Artículo 3 protects data of patients registered in the National Programme for the Study and Medicinal Use of Cannabis and Derivatives.",
+          "legal_relevance": "Current nationwide implementing regulation: it proves a patient-facing legal route and non-medical-use prohibition, but its regulated activities and programme reference do not by themselves prove an operating patient supply or dispensing service.",
+          "current_screenshot_path": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PA-decree-6-page-2-current-2026-08-12.png",
+          "screenshot_state": "CURRENT_OFFICIAL_PDF_RENDERED_AND_READ; historical capture retained separately; rendered crop has no browser address bar.",
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_valid": true,
+          "visual_review_result": "CURRENT_OFFICIAL_PDF_RENDERED_AND_READ; Gaceta title, Decree 6, nationwide scope, patient users, regulated dispensing and non-medical illegality are visible. Strict browser-domain acceptance remains separate.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PA/png/pages/PA-decreto-6-2025-02.png",
+          "historical_screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PA/png/pages/PA-decreto-6-2025-02.png",
           "note": "Official Ministry of Health hosted Gaceta Oficial PDF. Visual review confirms Executive Decree No. 6 of 2025 regulating Law 242; page 2 visibly states the decree objective to regulate medicinal and therapeutic cannabis access, says cannabis remains included in controlled substances and that non-medical and non-scientific use remains illegal, and Articles 1-2 apply the framework to import, export, cultivation, production, manufacture, analysis, acquisition, storage, transport, commercialization, distribution, dispensing and use of cannabis and derivatives for medicinal or scientific purposes across Panama.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-11T22:24:40.472Z",
             "final_url": "https://www.minsa.gob.pa/sites/default/files/normatividad/decreto_ejecutivo_no_6_de_4-4-2025_reglamenta_ley_242_uso_medicina_y_terapeutico_de_cannabis.pdf",
-            "http_status": null,
-            "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "http_status": 304,
+            "etag": "\"67f3d33d-4674f8\"",
+            "last_modified": "Mon, 07 Apr 2025 13:29:33 GMT",
+            "content_type": "application/pdf",
+            "content_length": 4617464,
+            "document_sha256": "28e564b4bd8432a29adcd2471bf38a3188fb47f87356c6cd671c5cc8b4de44b6",
+            "relevant_fragment_sha256": "698e073bdb281d4a173fc2740fdaf98ac2607bf3a710dbb02a4c1d6b316349f1",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_304_CONDITIONAL_GET",
+            "queue": [],
+            "queue_reasons": [],
+            "dependent_geos": [
+              "PA"
+            ],
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 3239,
+              "ocr_used": false,
+              "relevant_pages": [],
+              "rendered_pages": []
+            }
+          }
+        },
+        {
+          "title": "Panama Gaceta Oficial / Asamblea Nacional - Resolution No. 0406 of 12 May 2026 approving medical-cannabis user forms and medical certification",
+          "url": "https://s3-legispan.asamblea.gob.pa/legispan/GACETAS/2020/2026/30536-A_2026.pdf",
+          "source_kind": "PANAMA_GACETA_OFICIAL_ASAMBLEA_NACIONAL_RESOLUTION_0406_2026_MEDICAL_CANNABIS_USER_FORMS_CERTIFICATION_THC_CBD_AND_NON_THERAPEUTIC_ILLEGAL_CAVEAT",
+          "source_owner_geo": "PA",
+          "applies_to_geo": [
+            "PA"
+          ],
+          "legal_basis_for_extension": "MINSA Resolution No. 0406 is published in Panama's national Gaceta Oficial and digitised in the Asamblea Nacional Legispan archive; it applies in Panama. No territorial extension is inferred.",
+          "checked_at": "2026-08-12",
+          "source_authority": "Panama Ministry of Health, Dirección General de Salud Pública / Gaceta Oficial / Asamblea Nacional Legispan archive",
+          "source_type": "CURRENT_IMPLEMENTING_MEDICAL_RESOLUTION",
+          "primary_or_context": "PRIMARY_IMPLEMENTATION",
+          "cannabis_specific": true,
+          "current": true,
+          "effective_date": "Resolution No. 0406 dated 12 May 2026 and published in Gaceta Oficial No. 30536-A on 1 June 2026; current official PDF retrieved on 2026-08-11.",
+          "direct_fragment_urls": [
+            "https://s3-legispan.asamblea.gob.pa/legispan/GACETAS/2020/2026/30536-A_2026.pdf#page=3",
+            "https://s3-legispan.asamblea.gob.pa/legispan/GACETAS/2020/2026/30536-A_2026.pdf#page=4"
+          ],
+          "locator": "Official PDF pp. 3-4, title, recitals and Articles 1-5; current document SHA-256 3a1c65653cae72a4aabe6d8f17a20d13cb8e28dac8caf89b82b744723bb67f0e.",
+          "exact_fragment": "The Resolution approves the medical-cannabis user and authorised-companion form and medical certification. It records that Decree 6 Article 17 establishes PNEUCAM and Article 19 requires a person needing medicinal cannabis on treating-doctor criteria to register as a patient and obtain medical-cannabis user identification. Artículo Primero approves the forms; Articles 3-4 require prescription and a certification by a qualified doctor; Article 5 places them in MINSA's SIUCMAA system. The recital also states non-therapeutic and non-scientific use remains illegal.",
+          "legal_relevance": "Current patient-registration, authorised-companion, prescription and medical-certification implementation evidence. It does not prove that forms are live, that products are dispensed, or that a patient can currently obtain supply.",
+          "current_screenshot_path": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PA-gaceta-0406-page-3-current-2026-08-12.png",
+          "screenshot_state": "CURRENT_OFFICIAL_PDF_RENDERED_AND_READ; current Chromium review loaded the official URL and text, and the persisted rendered crop has no address bar.",
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_valid": true,
+          "visual_review_result": "CURRENT_OFFICIAL_PDF_RENDERED_AND_READ; Gaceta, Asamblea Nacional digitisation, MINSA Dirección General de Salud Pública, Resolution 0406 and medical-cannabis form/certification title are visible. Strict browser-domain acceptance is separately pending because the persisted crop has no address bar.",
+          "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PA/png/pages/PA-resolution-0406-2026-03.png",
+          "historical_screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PA/png/pages/PA-resolution-0406-2026-03.png",
+          "note": "Official Gaceta Oficial PDF hosted under the Asamblea Nacional Legispan domain. Visual review confirms Gaceta Oficial No. 30536-A of 1 June 2026, Ministry of Health Resolution No. 0406 of 12 May 2026 approving forms for medical cannabis users and authorized companions plus medical certification; page 3 visibly describes Cannabis sativa, THC and CBD, cites Law 242, and states non-therapeutic and non-scientific use remains illegal.",
+          "revalidation": {
+            "checked_at": "2026-08-11T22:24:40.472Z",
+            "final_url": "https://s3-legispan.asamblea.gob.pa/legispan/GACETAS/2020/2026/30536-A_2026.pdf",
+            "http_status": 200,
+            "etag": "\"5504e83cdbee886622d97a7f248b4611-2\"",
+            "last_modified": "Mon, 01 Jun 2026 20:27:51 GMT",
+            "content_type": "application/pdf",
+            "content_length": 5747174,
+            "document_sha256": "3a1c65653cae72a4aabe6d8f17a20d13cb8e28dac8caf89b82b744723bb67f0e",
+            "relevant_fragment_sha256": "3da846fcd49dd6f2db566977c6a28d1c7abf35f3d66074bd269ac1be973ce161",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -130160,21 +130339,33 @@
             "dependent_geos": [
               "PA"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
-            "semantic_probe": null
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 73284,
+              "ocr_used": false,
+              "relevant_pages": [
+                1,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+              ],
+              "rendered_pages": [
+                1,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+              ]
+            }
           }
-        },
-        {
-          "title": "Panama Gaceta Oficial / Asamblea Nacional - Resolution No. 0406 of 12 May 2026 approving medical-cannabis user forms and medical certification",
-          "url": "https://s3-legispan.asamblea.gob.pa/legispan/GACETAS/2020/2026/30536-A_2026.pdf",
-          "source_kind": "PANAMA_GACETA_OFICIAL_ASAMBLEA_NACIONAL_RESOLUTION_0406_2026_MEDICAL_CANNABIS_USER_FORMS_CERTIFICATION_THC_CBD_AND_NON_THERAPEUTIC_ILLEGAL_CAVEAT",
-          "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PA/png/pages/PA-resolution-0406-2026-03.png",
-          "note": "Official Gaceta Oficial PDF hosted under the Asamblea Nacional Legispan domain. Visual review confirms Gaceta Oficial No. 30536-A of 1 June 2026, Ministry of Health Resolution No. 0406 of 12 May 2026 approving forms for medical cannabis users and authorized companions plus medical certification; page 3 visibly describes Cannabis sativa, THC and CBD, cites Law 242, and states non-therapeutic and non-scientific use remains illegal."
         }
       ],
       "verified_context_sources": [
@@ -130191,6 +130382,213 @@
         "medical": "REGULATED; PANAMA_LAW_242_2021_PAGE_1_VISIBLY_CREATES_A_CONTROLLED_AND_SUPERVISED_FRAMEWORK_FOR_MEDICINAL_AND_THERAPEUTIC_CANNABIS_ACCESS_AND_PAGE_2_VISIBLY_DEFINES_MEDICINAL_CANNABIS_DERIVATIVES_LICENSES_AND_CONTROL; DECREE_6_2025_PAGES_2_3_VISIBLY_REGULATE_THE_MEDICAL_THERAPEUTIC_SUPPLY_CHAIN_AND_CANNABIS_OIL_CBD_CANNABINOID_DEFINITIONS; RESOLUTION_0406_2026_PAGE_3_VISIBLY_APPROVES_MEDICAL_CANNABIS_USER_FORMS_AND_CERTIFICATION",
         "enforcement": "STRICT; PANAMA_CODIGO_PENAL_2019_PAGES_116_117_VISIBLY_SET_EIGHT_TO_TWELVE_YEARS_FOR_DRUG_OFFENCE_CONSPIRACY_AND_TEN_TO_FIFTEEN_YEARS_FOR_TRAFFIC_CULTIVATION_MANUFACTURE_AND_UNAUTHORIZED_PRECURSOR_OPERATIONS; PAGE_120_VISIBLY_DEFINES_DRUG_SCOPE_BY_HEALTH_LAW_AND_INTERNATIONAL_AGREEMENTS"
       },
+      "independent_review": {
+        "jurisdiction": {
+          "territory_type": "SOVEREIGN_STATE",
+          "applicable_law": "Panama Law 242 of 2021, Executive Decree No. 6 of 2025 and MINSA Resolution No. 0406 of 2026.",
+          "source_owner_vs_jurisdiction": "The National Assembly/Gaceta law, national executive regulation and MINSA resolution directly apply to PA; no foreign, metropolitan, claimant or subnational source is used.",
+          "disputed_or_composite": false
+        },
+        "official_truth_color": "YELLOW",
+        "truth_color": "YELLOW",
+        "truth_status": "CURRENT_CANNABIS_SPECIFIC_PATIENT_REGISTRATION_AND_CONTROLLED_MEDICAL_FRAMEWORK_WITHOUT_PROVEN_OPERATIONAL_PATIENT_SUPPLY",
+        "color_rule": "GENERAL_CANNABIS_SPECIFIC_PATIENT_REGISTRATION_AND_CONTROLLED_MEDICAL_FRAMEWORK_WITHOUT_PROVEN_OPERATIONAL_PATIENT_SUPPLY",
+        "reviewed_at": "2026-08-12",
+        "legal_interpretation": "Current primary law and implementation evidence establish a nationwide controlled medical-cannabis framework, every patient's regulated access right, a treating-doctor certification route, registration/user identification and legal medical supply-chain regulation. The sources do not prove that SIUCMAA forms are live, that a patient can currently obtain product from an operating dispenser, or that PNEUCAM is operational. The limited lawful mode is therefore proposal-only YELLOW, not GREEN. The current Resolution recital expressly keeps non-therapeutic and non-scientific use illegal, but the reviewed sources do not establish every adult-use axis or a current cannabis-specific penalty rule; YELLOW is not derived from an absence claim.",
+        "source_record_refs": [
+          "https://www.minsa.gob.pa/sites/default/files/normatividad/ley_242_de_13_de_octubre_de_2021_cannabis.pdf",
+          "https://www.minsa.gob.pa/sites/default/files/normatividad/decreto_ejecutivo_no_6_de_4-4-2025_reglamenta_ley_242_uso_medicina_y_terapeutico_de_cannabis.pdf",
+          "https://s3-legispan.asamblea.gob.pa/legispan/GACETAS/2020/2026/30536-A_2026.pdf"
+        ],
+        "evidence_axes": {
+          "patient_eligible": {
+            "value": "YES",
+            "source_url": "https://www.minsa.gob.pa/sites/default/files/normatividad/ley_242_de_13_de_octubre_de_2021_cannabis.pdf",
+            "source_type": "CURRENT_PRIMARY_STATUTE",
+            "exact_fragment": "Law 242 Article 3 regulates every patient's right to access medicinal-cannabis treatment under qualified medical care; Resolution 0406 records that a person whose treating doctor determines a medical need must register as a patient.",
+            "effective_date": "Law dated 13 October 2021; Resolution No. 0406 published 1 June 2026; current files revalidated in August 2026.",
+            "applicability": "PA",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PA-law-242-page-1-current-2026-08-12.png"
+          },
+          "prescriber_route": {
+            "value": "YES",
+            "source_url": "https://s3-legispan.asamblea.gob.pa/legispan/GACETAS/2020/2026/30536-A_2026.pdf",
+            "source_type": "CURRENT_IMPLEMENTING_MEDICAL_RESOLUTION",
+            "exact_fragment": "Resolution 0406 Articles 3-4 require prescription information and a medical certification by a qualified doctor recognised by the Ministry of Health for medicinal-cannabis use.",
+            "effective_date": "Resolution No. 0406 dated 12 May 2026 and published 1 June 2026.",
+            "applicability": "PA",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PA-gaceta-0406-page-3-current-2026-08-12.png"
+          },
+          "registration_route": {
+            "value": "YES",
+            "source_url": "https://s3-legispan.asamblea.gob.pa/legispan/GACETAS/2020/2026/30536-A_2026.pdf",
+            "source_type": "CURRENT_IMPLEMENTING_MEDICAL_RESOLUTION",
+            "exact_fragment": "The Resolution records Decree 6 Article 19: a person needing medicinal cannabis on treating-doctor criteria must register as a patient and obtain medical-cannabis user identification; Article 1 approves the user and authorised-companion forms.",
+            "effective_date": "Resolution No. 0406 dated 12 May 2026 and published 1 June 2026; Decree No. 6 published 4 April 2025.",
+            "applicability": "PA",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PA-gaceta-0406-page-3-current-2026-08-12.png"
+          },
+          "lawful_supply": {
+            "value": "YES",
+            "source_url": "https://www.minsa.gob.pa/sites/default/files/normatividad/decreto_ejecutivo_no_6_de_4-4-2025_reglamenta_ley_242_uso_medicina_y_terapeutico_de_cannabis.pdf",
+            "source_type": "CURRENT_IMPLEMENTING_REGULATION",
+            "exact_fragment": "Decree 6 Article 2 applies nationwide to regulated import, cultivation, production, commercialisation, distribution and dispensing of cannabis and derivatives for medical or scientific purposes, including patient users. Law 242 Articles 1-2 create the controlled legal framework.",
+            "effective_date": "Decree No. 6 published 4 April 2025; Law 242 published 15 October 2021; both official files conditionally revalidated unchanged in August 2026.",
+            "applicability": "PA",
+            "confidence": "HIGH_FOR_LAWFUL_ROUTE_NOT_OPERATIONAL_AVAILABILITY",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PA-decree-6-page-2-current-2026-08-12.png"
+          },
+          "pharmacy_or_dispensary": {
+            "value": "UNKNOWN",
+            "source_url": "https://www.minsa.gob.pa/sites/default/files/normatividad/decreto_ejecutivo_no_6_de_4-4-2025_reglamenta_ley_242_uso_medicina_y_terapeutico_de_cannabis.pdf",
+            "source_type": "CURRENT_IMPLEMENTING_REGULATION",
+            "exact_fragment": "The statute and regulation regulate dispensing as an activity, but the current reviewed sources do not identify an operating cannabis pharmacy, dispenser or patient-facing outlet.",
+            "effective_date": "Decree No. 6 published 4 April 2025.",
+            "applicability": "PA",
+            "confidence": "HIGH_FOR_UNPROVEN_OPERATIONALITY",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PA-decree-6-page-2-current-2026-08-12.png"
+          },
+          "import_route": {
+            "value": "UNKNOWN",
+            "source_url": "https://www.minsa.gob.pa/sites/default/files/normatividad/ley_242_de_13_de_octubre_de_2021_cannabis.pdf",
+            "source_type": "CURRENT_PRIMARY_STATUTE",
+            "exact_fragment": "Law 242 regulates import within the medical framework, but no current patient-specific cannabis import authorisation, approval process or operating route was proved by the reviewed sources.",
+            "effective_date": "Law dated 13 October 2021; conditionally revalidated unchanged in August 2026.",
+            "applicability": "PA",
+            "confidence": "HIGH_FOR_UNPROVEN_PATIENT_IMPORT",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PA-law-242-page-1-current-2026-08-12.png"
+          },
+          "programme_operational": {
+            "value": "UNKNOWN",
+            "source_url": "https://s3-legispan.asamblea.gob.pa/legispan/GACETAS/2020/2026/30536-A_2026.pdf",
+            "source_type": "CURRENT_IMPLEMENTING_MEDICAL_RESOLUTION",
+            "exact_fragment": "Resolution 0406 records PNEUCAM and says the approved forms and instructions will be hosted in MINSA's SIUCMAA system; neither this text nor the revalidated source proves that the forms, programme or patient supply are operating in practice.",
+            "effective_date": "Resolution No. 0406 published 1 June 2026.",
+            "applicability": "PA",
+            "confidence": "HIGH_FOR_UNPROVEN_OPERATIONALITY",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PA-gaceta-0406-page-3-current-2026-08-12.png"
+          },
+          "programme_commenced": {
+            "value": "UNKNOWN",
+            "source_url": "https://s3-legispan.asamblea.gob.pa/legispan/GACETAS/2020/2026/30536-A_2026.pdf",
+            "source_type": "CURRENT_IMPLEMENTING_MEDICAL_RESOLUTION",
+            "exact_fragment": "The current Resolution implements forms and certification but does not provide a programme commencement notice or a verified active-service date for PNEUCAM or SIUCMAA.",
+            "effective_date": "Resolution No. 0406 published 1 June 2026.",
+            "applicability": "PA",
+            "confidence": "HIGH_FOR_UNPROVEN_COMMENCEMENT",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PA-gaceta-0406-page-3-current-2026-08-12.png"
+          },
+          "recreational_possession": {
+            "value": "NO",
+            "source_url": "https://s3-legispan.asamblea.gob.pa/legispan/GACETAS/2020/2026/30536-A_2026.pdf",
+            "source_type": "CURRENT_IMPLEMENTING_MEDICAL_RESOLUTION",
+            "exact_fragment": "The Resolution's recital states that non-therapeutic and non-scientific cannabis use remains illegal.",
+            "effective_date": "Resolution No. 0406 published 1 June 2026.",
+            "applicability": "PA",
+            "confidence": "HIGH_FOR_NONMEDICAL_USE_PROHIBITION",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PA-gaceta-0406-page-3-current-2026-08-12.png"
+          },
+          "recreational_supply": {
+            "value": "UNKNOWN",
+            "source_url": "https://www.minsa.gob.pa/sites/default/files/normatividad/decreto_ejecutivo_no_6_de_4-4-2025_reglamenta_ley_242_uso_medicina_y_terapeutico_de_cannabis.pdf",
+            "source_type": "CURRENT_IMPLEMENTING_REGULATION",
+            "exact_fragment": "The reviewed regulation confines its explicit cannabis supply-chain framework to medical or scientific purposes; it does not itself supply a current cannabis-specific adult-use supply prohibition clause.",
+            "effective_date": "Decree No. 6 published 4 April 2025.",
+            "applicability": "PA",
+            "confidence": "HIGH_FOR_SCOPE_LIMIT",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PA-decree-6-page-2-current-2026-08-12.png"
+          },
+          "recreational_cultivation": {
+            "value": "UNKNOWN",
+            "source_url": "https://www.minsa.gob.pa/sites/default/files/normatividad/ley_242_de_13_de_octubre_de_2021_cannabis.pdf",
+            "source_type": "CURRENT_PRIMARY_STATUTE",
+            "exact_fragment": "Law 242 regulates authorised cannabis cultivation for listed medical, therapeutic, scientific and research purposes, but the reviewed source does not itself establish a current cannabis-specific adult-use cultivation offence or exception.",
+            "effective_date": "Law dated 13 October 2021; conditionally revalidated unchanged in August 2026.",
+            "applicability": "PA",
+            "confidence": "HIGH_FOR_SCOPE_LIMIT",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PA-law-242-page-1-current-2026-08-12.png"
+          },
+          "penalty_regime": {
+            "value": "UNKNOWN",
+            "source_url": "https://ministeriopublico.gob.pa/wp-content/uploads/2016/09/CODIGO-PENAL-2019-FINAL-1.pdf",
+            "source_type": "OFFICIAL_GENERIC_DRUG_ENFORCEMENT_CONTEXT",
+            "exact_fragment": "The retained Penal Code pages provide generic drug-offence enforcement context, not a current cannabis-specific penalty bridge, and are not used to derive the Truth Color.",
+            "effective_date": "Currentness and cannabis-specific applicability not established in this packet.",
+            "applicability": "PA",
+            "confidence": "CONTEXT_ONLY",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PA/png/pages/PA-codigo-penal-2019-116.png"
+          }
+        },
+        "visual_evidence": [
+          {
+            "path": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PA-law-242-page-1-current-2026-08-12.png",
+            "visual_opened": true,
+            "official_owner_visible": true,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": true,
+            "effective_rule_visible": true,
+            "screenshot_valid": true,
+            "visual_summary": "Current Law 242 Gaceta page visibly identifies Law 242, medicinal and therapeutic cannabis, supervised national access, patient access right and regulated medical supply chain.",
+            "visual_reviewer_timestamp": "2026-08-12"
+          },
+          {
+            "path": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PA-decree-6-page-2-current-2026-08-12.png",
+            "visual_opened": true,
+            "official_owner_visible": true,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": true,
+            "effective_rule_visible": true,
+            "screenshot_valid": true,
+            "visual_summary": "Current Decree 6 Gaceta page visibly identifies nationwide medical-cannabis scope, patient users, regulated dispensing and non-medical-use illegality.",
+            "visual_reviewer_timestamp": "2026-08-12"
+          },
+          {
+            "path": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PA-gaceta-0406-page-3-current-2026-08-12.png",
+            "visual_opened": true,
+            "official_owner_visible": true,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": true,
+            "effective_rule_visible": true,
+            "screenshot_valid": true,
+            "visual_summary": "Current Gaceta page visibly identifies Asamblea Nacional digitisation, MINSA Dirección General de Salud Pública, Resolution 0406 and medical-cannabis user/certification forms.",
+            "visual_reviewer_timestamp": "2026-08-12"
+          }
+        ],
+        "visual_acceptance": {
+          "legal_truth_visual_review_complete": true,
+          "strict_visual_acceptance": false,
+          "reason": "The current official PDFs were rendered and read from conditionally revalidated/retrieved official URLs; the persisted page crops do not show an address bar or final official-domain proof. This affects final visual acceptance only, not the legal axes."
+        },
+        "confidence": "HIGH_FOR_CURRENT_STATUTORY_PATIENT_ROUTE_AND_NONMEDICAL_USE_PROHIBITION; HIGH_FOR_UNPROVEN_OPERATIONAL_PATIENT_SUPPLY",
+        "remaining_blockers": [
+          "NO_CURRENT_OFFICIAL_EVIDENCE_OF_LIVE_SIUCMAA_FORMS_OR_PATIENT_REGISTRATION_SERVICE",
+          "NO_CURRENT_OFFICIAL_CANNABIS_DISPENSER_PHARMACY_OR_PATIENT_SUPPLY_RECORD",
+          "STRICT_VISUAL_ACCEPTANCE_FALSE_BECAUSE_PERSISTED_CURRENT_PDF_CROPS_LACK_ADDRESS_BAR"
+        ],
+        "recommended_action": "Keep proposal-only YELLOW. Do not apply to SSOT, map, runtime or production. Re-open on current official evidence of live SIUCMAA/PNEUCAM operation, patient dispensing or a material amendment.",
+        "apply_gate": {
+          "APPLY_ALLOWED": false,
+          "PRODUCTION_TOUCHED": false,
+          "MAP_COLORS_CHANGED": false,
+          "SSOT_CHANGED": false
+        }
+      },
+      "independent_truth_color": "YELLOW",
       "project_comparison": {
         "status": "MATCH_WITH_PANAMA_LAW_242_DECREE_6_AND_2026_MEDICAL_CANNABIS_CERTIFICATION_CAVEAT",
         "reason": "Panama is visually verified from official Ministry of Health / Gaceta Oficial and Ministerio Publico PDFs. Law 242 of 2021 page 1 visibly regulates medicinal and therapeutic use of cannabis and derivatives and creates a controlled, supervised framework for medical, therapeutic, veterinary, scientific and research purposes; pages 1-2 visibly cover import, export, cultivation, production, manufacture, analysis, acquisition, storage, transport, commercialization, distribution, final disposal and use under authorization, and define cannabis, medicinal cannabis, derivatives, plant, licence and licensee. Executive Decree No. 6 of 2025 page 2 visibly regulates Law 242, applies the medical/scientific framework to the national territory, and states that cannabis use for non-medical and non-scientific purposes remains illegal; page 3 visibly defines cannabis oil, distributors, limited-access areas, cultivation authorization, CBD and cannabinoid. Gaceta Oficial No. 30536-A / MINSA Resolution No. 0406 of 2026 page 3 visibly approves medical-cannabis user and medical-certification forms, describes Cannabis sativa, THC and CBD, cites Law 242, and states non-therapeutic and non-scientific use remains illegal. The official Ministerio Publico Penal Code text provides enforcement context: pages 116-117 visibly show drug-offence penalties including eight to twelve years for conspiracy and ten to fifteen years for traffic, cultivation/manufacture and unauthorized precursor operations, while page 120 defines drug scope by health law and international agreements. This supports project recreational=ILLEGAL, medical=REGULATED and enforcement=STRICT. No project status SSOT was changed."
@@ -130214,27 +130612,59 @@
           "title": "Papua New Guinea National Parliament - Controlled Substance Act 2021",
           "url": "https://www.parliament.gov.pg/uploads/acts/21A_26.pdf",
           "source_kind": "PAPUA_NEW_GUINEA_NATIONAL_PARLIAMENT_CONTROLLED_SUBSTANCE_ACT_2021_CANNABIS_DEFINITIONS_SCHEDULE_I_NO_MEDICAL_VALUE_STRICTLY_PROHIBITED_AND_STRICT_PENALTIES_TLS_CERT_EXPIRED_FETCH_CAVEAT",
+          "source_owner_geo": "PG",
+          "applies_to_geo": [
+            "PG"
+          ],
+          "legal_basis_for_extension": "Act of Papua New Guinea's National Parliament; historic official publication is directly territorial to PG. Its current legal availability and amendment chain are not confirmed because the former official PDF now returns HTTP 404.",
+          "checked_at": "2026-08-12",
+          "source_authority": "Papua New Guinea National Parliament",
+          "source_type": "HISTORICAL_PRIMARY_STATUTE_RETRIEVAL_UNAVAILABLE",
+          "primary_or_context": "HISTORICAL_PRIMARY_PROVENANCE",
+          "cannabis_specific": true,
+          "current": false,
+          "current_effective_state": "UNCONFIRMED_CURRENTNESS: former official PDF redirects to parliament.gov.pg and returns HTTP 404 on 2026-08-11; retained visual text is historic provenance only.",
+          "effective_date": "Certified 7 February 2022 according to the former official Parliament publication; no current amendment/repeal confirmation obtained.",
+          "direct_fragment_urls": [
+            "https://www.parliament.gov.pg/uploads/acts/21A_26.pdf#page=7",
+            "https://www.parliament.gov.pg/uploads/acts/21A_26.pdf#page=33",
+            "https://www.parliament.gov.pg/uploads/acts/21A_26.pdf#page=44",
+            "https://www.parliament.gov.pg/uploads/acts/21A_26.pdf#page=45"
+          ],
+          "locator": "Historic official PDF pp. 7, 33, 44-45; direct source endpoint returns HTTP 404 after redirect as checked 2026-08-11.",
+          "exact_fragment": "Historic p. 33 states Schedule I substances have no medical value, high dependency and are strictly prohibited, and lists Cannabis, Cannabis resin, Cannabis Oil and Cannabis Sativa Plants. Historic pp. 44-45 set Schedule I substance and plant sentencing bands.",
+          "legal_relevance": "Historic cannabis-specific primary-law provenance only. It cannot establish current RED, YELLOW, GREEN or UNKNOWN until a current applicable text and amendment chain are verified.",
+          "historical_screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PG/png/pages/PG-controlled-substance-act-2021-33.png",
+          "screenshot_state": "HISTORICAL_OFFICIAL_PDF_VISUALLY_READ; current endpoint HTTP_404; not fresh strict acceptance.",
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_valid": true,
+          "visual_review_result": "HISTORICAL_DIRECT_OFFICIAL_PDF_RENDERED_AND_READ; retained for provenance while currentness is unresolved.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PG/png/pages/PG-controlled-substance-act-2021-33.png",
           "note": "Official Papua New Guinea National Parliament PDF. Visual review confirms Controlled Substance Act 2021 No. 26 of 2021, definitions for cannabis, cannabis oil, cannabis plant and cannabis resin, Schedule I statement that substances have no medical value, high dependency and are strictly prohibited, Schedule I listing Cannabis, Cannabis resin, Cannabis Oil and Cannabis Sativa Plants, Schedule V quantity entries for Cannabis, Cannabis Resin, Cannabis Oil, Cannabis Sativa Plants and Tetrahydrocannabinol, and Schedule VII imprisonment/fine tables including up to life imprisonment for commercial Schedule I quantities and Schedule I plants. The parliament.gov.pg certificate was expired in this environment, so the PDF was downloaded from the same official URL with TLS verification disabled and the caveat is recorded.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
-            "final_url": "https://www.parliament.gov.pg/uploads/acts/21A_26.pdf",
-            "http_status": null,
+            "checked_at": "2026-08-11T22:38:17.647Z",
+            "final_url": "https://parliament.gov.pg/uploads/acts/21A_26.pdf",
+            "http_status": 404,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 162605,
             "document_sha256": null,
             "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "HTTP_STATUS_404",
+            "change_reason": "HTTP_STATUS_404_IS_NOT_LEGAL_EVIDENCE",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "NEEDS_SEMANTIC_REVIEW"
+              "ACCESS_BLOCKED"
             ],
             "dependent_geos": [
               "PG"
@@ -130254,27 +130684,56 @@
           "title": "Papua New Guinea National Parliament - Dangerous Drugs (Amendment) Act 2021",
           "url": "https://www.parliament.gov.pg/uploads/acts/21A_20.pdf",
           "source_kind": "PAPUA_NEW_GUINEA_NATIONAL_PARLIAMENT_DANGEROUS_DRUGS_AMENDMENT_ACT_2021_GENERIC_DANGEROUS_DRUG_PLANT_ENFORCEMENT_CONTEXT_TLS_CERT_EXPIRED_FETCH_CAVEAT",
+          "source_owner_geo": "PG",
+          "applies_to_geo": [
+            "PG"
+          ],
+          "legal_basis_for_extension": "Act of Papua New Guinea's National Parliament; historic official publication is directly territorial to PG. Its current legal availability and amendment chain are not confirmed because the former official PDF now returns HTTP 404.",
+          "checked_at": "2026-08-12",
+          "source_authority": "Papua New Guinea National Parliament",
+          "source_type": "HISTORICAL_GENERIC_DRUG_ENFORCEMENT_CONTEXT_RETRIEVAL_UNAVAILABLE",
+          "primary_or_context": "HISTORICAL_CONTEXT_ONLY",
+          "cannabis_specific": false,
+          "current": false,
+          "current_effective_state": "UNCONFIRMED_CURRENTNESS: former official PDF redirects to parliament.gov.pg and returns HTTP 404 on 2026-08-11; retained visual text is historic provenance only.",
+          "effective_date": "Act 2021; no current amendment/repeal confirmation obtained.",
+          "direct_fragment_urls": [
+            "https://www.parliament.gov.pg/uploads/acts/21A_20.pdf#page=3"
+          ],
+          "locator": "Historic official PDF p. 3; direct source endpoint returns HTTP 404 after redirect as checked 2026-08-11.",
+          "exact_fragment": "Historic p. 3 replaces Dangerous Drugs Act section 3, covering cultivation of a plant from which a dangerous drug can be made, making, exporting, possessing or conveying a dangerous drug or plant unless authorised, with up to K1,000,000 or 40 years imprisonment.",
+          "legal_relevance": "Historic generic enforcement context only; it has no cannabis-specific bridge and cannot determine a Truth Color.",
+          "historical_screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PG/png/pages/PG-dangerous-drugs-amendment-act-2021-3.png",
+          "screenshot_state": "HISTORICAL_OFFICIAL_PDF_VISUALLY_READ; current endpoint HTTP_404; context only.",
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": true,
+          "screenshot_valid": true,
+          "visual_review_result": "HISTORICAL_OFFICIAL_CONTEXT_PDF_RENDERED_AND_READ; retained only for source provenance.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PG/png/pages/PG-dangerous-drugs-amendment-act-2021-3.png",
           "note": "Official Papua New Guinea National Parliament PDF. Visual review confirms Dangerous Drugs (Amendment) Act 2021 No. 20 of 2021 replacing Section 3 on production of dangerous drugs, covering cultivation of a plant from which a dangerous drug can be made, making, exporting, possession or conveyance unless authorised, with a penalty of up to K1,000,000 or 40 years imprisonment. This is official enforcement context and not a cannabis-specific standalone page. The parliament.gov.pg certificate was expired in this environment, so the PDF was downloaded from the same official URL with TLS verification disabled and the caveat is recorded.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
-            "final_url": "https://www.parliament.gov.pg/uploads/acts/21A_20.pdf",
-            "http_status": null,
+            "checked_at": "2026-08-11T22:38:17.647Z",
+            "final_url": "https://parliament.gov.pg/uploads/acts/21A_20.pdf",
+            "http_status": 404,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 162605,
             "document_sha256": null,
             "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "HTTP_STATUS_404",
+            "change_reason": "HTTP_STATUS_404_IS_NOT_LEGAL_EVIDENCE",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "NEEDS_SEMANTIC_REVIEW"
+              "ACCESS_BLOCKED"
             ],
             "dependent_geos": [
               "PG"
@@ -130310,86 +130769,847 @@
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PE/png/pages/PE-ds-004-2023-sa-03.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PE/png/pages/PE-ds-004-2023-sa-04.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PE/png/pages/PE-ds-004-2023-sa-05.png",
-        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PE/png/pages/PE-ds-004-2023-sa-08.png"
+        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PE/png/pages/PE-ds-004-2023-sa-08.png",
+        "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PE-law-30681-page-1-current-2026-08-12.png",
+        "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PE-law-30681-page-2-current-2026-08-12.png",
+        "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PE-gobpe-37789-current-2026-08-12.png",
+        "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PE-gobpe-39909-renpuc-current-2026-08-12.png",
+        "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PE-gobpe-4177776-licensed-list-current-2026-08-12.png",
+        "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PE-minsa-licensed-establishments-current-2026-08-12-1.png",
+        "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PE-minsa-licensed-establishments-current-2026-08-12-3.png"
       ],
       "verified_sources": [
         {
           "title": "Peru SUSALUD / El Peruano - Law No. 30681 regulating medicinal and therapeutic use of cannabis and derivatives",
           "url": "https://cdn.www.gob.pe/uploads/document/file/1039347/30681.pdf?v=1595862356",
           "source_kind": "PERU_SUSALUD_GOB_PE_EL_PERUANO_LAW_30681_MEDICINAL_THERAPEUTIC_CANNABIS_AND_PENAL_CODE_ARTICLES_296A_299_300_SOFT_POSSESSION_CAVEAT",
+          "source_owner_geo": "PE",
+          "applies_to_geo": [
+            "PE"
+          ],
+          "legal_basis_for_extension": "Law No. 30681 is a Peru national statute. The official gob.pe CDN copy is hosted for a Peruvian public entity; no extension outside Peru is inferred.",
+          "source_authority": "Congress of the Republic of Peru / El Peruano; current official host: gob.pe public-entity CDN",
+          "source_type": "PRIMARY_STATUTE",
+          "primary_or_context": "PRIMARY",
+          "cannabis_specific": true,
+          "current": true,
+          "effective_date": "Law No. 30681 dated 16 November 2017; Law No. 31312 amended it in 2021. Current official PDF baseline retrieved 2026-08-11.",
+          "direct_fragment_urls": [
+            "https://cdn.www.gob.pe/uploads/document/file/1039347/30681.pdf?v=1595862356#page=1",
+            "https://cdn.www.gob.pe/uploads/document/file/1039347/30681.pdf?v=1595862356#page=2"
+          ],
+          "locator": "Official PDF pp. 1-2: Articles 1-5, 7 and Penal Code Articles 296-A, 299 and 300; current document SHA-256 45e17bb6c8a099dd379fbb634e6f2b19c46c11ca12f63f0b0450a54debb0b484.",
+          "exact_fragment": "Artículo 1: La presente Ley tiene por objeto garantizar el derecho fundamental a la salud y permitir el acceso exclusivamente para uso medicinal y terapéutico del cannabis y sus derivados. Artículo 4 creates a Registro de pacientes usuarios del cannabis y sus derivados para uso medicinal y terapéutico. Article 299 exempts possession of cannabis derivatives for registered patients when necessary for treatment; Article 300 exempts authorised prescribing/supply for registered patients.",
+          "legal_relevance": "Current primary law proves national medical-cannabis patient eligibility, registry and limited registered-patient possession/prescription/supply exceptions. It does not alone prove that a present-day dispenser or programme is operating.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PE/png/pages/PE-law-30681-1.png",
           "note": "Official gob.pe CDN PDF published from the SUSALUD legal-norms page and containing El Peruano text. Visual review confirms Law No. 30681, titled Ley que regula el uso medicinal y terapeutico del cannabis y sus derivados. Page 1 visibly states that the law permits access exclusively for medicinal and therapeutic use, regulates informed use, research, production, importation and commercialization of cannabis and derivatives exclusively for medicinal and therapeutic purposes, creates cannabis-patient and importer/commercializer/investigator registries, and requires licenses for investigation, import/commercialization and production. Page 2 visibly modifies Penal Code Articles 296-A, 299 and 300, including marihuana/cannabis sativa cultivation and commerce penalties, non-punishable possession for own immediate consumption up to eight grams of marijuana, and a non-punishable medical-cannabis possession/supply exception when registered and necessary for treatment.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-11T23:19:23.367Z",
             "final_url": "https://cdn.www.gob.pe/uploads/document/file/1039347/30681.pdf?v=1595862356",
-            "http_status": null,
-            "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "http_status": 304,
+            "etag": "\"f87807b0b67b980d74ebdd6288fc4aaa\"",
+            "last_modified": "Wed, 26 Nov 2025 16:58:01 GMT",
+            "content_type": "application/pdf",
+            "content_length": 1259832,
+            "document_sha256": "45e17bb6c8a099dd379fbb634e6f2b19c46c11ca12f63f0b0450a54debb0b484",
+            "relevant_fragment_sha256": "35e951d8d4c60d9684789bff020b8e2cdd6c06f27c2ff7a8d2b70dd77665d6db",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_304_CONDITIONAL_GET",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "NEEDS_SEMANTIC_REVIEW"
+              "GREEN_OR_RED_CRITICAL_SOURCE"
             ],
             "dependent_geos": [
               "PE"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
-            "semantic_probe": null
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "ocr",
+              "text_layer_length": 0,
+              "ocr_used": true,
+              "relevant_pages": [],
+              "rendered_pages": []
+            }
           }
         },
         {
           "title": "Peru DIGEMID / El Peruano - Supreme Decree No. 004-2023-SA approving the regulation for medicinal and therapeutic cannabis",
           "url": "https://www.digemid.minsa.gob.pe/Archivos/Normatividad/2023/PERUANO_DS_004-2023-SA.pdf",
           "source_kind": "PERU_DIGEMID_MINSA_EL_PERUANO_SUPREME_DECREE_004_2023_SA_CURRENT_MEDICINAL_THERAPEUTIC_CANNABIS_REGULATION_DEFINITIONS_LICENSES_AND_EXCLUSIVE_MEDICAL_ACCESS",
+          "source_owner_geo": "PE",
+          "applies_to_geo": [
+            "PE"
+          ],
+          "legal_basis_for_extension": "Supreme Decree No. 004-2023-SA is a Peru national regulation published through El Peruano and hosted by DIGEMID/MINSA. No extension outside Peru is inferred.",
+          "source_authority": "President of the Republic of Peru / Ministry of Health / El Peruano; current official host: DIGEMID/MINSA",
+          "source_type": "PRIMARY_REGULATION",
+          "primary_or_context": "PRIMARY",
+          "cannabis_specific": true,
+          "current": true,
+          "effective_date": "Supreme Decree No. 004-2023-SA dated 24 February 2023; it approves the Regulation of Law No. 30681 as amended by Law No. 31312.",
+          "direct_fragment_urls": [
+            "https://www.digemid.minsa.gob.pe/Archivos/Normatividad/2023/PERUANO_DS_004-2023-SA.pdf#page=4",
+            "https://www.digemid.minsa.gob.pe/Archivos/Normatividad/2023/PERUANO_DS_004-2023-SA.pdf#page=8"
+          ],
+          "locator": "Official PDF pp. 3-5 and 8: recitals/Article 1.2, cannabis definitions and licensed activities. The primary URL returned HTTP 403 during C1 on 2026-08-11; retained historical visual review is not treated as an access conclusion.",
+          "exact_fragment": "Artículo 1.2: El Estado garantiza el acceso exclusivamente para uso medicinal y terapéutico del cannabis y sus derivados. The recitals describe Law 30681 as amended by Law 31312 and regulated production, importation and commercialisation exclusively for medicinal and therapeutic purposes.",
+          "legal_relevance": "Current primary implementing regulation for the medical/therapeutic framework. Its C1 HTTP 403 is access-state only and cannot negate the statutory patient route.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PE/png/pages/PE-ds-004-2023-sa-04.png",
           "note": "Official DIGEMID/MINSA hosted El Peruano PDF. Visual review confirms Supreme Decree No. 004-2023-SA, page 1 title approving the regulation for medicinal and therapeutic use of cannabis and derivatives, page 3 recitals citing Law 30681 and Law 31312 and describing access exclusively for medicinal and therapeutic use plus production/import/commercialization for medicinal and therapeutic ends, page 4 publication on gob.pe/minsa/midagri/mininter/mincetur and Article 1.2 state guarantee of access exclusively for medicinal and therapeutic purposes, page 5 cannabis definitions including psychoactive cannabis at THC >= 1% and non-psychoactive cannabis below 1%, and page 8 license rules with suspension/cancellation grounds for cannabis activities and diversion to illicit destinations.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-11T23:19:23.367Z",
             "final_url": "https://www.digemid.minsa.gob.pe/Archivos/Normatividad/2023/PERUANO_DS_004-2023-SA.pdf",
-            "http_status": null,
+            "http_status": 403,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 4548,
             "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "relevant_fragment_sha256": "81ef5710bfce5d73368a49c1929b8983eae10f1f1e34806ea4d6e268a69d8ed0",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "HTTP_STATUS_403",
+            "change_reason": "HTTP_STATUS_403_IS_ACCESS_STATE_ONLY",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "NEEDS_SEMANTIC_REVIEW"
+              "ACCESS_BLOCKED",
+              "GREEN_OR_RED_CRITICAL_SOURCE"
             ],
             "dependent_geos": [
               "PE"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
+            "schema_issues": [],
             "semantic_probe": null
           }
         }
       ],
+      "official_source_annotations": [
+        {
+          "title": "Congress of the Republic of Peru - Law No. 31312 amending Law No. 30681",
+          "url": "https://www.congreso.gob.pe/Docs/DGP/DIDP/files/ley_31312.pdf",
+          "source_kind": "PERU_CONGRESS_LAW_31312_CURRENT_AMENDMENT_TO_MEDICINAL_CANNABIS_STATUTE",
+          "source_owner_geo": "PE",
+          "applies_to_geo": [
+            "PE"
+          ],
+          "legal_basis_for_extension": "National Peruvian statute published by the Congress of the Republic of Peru; no territorial extension is inferred.",
+          "source_authority": "Congress of the Republic of Peru",
+          "source_type": "PRIMARY_STATUTE_AMENDMENT",
+          "primary_or_context": "PRIMARY",
+          "cannabis_specific": true,
+          "current": true,
+          "effective_date": "Law No. 31312, promulgated 23 July 2021; direct official PDF retrieval and exact-page confirmation queued in C2.",
+          "direct_fragment_urls": [
+            "https://www.congreso.gob.pe/Docs/DGP/DIDP/files/ley_31312.pdf"
+          ],
+          "locator": "Official Congress PDF; C1 metadata baseline and C2 text/page locator pending.",
+          "exact_fragment": "DISCOVERY ANNOTATION ONLY: official Congress record identifies Law No. 31312 as an amendment to Law No. 30681. No legal axis is derived from this record until its direct text and applicable clause are retrieved.",
+          "legal_relevance": "Currentness/amendment bridge for Law No. 30681; not independently sufficient for a patient-access axis before C2.",
+          "screenshot_state": "NOT_YET_RENDERED; queued for C2/C3 after C1",
+          "reviewed_by_human_visual": false,
+          "revalidation": {
+            "checked_at": "2026-08-11T23:19:23.367Z",
+            "final_url": "https://www.congreso.gob.pe/Docs/DGP/DIDP/files/ley_31312.pdf",
+            "http_status": 404,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 49126,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "af70ff9455ec0c0264d59b1b8821ffac740127a9985c2ad78df46973b185f55e",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "HTTP_STATUS_404",
+            "change_reason": "HTTP_STATUS_404_IS_NOT_LEGAL_EVIDENCE",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "ACCESS_BLOCKED",
+              "GREEN_OR_RED_CRITICAL_SOURCE"
+            ],
+            "dependent_geos": [
+              "PE"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
+        },
+        {
+          "title": "DIGEMID/MINSA - Annex to Supreme Decree No. 004-2023-SA, Regulation of Law No. 30681",
+          "url": "https://www.digemid.minsa.gob.pe/Archivos/Normatividad/2023/ANEXO_DS_004-2023-SA.pdf",
+          "source_kind": "PERU_DIGEMID_REGULATION_ANNEX_PATIENT_REGISTRY_PRESCRIPTION_AND_DISPENSING_RULES",
+          "source_owner_geo": "PE",
+          "applies_to_geo": [
+            "PE"
+          ],
+          "legal_basis_for_extension": "Annex to Peru national Supreme Decree No. 004-2023-SA, hosted by DIGEMID/MINSA; no extension outside Peru is inferred.",
+          "source_authority": "Ministry of Health of Peru / DIGEMID / El Peruano",
+          "source_type": "PRIMARY_REGULATION_ANNEX",
+          "primary_or_context": "PRIMARY",
+          "cannabis_specific": true,
+          "current": true,
+          "effective_date": "Annex approved by Supreme Decree No. 004-2023-SA on 24 February 2023; direct official PDF retrieval and exact-page confirmation queued in C2.",
+          "direct_fragment_urls": [
+            "https://www.digemid.minsa.gob.pe/Archivos/Normatividad/2023/ANEXO_DS_004-2023-SA.pdf"
+          ],
+          "locator": "Official DIGEMID PDF; expected patient registry/prescription/dispensing provisions require direct C2 text extraction before use.",
+          "exact_fragment": "DISCOVERY ANNOTATION ONLY: official DIGEMID source is the annex to the cannabis regulation. No legal axis is derived until the direct current text, locator and clause are retrieved.",
+          "legal_relevance": "Potential primary route for patient registry, prescription and dispensing; not used as a legal conclusion until C2.",
+          "screenshot_state": "NOT_YET_RENDERED; queued for C2/C3 after C1",
+          "reviewed_by_human_visual": false,
+          "revalidation": {
+            "checked_at": "2026-08-11T23:19:23.367Z",
+            "final_url": "https://www.digemid.minsa.gob.pe/Archivos/Normatividad/2023/ANEXO_DS_004-2023-SA.pdf",
+            "http_status": 403,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 4548,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "ea54d12b8109d7ebeaebd8d4273290b65c336ec6c8741f2710a0bc8c0b70c84a",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "HTTP_STATUS_403",
+            "change_reason": "HTTP_STATUS_403_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "ACCESS_BLOCKED",
+              "GREEN_OR_RED_CRITICAL_SOURCE"
+            ],
+            "dependent_geos": [
+              "PE"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
+        },
+        {
+          "title": "DIGEMID/MINSA - Uso medicinal del cannabis y sus derivados",
+          "url": "https://www.digemid.minsa.gob.pe/webDigemid/uso-medicinal-del-cannabis-y-sus-derivados/",
+          "source_kind": "PERU_DIGEMID_CURRENT_PUBLIC_GUIDANCE_ON_LEGALLY_AUTHORISED_MEDICINAL_CANNABIS_PRODUCTS",
+          "source_owner_geo": "PE",
+          "applies_to_geo": [
+            "PE"
+          ],
+          "legal_basis_for_extension": "Current public guidance published by Peru's national medicines regulator DIGEMID/MINSA for Peru; no extension outside Peru is inferred.",
+          "source_authority": "Ministry of Health of Peru / DIGEMID",
+          "source_type": "OFFICIAL_REGULATOR_GUIDANCE",
+          "primary_or_context": "OPERATIONAL_CONTEXT",
+          "cannabis_specific": true,
+          "current": true,
+          "effective_date": "Current public guidance; direct retrieval timestamp and exact fragment pending C1/C2.",
+          "direct_fragment_urls": [
+            "https://www.digemid.minsa.gob.pe/webDigemid/uso-medicinal-del-cannabis-y-sus-derivados/"
+          ],
+          "locator": "Official DIGEMID web page; C1 metadata baseline and C2 exact heading/fragment pending.",
+          "exact_fragment": "DISCOVERY ANNOTATION ONLY: current official guidance concerns medicinal cannabis and derivatives. No legal axis is derived until current page text is directly retrieved and reviewed.",
+          "legal_relevance": "Potential operational evidence for lawfully authorised products; regulator guidance cannot substitute for patient eligibility or active dispensing without direct C2 proof.",
+          "screenshot_state": "NOT_YET_RENDERED; queued for C2/C3 after C1",
+          "reviewed_by_human_visual": false,
+          "revalidation": {
+            "checked_at": "2026-08-11T23:19:23.367Z",
+            "final_url": "https://www.digemid.minsa.gob.pe/webDigemid/uso-medicinal-del-cannabis-y-sus-derivados",
+            "http_status": 403,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 4548,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "9b60aa610ace121dde56a06fa9979174a499fa27b35d12f90844c5351d2dfca5",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "HTTP_STATUS_403",
+            "change_reason": "HTTP_STATUS_403_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "ACCESS_BLOCKED",
+              "GREEN_OR_RED_CRITICAL_SOURCE"
+            ],
+            "dependent_geos": [
+              "PE"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
+        },
+        {
+          "title": "DIGEMID/MINSA - Módulo de Validación de Prescripción de Cannabis",
+          "url": "https://www.digemid.minsa.gob.pe/consultaCannabis/consultas/nuevo",
+          "source_kind": "PERU_DIGEMID_CURRENT_PATIENT_PRESCRIPTION_VALIDATION_PORTAL",
+          "source_owner_geo": "PE",
+          "applies_to_geo": [
+            "PE"
+          ],
+          "legal_basis_for_extension": "Patient-facing service hosted by Peru's national medicines regulator DIGEMID/MINSA; no extension outside Peru is inferred.",
+          "source_authority": "Ministry of Health of Peru / DIGEMID",
+          "source_type": "OFFICIAL_OPERATIONAL_SERVICE",
+          "primary_or_context": "OPERATIONAL_CONTEXT",
+          "cannabis_specific": true,
+          "current": true,
+          "effective_date": "Current web service; direct retrieval timestamp and exact on-page workflow fragment pending C1/C2.",
+          "direct_fragment_urls": [
+            "https://www.digemid.minsa.gob.pe/consultaCannabis/consultas/nuevo"
+          ],
+          "locator": "Official DIGEMID web service; C1 metadata baseline and C2 visible workflow text pending.",
+          "exact_fragment": "DISCOVERY ANNOTATION ONLY: official patient prescription-validation service for cannabis. No patient-access or operational axis is derived until the current page and its workflow text are directly retrieved and reviewed.",
+          "legal_relevance": "Potential operational evidence only; it cannot by itself establish a legal patient pathway.",
+          "screenshot_state": "NOT_YET_RENDERED; queued for C2/C3 after C1",
+          "reviewed_by_human_visual": false,
+          "revalidation": {
+            "checked_at": "2026-08-11T23:19:23.367Z",
+            "final_url": "https://www.digemid.minsa.gob.pe/consultaCannabis/consultas/nuevo",
+            "http_status": 403,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 4548,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "4f91bb2d1ad59c6e3bb9039c9ba5b28e6d7f599d778f52b3a9c551f65a9deeb3",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "HTTP_STATUS_403",
+            "change_reason": "HTTP_STATUS_403_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "ACCESS_BLOCKED",
+              "GREEN_OR_RED_CRITICAL_SOURCE"
+            ],
+            "dependent_geos": [
+              "PE"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
+        },
+        {
+          "title": "MINSA / gob.pe - Uso medicinal del cannabis y sus derivados",
+          "url": "https://www.gob.pe/37789",
+          "source_kind": "PERU_MINSA_CURRENT_PUBLIC_ORIENTATION_ON_MEDICINAL_CANNABIS_PRODUCTS_AND_ACCESS",
+          "source_owner_geo": "PE",
+          "applies_to_geo": [
+            "PE"
+          ],
+          "legal_basis_for_extension": "Current national public orientation published on Peru's official gob.pe platform for MINSA/DIGEMID; no extension outside Peru is inferred.",
+          "source_authority": "Ministry of Health of Peru / DIGEMID via gob.pe",
+          "source_type": "OFFICIAL_PUBLIC_ORIENTATION",
+          "primary_or_context": "OPERATIONAL_CONTEXT",
+          "cannabis_specific": true,
+          "current": true,
+          "effective_date": "Current gob.pe public orientation, visibly last changed 13 January 2026; C1 HTTP baseline retrieved 2026-08-11 and C2/C3 read/rendered 2026-08-12.",
+          "direct_fragment_urls": [
+            "https://www.gob.pe/37789#12l4"
+          ],
+          "locator": "Official gob.pe page, Description and Productos section (DOM id 12l4), visibly last changed 13 January 2026; current HTML SHA-256 8b95cf36a2e668ff144d31fa2dd7eec5363b409b741cd43c97f63840683bb842.",
+          "exact_fragment": "La Ley N° 30681 y su reglamento regulan el uso informado, investigación, producción, importación y comercialización de cannabis y sus derivados, destinados exclusivamente para uso medicinales y terapéuticos en el Perú. Los productos legalmente autorizados incluyen: productos farmacéuticos con registro sanitario vigente otorgado por DIGEMID; derivados con autorización de importación excepcional para tratamiento individual; y fórmula magistral elaborada por un químico farmacéutico en botica, farmacia o farmacia de establecimiento de salud con licencia, contra la presentación de la receta médica correspondiente. The page links directly to the list of licensed pharmaceutical establishments and RENPUC, and states Último cambio 13 enero 2026.",
+          "legal_relevance": "Current official patient-facing operational context. Together with the primary statute it proves a prescription-linked lawful supply route (registered products, individual import or licensed pharmacy preparation) and current registry/list services; it does not alter a legal axis by itself.",
+          "current_screenshot_path": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PE-gobpe-37789-current-2026-08-12.png",
+          "screenshot_state": "CURRENT_OFFICIAL_PAGE_RENDERED_AND_READ; headless C3 capture visibly shows gob.pe, MINSA breadcrumb, cannabis fragment, registered-product/import/pharmacy-prescription routes, RENPUC and last change 13 January 2026; no browser address bar in persisted crop.",
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_valid": true,
+          "visual_review_result": "CURRENT_OFFICIAL_PAGE_RENDERED_AND_READ; current gob.pe/MINSA page visibly establishes the cannabis-specific regulated product, individual import, prescription and licensed pharmacy routes. Strict address-bar acceptance remains separate from legal truth.",
+          "revalidation": {
+            "checked_at": "2026-08-11T23:19:23.367Z",
+            "final_url": "https://www.gob.pe/37789",
+            "http_status": 304,
+            "etag": "W/\"792a729fd2ca833dfae4c6bb0b2a605e\"",
+            "last_modified": "Tue, 11 Aug 2026 14:25:20 GMT",
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 33854,
+            "document_sha256": "8b95cf36a2e668ff144d31fa2dd7eec5363b409b741cd43c97f63840683bb842",
+            "relevant_fragment_sha256": "67ebb53e5cb725b13c6d67e9d0087f1315fc1238dfd160d11a37c685478ca612",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_304_CONDITIONAL_GET",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "GREEN_OR_RED_CRITICAL_SOURCE"
+            ],
+            "dependent_geos": [
+              "PE"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
+        },
+        {
+          "title": "MINSA / gob.pe - List of pharmaceutical establishments licensed to import or commercialise medicinal and therapeutic cannabis derivatives",
+          "url": "https://www.gob.pe/institucion/minsa/informes-publicaciones/4177776",
+          "source_kind": "PERU_MINSA_CURRENT_OFFICIAL_LIST_OF_LICENSED_CANNABIS_IMPORT_OR_COMMERCIALISATION_ESTABLISHMENTS",
+          "source_owner_geo": "PE",
+          "applies_to_geo": [
+            "PE"
+          ],
+          "legal_basis_for_extension": "National public record published by Peru's Ministry of Health on gob.pe; no extension outside Peru is inferred.",
+          "source_authority": "Ministry of Health of Peru / DIGEMID via gob.pe",
+          "source_type": "OFFICIAL_OPERATIONAL_REGISTER",
+          "primary_or_context": "OPERATIONAL_CONTEXT",
+          "cannabis_specific": true,
+          "current": true,
+          "effective_date": "Official list published 18 June 2025 and visibly marked Actualizado al 18 de junio de 2025; C1 baseline retrieved 2026-08-11 and C2 text read 2026-08-12.",
+          "direct_fragment_urls": [
+            "https://www.gob.pe/institucion/minsa/informes-publicaciones/4177776",
+            "https://cdn.www.gob.pe/uploads/document/file/4497099/4177776-establecimientos-farmaceuticos-que-tienen-licencia-para-importacion-y-o-comercializacion-de-cannabis-y-sus-derivados-para-fin-medicinal-y-terapeutico.pdf?v=1768338137"
+          ],
+          "locator": "Official MINSA listing page title and first description paragraph; linked official PDF download identifies the licensed establishments list. Page is dated and updated 18 June 2025.",
+          "exact_fragment": "Listado de establecimientos farmacéuticos que tienen licencia para importación o comercialización de cannabis y sus derivados para fin medicinal y terapéutico. Actualizado al 18 de junio de 2025. Establecimientos farmacéuticos que tienen licencia para importación y/o comercialización de cannabis y sus derivados para fin medicinal y terapéutico.",
+          "legal_relevance": "Current official operational evidence that a national list of licensed cannabis import/commercialisation pharmaceutical establishments is maintained. It is supply proof only, not a substitute for patient eligibility/prescription/registry proof.",
+          "screenshot_state": "CURRENT_OFFICIAL_PAGE_RENDERED_AND_READ; C2 text and C3 headless capture visibly show MINSA/gob.pe, cannabis-specific licensed import/commercialisation list, date and PDF download; no browser address bar in persisted crop.",
+          "current_screenshot_path": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PE-gobpe-4177776-licensed-list-current-2026-08-12.png",
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_valid": true,
+          "visual_review_result": "CURRENT_OFFICIAL_PAGE_RENDERED_AND_READ; MINSA/gob.pe visibly identifies and dates the official licensed cannabis import/commercialisation list and its 279.5 KB PDF download. Strict address-bar acceptance remains separate.",
+          "c2_reviewed_at": "2026-08-12",
+          "c2_retrieval": "HTTP 200 text retrieved once; official downloadable PDF URL preserved above.",
+          "revalidation": {
+            "checked_at": "2026-08-11T23:19:23.367Z",
+            "final_url": "https://www.gob.pe/institucion/minsa/informes-publicaciones/4177776",
+            "http_status": 304,
+            "etag": "W/\"791aed70e62687ced5d3b63e76b1d059\"",
+            "last_modified": "Tue, 13 Jan 2026 21:02:18 GMT",
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 29316,
+            "document_sha256": "b900288140488f33dc9cb69a43c5c0ad6926e63239b50f50392c9b78c0b43b87",
+            "relevant_fragment_sha256": "5a20ed912827674e0b54c871d2d9bb6a5097656f3f5bee9a185bf8c99947ca92",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_304_CONDITIONAL_GET",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "GREEN_OR_RED_CRITICAL_SOURCE"
+            ],
+            "dependent_geos": [
+              "PE"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
+        },
+        {
+          "title": "MINSA / gob.pe - Acceder al Registro Nacional de Pacientes Usuarios del Cannabis y sus Derivados (RENPUC)",
+          "url": "https://www.gob.pe/39909",
+          "source_kind": "PERU_MINSA_CURRENT_RENPUC_PATIENT_REGISTRY_SERVICE",
+          "source_owner_geo": "PE",
+          "applies_to_geo": [
+            "PE"
+          ],
+          "legal_basis_for_extension": "National patient-registry service linked by Peru's current MINSA cannabis orientation page; no extension outside Peru is inferred.",
+          "source_authority": "Ministry of Health of Peru / DIGEMID via gob.pe",
+          "source_type": "OFFICIAL_PATIENT_REGISTRY_SERVICE",
+          "primary_or_context": "OPERATIONAL_CONTEXT",
+          "cannabis_specific": true,
+          "current": true,
+          "effective_date": "Current RENPUC service visibly last changed 13 January 2026; C1 baseline retrieved 2026-08-11 and C2 text read 2026-08-12.",
+          "direct_fragment_urls": [
+            "https://www.gob.pe/39909",
+            "https://serviciosweb-digemid.minsa.gob.pe/ControlCannabis/registroDeclaracionJurada.jsp"
+          ],
+          "locator": "Official MINSA service page, introductory paragraphs and 'Descripción detallada de la ruta'; the direct DIGEMID RENPUC registration URL is preserved above.",
+          "exact_fragment": "Si tienes indicación médica para usar cannabis o sus derivados, puedes inscribirte en el Registro Nacional de Pacientes Usuarios del Cannabis y sus derivados (Renpuc). Este servicio, gestionado por la DIGEMID del Minsa, te facilitará el acceso formal y seguro a estos productos en establecimientos farmacéuticos licenciados. El proceso de registro es totalmente virtual y gratuito. Una vez completado el registro virtual, con tu código, puedes acercarte a un establecimiento farmacéutico licenciado para la dispensación del derivado de cannabis prescrito por tu médico. Último cambio 13 enero 2026.",
+          "legal_relevance": "Current official operational proof of a medical-indication patient registration route and physician-prescribed cannabis dispensing at licensed pharmaceutical establishments. It complements, and does not replace, Law No. 30681.",
+          "screenshot_state": "CURRENT_OFFICIAL_PAGE_RENDERED_AND_READ; C2 text and C3 headless capture visibly show MINSA/gob.pe, RENPUC, medical indication, online registration and licensed-pharmacy dispensing of a physician-prescribed cannabis derivative; no browser address bar in persisted crop.",
+          "current_screenshot_path": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PE-gobpe-39909-renpuc-current-2026-08-12.png",
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_valid": true,
+          "visual_review_result": "CURRENT_OFFICIAL_PAGE_RENDERED_AND_READ; MINSA/gob.pe visibly confirms the current RENPUC patient workflow, medical indication, virtual free registration and licensed-pharmacy dispensing of a physician-prescribed cannabis derivative. Strict address-bar acceptance remains separate.",
+          "c2_reviewed_at": "2026-08-12",
+          "c2_retrieval": "HTTP 200 text retrieved once; direct DIGEMID RENPUC registration URL preserved above.",
+          "revalidation": {
+            "checked_at": "2026-08-11T23:19:23.367Z",
+            "final_url": "https://www.gob.pe/39909",
+            "http_status": 304,
+            "etag": "W/\"915e940e4b2ba63dfe9dff06f3f4ecc9\"",
+            "last_modified": "Tue, 11 Aug 2026 14:25:20 GMT",
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 38744,
+            "document_sha256": "866e71fd0e3f3442a26e428d829fb027bd92fe7e6e5cb02e9bb7152eda77a112",
+            "relevant_fragment_sha256": "3da672f0ab478a7ba1e965022facf3d245b6ffa42600e0bdf49b398e5c6e7245",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_304_CONDITIONAL_GET",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "GREEN_OR_RED_CRITICAL_SOURCE"
+            ],
+            "dependent_geos": [
+              "PE"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
+        },
+        {
+          "title": "MINSA/DIGEMID official PDF - Licensed cannabis import/commercialisation pharmaceutical establishments list",
+          "url": "https://cdn.www.gob.pe/uploads/document/file/4497099/4177776-establecimientos-farmaceuticos-que-tienen-licencia-para-importacion-y-o-comercializacion-de-cannabis-y-sus-derivados-para-fin-medicinal-y-terapeutico.pdf?v=1768338137",
+          "source_kind": "PERU_MINSA_OFFICIAL_PDF_LIST_OF_LICENSED_CANNABIS_IMPORT_OR_COMMERCIALISATION_ESTABLISHMENTS",
+          "source_owner_geo": "PE",
+          "applies_to_geo": [
+            "PE"
+          ],
+          "legal_basis_for_extension": "Official PDF download linked by Peru MINSA's national 18 June 2025 licensed-establishments record; no extension outside Peru is inferred.",
+          "source_authority": "Ministry of Health of Peru / DIGEMID via gob.pe",
+          "source_type": "OFFICIAL_OPERATIONAL_REGISTER_PDF",
+          "primary_or_context": "OPERATIONAL_CONTEXT",
+          "cannabis_specific": true,
+          "current": true,
+          "effective_date": "Official PDF linked by MINSA page updated 18 June 2025; direct PDF baseline retrieved in C1 and text/visual C2/C3 completed 2026-08-12.",
+          "direct_fragment_urls": [
+            "https://cdn.www.gob.pe/uploads/document/file/4497099/4177776-establecimientos-farmaceuticos-que-tienen-licencia-para-importacion-y-o-comercializacion-de-cannabis-y-sus-derivados-para-fin-medicinal-y-terapeutico.pdf?v=1768338137"
+          ],
+          "locator": "Official PDF pp. 1-4 (all four pdftotext cannabis-term pages rendered): p. 1 lists laboratories/institutions authorised to produce cannabis derivatives and laboratories/drugstores authorised for import/commercialisation; pp. 2-4 list authorised boticas/farmacias for cannabis-derivative commercialisation. Current document SHA-256 5e813f2ce34faa2dd221f501430a2db659d7d21eeb98e1299749222e763a746c.",
+          "exact_fragment": "ESTABLECIMIENTOS FARMACÉUTICOS CON LICENCIAS DE AUTORIZACIÓN DE PRODUCCIÓN, IMPORTACIÓN Y COMERCIALIZACIÓN DE CANNABIS Y DERIVADOS. Page 1 lists authorised laboratories, institutions and drugstores; pages 2-4 are headed BOTICAS Y FARMACIAS AUTORIZADAS PARA LA COMERCIALIZACIÓN DE DERIVADOS DE CANNABIS and list identified authorised establishments. The data source shown is al 22.05.2025 and the official MINSA listing page is updated 18 June 2025.",
+          "legal_relevance": "Current primary operational-register document proving actual named authorised cannabis supply/dispensing establishments. It supports lawful supply, pharmacy/dispensary and programme operation only in combination with the separate patient/prescriber/registry evidence.",
+          "screenshot_path": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PE-minsa-licensed-establishments-current-2026-08-12-1.png",
+          "screenshot_paths": [
+            "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PE-minsa-licensed-establishments-current-2026-08-12-1.png",
+            "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PE-minsa-licensed-establishments-current-2026-08-12-2.png",
+            "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PE-minsa-licensed-establishments-current-2026-08-12-3.png",
+            "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PE-minsa-licensed-establishments-current-2026-08-12-4.png"
+          ],
+          "screenshot_state": "CURRENT_OFFICIAL_PDF_RENDERED_AND_READ; pdftotext found text on pp. 1-4, so OCR was not used; all matching pages were rendered and p. 1/p. 3 were visually reviewed. Persisted PDF crops lack browser address bar.",
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_valid": true,
+          "visual_review_result": "CURRENT_OFFICIAL_PDF_RENDERED_AND_READ; page 1 visibly shows Peru MINSA/DIGEMID, licensed cannabis production/import/commercialisation and named entities; page 3 visibly shows authorised boticas/farmacias for cannabis derivative commercialisation.",
+          "c2_reviewed_at": "2026-08-12",
+          "c2_retrieval": "HTTP 200 PDF retrieved once after C1. pdftotext text layer length 7561; pages 1-4 matched the cannabis inventory and were rendered; OCR not used.",
+          "revalidation": {
+            "checked_at": "2026-08-11T23:19:23.367Z",
+            "final_url": "https://cdn.www.gob.pe/uploads/document/file/4497099/4177776-establecimientos-farmaceuticos-que-tienen-licencia-para-importacion-y-o-comercializacion-de-cannabis-y-sus-derivados-para-fin-medicinal-y-terapeutico.pdf?v=1768338137",
+            "http_status": 304,
+            "etag": "\"fd8bfccb96656baf2e17f659c54aba05\"",
+            "last_modified": "Mon, 16 Feb 2026 21:28:26 GMT",
+            "content_type": "application/pdf",
+            "content_length": 279500,
+            "document_sha256": "5e813f2ce34faa2dd221f501430a2db659d7d21eeb98e1299749222e763a746c",
+            "relevant_fragment_sha256": "4042d23e61875cadec1a58ebcbb55699e12ee999102cef3c7f526412e2a2391f",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_304_CONDITIONAL_GET",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "GREEN_OR_RED_CRITICAL_SOURCE"
+            ],
+            "dependent_geos": [
+              "PE"
+            ],
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 7561,
+              "ocr_used": false,
+              "relevant_pages": [
+                1,
+                2,
+                3,
+                4
+              ],
+              "rendered_pages": [
+                1,
+                2,
+                3,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "title": "DIGEMID/MINSA - RENPUC online patient registration service",
+          "url": "https://serviciosweb-digemid.minsa.gob.pe/ControlCannabis/registroDeclaracionJurada.jsp",
+          "source_kind": "PERU_DIGEMID_DIRECT_RENPUC_ONLINE_PATIENT_REGISTRATION_SERVICE",
+          "source_owner_geo": "PE",
+          "applies_to_geo": [
+            "PE"
+          ],
+          "legal_basis_for_extension": "Direct national DIGEMID service URL linked by the current MINSA RENPUC page; no extension outside Peru is inferred.",
+          "source_authority": "Ministry of Health of Peru / DIGEMID",
+          "source_type": "OFFICIAL_PATIENT_REGISTRY_SERVICE",
+          "primary_or_context": "OPERATIONAL_CONTEXT",
+          "cannabis_specific": true,
+          "current": true,
+          "effective_date": "Direct service linked by MINSA RENPUC page last changed 13 January 2026; C1/C2 direct service confirmation pending.",
+          "direct_fragment_urls": [
+            "https://serviciosweb-digemid.minsa.gob.pe/ControlCannabis/registroDeclaracionJurada.jsp"
+          ],
+          "locator": "Direct service endpoint reached by 'Accede al Renpuc' on the current official MINSA RENPUC page; C2 must verify visible service state.",
+          "exact_fragment": "DISCOVERY ANNOTATION ONLY: direct RENPUC service is linked by the official MINSA page that sets out the patient registration and licensed-pharmacy dispensing workflow. No new legal axis is derived until the direct service is retrieved.",
+          "legal_relevance": "Direct operational endpoint for the patient registry, retained separately from the legal truth already evidenced by the MINSA RENPUC page.",
+          "screenshot_state": "NOT_YET_RENDERED; queued for C1/C2/C3",
+          "reviewed_by_human_visual": false,
+          "revalidation": {
+            "checked_at": "2026-08-11T23:19:23.367Z",
+            "final_url": "https://serviciosweb-digemid.minsa.gob.pe/ControlCannabis/registroDeclaracionJurada.jsp",
+            "http_status": 403,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 4548,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "bb486d5ddb125fcf8397d127b96e2e3cdc87f3106bc73c40d1e314532b7c2dd9",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "HTTP_STATUS_403",
+            "change_reason": "HTTP_STATUS_403_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "ACCESS_BLOCKED",
+              "GREEN_OR_RED_CRITICAL_SOURCE"
+            ],
+            "dependent_geos": [
+              "PE"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
+        }
+      ],
+      "independent_truth_color": "GREEN",
+      "independent_truth_status": "CURRENT_OPERATIONAL_MEDICAL_CANNABIS_PATIENT_ACCESS_WITH_RENPUC_AND_LICENSED_PHARMACY_DISPENSING",
+      "independent_truth_reviewed_at": "2026-08-12",
+      "strict_visual_acceptance": false,
+      "independent_review": {
+        "geo": "PE",
+        "territory": "Peru",
+        "review_mode": "INDEPENDENT_OFFICIAL_EVIDENCE_FIRST",
+        "proposal_only": true,
+        "jurisdiction": {
+          "territory_type": "SOVEREIGN_STATE",
+          "applicable_law": "Law No. 30681, implemented by Supreme Decree No. 004-2023-SA and currently operated through MINSA/DIGEMID RENPUC and licensed-establishment services.",
+          "source_owner_vs_jurisdiction": "Peru Congress/El Peruano, MINSA/DIGEMID and gob.pe sources apply nationally to PE; no cross-jurisdiction inference.",
+          "disputed_or_composite": false
+        },
+        "official_truth_color": "GREEN",
+        "truth_color": "GREEN",
+        "truth_status": "CURRENT_OPERATIONAL_MEDICAL_CANNABIS_PATIENT_ACCESS_WITH_RENPUC_AND_LICENSED_PHARMACY_DISPENSING",
+        "color_rule": "GENERAL_CURRENT_OPERATIONAL_PATIENT_ACCESS_REQUIRING_ELIGIBILITY_PRESCRIBER_REGISTRATION_AND_ACTIVE_LAWFUL_SUPPLY",
+        "reviewed_at": "2026-08-12",
+        "legal_interpretation": "Proposal-only GREEN under the general operational patient-access rule. Current Law 30681 provides the national medical/therapeutic cannabis and patient-registry framework. Current MINSA RENPUC states that a person with medical indication may register online and, after registration, attend a licensed pharmaceutical establishment for dispensing of a cannabis derivative prescribed by that person's doctor. Current MINSA pages and their dated official PDF list provide present lawful registered-product, individual-import and named licensed pharmacy channels. This result does not rely on cultivation, production, research, industrial hemp, CBD, generic licensing or generic controlled-drug wording, and does not change any product layer.",
+        "source_record_refs": [
+          "https://cdn.www.gob.pe/uploads/document/file/1039347/30681.pdf?v=1595862356#page=1",
+          "https://www.gob.pe/37789#12l4",
+          "https://www.gob.pe/39909",
+          "https://www.gob.pe/institucion/minsa/informes-publicaciones/4177776",
+          "https://cdn.www.gob.pe/uploads/document/file/4497099/4177776-establecimientos-farmaceuticos-que-tienen-licencia-para-importacion-y-o-comercializacion-de-cannabis-y-sus-derivados-para-fin-medicinal-y-terapeutico.pdf?v=1768338137"
+        ],
+        "evidence_axes": {
+          "patient_eligible": {
+            "value": "YES",
+            "source_url": "https://www.gob.pe/39909",
+            "source_type": "CURRENT_OFFICIAL_PATIENT_REGISTRY_SERVICE",
+            "exact_fragment": "Si tienes indicación médica para usar cannabis o sus derivados, puedes inscribirte en RENPUC.",
+            "effective_date": "Current page visibly last changed 13 January 2026; C1 HTTP 304 on 2026-08-11.",
+            "applicability": "PE national MINSA/DIGEMID service.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PE-gobpe-39909-renpuc-current-2026-08-12.png"
+          },
+          "prescriber_route": {
+            "value": "YES",
+            "source_url": "https://www.gob.pe/39909",
+            "source_type": "CURRENT_OFFICIAL_PATIENT_REGISTRY_SERVICE",
+            "exact_fragment": "With the registration code, the patient may attend a licensed pharmaceutical establishment for dispensación del derivado de cannabis prescrito por tu médico.",
+            "effective_date": "Current page visibly last changed 13 January 2026; C1 HTTP 304 on 2026-08-11.",
+            "applicability": "PE national MINSA/DIGEMID service.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PE-gobpe-39909-renpuc-current-2026-08-12.png"
+          },
+          "registration_route": {
+            "value": "YES",
+            "source_url": "https://www.gob.pe/39909",
+            "source_type": "CURRENT_OFFICIAL_PATIENT_REGISTRY_SERVICE",
+            "exact_fragment": "El proceso de registro es totalmente virtual y gratuito; the route registers a new or continuing patient and produces a virtual declaration code.",
+            "effective_date": "Current page visibly last changed 13 January 2026; C1 HTTP 304 on 2026-08-11.",
+            "applicability": "PE national RENPUC service.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PE-gobpe-39909-renpuc-current-2026-08-12.png"
+          },
+          "lawful_supply": {
+            "value": "YES",
+            "source_url": "https://www.gob.pe/37789#12l4",
+            "source_type": "CURRENT_OFFICIAL_MINSA_PATIENT_ORIENTATION",
+            "exact_fragment": "Legal products include a current DIGEMID sanitary registration, individual exceptional import authorisation, and magistral preparation by a licensed pharmacy on medical prescription.",
+            "effective_date": "Current page visibly last changed 13 January 2026; C1 HTTP 304 on 2026-08-11.",
+            "applicability": "PE national MINSA/DIGEMID guidance.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PE-gobpe-37789-current-2026-08-12.png"
+          },
+          "pharmacy_or_dispensary": {
+            "value": "YES",
+            "source_url": "https://cdn.www.gob.pe/uploads/document/file/4497099/4177776-establecimientos-farmaceuticos-que-tienen-licencia-para-importacion-y-o-comercializacion-de-cannabis-y-sus-derivados-para-fin-medicinal-y-terapeutico.pdf?v=1768338137",
+            "source_type": "CURRENT_OFFICIAL_LICENSED_ESTABLISHMENTS_REGISTER_PDF",
+            "exact_fragment": "Pages 2-4 are headed BOTICAS Y FARMACIAS AUTORIZADAS PARA LA COMERCIALIZACIÓN DE DERIVADOS DE CANNABIS and list named authorised establishments.",
+            "effective_date": "MINSA list updated 18 June 2025; PDF C1 baseline 200 on 2026-08-11 and C2/C3 completed 2026-08-12.",
+            "applicability": "PE national MINSA/DIGEMID register.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PE-minsa-licensed-establishments-current-2026-08-12-3.png"
+          },
+          "import_route": {
+            "value": "YES",
+            "source_url": "https://www.gob.pe/37789#12l4",
+            "source_type": "CURRENT_OFFICIAL_MINSA_PATIENT_ORIENTATION",
+            "exact_fragment": "Productos derivados del cannabis que cuenten con autorización de importación excepcional para tratamiento individual.",
+            "effective_date": "Current page visibly last changed 13 January 2026; C1 HTTP 304 on 2026-08-11.",
+            "applicability": "PE national MINSA/DIGEMID guidance.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PE-gobpe-37789-current-2026-08-12.png"
+          },
+          "programme_operational": {
+            "value": "YES",
+            "source_url": "https://www.gob.pe/39909",
+            "source_type": "CURRENT_OFFICIAL_PATIENT_REGISTRY_SERVICE",
+            "exact_fragment": "The current RENPUC page provides virtual new/continuing-patient registration and directs the registered person to licensed pharmacy dispensing of the doctor-prescribed cannabis derivative.",
+            "effective_date": "Current page visibly last changed 13 January 2026; C1 HTTP 304 on 2026-08-11.",
+            "applicability": "PE national MINSA/DIGEMID service.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PE-gobpe-39909-renpuc-current-2026-08-12.png"
+          },
+          "programme_commenced": {
+            "value": "YES",
+            "source_url": "https://www.gob.pe/39909",
+            "source_type": "CURRENT_OFFICIAL_PATIENT_REGISTRY_SERVICE",
+            "exact_fragment": "The live current service distinguishes paciente nuevo and paciente continuador, provides the virtual route and directs the registered person to licensed pharmacy dispensing.",
+            "effective_date": "Current service visibly last changed 13 January 2026.",
+            "applicability": "PE national RENPUC service.",
+            "confidence": "HIGH_FOR_CURRENT_OPERATION_NOT_HISTORICAL_START_DATE",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PE-gobpe-39909-renpuc-current-2026-08-12.png"
+          },
+          "recreational_possession": {
+            "value": "UNKNOWN",
+            "reason": "Not required for the operational patient-access GREEN rule; no adult-use conclusion is derived from Law 30681 Article 299."
+          },
+          "recreational_supply": {
+            "value": "UNKNOWN",
+            "reason": "Not required for the operational patient-access GREEN rule; medical supply evidence is not treated as adult-use evidence."
+          },
+          "recreational_cultivation": {
+            "value": "UNKNOWN",
+            "reason": "Not required for the operational patient-access GREEN rule; authorised medical activity is not treated as adult-use cultivation evidence."
+          },
+          "penalty_regime": {
+            "value": "YES",
+            "source_url": "https://cdn.www.gob.pe/uploads/document/file/1039347/30681.pdf?v=1595862356#page=2",
+            "source_type": "CURRENT_PRIMARY_STATUTE",
+            "exact_fragment": "Law No. 30681 updates Penal Code Article 296-A for unauthorised commercialisation/cultivation and Articles 299/300 for registered medical-cannabis exceptions.",
+            "effective_date": "Law No. 30681 dated 16 November 2017; C1 HTTP 304 on 2026-08-11.",
+            "applicability": "PE national statute.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PE-law-30681-page-2-current-2026-08-12.png"
+          }
+        },
+        "visual_evidence": [
+          {
+            "path": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PE-law-30681-page-1-current-2026-08-12.png",
+            "visual_opened": true,
+            "official_owner_visible": true,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": true,
+            "effective_rule_visible": true,
+            "screenshot_valid": true,
+            "visual_summary": "Current Law 30681 PDF visibly identifies the Peruvian medical/therapeutic cannabis framework and patient registry route."
+          },
+          {
+            "path": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PE-gobpe-37789-current-2026-08-12.png",
+            "visual_opened": true,
+            "official_owner_visible": true,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": true,
+            "effective_rule_visible": true,
+            "screenshot_valid": true,
+            "visual_summary": "Current MINSA/gob.pe orientation visibly shows regulated products, individual import and prescription-linked licensed pharmacy preparation."
+          },
+          {
+            "path": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PE-gobpe-39909-renpuc-current-2026-08-12.png",
+            "visual_opened": true,
+            "official_owner_visible": true,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": true,
+            "effective_rule_visible": true,
+            "screenshot_valid": true,
+            "visual_summary": "Current MINSA/gob.pe RENPUC service visibly shows medical indication, virtual registration and doctor-prescribed cannabis dispensing at a licensed pharmacy."
+          },
+          {
+            "path": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PE-minsa-licensed-establishments-current-2026-08-12-3.png",
+            "visual_opened": true,
+            "official_owner_visible": true,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": true,
+            "effective_rule_visible": true,
+            "screenshot_valid": true,
+            "visual_summary": "Current MINSA/DIGEMID PDF visibly lists authorised boticas and pharmacies for cannabis-derivative commercialisation."
+          }
+        ],
+        "visual_acceptance": {
+          "legal_truth_visual_review_complete": true,
+          "strict_visual_acceptance": false,
+          "reason": "All substantive current sources were text-read and visually reviewed through hidden rendering. Persisted captures show official owner context but not a browser address bar; strict visual-domain acceptance remains separate from legal truth."
+        },
+        "confidence": "HIGH_FOR_CURRENT_OPERATIONAL_PATIENT_ACCESS",
+        "remaining_blockers": [
+          "STRICT_VISUAL_ACCEPTANCE_FALSE_BECAUSE_PERSISTED_CURRENT_CAPTURES_LACK_BROWSER_ADDRESS_BAR",
+          "DIRECT_RENPUC_ENDPOINT_RETURNED_HTTP_403_TO_C1; ACCESS_STATE_ONLY_AND_NOT_CONTRADICTORY_TO_CURRENT_MINSA_RENPUC_SERVICE_PAGE"
+        ],
+        "current_layer_comparison": "NOT_CAPTURED_NOT_USED_AS_LEGAL_INPUT; no map, popup, SEO, API, SSOT or production value was read or changed in this packet.",
+        "recommended_action": "RETAIN_PROPOSAL_ONLY_GREEN; do not apply to SSOT, map, runtime, production or deployment without explicit user authorisation and final 307-row gate.",
+        "apply_gate": {
+          "APPLY_ALLOWED": false,
+          "PRODUCTION_TOUCHED": false,
+          "MAP_COLORS_CHANGED": false,
+          "SSOT_CHANGED": false
+        }
+      },
       "official_status": {
         "recreational": "ILLEGAL; LAW_30681_PAGE_1_VISIBLY_LIMITS_ACCESS_AND_COMMERCIAL_FRAMEWORK_TO_EXCLUSIVE_MEDICINAL_AND_THERAPEUTIC_PURPOSES_AND_PAGE_2_VISIBLY_KEEPS_COMMERCIALIZATION_CULTIVATION_OF_MARIHUANA_CANNABIS_SATIVA_IN_PENAL_CODE_ARTICLE_296A_OUTSIDE_THE_MEDICAL_LICENSE_EXCEPTION",
         "medical": "REGULATED; LAW_30681_PAGE_1_VISIBLY_REGULATES_MEDICINAL_AND_THERAPEUTIC_CANNABIS_USE_RESEARCH_PRODUCTION_IMPORTATION_AND_COMMERCIALIZATION_AND_CREATES_PATIENT_AND_OPERATOR_REGISTRIES_AND_LICENSES; DS_004_2023_SA_PAGES_3_5_8_VISIBLY_REGULATE_CURRENT_MEDICAL_THERAPEUTIC_ACCESS_DEFINITIONS_AND_LICENSES",

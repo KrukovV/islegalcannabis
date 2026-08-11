@@ -430,6 +430,28 @@ test("all collected current source records receive the complete revalidation sch
   ]) assert(Object.hasOwn(metadata, field), `missing ${field}`);
 });
 
+test("official gazette records named with Gaceta are revalidated", async () => {
+  const gacetaRecord = {
+    title: "Gaceta Oficial resolution",
+    url: "https://gazette.example/resolution.pdf",
+    source_kind: "GACETA_OFICIAL_CURRENT_RESOLUTION",
+    current: true,
+    effective: true,
+  };
+  const input = ledger([row("AA", [gacetaRecord])]);
+  const result = await runRevalidation({ ledger: input });
+  assert.equal(result.sourceCount, 1);
+  assert.equal(result.records[0].source, gacetaRecord);
+  assert.equal(gacetaRecord.revalidation.revalidation_state, "NEEDS_SEMANTIC_REVIEW");
+  assert.deepEqual(gacetaRecord.revalidation.schema_issues, [
+    "OWNER_MISSING",
+    "APPLICABILITY_MISSING",
+    "LOCATOR_MISSING",
+    "EXACT_FRAGMENT_MISSING",
+    "SCREENSHOT_STATE_MISSING",
+  ]);
+});
+
 test("canonical ledger persists revalidation state on every collected current official source", () => {
   const canonicalLedger = JSON.parse(fs.readFileSync(
     path.join(ROOT, "data", "official", "cannabis_law_visual_reviews.audit.json"),

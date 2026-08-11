@@ -206,7 +206,7 @@ function isOfficialSourceRecord(source, collectionPath) {
       stringValue(source.source_authority) ||
       stringValue(source.sourceAuthority) ||
       source.official_host_verified === true ||
-      /official|primary|law|regulat|gazette|ministry|court|parliament/i.test(
+      /official|primary|law|regulat|gazette|gaceta|diario|bulletin|ministry|court|parliament/i.test(
         `${source.source_type || ""} ${source.source_kind || ""} ${source.primary_or_context || ""}`,
       ),
   );

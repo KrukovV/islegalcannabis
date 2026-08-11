@@ -150,13 +150,14 @@ Statuses: pending | in_progress | done
 
 - [done] Implement tiered C0/C1/C2/C3 official-evidence revalidation in the canonical ledger. Local C0 bootstrap covers 1,459 current source records / 1,113 unique fetch URLs with zero network requests; 64/64 targeted Truth-First tests, 28/28 focused UI tests, dry-run, 307-row matrix rebuild and the one serial final pass-cycle are green. APPLY_ALLOWED=false and every product/SSOT/map/runtime no-mutation guard remains unchanged.
 
-- [in_progress] Execute the canonical 307-GEO Truth-First independent official-law re-audit proposal-only. 233/307 structured packets and 265/307 normalized independent colors are recorded after the 2026-08-12 PS CI checkpoint; 42 GEO remain without an independent color. The audit is paused at the user-requested stop point.
+- [in_progress] Execute the canonical 307-GEO Truth-First independent official-law re-audit proposal-only. 235/307 structured packets and 267/307 normalized independent colors are recorded after the PE 2026-08-12 current-source packet; 40 GEO remain without an independent color. PE is proposal-only GREEN because current MINSA/DIGEMID RENPUC proves the patient indication, registration, physician-prescription and licensed-pharmacy dispensing chain; historical captures remain dated comparison provenance only.
+- [done] Record PE's current official Law 30681, MINSA orientation, RENPUC, licensed-establishments page and direct PDF in the single ledger with owner/scope/locator/exact-fragment/C1-C3 metadata; matrix rebuild, targeted 65/65 tests and the serial `CI_WRITE_ROOT=1` pass-cycle passed with all no-mutation gates retained.
 
 <!-- truth-first-progress:start -->
 
-Current progress (2026-08-12, PS mandatory isLegal CI checkpoint PASS): 233/307 structured independent packets; 265/307 GEO with a normalized independent Truth Color; 42/307 without an independent color. No further GEO review is authorized at this stop point.
+Current progress (2026-08-12, PE current patient-access packet recorded): 235/307 structured independent packets; 267/307 GEO with a normalized independent Truth Color; 40/307 without an independent color. Distribution is GREEN=89, YELLOW=99, RED=17, explicit UNKNOWN=62 and no independent color=40. PE retains 11 annotated official source records, including direct Law 30681, MINSA/RENPUC, licensed-establishments page and official PDF URLs; the direct RENPUC endpoint `403` remains access metadata only. SSOT, map, runtime and production remain out of scope.
 
-Remaining GEO IDs: PA, PG, PE, PH, RE, RU, SH, KN, LC, SM, SA, SN, SER, KAS, SL, SX, SB, SO, GS, SS, LK, SD, SR, SY, TJ, TZ, TH, TL, TG, TO, TT, TN, TM, TC, TV, UG, UA, US, VI, YE, ZM, EH.
+Remaining GEO IDs: PG, PH, RE, RU, SH, KN, LC, SM, SA, SN, SER, KAS, SL, SX, SB, SO, GS, SS, LK, SD, SR, SY, TJ, TZ, TH, TL, TG, TO, TT, TN, TM, TC, TV, UG, UA, US, VI, EH, YE, ZM.
 
 This list is derived from the canonical ledger aliases defined in the re-audit specification; it is a progress record, not a legal input and not an apply authorization.
 

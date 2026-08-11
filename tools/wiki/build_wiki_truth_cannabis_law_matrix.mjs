@@ -547,15 +547,23 @@ const rows = geoList.map((geo) => {
         : "PENDING"
   }));
   const reviewedStandaloneSources = historicalVisualReviewStatus === "VISUALLY_VERIFIED"
-    ? visualRow?.verified_sources || []
+    ? [
+      ...(visualRow?.verified_sources || []),
+      ...(visualRow?.official_source_annotations || []),
+    ]
     : [];
   const acceptedVisualEvidenceForSource = (source) => {
-    const currentPath = source?.screenshot_path || source?.screenshotPath;
+    const currentPath = source?.current_screenshot_path || source?.screenshot_path || source?.screenshotPath;
     const currentCaptureValid = currentPath &&
       source?.screenshot_valid !== false &&
       source?.screenshotValid !== false;
     if (currentCaptureValid) {
-      return { kind: "CURRENT_STRICT_CAPTURE", path: currentPath };
+      return {
+        kind: source?.official_domain_visible === false
+          ? "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR"
+          : "CURRENT_STRICT_CAPTURE",
+        path: currentPath,
+      };
     }
     const historicalPath = source?.historical_screenshot_path || source?.historicalScreenshotPath;
     const historicalCaptureValid = historicalPath &&
@@ -593,11 +601,11 @@ const rows = geoList.map((geo) => {
     evidenceScope: source.evidence_scope || null,
     verification: "MANUAL_VISUAL_SCREENSHOT_REVIEW",
     confidence: "high",
-    note: visualRow.conclusion,
+    note: source.exact_fragment || source.note || visualRow.conclusion,
     screenshotPath: visualEvidence.path,
     visualEvidenceKind: visualEvidence.kind,
-    visualReview: visualEvidence.kind === "CURRENT_STRICT_CAPTURE"
-      ? visualRow.conclusion
+    visualReview: /^CURRENT_/.test(visualEvidence.kind)
+      ? source.visual_review_result || visualRow.conclusion
       : `${visualRow.conclusion} Historical validated evidence remains direct because the same source is explicitly current/effective and its direct fragment was rechecked; the current capture is access-state only.`
   }));
   const declaredSemanticLegalSources = (visualRow?.verified_sources || [])
