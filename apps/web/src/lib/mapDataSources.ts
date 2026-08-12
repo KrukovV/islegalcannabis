@@ -132,19 +132,10 @@ let OFFICIAL_OWNERSHIP_DATASET_CACHE: OfficialLinkOwnershipDataset | null = null
 
 const GEOJSON_FILE_CACHE = new Map<string, GeoJsonPayload | null>();
 
-function resolveDataRoot() {
-  const workspaceData = path.resolve(process.cwd(), "..", "..", "data");
-  if (fs.existsSync(path.join(workspaceData, "legal_ssot", "legal_ssot.json"))) {
-    return workspaceData;
-  }
-  const repoData = path.resolve(process.cwd(), "data");
-  if (fs.existsSync(path.join(repoData, "legal_ssot", "legal_ssot.json"))) {
-    return repoData;
-  }
-  return workspaceData;
-}
-
-const DATA_ROOT = resolveDataRoot();
+// Every web command runs in the apps/web workspace. Keep this path static so
+// Turbopack can trace only the declared data files instead of globbing the
+// complete repository through a dynamic process.cwd() expression.
+const DATA_ROOT = "../../data";
 const REPO_ROOT = path.dirname(DATA_ROOT);
 
 const DATA_FILE_PATHS: Record<string, string> = {

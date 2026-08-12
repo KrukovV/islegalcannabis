@@ -5,6 +5,18 @@ import path from "node:path";
 import { findNearestAllowed } from "@/lib/geo/nearestAllowed";
 
 describe("GET /api/nearest", () => {
+  it("uses static workspace data roots to avoid broad Turbopack filesystem scans", () => {
+    const sourcePaths = [
+      path.join(__dirname, "route.ts"),
+      path.resolve(__dirname, "../../../lib/mapDataSources.ts"),
+    ];
+    for (const sourcePath of sourcePaths) {
+      const source = fs.readFileSync(sourcePath, "utf8");
+      expect(source).toContain('const DATA_ROOT = "../../data";');
+      expect(source).not.toMatch(/process\.cwd\(\)[\s\S]{0,120}["']data["']/);
+    }
+  });
+
   function pickNearestCandidate() {
     const root = path.resolve(__dirname, "../../../../../..");
     const dirs = [

@@ -8,19 +8,9 @@ export const runtime = "nodejs";
 let isoNameMap: Map<string, string> | null = null;
 let stateNameMap: Map<string, string> | null = null;
 
-function resolveDataRoot() {
-  const workspaceData = path.resolve(process.cwd(), "..", "..", "data");
-  if (fs.existsSync(path.join(workspaceData, "iso3166", "iso3166-1.json"))) {
-    return workspaceData;
-  }
-  const repoData = path.resolve(process.cwd(), "data");
-  if (fs.existsSync(path.join(repoData, "iso3166", "iso3166-1.json"))) {
-    return repoData;
-  }
-  return workspaceData;
-}
-
-const DATA_ROOT = resolveDataRoot();
+// Web scripts and Next itself run from apps/web. Keep this path static so
+// Turbopack does not scan the complete repository during builds.
+const DATA_ROOT = "../../data";
 const ISO3166_PATH = path.join(DATA_ROOT, "iso3166", "iso3166-1.json");
 const US_STATE_CENTROIDS_PATH = path.join(DATA_ROOT, "geo", "us_state_centroids.json");
 
