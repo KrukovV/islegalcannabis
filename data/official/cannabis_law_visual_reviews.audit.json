@@ -138881,38 +138881,132 @@
           "title": "CENTIF Sénégal - Loi 97-18 du 1er décembre 1997 portant Code des Drogues",
           "url": "https://www.centif.sn/asset/attachements/lois/national/legislatifs/Infractions%20sous-jascent/Loi_97_18_%20portant_codes_des_drogues.pdf",
           "source_kind": "SENEGAL_CENTIF_OFFICIAL_CODE_DES_DROGUES_LOI_97_18_CANNABIS_CULTIVATION_TRAFFIC_PERSONAL_USE_PENALTIES",
+          "source_owner": "Cellule nationale de Traitement des Informations financières du Sénégal (CENTIF)",
+          "source_owner_geo": "SN",
+          "source_authority": "Senegal's administrative financial-intelligence authority under the Finance Ministry, publishing national legislation",
+          "source_type": "CURRENT_OFFICIAL_PRIMARY_NATIONAL_DRUG_CODE_PDF",
+          "primary_or_context": "PRIMARY_CANNABIS_CULTIVATION_USE_AND_PERSONAL_CONSUMPTION_PROHIBITION",
+          "applies_to_geo": [
+            "SN"
+          ],
+          "legal_basis_for_extension": "Loi n° 97-18 is a Senegal national Code des Drogues published by the Senegal CENTIF national-legislation repository; no foreign, parent, claimant or territorial extension is used.",
+          "official_fragment_locator": "Loi n° 97-18, Art. 8 (PDF p. 3), Art. 108 and Art. 109 (PDF p. 13); execution clause PDF p. 20",
+          "exact_fragment": "Art. 8. — La culture du pavot à opium, du cocaïer et de la plante de cannabis est interdite sur l’ensemble du territoire national. Art. 108 - Est interdit sur l’ensemble du territoire national, l’usage hors prescription médicale des drogues sous contrôle. Toute drogue trouvée en la possession d’un personne, qui en fait un usage de manière illicite est saisie et confisquée par décision judiciaire indépendamment de toute poursuite correctionnelle. Art. 109. — Nonobstant les dispositions des articles 95 à 102 du présent code, ceux qui de manière illicite, achètent, détiennent ou cultivent des plantes ou substances classées comme stupéfiants ou substances psychotropes dont la faible quantité permet de considérer qu’elles sont destinées à leur consommation personnelle sont punis d’un emprisonnement de 2 mois à 1 an et d’une amende égale au triple de la valeur des drogues saisies; s’il s’agit d’une plante ou d’une substance classée comme drogues à haut risque, y compris l’huile de cannabis, ou d’un dérivé de plante de cannabis autre que l’huile de cannabis, l’intéressé peut être dispensé de peine ou de l’exécution de celle-ci s’il n’a pas atteint l’âge de la majorité pénale, s’il n’est pas en état de récidive, ou si, par déclaration solennelle faite à l’audience, il s’engage à ne plus recommencer cet acte.",
+          "annotation": "Primary national cannabis evidence. Article 8 expressly prohibits cannabis-plant cultivation nationwide; Articles 108-109 prohibit non-prescription controlled-drug use and penalise illicit low-quantity purchase, possession or cultivation, expressly including cannabis oil and other cannabis-plant derivatives. The narrowly conditioned dispensation/execution-relief clause is retained as a penalty caveat, never decriminalization. General prescription wording is not treated as a cannabis patient-access axis; no current cannabis-specific patient, supply, dispensing or programme evidence is inferred from this source.",
+          "current": true,
+          "effective": true,
+          "current_effective_state": "OFFICIAL_CENTIF_PUBLICATION_RETAINED_WITH_CURRENT_RETRIEVAL_BLOCKED_2026_08_12",
+          "screenshot_state": "CURRENT_HEADLESS_WAF_BLOCKED_HISTORICAL_LEGAL_PAGE_VISUAL_REVIEW_RETAINED",
+          "screenshot_available": true,
+          "official_domain_visible": false,
+          "official_owner_visible": false,
+          "cannabis_specific": true,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "reviewed_by_human_visual": true,
+          "visual_review_result": "HISTORICAL_PDF_PAGES_3_12_13_20_VISUALLY_REVIEWED; CURRENT_HEADLESS_C3_RETURNED_HTTP_500_WEB_PAGE_BLOCKED_AND_CANNOT_RECONFIRM_THE_LEGAL_TEXT; STRICT_BROWSER_DOMAIN_ACCEPTANCE_FAILED_FOR_CURRENT_RETRIEVAL",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-42/SN/screenshots/SN-centif-code-drogues-page03-03.png",
+          "screenshot_paths": [
+            "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-42/SN/screenshots/SN-centif-code-drogues-page03-03.png",
+            "data/reviews/wiki-truth-307-visual-evidence/SN-centif-code-des-drogues-current-2026-08-12.png"
+          ],
           "note": "Official CENTIF Sénégal PDF of Loi 97-18 portant Code des Drogues. Visual review confirms the law title and articles. Page 3 visibly states the culture of opium poppy, coca bush and the cannabis plant is prohibited throughout the national territory, and requires owners/occupants to destroy such plantations or inform Agriculture/Judicial Police. Page 12 visibly sets 5-10 year imprisonment ranges for high-risk drug cultivation/production/traffic and 2-5 year ranges for facilitation/offer for personal consumption contexts. Page 13 visibly prohibits use outside medical prescription, imposes seizure/confiscation, and punishes illicit purchase, possession or cultivation of small quantities for personal consumption with 2 months to 1 year imprisonment and a fine equal to triple the value of the drugs seized; the same page explicitly includes cannabis oil and other cannabis-plant derivatives in that personal-consumption block, with possible dispensation/execution relief under listed conditions. Page 20 visibly carries the execution clause and Dakar 1 December 1997 signature context.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T03:40:21Z",
             "final_url": "https://www.centif.sn/asset/attachements/lois/national/legislatifs/Infractions%20sous-jascent/Loi_97_18_%20portant_codes_des_drogues.pdf",
-            "http_status": null,
+            "http_status": 500,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
+            "content_type": "text/html",
+            "content_length": 39218,
             "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "relevant_fragment_sha256": "cc6022f3ddbaf4724b079217cefbacebe9dc47003973db51c3fa6682b986fadb",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "WAF_BLOCKED",
+            "change_reason": "C1_NETWORK_ERROR_AND_C2_NO_USABLE_RESPONSE_C3_HTTP_500_WEB_PAGE_BLOCKED_ACCESS_STATE_ONLY",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "NEEDS_SEMANTIC_REVIEW"
+              "ACCESS_BLOCKED"
             ],
             "dependent_geos": [
               "SN"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "not_run_access_blocked",
+              "text_layer_length": null,
+              "ocr_used": false,
+              "relevant_pages": [],
+              "rendered_pages": []
+            },
+            "observed_block_page_sha256": "1e9196e7d6553f00034cfa9190000bc2a67df9ee18acc69f4eed3665caf64a19"
+          }
+        },
+        {
+          "title": "CENTIF Sénégal - current national-legislation index",
+          "url": "https://www.centif.sn/reglementation/fr/reglnation",
+          "source_kind": "SENEGAL_CENTIF_CURRENT_NATIONAL_LEGISLATION_INDEX_CODE_DES_DROGUES_CONTEXT",
+          "source_owner": "Cellule nationale de Traitement des Informations financières du Sénégal (CENTIF)",
+          "source_owner_geo": "SN",
+          "source_authority": "Senegal's administrative financial-intelligence authority under the Finance Ministry, publishing national legislation",
+          "source_type": "CURRENT_OFFICIAL_NATIONAL_LEGISLATION_INDEX_PAGE",
+          "primary_or_context": "CURRENTNESS_AND_OFFICIAL_PUBLICATION_CONTEXT_ONLY",
+          "applies_to_geo": [
+            "SN"
+          ],
+          "legal_basis_for_extension": "CENTIF's current Senegal national-legislation index identifies the domestic law title; no foreign, parent, claimant or territorial extension is used.",
+          "official_fragment_locator": "CENTIF regulation national index, Textes relatifs aux infractions sous-jacentes à la LBCFT list entry",
+          "exact_fragment": "Loi n° 97-18 du 1er décembre 1997 portant codes des drogues.",
+          "annotation": "Current official-owner and publication-context record: the CENTIF national-legislation index continues to list Loi n° 97-18. It does not itself establish a cannabis legal axis, repeal status, patient access, or a Truth Color; the direct PDF remains the sole legal-text evidence record.",
+          "current": true,
+          "effective": true,
+          "current_effective_state": "OFFICIAL_CENTIF_INDEX_RETAINED_WITH_CURRENT_RETRIEVAL_BLOCKED_2026_08_12",
+          "screenshot_state": "CURRENT_HEADLESS_WAF_BLOCKED_CONTEXT_CAPTURED",
+          "screenshot_available": true,
+          "official_domain_visible": false,
+          "official_owner_visible": false,
+          "cannabis_specific": false,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": false,
+          "reviewed_by_human_visual": false,
+          "visual_review_result": "CURRENT_HEADLESS_C3_RETURNED_HTTP_500_WEB_PAGE_BLOCKED; CONTEXT_ONLY_NOT_A_CANNABIS_LEGAL_AXIS_AND_NOT_CURRENTNESS_PROOF",
+          "screenshot_path": "data/reviews/wiki-truth-307-visual-evidence/SN-centif-national-legislation-index-current-2026-08-12.png",
+          "note": "The current CENTIF index is retained separately from the primary PDF so currentness/publication context cannot be conflated with the direct cannabis law.",
+          "revalidation": {
+            "checked_at": "2026-08-12T03:40:21Z",
+            "final_url": "https://www.centif.sn/reglementation/fr/reglnation",
+            "http_status": 500,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html",
+            "content_length": 39136,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "370e96ad7ea54bf32757bdfd96f8239b62b832b05f9c73dc39f946352872ac77",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "WAF_BLOCKED",
+            "change_reason": "C1_NETWORK_ERROR_AND_C2_NO_USABLE_RESPONSE_C3_HTTP_500_WEB_PAGE_BLOCKED_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
             ],
-            "semantic_probe": null
+            "queue_reasons": [
+              "ACCESS_BLOCKED"
+            ],
+            "dependent_geos": [
+              "SN"
+            ],
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "not_run_access_blocked",
+              "text_layer_length": null,
+              "ocr_used": false,
+              "relevant_pages": [],
+              "rendered_pages": []
+            },
+            "observed_block_page_sha256": "6e8b251ee722fe05cf7fac5a22f2fa07777a26ce47860029b5dc97a41395c597"
           }
         }
       ],
@@ -138925,7 +139019,77 @@
         "status": "MATCH_WITH_PERSONAL_USE_DISPENSATION_CAVEAT",
         "reason": "Senegal is visually verified from the official CENTIF Sénégal PDF of Loi 97-18 du 1er décembre 1997 portant Code des Drogues. The rendered official law page visibly prohibits cultivation of the cannabis plant throughout the national territory. The same law visibly prohibits use of controlled drugs outside medical prescription and orders seizure/confiscation/destruction. Article 109 visibly punishes illicit purchase, possession or cultivation of small quantities for personal consumption with 2 months to 1 year imprisonment and a fine equal to triple the value of seized drugs, and explicitly includes cannabis oil and other cannabis-plant derivatives in that block; it also allows possible dispensation or relief from execution of sentence for listed non-recidivist/minor/undertaking-not-to-repeat conditions. Articles 95-100 visibly set broader custodial ranges for cultivation/production/traffic/facilitation/offer contexts. Project recreational=ILLEGAL and enforcement=STRICT are supported, with the Article 109 dispensation caveat. Project medical=NONE is not contradicted by the reviewed source because no cannabis-specific medical patient-access programme was confirmed; the source only shows general controlled-drug medical-prescription framing and an express cannabis-cultivation ban. No project status SSOT was changed."
       },
-      "conclusion": "Senegal is closed as visually verified direct official cannabis-law evidence from the CENTIF Sénégal Code des Drogues PDF. The evidence supports project ILLEGAL/NONE/STRICT with an explicit caveat: Article 109 provides possible dispensation or sentence-execution relief for limited personal-consumption contexts under listed conditions, but possession/cultivation/use remains prohibited and custodial penalties are visible. No project status SSOT was changed."
+      "conclusion": "Senegal has preserved primary official evidence of cannabis cultivation prohibition and cannabis-oil/derivative personal-consumption penalties, but the current CENTIF endpoints returned only access-block pages. The Code itself establishes a separate Table II/III medical-authorisation framework whose current cannabis classification, implementing schedule and patient applicability were not retrievable. The proposal-only independent result is therefore UNKNOWN for the explicit reason LEGAL_APPLICABILITY_UNRESOLVED; the access failure is not a negative legal conclusion. No project status SSOT was changed.",
+      "independent_truth_color": "UNKNOWN",
+      "independent_truth_status": "CURRENT_CANNABIS_PROHIBITION_WITH_SCHEDULE_CLASSIFICATION_AND_MEDICAL_APPLICABILITY_UNRESOLVED",
+      "independent_truth_rule": "GENERAL_CURRENT_CANNABIS_PROHIBITION_WITH_SCHEDULE_CLASSIFICATION_AND_MEDICAL_APPLICABILITY_UNRESOLVED",
+      "independent_truth_reviewed_at": "2026-08-12T03:40:21Z",
+      "independent_review_state": "COMPLETE_LEGAL_TRUTH_STRICT_VISUAL_ACCEPTANCE_BLOCKED",
+      "independent_review": {
+        "reviewed_at": "2026-08-12T03:40:21Z",
+        "method": "C0_LOCAL_SCHEMA_C1_CONDITIONAL_HTTP_C2_RETRIEVAL_C3_HEADLESS_ACCESS_BLOCK_REVIEW_WITH_RETAINED_HISTORICAL_OFFICIAL_PDF_TEXT",
+        "legal_conclusion": "CURRENT_CANNABIS_PROHIBITION_WITH_SCHEDULE_CLASSIFICATION_AND_MEDICAL_APPLICABILITY_UNRESOLVED",
+        "official_truth_color": "UNKNOWN",
+        "independent_truth_rule": "GENERAL_CURRENT_CANNABIS_PROHIBITION_WITH_SCHEDULE_CLASSIFICATION_AND_MEDICAL_APPLICABILITY_UNRESOLVED",
+        "applicability_reason": "LEGAL_APPLICABILITY_UNRESOLVED",
+        "evidence_axes": {
+          "cannabis_specificity": "YES_RETAINED_OFFICIAL_CODE_ARTICLE_8_NAMES_THE_CANNABIS_PLANT_AND_ARTICLE_109_NAMES_CANNABIS_OIL_AND_OTHER_CANNABIS_PLANT_DERIVATIVES",
+          "medical_cannabis_law": "UNKNOWN_CODE_ARTICLES_2_6_10_TO_12_CREATE_TABLE_BASED_MEDICAL_AUTHORISATION_RULES_BUT_NO_CURRENT_CANNABIS_CLASSIFICATION_OR_CANNABIS_SPECIFIC_AUTHORISATION_WAS_RETRIEVABLE",
+          "patient_eligible": "UNKNOWN_NO_CURRENT_CANNABIS_SPECIFIC_ELIGIBILITY_CRITERIA_WERE_PROVED",
+          "prescriber_route": "UNKNOWN_GENERIC_CODE_PRESCRIPTION_LANGUAGE_IS_NOT_A_CANNABIS_SPECIFIC_PATIENT_ROUTE",
+          "registration_route": "UNKNOWN_NO_CURRENT_CANNABIS_PATIENT_REGISTRY_OR_CARD_ROUTE_WAS_PROVED",
+          "lawful_supply": "UNKNOWN_NO_CURRENT_CANNABIS_SPECIFIC_AUTHORISATION_OR_SUPPLY_RECORD_WAS_PROVED",
+          "pharmacy_or_dispensary": "UNKNOWN_NO_CURRENT_CANNABIS_SPECIFIC_PHARMACY_OR_DISPENSARY_ROUTE_WAS_PROVED",
+          "import_route": "UNKNOWN_NO_CURRENT_CANNABIS_PATIENT_IMPORT_ROUTE_WAS_PROVED",
+          "programme_commenced": "UNKNOWN_NO_CURRENT_CANNABIS_SPECIFIC_COMMENCEMENT_OR_PROGRAMME_RECORD_WAS_PROVED",
+          "programme_operational": "UNKNOWN_NO_CURRENT_CANNABIS_PATIENT_OPERATION_RECORD_WAS_PROVED",
+          "recreational_possession": "NO_RETAINED_ARTICLE_109_PENALISES_ILLICIT_LOW_QUANTITY_PURCHASE_POSSESSION_OR_CULTIVATION_AND_EXPRESSLY_INCLUDES_CANNABIS_OIL_AND_OTHER_CANNABIS_PLANT_DERIVATIVES_SUBJECT_TO_NARROW_DISPENSATION_CONDITIONS",
+          "recreational_supply": "NO_RETAINED_CODE_ARTICLE_9_PROHIBITS_ALL_LISTED_TABLE_I_PRODUCTION_COMMERCE_DISTRIBUTION_TRANSPORT_POSSESSION_OFFER_IMPORT_EXPORT_AND_TRANSIT_BUT_CURRENT_CANNABIS_TABLE_CLASSIFICATION_WAS_NOT_RETRIEVABLE",
+          "recreational_cultivation": "NO_RETAINED_ARTICLE_8_EXPRESSLY_PROHIBITS_CANNABIS_PLANT_CULTIVATION_THROUGHOUT_NATIONAL_TERRITORY",
+          "penalty_regime": "YES_RETAINED_ARTICLE_109_SETS_TWO_MONTH_TO_ONE_YEAR_IMPRISONMENT_AND_TRIPLE_VALUE_FINE_FOR_ILLICIT_PERSONAL_CONSUMPTION_CONDUCT_WITH_NARROW_CONDITIONAL_DISPENSATION_OR_EXECUTION_RELIEF"
+        },
+        "minimum_proven_axes": [
+          "RETAINED_OFFICIAL_CANNABIS_PLANT_CULTIVATION_PROHIBITION",
+          "RETAINED_OFFICIAL_CANNABIS_OIL_AND_DERIVATIVE_PERSONAL_CONSUMPTION_PENALTY",
+          "CURRENT_CENTIF_ENDPOINT_ACCESS_BLOCKED_STATE"
+        ],
+        "unresolved_axes": [
+          "CURRENT_CANNABIS_MEMBERSHIP_OF_TABLE_I_VERSUS_TABLE_II_OR_III",
+          "CURRENT_CANNABIS_SPECIFIC_MEDICAL_AUTHORISATION_OR_EXCEPTION",
+          "CURRENT_CANNABIS_PATIENT_ELIGIBILITY_PRESCRIBER_SUPPLY_AND_DISPENSING",
+          "CURRENT_EFFECTIVE_STATUS_OF_THE_RETAINED_CODE_TEXT",
+          "STRICT_VISUAL_ACCEPTANCE_OF_THE_CURRENT_OFFICIAL_LEGAL_TEXT"
+        ],
+        "lifecycle": {
+          "currentness": "The official CENTIF national-legislation index and direct Code PDF URLs were retained and schema-normalized. C1 recorded NETWORK_ERROR and C2 produced no usable document response; C3 headless navigation received HTTP 500 Web Page Blocked for both endpoints. An access-block response is not proof of repeal, prohibition, availability or unavailability.",
+          "effective_date": "The retained Code says its tables are established and modified by decree (Article 6). The decisive current cannabis schedule/classification was not retrievable, so no current effective cannabis medical exception or its absence is asserted.",
+          "rule": "Positive historic/cached official prohibition evidence alone cannot derive RED while the same Code contains a table-based medical-authorisation framework and the current cannabis classification/applicability cannot be proved. Generic controlled-drug prescription wording cannot manufacture YELLOW or patient access. The explicit fail-closed result is UNKNOWN for legal applicability, not for a timeout, WAF or blank viewer."
+        },
+        "source_annotations": [
+          "CENTIF Code des Drogues Article 8 directly prohibits cannabis-plant cultivation nationwide; Article 109 directly names cannabis oil and other cannabis-plant derivatives in its illicit personal-consumption penalty clause. The Article 109 dispensation/execution-relief conditions are preserved as penalty context and never treated as decriminalization.",
+          "The same retained Code's Articles 2, 6 and 10-12 separate Table I prohibition from Table II/III medical-authorisation machinery. No current cannabis-specific table entry or current authorised patient route was retrieved, so neither RED nor YELLOW is inferred from those generic clauses.",
+          "The separate CENTIF national-legislation index is owner/currentness context only. Its current C3 capture is a Web Page Blocked response and is not used as a legal conclusion or currentness proof.",
+          "The official Ministry/ARP searches were used only to seek current cannabis-specific exception or patient-route material; generic medicines, plant-medicine and regulator-licensing materials are not cannabis patient access and are not legal inputs here."
+        ],
+        "strict_visual_acceptance": "BLOCKED: historical official PDF page captures visually show the cited Code text, while both current headless C3 navigations visibly returned HTTP 500 Web Page Blocked. No WAF page is treated as legal evidence and no browser address bar was used.",
+        "current_layer_comparison": {
+          "project_status": "PROJECT_RECREATIONAL_ILLEGAL_AND_ENFORCEMENT_STRICT_MATCH_RETAINED_CODE_PROHIBITION_CONTEXT_BUT_ARE_NOT_APPLIED_OR_USED_AS_INDEPENDENT_TRUTH_INPUT; PROJECT_MEDICAL_NONE_REMAINS_UNASSESSED",
+          "runtime_map_color": "UNCONFIRMED_NOT_RECAPTURED_IN_THIS_LEGAL_PACKET",
+          "runtime_api_status": "UNCONFIRMED_NOT_RECAPTURED_IN_THIS_LEGAL_PACKET",
+          "wiki_truth_proposal": "UNKNOWN_PROPOSAL_FROM_THIS_INDEPENDENT_PACKET_AFTER_MATRIX_REBUILD",
+          "ssot": "UNTOUCHED_NO_APPLICATION_AUTHORIZED"
+        },
+        "no_mutation": {
+          "apply_allowed": false,
+          "ssot_changed": false,
+          "map_colors_changed": false,
+          "production_touched": false,
+          "runtime_touched": false,
+          "deployment_touched": false
+        },
+        "recommended_action": "RETAIN_PROPOSAL_ONLY_UNKNOWN_WITH_LEGAL_APPLICABILITY_UNRESOLVED_UNTIL_A_CURRENT_OFFICIAL_CANNABIS_SCHEDULE_OR_CANNABIS_SPECIFIC_PATIENT_EXCEPTION_IS_RETRIEVABLE",
+        "confidence": "HIGH_FOR_RETAINED_CANNABIS_PROHIBITION_TEXT_AND_CURRENT_WAF_ACCESS_STATE; LOW_FOR_CURRENT_CANNABIS_SCHEDULE_AND_MEDICAL_APPLICABILITY"
+      }
     },
     {
       "geo": "SER",
@@ -148332,6 +148496,54 @@
         "ZM"
       ],
       "detail": "SA is proposal-only YELLOW from a current SFDA cannabis/cannabis-resin schedule bridge plus the same current legal chain's licensed-doctor prescription, treatment-product and dispenser-pharmacy possession boundary. C0 made zero HTTP requests; C1 fetched three unique URLs once at HTTP 200. C2 used pdftotext for the text PDF; the scanned schedule had no usable text layer and received OCR only before rendered page-6 visual review. No current patient eligibility, registry, product issuance, pharmacy stock, dispensing or active service is proved, so no GREEN inference occurred. Targeted revalidation and reconciliation tests passed 66/66; the required serial root pass cycle passed. The counts use only compatible independent-truth color aliases in the rebuilt 307-row matrix. APPLY_ALLOWED=false; PRODUCTION_TOUCHED=false; MAP_COLORS_CHANGED=false; SSOT_CHANGED=false."
+    },
+    {
+      "geo": "SN",
+      "at": "2026-08-12T03:49:02Z",
+      "stage": "AUDIT_STOP_CHECKPOINT",
+      "result": "CI_STATUS=PASS;SMOKE_STATUS=PASS;POST_CHECKS_OK=1;HUB_STAGE_REPORT_OK=1;PROCESS_SLOT_RUNTIME_GUARD=PASS;PASS_CYCLE_EXIT_RC=0",
+      "ci_report_sha256": "87d086f0c0667c3ee379906da2d8b076a1506e36f8ace14c9f73d3fe342fb883",
+      "structured_independent_packets": 249,
+      "normalized_independent_truth_colors": 279,
+      "remaining_without_independent_color": 28,
+      "normalized_color_distribution": {
+        "GREEN": 91,
+        "YELLOW": 106,
+        "RED": 19,
+        "UNKNOWN": 63,
+        "NO_INDEPENDENT_COLOR": 28
+      },
+      "remaining_canonical_geos": [
+        "RU",
+        "SH",
+        "SER",
+        "KAS",
+        "SL",
+        "SX",
+        "SB",
+        "SO",
+        "GS",
+        "SS",
+        "LK",
+        "SD",
+        "SR",
+        "SY",
+        "TJ",
+        "TZ",
+        "TH",
+        "TL",
+        "TG",
+        "TO",
+        "TN",
+        "TM",
+        "TC",
+        "TV",
+        "US",
+        "EH",
+        "YE",
+        "ZM"
+      ],
+      "detail": "SN is proposal-only UNKNOWN with the explicit LEGAL_APPLICABILITY_UNRESOLVED reason. The retained official CENTIF Code directly establishes national cannabis-cultivation prohibition and cannabis-oil/derivative personal-consumption penalty context, while its Table I/II/III system leaves current cannabis classification and medical-authorisation applicability unresolved until a current cannabis-specific schedule is retrievable. C0 made zero HTTP requests; C1 attempted two unique official URLs once and recorded access-only errors; C2 had no usable response; C3 headless review returned HTTP 500 Web Page Blocked for both URLs. WAF/access states do not derive a legal conclusion. Targeted revalidation and reconciliation tests passed 66/66; global C0 dry-run fetched zero URLs; the required serial root pass cycle passed. The counts use compatible independent-truth aliases in the rebuilt 307-row matrix. APPLY_ALLOWED=false; PRODUCTION_TOUCHED=false; MAP_COLORS_CHANGED=false; SSOT_CHANGED=false."
     }
   ]
 }

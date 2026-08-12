@@ -29,7 +29,7 @@
     "colorReauditDirectOrComposite": 31,
     "colorReauditContextClaimantOrNegative": 8,
     "supplementalOfficialLinks": 32,
-    "allPublishedOfficialLinks": 1377,
+    "allPublishedOfficialLinks": 1378,
     "rowsWithPublishedOfficialLinks": 307,
     "rowsWithAnyOfficialUrl": 307
   },
@@ -75647,25 +75647,46 @@
         "medical": "NONE_OR_NOT_CONFIRMED_AS_CANNABIS_PATIENT_ACCESS; REVIEWED_CODE_DES_DROGUES_VISIBLY_LIMITS_CONTROLLED_DRUG_USE_TO_MEDICAL_PRESCRIPTION_CONTEXTS_BUT NO_CANNABIS_SPECIFIC_PATIENT_PROGRAMME_OR_MEDICAL_CANNABIS_ACCESS_PAGE_WAS_CONFIRMED_AND_CANNABIS_PLANT_CULTIVATION_IS_EXPRESSLY_PROHIBITED",
         "enforcement": "STRICT_WITH_DISPENSATION_CAVEAT; OFFICIAL_CODE_VISIBLY_SETS_CUSTODIAL_PENALTIES_FOR HIGH_RISK_DRUG_CULTIVATION_TRAFFIC_AND_PERSONAL_CONSUMPTION_POSSESSION_CULTIVATION_INCLUDING_CANNABIS_OIL_OR_DERIVATIVES_WHILE_ARTICLE_109_ALLOWS_POSSIBLE_DISPENSATION_OR_EXECUTION_RELIEF_FOR_NON_RECIDIVIST_PERSONAL_CONSUMPTION_CONTEXTS_UNDER_LISTED_CONDITIONS"
       },
-      "independentTruth": null,
+      "independentTruth": {
+        "color": "UNKNOWN",
+        "rule": "GENERAL_CURRENT_CANNABIS_PROHIBITION_WITH_SCHEDULE_CLASSIFICATION_AND_MEDICAL_APPLICABILITY_UNRESOLVED",
+        "reviewedAt": "2026-08-12T03:40:21Z",
+        "conclusion": "CURRENT_CANNABIS_PROHIBITION_WITH_SCHEDULE_CLASSIFICATION_AND_MEDICAL_APPLICABILITY_UNRESOLVED"
+      },
       "directOfficialCannabisLawLinks": [
         {
           "title": "CENTIF Sénégal - Loi 97-18 du 1er décembre 1997 portant Code des Drogues",
           "url": "https://www.centif.sn/asset/attachements/lois/national/legislatifs/Infractions%20sous-jascent/Loi_97_18_%20portant_codes_des_drogues.pdf",
           "sourceKind": "SENEGAL_CENTIF_OFFICIAL_CODE_DES_DROGUES_LOI_97_18_CANNABIS_CULTIVATION_TRAFFIC_PERSONAL_USE_PENALTIES",
+          "sourceOwnerGeo": "SN",
+          "appliesToGeos": [
+            "SN"
+          ],
+          "legalBasisForExtension": "Loi n° 97-18 is a Senegal national Code des Drogues published by the Senegal CENTIF national-legislation repository; no foreign, parent, claimant or territorial extension is used.",
+          "officialPublisher": "Senegal's administrative financial-intelligence authority under the Finance Ministry, publishing national legislation",
+          "sourceType": "CURRENT_OFFICIAL_PRIMARY_NATIONAL_DRUG_CODE_PDF",
+          "primaryOrContext": "PRIMARY_CANNABIS_CULTIVATION_USE_AND_PERSONAL_CONSUMPTION_PROHIBITION",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "screenshotAvailable": true,
+          "officialOwnerVisible": false,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T03:40:21Z",
             "final_url": "https://www.centif.sn/asset/attachements/lois/national/legislatifs/Infractions%20sous-jascent/Loi_97_18_%20portant_codes_des_drogues.pdf",
-            "http_status": null,
+            "http_status": 500,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
+            "content_type": "text/html",
+            "content_length": 39218,
             "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "relevant_fragment_sha256": "cc6022f3ddbaf4724b079217cefbacebe9dc47003973db51c3fa6682b986fadb",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "WAF_BLOCKED",
+            "change_reason": "C1_NETWORK_ERROR_AND_C2_NO_USABLE_RESPONSE_C3_HTTP_500_WEB_PAGE_BLOCKED_ACCESS_STATE_ONLY",
             "queue": [
               "C2",
               "C3"
@@ -75677,10 +75698,59 @@
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official CENTIF Sénégal PDF of Loi 97-18 portant Code des Drogues. Visual review confirms the law title and articles. Page 3 visibly states the culture of opium poppy, coca bush and the cannabis plant is prohibited throughout the national territory, and requires owners/occupants to destroy such plantations or inform Agriculture/Judicial Police. Page 12 visibly sets 5-10 year imprisonment ranges for high-risk drug cultivation/production/traffic and 2-5 year ranges for facilitation/offer for personal consumption contexts. Page 13 visibly prohibits use outside medical prescription, imposes seizure/confiscation, and punishes illicit purchase, possession or cultivation of small quantities for personal consumption with 2 months to 1 year imprisonment and a fine equal to triple the value of the drugs seized; the same page explicitly includes cannabis oil and other cannabis-plant derivatives in that personal-consumption block, with possible dispensation/execution relief under listed conditions. Page 20 visibly carries the execution clause and Dakar 1 December 1997 signature context.",
+          "note": "Art. 8. — La culture du pavot à opium, du cocaïer et de la plante de cannabis est interdite sur l’ensemble du territoire national. Art. 108 - Est interdit sur l’ensemble du territoire national, l’usage hors prescription médicale des drogues sous contrôle. Toute drogue trouvée en la possession d’un personne, qui en fait un usage de manière illicite est saisie et confisquée par décision judiciaire indépendamment de toute poursuite correctionnelle. Art. 109. — Nonobstant les dispositions des articles 95 à 102 du présent code, ceux qui de manière illicite, achètent, détiennent ou cultivent des plantes ou substances classées comme stupéfiants ou substances psychotropes dont la faible quantité permet de considérer qu’elles sont destinées à leur consommation personnelle sont punis d’un emprisonnement de 2 mois à 1 an et d’une amende égale au triple de la valeur des drogues saisies; s’il s’agit d’une plante ou d’une substance classée comme drogues à haut risque, y compris l’huile de cannabis, ou d’un dérivé de plante de cannabis autre que l’huile de cannabis, l’intéressé peut être dispensé de peine ou de l’exécution de celle-ci s’il n’a pas atteint l’âge de la majorité pénale, s’il n’est pas en état de récidive, ou si, par déclaration solennelle faite à l’audience, il s’engage à ne plus recommencer cet acte.",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-42/SN/screenshots/SN-centif-code-drogues-page03-03.png",
-          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "Senegal is closed as visually verified direct official cannabis-law evidence from the CENTIF Sénégal Code des Drogues PDF. The evidence supports project ILLEGAL/NONE/STRICT with an explicit caveat: Article 109 provides possible dispensation or sentence-execution relief for limited personal-consumption contexts under listed conditions, but possession/cultivation/use remains prohibited and custodial penalties are visible. No project status SSOT was changed."
+          "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
+          "visualReview": "HISTORICAL_PDF_PAGES_3_12_13_20_VISUALLY_REVIEWED; CURRENT_HEADLESS_C3_RETURNED_HTTP_500_WEB_PAGE_BLOCKED_AND_CANNOT_RECONFIRM_THE_LEGAL_TEXT; STRICT_BROWSER_DOMAIN_ACCEPTANCE_FAILED_FOR_CURRENT_RETRIEVAL"
+        },
+        {
+          "title": "CENTIF Sénégal - current national-legislation index",
+          "url": "https://www.centif.sn/reglementation/fr/reglnation",
+          "sourceKind": "SENEGAL_CENTIF_CURRENT_NATIONAL_LEGISLATION_INDEX_CODE_DES_DROGUES_CONTEXT",
+          "sourceOwnerGeo": "SN",
+          "appliesToGeos": [
+            "SN"
+          ],
+          "legalBasisForExtension": "CENTIF's current Senegal national-legislation index identifies the domestic law title; no foreign, parent, claimant or territorial extension is used.",
+          "officialPublisher": "Senegal's administrative financial-intelligence authority under the Finance Ministry, publishing national legislation",
+          "sourceType": "CURRENT_OFFICIAL_NATIONAL_LEGISLATION_INDEX_PAGE",
+          "primaryOrContext": "CURRENTNESS_AND_OFFICIAL_PUBLICATION_CONTEXT_ONLY",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "screenshotAvailable": true,
+          "officialOwnerVisible": false,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": false,
+          "effectiveRuleVisible": false,
+          "revalidation": {
+            "checked_at": "2026-08-12T03:40:21Z",
+            "final_url": "https://www.centif.sn/reglementation/fr/reglnation",
+            "http_status": 500,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html",
+            "content_length": 39136,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "370e96ad7ea54bf32757bdfd96f8239b62b832b05f9c73dc39f946352872ac77",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "WAF_BLOCKED",
+            "change_reason": "C1_NETWORK_ERROR_AND_C2_NO_USABLE_RESPONSE_C3_HTTP_500_WEB_PAGE_BLOCKED_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "SN"
+            ]
+          },
+          "evidenceScope": null,
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
+          "confidence": "high",
+          "note": "Loi n° 97-18 du 1er décembre 1997 portant codes des drogues.",
+          "screenshotPath": "data/reviews/wiki-truth-307-visual-evidence/SN-centif-national-legislation-index-current-2026-08-12.png",
+          "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
+          "visualReview": "CURRENT_HEADLESS_C3_RETURNED_HTTP_500_WEB_PAGE_BLOCKED; CONTEXT_ONLY_NOT_A_CANNABIS_LEGAL_AXIS_AND_NOT_CURRENTNESS_PROOF"
         }
       ],
       "candidateLinksAwaitingVisualReview": [],
@@ -75697,10 +75767,11 @@
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-42/SN/screenshots/SN-centif-code-drogues-page03-03.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-42/SN/screenshots/SN-centif-code-drogues-page12-12.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-42/SN/screenshots/SN-centif-code-drogues-page13-13.png",
-        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-42/SN/screenshots/SN-centif-code-drogues-page20-20.png"
+        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-42/SN/screenshots/SN-centif-code-drogues-page20-20.png",
+        "data/reviews/wiki-truth-307-visual-evidence/SN-centif-national-legislation-index-current-2026-08-12.png"
       ],
       "reviewConfidence": "high",
-      "reviewNotes": "VISUALLY_VERIFIED: Senegal is closed as visually verified direct official cannabis-law evidence from the CENTIF Sénégal Code des Drogues PDF. The evidence supports project ILLEGAL/NONE/STRICT with an explicit caveat: Article 109 provides possible dispensation or sentence-execution relief for limited personal-consumption contexts under listed conditions, but possession/cultivation/use remains prohibited and custodial penalties are visible. No project status SSOT was changed.",
+      "reviewNotes": "VISUALLY_VERIFIED: Senegal has preserved primary official evidence of cannabis cultivation prohibition and cannabis-oil/derivative personal-consumption penalties, but the current CENTIF endpoints returned only access-block pages. The Code itself establishes a separate Table II/III medical-authorisation framework whose current cannabis classification, implementing schedule and patient applicability were not retrievable. The proposal-only independent result is therefore UNKNOWN for the explicit reason LEGAL_APPLICABILITY_UNRESOLVED; the access failure is not a negative legal conclusion. No project status SSOT was changed.",
       "truthLayers": {
         "primaryLaw": {
           "source": "DIRECT_OFFICIAL_LAW",
