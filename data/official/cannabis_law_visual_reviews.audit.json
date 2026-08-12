@@ -102,13 +102,12 @@
           "cannabis_specific": true,
           "effective": true,
           "current": true,
-          "effective_date": "2026-01-01",
-          "official_fragment_locator": "Act No. 167/1998, § 5(12)-(13), as amended by Act No. 270/2025 Sb.; official e-Sbírka full-text tab.",
+          "effective_date": "Page retrieved 2026-08-10; linked protocol HTTP Last-Modified 2026-04-29.",
+          "official_fragment_locator": "Protocols list, cannabinoid-treatment entry.",
           "exact_fragment": "Povolení k zacházení se nevyžaduje k přechovávání omamné látky konopí ... fyzickými osobami staršími 21 let pro vlastní potřebu v množství nejvýše 100 g ve svém obydlí nebo 25 g mimo své obydlí.",
           "source_annotation": "Current primary law. Adults older than 21 require no handling permit for personal possession up to 100 g at home or 25 g outside and personal cultivation up to three cannabis plants.",
           "direct_fragment_available": true,
           "direct_fragment": "The current Government page lists “Protocol de prescripció i dispensació de cannabinoïdes pel tractament de l’espasticitat en Esclerosi Múltiple” as a downloadable 394KB PDF.",
-          "effective_date": "Page retrieved 2026-08-10; linked protocol HTTP Last-Modified 2026-04-29.",
           "semantic_legal_axis": true,
           "semantic_reviewed_by_human": true,
           "official_host_verified": true,
@@ -123,7 +122,6 @@
           "annotation_status": "CURRENT_OFFICIAL_INDEX_CONFIRMS_PROTOCOL_PUBLISHED",
           "visual_review_result": "Fresh direct official HTML confirms the protocol remains published; visual validity relies on the separately reviewed protocol cover and operative pages.",
           "legal_axes": [],
-          "official_fragment_locator": "Protocols list, cannabinoid-treatment entry.",
           "evidence_role": "CURRENT_PUBLICATION_OF_NAMED_PRODUCT_PROTOCOL",
           "screenshot_paths": [],
           "revalidation": {
@@ -168,7 +166,7 @@
           "cannabis_specific": true,
           "effective": true,
           "current": true,
-          "official_fragment_locator": "Arizona Revised Statutes § 36-2852(A)(1)-(2), current Arizona Legislature page.",
+          "official_fragment_locator": "PDF cover p.1; cannabinoid commission and eligibility p.5; patient import, special prescription and ambulatory dispensing p.6",
           "exact_fragment": "A.R.S. § 36-2852(A): for an individual at least twenty-one, listed possession, consuming, purchasing, transport, personal home cultivation and non-remunerated transfer acts are lawful, are not an offense, and cannot ground detention, arrest or penalties; subsection (A)(1) permits one ounce or less and (A)(2) up to six plants at the primary residence subject to conditions.",
           "source_annotation": "Current Arizona Legislature primary statute for US-AZ. It proves listed adult possession, consumption, purchase, limited home cultivation and non-remunerated transfer are lawful; this source is distinct from the separate patient-programme sources.",
           "direct_fragment_available": true,
@@ -195,7 +193,6 @@
             "import_route:YES",
             "programme_operational:YES_LIMITED_PRODUCT_ROUTE"
           ],
-          "official_fragment_locator": "PDF cover p.1; cannabinoid commission and eligibility p.5; patient import, special prescription and ambulatory dispensing p.6",
           "evidence_role": "LIMITED_MEDICINAL_PRODUCT_ROUTE",
           "screenshot_path": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/AD-govern-protocol-patient-import-dispensing-2015-visual-2026-08-09.png",
           "screenshot_paths": [
@@ -21844,7 +21841,7 @@
           "source_kind": "NATIONAL_OFFICIAL_MEDICAL_CANNABIS_LAW_PDF",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/CO-medical-law.png",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:32:58.578Z",
             "final_url": "https://www1.funcionpublica.gov.co/eva/gestornormativo/norma_pdf.php?i=80394",
             "http_status": null,
             "etag": null,
@@ -21853,16 +21850,16 @@
             "content_length": null,
             "document_sha256": null,
             "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "GREEN_OR_RED_CRITICAL_SOURCE",
-              "NEEDS_SEMANTIC_REVIEW"
+              "ACCESS_BLOCKED",
+              "GREEN_OR_RED_CRITICAL_SOURCE"
             ],
             "dependent_geos": [
               "CO"
@@ -21882,18 +21879,18 @@
           "source_kind": "NATIONAL_CONSTITUTIONAL_COURT_OFFICIAL_JUDGMENT",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/CO-personal-dose-ruling.png",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:32:58.578Z",
             "final_url": "https://www.corteconstitucional.gov.co/relatoria/2023/C-127-23",
-            "http_status": null,
-            "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
+            "http_status": 200,
+            "etag": "\"02ce6af428dd1:0\"",
+            "last_modified": "Mon, 10 Aug 2026 18:16:52 GMT",
+            "content_type": "text/html",
+            "content_length": 4002,
+            "document_sha256": "a9da4233fddff530db2660eb8249cbc7c9f14060c987eaf66fbd99c01a1c4e2c",
             "relevant_fragment_sha256": null,
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -96942,7 +96939,7 @@
           ],
           "territorial_applicability": "UNRESOLVED_FOR_BJN",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:32:58.578Z",
             "final_url": "https://www1.funcionpublica.gov.co/eva/gestornormativo/norma_pdf.php?i=80394",
             "http_status": null,
             "etag": null,
@@ -96951,16 +96948,16 @@
             "content_length": null,
             "document_sha256": null,
             "relevant_fragment_sha256": "d4c239c392d1647c74b343c035ad962c6fbc1a9fc4952aeddea8e2e13bf0bccb",
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:LOCATOR_MISSING",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "DISPUTED_OR_COMPOSITE_GEO",
-              "NEEDS_SEMANTIC_REVIEW"
+              "ACCESS_BLOCKED",
+              "DISPUTED_OR_COMPOSITE_GEO"
             ],
             "dependent_geos": [
               "BJN",
@@ -97092,7 +97089,7 @@
           "current_validity": "CURRENT_TERRITORIAL_APPLICABILITY_UNRESOLVED_FOR_DISPUTED_BJN",
           "visual_summary": "Historical visual evidence confirms Colombian cannabis-law text, but it is claimant-state context and cannot prove a unitary BJN cannabis regime.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:32:58.578Z",
             "final_url": "https://www1.funcionpublica.gov.co/eva/gestornormativo/norma_pdf.php?i=80394",
             "http_status": null,
             "etag": null,
@@ -97101,16 +97098,16 @@
             "content_length": null,
             "document_sha256": null,
             "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "DISPUTED_OR_COMPOSITE_GEO",
-              "NEEDS_SEMANTIC_REVIEW"
+              "ACCESS_BLOCKED",
+              "DISPUTED_OR_COMPOSITE_GEO"
             ],
             "dependent_geos": [
               "BJN",
@@ -97153,18 +97150,18 @@
           "current_validity": "CURRENT_TERRITORIAL_APPLICABILITY_UNRESOLVED_FOR_DISPUTED_BJN",
           "visual_summary": "Historical visual evidence confirms Colombian cannabis-law text, but it is claimant-state context and cannot prove a unitary BJN cannabis regime.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:32:58.578Z",
             "final_url": "https://www.corteconstitucional.gov.co/relatoria/2023/C-127-23",
-            "http_status": null,
-            "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
+            "http_status": 200,
+            "etag": "\"02ce6af428dd1:0\"",
+            "last_modified": "Mon, 10 Aug 2026 18:16:52 GMT",
+            "content_type": "text/html",
+            "content_length": 4002,
+            "document_sha256": "a9da4233fddff530db2660eb8249cbc7c9f14060c987eaf66fbd99c01a1c4e2c",
             "relevant_fragment_sha256": null,
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -97217,7 +97214,7 @@
           "visual_summary": "Historical visual evidence confirms Colombian cannabis-law text, but it is claimant-state context and cannot prove a unitary BJN cannabis regime.",
           "note": "Ссылка сохранена anti-shrink правилом. После свежего визуального аудита она не повышает доказательство выше явно указанного контекстного статуса.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:32:58.578Z",
             "final_url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=80394",
             "http_status": null,
             "etag": null,
@@ -97226,16 +97223,16 @@
             "content_length": null,
             "document_sha256": null,
             "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "DISPUTED_OR_COMPOSITE_GEO",
-              "NEEDS_SEMANTIC_REVIEW"
+              "ACCESS_BLOCKED",
+              "DISPUTED_OR_COMPOSITE_GEO"
             ],
             "dependent_geos": [
               "BJN",
@@ -97275,18 +97272,18 @@
           "reviewed_by_human_visual": true,
           "current_validity": "CURRENT_OFFICIAL_CLAIMANT_JURISDICTION_CONTEXT_RIGHTS_OF_THIRD_STATES_EXPRESSLY_RESERVED",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:32:58.578Z",
             "final_url": "https://www.dimar.mil.co/sites/default/files/normatividad/dec19462013.pdf",
-            "http_status": null,
-            "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
+            "http_status": 200,
+            "etag": "\"1a8b9-62a231cf0f5a1\"",
+            "last_modified": "Thu, 26 Dec 2024 02:29:18 GMT",
+            "content_type": "application/pdf",
+            "content_length": 108729,
+            "document_sha256": "64315b4e28df693e43bcf914079433f8a05479ae6df3a29ae1fd75e707847e91",
             "relevant_fragment_sha256": null,
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -97303,7 +97300,17 @@
               "LOCATOR_MISSING",
               "EXACT_FRAGMENT_MISSING"
             ],
-            "semantic_probe": null
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 15369,
+              "ocr_used": false,
+              "relevant_pages": [
+                4
+              ],
+              "rendered_pages": [
+                4
+              ]
+            }
           }
         },
         {
@@ -97334,18 +97341,18 @@
           "reviewed_by_human_visual": true,
           "current_validity": "CURRENT_TERRITORIAL_APPLICABILITY_UNRESOLVED_FOR_DISPUTED_BJN",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:32:58.578Z",
             "final_url": "https://www.invima.gov.co/productos-vigilados/medicamentos-y-productos-biologicos/cannabis-medicinal",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 26331,
+            "document_sha256": "4fdf320098d057a63d42bba5b7d194b417c04e16f94e062f71f135d6dd92e9a1",
             "relevant_fragment_sha256": null,
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -97640,7 +97647,7 @@
           "visual_review_result": "Context source only for BJN. Browser certificate validation previously blocked accepted current visual proof; the text is not used to derive BJN colour.",
           "reviewed_at": "2026-08-10",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:32:58.578Z",
             "final_url": "https://www1.funcionpublica.gov.co/eva/gestornormativo/norma_pdf.php?i=80394",
             "http_status": null,
             "etag": null,
@@ -97649,16 +97656,16 @@
             "content_length": null,
             "document_sha256": null,
             "relevant_fragment_sha256": "a9eb0b157a5e2854ded86bef7df197f16fc47042a398c55aa2a576c1c8684c24",
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "BASELINE_HASH_NOT_ESTABLISHED",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "DISPUTED_OR_COMPOSITE_GEO",
-              "NEEDS_SEMANTIC_REVIEW"
+              "ACCESS_BLOCKED",
+              "DISPUTED_OR_COMPOSITE_GEO"
             ],
             "dependent_geos": [
               "BJN",
@@ -139797,6 +139804,75 @@
         "reason": "Decreto 1946/2013 и решение ICJ подтверждают колумбийский административный и двусторонний суверенный контекст, но не доказывают единый безусловно применимый к спорной GEO cannabis-режим. Ley 1787/2016 и решение Corte Constitucional остаются официальными источниками права Colombia, а не SER-issued территориальными cannabis-law источниками. По общему disputed-geo правилу текущая неокрашенная карта не опровергнута; вывод остаётся UNKNOWN до прямого доказательства применимости."
       },
       "conclusion": "Colombia имеет официально документированный claimant/administrative context, однако в этой записи не доказан единый территориально применимый к SER cannabis-режим. Все колумбийские cannabis-источники сохранены как context evidence, а не выдаются за SER-issued law. По общему disputed-geo resolver SER остаётся неокрашенным UNKNOWN с причиной DISPUTED_GEO_NO_OWN_REGIME до появления прямого доказательства применимости.",
+      "independent_truth_color": "UNKNOWN",
+      "independent_truth_status": "DISPUTED_GEO_NO_OWN_REGIME",
+      "independent_truth_rule": "GENERAL_DISPUTED_GEO_NO_OWN_REGIME",
+      "independent_truth_reviewed_at": "2026-08-12T08:41:19+03:00",
+      "independent_review_state": "COMPLETE_LEGAL_TRUTH_CONTEXT_ONLY",
+      "independent_review": {
+        "review_scope": "INDEPENDENT_TRUTH_FIRST_PROPOSAL_ONLY",
+        "territory_type": "DISPUTED_MARITIME_FEATURE_WITH_MULTIPLE_CLAIMS",
+        "reviewed_at": "2026-08-12T08:41:19+03:00",
+        "method": "C0_LOCAL_SCHEMA_REVIEW_C1_CONDITIONAL_HTTP_C2_RETAINED_OFFICIAL_TEXT_AND_PDF_REVIEW_C3_RETAINED_HEADLESS_VISUAL_CONTEXT_REVIEW",
+        "official_truth_color": "UNKNOWN",
+        "color_rule": "GENERAL_DISPUTED_GEO_NO_OWN_REGIME",
+        "applicability_reason": "DISPUTED_GEO_NO_OWN_REGIME",
+        "legal_conclusion": "SER has official Colombian claimant-state cannabis and jurisdiction material, plus an ICJ jurisdiction-context record, but no territory-issued cannabis statute or direct proof of one unitary cannabis regime applicable to the disputed feature. The independent proposal is UNKNOWN and unpainted for legal applicability, never because an endpoint was blocked.",
+        "source_record_refs": [
+          "https://www1.funcionpublica.gov.co/eva/gestornormativo/norma_pdf.php?i=80394",
+          "https://www.corteconstitucional.gov.co/relatoria/2023/C-127-23",
+          "https://www.dimar.mil.co/sites/default/files/normatividad/dec19462013.pdf",
+          "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=80394",
+          "https://www.invima.gov.co/productos-vigilados/medicamentos-y-productos-biologicos/cannabis-medicinal",
+          "https://pnec.cco.gov.co/seaflower/2017-isla-cayos-de-serranilla/",
+          "https://www.icj-cij.org/node/103212"
+        ],
+        "evidence_axes": {
+          "territorial_applicability": "UNKNOWN_NO_UNITARY_SER_CANNABIS_REGIME_OR_TERRITORY_ISSUED_CANNABIS_STATUTE_PROVED",
+          "claimant_cannabis_context": "YES_COLOMBIA_LEY_1787_AND_INVIMA_MATERIAL_DIRECTLY_DESCRIBE_CO_NATIONAL_MEDICINAL_CANNABIS_CONTEXT_ONLY",
+          "claimant_jurisdiction_context": "YES_DIMAR_DECREE_NAMES_CAYOS_DE_SERRANILLA_AND_RECORDS_COLOMBIA_SOVEREIGNTY_CLAIM_CONTEXT_ONLY",
+          "neutral_jurisdiction_context": "YES_ICJ_PARAGRAPH_251_NAMES_SERRANILLA_CONTEXT_ONLY",
+          "patient_eligible": "UNKNOWN_NO_DIRECT_SER_APPLICABLE_CANNABIS_PATIENT_ELIGIBILITY_PROVED",
+          "prescriber_route": "UNKNOWN_NO_DIRECT_SER_APPLICABLE_CANNABIS_PRESCRIBER_ROUTE_PROVED",
+          "registration_route": "UNKNOWN_NO_DIRECT_SER_APPLICABLE_CANNABIS_REGISTRATION_ROUTE_PROVED",
+          "lawful_supply": "UNKNOWN_NO_DIRECT_SER_APPLICABLE_CANNABIS_SUPPLY_ROUTE_PROVED",
+          "pharmacy_or_dispensary": "UNKNOWN_NO_DIRECT_SER_APPLICABLE_CANNABIS_DISPENSING_ROUTE_PROVED",
+          "recreational_possession": "UNKNOWN_NO_DIRECT_SER_APPLICABLE_CANNABIS_POSSESSION_RULE_PROVED",
+          "recreational_supply": "UNKNOWN_NO_DIRECT_SER_APPLICABLE_CANNABIS_SUPPLY_RULE_PROVED",
+          "recreational_cultivation": "UNKNOWN_NO_DIRECT_SER_APPLICABLE_CANNABIS_CULTIVATION_RULE_PROVED",
+          "penalty_regime": "UNKNOWN_NO_DIRECT_SER_APPLICABLE_CANNABIS_PENALTY_RULE_PROVED"
+        },
+        "source_annotations": [
+          "Ley 1787 Article 1 is an official Colombian national-law cannabis-and-derivatives fragment that expressly operates in Colombian national territory; it is not a direct SER legal axis.",
+          "C-127/23 and INVIMA retain Colombian cannabis/personal-dose and regulator context only; neither source proves a unitary SER applicability bridge.",
+          "DIMAR Decreto 1946 names Cayos de Serranilla and Colombia's sovereignty/jurisdiction claim; it is a non-cannabis jurisdiction source and cannot itself derive any cannabis axis.",
+          "The ICJ paragraph-251 record is neutral jurisdiction context, not a cannabis statute; it does not erase the United States, Honduras and Nicaragua claimant scope recorded by the canonical disputed-GEO resolver.",
+          "C1 HTTP 200 baselines for the Constitutional Court, DIMAR PDF and INVIMA record semantic-review routing. The two Función Pública network errors remain ACCESS_BLOCKED metadata only and are not a legal conclusion."
+        ],
+        "strict_visual_acceptance": {
+          "value": "CONTEXT_ONLY_RETAINED_HISTORICAL_CAPTURE",
+          "legal_truth_visual_review_complete": true,
+          "official_domain_visible": false,
+          "reason": "Retained hidden headless captures visibly show the cited Colombian official and jurisdiction material, including the DIMAR PDF text. They cannot create direct SER cannabis evidence; address-bar visibility is not a legal-truth input."
+        },
+        "current_layer_comparison": {
+          "project_status": "NO_PROJECT_STATUS_USED_AS_TRUTH_INPUT",
+          "runtime_map_color": "UNCONFIRMED_NOT_RECAPTURED_IN_THIS_LEGAL_PACKET",
+          "runtime_api_status": "UNCONFIRMED_NOT_RECAPTURED_IN_THIS_LEGAL_PACKET",
+          "wiki_truth_proposal": "UNKNOWN_UNPAINTED_FROM_GENERAL_DISPUTED_APPLICABILITY_RULE",
+          "ssot": "UNTOUCHED_NO_APPLICATION_AUTHORIZED"
+        },
+        "no_mutation": {
+          "apply_allowed": false,
+          "ssot_changed": false,
+          "map_colors_changed": false,
+          "production_touched": false,
+          "runtime_touched": false,
+          "deployment_touched": false
+        },
+        "recommended_action": "RETAIN_PROPOSAL_ONLY_UNKNOWN_DISPUTED_GEO_NO_OWN_REGIME_UNTIL_DIRECT_UNITARY_APPLICABILITY_EVIDENCE_EXISTS",
+        "confidence": "HIGH_FOR_CONTEXT_CLASSIFICATION_AND_DISPUTED_APPLICABILITY_BOUNDARY"
+      },
       "fresh_grey_39_reaudit": {
         "reviewed_at": "2026-07-19T22:28:00.000Z",
         "classification": "COMPOSITE_COLOMBIA_CLAIMANT_STATE_CANNABIS_LAW_AND_JURISDICTION_CONTEXT",
@@ -139821,9 +139897,40 @@
           "url": "https://www1.funcionpublica.gov.co/eva/gestornormativo/norma_pdf.php?i=80394",
           "source_kind": "PRESERVED_PREVIOUSLY_PUBLISHED_LINK_RECLASSIFIED_AS_CONTEXT_COLOMBIA_CLAIMANT_STATE_MEDICAL_SCIENTIFIC_CANNABIS_LAW_NOT_SER_TERRITORIAL_LAW",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/CO-medical-law.png",
+          "source_owner": "Departamento Administrativo de la Función Pública (Colombia)",
+          "source_owner_geo": "CO",
+          "applies_to_geo": [
+            "CO"
+          ],
+          "claimed_territory_geos": [
+            "SER"
+          ],
+          "legal_basis_for_extension": "Ley 1787 is a Colombian national statute. It is retained as Colombia claimant-state context only because the canonical disputed-GEO resolver has no direct proof of a unitary cannabis regime applicable to SER.",
+          "source_authority": "Departamento Administrativo de la Función Pública official legal portal",
+          "source_type": "CLAIMANT_STATE_CANNABIS_LAW_CONTEXT",
+          "primary_or_context": "CLAIMANT_STATE_CONTEXT_NOT_TERRITORY_ISSUED_CANNABIS_LAW",
+          "cannabis_specific": true,
+          "locator": "Ley 1787 de 2016, Artículo 1 (Objeto); official PDF",
+          "exact_fragment": "La presente ley tiene como objeto crear un marco regulatorio que permita el acceso seguro e informado al uso médico y científico del cannabis y sus derivados en el territorio nacional colombiano.",
+          "effective_date": "2016-07-06",
+          "current": true,
+          "effective": true,
+          "applicability": "CO_NATIONAL_ONLY; SER_TERRITORIAL_APPLICABILITY_UNRESOLVED",
+          "confidence": "HIGH_FOR_CO_NATIONAL_TEXT; NOT_A_SER_APPLICABILITY_PROOF",
+          "source_annotation": "Official Colombian PDF law. The cited Article 1 is cannabis-specific and expressly national; it is context evidence for the Colombia claim only, never a direct SER legal axis.",
+          "screenshot_available": true,
+          "screenshot_valid": true,
+          "visual_opened": true,
+          "official_owner_visible": false,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "reviewed_by_human_visual": true,
+          "visual_summary": "Historical headless capture visibly showed the Colombian official law and its cannabis-specific national-territory wording; address-bar visibility was not the legal-truth input.",
+          "current_validity": "CURRENT_FOR_CO_NATIONAL_TEXT; TERRITORIAL_APPLICABILITY_UNRESOLVED_FOR_DISPUTED_SER",
           "note": "Колумбийский национальный закон сохранён как official claimant-state context; доказательства его безусловной территориальной применимости к спорной SER нет.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:32:58.578Z",
             "final_url": "https://www1.funcionpublica.gov.co/eva/gestornormativo/norma_pdf.php?i=80394",
             "http_status": null,
             "etag": null,
@@ -139831,26 +139938,22 @@
             "content_type": null,
             "content_length": null,
             "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "relevant_fragment_sha256": "cfd3776113aa8c2f34530229b9b7134e58ad1c20cea31ff19a6aabf1635300d7",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "NEEDS_SEMANTIC_REVIEW"
+              "ACCESS_BLOCKED"
             ],
             "dependent_geos": [
+              "CO",
               "SER"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
+            "schema_issues": [],
             "semantic_probe": null
           }
         },
@@ -139859,20 +139962,51 @@
           "url": "https://www.corteconstitucional.gov.co/relatoria/2023/C-127-23",
           "source_kind": "PRESERVED_PREVIOUSLY_PUBLISHED_LINK_RECLASSIFIED_AS_CONTEXT_COLOMBIA_CLAIMANT_STATE_CANNABIS_JUDGMENT_NOT_SER_TERRITORIAL_LAW",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/CO-personal-dose-ruling.png",
+          "source_owner": "Corte Constitucional de Colombia",
+          "source_owner_geo": "CO",
+          "applies_to_geo": [
+            "CO"
+          ],
+          "claimed_territory_geos": [
+            "SER"
+          ],
+          "legal_basis_for_extension": "This is a Colombian national constitutional decision. It remains claimant-state context because it does not establish a unitary cannabis-law applicability bridge for disputed SER.",
+          "source_authority": "Corte Constitucional de Colombia",
+          "source_type": "CLAIMANT_STATE_CANNABIS_LAW_CONTEXT",
+          "primary_or_context": "CLAIMANT_STATE_CONTEXT_NOT_TERRITORY_ISSUED_CANNABIS_LAW",
+          "cannabis_specific": true,
+          "locator": "Sentencia C-127 de 2023; personal-dose exception and public-space limits",
+          "exact_fragment": "La decisión preserva la excepción de porte o tenencia de dosis para uso propio o médico, con límites contextuales de espacio público; no crea un mercado recreativo ni una vía de suministro adulto.",
+          "effective_date": "2023-04-27",
+          "current": true,
+          "effective": true,
+          "applicability": "CO_NATIONAL_ONLY; SER_TERRITORIAL_APPLICABILITY_UNRESOLVED",
+          "confidence": "HIGH_FOR_CO_NATIONAL_TEXT; NOT_A_SER_APPLICABILITY_PROOF",
+          "source_annotation": "Official Colombian constitutional cannabis decision. It documents the claimant state's personal-dose rule only; it does not supply a direct territorial cannabis-law bridge for SER.",
+          "screenshot_available": true,
+          "screenshot_valid": true,
+          "visual_opened": true,
+          "official_owner_visible": false,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "reviewed_by_human_visual": true,
+          "visual_summary": "Historical headless capture showed the relevant Colombian court content; it remains claimant-state context and cannot colour SER.",
+          "current_validity": "CURRENT_FOR_CO_NATIONAL_TEXT; TERRITORIAL_APPLICABILITY_UNRESOLVED_FOR_DISPUTED_SER",
           "note": "Колумбийское конституционное решение сохранено как official claimant-state context; доказательства его безусловной территориальной применимости к спорной SER нет.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:32:58.578Z",
             "final_url": "https://www.corteconstitucional.gov.co/relatoria/2023/C-127-23",
-            "http_status": null,
-            "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "http_status": 200,
+            "etag": "\"02ce6af428dd1:0\"",
+            "last_modified": "Mon, 10 Aug 2026 18:16:52 GMT",
+            "content_type": "text/html",
+            "content_length": 4002,
+            "document_sha256": "a9da4233fddff530db2660eb8249cbc7c9f14060c987eaf66fbd99c01a1c4e2c",
+            "relevant_fragment_sha256": "5ff56ff4d82644615523a774a9e047c5c8721d1067551f481f7d1b6ff134aaa8",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -139881,14 +140015,10 @@
               "NEEDS_SEMANTIC_REVIEW"
             ],
             "dependent_geos": [
+              "CO",
               "SER"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
+            "schema_issues": [],
             "semantic_probe": null
           }
         },
@@ -139897,19 +140027,50 @@
           "url": "https://www.dimar.mil.co/sites/default/files/normatividad/dec19462013.pdf",
           "source_kind": "COLOMBIA_OFFICIAL_TERRITORIAL_APPLICABILITY_AND_JURISDICTION_CONTEXT_WITH_DISPUTED_SCOPE_CAVEAT",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-41/SER/screenshots/SER-dimar-decreto-1946-2013-page03-3.png",
+          "source_owner": "Dirección General Marítima (DIMAR), Colombia",
+          "source_owner_geo": "CO",
+          "applies_to_geo": [
+            "CO"
+          ],
+          "claimed_territory_geos": [
+            "SER"
+          ],
+          "legal_basis_for_extension": "Decreto 1946 records Colombia's administrative jurisdiction claim over Serranilla. It is jurisdiction context only; it does not resolve competing claims into a unitary SER cannabis regime.",
+          "source_authority": "Dirección General Marítima (DIMAR), Colombia",
+          "source_type": "CLAIMANT_STATE_TERRITORIAL_JURISDICTION_CONTEXT",
+          "primary_or_context": "CLAIMANT_STATE_JURISDICTION_CONTEXT_NOT_CANNABIS_LAW",
+          "cannabis_specific": false,
+          "locator": "Decreto 1946 de 2013, Artículo 1, numeral 2(i) and numeral 3; rendered official PDF page containing Serranilla",
+          "exact_fragment": "i) Cayos de Serranilla; ... 3. La República de Colombia ejerce soberanía plena sobre sus territorios insulares y ejerce también jurisdicción y derechos soberanos sobre los espacios marítimos que ellos generan.",
+          "effective_date": "2013",
+          "current": true,
+          "effective": true,
+          "applicability": "CO_CLAIMANT_JURISDICTION_CONTEXT_ONLY; SER_DISPUTED_SCOPE",
+          "confidence": "HIGH_FOR_CO_CLAIM_TEXT; NOT_A_UNITARY_SER_REGIME_PROOF",
+          "source_annotation": "Official DIMAR PDF names Cayos de Serranilla and records Colombia's jurisdiction claim. It contains no cannabis rule and is retained solely to delimit the claimant-context scope.",
+          "screenshot_available": true,
+          "screenshot_valid": true,
+          "visual_opened": true,
+          "official_owner_visible": false,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": true,
+          "reviewed_by_human_visual": true,
+          "visual_summary": "The rendered official PDF visibly names Cayos de Serranilla and the Colombian sovereignty/jurisdiction clause. This is non-cannabis scope evidence only.",
+          "current_validity": "CURRENT_OFFICIAL_CLAIMANT_JURISDICTION_CONTEXT; THIRD_PARTY_CLAIMS_NOT_RESOLVED_BY_THIS_SOURCE",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:32:58.578Z",
             "final_url": "https://www.dimar.mil.co/sites/default/files/normatividad/dec19462013.pdf",
-            "http_status": null,
-            "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "http_status": 200,
+            "etag": "\"1a8b9-62a231cf0f5a1\"",
+            "last_modified": "Thu, 26 Dec 2024 02:29:18 GMT",
+            "content_type": "application/pdf",
+            "content_length": 108729,
+            "document_sha256": "64315b4e28df693e43bcf914079433f8a05479ae6df3a29ae1fd75e707847e91",
+            "relevant_fragment_sha256": "2b2d1dfb11bcc52e04094c44e94ddadea94cf97e78dba4a86b8c2ded8af534cc",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -139918,15 +140079,21 @@
               "NEEDS_SEMANTIC_REVIEW"
             ],
             "dependent_geos": [
+              "CO",
               "SER"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
-            "semantic_probe": null
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 15369,
+              "ocr_used": false,
+              "relevant_pages": [
+                4
+              ],
+              "rendered_pages": [
+                4
+              ]
+            }
           }
         },
         {
@@ -139934,9 +140101,40 @@
           "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=80394",
           "source_kind": "PRESERVED_PREVIOUSLY_PUBLISHED_LINK_RECLASSIFIED_AS_CONTEXT_COLOMBIA_CLAIMANT_STATE_OFFICIAL_MEDICAL_SCIENTIFIC_CANNABIS_LAW_CONTEXT_NOT_SER_TERRITORIAL_LAW",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-41/SER/screenshots/SER-funcionpublica-ley-1787-colombia-cannabis.png",
+          "source_owner": "Departamento Administrativo de la Función Pública (Colombia)",
+          "source_owner_geo": "CO",
+          "applies_to_geo": [
+            "CO"
+          ],
+          "claimed_territory_geos": [
+            "SER"
+          ],
+          "legal_basis_for_extension": "Official Colombian national-law page, retained as claimant-state context only; no direct unitary SER applicability is proved.",
+          "source_authority": "Departamento Administrativo de la Función Pública official legal portal",
+          "source_type": "CLAIMANT_STATE_CANNABIS_LAW_CONTEXT",
+          "primary_or_context": "CLAIMANT_STATE_CONTEXT_NOT_TERRITORY_ISSUED_CANNABIS_LAW",
+          "cannabis_specific": true,
+          "locator": "Ley 1787 de 2016, Artículo 1 (Objeto); Gestor Normativo official page",
+          "exact_fragment": "La presente ley tiene como objeto crear un marco regulatorio que permita el acceso seguro e informado al uso médico y científico del cannabis y sus derivados en el territorio nacional colombiano.",
+          "effective_date": "2016-07-06",
+          "current": true,
+          "effective": true,
+          "applicability": "CO_NATIONAL_ONLY; SER_TERRITORIAL_APPLICABILITY_UNRESOLVED",
+          "confidence": "HIGH_FOR_CO_NATIONAL_TEXT; NOT_A_SER_APPLICABILITY_PROOF",
+          "source_annotation": "Official Colombian HTML law page with the Article 1 cannabis-and-derivatives wording. It is a retained claimant-state context link, not a direct SER law source.",
+          "screenshot_available": true,
+          "screenshot_valid": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "reviewed_by_human_visual": true,
+          "visual_summary": "Historical headless page capture visibly showed Función Pública, Ley 1787, the national-territory qualifier and cannabis wording; it did not prove applicability to disputed SER.",
+          "current_validity": "CURRENT_FOR_CO_NATIONAL_TEXT; TERRITORIAL_APPLICABILITY_UNRESOLVED_FOR_DISPUTED_SER",
           "note": "Ссылка сохранена anti-shrink правилом. После свежего визуального аудита она не повышает доказательство выше явно указанного контекстного статуса.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:32:58.578Z",
             "final_url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=80394",
             "http_status": null,
             "etag": null,
@@ -139944,26 +140142,22 @@
             "content_type": null,
             "content_length": null,
             "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "relevant_fragment_sha256": "cfd3776113aa8c2f34530229b9b7134e58ad1c20cea31ff19a6aabf1635300d7",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "NEEDS_SEMANTIC_REVIEW"
+              "ACCESS_BLOCKED"
             ],
             "dependent_geos": [
+              "CO",
               "SER"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
+            "schema_issues": [],
             "semantic_probe": null
           }
         },
@@ -139972,20 +140166,51 @@
           "url": "https://www.invima.gov.co/productos-vigilados/medicamentos-y-productos-biologicos/cannabis-medicinal",
           "source_kind": "PRESERVED_PREVIOUSLY_PUBLISHED_LINK_RECLASSIFIED_AS_CONTEXT_COLOMBIA_INVIMA_OFFICIAL_MEDICINAL_CANNABIS_REGULATOR_CONTEXT_NOT_SER_TERRITORIAL_LAW",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-41/SER/screenshots/SER-invima-cannabis-medicinal.png",
+          "source_owner": "Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA), Colombia",
+          "source_owner_geo": "CO",
+          "applies_to_geo": [
+            "CO"
+          ],
+          "claimed_territory_geos": [
+            "SER"
+          ],
+          "legal_basis_for_extension": "Official Colombian regulator page, retained as claimant-state medicinal-cannabis context only; it does not establish a direct unitary regime for SER.",
+          "source_authority": "Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA)",
+          "source_type": "CLAIMANT_STATE_MEDICINAL_CANNABIS_REGULATOR_CONTEXT",
+          "primary_or_context": "CLAIMANT_STATE_CONTEXT_NOT_TERRITORY_ISSUED_CANNABIS_LAW",
+          "cannabis_specific": true,
+          "locator": "Cannabis medicinal page, introductory definition and 'Autorización de comercialización' section",
+          "exact_fragment": "Cannabis medicinal corresponde al uso de sumidades floridas o con fruto de la planta de género Cannabis, de sus preparados o de sus principios activos como metabolitos, llamados cannabinoides, entre ellos el tetrahidrocannabinol o THC, cannabidiol o CBD y cannabinol o CBN, entre otros, como terapia para tratar algunas enfermedades o aliviar síntomas.",
+          "effective_date": null,
+          "current": true,
+          "effective": true,
+          "applicability": "CO_NATIONAL_REGULATOR_CONTEXT_ONLY; SER_TERRITORIAL_APPLICABILITY_UNRESOLVED",
+          "confidence": "HIGH_FOR_VISIBLE_CO_REGULATOR_CONTENT; NOT_A_SER_APPLICABILITY_PROOF",
+          "source_annotation": "Official INVIMA page names cannabis and THC/CBD/CBN derivatives and includes licensing/commercialisation material. It is regulator context only and never satisfies a patient-access axis for SER.",
+          "screenshot_available": true,
+          "screenshot_valid": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": false,
+          "reviewed_by_human_visual": true,
+          "visual_summary": "Historical headless capture visibly showed the INVIMA owner, medicinal-cannabis definition and derivative terms. Its lack of direct SER scope keeps it context-only.",
+          "current_validity": "CURRENT_CO_REGULATOR_CONTEXT; TERRITORIAL_APPLICABILITY_UNRESOLVED_FOR_DISPUTED_SER",
           "note": "Ссылка сохранена anti-shrink правилом. После свежего визуального аудита она не повышает доказательство выше явно указанного контекстного статуса.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:32:58.578Z",
             "final_url": "https://www.invima.gov.co/productos-vigilados/medicamentos-y-productos-biologicos/cannabis-medicinal",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 26331,
+            "document_sha256": "4fdf320098d057a63d42bba5b7d194b417c04e16f94e062f71f135d6dd92e9a1",
+            "relevant_fragment_sha256": "678196e3f38ca9bfc22b24b2ef739c46a51e8ab2fee15360e52a08b1dc253e59",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -139994,14 +140219,10 @@
               "NEEDS_SEMANTIC_REVIEW"
             ],
             "dependent_geos": [
+              "CO",
               "SER"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
+            "schema_issues": [],
             "semantic_probe": null
           }
         },
@@ -140010,15 +140231,128 @@
           "url": "https://pnec.cco.gov.co/seaflower/2017-isla-cayos-de-serranilla/",
           "source_kind": "PRESERVED_PREVIOUSLY_PUBLISHED_LINK_RECLASSIFIED_AS_CONTEXT_claimant_or_territory_context",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/SER.jpg",
-          "note": "Ссылка сохранена anti-shrink правилом. После свежего визуального аудита она не повышает доказательство выше явно указанного контекстного статуса."
+          "source_owner": "Comisión Colombiana del Océano (PNEC)",
+          "source_owner_geo": "CO",
+          "applies_to_geo": [
+            "CO"
+          ],
+          "claimed_territory_geos": [
+            "SER"
+          ],
+          "legal_basis_for_extension": "Colombian official territorial-context page. It is not a cannabis source and it does not resolve competing claims into a unitary SER legal regime.",
+          "source_authority": "Comisión Colombiana del Océano (PNEC)",
+          "source_type": "CLAIMANT_STATE_TERRITORIAL_CONTEXT",
+          "primary_or_context": "CLAIMANT_STATE_CONTEXT_NOT_CANNABIS_LAW",
+          "cannabis_specific": false,
+          "locator": "Page title and territorial narrative: 'Isla Cayos de Serranilla'",
+          "exact_fragment": "Isla Cayos de Serranilla",
+          "effective_date": null,
+          "current": true,
+          "effective": true,
+          "applicability": "CO_CLAIMANT_TERRITORIAL_CONTEXT_ONLY; SER_DISPUTED_SCOPE",
+          "confidence": "HIGH_FOR_CO_CONTEXT; NOT_A_UNITARY_SER_REGIME_PROOF",
+          "source_annotation": "Official PNEC territorial-context page. It has no cannabis-specific fragment and is stored solely to annotate the Colombia claimant context; it cannot derive legal axes or colour.",
+          "screenshot_available": true,
+          "screenshot_valid": true,
+          "visual_opened": true,
+          "official_owner_visible": false,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": false,
+          "reviewed_by_human_visual": true,
+          "visual_summary": "Historical headless capture preserved the official territorial page. It is non-cannabis context only.",
+          "note": "Ссылка сохранена anti-shrink правилом. После свежего визуального аудита она не повышает доказательство выше явно указанного контекстного статуса.",
+          "revalidation": {
+            "checked_at": "2026-08-12T05:38:44.188Z",
+            "final_url": "https://pnec.cco.gov.co/seaflower/2017-isla-cayos-de-serranilla",
+            "http_status": null,
+            "etag": null,
+            "last_modified": null,
+            "content_type": null,
+            "content_length": null,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "c6a44073fddee19b0b17dceee2fc78e1ff395b14f5a09a81db5e750279f0d87c",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "NOT_CHECKED_LOCAL_ONLY",
+            "change_reason": "BASELINE_HASH_NOT_ESTABLISHED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "NEEDS_SEMANTIC_REVIEW"
+            ],
+            "dependent_geos": [
+              "CO",
+              "SER"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
         },
         {
           "title": "ICJ — решение 2012 года о суверенитете Colombia над Bajo Nuevo и Serranilla",
           "url": "https://www.icj-cij.org/node/103212",
           "source_kind": "NEUTRAL_JURISDICTION_SCOPE",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/BJN-SER-icj-sovereignty.png",
+          "source_owner": "International Court of Justice",
+          "source_owner_geo": "INTL",
+          "applies_to_geo": [
+            "SER"
+          ],
+          "claimed_territory_geos": [
+            "SER"
+          ],
+          "legal_basis_for_extension": "The ICJ judgment is neutral jurisdiction context for the named maritime feature. It is not a cannabis statute and cannot establish convergence of every claimant regime into a unitary SER cannabis conclusion.",
+          "source_authority": "International Court of Justice",
+          "source_type": "NEUTRAL_JURISDICTION_SCOPE_CONTEXT",
+          "primary_or_context": "NEUTRAL_JURISDICTION_CONTEXT_NOT_CANNABIS_LAW",
+          "cannabis_specific": false,
+          "locator": "Judgment of 19 November 2012, paragraph 251",
+          "exact_fragment": "The Court finds that Colombia has sovereignty over the maritime features of Bajo Nuevo and Serranilla.",
+          "effective_date": "2012-11-19",
+          "current": true,
+          "effective": true,
+          "applicability": "NEUTRAL_JURISDICTION_CONTEXT_FOR_SER; NOT_A_CANNABIS_REGIME",
+          "confidence": "HIGH_FOR_JUDGMENT_TEXT; NOT_A_UNITARY_SER_CANNABIS_REGIME_PROOF",
+          "source_annotation": "Official ICJ jurisdiction source naming Serranilla. It is a neutral, non-cannabis scope record and cannot by itself carry Colombia's cannabis law into the disputed SER Truth Color.",
+          "screenshot_available": true,
+          "screenshot_valid": true,
+          "visual_opened": true,
+          "official_owner_visible": false,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": true,
+          "reviewed_by_human_visual": true,
+          "visual_summary": "Historical headless capture visibly showed paragraph 251 and the ICJ sovereignty finding. It is jurisdiction context only, not cannabis-law evidence.",
+          "current_validity": "CURRENT_JUDGMENT_CONTEXT_ONLY; NOT_A_CANNABIS_REGIME",
           "fresh_visual_review": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
-          "fresh_visual_analysis_ru": "На читаемом фрагменте пункта 251 Международный суд ООН единогласно фиксирует суверенитет Colombia над Bajo Nuevo и Serranilla. Это юрисдикционный мост, а не cannabis-law."
+          "fresh_visual_analysis_ru": "На читаемом фрагменте пункта 251 Международный суд ООН единогласно фиксирует суверенитет Colombia над Bajo Nuevo и Serranilla. Это юрисдикционный мост, а не cannabis-law.",
+          "revalidation": {
+            "checked_at": "2026-08-12T05:38:44.188Z",
+            "final_url": "https://www.icj-cij.org/node/103212",
+            "http_status": null,
+            "etag": null,
+            "last_modified": null,
+            "content_type": null,
+            "content_length": null,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "33b202cbeba7617f103dacd83aacb3cd6c98dbc6a8ebfd0bb64a2e6b53ba2ab1",
+            "revalidation_state": "EFFECTIVE_DATE_REVIEW_DUE",
+            "access_state": "NOT_CHECKED_LOCAL_ONLY",
+            "change_reason": "EFFECTIVE_OR_LIFECYCLE_DATE_REACHED",
+            "queue": [
+              "C2"
+            ],
+            "queue_reasons": [
+              "EFFECTIVE_DATE_REVIEW_DUE"
+            ],
+            "dependent_geos": [
+              "SER"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
         }
       ],
       "fresh_project_null_7_reaudit": {
@@ -141298,8 +141632,66 @@
               "extractor": "pdftotext",
               "text_layer_length": 37159,
               "ocr_used": false,
-              "relevant_pages": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
-              "rendered_pages": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
+              "relevant_pages": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28
+              ],
+              "rendered_pages": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28
+              ]
             }
           }
         }
