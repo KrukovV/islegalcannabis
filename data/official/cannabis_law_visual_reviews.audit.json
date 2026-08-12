@@ -138095,28 +138095,62 @@
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-44/SA/screenshots/SA-sfda-article-41-personal-use-penalty-page27.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-44/SA/screenshots/SA-sfda-treatment-instead-article-41-page31.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-44/SA/screenshots/SA-sfda-patient-possession-treatment-page23.png",
-        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-44/SA/screenshots/SA-sfda-schedules-cannabis-resin-page06.png"
+        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-44/SA/screenshots/SA-sfda-schedules-cannabis-resin-page06.png",
+        "data/reviews/wiki-truth-307-visual-evidence/SA-sfda-procedures-prescription-pharmacy-current-2026-08-12-23.png",
+        "data/reviews/wiki-truth-307-visual-evidence/SA-sfda-procedures-personal-use-penalty-current-2026-08-12-27.png",
+        "data/reviews/wiki-truth-307-visual-evidence/SA-sfda-procedures-cannabis-amount-current-2026-08-12-74.png",
+        "data/reviews/wiki-truth-307-visual-evidence/SA-sfda-schedule-cannabis-row-current-2026-08-12-06.png"
       ],
       "verified_sources": [
         {
           "title": "Saudi Food and Drug Authority - General Provisions for Schedules attached to the Law of Combating Narcotic Drugs and Psychotropic Substances",
           "url": "https://www.sfda.gov.sa/en/regulations/62877",
           "source_kind": "SAUDI_FDA_OFFICIAL_REGULATIONS_PAGE_FOR_SCHEDULES_ATTACHED_TO_NARCOTICS_AND_PSYCHOTROPIC_SUBSTANCES_LAW",
-          "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-44/SA/screenshots/SA-sfda-regulations-page-62877.png",
-          "note": "Official SFDA regulations page. Visual review confirms the page title is General Provisions for Schedules attached to The Law of Combating Narcotic drugs and Psychotropic Substances and links a PDF under the Drugs category.",
+          "source_owner": "Saudi Food and Drug Authority",
+          "source_owner_geo": "SA",
+          "source_authority": "Saudi Food and Drug Authority official regulations publisher",
+          "applies_to_geo": [
+            "SA"
+          ],
+          "legal_basis_for_extension": "Saudi Food and Drug Authority official national regulations page for Saudi Arabia; no foreign, parent or claimant regime is used.",
+          "source_type": "CURRENT_OFFICIAL_REGULATIONS_INDEX_PAGE",
+          "primary_or_context": "OFFICIAL_SCHEDULE_PUBLICATION_CONTEXT_ONLY",
+          "cannabis_specific": false,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "CURRENT_OFFICIAL_SFDA_REGULATIONS_PAGE_RETRIEVED_C1_AND_C3_HEADLESS_REVIEWED_2026_08_12",
+          "official_fragment_locator": "SFDA regulations page 62877, page title and Drugs-category attachment link",
+          "exact_fragment": "General Provisions for Schedules attached to The Law of Combating Narcotic drugs and Psychotropic Substances.",
+          "direct_fragment_available": true,
+          "screenshot_available": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "source_owner_visible": true,
+          "official_host_verified": true,
+          "reviewed_by_human_visual": true,
+          "screenshot_state": "CURRENT_HEADLESS_OFFICIAL_PAGE_VISUALLY_REVIEWED_NO_BROWSER_CHROME",
+          "historical_screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-44/SA/screenshots/SA-sfda-regulations-page-62877.png",
+          "screenshot_path": "data/reviews/wiki-truth-307-visual-evidence/SA-sfda-regulations-index-current-2026-08-12.png",
+          "screenshot_valid": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": false,
+          "visual_review_result": "CURRENT_OFFICIAL_SFDA_OWNER_PAGE_TITLE_AND_SCHEDULE_ATTACHMENT_VISIBLE; CONTEXT_ONLY_NOT_A_CANNABIS_LEGAL_AXIS; STRICT_BROWSER_DOMAIN_ACCEPTANCE_PARTIAL",
+          "annotation": "Official SFDA publication context for the attached schedules. This generic index does not itself establish cannabis scope, patient access or any Truth Color axis.",
+          "note": "Official SFDA regulations page. Current hidden visual review confirms the Saudi Food & Drug Authority owner mark, title General Provisions for Schedules attached to The Law of Combating Narcotic drugs and Psychotropic Substances, 2024-11-26 page date and Drugs-category PDF attachment link.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T03:19:03.391Z",
             "final_url": "https://www.sfda.gov.sa/en/regulations/62877",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 116669,
+            "document_sha256": "a79af66549a7424d27c42f0c224ac39103f9f9938e7607b686e0133b04920120",
+            "relevant_fragment_sha256": "807d664553476c307854f8aed5a02ee502f82a4369647be33e1f2199fc263a65",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -138128,12 +138162,7 @@
             "dependent_geos": [
               "SA"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
+            "schema_issues": [],
             "semantic_probe": null
           }
         },
@@ -138141,15 +138170,164 @@
           "title": "Saudi Food and Drug Authority - Procedures and Controls on Narcotic Drugs and Psychotropic Substances, English PDF",
           "url": "https://www.sfda.gov.sa/sites/default/files/2021-09/Drug12112019e1.pdf",
           "source_kind": "SAUDI_FDA_PROCEDURES_CONTROLS_NARCOTIC_DRUGS_PSYCHOTROPIC_SUBSTANCES_CANNABIS_DRY_WEIGHT_SCHEDULE_PATIENT_PRESCRIPTION_SCOPE_AND_ARTICLE_41_PENALTY",
-          "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-44/SA/screenshots/SA-sfda-procedures-cannabis-dronabinol-schedule-page74.png",
-          "note": "Official SFDA PDF. Visual review confirms the implementing regulation page headed Law of Combating Narcotics drugs and Psychotropic Substances. Article 34 visibly lists maximum allowable amounts including Cannabis and Cannabis resin at 100 mg and Dronabinol at 0.5 g. Article 35 visibly states an unauthorized person should not possess narcotics or psychotropic substances unless prescribed by a licensed doctor in accordance with regulations. Article 41 visibly states personal-use/use conduct is punishable by a minimum of six months and not more than two years. Article 50 visibly allows the addicted person, instead of the Article 41 penalty, to be obligated to visit a dedicated psychiatric clinic for treatment/review."
+          "source_owner": "Saudi Food and Drug Authority",
+          "source_owner_geo": "SA",
+          "source_authority": "Saudi Food and Drug Authority official drugs-regulation publisher",
+          "applies_to_geo": [
+            "SA"
+          ],
+          "legal_basis_for_extension": "Official SFDA English implementing-procedures PDF for the Saudi Law of Combating Narcotic Drugs and Psychotropic Substances; no foreign, parent or claimant regime is used.",
+          "source_type": "CURRENT_OFFICIAL_NARCOTICS_LAW_IMPLEMENTING_PROCEDURES_PDF",
+          "primary_or_context": "PRIMARY_CANNABIS_SCHEDULE_PRESCRIPTION_BOUNDARY_AND_PERSONAL_USE_PENALTY",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "CURRENT_SFDA_PDF_RETRIEVED_C1_AND_C2_C3_RENDERED_2026_08_12",
+          "official_fragment_locator": "SFDA Procedures and Controls PDF, Arts. 34-35 and 41, current PDF pages 74, 23 and 27",
+          "exact_fragment": "Article 34: Narcotic drug and psychotropic substances referred to in Article (47) of the Law of Combating Narcotics Drug and Psychotropic Substances include Cannabis and Cannabis resin at 100 mg and Dronabinol at 0.5 g. Article 35: Unauthorized person should not possess narcotics or psychotropic substances unless prescribed by a licensed doctor in accordance with provisions of regulations; products obtained for treatment purpose must be returned when no longer used, and to the dispenser pharmacy if the patient died. Article 41: personal-use purpose conduct within Article 37 is punishable by a minimum of six months and not more than two years, except use in other circumstances licensed by a law.",
+          "direct_fragment_available": true,
+          "screenshot_available": true,
+          "visual_opened": true,
+          "official_owner_visible": false,
+          "source_owner_visible": true,
+          "official_host_verified": true,
+          "reviewed_by_human_visual": true,
+          "screenshot_state": "CURRENT_PDF_TEXT_LAYER_RENDERED_AND_VISUALLY_REVIEWED_NO_BROWSER_CHROME",
+          "historical_screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-44/SA/screenshots/SA-sfda-procedures-cannabis-dronabinol-schedule-page74.png",
+          "screenshot_path": "data/reviews/wiki-truth-307-visual-evidence/SA-sfda-procedures-cannabis-amount-current-2026-08-12-74.png",
+          "screenshot_paths": [
+            "data/reviews/wiki-truth-307-visual-evidence/SA-sfda-procedures-prescription-pharmacy-current-2026-08-12-23.png",
+            "data/reviews/wiki-truth-307-visual-evidence/SA-sfda-procedures-personal-use-penalty-current-2026-08-12-27.png",
+            "data/reviews/wiki-truth-307-visual-evidence/SA-sfda-procedures-cannabis-amount-current-2026-08-12-74.png"
+          ],
+          "screenshot_valid": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "visual_review_result": "CURRENT_PDF_PAGES_23_27_74_VISUALLY_READ_WITH_EXACT_CANNABIS_PRESCRIPTION_PHARMACY_AND_PENALTY_FRAGMENTS; OFFICIAL_OWNER_AND_BROWSER_DOMAIN_NOT_VISIBLE_ON_THE_RENDERED_PAGES",
+          "annotation": "Current direct cannabis schedule, licensed-doctor prescription and dispensing-pharmacy boundary in one official implementing PDF. The generic controlled-substance prescription wording becomes cannabis-specific only through its explicit same-document Article 34 Cannabis/Cannabis resin entry; it cannot prove patient eligibility, an active pharmacy, a registry or programme operation. Article 41 is a separate non-authorised penalty boundary.",
+          "note": "Official SFDA PDF. Current rendered pages 23, 27 and 74 confirm Article 34 cannabis/cannabis-resin and Dronabinol amounts, Article 35 licensed-doctor prescription plus dispenser-pharmacy return boundary, and Article 41 custodial personal-use penalty context outside circumstances licensed by law.",
+          "revalidation": {
+            "checked_at": "2026-08-12T03:19:03.391Z",
+            "final_url": "https://www.sfda.gov.sa/sites/default/files/2021-09/Drug12112019e1.pdf",
+            "http_status": 200,
+            "etag": "\"1c097b-5cd0846b36625\"",
+            "last_modified": "Tue, 28 Sep 2021 06:25:13 GMT",
+            "content_type": "application/pdf",
+            "content_length": 1837435,
+            "document_sha256": "f063e8aee29fb3cef7ca6cc9ac3b46d4c9e5901c9d37028135f5e8bda0297794",
+            "relevant_fragment_sha256": "4e843a66f99cc72d7e519a1e82307ce9711cbd4d63011f8fca5f6124a3fd2a21",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "CURRENT_LAYER_MISMATCH",
+              "NEEDS_SEMANTIC_REVIEW"
+            ],
+            "dependent_geos": [
+              "SA"
+            ],
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 232444,
+              "ocr_used": false,
+              "relevant_pages": [
+                18,
+                74,
+                128,
+                155,
+                157,
+                158
+              ],
+              "rendered_pages": [
+                18,
+                74,
+                128,
+                155,
+                157,
+                158
+              ]
+            }
+          }
         },
         {
           "title": "Saudi Food and Drug Authority - Arabic schedules attached to the Narcotics and Psychotropic Substances Control Law",
           "url": "https://www.sfda.gov.sa/sites/default/files/2022-04/%D8%A7%D9%84%D8%AC%D8%AF%D8%A7%D9%88%D9%84-%D8%A7%D9%84%D9%85%D8%B1%D9%81%D9%82%D8%A9-%D8%A8%D9%86%D8%B8%D8%A7%D9%85-%D9%85%D9%83%D8%A7%D9%81%D8%AD%D8%A9-%D8%A7%D9%84%D9%85%D8%AE%D8%AF%D8%B1%D8%A7%D8%AA-%D9%88-%D8%A7%D9%84%D9%85%D8%A4%D8%AB%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D8%B9%D9%82%D9%84%D9%8A%D8%A9.pdf",
           "source_kind": "SAUDI_FDA_ARABIC_ATTACHED_SCHEDULES_CANNABIS_AND_CANNABIS_RESIN",
-          "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-44/SA/screenshots/SA-sfda-schedules-cannabis-resin-page06.png",
-          "note": "Official SFDA Arabic schedules PDF. Visual review and English OCR confirm the scanned table visibly lists Cannabis and cannabis resin, Indian hemp and resin of Indian hemp, and extracts and tinctures of cannabis."
+          "source_owner": "Saudi Food and Drug Authority",
+          "source_owner_geo": "SA",
+          "source_authority": "Saudi Food and Drug Authority official drugs-schedule publisher",
+          "applies_to_geo": [
+            "SA"
+          ],
+          "legal_basis_for_extension": "Official SFDA attached-schedules PDF for the Saudi narcotics and psychotropic-substances law; no foreign, parent or claimant regime is used.",
+          "source_type": "CURRENT_OFFICIAL_ARABIC_NARCOTICS_SCHEDULE_PDF",
+          "primary_or_context": "PRIMARY_CANNABIS_SCOPE_SCHEDULE",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "CURRENT_SFDA_SCHEDULE_PDF_RETRIEVED_C1_AND_C2_C3_RENDERED_2026_08_12",
+          "official_fragment_locator": "SFDA attached schedules PDF, current PDF page 6, row 26",
+          "exact_fragment": "Current official bilingual schedule row 26: Cannabis and cannabis resin and Indian hemp and resin of Indian hemp; extracts and tinctures of cannabis.",
+          "direct_fragment_available": true,
+          "screenshot_available": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "source_owner_visible": true,
+          "official_host_verified": true,
+          "reviewed_by_human_visual": true,
+          "screenshot_state": "CURRENT_SCANNED_PDF_PAGE_RENDERED_AND_VISUALLY_REVIEWED_NO_BROWSER_CHROME",
+          "historical_screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-44/SA/screenshots/SA-sfda-schedules-cannabis-resin-page06.png",
+          "screenshot_path": "data/reviews/wiki-truth-307-visual-evidence/SA-sfda-schedule-cannabis-row-current-2026-08-12-06.png",
+          "screenshot_valid": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "visual_review_result": "CURRENT_BILINGUAL_SCHEDULE_ROW_26_AND_SFDA_OWNER_MARK_VISIBLE; STRICT_BROWSER_DOMAIN_ACCEPTANCE_PARTIAL",
+          "annotation": "Current cannabis-family schedule bridge. The current scanned PDF has no usable text layer, so OCR was attempted only for that condition; page 6 itself visibly contains the bilingual English cannabis/cannabis-resin row and SFDA owner mark. The schedule alone cannot prove patient access or programme operation.",
+          "note": "Official SFDA attached schedules PDF. Current rendered page 6 visibly identifies row 26 as Cannabis and cannabis resin / Indian hemp and resin of Indian hemp / extracts and tinctures of cannabis.",
+          "revalidation": {
+            "checked_at": "2026-08-12T03:19:03.391Z",
+            "final_url": "https://www.sfda.gov.sa/sites/default/files/2022-04/%D8%A7%D9%84%D8%AC%D8%AF%D8%A7%D9%88%D9%84-%D8%A7%D9%84%D9%85%D8%B1%D9%81%D9%82%D8%A9-%D8%A8%D9%86%D8%B8%D8%A7%D9%85-%D9%85%D9%83%D8%A7%D9%81%D8%AD%D8%A9-%D8%A7%D9%84%D9%85%D8%AE%D8%AF%D8%B1%D8%A7%D8%AA-%D9%88-%D8%A7%D9%84%D9%85%D8%A4%D8%AB%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D8%B9%D9%82%D9%84%D9%8A%D8%A9.pdf",
+            "http_status": 200,
+            "etag": "\"217ed2-5dc0de7f11554\"",
+            "last_modified": "Thu, 07 Apr 2022 10:26:07 GMT",
+            "content_type": "application/pdf",
+            "content_length": 2195154,
+            "document_sha256": "d2ea34ae10afabe36690e04fbd22c898d4bd17e8145f8cc4f45959695c5495b0",
+            "relevant_fragment_sha256": "ff82bfb0e50c242a1d9e28dcc0fb851e8c6d94c8205a8400027ba5266063beb5",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "CURRENT_LAYER_MISMATCH",
+              "NEEDS_SEMANTIC_REVIEW"
+            ],
+            "dependent_geos": [
+              "SA"
+            ],
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "ocr",
+              "text_layer_length": 0,
+              "ocr_used": true,
+              "relevant_pages": [
+                6
+              ],
+              "rendered_pages": [
+                6
+              ]
+            }
+          }
         }
       ],
       "official_status": {
@@ -138161,7 +138339,86 @@
         "status": "CONFLICT_PROJECT_MED_NONE_AND_SOFT_ENFORCEMENT_VS_OFFICIAL_PRESCRIPTION_SCOPE_AND_ARTICLE_41_CUSTODIAL_PENALTY_WITH_TREATMENT_DIVERSION",
         "reason": "Saudi Arabia is visually verified from official Saudi Food and Drug Authority regulations pages/PDFs. The SFDA regulations page visibly identifies General Provisions for Schedules attached to the Law of Combating Narcotic drugs and Psychotropic Substances. The official English PDF visibly lists Cannabis and Cannabis resin at 100 mg and Dronabinol at 0.5 g in the Article 34 maximum-allowable-amount table. Article 35 visibly allows patient possession/use of narcotics or psychotropic substances only when prescribed by a licensed doctor under regulations. Article 41 visibly makes personal-use/use-purpose conduct punishable by a minimum of six months and not more than two years. Article 50 visibly provides a treatment/psychiatric-clinic path instead of the Article 41 penalty for addicted persons. The Arabic schedules PDF independently visibly lists Cannabis and cannabis resin / Indian hemp / extracts and tinctures of cannabis. Project recreational=ILLEGAL is supported. Project medical=NONE is too absolute because the official material shows a regulated prescription-controlled narcotic/psychotropic patient-possession pathway and lists cannabis resin/dronabinol in the controlled table; this is recorded as limited/regulated controlled-medicine scope, not broad medical-cannabis access. Project enforcement=SOFT is contradicted by the visible Article 41 custodial range, though treatment diversion must be disclosed. No project status SSOT was changed."
       },
-      "conclusion": "Saudi Arabia is closed as visually verified direct official cannabis-law evidence from SFDA regulations/PDFs. The evidence supports recreational ILLEGAL, contradicts project medical=NONE at least at controlled-prescription/dronabinol/cannabis-resin schedule scope, and contradicts project enforcement=SOFT because Article 41 visibly provides six months to two years for personal-use/use-purpose conduct. Article 50 treatment diversion is material and is retained as a caveat. No project status SSOT was changed."
+      "conclusion": "Saudi Arabia is closed as visually verified direct official cannabis-law evidence from SFDA regulations/PDFs. The evidence supports recreational ILLEGAL, contradicts project medical=NONE at least at controlled-prescription/dronabinol/cannabis-resin schedule scope, and contradicts project enforcement=SOFT because Article 41 visibly provides six months to two years for personal-use/use-purpose conduct. Article 50 treatment diversion is material and is retained as a caveat. No project status SSOT was changed.",
+      "independent_truth_color": "YELLOW",
+      "independent_truth_status": "CURRENT_CANNABIS_SCHEDULED_PRESCRIPTION_POSSESSION_AND_DISPENSER_PHARMACY_LEGAL_ROUTE_WITHOUT_PROVEN_OPERATIONAL_PATIENT_PROGRAMME",
+      "independent_truth_rule": "GENERAL_CURRENT_CANNABIS_SPECIFIC_PRESCRIPTION_AND_LAWFUL_PHARMACY_ROUTE_WITHOUT_OPERATIONAL_PROGRAMME_PROOF",
+      "independent_truth_reviewed_at": "2026-08-12T03:26:20Z",
+      "independent_review_state": "COMPLETE_LEGAL_TRUTH_STRICT_VISUAL_ACCEPTANCE_PARTIAL",
+      "independent_review": {
+        "reviewed_at": "2026-08-12T03:26:20Z",
+        "method": "C0_LOCAL_SCHEMA_C1_CONDITIONAL_HTTP_C2_CURRENT_PDF_TEXT_AND_SCANNED_PDF_RETRIEVAL_C3_HEADLESS_SFDA_PAGE_AND_PDF_VISUAL_REVIEW",
+        "legal_conclusion": "CURRENT_CANNABIS_SCHEDULED_PRESCRIPTION_POSSESSION_AND_DISPENSER_PHARMACY_LEGAL_ROUTE_WITHOUT_PROVEN_OPERATIONAL_PATIENT_PROGRAMME",
+        "official_truth_color": "YELLOW",
+        "independent_truth_rule": "GENERAL_CURRENT_CANNABIS_SPECIFIC_PRESCRIPTION_AND_LAWFUL_PHARMACY_ROUTE_WITHOUT_OPERATIONAL_PROGRAMME_PROOF",
+        "evidence_axes": {
+          "cannabis_specificity": "YES_CURRENT_SFDA_ARTICLE_34_AND_BILINGUAL_SCHEDULE_ROW_26_DIRECTLY_NAME_CANNABIS_CANNABIS_RESIN_AND_CANNABIS_EXTRACTS_TINCTURES",
+          "medical_cannabis_law": "YES_CURRENT_SFDA_IMPLEMENTING_PROCEDURES_CREATE_A_CANNABIS_LINKED_LICENSED_DOCTOR_PRESCRIPTION_POSSESSION_ROUTE",
+          "patient_eligible": "UNKNOWN_NO_CURRENT_OFFICIAL_QUALIFYING_CONDITION_OR_PATIENT_ELIGIBILITY_CRITERIA_WERE_LOCATED",
+          "prescriber_route": "YES_CURRENT_ARTICLE_35_REQUIRES_A_LICENSED_DOCTOR_PRESCRIPTION_FOR_AUTHORISED_POSSESSION",
+          "registration_route": "UNKNOWN_NO_CURRENT_OFFICIAL_PATIENT_REGISTRY_CARD_OR_ENROLMENT_ROUTE_WAS_LOCATED",
+          "lawful_supply": "UNKNOWN_ARTICLE_35_RECOGNISES_TREATMENT_PRODUCT_AND_DISPENSER_PHARMACY_RETURN_BUT_NO_CURRENT_CANNABIS_SPECIFIC_ISSUANCE_STOCK_OR_SUPPLY_OPERATION_WAS_PROVED",
+          "pharmacy_or_dispensary": "LIMITED_CURRENT_ARTICLE_35_NAMES_A_DISPENSER_PHARMACY_AS_THE_STATUTORY_RETURN_POINT_FOR_TREATMENT_PRODUCT_BUT_NO_CURRENT_CANNABIS_DISPENSING_OPERATION_WAS_PROVED",
+          "import_route": "UNKNOWN_NO_CURRENT_CANNABIS_PATIENT_IMPORT_ROUTE_WAS_LOCATED",
+          "programme_commenced": "YES_CURRENT_OFFICIAL_SFDA_PAGE_AND_CURRENT_PDFS_PUBLISH_THE_CONTROLLING_SCHEDULE_AND_PRESCRIPTION_BOUNDARY",
+          "programme_operational": "UNKNOWN_NO_CURRENT_OFFICIAL_PATIENT_ENROLMENT_ISSUED_PRESCRIPTION_PHARMACY_STOCK_DISPENSING_OR_ACTIVE_PATIENT_SERVICE_WAS_LOCATED",
+          "recreational_possession": "NO_CURRENT_ARTICLE_35_FORBIDS_UNAUTHORISED_POSSESSION_AND_ARTICLE_41_PRESERVES_CUSTODIAL_PERSONAL_USE_PENALTY_CONTEXT_WITH_CANNABIS_SCOPE_FROM_ARTICLE_34_AND_SCHEDULE_ROW_26",
+          "recreational_supply": "UNKNOWN_NO_CURRENT_CANNABIS_SPECIFIC_ADULT_SUPPLY_RULE_WAS_REVIEWED_IN_THIS_PACKET",
+          "recreational_cultivation": "UNKNOWN_NO_CURRENT_CANNABIS_SPECIFIC_CULTIVATION_RULE_WAS_REVIEWED_IN_THIS_PACKET",
+          "penalty_regime": "YES_CURRENT_ARTICLE_41_SETS_SIX_MONTHS_TO_TWO_YEARS_FOR_PERSONAL_USE_PURPOSE_CONDUCT_OUTSIDE_OTHER_CIRCUMSTANCES_LICENSED_BY_LAW"
+        },
+        "minimum_proven_axes": [
+          "CURRENT_APPLICABLE_OFFICIAL_CANNABIS_SCHEDULE",
+          "CURRENT_CANNABIS_SPECIFIC_LICENSED_DOCTOR_PRESCRIPTION_POSSESSION_BOUNDARY",
+          "CURRENT_DISPENSER_PHARMACY_TREATMENT_PRODUCT_BOUNDARY",
+          "CURRENT_UNAUTHORISED_PERSONAL_USE_PENALTY_BOUNDARY"
+        ],
+        "unresolved_axes": [
+          "CURRENT_PATIENT_ELIGIBILITY_CRITERIA",
+          "CURRENT_PATIENT_REGISTRY_OR_CARD",
+          "CURRENT_CANNABIS_PRODUCT_ISSUANCE_OR_PHARMACY_STOCK",
+          "CURRENT_CANNABIS_DISPENSING_OPERATION",
+          "CURRENT_OPERATIONAL_PATIENT_PROGRAMME",
+          "STRICT_BROWSER_ADDRESS_BAR_DOMAIN_VISIBILITY_FOR_PDF_PAGES"
+        ],
+        "lifecycle": {
+          "currentness": "The official SFDA index page and both PDFs returned HTTP 200 in C1 on 2026-08-12. The English procedures PDF reports Last-Modified 2021-09-28 and the bilingual schedules PDF reports Last-Modified 2022-04-07; current C2/C3 rendering reconfirmed the cited pages.",
+          "effective_date": "No future commencement, repeal or supersession statement was visible in the current official sources reviewed in this packet.",
+          "rule": "The cannabis-specific schedule plus licensed-doctor prescription/patient-possession boundary is affirmative limited lawful evidence for YELLOW. It is not converted into GREEN because the current patient and dispensing operation axes remain unproved."
+        },
+        "source_annotations": [
+          "The current SFDA index page confirms official owner and the attached-schedules publication context only; it supplies no cannabis legal axis by itself.",
+          "The current English procedures PDF Article 34 supplies cannabis/cannabis-resin and Dronabinol scope; Article 35 supplies the licensed-doctor prescription, treatment-product and dispenser-pharmacy boundary; Article 41 supplies the unauthorised personal-use penalty boundary.",
+          "The current bilingual SFDA schedule row 26 independently supplies cannabis/cannabis-resin/Indian-hemp/extracts-and-tinctures scope. Its source was scanned, so OCR was attempted only because no usable text layer existed; the direct row was visually read in the rendered page.",
+          "Generic controlled-substance prescription language does not supply patient eligibility, a patient registry, an operating dispensing site, stock or a programme operation; no such inference is made."
+        ],
+        "strict_visual_acceptance": "PARTIAL: the current SFDA page was opened headlessly and visibly shows the Saudi Food & Drug Authority owner, page title and schedule attachment. Current local PDF renderings visibly show Article 34 cannabis scope, Article 35 prescription/dispenser-pharmacy boundary, Article 41 penalty text and bilingual schedule row 26; the English PDF pages do not show an owner mark or browser chrome, and no capture contains an address bar. These visual limitations do not affect axis-derived legal truth.",
+        "current_layer_comparison": {
+          "project_status": "PROJECT_RECREATIONAL_ILLEGAL_MATCHES_CURRENT_OFFICIAL_PENALTY_BOUNDARY; PROJECT_MEDICAL_NONE_IS_TOO_ABSOLUTE_FOR_THE_CURRENT_CANNABIS_SPECIFIC_PRESCRIPTION_POSSESSION_ROUTE; PROJECT_ENFORCEMENT_SOFT_CONFLICTS_WITH_ARTICLE_41_CUSTODIAL_RANGE",
+          "runtime_map_color": "UNCONFIRMED_NOT_RECAPTURED_IN_THIS_LEGAL_PACKET",
+          "runtime_api_status": "UNCONFIRMED_NOT_RECAPTURED_IN_THIS_LEGAL_PACKET",
+          "wiki_truth_proposal": "YELLOW_PROPOSAL_FROM_THIS_INDEPENDENT_PACKET_AFTER_MATRIX_REBUILD",
+          "ssot": "UNTOUCHED_NO_APPLICATION_AUTHORIZED"
+        },
+        "no_mutation": {
+          "apply_allowed": false,
+          "ssot_changed": false,
+          "map_colors_changed": false,
+          "production_touched": false,
+          "runtime_touched": false,
+          "deployment_touched": false
+        },
+        "recommended_action": "RETAIN_PROPOSAL_ONLY_YELLOW_UNTIL_THE_SEPARATE_307_GEO_APPLY_GATE_AND_USER_AUTHORIZATION",
+        "confidence": "HIGH_FOR_CURRENT_CANNABIS_SCHEDULE_AND_PRESCRIPTION_BOUNDARY_YELLOW_MEDIUM_FOR_NON_OPERATIONAL_FINDING"
+      },
+      "audit_checkpoints": [
+        {
+          "at": "2026-08-12T03:26:20Z",
+          "id": "SA_CURRENT_CANNABIS_SCHEDULED_PRESCRIPTION_POSSESSION_ROUTE_PRE_CI",
+          "result": "PROPOSAL_ONLY_YELLOW",
+          "summary": "Current SFDA Article 34 and bilingual schedule row 26 directly identify cannabis/cannabis resin; Article 35 preserves an authorised licensed-doctor prescription and treatment-product/dispenser-pharmacy possession boundary; Article 41 preserves unauthorised personal-use custody exposure. No current patient eligibility, registry, stock, dispensing or active programme operation was proved, so no GREEN conclusion is inferred."
+        }
+      ]
     },
     {
       "geo": "SCR",
@@ -148026,6 +148283,55 @@
         "ZM"
       ],
       "detail": "SM is proposal-only YELLOW from the current official Law 113/2021 cannabis-specific prescription and State-pharmacy legal route, DD 64/2021 Cannabis Group scope bridge and Law 139/1997 unauthorised personal-use penalty boundary. C0 made zero HTTP requests; C1 fetched four unique URLs once: Law 113 conditionally returned HTTP 304/NOT_MODIFIED, Law 139 returned HTTP 200 with unchanged document hash, and the current Authority Sanitaria/DD 64 records retained C2/C3 semantic/visual baseline routing. Current official patient dispensing, stock, enrolment and active ISS service remain unproved, so no GREEN inference occurred. The counts use only compatible independent-truth color aliases in the rebuilt 307-row matrix. APPLY_ALLOWED=false; PRODUCTION_TOUCHED=false; MAP_COLORS_CHANGED=false; SSOT_CHANGED=false."
+    },
+    {
+      "geo": "SA",
+      "at": "2026-08-12T03:32:09Z",
+      "stage": "AUDIT_STOP_CHECKPOINT",
+      "result": "CI_STATUS=PASS;SMOKE_STATUS=PASS;POST_CHECKS_OK=1;HUB_STAGE_REPORT_OK=1;PROCESS_SLOT_RUNTIME_GUARD=PASS;PASS_CYCLE_EXIT_RC=0",
+      "ci_report_sha256": "da99be10684496585c38b82b239ceebacf9ad2b909042d3885846bc37c561f6e",
+      "structured_independent_packets": 248,
+      "normalized_independent_truth_colors": 278,
+      "remaining_without_independent_color": 29,
+      "normalized_color_distribution": {
+        "GREEN": 91,
+        "YELLOW": 106,
+        "RED": 19,
+        "UNKNOWN": 62,
+        "NO_INDEPENDENT_COLOR": 29
+      },
+      "remaining_canonical_geos": [
+        "RU",
+        "SH",
+        "SN",
+        "SER",
+        "KAS",
+        "SL",
+        "SX",
+        "SB",
+        "SO",
+        "GS",
+        "SS",
+        "LK",
+        "SD",
+        "SR",
+        "SY",
+        "TJ",
+        "TZ",
+        "TH",
+        "TL",
+        "TG",
+        "TO",
+        "TN",
+        "TM",
+        "TC",
+        "TV",
+        "US",
+        "EH",
+        "YE",
+        "ZM"
+      ],
+      "detail": "SA is proposal-only YELLOW from a current SFDA cannabis/cannabis-resin schedule bridge plus the same current legal chain's licensed-doctor prescription, treatment-product and dispenser-pharmacy possession boundary. C0 made zero HTTP requests; C1 fetched three unique URLs once at HTTP 200. C2 used pdftotext for the text PDF; the scanned schedule had no usable text layer and received OCR only before rendered page-6 visual review. No current patient eligibility, registry, product issuance, pharmacy stock, dispensing or active service is proved, so no GREEN inference occurred. Targeted revalidation and reconciliation tests passed 66/66; the required serial root pass cycle passed. The counts use only compatible independent-truth color aliases in the rebuilt 307-row matrix. APPLY_ALLOWED=false; PRODUCTION_TOUCHED=false; MAP_COLORS_CHANGED=false; SSOT_CHANGED=false."
     }
   ]
 }
