@@ -29,7 +29,7 @@
     "colorReauditDirectOrComposite": 31,
     "colorReauditContextClaimantOrNegative": 8,
     "supplementalOfficialLinks": 32,
-    "allPublishedOfficialLinks": 1425,
+    "allPublishedOfficialLinks": 1427,
     "rowsWithPublishedOfficialLinks": 307,
     "rowsWithAnyOfficialUrl": 307
   },
@@ -90239,35 +90239,223 @@
         "medical": "NONE_AS_CANNABIS_PATIENT_ACCESS_PROGRAM; REVIEWED_OFFICIAL_CRIMINAL_AND_ADMINISTRATIVE_CODE_EXCERPTS_SHOW_GENERAL_NARCOTIC_DRUG_AND_CROP_PROHIBITION_RULES_AND_NO_CANNABIS_SPECIFIC_MEDICAL_PATIENT_ACCESS_FRAMEWORK_WAS_VISUALLY_CONFIRMED",
         "enforcement": "STRICT; OFFICIAL_CRIMINAL_CODE_VISIBLY_SETS_CUSTODIAL_PENALTIES_FOR_NARCOTIC_DRUG_CONDUCT_WITH_AND_WITHOUT_INTENT_TO_SELL_AND_FOR_HEMP_CANNABIS_CULTIVATION_WITH_AGGRAVATED_BANDS_UP_TO_FIFTEEN_OR_TWENTY_FIVE_YEARS_DEPENDING_ON_OFFENCE_TYPE"
       },
-      "independentTruth": null,
+      "independentTruth": {
+        "color": "UNKNOWN",
+        "rule": "GENERAL_CURRENT_CANNABIS_PROHIBITION_PROVEN_BUT_UNPROVED_MEDICAL_PATIENT_EXCEPTION_ABSENCE_CANNOT_CREATE_RED",
+        "reviewedAt": "2026-08-12T15:55:00+03:00",
+        "conclusion": null
+      },
       "directOfficialCannabisLawLinks": [
         {
           "title": "Ministry of Justice of Turkmenistan / Adalat legal portal API - Criminal Code of Turkmenistan",
           "url": "https://minjust.gov.tm/api/front/lawfile/759",
           "sourceKind": "TURKMENISTAN_MINJUST_CRIMINAL_CODE_ARTICLES_327_328_330_NARCOTIC_DRUGS_CANNABIS_HEMP_POSSESSION_SUPPLY_CULTIVATION",
+          "sourceOwnerGeo": "TM",
+          "appliesToGeos": [
+            "TM"
+          ],
+          "legalBasisForExtension": "Direct nationwide consolidated Criminal Code record published by Turkmenistan's Ministry of Justice legal-information portal.",
+          "officialPublisher": "Official national legal-information portal of the Ministry of Justice of Turkmenistan.",
+          "sourceAnnotation": "Primary official Ministry of Justice record retained for Turkmenistan's direct hemp/cannabis cultivation offence. The human-readable official legal-portal URL is stored beside the pre-existing API URL so the relevant current text can be reached without replacing or losing the original official endpoint. Neither generic narcotic wording nor a prescription-document offence is promoted into a patient route.",
+          "sourceType": "OFFICIAL_NATIONAL_CONSOLIDATED_CRIMINAL_CODE_API_RECORD",
+          "primaryOrContext": "PRIMARY_CANNABIS_CULTIVATION_AND_NARCOTIC_OFFENCE_TEXT_PENDING_C2_CURRENTNESS_SCOPE_REVIEW",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T12:44:26.145Z",
+            "final_url": "https://minjust.gov.tm/api/front/lawfile/759",
+            "http_status": null,
+            "etag": null,
+            "last_modified": null,
+            "content_type": null,
+            "content_length": null,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "a9aa10b9fcedeb7066462340863b5d2cac9a810d1560004e6877f2adddbf098f",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "TM"
+            ]
+          },
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official Ministry of Justice of Turkmenistan / Adalat API JSON for lawfile 759, Criminal Code of Turkmenistan. Visual review of the rendered official API text confirms Article 327 criminalizes illegal manufacture, processing, acquisition, storage, transport or mailing of narcotic drugs, psychotropic substances or precursors with intent to sell and illegal sale, with imprisonment bands from five to twelve years, eight to twenty years, and fifteen to twenty-five years depending on aggravating factors and quantities; Article 328 criminalizes the same types of conduct without intent to sell with fine or imprisonment up to five years and aggravated three-to-ten-year band; Article 330 expressly names sowing or growing hemp/cannabis (конопли) or other prohibited narcotic-containing plants and punishes cultivation with correctional work or imprisonment from two to five years, five to ten years for aggravated/large-scale conduct, and ten to fifteen years for especially large-scale conduct.",
+          "note": "Article 330: «Посев или выращивание мака, конопли или других запрещённых к возделыванию растений, содержащих наркотические вещества, а также культивирование сортов этих растений» is punishable; aggravated bands are stated in later parts of the Article.",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-16/TM/screenshots/api_pages/TM-minjust-criminal-admin-cannabis-law-evidence.png",
-          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "Turkmenistan is closed as visually verified direct official cannabis-law evidence from Ministry of Justice / Adalat API lawfiles 759 and 768. Project ILLEGAL/NONE/STRICT is supported, with direct code evidence for narcotic-drug conduct and hemp/cannabis cultivation and no visually confirmed cannabis-specific medical patient program. No project status SSOT was changed."
+          "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
+          "visualReview": "The retained TM capture was previously inspected as a rendered official Adalat API record. It corroborates Article 330's cannabis/hemp cultivation text; fresh official-host/domain acceptance remains separate from legal truth and is routed to C3."
         },
         {
           "title": "Ministry of Justice of Turkmenistan / Adalat legal portal API - Code of Administrative Offences of Turkmenistan",
           "url": "https://minjust.gov.tm/api/front/lawfile/768",
           "sourceKind": "TURKMENISTAN_MINJUST_ADMINISTRATIVE_OFFENCES_CODE_ARTICLES_172_173_HEMP_CANNABIS_NARCOTIC_CROP_RULES",
+          "sourceOwnerGeo": "TM",
+          "appliesToGeos": [
+            "TM"
+          ],
+          "legalBasisForExtension": "Direct nationwide consolidated Code of Administrative Offences record published by Turkmenistan's Ministry of Justice legal-information portal.",
+          "officialPublisher": "Official national legal-information portal of the Ministry of Justice of Turkmenistan.",
+          "sourceAnnotation": "Primary official Ministry of Justice record retained as the cannabis-specific administrative crop-rule complement to the Criminal Code. The human-readable official legal-portal URL is recorded beside the pre-existing API endpoint without source shrink. It is evidence about cannabis crop regulation only and does not convert generic regulation, research or licensing language into patient access.",
+          "sourceType": "OFFICIAL_NATIONAL_CONSOLIDATED_ADMINISTRATIVE_CODE_API_RECORD",
+          "primaryOrContext": "PRIMARY_CANNABIS_CROP_RULES_CONTEXT_PENDING_C2_CURRENTNESS_SCOPE_REVIEW",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T12:44:26.145Z",
+            "final_url": "https://minjust.gov.tm/api/front/lawfile/768",
+            "http_status": null,
+            "etag": null,
+            "last_modified": null,
+            "content_type": null,
+            "content_length": null,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "febb09aca9f448b4f80859b7d7f2f95d18a35a6ca546c00f478afdc2c013aa44",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "TM"
+            ]
+          },
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official Ministry of Justice of Turkmenistan / Adalat API JSON for lawfile 768, Code of Administrative Offences of Turkmenistan. Visual review of the rendered official API text confirms Article 172 on protection of narcotic-containing crops expressly names hemp/cannabis (конопли) and other narcotic-containing cultures, storage and processing locations, and destruction of crop residues/waste, with fines and possible administrative suspension; Article 173 expressly names sowing and growing gocknar, hemp/cannabis (конопли) and other prohibited narcotic-containing plants in violation of Turkmenistan law, with warning/fines and possible administrative suspension for legal entities.",
+          "note": "Article 172 names посевов гокнара, конопли и других культур, содержащих наркотические средства; Article 173 states that sowing and growing гокнара, конопли and other prohibited narcotic-containing plants contrary to rules established by Turkmenistan law triggers the stated administrative sanction.",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-16/TM/screenshots/api_pages/TM-minjust-criminal-admin-cannabis-law-evidence.png",
-          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "Turkmenistan is closed as visually verified direct official cannabis-law evidence from Ministry of Justice / Adalat API lawfiles 759 and 768. Project ILLEGAL/NONE/STRICT is supported, with direct code evidence for narcotic-drug conduct and hemp/cannabis cultivation and no visually confirmed cannabis-specific medical patient program. No project status SSOT was changed."
+          "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
+          "visualReview": "The retained TM capture was previously inspected as a rendered official Adalat API record. It corroborates the Articles 172-173 cannabis/hemp crop text; fresh official-host/domain acceptance remains separate from legal truth and is routed to C3."
         }
       ],
       "candidateLinksAwaitingVisualReview": [],
-      "officialContextLinks": [],
+      "officialContextLinks": [
+        {
+          "title": "Law of Turkmenistan No. 456-VI (17 April 2022) amending and approving the Criminal Code in a new edition — Ministry of Health hosted official PDF",
+          "url": "https://api.saglykhm.gov.tm/uploads/document_clel66pxq002lzlp84hm0efrd.pdf",
+          "sourceKind": "TURKMENISTAN_MOH_OFFICIAL_PDF_LAW_456_VI_CRIMINAL_CODE_ARTICLE_330_CANNABIS_CULTIVATION",
+          "sourceOwnerGeo": "TM",
+          "appliesToGeos": [
+            "TM"
+          ],
+          "legalBasisForExtension": "Nationwide Law of Turkmenistan No. 456-VI approving the Criminal Code in a new edition; Article 2 states commencement on 1 January 2023.",
+          "officialPublisher": "Official Ministry of Health and Medical Industry of Turkmenistan document host publishing a Law of Turkmenistan and the Criminal Code text.",
+          "sourceAnnotation": "Official Ministry of Health-hosted copy of the enactment and Criminal Code text. It preserves the effective-date bridge and the cannabis-specific Article 330 page, independently corroborating the retained Ministry of Justice legal-portal record. Later amendment/currentness scope is not inferred from this copy; generic medicine or prescription-document wording remains non-promoting.",
+          "sourceType": "OFFICIAL_MINISTRY_HOSTED_PRIMARY_LAW_AND_CRIMINAL_CODE_PDF",
+          "primaryOrContext": "PRIMARY_CANNABIS_CULTIVATION_TEXT_CURRENTNESS_CONTEXT",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": false,
+          "officialOwnerVisible": false,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": false,
+          "effectiveRuleVisible": false,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T12:52:09.888Z",
+            "final_url": "https://api.saglykhm.gov.tm/uploads/document_clel66pxq002lzlp84hm0efrd.pdf",
+            "http_status": null,
+            "etag": null,
+            "last_modified": null,
+            "content_type": null,
+            "content_length": null,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "5c7997c9c7e7614205730b1b5fe6d8362b888ec182b840b9b8df33a6bb20ee02",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "TM"
+            ]
+          },
+          "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
+          "confidence": "high",
+          "note": "Official Ministry of Health PDF: Law No. 456-VI of 17 April 2022 revises and approves the Criminal Code, Article 2 puts it into effect on 1 January 2023, and the attached Code's Article 330 directly names poppy and cannabis/hemp (конопли) among prohibited narcotic-containing plants. The official text sets a two-to-five-year imprisonment range or corrective work, with five-to-ten and ten-to-fifteen-year aggravated bands. This is a cannabis cultivation prohibition anchor, not proof about patient access.",
+          "screenshotPath": null,
+          "visualReview": "CONTEXT_ONLY"
+        },
+        {
+          "title": "Code of Administrative Offences of Turkmenistan — Ministry of Health hosted official PDF",
+          "url": "https://api.saglykhm.gov.tm/uploads/document_clel5yiyx002fzlp82kym98f4.pdf",
+          "sourceKind": "TURKMENISTAN_MOH_OFFICIAL_PDF_ADMINISTRATIVE_CODE_ARTICLES_172_173_CANNABIS_HEMP_CROP_RULES",
+          "sourceOwnerGeo": "TM",
+          "appliesToGeos": [
+            "TM"
+          ],
+          "legalBasisForExtension": "Nationwide Code of Administrative Offences; Article 2 of the approval law introduced the Code from 1 January 2014.",
+          "officialPublisher": "Official Ministry of Health and Medical Industry of Turkmenistan document host publishing the Code of Administrative Offences text.",
+          "sourceAnnotation": "Official Ministry of Health-hosted administrative-code text retained as a cross-host confirmation of the existing Ministry of Justice legal-portal source. The deep link reaches Articles 172-173. It is never promoted from crop regulation into patient access, generic regulator licensing or a color decision by itself.",
+          "sourceType": "OFFICIAL_MINISTRY_HOSTED_NATIONAL_ADMINISTRATIVE_CODE_PDF",
+          "primaryOrContext": "PRIMARY_CANNABIS_CROP_RULES_CONTEXT",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": false,
+          "officialOwnerVisible": false,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": false,
+          "effectiveRuleVisible": false,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T12:52:09.888Z",
+            "final_url": "https://api.saglykhm.gov.tm/uploads/document_clel5yiyx002fzlp82kym98f4.pdf",
+            "http_status": null,
+            "etag": null,
+            "last_modified": null,
+            "content_type": null,
+            "content_length": null,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "8c431322f1c16e6b51aa17b10cde5acbf661adf355ef50e3cc0b9837fdc98627",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "TM"
+            ]
+          },
+          "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
+          "confidence": "high",
+          "note": "Official Ministry of Health PDF for the nationwide Code of Administrative Offences. The approval law introduces the Code from 1 January 2014; Articles 172-173 directly name hemp/cannabis (конопли) among narcotic-containing crops and regulate/prohibit noncompliant planting or growing. This is cannabis-specific crop context only, not a patient-access source.",
+          "screenshotPath": null,
+          "visualReview": "CONTEXT_ONLY"
+        }
+      ],
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "MATCH_WITH_STRICT_NARCOTIC_DRUG_AND_HEMP_CANNABIS_CULTIVATION_CODE_EVIDENCE",
@@ -90280,7 +90468,7 @@
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-16/TM/screenshots/api_pages/TM-minjust-criminal-admin-cannabis-law-evidence.png"
       ],
       "reviewConfidence": "high",
-      "reviewNotes": "VISUALLY_VERIFIED: Turkmenistan is closed as visually verified direct official cannabis-law evidence from Ministry of Justice / Adalat API lawfiles 759 and 768. Project ILLEGAL/NONE/STRICT is supported, with direct code evidence for narcotic-drug conduct and hemp/cannabis cultivation and no visually confirmed cannabis-specific medical patient program. No project status SSOT was changed.",
+      "reviewNotes": "VISUALLY_VERIFIED: TM independent Truth-First review is proposal-only UNKNOWN / LEGAL_APPLICABILITY_UNRESOLVED. The official Ministry of Justice current legal-portal text and the retained Ministry of Health-hosted primary-code PDFs directly establish the nationwide Criminal Code Article 330 cannabis/hemp cultivation prohibition and penalty bands, with Articles 327-328 covering unlawful narcotic-drug conduct; the Administrative Code separately names cannabis/hemp crop restrictions. The current official portal and health-domain search checked the direct criminal, administrative and health/regulatory source paths for a cannabis-specific patient exception, prescriber, registry, lawful supply/import, dispensing or operational programme and found no such instrument. That search result is an explicit reopening limitation, not positive proof of medical prohibition. Under Truth-First, a proven recreational/cultivation prohibition plus an unproved medical-access absence cannot become RED. C1 `ACCESS_BLOCKED` outcomes do not contribute to the conclusion. No SSOT, map, runtime, production or deployment layer changed.",
       "truthLayers": {
         "primaryLaw": {
           "source": "DIRECT_OFFICIAL_LAW",
