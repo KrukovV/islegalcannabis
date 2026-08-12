@@ -120842,18 +120842,18 @@
           "visual_review_result": "VALID: current ANRAC-hosted Bulletin Officiel PDF visually reviewed; official gazette header, Law No. 13-21, cannabis-specific articles, and legal rule are visible. The address bar is not part of a PDF crop.",
           "visual_reviewer_timestamp": "2026-08-10T00:00:00.000Z",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T14:24:26.721Z",
             "final_url": "https://www.anrac.gov.ma/wp-content/uploads/2023/10/13-21-Fr.pdf",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
+            "last_modified": "Fri, 20 Oct 2023 16:17:42 GMT",
+            "content_type": "application/pdf",
+            "content_length": 904212,
+            "document_sha256": "fdd1ef658e139a77f66a34268c0fb50ec8ca0eb31dbfe75e3c60e6506a621010",
             "relevant_fragment_sha256": "cb8ebe9e080928c96e20d8acf5ab9aa100716986d9cef94ac78d714896196508",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:LOCATOR_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -120867,7 +120867,13 @@
             "schema_issues": [
               "LOCATOR_MISSING"
             ],
-            "semantic_probe": null
+            "semantic_probe": {
+              "extractor": "ocr",
+              "text_layer_length": 0,
+              "ocr_used": true,
+              "relevant_pages": [],
+              "rendered_pages": []
+            }
           }
         },
         {
@@ -120907,18 +120913,18 @@
           "visual_review_result": "VALID: current ANRAC-hosted Bulletin Officiel PDF visually reviewed; decree title, ANRAC, cannabis-specific Article 1 province scope, authorization procedure, and implementation provisions are visible. The address bar is not part of a PDF crop.",
           "visual_reviewer_timestamp": "2026-08-10T00:00:00.000Z",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T14:24:26.721Z",
             "final_url": "https://www.anrac.gov.ma/wp-content/uploads/2023/10/Decret-n%C2%B0-2-22159.pdf",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
+            "last_modified": "Fri, 20 Oct 2023 16:32:38 GMT",
+            "content_type": "application/pdf",
+            "content_length": 202116,
+            "document_sha256": "5a478f51a6b0f452965914e69c7731f55b9d5ee86508d496b0ee40e226aabcc4",
             "relevant_fragment_sha256": "1d9e0fd0f5d7328b910d504601e4af1fae81ae3f8989dd43f46f47593e2d484c",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:LOCATOR_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -120932,7 +120938,13 @@
             "schema_issues": [
               "LOCATOR_MISSING"
             ],
-            "semantic_probe": null
+            "semantic_probe": {
+              "extractor": "ocr",
+              "text_layer_length": 0,
+              "ocr_used": true,
+              "relevant_pages": [],
+              "rendered_pages": []
+            }
           }
         },
         {
@@ -157208,21 +157220,60 @@
           "title": "ANRAC Morocco - Bulletin Officiel Loi n° 13-21 relative aux usages licites du cannabis",
           "url": "https://www.anrac.gov.ma/wp-content/uploads/2023/10/13-21-Fr.pdf",
           "source_kind": "WESTERN_SAHARA_MOROCCO_CLAIMANT_CONTEXT_ANRAC_LOI_13_21_LICIT_CANNABIS_USES_NOT_TERRITORY_ISSUED_EH_LAW",
+          "source_owner": "Kingdom of Morocco / National Agency for the Regulation of Cannabis Activities (ANRAC)",
+          "source_owner_geo": "MA",
+          "source_authority": "Official ANRAC-hosted Bulletin Officiel text of Moroccan Loi n° 13-21.",
+          "applies_to_geo": [
+            "MA"
+          ],
+          "context_for_geos": [
+            "EH"
+          ],
+          "legal_basis_for_extension": "Direct Moroccan national law. Retained in EH only as claimant/administrator context; this record supplies no territorial bridge and does not establish that the law applies throughout Western Sahara.",
+          "source_type": "OFFICIAL_MOROCCAN_BULLETIN_PRIMARY_CANNABIS_LAW_PDF",
+          "primary_or_context": "CLAIMANT_LAW_CONTEXT_ONLY_NOT_EH_TERRITORIAL_PRIMARY_LAW",
+          "evidence_role": "MOROCCAN_CANNABIS_FRAMEWORK_CONTEXT_WITHOUT_EH_APPLICABILITY_TRANSFER",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "CURRENT_MOROCCAN_LAW_CONTEXT_ONLY_FOR_EH; TERRITORIAL_APPLICABILITY_TO_EH_IS_NOT_PROVEN.",
+          "effective_date": "Promulgated 14 July 2021 in Bulletin Officiel No. 7010; retained as current Moroccan context, not as an EH effective-law conclusion.",
+          "official_host_verified": true,
+          "direct_fragment_available": true,
+          "semantic_legal_axis": false,
+          "official_fragment_locator": "Official PDF pp. 2-3, Articles 4-7; direct page reference https://www.anrac.gov.ma/wp-content/uploads/2023/10/13-21-Fr.pdf#page=2.",
+          "direct_fragment_urls": [
+            "https://www.anrac.gov.ma/wp-content/uploads/2023/10/13-21-Fr.pdf#page=2",
+            "https://www.anrac.gov.ma/wp-content/uploads/2023/10/13-21-Fr.pdf#page=3"
+          ],
+          "exact_fragment": "Articles 4-7 regulate authorisation for cultivation and production of cannabis, including medical and pharmaceutical industries where THC exceeds the regulatory threshold, and condition authorisation on the listed requirements.",
+          "annotation": "Official Moroccan cannabis-law PDF with an exact page-level link. Local visual review confirms a licensed framework for cannabis cultivation and production. It is claimant/administrator context only for EH and cannot be used to derive an EH patient axis, recreational axis, prohibition axis or colour without a separate territorial applicability bridge.",
+          "applicability": "MA directly. EH only as non-transferring claimant-law context.",
+          "legal_relevance": "Shows that a Moroccan cannabis framework exists, while preserving the boundary that Moroccan law is not automatically EH law.",
+          "confidence": "HIGH_FOR_MOROCCAN_PRIMARY_TEXT; NOT_APPLICABLE_AS_STANDALONE_EH_LEGAL_TRUTH.",
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_state": "RETAINED_OFFICIAL_ANRAC_PDF_CAPTURE_VISUALLY_REVIEWED_LOCALLY_NO_DESKTOP_BROWSER",
+          "visual_review_result": "Retained local PDF page visibly identifies Bulletin Officiel cannabis provisions and French text on cannabis authorisation. Visual proof is acceptance metadata only and does not transfer applicability to EH.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/MA/pages/MA-loi-13-21-page-1.png",
           "note": "Official ANRAC-hosted Moroccan Bulletin Officiel PDF for Loi n° 13-21. Visual review, already captured for Morocco, confirms a licensed cannabis framework for medical, pharmaceutical and industrial uses and strict sanctions outside authorization. This is retained for Western Sahara only as Moroccan claimant/administrator context, not as a Western-Sahara-issued cannabis law page or a resolved jurisdiction rule.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T14:24:26.721Z",
             "final_url": "https://www.anrac.gov.ma/wp-content/uploads/2023/10/13-21-Fr.pdf",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "last_modified": "Fri, 20 Oct 2023 16:17:42 GMT",
+            "content_type": "application/pdf",
+            "content_length": 904212,
+            "document_sha256": "fdd1ef658e139a77f66a34268c0fb50ec8ca0eb31dbfe75e3c60e6506a621010",
+            "relevant_fragment_sha256": "b1f23e581deb48290861f76968da97d2b4811efa0ee0272d01631192f6451f1b",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -157232,36 +157283,76 @@
               "NEEDS_SEMANTIC_REVIEW"
             ],
             "dependent_geos": [
-              "EH"
+              "EH",
+              "MA"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
-            "semantic_probe": null
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "ocr",
+              "text_layer_length": 0,
+              "ocr_used": true,
+              "relevant_pages": [],
+              "rendered_pages": []
+            }
           }
         },
         {
           "title": "ANRAC Morocco - Bulletin Officiel Décret n° 2-22-159 implementing Loi n° 13-21",
           "url": "https://www.anrac.gov.ma/wp-content/uploads/2023/10/Decret-n%C2%B0-2-22159.pdf",
           "source_kind": "WESTERN_SAHARA_MOROCCO_CLAIMANT_CONTEXT_DECREE_2_22_159_IMPLEMENTING_LAW_13_21_NOT_TERRITORY_ISSUED_EH_LAW",
+          "source_owner": "Kingdom of Morocco / National Agency for the Regulation of Cannabis Activities (ANRAC)",
+          "source_owner_geo": "MA",
+          "source_authority": "Official ANRAC-hosted Bulletin Officiel text of Moroccan Décret n° 2-22-159 implementing Loi n° 13-21.",
+          "applies_to_geo": [
+            "MA"
+          ],
+          "context_for_geos": [
+            "EH"
+          ],
+          "legal_basis_for_extension": "Direct Moroccan implementing decree. Retained for EH only to test, not assume, a Moroccan applicability claim; Article 1 supplies no authorisation bridge to EH.",
+          "source_type": "OFFICIAL_MOROCCAN_BULLETIN_IMPLEMENTING_CANNABIS_DECREE_PDF",
+          "primary_or_context": "CLAIMANT_IMPLEMENTING_LAW_CONTEXT_ONLY_NOT_EH_TERRITORIAL_PRIMARY_LAW",
+          "evidence_role": "LIMITED_MOROCCAN_PROVINCE_SCOPE_CONTEXT_PREVENTING_UNSUPPORTED_EH_TRANSFER",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "CURRENT_MOROCCAN_DECREE_CONTEXT_ONLY_FOR_EH; ARTICLE_1_NAMES_SPECIFIC_MOROCCAN_PROVINCES_AND_DOES_NOT_PROVE_EH_APPLICABILITY.",
+          "effective_date": "18 March 2022 Bulletin Officiel No. 7080; retained as current Moroccan implementing context, not as an EH effective-law conclusion.",
+          "official_host_verified": true,
+          "direct_fragment_available": true,
+          "semantic_legal_axis": false,
+          "official_fragment_locator": "Official PDF p. 1, Article premier; direct page reference https://www.anrac.gov.ma/wp-content/uploads/2023/10/Decret-n%C2%B0-2-22159.pdf#page=1.",
+          "direct_fragment_urls": [
+            "https://www.anrac.gov.ma/wp-content/uploads/2023/10/Decret-n%C2%B0-2-22159.pdf#page=1"
+          ],
+          "exact_fragment": "Article premier states that, for application of Article 4 of Loi n° 13-21, cannabis cultivation and production and nursery operation may be authorised only in the provinces of Al Hoceima, Chefchaouen and Taounate.",
+          "annotation": "Official Moroccan implementing-decree PDF with an exact page-level link. The retained capture visibly limits Article 4 authorisations to Al Hoceima, Chefchaouen and Taounate. This does not decide every EH rule, but it prevents using the decree as an unqualified EH cannabis-applicability bridge.",
+          "applicability": "MA directly; EH only as non-transferring territorial-scope context.",
+          "legal_relevance": "Positive province limitation within Moroccan implementation; it cannot prove an EH patient, adult-use or prohibition axis.",
+          "confidence": "HIGH_FOR_ARTICLE_1_MOROCCAN_PROVINCE_LIMIT; NOT_SUFFICIENT_FOR_EH_LEGAL_TRUTH.",
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_state": "RETAINED_OFFICIAL_ANRAC_PDF_CAPTURE_VISUALLY_REVIEWED_LOCALLY_NO_DESKTOP_BROWSER",
+          "visual_review_result": "Retained local PDF page visibly shows the decree title, Article premier and its three named provinces. Visual acceptance is separate from legal truth.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/MA/pages/MA-decret-2-22-159-page-1.png",
           "note": "Official ANRAC-hosted Moroccan implementing decree for Loi n° 13-21. Visual review confirms implementing rules and province limits for authorized cannabis cultivation/production in Morocco. This is context only for Western Sahara because it does not itself resolve the EH territorial/legal-status scope.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T14:24:26.721Z",
             "final_url": "https://www.anrac.gov.ma/wp-content/uploads/2023/10/Decret-n%C2%B0-2-22159.pdf",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "last_modified": "Fri, 20 Oct 2023 16:32:38 GMT",
+            "content_type": "application/pdf",
+            "content_length": 202116,
+            "document_sha256": "5a478f51a6b0f452965914e69c7731f55b9d5ee86508d496b0ee40e226aabcc4",
+            "relevant_fragment_sha256": "6126dc5d8f79d0593e6ade3be0ff9a96eeadcb8e6046e248cb094f470bb6b468",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -157271,25 +157362,65 @@
               "NEEDS_SEMANTIC_REVIEW"
             ],
             "dependent_geos": [
-              "EH"
+              "EH",
+              "MA"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
-            "semantic_probe": null
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "ocr",
+              "text_layer_length": 0,
+              "ocr_used": true,
+              "relevant_pages": [],
+              "rendered_pages": []
+            }
           }
         },
         {
           "title": "Morocco Ministry of Health - Dahir portant loi n° 1-73-282 anti-drug baseline",
           "url": "https://www.sante.gov.ma/Reglementation/REGLEMENTATIONAPPLICABLEAUPRODUITSDESANTE/1-73-282.pdf",
           "source_kind": "WESTERN_SAHARA_MOROCCO_CLAIMANT_CONTEXT_ANTI_DRUG_BASELINE_NOT_TERRITORY_ISSUED_EH_LAW",
+          "source_owner": "Kingdom of Morocco / Ministry of Health and Social Protection",
+          "source_owner_geo": "MA",
+          "source_authority": "Official Moroccan Ministry of Health-hosted anti-drug legal text.",
+          "applies_to_geo": [
+            "MA"
+          ],
+          "context_for_geos": [
+            "EH"
+          ],
+          "legal_basis_for_extension": "Moroccan national anti-drug baseline. It is retained for EH only as claimant-law context and supplies no direct EH territorial applicability bridge.",
+          "source_type": "OFFICIAL_MOROCCAN_MINISTRY_ANTI_DRUG_LEGAL_CONTEXT_PDF",
+          "primary_or_context": "CLAIMANT_ANTI_DRUG_CONTEXT_ONLY_NOT_EH_TERRITORIAL_PRIMARY_LAW",
+          "evidence_role": "MOROCCAN_ANTI_DRUG_BASELINE_CONTEXT_WITHOUT_EH_TRANSFER",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "RETAINED_MOROCCAN_ANTI_DRUG_CONTEXT_ONLY_FOR_EH; TERRITORIAL_APPLICABILITY_TO_EH_IS_NOT_PROVEN.",
+          "effective_date": "Dahir portant loi n° 1-73-282; retained as Moroccan legal context, not as an EH effective-law conclusion.",
+          "official_host_verified": true,
+          "direct_fragment_available": true,
+          "semantic_legal_axis": false,
+          "official_fragment_locator": "Official Ministry PDF title page; direct PDF reference https://www.sante.gov.ma/Reglementation/REGLEMENTATIONAPPLICABLEAUPRODUITSDESANTE/1-73-282.pdf#page=1.",
+          "direct_fragment_urls": [
+            "https://www.sante.gov.ma/Reglementation/REGLEMENTATIONAPPLICABLEAUPRODUITSDESANTE/1-73-282.pdf#page=1"
+          ],
+          "exact_fragment": "Dahir portant loi n° 1-73-282 relative à la répression de certaines infractions en matière de stupéfiants is retained as the Moroccan anti-drug baseline referenced by the Loi n° 13-21 sanctions context.",
+          "annotation": "Official Moroccan Ministry-hosted anti-drug legal-text PDF with a page-level link. It is not a direct EH cannabis statute and does not support an EH prohibition conclusion, medical conclusion or colour by itself.",
+          "applicability": "MA directly; EH only as non-transferring claimant-law context.",
+          "legal_relevance": "Moroccan sanctions-background context only; no EH legal axis is derived.",
+          "confidence": "HIGH_FOR_OFFICIAL_MOROCCAN_SOURCE_IDENTITY; NOT_APPLICABLE_AS_STANDALONE_EH_LEGAL_TRUTH.",
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": false,
+          "screenshot_state": "RETAINED_MOROCCAN_CONTEXT_PDF_REFERENCE_VISUALLY_LINKED_TO_LOI_13_21_CAPTURE_NO_DESKTOP_BROWSER",
+          "visual_review_result": "The retained Loi n° 13-21 sanctions-page capture preserves the contextual link. This source has no standalone EH territorial visual acceptance and cannot alter legal truth.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/MA/pages/MA-loi-13-21-page-9.png",
           "note": "Moroccan anti-drug baseline is referenced by Loi n° 13-21 sanctions provisions. It is retained only as claimant-law context for Western Sahara, not as a separately captured Western-Sahara-issued cannabis law.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T14:24:26.721Z",
             "final_url": "https://www.sante.gov.ma/Reglementation/REGLEMENTATIONAPPLICABLEAUPRODUITSDESANTE/1-73-282.pdf",
             "http_status": null,
             "etag": null,
@@ -157297,10 +157428,81 @@
             "content_type": null,
             "content_length": null,
             "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "relevant_fragment_sha256": "a076e82b29c29f5308c9ab75e92d1464438e7278866f58f7654a59c7ea05d0ad",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "ACCESS_BLOCKED",
+              "CURRENT_LAYER_MISMATCH"
+            ],
+            "dependent_geos": [
+              "EH",
+              "MA"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
+        }
+      ],
+      "verified_context_sources": [
+        {
+          "title": "International Court of Justice - Western Sahara advisory opinion case overview",
+          "url": "https://www.icj-cij.org/case/61",
+          "source_kind": "INTERNATIONAL_COURT_OF_JUSTICE_WESTERN_SAHARA_TERRITORIAL_APPLICABILITY_CONTEXT",
+          "source_owner": "International Court of Justice",
+          "source_owner_geo": "UN",
+          "source_authority": "Official International Court of Justice case overview for the Western Sahara advisory opinion.",
+          "applies_to_geo": [
+            "EH"
+          ],
+          "legal_basis_for_extension": "Official territorial-status context for the EH row. It does not decide operative domestic criminal or cannabis law and must not be converted into a cannabis axis.",
+          "source_type": "OFFICIAL_INTERNATIONAL_COURT_TERRITORIAL_APPLICABILITY_CONTEXT_HTML",
+          "primary_or_context": "DISPUTED_TERRITORY_APPLICABILITY_CONTEXT_ONLY",
+          "evidence_role": "TERRITORIAL_SCOPE_BOUNDARY_PREVENTING_AUTOMATIC_CLAIMANT_LAW_TRANSFER",
+          "cannabis_specific": false,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "OFFICIAL_ICJ_ADVISORY_OPINION_OVERVIEW_RETAINED_AS_TERRITORIAL_SCOPE_CONTEXT_ONLY.",
+          "effective_date": "ICJ advisory opinion of 16 October 1975; accessed 12 August 2026. Historical legal context only, not an operative cannabis rule.",
+          "official_host_verified": true,
+          "direct_fragment_available": true,
+          "semantic_legal_axis": false,
+          "official_fragment_locator": "ICJ Case 61 overview, conclusion paragraph on territorial sovereignty ties and self-determination.",
+          "direct_fragment_urls": [
+            "https://www.icj-cij.org/case/61"
+          ],
+          "exact_fragment": "The ICJ overview states that the materials before the Court did not establish a tie of territorial sovereignty between Western Sahara and Morocco or the Mauritanian entity, and did not affect application of self-determination.",
+          "annotation": "Official territorial applicability context. It prevents automatic transfer of Moroccan official cannabis sources into an EH legal conclusion. It does not determine de facto administration, a current domestic cannabis regime, patient access or a colour.",
+          "applicability": "EH territorial-status context only.",
+          "legal_relevance": "Boundary evidence for source applicability; non-cannabis and non-promoting for every legal axis.",
+          "confidence": "HIGH_FOR_OFFICIAL_ICJ_TERRITORIAL_CONTEXT; NOT_A_CANNABIS_LEGAL_SOURCE.",
+          "reviewed_by_human_visual": false,
+          "visual_opened": false,
+          "official_owner_visible": false,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": false,
+          "screenshot_state": "NO_LOCAL_SCREENSHOT_RETAINED_C3_VISUAL_REVIEW_DUE; HEADLESS_HTTP_TEXT_RETRIEVAL_ONLY",
+          "visual_review_result": "No screenshot is used for legal derivation. C3 visual acceptance remains queued independently.",
+          "note": "Official ICJ Case 61 overview; its exact applicability-context paragraph is retained to prevent claimant-law transfer, not as cannabis evidence.",
+          "revalidation": {
+            "checked_at": "2026-08-12T14:24:26.721Z",
+            "final_url": "https://www.icj-cij.org/case/61",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": "Wed, 12 Aug 2026 14:09:31 GMT",
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 60939,
+            "document_sha256": "19e818a3db7108f5542282cf4bf815509e438473ed5c7c71f9167fe1c319cec1",
+            "relevant_fragment_sha256": "a082b5cd75db0db1a45a2642793308e0bc24cf1ad7639e6245092983553838cf",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -157312,16 +157514,83 @@
             "dependent_geos": [
               "EH"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
+            "schema_issues": [],
             "semantic_probe": null
           }
         }
       ],
+      "independent_truth_color": "UNKNOWN",
+      "independent_truth_status": "DISPUTED_GEO_NO_OWN_REGIME",
+      "independent_truth_rule": "GENERAL_DISPUTED_GEO_NO_OWN_REGIME",
+      "independent_review": {
+        "review_scope": "INDEPENDENT_TRUTH_FIRST_PROPOSAL_ONLY",
+        "jurisdiction": "EH",
+        "territory_type": "DISPUTED_TERRITORY_WITHOUT_A_PROVEN_UNITARY_EH_CANNABIS_REGIME",
+        "disputed_or_composite": true,
+        "reviewed_at": "2026-08-12",
+        "conclusion": "UNKNOWN",
+        "color_rule": "GENERAL_UNKNOWN_DISPUTED_GEO_NO_OWN_REGIME",
+        "applicability_reason": "DISPUTED_GEO_NO_OWN_REGIME",
+        "evidence_axes": {
+          "territorial_applicability": "UNRESOLVED_FOR_A_UNITARY_EH_CANNABIS_REGIME; ICJ_CASE_61_PREVENTS_AUTOMATIC_MOROCCAN_LAW_TRANSFER_AND_NO_DIRECT_EH_OR_SADR_CANNABIS_LAW_WITH_APPLICABILITY_BRIDGE_IS_RETAINED",
+          "patient_eligible": "UNKNOWN_NO_PROVEN_UNITARY_EH_REGIME",
+          "prescriber_route": "UNKNOWN_NO_PROVEN_UNITARY_EH_REGIME",
+          "registration_route": "UNKNOWN_NO_PROVEN_UNITARY_EH_REGIME",
+          "lawful_supply": "UNKNOWN_NO_PROVEN_UNITARY_EH_REGIME",
+          "pharmacy_or_dispensary": "UNKNOWN_NO_PROVEN_UNITARY_EH_REGIME",
+          "import_route": "UNKNOWN_NO_PROVEN_UNITARY_EH_REGIME",
+          "programme_operational": "UNKNOWN_NO_PROVEN_UNITARY_EH_REGIME",
+          "programme_commenced": "UNKNOWN_NO_PROVEN_UNITARY_EH_REGIME",
+          "recreational_possession": "UNKNOWN_NO_PROVEN_UNITARY_EH_REGIME",
+          "recreational_supply": "UNKNOWN_NO_PROVEN_UNITARY_EH_REGIME",
+          "recreational_cultivation": "UNKNOWN_NO_PROVEN_UNITARY_EH_REGIME",
+          "penalty_regime": "UNKNOWN_NO_PROVEN_UNITARY_EH_REGIME"
+        },
+        "source_annotations": {
+          "territorial_applicability_context_url": "https://www.icj-cij.org/case/61",
+          "moroccan_primary_law_pdf": "https://www.anrac.gov.ma/wp-content/uploads/2023/10/13-21-Fr.pdf#page=2",
+          "moroccan_decree_article_1_pdf": "https://www.anrac.gov.ma/wp-content/uploads/2023/10/Decret-n%C2%B0-2-22159.pdf#page=1",
+          "moroccan_anti_drug_context_pdf": "https://www.sante.gov.ma/Reglementation/REGLEMENTATIONAPPLICABLEAUPRODUITSDESANTE/1-73-282.pdf#page=1",
+          "owner_and_scope_boundary": "Each Moroccan source has source_owner_geo=MA and applies_to_geo=[MA]. Its context_for_geos=[EH] records review context only and never inherits Moroccan applicability into EH.",
+          "icj_boundary": "The ICJ overview is territorial-status context only, non-cannabis, and cannot satisfy a legal axis.",
+          "access_boundary": "The Ministry PDF C1 NETWORK_ERROR is ACCESS_BLOCKED only; it neither proves prohibition nor supports UNKNOWN by source absence."
+        },
+        "c2_semantic_review": {
+          "anrac_law_13_21": "C1 HTTP 200 PDF baseline. pdftotext found no text layer, so OCR ran only then; retained local official PDF captures visibly confirm cannabis provisions. This remains Moroccan context only.",
+          "anrac_decree_2_22_159": "C1 HTTP 200 PDF baseline. pdftotext found no text layer, so OCR ran only then; retained local capture visibly shows Article premier limiting Article 4 authorisation to Al Hoceima, Chefchaouen and Taounate, not EH.",
+          "icj_case_61": "C1 HTTP 200 official HTML baseline. Its territorial-sovereignty and self-determination conclusion prevents automatic claimant-law transfer only.",
+          "ministry_anti_drug_pdf": "C1 transport failure is ACCESS_BLOCKED. The retained context annotation does not enter any cannabis axis."
+        },
+        "visual_review": {
+          "mode": "RETAINED_LOCAL_OFFICIAL_PDF_CAPTURE_REVIEW_NO_DESKTOP_BROWSER",
+          "result": "Moroccan ANRAC owner, cannabis fragment and Article premier province limitation are visible locally. ICJ strict visual acceptance remains C3 due and does not alter legal truth.",
+          "legal_truth_boundary": "Visual acceptance and officialDomainVisible are final acceptance metadata only, never legal-truth inputs."
+        },
+        "comparison_boundary": {
+          "map_verdict": "NOT_USED_FOR_DERIVATION",
+          "popup_verdict": "NOT_USED_FOR_DERIVATION",
+          "api_verdict": "NOT_USED_FOR_DERIVATION",
+          "seo_verdict": "NOT_USED_FOR_DERIVATION",
+          "ssot_verdict": "NOT_USED_FOR_DERIVATION",
+          "wiki_truth_verdict": "LEDGER_PROPOSAL_ONLY"
+        },
+        "production_guard": {
+          "APPLY_ALLOWED": false,
+          "PRODUCTION_TOUCHED": false,
+          "MAP_COLORS_CHANGED": false,
+          "SSOT_CHANGED": false
+        },
+        "method": "C0_LOCAL_SCHEMA_AND_DEDUPLICATION_PLUS_C1_SERIAL_CONDITIONAL_GET_PLUS_C2_OWNER_APPLICABILITY_REVIEW_PLUS_RETAINED_LOCAL_C3_METADATA",
+        "evidence_order": [
+          "official territorial applicability context",
+          "official Moroccan cannabis-law scope context",
+          "owner and applies_to_geo boundary",
+          "unitary-EH-regime decision",
+          "proposal-only color derivation"
+        ],
+        "result": "UNKNOWN_UNPAINTED_PROPOSAL_ONLY",
+        "legal_conclusion": "EH has no current official EH- or SADR-issued cannabis law with a direct territorial applicability bridge in this ledger. The official ICJ context prevents automatic transfer of Moroccan law; the Moroccan decree itself limits Article 4 authorisation to three named Moroccan provinces. Neither claimant context nor the access-blocked Ministry PDF establishes a unitary EH prohibition, patient access or limited lawful regime. UNKNOWN is explicit scope resolution, not a conclusion from missing or blocked evidence."
+      },
       "official_status": {
         "recreational": "ILLEGAL_OR_SCOPE_UNRESOLVED; MOROCCAN_CLAIMANT_CONTEXT_VISIBLY_PRESERVES_STRICT_SANCTIONS_FOR_UNAUTHORISED_CANNABIS_CONDUCT_BUT_NO_WESTERN_SAHARA_ISSUED_DIRECT_CANNABIS_LAW_PAGE_WAS_CONFIRMED",
         "medical": "REGULATED_IF_MOROCCO_DERIVED_CANNABIS_LAW_IS_TREATED_AS_OPERATIVE_FOR_THIS_ROW; OTHERWISE_UNRESOLVED_FOR_A_SEPARATE_EH_TERRITORIAL_AUTHORITY_CHAIN",
