@@ -146655,22 +146655,588 @@
           "title": "De Nationale Assemblee Suriname - Wet Verdovende Middelen",
           "url": "https://www.dna.sr/media/34ygwacb/wet_verdovende_middelen.pdf",
           "source_kind": "SURINAME_DNA_WET_VERDOVENDE_MIDDELEN_CANNABIS_CULTIVATION_PROHIBITION_HEMP_CANNABIS_HASHISH_GANJA_MARIHUANA_THC_LISTS_MEDICAL_PROFESSIONAL_EXCEPTIONS_STRICT_PENALTIES",
+          "source_owner": "De Nationale Assemblée of the Republic of Suriname",
+          "source_owner_geo": "SR",
+          "source_authority": "Official national legislature publication of the Wet Verdovende Middelen",
+          "applies_to_geo": [
+            "SR"
+          ],
+          "legal_basis_for_extension": "Direct national primary-law publication of the Republic of Suriname legislature.",
+          "source_type": "NATIONAL_PRIMARY_CONTROLLED_SUBSTANCES_LAW_PDF",
+          "primary_or_context": "PRIMARY_CANNABIS_PROHIBITION_AND_GENERAL_CONTROLLED_MEDICINE_EXCEPTION_TEXT",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "OFFICIAL_DNA_CURRENT_LAW_INDEX_IDENTIFIES_THE_1998_LAW_AS_AMENDED_IN_2002; 2018 AND 2023 SOURCES ARE_RETAINED_SEPARATELY_FOR_LATER_AMENDMENTS_AND_INDUSTRIAL_HEMP_CONTEXT.",
+          "effective_date": "Base law in force 1999-01-20 according to the published text; subsequent 2018 and 2023 changes are separately recorded and no unverified patient-programme commencement is inferred.",
+          "official_fragment_locator": "PDF pp. 2-4 and 6-15: Articles 2-8 and 11; Lists I and II cannabis/hemp/THC entries.",
+          "direct_fragment_urls": [
+            "https://www.dna.sr/media/34ygwacb/wet_verdovende_middelen.pdf"
+          ],
+          "exact_fragment": "Artikel 2: Het is verboden te telen ... Canabis Sativa (L). Artikelen 3 en 4 verbieden voor de lijsten in- of uitvoer, bereiding, verwerking, verkoop, aflevering, verstrekking, vervoer, bezit, aanwezigheid, aanwending en vervaardiging; Artikel 7 bevat uitsluitend algemene professionele uitzonderingen.",
+          "direct_fragment": "English interpretation: the national law prohibits cultivation and the listed cannabis-related conduct, while Article 7 contains only conditional medical-professional and Minister-permission exceptions, not a cannabis patient programme.",
+          "annotation": "Primary SR cannabis-law record. It proves the national prohibition and strict-penalty framework, while preserving the anti-mixing boundary: generic doctor, pharmacist, veterinary and Minister-permission provisions do not prove cannabis patient eligibility, prescribing, registry, dispensing, supply or operation.",
+          "applicability": "SR; national Suriname controlled-substances law.",
+          "legal_relevance": "Cannabis-specific prohibition, professional-exception boundary and penalty axes; not standalone evidence of current patient access or its absence beyond the recorded search scope.",
+          "confidence": "HIGH_FOR_DIRECT_NATIONAL_TEXT_AND_RETAINED_VISUAL_FRAGMENTS; CURRENT_CONSOLIDATION_REQUIRES_2018_AND_2023_CHAIN",
+          "direct_fragment_available": true,
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_host_verified": true,
+          "official_owner_visible": true,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_state": "RETAINED_2026_07_18_OFFICIAL_DNA_PDF_CROPS_VISUALLY_REVIEWED_LOCALLY; CURRENT_C1_C2_HASH_RECHECK_SEPARATE",
+          "visual_review_result": "Retained dated official PDF crops visibly show the law title, cannabis cultivation prohibition, generic professional exceptions, strict penalties and cannabis/hemp/THC lists. They do not establish a current patient programme.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-26/SR/screenshots/pdf_pages/SR-dna-wet-cannabis-cultivation-prohibition.png",
-          "note": "Official De Nationale Assemblee PDF of Suriname's Wet Verdovende Middelen. Visual review confirms the law title page, Article 2 prohibition on cultivating Cannabis/Cannabis sativa, Articles 3 and 4 prohibitions on import, export, transit, preparation, processing, sale, delivery, provision, transport, possession/presence/use and manufacture for listed substances, and Article 11 strict penalties including life imprisonment or up to twenty years plus fine for intentional core violations. Visual review also confirms controlled medical, dental, veterinary and pharmacist/professional exceptions and possession/transport exceptions for lawfully supplied medical stock. Lists visibly include hennephars/hemp resin preparations, tetrahydrocannabinol, and List II hemp/cannabis material and common resin/plant mixtures including hashish, esrar, chiras, jamba, ganja and marihuana. This is direct official cannabis-law evidence for Suriname."
+          "note": "Official De Nationale Assemblee PDF of Suriname's Wet Verdovende Middelen. Visual review confirms the law title page, Article 2 prohibition on cultivating Cannabis/Cannabis sativa, Articles 3 and 4 prohibitions on import, export, transit, preparation, processing, sale, delivery, provision, transport, possession/presence/use and manufacture for listed substances, and Article 11 strict penalties including life imprisonment or up to twenty years plus fine for intentional core violations. Visual review also confirms controlled medical, dental, veterinary and pharmacist/professional exceptions and possession/transport exceptions for lawfully supplied medical stock. Lists visibly include hennephars/hemp resin preparations, tetrahydrocannabinol, and List II hemp/cannabis material and common resin/plant mixtures including hashish, esrar, chiras, jamba, ganja and marihuana. This is direct official cannabis-law evidence for Suriname.",
+          "revalidation": {
+            "checked_at": "2026-08-12T08:42:02.255Z",
+            "final_url": "https://www.dna.sr/media/34ygwacb/wet_verdovende_middelen.pdf",
+            "http_status": 200,
+            "etag": "\"f9aaeafe5af9da1:0\"",
+            "last_modified": "Wed, 28 Aug 2024 15:00:18 GMT",
+            "content_type": "application/pdf",
+            "content_length": 71218,
+            "document_sha256": "d1159dc6c5a5427a4d7941ab0e1bea5e339923c1905b375a79c9f608ecc9615a",
+            "relevant_fragment_sha256": "4b6e9451fc6754ef17a3e959993fca7b06cee8a1ea10a3b9cc41b78d58177688",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "NEEDS_SEMANTIC_REVIEW"
+            ],
+            "dependent_geos": [
+              "SR"
+            ],
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 24704,
+              "ocr_used": false,
+              "relevant_pages": [
+                2,
+                3,
+                4,
+                5,
+                11,
+                12,
+                14,
+                15
+              ],
+              "rendered_pages": [
+                2,
+                3,
+                4,
+                5,
+                11,
+                12,
+                14,
+                15
+              ]
+            }
+          }
         },
         {
           "title": "De Nationale Assemblee Suriname - Staatsblad 2018 No. 64 amendment to Wet Verdovende Middelen",
           "url": "https://www.dna.sr/media/bn3hqm5l/sb_2018___64.pdf",
           "source_kind": "SURINAME_DNA_STAATSBLAD_2018_64_WET_VERDOVENDE_MIDDELEN_AMENDMENT_CANNABIS_GENUS_AND_INDUSTRIAL_THC_EXCEPTION",
+          "source_owner": "De Nationale Assemblée of the Republic of Suriname",
+          "source_owner_geo": "SR",
+          "source_authority": "Official national legislature Staatsblad publication",
+          "applies_to_geo": [
+            "SR"
+          ],
+          "legal_basis_for_extension": "Direct national amendment publication of the Republic of Suriname legislature.",
+          "source_type": "NATIONAL_PRIMARY_LAW_AMENDMENT_PDF",
+          "primary_or_context": "PRIMARY_CANNABIS_FAMILY_SCOPE_AND_INDUSTRIAL_HEMP_EXCEPTION_CONTEXT",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "OFFICIAL_DNA_CURRENT_LAW_INDEX_DATES_THE_AMENDMENT_13_JULY_2018_AS_STAATSBLAD_2018_NO_64; THE_LATER_NO_65_AND_2023_INDUSTRIAL_HEMP_LAW_ARE_RETAINED_SEPARATELY.",
+          "effective_date": "13 July 2018 publication; later No. 65 and the 2023 industrial-hemp law are separately recorded.",
+          "official_fragment_locator": "Staatsblad 2018 No. 64, Article I cannabis-genus wording and industrial-purpose carve-out; explanatory pages on THC testing.",
+          "direct_fragment_urls": [
+            "https://www.dna.sr/media/bn3hqm5l/sb_2018___64.pdf"
+          ],
+          "exact_fragment": "De wijziging vervangt Cannabis sativa (L) door Cannabis en creëert uitsluitend voor industriële doeleinden een voorwaardelijke uitzondering met een wettelijk THC-gehalte.",
+          "direct_fragment": "English interpretation: the amendment expands the prohibited plant wording to Cannabis genus and creates only a conditional industrial-purpose hemp/cannabis carve-out.",
+          "annotation": "Primary amendment record. The industrial hemp exception is retained exactly because it is a legal limit on the prohibition, but it never establishes adult possession, patient eligibility, prescription, dispensary, supply or an operational cannabis programme.",
+          "applicability": "SR; national Suriname amendment to the Wet Verdovende Middelen.",
+          "legal_relevance": "Cannabis-family and industrial-hemp scope only; cannot satisfy patient-access axes.",
+          "confidence": "HIGH_FOR_RETAINED_OFFICIAL_AMENDMENT_TEXT; SUBJECT_TO_LATER_NO_65_AND_2023_CHAIN",
+          "direct_fragment_available": true,
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_host_verified": true,
+          "official_owner_visible": true,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_state": "RETAINED_2026_07_18_OFFICIAL_DNA_PDF_CROPS_VISUALLY_REVIEWED_LOCALLY; CURRENT_C1_C2_HASH_RECHECK_SEPARATE",
+          "visual_review_result": "Retained dated official PDF crops visibly show the 13 July 2018 amendment, Cannabis-genus text and limited industrial-purpose/THC language. It is not patient-access proof.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-26/SR/screenshots/pdf_pages/SR-dna-sb2018-64-cannabis-thc-exemption.png",
-          "note": "Official De Nationale Assemblee PDF of Staatsblad 2018 No. 64. Visual review confirms this 13 July 2018 amendment to the Wet Verdovende Middelen replaces Cannabis sativa (L) wording with Cannabis, clarifies that all subspecies of the Cannabis genus are covered by the cultivation prohibition, and creates an industrial-purpose cannabis/hemp carve-out where THC content does not exceed the statutory threshold and conditions are determined by law. The explanatory section visibly states that the amendment lays the foundation for cultivation of cannabis plants exclusively for industrial purposes and that testing facilities and procedures determine THC content. This is direct official cannabis-law amendment evidence for Suriname."
+          "note": "Official De Nationale Assemblee PDF of Staatsblad 2018 No. 64. Visual review confirms this 13 July 2018 amendment to the Wet Verdovende Middelen replaces Cannabis sativa (L) wording with Cannabis, clarifies that all subspecies of the Cannabis genus are covered by the cultivation prohibition, and creates an industrial-purpose cannabis/hemp carve-out where THC content does not exceed the statutory threshold and conditions are determined by law. The explanatory section visibly states that the amendment lays the foundation for cultivation of cannabis plants exclusively for industrial purposes and that testing facilities and procedures determine THC content. This is direct official cannabis-law amendment evidence for Suriname.",
+          "revalidation": {
+            "checked_at": "2026-08-12T08:42:02.255Z",
+            "final_url": "https://www.dna.sr/media/bn3hqm5l/sb_2018___64.pdf",
+            "http_status": 200,
+            "etag": "\"6f53d135bf9da1:0\"",
+            "last_modified": "Wed, 28 Aug 2024 15:00:51 GMT",
+            "content_type": "application/pdf",
+            "content_length": 1681210,
+            "document_sha256": "6069349a795805ce8b53ca8e7b04bf43e1b25c99738c16542e1523b93ea58a1b",
+            "relevant_fragment_sha256": "d5957a819a1f1d9b91d18218500e06bb8b840218a2ca9fbcc2674dc1a1111f80",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "NEEDS_SEMANTIC_REVIEW"
+            ],
+            "dependent_geos": [
+              "SR"
+            ],
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 35660,
+              "ocr_used": false,
+              "relevant_pages": [
+                3,
+                4,
+                5,
+                16
+              ],
+              "rendered_pages": [
+                3,
+                4,
+                5,
+                16
+              ]
+            }
+          }
         },
         {
           "title": "De Nationale Assemblee Suriname - Staatsblad 2018 No. 65 amendment to Wet Verdovende Middelen",
           "url": "https://www.dna.sr/media/j5pdybrl/sb_2018___65.pdf",
           "source_kind": "SURINAME_DNA_STAATSBLAD_2018_65_WET_VERDOVENDE_MIDDELEN_AMENDMENT_INDUSTRIAL_CANNABIS_THC_THRESHOLD_0_3_PERCENT",
+          "source_owner": "De Nationale Assemblée of the Republic of Suriname",
+          "source_owner_geo": "SR",
+          "source_authority": "Official national legislature Staatsblad publication",
+          "applies_to_geo": [
+            "SR"
+          ],
+          "legal_basis_for_extension": "Direct national amendment publication of the Republic of Suriname legislature.",
+          "source_type": "NATIONAL_PRIMARY_LAW_AMENDMENT_PDF",
+          "primary_or_context": "PRIMARY_INDUSTRIAL_HEMP_THRESHOLD_CONTEXT",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "OFFICIAL_DNA_CURRENT_LAW_INDEX_DATES_THE_AMENDMENT_6_SEPTEMBER_2018_AS_STAATSBLAD_2018_NO_65; THE_2023_INDUSTRIAL_HEMP_LAW_IS_RETAINED_SEPARATELY.",
+          "effective_date": "6 September 2018 publication; later industrial-hemp legislation is separately recorded.",
+          "official_fragment_locator": "Staatsblad 2018 No. 65, Article I amendments to Article 2(2) and Article 4(5).",
+          "direct_fragment_urls": [
+            "https://www.dna.sr/media/j5pdybrl/sb_2018___65.pdf"
+          ],
+          "exact_fragment": "Artikel I wijzigt voor industriële hennep het maximum THC-gehalte van niet meer dan 1,5% naar niet meer dan 0,3%.",
+          "direct_fragment": "English interpretation: Article I lowers the conditional industrial-hemp THC threshold from 1.5% to 0.3%.",
+          "annotation": "Primary industrial-hemp threshold record. It limits a narrow production/cultivation carve-out and never proves medical patient access, adult-use legality or a lawful retail route.",
+          "applicability": "SR; national Suriname amendment to the Wet Verdovende Middelen.",
+          "legal_relevance": "Industrial-hemp exception boundary only; no patient or adult-use axis.",
+          "confidence": "HIGH_FOR_RETAINED_OFFICIAL_AMENDMENT_TEXT; SUBJECT_TO_LATER_2023_INDUSTRIAL_HEMP_LAW",
+          "direct_fragment_available": true,
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_host_verified": true,
+          "official_owner_visible": true,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_state": "RETAINED_2026_07_18_OFFICIAL_DNA_PDF_CROPS_VISUALLY_REVIEWED_LOCALLY; CURRENT_C1_C2_HASH_RECHECK_SEPARATE",
+          "visual_review_result": "Retained dated official PDF crops visibly show the 6 September 2018 amendment and 0.3% THC threshold. It is not patient-access proof.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-26/SR/screenshots/pdf_pages/SR-dna-sb2018-65-industrial-hemp-title.png",
-          "note": "Official De Nationale Assemblee PDF of Staatsblad 2018 No. 65. Visual review confirms the 6 September 2018 further amendment to the Wet Verdovende Middelen as last amended by S.B. 2018 No. 64. Article I visibly changes the industrial cannabis/hemp THC threshold wording in Article 2(2) and Article 4(5) from not more than 1.5% to not more than 0.3%. This is direct official cannabis-law amendment evidence for the industrial cannabis/hemp carve-out."
+          "note": "Official De Nationale Assemblee PDF of Staatsblad 2018 No. 65. Visual review confirms the 6 September 2018 further amendment to the Wet Verdovende Middelen as last amended by S.B. 2018 No. 64. Article I visibly changes the industrial cannabis/hemp THC threshold wording in Article 2(2) and Article 4(5) from not more than 1.5% to not more than 0.3%. This is direct official cannabis-law amendment evidence for the industrial cannabis/hemp carve-out.",
+          "revalidation": {
+            "checked_at": "2026-08-12T08:42:02.255Z",
+            "final_url": "https://www.dna.sr/media/j5pdybrl/sb_2018___65.pdf",
+            "http_status": 200,
+            "etag": "\"87f0ef2e5bf9da1:0\"",
+            "last_modified": "Wed, 28 Aug 2024 15:01:38 GMT",
+            "content_type": "application/pdf",
+            "content_length": 67404,
+            "document_sha256": "5c1c208fe189e215c728a7b30fa0a43a1f9177e1c04ab7a37cef3b8d67322054",
+            "relevant_fragment_sha256": "1f87f51a35d22d6b8557ecac2c320bc1c927002a80fd4649d312d7002a635095",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "NEEDS_SEMANTIC_REVIEW"
+            ],
+            "dependent_geos": [
+              "SR"
+            ],
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "ocr",
+              "text_layer_length": 0,
+              "ocr_used": true,
+              "relevant_pages": [],
+              "rendered_pages": []
+            }
+          }
+        },
+        {
+          "title": "De Nationale Assemblée - current law index for Wet Verdovende Middelen 1998",
+          "url": "https://www.dna.sr/wetgeving/surinaamse-wetten/geldende-teksten-t-m-2005/wet-verdovende-middelen-1998/",
+          "source_kind": "SURINAME_DNA_CURRENT_PRIMARY_LAW_INDEX",
+          "source_owner": "De Nationale Assemblée of the Republic of Suriname",
+          "source_owner_geo": "SR",
+          "source_authority": "Official national legislature law index",
+          "applies_to_geo": [
+            "SR"
+          ],
+          "legal_basis_for_extension": "Direct national legislature current-law index.",
+          "source_type": "CURRENT_PRIMARY_LAW_INDEX_PAGE",
+          "primary_or_context": "CURRENT_OFFICIAL_CONSOLIDATION_AND_PUBLISHER_CONTEXT",
+          "cannabis_specific": false,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "DNA_CURRENT_INDEX_IDENTIFIES_THE_1998_LAW_AS_AMENDED_BY_2002; SUBSEQUENT_2018_AND_2023_RECORDS_ARE_RETAINED_SEPARATELY.",
+          "effective_date": "The index gives the 12 February 1998 law and 2002 amendment reference; it does not itself state the later amendment commencement dates.",
+          "official_fragment_locator": "Current DNA law-index title and metadata.",
+          "direct_fragment_urls": [
+            "https://www.dna.sr/wetgeving/surinaamse-wetten/geldende-teksten-t-m-2005/wet-verdovende-middelen-1998/"
+          ],
+          "exact_fragment": "WET van 12 februari 1998 ... Wet verdovende middelen (S.B. 1998 no. 14), gelijk zij luidt na de daarin aangebrachte wijzigingen bij S.B. 2002 no. 68.",
+          "direct_fragment": "English interpretation: DNA currently publishes the national controlled-substances law as amended by S.B. 2002 No. 68; this index is currentness context and not a cannabis fragment by itself.",
+          "annotation": "Current official owner and publication-context record for the principal law. It is paired with the cannabis-specific PDF text and later amendment records, but never supplies a patient-access axis on its own.",
+          "applicability": "SR; national legislature current-law index.",
+          "legal_relevance": "Current official publisher continuity only; requires cannabis-specific primary text.",
+          "confidence": "HIGH_FOR_CURRENT_DNA_PUBLICATION_CONTEXT; NOT_CANNABIS_SPECIFIC",
+          "direct_fragment_available": true,
+          "reviewed_by_human_visual": false,
+          "visual_opened": false,
+          "official_host_verified": true,
+          "official_owner_visible": false,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": false,
+          "screenshot_state": "NO_LOCAL_CAPTURE_YET_C3_QUEUE_REQUIRED",
+          "visual_review_result": "HTTP/read review confirms the official DNA index text; strict visual acceptance remains separate and does not change legal truth.",
+          "note": "Current DNA index page found in official-domain search. It confirms publisher and base-law listing only; it is not used as cannabis evidence or patient-access proof.",
+          "revalidation": {
+            "checked_at": "2026-08-12T08:42:02.255Z",
+            "final_url": "https://www.dna.sr/wetgeving/surinaamse-wetten/geldende-teksten-t-m-2005/wet-verdovende-middelen-1998",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 25554,
+            "document_sha256": "0b1f17e394d68d16eec32dd18609bd8e75a3deae587aa28675c41819fd1e07f5",
+            "relevant_fragment_sha256": "24a2b528bb3c50ff1378ddf55051b83a0044f4bb33231f839c5204e6e45ef92d",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "NEEDS_SEMANTIC_REVIEW"
+            ],
+            "dependent_geos": [
+              "SR"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
+        },
+        {
+          "title": "De Nationale Assemblée - current index for Staatsblad 2018 No. 64",
+          "url": "https://www.dna.sr/wetgeving/surinaamse-wetten/wijzigingen-na-2005/wet-verdovende-middelen-16-juli-2018/",
+          "source_kind": "SURINAME_DNA_CURRENT_AMENDMENT_INDEX_2018_64",
+          "source_owner": "De Nationale Assemblée of the Republic of Suriname",
+          "source_owner_geo": "SR",
+          "source_authority": "Official national legislature amendment index",
+          "applies_to_geo": [
+            "SR"
+          ],
+          "legal_basis_for_extension": "Direct national legislature amendment index.",
+          "source_type": "CURRENT_PRIMARY_LAW_AMENDMENT_INDEX_PAGE",
+          "primary_or_context": "CURRENT_OFFICIAL_AMENDMENT_PUBLICATION_CONTEXT",
+          "cannabis_specific": false,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "DNA_CURRENT_INDEX_DATES_STAATSBLAD_2018_NO_64_AND_IDENTIFIES_ITS_PRIMARY_LAW_SCOPE.",
+          "effective_date": "13 July 2018 law; current index published 16 July 2018.",
+          "official_fragment_locator": "DNA amendment-index title, date and Staatsblad metadata.",
+          "direct_fragment_urls": [
+            "https://www.dna.sr/wetgeving/surinaamse-wetten/wijzigingen-na-2005/wet-verdovende-middelen-16-juli-2018/"
+          ],
+          "exact_fragment": "WET van 13 juli 2018, houdende nadere wijziging van de Wet Verdovende Middelen (S.B. 1998 no. 14, zoals laatstelijk gewijzigd bij S.B. 2002 no. 68).",
+          "direct_fragment": "English interpretation: official DNA metadata identifies the 13 July 2018 primary-law amendment as Staatsblad 2018 No. 64.",
+          "annotation": "Current official amendment-index context for the retained cannabis-specific No. 64 PDF. It adds owner/date/currentness provenance only and no patient axis.",
+          "applicability": "SR; national legislature amendment index.",
+          "legal_relevance": "Publication/currentness context only.",
+          "confidence": "HIGH_FOR_OFFICIAL_DNA_AMENDMENT_METADATA; NOT_CANNABIS_SPECIFIC",
+          "direct_fragment_available": true,
+          "reviewed_by_human_visual": false,
+          "visual_opened": false,
+          "official_host_verified": true,
+          "official_owner_visible": false,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": false,
+          "screenshot_state": "NO_LOCAL_CAPTURE_YET_C3_QUEUE_REQUIRED",
+          "visual_review_result": "HTTP/read review confirms official metadata only; strict visual acceptance is separate.",
+          "note": "Current DNA index page found in official-domain search; it does not itself contain a cannabis-specific operative fragment.",
+          "revalidation": {
+            "checked_at": "2026-08-12T08:42:02.255Z",
+            "final_url": "https://www.dna.sr/wetgeving/surinaamse-wetten/wijzigingen-na-2005/wet-verdovende-middelen-16-juli-2018",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 25147,
+            "document_sha256": "0993ebe76e18e01fbf436557219cbd17003059f99ad7c724e59cf05404d1066b",
+            "relevant_fragment_sha256": "fa438e3502b3588712e65083ce149d690d093e959ad603f4e2b7536b31ef9d76",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "NEEDS_SEMANTIC_REVIEW"
+            ],
+            "dependent_geos": [
+              "SR"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
+        },
+        {
+          "title": "De Nationale Assemblée - current index for Staatsblad 2018 No. 65",
+          "url": "https://www.dna.sr/wetgeving/surinaamse-wetten/wijzigingen-na-2005/wet-verdovende-middelen-18-september-2018/",
+          "source_kind": "SURINAME_DNA_CURRENT_AMENDMENT_INDEX_2018_65",
+          "source_owner": "De Nationale Assemblée of the Republic of Suriname",
+          "source_owner_geo": "SR",
+          "source_authority": "Official national legislature amendment index",
+          "applies_to_geo": [
+            "SR"
+          ],
+          "legal_basis_for_extension": "Direct national legislature amendment index.",
+          "source_type": "CURRENT_PRIMARY_LAW_AMENDMENT_INDEX_PAGE",
+          "primary_or_context": "CURRENT_OFFICIAL_AMENDMENT_PUBLICATION_CONTEXT",
+          "cannabis_specific": false,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "DNA_CURRENT_INDEX_DATES_STAATSBLAD_2018_NO_65_AND_IDENTIFIES_ITS_PRIMARY_LAW_SCOPE.",
+          "effective_date": "6 September 2018 law; current index published 18 September 2018.",
+          "official_fragment_locator": "DNA amendment-index title, date and Staatsblad metadata.",
+          "direct_fragment_urls": [
+            "https://www.dna.sr/wetgeving/surinaamse-wetten/wijzigingen-na-2005/wet-verdovende-middelen-18-september-2018/"
+          ],
+          "exact_fragment": "WET van 6 september 2018, houdende nadere wijziging van de Wet Verdovende Middelen (S.B. 1998 no. 14, zoals laatstelijk gewijzigd bij S.B. 2018 no.64).",
+          "direct_fragment": "English interpretation: official DNA metadata identifies the 6 September 2018 primary-law amendment as Staatsblad 2018 No. 65.",
+          "annotation": "Current official amendment-index context for the retained cannabis-specific No. 65 PDF. It adds owner/date/currentness provenance only and no patient axis.",
+          "applicability": "SR; national legislature amendment index.",
+          "legal_relevance": "Publication/currentness context only.",
+          "confidence": "HIGH_FOR_OFFICIAL_DNA_AMENDMENT_METADATA; NOT_CANNABIS_SPECIFIC",
+          "direct_fragment_available": true,
+          "reviewed_by_human_visual": false,
+          "visual_opened": false,
+          "official_host_verified": true,
+          "official_owner_visible": false,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": false,
+          "screenshot_state": "NO_LOCAL_CAPTURE_YET_C3_QUEUE_REQUIRED",
+          "visual_review_result": "HTTP/read review confirms official metadata only; strict visual acceptance is separate.",
+          "note": "Current DNA index page found in official-domain search; it does not itself contain a cannabis-specific operative fragment.",
+          "revalidation": {
+            "checked_at": "2026-08-12T08:42:02.255Z",
+            "final_url": "https://www.dna.sr/wetgeving/surinaamse-wetten/wijzigingen-na-2005/wet-verdovende-middelen-18-september-2018",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 25163,
+            "document_sha256": "27b0f93281088f6dc6eece2ad957932739e23712997a65488d0b286a08910b5f",
+            "relevant_fragment_sha256": "7d46fb1350a41b73446cff7581a08e66e8e6a91a6cc63c02da0584cf93660dfb",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "NEEDS_SEMANTIC_REVIEW"
+            ],
+            "dependent_geos": [
+              "SR"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
+        },
+        {
+          "title": "De Nationale Assemblée - Wetten 2023 list, S.B. 2023 No. 137 Wet Industriële Hennepteelt",
+          "url": "https://www.dna.sr/achtergrond-info/overzicht-goedgekeurde-en-gepubliceerde-wetten-2010-2025/wetten-2023/",
+          "source_kind": "SURINAME_DNA_CURRENT_2023_INDUSTRIAL_HEMP_LAW_PUBLICATION_INDEX",
+          "source_owner": "De Nationale Assemblée of the Republic of Suriname",
+          "source_owner_geo": "SR",
+          "source_authority": "Official national legislature published-laws index",
+          "applies_to_geo": [
+            "SR"
+          ],
+          "legal_basis_for_extension": "Direct national legislature published-laws index.",
+          "source_type": "CURRENT_PUBLISHED_LAW_INDEX_PAGE",
+          "primary_or_context": "CURRENT_INDUSTRIAL_HEMP_LAW_CONTEXT_NOT_PATIENT_ACCESS",
+          "cannabis_specific": false,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "DNA_2023_PUBLISHED_LAWS_INDEX_LISTS_S_B_2023_NO_137; OPERATIVE_TEXT_AND_ANY_COMMENCEMENT_LIMITS_REQUIRE_SEPARATE_REVIEW.",
+          "effective_date": "13 September 2023 law date as listed by DNA; no patient programme or cannabis-medicine commencement is inferred from the index.",
+          "official_fragment_locator": "DNA Wetten 2023 list, row S.B. 2023 no. 137.",
+          "direct_fragment_urls": [
+            "https://www.dna.sr/achtergrond-info/overzicht-goedgekeurde-en-gepubliceerde-wetten-2010-2025/wetten-2023/"
+          ],
+          "exact_fragment": "S.B. 2023 no. 137 | WET van 13 september 2023, houdende regels inzake de industriële hennep ... en nadere wijziging van de Wet Verdovende Middelen ... (Wet Industriële Hennepteelt).",
+          "direct_fragment": "English interpretation: DNA lists a 2023 industrial-hemp law amending the controlled-substances law. The index alone does not prove an operational patient route or adult-use legality.",
+          "annotation": "Current official 2023 legislative context. Industrial hemp is kept separate from cannabis patient, supply, dispensary and recreational axes; its unlocated operative text/commencement details remain explicitly unresolved.",
+          "applicability": "SR; national published-laws index.",
+          "legal_relevance": "Industrial-hemp temporal/scope context only; cannot derive patient access or Yellow/Green.",
+          "confidence": "HIGH_FOR_DNA_PUBLICATION_LISTING; LOW_FOR_UNRETRIEVED_OPERATIVE_TEXT_AND_COMMENCEMENT_DETAILS",
+          "direct_fragment_available": true,
+          "reviewed_by_human_visual": false,
+          "visual_opened": false,
+          "official_host_verified": true,
+          "official_owner_visible": false,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": false,
+          "screenshot_state": "NO_LOCAL_CAPTURE_YET_C3_QUEUE_REQUIRED",
+          "visual_review_result": "HTTP/read review confirms the official published-law listing. It is industrial-hemp context and not legal colour evidence.",
+          "note": "Current DNA published-laws index found in official-domain search. The 2023 industrial-hemp law is recorded to prevent temporal/source omission, but does not change the patient or adult-use assessment.",
+          "revalidation": {
+            "checked_at": "2026-08-12T08:42:02.255Z",
+            "final_url": "https://www.dna.sr/achtergrond-info/overzicht-goedgekeurde-en-gepubliceerde-wetten-2010-2025/wetten-2023",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 31927,
+            "document_sha256": "13c6526607fd0459b03eb9727a3126c531fb4e686373ac9ee48d9e09ea7b6a8e",
+            "relevant_fragment_sha256": "d4b30c1267b10a84c3631f82e640808a3e89a82b33a7a66e7166df46b217b10e",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "NEEDS_SEMANTIC_REVIEW"
+            ],
+            "dependent_geos": [
+              "SR"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
+        },
+        {
+          "title": "Government of Suriname - DRUGS ALERT cannabis sweets",
+          "url": "https://gov.sr/wp-content/uploads/2024/07/Alert-Cannabis-snoep.pdf",
+          "source_kind": "SURINAME_GOVERNMENT_CURRENT_CANNABIS_ENFORCEMENT_ALERT",
+          "source_owner": "Government of the Republic of Suriname",
+          "source_owner_geo": "SR",
+          "source_authority": "Official Government of Suriname public-health/drug-control alert",
+          "applies_to_geo": [
+            "SR"
+          ],
+          "legal_basis_for_extension": "Direct national government publication for Suriname.",
+          "source_type": "CURRENT_GOVERNMENT_CANNABIS_ENFORCEMENT_NOTICE_PDF",
+          "primary_or_context": "CURRENT_OFFICIAL_CANNABIS_ENFORCEMENT_CONTEXT_REQUIRES_PRIMARY_LAW_CHAIN",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "OFFICIAL_2024_GOVERNMENT_ALERT; C1_ACCESS_OR_RETRIEVAL_RESULT_MUST_NOT_BE_TREATED_AS_A_LEGAL_CONCLUSION.",
+          "effective_date": "2024 publication date shown by the official host/search record; it reports application of the named statute and not a new law effective date.",
+          "official_fragment_locator": "DRUGS ALERT cannabis-snoep, paragraph citing Wet verdovende middelen S.B. 1998 No. 14 as amended by S.B. 2002 No. 68, Article 4.",
+          "direct_fragment_urls": [
+            "https://gov.sr/wp-content/uploads/2024/07/Alert-Cannabis-snoep.pdf"
+          ],
+          "exact_fragment": "Op grond van de Wet verdovende middelen S.B. 1998 no.14, gewijzigd S.B. 2002 no. 68, artikel 4 is het in bezit hebben, verhandelen en produceren van cannabis illegaal in Suriname.",
+          "direct_fragment": "English interpretation: the official 2024 Government alert says that possession, trading and production of cannabis are illegal in Suriname under Article 4 of the named law.",
+          "annotation": "Current cannabis-specific official enforcement context. It corroborates continuing prohibition only when paired with the primary law; it neither proves patient access is absent nor turns a timeout/WAF/403 into a legal axis.",
+          "applicability": "SR; national government alert.",
+          "legal_relevance": "Current cannabis prohibition/context corroboration; no patient-access, dispensary or programme conclusion.",
+          "confidence": "MEDIUM_PENDING_C1_RETRIEVAL; HIGH_FOR_OFFICIAL_SEARCH_DISCOVERY_TEXT",
+          "direct_fragment_available": true,
+          "reviewed_by_human_visual": false,
+          "visual_opened": false,
+          "official_host_verified": true,
+          "official_owner_visible": false,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": false,
+          "screenshot_state": "NO_LOCAL_CAPTURE_YET_C3_QUEUE_REQUIRED",
+          "visual_review_result": "Official-domain search exposed the title and direct cannabis/legal fragment; direct PDF retrieval timed out and must be revalidated without treating access state as legal proof.",
+          "note": "Current official government source found in official-domain search. It is not a substitute for the legislature text and is kept as an enforcement/currentness record only.",
+          "revalidation": {
+            "checked_at": "2026-08-12T08:42:02.255Z",
+            "final_url": "https://gov.sr/wp-content/uploads/2024/07/Alert-Cannabis-snoep.pdf",
+            "http_status": 200,
+            "etag": "\"433d69-620da8050c400-gzip\"",
+            "last_modified": "Thu, 29 Aug 2024 23:04:48 GMT",
+            "content_type": "application/pdf",
+            "content_length": 4406633,
+            "document_sha256": "af84526fe1e6bd8afd1a8a17e876bc6991d3cdee3ba1712e04e310d29595ed61",
+            "relevant_fragment_sha256": "26c896b3f45d71ef69df9a9c43f901f794ea1c286a715e4c2404475ecbed1ef5",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "NEEDS_SEMANTIC_REVIEW"
+            ],
+            "dependent_geos": [
+              "SR"
+            ],
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 3435,
+              "ocr_used": false,
+              "relevant_pages": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "rendered_pages": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            }
+          }
         }
       ],
       "verified_context_sources": [],
@@ -146679,11 +147245,154 @@
         "medical": "NONE_OR_ONLY_GENERAL_CONTROLLED_MEDICINE_PROFESSIONAL_EXCEPTIONS; LAW_VISIBLY_CONTAINS_MEDICAL_DENTAL_VETERINARY_PHARMACIST_AND_LAWFULLY_SUPPLIED_MEDICAL_STOCK_EXCEPTIONS_BUT_NO_CANNABIS_SPECIFIC_PATIENT_ACCESS_PROGRAM_WAS_VISUALLY_FOUND",
         "enforcement": "STRICT_WITH_INDUSTRIAL_CANNABIS_HEMP_CAVEAT; ARTICLE_11_VISIBLY_SETS_LIFE_IMPRISONMENT_OR_UP_TO_TWENTY_YEARS_FOR_INTENTIONAL_CORE_OFFENCES_WHILE_2018_AMENDMENTS_VISIBLY_CREATE_INDUSTRIAL_PURPOSE_CANNABIS_HEMP_EXCEPTION_NOW_TIED_TO_THC_NOT_MORE_THAN_0_3_PERCENT"
       },
-      "project_comparison": {
-        "status": "MATCH_WITH_INDUSTRIAL_HEMP_AND_GENERAL_MEDICAL_PROFESSIONAL_EXCEPTION_CAVEAT",
-        "reason": "Suriname is visually verified from official De Nationale Assemblee PDFs. The Wet Verdovende Middelen visibly prohibits unauthorized cannabis cultivation and listed-substance dealing, possession, transport, use, manufacture and import/export activity; schedules visibly cover hemp/cannabis material, hemp resin, THC and common cannabis preparations such as hashish, ganja and marihuana; Article 11 visibly provides strict penalties including life imprisonment or up to twenty years for intentional core offences. Project recreational=ILLEGAL, medical=NONE and enforcement=STRICT are therefore supported. Caveats: the law has general medical/dental/veterinary/pharmacist/professional controlled-drug exceptions that do not establish a cannabis-specific patient program, and 2018 amendments create an industrial-purpose cannabis/hemp carve-out, with Staatsblad 2018 No. 65 visibly reducing the THC threshold to not more than 0.3%. No project status SSOT was changed."
+      "independent_truth_color": "YELLOW",
+      "independent_truth_status": "CURRENT_CANNABIS_SCHEDULE_PLUS_CONDITIONAL_ARTICLE_7_PROFESSIONAL_AND_LAWFUL_PERSONAL_MEDICAL_USE_EXCEPTION_WITHOUT_PATIENT_OPERATION_PROOF",
+      "independent_truth_rule": "GENERAL_SCHEDULE_PLUS_AUTHORISATION_EVIDENCE_RULE",
+      "audit_state": "INDEPENDENT_OFFICIAL_EVIDENCE_FIRST_PROPOSAL_ONLY",
+      "strict_visual_acceptance": false,
+      "strict_visual_acceptance_reason": "Retained dated official DNA primary-PDF crops were reread locally and C1 refreshed all eight official source hashes, but no fresh browser-chrome/domain capture was created under the no-visible-browser rule. This acceptance gap does not affect legal truth.",
+      "final_visual_acceptance": {
+        "strict_acceptance": false,
+        "reason": "RETAINED_OFFICIAL_PDF_CROPS_AND_CURRENT_C1_HASHES_WITHOUT_FRESH_BROWSER_DOMAIN_CAPTURE",
+        "legal_truth_affected": false
       },
-      "conclusion": "Suriname is closed as visually verified direct official cannabis-law evidence from De Nationale Assemblee PDFs. The official sources support project ILLEGAL/NONE/STRICT, with explicit industrial cannabis/hemp THC-threshold and general medical professional exception caveats. No project status SSOT was changed."
+      "independent_review": {
+        "geo": "SR",
+        "territory": "Suriname",
+        "review_mode": "INDEPENDENT_OFFICIAL_EVIDENCE_FIRST",
+        "proposal_only": true,
+        "jurisdiction": {
+          "territory_type": "SOVEREIGN_STATE",
+          "applicable_law": "Wet Verdovende Middelen, published by De Nationale Assemblee; current DNA indexes retain the 2018 amendments and the 2023 industrial-hemp law as separate lifecycle records.",
+          "source_owner_vs_jurisdiction": "Every substantive source is a Suriname national legislature or Government record and applies directly to SR. No parent, claimant, federal or foreign-law extension is used.",
+          "disputed_or_composite": false
+        },
+        "official_truth_color": "YELLOW",
+        "truth_color": "YELLOW",
+        "truth_status": "CURRENT_CANNABIS_SCHEDULE_PLUS_CONDITIONAL_ARTICLE_7_PROFESSIONAL_AND_LAWFUL_PERSONAL_MEDICAL_USE_EXCEPTION_WITHOUT_PATIENT_OPERATION_PROOF",
+        "color_rule": "GENERAL_SCHEDULE_PLUS_AUTHORISATION_EVIDENCE_RULE",
+        "reviewed_at": "2026-08-12",
+        "legal_interpretation": "Proposal-only YELLOW under the general schedule-plus-authorisation evidence rule. The current national primary-law chain directly identifies hemp/cannabis material and common cannabis mixtures in the controlled lists and prohibits unauthorised cultivation, possession, use, supply and related conduct. In the same current legal chain, Article 7 preserves defined Minister-written-permission and medical/dental/veterinary/pharmacist professional classes, plus a conditional own-medical-use possession/transport exception only for lawfully obtained means. That is a limited lawful cannabis-linked mode after the schedule bridge, but it is not evidence of patient eligibility, a cannabis prescriber, registration, current stock, a named dispensary, patient import or programme operation. The 2018 and 2023 industrial-hemp records are retained as lifecycle/scope context only and never become patient access, adult use or a colour by themselves. The current Government alert corroborates prohibition/currentness only. RED is unavailable while the Article 7 cannabis-linked statutory exception remains express; GREEN is unavailable without independent patient-facing operational evidence.",
+        "source_record_refs": [
+          "https://www.dna.sr/media/34ygwacb/wet_verdovende_middelen.pdf",
+          "https://www.dna.sr/wetgeving/surinaamse-wetten/geldende-teksten-t-m-2005/wet-verdovende-middelen-1998/",
+          "https://www.dna.sr/media/bn3hqm5l/sb_2018___64.pdf",
+          "https://www.dna.sr/media/j5pdybrl/sb_2018___65.pdf",
+          "https://www.dna.sr/wetgeving/surinaamse-wetten/wijzigingen-na-2005/wet-verdovende-middelen-16-juli-2018/",
+          "https://www.dna.sr/wetgeving/surinaamse-wetten/wijzigingen-na-2005/wet-verdovende-middelen-18-september-2018/",
+          "https://www.dna.sr/achtergrond-info/overzicht-goedgekeurde-en-gepubliceerde-wetten-2010-2025/wetten-2023/",
+          "https://gov.sr/wp-content/uploads/2024/07/Alert-Cannabis-snoep.pdf"
+        ],
+        "evidence_axes": {
+          "patient_eligible": {
+            "value": "UNKNOWN",
+            "reason": "No current official source proves a cannabis patient eligibility criterion, cohort, card or registration. Absence of such proof is not patient-access prohibition."
+          },
+          "prescriber_route": {
+            "value": "UNKNOWN",
+            "reason": "Article 7 names professional medical/dental/veterinary and pharmacist classes but no current cannabis-specific prescribing workflow or issued prescription is proved."
+          },
+          "registration_route": {
+            "value": "UNKNOWN",
+            "reason": "No current official cannabis patient registry or card route was found."
+          },
+          "lawful_supply": {
+            "value": "CONDITIONAL_STATUTORY_PROFESSIONAL_ROUTE_ONLY",
+            "source_url": "https://www.dna.sr/media/34ygwacb/wet_verdovende_middelen.pdf",
+            "exact_fragment": "Article 7 excludes defined pharmacist/professional conduct for medical purpose and own-medical-use transport/possession only where the means were lawfully obtained and statutory conditions are met; the controlled lists directly identify cannabis-family material and mixtures.",
+            "effective_date": "Base law in force 1999-01-20 according to the published text; amendment/currentness chain is retained separately.",
+            "applicability": "Suriname national Wet Verdovende Middelen.",
+            "confidence": "HIGH_FOR_NARROW_STATUTORY_EXCEPTION_NOT_CURRENT_PATIENT_SERVICE",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-26/SR/screenshots/pdf_pages/SR-dna-wet-medical-exceptions.png"
+          },
+          "pharmacy_or_dispensary": {
+            "value": "CONDITIONAL_PHARMACIST_ROUTE_ONLY",
+            "source_url": "https://www.dna.sr/media/34ygwacb/wet_verdovende_middelen.pdf",
+            "exact_fragment": "Article 7 permits established pharmacists and pharmacy physicians to prepare, process, sell, deliver, transport or possess controlled means for medical purpose subject to statutory conditions; the listed law directly identifies cannabis-family material and mixtures.",
+            "effective_date": "Base law in force 1999-01-20 according to the published text; amendment/currentness chain is retained separately.",
+            "applicability": "Suriname national Wet Verdovende Middelen.",
+            "confidence": "HIGH_FOR_NARROW_STATUTORY_ROUTE_NOT_NAMED_DISPENSING_OR_STOCK",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-26/SR/screenshots/pdf_pages/SR-dna-wet-medical-exceptions.png"
+          },
+          "import_route": {
+            "value": "UNKNOWN",
+            "reason": "No current cannabis patient import route was proved; general controlled-substance permissions are not promoted to a patient axis."
+          },
+          "programme_operational": {
+            "value": "UNKNOWN",
+            "reason": "No current official cannabis programme, enrolled patient cohort, stock, dispensing event or active cannabis service was proved. This is not prohibition evidence."
+          },
+          "programme_commenced": {
+            "value": "UNKNOWN",
+            "reason": "The primary law is current in the recorded DNA chain, but no distinct cannabis patient programme commencement was found."
+          },
+          "recreational_possession": {
+            "value": "NO",
+            "source_url": "https://www.dna.sr/media/34ygwacb/wet_verdovende_middelen.pdf",
+            "exact_fragment": "Articles 3 and 4 prohibit possession, presence and use of listed substances; the lists directly identify cannabis-family material and named cannabis mixtures. Article 7's lawfully obtained medical exception is not recreational possession.",
+            "effective_date": "Base law in force 1999-01-20 according to the published text; amendment/currentness chain is retained separately.",
+            "applicability": "Suriname national Wet Verdovende Middelen.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-26/SR/screenshots/pdf_pages/SR-dna-wet-hemp-cannabis-hashish-ganja-marihuana-list-ii.png"
+          },
+          "recreational_supply": {
+            "value": "NO",
+            "source_url": "https://www.dna.sr/media/34ygwacb/wet_verdovende_middelen.pdf",
+            "exact_fragment": "Articles 3 and 4 prohibit preparation, processing, sale, delivery, provision, transport and manufacture for listed substances; cannabis-family material and named cannabis mixtures are listed.",
+            "effective_date": "Base law in force 1999-01-20 according to the published text; amendment/currentness chain is retained separately.",
+            "applicability": "Suriname national Wet Verdovende Middelen.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-26/SR/screenshots/pdf_pages/SR-dna-wet-cannabis-cultivation-prohibition.png"
+          },
+          "recreational_cultivation": {
+            "value": "NO",
+            "source_url": "https://www.dna.sr/media/34ygwacb/wet_verdovende_middelen.pdf",
+            "exact_fragment": "Article 2 prohibits cultivation of Cannabis; Article 3 and Article 4 prohibit unauthorised listed-substance conduct. The 2018 industrial-purpose carve-out is conditional and never recreational cultivation.",
+            "effective_date": "Base law in force 1999-01-20 according to the published text; 2018 amendments are retained separately.",
+            "applicability": "Suriname national Wet Verdovende Middelen.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-26/SR/screenshots/pdf_pages/SR-dna-wet-cannabis-cultivation-prohibition.png"
+          },
+          "penalty_regime": {
+            "value": "STRICT",
+            "source_url": "https://www.dna.sr/media/34ygwacb/wet_verdovende_middelen.pdf",
+            "exact_fragment": "Article 11 provides life imprisonment or imprisonment up to twenty years plus a fine for intentional core violations of the law.",
+            "effective_date": "Base law in force 1999-01-20 according to the published text; amendment/currentness chain is retained separately.",
+            "applicability": "Suriname national Wet Verdovende Middelen.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-26/SR/screenshots/pdf_pages/SR-dna-wet-article11-penalties.png"
+          }
+        },
+        "lifecycle": "The DNA current-law index retains the 1998 law as amended in 2002. DNA separately records 2018 No. 64 and No. 65 amendment pages and the 2023 published industrial-hemp law. No unreviewed industrial-hemp rule is used for patient, adult-use or colour derivation; the current primary-law cannabis schedule and Article 7 form the limited-lawful-mode chain.",
+        "c2_semantic_recheck": "C1 fetched each of eight canonical SR URL identities once. The Wet Verdovende Middelen and No. 64 PDFs had usable text layers and used pdftotext; only relevant term-derived pages were rendered. No. 65 had no text layer, so OCR was used only for that scan and returned no cannabis-term page. The Government alert PDF used pdftotext. Semantic review reconciled the retained exact cannabis/list, Article 7, Article 11 and 2018 amendment fragments to the refreshed primary PDF hashes; the 2023 index and alert remain non-colour context.",
+        "c3_visual_recheck": "Retained dated official DNA PDF crops were reread locally without opening a desktop browser: Article 2/3/4 prohibition, Article 7 conditional professional and own-medical-use exception, Article 11 penalties, cannabis-family list and the 2018 No. 64/65 industrial-only threshold. Current C1 hashes bind the refreshed source identities. No strict browser-domain capture is claimed.",
+        "strict_visual_acceptance": "PARTIAL_RETAINED_OFFICIAL_DNA_PDF_CROPS_AND_CURRENT_C1_HASHES; fresh browser-chrome/domain acceptance remains separate and does not determine legal truth.",
+        "project_layer": {
+          "comparison": "AXIS_MISMATCH_COLOR_UNCONFIRMED_PENDING_LIVE_MAP_REOPEN",
+          "runtime_or_ssot_caveat": "The matrix project baseline is recreational=ILLEGAL, medical=NONE, enforcement=STRICT. The independent proposal retains the prohibition/strict axes and records only a limited statutory cannabis-linked exception. No live map, popup, API or SEO capture was opened; no applied layer changed."
+        },
+        "no_mutation": {
+          "APPLY_ALLOWED": false,
+          "PRODUCTION_TOUCHED": false,
+          "MAP_COLORS_CHANGED": false,
+          "SSOT_CHANGED": false,
+          "runtime_changed": false,
+          "deployment_changed": false
+        },
+        "recommended_action": "Retain all eight annotated source records and their current hashes in the one ledger. Do not apply this proposal to map, popup, API, SEO, SSOT, runtime, production or deployment without explicit authorisation.",
+        "confidence": "MEDIUM_HIGH: current national primary law, current DNA indexes, refreshed hashes and retained direct crops establish cannabis scope, prohibition and conditional Article 7 exception. Current patient-facing operation and strict fresh browser-domain acceptance remain unproved."
+      },
+      "project_comparison": {
+        "status": "AXIS_MISMATCH_COLOR_UNCONFIRMED_PENDING_LIVE_MAP_REOPEN",
+        "reason": "The independent SR packet retains the project baseline's recreational-prohibition and strict-enforcement axes, but separately records the current cannabis-list plus Article 7 conditional professional/lawfully-obtained-own-medical-use statutory exception. That limited mode is proposal-only YELLOW, not a patient programme. No live map/popup/API/SEO layer was opened in this hidden review, so no visible product color match or mismatch is asserted. No project status SSOT was changed."
+      },
+      "conclusion": "Suriname is independently proposal-only YELLOW under the general schedule-plus-authorisation evidence rule: current primary-law cannabis scope plus Article 7's conditional statutory professional and lawfully obtained own-medical-use exception. It is never patient eligibility, a prescriber/registry/dispensing/operational programme or unrestricted adult use. The industrial-hemp amendments and Government alert remain correctly bounded context. SSOT, map, runtime, production and deployment remain unchanged."
     },
     {
       "geo": "SY",
@@ -152585,6 +153294,41 @@
         "ZM"
       ],
       "detail": "SD retains four annotated source records in the single ledger: a current Judiciary cannabis-family bridge, current Ministry Act-continuity mandate, an NMPB generic-medicine anti-mixing boundary and dated UNODC Act reproduction. Every source preserves URL or PDF link, owner, SD applicability, locator, exact fragment, nonempty annotation, current/effective caveat, visual state and revalidation. C0 made zero HTTP requests; C1 fetched the four distinct URLs once, recording Judiciary/Ministry HTTP 200 and archive/NMPB NETWORK_ERROR as ACCESS_BLOCKED access metadata only. C2 reconciled current Arabic cannabis terms to current hashes; C3 reviewed retained dated official Judiciary/Act crops locally without a desktop browser. The current cannabis bridge plus medical/scientific Minister-authorisation is proposal-only YELLOW limited lawful mode, never patient eligibility, prescriber, registration, supply, pharmacy, import or programme operation. Targeted tests passed 68/68; global C0 retained 1521 records with FETCHED_URLS=0; required serial root pass cycle passed after lock release. APPLY_ALLOWED=false; PRODUCTION_TOUCHED=false; MAP_COLORS_CHANGED=false; SSOT_CHANGED=false."
+    },
+    {
+      "geo": "SR",
+      "at": "2026-08-12T08:55:23Z",
+      "stage": "AUDIT_STOP_CHECKPOINT",
+      "result": "CI_STATUS=PASS;SMOKE_STATUS=PASS;POST_CHECKS_OK=1;HUB_STAGE_REPORT_OK=1;PROCESS_SLOT_RUNTIME_GUARD=PASS;PASS_CYCLE_EXIT_RC=0",
+      "ci_report_sha256": "79d9e8789d50a126f6f8cf6128060a0c76fd061ca66f8547d20878cec7506be0",
+      "structured_independent_packets": 292,
+      "normalized_independent_truth_colors": 292,
+      "remaining_without_independent_color": 15,
+      "normalized_color_distribution": {
+        "GREEN": 91,
+        "YELLOW": 113,
+        "RED": 21,
+        "UNKNOWN": 67,
+        "NO_INDEPENDENT_COLOR": 15
+      },
+      "remaining_canonical_geos": [
+        "SY",
+        "TJ",
+        "TZ",
+        "TH",
+        "TL",
+        "TG",
+        "TO",
+        "TN",
+        "TM",
+        "TC",
+        "TV",
+        "US",
+        "EH",
+        "YE",
+        "ZM"
+      ],
+      "detail": "SR retains eight schema-complete official DNA/Government URL/PDF source records in the single ledger: principal-law PDF, current law index, 2018 No. 64/65 PDFs and indexes, 2023 industrial-hemp index and current Government cannabis alert. Every record preserves owner, SR-only applicability, direct locator, exact fragment, annotation, current/effective caveat, visual state and revalidation. C0 made zero HTTP requests; C1 fetched the eight distinct URL identities once at HTTP 200, storing final URL, HTTP metadata and hashes. C2 used pdftotext for text PDFs and OCR only for scan-only No. 65; C3 reread retained official DNA crops locally without a desktop browser. The current cannabis schedule plus Article 7 conditional professional/lawfully obtained own-medical-use exception is proposal-only YELLOW under the general schedule-plus-authorisation evidence rule, never patient eligibility, prescriber, registration, patient supply/import, named dispensary or operational programme. Industrial hemp and Government enforcement records remain bounded context. Targeted tests passed 68/68; matrix has all 307 rows, 768 direct and 1404 published official URL/PDF links; global C0 retained 1529 source records with FETCHED_URLS=0; required serial root pass cycle passed after verified lock release. APPLY_ALLOWED=false; PRODUCTION_TOUCHED=false; MAP_COLORS_CHANGED=false; SSOT_CHANGED=false."
     }
   ]
 }
