@@ -29,7 +29,7 @@
     "colorReauditDirectOrComposite": 31,
     "colorReauditContextClaimantOrNegative": 8,
     "supplementalOfficialLinks": 32,
-    "allPublishedOfficialLinks": 1378,
+    "allPublishedOfficialLinks": 1382,
     "rowsWithPublishedOfficialLinks": 307,
     "rowsWithAnyOfficialUrl": 307
   },
@@ -72149,23 +72149,235 @@
         "medical": "NONE_CONFIRMED_AT_PATIENT_PROGRAM_LEVEL; THE_REVIEWED_ORDINANCE_SHOWS_NARROW_EXEMPT_PRODUCT_AND_POLICE_TRAINING_CULTIVATION_AUTHORIZATION_CONTEXT_BUT_NO_CANNABIS_SPECIFIC_MEDICAL_PATIENT_ACCESS_PROGRAMME_OR_MEDICAL_CANNABIS_LICENSING_FRAMEWORK_WAS_VISIBLY_CONFIRMED",
         "enforcement": "STRICT; CLASS_B_POSSESSION_CAN_CARRY_FINE_OR_IMPRISONMENT_FOR_7_YEARS_CULTIVATION_CAN_CARRY_FINE_OR_IMPRISONMENT_FOR_14_YEARS_AND_SMOKING_CANNABIS_OR_CANNABIS_RESIN_IS_TIED_TO_CLASS_B_PENALTY_EXPOSURE_OF_FINE_OR_IMPRISONMENT_FOR_14_YEARS"
       },
-      "independentTruth": null,
+      "independentTruth": {
+        "color": "RED",
+        "rule": "GENERAL_CURRENT_CANNABIS_SPECIFIC_RECREATIONAL_PROHIBITION_WITH_NONPATIENT_IMPLEMENTING_RULE_BOUNDARY",
+        "reviewedAt": "2026-08-12T07:03:00+03:00",
+        "conclusion": "Proposal-only RED. Current St Helena Government law directly names cannabis and cannabis resin, keeps them in Class B, and prohibits unauthorised recreational possession, supply, cultivation and smoking. The 2023 THC exception is non-administered low-THC personal-care/food only, and the current cannabis-specific 2009 regulation is Governor-authorised police training only; neither creates patient access."
+      },
       "directOfficialCannabisLawLinks": [
         {
           "title": "St Helena Government - Drugs (Prevention of Misuse) Ordinance, 2003, updated 01/03/2023",
           "url": "https://www.sainthelena.gov.sh/documents/Drugs-Prevention-of-Mususe-Ord-Updated-010323",
           "sourceKind": "ST_HELENA_GOVERNMENT_DRUGS_PREVENTION_OF_MISUSE_ORDINANCE_2003_CANNABIS_DEFINITION_CLASS_B_SCHEDULE_POSSESSION_CULTIVATION_SMOKING_OFFENCES",
+          "sourceOwnerGeo": "SH",
+          "appliesToGeos": [
+            "SH"
+          ],
+          "legalBasisForExtension": "The authoritative consolidated domestic St Helena Ordinance is the direct territorial law; no UK, Ascension, Tristan da Cunha, claimant or foreign-law extension is used.",
+          "officialPublisher": "St Helena Government official Revised Edition of the Laws publisher",
+          "sourceType": "CURRENT_OFFICIAL_CONSOLIDATED_CANNABIS_CONTROLLED_DRUGS_ORDINANCE_PDF",
+          "primaryOrContext": "PRIMARY_CURRENT_APPLICABLE_CANNABIS_DEFINITION_CLASSIFICATION_POSSESSION_CULTIVATION_SMOKING_AND_REGULATION_LAW",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T03:59:12.031Z",
+            "final_url": "https://www.sainthelena.gov.sh/documents/Drugs-Prevention-of-Mususe-Ord-Updated-010323.pdf",
+            "http_status": 200,
+            "etag": "\"6a7b0bfb-6f648\"",
+            "last_modified": "Tue, 11 Aug 2026 11:48:11 GMT",
+            "content_type": "application/pdf",
+            "content_length": 456264,
+            "document_sha256": "1de6dd6b78114a372f92dd91db8e8729840fd7e23c77fb8de4a6f11952938bd0",
+            "relevant_fragment_sha256": "1845592e71ff956f1a593ce4bf9abea48845bbfe26c8482b4fa46c93290d2bb9",
+            "revalidation_state": "REDIRECT_OR_OWNER_CHANGED",
+            "access_state": "HTTP_OK",
+            "change_reason": "FINAL_URL_CHANGED:https://www.sainthelena.gov.sh/documents/Drugs-Prevention-of-Mususe-Ord-Updated-010323->https://www.sainthelena.gov.sh/documents/Drugs-Prevention-of-Mususe-Ord-Updated-010323.pdf",
+            "queue": [
+              "C2"
+            ],
+            "dependent_geos": [
+              "SH"
+            ]
+          },
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official St Helena Government PDF. Visual review confirms the Drugs (Prevention of Misuse) Ordinance, 2003 updated 01/03/2023. Rendered pages visibly define cannabis and cannabis resin, classify Cannabis and Cannabis resin in Schedule 1 Class B, make possession of controlled drugs unlawful unless covered by a narrow exempt-product exception, make cultivation of cannabis plants unlawful unless regulations apply, criminalise smoking cannabis/cannabis resin, and set Class B possession/cultivation/smoking penalty exposure. The attached 2009 regulations visibly allow cultivation/possession only for Governor-authorised police-training purposes.",
+          "note": "Section 2 defines \"cannabis\" as any plant of the genus cannabis and \"cannabis resin\" as separated resin from such a plant; its 2023 \"exempt product\" is a personal-care, food or drink product containing THC only where it is not designed for THC administration, THC cannot be readily recovered, it contains no more than 0.2% THC and no other controlled drug. Section 8(1) says possession is unlawful subject to section 10 regulations unless the person has that exempt product; section 9(1) says it is unlawful to cultivate any plant of the genus cannabis subject to section 10 regulations; section 12(1)(d) prohibits smoking cannabis or cannabis resin. Schedule 1 Part 2 Class B lists \"Cannabis and Cannabis resin\". Regulation 2 of the attached 2009 Regulations makes cultivation/possession lawful only where the Governor authorises it in writing for police training directed at combating an Ordinance offence.",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/SH/pdf_pages/SH-drugs-ordinance-page-26-26.png",
+          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
+          "visualReview": "St Helena is closed as visually verified official cannabis-law evidence from the official St Helena Government Drugs (Prevention of Misuse) Ordinance, 2003 updated 01/03/2023. The reviewed evidence supports ILLEGAL/NONE/STRICT with explicit narrow exempt-product and police-training authorization caveats. No project status SSOT was changed."
+        },
+        {
+          "title": "St Helena Government - Drugs (Prevention of Misuse) (Amendment) Ordinance, 2023",
+          "url": "https://www.sainthelena.gov.sh/app/uploads/gazette/ORD-1-Drugs-Prevention-of-MisuseAmendment-Ordinance-2023.pdf",
+          "sourceKind": "ST_HELENA_GOVERNMENT_GAZETTE_ENACTED_2023_CANNABIS_EXEMPT_PRODUCT_AMENDMENT",
+          "sourceOwnerGeo": "SH",
+          "appliesToGeos": [
+            "SH"
+          ],
+          "legalBasisForExtension": "Enacted domestic St Helena Ordinance amending the direct territorial Drugs (Prevention of Misuse) Ordinance, 2003.",
+          "officialPublisher": "St Helena Government Gazette official legislation publisher",
+          "sourceType": "CURRENT_OFFICIAL_ENACTED_CANNABIS_LAW_AMENDMENT_PDF",
+          "primaryOrContext": "PRIMARY_CURRENTNESS_AND_NONPATIENT_EXCEPTION_CONTEXT",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T03:59:12.031Z",
+            "final_url": "https://www.sainthelena.gov.sh/app/uploads/gazette/ORD-1-Drugs-Prevention-of-MisuseAmendment-Ordinance-2023.pdf",
+            "http_status": 200,
+            "etag": "\"6a3a4e9a-3d5e3\"",
+            "last_modified": "Tue, 23 Jun 2026 09:15:06 GMT",
+            "content_type": "application/pdf",
+            "content_length": 251363,
+            "document_sha256": "60a609edc9fbfd6270e7d59310316ac1cd9f86b9517e02ffef65e589d1b29343",
+            "relevant_fragment_sha256": "3f624cb56e9319b1822cbf2ed80b1c53c7c11b4abce6fe86d8ef391fdf60c99d",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "SH"
+            ]
+          },
+          "evidenceScope": null,
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
+          "confidence": "high",
+          "note": "The enacted 2023 amendment defines an \"exempt product\" as a personal-care product or food/drink containing THC only where it is not designed for administration to a human or animal, THC cannot be readily recovered, it has no more than 0.2% THC by volume, and it contains no other controlled drug; it changes the Ordinance's import, supply and possession provisions only for that product.",
+          "screenshotPath": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/SH-amendment-2023-current-2026-08-12-2.png",
+          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
+          "visualReview": "St Helena is closed as visually verified official cannabis-law evidence from the official St Helena Government Drugs (Prevention of Misuse) Ordinance, 2003 updated 01/03/2023. The reviewed evidence supports ILLEGAL/NONE/STRICT with explicit narrow exempt-product and police-training authorization caveats. No project status SSOT was changed."
+        },
+        {
+          "title": "St Helena Government - Drugs (Prevention of Misuse) (Amendment) Ordinance, 2023 (Commencement) Order, 2023",
+          "url": "https://www.sainthelena.gov.sh/app/uploads/gazette/LN-1-Drugs-Prevention-of-Misuse-Amendment-Ordinance-2023-Commencement-Order-2023.pdf",
+          "sourceKind": "ST_HELENA_GOVERNMENT_GAZETTE_LN_1_OF_2023_COMMENCEMENT_ORDER",
+          "sourceOwnerGeo": "SH",
+          "appliesToGeos": [
+            "SH"
+          ],
+          "legalBasisForExtension": "Domestic St Helena commencement Order for Ordinance 1 of 2023.",
+          "officialPublisher": "St Helena Government Gazette official legislation publisher",
+          "sourceType": "CURRENT_OFFICIAL_CANNABIS_LAW_COMMENCEMENT_ORDER_PDF",
+          "primaryOrContext": "PRIMARY_CURRENTNESS_CONTEXT_FOR_ENACTED_2023_AMENDMENT",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T03:59:12.031Z",
+            "final_url": "https://www.sainthelena.gov.sh/app/uploads/gazette/LN-1-Drugs-Prevention-of-Misuse-Amendment-Ordinance-2023-Commencement-Order-2023.pdf",
+            "http_status": 200,
+            "etag": "\"6a3a4e9a-9413\"",
+            "last_modified": "Tue, 23 Jun 2026 09:15:06 GMT",
+            "content_type": "application/pdf",
+            "content_length": 37907,
+            "document_sha256": "b45096c42d4da7f554e5261d97614148a5afe7a600479734570812b8a990c77f",
+            "relevant_fragment_sha256": "8bd75251aa8e789aca7b11d174ee7031a82ecf6f2c5c4f6fe4c7cde73fb2c669",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "SH"
+            ]
+          },
+          "evidenceScope": null,
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
+          "confidence": "high",
+          "note": "This Order brings the Drugs (Prevention of Misuse) (Amendment) Ordinance, 2023, into force on 24 February 2023.",
+          "screenshotPath": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/SH-commencement-2023-current-2026-08-12-1.png",
+          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
+          "visualReview": "St Helena is closed as visually verified official cannabis-law evidence from the official St Helena Government Drugs (Prevention of Misuse) Ordinance, 2003 updated 01/03/2023. The reviewed evidence supports ILLEGAL/NONE/STRICT with explicit narrow exempt-product and police-training authorization caveats. No project status SSOT was changed."
+        },
+        {
+          "title": "St Helena Government - Laws of St Helena Categories List, 4 February 2025",
+          "url": "https://www.sainthelena.gov.sh/documents/20250204_STH-Laws_Category-list.pdf",
+          "sourceKind": "ST_HELENA_GOVERNMENT_CURRENT_LAWS_CATEGORY_INDEX_DRUGS_SUBSIDIARY_LEGISLATION",
+          "sourceOwnerGeo": "SH",
+          "appliesToGeos": [
+            "SH"
+          ],
+          "legalBasisForExtension": "Official St Helena domestic legislation-category index for the territory, not a cross-territory applied-law list.",
+          "officialPublisher": "St Helena Government official Laws of St Helena publisher",
+          "sourceType": "CURRENT_OFFICIAL_LEGISLATION_CATEGORY_INDEX_PDF",
+          "primaryOrContext": "CONTEXT_CURRENT_OFFICIAL_INDEX_OF_APPLICABLE_DRUGS_SUBSIDIARY_LEGISLATION",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T03:59:12.031Z",
+            "final_url": "https://www.sainthelena.gov.sh/documents/20250204_STH-Laws_Category-list.pdf",
+            "http_status": 200,
+            "etag": "\"6a7b0bf7-49cef\"",
+            "last_modified": "Tue, 11 Aug 2026 11:48:07 GMT",
+            "content_type": "application/pdf",
+            "content_length": 302319,
+            "document_sha256": "56b7c377c8e056facc746b9f9bc2358fe00a16ced855792b85eb1c4f54360b9b",
+            "relevant_fragment_sha256": "b9e1401b7ce15aedb71723e4177236b85ad935bbaca2e9143594857428655201",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "SH"
+            ]
+          },
+          "evidenceScope": null,
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
+          "confidence": "high",
+          "note": "Under Drugs (Prevention of Misuse) Ordinance, 2003, the official category list identifies \"Drugs (Authorisation Of Cultivation And Possession) Regulations, 2009\" as the listed subsidiary legislation.",
+          "screenshotPath": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/SH-category-index-2025-current-2026-08-12-04.png",
           "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
           "visualReview": "St Helena is closed as visually verified official cannabis-law evidence from the official St Helena Government Drugs (Prevention of Misuse) Ordinance, 2003 updated 01/03/2023. The reviewed evidence supports ILLEGAL/NONE/STRICT with explicit narrow exempt-product and police-training authorization caveats. No project status SSOT was changed."
         }
       ],
       "candidateLinksAwaitingVisualReview": [],
-      "officialContextLinks": [],
+      "officialContextLinks": [
+        {
+          "title": "St Helena Government - Alphabetical List of Ordinances with Text",
+          "url": "https://www.sainthelena.gov.sh/st-helena/government/legislation/laws-of-st-helena/alphabetical-list-st-helena/",
+          "sourceKind": "ST_HELENA_GOVERNMENT_CURRENT_OFFICIAL_ORDINANCE_INDEX",
+          "sourceOwnerGeo": "SH",
+          "appliesToGeos": [
+            "SH"
+          ],
+          "legalBasisForExtension": "Official St Helena domestic alphabetical legislation index.",
+          "officialPublisher": "St Helena Government official Laws of St Helena publisher",
+          "sourceType": "CURRENT_OFFICIAL_LEGISLATION_INDEX_HTML",
+          "primaryOrContext": "CONTEXT_CURRENT_OFFICIAL_ORDINANCE_DISCOVERY_AND_CURRENTNESS_INDEX",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T03:59:12.031Z",
+            "final_url": "https://www.sainthelena.gov.sh/st-helena/government/legislation/laws-of-st-helena/alphabetical-list-st-helena",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": "Tue, 11 Aug 2026 22:57:39 GMT",
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 49216,
+            "document_sha256": "467981e6c53e696b3920e4931c0aa068efd24ee59a1c533c2dcafb29c9daa0d6",
+            "relevant_fragment_sha256": "e5a2793b53741e722716ca1fbe9c3262422151145ecb0bbb92b7cccabe231ae0",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "SH"
+            ]
+          },
+          "evidenceScope": "RETAINED_REVIEWED_SOURCE_PROVENANCE_CONTEXT_ONLY",
+          "verification": "RETAINED_REVIEWED_SOURCE_PROVENANCE_CONTEXT",
+          "confidence": "low",
+          "note": "Official index URL kept with the exact currentness/discovery text and a clear context-only role.",
+          "screenshotPath": null,
+          "visualReview": "RETAINED_CONTEXT_ONLY"
+        }
+      ],
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "MATCH_WITH_EXEMPT_PRODUCT_AND_POLICE_TRAINING_AUTHORIZATION_CAVEAT",
@@ -72173,7 +72385,7 @@
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
-      "strictVisualAcceptance": null,
+      "strictVisualAcceptance": false,
       "screenshotPaths": [
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/SH/pdf_pages/SH-drugs-ordinance-page-2-02.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/SH/pdf_pages/SH-drugs-ordinance-page-3-03.png",
@@ -72181,7 +72393,10 @@
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/SH/pdf_pages/SH-drugs-ordinance-page-8-08.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/SH/pdf_pages/SH-drugs-ordinance-page-10-10.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/SH/pdf_pages/SH-drugs-ordinance-page-26-26.png",
-        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/SH/pdf_pages/SH-drugs-ordinance-page-29-29.png"
+        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/SH/pdf_pages/SH-drugs-ordinance-page-29-29.png",
+        "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/SH-amendment-2023-current-2026-08-12-2.png",
+        "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/SH-commencement-2023-current-2026-08-12-1.png",
+        "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/SH-category-index-2025-current-2026-08-12-04.png"
       ],
       "reviewConfidence": "high",
       "reviewNotes": "VISUALLY_VERIFIED: St Helena is closed as visually verified official cannabis-law evidence from the official St Helena Government Drugs (Prevention of Misuse) Ordinance, 2003 updated 01/03/2023. The reviewed evidence supports ILLEGAL/NONE/STRICT with explicit narrow exempt-product and police-training authorization caveats. No project status SSOT was changed.",
