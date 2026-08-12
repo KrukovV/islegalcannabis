@@ -147349,6 +147349,58 @@
       "PRODUCTION_TOUCHED": false,
       "MAP_COLORS_CHANGED": false,
       "SSOT_CHANGED": false
+    },
+    {
+      "geo": "KN",
+      "at": "2026-08-12T02:39:07Z",
+      "stage": "AUDIT_STOP_CHECKPOINT",
+      "result": "CI_STATUS=PASS;SMOKE_STATUS=PASS;POST_CHECKS_OK=1;HUB_STAGE_REPORT_OK=1;PROCESS_SLOT_RUNTIME_GUARD=PASS;PASS_CYCLE_EXIT_RC=0",
+      "ci_report_sha256": "2b8c3305f95a6ac41f819ffca8faf95595bb7e7aa3a23880c396f51cfbac5a5e",
+      "structured_independent_packets": 245,
+      "normalized_independent_truth_colors": 275,
+      "remaining_without_independent_color": 32,
+      "normalized_color_distribution": {
+        "GREEN": 91,
+        "YELLOW": 103,
+        "RED": 19,
+        "UNKNOWN": 62,
+        "NO_INDEPENDENT_COLOR": 32
+      },
+      "remaining_canonical_geos": [
+        "RU",
+        "SH",
+        "LC",
+        "SM",
+        "SA",
+        "SN",
+        "SER",
+        "KAS",
+        "SL",
+        "SX",
+        "SB",
+        "SO",
+        "GS",
+        "SS",
+        "LK",
+        "SD",
+        "SR",
+        "SY",
+        "TJ",
+        "TZ",
+        "TH",
+        "TL",
+        "TG",
+        "TO",
+        "TN",
+        "TM",
+        "TC",
+        "TV",
+        "US",
+        "EH",
+        "YE",
+        "ZM"
+      ],
+      "detail": "KN is proposal-only YELLOW from the current Law Commission 2023 primary-law possession and five-plant carve-outs. Its 2020 Act and 2022 regulation remain operation-unverified framework context; C1 revalidated each of the three annotated official PDF URLs once with HTTP 304/NOT_MODIFIED. The counts use only compatible independent-truth color aliases in this same ledger. APPLY_ALLOWED=false; PRODUCTION_TOUCHED=false; MAP_COLORS_CHANGED=false; SSOT_CHANGED=false."
     }
   ]
 }
