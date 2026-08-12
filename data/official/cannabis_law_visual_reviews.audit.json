@@ -149129,21 +149129,59 @@
           "title": "Timor-Leste Trade Portal / Ministry of Justice DNAJL text - Law No. 2/2017 on combating drug trafficking and illicit drug consumption",
           "url": "https://www.timor-lestetradeportal.com/upload/files/legal_pt_pt_20230520050329.pdf",
           "source_kind": "TIMOR_LESTE_LAW_2_2017_DRUG_TRAFFICKING_ILLICIT_CONSUMPTION_TABLE_I_C_CANNABIS_SATIVA_CANNABIS_RESIN_OIL_REFERENCE_QUANTITIES_AND_PENALTIES",
+          "source_owner": "Timor-Leste Trade Portal / Ministry of Justice Direção Nacional de Assessoria Jurídica e Legislação (DNAJL)",
+          "source_owner_geo": "TL",
+          "source_authority": "Timor-Leste Trade Portal official legal-document host; retained PDF visibly identifies the República Democrática de Timor-Leste Ministry of Justice and DNAJL.",
+          "applies_to_geo": [
+            "TL"
+          ],
+          "legal_basis_for_extension": "Direct domestic Law No. 2/2017 of the Democratic Republic of Timor-Leste; the original text is separately retained from the Ministry of Justice Jornal da República official-gazette URL.",
+          "source_type": "OFFICIAL_GOVERNMENT_TRADE_PORTAL_HOSTED_MINISTRY_OF_JUSTICE_DNAJL_PRIMARY_LAW_PDF",
+          "primary_or_context": "PRIMARY_LAW_CANNABIS_SCOPE_UNAUTHORISED_ACTIVITY_AND_PERSONAL_CONSUMPTION_RULES",
+          "evidence_role": "DIRECT_CANNABIS_TABLE_I_C_SCOPE_ARTICLES_6_7_AND_26_WITH_GENERIC_LICENSING_NON_PROMOTION_BOUNDARY",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "RETAINED_OFFICIAL_DNAJL_LAW_TEXT_DATED_2017_01_25; DIRECT_MINISTRY_OF_JUSTICE_JORNAL_DA_REPUBLICA_ORIGINAL_AND_2025_OFFICIAL_CROSS_REFERENCE_RETAINED_SEPARATELY_FOR_CURRENTNESS_REVIEW",
+          "effective_date": "Law No. 2/2017, 25 January 2017; retained official text is an original primary-law reproduction, with currentness review kept distinct from its substantive fragments.",
+          "official_host_verified": true,
+          "direct_fragment_available": true,
+          "semantic_legal_axis": true,
+          "official_fragment_locator": "Law No. 2/2017 (25 January 2017): Table I-C entries 1-3; Article 6(1); Article 7(1); Article 26(1)-(3); PDF pages 7, 18 and 39 in the retained bilingual DNAJL copy.",
+          "direct_fragment_urls": [
+            "https://www.timor-lestetradeportal.com/upload/files/legal_pt_pt_20230520050329.pdf#page=7",
+            "https://www.timor-lestetradeportal.com/upload/files/legal_pt_pt_20230520050329.pdf#page=18",
+            "https://www.timor-lestetradeportal.com/upload/files/legal_pt_pt_20230520050329.pdf#page=39"
+          ],
+          "exact_fragment": "Table I-C lists “Canabis - folhas e sumidades floridas ou frutificadas da planta Cannabis Sativa L.”, “Canabis, resina de” and “Canabis, óleo de”. Article 26(1) states: “Quem consumir ilicitamente ou, para seu exclusivo consumo pessoal, cultivar, produzir, fabricar, extrair, preparar, adquirir ou detiver ilicitamente plantas, substâncias ou preparados compreendidos nas tabelas I a IV, é punido com pena de prisão até 6 meses ou com pena de multa até 60 dias.”",
+          "direct_fragment": "Article 6(1) subjects cultivation, production, manufacture, commerce, distribution, import, export, transport, use and holding of Table I-IV plants/substances/preparations to licensing, conditions, authorisations and Ministry of Health supervision. Article 7(1) begins “Quem, sem se encontrar autorizado, cultivar, produzir, fabricar...” for the unlawful trafficking chain. Article 26(2)-(3) raises the personal-consumption offence when the quantity exceeds five daily-reference quantities and permits a penalty waiver only for an occasional consumer; it is not affirmative decriminalisation or adult-use authorisation.",
+          "annotation": "Direct retained official-law reproduction with visible Ministry of Justice/DNAJL owner, cannabis-specific Table I-C bridge and operative Articles 6, 7 and 26. Article 6 is a general Ministry of Health licensing and supervision clause for all Table I-IV material, not a cannabis patient eligibility, prescriber, registry, supply, pharmacy, import or operational-programme route. Article 26's capped penalty/occasional-consumer waiver does not legalise cannabis or establish a limited lawful adult-use regime.",
+          "applicability": "TL; direct national law of the Democratic Republic of Timor-Leste.",
+          "legal_relevance": "Cannabis-specific schedule bridge, unauthorised recreational possession/supply/cultivation prohibition chain, and generic-licensing non-promotion boundary.",
+          "confidence": "HIGH_FOR_RETAINED_CANNABIS_SCOPE_AND_ARTICLE_26_PERSONAL_CONSUMPTION_TEXT; HIGH_FOR_NON_PROMOTION_OF_GENERIC_ARTICLE_6_LICENSING; CURRENTNESS_REVIEW_RECORDED_SEPARATELY.",
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_state": "RETAINED_OFFICIAL_MJ_DNAJL_BILINGUAL_PDF_CROPS_VISUALLY_REVIEWED_LOCALLY_NO_DESKTOP_BROWSER",
+          "visual_review_result": "Retained local PDF crops visibly show the República Democrática de Timor-Leste/MJ/DNAJL title page, the Table I-C cannabis/resin/oil entries and the Article 6/7 and Article 26 Portuguese operative text. Browser chrome/domain is not asserted and strict visual acceptance remains a separate non-legal gate.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-21/TL/screenshots/pdf_pages/TL-law-2-2017-table-ic-cannabis-resin-oil.png",
           "note": "Official Timor-Leste Trade Portal PDF of Law No. 2/2017, visually bearing the República Democrática de Timor-Leste emblem, Ministério da Justiça and Direção Nacional de Assessoria Jurídica e Legislação (DNAJL) masthead. Visual review confirms the title approving the law to combat drug trafficking and illicit drug consumption, the scope statement that Table I-C includes hemp/cannabis (Cannabis sativa), Article 6 control of cultivation, production, manufacture, trade, distribution, import/export, transit, transport, advertising, use or detention of plants/substances/preparations in Tables I-IV subject to licensing/authorization/fiscalization by the Ministry of Health, Article 7 unauthorized trafficking/cultivation/production/import/export/transport and related activities, Article 11 lesser trafficking penalties for Tables I-III of one to five years, Article 26 illicit consumption/personal cultivation/production/acquisition/detention penalties up to six months or fine and up to one year or fine if quantity exceeds five times the daily reference quantity, with possible waiver for occasional consumers, Annex I daily reference quantities for cannabis leaves/flowering or fruiting tops, cannabis resin, cannabis oil and delta-9-THC, and Table I-C entries for Cannabis sativa plant material, cannabis resin and cannabis oil. Source access caveat: a more direct mj.gov.tl Ministry URL for the same named PDF timed out during retrieval, so the accepted URL is the official Trade Portal-hosted copy while the rendered PDF itself displays the Ministry of Justice/DNAJL law text.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T11:08:13.874Z",
             "final_url": "https://www.timor-lestetradeportal.com/upload/files/legal_pt_pt_20230520050329.pdf",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "last_modified": "Sat, 20 May 2023 17:03:29 GMT",
+            "content_type": "application/pdf",
+            "content_length": 421525,
+            "document_sha256": "a0ad1a89870d42be0e704fc83aba054b98f7949ebb76e458a2437d7a9017ac70",
+            "relevant_fragment_sha256": "b4c57e994123ef9de2fc4d120fde7b856b2d78e0912eeb4a0b649b008ed7612d",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -149154,27 +149192,358 @@
             "dependent_geos": [
               "TL"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 138671,
+              "ocr_used": false,
+              "relevant_pages": [
+                2,
+                3,
+                7,
+                21,
+                24,
+                32,
+                33,
+                42,
+                51
+              ],
+              "rendered_pages": [
+                2,
+                3,
+                7,
+                21,
+                24,
+                32,
+                33,
+                42,
+                51
+              ]
+            }
+          }
+        },
+        {
+          "title": "Jornal da República / Ministry of Justice - Law No. 2/2017 of 25 January 2017, Law on Combating Illicit Drug Trafficking (Série I No. 4)",
+          "url": "https://www.mj.gov.tl/jornal/public/docs/2017/serie_1/SERIE_I_NO_4.pdf",
+          "source_kind": "TIMOR_LESTE_MINISTRY_OF_JUSTICE_JORNAL_DA_REPUBLICA_LAW_2_2017_PRIMARY_GAZETTE_CANNABIS_TABLE_I_C_AND_ILLICIT_CONSUMPTION",
+          "source_owner": "Jornal da República, Ministry of Justice of the Democratic Republic of Timor-Leste",
+          "source_owner_geo": "TL",
+          "source_authority": "Official Jornal da República publication of the Ministry of Justice; the Gazette identifies the National Parliament's Law No. 2/2017.",
+          "applies_to_geo": [
+            "TL"
+          ],
+          "legal_basis_for_extension": "Direct national primary-law publication in Timor-Leste's official Jornal da República.",
+          "source_type": "OFFICIAL_NATIONAL_GAZETTE_PRIMARY_LAW_PDF",
+          "primary_or_context": "PRIMARY_LAW_CANNABIS_SCOPE_UNAUTHORISED_ACTIVITY_AND_PERSONAL_CONSUMPTION_RULES",
+          "evidence_role": "DIRECT_ORIGINAL_GAZETTE_SOURCE_FOR_LAW_2_2017",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "OFFICIAL_GAZETTE_PRIMARY_TEXT_DATED_2017_01_25; THE_2025_OFFICIAL_GAZETTE_CROSS_REFERENCE_IS_RETAINED_SEPARATELY_AS_CURRENT_LEGAL_CONTEXT_AND_DOES_NOT_REPLACE_THIS_TEXT",
+          "effective_date": "25 January 2017, as printed in Série I No. 4, Jornal da República page 60.",
+          "official_host_verified": true,
+          "direct_fragment_available": true,
+          "semantic_legal_axis": true,
+          "official_fragment_locator": "Série I No. 4, Jornal da República pp. 60 onward: Article 1 (object); Table I-C (cannabis plant, resin and oil); Articles 6, 7 and 26. The stable official PDF is the direct source; Gazette page 60 is the printed, not assumed PDF-viewer, page reference.",
+          "direct_fragment_urls": [
+            "https://www.mj.gov.tl/jornal/public/docs/2017/serie_1/SERIE_I_NO_4.pdf"
+          ],
+          "exact_fragment": "“A presente lei estabelece o regime jurídico aplicável ao tráfico e ao consumo ilícitos de estupefacientes e de substâncias psicotrópicas.” The published law's Table I-C and Article 26 operative fragments are retained in the visually reviewed DNAJL bilingual official copy at the same law citation, without substituting the copy for this original Gazette URL.",
+          "direct_fragment": "The direct official Gazette is the primary original for Law No. 2/2017; the retained Ministry/DNAJL copy supplies the visually reviewed Table I-C cannabis/resin/oil, Article 6 licensing and Article 26 illicit personal-consumption fragments at the identical law number and date. This record will not inherit patient applicability from generic licensing.",
+          "annotation": "Official Ministry of Justice Gazette URL preserved alongside the pre-existing Trade Portal-hosted DNAJL copy, not instead of it. It establishes the authoritative source owner, law number/date and Article 1 legal object. The overlapping retained DNAJL crop gives the cannabis-specific operative-text visual review; the Gazette URL is independently C1/C2/C3 queued. No generic Article 6 licence is converted to a patient axis.",
+          "applicability": "TL; national Gazette enactment for the Democratic Republic of Timor-Leste.",
+          "legal_relevance": "Original primary-law source for the cannabis Table I-C and unauthorised activity/personal-consumption chain; source identity/currentness is independent from the trade-portal reproduction.",
+          "confidence": "HIGH_FOR_OFFICIAL_OWNER_LAW_CITATION_AND_ARTICLE_1_SCOPE; HIGH_FOR_CANNABIS_FRAGMENT_CHAIN_WHEN_READ_WITH_THE_RETAINED_IDENTICAL_DNAJL_LAW_COPY.",
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_state": "SUBSTANTIVE_TEXT_VISUALLY_REVIEWED_IN_RETAINED_OFFICIAL_MJ_DNAJL_COPY_AT_IDENTICAL_LAW_NUMBER_AND_DATE; DIRECT_GAZETTE_URL_QUEUED_FOR_C3_WITH_NO_DESKTOP_BROWSER",
+          "visual_review_result": "The legal owner/law citation and Article 1 are directly identified from the official Gazette publication. Retained local Ministry/DNAJL official copies show the same Law No. 2/2017 title, Table I-C cannabis scope and operative Articles 6/7/26. The absence of browser chrome cannot affect legal truth.",
+          "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-21/TL/screenshots/pdf_pages/TL-law-2-2017-title.png",
+          "revalidation": {
+            "checked_at": "2026-08-12T11:08:13.874Z",
+            "final_url": "https://www.mj.gov.tl/jornal/public/docs/2017/serie_1/SERIE_I_NO_4.pdf",
+            "http_status": 200,
+            "etag": "\"fdeda-58d4871b9bfea\"",
+            "last_modified": "Wed, 10 Jul 2019 00:06:08 GMT",
+            "content_type": "application/pdf",
+            "content_length": 1040090,
+            "document_sha256": "700f7867e6cff713f06a6fcb6da245ea1186582fe66309d193080ce0b7406cd6",
+            "relevant_fragment_sha256": "487edf5b093b38aed63f0f5064eed531e23d8bd2e16754f48ea512d066da9a86",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
             ],
-            "semantic_probe": null
+            "queue_reasons": [
+              "NEEDS_SEMANTIC_REVIEW"
+            ],
+            "dependent_geos": [
+              "TL"
+            ],
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 224509,
+              "ocr_used": false,
+              "relevant_pages": [
+                4,
+                9,
+                13,
+                14,
+                18,
+                24,
+                34,
+                39,
+                40
+              ],
+              "rendered_pages": [
+                4,
+                9,
+                13,
+                14,
+                18,
+                24,
+                34,
+                39,
+                40
+              ]
+            }
           }
         }
       ],
-      "verified_context_sources": [],
+      "verified_context_sources": [
+        {
+          "title": "Jornal da República / Ministry of Justice - 2025 pharmaceutical-products regime, Article 3 exception for Law No. 2/2017 Tables I-IV",
+          "url": "https://www.mj.gov.tl/jornal/public/docs/2025/serie_1/SERIE_I_NO_4.pdf",
+          "source_kind": "TIMOR_LESTE_2025_OFFICIAL_GAZETTE_PHARMACEUTICAL_PRODUCTS_REGIME_CROSS_REFERENCE_TO_LAW_2_2017_TABLES_I_TO_IV",
+          "source_owner": "Jornal da República, Ministry of Justice of the Democratic Republic of Timor-Leste",
+          "source_owner_geo": "TL",
+          "source_authority": "Official 2025 Jornal da República publication of the Ministry of Justice.",
+          "applies_to_geo": [
+            "TL"
+          ],
+          "legal_basis_for_extension": "Direct national official-gazette context source for Timor-Leste's pharmaceutical-products legal regime.",
+          "source_type": "CURRENT_OFFICIAL_NATIONAL_GAZETTE_CONTEXT_PDF",
+          "primary_or_context": "CURRENTNESS_AND_PHARMACEUTICAL_EXCEPTION_BOUNDARY_ONLY",
+          "evidence_role": "CURRENT_OFFICIAL_CROSS_REFERENCE_TO_LAW_2_2017_NOT_A_CANNABIS_PATIENT_ACCESS_SOURCE",
+          "cannabis_specific": false,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "OFFICIAL_2025_GAZETTE_PUBLICATION; IT CITES_LAW_2_2017_TABLES_I_TO_IV_BUT_IS_NOT_A_CONSOLIDATION_OR_CANNABIS_PATIENT_IMPLEMENTING_INSTRUMENT",
+          "effective_date": "2025 official-gazette publication; exact commencement provision is not needed for its narrow cross-reference/context role.",
+          "official_host_verified": true,
+          "direct_fragment_available": true,
+          "semantic_legal_axis": false,
+          "official_fragment_locator": "Jornal da República 2025 Série I No. 4, Article 3 (Exception), clause excluding substances or preparations in Tables I-IV of Law No. 2/2017 from the pharmaceutical-products regime.",
+          "direct_fragment_urls": [
+            "https://www.mj.gov.tl/jornal/public/docs/2025/serie_1/SERIE_I_NO_4.pdf"
+          ],
+          "exact_fragment": "“O presente diploma não se aplica: ... às substâncias ou preparados inscritos nas tabelas I a IV da Lei n.º 2/2017, de 25 de janeiro, Lei de Combate ao Tráfico Ilícito de Drogas;”",
+          "direct_fragment": "The current pharmaceutical-products regime expressly excludes Table I-IV materials of Law No. 2/2017. It does not name cannabis, prove that all 2017 provisions are unamended, or establish/prohibit a cannabis patient route; it is retained solely as a current official legal-context and generic-pharmaceutical-route boundary.",
+          "annotation": "Current official Gazette cross-reference saved with its exact clause and direct PDF. It confirms that the current pharmaceutical-products regime treats Law No. 2/2017 Table I-IV material as a distinct legal category. This non-cannabis-specific exception neither creates a patient-access negative conclusion by itself nor allows a generic pharmaceutical/licensing route to become a cannabis patient axis or color input.",
+          "applicability": "TL; direct national Gazette context law.",
+          "legal_relevance": "Currentness/context and a non-promotion boundary for generic pharmaceutical rules only.",
+          "confidence": "HIGH_FOR_THE_QUOTED_2025_OFFICIAL_CROSS_REFERENCE; NOT_SUFFICIENT_ALONE_FOR_ANY_CANNABIS_TRUTH_AXIS.",
+          "reviewed_by_human_visual": false,
+          "visual_opened": false,
+          "official_owner_visible": false,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": false,
+          "screenshot_state": "C2_C3_CONTEXT_SOURCE_QUEUED_NO_DESKTOP_BROWSER",
+          "visual_review_result": "Search-indexed official Gazette fragment is recorded for C2/C3 recheck. Its lack of a visual capture is a context-review state only and cannot affect legal truth.",
+          "screenshot_path": null,
+          "revalidation": {
+            "checked_at": "2026-08-12T11:08:13.874Z",
+            "final_url": "https://www.mj.gov.tl/jornal/public/docs/2025/serie_1/SERIE_I_NO_4.pdf",
+            "http_status": 200,
+            "etag": "\"9b58e-62c68ea0823e5\"",
+            "last_modified": "Fri, 24 Jan 2025 00:36:14 GMT",
+            "content_type": "application/pdf",
+            "content_length": 636302,
+            "document_sha256": "11e59e6a729a837e0508de031603305c473c3c1e0255482d59ac8eaf061bf0d3",
+            "relevant_fragment_sha256": "5e56b95371d53ad8319ed7fcd7f6d76d79b55a45cd663c43f650300f6e4017bf",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "NEEDS_SEMANTIC_REVIEW"
+            ],
+            "dependent_geos": [
+              "TL"
+            ],
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 194844,
+              "ocr_used": false,
+              "relevant_pages": [
+                1,
+                2,
+                6,
+                15,
+                19,
+                22,
+                23,
+                25,
+                27,
+                29,
+                31,
+                48
+              ],
+              "rendered_pages": [
+                1,
+                2,
+                6,
+                15,
+                19,
+                22,
+                23,
+                25,
+                27,
+                29,
+                31,
+                48
+              ]
+            }
+          }
+        }
+      ],
       "official_status": {
         "recreational": "ILLEGAL; OFFICIAL_LAW_2_2017_VISIBLY_LISTS_CANNABIS_SATIVA_CANNABIS_RESIN_AND_CANNABIS_OIL_IN_TABLE_I_C_AND_CRIMINALIZES_UNAUTHORIZED_TRAFFICKING_CULTIVATION_PRODUCTION_IMPORT_EXPORT_TRANSPORT_USE_AND_DETENTION_OUTSIDE_AUTHORIZED_CONTROL_ROUTES",
         "medical": "NONE_OR_NO_CANNABIS_SPECIFIC_PATIENT_PROGRAM_VISUALLY_CONFIRMED; ARTICLE_6_VISIBLY_CONTROLS_TABLES_I_IV_ACTIVITY_THROUGH_MINISTRY_OF_HEALTH_LICENSING_AUTHORIZATION_AND_FISCALIZATION_BUT_NO_CANNABIS_PATIENT_ACCESS_PROGRAM_WAS_VISUALLY_CONFIRMED",
         "enforcement": "STRICT_FOR_TRAFFICKING_WITH_PERSONAL_USE_CAVEAT; ARTICLE_11_VISIBLY_SETS_ONE_TO_FIVE_YEARS_FOR_LESSER_TRAFFICKING_OF_TABLES_I_III_CANNABIS_WHILE_ARTICLE_26_VISIBLY_ALLOWS_FINE_OR_SHORT_CUSTODY_AND_POSSIBLE_WAIVER_FOR_OCCASIONAL_PERSONAL_CONSUMERS"
       },
+      "independent_truth_color": "RED",
+      "independent_truth_rule": "GENERAL_CURRENT_CANNABIS_SPECIFIC_RECREATIONAL_PROHIBITION_WITH_GENERIC_TABLE_I_IV_LICENSING_AND_PHARMACEUTICAL_NON_PROMOTION_BOUNDARIES",
+      "independent_truth_status": "CURRENT_CANNABIS_TABLE_I_C_PERSONAL_CONSUMPTION_AND_UNAUTHORISED_ACTIVITY_PROHIBITION_WITH_NO_CURRENT_CANNABIS_SPECIFIC_PATIENT_ROUTE_PROVEN",
+      "independent_truth_reviewed_at": "2026-08-12T14:22:00+03:00",
+      "independent_conclusion": "Proposal-only RED. Official Law No. 2/2017 directly schedules cannabis plant material, cannabis resin and cannabis oil in Table I-C. Article 26 criminalises illicit personal consumption, cultivation, production, acquisition and holding of Table I-IV material; Article 7 separately controls unauthorised cultivation and trafficking. The possible Article 26 waiver is only for an occasional consumer after an offence and is not affirmative decriminalisation or adult-use authorisation. Article 6's Ministry of Health licence/supervision scheme is general to all Table I-IV material and the 2025 pharmaceutical-products law excludes those Table I-IV materials; neither source identifies cannabis patient eligibility, clinical prescribing, registry, supply, pharmacy/dispensary, import or an operating programme. Targeted official Ministry of Justice, Government and Ministry of Health domain review found no distinct current cannabis patient instrument. C1 HTTP 200 and local visual review establish evidence integrity; strict browser-domain acceptance remains separate and false. No SSOT, map, runtime, production or deployment value changed.",
+      "independent_review": {
+        "geo": "TL",
+        "territory": "Timor-Leste",
+        "review_mode": "INDEPENDENT_OFFICIAL_EVIDENCE_FIRST",
+        "proposal_only": true,
+        "reviewed_at": "2026-08-12T14:22:00+03:00",
+        "official_truth_color": "RED",
+        "independent_truth_rule": "GENERAL_CURRENT_CANNABIS_SPECIFIC_RECREATIONAL_PROHIBITION_WITH_GENERIC_TABLE_I_IV_LICENSING_AND_PHARMACEUTICAL_NON_PROMOTION_BOUNDARIES",
+        "legal_conclusion": "Proposal-only RED from the official Law No. 2/2017 Table I-C cannabis bridge and Article 26/Article 7 prohibition chain. Article 6 is a general Table I-IV licensing/supervision provision, not cannabis patient access. The 2025 pharmaceutical-products regime's Table I-IV exception is a current non-promotion boundary only. No distinct current cannabis-specific patient legal or operational route was proven in targeted official Ministry of Justice, Government and Ministry of Health domain review. Access, screenshot and strict visual states are not inputs to legal truth.",
+        "packet": {
+          "jurisdiction": {
+            "territory_type": "SOVEREIGN_STATE_DIRECT_DOMESTIC_LAW",
+            "applicable_law": "Law No. 2/2017 of 25 January 2017, Law on Combating Illicit Drug Trafficking, published in the Ministry of Justice Jornal da República and retained in the Ministry of Justice/DNAJL bilingual law copy; the 2025 official Gazette pharmaceutical-products regime expressly cross-references its Tables I-IV.",
+            "source_owner_vs_jurisdiction": "Every accepted record is published by a Timor-Leste government owner and directly applies to TL. C1 rechecked each direct URL once at HTTP 200 with no redirect, WAF, Cloudflare, timeout or blank-viewer finding.",
+            "disputed_or_composite": false
+          },
+          "official_truth_color": "RED",
+          "truth_color": "RED",
+          "truth_status": "CURRENT_CANNABIS_TABLE_I_C_PERSONAL_CONSUMPTION_AND_UNAUTHORISED_ACTIVITY_PROHIBITION_WITH_NO_CURRENT_CANNABIS_SPECIFIC_PATIENT_ROUTE_PROVEN",
+          "color_rule": "GENERAL_CURRENT_CANNABIS_SPECIFIC_RECREATIONAL_PROHIBITION_WITH_GENERIC_TABLE_I_IV_LICENSING_AND_PHARMACEUTICAL_NON_PROMOTION_BOUNDARIES",
+          "reviewed_at": "2026-08-12T14:22:00+03:00",
+          "legal_interpretation": "Table I-C expressly names cannabis plant material, cannabis resin and cannabis oil. Article 26 makes illicit personal consumption, personal cultivation, production, acquisition and holding of Table I-IV material punishable, with a quantity threshold and only a discretionary occasional-consumer waiver; it does not create a lawful adult-use route. Article 7's unauthorised cultivation and trafficking chain applies through the Table I-C cannabis bridge. Article 6 licences or authorises general Table I-IV activity through Ministry of Health supervision and cannot establish a cannabis patient axis. The current pharmaceutical-products regime excludes the Law No. 2/2017 Table I-IV material and cannot be turned into a cannabis pharmaceutical/patient route. No contrary current cannabis-specific medical or operational instrument was located on targeted official domains.",
+          "source_record_refs": [
+            "https://www.timor-lestetradeportal.com/upload/files/legal_pt_pt_20230520050329.pdf#page=7",
+            "https://www.timor-lestetradeportal.com/upload/files/legal_pt_pt_20230520050329.pdf#page=18",
+            "https://www.timor-lestetradeportal.com/upload/files/legal_pt_pt_20230520050329.pdf#page=39",
+            "https://www.mj.gov.tl/jornal/public/docs/2017/serie_1/SERIE_I_NO_4.pdf",
+            "https://www.mj.gov.tl/jornal/public/docs/2025/serie_1/SERIE_I_NO_4.pdf"
+          ],
+          "evidence_axes": {
+            "cannabis_specificity": "YES_OFFICIAL_LAW_2_2017_TABLE_I_C_DIRECTLY_NAMES_CANNABIS_PLANT_MATERIAL_CANNABIS_RESIN_AND_CANNABIS_OIL",
+            "medical_cannabis_law": "NO_CURRENT_CANNABIS_SPECIFIC_PATIENT_INSTRUMENT_PROVEN_ARTICLE_6_IS_GENERIC_TABLE_I_TO_IV_LICENSING_AND_2025_PHARMACEUTICAL_LAW_EXCLUDES_THOSE_TABLE_MATERIALS",
+            "patient_eligible": "NO_NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_CLASS_OR_ELIGIBILITY_CRITERIA_PROVEN",
+            "prescriber_route": "NO_NO_CURRENT_OFFICIAL_CANNABIS_PRESCRIBER_OR_CLINICAL_ROUTE_PROVEN",
+            "registration_route": "NO_NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_REGISTRY_OR_CARD_ROUTE_PROVEN",
+            "lawful_supply": "NO_NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_SUPPLY_OR_DISPENSING_ROUTE_PROVEN_GENERIC_ARTICLE_6_LICENSING_IS_NOT_PATIENT_SUPPLY",
+            "pharmacy_or_dispensary": "NO_NO_CURRENT_OFFICIAL_CANNABIS_PHARMACY_OR_PATIENT_DISPENSARY_ROUTE_PROVEN",
+            "import_route": "NO_NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_IMPORT_ROUTE_PROVEN",
+            "programme_commenced": "NO_NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_PROGRAMME_COMMENCEMENT_PROVEN",
+            "programme_operational": "NO_NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_OPERATION_STOCK_DISPENSING_OR_SERVICE_PROVEN",
+            "recreational_possession": "PROHIBITED_CURRENT_ARTICLE_26_ILLICIT_PERSONAL_CONSUMPTION_ACQUISITION_AND_HOLDING_OF_TABLE_I_TO_IV_MATERIAL_COMBINED_WITH_TABLE_I_C_CANNABIS_BRIDGE",
+            "recreational_supply": "PROHIBITED_CURRENT_ARTICLE_7_UNAUTHORISED_TRAFFICKING_CHAIN_COMBINED_WITH_TABLE_I_C_CANNABIS_BRIDGE",
+            "recreational_cultivation": "PROHIBITED_CURRENT_ARTICLE_26_PERSONAL_CULTIVATION_AND_ARTICLE_7_UNAUTHORISED_CULTIVATION_COMBINED_WITH_TABLE_I_C_CANNABIS_BRIDGE",
+            "penalty_regime": "YES_ARTICLE_26_PROVIDES_UP_TO_SIX_MONTHS_OR_SIXTY_DAYS_FINE_AND_UP_TO_ONE_YEAR_OR_120_DAYS_FINE_ABOVE_FIVE_DAILY_REFERENCE_QUANTITIES; ANY_OCCASIONAL_CONSUMER_WAIVER_IS_NOT_DECRIMINALISATION"
+          },
+          "lifecycle": {
+            "currentness": "C1 rechecked the Trade Portal/DNAJL copy, the original Ministry of Justice 2017 Gazette PDF and the 2025 official-Gazette cross-reference once each at HTTP 200. All three were text PDFs inspected with pdftotext; OCR was not used. The 2025 law still expressly names the Table I-IV materials of Law No. 2/2017, but this packet does not claim it is a full current consolidation.",
+            "effective_date": "Law No. 2/2017 is dated 25 January 2017. The retained 2025 Gazette cross-reference is current legal context, while targeted official-domain review did not locate a later cannabis-specific patient exception, patient service, prescription/registry workflow, lawful patient supply or operating programme.",
+            "rule": "No generic licensing, regulatory, pharmaceutical, treatment, industrial, research, production, cultivation, export or controlled-drug wording becomes cannabis patient access. A technical access outcome, absence of a screenshot or strict visual acceptance outcome cannot derive a legal axis or color. The RED conclusion comes from positive cannabis-specific Table I-C and Article 26/7 prohibitions plus the reviewed exception boundaries."
+          },
+          "source_annotations": [
+            "The retained Trade Portal/DNAJL PDF supplies direct visual owner, Table I-C cannabis/resin/oil and Article 6/7/26 text; it is preserved alongside the original Gazette, never replaced by it.",
+            "The Ministry of Justice Jornal da República PDF is the direct official-gazette primary-law source for Law No. 2/2017, its date and Article 1 legal object.",
+            "The 2025 Ministry of Justice Gazette record is a current cross-reference and generic pharmaceutical-route boundary only; it cannot derive a cannabis legal axis or color by itself.",
+            "Targeted official Ministry of Justice, Government and Ministry of Health searches did not locate a distinct current cannabis patient instrument; failed search is not itself a prohibition fact and the conclusion never treats it as one.",
+            "No access condition, screenshot presence or strict visual acceptance value is an input to the legal color."
+          ],
+          "visual_evidence": [
+            {
+              "path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-21/TL/screenshots/pdf_pages/TL-law-2-2017-title.png",
+              "visual_opened": true,
+              "official_owner_visible": true,
+              "official_domain_visible": false,
+              "cannabis_fragment_visible": false,
+              "effective_rule_visible": true,
+              "screenshot_valid": true
+            },
+            {
+              "path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-21/TL/screenshots/pdf_pages/TL-law-2-2017-table-ic-cannabis-resin-oil.png",
+              "visual_opened": true,
+              "official_owner_visible": false,
+              "official_domain_visible": false,
+              "cannabis_fragment_visible": true,
+              "effective_rule_visible": true,
+              "screenshot_valid": true
+            },
+            {
+              "path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-21/TL/screenshots/pdf_pages/TL-law-2-2017-personal-consumption-penalties.png",
+              "visual_opened": true,
+              "official_owner_visible": false,
+              "official_domain_visible": false,
+              "cannabis_fragment_visible": false,
+              "effective_rule_visible": true,
+              "screenshot_valid": true
+            }
+          ],
+          "visual_acceptance": {
+            "legal_truth_visual_review_complete": true,
+            "strict_visual_acceptance": false,
+            "reason": "Retained official Ministry of Justice/DNAJL title, cannabis Table I-C and operative Article 6/7/26 crops were visually read locally without a desktop browser. They do not assert a visible browser address bar/domain; that strict acceptance condition is separate from legal truth."
+          },
+          "current_layer_comparison": {
+            "project_status": "LEGACY_PROJECT_ILLEGAL_NONE_STRICT_WAS_NOT_AN_INPUT; INDEPENDENT_PACKET_DERIVES_PROPOSAL_ONLY_RED_FROM_OFFICIAL_EVIDENCE",
+            "runtime_map_color": "UNCONFIRMED_NOT_RECAPTURED_IN_THIS_LEGAL_PACKET",
+            "runtime_api_status": "UNCONFIRMED_NOT_RECAPTURED_IN_THIS_LEGAL_PACKET",
+            "wiki_truth_proposal": "RED_PROPOSAL_FROM_THIS_INDEPENDENT_PACKET_AFTER_MATRIX_REBUILD",
+            "ssot": "UNTOUCHED_NO_APPLICATION_AUTHORIZED"
+          },
+          "no_mutation": {
+            "apply_allowed": false,
+            "ssot_changed": false,
+            "map_colors_changed": false,
+            "production_touched": false,
+            "runtime_touched": false,
+            "deployment_touched": false
+          },
+          "recommended_action": "RETAIN_PROPOSAL_ONLY_RED_UNTIL_THE_SEPARATE_307_GEO_APPLY_GATE_AND_USER_AUTHORIZATION",
+          "confidence": "HIGH_FOR_DIRECT_CANNABIS_TABLE_I_C_AND_ARTICLE_26_7_PROHIBITION_CHAIN; HIGH_FOR_NON_PROMOTION_OF_GENERIC_ARTICLE_6_AND_PHARMACEUTICAL_CONTEXT; MEDIUM_FOR_THE_NEGATIVE_CURRENT_PATIENT_ROUTE_REVIEW_BOUNDARY"
+        }
+      },
       "project_comparison": {
         "status": "MATCH_WITH_PERSONAL_USE_FINE_SHORT_CUSTODY_AND_OCCASIONAL_USER_WAIVER_CAVEAT",
         "reason": "Timor-Leste is visually verified from the official Trade Portal-hosted Ministry of Justice/DNAJL PDF of Law No. 2/2017. The law visibly includes Cannabis sativa, cannabis resin and cannabis oil in Table I-C, controls cultivation, production, trade, import/export, transport, advertising, use and detention through licensing/authorization, and criminalizes unauthorized trafficking and related activity. Project recreational=ILLEGAL is supported. Project medical=NONE remains supportable at program level because Article 6 shows generic Ministry of Health licensing/control but no cannabis-specific patient access program was visually confirmed. Project enforcement=STRICT is supported for trafficking and organized contexts, but must carry a personal-use caveat: Article 26 visibly allows fine or short custody for illicit personal consumption/cultivation/possession, higher but still capped punishment if quantity exceeds five times the daily reference amount, and possible waiver for occasional consumers. No project status SSOT was changed."
       },
-      "conclusion": "Timor-Leste is closed as visually verified direct official cannabis-law evidence from the Trade Portal-hosted Ministry of Justice/DNAJL Law No. 2/2017 PDF. Project ILLEGAL/NONE/STRICT is broadly supported, with explicit caveats for generic Ministry of Health licensing/control and personal-use fine/short-custody/occasional-user waiver provisions. No project status SSOT was changed."
+      "conclusion": "Timor-Leste is independently proposal-only RED from the direct official Law No. 2/2017 Table I-C cannabis bridge and Articles 26/7 personal-consumption and unauthorised-activity prohibition chain. The original Ministry of Justice Gazette URL, retained DNAJL copy and current 2025 Gazette cross-reference are all saved with owner, TL applicability, exact fragment, annotation, locator/deep PDF links and C1 metadata. Generic Ministry of Health licensing and generic pharmaceutical wording are exception boundaries, not patient access; the occasional-consumer waiver is not decriminalisation. Project ILLEGAL/NONE/STRICT remains a comparison only. No project status SSOT, map, runtime, production or deployment state was changed."
     },
     {
       "geo": "TG",
