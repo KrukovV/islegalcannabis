@@ -157143,7 +157143,7 @@
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-3/YE/screenshots/evidence_viewports/YE-nic-law-3-1993-title-and-definitions.png",
           "note": "Official Yemen National Information Center legislation database page for Law No. 3 of 1993. Visual review confirms the law title on combating trafficking and unlawful use of narcotic drugs and psychotropic substances; Article 1 makes the schedules attached to the law part of the law, defines Schedule 5 as plants prohibited from cultivation and Schedule 6 as excepted plant parts; Article 2 prohibits import, export, production, possession, purchase, sale, exchange and transfer of narcotic substances except as provided by law; Article 4 limits import permission for medical/scientific uses to specified institutions; the later prohibited-plants chapter and penalty provisions govern Schedule 5 plants.",
           "revalidation": {
-            "checked_at": "2026-08-12T14:45:49.458Z",
+            "checked_at": "2026-08-12T15:51:05.579Z",
             "final_url": "https://www.yemen-nic.info/db/laws_ye/detail.php?ID=11398",
             "http_status": null,
             "etag": null,
@@ -157196,6 +157196,7 @@
             "https://agoye.gov.ye/page.php?lng=arabic&id=304"
           ],
           "exact_fragment": "Schedule 5, item 1 lists Indian hemp (Cannabis sativa), male or female, under all names including hashish, kamanja and bango, among plants prohibited from cultivation. Schedule 6 limits the excluded hemp material to listed stem fibres, sterilised seeds incapable of germination and other stated non-viable parts.",
+          "exact_fragment_original": "الجدول رقم (5) النباتات الممنوع زراعتها: 1- القنب الهندي (كانابيس ساتيفا) ذكر أكان أو أنثى بجميع مسمياته مثل: الحشيش أو الكمنجه أو البانجو أو غير ذلك من الأسماء التي قد تطلق عليه. الجدول رقم (6): ألياف سيقان نبات القنب الهندي وبذوره المخموسة التي يكفل تخميسها عدم إنباتها من الأجزاء المستثناة.",
           "annotation": "Direct official cannabis-identification and prohibited-plant source. The Schedule 5 cannabis entry proves neither a patient-access prohibition nor a lawful patient route. The nearby Schedule 4 maximum-prescription table is retained solely for C2 cannabis-term extraction; generic prescription maxima or controlled-drug terminology cannot satisfy a cannabis patient axis without a current cannabis-specific bridge.",
           "applicability": "YE; direct national schedule published by the Yemen Attorney General's Office.",
           "legal_relevance": "Direct cannabis Schedule 5 cultivation prohibition and restricted hemp-parts caveat. It prevents treating excluded fibres/seeds as ordinary cannabis access but does not establish adult-use or patient access.",
@@ -157211,30 +157212,40 @@
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-3/YE/screenshots/evidence_viewports/YE-agoye-schedule-5-cannabis-sativa-hashish-bango-focused.png",
           "note": "Official Yemen Attorney General page for Law No. 3 of 1993. Visual review confirms Schedule 5, plants prohibited from cultivation, lists Indian hemp (Cannabis sativa), male or female, under all names including hashish, kamanja and bango; Schedule 6 excepts hemp-stem fibres and sterilised hemp seeds that cannot germinate. The nearby Schedule 4 prescription-maxima table is retained for cannabis-term re-extraction only; it is not treated as a cannabis patient-access programme or a lawful-patient conclusion without a direct current cannabis-specific bridge.",
           "revalidation": {
-            "checked_at": "2026-08-12T14:45:49.458Z",
+            "checked_at": "2026-08-12T15:52:39.598Z",
             "final_url": "https://agoye.gov.ye/page.php?id=304&lng=arabic",
             "http_status": 200,
             "etag": null,
-            "last_modified": "Wed, 12 Aug 2026 14:45:57 GMT",
+            "last_modified": "Wed, 12 Aug 2026 15:52:41 GMT",
             "content_type": "text/html; charset=utf-8",
             "content_length": 98302,
-            "document_sha256": "c1d0a665d4f45a130d806f578c2d92eac8f311c4d04472c90f1186d92266a0a1",
+            "document_sha256": "1f8197dc8d742c8e81051f52a5f5e7ca109ca343f742de4e0819ea9bf55ad4d4",
             "relevant_fragment_sha256": "248b94a98f7c5478950d522cf227ea650ac60b7cfffdd7bef948dc4cf40eb1aa",
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "revalidation_state": "CONTENT_CHANGED",
             "access_state": "HTTP_OK",
-            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "change_reason": "DOCUMENT_SHA256_CHANGED",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "NEEDS_SEMANTIC_REVIEW"
+              "CONTENT_CHANGED"
             ],
             "dependent_geos": [
               "YE"
             ],
             "schema_issues": [],
-            "semantic_probe": null
+            "semantic_probe": {
+              "extractor": "html_to_text",
+              "text_layer_length": 44894,
+              "ocr_used": false,
+              "relevant_pages": [],
+              "rendered_pages": [],
+              "matching_terms": [
+                "الحشيش"
+              ],
+              "exact_fragment_found": false
+            }
           }
         }
       ],

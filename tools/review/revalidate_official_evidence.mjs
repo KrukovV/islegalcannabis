@@ -128,6 +128,7 @@ function sourceLocator(source) {
 
 function sourceExactFragment(source) {
   return [
+    source?.exact_fragment_original,
     source?.exact_fragment,
     source?.direct_fragment,
     source?.provision,
@@ -504,6 +505,30 @@ export function inspectPdf({
   }
 }
 
+export function inspectHtml({
+  buffer,
+  terms = ["cannabis", "marijuana", "marihuana", "hashish", "hemp"],
+  exactFragment = "",
+}) {
+  const text = htmlToText(Buffer.from(buffer).toString("utf8"));
+  const normalizedText = normalizeText(text).toLocaleLowerCase();
+  const matchingTerms = Array.from(new Set(
+    terms
+      .map((term) => normalizeText(term).toLocaleLowerCase())
+      .filter((term) => term.length >= 3 && normalizedText.includes(term)),
+  )).sort();
+  return {
+    extractor: "html_to_text",
+    text_layer_length: normalizeText(text).length,
+    ocr_used: false,
+    relevant_pages: [],
+    rendered_pages: [],
+    matching_terms: matchingTerms,
+    exact_fragment_found: Boolean(fragmentHashFromText(text, exactFragment)),
+    extracted_text: text,
+  };
+}
+
 function contentMetadata(response, bytes) {
   return {
     etag: response.headers.get("etag"),
@@ -640,7 +665,17 @@ function applyNetworkResult(record, result, checkedAt, terms, pdfTools, semantic
       const extractedHash = fragmentHashFromText(semanticProbe.extracted_text, record.exactFragment);
       if (extractedHash) relevantHash = extractedHash;
     } else if (state !== "ACCESS_BLOCKED" && bodyText) {
-      const extractedHash = fragmentHashFromText(bodyText, record.exactFragment);
+      if (semanticProbeRequired) {
+        semanticProbe = inspectHtml({
+          buffer: bytes,
+          terms,
+          exactFragment: record.exactFragment,
+        });
+      }
+      const extractedHash = fragmentHashFromText(
+        semanticProbe?.extracted_text || bodyText,
+        record.exactFragment,
+      );
       if (extractedHash) relevantHash = extractedHash;
     }
     if (
@@ -683,6 +718,12 @@ function applyNetworkResult(record, result, checkedAt, terms, pdfTools, semantic
           ocr_used: semanticProbe.ocr_used,
           relevant_pages: semanticProbe.relevant_pages,
           rendered_pages: semanticProbe.rendered_pages,
+          ...(Array.isArray(semanticProbe.matching_terms)
+            ? { matching_terms: semanticProbe.matching_terms }
+            : {}),
+          ...(typeof semanticProbe.exact_fragment_found === "boolean"
+            ? { exact_fragment_found: semanticProbe.exact_fragment_found }
+            : {}),
         }
       : null,
   };

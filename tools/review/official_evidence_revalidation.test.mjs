@@ -9,6 +9,7 @@ import test from "node:test";
 import { fileURLToPath } from "node:url";
 import {
   collectOfficialSourceRecords,
+  inspectHtml,
   inspectPdf,
   runRevalidation,
   sha256,
@@ -278,6 +279,56 @@ test("OCR is used only when the PDF has no usable text layer", () => {
   });
   assert.equal(result.ocr_used, true);
   assert.equal(calls.filter(([command]) => command.endsWith("ocr_pdf.sh")).length, 1);
+});
+
+test("changed HTML records local cannabis-term extraction without creating a legal decision", async () => {
+  const evidence = source("https://official.example/current-html", {
+    revalidation: {
+      document_sha256: sha256("old document"),
+      revalidation_state: "NOT_MODIFIED",
+    },
+  });
+  const input = ledger([row("AA", [evidence])]);
+  const colorBefore = input.rows[0].independent_truth_color;
+  const result = await runRevalidation({
+    ledger: input,
+    network: true,
+    terms: ["cannabis", "حشيش"],
+    fetchImpl: async () => new Response(
+      "<html><body><h1>Official law</h1><p>cannabis exact fragment</p><p>حشيش</p></body></html>",
+      { status: 200, headers: { "content-type": "text/html" } },
+    ),
+  });
+  const revalidation = result.records[0].source.revalidation;
+  assert.equal(revalidation.revalidation_state, "CONTENT_CHANGED");
+  assert.equal(revalidation.semantic_probe.extractor, "html_to_text");
+  assert.deepEqual(revalidation.semantic_probe.matching_terms, ["cannabis", "حشيش"]);
+  assert.equal(revalidation.semantic_probe.exact_fragment_found, true);
+  assert.equal(input.rows[0].independent_truth_color, colorBefore);
+});
+
+test("HTML extraction is local, does not OCR, and only reports present term inventory entries", () => {
+  const result = inspectHtml({
+    buffer: Buffer.from("<main>Cannabis rule and unrelated text</main>"),
+    terms: ["cannabis", "hashish", "hemp"],
+    exactFragment: "Cannabis rule",
+  });
+  assert.equal(result.extractor, "html_to_text");
+  assert.equal(result.ocr_used, false);
+  assert.deepEqual(result.matching_terms, ["cannabis"]);
+  assert.equal(result.exact_fragment_found, true);
+});
+
+test("source record hash prefers the retained original-language legal fragment", () => {
+  const records = collectOfficialSourceRecords(ledger([row("AA", [source(
+    "https://official.example/original-language",
+    {
+      exact_fragment_original: "القنب الهندي (كانابيس ساتيفا) والحشيش",
+      exact_fragment: "Translated summary only",
+    },
+  )]) ]));
+  assert.equal(records.length, 1);
+  assert.equal(records[0].exactFragment, "القنب الهندي (كانابيس ساتيفا) والحشيش");
 });
 
 test("shared URL is fetched once and queues every linked GEO", async () => {

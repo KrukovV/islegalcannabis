@@ -98391,7 +98391,7 @@
           "effectiveRuleVisible": true,
           "officialHostVerified": true,
           "revalidation": {
-            "checked_at": "2026-08-12T14:45:49.458Z",
+            "checked_at": "2026-08-12T15:51:05.579Z",
             "final_url": "https://www.yemen-nic.info/db/laws_ye/detail.php?ID=11398",
             "http_status": null,
             "etag": null,
@@ -98443,18 +98443,18 @@
           "effectiveRuleVisible": true,
           "officialHostVerified": true,
           "revalidation": {
-            "checked_at": "2026-08-12T14:45:49.458Z",
+            "checked_at": "2026-08-12T15:52:39.598Z",
             "final_url": "https://agoye.gov.ye/page.php?id=304&lng=arabic",
             "http_status": 200,
             "etag": null,
-            "last_modified": "Wed, 12 Aug 2026 14:45:57 GMT",
+            "last_modified": "Wed, 12 Aug 2026 15:52:41 GMT",
             "content_type": "text/html; charset=utf-8",
             "content_length": 98302,
-            "document_sha256": "c1d0a665d4f45a130d806f578c2d92eac8f311c4d04472c90f1186d92266a0a1",
+            "document_sha256": "1f8197dc8d742c8e81051f52a5f5e7ca109ca343f742de4e0819ea9bf55ad4d4",
             "relevant_fragment_sha256": "248b94a98f7c5478950d522cf227ea650ac60b7cfffdd7bef948dc4cf40eb1aa",
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "revalidation_state": "CONTENT_CHANGED",
             "access_state": "HTTP_OK",
-            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "change_reason": "DOCUMENT_SHA256_CHANGED",
             "queue": [
               "C2",
               "C3"

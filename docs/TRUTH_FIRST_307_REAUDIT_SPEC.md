@@ -86,6 +86,14 @@ Preserve every accepted URL/PDF record when a stronger official host is later fo
 
 Every current ledger source also carries one `revalidation` object in that same record: `checked_at`, `final_url`, `http_status`, `etag`, `last_modified`, `content_type`, `content_length`, `document_sha256`, `relevant_fragment_sha256`, `revalidation_state`, `access_state`, and `change_reason`. C0 is local-only and deduplicates by owner, canonical URL and locator without a network request; C1 uses conditional GET, never requires HEAD, and fetches one canonical URL at most once per run. A `304` or unchanged `200` preserves legal axes and never creates a color decision. WAF/Cloudflare/AWS-WAF challenge pages, timeout, `403`, redirect uncertainty and blank viewers are access metadata and queue C2/C3 where required; they are never evidence of a prohibition, patient route, legal color, or `UNKNOWN` conclusion. C2 re-extracts only changed, critical, disputed/composite, effective-date-due or access-blocked evidence; text PDFs use `pdftotext` first, render only cannabis-term-relevant pages, and use OCR only when no usable text layer exists. C3 accepts retained/headless visual evidence only for the stated acceptance scope. Visual acceptance and visible official domain remain separate from legal derivation.
 
+For changed HTML, C2 records a local `html_to_text` semantic probe with the
+matching query-derived cannabis terms and literal-fragment presence. It never
+uses OCR, creates a legal axis, updates a colour, or turns an unavailable
+translation into negative evidence. When an official page is non-English, the
+ledger keeps its exact original-language cannabis fragment beside the concise
+translation/annotation; the source-level fingerprint uses the original fragment
+when it is available.
+
 An official jurisdiction, territorial-application, ownership or commencement context source may naturally have no cannabis term. It must still contain its literal direct scope fragment, locator, owner/applicability and a non-empty annotation, set `cannabis_specific=false`, and state that it cannot derive any cannabis legal axis or Truth Color. It may bridge scope only when the general applicability resolver independently accepts that bridge; claimant-state and disputed-GEO context never receive a one-off colour exception.
 
 A screenshot is valid only when the official owner, cannabis-specific fragment, and effective legal rule are visible. Challenge pages, cookie walls, errors, empty pages, generic search pages, and unrelated controlled-drug materials are invalid evidence captures.
