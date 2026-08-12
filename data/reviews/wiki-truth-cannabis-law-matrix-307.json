@@ -29,7 +29,7 @@
     "colorReauditDirectOrComposite": 31,
     "colorReauditContextClaimantOrNegative": 8,
     "supplementalOfficialLinks": 32,
-    "allPublishedOfficialLinks": 1419,
+    "allPublishedOfficialLinks": 1425,
     "rowsWithPublishedOfficialLinks": 307,
     "rowsWithAnyOfficialUrl": 307
   },
@@ -89350,29 +89350,375 @@
         "medical": "NONE_AS_CANNABIS_PATIENT_ACCESS_PROGRAM_WITH_GENERAL_LEGAL_MEDICAL_VETERINARY_PHARMACY_AND_SCIENTIFIC_RESEARCH_EXCEPTION_CAVEAT; ARTICLE_2_VISIBLY_ALLOWS_ONLY_LEGALLY_PERMITTED_MEDICAL_VETERINARY_PHARMACY_OR_RESEARCH_CASES_AND_NO_CANNABIS_SPECIFIC_PATIENT_PROGRAM_WAS_VISUALLY_CONFIRMED",
         "enforcement": "STRICT_WITH_DETOX_TREATMENT_PATH_CAVEAT; ARTICLE_4_VISIBLY_PUNISHES_PERSONAL_USE_OR_HOLDING_WITH_ONE_TO_FIVE_YEARS_AND_FINE_ARTICLE_5_VISIBLY_SETS_SIX_TO_TEN_AND_TEN_TO_TWENTY_YEAR_BANDS_FOR_CORE_CANNABIS_TABLEAU_B_DRUG_CONDUCT_WHILE_ARTICLES_18_20_VISIBLY_ALLOW_A_TREATMENT_DETOX_PATH_FOR_SPECIFIED_FIRST_TIME_SELF_REPORTING_ADDICTION_CASES"
       },
-      "independentTruth": null,
+      "independentTruth": {
+        "color": "RED",
+        "rule": "GENERAL_CURRENT_CANNABIS_SCHEDULE_PROHIBITION_WITH_COMPLETE_NON_PATIENT_EXCEPTION_AND_AMENDMENT_SCOPE_REVIEW",
+        "reviewedAt": "2026-08-12T15:31:00+03:00",
+        "conclusion": "Proposal-only RED. Official JORT No. 33 directly puts cannabis, cannabis resin, galenic cannabis preparations and tetrahydrocannabinols in Table B; Article 2 prohibits cannabis-linked cultivation, consumption, possession, transport, import/export, manufacture, extraction and trafficking, and Articles 4-5 supply personal-use and commercial penalty rules. Every identified official amendment to Law No. 92-52 was checked: 1995 and 1998 create court-linked treatment measures after consumption/conviction, 2009 adds only buprenorphine, methylphenidate and oripavine to Table B, and 2017 replaces Article 12 only. The current 2023 ANMPS law is generic regulator authority over medicines and narcotics, not a cannabis patient authorisation. No applicable current official cannabis patient eligibility, prescriber, registration, lawful patient supply/import, pharmacy/dispensing or operational-programme instrument was found after that review. Generic medical, veterinary, pharmacy, research, regulator and treatment wording is non-promoting. The inaccessible ANMPS file remains ACCESS_BLOCKED access metadata only."
+      },
       "directOfficialCannabisLawLinks": [
+        {
+          "title": "Journal officiel de la République Tunisienne - JORT No. 33 (26 May 1992), Loi n° 92-52 relative aux stupéfiants",
+          "url": "https://lake.jort.tn/journal-officiel/fr/1992/033.pdf",
+          "sourceKind": "TUNISIA_JORT_OFFICIAL_1992_LOI_92_52_TABLEAU_B_CANNABIS_PRIMARY_LAW",
+          "sourceOwnerGeo": "TN",
+          "appliesToGeos": [
+            "TN"
+          ],
+          "legalBasisForExtension": "Direct nationwide publication of Tunisia Law No. 92-52 in JORT No. 33, pages 629-634.",
+          "officialPublisher": "Official Gazette of the Republic of Tunisia.",
+          "sourceAnnotation": "Primary official Gazette identity for Tunisia's cannabis schedule and prohibitions. The cannabis bridge is direct. It is read together with every retained official amendment-scope source; no negative or patient conclusion is drawn from access conditions or generic exception language.",
+          "sourceType": "OFFICIAL_NATIONAL_GAZETTE_PRIMARY_NARCOTICS_LAW_PDF",
+          "primaryOrContext": "PRIMARY_CANNABIS_SCHEDULE_PROHIBITION_AND_EXCEPTION_LAW",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T12:28:21.344Z",
+            "final_url": "https://lake.jort.tn/journal-officiel/fr/1992/033.pdf",
+            "http_status": 200,
+            "etag": "\"22e55c45211d138ef1a32c5859860407\"",
+            "last_modified": "Tue, 07 Apr 2026 13:20:13 GMT",
+            "content_type": "application/pdf",
+            "content_length": 3055481,
+            "document_sha256": "fd720bd8eb6ba8e8f687b8b9710d21e0e4adc71be61f6989b3e4ccee5a9f3073",
+            "relevant_fragment_sha256": "52ea17c1536c4bbf8aba6ff08d628c343a76bff67486653bc1e5163ee2f057ef",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "TN"
+            ]
+          },
+          "evidenceScope": null,
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
+          "confidence": "high",
+          "note": "Article 1 subjects all products listed in attached Tableau B to the Act. Tableau B lists cannabis (chanvre indien), cannabis resin and galenic cannabis preparations, and tetrahydrocannabinols. Article 2 absolutely prohibits cultivation, consumption, production, possession, transport, import, export, manufacture, extraction and trafficking of the listed narcotics outside cases legally permitted in medicine, veterinary medicine, pharmacy and scientific research.",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-17/TN/screenshots/pdf_pages/TN-loi-92-52-tableau-b-cannabis.png",
+          "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
+          "visualReview": "Retained crops of the matching JORT issue were inspected locally without a desktop browser. Their content is visual corroboration; official-host/domain acceptance remains separate from legal truth."
+        },
         {
           "title": "Journal officiel de la République Tunisienne / CNOPT-hosted copy - Loi n° 92-52 du 18 mai 1992 relative aux stupéfiants",
           "url": "https://cnopt.tn/wp-content/uploads/2023/07/loi-92-52-relative-aux-stupfiants.pdf",
           "sourceKind": "TUNISIA_JORT_LOI_92_52_NARCOTICS_TABLEAU_B_CANNABIS_THC_PROHIBITION_PERSONAL_USE_TRAFFICKING_TREATMENT_CAVEAT",
+          "sourceOwnerGeo": "TN",
+          "appliesToGeos": [
+            "TN"
+          ],
+          "legalBasisForExtension": "Reproduced text is Tunisia Law No. 92-52, published in JORT No. 33 of 26 May 1992, pages 629-634.",
+          "officialPublisher": "CNOPT-hosted reproduction; the legal issuer and primary authority for the reproduced text is the Journal officiel de la République Tunisienne (JORT).",
+          "sourceAnnotation": "Accessible supporting reproduction of the official JORT issue, retained because its dated JORT footer and cannabis/table/Article 2 pages were visually reviewed. It is never substituted for the official JORT or ANMPS URLs recorded beside it, and it never promotes generic medicine, pharmacy or research wording into patient access.",
+          "sourceType": "OFFICIAL_PROFESSIONAL_BODY_HOSTED_REPRODUCTION_OF_TUNISIA_JORT_PRIMARY_NARCOTICS_LAW_PDF",
+          "primaryOrContext": "SUPPORTING_REPRODUCTION_WITH_RETAINED_VISUAL_CROPS; NOT_THE_PREFERRED_OFFICIAL_HOST",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": false,
+          "revalidation": {
+            "checked_at": "2026-08-12T12:28:07.467Z",
+            "final_url": "https://cnopt.tn/wp-content/uploads/2023/07/loi-92-52-relative-aux-stupfiants.pdf",
+            "http_status": null,
+            "etag": null,
+            "last_modified": null,
+            "content_type": null,
+            "content_length": null,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "7b40d3e069f743f5c42467b3c1477df94849de6280a68f75a442f2cf63b835b0",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "NOT_CHECKED_LOCAL_ONLY",
+            "change_reason": "BASELINE_HASH_NOT_ESTABLISHED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "TN"
+            ]
+          },
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Rendered JORT copy of Tunisia Law No. 92-52 of 18 May 1992 on narcotics, hosted by CNOPT. Visual review confirms the Journal officiel de la République Tunisienne footer, issue No. 33, 26 May 1992, page 629, the title Loi n° 92-52 du 18 mai 1992 relative aux stupéfiants, Article 1 defining narcotics as products designated in attached Tableau B, Article 2 absolutely prohibiting cultivation, consumption, production, harvest, detention, possession, ownership, purchase, transport, circulation, transfer, offer, delivery, trafficking, distribution, brokerage, import, export, manufacture, extraction or compounding of listed plants/narcotics except legally permitted medical, veterinary, pharmacy and scientific-research cases, Article 4 personal-use consumer/holder penalty of one to five years imprisonment and fine, Article 5 six-to-ten-year and ten-to-twenty-year bands for cultivation/production/possession/transport/dealing and smuggling/import/export trafficking, Articles 18-20 treatment/detoxication path for addicts in specified conditions, Article 25-26 seizure/destruction/control of narcotics, Tableau B listing CANNABIS (CHANVRE INDIEN), RESINE ET PREPARATIONS GALENIQUES DU CANNABIS, and a later Tableau B page listing TETRAHYDROCANNABINOLS. Source-access caveat: the official ANMPS URL for loi-92-52.pdf and official JORT archive URLs under cnudst/pist timed out from the local environment during retrieval, so the visual rendering used the accessible CNOPT-hosted JORT copy rather than a freshly fetched government archive URL.",
+          "note": "Tableau B lists “CANNABIS (CHANVRE INDIEN), RESINE ET PREPARATIONS GALENIQUES DU CANNABIS” and tetrahydrocannabinols. Article 2 absolutely prohibits listed narcotic cultivation, consumption, possession, transport, import/export and related conduct, save only legally permitted medical, veterinary, pharmacy and scientific-research cases.",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-17/TN/screenshots/pdf_pages/TN-loi-92-52-tableau-b-cannabis.png",
-          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "Tunisia is closed as visually verified direct cannabis-law evidence from the CNOPT-hosted JORT copy of Law No. 92-52. Project ILLEGAL/NONE/STRICT is supported, with explicit general medical/research exception, detox/treatment, and source-access caveats. No project status SSOT was changed."
+          "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
+          "visualReview": "The retained crop visibly shows the JORT issue/page header and cannabis-related legal text. It does not assert a browser address bar or an official-host visual capture; that affects strict visual acceptance only."
         }
       ],
       "candidateLinksAwaitingVisualReview": [],
       "officialContextLinks": [
         {
+          "title": "Journal officiel de la République Tunisienne - JORT No. 90 (10 November 1995), Loi n° 95-94 amending Loi n° 92-52",
+          "url": "https://lake.jort.tn/journal-officiel/fr/1995/090.pdf",
+          "sourceKind": "TUNISIA_JORT_OFFICIAL_1995_LOI_95_94_AMENDMENT_SCOPE",
+          "sourceOwnerGeo": "TN",
+          "appliesToGeos": [
+            "TN"
+          ],
+          "legalBasisForExtension": "Direct nationwide publication of Law No. 95-94, adding Article 19 bis to Law No. 92-52.",
+          "officialPublisher": "Official Gazette of the Republic of Tunisia.",
+          "sourceAnnotation": "Official amendment-chain record. It concerns court-ordered treatment for a child convicted of consumption/holding, not cannabis patient eligibility, a prescriber route, lawful supply, dispensing or programme operation.",
+          "sourceType": "OFFICIAL_NATIONAL_GAZETTE_AMENDING_LAW_PDF",
+          "primaryOrContext": "CURRENTNESS_AND_TREATMENT_SCOPE_CONTEXT",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T12:28:21.344Z",
+            "final_url": "https://lake.jort.tn/journal-officiel/fr/1995/090.pdf",
+            "http_status": 200,
+            "etag": "\"d41595ce022b8be01ff72dc717206f14\"",
+            "last_modified": "Tue, 07 Apr 2026 13:16:27 GMT",
+            "content_type": "application/pdf",
+            "content_length": 131467,
+            "document_sha256": "e0f2f8f4e24eb4695e18f192e521b6bdfcf9e72602e513d2c4080f0df5fdf999",
+            "relevant_fragment_sha256": "62394822d421e6bc7555a401d31e9163a34d2e18ec30b160edc78a2cebe52b81",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "TN"
+            ]
+          },
+          "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
+          "confidence": "high",
+          "note": "Official JORT PDF identity for a treatment-related amendment to Law No. 92-52. It is preserved to prevent a treatment clause from being mistaken for patient access.",
+          "screenshotPath": null,
+          "visualReview": "CONTEXT_ONLY"
+        },
+        {
+          "title": "Journal officiel de la République Tunisienne - JORT No. 97 (4 December 1998), Loi n° 98-101 completing Loi n° 92-52",
+          "url": "https://lake.jort.tn/journal-officiel/fr/1998/097.pdf",
+          "sourceKind": "TUNISIA_JORT_OFFICIAL_1998_LOI_98_101_AMENDMENT_SCOPE",
+          "sourceOwnerGeo": "TN",
+          "appliesToGeos": [
+            "TN"
+          ],
+          "legalBasisForExtension": "Direct nationwide publication of Law No. 98-101 completing Article 19 of Law No. 92-52.",
+          "officialPublisher": "Official Gazette of the Republic of Tunisia.",
+          "sourceAnnotation": "Official amendment-chain record. It regulates treatment after conviction and does not establish a lawful cannabis product, cannabis patient eligibility, prescription, lawful supply or operational medical programme.",
+          "sourceType": "OFFICIAL_NATIONAL_GAZETTE_AMENDING_LAW_PDF",
+          "primaryOrContext": "CURRENTNESS_AND_POST_CONVICTION_TREATMENT_SCOPE_CONTEXT",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T12:28:21.344Z",
+            "final_url": "https://lake.jort.tn/journal-officiel/fr/1998/097.pdf",
+            "http_status": 200,
+            "etag": "\"0e53c33c97f78d93b1350817fed8ad50\"",
+            "last_modified": "Tue, 07 Apr 2026 13:12:48 GMT",
+            "content_type": "application/pdf",
+            "content_length": 522888,
+            "document_sha256": "03193b4f628ff643a0fba4974ed31430629400789ce25861c94151786cca71cb",
+            "relevant_fragment_sha256": "c65a8f93eae586df3c014d9df70c6c993c192cd0e1a3bf6f27ffa2a620874548",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "TN"
+            ]
+          },
+          "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
+          "confidence": "high",
+          "note": "Official JORT PDF identity for the post-conviction detoxification amendment. Its treatment wording is explicitly non-promoting for cannabis patient access.",
+          "screenshotPath": null,
+          "visualReview": "CONTEXT_ONLY"
+        },
+        {
+          "title": "Journal officiel de la République Tunisienne - JORT No. 9 (30 January 2009), Loi n° 2009-6 amending Tableau B of Loi n° 92-52",
+          "url": "https://lake.jort.tn/journal-officiel/fr/2009/009.pdf",
+          "sourceKind": "TUNISIA_JORT_OFFICIAL_2009_LOI_2009_6_TABLEAU_B_AMENDMENT_SCOPE",
+          "sourceOwnerGeo": "TN",
+          "appliesToGeos": [
+            "TN"
+          ],
+          "legalBasisForExtension": "Direct nationwide publication of Law No. 2009-6 amending the Table B attached to Law No. 92-52.",
+          "officialPublisher": "Official Gazette of the Republic of Tunisia.",
+          "sourceAnnotation": "Direct official amendment-scope record. Its three specified additions are not cannabis, do not repeal cannabis entries and do not create a patient path; C2 records the scope rather than treating the page as generic medical evidence.",
+          "sourceType": "OFFICIAL_NATIONAL_GAZETTE_AMENDING_LAW_PDF",
+          "primaryOrContext": "CURRENTNESS_AND_SCHEDULE_SCOPE_CONTEXT",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T12:28:21.344Z",
+            "final_url": "https://lake.jort.tn/journal-officiel/fr/2009/009.pdf",
+            "http_status": 200,
+            "etag": "\"9117750a2b6dc2103c84f5a594190483\"",
+            "last_modified": "Tue, 07 Apr 2026 12:55:55 GMT",
+            "content_type": "application/pdf",
+            "content_length": 365548,
+            "document_sha256": "9131b328e4754c8621f68b396925ea34a97bef167880cc76e1f2b15a3372b370",
+            "relevant_fragment_sha256": "1e81e5e6a3f49d2cf0b1d62264638a532706ce158765c2afcc0a447784d390c6",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "TN"
+            ]
+          },
+          "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
+          "confidence": "high",
+          "note": "Official JORT No. 9 PDF. It proves that the 2009 amendment changed the Table B only by adding three named non-cannabis substances.",
+          "screenshotPath": null,
+          "visualReview": "CONTEXT_ONLY"
+        },
+        {
+          "title": "Journal officiel de la République Tunisienne - JORT No. 37 (9 May 2017), Loi n° 2017-39 amending Article 12 of Loi n° 92-52",
+          "url": "https://lake.jort.tn/journal-officiel/fr/2017/037.pdf",
+          "sourceKind": "TUNISIA_JORT_OFFICIAL_2017_LOI_2017_39_ARTICLE_12_AMENDMENT_SCOPE",
+          "sourceOwnerGeo": "TN",
+          "appliesToGeos": [
+            "TN"
+          ],
+          "legalBasisForExtension": "Direct nationwide publication of Law No. 2017-39 replacing Article 12 of Law No. 92-52.",
+          "officialPublisher": "Official Gazette of the Republic of Tunisia.",
+          "sourceAnnotation": "Official amendment-chain record. It changes sentencing/discretion scope in Article 12, not cannabis scheduling, Article 2 prohibition, a cannabis patient route or an operational programme. It must never be treated as decriminalization merely because Articles 4 and 8 are excepted.",
+          "sourceType": "OFFICIAL_NATIONAL_GAZETTE_AMENDING_LAW_PDF",
+          "primaryOrContext": "CURRENTNESS_AND_SENTENCING_SCOPE_CONTEXT",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T12:28:21.344Z",
+            "final_url": "https://lake.jort.tn/journal-officiel/fr/2017/037.pdf",
+            "http_status": 200,
+            "etag": "\"e4e38f2d6e0a587775c130c4aa671891\"",
+            "last_modified": "Tue, 07 Apr 2026 12:43:56 GMT",
+            "content_type": "application/pdf",
+            "content_length": 933647,
+            "document_sha256": "56930c78bea2b89212b7a3fedc23924f41b9f5f9ea4671d019910ab95402fef9",
+            "relevant_fragment_sha256": "a89ddc2b04d57cd71b2da392eb9f8d42a5f3600126273aa9e2be410c62a1a5e0",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "TN"
+            ]
+          },
+          "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
+          "confidence": "high",
+          "note": "Official JORT PDF identity for Law No. 2017-39. The legal effect is limited to Article 12; it is retained to prevent both automatic decriminalization and access-derived patient conclusions.",
+          "screenshotPath": null,
+          "visualReview": "CONTEXT_ONLY"
+        },
+        {
+          "title": "Journal officiel de la République Tunisienne - JORT No. 72 (14 July 2023), Loi n° 2023-2 creating ANMPS",
+          "url": "https://lake.jort.tn/journal-officiel/fr/2023/072.pdf",
+          "sourceKind": "TUNISIA_JORT_OFFICIAL_2023_ANMPS_REGULATOR_AND_CONTROLLED_SUBSTANCES_CONTEXT",
+          "sourceOwnerGeo": "TN",
+          "appliesToGeos": [
+            "TN"
+          ],
+          "legalBasisForExtension": "Direct nationwide publication of Law No. 2023-2 creating the national medicines and health-products agency.",
+          "officialPublisher": "Official Gazette of the Republic of Tunisia.",
+          "sourceAnnotation": "Current official regulator context recorded to make the Truth-First boundary auditable: generic medicines-agency licensing and control of narcotics never prove cannabis patient access, lawful cannabis product availability or an operational programme.",
+          "sourceType": "OFFICIAL_NATIONAL_GAZETTE_MEDICINES_REGULATOR_LAW_PDF",
+          "primaryOrContext": "CURRENT_REGULATOR_SCOPE_CONTEXT_ONLY",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T12:30:17.045Z",
+            "final_url": "https://lake.jort.tn/journal-officiel/fr/2023/072.pdf",
+            "http_status": 200,
+            "etag": "\"0f362678aff9caa9bdf56de4c08220c5\"",
+            "last_modified": "Tue, 07 Apr 2026 12:25:30 GMT",
+            "content_type": "application/pdf",
+            "content_length": 890624,
+            "document_sha256": "d8d384ee01f5b0b2447897408524e74cdd1db668f9230887d7802d320519cc81",
+            "relevant_fragment_sha256": "ffb60202edc29b511b6c424d7512acb6d78f611fa106df354bf44d211ee44013",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "TN"
+            ]
+          },
+          "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
+          "confidence": "high",
+          "note": "Official JORT Law No. 2023-2. It is relevant only to exclude a false inference from generic regulatory licensing; it is not a cannabis legal-axis source.",
+          "screenshotPath": null,
+          "visualReview": "CONTEXT_ONLY"
+        },
+        {
           "title": "ANMPS official portal file path found but local download timed out - loi-92-52.pdf",
           "url": "https://portail.anmps.tn/sites/default/files/2025-09/loi-92-52.pdf",
           "sourceKind": "TUNISIA_ANMPS_OFFICIAL_FILE_PATH_TIMEOUT_CONTEXT_NOT_VISUALLY_RENDERED",
+          "sourceOwnerGeo": "TN",
+          "appliesToGeos": [
+            "TN"
+          ],
+          "legalBasisForExtension": "Official national agency host identifies a document named loi-92-52.pdf for the nationwide narcotics law; direct retrieval remains access-limited.",
+          "officialPublisher": "Official Tunisia national medicines agency document host.",
+          "sourceAnnotation": "Official ANMPS identity retained with the complete URL and explicit failure boundary. It supplements, never replaces, official JORT sources; a timeout/WAF/403-style failure is never proof of any legal conclusion.",
+          "sourceType": "OFFICIAL_NATIONAL_MEDICINES_AGENCY_PRIMARY_LAW_HOST_CONTEXT",
+          "primaryOrContext": "OFFICIAL_ACCESS_AND_CURRENTNESS_CONTEXT_ONLY_UNTIL_TEXT_IS_RETRIEVED",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": false,
+          "visualOpened": false,
+          "officialOwnerVisible": false,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": false,
+          "effectiveRuleVisible": false,
+          "officialHostVerified": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T12:19:50.968Z",
             "final_url": "https://portail.anmps.tn/sites/default/files/2025-09/loi-92-52.pdf",
             "http_status": null,
             "etag": null,
@@ -89380,10 +89726,10 @@
             "content_type": null,
             "content_length": null,
             "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING,SCREENSHOT_STATE_MISSING",
+            "relevant_fragment_sha256": "8957050567b2e1d1d6a61cfba8b9d478823084a5bd8e227054f348e98db31027",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
             "queue": [
               "C2",
               "C3"
@@ -89407,7 +89753,7 @@
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
-      "strictVisualAcceptance": null,
+      "strictVisualAcceptance": false,
       "screenshotPaths": [
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-17/TN/screenshots/pdf_pages/TN-loi-92-52-title-and-prohibition.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-17/TN/screenshots/pdf_pages/TN-loi-92-52-personal-use-and-trafficking-penalties.png",
