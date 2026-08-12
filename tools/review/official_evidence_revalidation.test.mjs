@@ -206,7 +206,7 @@ test("a transport redirect that normalizes only a trailing slash does not create
 });
 
 test("WAF, timeout, 403 and blank viewer are access states, not legal conclusions", async () => {
-  const paths = ["waf", "timeout", "forbidden", "blank"];
+  const paths = ["waf", "aws-waf", "timeout", "forbidden", "blank"];
   const input = ledger([row("AA", paths.map((name) => source(`https://official.example/${name}`))) ]);
   const legalBefore = JSON.stringify({
     official: input.rows[0].official_status,
@@ -222,6 +222,12 @@ test("WAF, timeout, 403 and blank viewer are access states, not legal conclusion
       }
       if (url.endsWith("forbidden")) return new Response("forbidden", { status: 403 });
       if (url.endsWith("blank")) return new Response(" ", { status: 200, headers: { "content-type": "text/html" } });
+      if (url.endsWith("aws-waf")) {
+        return new Response("<!doctype html><script>AwsWafIntegration.checkForceRefresh()</script><noscript>This requires JavaScript to verify that you're not a robot.</noscript>", {
+          status: 202,
+          headers: { "content-type": "text/html" },
+        });
+      }
       return new Response("Checking your browser - Cloudflare", { status: 200, headers: { "content-type": "text/html" } });
     },
   });

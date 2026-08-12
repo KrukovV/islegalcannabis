@@ -147408,37 +147408,66 @@
           "title": "Syria Narcotic Drugs Law No.2/1993 communicated by the Government of Syria",
           "url": "https://digitallibrary.un.org/record/190631/files/e-nl-1994-57-e.pdf",
           "source_kind": "OFFICIAL_UN_GOVERNMENT_COMMUNICATED_DIRECT_NARCOTIC_AND_MEDICAL_PRESCRIPTION_LAW",
+          "source_owner": "Government of the Syrian Arab Republic, communicated to the United Nations",
+          "source_owner_geo": "SY",
+          "source_authority": "Official UN Digital Library legislative-text record communicated by the Government of Syria.",
+          "applies_to_geo": [
+            "SY"
+          ],
+          "legal_basis_for_extension": "Direct Syrian national Narcotic Drugs Law text communicated by its Government; the current SANA decree separately cites Law No. 2 of 1993 but does not republish its schedules.",
+          "source_type": "HISTORICAL_PRIMARY_NARCOTIC_DRUGS_LAW_PDF_COMMUNICATED_BY_SYRIAN_GOVERNMENT",
+          "primary_or_context": "HISTORICAL_PRIMARY_LAW_TEXT_WITH_CURRENT_LAW_CONTINUITY_BRIDGE_NOT_A_CURRENT_CANNABIS_SCHEDULE",
+          "cannabis_specific": false,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "HISTORICAL_1993_PRIMARY_TEXT; CURRENT_REFERENCE_TO_LAW_NO_2_IS_INDEPENDENTLY_VISIBLE_IN_THE_2026_SANA_PRESIDENTIAL_DECREE; CURRENT_CANNABIS_SCHEDULE_ENTRY_NOT_LOCATED.",
+          "effective_date": "Law No. 2 of 1993; the retained 2026 SANA decree cites Articles 39-43 of that law and is effective from its issuance, but no current official consolidation or Schedule 4 cannabis entry was retrieved.",
+          "official_fragment_locator": "PDF p. 5, Articles 12-16 (generic medical prescriptions and pharmacies); PDF p. 8, Articles 27-30 (generic pharmaceutical manufacture and Schedule 4 plant prohibition).",
+          "direct_fragment_urls": [
+            "https://digitallibrary.un.org/record/190631/files/e-nl-1994-57-e.pdf#page=5",
+            "https://digitallibrary.un.org/record/190631/files/e-nl-1994-57-e.pdf#page=8"
+          ],
+          "exact_fragment": "Article 15 permits licensed physicians to prescribe narcotic drugs only for medical treatment; Article 16 permits narrowly defined emergency medical possession. Article 28 permits pharmaceutical manufacture of preparations containing narcotics after written Ministerial authorisation. Article 30 prohibits cultivation, import, export, transport, possession, purchase, sale and related conduct for plants specified in Schedule 4. The retained pages do not themselves name cannabis in Schedule 4.",
+          "direct_fragment": "This official historical primary text records general narcotic medical and pharmaceutical controls plus a Schedule 4 plant prohibition. It is not used as a cannabis-patient route because the retained text does not directly bridge cannabis to the applicable current Schedule 4 entry.",
+          "annotation": "Primary Syrian narcotics-law record retained with direct PDF page links and current-law continuity context. It supplies the historic legal mechanism, but general prescriptions, pharmaceutical manufacture and Ministerial authorisation cannot be promoted into patient eligibility, cannabis prescribing, supply, dispensing or programme operation. The missing current cannabis-to-Schedule-4 bridge is explicitly preserved.",
+          "applicability": "SY; Syrian national law text communicated by the Syrian Government, with present citation of Law No. 2 of 1993 separately verified from SANA.",
+          "legal_relevance": "Historical primary legal mechanism and currentness bridge only; not direct proof of a present cannabis schedule, cannabis patient pathway or medical negative axis.",
+          "confidence": "HIGH_FOR_RETAINED_HISTORICAL_ARTICLES_AND_2026_LAW_REFERENCE; INSUFFICIENT_FOR_CURRENT_CANNABIS_SCHEDULE_OR_COLOUR.",
+          "direct_fragment_available": true,
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_host_verified": true,
+          "official_owner_visible": true,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": true,
+          "screenshot_state": "RETAINED_OFFICIAL_UN_PDF_PAGE_CROPS_VISUALLY_REVIEWED_LOCALLY_NO_DESKTOP_BROWSER",
+          "visual_review_result": "Retained official PDF crops visibly show Articles 12-16 and 27-30. They show generic narcotic medical/pharmaceutical provisions and a Schedule 4 plant rule, not a direct cannabis Schedule 4 entry or patient programme.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/SY-law-medical-prescriptions.jpg",
           "additional_screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/SY-law-medical-manufacture.jpg",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T09:06:36.274Z",
             "final_url": "https://digitallibrary.un.org/record/190631/files/e-nl-1994-57-e.pdf",
-            "http_status": null,
+            "http_status": 202,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 2003,
+            "document_sha256": "f5456d4d73059c6eab23459a972c1ad06c03e30fcd808ad1e16d6f9a8c09105e",
+            "relevant_fragment_sha256": "578d09ac4593b8b523c4fed9b7b8d9fe31d89c00051b905704f67052f5a56ecd",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "WAF_OR_CHALLENGE",
+            "change_reason": "WAF_OR_CHALLENGE_IS_ACCESS_STATE_ONLY",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "NEEDS_SEMANTIC_REVIEW"
+              "ACCESS_BLOCKED"
             ],
             "dependent_geos": [
               "SY"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
+            "schema_issues": [],
             "semantic_probe": null
           }
         },
@@ -147446,36 +147475,59 @@
           "title": "SANA current cannabis cultivation arrest and enforcement",
           "url": "https://sana.sy/locals/2303302/",
           "source_kind": "SYRIAN_OFFICIAL_NEWS_CURRENT_DIRECT_CANNABIS_ENFORCEMENT",
+          "source_owner": "Syrian Arab News Agency (SANA)",
+          "source_owner_geo": "SY",
+          "source_authority": "Official Syrian state news agency publication, attributed in the article to the Ministry of Interior.",
+          "applies_to_geo": [
+            "SY"
+          ],
+          "legal_basis_for_extension": "Direct Syrian official state-agency report of conduct, seizure and referral within Syria; it is enforcement context, not a primary-law publication.",
+          "source_type": "CURRENT_OFFICIAL_CANNABIS_SPECIFIC_ENFORCEMENT_REPORT",
+          "primary_or_context": "CURRENT_CANNABIS_ENFORCEMENT_CONTEXT_NOT_PRIMARY_LEGAL_TEXT",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "CURRENT_OFFICIAL_ENFORCEMENT_REPORT_PUBLISHED_2025_10_09_NOT_A_LEGAL_RULE",
+          "effective_date": "Published 2025-10-09; the report is current factual enforcement context and does not state a legal commencement or cannabis patient rule.",
+          "official_fragment_locator": "Article body, paragraphs reporting the Rural Damascus farm seizure and judicial referral after the title concerning a cannabis-cultivation farm.",
+          "direct_fragment_urls": [
+            "https://sana.sy/locals/2303302/"
+          ],
+          "exact_fragment": "\"مزرعة تُزرع فيها نباتات القنّب ... وألقي القبض على أصحابها وأحيلوا إلى القضاء المختص\" and \"نبات القنّب الذي يستخدم في إنتاج مادة الحشيش المخدرة\".",
+          "direct_fragment": "English interpretation: the official report says a farm growing cannabis plants was seized, identifies cannabis as used to produce narcotic hashish, and says the owners were arrested and referred to the competent judiciary.",
+          "annotation": "Current official cannabis-specific enforcement record. It establishes that SANA/MOI publicly reports cannabis cultivation, narcotic-hashish linkage and a judicial referral in Syria. It does not identify the legal article applied, a current statutory schedule, a patient exception or a lawful cannabis medicine route; it is never used alone for RED, YELLOW or a patient axis.",
+          "applicability": "SY; incident and enforcement reporting within Syria.",
+          "legal_relevance": "Current cannabis-specific enforcement and terminology bridge only; not primary law or a complete recreational-prohibition proof.",
+          "confidence": "HIGH_FOR_CURRENT_OFFICIAL_CANNABIS_ENFORCEMENT_REPORT; INSUFFICIENT_FOR_FULL_LEGAL_REGIME_OR_COLOUR.",
+          "direct_fragment_available": true,
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_host_verified": true,
+          "official_owner_visible": true,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": false,
+          "screenshot_state": "RETAINED_OFFICIAL_SANA_ARTICLE_CAPTURE_VISUALLY_REVIEWED_LOCALLY_NO_DESKTOP_BROWSER",
+          "visual_review_result": "Retained official SANA capture and current hidden retrieval show the SANA article, cannabis-cultivation wording, narcotic-hashish terminology and judicial-referral report. They do not show a statutory article or a patient exception.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/SY-current-cannabis-enforcement.jpg",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T09:06:36.274Z",
             "final_url": "https://sana.sy/locals/2303302",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
-            "queue": [
-              "C2",
-              "C3"
-            ],
-            "queue_reasons": [
-              "NEEDS_SEMANTIC_REVIEW"
-            ],
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 136620,
+            "document_sha256": "600e309947cd29406aa3f8a6ea7ef6e207cf6d64aeb7bc409c8f845b6a851d63",
+            "relevant_fragment_sha256": "6ea3f1c8c0f5753a402752348f7645a915435fff1741345dd20cf349c7c9f5d0",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_200_DOCUMENT_SHA256_UNCHANGED",
+            "queue": [],
+            "queue_reasons": [],
             "dependent_geos": [
               "SY"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
+            "schema_issues": [],
             "semantic_probe": null
           }
         },
@@ -147483,36 +147535,59 @@
           "title": "SANA 2026 decree confirming current Narcotic Drugs Law No.2/1993",
           "url": "https://sana.sy/presidency/2407527/",
           "source_kind": "SYRIAN_PRESIDENCY_CURRENT_LAW_STATUS",
+          "source_owner": "Syrian Arab News Agency (SANA), Presidency section",
+          "source_owner_geo": "SY",
+          "source_authority": "Official Syrian state news agency publication of Presidential Decree No. 39 of 2026.",
+          "applies_to_geo": [
+            "SY"
+          ],
+          "legal_basis_for_extension": "Direct Syrian official publication of a national presidential decree; it expressly cites current Articles 39-43 of Syrian Narcotic Drugs Law No. 2 of 1993.",
+          "source_type": "CURRENT_OFFICIAL_PRESIDENTIAL_DECREE_LAW_CONTINUITY_CONTEXT",
+          "primary_or_context": "CURRENT_PRIMARY_DECREE_PUBLICATION_FOR_LAW_CONTINUITY_NOT_CANNABIS_SPECIFIC_SUBSTANTIVE_RULE",
+          "cannabis_specific": false,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "PRESIDENTIAL_DECREE_NO_39_OF_2026_PUBLISHED_2026_02_18_EFFECTIVE_FROM_ISSUANCE_UNDER_ARTICLE_15",
+          "effective_date": "2026-02-18; Article 15 states that the decree is effective from the date of issuance.",
+          "official_fragment_locator": "Presidential Decree No. 39 of 2026, Article 3(b), Article 8(z) and Article 15.",
+          "direct_fragment_urls": [
+            "https://sana.sy/presidency/2407527/"
+          ],
+          "exact_fragment": "Article 3(b): \"الجناية المنصوص عليها بالمادة /43/ من قانون مكافحة المخدرات رقم /2/ لعام 1993\"; Article 8(z): \"الجنايات المنصوص عليها في المواد /39-40-41-42/ من قانون مكافحة المخدرات رقم /2/ لعام 1993\"; Article 15: \"يُعد نافذاً من تاريخ صدوره\".",
+          "direct_fragment": "The 2026 decree expressly cites Articles 39-43 of Narcotic Drugs Law No. 2 of 1993 and says the decree is effective from issuance. It confirms present official reference to the law, but does not name cannabis, reproduce its schedules or establish a patient route.",
+          "annotation": "Current official law-continuity record. It supports the fact that Law No. 2 of 1993 remains cited in a 2026 national decree. It does not fill the missing cannabis-to-Schedule-4 bridge, does not convert generic medical language into cannabis access, and cannot itself derive a colour.",
+          "applicability": "SY; national presidential decree and cited Syrian national narcotics law.",
+          "legal_relevance": "Currentness/continuity of Law No. 2 only; no cannabis-specific substantive conclusion.",
+          "confidence": "HIGH_FOR_CURRENT_2026_OFFICIAL_LAW_REFERENCE; INSUFFICIENT_FOR_CANNABIS_SCOPE_OR_PATIENT_ROUTE.",
+          "direct_fragment_available": true,
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_host_verified": true,
+          "official_owner_visible": true,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": true,
+          "screenshot_state": "RETAINED_OFFICIAL_SANA_PRESIDENCY_CAPTURE_VISUALLY_REVIEWED_LOCALLY_NO_DESKTOP_BROWSER",
+          "visual_review_result": "Retained official SANA Presidency capture visibly shows the 2026 decree and Law No. 2 of 1993 article citations. It is a law-continuity record, not a cannabis schedule or patient-law capture.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/SY.jpg",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T09:06:36.274Z",
             "final_url": "https://sana.sy/presidency/2407527",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
-            "queue": [
-              "C2",
-              "C3"
-            ],
-            "queue_reasons": [
-              "NEEDS_SEMANTIC_REVIEW"
-            ],
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 147340,
+            "document_sha256": "af83092171c5f0c6070e5ff44731b6518453fda17b82a20b0a1800c44913de96",
+            "relevant_fragment_sha256": "fcc9324ebe449c06b8cf3072019e10f28465a791919dc8be9d849656760a61e1",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_200_DOCUMENT_SHA256_UNCHANGED",
+            "queue": [],
+            "queue_reasons": [],
             "dependent_geos": [
               "SY"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
+            "schema_issues": [],
             "semantic_probe": null
           }
         }
@@ -147522,51 +147597,209 @@
           "title": "Syrian Arab News Agency - Damascus and Rural Damascus judiciary drug-control policy under Law No. 2 of 1993",
           "url": "https://sana.sy/locals/2254495/",
           "source_kind": "PRESERVED_PREVIOUSLY_PUBLISHED_LINK_RECLASSIFIED_AS_CONTEXT_SYRIA_OFFICIAL_STATE_NEWS_CURRENT_NARCOTICS_LAW_2_1993_CONTEXT_NOT_CANNABIS_SPECIFIC_LAW_TEXT",
+          "source_owner": "Syrian Arab News Agency (SANA)",
+          "source_owner_geo": "SY",
+          "source_authority": "Official Syrian state news agency report on Damascus and Rural Damascus judiciary policy.",
+          "applies_to_geo": [
+            "SY"
+          ],
+          "legal_basis_for_extension": "Direct Syrian official state-agency report of local judiciary practice; preserved as non-primary contextual evidence only.",
+          "source_type": "CURRENT_OFFICIAL_NARCOTICS_LAW_JUDICIARY_CONTEXT_REPORT",
+          "primary_or_context": "CONTEXT_ONLY_GENERIC_NARCOTICS_TREATMENT_AND_JUDICIARY_REPORT",
+          "cannabis_specific": false,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "CURRENT_OFFICIAL_CONTEXT_REPORT_PUBLISHED_2025_07_26_UPDATED_2025_08_02_NOT_A_LEGAL_RULE",
+          "effective_date": "Published 2025-07-26 and updated 2025-08-02; informational judiciary context only.",
+          "official_fragment_locator": "Article body paragraph stating that drug cases are referred for trial under Law No. 2 of 1993 and that consumers may voluntarily seek treatment.",
+          "direct_fragment_urls": [
+            "https://sana.sy/locals/2254495/"
+          ],
+          "exact_fragment": "The article states that drug cases are referred for trial pursuant to Law No. 2 of 1993 and distinguishes drug traffickers from consumers offered voluntary rehabilitation/treatment; it does not name cannabis.",
+          "direct_fragment": "This is a current official report of generic narcotics prosecution and treatment policy, without a cannabis-specific legal or patient-access fragment.",
+          "annotation": "Preserved anti-shrink official context source. Its generic consumer-treatment narrative is not cannabis patient eligibility, prescription, registration, lawful supply, pharmacy/dispensary access or programme operation. It remains context only and cannot change legal truth.",
+          "applicability": "SY; Syrian judiciary-policy reporting under Law No. 2 of 1993.",
+          "legal_relevance": "Current generic narcotics-law context only; no cannabis-specific axis.",
+          "confidence": "HIGH_FOR_OFFICIAL_CONTEXT; NOT_APPLICABLE_TO_CANNABIS_COLOUR_DERIVATION.",
+          "direct_fragment_available": true,
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_host_verified": true,
+          "official_owner_visible": true,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": false,
+          "screenshot_state": "RETAINED_OFFICIAL_SANA_CONTEXT_CAPTURE_VISUALLY_REVIEWED_LOCALLY_NO_DESKTOP_BROWSER",
+          "visual_review_result": "Retained official SANA context capture and current hidden retrieval show a generic Law No. 2/judiciary narrative. No cannabis term, patient pathway or effective cannabis rule is visible.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-25/SY/screenshots/SY-sana-law-2-1993-context.png",
           "note": "Ссылка сохранена anti-shrink правилом. После свежего визуального аудита она не повышает доказательство выше явно указанного контекстного статуса.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T09:06:36.274Z",
             "final_url": "https://sana.sy/locals/2254495",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
-            "queue": [
-              "C2",
-              "C3"
-            ],
-            "queue_reasons": [
-              "NEEDS_SEMANTIC_REVIEW"
-            ],
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 136085,
+            "document_sha256": "e46ba7ff9c419b9aaec60584bc5fad3cf27bc38e801ba0f582866689e929954c",
+            "relevant_fragment_sha256": "376ac49cc8cb78bab3d6c9b89be473dfef11ae11d37748d2c8940ff69f0aab37",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_200_DOCUMENT_SHA256_UNCHANGED",
+            "queue": [],
+            "queue_reasons": [],
             "dependent_geos": [
               "SY"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
+            "schema_issues": [],
             "semantic_probe": null
           }
         }
       ],
       "official_status": {
-        "recreational": "ILLEGAL_CANNABIS_CULTIVATION_AND_UNAUTHORIZED_NARCOTIC_POSSESSION_OR_TRADE",
-        "medical": "LIMITED_GENERAL_MEDICAL_PRESCRIPTION_AND_MINISTERIAL_AUTHORIZATION_FRAMEWORK_NO_SPECIFIC_CANNABIS_PRODUCT_AVAILABILITY_PROVEN",
-        "enforcement": "STRICT_CRIMINAL_ENFORCEMENT"
+        "recreational": "CURRENT_CANNABIS_ENFORCEMENT_REPORTED_BUT_CURRENT_PRIMARY_CANNABIS_SCHEDULE_AND_FULL_APPLICABLE_REGIME_UNRESOLVED",
+        "medical": "GENERIC_NARCOTIC_PRESCRIPTION_AND_MINISTERIAL_AUTHORIZATION_TEXT_ONLY_NOT_CANNABIS_PATIENT_ACCESS",
+        "enforcement": "CURRENT_CANNABIS_CULTIVATION_SEIZURE_AND_JUDICIAL_REFERRAL_REPORTED_NO_COMPLETE_PRIMARY_LEGAL_CHAIN"
+      },
+      "independent_truth_color": "UNKNOWN",
+      "independent_truth_status": "LEGAL_APPLICABILITY_UNRESOLVED",
+      "independent_truth_rule": "GENERAL_CURRENT_NARCOTIC_LAW_WITH_CANNABIS_ENFORCEMENT_CONTEXT_AND_NO_CURRENT_CANNABIS_SCHEDULE_BRIDGE",
+      "independent_truth_reviewed_at": "2026-08-12T12:07:02+03:00",
+      "independent_truth_proposal_only": true,
+      "independent_review_state": "C0_C1_C2_C3_COMPLETE_PROPOSAL_ONLY",
+      "strict_visual_acceptance": false,
+      "strict_visual_acceptance_reason": "RETAINED_OFFICIAL_CROPS_AND_HIDDEN_HTTP_RETRIEVAL_ONLY; NO_FRESH_VISIBLE_BROWSER_DOMAIN_ACCEPTANCE",
+      "final_visual_acceptance": {
+        "strict_acceptance": false,
+        "reason": "RETAINED_OFFICIAL_CROPS_AND_HIDDEN_HTTP_RETRIEVAL_ONLY; LEGAL_TRUTH_SEPARATE",
+        "legal_truth_affected": false
+      },
+      "independent_review": {
+        "geo": "SY",
+        "territory": "Syria",
+        "review_mode": "INDEPENDENT_OFFICIAL_EVIDENCE_FIRST",
+        "proposal_only": true,
+        "jurisdiction": {
+          "territory_type": "SOVEREIGN_STATE",
+          "applicable_law": "Syrian Narcotic Drugs Law No. 2 of 1993 is currently cited by the official 2026 Presidential Decree publication, but a current consolidated cannabis Schedule 4 entry was not located.",
+          "source_owner_vs_jurisdiction": "The UN PDF is a Syrian Government-communicated law text, and every current official corroborating record is a Syrian SANA source applying directly to SY. No foreign, claimant, parent or inferred regime is used.",
+          "disputed_or_composite": false
+        },
+        "official_truth_color": "UNKNOWN",
+        "truth_color": "UNKNOWN",
+        "truth_status": "LEGAL_APPLICABILITY_UNRESOLVED",
+        "color_rule": "GENERAL_CURRENT_NARCOTIC_LAW_WITH_CANNABIS_ENFORCEMENT_CONTEXT_AND_NO_CURRENT_CANNABIS_SCHEDULE_BRIDGE",
+        "reviewed_at": "2026-08-12T12:07:02+03:00",
+        "legal_interpretation": "The 1993 Government-communicated law text has generic prescription, pharmacist, pharmaceutical-manufacture and Ministerial-authorisation provisions plus a Schedule 4 plant prohibition. The official 2026 decree confirms current citation of Law No. 2 of 1993, and the official 2025 SANA report directly identifies cannabis cultivation as producing narcotic hashish and reports a judicial referral. However, no current official primary source was located that directly connects cannabis to the applicable Schedule 4 text, states the legal article applied to the cannabis enforcement case, or proves a cannabis-specific medical/patient route. General controlled-drug wording, generic treatment reporting and generic pharmaceutical authorisation neither create nor negate patient access. Therefore this is an explicit proposal-only UNKNOWN, not RED, YELLOW or GREEN.",
+        "source_record_refs": [
+          "https://digitallibrary.un.org/record/190631/files/e-nl-1994-57-e.pdf#page=5",
+          "https://digitallibrary.un.org/record/190631/files/e-nl-1994-57-e.pdf#page=8",
+          "https://sana.sy/locals/2303302/",
+          "https://sana.sy/presidency/2407527/",
+          "https://sana.sy/locals/2254495/"
+        ],
+        "evidence_axes": {
+          "law_currentness": {
+            "value": "YES",
+            "source_url": "https://sana.sy/presidency/2407527/",
+            "exact_fragment": "Presidential Decree No. 39 of 2026 cites Articles 39-43 of Narcotic Drugs Law No. 2 of 1993 and Article 15 makes the decree effective from issuance.",
+            "effective_date": "2026-02-18",
+            "applicability": "SY national presidential decree and cited national narcotics law.",
+            "confidence": "HIGH_FOR_CURRENT_OFFICIAL_LAW_REFERENCE_NOT_CANNABIS_SCHEDULE_SCOPE",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/SY.jpg"
+          },
+          "cannabis_specific_enforcement": {
+            "value": "YES",
+            "source_url": "https://sana.sy/locals/2303302/",
+            "exact_fragment": "The report identifies a farm growing cannabis plants, says cannabis is used to produce narcotic hashish, and says the owners were arrested and referred to the competent judiciary.",
+            "effective_date": "Published 2025-10-09",
+            "applicability": "SY official state-agency enforcement report.",
+            "confidence": "HIGH_FOR_CURRENT_OFFICIAL_ENFORCEMENT_CONTEXT_NOT_PRIMARY_LEGAL_RULE",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/SY-current-cannabis-enforcement.jpg"
+          },
+          "current_cannabis_schedule_bridge": {
+            "value": "UNKNOWN",
+            "reason": "The retained primary-law pages prohibit plants listed in Schedule 4, but do not themselves name cannabis; current official search did not locate a consolidated Syrian Schedule 4 or a primary-law fragment directly linking cannabis to that schedule. The SANA enforcement report is not substituted for that legal bridge."
+          },
+          "patient_eligible": {
+            "value": "UNKNOWN",
+            "reason": "No current official source proves a cannabis patient eligibility category, card, cohort or continuing treatment right. Absence of proof is not patient-access prohibition."
+          },
+          "prescriber_route": {
+            "value": "UNKNOWN",
+            "reason": "Article 15 is a generic narcotic prescription rule. No current cannabis-specific prescribing route is proved."
+          },
+          "registration_route": {
+            "value": "UNKNOWN",
+            "reason": "No current official cannabis registry, card or enrolment route was located."
+          },
+          "lawful_supply": {
+            "value": "UNKNOWN",
+            "reason": "Generic pharmaceutical manufacture after Ministerial authorisation is not evidence of cannabis product supply, patient import, dispensing stock or a lawful patient route."
+          },
+          "pharmacy_or_dispensary": {
+            "value": "UNKNOWN",
+            "reason": "Generic narcotic pharmacy and hospital provisions do not identify a cannabis pharmacy/dispensary service."
+          },
+          "import_route": {
+            "value": "UNKNOWN",
+            "reason": "No current cannabis patient import route was proved."
+          },
+          "programme_operational": {
+            "value": "UNKNOWN",
+            "reason": "No current official cannabis programme, patient cohort, prescriber operation, medicine stock or dispensing event was found. This is not proof of prohibition."
+          },
+          "programme_commenced": {
+            "value": "UNKNOWN",
+            "reason": "The current law-reference evidence does not establish a cannabis patient-programme commencement."
+          },
+          "recreational_possession": {
+            "value": "UNKNOWN",
+            "reason": "The retained primary-law rule depends on a Schedule 4 plant list not directly bridged to cannabis in current official text; the enforcement report does not substitute for a complete applicable possession rule."
+          },
+          "recreational_supply": {
+            "value": "UNKNOWN",
+            "reason": "No current cannabis-specific primary supply/prohibition clause was located."
+          },
+          "recreational_cultivation": {
+            "value": "UNKNOWN",
+            "reason": "The 2025 official report provides strong cannabis-enforcement context, but no current primary provision directly joining cannabis to the Schedule 4 cultivation prohibition was retrieved."
+          },
+          "penalty_regime": {
+            "value": "UNKNOWN",
+            "reason": "The 2026 decree cites criminal articles of Law No. 2 but the retained official sources do not provide a current cannabis-specific offence-to-penalty chain."
+          }
+        },
+        "lifecycle": {
+          "currentness": "SANA's 2026 Presidential Decree publication currently cites Law No. 2 of 1993. The UN-hosted PDF is a historical Syrian Government communication and was returned as an AWS WAF challenge in C1; that access result is retained separately and is never a legal conclusion.",
+          "rule": "Current cannabis enforcement reporting may corroborate terminology and factual enforcement, but cannot replace an exact current primary cannabis Schedule 4 bridge. Generic controlled-drug prescriptions, treatment, licences, pharmaceutical manufacture and regulator wording never become cannabis patient axes."
+        },
+        "c0_local_recheck": "Four retained official source records were deduplicated locally with owner, SY applicability, direct locator/page links, exact fragment, annotation and screenshot state. No C0 network request, legal-axis, colour, SSOT, map, runtime or production mutation occurred.",
+        "c1_conditional_http_recheck": "The serial hidden C1 run on 2026-08-12 fetched each of four canonical SY URLs once. Three SANA URLs returned HTTP 200 with unchanged document hashes and NOT_MODIFIED. The UN Digital Library PDF endpoint returned an AWS WAF JavaScript challenge (HTTP 202) and is correctly ACCESS_BLOCKED only, with no RED/UNKNOWN inference from access.",
+        "c2_semantic_recheck": "C2 read the retained official PDF crops and the exact current SANA fragments. The law crop shows generic Articles 12-16 and 27-30, the 2026 decree shows Law No. 2 article citations, and the 2025 SANA article shows cannabis/hashish enforcement. No source supplies the missing current cannabis-to-Schedule-4 text or a patient pathway. No OCR is claimed or needed for this retained-crop semantic review.",
+        "c3_visual_recheck": "C3 reread retained official PDF and SANA captures locally without opening a desktop browser. Owner, source title, cited law/fragment and cannabis enforcement wording are visible in the retained scope. Fresh address-bar/domain acceptance remains incomplete and is separate from legal truth.",
+        "strict_visual_acceptance": "PARTIAL_RETAINED_OFFICIAL_CROPS_AND_HIDDEN_C1_HASHES; no fresh visible browser-domain acceptance is claimed and this does not change the legal conclusion.",
+        "project_layer": {
+          "comparison": "AXIS_MISMATCH_COLOR_UNCONFIRMED_PENDING_LIVE_MAP_REOPEN",
+          "runtime_or_ssot_caveat": "The matrix project baseline remains recreational=ILLEGAL, medical=NONE, enforcement=SOFT. This independent proposal records incomplete current cannabis primary-law applicability and does not assert a visible product match/mismatch because the user requested no desktop/browser opening. No map, popup, API, SEO, SSOT, runtime, production or deployment value changed."
+        },
+        "no_mutation": {
+          "APPLY_ALLOWED": false,
+          "PRODUCTION_TOUCHED": false,
+          "MAP_COLORS_CHANGED": false,
+          "SSOT_CHANGED": false,
+          "runtime_changed": false,
+          "deployment_changed": false
+        },
+        "recommended_action": "Retain all four annotated source records in the one ledger. Reopen only if a current Syrian official primary Schedule 4/list, cannabis-specific offence provision, patient instrument or cannabis supply source is located; do not infer from generic narcotics text or any access error.",
+        "confidence": "HIGH_FOR_SOURCE_OWNERSHIP_SY_APPLICABILITY_CURRENT_LAW_REFERENCE_AND_CANNABIS_ENFORCEMENT_CONTEXT; INSUFFICIENT_FOR_CURRENT_CANNABIS_LEGAL_CHAIN_OR_COLOUR."
       },
       "project_comparison": {
-        "status": "PROJECT_COLOR_REVIEW_GENERAL_MEDICAL_NARCOTIC_FRAMEWORK_WITHOUT_SPECIFIC_PRODUCT_AVAILABILITY",
-        "reason": "Law No.2/1993, официально переданный Government of Syria в UN, визуально показывает medical prescription, patient possession и ministerial authorization framework для narcotic medicines и отдельный запрет выращивания Schedule 4 plants. Свежая SANA визуально показывает задержание за выращивание القنّب для производства narcotic hashish, а SANA 2026 подтверждает продолжающее действие Law No.2/1993. Это жёлтый только как общий разрешительно-рецептурный режим для narcotic medicines; конкретный cannabis medicine и его фактическая доступность не доказаны."
+        "status": "AXIS_MISMATCH_COLOR_UNCONFIRMED_PENDING_LIVE_MAP_REOPEN",
+        "reason": "Независимый пакет SY сохраняет четыре аннотированных официальных URL/PDF и подтверждает актуальную ссылку на Закон № 2/1993, а также текущий официальный cannabis/hashish enforcement context. Но найденные страницы не дают текущую первичную связку cannabis с Schedule 4 и не доказывают cannabis patient route. Поэтому результат только proposal-only UNKNOWN / LEGAL_APPLICABILITY_UNRESOLVED; доступ/WAF не является правовым выводом. Видимый слой продукта не открывался и не менялся."
       },
-      "conclusion": "Law No.2/1993, официально переданный Government of Syria в UN, визуально показывает medical prescription, patient possession и ministerial authorization framework для narcotic medicines и отдельный запрет выращивания Schedule 4 plants. Свежая SANA визуально показывает задержание за выращивание القنّب для производства narcotic hashish, а SANA 2026 подтверждает продолжающее действие Law No.2/1993. Это жёлтый только как общий разрешительно-рецептурный режим для narcotic medicines; конкретный cannabis medicine и его фактическая доступность не доказаны.",
+      "conclusion": "Syria is structurally complete in the canonical 307-GEO ledger with four annotated official URL/PDF records, including page-level PDF links and exact fragments. Current official sources establish Law No. 2 of 1993 continuity and a cannabis/hashish enforcement report, but not the current primary cannabis-to-Schedule-4 bridge or a cannabis patient/supply instrument. The independent proposal is explicit UNKNOWN / LEGAL_APPLICABILITY_UNRESOLVED; it is not derived from the AWS WAF access state. SSOT, map, runtime, production and deployment remain unchanged.",
       "fresh_grey_39_reaudit": {
         "reviewed_at": "2026-07-19T22:28:00.000Z",
         "classification": "COMPOSITE_DIRECT_OFFICIAL_UN_MIRROR_CANNABIS_ENFORCEMENT_AND_MEDICAL_NARCOTIC_FRAMEWORK",
@@ -147578,7 +147811,8 @@
           "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/SY-law-medical-manufacture.jpg",
           "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/SY-current-cannabis-enforcement.jpg"
         ],
-        "visible_conclusion_ru": "Law No.2/1993, официально переданный Government of Syria в UN, визуально показывает medical prescription, patient possession и ministerial authorization framework для narcotic medicines и отдельный запрет выращивания Schedule 4 plants. Свежая SANA визуально показывает задержание за выращивание القنّب для производства narcotic hashish, а SANA 2026 подтверждает продолжающее действие Law No.2/1993. Это жёлтый только как общий разрешительно-рецептурный режим для narcotic medicines; конкретный cannabis medicine и его фактическая доступность не доказаны."
+        "visible_conclusion_ru": "Исторический визуальный composite сохранён как provenance. Независимый пакет 2026-08-12 его не удаляет, но заменяет прежнюю general-medical интерпретацию: без текущей первичной связки cannabis с Schedule 4 и без cannabis patient/supply instrument правовой цвет не выводится. См. independent_review; WAF/403 никогда не являются правовым выводом.",
+        "superseded_by": "independent_review"
       }
     },
     {

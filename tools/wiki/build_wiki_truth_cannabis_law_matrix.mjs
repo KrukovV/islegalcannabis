@@ -856,11 +856,12 @@ const rows = geoList.map((geo) => {
       })
   ).values()].filter((link) => !basePublishedUrlKeys.has(normalizedUrlKey(link.url)));
 
-  let officialStatus = visualRow?.official_status || greyReauditRow?.officialStatusPatch ? {
-    recreational: visualRow?.official_status?.recreational || null,
-    medical: visualRow?.official_status?.medical || null,
-    enforcement: visualRow?.official_status?.enforcement || null,
-    ...(greyReauditRow?.officialStatusPatch || {})
+  const ledgerOfficialStatus = visualRow?.official_status || null;
+  const legacyGreyOfficialStatusPatch = greyReauditRow?.officialStatusPatch || null;
+  let officialStatus = ledgerOfficialStatus || legacyGreyOfficialStatusPatch ? {
+    recreational: ledgerOfficialStatus?.recreational || legacyGreyOfficialStatusPatch?.recreational || null,
+    medical: ledgerOfficialStatus?.medical || legacyGreyOfficialStatusPatch?.medical || null,
+    enforcement: ledgerOfficialStatus?.enforcement || legacyGreyOfficialStatusPatch?.enforcement || null,
   } : null;
   if (nonCannabisDirectLinks.length && !directLinks.length) officialStatus = null;
   if (sourceCoverage === "OFFICIAL_CONTEXT_ONLY") officialStatus = null;

@@ -1370,9 +1370,9 @@
         "enforcement": "SOFT"
       },
       "officialStatus": {
-        "recreational": "ILLEGAL_DOMESTIC_RETAIL_DISTRIBUTION_ACQUISITION_AND_CONSUMPTION_PROHIBITED",
-        "medical": "LICENSED_PRODUCTION_FOR_MEDICINAL_AND_EXPORT_ONLY_NO_DOMESTIC_PATIENT_ACCESS",
-        "enforcement": "STRICT_PROHIBITIONS_WITH_LICENSED_PRODUCTION_SCOPE"
+        "recreational": "CURRENT_CRIMINAL_CODE_ARTICLE_283_EXPRESSLY_EXCLUDES_PERSONAL_USE_AND_SMALL_DOSES_FROM_THIS_CRIMINAL_OFFENCE_WHILE_UNLICENSED_NARCOTIC_PLANT_CULTIVATION_REMAINS_PUNISHABLE",
+        "medical": "CURRENT_LAW_61_ARTICLE_5_PROHIBITS_DOMESTIC_MEDICAL_CANNABIS_ACQUISITION_AND_CONSUMPTION_AND_NACC_CONFIRMS_EXPORT_ONLY_SCOPE",
+        "enforcement": "CURRENT_CRIMINAL_CODE_ARTICLES_283_284_PUNISH_NONEXEMPT_NARCOTICS_CONDUCT_AND_UNLICENSED_CULTIVATION"
       },
       "independentTruth": {
         "color": "YELLOW",
@@ -1745,7 +1745,7 @@
         "primaryLaw": {
           "source": "DIRECT_OFFICIAL_LAW",
           "axis": {
-            "recreational": "ILLEGAL",
+            "recreational": "LIMITED",
             "medical": "LIMITED",
             "enforcement": "LIMITED",
             "industrial_use": "UNKNOWN",
@@ -1766,7 +1766,7 @@
         "legalInterpretation": {
           "source": "OFFICIAL_TEXT_DERIVED",
           "axis": {
-            "recreational": "ILLEGAL",
+            "recreational": "LIMITED",
             "medical": "LIMITED",
             "enforcement": "LIMITED",
             "industrial_use": "UNKNOWN",
@@ -1810,7 +1810,7 @@
           }
         },
         "mismatch": {
-          "recreational": "MATCH",
+          "recreational": "MISMATCH",
           "medical": "MATCH",
           "enforcement": "UNKNOWN"
         },
@@ -3813,9 +3813,9 @@
         "enforcement": "STRICT"
       },
       "officialStatus": {
-        "recreational": "NO_GENERAL_LEGAL_MARKET_LIVE_CANNABIS_PLANT_INTRODUCTION_PERMIT_ONLY_NATIONAL_LAW_DEPENDENT",
-        "medical": "LIMITED_NATIONAL_AUTHORITY_AND_CONTROLLED_SCIENTIFIC_PATHWAY_NO_UNITARY_AQ_PATIENT_PROGRAM_PROVEN",
-        "enforcement": "PERMIT_AND_NATIONAL_JURISDICTION_DEPENDENT_NO_UNITARY_CANNABIS_POSSESSION_PENALTY_PROVEN"
+        "recreational": "NO_UNITARY_APPLICABLE_REGIME",
+        "medical": "NO_UNITARY_APPLICABLE_REGIME",
+        "enforcement": "NO_UNITARY_APPLICABLE_REGIME"
       },
       "independentTruth": {
         "color": "UNKNOWN",
@@ -3991,9 +3991,9 @@
         "primaryLaw": {
           "source": "OFFICIAL_SEMANTIC_LAW_PENDING_VISUAL_ACCEPTANCE",
           "axis": {
-            "recreational": "ILLEGAL",
-            "medical": "LIMITED",
-            "enforcement": "PERMIT_AND_NATIONAL_JURISDICTION_DEPENDENT_NO_UNITARY_CANNABIS_POSSESSION_PENALTY_PROVEN",
+            "recreational": "NO_UNITARY_APPLICABLE_REGIME",
+            "medical": "NO_UNITARY_APPLICABLE_REGIME",
+            "enforcement": "NO_UNITARY_APPLICABLE_REGIME",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -4012,9 +4012,9 @@
         "legalInterpretation": {
           "source": "OFFICIAL_TEXT_DERIVED",
           "axis": {
-            "recreational": "ILLEGAL",
-            "medical": "LIMITED",
-            "enforcement": "PERMIT_AND_NATIONAL_JURISDICTION_DEPENDENT_NO_UNITARY_CANNABIS_POSSESSION_PENALTY_PROVEN",
+            "recreational": "NO_UNITARY_APPLICABLE_REGIME",
+            "medical": "NO_UNITARY_APPLICABLE_REGIME",
+            "enforcement": "NO_UNITARY_APPLICABLE_REGIME",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -4056,8 +4056,8 @@
           }
         },
         "mismatch": {
-          "recreational": "MATCH",
-          "medical": "MISMATCH",
+          "recreational": "UNKNOWN",
+          "medical": "UNKNOWN",
           "enforcement": "UNKNOWN"
         },
         "trust": "MEDIUM"
@@ -5491,9 +5491,9 @@
         "enforcement": "STRICT"
       },
       "officialStatus": {
-        "recreational": "ILLEGAL_EXCEPT_LICENSED_INDUSTRIAL_HEMP_AT_OR_BELOW_0_3_PERCENT_THC",
-        "medical": "NONE_NO_PATIENT_CANNABIS_ACCESS_CONFIRMED",
-        "enforcement": "SOFT_ADMINISTRATIVE_FINE_FOR_SMALL_PERSONAL_SCOPE"
+        "recreational": "PROHIBITED_EXCEPT_LICENSED_DEFINED_INDUSTRIAL_HEMP",
+        "medical": "NO_PATIENT_CANNABIS_ACCESS_IN_DIRECTLY_REVIEWED_CANNABIS_SOURCES",
+        "enforcement": "UNCONFIRMED_NOT_USED_FOR_COLOR"
       },
       "independentTruth": {
         "color": "YELLOW",
@@ -5938,9 +5938,9 @@
         "primaryLaw": {
           "source": "DIRECT_OFFICIAL_LAW",
           "axis": {
-            "recreational": "ILLEGAL",
+            "recreational": "PROHIBITED_EXCEPT_LICENSED_DEFINED_INDUSTRIAL_HEMP",
             "medical": "LIMITED",
-            "enforcement": "SOFT_ADMINISTRATIVE_FINE_FOR_SMALL_PERSONAL_SCOPE",
+            "enforcement": "UNKNOWN",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -5959,9 +5959,9 @@
         "legalInterpretation": {
           "source": "OFFICIAL_TEXT_DERIVED",
           "axis": {
-            "recreational": "ILLEGAL",
+            "recreational": "PROHIBITED_EXCEPT_LICENSED_DEFINED_INDUSTRIAL_HEMP",
             "medical": "LIMITED",
-            "enforcement": "SOFT_ADMINISTRATIVE_FINE_FOR_SMALL_PERSONAL_SCOPE",
+            "enforcement": "UNKNOWN",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -6003,7 +6003,7 @@
           }
         },
         "mismatch": {
-          "recreational": "MATCH",
+          "recreational": "UNKNOWN",
           "medical": "MISMATCH",
           "enforcement": "UNKNOWN"
         },
@@ -7202,9 +7202,9 @@
         "enforcement": "STRICT"
       },
       "officialStatus": {
-        "recreational": "ILLEGAL_CANNABIS_PRODUCTS_AND_CULTIVATION_PROHIBITED",
-        "medical": "NONE_CANNABIS_RESIN_EXTRACT_AND_TINCTURE_ARE_IN_PROHIBITED_CIRCULATION_LIST",
-        "enforcement": "STRICT_CRIMINAL_THRESHOLD_FRAMEWORK"
+        "recreational": "HISTORICAL_CANNABIS_LIST_I_AND_CULTIVATION_PROHIBITION_TEXT_VISUALLY_PROVED_CURRENT_AMENDMENT_CHAIN_UNRESOLVED",
+        "medical": "CURRENT_GENERIC_MEDICAL_NARCOTICS_FRAMEWORK_DOES_NOT_IDENTIFY_CANNABIS_PATIENT_ACCESS_OR_A_CANNABIS_EXCEPTION",
+        "enforcement": "HISTORICAL_CANNABIS_CULTIVATION_THRESHOLD_TABLE_VISUALLY_PROVED_CURRENT_CONSOLIDATED_OFFENCE_SCOPE_UNRESOLVED"
       },
       "independentTruth": {
         "color": "UNKNOWN",
@@ -7452,9 +7452,9 @@
         "primaryLaw": {
           "source": "DIRECT_OFFICIAL_LAW",
           "axis": {
-            "recreational": "ILLEGAL",
-            "medical": "NONE_CANNABIS_RESIN_EXTRACT_AND_TINCTURE_ARE_IN_PROHIBITED_CIRCULATION_LIST",
-            "enforcement": "STRICT_CRIMINAL_THRESHOLD_FRAMEWORK",
+            "recreational": "LIMITED",
+            "medical": "LIMITED",
+            "enforcement": "LIMITED",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -7473,9 +7473,9 @@
         "legalInterpretation": {
           "source": "OFFICIAL_TEXT_DERIVED",
           "axis": {
-            "recreational": "ILLEGAL",
-            "medical": "NONE_CANNABIS_RESIN_EXTRACT_AND_TINCTURE_ARE_IN_PROHIBITED_CIRCULATION_LIST",
-            "enforcement": "STRICT_CRIMINAL_THRESHOLD_FRAMEWORK",
+            "recreational": "LIMITED",
+            "medical": "LIMITED",
+            "enforcement": "LIMITED",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -7517,8 +7517,8 @@
           }
         },
         "mismatch": {
-          "recreational": "MATCH",
-          "medical": "UNKNOWN",
+          "recreational": "MISMATCH",
+          "medical": "MISMATCH",
           "enforcement": "UNKNOWN"
         },
         "trust": "HIGH"
@@ -12543,9 +12543,9 @@
         "enforcement": "STRICT"
       },
       "officialStatus": {
-        "recreational": "ILLEGAL_UNDER_CRIMINAL_LAW_EXPRESSLY_APPLICABLE_TO_BOUVETOYA",
-        "medical": "NONE_NO_BOUVETOYA_MEDICAL_CANNABIS_PATIENT_PATHWAY_PROVEN",
-        "enforcement": "STRICT_CRIMINAL_NARCOTICS_ENFORCEMENT_APPLICABLE_TO_BOUVETOYA"
+        "recreational": "CURRENT_BV_CANNABIS_SPECIFIC_SPECIAL_REGULATION_EXTENSION_UNPROVEN",
+        "medical": "CURRENT_NORWEGIAN_NAMED_PATIENT_CONTEXT_NOT_PROVEN_EXTENDED_TO_BV",
+        "enforcement": "BILANDSLOVEN_CRIMINAL_LAW_APPLIES_BUT_CURRENT_CANNABIS_CLASSIFICATION_BRIDGE_UNPROVEN"
       },
       "independentTruth": {
         "color": "UNKNOWN",
@@ -12861,9 +12861,9 @@
         "primaryLaw": {
           "source": "DIRECT_OFFICIAL_LAW",
           "axis": {
-            "recreational": "ILLEGAL",
+            "recreational": "CURRENT_BV_CANNABIS_SPECIFIC_SPECIAL_REGULATION_EXTENSION_UNPROVEN",
             "medical": "LIMITED",
-            "enforcement": "STRICT_CRIMINAL_NARCOTICS_ENFORCEMENT_APPLICABLE_TO_BOUVETOYA",
+            "enforcement": "BILANDSLOVEN_CRIMINAL_LAW_APPLIES_BUT_CURRENT_CANNABIS_CLASSIFICATION_BRIDGE_UNPROVEN",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -12882,9 +12882,9 @@
         "legalInterpretation": {
           "source": "OFFICIAL_TEXT_DERIVED",
           "axis": {
-            "recreational": "ILLEGAL",
+            "recreational": "CURRENT_BV_CANNABIS_SPECIFIC_SPECIAL_REGULATION_EXTENSION_UNPROVEN",
             "medical": "LIMITED",
-            "enforcement": "STRICT_CRIMINAL_NARCOTICS_ENFORCEMENT_APPLICABLE_TO_BOUVETOYA",
+            "enforcement": "BILANDSLOVEN_CRIMINAL_LAW_APPLIES_BUT_CURRENT_CANNABIS_CLASSIFICATION_BRIDGE_UNPROVEN",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -12926,7 +12926,7 @@
           }
         },
         "mismatch": {
-          "recreational": "MATCH",
+          "recreational": "UNKNOWN",
           "medical": "MATCH",
           "enforcement": "UNKNOWN"
         },
@@ -14775,9 +14775,9 @@
         "enforcement": "STRICT"
       },
       "officialStatus": {
-        "recreational": "ILLEGAL_PERSONAL_ACQUISITION_POSSESSION_OR_CULTIVATION_PUNISHED",
-        "medical": "LIMITED_BY_MEDICAL_PRESCRIPTION_EXCEPTION_NO_PATIENT_PROGRAM_OR_PRODUCT_AVAILABILITY_PROVEN",
-        "enforcement": "STRICT_IMPRISONMENT_AND_FINE_OUTSIDE_MEDICAL_PRESCRIPTION"
+        "recreational": "PROHIBITED_FOR_CANNABIS_OIL_AND_OTHER_CANNABIS_DERIVATIVES_WITH_CUSTODIAL_AND_FINE_PENALTIES",
+        "medical": "LIMITED_STATUTORY_MEDICAL_PRESCRIPTION_EXCEPTION_FOR_CONTROLLED_DRUG_USE_NO_CANNABIS_PRODUCT_OR_PATIENT_PROGRAMME_PROVEN",
+        "enforcement": "CURRENT_PRIMARY_LAW_CUSTODIAL_AND_FINE_PENALTIES_FOR_ILLICIT_CANNABIS_OIL_AND_OTHER_DERIVATIVES"
       },
       "independentTruth": {
         "color": "YELLOW",
@@ -14925,9 +14925,9 @@
         "primaryLaw": {
           "source": "DIRECT_OFFICIAL_LAW",
           "axis": {
-            "recreational": "ILLEGAL",
+            "recreational": "PROHIBITED_FOR_CANNABIS_OIL_AND_OTHER_CANNABIS_DERIVATIVES_WITH_CUSTODIAL_AND_FINE_PENALTIES",
             "medical": "LIMITED",
-            "enforcement": "LIMITED",
+            "enforcement": "CURRENT_PRIMARY_LAW_CUSTODIAL_AND_FINE_PENALTIES_FOR_ILLICIT_CANNABIS_OIL_AND_OTHER_DERIVATIVES",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -14946,9 +14946,9 @@
         "legalInterpretation": {
           "source": "OFFICIAL_TEXT_DERIVED",
           "axis": {
-            "recreational": "ILLEGAL",
+            "recreational": "PROHIBITED_FOR_CANNABIS_OIL_AND_OTHER_CANNABIS_DERIVATIVES_WITH_CUSTODIAL_AND_FINE_PENALTIES",
             "medical": "LIMITED",
-            "enforcement": "LIMITED",
+            "enforcement": "CURRENT_PRIMARY_LAW_CUSTODIAL_AND_FINE_PENALTIES_FOR_ILLICIT_CANNABIS_OIL_AND_OTHER_DERIVATIVES",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -14990,7 +14990,7 @@
           }
         },
         "mismatch": {
-          "recreational": "MATCH",
+          "recreational": "UNKNOWN",
           "medical": "MISMATCH",
           "enforcement": "UNKNOWN"
         },
@@ -15783,9 +15783,9 @@
         "enforcement": "STRICT"
       },
       "officialStatus": {
-        "recreational": "ILLEGAL_WITH_CRIMINAL_PENALTIES",
-        "medical": "NONE_NO_MEDICAL_INTEREST_FOR_TABLE_I_CANNABIS",
-        "enforcement": "STRICT_CRIMINAL_PENALTIES"
+        "recreational": "CURRENT_CANNABIS_CULTIVATION_AND_PERSONAL_POSSESSION_PROHIBITED_WITH_CRIMINAL_PENALTIES",
+        "medical": "CANNABIS_CLASSIFIED_TABLE_I_NO_MEDICAL_INTEREST; ONLY_MINISTER_AUTHORISED_MEDICAL_OR_SCIENTIFIC_RESEARCH_EXCEPTION_PROVEN; NO_PATIENT_ACCESS_EXCEPTION",
+        "enforcement": "SECTION_102_CRIMINAL_PERSONAL_POSSESSION_PURCHASE_AND_CULTIVATION; SECTION_8_NATIONWIDE_CULTIVATION_PROHIBITION"
       },
       "independentTruth": {
         "color": "RED",
@@ -16109,9 +16109,9 @@
         "primaryLaw": {
           "source": "DIRECT_OFFICIAL_LAW",
           "axis": {
-            "recreational": "ILLEGAL",
+            "recreational": "LIMITED",
             "medical": "LIMITED",
-            "enforcement": "STRICT_CRIMINAL_PENALTIES",
+            "enforcement": "LIMITED",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -16130,9 +16130,9 @@
         "legalInterpretation": {
           "source": "OFFICIAL_TEXT_DERIVED",
           "axis": {
-            "recreational": "ILLEGAL",
+            "recreational": "LIMITED",
             "medical": "LIMITED",
-            "enforcement": "STRICT_CRIMINAL_PENALTIES",
+            "enforcement": "LIMITED",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -16174,7 +16174,7 @@
           }
         },
         "mismatch": {
-          "recreational": "MATCH",
+          "recreational": "MISMATCH",
           "medical": "MISMATCH",
           "enforcement": "UNKNOWN"
         },
@@ -27449,9 +27449,9 @@
         "enforcement": "STRICT"
       },
       "officialStatus": {
-        "recreational": "CURRENT_CANNABIS_SPECIFIC_RECREATIONAL_STATUS_UNCONFIRMED_HISTORIC_PROHIBITION_NOT_CURRENT_FORCE_PROVEN",
-        "medical": "CURRENT_GENERIC_NARCOTIC_MEDICINE_PRESCRIPTION_AND_IMPORT_FRAMEWORK_CANNABIS_SPECIFIC_APPLICABILITY_UNPROVEN",
-        "enforcement": "CURRENT_CANNABIS_SPECIFIC_ENFORCEMENT_UNCONFIRMED"
+        "recreational": "CURRENT_STATUS_UNCONFIRMED_HISTORIC_CANNABIS_SPECIFIC_RESTRICTIONS_VISUALLY_PROVEN",
+        "medical": "CURRENT_STATUS_UNCONFIRMED_HISTORIC_PRESCRIPTION_EXCEPTION_AND_CURRENT_GENERIC_NARCOTIC_PRESCRIPTION_FRAMEWORK",
+        "enforcement": "UNCONFIRMED_CURRENT_CANNABIS_SPECIFIC_ENFORCEMENT"
       },
       "independentTruth": {
         "color": "UNKNOWN",
@@ -27669,7 +27669,7 @@
           "source": "DIRECT_OFFICIAL_LAW",
           "axis": {
             "recreational": "UNKNOWN",
-            "medical": "LIMITED",
+            "medical": "UNKNOWN",
             "enforcement": "UNKNOWN",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
@@ -27690,7 +27690,7 @@
           "source": "OFFICIAL_TEXT_DERIVED",
           "axis": {
             "recreational": "UNKNOWN",
-            "medical": "LIMITED",
+            "medical": "UNKNOWN",
             "enforcement": "UNKNOWN",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
@@ -27734,7 +27734,7 @@
         },
         "mismatch": {
           "recreational": "UNKNOWN",
-          "medical": "MISMATCH",
+          "medical": "UNKNOWN",
           "enforcement": "UNKNOWN"
         },
         "trust": "HIGH"
@@ -29119,7 +29119,7 @@
       },
       "officialStatus": {
         "recreational": "ILLEGAL",
-        "medical": "NONE_CURRENT_PATIENT_ACCESS_NOT_CONFIRMED_AFTER_TRANSITION",
+        "medical": "CURRENT_LIMITED_PRESCRIPTION_ONLY_CANNABIDIOL_PRODUCT_ROUTE; GENERAL_MEDICAL_CANNABIS_PROGRAMME_UNCONFIRMED",
         "enforcement": "MIXED_FIXED_FINE_OR_JUDICIAL"
       },
       "independentTruth": {
@@ -29436,7 +29436,7 @@
           "source": "DIRECT_OFFICIAL_LAW",
           "axis": {
             "recreational": "ILLEGAL",
-            "medical": "LIMITED",
+            "medical": "UNKNOWN",
             "enforcement": "MIXED_FIXED_FINE_OR_JUDICIAL",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
@@ -29457,7 +29457,7 @@
           "source": "OFFICIAL_TEXT_DERIVED",
           "axis": {
             "recreational": "ILLEGAL",
-            "medical": "LIMITED",
+            "medical": "UNKNOWN",
             "enforcement": "MIXED_FIXED_FINE_OR_JUDICIAL",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
@@ -29501,7 +29501,7 @@
         },
         "mismatch": {
           "recreational": "MATCH",
-          "medical": "MATCH",
+          "medical": "UNKNOWN",
           "enforcement": "UNKNOWN"
         },
         "trust": "HIGH"
@@ -29834,9 +29834,9 @@
         "enforcement": "STRICT"
       },
       "officialStatus": {
-        "recreational": "ILLEGAL_GENERAL_PAKALOLO_CONDUCT",
-        "medical": "LIMITED_REGULATED_CANNABIS_PRODUCTS_AND_MEDICINES",
-        "enforcement": "STRICT_OUTSIDE_AUTHORIZED_PRODUCT_SCOPE"
+        "recreational": "ILLEGAL; DIRECTION_DE_LA_SANTE_VISIBLY_STATES_THAT_CONSUMING_PLANTING_FABRICATING_TRANSPORTING_GIVING_SELLING_IMPORTING_OR_EXPORTING_DROGUES_SUCH_AS_PAKALOLO_ARE_PROHIBITED_BY_LAW_WITH_ARRESTS_PROSECUTIONS_AND_SANCTIONS",
+        "medical": "PROJECT_NONE_IS_TOO_COARSE; OFFICIAL_ARASS_DGAE_NOTE_VISIBLY_REFERENCES_LOI_DU_PAYS_2024_19_AND_ARRETE_118_CM_2025_REGULATING_CANNABIS_WITHOUT_STUPEFIANT_PROPERTIES_AND_MEDICINES_CONTAINING_CANNABIS_OR_CANNABINOIDS_AND_VISIBLY_LISTS_AUTHORIZED_CANNABIS_PRODUCTS_UNDER_THC_AND_CATEGORY_CONDITIONS",
+        "enforcement": "STRICT; GENERAL_PAKALOLO_DRUG_CONDUCT_IS_VISIBLY_PROHIBITED_BY_LAW_AND_THE_2025_ARASS_DGAE_NOTE_VISIBLY_SETS_FORMAL_IMPORT_PROFESSIONAL_DECLARATION_MANUFACTURING_PACKAGING_AND_LABELING_OBLIGATIONS_FOR_AUTHORIZED_CANNABIS_PRODUCTS"
       },
       "independentTruth": {
         "color": "YELLOW",
@@ -30014,7 +30014,7 @@
           "axis": {
             "recreational": "ILLEGAL",
             "medical": "LIMITED",
-            "enforcement": "STRICT_OUTSIDE_AUTHORIZED_PRODUCT_SCOPE",
+            "enforcement": "LIMITED",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -30035,7 +30035,7 @@
           "axis": {
             "recreational": "ILLEGAL",
             "medical": "LIMITED",
-            "enforcement": "STRICT_OUTSIDE_AUTHORIZED_PRODUCT_SCOPE",
+            "enforcement": "LIMITED",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -30109,9 +30109,9 @@
         "enforcement": "STRICT"
       },
       "officialStatus": {
-        "recreational": "ILLEGAL_CANNABIS_USE_UNDER_EXTENDED_FRENCH_PUBLIC_HEALTH_CODE",
-        "medical": "UNCONFIRMED_FOR_TAAF",
-        "enforcement": "MIXED_FIXED_FINE_OR_JUDICIAL"
+        "recreational": "OFFICIAL_TAAF_GUIDANCE_STATES_CANNABIS_USE_AND_POSSESSION_ILLEGAL_CURRENT_STATUTORY_BASIS_UNVERIFIED",
+        "medical": "UNKNOWN_NO_CURRENT_TAAF_PATIENT_ROUTE_OR_MEDICAL_NEGATIVE_RULE_VERIFIED",
+        "enforcement": "OFFICIAL_GUIDANCE_STATES_PROSECUTION_CURRENT_STATUTORY_PENALTY_UNVERIFIED"
       },
       "independentTruth": {
         "color": "UNKNOWN",
@@ -30597,8 +30597,8 @@
           "source": "DIRECT_OFFICIAL_LAW",
           "axis": {
             "recreational": "ILLEGAL",
-            "medical": "UNKNOWN",
-            "enforcement": "MIXED_FIXED_FINE_OR_JUDICIAL",
+            "medical": "LIMITED",
+            "enforcement": "OFFICIAL_GUIDANCE_STATES_PROSECUTION_CURRENT_STATUTORY_PENALTY_UNVERIFIED",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -30618,8 +30618,8 @@
           "source": "OFFICIAL_TEXT_DERIVED",
           "axis": {
             "recreational": "ILLEGAL",
-            "medical": "UNKNOWN",
-            "enforcement": "MIXED_FIXED_FINE_OR_JUDICIAL",
+            "medical": "LIMITED",
+            "enforcement": "OFFICIAL_GUIDANCE_STATES_PROSECUTION_CURRENT_STATUTORY_PENALTY_UNVERIFIED",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -30662,7 +30662,7 @@
         },
         "mismatch": {
           "recreational": "MATCH",
-          "medical": "UNKNOWN",
+          "medical": "MISMATCH",
           "enforcement": "UNKNOWN"
         },
         "trust": "HIGH"
@@ -37768,9 +37768,9 @@
         "enforcement": "STRICT"
       },
       "officialStatus": {
-        "recreational": "ILLEGAL_WITH_CURRENT_MISDEMEANOR_POSSESSION_ENFORCEMENT",
-        "medical": "NONE_MARIJUANA_IS_SCHEDULE_I_WITH_NO_ACCEPTED_MEDICAL_USE",
-        "enforcement": "STRICT_CURRENT_CLASS_A_OR_B_MISDEMEANOR_POSSESSION_CHARGES"
+        "recreational": "CURRENT_OFFICIAL_COURT_CONFIRMS_MARIJUANA_POSSESSION_ILLEGAL",
+        "medical": "CURRENT_OFFICIAL_MARIJUANA_SCHEDULE_I_AND_NONRESEARCH_PRESCRIBER_ROUTE_NOT_AVAILABLE",
+        "enforcement": "CURRENT_STATEWIDE_JUDICIAL_INTERPRETATION_NOT_MUNICIPAL_POLICY"
       },
       "independentTruth": {
         "color": "RED",
@@ -38087,7 +38087,7 @@
           "axis": {
             "recreational": "ILLEGAL",
             "medical": "LIMITED",
-            "enforcement": "STRICT_CURRENT_CLASS_A_OR_B_MISDEMEANOR_POSSESSION_CHARGES",
+            "enforcement": "CURRENT_STATEWIDE_JUDICIAL_INTERPRETATION_NOT_MUNICIPAL_POLICY",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -38108,7 +38108,7 @@
           "axis": {
             "recreational": "ILLEGAL",
             "medical": "LIMITED",
-            "enforcement": "STRICT_CURRENT_CLASS_A_OR_B_MISDEMEANOR_POSSESSION_CHARGES",
+            "enforcement": "CURRENT_STATEWIDE_JUDICIAL_INTERPRETATION_NOT_MUNICIPAL_POLICY",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -38599,9 +38599,9 @@
         "enforcement": "STRICT"
       },
       "officialStatus": {
-        "recreational": "ILLEGAL_OUTSIDE_CHAPTER_124E_MEDICAL_EXCEPTIONS",
-        "medical": "LIMITED_REGULATED_MEDICAL_CANNABIS_PROGRAM",
-        "enforcement": "STRICT_JAIL_OR_FINE_FOR_UNLAWFUL_MARIJUANA_POSSESSION"
+        "recreational": "CURRENT_RECREATIONAL_MARIJUANA_POSSESSION_PROHIBITED_OUTSIDE_CHAPTER_124E_MEDICAL_CANNABIS_EXCEPTION",
+        "medical": "CURRENT_OPERATIONAL_MEDICAL_CANNABIS_PATIENT_ACCESS_CERTIFICATION_REGISTRATION_CARD_AND_LICENSED_DISPENSING",
+        "enforcement": "CURRENT_MARIJUANA_POSSESSION_PENALTY_OUTSIDE_CHAPTER_124E_WITH_PROTECTED_REGISTERED_PATIENT_EXCEPTION"
       },
       "independentTruth": {
         "color": "GREEN",
@@ -38907,9 +38907,9 @@
         "primaryLaw": {
           "source": "DIRECT_OFFICIAL_LAW",
           "axis": {
-            "recreational": "ILLEGAL",
+            "recreational": "LIMITED",
             "medical": "LIMITED",
-            "enforcement": "STRICT_JAIL_OR_FINE_FOR_UNLAWFUL_MARIJUANA_POSSESSION",
+            "enforcement": "LIMITED",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -38928,9 +38928,9 @@
         "legalInterpretation": {
           "source": "OFFICIAL_TEXT_DERIVED",
           "axis": {
-            "recreational": "ILLEGAL",
+            "recreational": "LIMITED",
             "medical": "LIMITED",
-            "enforcement": "STRICT_JAIL_OR_FINE_FOR_UNLAWFUL_MARIJUANA_POSSESSION",
+            "enforcement": "LIMITED",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -38972,7 +38972,7 @@
           }
         },
         "mismatch": {
-          "recreational": "MATCH",
+          "recreational": "MISMATCH",
           "medical": "MATCH",
           "enforcement": "UNKNOWN"
         },
@@ -40086,7 +40086,7 @@
         "enforcement": "STRICT"
       },
       "officialStatus": {
-        "recreational": "ILLEGAL_UNLESS_AUTHORIZED_UNDER_MISUSE_OF_DRUGS_ACT",
+        "recreational": "UNCONFIRMED_BY_THIS_PAGE",
         "medical": "LIMITED_PRESCRIPTION_AND_DISPENSING_WITH_IMPORT_LICENSING",
         "enforcement": "STRICT_CRIMINAL_OFFENCE_OUTSIDE_AUTHORIZATION"
       },
@@ -40180,7 +40180,7 @@
         "primaryLaw": {
           "source": "DIRECT_OFFICIAL_LAW",
           "axis": {
-            "recreational": "ILLEGAL",
+            "recreational": "UNKNOWN",
             "medical": "LIMITED",
             "enforcement": "STRICT_CRIMINAL_OFFENCE_OUTSIDE_AUTHORIZATION",
             "industrial_use": "UNKNOWN",
@@ -40201,7 +40201,7 @@
         "legalInterpretation": {
           "source": "OFFICIAL_TEXT_DERIVED",
           "axis": {
-            "recreational": "ILLEGAL",
+            "recreational": "UNKNOWN",
             "medical": "LIMITED",
             "enforcement": "STRICT_CRIMINAL_OFFENCE_OUTSIDE_AUTHORIZATION",
             "industrial_use": "UNKNOWN",
@@ -40245,7 +40245,7 @@
           }
         },
         "mismatch": {
-          "recreational": "MATCH",
+          "recreational": "UNKNOWN",
           "medical": "MISMATCH",
           "enforcement": "UNKNOWN"
         },
@@ -45521,7 +45521,7 @@
       },
       "officialStatus": {
         "recreational": "CANNABIS_CULTIVATION_PROHIBITED_EXCEPT_INDUSTRIAL_HEMP",
-        "medical": "NONE_NO_PATIENT_CANNABIS_ACCESS_CONFIRMED",
+        "medical": "NO_PATIENT_CANNABIS_ACCESS_CONFIRMED; RESEARCH_AND_TEACHING_PERMIT_SCOPE_EXISTS",
         "enforcement": "STRICT_CRIMINAL_CULTIVATION_OFFENCE"
       },
       "independentTruth": {
@@ -48111,9 +48111,9 @@
         "enforcement": "STRICT"
       },
       "officialStatus": {
-        "recreational": "ILLEGAL_WITH_CRIMINAL_PENALTIES_FOR_UNAUTHORIZED_USE_POSSESSION_CULTIVATION_AND_TRAFFICKING",
-        "medical": "LIMITED_AUTHORIZATION_FOR_THERAPEUTIC_USE_OF_TABLE_I_TO_IV_SUBSTANCES_INCLUDING_TABLE_I_C_CANNABIS",
-        "enforcement": "STRICT_CRIMINAL_PENALTIES_OUTSIDE_AUTHORIZATION"
+        "recreational": "ILLEGAL_WITH_CURRENT_CRIMINAL_PENALTIES_OUTSIDE_AUTHORIZATION",
+        "medical": "CURRENT_ENTITY_LEVEL_THERAPEUTIC_AUTHORIZATION_FOR_TABLE_I_C_CANNABIS; NO_PATIENT_PROGRAMME_PROVED",
+        "enforcement": "CURRENT_CRIMINAL_ENFORCEMENT_OUTSIDE_AUTHORIZATION"
       },
       "independentTruth": {
         "color": "YELLOW",
@@ -48229,7 +48229,7 @@
           "axis": {
             "recreational": "ILLEGAL",
             "medical": "LIMITED",
-            "enforcement": "STRICT_CRIMINAL_PENALTIES_OUTSIDE_AUTHORIZATION",
+            "enforcement": "CURRENT_CRIMINAL_ENFORCEMENT_OUTSIDE_AUTHORIZATION",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -48250,7 +48250,7 @@
           "axis": {
             "recreational": "ILLEGAL",
             "medical": "LIMITED",
-            "enforcement": "STRICT_CRIMINAL_PENALTIES_OUTSIDE_AUTHORIZATION",
+            "enforcement": "CURRENT_CRIMINAL_ENFORCEMENT_OUTSIDE_AUTHORIZATION",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -71608,9 +71608,9 @@
         "enforcement": "STRICT"
       },
       "officialStatus": {
-        "recreational": "ILLEGAL_CANNABIS_USE_UNDER_APPLICABLE_FRENCH_LAW",
-        "medical": "NONE_CURRENT_PATIENT_ACCESS_NOT_CONFIRMED_AFTER_TRANSITION_ENDED_2026_03_31",
-        "enforcement": "MIXED_FIXED_FINE_OR_JUDICIAL_WITH_CURRENT_TERRITORY_CANNABIS_CONTEXT"
+        "recreational": "CURRENT_APPLICABLE_CANNABIS_USE_AND_OPERATIONS_PROHIBITED_BY_FRENCH_PUBLIC_HEALTH_CODE",
+        "medical": "CURRENT_APPLICABLE_CANNABIS_FAMILY_PRESCRIPTION_PRODUCT_EXCEPTION_WITHOUT_PROVEN_OPERATIONAL_BL_PATIENT_ACCESS",
+        "enforcement": "ILLICIT_USE_REMAINS_AN_OFFENCE; FIXED_FINE_ALTERNATIVE_IS_NOT_DECRIMINALIZATION"
       },
       "independentTruth": {
         "color": "YELLOW",
@@ -72039,9 +72039,9 @@
         "primaryLaw": {
           "source": "OFFICIAL_SEMANTIC_LAW_PENDING_VISUAL_ACCEPTANCE",
           "axis": {
-            "recreational": "ILLEGAL",
+            "recreational": "CURRENT_APPLICABLE_CANNABIS_USE_AND_OPERATIONS_PROHIBITED_BY_FRENCH_PUBLIC_HEALTH_CODE",
             "medical": "LIMITED",
-            "enforcement": "MIXED_FIXED_FINE_OR_JUDICIAL_WITH_CURRENT_TERRITORY_CANNABIS_CONTEXT",
+            "enforcement": "DECRIMINALIZED",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -72060,9 +72060,9 @@
         "legalInterpretation": {
           "source": "OFFICIAL_TEXT_DERIVED",
           "axis": {
-            "recreational": "ILLEGAL",
+            "recreational": "CURRENT_APPLICABLE_CANNABIS_USE_AND_OPERATIONS_PROHIBITED_BY_FRENCH_PUBLIC_HEALTH_CODE",
             "medical": "LIMITED",
-            "enforcement": "MIXED_FIXED_FINE_OR_JUDICIAL_WITH_CURRENT_TERRITORY_CANNABIS_CONTEXT",
+            "enforcement": "DECRIMINALIZED",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -72104,7 +72104,7 @@
           }
         },
         "mismatch": {
-          "recreational": "MATCH",
+          "recreational": "UNKNOWN",
           "medical": "MISMATCH",
           "enforcement": "UNKNOWN"
         },
@@ -73230,9 +73230,9 @@
         "enforcement": "STRICT"
       },
       "officialStatus": {
-        "recreational": "ILLEGAL_CANNABIS_USE_UNDER_APPLICABLE_FRENCH_LAW",
-        "medical": "NONE_CURRENT_PATIENT_ACCESS_NOT_CONFIRMED_AFTER_TRANSITION_ENDED_2026_03_31",
-        "enforcement": "MIXED_FIXED_FINE_OR_JUDICIAL_WITH_CURRENT_TERRITORY_CANNABIS_CONTEXT"
+        "recreational": "ILLEGAL_CANNABIS_USE_UNDER_CURRENT_APPLICABLE_FRENCH_LAW",
+        "medical": "CURRENT_PRESCRIPTION_ONLY_CANNABIDIOL_PHARMACEUTICAL_PRODUCT; NO_CURRENT_GENERAL_MEDICAL_CANNABIS_PROGRAM_PROVED",
+        "enforcement": "FIXED_FINE_OR_JUDICIAL_FOR_ILLICIT_USE; NOT_DECRIMINALISATION"
       },
       "independentTruth": {
         "color": "YELLOW",
@@ -73547,7 +73547,7 @@
           "axis": {
             "recreational": "ILLEGAL",
             "medical": "LIMITED",
-            "enforcement": "MIXED_FIXED_FINE_OR_JUDICIAL_WITH_CURRENT_TERRITORY_CANNABIS_CONTEXT",
+            "enforcement": "DECRIMINALIZED",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -73568,7 +73568,7 @@
           "axis": {
             "recreational": "ILLEGAL",
             "medical": "LIMITED",
-            "enforcement": "MIXED_FIXED_FINE_OR_JUDICIAL_WITH_CURRENT_TERRITORY_CANNABIS_CONTEXT",
+            "enforcement": "DECRIMINALIZED",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -73660,9 +73660,9 @@
         "enforcement": "STRICT"
       },
       "officialStatus": {
-        "recreational": "ILLEGAL_CANNABIS_USE_UNDER_APPLICABLE_FRENCH_LAW",
-        "medical": "NONE_CURRENT_PATIENT_ACCESS_NOT_CONFIRMED_AFTER_TRANSITION_ENDED_2026_03_31",
-        "enforcement": "MIXED_FIXED_FINE_OR_JUDICIAL_WITH_LOCAL_CANNABIS_TRAFFICKING_ENFORCEMENT"
+        "recreational": "ILLEGAL_CANNABIS_USE_UNDER_APPLICABLE_FRENCH_PUBLIC_HEALTH_CODE_FIXED_FINE_IS_PROCEDURAL_NOT_DECRIMINALIZATION",
+        "medical": "CURRENT_CANNABIDIOL_PHARMACEUTICAL_PRODUCT_ONLY_NO_GENERAL_MEDICAL_CANNABIS_PROGRAM_PROVED",
+        "enforcement": "CURRENT_CRIMINAL_PROHIBITION_WITH_OPTIONAL_AMENDE_FORFAITAIRE_DELICTUELLE_PROCEDURE"
       },
       "independentTruth": {
         "color": "YELLOW",
@@ -73983,7 +73983,7 @@
           "axis": {
             "recreational": "ILLEGAL",
             "medical": "LIMITED",
-            "enforcement": "MIXED_FIXED_FINE_OR_JUDICIAL_WITH_LOCAL_CANNABIS_TRAFFICKING_ENFORCEMENT",
+            "enforcement": "CURRENT_CRIMINAL_PROHIBITION_WITH_OPTIONAL_AMENDE_FORFAITAIRE_DELICTUELLE_PROCEDURE",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -74004,7 +74004,7 @@
           "axis": {
             "recreational": "ILLEGAL",
             "medical": "LIMITED",
-            "enforcement": "MIXED_FIXED_FINE_OR_JUDICIAL_WITH_LOCAL_CANNABIS_TRAFFICKING_ENFORCEMENT",
+            "enforcement": "CURRENT_CRIMINAL_PROHIBITION_WITH_OPTIONAL_AMENDE_FORFAITAIRE_DELICTUELLE_PROCEDURE",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -85230,29 +85230,52 @@
         "enforcement": "SOFT"
       },
       "officialStatus": {
-        "recreational": "ILLEGAL_CANNABIS_CULTIVATION_AND_UNAUTHORIZED_NARCOTIC_POSSESSION_OR_TRADE",
-        "medical": "LIMITED_GENERAL_MEDICAL_PRESCRIPTION_AND_MINISTERIAL_AUTHORIZATION_FRAMEWORK_NO_SPECIFIC_CANNABIS_PRODUCT_AVAILABILITY_PROVEN",
-        "enforcement": "STRICT_CRIMINAL_ENFORCEMENT"
+        "recreational": "CURRENT_CANNABIS_ENFORCEMENT_REPORTED_BUT_CURRENT_PRIMARY_CANNABIS_SCHEDULE_AND_FULL_APPLICABLE_REGIME_UNRESOLVED",
+        "medical": "GENERIC_NARCOTIC_PRESCRIPTION_AND_MINISTERIAL_AUTHORIZATION_TEXT_ONLY_NOT_CANNABIS_PATIENT_ACCESS",
+        "enforcement": "CURRENT_CANNABIS_CULTIVATION_SEIZURE_AND_JUDICIAL_REFERRAL_REPORTED_NO_COMPLETE_PRIMARY_LEGAL_CHAIN"
       },
-      "independentTruth": null,
+      "independentTruth": {
+        "color": "UNKNOWN",
+        "rule": "GENERAL_CURRENT_NARCOTIC_LAW_WITH_CANNABIS_ENFORCEMENT_CONTEXT_AND_NO_CURRENT_CANNABIS_SCHEDULE_BRIDGE",
+        "reviewedAt": "2026-08-12T12:07:02+03:00",
+        "conclusion": "The 1993 Government-communicated law text has generic prescription, pharmacist, pharmaceutical-manufacture and Ministerial-authorisation provisions plus a Schedule 4 plant prohibition. The official 2026 decree confirms current citation of Law No. 2 of 1993, and the official 2025 SANA report directly identifies cannabis cultivation as producing narcotic hashish and reports a judicial referral. However, no current official primary source was located that directly connects cannabis to the applicable Schedule 4 text, states the legal article applied to the cannabis enforcement case, or proves a cannabis-specific medical/patient route. General controlled-drug wording, generic treatment reporting and generic pharmaceutical authorisation neither create nor negate patient access. Therefore this is an explicit proposal-only UNKNOWN, not RED, YELLOW or GREEN."
+      },
       "directOfficialCannabisLawLinks": [
         {
           "title": "Syria Narcotic Drugs Law No.2/1993 communicated by the Government of Syria",
           "url": "https://digitallibrary.un.org/record/190631/files/e-nl-1994-57-e.pdf",
           "sourceKind": "OFFICIAL_UN_GOVERNMENT_COMMUNICATED_DIRECT_NARCOTIC_AND_MEDICAL_PRESCRIPTION_LAW",
+          "sourceOwnerGeo": "SY",
+          "appliesToGeos": [
+            "SY"
+          ],
+          "legalBasisForExtension": "Direct Syrian national Narcotic Drugs Law text communicated by its Government; the current SANA decree separately cites Law No. 2 of 1993 but does not republish its schedules.",
+          "officialPublisher": "Official UN Digital Library legislative-text record communicated by the Government of Syria.",
+          "sourceAnnotation": "Primary Syrian narcotics-law record retained with direct PDF page links and current-law continuity context. It supplies the historic legal mechanism, but general prescriptions, pharmaceutical manufacture and Ministerial authorisation cannot be promoted into patient eligibility, cannabis prescribing, supply, dispensing or programme operation. The missing current cannabis-to-Schedule-4 bridge is explicitly preserved.",
+          "sourceType": "HISTORICAL_PRIMARY_NARCOTIC_DRUGS_LAW_PDF_COMMUNICATED_BY_SYRIAN_GOVERNMENT",
+          "primaryOrContext": "HISTORICAL_PRIMARY_LAW_TEXT_WITH_CURRENT_LAW_CONTINUITY_BRIDGE_NOT_A_CURRENT_CANNABIS_SCHEDULE",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "cannabisFragmentVisible": false,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T09:06:36.274Z",
             "final_url": "https://digitallibrary.un.org/record/190631/files/e-nl-1994-57-e.pdf",
-            "http_status": null,
+            "http_status": 202,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 2003,
+            "document_sha256": "f5456d4d73059c6eab23459a972c1ad06c03e30fcd808ad1e16d6f9a8c09105e",
+            "relevant_fragment_sha256": "578d09ac4593b8b523c4fed9b7b8d9fe31d89c00051b905704f67052f5a56ecd",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "WAF_OR_CHALLENGE",
+            "change_reason": "WAF_OR_CHALLENGE_IS_ACCESS_STATE_ONLY",
             "queue": [
               "C2",
               "C3"
@@ -85264,32 +85287,47 @@
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Law No.2/1993, официально переданный Government of Syria в UN, визуально показывает medical prescription, patient possession и ministerial authorization framework для narcotic medicines и отдельный запрет выращивания Schedule 4 plants. Свежая SANA визуально показывает задержание за выращивание القنّب для производства narcotic hashish, а SANA 2026 подтверждает продолжающее действие Law No.2/1993. Это жёлтый только как общий разрешительно-рецептурный режим для narcotic medicines; конкретный cannabis medicine и его фактическая доступность не доказаны.",
+          "note": "Article 15 permits licensed physicians to prescribe narcotic drugs only for medical treatment; Article 16 permits narrowly defined emergency medical possession. Article 28 permits pharmaceutical manufacture of preparations containing narcotics after written Ministerial authorisation. Article 30 prohibits cultivation, import, export, transport, possession, purchase, sale and related conduct for plants specified in Schedule 4. The retained pages do not themselves name cannabis in Schedule 4.",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/SY-law-medical-prescriptions.jpg",
           "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "Law No.2/1993, официально переданный Government of Syria в UN, визуально показывает medical prescription, patient possession и ministerial authorization framework для narcotic medicines и отдельный запрет выращивания Schedule 4 plants. Свежая SANA визуально показывает задержание за выращивание القنّب для производства narcotic hashish, а SANA 2026 подтверждает продолжающее действие Law No.2/1993. Это жёлтый только как общий разрешительно-рецептурный режим для narcotic medicines; конкретный cannabis medicine и его фактическая доступность не доказаны."
+          "visualReview": "Retained official PDF crops visibly show Articles 12-16 and 27-30. They show generic narcotic medical/pharmaceutical provisions and a Schedule 4 plant rule, not a direct cannabis Schedule 4 entry or patient programme."
         },
         {
           "title": "SANA current cannabis cultivation arrest and enforcement",
           "url": "https://sana.sy/locals/2303302/",
           "sourceKind": "SYRIAN_OFFICIAL_NEWS_CURRENT_DIRECT_CANNABIS_ENFORCEMENT",
+          "sourceOwnerGeo": "SY",
+          "appliesToGeos": [
+            "SY"
+          ],
+          "legalBasisForExtension": "Direct Syrian official state-agency report of conduct, seizure and referral within Syria; it is enforcement context, not a primary-law publication.",
+          "officialPublisher": "Official Syrian state news agency publication, attributed in the article to the Ministry of Interior.",
+          "sourceAnnotation": "Current official cannabis-specific enforcement record. It establishes that SANA/MOI publicly reports cannabis cultivation, narcotic-hashish linkage and a judicial referral in Syria. It does not identify the legal article applied, a current statutory schedule, a patient exception or a lawful cannabis medicine route; it is never used alone for RED, YELLOW or a patient axis.",
+          "sourceType": "CURRENT_OFFICIAL_CANNABIS_SPECIFIC_ENFORCEMENT_REPORT",
+          "primaryOrContext": "CURRENT_CANNABIS_ENFORCEMENT_CONTEXT_NOT_PRIMARY_LEGAL_TEXT",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": false,
+          "officialHostVerified": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T09:06:36.274Z",
             "final_url": "https://sana.sy/locals/2303302",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
-            "queue": [
-              "C2",
-              "C3"
-            ],
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 136620,
+            "document_sha256": "600e309947cd29406aa3f8a6ea7ef6e207cf6d64aeb7bc409c8f845b6a851d63",
+            "relevant_fragment_sha256": "6ea3f1c8c0f5753a402752348f7645a915435fff1741345dd20cf349c7c9f5d0",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_200_DOCUMENT_SHA256_UNCHANGED",
+            "queue": [],
             "dependent_geos": [
               "SY"
             ]
@@ -85297,32 +85335,47 @@
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Law No.2/1993, официально переданный Government of Syria в UN, визуально показывает medical prescription, patient possession и ministerial authorization framework для narcotic medicines и отдельный запрет выращивания Schedule 4 plants. Свежая SANA визуально показывает задержание за выращивание القنّب для производства narcotic hashish, а SANA 2026 подтверждает продолжающее действие Law No.2/1993. Это жёлтый только как общий разрешительно-рецептурный режим для narcotic medicines; конкретный cannabis medicine и его фактическая доступность не доказаны.",
+          "note": "\"مزرعة تُزرع فيها نباتات القنّب ... وألقي القبض على أصحابها وأحيلوا إلى القضاء المختص\" and \"نبات القنّب الذي يستخدم في إنتاج مادة الحشيش المخدرة\".",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/SY-current-cannabis-enforcement.jpg",
           "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "Law No.2/1993, официально переданный Government of Syria в UN, визуально показывает medical prescription, patient possession и ministerial authorization framework для narcotic medicines и отдельный запрет выращивания Schedule 4 plants. Свежая SANA визуально показывает задержание за выращивание القنّب для производства narcotic hashish, а SANA 2026 подтверждает продолжающее действие Law No.2/1993. Это жёлтый только как общий разрешительно-рецептурный режим для narcotic medicines; конкретный cannabis medicine и его фактическая доступность не доказаны."
+          "visualReview": "Retained official SANA capture and current hidden retrieval show the SANA article, cannabis-cultivation wording, narcotic-hashish terminology and judicial-referral report. They do not show a statutory article or a patient exception."
         },
         {
           "title": "SANA 2026 decree confirming current Narcotic Drugs Law No.2/1993",
           "url": "https://sana.sy/presidency/2407527/",
           "sourceKind": "SYRIAN_PRESIDENCY_CURRENT_LAW_STATUS",
+          "sourceOwnerGeo": "SY",
+          "appliesToGeos": [
+            "SY"
+          ],
+          "legalBasisForExtension": "Direct Syrian official publication of a national presidential decree; it expressly cites current Articles 39-43 of Syrian Narcotic Drugs Law No. 2 of 1993.",
+          "officialPublisher": "Official Syrian state news agency publication of Presidential Decree No. 39 of 2026.",
+          "sourceAnnotation": "Current official law-continuity record. It supports the fact that Law No. 2 of 1993 remains cited in a 2026 national decree. It does not fill the missing cannabis-to-Schedule-4 bridge, does not convert generic medical language into cannabis access, and cannot itself derive a colour.",
+          "sourceType": "CURRENT_OFFICIAL_PRESIDENTIAL_DECREE_LAW_CONTINUITY_CONTEXT",
+          "primaryOrContext": "CURRENT_PRIMARY_DECREE_PUBLICATION_FOR_LAW_CONTINUITY_NOT_CANNABIS_SPECIFIC_SUBSTANTIVE_RULE",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "cannabisFragmentVisible": false,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T09:06:36.274Z",
             "final_url": "https://sana.sy/presidency/2407527",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
-            "queue": [
-              "C2",
-              "C3"
-            ],
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 147340,
+            "document_sha256": "af83092171c5f0c6070e5ff44731b6518453fda17b82a20b0a1800c44913de96",
+            "relevant_fragment_sha256": "fcc9324ebe449c06b8cf3072019e10f28465a791919dc8be9d849656760a61e1",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_200_DOCUMENT_SHA256_UNCHANGED",
+            "queue": [],
             "dependent_geos": [
               "SY"
             ]
@@ -85330,10 +85383,10 @@
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Law No.2/1993, официально переданный Government of Syria в UN, визуально показывает medical prescription, patient possession и ministerial authorization framework для narcotic medicines и отдельный запрет выращивания Schedule 4 plants. Свежая SANA визуально показывает задержание за выращивание القنّب для производства narcotic hashish, а SANA 2026 подтверждает продолжающее действие Law No.2/1993. Это жёлтый только как общий разрешительно-рецептурный режим для narcotic medicines; конкретный cannabis medicine и его фактическая доступность не доказаны.",
+          "note": "Article 3(b): \"الجناية المنصوص عليها بالمادة /43/ من قانون مكافحة المخدرات رقم /2/ لعام 1993\"; Article 8(z): \"الجنايات المنصوص عليها في المواد /39-40-41-42/ من قانون مكافحة المخدرات رقم /2/ لعام 1993\"; Article 15: \"يُعد نافذاً من تاريخ صدوره\".",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/SY.jpg",
           "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "Law No.2/1993, официально переданный Government of Syria в UN, визуально показывает medical prescription, patient possession и ministerial authorization framework для narcotic medicines и отдельный запрет выращивания Schedule 4 plants. Свежая SANA визуально показывает задержание за выращивание القنّب для производства narcotic hashish, а SANA 2026 подтверждает продолжающее действие Law No.2/1993. Это жёлтый только как общий разрешительно-рецептурный режим для narcotic medicines; конкретный cannabis medicine и его фактическая доступность не доказаны."
+          "visualReview": "Retained official SANA Presidency capture visibly shows the 2026 decree and Law No. 2 of 1993 article citations. It is a law-continuity record, not a cannabis schedule or patient-law capture."
         }
       ],
       "candidateLinksAwaitingVisualReview": [],
@@ -85342,23 +85395,38 @@
           "title": "Syrian Arab News Agency - Damascus and Rural Damascus judiciary drug-control policy under Law No. 2 of 1993",
           "url": "https://sana.sy/locals/2254495/",
           "sourceKind": "PRESERVED_PREVIOUSLY_PUBLISHED_LINK_RECLASSIFIED_AS_CONTEXT_SYRIA_OFFICIAL_STATE_NEWS_CURRENT_NARCOTICS_LAW_2_1993_CONTEXT_NOT_CANNABIS_SPECIFIC_LAW_TEXT",
+          "sourceOwnerGeo": "SY",
+          "appliesToGeos": [
+            "SY"
+          ],
+          "legalBasisForExtension": "Direct Syrian official state-agency report of local judiciary practice; preserved as non-primary contextual evidence only.",
+          "officialPublisher": "Official Syrian state news agency report on Damascus and Rural Damascus judiciary policy.",
+          "sourceAnnotation": "Preserved anti-shrink official context source. Its generic consumer-treatment narrative is not cannabis patient eligibility, prescription, registration, lawful supply, pharmacy/dispensary access or programme operation. It remains context only and cannot change legal truth.",
+          "sourceType": "CURRENT_OFFICIAL_NARCOTICS_LAW_JUDICIARY_CONTEXT_REPORT",
+          "primaryOrContext": "CONTEXT_ONLY_GENERIC_NARCOTICS_TREATMENT_AND_JUDICIARY_REPORT",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "cannabisFragmentVisible": false,
+          "effectiveRuleVisible": false,
+          "officialHostVerified": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T09:06:36.274Z",
             "final_url": "https://sana.sy/locals/2254495",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
-            "queue": [
-              "C2",
-              "C3"
-            ],
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 136085,
+            "document_sha256": "e46ba7ff9c419b9aaec60584bc5fad3cf27bc38e801ba0f582866689e929954c",
+            "relevant_fragment_sha256": "376ac49cc8cb78bab3d6c9b89be473dfef11ae11d37748d2c8940ff69f0aab37",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_200_DOCUMENT_SHA256_UNCHANGED",
+            "queue": [],
             "dependent_geos": [
               "SY"
             ]
@@ -85373,12 +85441,12 @@
       ],
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
-      "differenceStatus": "PROJECT_COLOR_REVIEW_GENERAL_MEDICAL_NARCOTIC_FRAMEWORK_WITHOUT_SPECIFIC_PRODUCT_AVAILABILITY",
-      "differenceDescription": "Law No.2/1993, официально переданный Government of Syria в UN, визуально показывает medical prescription, patient possession и ministerial authorization framework для narcotic medicines и отдельный запрет выращивания Schedule 4 plants. Свежая SANA визуально показывает задержание за выращивание القنّب для производства narcotic hashish, а SANA 2026 подтверждает продолжающее действие Law No.2/1993. Это жёлтый только как общий разрешительно-рецептурный режим для narcotic medicines; конкретный cannabis medicine и его фактическая доступность не доказаны.",
+      "differenceStatus": "AXIS_MISMATCH_COLOR_UNCONFIRMED_PENDING_LIVE_MAP_REOPEN",
+      "differenceDescription": "Независимый пакет SY сохраняет четыре аннотированных официальных URL/PDF и подтверждает актуальную ссылку на Закон № 2/1993, а также текущий официальный cannabis/hashish enforcement context. Но найденные страницы не дают текущую первичную связку cannabis с Schedule 4 и не доказывают cannabis patient route. Поэтому результат только proposal-only UNKNOWN / LEGAL_APPLICABILITY_UNRESOLVED; доступ/WAF не является правовым выводом. Видимый слой продукта не открывался и не менялся.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
-      "strictVisualAcceptance": null,
+      "strictVisualAcceptance": false,
       "screenshotPaths": [
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/SY.jpg",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/grey-39-current/SY-law-medical-prescriptions.jpg",
@@ -85387,14 +85455,14 @@
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-25/SY/screenshots/SY-sana-law-2-1993-context.png"
       ],
       "reviewConfidence": "high",
-      "reviewNotes": "VISUALLY_VERIFIED: Law No.2/1993, официально переданный Government of Syria в UN, визуально показывает medical prescription, patient possession и ministerial authorization framework для narcotic medicines и отдельный запрет выращивания Schedule 4 plants. Свежая SANA визуально показывает задержание за выращивание القنّب для производства narcotic hashish, а SANA 2026 подтверждает продолжающее действие Law No.2/1993. Это жёлтый только как общий разрешительно-рецептурный режим для narcotic medicines; конкретный cannabis medicine и его фактическая доступность не доказаны.",
+      "reviewNotes": "VISUALLY_VERIFIED: Syria is structurally complete in the canonical 307-GEO ledger with four annotated official URL/PDF records, including page-level PDF links and exact fragments. Current official sources establish Law No. 2 of 1993 continuity and a cannabis/hashish enforcement report, but not the current primary cannabis-to-Schedule-4 bridge or a cannabis patient/supply instrument. The independent proposal is explicit UNKNOWN / LEGAL_APPLICABILITY_UNRESOLVED; it is not derived from the AWS WAF access state. SSOT, map, runtime, production and deployment remain unchanged.",
       "truthLayers": {
         "primaryLaw": {
           "source": "DIRECT_OFFICIAL_LAW",
           "axis": {
-            "recreational": "ILLEGAL",
+            "recreational": "CURRENT_CANNABIS_ENFORCEMENT_REPORTED_BUT_CURRENT_PRIMARY_CANNABIS_SCHEDULE_AND_FULL_APPLICABLE_REGIME_UNRESOLVED",
             "medical": "LIMITED",
-            "enforcement": "STRICT_CRIMINAL_ENFORCEMENT",
+            "enforcement": "LIMITED",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -85413,9 +85481,9 @@
         "legalInterpretation": {
           "source": "OFFICIAL_TEXT_DERIVED",
           "axis": {
-            "recreational": "ILLEGAL",
+            "recreational": "CURRENT_CANNABIS_ENFORCEMENT_REPORTED_BUT_CURRENT_PRIMARY_CANNABIS_SCHEDULE_AND_FULL_APPLICABLE_REGIME_UNRESOLVED",
             "medical": "LIMITED",
-            "enforcement": "STRICT_CRIMINAL_ENFORCEMENT",
+            "enforcement": "LIMITED",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -85429,7 +85497,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "Law No.2/1993, официально переданный Government of Syria в UN, визуально показывает medical prescription, patient possession и ministerial authorization framework для narcotic medicines и отдельный запрет выращивания Schedule 4 plants. Свежая SANA визуально показывает задержание за выращивание القنّب для производства narcotic hashish, а SANA 2026 подтверждает продолжающее действие Law No.2/1993. Это жёлтый только как общий разрешительно-рецептурный режим для narcotic medicines; конкретный cannabis medicine и его фактическая доступность не доказаны."
+          "notes": "Независимый пакет SY сохраняет четыре аннотированных официальных URL/PDF и подтверждает актуальную ссылку на Закон № 2/1993, а также текущий официальный cannabis/hashish enforcement context. Но найденные страницы не дают текущую первичную связку cannabis с Schedule 4 и не доказывают cannabis patient route. Поэтому результат только proposal-only UNKNOWN / LEGAL_APPLICABILITY_UNRESOLVED; доступ/WAF не является правовым выводом. Видимый слой продукта не открывался и не менялся."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -85457,7 +85525,7 @@
           }
         },
         "mismatch": {
-          "recreational": "MATCH",
+          "recreational": "UNKNOWN",
           "medical": "MISMATCH",
           "enforcement": "UNKNOWN"
         },
@@ -92142,9 +92210,9 @@
         "enforcement": "STRICT"
       },
       "officialStatus": {
-        "recreational": "CANNABIS_AND_CANNABIS_RESIN_PROHIBITED_FROM_CIRCULATION",
-        "medical": "NONE_CONFIRMED_FOR_LIST_I_CANNABIS",
-        "enforcement": "STRICT_CRIMINAL_THRESHOLD_FRAMEWORK"
+        "recreational": "CURRENT_LIST_I_CANNABIS_CIRCULATION_EXPRESSLY_PROHIBITED_WITH_CURRENT_CRIMINAL_CODE_PENALTIES",
+        "medical": "NO_LAWFUL_MEDICAL_CANNABIS_PATIENT_ROUTE_FOR_LIST_I_CANNABIS; LOW_THC_INDUSTRIAL_LICENSE_IS_NOT_PATIENT_ACCESS",
+        "enforcement": "CURRENT_CRIMINAL_CODE_ARTICLES_270_AND_276_PLUS_LIST_I_APPLICABILITY_CONFIRMED_BY_OFFICIAL_SUPREME_COURT_GUIDANCE"
       },
       "independentTruth": {
         "color": "RED",
@@ -92440,9 +92508,9 @@
         "primaryLaw": {
           "source": "DIRECT_OFFICIAL_LAW",
           "axis": {
-            "recreational": "CANNABIS_AND_CANNABIS_RESIN_PROHIBITED_FROM_CIRCULATION",
-            "medical": "NONE_CONFIRMED_FOR_LIST_I_CANNABIS",
-            "enforcement": "STRICT_CRIMINAL_THRESHOLD_FRAMEWORK",
+            "recreational": "CURRENT_LIST_I_CANNABIS_CIRCULATION_EXPRESSLY_PROHIBITED_WITH_CURRENT_CRIMINAL_CODE_PENALTIES",
+            "medical": "LIMITED",
+            "enforcement": "CURRENT_CRIMINAL_CODE_ARTICLES_270_AND_276_PLUS_LIST_I_APPLICABILITY_CONFIRMED_BY_OFFICIAL_SUPREME_COURT_GUIDANCE",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -92461,9 +92529,9 @@
         "legalInterpretation": {
           "source": "OFFICIAL_TEXT_DERIVED",
           "axis": {
-            "recreational": "CANNABIS_AND_CANNABIS_RESIN_PROHIBITED_FROM_CIRCULATION",
-            "medical": "NONE_CONFIRMED_FOR_LIST_I_CANNABIS",
-            "enforcement": "STRICT_CRIMINAL_THRESHOLD_FRAMEWORK",
+            "recreational": "CURRENT_LIST_I_CANNABIS_CIRCULATION_EXPRESSLY_PROHIBITED_WITH_CURRENT_CRIMINAL_CODE_PENALTIES",
+            "medical": "LIMITED",
+            "enforcement": "CURRENT_CRIMINAL_CODE_ARTICLES_270_AND_276_PLUS_LIST_I_APPLICABILITY_CONFIRMED_BY_OFFICIAL_SUPREME_COURT_GUIDANCE",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -92506,7 +92574,7 @@
         },
         "mismatch": {
           "recreational": "UNKNOWN",
-          "medical": "UNKNOWN",
+          "medical": "MISMATCH",
           "enforcement": "UNKNOWN"
         },
         "trust": "HIGH"
@@ -93200,9 +93268,9 @@
         "enforcement": "STRICT"
       },
       "officialStatus": {
-        "recreational": "DECRIMINALIZED_OR_LIMITED_PERSONAL_USE_UP_TO_20G_MARIJUANA",
-        "medical": "UNCONFIRMED_BY_REVIEWED_ARTICLES",
-        "enforcement": "MIXED_PERSONAL_DOSE_EXCLUDED_BUT_TRAFFICKING_STRICT"
+        "recreational": "UNVERIFIED_CURRENT_PRIMARY_CANNABIS_STATUS; CURRENT_STATE_MEDIA_ENFORCEMENT_CONTEXT_DOES_NOT_IDENTIFY_APPLICABLE_PROVISION_OR_EXCEPTIONS",
+        "medical": "UNVERIFIED_CURRENT_PATIENT_ACCESS; NO_DIRECT_PRIMARY_STATUTE_OR_OPERATIONAL_PROGRAMME_SOURCE_RETRIEVED",
+        "enforcement": "CURRENT_STATE_MEDIA_MARIJUANA_ENFORCEMENT_CONTEXT_ONLY_NOT_A_COMPLETE_LEGAL_AXIS"
       },
       "independentTruth": {
         "color": "UNKNOWN",
@@ -93505,9 +93573,9 @@
         "primaryLaw": {
           "source": "DIRECT_OFFICIAL_LAW",
           "axis": {
-            "recreational": "DECRIMINALIZED",
-            "medical": "UNKNOWN",
-            "enforcement": "MIXED_PERSONAL_DOSE_EXCLUDED_BUT_TRAFFICKING_STRICT",
+            "recreational": "UNVERIFIED_CURRENT_PRIMARY_CANNABIS_STATUS; CURRENT_STATE_MEDIA_ENFORCEMENT_CONTEXT_DOES_NOT_IDENTIFY_APPLICABLE_PROVISION_OR_EXCEPTIONS",
+            "medical": "LIMITED",
+            "enforcement": "CURRENT_STATE_MEDIA_MARIJUANA_ENFORCEMENT_CONTEXT_ONLY_NOT_A_COMPLETE_LEGAL_AXIS",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -93526,9 +93594,9 @@
         "legalInterpretation": {
           "source": "OFFICIAL_TEXT_DERIVED",
           "axis": {
-            "recreational": "DECRIMINALIZED",
-            "medical": "UNKNOWN",
-            "enforcement": "MIXED_PERSONAL_DOSE_EXCLUDED_BUT_TRAFFICKING_STRICT",
+            "recreational": "UNVERIFIED_CURRENT_PRIMARY_CANNABIS_STATUS; CURRENT_STATE_MEDIA_ENFORCEMENT_CONTEXT_DOES_NOT_IDENTIFY_APPLICABLE_PROVISION_OR_EXCEPTIONS",
+            "medical": "LIMITED",
+            "enforcement": "CURRENT_STATE_MEDIA_MARIJUANA_ENFORCEMENT_CONTEXT_ONLY_NOT_A_COMPLETE_LEGAL_AXIS",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -93570,8 +93638,8 @@
           }
         },
         "mismatch": {
-          "recreational": "MISMATCH",
-          "medical": "UNKNOWN",
+          "recreational": "UNKNOWN",
+          "medical": "MISMATCH",
           "enforcement": "UNKNOWN"
         },
         "trust": "HIGH"

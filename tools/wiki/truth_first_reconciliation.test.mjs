@@ -226,6 +226,33 @@ test("matrix publishes every annotated current-ledger source with revalidation a
   }
 });
 
+test("matrix keeps canonical ledger official status ahead of legacy supplemental patches", () => {
+  const ledger = JSON.parse(fs.readFileSync(
+    path.join(ROOT, "data", "official", "cannabis_law_visual_reviews.audit.json"),
+    "utf8",
+  ));
+  const matrix = JSON.parse(fs.readFileSync(
+    path.join(ROOT, "data", "reviews", "wiki-truth-cannabis-law-matrix-307.json"),
+    "utf8",
+  ));
+  const matrixByGeo = new Map(matrix.rows.map((entry) => [entry.geo, entry]));
+
+  for (const ledgerRow of ledger.rows.filter((entry) => entry.official_status)) {
+    const matrixRow = matrixByGeo.get(ledgerRow.geo);
+    assert(matrixRow, `${ledgerRow.geo}: matrix row`);
+    if (!matrixRow.officialStatus) continue;
+    for (const axis of ["recreational", "medical", "enforcement"]) {
+      const ledgerValue = ledgerRow.official_status?.[axis];
+      if (!ledgerValue) continue;
+      assert.equal(
+        matrixRow.officialStatus?.[axis],
+        ledgerValue,
+        `${ledgerRow.geo}:${axis}: canonical ledger official status projection`,
+      );
+    }
+  }
+});
+
 test("validated fresh primary-law axis findings remain direct matrix evidence", () => {
   const row = {
     truth: {

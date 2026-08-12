@@ -56,7 +56,7 @@ const SOURCE_COLLECTION_NAMES = new Set([
 ]);
 const EXCLUDED_SOURCE_PATH = /(?:^|\.)(?:source_access_states|source_access_attempts|source_reopen_attempts|official_source_access_log|current_source_reopen_attempts|attempted_official_sources|research_notes|fresh_official_search|visual_evidence|historical_visual_context|retained_context_sources|excluded_context_sources|supporting_nonofficial_reproductions)(?:\.|$)/i;
 const BLOCKED_HTTP_STATUSES = new Set([401, 403, 407, 408, 423, 429, 451, 502, 503, 504]);
-const WAF_OR_BLANK_RE = /cloudflare|captcha|access denied|request blocked|checking your browser|enable javascript and cookies|web application firewall|forbidden|blank viewer/i;
+const WAF_OR_BLANK_RE = /cloudflare|captcha|access denied|request blocked|checking your browser|enable javascript(?: and cookies)?|requires javascript|javascript is disabled|verify that you(?:'|’)re not a robot|not a robot|web application firewall|awswafintegration|aws waf|forbidden|blank viewer/i;
 const LEGAL_MUTATION_KEYS = new Set([
   "independent_truth_color",
   "independentTruthColor",
