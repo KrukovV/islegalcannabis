@@ -29,7 +29,7 @@
     "colorReauditDirectOrComposite": 31,
     "colorReauditContextClaimantOrNegative": 8,
     "supplementalOfficialLinks": 32,
-    "allPublishedOfficialLinks": 1388,
+    "allPublishedOfficialLinks": 1391,
     "rowsWithPublishedOfficialLinks": 307,
     "rowsWithAnyOfficialUrl": 307
   },
@@ -79695,29 +79695,52 @@
         "enforcement": "STRICT"
       },
       "officialStatus": {
-        "recreational": "ILLEGAL; NMRA_OFFICIAL_NARCOTIC_DRUGS_COMPILATION_VISIBLY_CONTAINS_SOMALIA_ACT_NO_46_1970_AND_CONVENTION_SCHEDULES_LISTING_CANNABIS_CANNABIS_RESIN_AND_EXTRACTS_TINCTURES_OF_CANNABIS_WITH_AUTHORIZATION_REQUIRED_FOR_CULTIVATION_IMPORT_EXPORT_ACQUISITION_SALE_USE_AND_POSSESSION_OF_OFFICIAL_LIST_NARCOTICS",
-        "medical": "NONE_OR_NOT_CONFIRMED_AS_CANNABIS_PATIENT_ACCESS; ACT_VISIBLY_ALLOWS_STATE_MEDICAL_ESTABLISHMENTS_AND_PHARMACIES_TO_HANDLE_NARCOTIC_DRUGS_AS_MEDICINES_OR_MEDICINAL_DOSES_AND_REQUIRES_AUTHORIZATIONS_REGISTERS_AND_RECORDS_BUT_NO_CANNABIS_SPECIFIC_PATIENT_ACCESS_OR_MEDICAL_CANNABIS_PROGRAM_WAS_VISUALLY_FOUND",
-        "enforcement": "STRICT_WITH_REGISTERED_MEDICAL_PHARMACY_AUTHORIZATION_CAVEAT; UNAUTHORIZED_IMPORT_EXPORT_TRANSIT_PRODUCTION_PROCESSING_ACQUISITION_SALE_USE_OR_POSSESSION_OF_OFFICIAL_LIST_NARCOTICS_IS_VISIBLY_PUNISHABLE_BY_RIGOROUS_IMPRISONMENT_AND_FINES_AND_SEIZED_DRUGS_MAY_BE_CONFISCATED"
+        "recreational": "LEGAL_APPLICABILITY_UNRESOLVED; ACT_NO_46_ARTICLES_3_TO_5_CONTROL_ONLY_SUBSTANCES_ON_A_DOMESTIC_HEALTH_DECREE_LIST. ATTACHED_TREATY_CANNABIS_TERMS_ARE_NOT_A_CURRENT_SOMALIA_LIST_DECREE.",
+        "medical": "LEGAL_APPLICABILITY_UNRESOLVED; ACT_NO_46_ARTICLES_15_TO_16_AND_CURRENT_NMRA_PAGES_ARE_GENERIC_NARCOTIC_PRESCRIPTION_PHARMACY_AND_REGULATOR_CONTEXT_WITH_NO_CURRENT_CANNABIS_SPECIFIC_PRODUCT_PATIENT_OR_SUPPLY_CHAIN",
+        "enforcement": "GENERAL_NARCOTICS_ENFORCEMENT_CURRENTLY_REFERENCED_BY_FEDERAL_AGO_BUT_CANNABIS_SPECIFIC_APPLICATION_UNPROVEN_PENDING_CURRENT_DOMESTIC_LIST_DECREE"
       },
-      "independentTruth": null,
+      "independentTruth": {
+        "color": "UNKNOWN",
+        "rule": "GENERAL_CURRENT_NARCOTIC_ACT_WITH_UNPROVEN_CANNABIS_TO_DOMESTIC_LIST_BRIDGE_AND_GENERIC_MEDICAL_CONTROLS",
+        "reviewedAt": "2026-08-12T07:04:00Z",
+        "conclusion": "The current Federal Attorney General page confirms implementation of Act No. 46, whose historical primary text creates a controlled official-list and authorisation regime. But Article 3 itself requires a domestic ministerial list decree; its official NMRA host has treaty cannabis terminology, not a current Somalia decree placing cannabis in that domestic list. The current NMRA pages are generic narcotics-control context. No current cannabis-specific patient, product, prescriber, dispensing, supply or programme source is proved, and generic controls cannot prove their absence."
+      },
       "directOfficialCannabisLawLinks": [
         {
           "title": "Somalia National Medicines Regulatory Authority - Xeerarka Maandooriyaha / Narcotic Drugs laws compilation",
           "url": "https://nmra.gov.so/public/pubs/Xeerarka-Maandooriyaha-Lr-40.pdf",
           "sourceKind": "SOMALIA_NMRA_NARCOTIC_DRUGS_LAWS_ACT_NO_46_1970_OFFICIAL_GAZETTE_CANNABIS_RESIN_EXTRACTS_TINCTURES_SCHEDULES_AUTHORIZATION_POSSESSION_IMPORT_EXPORT_CULTIVATION_CONTROLS",
+          "sourceOwnerGeo": "SO",
+          "appliesToGeos": [
+            "SO"
+          ],
+          "legalBasisForExtension": "Direct Somalia national law compilation. Its current implementation status is separately corroborated only by the Federal Office of the Attorney General current narcotics-unit page.",
+          "officialPublisher": "Somalia NMRA official publication host; the attached Act No. 46 text was communicated by the Government of Somalia and published in the Official Gazette on 1970-08-22.",
+          "sourceAnnotation": "Official NMRA-hosted primary-law compilation. It is retained as the direct historical Somalia Act No. 46 source, including Article 3's domestic-list mechanism and the generic licence/pharmacy/prescription clauses. Its treaty material uses cannabis terms, but a treaty schedule is not substituted for a current Somalia Article 3 cannabis listing. The record therefore supports the currentness/applicability inquiry and general controlled-drug boundary only; it cannot by itself establish a cannabis patient axis, a medical negative axis or a colour.",
+          "sourceType": "OFFICIAL_SOMALIA_NMRA_HOSTED_HISTORICAL_PRIMARY_ACT_AND_TREATY_COMPILATION",
+          "primaryOrContext": "PRIMARY_HISTORICAL_DOMESTIC_NARCOTIC_CONTROL_TEXT_WITH_TREATY_SCHEDULE_CONTEXT_NOT_A_CURRENT_CANNABIS_LIST_DECREE",
+          "cannabisSpecific": false,
+          "effective": "CURRENT_IMPLEMENTATION_OF_ACT_46_IS_STATED_BY_THE_2026_FEDERAL_ATTORNEY_GENERAL_PAGE_BUT_CURRENT_DOMESTIC_CANNABIS_LIST_DECREE_WAS_NOT_LOCATED",
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T06:56:16.521Z",
             "final_url": "https://nmra.gov.so/public/pubs/Xeerarka-Maandooriyaha-Lr-40.pdf",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "last_modified": "Sat, 07 Sep 2024 09:36:32 GMT",
+            "content_type": "application/pdf",
+            "content_length": 15175679,
+            "document_sha256": "2c3d026b3c514e2b19b033e61996837da63312064c3e7705045197740df17192",
+            "relevant_fragment_sha256": "712c462564a41ddb2d8d4fc962816e29da6a3c25cd45913724bf182dd30833d8",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -79729,18 +79752,169 @@
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official Somalia National Medicines Regulatory Authority PDF. Visual review confirms the NMRA site context, the table of contents entry for Act No. 46 of 3 March 1970 concerning the production of, trade in and use of narcotic drugs, and a United Nations legislative-text page stating Somalia and Communicated by the Government of Somalia with Official Gazette date 22 August 1970. Reviewed Act pages visibly place narcotic substances under Ministry of Health control through the Central Narcotics Bureau, require a Ministry of Health authorization for cultivation, harvesting and processing of plants from which listed substances may be obtained, require authorization and registry entry to import, export, receive in transit, produce, process, acquire, sell, use or otherwise possess official-list narcotic substances, impose rigorous imprisonment and fines for unauthorized possession/import/export/etc., restrict import/export through authorized customs offices, and allow State medical establishments and pharmacies to handle narcotic drugs as medicines/medicinal doses. The same official NMRA compilation visibly includes Single Convention schedules listing cannabis and cannabis resin and extracts and tinctures of cannabis.",
+          "note": "Act No. 46 Article 3: “The Secretary of State for Health shall issue a decree containing a list of substances or preparations having a narcotic effect, taking into account the International Conventions and the views of the Central Narcotics Bureau.” Article 5 permits authorisation only for substances included in that official list; Article 15 is a generic prescription/pharmacy rule for narcotic drugs. The attached treaty text defines cannabis, but the current Somali Article 3 decree listing cannabis was not found.",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-34/SO/screenshots/pdf_pages/SO-nmra-law40-page076.png",
           "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "Somalia is closed as visually verified direct official cannabis-law evidence from the Somalia NMRA narcotic-drugs law compilation. The official source supports recreational illegal and strict enforcement through narcotics authorization, registry, import/export, cultivation/processing, possession and penalty controls, while the cannabis basis comes through official-list/convention-schedule scope visible in the same compilation. Medical NONE remains defensible only with a caveat for general narcotic medicinal-dose/pharmacy/medical-establishment channels and no visually found cannabis-specific patient-access program. No project status SSOT was changed."
+          "visualReview": "Retained official NMRA PDF page captures show the official compilation, Act No. 46 headings and the cited statutory pages. They do not solve the missing current Somalia Article 3 cannabis-list decree; strict address-bar acceptance remains separate from legal truth."
         }
       ],
       "candidateLinksAwaitingVisualReview": [],
-      "officialContextLinks": [],
+      "officialContextLinks": [
+        {
+          "title": "Office of the Attorney General, Federal Republic of Somalia - Narcotics and Dangerous Drugs Unit",
+          "url": "https://ago.gov.so/narcotics-and-dangerous-drugs-unit/",
+          "sourceKind": "CURRENT_FEDERAL_ATTORNEY_GENERAL_NARCOTICS_UNIT_LAW_NO_46_IMPLEMENTATION_AND_ENFORCEMENT_PAGE",
+          "sourceOwnerGeo": "SO",
+          "appliesToGeos": [
+            "SO"
+          ],
+          "legalBasisForExtension": "Direct nationwide Federal Attorney General prosecution-unit scope for Somalia.",
+          "officialPublisher": "Federal Somalia Attorney General official prosecution authority",
+          "sourceAnnotation": "Current official AGO source used only to corroborate that Federal authorities presently implement Law No. 46 and conduct narcotics enforcement. It is deliberately not used as proof that cannabis belongs to the current Article 3 list, as a patient programme, or as proof that patient access is absent.",
+          "sourceType": "CURRENT_OFFICIAL_PROSECUTION_AND_LAW_IMPLEMENTATION_PAGE",
+          "primaryOrContext": "CURRENTNESS_AND_ENFORCEMENT_CONTEXT_FOR_ACT_NO_46_NOT_A_CANNABIS_LIST_OR_PATIENT_SOURCE",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": false,
+          "officialOwnerVisible": true,
+          "cannabisFragmentVisible": false,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T06:56:16.521Z",
+            "final_url": "https://ago.gov.so/narcotics-and-dangerous-drugs-unit",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 50758,
+            "document_sha256": "388192f30755a7573b3011eba762f8ff7eed6c19f73f52696beffedc8cced67e",
+            "relevant_fragment_sha256": "17310539f1316a174e790805676dc985b4e7a51a3524c5029e2709db7da269c3",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "SO"
+            ]
+          },
+          "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
+          "confidence": "high",
+          "note": "Somalia retains visually reviewed official NMRA and current AGO/NMRA sources in the canonical ledger, but the independent Truth-First review does not treat a treaty schedule attached to the historical compilation as the current Somalia Article 3 cannabis-list decree. Current cannabis recreational and medical axes therefore remain unresolved rather than inferred from generic narcotics controls. Proposal-only UNKNOWN / LEGAL_APPLICABILITY_UNRESOLVED; no project status SSOT, map, runtime or production state was changed.",
+          "screenshotPath": null,
+          "visualReview": "CONTEXT_ONLY"
+        },
+        {
+          "title": "Somalia NMRA - Regulatory Functions: Narcotics and Psychotropic Substances Control",
+          "url": "https://nmra.gov.so/regulatory-functions/",
+          "sourceKind": "CURRENT_NMRA_REGULATORY_FUNCTIONS_NARCOTICS_AND_PSYCHOTROPICS_CONTROL_PAGE",
+          "sourceOwnerGeo": "SO",
+          "appliesToGeos": [
+            "SO"
+          ],
+          "legalBasisForExtension": "Direct Federal Somalia medicine-regulator national scope.",
+          "officialPublisher": "Somalia NMRA official regulator page",
+          "sourceAnnotation": "Current Somalia NMRA regulator context. It confirms that narcotics control remains a live Federal regulatory function, but generic medical/scientific control cannot create a cannabis patient axis or negative medical axis. It is stored as annotated context rather than direct cannabis-law evidence.",
+          "sourceType": "CURRENT_OFFICIAL_REGULATOR_FUNCTIONS_PAGE",
+          "primaryOrContext": "CURRENT_GENERIC_NARCOTICS_REGULATOR_CONTEXT_NOT_CANNABIS_PATIENT_EVIDENCE",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": false,
+          "officialOwnerVisible": true,
+          "cannabisFragmentVisible": false,
+          "effectiveRuleVisible": false,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T06:56:16.521Z",
+            "final_url": "https://nmra.gov.so/regulatory-functions",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 124645,
+            "document_sha256": "a9251b2284953828f4c8954baa6e99261b0e3204e505a6801df6d593c42bc2a0",
+            "relevant_fragment_sha256": "020182ed4295d5abf64e317fdb2cb8eb59f27fcef9ed07db533c444b59348c5f",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "SO"
+            ]
+          },
+          "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
+          "confidence": "high",
+          "note": "Somalia retains visually reviewed official NMRA and current AGO/NMRA sources in the canonical ledger, but the independent Truth-First review does not treat a treaty schedule attached to the historical compilation as the current Somalia Article 3 cannabis-list decree. Current cannabis recreational and medical axes therefore remain unresolved rather than inferred from generic narcotics controls. Proposal-only UNKNOWN / LEGAL_APPLICABILITY_UNRESOLVED; no project status SSOT, map, runtime or production state was changed.",
+          "screenshotPath": null,
+          "visualReview": "CONTEXT_ONLY"
+        },
+        {
+          "title": "Somalia NMRA - Vision, Mission & Legal Mandate",
+          "url": "https://nmra.gov.so/our-foundation/",
+          "sourceKind": "CURRENT_NMRA_LEGAL_MANDATE_AND_CONTROLLED_SUBSTANCES_COMMITTEE_PAGE",
+          "sourceOwnerGeo": "SO",
+          "appliesToGeos": [
+            "SO"
+          ],
+          "legalBasisForExtension": "Direct Federal Somalia medicine-regulator national scope.",
+          "officialPublisher": "Somalia NMRA official regulator page",
+          "sourceAnnotation": "Current NMRA official context retained because it identifies the live controlled-substances oversight structure. It is not treated as cannabis evidence and cannot establish product registration, patient eligibility, prescribing, dispensing, supply, programme operation or a legal colour.",
+          "sourceType": "CURRENT_OFFICIAL_REGULATOR_LEGAL_MANDATE_PAGE",
+          "primaryOrContext": "CURRENT_CONTROLLED_SUBSTANCES_COMMITTEE_CONTEXT_NOT_CANNABIS_LAW_OR_PATIENT_EVIDENCE",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": false,
+          "officialOwnerVisible": true,
+          "cannabisFragmentVisible": false,
+          "effectiveRuleVisible": false,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T06:56:16.521Z",
+            "final_url": "https://nmra.gov.so/our-foundation",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 121830,
+            "document_sha256": "9f946efa3b9d5b47c9a84282786a42562c1a392766366a8580349116dd4ed8b6",
+            "relevant_fragment_sha256": "3e2f3ce6a1e4284cd439dda9bb7f51b4c0b2ef03c260d4b546aeda99a7e5a04e",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "SO"
+            ]
+          },
+          "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
+          "confidence": "high",
+          "note": "Somalia retains visually reviewed official NMRA and current AGO/NMRA sources in the canonical ledger, but the independent Truth-First review does not treat a treaty schedule attached to the historical compilation as the current Somalia Article 3 cannabis-list decree. Current cannabis recreational and medical axes therefore remain unresolved rather than inferred from generic narcotics controls. Proposal-only UNKNOWN / LEGAL_APPLICABILITY_UNRESOLVED; no project status SSOT, map, runtime or production state was changed.",
+          "screenshotPath": null,
+          "visualReview": "CONTEXT_ONLY"
+        }
+      ],
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
-      "differenceStatus": "MATCH_WITH_GENERAL_NARCOTIC_MEDICINAL_DOSE_AUTHORIZATION_AND_SCHEDULE_SCOPE_CAVEAT",
-      "differenceDescription": "Somalia is visually verified from the official National Medicines Regulatory Authority PDF hosted at nmra.gov.so. The source visibly contains Act No. 46 of 3 March 1970 concerning the production of, trade in and use of narcotic drugs, marked as communicated by the Government of Somalia and tied to the Official Gazette dated 22 August 1970. Act No. 46 requires Ministry of Health/Central Narcotics Bureau control, special authorization for cultivation/harvesting/processing of plants from which official-list narcotic substances may be obtained, authorization and registry entry for import, export, transit, production, processing, acquisition, sale, use or possession of official-list narcotic substances, and rigorous imprisonment/fines for unauthorized acts. The same official NMRA compilation visibly includes Single Convention schedules listing cannabis and cannabis resin, and cannabis/cannabis resin/extracts/tinctures. Project recreational=ILLEGAL and enforcement=STRICT are supported with the caveat that the law is a narcotics-control framework rather than a standalone cannabis act. Project medical=NONE is not automatically contradicted because the reviewed source shows general narcotic medicines/medicinal-dose and pharmacy/medical-establishment authorization channels, not a cannabis-specific medical patient-access framework. No project status SSOT was changed.",
+      "differenceStatus": "INDEPENDENT_REVIEW_SUPERSEDES_LEGACY_TREATY_SCHEDULE_INFERENCE",
+      "differenceDescription": "Current Federal AGO text confirms implementation of Law No. 46, and the official NMRA-hosted Act visibly requires an Article 3 Health decree to make the domestic narcotic list. The retained compilation's treaty pages name cannabis, but neither that treaty material nor generic current NMRA narcotics pages establish that cannabis is on the current Somalia domestic list. Generic pharmacy/prescription controls cannot establish a cannabis patient route and lack of a retrieved programme cannot establish its absence. The proposal-only independent result is UNKNOWN / LEGAL_APPLICABILITY_UNRESOLVED; no project status SSOT was changed.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
@@ -79757,14 +79931,14 @@
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-34/SO/screenshots/pdf_pages/SO-nmra-law40-page081.png"
       ],
       "reviewConfidence": "high",
-      "reviewNotes": "VISUALLY_VERIFIED: Somalia is closed as visually verified direct official cannabis-law evidence from the Somalia NMRA narcotic-drugs law compilation. The official source supports recreational illegal and strict enforcement through narcotics authorization, registry, import/export, cultivation/processing, possession and penalty controls, while the cannabis basis comes through official-list/convention-schedule scope visible in the same compilation. Medical NONE remains defensible only with a caveat for general narcotic medicinal-dose/pharmacy/medical-establishment channels and no visually found cannabis-specific patient-access program. No project status SSOT was changed.",
+      "reviewNotes": "VISUALLY_VERIFIED: Somalia retains visually reviewed official NMRA and current AGO/NMRA sources in the canonical ledger, but the independent Truth-First review does not treat a treaty schedule attached to the historical compilation as the current Somalia Article 3 cannabis-list decree. Current cannabis recreational and medical axes therefore remain unresolved rather than inferred from generic narcotics controls. Proposal-only UNKNOWN / LEGAL_APPLICABILITY_UNRESOLVED; no project status SSOT, map, runtime or production state was changed.",
       "truthLayers": {
         "primaryLaw": {
           "source": "DIRECT_OFFICIAL_LAW",
           "axis": {
-            "recreational": "ILLEGAL",
+            "recreational": "LEGAL_APPLICABILITY_UNRESOLVED; ACT_NO_46_ARTICLES_3_TO_5_CONTROL_ONLY_SUBSTANCES_ON_A_DOMESTIC_HEALTH_DECREE_LIST. ATTACHED_TREATY_CANNABIS_TERMS_ARE_NOT_A_CURRENT_SOMALIA_LIST_DECREE.",
             "medical": "LIMITED",
-            "enforcement": "LIMITED",
+            "enforcement": "GENERAL_NARCOTICS_ENFORCEMENT_CURRENTLY_REFERENCED_BY_FEDERAL_AGO_BUT_CANNABIS_SPECIFIC_APPLICATION_UNPROVEN_PENDING_CURRENT_DOMESTIC_LIST_DECREE",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -79783,9 +79957,9 @@
         "legalInterpretation": {
           "source": "OFFICIAL_TEXT_DERIVED",
           "axis": {
-            "recreational": "ILLEGAL",
+            "recreational": "LEGAL_APPLICABILITY_UNRESOLVED; ACT_NO_46_ARTICLES_3_TO_5_CONTROL_ONLY_SUBSTANCES_ON_A_DOMESTIC_HEALTH_DECREE_LIST. ATTACHED_TREATY_CANNABIS_TERMS_ARE_NOT_A_CURRENT_SOMALIA_LIST_DECREE.",
             "medical": "LIMITED",
-            "enforcement": "LIMITED",
+            "enforcement": "GENERAL_NARCOTICS_ENFORCEMENT_CURRENTLY_REFERENCED_BY_FEDERAL_AGO_BUT_CANNABIS_SPECIFIC_APPLICATION_UNPROVEN_PENDING_CURRENT_DOMESTIC_LIST_DECREE",
             "industrial_use": "UNKNOWN",
             "cultivation_personal": "UNKNOWN",
             "cultivation_commercial": "UNKNOWN",
@@ -79799,7 +79973,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "Somalia is visually verified from the official National Medicines Regulatory Authority PDF hosted at nmra.gov.so. The source visibly contains Act No. 46 of 3 March 1970 concerning the production of, trade in and use of narcotic drugs, marked as communicated by the Government of Somalia and tied to the Official Gazette dated 22 August 1970. Act No. 46 requires Ministry of Health/Central Narcotics Bureau control, special authorization for cultivation/harvesting/processing of plants from which official-list narcotic substances may be obtained, authorization and registry entry for import, export, transit, production, processing, acquisition, sale, use or possession of official-list narcotic substances, and rigorous imprisonment/fines for unauthorized acts. The same official NMRA compilation visibly includes Single Convention schedules listing cannabis and cannabis resin, and cannabis/cannabis resin/extracts/tinctures. Project recreational=ILLEGAL and enforcement=STRICT are supported with the caveat that the law is a narcotics-control framework rather than a standalone cannabis act. Project medical=NONE is not automatically contradicted because the reviewed source shows general narcotic medicines/medicinal-dose and pharmacy/medical-establishment authorization channels, not a cannabis-specific medical patient-access framework. No project status SSOT was changed."
+          "notes": "Current Federal AGO text confirms implementation of Law No. 46, and the official NMRA-hosted Act visibly requires an Article 3 Health decree to make the domestic narcotic list. The retained compilation's treaty pages name cannabis, but neither that treaty material nor generic current NMRA narcotics pages establish that cannabis is on the current Somalia domestic list. Generic pharmacy/prescription controls cannot establish a cannabis patient route and lack of a retrieved programme cannot establish its absence. The proposal-only independent result is UNKNOWN / LEGAL_APPLICABILITY_UNRESOLVED; no project status SSOT was changed."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -79827,7 +80001,7 @@
           }
         },
         "mismatch": {
-          "recreational": "MATCH",
+          "recreational": "UNKNOWN",
           "medical": "MISMATCH",
           "enforcement": "UNKNOWN"
         },
