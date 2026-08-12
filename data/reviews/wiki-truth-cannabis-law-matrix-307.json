@@ -29,7 +29,7 @@
     "colorReauditDirectOrComposite": 31,
     "colorReauditContextClaimantOrNegative": 8,
     "supplementalOfficialLinks": 32,
-    "allPublishedOfficialLinks": 1391,
+    "allPublishedOfficialLinks": 1394,
     "rowsWithPublishedOfficialLinks": 307,
     "rowsWithAnyOfficialUrl": 307
   },
@@ -80788,29 +80788,100 @@
         "enforcement": "STRICT"
       },
       "officialStatus": {
-        "recreational": "ILLEGAL; OFFICIAL_SGSSI_DANGEROUS_DRUGS_CAP18_VISIBLY_LISTS_INDIAN_HEMP_AS_CANNABIS_INDICA_AND_CANNABIS_SATIVA_RESIN_PREPARATIONS_EXTRACT_AND_TINCTURE_AND_CONTROLS_CULTIVATION_IMPORT_MANUFACTURE_EXPORT_SUPPLY_PROCUREMENT_SALE_AND_GIVING_AWAY_EXCEPT_UNDER_LICENCE_OR_AUTHORIZATION",
-        "medical": "NONE_OR_NOT_CONFIRMED_AS_CANNABIS_PATIENT_ACCESS; ORDINANCE_VISIBLY_CONTAINS_REGISTERED_MEDICAL_DENTAL_VETERINARY_AGRICULTURAL_SUPERVISION_AND_PRESCRIPTION_MEDICINE_EXEMPTIONS_FOR_DANGEROUS_DRUGS_BUT_NO_CANNABIS_SPECIFIC_PATIENT_ACCESS_OR_MEDICAL_CANNABIS_PROGRAM_WAS_VISUALLY_FOUND",
+        "recreational": "UNAUTHORISED_CONDUCT_PROHIBITED; CAP18_DIRECTLY_SCHEDULES_CANNABIS_FAMILY_AND_CRIMINALISES_CULTIVATION_IMPORT_MANUFACTURE_EXPORT_SUPPLY_PROCUREMENT_SALE_AND_GIVING_AWAY_UNLESS_UNDER_LICENCE_OR_SENIOR_MEDICAL_OFFICER_AUTHORISATION",
+        "medical": "NO_PATIENT_ACCESS_OR_OPERATION_PROVED; THE_SAME_DIRECT_CANNABIS_SCHEDULE_RETAINS_A_GENERAL_LICENCE_AND_SENIOR_MEDICAL_OFFICER_IMPORT_AUTHORISATION_CLASS_WHICH_IS_A_LIMITED_LAWFUL_MODE_NOT_A_PATIENT_PROGRAMME",
         "enforcement": "STRICT_WITH_MEDICAL_PRESCRIPTION_AND_AUTHORIZATION_CAVEAT; ORDINANCE_VISIBLY_PROVIDES_OFFENCES_SEARCH_SEIZURE_FORFEITURE_AND_PENALTIES_UP_TO_FINE_OR_PENAL_SERVITUDE_FOR_DANGEROUS_DRUGS_OFFENCES"
       },
-      "independentTruth": null,
+      "independentTruth": {
+        "color": "YELLOW",
+        "rule": "GENERAL_SCHEDULE_PLUS_AUTHORISATION_EVIDENCE_RULE_NO_PATIENT_OPERATION_INFERENCE",
+        "reviewedAt": "2026-08-12T10:15:31Z",
+        "conclusion": "Cap 18 directly schedules Indian hemp as Cannabis indica/Cannabis sativa, resin, resin-base preparations, extracts and tinctures. It criminalises the listed conduct unless under licence or Senior Medical Officer authorisation, and separately defines a Senior Medical Officer import-authorisation process for any specified dangerous drug. Because cannabis is in the same direct schedule, this proves a limited controlled lawful cannabis mode. It does not prove patient eligibility, prescribing, pharmacy/dispensing, stock or an operational patient programme."
+      },
       "directOfficialCannabisLawLinks": [
         {
           "title": "SGSSI Laws - 18 Dangerous Drugs",
           "url": "https://laws.gov.gs/document/18-dangerous-drugs/",
           "sourceKind": "SOUTH_GEORGIA_SOUTH_SANDWICH_ISLANDS_LAWS_DANGEROUS_DRUGS_CAP18_INDIAN_HEMP_CANNABIS_INDICA_SATIVA_RESIN_EXTRACT_TINCTURE_CULTIVATION_IMPORT_EXPORT_SALE_POSSESSION_SEARCH_PENALTIES",
+          "sourceOwnerGeo": "GS",
+          "appliesToGeos": [
+            "GS"
+          ],
+          "legalBasisForExtension": "The Government of South Georgia and the South Sandwich Islands publishes Cap. 18 in its own SGSSI Laws catalogue as a codified law. The linked primary PDF itself notes that the Ordinance is declared to be in force in the Dependencies; no UK or Falkland law is silently substituted.",
+          "officialPublisher": "Government of South Georgia and the South Sandwich Islands official laws catalogue; the catalogue states that the Gazette is the formal official publication.",
+          "sourceAnnotation": "Current Government SGSSI laws-catalogue record that preserves a deep link to the Cap 18 Dangerous Drugs PDF. Its own page is not treated as cannabis text and its Gazette disclaimer is retained. It corroborates the current catalogue location and source owner only; legal cannabis axes derive from the linked primary PDF.",
+          "sourceType": "CURRENT_OFFICIAL_SGSSI_LAWS_CATALOGUE_AND_CAP18_PDF_LANDING_PAGE",
+          "primaryOrContext": "CURRENT_OFFICIAL_CATALOGUE_CONTEXT_FOR_LINKED_PRIMARY_CANNABIS_LAW",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "cannabisFragmentVisible": false,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T07:14:40.892Z",
             "final_url": "https://laws.gov.gs/document/18-dangerous-drugs",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 21960,
+            "document_sha256": "312c8b8352e5357c4eb06d36ec274d7c1841d7a02ae7e00c6c8ee3f920accd6e",
+            "relevant_fragment_sha256": "bc27de07f3b14896839c24840ba6605c07d74ce6f33966d36a2524497327c58d",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_200_DOCUMENT_SHA256_UNCHANGED",
+            "queue": [],
+            "dependent_geos": [
+              "GS"
+            ]
+          },
+          "evidenceScope": null,
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
+          "confidence": "high",
+          "note": "The Government of South Georgia and the South Sandwich Islands SGSSI Laws page identifies the record as ‘18 Dangerous Drugs’, File Type ‘pdf’, Categories ‘Cap 18’ and Tags ‘Codified’, and provides its official Download link.",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-33/GS/screenshots/pdf_pages/GS-laws-dangerous-drugs-page006.png",
+          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
+          "visualReview": "Retained dated local SGSSI PDF crops visibly show the Cap 18 title, force-in-Dependencies note, authorisation text and First Schedule. Official-domain/address-bar acceptance remains separate from legal truth."
+        },
+        {
+          "title": "Government of South Georgia and the South Sandwich Islands Laws - Cap. 18 Dangerous Drugs codified primary PDF",
+          "url": "https://laws.gov.gs/wp-content/uploads/2022/03/1820Dangerous20Drugs.pdf",
+          "sourceKind": "SOUTH_GEORGIA_SOUTH_SANDWICH_ISLANDS_CAP18_DANGEROUS_DRUGS_CANNABIS_INDICA_SATIVA_SCHEDULE_PROHIBITION_LICENCE_AND_SENIOR_MEDICAL_OFFICER_AUTHORISATION",
+          "sourceOwnerGeo": "GS",
+          "appliesToGeos": [
+            "GS"
+          ],
+          "legalBasisForExtension": "The Cap 18 note states that the Ordinance is declared to be in force in the Dependencies by the Application of Colony Laws Ordinance, Cap. 1 (D.S.). South Georgia and the South Sandwich Islands is the successor territory to those Dependencies; this record does not import a parent or claimant law without that stated applicability.",
+          "officialPublisher": "Government of South Georgia and the South Sandwich Islands official laws catalogue, linked as the Cap 18 codified primary-law PDF; the catalogue states that the Gazette is the formal official publication.",
+          "sourceAnnotation": "Direct SGSSI primary-law evidence: cannabis family, resin, preparations, extracts and tinctures are scheduled as dangerous drugs; unauthorised cultivation/import/manufacture/export/supply/procurement/sale/giving is criminal. The same schedule-plus-licence/Senior Medical Officer authorisation chain establishes only a limited controlled lawful mode. It does not prove patient eligibility, a prescriber route, a pharmacy, stock, dispensing or an operational patient programme.",
+          "sourceType": "CURRENTLY_HOSTED_OFFICIAL_SGSSI_CAP18_PRIMARY_DANGEROUS_DRUGS_PDF",
+          "primaryOrContext": "PRIMARY_CANNABIS_SCHEDULE_PROHIBITION_AND_DEFINED_LICENCE_IMPORT_AUTHORISATION_BOUNDARY",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T07:14:40.892Z",
+            "final_url": "https://laws.gov.gs/wp-content/uploads/2022/03/1820Dangerous20Drugs.pdf",
+            "http_status": 200,
+            "etag": "\"62e46c0b-b1d4b\"",
+            "last_modified": "Fri, 29 Jul 2022 23:23:55 GMT",
+            "content_type": "application/pdf",
+            "content_length": 728395,
+            "document_sha256": "e9c243ef5badfc2aefa298a8b1148164e052e163836ca535ba5c2f766a709ecb",
+            "relevant_fragment_sha256": "8d975234cefacdb91f2dc8daf7489444716cccbb7ceaf69774ac63d71d178631",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -80822,18 +80893,119 @@
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official SGSSI Laws page for 18 Dangerous Drugs, file type PDF, category Cap 18, tag Codified, under the Government of South Georgia & the South Sandwich Islands legal site. Visual review confirms the Dangerous Drugs Ordinance title, note that the Ordinance is declared to be in force in the Dependencies, controls cultivation, import, manufacture, export, supply, procurement, sale and giving away of dangerous drugs except under licence or Senior Medical Officer authorization, allows direct supervision by registered medical/veterinary/agricultural officers and prescription/medicinal exemptions, provides search/seizure powers and penalties, and the First Schedule visibly lists Indian hemp including the whole or any portion of Cannabis indica and Cannabis sativa, resin from such plants, resin-base preparations, and any extract or tincture of Indian hemp.",
+          "note": "Section 4: ‘Any person who cultivates, imports, manufactures, exports, supplies, procures, sells, or gives away any dangerous drugs or their derivatives ... save under licence or authorisation of the Senior Medical Officer ... shall be guilty of an offence’. The note states: ‘This Ordinance is declared to be in force in the Dependencies’. First Schedule item 2: ‘Indian hemp including the whole or any portion of the plants Cannabis indica and Cannabis sativa, any resin obtained from such plants, all preparations of which such resins form the base and any extract or tincture of Indian hemp.’",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-33/GS/screenshots/pdf_pages/GS-laws-dangerous-drugs-page006.png",
           "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "South Georgia & South Sandwich Islands is closed as visually verified direct official cannabis-law evidence from the official SGSSI Laws Dangerous Drugs Cap 18 page/PDF. Recreational illegal and strict enforcement are supported, with caveats for general licence/Senior Medical Officer authorization and prescription/medical supervision exemptions. No cannabis-specific medical patient-access framework was visually found, and no project status SSOT was changed."
+          "visualReview": "Retained dated official PDF crops visibly show Chapter 18, the force-in-Dependencies note, section 4 licence/Senior Medical Officer authorisation, section 5 import authorisation and the First Schedule Cannabis indica/Cannabis sativa entry. Fresh C1/C2 hashes are stored separately; address-bar acceptance is not legal truth."
         }
       ],
       "candidateLinksAwaitingVisualReview": [],
-      "officialContextLinks": [],
+      "officialContextLinks": [
+        {
+          "title": "Government of South Georgia and the South Sandwich Islands Laws - Application of Colony Laws (No. 2) Ordinance 1957 PDF",
+          "url": "https://laws.gov.gs/wp-content/uploads/2022/03/DS201957200520ACLO2.pdf",
+          "sourceKind": "SGSSI_HISTORICAL_APPLICATION_OF_COLONY_LAWS_1957_DANGEROUS_DRUGS_AMENDMENT_COMMENCEMENT_CONTEXT",
+          "sourceOwnerGeo": "GS",
+          "appliesToGeos": [
+            "GS"
+          ],
+          "legalBasisForExtension": "The instrument itself says listed Colony Ordinances are applied to the Dependencies and deemed in force there from the stated dates. It is retained only as historical scope/commencement context for Cap 18, not as a direct cannabis rule.",
+          "officialPublisher": "Government of South Georgia and the South Sandwich Islands official laws catalogue historical application instrument.",
+          "sourceAnnotation": "Official historical Dependencies application record. It is preserved so the source chain records how the 1957 Dangerous Drugs amendment became applicable in the Dependencies. It is not used as current cannabis evidence or to infer that later medical, licence or programme conditions exist.",
+          "sourceType": "HISTORICAL_OFFICIAL_DEPENDENCIES_APPLICATION_AND_COMMENCEMENT_CONTEXT_PDF",
+          "primaryOrContext": "CONTEXT_APPLICABILITY_AND_COMMENCEMENT_NOT_CANNABIS_AXIS",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "cannabisFragmentVisible": false,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T07:14:40.892Z",
+            "final_url": "https://laws.gov.gs/wp-content/uploads/2022/03/DS201957200520ACLO2.pdf",
+            "http_status": 200,
+            "etag": "\"62e46bfd-b6eb\"",
+            "last_modified": "Fri, 29 Jul 2022 23:23:41 GMT",
+            "content_type": "application/pdf",
+            "content_length": 46827,
+            "document_sha256": "91e8d37f2508da4ad4215d45af45ef2560f8b3b14b5e7b7dc85136bd8c819ef6",
+            "relevant_fragment_sha256": "9811907b25767f5efd3d31bb2f9e0cc7b42ba8abf9af64a0c0a0bbe14f5e93d7",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "GS"
+            ]
+          },
+          "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
+          "confidence": "high",
+          "note": "Official SGSSI Laws PDF retained with a deep page link and nonempty scope annotation; it does not generate a cannabis axis.",
+          "screenshotPath": null,
+          "visualReview": "CONTEXT_ONLY"
+        },
+        {
+          "title": "Government of South Georgia and the South Sandwich Islands Laws - Dangerous Drugs (Amendment) Ordinance 1974 PDF",
+          "url": "https://laws.gov.gs/wp-content/uploads/2022/03/1974201920DDAO20ACLO201975.pdf",
+          "sourceKind": "SGSSI_CATALOGUED_1974_DANGEROUS_DRUGS_SCHEDULE_AMENDMENT_PARAQUAT_CONTEXT",
+          "sourceOwnerGeo": "GS",
+          "appliesToGeos": [
+            "GS"
+          ],
+          "legalBasisForExtension": "The current official SGSSI Laws catalogue groups the PDF under the Dangerous Drugs Cap 18 application material. The PDF's own printed text is a Falkland Islands amendment and contains no independent direct GS applicability clause, so it is context only and cannot alter any GS cannabis axis.",
+          "officialPublisher": "Government of South Georgia and the South Sandwich Islands official laws catalogue groups this PDF under Dangerous Drugs Cap 18 historical application material.",
+          "sourceAnnotation": "Official-catalogue historical amendment retained with its PDF link and exact non-cannabis fragment. It does not remove, add or otherwise decide the Indian-hemp/Cannabis schedule text and cannot create a patient route, negative medical axis or colour.",
+          "sourceType": "HISTORICAL_OFFICIAL_CATALOGUED_DANGEROUS_DRUGS_SCHEDULE_AMENDMENT_CONTEXT_PDF",
+          "primaryOrContext": "CONTEXT_SCHEDULE_AMENDMENT_NOT_CANNABIS_AXIS",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "cannabisFragmentVisible": false,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T07:14:40.892Z",
+            "final_url": "https://laws.gov.gs/wp-content/uploads/2022/03/1974201920DDAO20ACLO201975.pdf",
+            "http_status": 200,
+            "etag": "\"62e46bfe-cdd5\"",
+            "last_modified": "Fri, 29 Jul 2022 23:23:42 GMT",
+            "content_type": "application/pdf",
+            "content_length": 52693,
+            "document_sha256": "ddd7ce46fa5e8d06b917d5428f4255b40c5e2abc684c7942c3503ef163899c56",
+            "relevant_fragment_sha256": "66b2bb4b24ce021de3566ee1ec8ce7a9520ea404725c13d33774aeff9443e4b4",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "GS"
+            ]
+          },
+          "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
+          "confidence": "high",
+          "note": "Official SGSSI Laws-catalogue PDF retained with a deep page link and limitation annotation; no cannabis or patient conclusion derives from it.",
+          "screenshotPath": null,
+          "visualReview": "CONTEXT_ONLY"
+        }
+      ],
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
-      "differenceStatus": "MATCH_WITH_DANGEROUS_DRUGS_ORDINANCE_MEDICAL_PRESCRIPTION_AUTHORIZATION_CAVEAT",
-      "differenceDescription": "South Georgia & South Sandwich Islands is visually verified from the official SGSSI Laws page for 18 Dangerous Drugs and its codified PDF. The page is an official laws.gov.gs document page for Cap 18 and the PDF visibly identifies Chapter 18 Dangerous Drugs as an ordinance to consolidate the law relating to dangerous drugs, with a note declaring it in force in the Dependencies. The ordinance controls cultivation, import, manufacture, export, supply, procurement, sale and giving away of dangerous drugs except under licence or Senior Medical Officer authorization, provides book, inspection, search/seizure, arrest, forfeiture and penalty provisions, and includes a First Schedule listing Indian hemp as Cannabis indica and Cannabis sativa, resin, resin-base preparations, and extract or tincture of Indian hemp. Project recreational=ILLEGAL and enforcement=STRICT are supported. Project medical=NONE is not automatically contradicted because the reviewed law shows general medical/prescription/authorization exemptions for dangerous drugs, not a cannabis-specific medical patient-access framework. No project status SSOT was changed.",
+      "differenceStatus": "INDEPENDENT_PROPOSAL_YELLOW_VS_LEGACY_ILLEGAL_PROJECT_STATUS; LIVE_MAP_NOT_RECAPPED_IN_THIS_LEDGER_PACKET",
+      "differenceDescription": "The independent source-first result differs from the legacy project recreational/medical labels only at the proposal layer. The direct cannabis schedule and prohibition are real, but section 4 and section 5 retain a defined licence/Senior Medical Officer authorisation class for the same scheduled drugs. Under the general schedule-plus-authorisation rule that is proposal-only YELLOW limited lawful mode, not a patient programme and not an applied map/runtime/SSOT change. The matrix's stored project statuses are comparison inputs; they are not live-map proof.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
@@ -80849,12 +81021,12 @@
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-33/GS/screenshots/pdf_pages/GS-laws-dangerous-drugs-page007.png"
       ],
       "reviewConfidence": "high",
-      "reviewNotes": "VISUALLY_VERIFIED: South Georgia & South Sandwich Islands is closed as visually verified direct official cannabis-law evidence from the official SGSSI Laws Dangerous Drugs Cap 18 page/PDF. Recreational illegal and strict enforcement are supported, with caveats for general licence/Senior Medical Officer authorization and prescription/medical supervision exemptions. No cannabis-specific medical patient-access framework was visually found, and no project status SSOT was changed.",
+      "reviewNotes": "VISUALLY_VERIFIED: South Georgia & South Sandwich Islands now retains four annotated Government SGSSI URL/PDF records with owner, GS applicability, direct locators, exact fragments, deep PDF-page links, lifecycle limits, visual state and C1 revalidation. The independent result is proposal-only YELLOW / LIMITED_CANNABIS_LAWFUL_MODE_BY_SCHEDULE_PLUS_LICENCE_AND_SENIOR_MEDICAL_OFFICER_AUTHORISATION: unauthorised cannabis conduct is prohibited, while direct schedule-linked licence/import-authorisation is a limited lawful mode. No patient or operational programme is inferred; SSOT, map, runtime and production remain unchanged.",
       "truthLayers": {
         "primaryLaw": {
           "source": "DIRECT_OFFICIAL_LAW",
           "axis": {
-            "recreational": "ILLEGAL",
+            "recreational": "LIMITED",
             "medical": "LIMITED",
             "enforcement": "LIMITED",
             "industrial_use": "UNKNOWN",
@@ -80875,7 +81047,7 @@
         "legalInterpretation": {
           "source": "OFFICIAL_TEXT_DERIVED",
           "axis": {
-            "recreational": "ILLEGAL",
+            "recreational": "LIMITED",
             "medical": "LIMITED",
             "enforcement": "LIMITED",
             "industrial_use": "UNKNOWN",
@@ -80891,7 +81063,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "South Georgia & South Sandwich Islands is visually verified from the official SGSSI Laws page for 18 Dangerous Drugs and its codified PDF. The page is an official laws.gov.gs document page for Cap 18 and the PDF visibly identifies Chapter 18 Dangerous Drugs as an ordinance to consolidate the law relating to dangerous drugs, with a note declaring it in force in the Dependencies. The ordinance controls cultivation, import, manufacture, export, supply, procurement, sale and giving away of dangerous drugs except under licence or Senior Medical Officer authorization, provides book, inspection, search/seizure, arrest, forfeiture and penalty provisions, and includes a First Schedule listing Indian hemp as Cannabis indica and Cannabis sativa, resin, resin-base preparations, and extract or tincture of Indian hemp. Project recreational=ILLEGAL and enforcement=STRICT are supported. Project medical=NONE is not automatically contradicted because the reviewed law shows general medical/prescription/authorization exemptions for dangerous drugs, not a cannabis-specific medical patient-access framework. No project status SSOT was changed."
+          "notes": "The independent source-first result differs from the legacy project recreational/medical labels only at the proposal layer. The direct cannabis schedule and prohibition are real, but section 4 and section 5 retain a defined licence/Senior Medical Officer authorisation class for the same scheduled drugs. Under the general schedule-plus-authorisation rule that is proposal-only YELLOW limited lawful mode, not a patient programme and not an applied map/runtime/SSOT change. The matrix's stored project statuses are comparison inputs; they are not live-map proof."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -80919,7 +81091,7 @@
           }
         },
         "mismatch": {
-          "recreational": "MATCH",
+          "recreational": "MISMATCH",
           "medical": "MISMATCH",
           "enforcement": "UNKNOWN"
         },
