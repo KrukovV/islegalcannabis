@@ -135738,20 +135738,46 @@
           "url": "https://minzdrav.gov.ru/documents/8008-postanovlenie-pravitelstva-rf-681-ot-30-iyunya-1998-g",
           "source_kind": "RUSSIA_MINISTRY_OF_HEALTH_GOVERNMENT_DECREE_681_LIST_I_CANNABIS_MARIJUANA_HASHISH_AND_CANNABIS_OIL_PROHIBITED_CIRCULATION",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/RU/browser_pages/RU-minzdrav-681-cannabis-list-i.png",
+          "evidence_screenshot_paths": [
+            "data/reviews/wiki-truth-307-visual-evidence/RU-minzdrav-decree-681-current-2026-08-12.png",
+            "data/reviews/wiki-truth-307-visual-evidence/RU-minzdrav-decree-681-cannabis-list-i-current-2026-08-12.png"
+          ],
           "note": "Official Russian Ministry of Health page for Government Decree No. 681. Visual review confirms the page title, the List I heading stating that circulation of listed narcotic drugs and psychotropic substances in the Russian Federation is prohibited, and visible entries for Hashish (anasha, cannabis resin), Cannabis (marijuana), and Cannabis oil (hashish oil).",
+          "deep_link_url": "https://minzdrav.gov.ru/documents/8008-postanovlenie-pravitelstva-rf-681-ot-30-iyunya-1998-g",
+          "source_owner": "Ministry of Health of the Russian Federation",
+          "source_owner_geo": "RU",
+          "source_authority": "Ministry of Health of the Russian Federation publishing Government Decree No. 681",
+          "source_type": "OFFICIAL_GOVERNMENT_CONTROLLED_SUBSTANCES_LIST",
+          "primary_or_context": "PRIMARY_CANNABIS_SPECIFIC_CLASSIFICATION",
+          "applies_to_geo": [
+            "RU"
+          ],
+          "legal_basis_for_extension": "Federal Government Decree published by the Russian Ministry of Health; the controlled-substances List applies directly throughout the Russian Federation.",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "RETAINED_OFFICIAL_LIST_I_CAPTURE; current consolidated 2025 IPS record is retained separately and must be read with this direct cannabis fragment.",
+          "effective_date": "Decree dated 1998-06-30; current IPS consolidation records a 2025-07-27 version.",
+          "official_fragment_locator": "Decree No. 681, List I heading and entries `Гашиш (анаша, смола каннабиса)`, `Каннабис (марихуана)` and `Масло каннабиса (гашишное масло)`.",
+          "exact_fragment": "`Список наркотических средств и психотропных веществ, оборот которых в Российской Федерации запрещен ... (список I)`; List I expressly includes `Гашиш (анаша, смола каннабиса)`, `Каннабис (марихуана)` and `Масло каннабиса (гашишное масло)`.",
+          "legal_relevance": "Direct cannabis-specific List I classification and prohibited-circulation evidence. It is combined only with the current Federal Law No. 3-FZ List I/II/III boundary; it does not create a patient route or derive a color by itself.",
+          "annotation": "Primary official Ministry URL retained with the precise List I heading and cannabis/resin/oil entries; it is not a bare landing-page link.",
+          "reviewed_at": "2026-08-12T07:42:00+03:00",
+          "reviewed_by_human_visual": true,
+          "screenshot_state": "CURRENT_HIDDEN_C3_MINZDRAV_OWNER_DECREE_681_AND_LIST_I_HEADING_VISIBLE_PLUS_SEPARATE_CURRENT_CANNABIS_MARIJUANA_ENTRY_CROP; no user desktop browser was opened.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T04:32:11.571Z",
             "final_url": "https://minzdrav.gov.ru/documents/8008-postanovlenie-pravitelstva-rf-681-ot-30-iyunya-1998-g",
-            "http_status": null,
-            "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "http_status": 200,
+            "etag": "W/\"49d2f772ef82045ef6696bf6b752d2e5\"",
+            "last_modified": "Wed, 21 May 2025 13:55:22 GMT",
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 57681,
+            "document_sha256": "3913c9026ef743390c6dc866e291390878b1ca103af9a0531e83930833438271",
+            "relevant_fragment_sha256": "9a93f0a8a48253993a6325d5da8b2bdda3e1caec37af55fcde025db7bc931090",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -135762,12 +135788,113 @@
             "dependent_geos": [
               "RU"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
+            "schema_issues": [],
+            "semantic_probe": null
+          }
+        },
+        {
+          "title": "Government of the Russian Federation - Federal Law No. 3-FZ on Narcotic Drugs and Psychotropic Substances, Articles 2 and 14",
+          "url": "https://government.ru/docs/all/96411/",
+          "deep_link_url": "https://government.ru/docs/all/96411/",
+          "source_kind": "RUSSIA_CURRENT_FEDERAL_LAW_3_FZ_LIST_I_AND_MEDICAL_USE_BOUNDARY",
+          "source_owner": "Government of the Russian Federation",
+          "source_owner_geo": "RU",
+          "source_authority": "Government of the Russian Federation official documents portal publishing Federal Law No. 3-FZ",
+          "source_type": "CURRENT_PRIMARY_FEDERAL_NARCOTICS_STATUTE",
+          "primary_or_context": "PRIMARY_LIST_CLASSIFICATION_AND_PATIENT_ACCESS_BOUNDARY",
+          "applies_to_geo": [
+            "RU"
+          ],
+          "legal_basis_for_extension": "Federal Law No. 3-FZ applies directly throughout the Russian Federation.",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "Current official Government text must be read through Articles 2 and 14; it identifies List I as prohibited subject only to listed statutory purposes and separates medical use for Lists II and III.",
+          "effective_date": "Federal Law dated 1998-01-08; current official text incorporates later amendments including 2025 amendments referenced on the official Government page.",
+          "official_fragment_locator": "Federal Law No. 3-FZ, Article 2 List I definition and Article 14 paragraphs 1-2.",
+          "exact_fragment": "Article 2 defines List I as substances whose circulation in the Russian Federation is prohibited, subject to Article 14(1) and (5). Article 14(1) permits List I circulation only for the closed purposes in Articles 29 and 34-36/36.2, while Article 14(2) separately states that substances in Lists II and III may circulate for medical purposes.",
+          "legal_relevance": "Current statutory bridge showing that a cannabis substance in List I is not within the law's ordinary medical-use class for Lists II and III. The preserved List I exceptions are non-patient statutory purposes or processing boundaries, never patient eligibility, prescribing, dispensing or an operational cannabis programme.",
+          "annotation": "Primary official Federal Law URL retained with the exact Article 2/14 List I versus List II/III medical-use boundary; it is not a generic controlled-drug inference.",
+          "reviewed_at": "2026-08-12T07:42:00+03:00",
+          "reviewed_by_human_visual": false,
+          "screenshot_state": "DISCOVERED_CURRENT_OFFICIAL_GOVERNMENT_TEXT_PENDING_C1_C2_AND_HIDDEN_C3_REVIEW",
+          "revalidation": {
+            "checked_at": "2026-08-12T04:32:11.571Z",
+            "final_url": "https://government.ru/docs/all/96411",
+            "http_status": null,
+            "etag": null,
+            "last_modified": null,
+            "content_type": null,
+            "content_length": null,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "baee85a3043884f4c51559d697fe82e872f72d10d3ea9ff8e8a60c3386f67989",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
             ],
+            "queue_reasons": [
+              "ACCESS_BLOCKED"
+            ],
+            "dependent_geos": [
+              "RU"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
+        },
+        {
+          "title": "Official Internet Portal of Legal Information - current consolidated Government Decree No. 681",
+          "url": "https://ips.pravo.gov.ru/api/ips/legislation/document?baseid=None&hash=4f3e2b09ec67c44a6cf6a43dadfa2bb8f18b308deee875a951cc59a78f8eb650",
+          "deep_link_url": "https://ips.pravo.gov.ru/api/ips/legislation/document?baseid=None&hash=4f3e2b09ec67c44a6cf6a43dadfa2bb8f18b308deee875a951cc59a78f8eb650",
+          "source_kind": "RUSSIA_OFFICIAL_IPS_CURRENT_CONSOLIDATED_DECREE_681_LIST_I_CANNABIS",
+          "source_owner": "Official Internet Portal of Legal Information of the Russian Federation",
+          "source_owner_geo": "RU",
+          "source_authority": "Official Internet Portal of Legal Information (pravo.gov.ru / IPS), Russian Federation",
+          "source_type": "CURRENT_CONSOLIDATED_GOVERNMENT_DECREE",
+          "primary_or_context": "PRIMARY_CANNABIS_SPECIFIC_CLASSIFICATION_CURRENTNESS",
+          "applies_to_geo": [
+            "RU"
+          ],
+          "legal_basis_for_extension": "Official federal legal-information portal current consolidation of Government Decree No. 681, directly applicable to the Russian Federation.",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "Official search result identifies the Decree 681 consolidation dated 2025-07-27; C1-C3 must confirm the directly retrievable document and cannabis fragment.",
+          "effective_date": "Current consolidation dated 2025-07-27 according to the official IPS search result.",
+          "official_fragment_locator": "Government Decree No. 681, List I; direct current consolidation endpoint.",
+          "exact_fragment": "The current official consolidation identifies List I as the list whose circulation is prohibited in the Russian Federation. The retained Ministry page supplies the exact current cannabis, cannabis-resin and cannabis-oil entries to be rechecked against this consolidation.",
+          "legal_relevance": "Currentness and legal-owner bridge for the same Decree 681 cannabis List I classification. It cannot replace the exact cannabis fragment, and any timeout, WAF or blank response is access metadata only.",
+          "annotation": "Current official IPS consolidation URL retained alongside the Ministry source so the ledger has both a direct cannabis fragment and an official current-version endpoint.",
+          "reviewed_at": "2026-08-12T07:42:00+03:00",
+          "reviewed_by_human_visual": false,
+          "screenshot_state": "DISCOVERED_CURRENT_OFFICIAL_IPS_ENDPOINT_PENDING_C1_C2_AND_HIDDEN_C3_REVIEW",
+          "revalidation": {
+            "checked_at": "2026-08-12T04:32:11.571Z",
+            "final_url": "https://ips.pravo.gov.ru/api/ips/legislation/document?baseid=None&hash=4f3e2b09ec67c44a6cf6a43dadfa2bb8f18b308deee875a951cc59a78f8eb650",
+            "http_status": null,
+            "etag": null,
+            "last_modified": null,
+            "content_type": null,
+            "content_length": null,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "8f874c8bf425af095b4cc303177708fa48d8e1f44b0ddf215ff4906c529c91f4",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "ACCESS_BLOCKED"
+            ],
+            "dependent_geos": [
+              "RU"
+            ],
+            "schema_issues": [],
             "semantic_probe": null
           }
         }
@@ -135781,7 +135908,103 @@
         "status": "MATCH_WITH_LIST_I_PROHIBITED_CIRCULATION_AND_ENFORCEMENT_CAVEAT",
         "reason": "Russia is visually verified from the official Russian Ministry of Health page for Government Decree No. 681. The rendered page visibly identifies the Government Decree and the controlled-substances list, and a highlighted screenshot visibly states that List I contains narcotic drugs and psychotropic substances whose circulation in the Russian Federation is prohibited. Separate rendered screenshots visibly show Hashish (anasha, cannabis resin), Cannabis (marijuana), and Cannabis oil (hashish oil) as entries in that List I. This supports project recreational=ILLEGAL and medical=NONE at the controlled-substance/prohibited-circulation level. It also supports strict control in principle, but the official criminal-code and quantity-threshold pages on pravo.gov.ru timed out during this review and were not accepted as screenshot evidence; penalty detail therefore remains a caveat rather than a separately proven direct link in this row. No project status SSOT was changed."
       },
-      "conclusion": "Russia is closed as visually verified official cannabis-law evidence from the Russian Ministry of Health page for Government Decree No. 681. The captured official page shows List I prohibited circulation and visible entries for Cannabis (marijuana), Hashish (anasha, cannabis resin), and Cannabis oil. Project ILLEGAL/NONE/STRICT is supported at the prohibited-circulation level, with an explicit caveat that criminal-code penalty pages were not visually captured because pravo.gov.ru timed out. No project status SSOT was changed."
+      "conclusion": "Russia is closed as visually verified official cannabis-law evidence from the Russian Ministry of Health page for Government Decree No. 681. The captured official page shows List I prohibited circulation and visible entries for Cannabis (marijuana), Hashish (anasha, cannabis resin), and Cannabis oil. Project ILLEGAL/NONE/STRICT is supported at the prohibited-circulation level, with an explicit caveat that criminal-code penalty pages were not visually captured because pravo.gov.ru timed out. No project status SSOT was changed.",
+      "independent_truth_color": "RED",
+      "independent_truth_status": "CURRENT_CANNABIS_LIST_I_PROHIBITED_CIRCULATION_WITH_CLOSED_NONPATIENT_STATUTORY_EXCEPTIONS",
+      "independent_truth_rule": "GENERAL_CURRENT_CANNABIS_LIST_I_PROHIBITION_WITH_CLOSED_NONPATIENT_STATUTORY_EXCEPTIONS",
+      "independent_truth_reviewed_at": "2026-08-12T07:52:00+03:00",
+      "audit_state": "CURRENT_RUSSIA_LIST_I_AND_FEDERAL_LAW_3_FZ_C1_C2_C3_PROPOSAL_ONLY",
+      "strict_visual_acceptance": false,
+      "strict_visual_acceptance_reason": "The current Ministry List I owner, heading and cannabis entry were captured headlessly, but C1 could not retrieve the current Government 3-FZ or IPS consolidation endpoints and no current browser-domain visual acceptance exists for those sources. This acceptance limitation is separate from legal truth.",
+      "final_visual_acceptance": {
+        "strict_acceptance": false,
+        "reason": "CURRENT_MINZDRAV_CANNABIS_LIST_I_VISUAL_PROOF_PRESENT_BUT_GOVERNMENT_3_FZ_AND_IPS_CURRENT_CONSOLIDATION_ACCESS_BLOCKED",
+        "legal_truth_affected": false
+      },
+      "independent_review": {
+        "geo": "RU",
+        "territory": "Russian Federation",
+        "review_mode": "INDEPENDENT_OFFICIAL_EVIDENCE_FIRST",
+        "proposal_only": true,
+        "reviewed_at": "2026-08-12T07:52:00+03:00",
+        "official_truth_color": "RED",
+        "independent_truth_rule": "GENERAL_CURRENT_CANNABIS_LIST_I_PROHIBITION_WITH_CLOSED_NONPATIENT_STATUTORY_EXCEPTIONS",
+        "legal_conclusion": "Proposal-only RED. Current Ministry of Health Decree 681 visibly places cannabis/marijuana in List I, whose circulation in the Russian Federation is prohibited. Current Federal Law No. 3-FZ Article 2 and Article 14 separate List I's closed statutory purposes from the medical-use class expressly available to Lists II and III. The List I exceptions are not a cannabis patient route; no current applicable cannabis-specific patient eligibility, prescriber, registry, lawful patient supply, pharmacy/dispensary or operational programme is proved.",
+        "jurisdiction": {
+          "territory_type": "SOVEREIGN_FEDERAL_STATE",
+          "applicable_law": "Russian Federation Government Decree No. 681 List I, read with Federal Law No. 3-FZ Articles 2 and 14.",
+          "source_owner_vs_jurisdiction": "All accepted sources are Russian federal official publishers and directly apply to RU. C1 errors for two official endpoints are stored solely as access metadata.",
+          "disputed_or_composite": false
+        },
+        "evidence_axes": {
+          "cannabis_specificity": "YES_CURRENT_MINZDRAV_DECREE_681_LIST_I_DIRECTLY_NAMES_CANNABIS_MARIJUANA_HASHISH_CANNABIS_RESIN_AND_CANNABIS_OIL",
+          "medical_cannabis_law": "NO_CURRENT_CANNABIS_LIST_I_IS_OUTSIDE_ARTICLE_14_ORDINARY_MEDICAL_USE_CLASS_FOR_LISTS_II_AND_III",
+          "patient_eligible": "NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_ELIGIBILITY_ROUTE_PROVEN",
+          "prescriber_route": "NO_CURRENT_OFFICIAL_CANNABIS_PRESCRIBER_ROUTE_PROVEN_LIST_I_EXCEPTIONS_ARE_NOT_A_PATIENT_ROUTE",
+          "registration_route": "NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_REGISTRY_OR_CARD_ROUTE_PROVEN",
+          "lawful_supply": "NO_CURRENT_CANNABIS_PATIENT_SUPPLY_OR_DISPENSING_ROUTE_PROVEN",
+          "pharmacy_or_dispensary": "NO_CURRENT_CANNABIS_PHARMACY_OR_PATIENT_DISPENSARY_ROUTE_PROVEN",
+          "import_route": "NO_CURRENT_CANNABIS_PATIENT_IMPORT_ROUTE_PROVEN",
+          "programme_commenced": "NO_CURRENT_CANNABIS_PATIENT_PROGRAMME_COMMENCEMENT_PROVEN",
+          "programme_operational": "NO_CURRENT_CANNABIS_PATIENT_OPERATION_STOCK_DISPENSING_OR_SERVICE_PROVEN",
+          "recreational_possession": "NO_CURRENT_CANNABIS_LIST_I_PROHIBITED_CIRCULATION",
+          "recreational_supply": "NO_CURRENT_CANNABIS_LIST_I_PROHIBITED_CIRCULATION",
+          "recreational_cultivation": "NO_CURRENT_CANNABIS_LIST_I_PROHIBITED_CIRCULATION",
+          "penalty_regime": "UNKNOWN_CURRENT_CRIMINAL_PENALTY_ARTICLES_WERE_NOT_REOPENED_AND_ARE_NOT_NEEDED_FOR_THE_LIST_I_COLOR_RULE"
+        },
+        "source_record_refs": [
+          "https://minzdrav.gov.ru/documents/8008-postanovlenie-pravitelstva-rf-681-ot-30-iyunya-1998-g",
+          "https://government.ru/docs/all/96411/",
+          "https://ips.pravo.gov.ru/api/ips/legislation/document?baseid=None&hash=4f3e2b09ec67c44a6cf6a43dadfa2bb8f18b308deee875a951cc59a78f8eb650"
+        ],
+        "source_annotations": [
+          "The current Ministry source supplies the direct cannabis, cannabis-resin and cannabis-oil List I bridge plus current visual evidence of the official owner and prohibited-circulation heading.",
+          "The official Government Federal Law No. 3-FZ source supplies the List I closed-purpose versus List II/III medical-use boundary; its C1 network error does not become a legal conclusion.",
+          "The official IPS current Decree 681 consolidation is retained as a currentness source. Its C1 network error is access metadata only and does not replace the exact Ministry cannabis fragment."
+        ],
+        "visual_evidence": [
+          {
+            "path": "data/reviews/wiki-truth-307-visual-evidence/RU-minzdrav-decree-681-current-2026-08-12.png",
+            "visual_opened": true,
+            "official_owner_visible": true,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": false,
+            "effective_rule_visible": true,
+            "screenshot_valid": true
+          },
+          {
+            "path": "data/reviews/wiki-truth-307-visual-evidence/RU-minzdrav-decree-681-cannabis-list-i-current-2026-08-12.png",
+            "visual_opened": true,
+            "official_owner_visible": false,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": true,
+            "effective_rule_visible": true,
+            "screenshot_valid": true
+          }
+        ],
+        "visual_acceptance": {
+          "legal_truth_visual_review_complete": true,
+          "strict_visual_acceptance": false,
+          "reason": "The direct current Ministry owner/List I/cannabis evidence was visually read headlessly. Current direct Government and IPS endpoints are ACCESS_BLOCKED at C1, so strict cross-source browser acceptance remains incomplete and cannot affect legal truth."
+        },
+        "current_layer_comparison": {
+          "project_status": "LEGACY_PROJECT_ILLEGAL_NONE_STRICT_WAS_NOT_AN_INPUT; INDEPENDENT_PACKET_DERIVES_PROPOSAL_ONLY_RED_FROM_CURRENT_OFFICIAL_LIST_I_AND_STATUTORY_BOUNDARY",
+          "runtime_map_color": "UNCONFIRMED_NOT_RECAPTURED_IN_THIS_LEGAL_PACKET",
+          "runtime_api_status": "UNCONFIRMED_NOT_RECAPTURED_IN_THIS_LEGAL_PACKET",
+          "wiki_truth_proposal": "RED_PROPOSAL_FROM_THIS_INDEPENDENT_PACKET_AFTER_MATRIX_REBUILD",
+          "ssot": "UNTOUCHED_NO_APPLICATION_AUTHORIZED"
+        },
+        "no_mutation": {
+          "apply_allowed": false,
+          "ssot_changed": false,
+          "map_colors_changed": false,
+          "production_touched": false,
+          "runtime_touched": false,
+          "deployment_touched": false
+        },
+        "recommended_action": "RETAIN_PROPOSAL_ONLY_RED_UNTIL_THE_SEPARATE_307_GEO_APPLY_GATE_AND_USER_AUTHORIZATION",
+        "confidence": "HIGH_FOR_CURRENT_CANNABIS_LIST_I_PROHIBITED_CIRCULATION_AND_MEDICAL_LIST_BOUNDARY; STRICT_VISUAL_ACCEPTANCE_PARTIAL_FOR_BLOCKED_CURRENT_GOVERNMENT_AND_IPS_ENDPOINTS"
+      }
     },
     {
       "geo": "RW",
@@ -136419,15 +136642,15 @@
       "strict_visual_acceptance_reason": "Current official PDF bytes were conditionally retrieved, text-read and locally rendered at relevant pages. Hidden Chromium navigation to the official HTML index received ERR_CONNECTION_REFUSED and PDF crops contain no browser address bar; this strict-visual limitation does not alter legal truth.",
       "final_visual_acceptance": false,
       "independent_review": {
-      "geo": "SH",
-      "territory": "St Helena",
-      "review_mode": "INDEPENDENT_OFFICIAL_EVIDENCE_FIRST",
-      "proposal_only": true,
-      "reviewed_at": "2026-08-12T07:03:00+03:00",
-      "official_truth_color": "RED",
-      "independent_truth_rule": "GENERAL_CURRENT_CANNABIS_SPECIFIC_RECREATIONAL_PROHIBITION_WITH_NONPATIENT_IMPLEMENTING_RULE_BOUNDARY",
-      "legal_conclusion": "Proposal-only RED. Current St Helena Government law directly names cannabis and cannabis resin, keeps them in Class B, and prohibits unauthorised recreational possession, supply, cultivation and smoking. The 2023 THC exception is non-administered low-THC personal-care/food only, and the current cannabis-specific 2009 regulation is Governor-authorised police training only; neither creates patient access.",
-      "packet": {
+        "geo": "SH",
+        "territory": "St Helena",
+        "review_mode": "INDEPENDENT_OFFICIAL_EVIDENCE_FIRST",
+        "proposal_only": true,
+        "reviewed_at": "2026-08-12T07:03:00+03:00",
+        "official_truth_color": "RED",
+        "independent_truth_rule": "GENERAL_CURRENT_CANNABIS_SPECIFIC_RECREATIONAL_PROHIBITION_WITH_NONPATIENT_IMPLEMENTING_RULE_BOUNDARY",
+        "legal_conclusion": "Proposal-only RED. Current St Helena Government law directly names cannabis and cannabis resin, keeps them in Class B, and prohibits unauthorised recreational possession, supply, cultivation and smoking. The 2023 THC exception is non-administered low-THC personal-care/food only, and the current cannabis-specific 2009 regulation is Governor-authorised police training only; neither creates patient access.",
+        "packet": {
           "jurisdiction": {
             "territory_type": "OVERSEAS_TERRITORY_DIRECT_DOMESTIC_LAW",
             "applicable_law": "The St Helena Government authoritative consolidated Drugs (Prevention of Misuse) Ordinance, 2003, as amended by Ordinance 1 of 2023 and commenced on 24 February 2023, with its listed Drugs (Authorisation of Cultivation and Possession) Regulations, 2009.",
