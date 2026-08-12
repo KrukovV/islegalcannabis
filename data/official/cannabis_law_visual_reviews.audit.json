@@ -152170,47 +152170,203 @@
           "title": "Attorney General's Chambers - Turks and Caicos Islands - 03.14 Control of Drugs Ordinance",
           "url": "https://www.gov.tc/agc/component/edocman/03-14-control-of-drugs-ordinance-2/fdocument?Itemid=9999",
           "source_kind": "TURKS_CAICOS_AGC_CONTROL_OF_DRUGS_ORDINANCE_CANNABIS_DEFINITION_CLASS_B_POSSESSION_SUPPLY_CULTIVATION_PENALTIES",
+          "source_owner": "Attorney General's Chambers, Turks and Caicos Islands Government",
+          "source_owner_geo": "TC",
+          "source_authority": "Official Attorney General's Chambers legislation service for the Turks and Caicos Islands.",
+          "applies_to_geo": [
+            "TC"
+          ],
+          "legal_basis_for_extension": "Direct territory legislation: Chapter 3.14 Control of Drugs Ordinance, published by the Turks and Caicos Islands Attorney General's Chambers.",
+          "source_type": "OFFICIAL_TERRITORY_REVISED_CONTROLLED_DRUGS_PRIMARY_LAW_PDF",
+          "primary_or_context": "PRIMARY_CANNABIS_CLASSIFICATION_PROHIBITION_AND_TRAVELLER_EXCEPTION_TEXT_PENDING_AMENDMENT_CHAIN_C2",
+          "evidence_role": "DIRECT_CANNABIS_CLASS_B_PROHIBITION_CULTIVATION_AND_LIMITED_PRESCRIBED_TRAVELLER_EXCEPTION_SOURCE",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "2021_AGC_REVISED_LAWS_INDEX_AND_2024_CONTROL_OF_DRUGS_AMENDMENT_IDENTITY_ARE_RETAINED_SEPARATELY; C2_REVIEW_REQUIRED_BEFORE_FINAL_CURRENTNESS_CONCLUSION.",
+          "effective_date": "Revision date 31 March 2018 on the retained official Chapter 3.14 PDF; currentness is checked with the retained 2021 AGC index and 2024 amendment record.",
+          "official_host_verified": true,
+          "direct_fragment_available": true,
+          "semantic_legal_axis": true,
+          "semantic_reviewed_by_human": true,
+          "official_fragment_locator": "Control of Drugs Ordinance Cap. 3.14, revised 31 March 2018: section 2 cannabis/cannabis-resin definitions; sections 3-10; Schedule 1 Part II Class B; Schedule 4 penalties; section 4(4)(b)(i)-(ii) declared prescribed controlled-drug traveller exception.",
+          "direct_fragment_urls": [
+            "https://www.gov.tc/agc/component/edocman/03-14-control-of-drugs-ordinance-2/fdocument?Itemid=9999#page=7"
+          ],
+          "exact_fragment": "Section 4(4)(b) does not prohibit a controlled drug carried for a passenger's personal use in transit or entering/departing the Islands where it has been prescribed by a medical practitioner, is limited to reasonable medical requirements or 24-hour use, and is declared to customs. Schedule 1 Part II lists Cannabis and cannabis resin as Class B controlled drugs; section 9 restricts cultivation of any plant of the genus Cannabis.",
+          "direct_fragment": "Sections 5-6 prohibit unauthorised production, supply and possession of controlled drugs; section 9 specifically restricts Cannabis-plant cultivation. The narrow declared traveller/prescription exception is directly retained but does not prove domestic patient enrolment, local prescriber, registry, supply, dispensing or programme operation.",
+          "annotation": "Primary official AGC law record for the TC cannabis bridge, Class-B classification, unauthorised conduct restrictions and narrow prescribed traveller exception. The direct PDF page records the exact conditions for personal transit/entry/departure. Generic controlled-drug wording is never converted into domestic patient access; it supports only the limited lawful traveller mode if the cannabis classification and scope remain current after C2 amendment review.",
+          "applicability": "TC; direct territory ordinance.",
+          "legal_relevance": "Direct cannabis classification/prohibition chain and a narrow prescription-linked traveller exception; no domestic patient route is inferred.",
+          "confidence": "HIGH_FOR_VISIBLE_PRIMARY_TEXT; CURRENTNESS_REQUIRES_RETAINED_2021_INDEX_AND_2024_AMENDMENT_SCOPE_REVIEW.",
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_state": "RETAINED_AGC_PRIMARY_LAW_PDF_CROPS_VISUALLY_REVIEWED_LOCALLY_NO_DESKTOP_BROWSER",
+          "visual_review_result": "Retained official-law crops visibly show the Turks and Caicos Islands law header, the 31 March 2018 revision date, section 4 traveller prescription conditions, cannabis classification and substantive cannabis provisions. Fresh official-domain acceptance is separate from legal truth.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-15/TC/screenshots/pdf_pages/TC-control-drugs-schedule-class-b-cannabis.png",
-          "note": "Official Attorney General's Chambers PDF, Chapter 3.14 Control of Drugs Ordinance, Revision Date 31 Mar 2018, fetched from the gov.tc edocman fdocument endpoint after the AGC index page identified the document as 03.14 Control of Drugs Ordinance. Visual review confirms the title page and Chapter 3.14 header, section 2 definitions of cannabis and cannabis resin, section 3 controlled-drug classification by Schedule 1, section 4 import/export prohibition with narrow prescribed personal-use traveller transit/entry/departure caveat, section 5 restriction of production and supply of controlled drugs, section 6 restriction of possession of controlled drugs by persons other than authorised persons, section 8 being concerned in possession with intent to supply, section 9 restriction of cultivation of any plant of the genus Cannabis, section 10 occupier liability for permitting smoking cannabis/cannabis resin, Schedule 1 Part II listing Cannabis and cannabis resin as Class B drugs, and Schedule 4 penalties including Class B custodial bands and cultivation penalties."
+          "note": "Official Attorney General's Chambers PDF, Chapter 3.14 Control of Drugs Ordinance, Revision Date 31 Mar 2018, fetched from the gov.tc edocman fdocument endpoint after the AGC index page identified the document as 03.14 Control of Drugs Ordinance. Visual review confirms the title page and Chapter 3.14 header, section 2 definitions of cannabis and cannabis resin, section 3 controlled-drug classification by Schedule 1, section 4 import/export prohibition with narrow prescribed personal-use traveller transit/entry/departure caveat, section 5 restriction of production and supply of controlled drugs, section 6 restriction of possession of controlled drugs by persons other than authorised persons, section 8 being concerned in possession with intent to supply, section 9 restriction of cultivation of any plant of the genus Cannabis, section 10 occupier liability for permitting smoking cannabis/cannabis resin, Schedule 1 Part II listing Cannabis and cannabis resin as Class B drugs, and Schedule 4 penalties including Class B custodial bands and cultivation penalties.",
+          "revalidation": {
+            "checked_at": "2026-08-12T13:10:13.809Z",
+            "final_url": "https://www.gov.tc/agc/component/edocman/03-14-control-of-drugs-ordinance-2/fdocument?Itemid=9999",
+            "http_status": 403,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html",
+            "content_length": 2299,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "7267f95ba3c57a65685f78aabf744d0b72f8b08c9ffe5d919e4f2bd44d6c11ac",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "HTTP_STATUS_403",
+            "change_reason": "HTTP_STATUS_403_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "ACCESS_BLOCKED"
+            ],
+            "dependent_geos": [
+              "TC"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
         }
       ],
       "verified_context_sources": [
         {
-          "title": "Attorney General's Chambers - Turks and Caicos Islands - 2021 Revised Laws index",
-          "url": "https://www.gov.tc/agc/2021-revised-laws",
-          "source_kind": "TURKS_CAICOS_AGC_REVISED_LAWS_INDEX_CONTEXT_IDENTIFIES_03_14_CONTROL_OF_DRUGS_ORDINANCE",
+          "title": "Attorney General's Chambers - Turks and Caicos Islands - 2024 Subsidiary Legislation index",
+          "url": "https://agc.gov.tc/agc/component/content/article/2024-subsidiary-legislation?Itemid=114&catid=9",
+          "source_kind": "TURKS_CAICOS_AGC_2024_SUBSIDIARY_LEGISLATION_INDEX_CONTROL_OF_DRUGS_AMENDMENT_COMMENCEMENT_NOTICE",
+          "source_owner": "Attorney General's Chambers, Turks and Caicos Islands Government",
+          "source_owner_geo": "TC",
+          "source_authority": "Official Attorney General's Chambers legislation catalogue for the Turks and Caicos Islands.",
+          "applies_to_geo": [
+            "TC"
+          ],
+          "legal_basis_for_extension": "Direct territory legislation catalogue maintained by the Turks and Caicos Islands Attorney General's Chambers.",
+          "source_type": "OFFICIAL_TERRITORY_SUBSIDIARY_LEGISLATION_CURRENTNESS_INDEX_HTML",
+          "primary_or_context": "CURRENTNESS_AND_COMMENCEMENT_CONTEXT",
+          "evidence_role": "OFFICIAL_INDEX_CONFIRMING_2024_CONTROL_OF_DRUGS_AMENDMENT_AND_COMMENCEMENT_NOTICE",
+          "cannabis_specific": false,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "OFFICIAL_2024_SUBSIDIARY_LEGISLATION_INDEX_IDENTIFIES_A_SEPARATE_CONTROL_OF_DRUGS_AMENDMENT_COMMENCEMENT_NOTICE; IT_DOES_NOT_ITSELF_SUPPLY_CANNABIS_AXIS_TEXT.",
+          "effective_date": "2024; the official index identifies a separate Control of Drugs (Amendment) Ordinance 2024 Commencement Notice.",
+          "official_host_verified": true,
+          "direct_fragment_available": true,
+          "semantic_legal_axis": false,
+          "semantic_reviewed_by_human": true,
+          "official_fragment_locator": "AGC 2024 Subsidiary Legislation index: entry 37 of 2024, Control of Drugs (Amendment) Ordinance 2024 - Commencement Notice 2024.",
+          "exact_fragment": "The official AGC 2024 Subsidiary Legislation index lists \"37 of 2024 - Control of Drugs (Amendment) Ordinance 2024 - Commencement Notice 2024\" alongside the 2024 legislation catalogue.",
+          "annotation": "Currentness/commencement context only. This official index proves that the 2024 Control of Drugs amendment had a separately catalogued commencement notice; it neither states cannabis text nor creates a patient, supply, possession, or color axis.",
+          "applicability": "TC; official territory legislation catalogue.",
+          "legal_relevance": "Currentness and commencement-chain identity only; all cannabis legal derivation remains tied to the primary Cap. 3.14 PDF and directly reviewed amendment scope.",
+          "confidence": "HIGH_FOR_OFFICIAL_INDEX_IDENTITY; NOT_A_CANNABIS_LEGAL_AXIS_SOURCE.",
+          "reviewed_by_human_visual": false,
+          "visual_opened": false,
+          "official_owner_visible": false,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": false,
+          "screenshot_state": "SEARCH_INDEXED_OFFICIAL_CURRENTNESS_RECORD_C2_C3_QUEUED_NO_DESKTOP_BROWSER",
+          "visual_review_result": "The currentness identity is retained from the official AGC catalogue result; strict visual acceptance is separate and never changes legal truth.",
           "screenshot_path": null,
-          "note": "Official AGC 2021 Revised Laws index was fetched with a normal browser User-Agent; it lists 03.14 Control of Drugs Ordinance and links to the gov.tc edocman document id 1831. Plain curl without User-Agent returned a 404 shell, so the retrieval caveat is recorded.",
+          "note": "Official AGC catalogue result discovered on 12 August 2026 lists the separate 2024 Control of Drugs amendment commencement notice. It is retained in the same TC source-record ledger so amendment currentness is explicit rather than inferred from the 2018 revised PDF.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
-            "final_url": "https://www.gov.tc/agc/2021-revised-laws",
+            "checked_at": "2026-08-12T13:14:39.581Z",
+            "final_url": "https://agc.gov.tc/agc/component/content/article/2024-subsidiary-legislation?Itemid=114&catid=9",
             "http_status": null,
             "etag": null,
             "last_modified": null,
             "content_type": null,
             "content_length": null,
             "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING,SCREENSHOT_STATE_MISSING",
+            "relevant_fragment_sha256": "06a5ea2ca72e7e2f7e189c4d350c4c9f36bb2db638bd9b36d6164044a3372f62",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "NEEDS_SEMANTIC_REVIEW"
+              "ACCESS_BLOCKED"
             ],
             "dependent_geos": [
               "TC"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING",
-              "SCREENSHOT_STATE_MISSING"
+            "schema_issues": [],
+            "semantic_probe": null
+          }
+        },
+        {
+          "title": "Attorney General's Chambers - Turks and Caicos Islands - 2021 Revised Laws index",
+          "url": "https://www.gov.tc/agc/2021-revised-laws",
+          "source_kind": "TURKS_CAICOS_AGC_REVISED_LAWS_INDEX_CONTEXT_IDENTIFIES_03_14_CONTROL_OF_DRUGS_ORDINANCE",
+          "source_owner": "Attorney General's Chambers, Turks and Caicos Islands Government",
+          "source_owner_geo": "TC",
+          "source_authority": "Official Attorney General's Chambers legislation index for the Turks and Caicos Islands.",
+          "applies_to_geo": [
+            "TC"
+          ],
+          "legal_basis_for_extension": "Direct territory legislation index maintained by the Turks and Caicos Islands Attorney General's Chambers.",
+          "source_type": "OFFICIAL_TERRITORY_REVISED_LAWS_CURRENTNESS_INDEX_HTML",
+          "primary_or_context": "CURRENTNESS_AND_DOCUMENT_IDENTITY_CONTEXT",
+          "evidence_role": "OFFICIAL_INDEX_CONFIRMING_CONTROL_OF_DRUGS_ORDINANCE_IDENTITY",
+          "cannabis_specific": false,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "OFFICIAL_2021_REVISED_LAWS_INDEX; IT_IDENTIFIES_THE_CONTROL_OF_DRUGS_ORDINANCE_BUT_DOES_NOT_ITSELF_ESTABLISH_CANNABIS_OR_PATIENT_AXES.",
+          "effective_date": "2021 Revised Laws index; current page recheck required.",
+          "official_host_verified": true,
+          "direct_fragment_available": true,
+          "semantic_legal_axis": false,
+          "semantic_reviewed_by_human": true,
+          "official_fragment_locator": "AGC 2021 Revised Laws index entry: 03.14 Control of Drugs Ordinance, linked to the AGC edocman document.",
+          "exact_fragment": "The official AGC index lists Chapter 03.14, Control of Drugs Ordinance, and identifies the linked official document record used for the primary-law PDF.",
+          "annotation": "Currentness/document-identity context for the primary Control of Drugs Ordinance. It is retained to avoid treating the 2018 revision PDF as current without an official AGC index; it is not cannabis text and cannot determine a legal axis or color.",
+          "applicability": "TC; official territory legislation index.",
+          "legal_relevance": "Currentness and official-document identity only; direct legal derivation remains with the primary-law PDF.",
+          "confidence": "HIGH_FOR_OFFICIAL_INDEX_IDENTITY; NOT_A_CANNABIS_LEGAL_AXIS_SOURCE.",
+          "reviewed_by_human_visual": false,
+          "visual_opened": false,
+          "official_owner_visible": false,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": false,
+          "screenshot_state": "NO_FRESH_VISUAL_CAPTURE_YET_C2_C3_QUEUED",
+          "visual_review_result": "Official index identity was previously retrieved; a fresh visual acceptance capture is separate and does not alter legal truth.",
+          "screenshot_path": null,
+          "note": "Official AGC 2021 Revised Laws index was fetched with a normal browser User-Agent; it lists 03.14 Control of Drugs Ordinance and links to the gov.tc edocman document id 1831. Plain curl without User-Agent returned a 404 shell, so the retrieval caveat is recorded.",
+          "revalidation": {
+            "checked_at": "2026-08-12T13:10:13.809Z",
+            "final_url": "https://www.gov.tc/agc/2021-revised-laws",
+            "http_status": 403,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html",
+            "content_length": 2242,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "7f72f1ea7eb924f7e47c2d68535710b12faf481b03ce38155d69b1ea1433bb0b",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "HTTP_STATUS_403",
+            "change_reason": "HTTP_STATUS_403_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
             ],
+            "queue_reasons": [
+              "ACCESS_BLOCKED"
+            ],
+            "dependent_geos": [
+              "TC"
+            ],
+            "schema_issues": [],
             "semantic_probe": null
           }
         },
@@ -152218,8 +152374,67 @@
           "title": "Attorney General's Chambers - Turks and Caicos Islands - 19 of 2024 Control of Drugs (Amendment) Ordinance 2024",
           "url": "https://www.gov.tc/agc/component/edocman/19-of-2024-control-of-drugs-amendment-ordinance-2024/fdocument?Itemid=9999",
           "source_kind": "TURKS_CAICOS_AGC_CONTROL_OF_DRUGS_AMENDMENT_2024_CONTEXT_CONTROLLED_DRUG_SUPPLY_AGGRAVATION",
+          "source_owner": "Attorney General's Chambers, Turks and Caicos Islands Government",
+          "source_owner_geo": "TC",
+          "source_authority": "Official Attorney General's Chambers legislation service for the Turks and Caicos Islands.",
+          "applies_to_geo": [
+            "TC"
+          ],
+          "legal_basis_for_extension": "Direct territory amendment ordinance published by the Turks and Caicos Islands Attorney General's Chambers.",
+          "source_type": "OFFICIAL_TERRITORY_CONTROLLED_DRUGS_AMENDMENT_PDF",
+          "primary_or_context": "CURRENTNESS_AND_AMENDMENT_SCOPE_CONTEXT",
+          "evidence_role": "OFFICIAL_CURRENT_AMENDMENT_CHAIN_SCOPE_SOURCE",
+          "cannabis_specific": false,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "2024_CONTROL_OF_DRUGS_AMENDMENT_IDENTITY_REQUIRES_C2_OPERATIVE_TEXT_REVIEW; IT_MUST_NOT_BE_ASSUMED_TO_AMEND_CANNABIS_CLASSIFICATION_OR_TRAVELLER_EXCEPTION_UNLESS_THE_TEXT_SHOWS_IT.",
+          "effective_date": "2024 Amendment Ordinance; commencement/effective clause and affected primary-law sections require C2 review.",
+          "official_host_verified": true,
+          "direct_fragment_available": true,
+          "semantic_legal_axis": false,
+          "semantic_reviewed_by_human": true,
+          "official_fragment_locator": "Control of Drugs (Amendment) Ordinance 2024, Act 19 of 2024; operative amendment clause(s) following section 5 require C2 scope confirmation.",
+          "exact_fragment": "The retained official amendment identity records an aggravated controlled-drug supply insertion after section 5; the reviewed excerpt does not itself name cannabis and is preserved to establish amendment-chain scope rather than a cannabis axis.",
+          "annotation": "Official 2024 Control of Drugs amendment retained to test whether the older revised primary-law text remains current. It cannot be used to infer any cannabis patient route, decriminalization or color until its operative scope is directly confirmed.",
+          "applicability": "TC; direct territory amendment ordinance.",
+          "legal_relevance": "Currentness/amendment-scope context only; no cannabis patient or recreational legal axis is derived from a non-cannabis-specific amendment excerpt.",
+          "confidence": "HIGH_FOR_OFFICIAL_AMENDMENT_IDENTITY; C2_REQUIRED_FOR_OPERATIVE_SCOPE.",
+          "reviewed_by_human_visual": false,
+          "visual_opened": false,
+          "official_owner_visible": false,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": false,
+          "screenshot_state": "NO_FRESH_VISUAL_CAPTURE_YET_C2_C3_QUEUED",
+          "visual_review_result": "No final visual acceptance claim is made for this amendment record; visual acceptance never changes legal truth.",
           "screenshot_path": null,
-          "note": "Official 2024 Control of Drugs amendment PDF was also fetched from gov.tc. It inserts aggravated-supply provisions for controlled drugs after section 5; this is retained as current Control of Drugs context but not counted as the primary cannabis-specific direct page because the visually reviewed amendment excerpt does not itself list cannabis."
+          "note": "Official 2024 Control of Drugs amendment PDF was also fetched from gov.tc. It inserts aggravated-supply provisions for controlled drugs after section 5; this is retained as current Control of Drugs context but not counted as the primary cannabis-specific direct page because the visually reviewed amendment excerpt does not itself list cannabis.",
+          "revalidation": {
+            "checked_at": "2026-08-12T13:10:13.809Z",
+            "final_url": "https://www.gov.tc/agc/component/edocman/19-of-2024-control-of-drugs-amendment-ordinance-2024/fdocument?Itemid=9999",
+            "http_status": 403,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html",
+            "content_length": 2317,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "2e14d6f6ef3e8bd057cbbc6d7032b36bdfc2648f88d8533ed099d9dd04079921",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "HTTP_STATUS_403",
+            "change_reason": "HTTP_STATUS_403_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "ACCESS_BLOCKED"
+            ],
+            "dependent_geos": [
+              "TC"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
         }
       ],
       "official_status": {
@@ -152231,7 +152446,133 @@
         "status": "MATCH_WITH_CLASS_B_CANNABIS_AND_NARROW_PRESCRIBED_TRAVELLER_CAVEAT",
         "reason": "Turks & Caicos Islands is visually verified from the official Attorney General's Chambers PDF of Chapter 3.14 Control of Drugs Ordinance. Project recreational=ILLEGAL is supported because the ordinance visibly defines cannabis and cannabis resin, lists cannabis and cannabis resin as Class B drugs, and prohibits unauthorised import/export, production, supply, possession and cultivation of Cannabis plants. Project medical=NONE is supported at cannabis-patient-program level, with a narrow caveat that section 4 contains a declared prescribed controlled-drug personal-use exception for travellers/transit/entry/departure rather than a cannabis-specific domestic medical access program. Project enforcement=STRICT is supported by custodial/fine penalty tables for Class B offences and cannabis-plant cultivation penalties. No project status SSOT was changed."
       },
-      "conclusion": "Turks & Caicos Islands is closed as visually verified direct official cannabis-law evidence from the Attorney General's Chambers Control of Drugs Ordinance PDF. Project ILLEGAL/NONE/STRICT is supported, with caveats for cannabis being Class B and for the narrow prescribed controlled-drug traveller exception. No project status SSOT was changed."
+      "conclusion": "Turks & Caicos Islands is closed as visually verified direct official cannabis-law evidence from the Attorney General's Chambers Control of Drugs Ordinance PDF. Project ILLEGAL/NONE/STRICT is supported, with caveats for cannabis being Class B and for the narrow prescribed controlled-drug traveller exception. No project status SSOT was changed.",
+      "independent_truth_color": "YELLOW",
+      "independent_truth_status": "CURRENT_AVAILABLE_CANNABIS_CLASS_B_CONTROL_WITH_LIMITED_STATUTORY_PRESCRIBED_TRAVELLER_ROUTE_NO_DOMESTIC_OPERATIONAL_PATIENT_PROGRAMME_PROVEN",
+      "independent_truth_reason": "LIMITED_LAWFUL_CANNABIS_RELATED_TRAVELLER_MODE_PROVEN_BY_CURRENT_AVAILABLE_OFFICIAL_SCHEDULE_AND_SECTION_4_EXCEPTION",
+      "independent_truth_reviewed_at": "2026-08-12T16:15:00+03:00",
+      "independent_review": {
+        "geo": "TC",
+        "territory": "Turks and Caicos Islands",
+        "review_mode": "INDEPENDENT_OFFICIAL_EVIDENCE_FIRST",
+        "proposal_only": true,
+        "reviewed_at": "2026-08-12T16:15:00+03:00",
+        "official_truth_color": "YELLOW",
+        "independent_truth_color": "YELLOW",
+        "independent_truth_rule": "GENERAL_CURRENT_CANNABIS_SCHEDULE_WITH_LIMITED_STATUTORY_TRAVELLER_PRESCRIPTION_EXCEPTION",
+        "legal_conclusion": "Proposal-only YELLOW. The Attorney General's Chambers Cap. 3.14 Control of Drugs Ordinance directly defines cannabis and cannabis resin, lists both in Schedule 1 Part II as Class B controlled drugs, and directly preserves in section 4(4)(b) a declared personal-use carriage route for a passenger entering, leaving or transiting the Islands where the controlled drug was prescribed by a medical practitioner, is limited to reasonable medical requirements or 24-hour use, and is declared to customs. The cannabis Schedule bridge makes that limited statutory controlled-drug route cannabis-related. It does not prove resident patient eligibility, domestic prescribing, registration, local stock, pharmacy or dispensary supply, programme commencement or operation, so it is not GREEN. The retained official 2024 amendment record inserts an aggravated-supply provision after section 5 and does not itself name cannabis; the official AGC 2024 catalogue also lists the amendment's separate Commencement Notice. Those currentness records are non-promoting and do not displace the Schedule 1 or section 4 route. Every C1 request returned HTTP 403 and remains access metadata only, never a prohibition or color input.",
+        "packet": {
+          "jurisdiction": {
+            "territory_type": "OVERSEAS_TERRITORY_DIRECT_TERRITORY_LAW",
+            "applicable_law": "Turks and Caicos Islands Control of Drugs Ordinance, Cap. 3.14, revision dated 31 March 2018; the official AGC 2021 Revised Laws index identifies the Chapter 03.14 document, while official 2024 AGC catalogue records identify the Control of Drugs (Amendment) Ordinance 2024 and its separately catalogued commencement notice.",
+            "source_owner_vs_jurisdiction": "Every retained primary, amendment, index and commencement-chain URL is published by the Attorney General's Chambers for the Turks and Caicos Islands and applies directly to TC. C1 made one serial request per canonical URL; all four results were HTTP 403, retained strictly as access metadata.",
+            "disputed_or_composite": false
+          },
+          "official_truth_color": "YELLOW",
+          "truth_color": "YELLOW",
+          "truth_status": "CURRENT_AVAILABLE_CANNABIS_CLASS_B_CONTROL_WITH_LIMITED_STATUTORY_PRESCRIBED_TRAVELLER_ROUTE_NO_DOMESTIC_OPERATIONAL_PATIENT_PROGRAMME_PROVEN",
+          "color_rule": "GENERAL_CURRENT_CANNABIS_SCHEDULE_WITH_LIMITED_STATUTORY_TRAVELLER_PRESCRIPTION_EXCEPTION",
+          "reviewed_at": "2026-08-12T16:15:00+03:00",
+          "legal_interpretation": "Schedule 1 Part II directly names Cannabis and cannabis resin as Class B. Section 4(4)(b)'s expressly limited passenger prescription route consequently has a cannabis bridge, but only for personal carriage while entering, leaving or transiting, on a practitioner prescription, within the medical or 24-hour quantity limit and declared to customs. It is a limited lawful cannabis-related mode. It neither creates a domestic patient class nor establishes a domestic cannabis medicine programme. Sections 5, 6, 8 and 9 remain the unauthorised production, supply, possession and cannabis-cultivation baseline. The retained 2024 amendment excerpt is aggravated controlled-drug supply context after section 5, not a cannabis exception; its existence and catalogue commencement record are currentness evidence, never patient-access evidence.",
+          "source_record_refs": [
+            "https://www.gov.tc/agc/component/edocman/03-14-control-of-drugs-ordinance-2/fdocument?Itemid=9999#page=5",
+            "https://www.gov.tc/agc/component/edocman/03-14-control-of-drugs-ordinance-2/fdocument?Itemid=9999#page=7",
+            "https://www.gov.tc/agc/component/edocman/03-14-control-of-drugs-ordinance-2/fdocument?Itemid=9999#page=10",
+            "https://www.gov.tc/agc/component/edocman/03-14-control-of-drugs-ordinance-2/fdocument?Itemid=9999#page=25",
+            "https://www.gov.tc/agc/2021-revised-laws",
+            "https://www.gov.tc/agc/component/edocman/19-of-2024-control-of-drugs-amendment-ordinance-2024/fdocument?Itemid=9999",
+            "https://agc.gov.tc/agc/component/content/article/2024-subsidiary-legislation?Itemid=114&catid=9"
+          ],
+          "evidence_axes": {
+            "cannabis_specificity": "YES_SECTION_2_DEFINES_CANNABIS_AND_CANNABIS_RESIN_AND_SCHEDULE_1_PART_II_DIRECTLY_LISTS_BOTH_AS_CLASS_B",
+            "medical_cannabis_law": "LIMITED_SECTION_4_4_B_TRAVELLER_PERSONAL_CARRIAGE_EXCEPTION_FOR_A_PRESCRIBED_CONTROLLED_DRUG_COMBINED_WITH_THE_DIRECT_CANNABIS_CLASS_B_SCHEDULE_BRIDGE",
+            "patient_eligible": "LIMITED_PASSENGER_ENTERING_LEAVING_OR_TRANSITING_WITH_PRACTITIONER_PRESCRIPTION_NOT_A_DOMESTIC_PATIENT_CLASS",
+            "prescriber_route": "LIMITED_MEDICAL_PRACTITIONER_PRESCRIPTION_REQUIRED_FOR_THE_TRAVELLER_EXCEPTION",
+            "registration_route": "NO_NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_REGISTRY_OR_CARD_ROUTE_PROVEN",
+            "lawful_supply": "LIMITED_PERSONAL_CARRIAGE_OF_EXTERNALLY_PRESCRIBED_CONTROLLED_DRUG_ONLY_NO_DOMESTIC_CANNABIS_SUPPLY_ROUTE_PROVEN",
+            "pharmacy_or_dispensary": "NO_NO_CURRENT_OFFICIAL_DOMESTIC_CANNABIS_PHARMACY_OR_DISPENSARY_ROUTE_PROVEN",
+            "import_route": "LIMITED_SECTION_4_4_B_DECLARED_PERSONAL_CARRIAGE_ON_ENTRY_OR_TRANSIT_NOT_A_GENERAL_PATIENT_IMPORT_PROGRAMME",
+            "programme_commenced": "NO_NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_PROGRAMME_COMMENCEMENT_PROVEN",
+            "programme_operational": "NO_NO_CURRENT_OFFICIAL_DOMESTIC_CANNABIS_SERVICE_STOCK_DISPENSING_OR_OPERATION_PROVEN",
+            "recreational_possession": "PROHIBITED_SECTION_6_COMBINED_WITH_SCHEDULE_1_CLASS_B_CANNABIS_BRIDGE_EXCEPT_FOR_THE_NARROW_SECTION_4_4_B_TRAVELLER_ROUTE",
+            "recreational_supply": "PROHIBITED_SECTION_5_COMBINED_WITH_SCHEDULE_1_CLASS_B_CANNABIS_BRIDGE",
+            "recreational_cultivation": "PROHIBITED_SECTION_9_EXPRESSLY_RESTRICTS_CULTIVATION_OF_ANY_PLANT_OF_THE_GENUS_CANNABIS",
+            "penalty_regime": "YES_RETAINED_OFFICIAL_SCHEDULE_4_AND_PRIMARY_LAW_VISUAL_RECORDS_SET_CLASS_B_AND_CANNABIS_CULTIVATION_PENALTY_CONTEXT"
+          },
+          "lifecycle": {
+            "currentness": "C0 retained four canonical AGC records without network. C1 fetched each canonical URL only once: the revised-law PDF, 2021 index, Act 19/2024 amendment PDF and 2024 subsidiary-legislation catalogue all returned HTTP 403. Access failure is never a legal conclusion. C2 reread the retained visible Cap. 3.14 primary-law crops, the retained 2024 amendment scope annotation and the official catalogue identity: the amendment inserts aggravated supply context after section 5 and does not itself name cannabis; the catalogue lists its separate commencement notice. No record supports inventing an amendment to Schedule 1 or section 4.",
+            "effective_date": "The retained official Cap. 3.14 PDF visibly states revision date 31 March 2018 and its original commencement is 28 June 1976. The official 2024 catalogue confirms that the amendment had a separately listed commencement notice, but the retained indexed fragment does not provide a day-specific commencement date; that limitation is explicit and does not alter the direct section 4/Schedule 1 reading.",
+            "rule": "A current available direct cannabis schedule combined with an expressly limited statutory prescription-carriage exception is sufficient for proposal-only YELLOW. It cannot become domestic patient access or GREEN without separately proven patient eligibility and operational lawful supply, pharmacy or dispensing. Generic controlled-drug wording alone is non-promoting; here its limited traveler application is linked to cannabis only by the direct Schedule 1 Class B bridge. Access state, visual acceptance, generic regulator wording, cultivation, production and the non-cannabis 2024 amendment never derive a color axis."
+          },
+          "source_annotations": [
+            "Cap. 3.14 is the direct official cannabis definition, Class B schedule, restriction and limited traveller-prescription source; saved official-law crops were visually reread locally without a desktop browser.",
+            "The 2021 AGC Revised Laws index is document identity/currentness context only; it cannot establish a cannabis axis.",
+            "The 2024 amendment PDF is retained only for its reviewed aggravated-supply-after-section-5 scope; it does not itself name cannabis or create a patient route.",
+            "The official 2024 subsidiary-legislation catalogue independently records a Commencement Notice for the 2024 amendment. It establishes an amendment-chain identity, not cannabis wording or patient access.",
+            "All HTTP 403 results are `ACCESS_BLOCKED` audit metadata only. No screenshot/access or strict visual-acceptance value derives the legal color."
+          ],
+          "visual_evidence": [
+            {
+              "path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-15/TC/screenshots/pdf_pages/TC-control-drugs-cannabis-definition.png",
+              "visual_opened": true,
+              "official_owner_visible": true,
+              "official_domain_visible": false,
+              "cannabis_fragment_visible": true,
+              "effective_rule_visible": true,
+              "screenshot_valid": true
+            },
+            {
+              "path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-15/TC/screenshots/pdf_pages/TC-control-drugs-import-export-production-supply.png",
+              "visual_opened": true,
+              "official_owner_visible": true,
+              "official_domain_visible": false,
+              "cannabis_fragment_visible": false,
+              "effective_rule_visible": true,
+              "screenshot_valid": true
+            },
+            {
+              "path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-15/TC/screenshots/pdf_pages/TC-control-drugs-schedule-class-b-cannabis.png",
+              "visual_opened": true,
+              "official_owner_visible": true,
+              "official_domain_visible": false,
+              "cannabis_fragment_visible": true,
+              "effective_rule_visible": true,
+              "screenshot_valid": true
+            },
+            {
+              "path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-15/TC/screenshots/pdf_pages/TC-control-drugs-cultivation-cannabis-plant.png",
+              "visual_opened": true,
+              "official_owner_visible": true,
+              "official_domain_visible": false,
+              "cannabis_fragment_visible": true,
+              "effective_rule_visible": true,
+              "screenshot_valid": true
+            }
+          ],
+          "visual_acceptance": {
+            "legal_truth_visual_review_complete": true,
+            "strict_visual_acceptance": false,
+            "reason": "Retained official AGC PDF crops were inspected locally without a desktop browser. They visibly show the Turks and Caicos Islands law header, 31 March 2018 revision date, cannabis definition, Schedule 1 Class B entry, section 4 traveller conditions and section 9 cannabis-cultivation text, but no address-bar/domain assertion. This affects strict visual acceptance only, never legal truth."
+          },
+          "current_layer_comparison": {
+            "project_status": "LEGACY_PROJECT_ILLEGAL_NONE_STRICT_WAS_NOT_AN_INPUT; INDEPENDENT_PACKET_RECORDS_PROPOSAL_ONLY_YELLOW_LIMITED_TRAVELLER_EXCEPTION",
+            "runtime_map_color": "UNCONFIRMED_NOT_RECAPTURED_IN_THIS_LEGAL_PACKET",
+            "runtime_api_status": "UNCONFIRMED_NOT_RECAPTURED_IN_THIS_LEGAL_PACKET",
+            "wiki_truth_proposal": "YELLOW_PROPOSAL_FROM_THIS_INDEPENDENT_PACKET_AFTER_MATRIX_REBUILD",
+            "ssot": "UNTOUCHED_NO_APPLICATION_AUTHORIZED"
+          },
+          "no_mutation": {
+            "apply_allowed": false,
+            "ssot_changed": false,
+            "map_colors_changed": false,
+            "production_touched": false,
+            "runtime_touched": false,
+            "deployment_touched": false
+          },
+          "recommended_action": "RETAIN_PROPOSAL_ONLY_YELLOW_WITH_2024_AMENDMENT_SCOPE_AND_COMMENCEMENT_CAVEAT; REOPEN_IF_A_CURRENT_CONSOLIDATION_OR_CANNABIS_SPECIFIC_DOMESTIC_PATIENT_INSTRUMENT_CHANGES_AN_AXIS",
+          "confidence": "HIGH_FOR_VISIBLE_CANNABIS_CLASSIFICATION_AND_SECTION_4_TRAVELLER_EXCEPTION; HIGH_FOR_2024_AMENDMENT_AND_COMMENCEMENT_CATALOGUE_IDENTITY; MEDIUM_FOR_FULL_CURRENT_CONSOLIDATION_BECAUSE_ALL_FRESH_AGC_HTTP_RECHECKS_WERE_403"
+        }
+      }
     },
     {
       "geo": "TV",
