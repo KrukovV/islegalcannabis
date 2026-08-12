@@ -760,6 +760,51 @@ test("nested independent-review ledger packets normalize prefixed axes without a
   assert.equal(result?.facts.operational, true);
 });
 
+test("nested ledger packet keeps a conservative RED conclusion and snake-case source provenance", () => {
+  const packet = normalizeVisualReviewLedgerPacket({
+    geo: "TEST-NESTED-RED-PACKET",
+    status: "VISUALLY_VERIFIED",
+    independent_review: {
+      official_truth_color: "RED",
+      independent_truth_rule: "GENERAL_CURRENT_CANNABIS_PROHIBITION_WITH_NO_PATIENT_ROUTE",
+      packet: {
+        evidence_axes: {
+          recreational_possession: {
+            value: "NO",
+            source_url: "https://laws.example.gov/current-code#article-5",
+            basis: "Article 5 prohibits possession of cannabis.",
+          },
+          medical_cannabis_access: {
+            value: "NO",
+            source_url: "https://health.example.gov/current-list#cannabis",
+            basis: "The current official list has no cannabis patient route.",
+          },
+        },
+      },
+    },
+    verified_sources: [{
+      title: "Current official cannabis code",
+      url: "https://laws.example.gov/current-code#article-5",
+      source_type: "CURRENT_OFFICIAL_PRIMARY_CANNABIS_CODE",
+      source_authority: "Ministry of Justice",
+      source_owner_geo: "TEST-NESTED-RED-PACKET",
+      applies_to_geo: ["TEST-NESTED-RED-PACKET"],
+      official_host_verified: true,
+      screenshot_path: "evidence/current-code.png",
+      screenshot_valid: true,
+      official_owner_visible: true,
+      official_domain_visible: false,
+    }],
+  });
+  assert.equal(packet?.independentTruthColor, "RED");
+  assert.equal(packet?.independentTruthRule, "GENERAL_CURRENT_CANNABIS_PROHIBITION_WITH_NO_PATIENT_ROUTE");
+  assert.equal(packet?.currentOfficialSources[0]?.sourceOwnerGeo, "TEST-NESTED-RED-PACKET");
+  assert.deepEqual(packet?.currentOfficialSources[0]?.appliesToGeos, ["TEST-NESTED-RED-PACKET"]);
+  assert.equal(packet?.currentOfficialSources[0]?.officialHostVerified, true);
+  assert.equal(packet?.currentOfficialSources[0]?.officialDomainVisible, false);
+  assert.equal(buildFreshAxisTruthOverride(packet)?.color, "RED");
+});
+
 test("compatible independent evidence packets aggregate while divergent color conclusions stay fail-closed", () => {
   const geo = "TEST-COMPATIBLE-INDEPENDENT-PACKETS";
   const seedRow = { geo, ...operationalPatientEvidence() };

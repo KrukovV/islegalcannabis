@@ -10,6 +10,27 @@ This specification governs a new, independent legal re-audit of exactly 307 proj
 - The audit begins at the canonical Git root and uses `data/reviews/geo-list-307.json` as its universe.
 - Archive copies, temporary worktrees, existing `/wiki-truth` colors, and Wikipedia are comparison material only. They are not Official Truth inputs.
 
+### Current audited checkpoint — 2026-08-12
+
+The canonical matrix contains `307/307` proposal-only rows. The canonical
+ledger is non-shrinking and retains `307` GEO rows, `295` explicit independent
+colour packets, and `12` rows whose proposal colour is normalized by the matrix
+builder. The report schema bridge currently exposes `147` independently
+reconciled primary-law packets containing `557` retained official source links.
+Only `2/307` GEO satisfy the separate strict final visual requirement that every
+relied-on source has a persisted capture with visible official domain; `305`
+remain outstanding for that acceptance gate. These numbers are audit progress,
+not legal conclusions or authority to apply a change. `GOAL_ACHIEVED=false`,
+`APPLY_ALLOWED=false`, `SSOT_CHANGED=false`, `MAP_COLORS_CHANGED=false`,
+`PRODUCTION_TOUCHED=false`, and `RUNTIME_TOUCHED=false` remain mandatory.
+
+The generator accepts both current camelCase records and historical snake_case
+records, including a nested `independent_review.packet`, from the same ledger.
+It may preserve a reviewer’s more conservative recorded conclusion, but it may
+never use this normalization to manufacture a legal axis, elevate a colour, or
+mark strict visual acceptance. `official_domain_visible` remains a boolean
+final-acceptance check and is never a legal-truth input.
+
 ## Independent inputs and layer separation
 
 For each GEO, record these separate layers before reconciliation:

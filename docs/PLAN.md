@@ -5,7 +5,7 @@ Statuses: pending | in_progress | done
 ## Independent Truth-First 307-GEO Re-Audit
 
 - [in_progress] Freeze and compare the live map, SSOT, `/wiki-truth`, and PDF baselines without treating any derived proposal as legal truth.
-- [pending] Produce the 307-row independent official-law, visual-evidence, ownership/applicability, and map-reconciliation proposal artifacts defined in `docs/TRUTH_FIRST_307_REAUDIT_SPEC.md`.
+- [in_progress] Maintain the 307-row independent official-law, visual-evidence, ownership/applicability, and map-reconciliation proposal artifacts defined in `docs/TRUTH_FIRST_307_REAUDIT_SPEC.md`; their current schema-valid legal-reconciliation coverage is 147/307 and strict visual acceptance is 2/307, so no final verdict or application is authorized.
 - [in_progress] Close only general-model defects with regression evidence; the universal registry/card prerequisite has been removed after the official TGA multi-source case, while `APPLY_ALLOWED=false` remains until all statutory, operational, visual, and map-capture gates are met and the user authorizes apply.
 
 ## Uganda 2025 Primary Law refresh
@@ -32,6 +32,8 @@ Statuses: pending | in_progress | done
 - [x] Separate legal derivation from strict visual acceptance and live-map evidence.
 - [x] Make pass-cycle stale-lock cleanup release only a verified empty marker and fail closed without recursive directory deletion.
 - [ ] Complete the independent 307-GEO audit gate before any apply authorization.
+
+- [done] Repair the general ledger-to-reconciliation schema bridge: camelCase, snake_case and nested `independent_review.packet` source/axis records are normalized from the one canonical ledger without GEO-specific code. The rebuilt audit exposes 147 structured reconciliations with 557 retained official links; only 2 GEO meet strict official-domain screenshot acceptance, so 305 remain in the final visual queue and all map verdicts stay fail-closed where that proof is absent.
 
 - [in_progress] Independently re-open and visually inspect official cannabis-law evidence for all 307 GEO. The strict verified checkpoint is recorded only in `CONTINUITY.md` to prevent stale duplicate totals; every decisive link has a saved screenshot, and context-only links retain an explicit capture blocker and cannot derive a color.
 - [in_progress] Minimise unpainted outcomes through the general evidence-chain rule: exhaust retained direct proof, current primary law, amendment scope, operational sources and territorial applicability before allowing `UNKNOWN`; technical retrieval gaps and incomplete single pages are research work, not legal conclusions.

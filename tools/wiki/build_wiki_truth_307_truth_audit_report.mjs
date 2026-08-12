@@ -601,16 +601,29 @@ function deriveTruthColorFromOfficialStatus(
 
 function normalizeVisualReviewLedgerPacket(review) {
   const independentReview = review?.independentReview || review?.independent_review || {};
+  // A few completed reviews predate the current flat schema and keep their
+  // legal packet below `independent_review.packet`.  It is still the same
+  // canonical ledger record, not a second evidence store.  Preserve its
+  // evidence shape here so rebuilding the report cannot silently discard the
+  // documented axes or a conservative colour conclusion.
+  const nestedPacket = independentReview?.packet || review?.packet || {};
   const evidenceAxes =
     review?.evidenceAxes ||
     review?.evidence_axes ||
     independentReview?.evidenceAxes ||
-    independentReview?.evidence_axes;
+    independentReview?.evidence_axes ||
+    nestedPacket?.evidenceAxes ||
+    nestedPacket?.evidence_axes;
   const independentTruthColor =
     review?.independentTruthColor ||
     review?.independent_truth_color ||
     independentReview?.independentTruthColor ||
-    independentReview?.independent_truth_color;
+    independentReview?.independent_truth_color ||
+    independentReview?.official_truth_color ||
+    nestedPacket?.independentTruthColor ||
+    nestedPacket?.independent_truth_color ||
+    nestedPacket?.official_truth_color ||
+    nestedPacket?.truth_color;
   const verifiedSources = [
     review?.verifiedSources,
     review?.verified_sources,
@@ -618,6 +631,14 @@ function normalizeVisualReviewLedgerPacket(review) {
     review?.current_official_sources,
     review?.officialSources,
     review?.official_sources,
+    independentReview?.currentOfficialSources,
+    independentReview?.current_official_sources,
+    independentReview?.officialSources,
+    independentReview?.official_sources,
+    nestedPacket?.currentOfficialSources,
+    nestedPacket?.current_official_sources,
+    nestedPacket?.officialSources,
+    nestedPacket?.official_sources,
   ].find(Array.isArray) || [];
   if (!review?.geo || !evidenceAxes || !independentTruthColor || verifiedSources.length < 1) return null;
 
@@ -644,6 +665,16 @@ function normalizeVisualReviewLedgerPacket(review) {
         source?.official_publisher ||
         source?.source_authority ||
         "Official public authority",
+      sourceOwnerGeo: source?.sourceOwnerGeo || source?.source_owner_geo || "",
+      appliesToGeos: [
+        ...(Array.isArray(source?.appliesToGeos) ? source.appliesToGeos : []),
+        ...(Array.isArray(source?.applies_to_geos) ? source.applies_to_geos : []),
+        ...(Array.isArray(source?.appliesToGeo) ? source.appliesToGeo : []),
+        ...(Array.isArray(source?.applies_to_geo) ? source.applies_to_geo : []),
+      ].map((geo) => String(geo || "")).filter(Boolean),
+      officialHostVerified:
+        source?.officialHostVerified === true ||
+        source?.official_host_verified === true,
       visualEvidence: screenshot,
       visualReviewed,
       officialOwnerVisible:
@@ -651,6 +682,9 @@ function normalizeVisualReviewLedgerPacket(review) {
         source?.official_owner_visible === true ||
         source?.source_owner_visible === true ||
         (review?.status === "VISUALLY_VERIFIED" && Boolean(screenshot)),
+      officialDomainVisible:
+        source?.officialDomainVisible === true ||
+        source?.official_domain_visible === true,
       screenshotValid:
         source?.screenshotValid === true ||
         source?.screenshot_valid === true ||
@@ -667,14 +701,25 @@ function normalizeVisualReviewLedgerPacket(review) {
       review?.independent_truth_rule ||
       independentReview?.independentTruthRule ||
       independentReview?.independent_truth_rule ||
-      independentReview?.colorRule ||
       independentReview?.color_rule ||
+      nestedPacket?.independentTruthRule ||
+      nestedPacket?.independent_truth_rule ||
+      nestedPacket?.colorRule ||
+      nestedPacket?.color_rule ||
+      independentReview?.colorRule ||
       "GENERAL_OPERATIONAL_PATIENT_ACCESS_MULTI_AXIS",
     legalInterpretation:
       review?.independentConclusion ||
       review?.independent_conclusion ||
       independentReview?.independentConclusion ||
       independentReview?.independent_conclusion ||
+      independentReview?.legal_conclusion ||
+      nestedPacket?.independentConclusion ||
+      nestedPacket?.independent_conclusion ||
+      nestedPacket?.legalInterpretation ||
+      nestedPacket?.legal_interpretation ||
+      nestedPacket?.legal_conclusion ||
+      nestedPacket?.conclusion ||
       review?.conclusion ||
       "Independent current official review packet.",
     evidenceAxes,
@@ -1179,11 +1224,20 @@ function freshAxisEvidenceSupportsColor(evidence, color) {
 }
 
 function freshAxisDerivedColor(evidence) {
+  // The legal reviewer may record a deliberately narrower conclusion after
+  // reading lifecycle/currentness material which is not representable as a
+  // positive axis.  Never promote that reviewed conclusion merely because a
+  // partial patient or adult-use axis is positive; the conclusion still has
+  // to pass freshAxisEvidenceSupportsColor below.
+  const conclusion = freshAxisColorConclusion(evidence);
+  const concludedColor = String(
+    conclusion?.freshTruthColor || conclusion?.color || "",
+  ).toUpperCase();
+  if (THREE_TRUTH_COLORS.has(concludedColor)) return concludedColor;
   if (freshAxisHasAdultUseLegal(evidence) || freshAxisHasOperationalPatientAccess(evidence)) {
     return "GREEN";
   }
-  const conclusion = freshAxisColorConclusion(evidence);
-  return String(conclusion?.freshTruthColor || conclusion?.color || evidence?.freshTruthColor || "").toUpperCase();
+  return String(evidence?.freshTruthColor || "").toUpperCase();
 }
 
 function disputedNoOwnRegimeDecision(row, disputedGeoMappings = new Map()) {
