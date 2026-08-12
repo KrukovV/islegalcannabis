@@ -29,7 +29,7 @@
     "colorReauditDirectOrComposite": 31,
     "colorReauditContextClaimantOrNegative": 8,
     "supplementalOfficialLinks": 32,
-    "allPublishedOfficialLinks": 1413,
+    "allPublishedOfficialLinks": 1416,
     "rowsWithPublishedOfficialLinks": 307,
     "rowsWithAnyOfficialUrl": 307
   },
@@ -87938,17 +87938,41 @@
       },
       "officialStatus": {
         "recreational": "ILLEGAL; OFFICIAL_LAW_98_008_VISIBLY_PROHIBITS_CANNABIS_PLANT_CULTIVATION_ON_NATIONAL_TERRITORY_AND_TABLE_I_PRODUCTION_MANUFACTURE_TRADE_DISTRIBUTION_TRANSPORT_DETENTION_ACQUISITION_USE_IMPORT_EXPORT_AND_TRANSIT",
-        "medical": "NONE_OR_NO_CANNABIS_SPECIFIC_PATIENT_PROGRAM_VISUALLY_CONFIRMED; TABLE_I_IS_VISIBLY_DEFINED_AS_HIGH_RISK_WITHOUT_MEDICAL_INTEREST_AND_ARTICLE_111_ONLY_CREATES_A_GENERAL_MEDICAL_PRESCRIPTION_BOUNDARY_FOR_CONTROLLED_DRUG_USE",
+        "medical": "CURRENT_CANNABIS_PATIENT_ACCESS_UNRESOLVED; THE_RETAINED_LAW_HAS_GENERIC_TABLE_AND_PRESCRIPTION_WORDING_BUT_DOES_NOT_DIRECTLY_PLACE_CANNABIS_IN_A_MEDICAL_OR_NON_MEDICAL_CLASS_OR_EXPRESSLY_PROHIBIT_PATIENT_ACCESS",
         "enforcement": "STRICT_WITH_PERSONAL_USE_CAVEAT; ARTICLES_98_AND_99_VISIBLY_SET_TEN_TO_TWENTY_YEARS_FOR_HIGH_RISK_DRUG_CULTURE_PRODUCTION_TRADE_TRANSPORT_DETENTION_AND_USE_WHILE_ARTICLE_112_VISIBLY_SETS_LOWER_PERSONAL_USE_BANDS_FOR_CANNABIS_OIL_OR_CANNABIS_DERIVATIVES_WITH_POSSIBLE_DISPENSATION"
       },
-      "independentTruth": null,
+      "independentTruth": {
+        "color": "UNKNOWN",
+        "rule": "GENERAL_UNKNOWN_WHEN_CURRENT_CANNABIS_RECREATIONAL_PROHIBITION_IS_PROVEN_BUT_CURRENT_CANNABIS_PATIENT_ACCESS_PROHIBITION_OR_ROUTE_IS_UNRESOLVED",
+        "reviewedAt": "2026-08-12T14:35:00+03:00",
+        "conclusion": "Proposal-only UNKNOWN / LEGAL_APPLICABILITY_UNRESOLVED. The retained law directly proves cannabis cultivation and cannabis-oil/derivative personal-use prohibitions, but it neither directly classifies cannabis in the medical/non-medical table nor expressly prohibits cannabis patient access. The generic prescription boundary, Table II/III licences and pharmacy licence cannot resolve the patient axis. The 2023 citation is currentness context, not a current consolidation."
+      },
       "directOfficialCannabisLawLinks": [
         {
           "title": "Legitogo / Journal Officiel de la République Togolaise - Loi n° 98-008 du 18 mars 1998 portant contrôle des drogues",
           "url": "https://legitogo.gouv.tg/be/wp-content/uploads/2017/03/Pages-from-jo_1998-009.pdf",
           "sourceKind": "TOGO_LEGITOGO_JOURNAL_OFFICIEL_LAW_98_008_DRUG_CONTROL_CANNABIS_CULTIVATION_TABLE_I_HIGH_RISK_PENALTIES_PERSONAL_USE_CANNABIS_OIL_CAVEAT",
+          "sourceOwnerGeo": "TG",
+          "appliesToGeos": [
+            "TG"
+          ],
+          "legalBasisForExtension": "Direct national Law No. 98-008 of the Togolese Republic, promulgated in the Journal Officiel on 18 March 1998.",
+          "officialPublisher": "Journal Officiel de la République Togolaise, made available on the official LeGiTogo legal-information portal.",
+          "sourceAnnotation": "Direct official Togolese primary-law record. Article 10 is an explicit cannabis cultivation prohibition; Article 9 gives the Table I operations prohibition and Articles 96/98-99 define high-risk controls and penalties. The law's general “hors prescription médicale” wording cannot establish a cannabis patient route, while Article 112's penalty/dispensation conditions are enforcement mitigation only and never affirmative adult-use or patient-access evidence. Currentness and later specialised cannabis rules are separately reviewed rather than inferred from this retained text.",
+          "sourceType": "OFFICIAL_NATIONAL_GAZETTE_PRIMARY_DRUG_CONTROL_LAW_PDF",
+          "primaryOrContext": "PRIMARY_LAW_CANNABIS_CULTIVATION_PROHIBITION_TABLE_I_SCOPE_AND_PERSONAL_USE_PENALTY_RULES",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T11:29:32.043Z",
             "final_url": "https://legitogo.gouv.tg/be/wp-content/uploads/2017/03/Pages-from-jo_1998-009.pdf",
             "http_status": null,
             "etag": null,
@@ -87956,10 +87980,10 @@
             "content_type": null,
             "content_length": null,
             "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "relevant_fragment_sha256": "42f180fb8ef9312b326da9edee556d17053ad2f0c5446c45179088ff9a68565b",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
             "queue": [
               "C2",
               "C3"
@@ -87971,18 +87995,169 @@
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official Legitogo-hosted Journal Officiel PDF of Togo Law No. 98-008 of 18 March 1998 on drug control. Visual review confirms the Journal Officiel header, the law title, and the drug classification scheme: Table I covers high-risk plants/substances without medical interest, Table II high-risk with medical interest, Table III risky substances with medical interest, and Table IV precursors. Visual review confirms Title II expressly prohibits Table I substances and cultivation of opium poppy, coca and cannabis plant. Article 9 visibly prohibits production, manufacture, wholesale/retail commerce, distribution, transport, detention, offer, transfer, acquisition, use, import, export and transit of Table I plants/substances/preparations. Article 10 visibly prohibits cultivation of opium poppy, coca and cannabis plant on national territory. Article 96 visibly maps high-risk drugs to Tables I and II. Articles 98 and 99 visibly set 10 to 20 years of imprisonment/reclusion and fines for high-risk-drug culture/production/manufacture/extraction/preparation/transformation and for import/export/international transport, offer, sale, distribution, purchase, detention or use. Article 111 visibly states non-medical-prescription use of controlled drugs is prohibited. Article 112 visibly includes cannabis oil and cannabis plant derivatives in personal-use penalty bands, with imprisonment/fines and possible dispensation conditions. Source access caveat: the official HTTPS certificate was expired during retrieval, so the PDF was downloaded with certificate verification disabled after recording the TLS failure.",
+          "note": "“Tableau I : plantes et substances à haut risque dépourvues d'intérêt en médecine.” Article 9: “Sont interdits la production, la fabrication, le commerce et la distribution de gros et de détail, le transport et la détention, l'offre, la cession à titre onéreux ou gratuit, l'acquisition, l'emploi, l'importation, l'exportation, le transit sur le territoire national des plantes, substances et préparations inscrites au tableau I.” Article 10: “La culture du pavot à opium, du cocaïer et de la plante de cannabis est interdite sur le territoire national.”",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-20/TG/screenshots/pdf_pages/TG-law-98-008-page-02.png",
-          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "Togo is closed as visually verified direct official cannabis-law evidence from the Legitogo Journal Officiel Law No. 98-008 PDF. Project ILLEGAL/NONE/STRICT is broadly supported, with explicit personal-use penalty and TLS source-access caveats. No project status SSOT was changed."
+          "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
+          "visualReview": "Retained local Gazette crops visibly show the Journal Officiel header/date, Law No. 98-008, Table I classification, Articles 9-10 and Articles 96/111-112. Browser address-bar domain is not asserted; strict visual acceptance is separate from legal truth."
         }
       ],
       "candidateLinksAwaitingVisualReview": [],
-      "officialContextLinks": [],
+      "officialContextLinks": [
+        {
+          "title": "Ministry of Security - Togo reaffirms drug-trafficking enforcement on the International Day against Drug Abuse and Illicit Trafficking",
+          "url": "https://securite.gouv.tg/journee-internationale-contre-labus-et-le-trafic-illicite-des-drogues-le-togo-renforce-son-dispositif-de-lutte-pour-proteger-sa-jeunesse-et-sa-securite/?items_per_page=10&sort_by=created_1&sort_order=DESC",
+          "sourceKind": "TOGO_MINISTRY_OF_SECURITY_CURRENT_DRUG_TRAFFICKING_ENFORCEMENT_CONTEXT",
+          "sourceOwnerGeo": "TG",
+          "appliesToGeos": [
+            "TG"
+          ],
+          "legalBasisForExtension": "Current national Ministry of Security public-enforcement context; it does not enact, consolidate or amend cannabis law.",
+          "officialPublisher": "Official Ministry of Security public-information page.",
+          "sourceAnnotation": "Saved because it is a current official TG source found in the targeted drug-law review. It may document current government enforcement posture only; no generic anti-drug or law-enforcement wording is treated as cannabis-specific legal truth or as evidence that a patient programme is absent.",
+          "sourceType": "CURRENT_OFFICIAL_SECURITY_MINISTRY_CONTEXT_PAGE",
+          "primaryOrContext": "CURRENT_ENFORCEMENT_CONTEXT_ONLY",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": false,
+          "officialOwnerVisible": false,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": false,
+          "effectiveRuleVisible": false,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T11:29:32.043Z",
+            "final_url": "https://securite.gouv.tg/journee-internationale-contre-labus-et-le-trafic-illicite-des-drogues-le-togo-renforce-son-dispositif-de-lutte-pour-proteger-sa-jeunesse-et-sa-securite?items_per_page=10&sort_by=created_1&sort_order=DESC",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 122555,
+            "document_sha256": "4a30e745c6306634974f41a99ac157289a34de9ca464bd0d19d410adc8fcb09f",
+            "relevant_fragment_sha256": "c3007e2ec17ea0c471fef26260301d30356c2a0ae78926925b1c5d06d0ad89c9",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_200_DOCUMENT_SHA256_UNCHANGED",
+            "queue": [],
+            "dependent_geos": [
+              "TG"
+            ]
+          },
+          "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
+          "confidence": "high",
+          "note": "Togo retains visually verified official cannabis-law evidence. Independent Truth-First result is proposal-only UNKNOWN / LEGAL_APPLICABILITY_UNRESOLVED: Article 10 and Article 112 prove cannabis prohibition/penalties, but no current cannabis table/classification, patient route or express patient-access prohibition is directly reviewed",
+          "screenshotPath": null,
+          "visualReview": "CONTEXT_ONLY"
+        },
+        {
+          "title": "Journal Officiel de la République Togolaise - Arrêté 060/2023/MSHPAUS/CAB/SG/DGAS/DPML/DP, pharmacy licence publication citing Law No. 98-008",
+          "url": "https://jo.gouv.tg/sites/default/files/JO/JOS_13_02_2023%20-%2068%20E%20ANNEE%20N%C2%B0%2011%20BIS.pdf",
+          "sourceKind": "TOGO_OFFICIAL_JOURNAL_2023_PHARMACY_LICENCE_CURRENTNESS_CITATION_TO_LAW_98_008",
+          "sourceOwnerGeo": "TG",
+          "appliesToGeos": [
+            "TG"
+          ],
+          "legalBasisForExtension": "National Togolese Official Journal publication. It is retained only as a 2023 official citation/currentness cross-reference to national Law No. 98-008, not as a cannabis rule or patient programme instrument.",
+          "officialPublisher": "Official Journal of the Togolese Republic, administered by the Service du Journal Officiel.",
+          "sourceAnnotation": "Retained as a direct official 2023 cross-reference showing that Law No. 98-008 remained part of the legal reference chain for a pharmacy licence. Generic pharmacy licensing is never converted into cannabis patient access, and this citation cannot by itself prove that every 1998 provision remains unamended.",
+          "sourceType": "OFFICIAL_NATIONAL_GAZETTE_CURRENTNESS_CONTEXT_PDF",
+          "primaryOrContext": "CURRENTNESS_CONTEXT_ONLY",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": false,
+          "officialOwnerVisible": false,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": false,
+          "effectiveRuleVisible": false,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T11:29:32.043Z",
+            "final_url": "https://jo.gouv.tg/sites/default/files/JO/JOS_13_02_2023%20-%2068%20E%20ANNEE%20N%C2%B0%2011%20BIS.pdf",
+            "http_status": 200,
+            "etag": "\"1c0070-494b6-5f8c24b3b3990\"",
+            "last_modified": "Fri, 07 Apr 2023 17:24:13 GMT",
+            "content_type": "application/pdf",
+            "content_length": 300214,
+            "document_sha256": "3fd672e757e0735810bfa02f1565927d04095c4fa44e32c5f60e2e0fba97d0c8",
+            "relevant_fragment_sha256": "21c13e17d95f954f3a45d7773d3b98946e140134e08be0bad89f58c9758298b2",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "TG"
+            ]
+          },
+          "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
+          "confidence": "high",
+          "note": "Togo retains visually verified official cannabis-law evidence. Independent Truth-First result is proposal-only UNKNOWN / LEGAL_APPLICABILITY_UNRESOLVED: Article 10 and Article 112 prove cannabis prohibition/penalties, but no current cannabis table/classification, patient route or express patient-access prohibition is directly reviewed",
+          "screenshotPath": null,
+          "visualReview": "CONTEXT_ONLY"
+        },
+        {
+          "title": "Journal Officiel de la République Togolaise - About the official publication and LeGiTogo migration",
+          "url": "https://jo.gouv.tg/apropos",
+          "sourceKind": "TOGO_OFFICIAL_JOURNAL_PORTAL_OWNER_AND_LEGITOGO_ARCHIVE_MIGRATION_CONTEXT",
+          "sourceOwnerGeo": "TG",
+          "appliesToGeos": [
+            "TG"
+          ],
+          "legalBasisForExtension": "National official-publication portal. It documents the authority and migration of the former LeGiTogo official-text archive; it is not a legal consolidation or a cannabis instrument.",
+          "officialPublisher": "Official explanatory page of the Journal Officiel of the Togolese Republic.",
+          "sourceAnnotation": "Retained to preserve the official owner/provenance of the LeGiTogo-hosted 1998 Gazette PDF. It is deliberately non-promoting: archive provenance cannot convert a retained historical law into an unamended current cannabis conclusion without the separate legal review.",
+          "sourceType": "OFFICIAL_JOURNAL_PORTAL_OWNERSHIP_ARCHIVE_CONTEXT_PAGE",
+          "primaryOrContext": "OFFICIAL_HOST_AND_ARCHIVE_PROVENANCE_CONTEXT_ONLY",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": false,
+          "officialOwnerVisible": false,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": false,
+          "effectiveRuleVisible": false,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T11:29:32.043Z",
+            "final_url": "https://jo.gouv.tg/apropos",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 29136,
+            "document_sha256": "890c0e3207ae95ed5064ca34cf9a97f62640ac464f51f16dffc7763aa505c5d4",
+            "relevant_fragment_sha256": "f3d62ef6bd40814745fb0bcec7e1137871602d5fee6cc0283f70f9d3fa717737",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "TG"
+            ]
+          },
+          "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
+          "confidence": "high",
+          "note": "Togo retains visually verified official cannabis-law evidence. Independent Truth-First result is proposal-only UNKNOWN / LEGAL_APPLICABILITY_UNRESOLVED: Article 10 and Article 112 prove cannabis prohibition/penalties, but no current cannabis table/classification, patient route or express patient-access prohibition is directly reviewed",
+          "screenshotPath": null,
+          "visualReview": "CONTEXT_ONLY"
+        }
+      ],
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
-      "differenceStatus": "MATCH_WITH_PERSONAL_USE_AND_TLS_SOURCE_ACCESS_CAVEAT",
-      "differenceDescription": "Togo is visually verified from the official Legitogo-hosted Journal Officiel PDF of Law No. 98-008. The rendered law visibly prohibits cannabis plant cultivation and Table I drug production, manufacture, commerce, distribution, transport, detention, acquisition, use, import/export and transit. High-risk-drug Articles 98 and 99 visibly provide strict 10-to-20-year imprisonment/reclusion bands, supporting project enforcement=STRICT for core trafficking/cultivation/dealing conduct. Project recreational=ILLEGAL and medical=NONE are supported at the reviewed law level because cannabis cultivation is expressly prohibited and Table I is defined as high-risk without medical interest; no cannabis-specific patient access program was visually confirmed. Caveats: Article 112 visibly sets lower personal-use bands for cannabis oil or cannabis plant derivatives with possible dispensation, and the official Legitogo HTTPS certificate was expired during retrieval. No project status SSOT was changed.",
+      "differenceStatus": "PARTIAL_MATCH_FOR_RECREATIONAL_PROHIBITION_ONLY_CURRENT_CANNABIS_PATIENT_AXIS_UNRESOLVED",
+      "differenceDescription": "Project recreational=ILLEGAL is comparison-only supported by direct cannabis prohibition text, but medical=NONE is not independently established because the current cannabis patient axis is unresolved",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
@@ -87994,7 +88169,7 @@
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-20/TG/screenshots/pdf_pages/TG-law-98-008-page-11.png"
       ],
       "reviewConfidence": "high",
-      "reviewNotes": "VISUALLY_VERIFIED: Togo is closed as visually verified direct official cannabis-law evidence from the Legitogo Journal Officiel Law No. 98-008 PDF. Project ILLEGAL/NONE/STRICT is broadly supported, with explicit personal-use penalty and TLS source-access caveats. No project status SSOT was changed.",
+      "reviewNotes": "VISUALLY_VERIFIED: Togo retains visually verified official cannabis-law evidence. Independent Truth-First result is proposal-only UNKNOWN / LEGAL_APPLICABILITY_UNRESOLVED: Article 10 and Article 112 prove cannabis prohibition/penalties, but no current cannabis table/classification, patient route or express patient-access prohibition is directly reviewed",
       "truthLayers": {
         "primaryLaw": {
           "source": "DIRECT_OFFICIAL_LAW",
@@ -88036,7 +88211,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "Togo is visually verified from the official Legitogo-hosted Journal Officiel PDF of Law No. 98-008. The rendered law visibly prohibits cannabis plant cultivation and Table I drug production, manufacture, commerce, distribution, transport, detention, acquisition, use, import/export and transit. High-risk-drug Articles 98 and 99 visibly provide strict 10-to-20-year imprisonment/reclusion bands, supporting project enforcement=STRICT for core trafficking/cultivation/dealing conduct. Project recreational=ILLEGAL and medical=NONE are supported at the reviewed law level because cannabis cultivation is expressly prohibited and Table I is defined as high-risk without medical interest; no cannabis-specific patient access program was visually confirmed. Caveats: Article 112 visibly sets lower personal-use bands for cannabis oil or cannabis plant derivatives with possible dispensation, and the official Legitogo HTTPS certificate was expired during retrieval. No project status SSOT was changed."
+          "notes": "Project recreational=ILLEGAL is comparison-only supported by direct cannabis prohibition text, but medical=NONE is not independently established because the current cannabis patient axis is unresolved"
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
