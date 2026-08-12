@@ -29,7 +29,7 @@
     "colorReauditDirectOrComposite": 31,
     "colorReauditContextClaimantOrNegative": 8,
     "supplementalOfficialLinks": 32,
-    "allPublishedOfficialLinks": 1404,
+    "allPublishedOfficialLinks": 1407,
     "rowsWithPublishedOfficialLinks": 307,
     "rowsWithAnyOfficialUrl": 307
   },
@@ -2673,7 +2673,7 @@
           "directFragmentAvailable": true,
           "screenshotAvailable": true,
           "visualOpened": true,
-          "officialOwnerVisible": true,
+          "officialOwnerVisible": false,
           "officialDomainVisible": true,
           "cannabisFragmentVisible": true,
           "effectiveRuleVisible": true,
@@ -85955,14 +85955,37 @@
         "medical": "NONE_OR_NO_CANNABIS_SPECIFIC_PATIENT_PROGRAM_VISUALLY_CONFIRMED; THIS_DIRECT_SOURCE_IS_CRIMINAL_CODE_EVIDENCE_AND_DOES_NOT_SHOW_A_MEDICAL_CANNABIS_ACCESS_PROGRAM",
         "enforcement": "STRICT; OFFICIAL_CRIMINAL_CODE_ARTICLES_200_201_204_VISIBLY_SET_CUSTODIAL_PENALTIES_UP_TO_TWELVE_TO_TWENTY_YEARS_DEPENDING_ON_OFFENCE_TYPE_AGGRAVATION_AND_QUANTITY"
       },
-      "independentTruth": null,
+      "independentTruth": {
+        "color": "RED",
+        "rule": "GENERAL_CURRENT_CANNABIS_SPECIFIC_RECREATIONAL_PROHIBITION_WITH_GENERIC_ENTITY_LICENSING_NON_PROMOTION_BOUNDARY",
+        "reviewedAt": "2026-08-12T12:41:00+03:00",
+        "conclusion": "Proposal-only RED. The retained official National Legislation Center Criminal Code record visibly names cannabis, cannabis plant material, hashish, charas/cannabis resin and hashish oil in Appendix No. 1. Current Ministry of Justice ADLIA consolidation fragments establish active/current Articles 201 and 204: unlawful non-transfer narcotic handling and unlawful cultivation of prohibited narcotic-containing crops. The active Article 77 medical/veterinary/scientific-and-entity-licensing clause was reviewed as an exception boundary, not patient access: no current cannabis-specific eligible patient, prescriber, registry, supply, dispensing, import or operational programme source was proven after targeted ADLIA and Ministry of Health searches. Access failure for the old official endpoint is metadata only and does not derive the colour."
+      },
       "directOfficialCannabisLawLinks": [
         {
           "title": "Tajikistan National Legislation Center database - Criminal Code of the Republic of Tajikistan",
           "url": "http://base.mmk.tj/view_sanadhoview.php?showdetail=&sanadID=23",
           "sourceKind": "TAJIKISTAN_OFFICIAL_LEGISLATION_DATABASE_CRIMINAL_CODE_ARTICLES_200_201_204_APPENDIX_1_CANNABIS_HASHISH_CHARAS_OIL_QUANTITIES",
+          "sourceOwnerGeo": "TJ",
+          "appliesToGeos": [
+            "TJ"
+          ],
+          "legalBasisForExtension": "Direct national Criminal Code database record for the Republic of Tajikistan; later currentness is independently checked against the Ministry of Justice ADLIA consolidated record.",
+          "officialPublisher": "Official National Legislation Center legislation database entry for the Criminal Code of the Republic of Tajikistan.",
+          "sourceAnnotation": "Official Tajikistan Criminal Code database record and retained visual capture. It supplies direct cannabis/plant/hashish/charas/oil terminology and the historical Articles 200/201/204 offence chain. The current ADLIA consolidation is retained separately for amendment/currentness; generic narcotics language, treatment, licensing or a failed patient-programme search are never converted into medical-patient axes or a colour.",
+          "sourceType": "HISTORICAL_OFFICIAL_TAJIKISTAN_CRIMINAL_CODE_DATABASE_TEXT_WITH_CANNABIS_APPENDIX",
+          "primaryOrContext": "HISTORICAL_PRIMARY_CANNABIS_SCOPE_AND_OFFENCE_TEXT_WITH_SEPARATE_CURRENT_CONSOLIDATION_CHAIN",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T09:28:37.340Z",
             "final_url": "http://base.mmk.tj/view_sanadhoview.php?sanadID=23&showdetail=",
             "http_status": null,
             "etag": null,
@@ -85970,10 +85993,10 @@
             "content_type": null,
             "content_length": null,
             "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "relevant_fragment_sha256": "3ed5b3dbf7d29051424056e92a9149206c9f23a78402dbf2e55d6a8736f994e7",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "TIMEOUT",
+            "change_reason": "TIMEOUT_IS_ACCESS_STATE_ONLY",
             "queue": [
               "C2",
               "C3"
@@ -85985,32 +86008,188 @@
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official National Legislation Center under the President of the Republic of Tajikistan database page for the Criminal Code. Visual review confirms the site masthead, classifier Code, number 574, name Criminal Code of the Republic of Tajikistan, authority Majlisi Oli, status active, and date 21 May 1998. Rendered Article 200 visibly criminalizes illegal production, preparation, processing, acquisition, storage, transport or forwarding with intent to transfer, and illegal transfer of narcotic drugs or psychotropic substances, with imprisonment ranging from up to five years through twelve to twenty years for aggravated or especially large cases. Article 201 visibly covers illegal production, preparation, processing, acquisition, storage, transport or forwarding without transfer intent, with fine or imprisonment up to two years through eight to twelve years for aggravated or especially large cases. Article 204 visibly covers illegal cultivation or care of prohibited narcotic-containing crops, with fine or imprisonment up to two years through eight to twelve years for aggravated or especially large cases. Appendix No. 1 visibly lists Bangdona (Cannabis), cannabis plants, wet cannabis, dried cannabis, hashish as cannabis flowers/petals/fruits except seeds, cannabis resin/charas, and hashish oil with quantity thresholds. Source access caveat: the HTTPS certificate was expired during retrieval and the browser-rendered page resolved to HTTP on the official domain.",
+          "note": "Article 200 criminalises illegal production, preparation, processing, acquisition, storage, transport or forwarding with intent to transfer, and illegal transfer of narcotic drugs or psychotropic substances. Article 201 criminalises the corresponding unlawful handling without transfer intent. Article 204 criminalises unlawful cultivation or care of prohibited narcotic-containing crops. Appendix No. 1 names Bangdona (Cannabis), cannabis plants, wet and dried cannabis, hashish, cannabis resin/charas and hashish oil with quantity thresholds.",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-24/TJ/screenshots/TJ-base-mmk-criminal-code-appendix-cannabis-quantities.png",
           "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "Tajikistan is closed as visually verified direct official cannabis-law evidence from the National Legislation Center Criminal Code page. The official source supports project ILLEGAL/NONE/STRICT, with a disclosed TLS/HTTP source-access caveat. No project status SSOT was changed."
+          "visualReview": "Retained official crops visibly show the database owner/status, Articles 200, 201 and 204 and Appendix No. 1 cannabis/hashish/charas/oil entries. The historic HTTP/TLS transport caveat is recorded separately and does not determine legal truth."
+        },
+        {
+          "title": "ADLIA Ministry of Justice - current consolidated Criminal Code of the Republic of Tajikistan",
+          "url": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=115578&compareid=164891",
+          "sourceKind": "TAJIKISTAN_MINISTRY_OF_JUSTICE_ADLIA_CURRENT_CONSOLIDATED_CRIMINAL_CODE_ARTICLE_204_AND_AMENDMENT_CHAIN",
+          "sourceOwnerGeo": "TJ",
+          "appliesToGeos": [
+            "TJ"
+          ],
+          "legalBasisForExtension": "Direct official Ministry of Justice consolidated national Criminal Code record for Tajikistan.",
+          "officialPublisher": "ADLIA official legal-information system copyright identifies the Ministry of Justice of the Republic of Tajikistan and SUE Konuniyat.",
+          "sourceAnnotation": "Current Tajikistan Ministry of Justice consolidation. It is the authoritative currentness and Article 204 source for the retained historic cannabis Appendix/Articles 200-201 chain. It identifies amendment activity through 17 June 2026, but the retrieved portion does not show which cannabis-relevant clauses each later amendment affects and does not name cannabis. It cannot be used to infer a patient route, patient-access absence, RED or YELLOW without the full applicable cannabis and medical chain.",
+          "sourceType": "CURRENT_OFFICIAL_TAJIKISTAN_CRIMINAL_CODE_CONSOLIDATION",
+          "primaryOrContext": "CURRENT_PRIMARY_CRIMINAL_CODE_CURRENTNESS_AND_ARTICLE_204_TEXT_WITHOUT_CURRENT_CANNABIS_SCHEDULE_FRAGMENT",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": false,
+          "cannabisFragmentVisible": false,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T09:28:37.340Z",
+            "final_url": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=115578&compareid=164891",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 1375621,
+            "document_sha256": "5016bc61319537d19cdab079ded40d78a6191cc4eeb8bcc652b5b07021aa06d7",
+            "relevant_fragment_sha256": "42525d51acd647564a9535953d19bd0f961ca55cc12c6aa7336503e81f8240c7",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "TJ"
+            ]
+          },
+          "evidenceScope": null,
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
+          "confidence": "high",
+          "note": "ADLIA: \"Document status: Active\" and \"Effective Date: 20.06.2024\"; its current consolidation lists amendments through \"Қонуни ҶТ аз 17.06.2026 № 2259\". Article 204: \"Парвариши ғайриқонунии зироатҳои дорои моддаҳои нашъаовари кишташон манъшуда\" and paragraph 1 provides imprisonment from five to ten years for unlawful cultivation/care of narcotic-containing crops.",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-08-12/TJ/screenshots/TJ-adlia-current-code-article-204-headless.png",
+          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
+          "visualReview": "The 2026-08-12 hidden Chromium crop at the recorded path visibly shows the Article 204 heading and its current unlawful-cultivation/custody text. The official domain/address bar and owner name are not claimed as visible in that crop. The retained National Legislation Center title and Appendix crops separately show official owner/status and cannabis-family terms. Visual acceptance is a separate false strict gate and does not derive legal truth."
+        },
+        {
+          "title": "ADLIA Ministry of Justice - current consolidated Criminal Code Article 201 (unlawful narcotic handling without transfer)",
+          "url": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=115578&compareid=164892",
+          "sourceKind": "TAJIKISTAN_MINISTRY_OF_JUSTICE_ADLIA_CURRENT_CONSOLIDATED_CRIMINAL_CODE_ARTICLE_201",
+          "sourceOwnerGeo": "TJ",
+          "appliesToGeos": [
+            "TJ"
+          ],
+          "legalBasisForExtension": "Direct official Ministry of Justice consolidated national Criminal Code record for Tajikistan.",
+          "officialPublisher": "ADLIA official legal-information system copyright identifies the Ministry of Justice of the Republic of Tajikistan and SUE Konuniyat.",
+          "sourceAnnotation": "Current official Article 201 source. In the C2 chain it confirms the present non-transfer possession/handling offence, while the visually retained official Appendix record identifies cannabis and derivatives within the Code's narcotic schedule. This record must not be read as a cannabis-specific patient-access prohibition or as an inference from generic controlled-drug wording.",
+          "sourceType": "CURRENT_OFFICIAL_TAJIKISTAN_CRIMINAL_CODE_CONSOLIDATION",
+          "primaryOrContext": "CURRENT_PRIMARY_CRIMINAL_CODE_ARTICLE_201_NON_TRANSFER_POSSESSION_HANDLING; CANNABIS_SCOPE_IS_BRIDGED_ONLY_BY_THE_RETAINED_OFFICIAL_APPENDIX_RECORD",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": false,
+          "cannabisFragmentVisible": false,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T09:35:13.134Z",
+            "final_url": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=115578&compareid=164892",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 1375930,
+            "document_sha256": "6104aef2f4fb9fd886475978fae480d3e5c60b918cf7734d6c0427e744bf9c67",
+            "relevant_fragment_sha256": "d4259712f593607a41e0d7f92662fd26a4adaf5c03b1936f54cebc4fd120ba5e",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "TJ"
+            ]
+          },
+          "evidenceScope": null,
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
+          "confidence": "high",
+          "note": "Article 201, \"Муносибати ғайриқонунӣ бо воситаҳои нашъадор, моддаҳои психотропӣ ё прекурсорҳо\": paragraph 1 criminalises unlawful production, preparation, processing, acquisition, storage, transport or forwarding of narcotic drugs, psychotropic substances or precursors without intent to transfer, with imprisonment up to five years; higher quantities carry five-to-ten and eight-to-twelve-year ranges.",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-08-12/TJ/screenshots/TJ-adlia-current-code-article-201-headless.png",
+          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
+          "visualReview": "The 2026-08-12 hidden Chromium crop at the recorded path visibly shows Article 201's heading and unlawful non-transfer handling/custody text. The crop contains neither a browser address bar nor a visible owner name, so strict visual acceptance remains false. The separately retained National Legislation Center crops show owner/status and the cannabis Appendix; visual state never derives legal truth by itself."
+        },
+        {
+          "title": "ADLIA Ministry of Justice - Health Protection Law Article 77 amendment (lawful narcotic-drug circulation boundary)",
+          "url": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=23536&compareid=23536",
+          "sourceKind": "TAJIKISTAN_MINISTRY_OF_JUSTICE_ADLIA_ACTIVE_LAWFUL_NARCOTIC_DRUG_CIRCULATION_BOUNDARY",
+          "sourceOwnerGeo": "TJ",
+          "appliesToGeos": [
+            "TJ"
+          ],
+          "legalBasisForExtension": "Direct official Ministry of Justice national legal record amending Article 77's lawful-narcotic-drug circulation rule for Tajikistan.",
+          "officialPublisher": "ADLIA official legal-information system copyright identifies the Ministry of Justice of the Republic of Tajikistan and SUE Konuniyat.",
+          "sourceAnnotation": "Current official exception/control boundary retained to ensure the criminal-code review does not erase an applicable medical-purpose clause. The clause is generic and entity-facing. Under Truth-First it is never promoted into cannabis-specific patient eligibility, prescription, registration, supply, dispensing, import or programme-operation evidence; it therefore does not weaken the separately proved recreational prohibition or establish YELLOW/GREEN.",
+          "sourceType": "CURRENT_OFFICIAL_TAJIKISTAN_NARCOTIC_DRUG_CONTROL_LAW",
+          "primaryOrContext": "CURRENT_PRIMARY_EXCEPTION_AND_ENTITY_LICENSING_BOUNDARY_NOT_A_CANNABIS_PATIENT_ACCESS_SOURCE",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": false,
+          "cannabisFragmentVisible": false,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T09:35:13.134Z",
+            "final_url": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=23536&compareid=23536",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 38779,
+            "document_sha256": "7c288383982d83ac0c05b222c9eed717cc7acde59ab2a9cc8c25d42606f7b94a",
+            "relevant_fragment_sha256": "079e1bea277de481f3d2a5ddd9a5abd6fc8185545014e91eaa2206124bf8a4db",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "TJ"
+            ]
+          },
+          "evidenceScope": null,
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
+          "confidence": "high",
+          "note": "Article 77 states: \"In the territory of the Republic of Tajikistan import, export, production, processing, storage and use of narcotic drugs, psychotropic substances and precursors are permitted only for medical, veterinary and scientific purposes.\" It adds that enterprises, organisations and institutions holding a licence under Tajikistan law may produce, process, import, export, store, transport and sell them.",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-08-12/TJ/screenshots/TJ-adlia-article-77-boundary-headless.png",
+          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
+          "visualReview": "The 2026-08-12 hidden Chromium crop visibly shows Law No. 19, ADLIA's active-document status and Article 77's generic controlled-drug wording. It has no browser address bar or visible owner name, so strict visual acceptance remains false. It was read solely as a generic exception boundary; no visual, owner or access fact is used to derive a cannabis axis."
         }
       ],
       "candidateLinksAwaitingVisualReview": [],
       "officialContextLinks": [],
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
-      "differenceStatus": "MATCH_WITH_OFFICIAL_CRIMINAL_CODE_SOURCE_ACCESS_TLS_CAVEAT",
-      "differenceDescription": "Tajikistan is visually verified from the official National Legislation Center database Criminal Code page. The page visibly lists Cannabis, cannabis plant material, hashish, charas/cannabis resin and hashish oil in Appendix No. 1 and ties the quantity thresholds to Articles 200-202 and 204. Articles 200, 201 and 204 visibly criminalize unauthorized narcotic-drug transfer, non-transfer possession/handling, and cultivation of prohibited narcotic-containing crops with custodial penalties reaching strict ranges. Project recreational=ILLEGAL, medical=NONE and enforcement=STRICT are supported. Caveat: the official domain's HTTPS certificate was expired during retrieval and the rendered page resolved to HTTP; this is disclosed as a source-access caveat, not a status change. No project status SSOT was changed.",
+      "differenceStatus": "INDEPENDENT_PROPOSAL_ONLY_RED_WITH_LEGACY_ACCESS_CAVEAT",
+      "differenceDescription": "The independent packet keeps project status out of legal derivation. It uses the retained official cannabis Appendix, current ADLIA Articles 201/204 and the non-promoted active Article 77 exception boundary to derive proposal-only RED. The legacy official-domain TLS/timeout issue remains access metadata only. No project status SSOT, map, runtime, production or deployment value changed.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
-      "strictVisualAcceptance": null,
+      "strictVisualAcceptance": false,
       "screenshotPaths": [
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-24/TJ/screenshots/TJ-base-mmk-criminal-code-title-status.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-24/TJ/screenshots/TJ-base-mmk-criminal-code-article-200-trafficking-transfer-penalties.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-24/TJ/screenshots/TJ-base-mmk-criminal-code-article-201-possession-no-transfer-penalties.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-24/TJ/screenshots/TJ-base-mmk-criminal-code-article-204-cultivation-penalties.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-24/TJ/screenshots/TJ-base-mmk-criminal-code-appendix-cannabis-quantities.png",
-        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-24/TJ/screenshots/TJ-base-mmk-criminal-code-appendix-hashish-charas-oil.png"
+        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-24/TJ/screenshots/TJ-base-mmk-criminal-code-appendix-hashish-charas-oil.png",
+        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-08-12/TJ/screenshots/TJ-adlia-current-code-article-204-headless.png",
+        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-08-12/TJ/screenshots/TJ-adlia-current-code-article-201-headless.png",
+        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-08-12/TJ/screenshots/TJ-adlia-article-77-boundary-headless.png"
       ],
       "reviewConfidence": "high",
-      "reviewNotes": "VISUALLY_VERIFIED: Tajikistan is closed as visually verified direct official cannabis-law evidence from the National Legislation Center Criminal Code page. The official source supports project ILLEGAL/NONE/STRICT, with a disclosed TLS/HTTP source-access caveat. No project status SSOT was changed.",
+      "reviewNotes": "VISUALLY_VERIFIED: Tajikistan is structurally complete in the canonical 307-GEO ledger with four annotated official deep links, exact fragments and C0-C3 metadata. The independent proposal is RED under the general current cannabis-specific recreational-prohibition rule: current Articles 201/204 combine with the official cannabis Appendix bridge, while the active generic Article 77 licensing rule is explicitly not patient access and no current cannabis-specific patient route was proven. Strict visual acceptance remains false by the headless/no-address-bar policy and does not affect legal truth. SSOT, map, runtime, production and deployment remain unchanged.",
       "truthLayers": {
         "primaryLaw": {
           "source": "DIRECT_OFFICIAL_LAW",
@@ -86052,7 +86231,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "Tajikistan is visually verified from the official National Legislation Center database Criminal Code page. The page visibly lists Cannabis, cannabis plant material, hashish, charas/cannabis resin and hashish oil in Appendix No. 1 and ties the quantity thresholds to Articles 200-202 and 204. Articles 200, 201 and 204 visibly criminalize unauthorized narcotic-drug transfer, non-transfer possession/handling, and cultivation of prohibited narcotic-containing crops with custodial penalties reaching strict ranges. Project recreational=ILLEGAL, medical=NONE and enforcement=STRICT are supported. Caveat: the official domain's HTTPS certificate was expired during retrieval and the rendered page resolved to HTTP; this is disclosed as a source-access caveat, not a status change. No project status SSOT was changed."
+          "notes": "The independent packet keeps project status out of legal derivation. It uses the retained official cannabis Appendix, current ADLIA Articles 201/204 and the non-promoted active Article 77 exception boundary to derive proposal-only RED. The legacy official-domain TLS/timeout issue remains access metadata only. No project status SSOT, map, runtime, production or deployment value changed."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",

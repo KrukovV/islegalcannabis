@@ -6,6 +6,10 @@ import { acquireProjectProcessSlot } from "../runtime/processSlots.mjs";
 
 const ROOT = process.cwd();
 const BASE_URL = "http://127.0.0.1:3000";
+// A cold Turbopack SSR render of the complete audit model can legitimately
+// exceed Playwright's 30-second default. The enclosing CI watchdog remains
+// bounded at 180 seconds; this only prevents a false navigation failure.
+const PAGE_NAVIGATION_TIMEOUT_MS = 60_000;
 const browserName = process.env.BROWSER || "webkit";
 const headless = !["0", "false", "no"].includes(
   String(process.env.HEADLESS ?? "1").toLowerCase(),
@@ -627,7 +631,10 @@ page.on("requestfailed", (request) => {
 });
 
 try {
-  await page.goto(`${BASE_URL}/wiki-truth`, { waitUntil: "domcontentloaded" });
+  await page.goto(`${BASE_URL}/wiki-truth`, {
+    waitUntil: "domcontentloaded",
+    timeout: PAGE_NAVIGATION_TIMEOUT_MS,
+  });
   const screenshotBeforeError = await safeScreenshot(
     page,
     screenshotBeforePath,

@@ -369,7 +369,7 @@ test("local HTTP fixture covers 304, unchanged, changed, redirect, timeout and W
     } else if (route === "/timeout") {
       const timer = setTimeout(() => {
         if (!response.destroyed) response.end("late");
-      }, 120);
+      }, 600);
       request.on("close", () => clearTimeout(timer));
     } else {
       response.writeHead(403, { "content-type": "text/html" });
@@ -384,16 +384,18 @@ test("local HTTP fixture covers 304, unchanged, changed, redirect, timeout and W
     make("unchanged", { revalidation: { document_sha256: sha256("cannabis exact fragment"), revalidation_state: "NOT_MODIFIED" } }),
     make("changed", { revalidation: { document_sha256: sha256("old"), revalidation_state: "NOT_MODIFIED" } }),
     make("redirect"),
-    make("timeout"),
     make("waf"),
   ])]);
-  const result = await runRevalidation({ ledger: input, network: true, timeoutMs: 50 });
+  const result = await runRevalidation({ ledger: input, network: true, timeoutMs: 200 });
   assert.equal(stateByPath(result, "/304").revalidation_state, "NOT_MODIFIED");
   assert.equal(stateByPath(result, "/unchanged").revalidation_state, "NOT_MODIFIED");
   assert.equal(stateByPath(result, "/changed").revalidation_state, "CONTENT_CHANGED");
   assert.equal(stateByPath(result, "/redirect").revalidation_state, "REDIRECT_OR_OWNER_CHANGED");
-  assert.equal(stateByPath(result, "/timeout").revalidation_state, "ACCESS_BLOCKED");
   assert.equal(stateByPath(result, "/waf").revalidation_state, "ACCESS_BLOCKED");
+
+  const timeoutInput = ledger([row("AA", [make("timeout")])]);
+  const timeoutResult = await runRevalidation({ ledger: timeoutInput, network: true, timeoutMs: 200 });
+  assert.equal(stateByPath(timeoutResult, "/timeout").revalidation_state, "ACCESS_BLOCKED");
 });
 
 test("307-row fixture is deterministic and source identities never shrink", async () => {
