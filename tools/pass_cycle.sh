@@ -3471,6 +3471,14 @@ capture_timeout_output 180 "cd \"${ROOT}\" && NODE_PATH=\"${ROOT}/tools/playwrig
 WIKI_TRUTH_LIVE_WEBKIT_OUTPUT="WIKI_TRUTH_LIVE_WEBKIT_ATTEMPT=1 rc=${CAPTURE_TIMEOUT_RC}
 ${CAPTURE_TIMEOUT_OUTPUT}"
 WIKI_TRUTH_LIVE_WEBKIT_RC="${CAPTURE_TIMEOUT_RC}"
+if [ "${WIKI_TRUTH_LIVE_WEBKIT_RC}" -ne 0 ]; then
+  sleep 5
+  capture_timeout_output 180 "cd \"${ROOT}\" && NODE_PATH=\"${ROOT}/tools/playwright-smoke/node_modules\" BROWSER=webkit HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
+  WIKI_TRUTH_LIVE_WEBKIT_OUTPUT="${WIKI_TRUTH_LIVE_WEBKIT_OUTPUT}
+WIKI_TRUTH_LIVE_WEBKIT_ATTEMPT=2 rc=${CAPTURE_TIMEOUT_RC}
+${CAPTURE_TIMEOUT_OUTPUT}"
+  WIKI_TRUTH_LIVE_WEBKIT_RC="${CAPTURE_TIMEOUT_RC}"
+fi
 printf "%s\n" "${WIKI_TRUTH_LIVE_WEBKIT_OUTPUT}" >> "${REPORTS_FINAL}"
 printf "%s\n" "${WIKI_TRUTH_LIVE_WEBKIT_OUTPUT}" >> "${RUN_REPORT_FILE}"
 if [ "${CI_WRITE_ROOT}" = "1" ]; then
