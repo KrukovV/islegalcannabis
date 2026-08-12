@@ -98360,14 +98360,38 @@
         "medical": "NONE_AS_CANNABIS_PATIENT_PROGRAM_WITH_GENERAL_MEDICAL_SCIENTIFIC_AND_PRESCRIPTION_MAXIMA_CAVEAT; OFFICIAL LAW ALLOWS LIMITED MEDICAL_SCIENTIFIC_IMPORT_PERMISSIONS_FOR_SPECIFIED_INSTITUTIONS_AND_LISTS_CANNABIS_MEDICINAL_FORMS_IN_MAXIMA_TABLE_BUT_NO_CANNABIS_SPECIFIC_PATIENT_ACCESS_PROGRAM_WAS_VISUALLY_CONFIRMED",
         "enforcement": "STRICT; OFFICIAL_LAW_VISIBLY_CONTAINS_CAPITAL_OR_LONG_IMPRISONMENT_PENALTIES_FOR_TRAFFICKING_PRODUCTION_OR_SCHEDULE_5_PLANT_CONDUCT_AND SEPARATE_PENALTIES_FOR_NON_AUTHORISED_USE_OR_POSSESSION"
       },
-      "independentTruth": null,
+      "independentTruth": {
+        "color": "UNKNOWN",
+        "rule": "GENERAL_GENERIC_PRESCRIPTION_IS_NOT_CANNABIS_LIMITED_MODE",
+        "reviewedAt": "2026-08-12",
+        "conclusion": "YE has retained direct official national cannabis evidence, so the packet is resolved rather than blank. The 1993 Attorney General Schedule 5 expressly identifies Cannabis sativa/hashish names and the NIC record preserves the national prohibition and narrowly institutional medical/scientific exception. Yet the stored route is not a current cannabis-specific limited lawful authorisation: generic prescription maxima and institutional import cannot become patient access or YELLOW, while the retained source chain does not prove that the decisive 1993 clauses and any later cannabis-specific exception remain current. It cannot be RED because no current complete medical-exception and amendment chain is directly established. UNKNOWN therefore records the explicit legal-applicability/currentness blocker, never a timeout, WAF, blank viewer or missing screenshot."
+      },
       "directOfficialCannabisLawLinks": [
         {
           "title": "Yemen National Information Center - Law No. 3 of 1993 on combating trafficking and unlawful use of narcotic drugs and psychotropic substances",
           "url": "https://www.yemen-nic.info/db/laws_ye/detail.php?ID=11398",
           "sourceKind": "YEMEN_NIC_LAW_3_1993_NARCOTIC_DRUGS_UNLAWFUL_USE_PROHIBITED_PLANTS_MEDICAL_SCIENTIFIC_EXCEPTIONS_AND_PENALTIES",
+          "sourceOwnerGeo": "YE",
+          "appliesToGeos": [
+            "YE"
+          ],
+          "legalBasisForExtension": "Direct national Law No. 3 of 1993 of the Republic of Yemen; its current consolidation or later amendment status must be checked separately and is not inferred from the published text alone.",
+          "officialPublisher": "Official Yemen National Information Center legislation database publication of Law No. 3 of 1993.",
+          "sourceAnnotation": "Direct official Yemen law record. It supplies the national narcotics-control and prohibited-plant framework. Its named institutional medical/scientific import exception is not patient eligibility, a prescriber route, cannabis supply, pharmacy dispensing or an operational cannabis programme; it cannot alone create GREEN, YELLOW or a medical-access absence conclusion.",
+          "sourceType": "OFFICIAL_NATIONAL_INFORMATION_CENTER_PRIMARY_NARCOTICS_LAW_HTML",
+          "primaryOrContext": "PRIMARY_LAW_CANNABIS_SCHEDULE_AND_NARCOTIC_CONDUCT_TEXT",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T14:45:49.458Z",
             "final_url": "https://www.yemen-nic.info/db/laws_ye/detail.php?ID=11398",
             "http_status": null,
             "etag": null,
@@ -98375,10 +98399,10 @@
             "content_type": null,
             "content_length": null,
             "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "relevant_fragment_sha256": "b26d0ec82453fb0089051100bcb55859451df4455f6c01416e4b9e198232d501",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
             "queue": [
               "C2",
               "C3"
@@ -98390,28 +98414,47 @@
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official Yemen National Information Center legislation database page for Law No. 3 of 1993. Visual review confirms the law title on combating trafficking and unlawful use of narcotic drugs and psychotropic substances; Article 1 makes the schedules attached to the law part of the law, defines Schedule 5 as plants prohibited from cultivation and Schedule 6 as excepted plant parts; Article 2 prohibits import, export, production, possession, purchase, sale, exchange and transfer of narcotic substances except as provided by law; Article 4 limits import permission for medical/scientific uses to specified institutions; the later prohibited-plants chapter and penalty provisions govern Schedule 5 plants.",
+          "note": "Article 1 incorporates the attached schedules, defining Schedule 5 as plants prohibited from cultivation and Schedule 6 as excepted plant parts. Article 2 prohibits import, export, production, possession, sale, exchange and transfer except in cases provided by the law. Article 4 confines medical/scientific import permission to named institutions and licensed health bodies.",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-3/YE/screenshots/evidence_viewports/YE-nic-law-3-1993-title-and-definitions.png",
-          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "Yemen is closed as visually verified direct official cannabis/drug-law evidence. Official Law No. 3 of 1993 establishes the narcotic-drug control framework and incorporates schedules into the law; the official Attorney General schedule visibly lists Indian hemp / Cannabis sativa, including hashish and bango names, as a Schedule 5 prohibited plant, while Schedule 6 only excepts hemp-stem fibres and sterilised seeds. Project ILLEGAL/NONE/STRICT is supported with a medical/scientific institutional-use and prescription-maxima caveat, not a cannabis patient-program finding. No project status SSOT was changed."
+          "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
+          "visualReview": "Retained local official capture visibly shows Law No. 3 of 1993, schedule definitions and medical/scientific institutional-import wording. Address-bar acceptance remains separate and never changes legal truth."
         },
         {
           "title": "Yemen Attorney General - Law No. 3 of 1993 schedules showing Indian hemp / Cannabis sativa and hashish names",
           "url": "https://agoye.gov.ye/page.php?lng=arabic&id=304",
           "sourceKind": "YEMEN_ATTORNEY_GENERAL_LAW_3_1993_SCHEDULE_5_INDIAN_HEMP_CANNABIS_SATIVA_HASHISH_BANGO_AND_SCHEDULE_6_HEMP_FIBER_SEED_EXCEPTIONS",
+          "sourceOwnerGeo": "YE",
+          "appliesToGeos": [
+            "YE"
+          ],
+          "legalBasisForExtension": "Direct national schedule publication under Yemen Law No. 3 of 1993; the Attorney General source confirms cannabis identification within the national schedule but does not by itself prove current consolidation or patient access.",
+          "officialPublisher": "Official Yemen Attorney General publication of Law No. 3 of 1993 and its attached schedules.",
+          "sourceAnnotation": "Direct official cannabis-identification and prohibited-plant source. The Schedule 5 cannabis entry proves neither a patient-access prohibition nor a lawful patient route. The nearby Schedule 4 maximum-prescription table is retained solely for C2 cannabis-term extraction; generic prescription maxima or controlled-drug terminology cannot satisfy a cannabis patient axis without a current cannabis-specific bridge.",
+          "sourceType": "OFFICIAL_ATTORNEY_GENERAL_PRIMARY_NARCOTICS_SCHEDULE_HTML",
+          "primaryOrContext": "PRIMARY_CANNABIS_SCHEDULE_5_AND_SCHEDULE_6_SCOPE_TEXT",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T14:45:49.458Z",
             "final_url": "https://agoye.gov.ye/page.php?id=304&lng=arabic",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "last_modified": "Wed, 12 Aug 2026 14:45:57 GMT",
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 98302,
+            "document_sha256": "c1d0a665d4f45a130d806f578c2d92eac8f311c4d04472c90f1186d92266a0a1",
+            "relevant_fragment_sha256": "248b94a98f7c5478950d522cf227ea650ac60b7cfffdd7bef948dc4cf40eb1aa",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -98423,10 +98466,10 @@
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official Yemen Attorney General page for Law No. 3 of 1993. Visual review confirms Schedule 5, plants prohibited from cultivation, lists Indian hemp (Cannabis sativa), male or female, under all names including hashish, kamanja and bango; Schedule 6 excepts hemp-stem fibres and sterilised hemp seeds that cannot germinate. A nearby visually reviewed prescription-maxima table also lists Indian hemp, Indian hemp resin, Indian hemp extract, liquid extract and tincture, which confirms cannabis-specific controlled medicinal-form terminology but not a cannabis patient access program.",
+          "note": "Schedule 5, item 1 lists Indian hemp (Cannabis sativa), male or female, under all names including hashish, kamanja and bango, among plants prohibited from cultivation. Schedule 6 limits the excluded hemp material to listed stem fibres, sterilised seeds incapable of germination and other stated non-viable parts.",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-3/YE/screenshots/evidence_viewports/YE-agoye-schedule-5-cannabis-sativa-hashish-bango-focused.png",
-          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "Yemen is closed as visually verified direct official cannabis/drug-law evidence. Official Law No. 3 of 1993 establishes the narcotic-drug control framework and incorporates schedules into the law; the official Attorney General schedule visibly lists Indian hemp / Cannabis sativa, including hashish and bango names, as a Schedule 5 prohibited plant, while Schedule 6 only excepts hemp-stem fibres and sterilised seeds. Project ILLEGAL/NONE/STRICT is supported with a medical/scientific institutional-use and prescription-maxima caveat, not a cannabis patient-program finding. No project status SSOT was changed."
+          "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
+          "visualReview": "Retained local official capture visibly shows the Attorney General domain footer, Schedule 5 and the Cannabis sativa/hashish/bango entry. It is visual acceptance metadata only, separate from legal derivation."
         }
       ],
       "candidateLinksAwaitingVisualReview": [],
@@ -98438,7 +98481,7 @@
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
-      "strictVisualAcceptance": null,
+      "strictVisualAcceptance": false,
       "screenshotPaths": [
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-3/YE/screenshots/evidence_viewports/YE-nic-law-3-1993-title-and-definitions.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-3/YE/screenshots/evidence_viewports/YE-nic-law-3-1993-prohibited-plants-articles-28-30.png",
