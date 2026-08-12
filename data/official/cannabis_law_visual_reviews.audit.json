@@ -136838,45 +136838,76 @@
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/LC/screenshots/lc-section-9-cultivation-restriction.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/LC/screenshots/lc-section-4-03-four-plants.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/LC/screenshots/lc-section-5-02-authorized-cultivation.png",
-        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/LC/screenshots/lc-section-27a-public-smoking.png"
+        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/LC/screenshots/lc-section-27a-public-smoking.png",
+        "data/reviews/wiki-truth-307-visual-evidence/LC-definition-current-2026-08-12.png",
+        "data/reviews/wiki-truth-307-visual-evidence/LC-possession-30g-current-2026-08-12.png",
+        "data/reviews/wiki-truth-307-visual-evidence/LC-cultivation-restriction-current-2026-08-12.png",
+        "data/reviews/wiki-truth-307-visual-evidence/LC-cultivation-four-plants-current-2026-08-12.png",
+        "data/reviews/wiki-truth-307-visual-evidence/LC-cultivation-authorized-current-2026-08-12.png",
+        "data/reviews/wiki-truth-307-visual-evidence/LC-public-smoking-current-2026-08-12.png"
       ],
       "verified_sources": [
         {
           "title": "Attorney General's Chambers - Revised Laws of Saint Lucia - Drugs (Prevention of Misuse) Act, section 2 Interpretation",
           "url": "https://attorneygeneralchambers.com/laws-of-saint-lucia/drugs-prevention-of-misuse-act/section-2-01",
           "source_kind": "SAINT_LUCIA_AG_CHAMBERS_REVISED_LAWS_DRUGS_ACT_SECTION_2_CANNABIS_AND_CANNABIS_RESIN_DEFINITIONS",
-          "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/LC/screenshots/lc-section-2-01-definition.png",
+          "source_owner": "Attorney General's Chambers of Saint Lucia, Government of Saint Lucia",
+          "source_owner_geo": "LC",
+          "source_authority": "Saint Lucia Attorney General's Chambers official Revised Laws publisher",
+          "applies_to_geo": [
+            "LC"
+          ],
+          "legal_basis_for_extension": "The Government of Saint Lucia Attorney General's Chambers publishes the national Revised Laws for Saint Lucia; no parent, claimant or foreign regime is used.",
+          "source_type": "CURRENT_OFFICIAL_REVISED_PRIMARY_LAW",
+          "primary_or_context": "PRIMARY_LAW_CANNABIS_SCOPE_DEFINITION",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "CURRENT_REVISED_LAWS_OF_SAINT_LUCIA_2023",
+          "official_fragment_locator": "Drugs (Prevention of Misuse) Act, Revised Laws of Saint Lucia (2023), section 2 (Interpretation)",
+          "exact_fragment": "“cannabis” (except in the expression “cannabis resin”) means any plant of the genus Cannabis or any part of any such plant (by whatever name designated); “cannabis resin” means the separated resin, whether crude or purified obtained from any plant or any part of a plant of the genus cannabis;",
+          "direct_fragment_available": true,
+          "screenshot_available": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "source_owner_visible": true,
+          "annotation": "Cannabis-family scope bridge for the Act and Regulations. It is not a patient-access or colour axis by itself.",
+          "official_host_verified": true,
+          "reviewed_by_human_visual": true,
+          "screenshot_state": "CURRENT_HEADLESS_OFFICIAL_PAGE_VISUALLY_REVIEWED_NO_BROWSER_CHROME",
+          "historical_screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/LC/screenshots/lc-section-2-01-definition.png",
+          "screenshot_path": "data/reviews/wiki-truth-307-visual-evidence/LC-definition-current-2026-08-12.png",
+          "screenshot_valid": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": false,
+          "visual_review_result": "CURRENT_OFFICIAL_OWNER_AND_CANNABIS_DEFINITION_VISIBLE; STRICT_BROWSER_DOMAIN_ACCEPTANCE_PARTIAL",
           "note": "Official Attorney General's Chambers Revised Laws of Saint Lucia page. Visual review confirms section 2 of the Drugs (Prevention of Misuse) Act defines cannabis as any plant of the genus Cannabis or any part of such plant and cannabis resin as separated resin from the plant.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T02:53:25.827Z",
             "final_url": "https://attorneygeneralchambers.com/laws-of-saint-lucia/drugs-prevention-of-misuse-act/section-2-01",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 95101,
+            "document_sha256": "540724078e1300e4d2e9e7747c4ff59657fec28dbadb69e7ebf457b182cfa245",
+            "relevant_fragment_sha256": "c580c3adf9d0bd0abf075f71d03bff8a859a68beff3b6fe624ffbf46cb6d984b",
+            "revalidation_state": "CONTENT_CHANGED",
+            "access_state": "HTTP_OK",
+            "change_reason": "DOCUMENT_SHA256_CHANGED",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "CURRENT_LAYER_MISMATCH",
-              "NEEDS_SEMANTIC_REVIEW"
+              "CONTENT_CHANGED",
+              "CURRENT_LAYER_MISMATCH"
             ],
             "dependent_geos": [
               "LC"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
+            "schema_issues": [],
             "semantic_probe": null
           }
         },
@@ -136884,38 +136915,63 @@
           "title": "Attorney General's Chambers - Revised Laws of Saint Lucia - Drugs (Prevention of Misuse) Act, section 8A Exemption from criminal liability",
           "url": "https://attorneygeneralchambers.com/laws-of-saint-lucia/drugs-prevention-of-misuse-act/section-8a",
           "source_kind": "SAINT_LUCIA_AG_CHAMBERS_REVISED_LAWS_DRUGS_ACT_SECTION_8A_30_GRAMMES_CANNABIS_EXEMPTION_FROM_CRIMINAL_LIABILITY",
-          "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/LC/screenshots/lc-section-8a-exemption-30g.png",
+          "source_owner": "Attorney General's Chambers of Saint Lucia, Government of Saint Lucia",
+          "source_owner_geo": "LC",
+          "source_authority": "Saint Lucia Attorney General's Chambers official Revised Laws publisher",
+          "applies_to_geo": [
+            "LC"
+          ],
+          "legal_basis_for_extension": "The Government of Saint Lucia Attorney General's Chambers publishes the national Revised Laws for Saint Lucia; no parent, claimant or foreign regime is used.",
+          "source_type": "CURRENT_OFFICIAL_REVISED_PRIMARY_LAW",
+          "primary_or_context": "PRIMARY_CURRENT_RECREATIONAL_DECRIMINALIZATION_LAW",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "CURRENT_REVISED_LAWS_OF_SAINT_LUCIA_2023; INSERTED_BY_ACT_13_OF_2021",
+          "official_fragment_locator": "Drugs (Prevention of Misuse) Act, Revised Laws of Saint Lucia (2023), section 8A (Exemption from criminal liability)",
+          "exact_fragment": "Notwithstanding section 8— (a) a person who is in possession of 30 grammes or less of cannabis or cannabis resin is not guilty of an offence; (b) prosecution and punishment capable of being imposed under section 37 does not apply where the controlled drug is cannabis or cannabis resin of a quantity of 30 grammes or less. (Inserted by Act 13 of 2021)",
+          "direct_fragment_available": true,
+          "screenshot_available": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "source_owner_visible": true,
+          "annotation": "Current primary-law proof of defined personal possession decriminalization; it does not establish unrestricted adult retail, supply or a medical patient programme.",
+          "official_host_verified": true,
+          "reviewed_by_human_visual": true,
+          "screenshot_state": "CURRENT_HEADLESS_OFFICIAL_PAGE_VISUALLY_REVIEWED_NO_BROWSER_CHROME",
+          "historical_screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/LC/screenshots/lc-section-8a-exemption-30g.png",
+          "screenshot_path": "data/reviews/wiki-truth-307-visual-evidence/LC-possession-30g-current-2026-08-12.png",
+          "screenshot_valid": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "visual_review_result": "CURRENT_OFFICIAL_OWNER_AND_EXACT_30G_CANNABIS_FRAGMENT_VISIBLE; STRICT_BROWSER_DOMAIN_ACCEPTANCE_PARTIAL",
           "note": "Official Attorney General's Chambers Revised Laws of Saint Lucia page. Visual review confirms section 8A states that, notwithstanding section 8, a person in possession of 30 grammes or less of cannabis or cannabis resin is not guilty of an offence and prosecution/punishment under section 37 does not apply where the controlled drug is cannabis or cannabis resin of 30 grammes or less.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T02:53:25.827Z",
             "final_url": "https://attorneygeneralchambers.com/laws-of-saint-lucia/drugs-prevention-of-misuse-act/section-8a",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 89496,
+            "document_sha256": "e2895a88bb562336957b53bbd9813647433273d83765c446e8311c20ba738c30",
+            "relevant_fragment_sha256": "ebb437b350e10b82a69d31d2d8b85f2d69e8c687c00128062300568947fd8309",
+            "revalidation_state": "CONTENT_CHANGED",
+            "access_state": "HTTP_OK",
+            "change_reason": "DOCUMENT_SHA256_CHANGED",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "CURRENT_LAYER_MISMATCH",
-              "NEEDS_SEMANTIC_REVIEW"
+              "CONTENT_CHANGED",
+              "CURRENT_LAYER_MISMATCH"
             ],
             "dependent_geos": [
               "LC"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
+            "schema_issues": [],
             "semantic_probe": null
           }
         },
@@ -136923,38 +136979,63 @@
           "title": "Attorney General's Chambers - Revised Laws of Saint Lucia - Drugs (Prevention of Misuse) Act, section 9 Restriction of cultivation of cannabis plant",
           "url": "https://attorneygeneralchambers.com/laws-of-saint-lucia/drugs-prevention-of-misuse-act/section-9",
           "source_kind": "SAINT_LUCIA_AG_CHAMBERS_REVISED_LAWS_DRUGS_ACT_SECTION_9_CANNABIS_CULTIVATION_RESTRICTION_SUBJECT_TO_REGULATIONS",
-          "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/LC/screenshots/lc-section-9-cultivation-restriction.png",
+          "source_owner": "Attorney General's Chambers of Saint Lucia, Government of Saint Lucia",
+          "source_owner_geo": "LC",
+          "source_authority": "Saint Lucia Attorney General's Chambers official Revised Laws publisher",
+          "applies_to_geo": [
+            "LC"
+          ],
+          "legal_basis_for_extension": "The Government of Saint Lucia Attorney General's Chambers publishes the national Revised Laws for Saint Lucia; no parent, claimant or foreign regime is used.",
+          "source_type": "CURRENT_OFFICIAL_REVISED_PRIMARY_LAW",
+          "primary_or_context": "PRIMARY_LAW_CULTIVATION_BOUNDARY",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "CURRENT_REVISED_LAWS_OF_SAINT_LUCIA_2023",
+          "official_fragment_locator": "Drugs (Prevention of Misuse) Act, Revised Laws of Saint Lucia (2023), section 9 (Restriction of cultivation of cannabis plant)",
+          "exact_fragment": "(1) Subject to any regulations under section 10, it shall not be lawful for a person to cultivate any plant of the genus Cannabis. (2) Subject to section 40, it is an offence to cultivate such plant in contravention of subsection (1).",
+          "direct_fragment_available": true,
+          "screenshot_available": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "source_owner_visible": true,
+          "annotation": "Current baseline cultivation restriction. The separately current Cannabis Cultivation Regulations are the direct exception source; this section prevents overclaiming cultivation beyond that defined regulation.",
+          "official_host_verified": true,
+          "reviewed_by_human_visual": true,
+          "screenshot_state": "CURRENT_HEADLESS_OFFICIAL_PAGE_VISUALLY_REVIEWED_NO_BROWSER_CHROME",
+          "historical_screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/LC/screenshots/lc-section-9-cultivation-restriction.png",
+          "screenshot_path": "data/reviews/wiki-truth-307-visual-evidence/LC-cultivation-restriction-current-2026-08-12.png",
+          "screenshot_valid": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "visual_review_result": "CURRENT_OFFICIAL_OWNER_AND_CULTIVATION_BOUNDARY_VISIBLE; STRICT_BROWSER_DOMAIN_ACCEPTANCE_PARTIAL",
           "note": "Official Attorney General's Chambers Revised Laws of Saint Lucia page. Visual review confirms section 9 states cultivation of any plant of the genus Cannabis is not lawful subject to regulations under section 10, and contravention is an offence.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T02:53:25.827Z",
             "final_url": "https://attorneygeneralchambers.com/laws-of-saint-lucia/drugs-prevention-of-misuse-act/section-9",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 89386,
+            "document_sha256": "9d874054f97c89a4b8ea87dc3ba97e1257b05d106e8db084584092e057cb8d7a",
+            "relevant_fragment_sha256": "c311db46b639c0c84dc07f01e01954b83ceeaea26604220667a0b394570dda72",
+            "revalidation_state": "CONTENT_CHANGED",
+            "access_state": "HTTP_OK",
+            "change_reason": "DOCUMENT_SHA256_CHANGED",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "CURRENT_LAYER_MISMATCH",
-              "NEEDS_SEMANTIC_REVIEW"
+              "CONTENT_CHANGED",
+              "CURRENT_LAYER_MISMATCH"
             ],
             "dependent_geos": [
               "LC"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
+            "schema_issues": [],
             "semantic_probe": null
           }
         },
@@ -136962,38 +137043,63 @@
           "title": "Attorney General's Chambers - Revised Laws of Saint Lucia - Cannabis Cultivation Regulations, section 4 Cultivation of cannabis",
           "url": "https://attorneygeneralchambers.com/laws-of-saint-lucia/drugs-prevention-of-misuse-act/section-4-03",
           "source_kind": "SAINT_LUCIA_AG_CHAMBERS_REVISED_LAWS_CANNABIS_CULTIVATION_REGULATIONS_SECTION_4_FOUR_PLANTS_DWELLING_HOUSE",
-          "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/LC/screenshots/lc-section-4-03-four-plants.png",
+          "source_owner": "Attorney General's Chambers of Saint Lucia, Government of Saint Lucia",
+          "source_owner_geo": "LC",
+          "source_authority": "Saint Lucia Attorney General's Chambers official Revised Laws publisher",
+          "applies_to_geo": [
+            "LC"
+          ],
+          "legal_basis_for_extension": "The Government of Saint Lucia Attorney General's Chambers publishes the national Revised Laws for Saint Lucia; no parent, claimant or foreign regime is used.",
+          "source_type": "CURRENT_OFFICIAL_CANNABIS_CULTIVATION_REGULATION",
+          "primary_or_context": "PRIMARY_CURRENT_PERSONAL_CULTIVATION_EXCEPTION",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "CURRENT_REVISED_LAWS_OF_SAINT_LUCIA_2023",
+          "official_fragment_locator": "Cannabis Cultivation Regulations, Revised Laws of Saint Lucia (2023), regulation 4 (Cultivation of cannabis)",
+          "exact_fragment": "(1) A person may cultivate not more than 4 cannabis plants at a time at his or her dwelling-house. (2) Subregulation (1) applies where there is more than one person at the dwelling-house.",
+          "direct_fragment_available": true,
+          "screenshot_available": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "source_owner_visible": true,
+          "annotation": "Current direct exception proving a defined personal home-cultivation scope only; it does not establish commercial cultivation or adult retail.",
+          "official_host_verified": true,
+          "reviewed_by_human_visual": true,
+          "screenshot_state": "CURRENT_HEADLESS_OFFICIAL_PAGE_VISUALLY_REVIEWED_NO_BROWSER_CHROME",
+          "historical_screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/LC/screenshots/lc-section-4-03-four-plants.png",
+          "screenshot_path": "data/reviews/wiki-truth-307-visual-evidence/LC-cultivation-four-plants-current-2026-08-12.png",
+          "screenshot_valid": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "visual_review_result": "CURRENT_OFFICIAL_OWNER_AND_EXACT_FOUR_PLANT_FRAGMENT_VISIBLE; STRICT_BROWSER_DOMAIN_ACCEPTANCE_PARTIAL",
           "note": "Official Attorney General's Chambers Revised Laws of Saint Lucia page. Visual review confirms Cannabis Cultivation Regulations section 4 states a person may cultivate not more than 4 cannabis plants at a time at his or her dwelling-house, and this applies where there is more than one person at the dwelling-house.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T02:53:25.827Z",
             "final_url": "https://attorneygeneralchambers.com/laws-of-saint-lucia/drugs-prevention-of-misuse-act/section-4-03",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 89166,
+            "document_sha256": "cbd8259d49a05e34f55cd247cb985a2ac5c60500be462293a2d7f29100d3615b",
+            "relevant_fragment_sha256": "e825a6292df8973ab5331f0e2b44bb64c48676d4c2c8ba6262cd3c302c4b024c",
+            "revalidation_state": "CONTENT_CHANGED",
+            "access_state": "HTTP_OK",
+            "change_reason": "DOCUMENT_SHA256_CHANGED",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "CURRENT_LAYER_MISMATCH",
-              "NEEDS_SEMANTIC_REVIEW"
+              "CONTENT_CHANGED",
+              "CURRENT_LAYER_MISMATCH"
             ],
             "dependent_geos": [
               "LC"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
+            "schema_issues": [],
             "semantic_probe": null
           }
         },
@@ -137001,38 +137107,63 @@
           "title": "Attorney General's Chambers - Revised Laws of Saint Lucia - Cannabis Cultivation Regulations, section 5 Authorized activities in the cultivation of cannabis",
           "url": "https://attorneygeneralchambers.com/laws-of-saint-lucia/drugs-prevention-of-misuse-act/section-5-02",
           "source_kind": "SAINT_LUCIA_AG_CHAMBERS_REVISED_LAWS_CANNABIS_CULTIVATION_REGULATIONS_SECTION_5_AUTHORIZED_CULTIVATION_POSSESSION_AND_SEED_ACCESS",
-          "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/LC/screenshots/lc-section-5-02-authorized-cultivation.png",
+          "source_owner": "Attorney General's Chambers of Saint Lucia, Government of Saint Lucia",
+          "source_owner_geo": "LC",
+          "source_authority": "Saint Lucia Attorney General's Chambers official Revised Laws publisher",
+          "applies_to_geo": [
+            "LC"
+          ],
+          "legal_basis_for_extension": "The Government of Saint Lucia Attorney General's Chambers publishes the national Revised Laws for Saint Lucia; no parent, claimant or foreign regime is used.",
+          "source_type": "CURRENT_OFFICIAL_CANNABIS_CULTIVATION_REGULATION",
+          "primary_or_context": "PRIMARY_CURRENT_PERSONAL_CULTIVATION_POSSESSION_SCOPE",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "CURRENT_REVISED_LAWS_OF_SAINT_LUCIA_2023",
+          "official_fragment_locator": "Cannabis Cultivation Regulations, Revised Laws of Saint Lucia (2023), regulation 5 (Authorized activities in the cultivation of cannabis)",
+          "exact_fragment": "A person who cultivates a cannabis plant under regulation 4 may— (a) possess the cannabis; or (b) obtain dried cannabis, fresh cannabis, cannabis or cannabis seeds.",
+          "direct_fragment_available": true,
+          "screenshot_available": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "source_owner_visible": true,
+          "annotation": "Current direct scope of permitted possession and acquisition for a person cultivating within regulation 4. It cannot prove general adult supply, sale or a medical programme.",
+          "official_host_verified": true,
+          "reviewed_by_human_visual": true,
+          "screenshot_state": "CURRENT_HEADLESS_OFFICIAL_PAGE_VISUALLY_REVIEWED_NO_BROWSER_CHROME",
+          "historical_screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/LC/screenshots/lc-section-5-02-authorized-cultivation.png",
+          "screenshot_path": "data/reviews/wiki-truth-307-visual-evidence/LC-cultivation-authorized-current-2026-08-12.png",
+          "screenshot_valid": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "visual_review_result": "CURRENT_OFFICIAL_OWNER_AND_AUTHORIZED_CULTIVATOR_FRAGMENT_VISIBLE; STRICT_BROWSER_DOMAIN_ACCEPTANCE_PARTIAL",
           "note": "Official Attorney General's Chambers Revised Laws of Saint Lucia page. Visual review confirms Cannabis Cultivation Regulations section 5 states a person who cultivates a cannabis plant under regulation 4 may possess the cannabis or obtain dried cannabis, fresh cannabis, cannabis or cannabis seeds.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T02:53:25.827Z",
             "final_url": "https://attorneygeneralchambers.com/laws-of-saint-lucia/drugs-prevention-of-misuse-act/section-5-02",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 89415,
+            "document_sha256": "9b4b776643d12ccf2f418c6d09355b9bf230dd07b45ba04805ec855fd6ab5f9f",
+            "relevant_fragment_sha256": "8919b1d62ba211fd48122e0043b4e557e83b4ef5acb57a74264659dd7e54599e",
+            "revalidation_state": "CONTENT_CHANGED",
+            "access_state": "HTTP_OK",
+            "change_reason": "DOCUMENT_SHA256_CHANGED",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "CURRENT_LAYER_MISMATCH",
-              "NEEDS_SEMANTIC_REVIEW"
+              "CONTENT_CHANGED",
+              "CURRENT_LAYER_MISMATCH"
             ],
             "dependent_geos": [
               "LC"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
+            "schema_issues": [],
             "semantic_probe": null
           }
         },
@@ -137040,38 +137171,63 @@
           "title": "Attorney General's Chambers - Revised Laws of Saint Lucia - Drugs (Prevention of Misuse) Act, section 27A Restriction on smoking cannabis in a public place",
           "url": "https://attorneygeneralchambers.com/laws-of-saint-lucia/drugs-prevention-of-misuse-act/section-27a",
           "source_kind": "SAINT_LUCIA_AG_CHAMBERS_REVISED_LAWS_DRUGS_ACT_SECTION_27A_PUBLIC_SMOKING_CANNABIS_RESTRICTION_AND_NON_CRIMINAL_RECORD_FINE",
-          "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/LC/screenshots/lc-section-27a-public-smoking.png",
+          "source_owner": "Attorney General's Chambers of Saint Lucia, Government of Saint Lucia",
+          "source_owner_geo": "LC",
+          "source_authority": "Saint Lucia Attorney General's Chambers official Revised Laws publisher",
+          "applies_to_geo": [
+            "LC"
+          ],
+          "legal_basis_for_extension": "The Government of Saint Lucia Attorney General's Chambers publishes the national Revised Laws for Saint Lucia; no parent, claimant or foreign regime is used.",
+          "source_type": "CURRENT_OFFICIAL_REVISED_PRIMARY_LAW",
+          "primary_or_context": "PRIMARY_CURRENT_PUBLIC_USE_AND_PENALTY_BOUNDARY",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "CURRENT_REVISED_LAWS_OF_SAINT_LUCIA_2023; INSERTED_BY_ACT_13_OF_2021",
+          "official_fragment_locator": "Drugs (Prevention of Misuse) Act, Revised Laws of Saint Lucia (2023), section 27A (Restriction on smoking cannabis in a public place)",
+          "exact_fragment": "(1) A person shall not— (a) smoke any part of the plant genus cannabis in a public place; (b) being the owner, occupier or concerned with the management of premises in a public place knowingly permit another to smoke cannabis or cannabis resin. (2) A person who contravenes subsection (1) commits an offence and is liable on summary conviction to a fine not exceeding $1,500. (3) A penalty imposed under subsection (2) does not form part of the criminal record of the person. (Inserted by Act 13 of 2021)",
+          "direct_fragment_available": true,
+          "screenshot_available": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "source_owner_visible": true,
+          "annotation": "Current public-use restriction and limited penalty boundary. It does not negate the separately proven 30g possession and four-plant dwelling-house exceptions.",
+          "official_host_verified": true,
+          "reviewed_by_human_visual": true,
+          "screenshot_state": "CURRENT_HEADLESS_OFFICIAL_PAGE_VISUALLY_REVIEWED_NO_BROWSER_CHROME",
+          "historical_screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/LC/screenshots/lc-section-27a-public-smoking.png",
+          "screenshot_path": "data/reviews/wiki-truth-307-visual-evidence/LC-public-smoking-current-2026-08-12.png",
+          "screenshot_valid": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "visual_review_result": "CURRENT_OFFICIAL_OWNER_AND_PUBLIC_SMOKING_PENALTY_FRAGMENT_VISIBLE; STRICT_BROWSER_DOMAIN_ACCEPTANCE_PARTIAL",
           "note": "Official Attorney General's Chambers Revised Laws of Saint Lucia page. Visual review confirms section 27A prohibits smoking any part of the cannabis plant in a public place and knowingly permitting cannabis/cannabis resin smoking in public premises, with a summary fine not exceeding $1,500, and states the penalty does not form part of the person's criminal record.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T02:53:25.827Z",
             "final_url": "https://attorneygeneralchambers.com/laws-of-saint-lucia/drugs-prevention-of-misuse-act/section-27a",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 91424,
+            "document_sha256": "c84f89135632ab4b90ecf40fee84ad6c27c0a6b9bacda8b6db73f1df959752af",
+            "relevant_fragment_sha256": "2076c9ad39d40e1e325633f90952e3e2b9b71b92add280563f4a94ad4f8e93bb",
+            "revalidation_state": "CONTENT_CHANGED",
+            "access_state": "HTTP_OK",
+            "change_reason": "DOCUMENT_SHA256_CHANGED",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "CURRENT_LAYER_MISMATCH",
-              "NEEDS_SEMANTIC_REVIEW"
+              "CONTENT_CHANGED",
+              "CURRENT_LAYER_MISMATCH"
             ],
             "dependent_geos": [
               "LC"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
+            "schema_issues": [],
             "semantic_probe": null
           }
         }
@@ -137085,7 +137241,85 @@
         "status": "CONFLICT_PROJECT_ILLEGAL_LIMITED_SOFT_VS_OFFICIAL_30G_NOT_OFFENCE_AND_FOUR_PLANT_HOME_CULTIVATION",
         "reason": "Saint Lucia is visually verified from official Attorney General's Chambers Revised Laws of Saint Lucia pages. Section 2 visibly defines cannabis and cannabis resin. Section 8A visibly states that a person in possession of 30 grammes or less of cannabis or cannabis resin is not guilty of an offence and that prosecution/punishment under section 37 does not apply for cannabis or cannabis resin of 30 grammes or less. Section 9 visibly keeps cannabis cultivation unlawful subject to regulations under section 10. Cannabis Cultivation Regulations section 4 visibly states a person may cultivate not more than 4 cannabis plants at a time at his or her dwelling-house. Regulations section 5 visibly states a person cultivating under regulation 4 may possess the cannabis or obtain dried cannabis, fresh cannabis, cannabis or cannabis seeds. Section 27A visibly restricts smoking cannabis in a public place, sets a fine not exceeding $1,500, and states the penalty does not form part of the person's criminal record. Project recreational=ILLEGAL conflicts with the official 30g no-offence and 4-plant dwelling-house framework. Project enforcement=SOFT is supported for the visible personal-possession/home-cultivation/public-smoking scope. Project medical=LIMITED was not contradicted by these reviewed direct cannabis pages, but a cannabis-specific medical patient programme was not visibly confirmed in this row. No project status SSOT was changed."
       },
-      "conclusion": "Saint Lucia is closed as visually verified official cannabis-law evidence from official Attorney General's Chambers Revised Laws pages for the Drugs (Prevention of Misuse) Act and Cannabis Cultivation Regulations. The evidence shows 30g cannabis/cannabis-resin possession is not an offence, four cannabis plants may be cultivated at a dwelling-house under regulations, public smoking is fined without criminal-record effect, and broader cultivation remains regulated/restricted. Project recreational=ILLEGAL requires review; enforcement=SOFT is supported for the visible personal-use scope; no project status SSOT was changed."
+      "conclusion": "Saint Lucia is closed as visually verified official cannabis-law evidence from official Attorney General's Chambers Revised Laws pages for the Drugs (Prevention of Misuse) Act and Cannabis Cultivation Regulations. The evidence shows 30g cannabis/cannabis-resin possession is not an offence, four cannabis plants may be cultivated at a dwelling-house under regulations, public smoking is fined without criminal-record effect, and broader cultivation remains regulated/restricted. Project recreational=ILLEGAL requires review; enforcement=SOFT is supported for the visible personal-use scope; no project status SSOT was changed.",
+      "independent_truth_color": "YELLOW",
+      "independent_truth_status": "CURRENT_DEFINED_PERSONAL_CANNABIS_DECRIMINALIZATION_FOR_30_GRAMMES_POSSESSION_AND_FOUR_DWELLING_HOUSE_PLANTS_WITH_PUBLIC_SMOKING_FINE_BOUNDARY",
+      "independent_truth_rule": "GENERAL_CURRENT_RECREATIONAL_DECRIMINALIZATION_FROM_EFFECTIVE_PRIMARY_LAW",
+      "independent_truth_reviewed_at": "2026-08-12T02:48:00Z",
+      "independent_review_state": "COMPLETE_LEGAL_TRUTH_STRICT_VISUAL_ACCEPTANCE_PARTIAL",
+      "independent_review": {
+        "reviewed_at": "2026-08-12T02:48:00Z",
+        "method": "C0_LOCAL_SCHEMA_C1_CONDITIONAL_HTTP_C2_CURRENT_HTML_RETRIEVAL_C3_HEADLESS_PLAYWRIGHT_VISUAL_REVIEW",
+        "legal_conclusion": "CURRENT_DEFINED_PERSONAL_CANNABIS_DECRIMINALIZATION_FOR_30_GRAMMES_POSSESSION_AND_FOUR_DWELLING_HOUSE_PLANTS_WITH_PUBLIC_SMOKING_FINE_BOUNDARY",
+        "official_truth_color": "YELLOW",
+        "independent_truth_rule": "GENERAL_CURRENT_RECREATIONAL_DECRIMINALIZATION_FROM_EFFECTIVE_PRIMARY_LAW",
+        "evidence_axes": {
+          "recreational_possession": "YES_CURRENT_PRIMARY_LAW_SECTION_8A_30_GRAMMES_OR_LESS_OF_CANNABIS_OR_CANNABIS_RESIN_NOT_GUILTY_OF_AN_OFFENCE",
+          "personal_use_decriminalization": "YES_CURRENT_PRIMARY_LAW_SECTION_8A_EXEMPTS_DEFINED_30_GRAMMES_OR_LESS_FROM_PROSECUTION_AND_PUNISHMENT",
+          "recreational_cultivation": "YES_CURRENT_CANNABIS_CULTIVATION_REGULATION_4_ALLOWS_NOT_MORE_THAN_FOUR_PLANTS_AT_A_DWELLING_HOUSE",
+          "recreational_use": "RESTRICTED_CURRENT_PRIMARY_LAW_SECTION_27A_PROHIBITS_PUBLIC_SMOKING_AND_IMPOSES_A_FINE_WITHOUT_CRIMINAL_RECORD_EFFECT",
+          "recreational_supply": "UNKNOWN_NO_CURRENT_OFFICIAL_ADULT_RETAIL_OR_GENERAL_SUPPLY_RECORD_WAS_REVIEWED_IN_THIS_PACKET",
+          "recreational_market_operational": "UNKNOWN_NO_CURRENT_OFFICIAL_ADULT_RETAIL_OPERATION_RECORD_WAS_REVIEWED_IN_THIS_PACKET",
+          "medical_cannabis_law": "UNKNOWN_THIS_DIRECT_PERSONAL_SCOPE_PACKET_DOES_NOT_PROVE_OR_NEGATE_A_CANNABIS_SPECIFIC_PATIENT_REGIME",
+          "patient_eligible": "UNKNOWN_NO_CURRENT_OFFICIAL_PATIENT_ELIGIBILITY_SOURCE_REVIEWED_IN_THIS_PACKET",
+          "prescriber_route": "UNKNOWN_NO_CURRENT_OFFICIAL_CANNABIS_PRESCRIBER_SOURCE_REVIEWED_IN_THIS_PACKET",
+          "registration_route": "UNKNOWN_NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_REGISTRY_SOURCE_REVIEWED_IN_THIS_PACKET",
+          "lawful_supply": "UNKNOWN_NO_CURRENT_OFFICIAL_MEDICAL_SUPPLY_SOURCE_REVIEWED_IN_THIS_PACKET",
+          "pharmacy_or_dispensary": "UNKNOWN_NO_CURRENT_OFFICIAL_CANNABIS_PHARMACY_OR_DISPENSARY_SOURCE_REVIEWED_IN_THIS_PACKET",
+          "programme_operational": "UNKNOWN_NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_PROGRAMME_OPERATION_SOURCE_REVIEWED_IN_THIS_PACKET",
+          "penalty_regime": "LIMITED_CURRENT_SECTION_27A_PUBLIC_SMOKING_FINE_NOT_EXCEEDING_1500_DOLLARS_DOES_NOT_FORM_PART_OF_CRIMINAL_RECORD",
+          "cannabis_specificity": "YES_SECTION_2_DEFINES_CANNABIS_AND_CANNABIS_RESIN_AND_THE_SUBSTANTIVE_FRAGMENTS_USE_THOSE_TERMS_DIRECTLY"
+        },
+        "minimum_proven_axes": [
+          "CURRENT_APPLICABLE_OFFICIAL_PRIMARY_LAW",
+          "CANNABIS_SPECIFIC_30_GRAMME_POSSESSION_NOT_OFFENCE_FRAGMENT",
+          "CANNABIS_SPECIFIC_FOUR_PLANT_DWELLING_HOUSE_FRAGMENT",
+          "CURRENT_PUBLIC_USE_AND_PENALTY_BOUNDARY"
+        ],
+        "unresolved_axes": [
+          "ADULT_RETAIL_OR_GENERAL_SUPPLY",
+          "MEDICAL_PATIENT_ELIGIBILITY_PRESCRIBER_REGISTRY_AND_SUPPLY",
+          "STRICT_BROWSER_ADDRESS_BAR_DOMAIN_VISIBILITY"
+        ],
+        "lifecycle": {
+          "currentness": "The pages render as Revised Laws of Saint Lucia (2023); sections 8A and 27A identify insertion by Act 13 of 2021.",
+          "effective_date": "CURRENT_REVISED_LAWS_PAGE; NO_FUTURE_OR_REPEAL_PROVISION_WAS_VISIBLE_IN_THE_REVIEWED_FRAGMENTS",
+          "rule": "The 30g and four-plant exceptions are read together with section 9's general cultivation restriction, so the result is limited personal legality rather than unrestricted adult use or commercial cultivation."
+        },
+        "source_annotations": [
+          "Section 2 supplies the cannabis and cannabis-resin scope bridge.",
+          "Section 8A supplies the current 30g no-offence and no-prosecution/punishment rule.",
+          "Section 9 supplies the general cultivation boundary subject to regulations.",
+          "Cultivation Regulations 4 and 5 supply the defined four-plant dwelling-house and authorized-cultivator possession scope.",
+          "Section 27A supplies the public-smoking restriction and no-criminal-record fine boundary."
+        ],
+        "strict_visual_acceptance": "PARTIAL: each current official page was opened and visually read through hidden Playwright. The Attorney General's Chambers and Government Saint Lucia owner marks, Revised Laws (2023) title, provision heading and cannabis fragment are visible in current screenshots. Browser address-bar domain visibility is absent by deliberate headless capture policy and does not affect legal-truth derivation.",
+        "current_layer_comparison": {
+          "project_status": "PROJECT_RECREATIONAL_ILLEGAL_CONFLICTS_WITH_CURRENT_DEFINED_PERSONAL_SCOPE; PROJECT_ENFORCEMENT_SOFT_MATCHES_THE_LIMITED_SCOPE",
+          "runtime_map_color": "UNCONFIRMED_NOT_RECAPTURED_IN_THIS_LEGAL_PACKET",
+          "runtime_api_status": "UNCONFIRMED_NOT_RECAPTURED_IN_THIS_LEGAL_PACKET",
+          "wiki_truth_proposal": "YELLOW_PROPOSAL_FROM_THIS_INDEPENDENT_PACKET_AFTER_MATRIX_REBUILD",
+          "ssot": "UNTOUCHED_NO_APPLICATION_AUTHORIZED"
+        },
+        "no_mutation": {
+          "apply_allowed": false,
+          "ssot_changed": false,
+          "map_colors_changed": false,
+          "production_touched": false,
+          "runtime_touched": false,
+          "deployment_touched": false
+        },
+        "recommended_action": "RETAIN_PROPOSAL_ONLY_YELLOW_UNTIL_THE_SEPARATE_307_GEO_APPLY_GATE_AND_USER_AUTHORIZATION",
+        "confidence": "HIGH_FOR_LIMITED_PERSONAL_SCOPE_YELLOW"
+      },
+      "audit_checkpoints": [
+        {
+          "at": "2026-08-12T02:48:00Z",
+          "id": "LC_CURRENT_30G_POSSESSION_AND_FOUR_PLANT_HOME_CULTIVATION_RECONCILED_PRE_CI",
+          "result": "PROPOSAL_ONLY_YELLOW",
+          "summary": "Current Attorney General's Chambers Revised Laws pages directly prove the 30g no-offence/no-prosecution rule, four-plant dwelling-house scope, authorised cultivator possession, public-smoking fine boundary and general cultivation restriction. No adult retail or medical patient route was inferred."
+        }
+      ]
     },
     {
       "geo": "VC",
@@ -147401,6 +147635,57 @@
         "ZM"
       ],
       "detail": "KN is proposal-only YELLOW from the current Law Commission 2023 primary-law possession and five-plant carve-outs. Its 2020 Act and 2022 regulation remain operation-unverified framework context; C1 revalidated each of the three annotated official PDF URLs once with HTTP 304/NOT_MODIFIED. The counts use only compatible independent-truth color aliases in this same ledger. APPLY_ALLOWED=false; PRODUCTION_TOUCHED=false; MAP_COLORS_CHANGED=false; SSOT_CHANGED=false."
+    },
+    {
+      "geo": "LC",
+      "at": "2026-08-12T02:59:44Z",
+      "stage": "AUDIT_STOP_CHECKPOINT",
+      "result": "CI_STATUS=PASS;SMOKE_STATUS=PASS;POST_CHECKS_OK=1;HUB_STAGE_REPORT_OK=1;PROCESS_SLOT_RUNTIME_GUARD=PASS;PASS_CYCLE_EXIT_RC=0",
+      "ci_report_sha256": "b7f099ce54957904f71f40cf7fe652f9782b63943df29638c77afb0f84d30ec3",
+      "structured_independent_packets": 246,
+      "normalized_independent_truth_colors": 276,
+      "remaining_without_independent_color": 31,
+      "normalized_color_distribution": {
+        "GREEN": 91,
+        "YELLOW": 104,
+        "RED": 19,
+        "UNKNOWN": 62,
+        "NO_INDEPENDENT_COLOR": 31
+      },
+      "remaining_canonical_geos": [
+        "RU",
+        "SH",
+        "SM",
+        "SA",
+        "SN",
+        "SER",
+        "KAS",
+        "SL",
+        "SX",
+        "SB",
+        "SO",
+        "GS",
+        "SS",
+        "LK",
+        "SD",
+        "SR",
+        "SY",
+        "TJ",
+        "TZ",
+        "TH",
+        "TL",
+        "TG",
+        "TO",
+        "TN",
+        "TM",
+        "TC",
+        "TV",
+        "US",
+        "EH",
+        "YE",
+        "ZM"
+      ],
+      "detail": "LC is proposal-only YELLOW from the current Attorney General's Chambers Revised Laws section 8A 30g no-offence rule and Cannabis Cultivation Regulations four-plant dwelling-house scope. Section 27A retains the public-smoking fine boundary and section 9 retains the broader cultivation boundary. C0 made zero HTTP requests; C1 fetched six unique URLs once after schema completion and recorded changed whole-HTML hashes; C2 re-extraction and C3 hidden visual review confirmed the exact cannabis fragments. The counts use only compatible independent-truth color aliases in this same ledger. APPLY_ALLOWED=false; PRODUCTION_TOUCHED=false; MAP_COLORS_CHANGED=false; SSOT_CHANGED=false."
     }
   ]
 }
