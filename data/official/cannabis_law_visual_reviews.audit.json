@@ -141342,7 +141342,87 @@
           "url": "https://cmis.parliament.go.ug/cmis/views/470d1854-f312-40af-8d18-54f31210af00%3B1.0",
           "source_kind": "UGANDA_ACT_2_OF_2024_CAP37_COMMENCED_CANNABIS_SCHEDULE2_SCHEDULE4_POSSESSION_PRESCRIPTION_PHARMACY_CULTIVATION_AND_LICENSING",
           "screenshot_path": "data/reviews/screenshots/wiki-truth-ug-2025/UG-act-schedule-2-cannabis.png",
-          "note": "Parliament PDF titled Act 2023 was visually reviewed at the exact pages for section 1, sections 4, 7, 11 and 14, Schedule 2 and Schedule 4. The current consolidated citation is Uganda Act 2 of 2024, Cap. 37. Cannabis and cannabis resin are Schedule 2 narcotic drugs and cannabis is a Schedule 4 prohibited plant. Unlicensed possession and cultivation remain offences. Sections 4 and 7 create controlled medical possession, prescription and pharmacist-supply routes for scheduled narcotic drugs; sections 11 and 14 create licensing routes. These routes do not by themselves prove cannabis-specific service delivery."
+          "note": "Parliament PDF titled Act 2023 was visually reviewed at the exact pages for section 1, sections 4, 7, 11 and 14, Schedule 2 and Schedule 4. The current consolidated citation is Uganda Act 2 of 2024, Cap. 37. Cannabis and cannabis resin are Schedule 2 narcotic drugs and cannabis is a Schedule 4 prohibited plant. Unlicensed possession and cultivation remain offences. Sections 4 and 7 create controlled medical possession, prescription and pharmacist-supply routes for scheduled narcotic drugs; sections 11 and 14 create licensing routes. These routes do not by themselves prove cannabis-specific service delivery.",
+          "source_owner_geo": "UG",
+          "applies_to_geo": [
+            "UG"
+          ],
+          "legal_basis_for_extension": "Uganda national Act enacted by the Parliament of Uganda. It applies directly to Uganda; no parent, federal, claimant or territorial extension is inferred.",
+          "source_authority": "Parliament of Uganda",
+          "source_type": "PRIMARY_NATIONAL_NARCOTIC_DRUGS_AND_PSYCHOTROPIC_SUBSTANCES_STATUTE",
+          "primary_or_context": "PRIMARY",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "CURRENT_PRIMARY_ACT: Statutory Instrument 42 of 2025 appointed 14 April 2025 as the commencement date for Act 2 of 2024, Cap. 37.",
+          "effective_date": "2025-04-14",
+          "direct_fragment_urls": [
+            "https://cmis.parliament.go.ug/cmis/views/470d1854-f312-40af-8d18-54f31210af00%3B1.0#page=9",
+            "https://cmis.parliament.go.ug/cmis/views/470d1854-f312-40af-8d18-54f31210af00%3B1.0#page=17",
+            "https://cmis.parliament.go.ug/cmis/views/470d1854-f312-40af-8d18-54f31210af00%3B1.0#page=20",
+            "https://cmis.parliament.go.ug/cmis/views/470d1854-f312-40af-8d18-54f31210af00%3B1.0#page=71",
+            "https://cmis.parliament.go.ug/cmis/views/470d1854-f312-40af-8d18-54f31210af00%3B1.0#page=85"
+          ],
+          "locator": "Official Parliament PDF pp. 9 (cannabis definitions), 17 (s.4 possession and medical/prescription exceptions), 20 (s.7 prescription and pharmacist supply), 71 (Schedule 2) and 85 (Schedule 4).",
+          "exact_fragment": "Section 2 defines cannabis, cannabis oil, cannabis plant and cannabis resin; a narcotic drug is a substance in Schedule 2. Section 4 makes unlicensed possession an offence but excepts a person who possesses a narcotic drug for a medical purpose from or using a prescription of a medical practitioner, dentist or veterinary surgeon, and a registered pharmacist possessing it for a medical purpose. Section 7 permits prescription for a person's medical or dental treatment and pharmacist supply on a qualifying prescription. Schedule 2 lists \"Cannabis (Indian Hemp) and Cannabis resin (Resin of Indian Hemp)\"; Schedule 4 lists \"Cannabis\" as a prohibited plant, while section 11 makes unlicensed cultivation an offence.",
+          "legal_relevance": "Current cannabis-specific primary-law evidence for an unlawful recreational/unlicensed baseline and a narrow statutory patient prescription/pharmacist-supply mode. It does not prove a registry, cannabis-specific dispensing service, licensed supply in operation or a GREEN patient programme; cultivation/export/general licensing is not treated as patient access.",
+          "direct_fragment_available": true,
+          "official_host_verified": true,
+          "screenshot_state": "CURRENT_PRIMARY_PDF_TEXT_AND_RETAINED_VISUAL_EXTRACTS_REOPENED_2026-08-12; legal content is visible in the saved Act screenshots, while browser-domain acceptance remains separate.",
+          "current_screenshot_path": "data/reviews/screenshots/wiki-truth-ug-2025/UG-act-schedule-2-cannabis.png",
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_valid": true,
+          "visual_review_result": "Retained official Parliament Act extracts were reopened and read on 12 August 2026: they visibly show the cannabis Schedule 2 and Schedule 4 entries, section 4 medical-prescription exception, section 7 prescription/pharmacist route and section 11 licensing prohibition. Strict browser-domain acceptance is separate.",
+          "c2_reviewed_at": "2026-08-12",
+          "c2_retrieval": "C1 retrieved the current official Parliament PDF once with HTTP 200, 3,767,638 bytes and SHA-256 204111830673cd48f9af546e8205ceacbc86d1e62fdeb9c2513bce4be6c387c0, matching the retained local PDF. pdftotext produced 123651 normalized-text characters; cannabis-term matching rendered PDF pages 9, 11, 71, 77, 78, 85 and 86 only. OCR was not used. Separate retained visual extracts for sections 4 and 7 were reread because the generic statutory-route clauses do not themselves repeat the cannabis term.",
+          "revalidation": {
+            "checked_at": "2026-08-12T00:26:14.750Z",
+            "final_url": "https://cmis.parliament.go.ug/cmis/views/470d1854-f312-40af-8d18-54f31210af00%3B1.0",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "application/pdf",
+            "content_length": 3767638,
+            "document_sha256": "204111830673cd48f9af546e8205ceacbc86d1e62fdeb9c2513bce4be6c387c0",
+            "relevant_fragment_sha256": "690771ea71c5e4d612ddeb69b8d5091f3fdc00c76b7a305e21929b3174fdd2f4",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_200_DOCUMENT_SHA256_UNCHANGED",
+            "queue": [],
+            "queue_reasons": [],
+            "dependent_geos": [
+              "UG"
+            ],
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 123651,
+              "ocr_used": false,
+              "relevant_pages": [
+                9,
+                11,
+                71,
+                77,
+                78,
+                85,
+                86
+              ],
+              "rendered_pages": [
+                9,
+                11,
+                71,
+                77,
+                78,
+                85,
+                86
+              ]
+            }
+          }
         },
         {
           "title": "Uganda Gazette - Statutory Instrument 42 of 2025 commencement of Cap. 37",
@@ -141350,36 +141430,61 @@
           "source_kind": "UGANDA_GAZETTE_SI_42_OF_2025_CAP37_COMMENCED_2025_04_14",
           "screenshot_path": "data/reviews/screenshots/wiki-truth-ug-2025/UG-SI-2025-42-commencement.png",
           "note": "Uganda Gazette Statutory Instrument 42 of 2025 appoints 14 April 2025 as the commencement date for the Narcotic Drugs and Psychotropic Substances (Control) Act, Cap. 37. This proves current force, not cannabis-specific service delivery.",
+          "source_owner_geo": "UG",
+          "applies_to_geo": [
+            "UG"
+          ],
+          "legal_basis_for_extension": "National statutory commencement instrument for the Uganda Act; it applies directly to Uganda and supplies the temporal bridge only.",
+          "source_authority": "Uganda Gazette; current legal-publication copy served by Uganda Legal Information Institute",
+          "source_type": "OFFICIAL_NATIONAL_COMMENCEMENT_INSTRUMENT",
+          "primary_or_context": "CURRENTNESS_AND_EFFECTIVE_DATE_CONTEXT",
+          "cannabis_specific": false,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "CURRENT_COMMENCEMENT_INSTRUMENT_FOR_ACT_2_OF_2024_CAP37",
+          "effective_date": "2025-04-14",
+          "direct_fragment_urls": [
+            "https://media.ulii.org/media/legislation/119028/source_file/d019748bf7a8aab8/ug-act-si-2025-42-publication-document.pdf#page=1"
+          ],
+          "locator": "Statutory Instrument 42 of 2025, commencement clause appointing 14 April 2025.",
+          "exact_fragment": "The Instrument appoints 14 April 2025 as the date on which the Narcotic Drugs and Psychotropic Substances (Control) Act, Cap. 37 comes into force.",
+          "legal_relevance": "Currentness bridge for the cannabis-specific primary Act only. The instrument has no cannabis clause and cannot independently establish patient access or a colour.",
+          "direct_fragment_available": true,
+          "screenshot_state": "CURRENT_COMMENCEMENT_PDF_VISUALLY_REVIEWED_2025_AND_REOPENED_2026-08-12; legal text capture lacks browser address bar.",
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": true,
+          "screenshot_valid": true,
+          "visual_review_result": "The retained commencement-instrument extract visibly appoints 14 April 2025. It is accepted only as temporal context for the separately cannabis-specific Act.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T00:26:14.750Z",
             "final_url": "https://media.ulii.org/media/legislation/119028/source_file/d019748bf7a8aab8/ug-act-si-2025-42-publication-document.pdf",
-            "http_status": null,
-            "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
-            "queue": [
-              "C2",
-              "C3"
-            ],
-            "queue_reasons": [
-              "NEEDS_SEMANTIC_REVIEW"
-            ],
+            "http_status": 304,
+            "etag": "\"8ec78d6878dc3e1bc00f6328f1159f8f\"",
+            "last_modified": "Wed, 30 Jul 2025 10:57:30 GMT",
+            "content_type": "application/pdf",
+            "content_length": 109039,
+            "document_sha256": "e27c74ac6ac2671b1ab75a52407f26087ce6b433c64e6058c596e3026853e8b2",
+            "relevant_fragment_sha256": "5af27bf0167b72205da8388d45eb50489239e3e2ecb72ae9cd1675586db12976",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_304_CONDITIONAL_GET",
+            "queue": [],
+            "queue_reasons": [],
             "dependent_geos": [
               "UG"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
-            "semantic_probe": null
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 1088,
+              "ocr_used": false,
+              "relevant_pages": [],
+              "rendered_pages": []
+            }
           }
         }
       ],
@@ -141390,36 +141495,49 @@
           "source_kind": "UGANDA_PARLIAMENT_ACTS_2023_INDEX_CONTEXT_IDENTIFIES_NDPS_CONTROL_ACT_2023",
           "screenshot_path": null,
           "note": "Official Parliament of Uganda Acts 2023 index was fetched and saved locally; it lists and links the Narcotic Drugs and Psychotropic Substances (Control) Act, 2023 PDF through the official Parliament CMIS document endpoint. The index is retained as context, while the CMIS PDF is counted as the direct cannabis-law source.",
+          "source_owner_geo": "UG",
+          "applies_to_geo": [
+            "UG"
+          ],
+          "legal_basis_for_extension": "Official national Parliament index identifying its own Act PDF; it is identity/currentness context for Uganda only.",
+          "source_authority": "Parliament of Uganda",
+          "source_type": "OFFICIAL_PARLIAMENT_LEGISLATIVE_INDEX_CONTEXT",
+          "primary_or_context": "CURRENTNESS_AND_SOURCE_IDENTITY_CONTEXT",
+          "cannabis_specific": false,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "CURRENT_OFFICIAL_PARLIAMENT_INDEX_RETRIEVED_2026-08-12",
+          "locator": "Acts 2023 index entry for the Narcotic Drugs and Psychotropic Substances (Control) Act, 2023 and its CMIS PDF link.",
+          "exact_fragment": "The official Parliament Acts 2023 index lists the Narcotic Drugs and Psychotropic Substances (Control) Act, 2023 and links the Parliament CMIS document used for the primary Act record.",
+          "legal_relevance": "Official source identity context only; it contains no cannabis clause and is not a legal-axis or colour input.",
+          "screenshot_state": "CURRENT_CONTEXT_HTML_RETRIEVED_2026-08-12; no cannabis-specific visual capture is required for this non-substantive index link.",
+          "reviewed_by_human_visual": false,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": false,
+          "screenshot_valid": false,
+          "visual_review_result": "Context-only official index was retrieved; it is never used as an independent cannabis conclusion.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T00:26:14.750Z",
             "final_url": "https://www.parliament.go.ug/acts/acts-2023",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING,SCREENSHOT_STATE_MISSING",
-            "queue": [
-              "C2",
-              "C3"
-            ],
-            "queue_reasons": [
-              "NEEDS_SEMANTIC_REVIEW"
-            ],
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 54106,
+            "document_sha256": "322bba128e6cce2fab8c640c7f09344974c1686f3b849022f09789412c97341e",
+            "relevant_fragment_sha256": "73a40d2badcf1b62a85aafd1fe1a2e5734a30bd08d92f25bd407dff11a82658e",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_200_DOCUMENT_SHA256_UNCHANGED",
+            "queue": [],
+            "queue_reasons": [],
             "dependent_geos": [
               "UG"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING",
-              "SCREENSHOT_STATE_MISSING"
-            ],
+            "schema_issues": [],
             "semantic_probe": null
           }
         },
@@ -141429,7 +141547,61 @@
           "source_kind": "UGANDA_CURRENT_CONSOLIDATED_ACT_AND_LIFECYCLE_CONTEXT",
           "evidence_scope": "OFFICIAL_CONTEXT_ONLY",
           "screenshot_path": "data/reviews/screenshots/wiki-truth-ug-2025/UG-act-section-1-commencement.png",
-          "note": "Current consolidated legal text records publication on 23 February 2024, assent on 2 February 2024 and commencement on 14 April 2025."
+          "note": "Current consolidated legal text records publication on 23 February 2024, assent on 2 February 2024 and commencement on 14 April 2025.",
+          "source_owner_geo": "UG",
+          "applies_to_geo": [
+            "UG"
+          ],
+          "legal_basis_for_extension": "Current consolidated text for a Uganda national Act; it supports lifecycle context for Uganda only and does not extend law to another jurisdiction.",
+          "source_authority": "Uganda Legal Information Institute current consolidated legal-text repository",
+          "source_type": "CURRENT_CONSOLIDATED_STATUTE_LIFECYCLE_CONTEXT",
+          "primary_or_context": "CURRENTNESS_AND_EFFECTIVE_DATE_CONTEXT",
+          "cannabis_specific": false,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "CURRENT_CONSOLIDATED_TEXT_RECORDS_COMMENCEMENT_2025_04_14",
+          "effective_date": "2025-04-14",
+          "direct_fragment_urls": [
+            "https://ulii.org/en/akn/ug/act/2024/2/eng@2024-02-23"
+          ],
+          "locator": "Current consolidated Act metadata and section 1 commencement history.",
+          "exact_fragment": "The current consolidated record gives publication on 23 February 2024, assent on 2 February 2024 and commencement on 14 April 2025.",
+          "legal_relevance": "Lifecycle corroboration only. The Parliament Act PDF supplies cannabis-specific substantive text; this context cannot independently establish a cannabis axis or patient-access conclusion.",
+          "screenshot_state": "CURRENT_CONSOLIDATED_TEXT_VISUALLY_REVIEWED_2025_AND_REOPENED_2026-08-12; no browser-domain acceptance claimed.",
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": true,
+          "screenshot_valid": true,
+          "visual_review_result": "Retained current-consolidated extract was read for publication, assent and commencement only; it is not promoted to cannabis-specific primary evidence.",
+          "revalidation": {
+            "checked_at": "2026-08-12T00:26:14.750Z",
+            "final_url": "https://ulii.org/en/akn/ug/act/2024/2/eng@2024-02-23",
+            "http_status": 403,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 5504,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "67a492eefcb203eb528ba5de62e73f39f0a847a38d0eca73ff9bf3c6f9981a45",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "HTTP_STATUS_403",
+            "change_reason": "HTTP_STATUS_403_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "ACCESS_BLOCKED"
+            ],
+            "dependent_geos": [
+              "UG"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
         },
         {
           "title": "Parliament of Uganda - Acts 2023 index",
@@ -141438,35 +141610,49 @@
           "evidence_scope": "OFFICIAL_CONTEXT_ONLY",
           "screenshot_path": "data/reviews/screenshots/wiki-truth-ug-2025/UG-act-2023-title.png",
           "note": "The Parliament index identifies the supplied Act PDF. The Gazette and current consolidated citation control lifecycle interpretation.",
+          "source_owner_geo": "UG",
+          "applies_to_geo": [
+            "UG"
+          ],
+          "legal_basis_for_extension": "Official Parliament alternative host for its own national Acts index; direct Uganda-only source identity context.",
+          "source_authority": "Parliament of Uganda",
+          "source_type": "OFFICIAL_PARLIAMENT_LEGISLATIVE_INDEX_CONTEXT",
+          "primary_or_context": "CURRENTNESS_AND_SOURCE_IDENTITY_CONTEXT",
+          "cannabis_specific": false,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "CURRENT_OFFICIAL_PARLIAMENT_INDEX_RETRIEVED_2026-08-12",
+          "locator": "Acts 2023 index entry identifying the Narcotic Drugs and Psychotropic Substances (Control) Act PDF.",
+          "exact_fragment": "The official Parliament index identifies the Narcotic Drugs and Psychotropic Substances (Control) Act, 2023 source PDF; the Gazette and consolidated record control lifecycle interpretation.",
+          "legal_relevance": "Alternative official index URL retained as non-substantive source identity context only; it cannot derive cannabis status or colour.",
+          "screenshot_state": "CURRENT_CONTEXT_HTML_RETRIEVED_2026-08-12; screenshot retained only for document identity, not a cannabis clause.",
+          "reviewed_by_human_visual": false,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": false,
+          "screenshot_valid": false,
+          "visual_review_result": "Context-only official index was retrieved; it is never used as independent cannabis evidence.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T00:26:14.750Z",
             "final_url": "https://web.parliament.go.ug/acts/acts-2023",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
-            "queue": [
-              "C2",
-              "C3"
-            ],
-            "queue_reasons": [
-              "NEEDS_SEMANTIC_REVIEW"
-            ],
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 54157,
+            "document_sha256": "62d8cf56c3ff8471003ff9064ccd23e79fc2dbbfe72d76480a0086253f41d0ae",
+            "relevant_fragment_sha256": "d8b4087eabdc381d2a8e464a2397968c5f4de5ec140122bb9d46cf4dc203d838",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_200_DOCUMENT_SHA256_UNCHANGED",
+            "queue": [],
+            "queue_reasons": [],
             "dependent_geos": [
               "UG"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
+            "schema_issues": [],
             "semantic_probe": null
           }
         }
@@ -141481,6 +141667,197 @@
         "reason": "Fresh Primary Law review confirms that Uganda Act 2 of 2024, Cap. 37 came into force on 14 April 2025. Recreational cannabis remains illegal. Cannabis is expressly scheduled, while the Act creates limited controlled prescription, pharmacist-supply, cultivation and medical-purpose licensing routes. Cannabis-specific service delivery was not established by the reviewed sources. Truth color therefore remains YELLOW. Wikipedia and the project status pair remain more restrictive on the medical axis. No status SSOT, map, runtime or production data was changed."
       },
       "conclusion": "VISUALLY_VERIFIED_CURRENT_PRIMARY_LAW: Uganda cannabis law is in force from 14 April 2025. Recreational use and unlicensed possession/cultivation are prohibited. The Act provides limited controlled medical and licensing routes, but cannabis-specific service delivery is not proven. Truth color remains YELLOW.",
+      "independent_truth_color": "YELLOW",
+      "independent_truth_status": "CURRENT_CANNABIS_SCHEDULE2_WITH_LIMITED_STATUTORY_MEDICAL_PRESCRIPTION_AND_PHARMACIST_SUPPLY_ROUTE_NOT_PROVEN_OPERATIONAL",
+      "independent_truth_rule": "GENERAL_CURRENT_CANNABIS_SPECIFIC_SCHEDULE_PLUS_APPLICABLE_STATUTORY_PRESCRIPTION_AND_PHARMACIST_SUPPLY_ROUTE",
+      "audit_state": "INDEPENDENT_OFFICIAL_EVIDENCE_FIRST_PROPOSAL_ONLY",
+      "strict_visual_acceptance": false,
+      "strict_visual_acceptance_reason": "Legal cannabis text, prescription/supply clauses and commencement instrument were visually reread in retained official-PDF captures, but the persisted legal-content crops do not show a browser address bar. C3 final domain acceptance remains separate and does not change legal truth.",
+      "final_visual_acceptance": {
+        "strict_acceptance": false,
+        "reason": "CURRENT_OFFICIAL_CONTENT_REVIEWED_BUT_PERSISTED_PDF_CROPS_LACK_BROWSER_DOMAIN",
+        "legal_truth_affected": false
+      },
+      "independent_review": {
+        "geo": "UG",
+        "territory": "Uganda",
+        "review_mode": "INDEPENDENT_OFFICIAL_EVIDENCE_FIRST",
+        "proposal_only": true,
+        "jurisdiction": {
+          "territory_type": "SOVEREIGN_STATE",
+          "applicable_law": "Narcotic Drugs and Psychotropic Substances (Control) Act, Act 2 of 2024, Cap. 37, commenced on 14 April 2025 by Statutory Instrument 42 of 2025.",
+          "source_owner_vs_jurisdiction": "The Parliament Act and national commencement instrument apply directly to Uganda. The ULII consolidated-text URL is a lifecycle context source only and its C1 HTTP 403 is an access state, not legal evidence.",
+          "disputed_or_composite": false
+        },
+        "official_truth_color": "YELLOW",
+        "truth_color": "YELLOW",
+        "truth_status": "CURRENT_CANNABIS_SCHEDULE2_WITH_LIMITED_STATUTORY_MEDICAL_PRESCRIPTION_AND_PHARMACIST_SUPPLY_ROUTE_NOT_PROVEN_OPERATIONAL",
+        "color_rule": "GENERAL_CURRENT_CANNABIS_SPECIFIC_SCHEDULE_PLUS_APPLICABLE_STATUTORY_PRESCRIPTION_AND_PHARMACIST_SUPPLY_ROUTE",
+        "reviewed_at": "2026-08-12",
+        "legal_interpretation": "Proposal-only YELLOW under the general current cannabis-specific schedule-plus-lawful-route rule. The current Parliament Act defines cannabis forms and lists cannabis and cannabis resin in Schedule 2. Section 4 prohibits unauthorised possession but expressly permits medical-purpose possession from or using an authorised prescription, while section 7 permits prescription for medical treatment and pharmacist supply on a qualifying prescription. The route is cannabis-specific because cannabis is a Schedule 2 narcotic drug, not generic regulator-licensing inference. The same Act lists Cannabis as a Schedule 4 prohibited plant and criminalises unlicensed cultivation. No current official source proves a cannabis-specific patient registry, actual licensed dispensing, lawful product supply, or an operating programme; this packet therefore does not promote the statutory route to GREEN. It cannot be RED because the current applicable statute expressly preserves the narrow lawful prescription/pharmacist route. ULII's C1 403 is access metadata only.",
+        "source_record_refs": [
+          "https://cmis.parliament.go.ug/cmis/views/470d1854-f312-40af-8d18-54f31210af00%3B1.0#page=9",
+          "https://cmis.parliament.go.ug/cmis/views/470d1854-f312-40af-8d18-54f31210af00%3B1.0#page=17",
+          "https://cmis.parliament.go.ug/cmis/views/470d1854-f312-40af-8d18-54f31210af00%3B1.0#page=20",
+          "https://cmis.parliament.go.ug/cmis/views/470d1854-f312-40af-8d18-54f31210af00%3B1.0#page=71",
+          "https://cmis.parliament.go.ug/cmis/views/470d1854-f312-40af-8d18-54f31210af00%3B1.0#page=85",
+          "https://media.ulii.org/media/legislation/119028/source_file/d019748bf7a8aab8/ug-act-si-2025-42-publication-document.pdf#page=1"
+        ],
+        "evidence_axes": {
+          "patient_eligible": {
+            "value": "UNKNOWN",
+            "reason": "The Act allows medical treatment by prescription but the reviewed current primary sources specify no cannabis patient eligibility criteria or current patient cohort.",
+            "source_url": "https://cmis.parliament.go.ug/cmis/views/470d1854-f312-40af-8d18-54f31210af00%3B1.0#page=17",
+            "effective_date": "2025-04-14",
+            "applicability": "Uganda national Act 2 of 2024, Cap. 37.",
+            "reviewed_by_human_visual": true,
+            "screenshot": "data/reviews/screenshots/wiki-truth-ug-2025/UG-act-section-4-possession.png"
+          },
+          "prescriber_route": {
+            "value": "YES_STATUTORY_ROUTE",
+            "source_url": "https://cmis.parliament.go.ug/cmis/views/470d1854-f312-40af-8d18-54f31210af00%3B1.0#page=20",
+            "exact_fragment": "Section 7 permits medical-treatment prescription of a narcotic drug; Schedule 2 lists cannabis and cannabis resin.",
+            "effective_date": "2025-04-14",
+            "applicability": "Uganda national Act 2 of 2024, Cap. 37; Schedule 2 connects the route to cannabis.",
+            "confidence": "HIGH_FOR_STATUTORY_ROUTE_NOT_OPERATION",
+            "reviewed_by_human_visual": true,
+            "screenshot": "data/reviews/screenshots/wiki-truth-ug-2025/UG-act-section-7-prescription.png"
+          },
+          "registration_route": {
+            "value": "UNKNOWN",
+            "reason": "No current official cannabis patient registry/card route was established; absence is not prohibition evidence."
+          },
+          "lawful_supply": {
+            "value": "LIMITED_STATUTORY_ROUTE_ONLY",
+            "source_url": "https://cmis.parliament.go.ug/cmis/views/470d1854-f312-40af-8d18-54f31210af00%3B1.0#page=20",
+            "exact_fragment": "Section 7 permits pharmacist supply of a prescribed narcotic drug; Schedule 2 lists cannabis and cannabis resin.",
+            "effective_date": "2025-04-14",
+            "applicability": "Uganda national Act 2 of 2024, Cap. 37.",
+            "confidence": "HIGH_FOR_STATUTORY_ROUTE_NOT_CURRENT_SERVICE_DELIVERY",
+            "reviewed_by_human_visual": true,
+            "screenshot": "data/reviews/screenshots/wiki-truth-ug-2025/UG-act-section-7-prescription.png"
+          },
+          "pharmacy_or_dispensary": {
+            "value": "LIMITED_PHARMACIST_ROUTE_ONLY",
+            "source_url": "https://cmis.parliament.go.ug/cmis/views/470d1854-f312-40af-8d18-54f31210af00%3B1.0#page=20",
+            "exact_fragment": "A pharmacist may sell or supply a prescribed narcotic drug; cannabis and cannabis resin are Schedule 2 narcotic drugs.",
+            "effective_date": "2025-04-14",
+            "applicability": "Uganda national Act 2 of 2024, Cap. 37.",
+            "confidence": "HIGH_FOR_STATUTORY_ROUTE_NOT_ACTUAL_DISPENSING",
+            "reviewed_by_human_visual": true,
+            "screenshot": "data/reviews/screenshots/wiki-truth-ug-2025/UG-act-section-7-prescription.png"
+          },
+          "import_route": {
+            "value": "UNKNOWN",
+            "reason": "Section 14 general National Drug Authority licensing was reviewed as a regulator mechanism only; it does not establish a cannabis patient import route."
+          },
+          "programme_operational": {
+            "value": "UNKNOWN",
+            "reason": "The Act commenced, but no current official cannabis registry, licensed dispensary or active patient-supply service was proved. This is not evidence of prohibition."
+          },
+          "programme_commenced": {
+            "value": "LAW_COMMENCED_ONLY",
+            "source_url": "https://media.ulii.org/media/legislation/119028/source_file/d019748bf7a8aab8/ug-act-si-2025-42-publication-document.pdf#page=1",
+            "exact_fragment": "Statutory Instrument 42 of 2025 appoints 14 April 2025 as the date the Act comes into force.",
+            "effective_date": "2025-04-14",
+            "applicability": "Uganda national Act 2 of 2024, Cap. 37.",
+            "confidence": "HIGH_FOR_ACT_COMMENCEMENT_NOT_PROGRAMME_OPERATION",
+            "reviewed_by_human_visual": true,
+            "screenshot": "data/reviews/screenshots/wiki-truth-ug-2025/UG-SI-2025-42-commencement.png"
+          },
+          "recreational_possession": {
+            "value": "NO",
+            "source_url": "https://cmis.parliament.go.ug/cmis/views/470d1854-f312-40af-8d18-54f31210af00%3B1.0#page=17",
+            "exact_fragment": "Section 4 makes possession of a Schedule 2 narcotic drug an offence except for defined lawful medical/professional cases; Schedule 2 lists cannabis and cannabis resin.",
+            "effective_date": "2025-04-14",
+            "applicability": "Uganda national Act 2 of 2024, Cap. 37.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "data/reviews/screenshots/wiki-truth-ug-2025/UG-act-section-4-possession.png"
+          },
+          "recreational_supply": {
+            "value": "NO",
+            "source_url": "https://cmis.parliament.go.ug/cmis/views/470d1854-f312-40af-8d18-54f31210af00%3B1.0#page=17",
+            "exact_fragment": "The Act prohibits unauthorised possession and trafficking in Schedule 2 narcotic drugs; the prescribed medical supply exception is not recreational supply.",
+            "effective_date": "2025-04-14",
+            "applicability": "Uganda national Act 2 of 2024, Cap. 37; Schedule 2 lists cannabis and cannabis resin.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "data/reviews/screenshots/wiki-truth-ug-2025/UG-act-section-4-possession.png"
+          },
+          "recreational_cultivation": {
+            "value": "NO",
+            "source_url": "https://cmis.parliament.go.ug/cmis/views/470d1854-f312-40af-8d18-54f31210af00%3B1.0#page=85",
+            "exact_fragment": "Schedule 4 lists Cannabis as a prohibited plant, and section 11 makes knowing cultivation or gathering without a health-minister licence an offence.",
+            "effective_date": "2025-04-14",
+            "applicability": "Uganda national Act 2 of 2024, Cap. 37.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "data/reviews/screenshots/wiki-truth-ug-2025/UG-act-schedule-4-cannabis.png"
+          },
+          "penalty_regime": {
+            "value": "YES",
+            "source_url": "https://cmis.parliament.go.ug/cmis/views/470d1854-f312-40af-8d18-54f31210af00%3B1.0#page=17",
+            "exact_fragment": "Section 4 provides a Schedule 2 possession penalty of a fine up to fifty thousand currency points or up to twenty years' imprisonment or both; Schedule 2 lists cannabis and cannabis resin.",
+            "effective_date": "2025-04-14",
+            "applicability": "Uganda national Act 2 of 2024, Cap. 37.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "data/reviews/screenshots/wiki-truth-ug-2025/UG-act-section-4-possession.png"
+          }
+        },
+        "visual_evidence": [
+          {
+            "path": "data/reviews/screenshots/wiki-truth-ug-2025/UG-act-schedule-2-cannabis.png",
+            "visual_opened": true,
+            "official_owner_visible": true,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": true,
+            "effective_rule_visible": true,
+            "screenshot_valid": true,
+            "visual_summary": "Current Parliament Act PDF crop visibly lists Cannabis (Indian Hemp) and Cannabis resin in Schedule 2."
+          },
+          {
+            "path": "data/reviews/screenshots/wiki-truth-ug-2025/UG-act-section-7-prescription.png",
+            "visual_opened": true,
+            "official_owner_visible": true,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": false,
+            "effective_rule_visible": true,
+            "screenshot_valid": true,
+            "visual_summary": "Current Parliament Act PDF crop visibly shows the statutory medical-treatment prescription and pharmacist-supply rule; Schedule 2 supplies the cannabis bridge."
+          },
+          {
+            "path": "data/reviews/screenshots/wiki-truth-ug-2025/UG-SI-2025-42-commencement.png",
+            "visual_opened": true,
+            "official_owner_visible": true,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": false,
+            "effective_rule_visible": true,
+            "screenshot_valid": true,
+            "visual_summary": "Current commencement-instrument crop visibly appoints 14 April 2025 for the Act."
+          }
+        ],
+        "visual_acceptance": {
+          "legal_truth_visual_review_complete": true,
+          "strict_visual_acceptance": false,
+          "reason": "Hidden local PDF rendering was reread; persisted legal-content captures do not show a browser address bar."
+        },
+        "confidence": "HIGH_FOR_CURRENT_STATUTORY_LIMITED_CANNABIS_ROUTE_NOT_OPERATIONAL_ACCESS",
+        "remaining_blockers": [
+          "NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_REGISTRY_OR_LICENSED_DISPENSARY_SERVICE_PROVED",
+          "ULII_CURRENT_CONSOLIDATED_CONTEXT_C1_HTTP_403_IS_ACCESS_STATE_ONLY",
+          "STRICT_VISUAL_ACCEPTANCE_FALSE_BECAUSE_PERSISTED_PDF_CAPTURES_LACK_BROWSER_ADDRESS_BAR"
+        ],
+        "current_layer_comparison": "NOT_CAPTURED_IN_THIS_PACKET_AND_NOT_USED_AS_LEGAL_INPUT; no map, popup, SEO, API, SSOT or production value was altered.",
+        "recommended_action": "RETAIN_PROPOSAL_ONLY_YELLOW; do not apply to SSOT, map, runtime, production or deployment without explicit user authorisation and final 307-row gate.",
+        "apply_gate": {
+          "APPLY_ALLOWED": false,
+          "PRODUCTION_TOUCHED": false,
+          "MAP_COLORS_CHANGED": false,
+          "SSOT_CHANGED": false
+        }
+      },
       "latest_primary_law_update": {
         "reviewed_at": "2026-07-30T16:35:00.000Z",
         "source_pdf": "/Users/james/Downloads/Narcotic Drugs and Psychotropic Substances (Control) Act, 2023.pdf",
