@@ -29,7 +29,7 @@
     "colorReauditDirectOrComposite": 31,
     "colorReauditContextClaimantOrNegative": 8,
     "supplementalOfficialLinks": 32,
-    "allPublishedOfficialLinks": 1416,
+    "allPublishedOfficialLinks": 1419,
     "rowsWithPublishedOfficialLinks": 307,
     "rowsWithAnyOfficialUrl": 307
   },
@@ -88636,47 +88636,286 @@
         "enforcement": "STRICT"
       },
       "officialStatus": {
-        "recreational": "ILLEGAL; OFFICIAL_ACT_VISIBLY_LISTS_CANNABIS_AND_CANNABIS_RESIN_CANNABIS_FRUIT_CANNABIS_PLANT_CANNABIS_SEED_AND_CANNABIS_OIL_AS_CLASS_B_ILLICIT_DRUGS_AND_CRIMINALIZES_UNLAWFUL_IMPORT_EXPORT_POSSESSION_MANUFACTURE_CULTIVATION_USE_SUPPLY_AND_DEALING",
-        "medical": "NONE_OR_ONLY_GENERAL_LAWFUL_PRESCRIPTION_PROFESSIONAL_AND_MINISTER_OF_HEALTH_EXCEPTIONS; ACT_VISIBLY_ALLOWS_LIMITED_LAWFULLY_PRESCRIBED_TRAVELLER_POSSESSION_AND_LAWFUL_OCCUPATION_PROFESSION_OR_MINISTER_CERTIFICATE_EXCEPTIONS_BUT_NO_CANNABIS_SPECIFIC_PATIENT_ACCESS_PROGRAM_WAS_VISUALLY_CONFIRMED",
-        "enforcement": "STRICT_WITH_CLASS_B_QUANTITY_BANDS_AND_GENERAL_MEDICAL_EXCEPTION_CAVEAT; CLASS_B_CANNABIS_OFFENCES_VISIBLY_CARRY_UP_TO_ONE_YEAR_BELOW_28G_AND_UP_TO_SEVEN_YEARS_AT_28G_OR_MORE_WHILE_THC_CLASS_A_CAN_REACH_30_YEARS_IN_THE_PRINCIPAL_ACT_AND_AMENDED_CLASS_A_PENALTIES_CAN_REACH_LIFE_IMPRISONMENT"
+        "recreational": "CURRENT_AVAILABLE_PRIMARY_TEXT_PROHIBITS_UNLAWFUL_IMPORT_EXPORT_POSSESSION_MANUFACTURE_CULTIVATION_USE_SUPPLY_AND_DEALING_OF_SCHEDULE_1_CLASS_B_CANNABIS_CANNABIS_RESIN_FRUIT_PLANT_SEED_AND_OIL; THE_2021_SCOPE_LEAVES_THIS_CHAIN_UNCHANGED_AND_2024_ENACTED_TEXT_SCOPE_REMAINS_UNAVAILABLE",
+        "medical": "LIMITED_STATUTORY_INTERNATIONAL_TRAVELLER_PRESCRIPTION_OR_SUPPLY_POSSESSION_EXCEPTION_FOR_SCHEDULED_CANNABIS_WITH_WRITTEN_DOCTOR_AUTHORITY; NO_DOMESTIC_CANNABIS_PATIENT_PROGRAMME_ELIGIBILITY_REGISTRY_PRESCRIBER_SUPPLY_DISPENSING_OR_OPERATION_IS_PROVEN",
+        "enforcement": "CLASS_B_QUANTITY_BANDS_REMAIN_IN_THE_CURRENTLY_AVAILABLE_REVISED_TEXT; 2020_AND_2021_AMENDMENTS_STRENGTHEN_SEPARATE_ENFORCEMENT_CONTEXT_BUT_DO_NOT_CREATE_A_PATIENT_PROGRAMME"
       },
-      "independentTruth": null,
+      "independentTruth": {
+        "color": "YELLOW",
+        "rule": "CURRENT_AVAILABLE_CANNABIS_SCHEDULE_WITH_LIMITED_STATUTORY_TRAVELLER_PRESCRIPTION_POSSESSION_EXCEPTION_NO_DOMESTIC_OPERATIONAL_PATIENT_PROGRAMME_PROVEN",
+        "reviewedAt": "2026-08-12T15:08:00+03:00",
+        "conclusion": "Proposal-only YELLOW. The Attorney General's Office 2020 Revised Act directly places cannabis, cannabis resin, fruit, plant, seed and oil in Schedule 1 Class B. Its section 6 expressly permits a person undergoing treatment who is entering, leaving or transiting Tonga to possess up to one month of an illicit drug lawfully prescribed or supplied for treatment with written doctor authority. Act 19 of 2021 directly amends other provisions, not Schedule 1 or section 6. No domestic patient programme, eligibility, prescriber workflow, registry, patient supply/dispensing or operation is proven. The two additional 2024 amendments listed by the current AGO index are retained as a currentness limitation; their unavailable enacted texts are not invented into a contrary rule."
+      },
       "directOfficialCannabisLawLinks": [
         {
           "title": "Tonga Attorney General's Office - Illicit Drugs Control Act",
           "url": "https://ago.gov.to/cms/images/LEGISLATION/PRINCIPAL/2003/2003-0007/IllicitDrugsControlAct_3.pdf?zoom_highlight=illicit+drugs+control",
           "sourceKind": "TONGA_AGO_ILLICIT_DRUGS_CONTROL_ACT_CANNABIS_CLASS_B_THC_CLASS_A_POSSESSION_CULTIVATION_IMPORT_EXPORT_SUPPLY_MEDICAL_PROFESSIONAL_EXCEPTIONS",
+          "sourceOwnerGeo": "TO",
+          "appliesToGeos": [
+            "TO"
+          ],
+          "legalBasisForExtension": "Direct national Tonga legislation: Chapter 4.06, 2020 Revised Edition of the Illicit Drugs Control Act.",
+          "officialPublisher": "Official legislation publication of the Attorney General's Office of the Kingdom of Tonga.",
+          "sourceAnnotation": "Direct official Tonga primary-law source. The Schedule-1 Class-B cannabis bridge makes sections 3-4 recreational possession/use/cultivation/supply/import-export prohibitions cannabis-specific. The international-traveller prescription exception is an express narrow patient-facing possession route for lawfully prescribed/supplied Class-B cannabis, but not a domestic cannabis programme. Act 19 of 2021 C2 scope leaves Schedule 1/section 6 unchanged; two later 2024 amendment texts remain unavailable from the official index and are not assumed. Section 7 generic occupation/profession and Ministry certificate wording is non-promoting context.",
+          "sourceType": "OFFICIAL_NATIONAL_CONSOLIDATED_PRIMARY_DRUG_CONTROL_ACT_PDF",
+          "primaryOrContext": "PRIMARY_CANNABIS_CLASS_B_OFFENCE_AND_NARROW_TRAVELLER_MEDICAL_EXCEPTION_ACT",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T11:50:06.936Z",
+            "final_url": "https://ago.gov.to/cms/images/LEGISLATION/PRINCIPAL/2003/2003-0007/IllicitDrugsControlAct_3.pdf?zoom_highlight=illicit+drugs+control",
+            "http_status": 200,
+            "etag": "\"6043f40f-aec4d\"",
+            "last_modified": "Sat, 06 Mar 2021 21:28:47 GMT",
+            "content_type": "application/pdf",
+            "content_length": 715853,
+            "document_sha256": "20f27664a1f9fe17aac59a72dec336857a3a89c0d782b8a4ad46cd0b53488b23",
+            "relevant_fragment_sha256": "03a9c221e1b3ffe928b9b141307d8e610c3172845a9646e0ce1c7e630c1beeb5",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "TO"
+            ]
+          },
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official Tonga Attorney General's Office PDF of the Illicit Drugs Control Act, Chapter 4.06, 2020 Revised Edition. Visual review confirms the title page, the definition of cultivate including cannabis and its extracts, Section 3 unlawful import or export of illicit drugs with Class B quantity bands and Class A penalty band, Section 4 unlawful possession, manufacture, cultivation, use and supply, Section 6 international traveller's exemption for lawfully prescribed or supplied treatment quantities up to one month with written doctor authority, Section 7 lawful occupation/profession and Ministry of Health exemption/certificate provisions, Schedule 1 Class A listing Tetrahydrocannabinol, and Schedule 1 Class B listing Cannabis and Cannabis resin, Cannabis fruit, Cannabis plant, Cannabis seed and Cannabis oil.",
+          "note": "Section 2: “illicit drug” means any drug of Class A or Class B listed in Schedule I. Section 4 makes it an offence, without lawful excuse, to possess, manufacture, cultivate, use or supply an illicit drug. Schedule 1 Class B lists “Cannabis and Cannabis resin”, “Cannabis fruit”, “Cannabis plant”, “Cannabis seed” and “Cannabis oil.”",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-19/TO/screenshots/pdf_pages/TO-act-schedule-class-b-cannabis.png",
-          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "Tonga is closed as visually verified direct official cannabis-law evidence from Attorney General's Office PDFs. Project ILLEGAL/NONE/STRICT is broadly supported, with explicit caveats for Class B quantity bands, general lawful medical/professional exceptions, THC as Class A, and the 2020 amendment's Class A/deemed-supply changes. No project status SSOT was changed."
+          "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
+          "visualReview": "Retained local Attorney General's Office crops visibly show the 2020 Revised Edition, cannabis Class-B schedule, offence provisions and narrow statutory exceptions. Browser address-bar domain is not asserted; strict visual acceptance is separate from legal truth."
         },
         {
           "title": "Tonga Attorney General's Office - Illicit Drugs Control (Amendment) Act 2020",
           "url": "https://ago.gov.to/cms/images/LEGISLATION/AMENDING/2020/2020-0123/IllicitDrugsControlAmendmentAct2020.pdf",
           "sourceKind": "TONGA_AGO_ILLICIT_DRUGS_CONTROL_AMENDMENT_ACT_2020_CANNABIS_CULTIVATE_DEFINITION_CLASS_A_PENALTIES_DEEMED_SUPPLY_THRESHOLDS",
+          "sourceOwnerGeo": "TO",
+          "appliesToGeos": [
+            "TO"
+          ],
+          "legalBasisForExtension": "Direct national Tonga Act 15 of 2020 amending the Illicit Drugs Control Act.",
+          "officialPublisher": "Official amending-legislation publication of the Attorney General's Office of the Kingdom of Tonga.",
+          "sourceAnnotation": "Direct official Tonga amending Act retained alongside—not instead of—the 2020 Revised principal Act. It confirms a cannabis-specific cultivation-definition amendment and penalty context. The record is non-promoting for medical access: amended Class-A penalties and generic regulatory implementation do not establish patient access.",
+          "sourceType": "OFFICIAL_NATIONAL_PRIMARY_AMENDING_ACT_PDF",
+          "primaryOrContext": "PRIMARY_CURRENTNESS_AND_CANNABIS_CULTIVATION_DEFINITION_AMENDMENT",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T11:50:06.936Z",
+            "final_url": "https://ago.gov.to/cms/images/LEGISLATION/AMENDING/2020/2020-0123/IllicitDrugsControlAmendmentAct2020.pdf",
+            "http_status": 200,
+            "etag": "\"60945cf8-7824e\"",
+            "last_modified": "Thu, 06 May 2021 21:17:44 GMT",
+            "content_type": "application/pdf",
+            "content_length": 492110,
+            "document_sha256": "55d9944a5d6d2189b6edf6dc6302b2b18c96061989449ef5ffda741a3ad5e0da",
+            "relevant_fragment_sha256": "149d547c6a9531869056f99a61928dd3d62b9a1b9a139cc421de60036160e759",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "TO"
+            ]
+          },
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official Tonga Attorney General's Office PDF of the Illicit Drugs Control (Amendment) Act 2020. Visual review confirms the Act 15 of 2020 title, amendment of the 2003 principal Act, replacement cultivate definition including farming, fertilizing, harvesting, planting, sowing, tending, tilling, working, guarding or concealing and separation of opium, coca leaves, cannabis and its extracts, amended Class A penalty bands for Sections 3 and 4, and deemed-supply thresholds of Class B 7 grams or more and Class A 0.25 grams or more.",
+          "note": "The Act replaces “cultivate” to include farming, fertilising, harvesting, planting, sowing, tending, tilling, working, guarding or concealing and the separation of opium, coca leaves, cannabis and its extracts from plants; it also states Class-B deemed-supply threshold 7 grams or more and Class-A threshold 0.25 grams or more.",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-19/TO/screenshots/pdf_pages/TO-amendment-2020-cultivate-cannabis-definition.png",
-          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "Tonga is closed as visually verified direct official cannabis-law evidence from Attorney General's Office PDFs. Project ILLEGAL/NONE/STRICT is broadly supported, with explicit caveats for Class B quantity bands, general lawful medical/professional exceptions, THC as Class A, and the 2020 amendment's Class A/deemed-supply changes. No project status SSOT was changed."
+          "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
+          "visualReview": "Retained local Act 15 of 2020 title, cannabis cultivate-definition and threshold crops were checked locally without opening a desktop browser; strict domain acceptance remains separate."
         }
       ],
       "candidateLinksAwaitingVisualReview": [],
-      "officialContextLinks": [],
+      "officialContextLinks": [
+        {
+          "title": "Tonga Attorney General's Office - Tongan Legislation alphabetical index, Illicit Drugs Control amendment chain",
+          "url": "https://ago.gov.to/cms/legislation/index/alphabetical.html",
+          "sourceKind": "TONGA_AGO_CURRENT_OFFICIAL_LEGISLATION_INDEX_ILLICIT_DRUGS_CONTROL_AMENDMENT_CHAIN_2020_2021_2024",
+          "sourceOwnerGeo": "TO",
+          "appliesToGeos": [
+            "TO"
+          ],
+          "legalBasisForExtension": "Direct official national legislation index for Tonga; it identifies the published Illicit Drugs Control Act and its listed amendments.",
+          "officialPublisher": "Official Attorney General's Office index of Tongan Government legislation, carrying the current amendment-chain listing.",
+          "sourceAnnotation": "Official Tonga Attorney General's Office legislation index added as a non-promoting currentness record. It exposes the 2021 and two 2024 amending Acts, preventing the 2020 Revised Edition from being treated as an unqualified current consolidation. Each direct Act URL remains a separate ledger record; index wording is not cannabis patient-access or prohibition proof.",
+          "sourceType": "OFFICIAL_NATIONAL_LEGISLATION_INDEX_HTML",
+          "primaryOrContext": "CURRENT_AMENDMENT_CHAIN_CONTEXT_NOT_A_STANDALONE_LEGAL_AXIS_SOURCE",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": false,
+          "officialOwnerVisible": false,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": false,
+          "effectiveRuleVisible": false,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T11:58:52.060Z",
+            "final_url": "https://ago.gov.to/cms/legislation/index/alphabetical.html",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": "Wed, 12 Aug 2026 11:58:56 GMT",
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 300486,
+            "document_sha256": "fd4c78d3ce4a43829f31dd4a4c8940f19235a93190469a37b87223c3b4348ca4",
+            "relevant_fragment_sha256": "776e64e589275ef717e9e79553c0d720fd55eb47a711fe1a0bf4a307cb03d3d6",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "TO"
+            ]
+          },
+          "evidenceScope": "RETAINED_REVIEWED_SOURCE_PROVENANCE_CONTEXT_ONLY",
+          "verification": "RETAINED_REVIEWED_SOURCE_PROVENANCE_CONTEXT",
+          "confidence": "low",
+          "note": "Official Tonga Attorney General's Office legislation index added as a non-promoting currentness record. It exposes the 2021 and two 2024 amending Acts, preventing the 2020 Revised Edition from being treated as an unqualified current consolidation. Each direct Act URL remains a separate ledger record; index wording is not cannabis patient-access or prohibition proof.",
+          "screenshotPath": null,
+          "visualReview": "Official index content was reviewed textually; no browser-address-bar or human visual acceptance is asserted."
+        },
+        {
+          "title": "Tonga Attorney General's Office - Illicit Drugs Control (Amendment) Act 2021",
+          "url": "https://ago.gov.to/cms/images/LEGISLATION/AMENDING/2021/2021-0050/IllicitDrugsControlAmendmentAct2021.pdf",
+          "sourceKind": "TONGA_AGO_ILLICIT_DRUGS_CONTROL_AMENDMENT_ACT_2021_CURRENTNESS_SCOPE_REVIEW",
+          "sourceOwnerGeo": "TO",
+          "appliesToGeos": [
+            "TO"
+          ],
+          "legalBasisForExtension": "Direct national Tonga Act 19 of 2021 amending the Illicit Drugs Control Act 2003, as amended.",
+          "officialPublisher": "Official amending-legislation publication of the Attorney General's Office of the Kingdom of Tonga.",
+          "sourceAnnotation": "Direct Attorney General's Office Act 19 of 2021 PDF was conditionally fetched once at HTTP 200. C2 pdftotext had a usable 3,166-character layer; OCR was not used because there was text. The source is non-promoting for patient access: it does not amend section 6 or Schedule 1. Later 2024 amendment texts remain separate unverified currentness items.",
+          "sourceType": "OFFICIAL_NATIONAL_PRIMARY_AMENDING_ACT_PDF",
+          "primaryOrContext": "PRIMARY_CURRENTNESS_SCOPE_CONFIRMED_NON_CANNABIS_AXIS_AMENDMENT",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": false,
+          "officialOwnerVisible": false,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": false,
+          "effectiveRuleVisible": false,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T11:58:52.060Z",
+            "final_url": "https://ago.gov.to/cms/images/LEGISLATION/AMENDING/2021/2021-0050/IllicitDrugsControlAmendmentAct2021.pdf",
+            "http_status": 200,
+            "etag": "\"61858f64-63dbf\"",
+            "last_modified": "Fri, 05 Nov 2021 20:09:08 GMT",
+            "content_type": "application/pdf",
+            "content_length": 409023,
+            "document_sha256": "b8f37cc6a698940395e6172e27f3622d1bc24f5dca10ad73805701af3615bad6",
+            "relevant_fragment_sha256": "24f05add3cc860feb3d2caf2846d76bda1ecc119a00499a2a460d6aedc54cd3b",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "TO"
+            ]
+          },
+          "evidenceScope": "RETAINED_REVIEWED_SOURCE_PROVENANCE_CONTEXT_ONLY",
+          "verification": "RETAINED_REVIEWED_SOURCE_PROVENANCE_CONTEXT",
+          "confidence": "low",
+          "note": "Direct Attorney General's Office Act 19 of 2021 PDF was conditionally fetched once at HTTP 200. C2 pdftotext had a usable 3,166-character layer; OCR was not used because there was text. The source is non-promoting for patient access: it does not amend section 6 or Schedule 1. Later 2024 amendment texts remain separate unverified currentness items.",
+          "screenshotPath": null,
+          "visualReview": "C2 official PDF text was reviewed; no browser-address-bar or human visual acceptance is asserted. This has no effect on legal truth derivation."
+        },
+        {
+          "title": "Tonga Legislative Assembly - Hansard for Illicit Drugs Control Amendment Bill 2024 scope",
+          "url": "https://www.parliament.gov.to/en/parliament-business/hansards-debates/3-2024?download=34%3Aminiti-fika-35-aho-1-o-akosi-2024",
+          "sourceKind": "TONGA_PARLIAMENT_OFFICIAL_HANSARD_2024_ILLICIT_DRUGS_CONTROL_AMENDMENT_BILL_SCOPE",
+          "sourceOwnerGeo": "TO",
+          "appliesToGeos": [
+            "TO"
+          ],
+          "legalBasisForExtension": "Official Tonga Parliamentary record concerning amendments to the national Illicit Drugs Control Act.",
+          "officialPublisher": "Official Legislative Assembly of Tonga Hansard publication.",
+          "sourceAnnotation": "Official Parliament Hansard added because it is the available official text lead for a 2024 amendment process. The scope described concerns attempt/conspiracy/aiding and import/export. It cannot establish a current cannabis schedule, patient route, prohibition or legal conclusion, and the direct 406 is an access state only.",
+          "sourceType": "OFFICIAL_NATIONAL_PARLIAMENTARY_HANSARD_PDF",
+          "primaryOrContext": "CONTEXT_CURRENTNESS_SCOPE_SOURCE_NOT_CURRENT_CONSOLIDATED_LAW",
+          "cannabisSpecific": false,
+          "effective": false,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": false,
+          "officialOwnerVisible": false,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": false,
+          "effectiveRuleVisible": false,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T12:03:23.000Z",
+            "final_url": "https://www.parliament.gov.to/en/parliament-business/hansards-debates/3-2024?download=34%3Aminiti-fika-35-aho-1-o-akosi-2024",
+            "http_status": 406,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "application/pdf",
+            "content_length": null,
+            "document_sha256": null,
+            "relevant_fragment_sha256": null,
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "HTTP_STATUS",
+            "change_reason": "HTTP_406_IS_ACCESS_STATE_ONLY_SEARCH_INDEXED_SCOPE_TEXT_RETAINED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "TO"
+            ]
+          },
+          "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
+          "confidence": "high",
+          "note": "Official Tonga Legislative Assembly Hansard URL found during the 2024 amendment search. The indexed text identifies proposed new section 2B and an amendment to section 3, with Bill 7A/2024. It is retained with its direct URL and exact scope annotation so the amendment chain is auditable; it is never treated as the enacted final law or a cannabis patient-access source.",
+          "screenshotPath": null,
+          "visualReview": "CONTEXT_ONLY"
+        }
+      ],
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
-      "differenceStatus": "MATCH_WITH_CLASS_B_QUANTITY_BANDS_GENERAL_MEDICAL_EXCEPTION_AND_2020_CLASS_A_THC_CAVEAT",
-      "differenceDescription": "Tonga is visually verified from official Attorney General's Office PDFs of the Illicit Drugs Control Act and the Illicit Drugs Control (Amendment) Act 2020. The principal Act visibly lists cannabis, cannabis resin, cannabis fruit, cannabis plant, cannabis seed and cannabis oil as Class B illicit drugs, lists tetrahydrocannabinol as Class A, and criminalizes unlawful import/export, possession, manufacture, cultivation, use, supply and related dealing. Project recreational=ILLEGAL is supported. Project medical=NONE remains supportable at cannabis-program level because the only visually confirmed exceptions are general lawfully prescribed traveller possession, lawful occupation/profession, and Ministry of Health certificate exemptions rather than a cannabis-specific patient access program. Project enforcement=STRICT is supported by Class B custodial bands and severe Class A THC penalties, with caveats that cannabis plant/material is Class B rather than Class A and lower Class B quantities below 28 grams carry up to one year. The 2020 amendment visibly strengthens Class A penalty context and adds deemed-supply thresholds including Class B 7 grams or more, but the reviewed screenshots do not show a change to the Class B cannabis schedule. No project status SSOT was changed.",
+      "differenceStatus": "INDEPENDENT_PROPOSAL_DIFFERS_FROM_LEGACY_NONE_ONLY_TO_RECORD_EXPRESS_LIMITED_TRAVELLER_PRESCRIPTION_EXCEPTION",
+      "differenceDescription": "The legacy project layer was not used as legal input. The official 2020 Revised Act directly bridges Schedule 1 Class-B cannabis to the narrow section 6 lawfully-prescribed-or-supplied traveller exception. Act 19 of 2021 does not amend Schedule 1 or section 6. This is a limited lawful cannabis mode, not domestic patient access, and no SSOT/map/runtime value is changed. The current AGO index lists two 2024 amendments; the available Hansard scope is enforcement-only context and unavailable enacted text is not silently treated as unchanged.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
-      "strictVisualAcceptance": null,
+      "strictVisualAcceptance": "PARTIAL_RETAINED_OFFICIAL_PDF_CROPS_REVIEWED_LOCALLY_NO_BROWSER_ADDRESS_BAR_DOMAIN",
       "screenshotPaths": [
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-19/TO/screenshots/pdf_pages/TO-act-title.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-19/TO/screenshots/pdf_pages/TO-act-cannabis-definition.png",
@@ -88689,12 +88928,12 @@
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-19/TO/screenshots/pdf_pages/TO-amendment-2020-class-a-penalties-deemed-supply.png"
       ],
       "reviewConfidence": "high",
-      "reviewNotes": "VISUALLY_VERIFIED: Tonga is closed as visually verified direct official cannabis-law evidence from Attorney General's Office PDFs. Project ILLEGAL/NONE/STRICT is broadly supported, with explicit caveats for Class B quantity bands, general lawful medical/professional exceptions, THC as Class A, and the 2020 amendment's Class A/deemed-supply changes. No project status SSOT was changed.",
+      "reviewNotes": "VISUALLY_VERIFIED: Tonga has an independently derived proposal-only YELLOW limited lawful cannabis mode: section 6 expressly permits a medically treated traveller's up-to-one-month possession of a lawfully prescribed or supplied Schedule-1 Class-B drug, and Schedule 1 expressly lists cannabis forms. The conclusion is not GREEN because no domestic patient eligibility, prescriber, registry, supply/dispensing or operational programme is proved. It is not RED because the express statutory exception is cannabis-specific through the Schedule-1 bridge. All applied layers remain unchanged. Strict-current acceptance: PARTIAL_RETAINED_OFFICIAL_PDF_CROPS_REVIEWED_LOCALLY_NO_BROWSER_ADDRESS_BAR_DOMAIN.",
       "truthLayers": {
         "primaryLaw": {
           "source": "DIRECT_OFFICIAL_LAW",
           "axis": {
-            "recreational": "ILLEGAL",
+            "recreational": "LIMITED",
             "medical": "LIMITED",
             "enforcement": "LIMITED",
             "industrial_use": "UNKNOWN",
@@ -88715,7 +88954,7 @@
         "legalInterpretation": {
           "source": "OFFICIAL_TEXT_DERIVED",
           "axis": {
-            "recreational": "ILLEGAL",
+            "recreational": "LIMITED",
             "medical": "LIMITED",
             "enforcement": "LIMITED",
             "industrial_use": "UNKNOWN",
@@ -88731,7 +88970,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "Tonga is visually verified from official Attorney General's Office PDFs of the Illicit Drugs Control Act and the Illicit Drugs Control (Amendment) Act 2020. The principal Act visibly lists cannabis, cannabis resin, cannabis fruit, cannabis plant, cannabis seed and cannabis oil as Class B illicit drugs, lists tetrahydrocannabinol as Class A, and criminalizes unlawful import/export, possession, manufacture, cultivation, use, supply and related dealing. Project recreational=ILLEGAL is supported. Project medical=NONE remains supportable at cannabis-program level because the only visually confirmed exceptions are general lawfully prescribed traveller possession, lawful occupation/profession, and Ministry of Health certificate exemptions rather than a cannabis-specific patient access program. Project enforcement=STRICT is supported by Class B custodial bands and severe Class A THC penalties, with caveats that cannabis plant/material is Class B rather than Class A and lower Class B quantities below 28 grams carry up to one year. The 2020 amendment visibly strengthens Class A penalty context and adds deemed-supply thresholds including Class B 7 grams or more, but the reviewed screenshots do not show a change to the Class B cannabis schedule. No project status SSOT was changed."
+          "notes": "The legacy project layer was not used as legal input. The official 2020 Revised Act directly bridges Schedule 1 Class-B cannabis to the narrow section 6 lawfully-prescribed-or-supplied traveller exception. Act 19 of 2021 does not amend Schedule 1 or section 6. This is a limited lawful cannabis mode, not domestic patient access, and no SSOT/map/runtime value is changed. The current AGO index lists two 2024 amendments; the available Hansard scope is enforcement-only context and unavailable enacted text is not silently treated as unchanged."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -88759,7 +88998,7 @@
           }
         },
         "mismatch": {
-          "recreational": "MATCH",
+          "recreational": "MISMATCH",
           "medical": "MISMATCH",
           "enforcement": "UNKNOWN"
         },
