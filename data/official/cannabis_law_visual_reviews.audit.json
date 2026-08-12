@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "reviewed_at": "2026-08-12 SD independent official-law packet and proposal-only CI checkpoint recorded.",
+  "reviewed_at": "2026-08-12 ZM independent official-law completion packet and proposal-only CI checkpoint recorded; all 307 canonical GEO have normalized independent Truth Colors.",
   "archive_root": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16",
   "manifest": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/us-states/manifest.json",
   "contact_sheets": [
@@ -157344,8 +157344,268 @@
           "title": "National Assembly of Zambia - Cannabis Act No. 33 of 2021",
           "url": "https://www.parliament.gov.zm/sites/default/files/documents/acts/Act%20No.%2033%20of%202021%2C%20The%20Cannabis%20Act%2C%202021..pdf",
           "source_kind": "ZAMBIA_CANNABIS_ACT_33_2021_MEDICINAL_SCIENTIFIC_RESEARCH_CULTIVATION_MANUFACTURE_STORAGE_DISTRIBUTION_IMPORT_EXPORT_LICENSING",
+          "source_owner": "Republic of Zambia / National Assembly of Zambia",
+          "source_owner_geo": "ZM",
+          "source_authority": "Official National Assembly of Zambia publication of the Cannabis Act No. 33 of 2021.",
+          "applies_to_geo": [
+            "ZM"
+          ],
+          "legal_basis_for_extension": "Direct national Act enacted by the Parliament of Zambia. Section 1(2) provides that commencement is by Ministerial statutory instrument; the retained Act alone does not prove the current commencement or later-amendment chain.",
+          "source_type": "OFFICIAL_NATIONAL_ASSEMBLY_PRIMARY_CANNABIS_ACT_PDF",
+          "primary_or_context": "PRIMARY_CANNABIS_LICENSING_AND_PROFESSIONAL_POSSESSION_STATUTE",
+          "evidence_role": "DIRECT_CANNABIS_SPECIFIC_MEDICINAL_SCIENTIFIC_RESEARCH_LICENSING_AND_PROFESSIONAL_AUTHORISATION_TEXT_WITH_COMMENCEMENT_BOUNDARY",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": "UNCONFIRMED_LEGAL_COMMENCEMENT",
+          "current_effective_state": "CURRENT_OFFICIAL_PARLIAMENT_PUBLICATION_RETAINED; SECTION_1_2_REQUIRES_A_MINISTERIAL_STATUTORY_INSTRUMENT_FOR_COMMENCEMENT. THE CURRENT PARLIAMENT CATALOGUE AND A 2022 HANSARD REFERENCE CONFIRM RETENTION/ENACTMENT BUT ARE NOT THAT INSTRUMENT; CURRENT COMMENCEMENT AND AMENDMENT_REPEAL_SCOPE_REMAIN_UNCONFIRMED.",
+          "effective_date": "Assented 19 May 2021; published 20 May 2021. Section 1(2) makes operation conditional on a Ministerial commencement instrument, which is not inferred from the Act PDF alone.",
+          "official_host_verified": true,
+          "direct_fragment_available": true,
+          "semantic_legal_axis": true,
+          "official_fragment_locator": "Cannabis Act No. 33 of 2021: PDF pp. 5 (title, purpose and section 1 commencement), 14 (Part III sections 13-15 licensing), 21 (Part V section 34 professional possession), and 26 (section 47(2)(a)-(m) medicinal delivery/storage/supply regulations).",
+          "direct_fragment_urls": [
+            "https://www.parliament.gov.zm/sites/default/files/documents/acts/Act%20No.%2033%20of%202021%2C%20The%20Cannabis%20Act%2C%202021..pdf#page=5",
+            "https://www.parliament.gov.zm/sites/default/files/documents/acts/Act%20No.%2033%20of%202021%2C%20The%20Cannabis%20Act%2C%202021..pdf#page=14",
+            "https://www.parliament.gov.zm/sites/default/files/documents/acts/Act%20No.%2033%20of%202021%2C%20The%20Cannabis%20Act%2C%202021..pdf#page=21",
+            "https://www.parliament.gov.zm/sites/default/files/documents/acts/Act%20No.%2033%20of%202021%2C%20The%20Cannabis%20Act%2C%202021..pdf#page=26"
+          ],
+          "exact_fragment": "The Act regulates cannabis cultivation, manufacture, production, storage, distribution, import and export for medicinal, scientific or research purposes and designates the Lead Agency for licensing. Section 14 prohibits those cannabis activities for the stated purposes without a licence; section 34 generally authorises listed professionals to possess a cannabis preparation for medicinal, scientific or research work; section 47(2) authorises regulations on medicinal cannabis delivery, storage, health-facility emergency transfer, diversion prevention and possession/sale/use/distribution. Section 1(2) states that the Act comes into operation on the date appointed by Ministerial statutory instrument.",
+          "annotation": "Direct official Zambia cannabis-statute PDF with page-level deep links. The evidence establishes a cannabis-specific licensed medicinal/scientific/research framework and a narrow professional authorisation class, but no patient eligibility, prescription, patient supply, pharmacy/dispensing, operational programme or current commencement instrument is inferred. Cultivation, production, generic licensing, research and regulation-making do not become patient access.",
+          "applicability": "ZM; direct national Parliament of Zambia Act, subject to the Act's own Section 1(2) commencement condition.",
+          "legal_relevance": "Cannabis-specific limited lawful framework candidate only after C2 verifies current commencement and later amendment/repeal scope. It cannot create GREEN and cannot establish RED while the statutory exception scope remains unresolved.",
+          "confidence": "HIGH_FOR_RETAINED_OFFICIAL_PRIMARY_TEXT_AND_CANNABIS_SPECIFIC_LICENSING_LANGUAGE; CURRENT_COMMENCEMENT_AND_PATIENT_OPERATION_UNCONFIRMED.",
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_state": "RETAINED_OFFICIAL_ZAMBIA_PARLIAMENT_PDF_CAPTURE_VISUALLY_REVIEWED_LOCALLY_NO_DESKTOP_BROWSER",
+          "visual_review_result": "Retained local official PDF pages visibly show Government of Zambia Act No. 33 of 2021, its purpose, the licence rule, professional possession and medicinal-delivery regulation clauses. A browser address-bar acceptance is absent and remains separate from legal truth.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-2/ZM/screenshots/pdf_pages/ZM-cannabis-act-2021-prohibition-license-framework-14.png",
-          "note": "Official National Assembly of Zambia PDF, Cannabis Act No. 33 of 2021. Visual review confirms the Act regulates cultivation, manufacture, production, storage, distribution, import and export of cannabis for medicinal, scientific or research purposes; designates the Zambia Medicines Regulatory Authority as Lead Agency for licensing; establishes quotas and licensing; prohibits cultivation, manufacture, production, storage, distribution, import and export of cannabis for medicinal, scientific or research purposes without a licence; creates possession general authorisation for specified professional classes for medicinal, scientific or research purposes; and authorises regulations for medicinal delivery, shortages, emergencies and diversion prevention."
+          "note": "Official National Assembly of Zambia PDF, Cannabis Act No. 33 of 2021. Retained local visual review confirms title/purpose and Section 1(2) commencement condition; the Act regulates cannabis-specific medicinal, scientific and research licensing, prohibits unlicensed listed activity, generally authorises specified professionals to possess cannabis preparations for their roles and authorises regulations for medicinal delivery, emergency transfer, diversion prevention and controlled distribution. The Act PDF alone does not establish that a commencement instrument was issued, a patient pathway exists or a programme operates.",
+          "revalidation": {
+            "checked_at": "2026-08-12T15:09:00.984Z",
+            "final_url": "https://www.parliament.gov.zm/sites/default/files/documents/acts/Act%20No.%2033%20of%202021%2C%20The%20Cannabis%20Act%2C%202021..pdf",
+            "http_status": 200,
+            "etag": "\"1411c-5c3d6443aa57b\"",
+            "last_modified": "Thu, 03 Jun 2021 05:58:38 GMT",
+            "content_type": "application/pdf",
+            "content_length": 82204,
+            "document_sha256": "555c949187eaa2604ff1ca12ca0d2c55955295cf16ab2dc68ea4f9d6ee980508",
+            "relevant_fragment_sha256": "6210ae153126f9523a20b62645ccab931e63c0d79ce019c05d68e6a9c3c0e21b",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "NEEDS_SEMANTIC_REVIEW"
+            ],
+            "dependent_geos": [
+              "ZM"
+            ],
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 45461,
+              "ocr_used": false,
+              "relevant_pages": [
+                1,
+                2,
+                3,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26
+              ],
+              "rendered_pages": [
+                1,
+                2,
+                3,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26
+              ]
+            }
+          }
+        }
+      ],
+      "verified_context_sources": [
+        {
+          "title": "The Cannabis Act, 2021 | National Assembly of Zambia",
+          "url": "https://www.parliament.gov.zm/node/9003",
+          "source_kind": "ZAMBIA_NATIONAL_ASSEMBLY_CURRENT_ACT_CATALOGUE_ENTRY",
+          "source_owner": "Republic of Zambia / National Assembly of Zambia",
+          "source_owner_geo": "ZM",
+          "source_authority": "Official National Assembly of Zambia Act-catalogue page for Act No. 33 of 2021.",
+          "applies_to_geo": [
+            "ZM"
+          ],
+          "legal_basis_for_extension": "Direct national Parliament catalogue context for the same Zambia Act. The catalogue's retention of the Act does not displace section 1(2)'s requirement for a Ministerial statutory-instrument commencement date.",
+          "source_type": "OFFICIAL_NATIONAL_ASSEMBLY_ACT_CATALOGUE_CONTEXT_HTML",
+          "primary_or_context": "OFFICIAL_CURRENT_CATALOGUE_CONTEXT_NOT_A_COMMENCEMENT_INSTRUMENT",
+          "evidence_role": "CURRENT_OFFICIAL_CATALOGUE_RETENTION_AND_ACT_IDENTITY_CONTEXT_ONLY",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": "UNCONFIRMED_LEGAL_COMMENCEMENT",
+          "current_effective_state": "CURRENT_OFFICIAL_CATALOGUE_ENTRY_RETRIEVED; IT IDENTIFIES_ACT_NO_33_AND_ITS_PURPOSE_BUT_HAS_NO_APPOINTED_COMMENCEMENT_DATE_OR_AMENDMENT_REPEAL_CONSOLIDATION.",
+          "effective_date": "UNCONFIRMED; this catalogue page does not state a section 1(2) appointed commencement date.",
+          "official_host_verified": true,
+          "direct_fragment_available": true,
+          "semantic_legal_axis": false,
+          "official_fragment_locator": "National Assembly node/9003: page heading ‘The Cannabis Act, 2021’, Act Number ‘Act No 33 of 2021’, and the purpose paragraph.",
+          "direct_fragment_urls": [
+            "https://www.parliament.gov.zm/node/9003"
+          ],
+          "exact_fragment": "The Cannabis Act, 2021 — Act Number: Act No 33 of 2021. An Act to provide for the regulation of the cultivation, manufacture, production, storage, distribution, import and export of cannabis for medicinal, scientific or research purposes; designate the Lead Agency for the licensing of cannabis for medicinal, scientific or research purposes; and provide for matters connected with, or incidental to, the foregoing.",
+          "annotation": "Current official Parliament catalogue context for the same national cannabis Act, preserved with its direct page URL and literal Act identity/purpose. It confirms only that Parliament currently publishes Act No. 33 in its Acts catalogue. It supplies neither the Ministerial statutory instrument required by section 1(2), nor a current amendment/repeal consolidation, patient eligibility, prescriber, supply, pharmacy, dispensing or operational programme. It cannot itself create YELLOW, GREEN or RED.",
+          "applicability": "ZM; direct national Parliament catalogue context only.",
+          "legal_relevance": "C2 currentness-search context: supports retention of the Act as an official national publication, but cannot prove legal operation without the expressly required commencement instrument.",
+          "confidence": "HIGH_FOR_OFFICIAL_CATALOGUE_IDENTITY_AND_PURPOSE; NOT_EVIDENCE_OF_COMMENCEMENT_OR_PATIENT_ACCESS.",
+          "reviewed_by_human_visual": false,
+          "visual_opened": false,
+          "official_owner_visible": false,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": false,
+          "screenshot_state": "C3_HEADLESS_VISUAL_REVIEW_QUEUED_NO_DESKTOP_BROWSER",
+          "visual_review_result": "C3 queued: visual acceptance is metadata only and cannot establish a commencement instrument.",
+          "screenshot_path": null,
+          "note": "Official National Assembly catalogue page discovered during ZM C2 currentness review. It preserves the official Act No. 33 identity and cannabis-purpose text, but has no statutory-instrument commencement date. The exact page remains a nonempty annotated context record in the same source ledger.",
+          "revalidation": {
+            "checked_at": "2026-08-12T15:18:20.030Z",
+            "final_url": "https://www.parliament.gov.zm/node/9003",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 6155,
+            "document_sha256": "ebf11c38b19d502570ae0604b7b0d57c8b1d18a73cb1fec1bd16169b87ec5b21",
+            "relevant_fragment_sha256": "e445930d0173d0c56cf81c54d1d888f8a5fa89d1b7ba031309307c57626c297a",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "NEEDS_SEMANTIC_REVIEW"
+            ],
+            "dependent_geos": [
+              "ZM"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
+        },
+        {
+          "title": "Friday, 11th March, 2022 | National Assembly of Zambia",
+          "url": "https://www.parliament.gov.zm/node/10063",
+          "source_kind": "ZAMBIA_NATIONAL_ASSEMBLY_HANSARD_2022_ENACTMENT_REFERENCE",
+          "source_owner": "Republic of Zambia / National Assembly of Zambia",
+          "source_owner_geo": "ZM",
+          "source_authority": "Official National Assembly of Zambia Hansard publication.",
+          "applies_to_geo": [
+            "ZM"
+          ],
+          "legal_basis_for_extension": "Direct national Parliament Hansard context. It records executive speech about enactment/enforcement but is not a statutory instrument under section 1(2).",
+          "source_type": "OFFICIAL_NATIONAL_ASSEMBLY_HANSARD_CONTEXT_HTML",
+          "primary_or_context": "OFFICIAL_HANSARD_CONTEXT_NOT_A_PRIMARY_COMMENCEMENT_OR_CONSOLIDATION_INSTRUMENT",
+          "evidence_role": "POST_ENACTMENT_OFFICIAL_REFERENCE_CONTEXT_ONLY",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": "UNCONFIRMED_LEGAL_COMMENCEMENT",
+          "current_effective_state": "DATED_2022_HANSARD_CONTEXT; IT DOES_NOT_STATE_THE_APPOINTED_COMMENCEMENT_DATE_OR_SUPPLY_A_CURRENT_CONSOLIDATION.",
+          "effective_date": "11 March 2022 Hansard publication; no section 1(2) appointed commencement date is stated.",
+          "official_host_verified": true,
+          "direct_fragment_available": true,
+          "semantic_legal_axis": false,
+          "official_fragment_locator": "National Assembly node/10063: Morality and Ethics section, paragraph beginning ‘Madam Speaker, the Government enacted the Cannabis Act No. 33 of 2021’.",
+          "direct_fragment_urls": [
+            "https://www.parliament.gov.zm/node/10063"
+          ],
+          "exact_fragment": "Madam Speaker, the Government enacted the Cannabis Act No. 33 of 2021, and the Narcotic Drugs and Psychotropic Substances Act No. 35 of 2021, to among other reasons or things, regulate the use of these substances. Our administration will indeed ensure that these pieces of legislation are effectively enforced without any segregation.",
+          "annotation": "Official 2022 Parliament Hansard context discovered in the currentness search. It corroborates that the Government described Act No. 33 as enacted and planned enforcement, but it is neither the Ministerial statutory instrument required by section 1(2), nor a current consolidated law, medical-patient instrument or a supply/dispensing record. It cannot replace the statutory commencement proof or create a legal color.",
+          "applicability": "ZM; direct national Parliament Hansard context only.",
+          "legal_relevance": "C2 enactment context only. It does not prove the appointed commencement, later amendment/repeal scope, patient access or an operational programme.",
+          "confidence": "HIGH_FOR_LITERAL_OFFICIAL_2022_HANSARD_REFERENCE; NOT_A_LEGAL_COMMENCEMENT_INSTRUMENT.",
+          "reviewed_by_human_visual": false,
+          "visual_opened": false,
+          "official_owner_visible": false,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": false,
+          "screenshot_state": "C3_HEADLESS_VISUAL_REVIEW_QUEUED_NO_DESKTOP_BROWSER",
+          "visual_review_result": "C3 queued: the dated Hansard page is context only and cannot establish legal commencement.",
+          "screenshot_path": null,
+          "note": "Official National Assembly Hansard page discovered during ZM C2 currentness review. Its nonempty quotation is retained because it is an official post-enactment reference, while its legal limitation is explicit: no statutory-instrument commencement, consolidation, patient or operational route is claimed.",
+          "revalidation": {
+            "checked_at": "2026-08-12T15:18:20.030Z",
+            "final_url": "https://www.parliament.gov.zm/node/10063",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 28359,
+            "document_sha256": "5473a254c2f4f9e66899f0a88d11a75d5f7b16f54466dd00d8ac035b1a692879",
+            "relevant_fragment_sha256": "455b6012684900076cc34ba0fe43c26299b3add28bc22130593080d44eae4324",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "NEEDS_SEMANTIC_REVIEW"
+            ],
+            "dependent_geos": [
+              "ZM"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
         }
       ],
       "official_status": {
@@ -157357,7 +157617,93 @@
         "status": "MATCH_WITH_LICENSED_MEDICINAL_SCIENTIFIC_RESEARCH_CANNABIS_FRAMEWORK_CAVEAT",
         "reason": "Zambia is visually verified from the official National Assembly Cannabis Act No. 33 of 2021. Project recreational=ILLEGAL is supported because the Act regulates cannabis only for medicinal, scientific or research purposes and prohibits unlicensed cultivation, manufacture, production, storage, distribution, import and export. Project medical=REGULATED is supported because the Act creates a licensed medicinal/scientific/research cannabis framework, designates ZAMRA as Lead Agency, creates quotas/licensing, and allows possession by specified professional classes for medicinal, scientific or research purposes. Project enforcement=STRICT is supported for unlicensed conduct, with the explicit caveat that licensed medicinal/scientific/research activity is regulated. No project status SSOT was changed."
       },
-      "conclusion": "Zambia is closed as visually verified direct official cannabis-law evidence. Official Cannabis Act No. 33 of 2021 regulates cultivation, manufacture, production, storage, distribution, import, export and possession of cannabis for medicinal, scientific or research purposes through ZAMRA licensing, quotas, security and professional authorisation, while prohibiting unlicensed conduct. Project ILLEGAL/REGULATED/STRICT is supported with a licensed medicinal/scientific/research framework caveat. No project status SSOT was changed."
+      "conclusion": "Zambia retains direct visually reviewed official cannabis-law evidence, but its independent Truth-First packet remains proposal-only UNKNOWN. Official Cannabis Act No. 33 of 2021 contains a cannabis-specific licensed medicinal/scientific/research framework and professional authorisation boundary, while section 1(2) expressly makes operation conditional on a Ministerial statutory instrument. The current official Act catalogue and 2022 Hansard context retain/enact the Act but do not supply that instrument or a later consolidated amendment/repeal chain. Therefore no patient-access, limited-lawful YELLOW or complete RED conclusion is inferred. Project ILLEGAL/REGULATED/STRICT is retained as a comparison layer only; no project status SSOT was changed.",
+      "independent_truth_color": "UNKNOWN",
+      "independent_truth_status": "LEGAL_APPLICABILITY_UNRESOLVED",
+      "independent_truth_rule": "GENERAL_ENACTED_BUT_UNCOMMENCED_OR_CURRENTNESS_UNCONFIRMED_CANNABIS_STATUTE_IS_NOT_LIMITED_LAWFUL_MODE",
+      "independent_truth_reviewed_at": "2026-08-12",
+      "audit_state": "INDEPENDENT_OFFICIAL_EVIDENCE_FIRST_PROPOSAL_ONLY",
+      "strict_visual_acceptance": false,
+      "strict_visual_acceptance_reason": "RETAINED_LOCAL_OFFICIAL_PDF_REVIEW_HAS_NO_FRESH_BROWSER_ADDRESS_BAR_DOMAIN_ACCEPTANCE",
+      "final_visual_acceptance": {
+        "strict_acceptance": false,
+        "reason": "RETAINED_OFFICIAL_CONTENT_REVIEWED_LOCALLY_WITHOUT_FRESH_BROWSER_DOMAIN_CAPTURE",
+        "legal_effect": "Visual acceptance and officialDomainVisible are final-acceptance metadata only; they neither create nor remove a legal axis or color."
+      },
+      "independent_review": {
+        "review_scope": "INDEPENDENT_TRUTH_FIRST_PROPOSAL_ONLY",
+        "jurisdiction": "ZM",
+        "territory_type": "DIRECT_NATIONAL_JURISDICTION_WITH_OFFICIAL_CANNABIS_ACT_AND_UNCONFIRMED_SECTION_1_2_COMMENCEMENT",
+        "disputed_or_composite": false,
+        "reviewed_at": "2026-08-12",
+        "conclusion": "UNKNOWN",
+        "color_rule": "GENERAL_ENACTED_BUT_UNCOMMENCED_OR_CURRENTNESS_UNCONFIRMED_CANNABIS_STATUTE_IS_NOT_LIMITED_LAWFUL_MODE",
+        "applicability_reason": "LEGAL_APPLICABILITY_UNRESOLVED",
+        "evidence_axes": {
+          "cannabis_identity": "YES_CURRENT_OFFICIAL_PARLIAMENT_ACT_AND_CATALOGUE_EXPLICITLY_IDENTIFY_CANNABIS",
+          "recreational_cultivation": "UNKNOWN_SECTION_14_UNLICENSED_CONDUCT_BOUNDARY_CANNOT_BE_CURRENTLY_APPLIED_UNTIL_SECTION_1_2_COMMENCEMENT_AND_AMENDMENT_SCOPE_ARE_PROVEN",
+          "recreational_possession": "UNKNOWN_SECTION_34_PROFESSIONAL_PREPARATION_AUTHORISATION_IS_NOT_A_COMPLETE_CURRENT_RECREATIONAL_OR_PERSONAL_POSSESSION_REGIME",
+          "recreational_supply": "UNKNOWN_SECTION_14_AND_SECTION_47_RULES_ARE_CONDITIONAL_ON_UNPROVEN_CURRENT_COMMENCEMENT",
+          "patient_eligible": "UNKNOWN_NO_CANNABIS_SPECIFIC_PATIENT_ELIGIBILITY_INSTRUMENT_RETAINED",
+          "prescriber_route": "UNKNOWN_SECTION_34_NAMED_PROFESSIONAL_POSSESSION_IS_NOT_A_CANNABIS_PATIENT_PRESCRIBER_ROUTE",
+          "registration_route": "UNKNOWN_NO_CANNABIS_PATIENT_REGISTRATION_INSTRUMENT_RETAINED",
+          "lawful_supply": "UNKNOWN_SECTION_47_REGULATION_MAKING_POWER_AND_LICENSED_ACTIVITY_CANNOT_BECOME_CURRENT_PATIENT_SUPPLY_WITHOUT_COMMENCEMENT_AND_IMPLEMENTING_EVIDENCE",
+          "pharmacy_or_dispensary": "UNKNOWN_NO_CANNABIS_SPECIFIC_PHARMACY_OR_DISPENSARY_ROUTE_RETAINED",
+          "import_route": "UNKNOWN_SECTION_14_LICENSED_IMPORT_LANGUAGE_REQUIRES_CURRENT_COMMENCEMENT_AND_DOES_NOT_PROVE_A_PATIENT_IMPORT_ROUTE",
+          "programme_operational": "UNKNOWN_NO_CANNABIS_PROGRAMME_OR_OPERATIONAL_SERVICE_INSTRUMENT_RETAINED",
+          "programme_commenced": "UNKNOWN_SECTION_1_2_REQUIRES_A_MINISTERIAL_STATUTORY_INSTRUMENT_AND_NO_SUCH_INSTRUMENT_IS_RETAINED",
+          "penalty_regime": "UNKNOWN_COMPLETE_CURRENT_PENALTY_AND_EXCEPTION_CHAIN_IS_NOT_PROVEN_AFTER_SECTION_1_2_COMMENCEMENT_REVIEW"
+        },
+        "source_annotations": {
+          "primary_cannabis_act_pdf": "https://www.parliament.gov.zm/sites/default/files/documents/acts/Act%20No.%2033%20of%202021%2C%20The%20Cannabis%20Act%2C%202021..pdf#page=5",
+          "primary_cannabis_licensing_pdf_page": "https://www.parliament.gov.zm/sites/default/files/documents/acts/Act%20No.%2033%20of%202021%2C%20The%20Cannabis%20Act%2C%202021..pdf#page=14",
+          "primary_cannabis_professional_possession_pdf_page": "https://www.parliament.gov.zm/sites/default/files/documents/acts/Act%20No.%2033%20of%202021%2C%20The%20Cannabis%20Act%2C%202021..pdf#page=21",
+          "primary_cannabis_regulation_pdf_page": "https://www.parliament.gov.zm/sites/default/files/documents/acts/Act%20No.%2033%20of%202021%2C%20The%20Cannabis%20Act%2C%202021..pdf#page=26",
+          "current_official_act_catalogue_url": "https://www.parliament.gov.zm/node/9003",
+          "official_post_enactment_hansard_url": "https://www.parliament.gov.zm/node/10063",
+          "owner_and_scope": "All three records are official Republic of Zambia / National Assembly of Zambia publications, with source_owner_geo=ZM and applies_to_geo=[ZM]. They are direct national, not foreign or claimant, sources.",
+          "cannabis_bridge": "The Act title, purpose, sections 14, 34 and 47 expressly identify cannabis and controlled medicinal/scientific/research activities. No industrial-hemp, CBD, generic regulator licensing or prescription-product development wording is promoted into patient access.",
+          "commencement_and_currentness_boundary": "Section 1(2) literally makes the Act operational on a date appointed by the Minister by statutory instrument. C1 HTTP 200 current Parliament catalogue and dated official Hansard retain the Act identity/enactment context but do not identify that appointed date, a commencement instrument or a current amendment/repeal consolidation. The absence of that positive proof is a legal-applicability limit, not an access error.",
+          "non_promotion_boundary": "Sections 14 and 34 concern licensed listed activity and specified professional possession; section 47(2) authorises future regulations. None establishes a patient eligibility class, cannabis-specific prescriber, patient registration, lawful patient supply, pharmacy/dispensing, patient import or operational programme."
+        },
+        "c2_semantic_review": {
+          "cannabis_act_33_2021": "C1 obtained one HTTP 200 official PDF baseline (ETag, Last-Modified, MIME type and hashes recorded). C2 used pdftotext with a 45,461-character text layer; OCR was not used. The query-derived cannabis inventory selected pages 1-3 and 5-26 for rendering; retained local visual review used the page-5 title/purpose/section-1(2), page-14 licensing, page-21 professional-possession and page-26 regulation fragments. The text directly establishes a cannabis-specific statute but also the explicit commencement condition.",
+          "current_parliament_catalogue": "C1 HTTP 200 current official page `node/9003` preserves Act No. 33 and its cannabis purpose, but its content supplies no Ministerial statutory instrument, appointed date or consolidation. Its literal fragment and hash remain in the single ledger.",
+          "official_2022_hansard": "C1 HTTP 200 official page `node/10063` states that the Government enacted Act No. 33 and would ensure legislation was enforced. This dated political/Hansard statement is preserved as context only; it is not the section-1(2) statutory instrument or a current legal consolidation.",
+          "amendment_and_exception_chain": "The official Parliament Act PDF, current catalogue and official post-enactment Hansard were reviewed for a named commencement instrument, appointed date, later consolidation, repeal/amendment scope, cannabis-specific patient instrument, supply/dispensing route or operational programme. None is retained in this packet. This is not a negative conclusion from a timeout, WAF, 403, blank viewer or missing screenshot."
+        },
+        "visual_review": {
+          "mode": "RETAINED_LOCAL_OFFICIAL_PDF_CAPTURE_REVIEW_NO_DESKTOP_BROWSER",
+          "result": "The retained local official PDF crops visibly show Government of Zambia Act No. 33 of 2021, its title/purpose, section 1(2) commencement condition, sections 13-15 licensing, section 34 professional possession and section 47 medicinal-delivery regulation-making. C3 for the new HTML context records remains queued; browser/domain acceptance is intentionally false and does not affect the legal conclusion.",
+          "legal_truth_boundary": "Visual acceptance and officialDomainVisible remain final-acceptance metadata only, never legal-truth inputs."
+        },
+        "comparison_boundary": {
+          "map_verdict": "NOT_USED_FOR_DERIVATION",
+          "popup_verdict": "NOT_USED_FOR_DERIVATION",
+          "api_verdict": "NOT_USED_FOR_DERIVATION",
+          "seo_verdict": "NOT_USED_FOR_DERIVATION",
+          "ssot_verdict": "NOT_USED_FOR_DERIVATION",
+          "wiki_truth_verdict": "LEDGER_PROPOSAL_ONLY"
+        },
+        "production_guard": {
+          "APPLY_ALLOWED": false,
+          "PRODUCTION_TOUCHED": false,
+          "MAP_COLORS_CHANGED": false,
+          "SSOT_CHANGED": false
+        },
+        "method": "C0_LOCAL_SCHEMA_AND_DEDUPLICATION_PLUS_C1_SERIAL_CONDITIONAL_GET_PLUS_C2_PDF_TEXT_AND_CURRENTNESS_BOUNDARY_REVIEW_PLUS_RETAINED_LOCAL_C3_METADATA",
+        "evidence_order": [
+          "official Zambia owner and direct national applicability",
+          "official cannabis Act text and section 1(2) commencement clause",
+          "official current Act-catalogue identity context",
+          "official post-enactment Hansard context",
+          "patient-access and generic-licensing non-promotion checks",
+          "currentness/amendment-chain check",
+          "proposal-only color derivation"
+        ],
+        "result": "UNKNOWN_UNPAINTED_PROPOSAL_ONLY",
+        "legal_conclusion": "ZM has direct current official Parliament publications and a cannabis-specific Act; this is knowledge preserved in the ledger, not a blank source result. However, the Act itself makes operation conditional on an appointed Ministerial statutory instrument. C1 revalidated the official Act PDF and two official Parliament context pages; the catalogue and Hansard corroborate Act identity/enactment but neither is the required instrument or a current consolidation. The direct framework, professional authorisation, cultivation/production, research and regulation-making powers cannot be converted into patient access, and an enacted-but-uncommenced or legally unconfirmed statute cannot create a YELLOW limited-lawful mode. It also cannot produce RED without a complete current prohibition/exception chain. ZM is therefore UNKNOWN / LEGAL_APPLICABILITY_UNRESOLVED for an explicit legal-currentness reason, never because of access failure or visual acceptance."
+      }
     },
     {
       "geo": "EH",
@@ -158423,6 +158769,25 @@
         "ZM"
       ],
       "detail": "YE retains two fully annotated Republic of Yemen official source records in the single canonical ledger: the National Information Center Law No. 3 of 1993 record and Attorney General Schedule 5 record. Both preserve owner, YE applicability, direct URL, exact cannabis fragment, nonempty annotation, retained local visual state and complete revalidation metadata. C0 retained 1,571 source records with FETCHED_URLS=0; C1 fetched the Attorney General canonical URL once at HTTP 200 and retained the NIC NETWORK_ERROR only as ACCESS_BLOCKED metadata. C2 confirmed the direct Cannabis sativa/hashish Schedule 5 bridge and the named institutional medical/scientific import boundary from retained local official captures; generic prescription maxima remain non-promoting. The explicit proposal result is UNKNOWN / LEGAL_APPLICABILITY_UNRESOLVED because the retained chain does not establish current amendment/repeal scope or a current cannabis-specific lawful exception, never because an endpoint timed out. Focused tests passed 71/71; matrix has all 307 rows, 776 direct and 1,432 published official URL/PDF links; required serial headless root CI passed after verified lock release. APPLY_ALLOWED=false; PRODUCTION_TOUCHED=false; MAP_COLORS_CHANGED=false; SSOT_CHANGED=false."
+    },
+    {
+      "geo": "ZM",
+      "at": "2026-08-12T18:25:35+03:00",
+      "stage": "AUDIT_STOP_CHECKPOINT",
+      "result": "CI_STATUS=PASS;CI_QUALITY=OK;SMOKE_STATUS=PASS;POST_CHECKS_OK=1;HUB_STAGE_REPORT_OK=1;PROCESS_SLOT_RUNTIME_GUARD=PASS;PASS_CYCLE_EXIT_RC=0",
+      "ci_report_sha256": "516491537b30a5e8842a8963a95ba29c9a481ad9f101a1b5b194ad829c1e2290",
+      "structured_independent_packets": 307,
+      "normalized_independent_truth_colors": 307,
+      "remaining_without_independent_color": 0,
+      "normalized_color_distribution": {
+        "GREEN": 91,
+        "YELLOW": 118,
+        "RED": 25,
+        "UNKNOWN": 73,
+        "NO_INDEPENDENT_COLOR": 0
+      },
+      "remaining_canonical_geos": [],
+      "detail": "ZM completes the 307-GEO proposal-only independent Truth-First ledger. It retains three fully annotated official National Assembly records: Cannabis Act No. 33 of 2021 PDF with page-level direct fragments, a current Act catalogue entry and a 2022 Hansard reference. C0 retained 1,574 current source records with FETCHED_URLS=0; C1 serially fetched each ZM canonical URL once and recorded final URL, HTTP 200 metadata and hashes. C2 used pdftotext on the 45,461-character Act PDF text layer and no OCR; C3 reviewed retained local official PDF crops without a desktop browser. Section 1(2) makes operation conditional on a Ministerial statutory instrument. The current catalogue and Hansard do not supply that instrument or a current consolidation, so ZM is proposal-only UNKNOWN / LEGAL_APPLICABILITY_UNRESOLVED. This is a direct legal-currentness conclusion, never access, WAF, blank viewer or screenshot state. Matrix has all 307 rows, 776 direct and 1,434 published official URL/PDF links; all 307 rows have a normalized independent color. APPLY_ALLOWED=false; PRODUCTION_TOUCHED=false; MAP_COLORS_CHANGED=false; SSOT_CHANGED=false."
     }
   ]
 }
