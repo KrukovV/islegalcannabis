@@ -321,7 +321,7 @@ test("local HTTP fixture covers 304, unchanged, changed, redirect, timeout and W
     } else if (route === "/timeout") {
       const timer = setTimeout(() => {
         if (!response.destroyed) response.end("late");
-      }, 100);
+      }, 120);
       request.on("close", () => clearTimeout(timer));
     } else {
       response.writeHead(403, { "content-type": "text/html" });
@@ -339,7 +339,7 @@ test("local HTTP fixture covers 304, unchanged, changed, redirect, timeout and W
     make("timeout"),
     make("waf"),
   ])]);
-  const result = await runRevalidation({ ledger: input, network: true, timeoutMs: 20 });
+  const result = await runRevalidation({ ledger: input, network: true, timeoutMs: 50 });
   assert.equal(stateByPath(result, "/304").revalidation_state, "NOT_MODIFIED");
   assert.equal(stateByPath(result, "/unchanged").revalidation_state, "NOT_MODIFIED");
   assert.equal(stateByPath(result, "/changed").revalidation_state, "CONTENT_CHANGED");

@@ -1102,18 +1102,50 @@ if (
   })}`);
 }
 
-const protectedLinkKeys = (matrix) => new Set((matrix?.rows || []).flatMap((row) => [
-  ...(row.directOfficialCannabisLawLinks || []).map((link) => `${row.geo}|${normalizedUrlKey(link.url)}`),
-  ...(row.officialContextLinks || []).map((link) => `${row.geo}|${normalizedUrlKey(link.url)}`),
-  ...(row.supplementalOfficialLinks || []).map((link) => `${row.geo}|${normalizedUrlKey(link.url)}`),
-  ...(row.latestColorReaudit?.freshOfficialSources || []).map((link) => `${row.geo}|${normalizedUrlKey(link.url)}`)
-]));
+const protectedLinkEntries = (matrix) => (matrix?.rows || []).flatMap((row) => [
+  ...(row.directOfficialCannabisLawLinks || []),
+  ...(row.officialContextLinks || []),
+  ...(row.supplementalOfficialLinks || []),
+  ...(row.latestColorReaudit?.freshOfficialSources || []),
+].filter((link) => link?.url).map((link) => ({
+  key: `${row.geo}|${normalizedUrlKey(link.url)}`,
+  geo: row.geo,
+  url: normalizedUrlKey(link.url),
+  sourceOwnerGeo: String(link.sourceOwnerGeo || link.source_owner_geo || "").trim(),
+  appliesToGeos: Array.from(new Set([
+    ...(Array.isArray(link.appliesToGeos) ? link.appliesToGeos : []),
+    ...(Array.isArray(link.applies_to_geo) ? link.applies_to_geo : []),
+  ].map((geo) => String(geo || "").trim()).filter(Boolean))),
+})));
+
+const isCorrectedWrongGeoRehome = (removedEntry, nextEntries) => {
+  if (!removedEntry.sourceOwnerGeo || removedEntry.sourceOwnerGeo === removedEntry.geo) return false;
+  if (removedEntry.appliesToGeos.includes(removedEntry.geo)) return false;
+  return nextEntries.some((nextEntry) =>
+    nextEntry.url === removedEntry.url &&
+    nextEntry.geo !== removedEntry.geo &&
+    nextEntry.geo === removedEntry.sourceOwnerGeo &&
+    nextEntry.sourceOwnerGeo === nextEntry.geo &&
+    nextEntry.appliesToGeos.includes(nextEntry.geo),
+  );
+};
+
 if (previousMatrix && process.env.CANNABIS_AUDIT_ALLOW_SHRINK !== "1") {
-  const previousKeys = protectedLinkKeys(previousMatrix);
-  const nextKeys = protectedLinkKeys({ rows });
-  const removedKeys = [...previousKeys].filter((key) => !nextKeys.has(key));
+  const previousEntries = protectedLinkEntries(previousMatrix);
+  const nextEntries = protectedLinkEntries({ rows });
+  const nextKeys = new Set(nextEntries.map((entry) => entry.key));
+  const rehomedEntries = previousEntries.filter((entry) =>
+    !nextKeys.has(entry.key) && isCorrectedWrongGeoRehome(entry, nextEntries),
+  );
+  const rehomedKeys = new Set(rehomedEntries.map((entry) => entry.key));
+  const removedKeys = previousEntries
+    .filter((entry) => !nextKeys.has(entry.key) && !rehomedKeys.has(entry.key))
+    .map((entry) => entry.key);
   if (removedKeys.length) {
     throw new Error(`Cannabis audit non-shrinking guard rejected ${removedKeys.length} removed published link(s): ${removedKeys.join(", ")}`);
+  }
+  if (rehomedEntries.length) {
+    console.log(`WIKI_TRUTH_CANNABIS_REHOMED_WRONG_GEO_LINKS=${rehomedEntries.length}`);
   }
 }
 

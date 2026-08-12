@@ -5170,67 +5170,6 @@
           }
         }
       ],
-      "official_source_annotations": [
-        {
-          "title": "Papua New Guinea National Parliament - Controlled Substance Act 2021 legislative index record",
-          "url": "https://parliament.gov.pg/index.php/bills-and-legislation/view/controlled-substance-act-2021",
-          "source_kind": "OFFICIAL_PARLIAMENT_LEGISLATIVE_INDEX_DISCOVERY_CURRENTNESS_CHECK",
-          "source_owner_geo": "PG",
-          "applies_to_geo": [
-            "PG"
-          ],
-          "legal_basis_for_extension": "Official National Parliament legislative-index route for a Papua New Guinea Act; this record may establish publication/currentness context only if the official page is retrievable and read.",
-          "checked_at": "2026-08-12",
-          "source_authority": "Papua New Guinea National Parliament",
-          "source_type": "OFFICIAL_LEGISLATIVE_INDEX_DISCOVERY",
-          "primary_or_context": "CURRENTNESS_DISCOVERY_ONLY",
-          "cannabis_specific": false,
-          "current": true,
-          "effective": true,
-          "current_effective_state": "RECHECK_REQUIRED: direct GET returned HTTP 404 on 2026-08-12; search-index text is discovery only and is not evidence.",
-          "effective_date": "No current legal text retrieved.",
-          "direct_fragment_available": false,
-          "locator": "Direct official Parliament index route; GET on 2026-08-12 returned HTTP 404.",
-          "exact_fragment": "NO_LEGAL_TEXT_RETRIEVED: direct official Parliament index route returned HTTP 404 on 2026-08-12.",
-          "legal_relevance": "Official discovery/currentness route only; access failure cannot derive a legal axis or Truth Color.",
-          "screenshot_state": "NO_SCREENSHOT_HTTP_404",
-          "reviewed_by_human_visual": false,
-          "visual_opened": false,
-          "official_owner_visible": false,
-          "official_domain_visible": false,
-          "cannabis_fragment_visible": false,
-          "effective_rule_visible": false,
-          "screenshot_valid": false,
-          "visual_review_result": "ACCESS_BLOCKED_HTTP_404; no legal content accepted.",
-          "revalidation": {
-            "checked_at": "2026-08-11T22:51:10.975Z",
-            "final_url": "https://parliament.gov.pg/bills-and-legislation/view/controlled-substance-act-2021",
-            "http_status": 404,
-            "etag": null,
-            "last_modified": null,
-            "content_type": "text/html; charset=UTF-8",
-            "content_length": 162605,
-            "document_sha256": null,
-            "relevant_fragment_sha256": "7ddbbf47901bae8221e95c01ddd468f97e0a227c5b38dd96a5294c13e66a5cfa",
-            "revalidation_state": "ACCESS_BLOCKED",
-            "access_state": "HTTP_STATUS_404",
-            "change_reason": "HTTP_STATUS_404_IS_NOT_LEGAL_EVIDENCE",
-            "queue": [
-              "C2",
-              "C3"
-            ],
-            "queue_reasons": [
-              "ACCESS_BLOCKED"
-            ],
-            "dependent_geos": [
-              "AT",
-              "PG"
-            ],
-            "schema_issues": [],
-            "semantic_probe": null
-          }
-        }
-      ],
       "official_status": {
         "recreational": "UNASSESSED_NOT_NEEDED_FOR_LIMITED_PHARMACEUTICAL_COLOR",
         "medical": "CANNABIS_SPECIFIC_PRESCRIPTION_PHARMACY_FRAMEWORK_LIMITED",
@@ -130757,7 +130696,377 @@
         "status": "MATCH_WITH_PNG_CONTROLLED_SUBSTANCE_ACT_2021_CANNABIS_SCHEDULE_I_AND_STRICT_PENALTY_CAVEAT",
         "reason": "Papua New Guinea is visually verified from official National Parliament PDFs. The Controlled Substance Act 2021 page 1 visibly identifies Act No. 26 of 2021. Page 7 visibly defines cannabis, cannabis oil, cannabis plant, cannabis resin and controlled plant including growing cannabis plants or cuttings. Page 33 visibly states Schedule I substances have no medical value, high dependency and are strictly prohibited, and lists Cannabis, Cannabis resin, Cannabis Oil and Cannabis Sativa Plants. Page 40 visibly lists Schedule V quantities for Cannabis, Cannabis Resin, Cannabis Oil, Cannabis Sativa Plants and Tetrahydrocannabinol. Pages 44-45 visibly set Schedule I substance and plant sentencing bands, including up to two years for simple possession, up to fifteen years for medium-to-large quantities, and sixteen years to life imprisonment plus high fines for commercial quantities and more than twenty plants. The Dangerous Drugs (Amendment) Act 2021 page 3 provides additional official enforcement context for dangerous-drug plant cultivation, making, export, possession or conveyance unless authorised, with a penalty up to K1,000,000 or forty years imprisonment. This supports project recreational=ILLEGAL, medical=NONE and enforcement=STRICT. The Dangerous Drugs Amendment is treated as generic enforcement context, not a direct cannabis-specific law page by itself. The official parliament.gov.pg host had an expired TLS certificate in this environment, so the PDFs were fetched from the same official URLs with TLS verification disabled; screenshot evidence was then visually reviewed. No project status SSOT was changed."
       },
-      "conclusion": "Papua New Guinea is closed as visually verified official cannabis-law evidence from the Papua New Guinea National Parliament Controlled Substance Act 2021, with Dangerous Drugs (Amendment) Act 2021 as official generic enforcement context. The reviewed pages directly show cannabis definitions, Schedule I listing/no-medical-value/strict prohibition, cannabis quantity entries and strict sentencing bands. Project ILLEGAL/NONE/STRICT is supported; no project status SSOT was changed."
+      "conclusion": "Papua New Guinea is closed as visually verified official cannabis-law evidence from the Papua New Guinea National Parliament Controlled Substance Act 2021, with Dangerous Drugs (Amendment) Act 2021 as official generic enforcement context. The reviewed pages directly show cannabis definitions, Schedule I listing/no-medical-value/strict prohibition, cannabis quantity entries and strict sentencing bands. Project ILLEGAL/NONE/STRICT is supported; no project status SSOT was changed.",
+      "independent_truth_color": "RED",
+      "independent_truth_status": "CURRENT_CANNABIS_SCHEDULE_I_NO_MEDICAL_VALUE_AND_STRICT_PROHIBITION_WITH_CURRENT_OFFICIAL_PARLIAMENT_RECORD",
+      "independent_truth_rule": "GENERAL_CURRENT_CANNABIS_SCHEDULE_I_NO_MEDICAL_VALUE_AND_STRICT_PROHIBITION_WITH_CURRENT_OFFICIAL_ACT_RECORD",
+      "audit_state": "CURRENT_OFFICIAL_RECORD_PLUS_PRIMARY_TEXT_C2_REVIEWED_C3_ACCESS_PENDING_PROPOSAL_ONLY",
+      "strict_visual_acceptance": false,
+      "strict_visual_acceptance_reason": "Current legislative HTML is separately opened, while C1 direct PDF/card requests are ACCESS_BLOCKED after redirect. Retained official PDF legal extracts were visually reopened; browser-domain strict acceptance remains false and does not alter legal truth.",
+      "final_visual_acceptance": {
+        "status": "PENDING_C3_ACCESS_BLOCKED_OFFICIAL_ENDPOINTS",
+        "reason": "C1 direct PDF and legislative-card requests returned 404 after redirect. This access state is recorded only as an acceptance blocker; it is not a negative legal conclusion."
+      },
+      "independent_review": {
+        "geo": "PG",
+        "territory": "Papua New Guinea",
+        "review_mode": "INDEPENDENT_OFFICIAL_EVIDENCE_FIRST",
+        "proposal_only": true,
+        "jurisdiction": {
+          "territory_type": "SOVEREIGN_STATE",
+          "applicable_law": "Controlled Substance Act 2021, Act No. 26, recorded on the live National Parliament legislative page as Passed and Certified; primary Act PDF is cannabis-specific.",
+          "source_owner_vs_jurisdiction": "The National Parliament of Papua New Guinea is the national legislature and the Act card/PDF apply directly to PG. The two direct C1 requests returned 404 after redirect; those access states neither negate the current Parliament record nor establish a legal conclusion.",
+          "disputed_or_composite": false
+        },
+        "official_truth_color": "RED",
+        "truth_color": "RED",
+        "truth_status": "CURRENT_CANNABIS_SCHEDULE_I_NO_MEDICAL_VALUE_AND_STRICT_PROHIBITION_WITH_CURRENT_OFFICIAL_PARLIAMENT_RECORD",
+        "color_rule": "GENERAL_CURRENT_CANNABIS_SCHEDULE_I_NO_MEDICAL_VALUE_AND_STRICT_PROHIBITION_WITH_CURRENT_OFFICIAL_ACT_RECORD",
+        "reviewed_at": "2026-08-12",
+        "legal_interpretation": "Proposal-only RED under the general current cannabis-specific Schedule I/no-medical-value rule. The current National Parliament card identifies Act No. 26 as passed and certified, while the visually reopened official Act text lists cannabis, resin, oil and plants in Schedule I and expressly calls that Schedule no-medical-value and strictly prohibited. Schedule VII visibly penalises Schedule I simple possession and Schedule I plants. The historical Hansard is retained only as an amendment-chain explanation. This finding never converts research, cultivation, production, generic licensing, industrial hemp, CBD, prescription-product development, generic controlled-drug wording, the external-Gazette gap or a C1 access failure into patient access or another colour.",
+        "source_record_refs": [
+          "https://www.parliament.gov.pg/uploads/acts/21A_26.pdf#page=7",
+          "https://www.parliament.gov.pg/uploads/acts/21A_26.pdf#page=33",
+          "https://www.parliament.gov.pg/uploads/acts/21A_26.pdf#page=44",
+          "https://www.parliament.gov.pg/uploads/acts/21A_26.pdf#page=45",
+          "https://parliament.gov.pg/index.php/bills-and-legislation/view/controlled-substance-act-2021",
+          "https://www.parliament.gov.pg/uploads/hansard/H-10-20211202-M28-D10.pdf#page=76"
+        ],
+        "evidence_axes": {
+          "patient_eligible": {
+            "value": "NO",
+            "source_url": "https://www.parliament.gov.pg/uploads/acts/21A_26.pdf#page=33",
+            "source_type": "CURRENT_PRIMARY_STATUTE_WITH_OFFICIAL_CURRENTNESS_CARD",
+            "exact_fragment": "Schedule I states that listed substances have no medical value, have a high dependency and are strictly prohibited; the same Schedule visibly lists Cannabis, Cannabis resin, Cannabis Oil and Cannabis Sativa Plants.",
+            "effective_date": "Act No. 26 of 2021: passed 2 December 2021; certified 7 February 2022 on the current National Parliament legislative card opened 12 August 2026. Fresh C1 GET to the official PDF is ACCESS_BLOCKED/404 after redirect and is not legal evidence.",
+            "applicability": "National Parliament Act No. 26, directly applicable to Papua New Guinea.",
+            "confidence": "HIGH_FOR_CANNABIS_SPECIFIC_PRIMARY_TEXT_MEDIUM_FOR_CURRENTNESS_BRIDGE",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PG/png/pages/PG-controlled-substance-act-2021-33.png"
+          },
+          "prescriber_route": {
+            "value": "NO",
+            "source_url": "https://www.parliament.gov.pg/uploads/acts/21A_26.pdf#page=33",
+            "source_type": "CURRENT_PRIMARY_STATUTE_WITH_OFFICIAL_CURRENTNESS_CARD",
+            "exact_fragment": "The cannabis-specific Schedule I classification says the substances have no medical value and are strictly prohibited; it does not establish a patient/prescriber exception.",
+            "effective_date": "Act No. 26 of 2021: passed 2 December 2021; certified 7 February 2022 on the current National Parliament legislative card opened 12 August 2026. Fresh C1 GET to the official PDF is ACCESS_BLOCKED/404 after redirect and is not legal evidence.",
+            "applicability": "National Parliament Act No. 26, directly applicable to Papua New Guinea.",
+            "confidence": "HIGH_FOR_CANNABIS_SPECIFIC_PRIMARY_TEXT_MEDIUM_FOR_CURRENTNESS_BRIDGE",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PG/png/pages/PG-controlled-substance-act-2021-33.png"
+          },
+          "registration_route": {
+            "value": "NO",
+            "source_url": "https://www.parliament.gov.pg/uploads/acts/21A_26.pdf#page=33",
+            "source_type": "CURRENT_PRIMARY_STATUTE_WITH_OFFICIAL_CURRENTNESS_CARD",
+            "exact_fragment": "The explicit no-medical-value/strict-prohibition classification supplies no patient registration exception; this is not inferred from a failed search.",
+            "effective_date": "Act No. 26 of 2021: passed 2 December 2021; certified 7 February 2022 on the current National Parliament legislative card opened 12 August 2026. Fresh C1 GET to the official PDF is ACCESS_BLOCKED/404 after redirect and is not legal evidence.",
+            "applicability": "National Parliament Act No. 26, directly applicable to Papua New Guinea.",
+            "confidence": "HIGH_FOR_CANNABIS_SPECIFIC_PRIMARY_TEXT_MEDIUM_FOR_CURRENTNESS_BRIDGE",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PG/png/pages/PG-controlled-substance-act-2021-33.png"
+          },
+          "lawful_supply": {
+            "value": "NO",
+            "source_url": "https://www.parliament.gov.pg/uploads/acts/21A_26.pdf#page=33",
+            "source_type": "CURRENT_PRIMARY_STATUTE_WITH_OFFICIAL_CURRENTNESS_CARD",
+            "exact_fragment": "Schedule I states that listed substances have no medical value, have a high dependency and are strictly prohibited; the same Schedule visibly lists Cannabis, Cannabis resin, Cannabis Oil and Cannabis Sativa Plants.",
+            "effective_date": "Act No. 26 of 2021: passed 2 December 2021; certified 7 February 2022 on the current National Parliament legislative card opened 12 August 2026. Fresh C1 GET to the official PDF is ACCESS_BLOCKED/404 after redirect and is not legal evidence.",
+            "applicability": "National Parliament Act No. 26, directly applicable to Papua New Guinea.",
+            "confidence": "HIGH_FOR_CANNABIS_SPECIFIC_PRIMARY_TEXT_MEDIUM_FOR_CURRENTNESS_BRIDGE",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PG/png/pages/PG-controlled-substance-act-2021-33.png"
+          },
+          "pharmacy_or_dispensary": {
+            "value": "NO",
+            "source_url": "https://www.parliament.gov.pg/uploads/acts/21A_26.pdf#page=33",
+            "source_type": "CURRENT_PRIMARY_STATUTE_WITH_OFFICIAL_CURRENTNESS_CARD",
+            "exact_fragment": "The explicit no-medical-value/strict-prohibition classification provides no pharmacy or dispenser exception for listed cannabis forms.",
+            "effective_date": "Act No. 26 of 2021: passed 2 December 2021; certified 7 February 2022 on the current National Parliament legislative card opened 12 August 2026. Fresh C1 GET to the official PDF is ACCESS_BLOCKED/404 after redirect and is not legal evidence.",
+            "applicability": "National Parliament Act No. 26, directly applicable to Papua New Guinea.",
+            "confidence": "HIGH_FOR_CANNABIS_SPECIFIC_PRIMARY_TEXT_MEDIUM_FOR_CURRENTNESS_BRIDGE",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PG/png/pages/PG-controlled-substance-act-2021-33.png"
+          },
+          "import_route": {
+            "value": "NO",
+            "source_url": "https://www.parliament.gov.pg/uploads/acts/21A_26.pdf#page=33",
+            "source_type": "CURRENT_PRIMARY_STATUTE_WITH_OFFICIAL_CURRENTNESS_CARD",
+            "exact_fragment": "Schedule I states that listed substances have no medical value, have a high dependency and are strictly prohibited; the same Schedule visibly lists Cannabis, Cannabis resin, Cannabis Oil and Cannabis Sativa Plants.",
+            "effective_date": "Act No. 26 of 2021: passed 2 December 2021; certified 7 February 2022 on the current National Parliament legislative card opened 12 August 2026. Fresh C1 GET to the official PDF is ACCESS_BLOCKED/404 after redirect and is not legal evidence.",
+            "applicability": "National Parliament Act No. 26, directly applicable to Papua New Guinea.",
+            "confidence": "HIGH_FOR_CANNABIS_SPECIFIC_PRIMARY_TEXT_MEDIUM_FOR_CURRENTNESS_BRIDGE",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PG/png/pages/PG-controlled-substance-act-2021-33.png"
+          },
+          "programme_operational": {
+            "value": "NO",
+            "source_url": "https://www.parliament.gov.pg/uploads/acts/21A_26.pdf#page=33",
+            "source_type": "CURRENT_PRIMARY_STATUTE_WITH_OFFICIAL_CURRENTNESS_CARD",
+            "exact_fragment": "The explicit Schedule I no-medical-value/strict-prohibition classification is affirmative evidence against a lawful patient programme; no programme absence is used as independent proof.",
+            "effective_date": "Act No. 26 of 2021: passed 2 December 2021; certified 7 February 2022 on the current National Parliament legislative card opened 12 August 2026. Fresh C1 GET to the official PDF is ACCESS_BLOCKED/404 after redirect and is not legal evidence.",
+            "applicability": "National Parliament Act No. 26, directly applicable to Papua New Guinea.",
+            "confidence": "HIGH_FOR_CANNABIS_SPECIFIC_PRIMARY_TEXT_MEDIUM_FOR_CURRENTNESS_BRIDGE",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PG/png/pages/PG-controlled-substance-act-2021-33.png"
+          },
+          "programme_commenced": {
+            "value": "NO",
+            "source_url": "https://www.parliament.gov.pg/uploads/acts/21A_26.pdf#page=33",
+            "source_type": "CURRENT_PRIMARY_STATUTE_WITH_OFFICIAL_CURRENTNESS_CARD",
+            "exact_fragment": "The Act classifies cannabis forms in a no-medical-value, strictly prohibited Schedule I; it provides no patient-programme commencement exception.",
+            "effective_date": "Act No. 26 of 2021: passed 2 December 2021; certified 7 February 2022 on the current National Parliament legislative card opened 12 August 2026. Fresh C1 GET to the official PDF is ACCESS_BLOCKED/404 after redirect and is not legal evidence.",
+            "applicability": "National Parliament Act No. 26, directly applicable to Papua New Guinea.",
+            "confidence": "HIGH_FOR_CANNABIS_SPECIFIC_PRIMARY_TEXT_MEDIUM_FOR_CURRENTNESS_BRIDGE",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PG/png/pages/PG-controlled-substance-act-2021-33.png"
+          },
+          "recreational_possession": {
+            "value": "NO",
+            "source_url": "https://www.parliament.gov.pg/uploads/acts/21A_26.pdf#page=44",
+            "source_type": "CURRENT_PRIMARY_STATUTE_WITH_OFFICIAL_CURRENTNESS_CARD",
+            "exact_fragment": "Schedule VII Part A assigns a penalty for simple possession of a Schedule I substance; the same Act Schedule I expressly includes cannabis, resin, oil and plants.",
+            "effective_date": "Act No. 26 of 2021: passed 2 December 2021; certified 7 February 2022 on the current National Parliament legislative card opened 12 August 2026. Fresh C1 GET to the official PDF is ACCESS_BLOCKED/404 after redirect and is not legal evidence.",
+            "applicability": "National Parliament Act No. 26, directly applicable to Papua New Guinea.",
+            "confidence": "HIGH_FOR_CANNABIS_SPECIFIC_PRIMARY_TEXT_MEDIUM_FOR_CURRENTNESS_BRIDGE",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PG/png/pages/PG-controlled-substance-act-2021-44.png"
+          },
+          "recreational_supply": {
+            "value": "NO",
+            "source_url": "https://www.parliament.gov.pg/uploads/acts/21A_26.pdf#page=33",
+            "source_type": "CURRENT_PRIMARY_STATUTE_WITH_OFFICIAL_CURRENTNESS_CARD",
+            "exact_fragment": "Schedule I states that listed substances have no medical value, have a high dependency and are strictly prohibited; the same Schedule visibly lists Cannabis, Cannabis resin, Cannabis Oil and Cannabis Sativa Plants.",
+            "effective_date": "Act No. 26 of 2021: passed 2 December 2021; certified 7 February 2022 on the current National Parliament legislative card opened 12 August 2026. Fresh C1 GET to the official PDF is ACCESS_BLOCKED/404 after redirect and is not legal evidence.",
+            "applicability": "National Parliament Act No. 26, directly applicable to Papua New Guinea.",
+            "confidence": "HIGH_FOR_CANNABIS_SPECIFIC_PRIMARY_TEXT_MEDIUM_FOR_CURRENTNESS_BRIDGE",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PG/png/pages/PG-controlled-substance-act-2021-33.png"
+          },
+          "recreational_cultivation": {
+            "value": "NO",
+            "source_url": "https://www.parliament.gov.pg/uploads/acts/21A_26.pdf#page=45",
+            "source_type": "CURRENT_PRIMARY_STATUTE_WITH_OFFICIAL_CURRENTNESS_CARD",
+            "exact_fragment": "Schedule VII Part A assigns penalties for Schedule I plants including fewer than five, more than five and more than twenty plants; Schedule I expressly includes Cannabis Sativa Plants.",
+            "effective_date": "Act No. 26 of 2021: passed 2 December 2021; certified 7 February 2022 on the current National Parliament legislative card opened 12 August 2026. Fresh C1 GET to the official PDF is ACCESS_BLOCKED/404 after redirect and is not legal evidence.",
+            "applicability": "National Parliament Act No. 26, directly applicable to Papua New Guinea.",
+            "confidence": "HIGH_FOR_CANNABIS_SPECIFIC_PRIMARY_TEXT_MEDIUM_FOR_CURRENTNESS_BRIDGE",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PG/png/pages/PG-controlled-substance-act-2021-45.png"
+          },
+          "penalty_regime": {
+            "value": "YES",
+            "source_url": "https://www.parliament.gov.pg/uploads/acts/21A_26.pdf#page=44",
+            "source_type": "CURRENT_PRIMARY_STATUTE_WITH_OFFICIAL_CURRENTNESS_CARD",
+            "exact_fragment": "Schedule VII assigns up to two years or K15,000 for simple possession of a Schedule I substance, up to fifteen years/K25,000 for intermediate quantities, and sixteen years to life plus K26,000 to K2,000,000 for commercial quantities; the next page assigns corresponding Schedule I plant penalties.",
+            "effective_date": "Act No. 26 of 2021: passed 2 December 2021; certified 7 February 2022 on the current National Parliament legislative card opened 12 August 2026. Fresh C1 GET to the official PDF is ACCESS_BLOCKED/404 after redirect and is not legal evidence.",
+            "applicability": "National Parliament Act No. 26, directly applicable to Papua New Guinea.",
+            "confidence": "HIGH_FOR_CANNABIS_SPECIFIC_PRIMARY_TEXT_MEDIUM_FOR_CURRENTNESS_BRIDGE",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PG/png/pages/PG-controlled-substance-act-2021-44.png"
+          }
+        },
+        "visual_evidence": [
+          {
+            "path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PG/png/pages/PG-controlled-substance-act-2021-33.png",
+            "visual_opened": true,
+            "official_owner_visible": true,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": true,
+            "effective_rule_visible": true,
+            "screenshot_valid": true,
+            "visual_summary": "Retained official-PDF printed p. 28 was reopened on 12 August 2026: Schedule I visibly says no medical value/high dependency/strictly prohibited and visibly lists cannabis, resin, oil and Cannabis Sativa Plants."
+          },
+          {
+            "path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PG/png/pages/PG-controlled-substance-act-2021-44.png",
+            "visual_opened": true,
+            "official_owner_visible": true,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": true,
+            "effective_rule_visible": true,
+            "screenshot_valid": true,
+            "visual_summary": "Retained official-PDF printed p. 39 was reopened: Schedule VII visibly gives Schedule I substance possession/commercial-quantity penalties."
+          },
+          {
+            "path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PG/png/pages/PG-controlled-substance-act-2021-45.png",
+            "visual_opened": true,
+            "official_owner_visible": true,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": true,
+            "effective_rule_visible": true,
+            "screenshot_valid": true,
+            "visual_summary": "Retained official-PDF printed p. 40 was reopened: Schedule I plant penalties visibly cover cannabis-plant quantities."
+          }
+        ],
+        "visual_acceptance": {
+          "legal_truth_visual_review_complete": true,
+          "strict_visual_acceptance": false,
+          "reason": "Legal-text PDF extracts were visually reopened locally and the live Parliament card was semantically opened. The direct official endpoints returned C1 404 after redirect, so no fresh browser-domain visual proof is asserted; strict visual acceptance remains separate and false."
+        },
+        "confidence": "HIGH_FOR_CANNABIS_SPECIFIC_PRIMARY_TEXT_AND_PENALTY_REGIME_MEDIUM_FOR_CURRENTNESS_BRIDGE",
+        "remaining_blockers": [
+          "C1_ACCESS_BLOCKED_FOR_OFFICIAL_PDF_AND_LEGISLATIVE_CARD_AFTER_REDIRECT; THIS_IS_ACCESS_METADATA_ONLY",
+          "OFFICIAL_GAZETTE_COMMENCEMENT_NOTICE_G198_2022_NOT_RETRIEVED_FROM_A_PRIMARY_GOVERNMENT_HOST",
+          "STRICT_BROWSER_DOMAIN_VISUAL_ACCEPTANCE_FALSE"
+        ],
+        "current_layer_comparison": "NOT_CAPTURED_NOT_USED_AS_LEGAL_INPUT; map, popup, SEO, API, SSOT, runtime and production were neither read as legal input nor changed.",
+        "recommended_action": "RETAIN_PROPOSAL_ONLY_RED; preserve C2/C3 queue and do not apply to SSOT, map, runtime, production or deployment without explicit user authorisation and the final 307-row gate.",
+        "apply_gate": {
+          "APPLY_ALLOWED": false,
+          "PRODUCTION_TOUCHED": false,
+          "MAP_COLORS_CHANGED": false,
+          "SSOT_CHANGED": false
+        }
+      },
+      "official_source_annotations": [
+        {
+          "title": "Papua New Guinea National Parliament - Controlled Substance Act 2021 (Act No. 26) official PDF",
+          "url": "https://www.parliament.gov.pg/uploads/acts/21A_26.pdf",
+          "source_kind": "PAPUA_NEW_GUINEA_NATIONAL_PARLIAMENT_CURRENT_ACT_26_CONTROLLED_SUBSTANCE_STATUTE_CANNABIS_SCHEDULE_I",
+          "source_owner_geo": "PG",
+          "applies_to_geo": [
+            "PG"
+          ],
+          "legal_basis_for_extension": "National Act No. 26 made by the Parliament of Papua New Guinea. The current Parliament legislative record identifies this exact Act and official PDF; no territorial extension is inferred.",
+          "source_authority": "National Parliament of Papua New Guinea",
+          "source_type": "PRIMARY_NATIONAL_CONTROLLED_SUBSTANCES_STATUTE",
+          "primary_or_context": "PRIMARY",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "CURRENT_OFFICIAL_PARLIAMENT_LEGISLATIVE_RECORD_OPENED_2026-08-12: Act No. 26 is listed as Passed and Certified 07/02/2022 and links this official PDF. Direct-PDF C1 access state is metadata only, never legal evidence.",
+          "effective_date": "Act No. 26 of 2021, passed 2 December 2021 and certified 7 February 2022 according to the current National Parliament record. Commencement is separately recorded as UNCONFIRMED from a primary official Gazette source.",
+          "direct_fragment_urls": [
+            "https://www.parliament.gov.pg/uploads/acts/21A_26.pdf#page=7",
+            "https://www.parliament.gov.pg/uploads/acts/21A_26.pdf#page=33",
+            "https://www.parliament.gov.pg/uploads/acts/21A_26.pdf#page=44",
+            "https://www.parliament.gov.pg/uploads/acts/21A_26.pdf#page=45"
+          ],
+          "locator": "Official PDF document pages 7 (definitions), 33 (Schedule I), 44-45 (Schedule VII); retained visual extracts show printed pp. 2, 28, 39-40.",
+          "exact_fragment": "Schedule I: \"Substances in Schedule I have no medical value and have a high dependency and are strictly prohibited.\" The Schedule lists Cannabis, Cannabis resin, Cannabis Oil and Cannabis Sativa Plants. Schedule VII Part A sets possession and commercial-quantity penalties for a Schedule I substance; its Schedule I plant table covers fewer than five, more than five, and more than twenty plants.",
+          "legal_relevance": "Cannabis-specific primary-text evidence. It is not converted into patient access, generic licensing, or a conclusion from the C1 access state. It remains subject to current-applicability and strict visual acceptance review.",
+          "screenshot_state": "HISTORICAL_OFFICIAL_PDF_EXTRACTS_REOPENED_AND_READ_2026-08-12; the current official legislative HTML was opened, but no browser-domain screenshot is claimed.",
+          "current_screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PG/png/pages/PG-controlled-substance-act-2021-33.png",
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_valid": true,
+          "visual_review_result": "Retained official-PDF extracts were reopened and visually read on 12 August 2026: Schedule I visibly identifies cannabis, resin, oil and plants and declares the Schedule no-medical-value/strictly-prohibited; Schedule VII visibly gives Schedule I substance and plant sentencing bands. Browser-domain acceptance remains separate.",
+          "revalidation": {
+            "checked_at": "2026-08-12T00:03:27.737Z",
+            "final_url": "https://parliament.gov.pg/uploads/acts/21A_26.pdf",
+            "http_status": 404,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 162605,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "21047be168889d983decd5e20b69313a121a54d1dd673942176f60a4beb2cdb3",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "HTTP_STATUS_404",
+            "change_reason": "HTTP_STATUS_404_IS_NOT_LEGAL_EVIDENCE",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "ACCESS_BLOCKED"
+            ],
+            "dependent_geos": [
+              "PG"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
+        },
+        {
+          "title": "Papua New Guinea National Parliament - Controlled Substance Act 2021 legislative card",
+          "url": "https://parliament.gov.pg/index.php/bills-and-legislation/view/controlled-substance-act-2021",
+          "source_kind": "PAPUA_NEW_GUINEA_NATIONAL_PARLIAMENT_CURRENT_LEGISLATIVE_RECORD_ACT_26",
+          "source_owner_geo": "PG",
+          "applies_to_geo": [
+            "PG"
+          ],
+          "legal_basis_for_extension": "Official National Parliament legislative record for a national Act; directly applicable only to Papua New Guinea.",
+          "source_authority": "National Parliament of Papua New Guinea",
+          "source_type": "OFFICIAL_CURRENT_LEGISLATIVE_RECORD",
+          "primary_or_context": "CURRENTNESS_AND_APPLICABILITY_CONTEXT",
+          "cannabis_specific": false,
+          "current": true,
+          "effective": true,
+          "effective_date": "Live National Parliament record opened 12 August 2026: Act No. 26; Passed 02/12/2021; Certified 07/02/2022.",
+          "direct_fragment_urls": [
+            "https://parliament.gov.pg/index.php/bills-and-legislation/view/controlled-substance-act-2021"
+          ],
+          "locator": "Official Parliament legislative-card lines headed Controlled Substance Act 2021: Act No. 26, Status Passed, Passed On 02/12/2021, Certified 07/02/2022, and Download Act link.",
+          "exact_fragment": "The National Parliament card identifies \"Controlled Substance Act 2021\", \"Act No: 26\", \"Status: Passed\", \"Passed On: 02/12/2021\" and \"Certified: 07/02/2022\", and links the official Act download.",
+          "legal_relevance": "Current official identity, national applicability and certification bridge for the Act PDF. It contains no cannabis clause and cannot independently establish a cannabis axis.",
+          "screenshot_state": "CURRENT_OFFICIAL_HTML_SEMANTICALLY_OPENED_2026-08-12; local browser screenshot not retained because this is currentness metadata, not a cannabis clause.",
+          "reviewed_by_human_visual": false,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": true,
+          "screenshot_valid": false,
+          "visual_review_result": "Current official Parliament HTML was opened and identity/status/certification fields were read. C3 browser-domain visual acceptance is not asserted.",
+          "revalidation": {
+            "checked_at": "2026-08-12T00:03:27.737Z",
+            "final_url": "https://parliament.gov.pg/bills-and-legislation/view/controlled-substance-act-2021",
+            "http_status": 404,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 162605,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "6be533b33b7eceb31de579575fd7427c46fc63c53b9bf5b91a61d69a61439fad",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "HTTP_STATUS_404",
+            "change_reason": "HTTP_STATUS_404_IS_NOT_LEGAL_EVIDENCE",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "ACCESS_BLOCKED"
+            ],
+            "dependent_geos": [
+              "PG"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
+        },
+        {
+          "title": "Papua New Guinea National Parliament Hansard - 2 December 2021 second reading of Dangerous Drugs (Amendment) Bill",
+          "url": "https://www.parliament.gov.pg/uploads/hansard/H-10-20211202-M28-D10.pdf",
+          "source_kind": "PAPUA_NEW_GUINEA_NATIONAL_PARLIAMENT_HANSARD_CONTROLLED_SUBSTANCE_ACT_REPLACEMENT_CONTEXT",
+          "source_owner_geo": "PG",
+          "applies_to_geo": [
+            "PG"
+          ],
+          "legal_basis_for_extension": "Official National Parliament Hansard records the legislative explanation for the national Act; it is historical context, not an operative cannabis clause.",
+          "source_authority": "National Parliament of Papua New Guinea",
+          "source_type": "OFFICIAL_PARLIAMENTARY_HANSARD_CONTEXT",
+          "primary_or_context": "HISTORICAL_LEGISLATIVE_CONTEXT",
+          "cannabis_specific": false,
+          "current": false,
+          "effective": false,
+          "current_effective_state": "HISTORICAL_CONTEXT_ONLY; retained to explain the Act's replacement of the Dangerous Drugs Act section, never as an independent current conclusion.",
+          "effective_date": "Second Reading, 2 December 2021.",
+          "direct_fragment_urls": [
+            "https://www.parliament.gov.pg/uploads/hansard/H-10-20211202-M28-D10.pdf#page=76"
+          ],
+          "locator": "Official Hansard, 2 December 2021, p. 76, Minister for Justice second-reading explanation.",
+          "exact_fragment": "The Minister states that the Dangerous Drugs (Amendment) Bill is consequential to passage of the Controlled Substance Act 2021; the new Act \"comprehensively covers all of these offences\" and the old section 3 is repealed to prevent confusion in drug-offence provisions.",
+          "legal_relevance": "Official historic amendment-chain context only; it cannot establish cannabis status, patient access or currentness.",
+          "screenshot_state": "OFFICIAL_HANSARD_SEARCH_EXTRACT_RECORDED_2026-08-12; direct PDF retrieval remains separately subject to C1/C3 and no local screenshot is claimed.",
+          "reviewed_by_human_visual": false
+        }
+      ]
     },
     {
       "geo": "PE",
