@@ -3693,6 +3693,53 @@
           }
         }
       ],
+      "independent_truth_color": "UNKNOWN",
+      "independent_truth_status": "DISPUTED_GEO_NO_OWN_REGIME",
+      "independent_review": {
+        "review_scope": "INDEPENDENT_TRUTH_FIRST_PROPOSAL_ONLY",
+        "jurisdiction": "AQ",
+        "territory_type": "TREATY_AREA_NO_SINGLE_TERRITORIAL_CANNABIS_REGIME",
+        "reviewed_at": "2026-08-08",
+        "conclusion": "UNKNOWN",
+        "color_rule": "GENERAL_UNKNOWN_NO_UNITARY_APPLICABLE_REGIME",
+        "applicability_reason": "NO_UNITARY_APPLICABLE_REGIME",
+        "evidence_axes": {
+          "territorial_applicability": "NO_ANTARCTIC_TREATY_SECRETARIAT_STATES_PARTIES_IMPLEMENT_TREATY_AND_PROTOCOL_INTO_DOMESTIC_LAW_AND_PERMITS_ARE_ISSUED_BY_EACH_PARTY_COMPETENT_AUTHORITY",
+          "recreational_status": "UNKNOWN_NO_SINGLE_APPLICABLE_AQ_REGIME",
+          "medical_patient_access": "UNKNOWN_NO_SINGLE_APPLICABLE_AQ_REGIME",
+          "enforcement": "UNKNOWN_NO_SINGLE_APPLICABLE_AQ_REGIME"
+        },
+        "source_annotations": {
+          "jurisdiction_context_url": "https://www.ats.aq/devAS/Ats/NationalCompetentAuthorities?lang=e",
+          "source_owner_geo": "AQ",
+          "applies_to_geo": [
+            "AQ"
+          ],
+          "claimant_or_party_law_transfer": "PROHIBITED_WITHOUT_SPECIFIC_PERSON_ACTIVITY_OR_PARTY_APPLICABILITY"
+        },
+        "visual_review": "National Competent Authorities current capture validly shows official ownership and the relevant domestic-law fragment. The Treaty capture is retained as contextual visual evidence but not claimed as a strict Article IV crop.",
+        "comparison_boundary": {
+          "map_verdict": "PENDING_LIVE_USER_VISIBLE_MAP_CAPTURE",
+          "ssot_verdict": "PENDING_SEPARATE_LAYER_COMPARISON",
+          "wiki_truth_verdict": "PENDING_SEPARATE_LAYER_COMPARISON"
+        },
+        "production_guard": {
+          "APPLY_ALLOWED": false,
+          "PRODUCTION_TOUCHED": false,
+          "MAP_COLORS_CHANGED": false,
+          "SSOT_CHANGED": false
+        },
+        "completed_at": "2026-08-10",
+        "method": "OFFICIAL_TREATY_SECRETARIAT_DIRECT_HTTP_TEXT_REVIEW_PLUS_HIDDEN_BROWSER_VISUAL_REVIEW",
+        "evidence_order": [
+          "treaty sovereignty context",
+          "party-specific domestic-law implementation",
+          "AQ applicability decision",
+          "color derivation"
+        ],
+        "result": "UNKNOWN_UNPAINTED_PROPOSAL_ONLY",
+        "legal_conclusion": "AQ is a synthetic treaty-area GEO with no unitary territorial cannabis regime. Treaty and national-authority materials explain the applicable-law divergence but never establish a cannabis status."
+      },
       "project_comparison": {
         "status": "LAYER_COMPARISON_NOT_RECAPTURED_IN_THIS_INDEPENDENT_APPLICABILITY_PACKET",
         "reason": "Current map, popup, API, SEO, SSOT and wiki-truth records remain comparison-only inputs and were not used to derive the no-unitary-regime conclusion."
@@ -3758,7 +3805,6 @@
         "medical": "NO_UNITARY_APPLICABLE_REGIME",
         "enforcement": "NO_UNITARY_APPLICABLE_REGIME"
       },
-      "independent_truth_color": "UNKNOWN",
       "independent_truth_rule": "NO_UNITARY_APPLICABLE_REGIME",
       "independent_conclusion": "AQ is a composite Antarctic Treaty area. The current Treaty Secretariat page confirms Party-specific domestic implementation and competent authorities, but no single territorial cannabis possession, adult-use, medical-patient or enforcement regime applies to whole Antarctica. Treaty permitting and international cannabis-control context cannot substitute for territorial law. AQ remains UNKNOWN and unpainted.",
       "final_visual_acceptance": {
@@ -3766,53 +3812,7 @@
         "strict_visual_acceptance": false,
         "visual_summary": "The current official page text was visibly read on 2 August 2026. Fresh full-page capture timed out; the only saved screenshot is historical and no fresh domain-visible crop is claimed."
       },
-      "independent_truth_status": "DISPUTED_GEO_NO_OWN_REGIME",
       "independent_truth_reviewed_at": "2026-08-08",
-      "independent_review": {
-        "review_scope": "INDEPENDENT_TRUTH_FIRST_PROPOSAL_ONLY",
-        "jurisdiction": "AQ",
-        "territory_type": "TREATY_AREA_NO_SINGLE_TERRITORIAL_CANNABIS_REGIME",
-        "reviewed_at": "2026-08-08",
-        "conclusion": "UNKNOWN",
-        "color_rule": "GENERAL_UNKNOWN_NO_UNITARY_APPLICABLE_REGIME",
-        "applicability_reason": "NO_UNITARY_APPLICABLE_REGIME",
-        "evidence_axes": {
-          "territorial_applicability": "NO_ANTARCTIC_TREATY_SECRETARIAT_STATES_PARTIES_IMPLEMENT_TREATY_AND_PROTOCOL_INTO_DOMESTIC_LAW_AND_PERMITS_ARE_ISSUED_BY_EACH_PARTY_COMPETENT_AUTHORITY",
-          "recreational_status": "UNKNOWN_NO_SINGLE_APPLICABLE_AQ_REGIME",
-          "medical_patient_access": "UNKNOWN_NO_SINGLE_APPLICABLE_AQ_REGIME",
-          "enforcement": "UNKNOWN_NO_SINGLE_APPLICABLE_AQ_REGIME"
-        },
-        "source_annotations": {
-          "jurisdiction_context_url": "https://www.ats.aq/devAS/Ats/NationalCompetentAuthorities?lang=e",
-          "source_owner_geo": "AQ",
-          "applies_to_geo": [
-            "AQ"
-          ],
-          "claimant_or_party_law_transfer": "PROHIBITED_WITHOUT_SPECIFIC_PERSON_ACTIVITY_OR_PARTY_APPLICABILITY"
-        },
-        "visual_review": "National Competent Authorities current capture validly shows official ownership and the relevant domestic-law fragment. The Treaty capture is retained as contextual visual evidence but not claimed as a strict Article IV crop.",
-        "comparison_boundary": {
-          "map_verdict": "PENDING_LIVE_USER_VISIBLE_MAP_CAPTURE",
-          "ssot_verdict": "PENDING_SEPARATE_LAYER_COMPARISON",
-          "wiki_truth_verdict": "PENDING_SEPARATE_LAYER_COMPARISON"
-        },
-        "production_guard": {
-          "APPLY_ALLOWED": false,
-          "PRODUCTION_TOUCHED": false,
-          "MAP_COLORS_CHANGED": false,
-          "SSOT_CHANGED": false
-        },
-        "completed_at": "2026-08-10",
-        "method": "OFFICIAL_TREATY_SECRETARIAT_DIRECT_HTTP_TEXT_REVIEW_PLUS_HIDDEN_BROWSER_VISUAL_REVIEW",
-        "evidence_order": [
-          "treaty sovereignty context",
-          "party-specific domestic-law implementation",
-          "AQ applicability decision",
-          "color derivation"
-        ],
-        "result": "UNKNOWN_UNPAINTED_PROPOSAL_ONLY",
-        "legal_conclusion": "AQ is a synthetic treaty-area GEO with no unitary territorial cannabis regime. Treaty and national-authority materials explain the applicable-law divergence but never establish a cannabis status."
-      },
       "official_source_annotations": [
         {
           "title": "The Antarctic Treaty - Article IV sovereignty-status context",
@@ -128002,18 +128002,18 @@
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PK/png/pages/PK-cnsa-1997-page-11.png",
           "note": "Official Pakistan Code / Ministry of Law and Justice PDF. Visual review confirms CNSA definitions of cannabis/hemp, cannabis resin/charas/hashish oil, flowering or fruiting tops bhang/siddhi/ganja and cannabis plant; Chapter II prohibits cannabis-plant cultivation/gathering except licensed medical, scientific or industrial purposes, prohibits possession/production/sale/etc. except under law, and provides strict custodial penalties including life-imprisonment ranges for large bhang quantities and up to 25 years for unlicensed cannabis production/manufacturing premises.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:49:51.042Z",
             "final_url": "https://pakistancode.gov.pk/pdffiles/administrator739c7aa745c5afab5decf2e100caf1c5.pdf",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
+            "last_modified": "Mon, 07 Aug 2023 09:25:38 GMT",
+            "content_type": "application/pdf",
+            "content_length": 553737,
+            "document_sha256": "e5e7cad13487f4828b787fe7991e4a4765175137eb62cc0325f55824a3ebaecf",
             "relevant_fragment_sha256": null,
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -128031,7 +128031,41 @@
               "LOCATOR_MISSING",
               "EXACT_FRAGMENT_MISSING"
             ],
-            "semantic_probe": null
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 115508,
+              "ocr_used": false,
+              "relevant_pages": [
+                6,
+                7,
+                8,
+                9,
+                11,
+                13,
+                19,
+                24,
+                42,
+                45,
+                48,
+                49,
+                50
+              ],
+              "rendered_pages": [
+                6,
+                7,
+                8,
+                9,
+                11,
+                13,
+                19,
+                24,
+                42,
+                45,
+                48,
+                49,
+                50
+              ]
+            }
           }
         },
         {
@@ -128072,18 +128106,18 @@
           "visual_review_result": "OFFICIAL_GAZETTE_RENDERED_AND_READ; Gazette owner, Act XIX, commencement and narrow section-7 scope visible.",
           "confidence": "HIGH",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:49:51.042Z",
             "final_url": "https://na.gov.pk/uploads/documents/69d4e17704917_332.pdf",
-            "http_status": null,
-            "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
+            "http_status": 200,
+            "etag": "\"b3ef5-64edc8d522e55\"",
+            "last_modified": "Tue, 07 Apr 2026 10:50:31 GMT",
+            "content_type": "application/pdf",
+            "content_length": 737013,
+            "document_sha256": "bc8eface7b94684ee4961fc41479ad646625d789a3f63b0ea10d69ab8d618286",
             "relevant_fragment_sha256": "029e2b4eb8e406e845b2e836dd8a42130e5c5be1aa20e99ae6b29ca93ef6d166",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "BASELINE_HASH_NOT_ESTABLISHED",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -128096,7 +128130,13 @@
               "PK"
             ],
             "schema_issues": [],
-            "semantic_probe": null
+            "semantic_probe": {
+              "extractor": "ocr",
+              "text_layer_length": 0,
+              "ocr_used": true,
+              "relevant_pages": [],
+              "rendered_pages": []
+            }
           }
         },
         {
@@ -128498,18 +128538,18 @@
             "visual_review_result": "CURRENT_OFFICIAL_TEXT_RENDERED_AND_READ; PDF crop has no address bar, therefore strict visual acceptance is separate.",
             "confidence": "HIGH",
             "revalidation": {
-              "checked_at": "2026-08-11T22:10:17.133Z",
+              "checked_at": "2026-08-12T05:49:51.042Z",
               "final_url": "https://pakistancode.gov.pk/pdffiles/administrator739c7aa745c5afab5decf2e100caf1c5.pdf",
-              "http_status": null,
+              "http_status": 200,
               "etag": null,
-              "last_modified": null,
-              "content_type": null,
-              "content_length": null,
-              "document_sha256": null,
+              "last_modified": "Mon, 07 Aug 2023 09:25:38 GMT",
+              "content_type": "application/pdf",
+              "content_length": 553737,
+              "document_sha256": "e5e7cad13487f4828b787fe7991e4a4765175137eb62cc0325f55824a3ebaecf",
               "relevant_fragment_sha256": "745695568c4e260a954ef74a914ad671cbeba6dfdf3eb4b41051f4dedf9ca7cf",
               "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-              "access_state": "NOT_CHECKED_LOCAL_ONLY",
-              "change_reason": "BASELINE_HASH_NOT_ESTABLISHED",
+              "access_state": "HTTP_OK",
+              "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
               "queue": [
                 "C2",
                 "C3"
@@ -128522,7 +128562,41 @@
                 "PK"
               ],
               "schema_issues": [],
-              "semantic_probe": null
+              "semantic_probe": {
+                "extractor": "pdftotext",
+                "text_layer_length": 115508,
+                "ocr_used": false,
+                "relevant_pages": [
+                  6,
+                  7,
+                  8,
+                  9,
+                  11,
+                  13,
+                  19,
+                  24,
+                  42,
+                  45,
+                  48,
+                  49,
+                  50
+                ],
+                "rendered_pages": [
+                  6,
+                  7,
+                  8,
+                  9,
+                  11,
+                  13,
+                  19,
+                  24,
+                  42,
+                  45,
+                  48,
+                  49,
+                  50
+                ]
+              }
             }
           },
           {
@@ -128563,18 +128637,18 @@
             "visual_review_result": "OFFICIAL_GAZETTE_RENDERED_AND_READ; Gazette owner, Act XIX, commencement and narrow section-7 scope visible.",
             "confidence": "HIGH",
             "revalidation": {
-              "checked_at": "2026-08-11T22:10:17.133Z",
+              "checked_at": "2026-08-12T05:49:51.042Z",
               "final_url": "https://na.gov.pk/uploads/documents/69d4e17704917_332.pdf",
-              "http_status": null,
-              "etag": null,
-              "last_modified": null,
-              "content_type": null,
-              "content_length": null,
-              "document_sha256": null,
+              "http_status": 200,
+              "etag": "\"b3ef5-64edc8d522e55\"",
+              "last_modified": "Tue, 07 Apr 2026 10:50:31 GMT",
+              "content_type": "application/pdf",
+              "content_length": 737013,
+              "document_sha256": "bc8eface7b94684ee4961fc41479ad646625d789a3f63b0ea10d69ab8d618286",
               "relevant_fragment_sha256": "029e2b4eb8e406e845b2e836dd8a42130e5c5be1aa20e99ae6b29ca93ef6d166",
               "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-              "access_state": "NOT_CHECKED_LOCAL_ONLY",
-              "change_reason": "BASELINE_HASH_NOT_ESTABLISHED",
+              "access_state": "HTTP_OK",
+              "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
               "queue": [
                 "C2",
                 "C3"
@@ -128587,7 +128661,13 @@
                 "PK"
               ],
               "schema_issues": [],
-              "semantic_probe": null
+              "semantic_probe": {
+                "extractor": "ocr",
+                "text_layer_length": 0,
+                "ocr_used": true,
+                "relevant_pages": [],
+                "rendered_pages": []
+              }
             }
           }
         ],
@@ -140844,26 +140924,122 @@
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/KAS-pakistan-siachen-scope.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/KAS-india-siachen-scope.png"
       ],
+      "independent_truth_color": "UNKNOWN",
+      "independent_truth_status": "DISPUTED_GEO_NO_OWN_REGIME",
+      "independent_review": {
+        "review_scope": "INDEPENDENT_TRUTH_FIRST_PROPOSAL_ONLY",
+        "territory_type": "DISPUTED_HIGH_ALTITUDE_FEATURE_WITH_COMPETING_INDIAN_AND_PAKISTANI_CLAIMANT_CONTEXT",
+        "reviewed_at": "2026-08-12T09:00:00+03:00",
+        "method": "C0_LOCAL_SCHEMA_REVIEW_C1_SERIAL_CONDITIONAL_HTTP_C2_CURRENT_PDF_TEXT_EXTRACTION_C3_RETAINED_HISTORICAL_HUMAN_VISUAL_CONTEXT_REVIEW",
+        "official_truth_color": "UNKNOWN",
+        "color_rule": "GENERAL_DISPUTED_GEO_NO_OWN_REGIME",
+        "applicability_reason": "DISPUTED_GEO_NO_OWN_REGIME",
+        "legal_conclusion": "The canonical KAS GEO is Siachen Glacier. Current official Indian and Pakistani primary-law records remain applicable to their respective national jurisdictions only, and official India/Pakistan dispute sources show competing claimant context north of NJ 9842. No KAS-issued cannabis statute, neutral territorial lawgiver, or direct evidence of one unitary cannabis regime for the whole disputed feature was found. KAS is therefore UNKNOWN and unpainted for legal applicability, never because the India MEA endpoint returned 403.",
+        "source_record_refs": [
+          "https://www.indiacode.nic.in/bitstream/123456789/18974/1/narcotic-drugs-and-psychotropic-substances-act-1985.pdf",
+          "https://www.indiacode.nic.in/bitstream/123456789/6834/1/narcotic-drugs-and-psychotropic-substances-act-1985.pdf",
+          "https://www.na.gov.pk/uploads/documents/6713a2c8b8dfd_401.pdf",
+          "https://pakistancode.gov.pk/pdffiles/administrator739c7aa745c5afab5decf2e100caf1c5.pdf",
+          "https://www.pakistancode.gov.pk/pdffiles/administrator135567794d629a6ce6f1b32daadc651d.pdf",
+          "https://na.gov.pk/uploads/documents/69d4e17704917_332.pdf",
+          "https://mofa.gov.pk/storage/files/1/65451083a984b.pdf",
+          "https://www.mea.gov.in/Uploads/PublicationDocs/23460_IWM_Book__11-06-2014_.pdf"
+        ],
+        "evidence_axes": {
+          "territorial_applicability": "UNKNOWN_NO_UNITARY_KAS_CANNABIS_REGIME_OR_TERRITORY_ISSUED_CANNABIS_STATUTE_PROVED",
+          "india_claimant_cannabis_context": "YES_CURRENT_INDIA_CODE_NDPS_CANNABIS_TEXT_APPLIES_TO_IN_ONLY",
+          "pakistan_claimant_cannabis_context": "YES_CURRENT_PAKISTAN_CODE_AND_GAZETTE_CANNABIS_TEXT_APPLIES_TO_PK_ONLY",
+          "claimant_dispute_scope": "YES_OFFICIAL_IN_AND_PK_MATERIAL_RECORDS_COMPETING_SIACHEN_NJ9842_CONTEXT_ONLY",
+          "patient_eligible": "UNKNOWN_NO_DIRECT_KAS_APPLICABLE_CANNABIS_PATIENT_ELIGIBILITY_PROVED",
+          "prescriber_route": "UNKNOWN_NO_DIRECT_KAS_APPLICABLE_CANNABIS_PRESCRIBER_ROUTE_PROVED",
+          "registration_route": "UNKNOWN_NO_DIRECT_KAS_APPLICABLE_CANNABIS_REGISTRATION_ROUTE_PROVED",
+          "lawful_supply": "UNKNOWN_NO_DIRECT_KAS_APPLICABLE_CANNABIS_SUPPLY_ROUTE_PROVED",
+          "pharmacy_or_dispensary": "UNKNOWN_NO_DIRECT_KAS_APPLICABLE_CANNABIS_DISPENSING_ROUTE_PROVED",
+          "import_route": "UNKNOWN_NO_DIRECT_KAS_APPLICABLE_CANNABIS_PATIENT_IMPORT_ROUTE_PROVED",
+          "programme_operational": "UNKNOWN_NO_DIRECT_KAS_APPLICABLE_CANNABIS_PROGRAMME_PROVED",
+          "programme_commenced": "UNKNOWN_NO_DIRECT_KAS_APPLICABLE_CANNABIS_PROGRAMME_COMMENCEMENT_PROVED",
+          "recreational_possession": "UNKNOWN_NO_DIRECT_KAS_APPLICABLE_CANNABIS_POSSESSION_RULE_PROVED",
+          "recreational_supply": "UNKNOWN_NO_DIRECT_KAS_APPLICABLE_CANNABIS_SUPPLY_RULE_PROVED",
+          "recreational_cultivation": "UNKNOWN_NO_DIRECT_KAS_APPLICABLE_CANNABIS_CULTIVATION_RULE_PROVED",
+          "penalty_regime": "UNKNOWN_NO_DIRECT_KAS_APPLICABLE_CANNABIS_PENALTY_RULE_PROVED"
+        },
+        "source_annotations": [
+          "India Code NDPS PDFs retain direct cannabis/hemp, charas, ganja and cannabis-plant text plus the medical/scientific statutory exception, but they are explicitly applicable to India and are claimant context only for KAS.",
+          "Pakistan Code and National Assembly CCRA records retain direct medicinal/industrial cannabis-derivative regulation, CNSA restrictions and the 2026 narrow currentness amendment, but they are explicitly applicable to Pakistan and are claimant context only for KAS.",
+          "Pakistan Ministry of Foreign Affairs and India Ministry of External Affairs records explain the competing Siachen/NJ 9842 claimant context. They are non-cannabis jurisdiction material and cannot derive a cannabis legal axis.",
+          "C1 fetched every one of eight canonical URL identities once. Seven returned HTTP 200 current baselines; the India MEA HTTP 403 remains ACCESS_BLOCKED access metadata only. No access result is used as prohibition, patient-access absence or a colour conclusion.",
+          "C2 used pdftotext for text PDFs; the scan-only 2026 amendment alone received OCR and did not produce a new cannabis finding. C3 used retained local historical captures only; no visible desktop browser was opened."
+        ],
+        "strict_visual_acceptance": {
+          "value": "CONTEXT_ONLY_RETAINED_HISTORICAL_CAPTURE",
+          "legal_truth_visual_review_complete": true,
+          "official_domain_visible": false,
+          "reason": "The retained official PDF captures were opened locally and show the cited claimant-law or dispute material. Browser address-bar/domain visibility is incomplete under the hidden-browser rule and is not a legal-truth input. No capture proves direct KAS territorial cannabis law."
+        },
+        "current_layer_comparison": {
+          "project_status": "NO_PROJECT_STATUS_USED_AS_TRUTH_INPUT",
+          "runtime_map_color": "UNCONFIRMED_NOT_RECAPTURED_IN_THIS_LEGAL_PACKET",
+          "runtime_api_status": "UNCONFIRMED_NOT_RECAPTURED_IN_THIS_LEGAL_PACKET",
+          "wiki_truth_proposal": "UNKNOWN_UNPAINTED_FROM_GENERAL_DISPUTED_APPLICABILITY_RULE",
+          "ssot": "UNTOUCHED_NO_APPLICATION_AUTHORIZED"
+        },
+        "no_mutation": {
+          "apply_allowed": false,
+          "ssot_changed": false,
+          "map_colors_changed": false,
+          "production_touched": false,
+          "runtime_touched": false,
+          "deployment_touched": false
+        },
+        "recommended_action": "RETAIN_PROPOSAL_ONLY_UNKNOWN_DISPUTED_GEO_NO_OWN_REGIME_UNTIL_DIRECT_UNITARY_APPLICABILITY_EVIDENCE_EXISTS",
+        "confidence": "HIGH_FOR_CLAIMANT_CONTEXT_AND_DISPUTED_APPLICABILITY_BOUNDARY"
+      },
       "verified_sources": [
         {
           "title": "India Code - Narcotic Drugs and Psychotropic Substances Act, 1985",
           "url": "https://www.indiacode.nic.in/bitstream/123456789/18974/1/narcotic-drugs-and-psychotropic-substances-act-1985.pdf",
           "source_kind": "INDIA_CLAIMANT_STATE_CONTEXT_ONLY_NDPS_ACT_CANNABIS_HEMP_CHARAS_GANJA_PROHIBITION_AND_PENALTIES_NOT_KAS_TERRITORIAL_LAW",
+          "owner": "India Code / Ministry of Law and Justice, Government of India",
+          "source_owner_geo": "IN",
+          "applies_to_geo": [
+            "IN"
+          ],
+          "claimed_territory_geos": [
+            "KAS"
+          ],
+          "legal_basis_for_extension": "The published national statute applies to India. It is retained for KAS only as Indian claimant-law context and is not evidence that the Act extends to the disputed Siachen Glacier GEO.",
+          "source_authority": "India Code / Ministry of Law and Justice, Government of India",
+          "source_type": "CURRENT_CLAIMANT_NATIONAL_PRIMARY_NARCOTIC_DRUG_STATUTE",
+          "primary_or_context": "CLAIMANT_CANNABIS_LAW_CONTEXT_ONLY",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "effective_date": "Narcotic Drugs and Psychotropic Substances Act, 1985; official PDF last modified 2023-05-01.",
+          "official_fragment_locator": "Official NDPS Act PDF: section 1 (whole of India), section 2(iii) cannabis (hemp) definition, section 8(b)-(c) cannabis-plant/conduct restriction and section 20; printed PDF pp. 1, 5-6, 11-12 and 16-17.",
+          "direct_fragment_urls": [
+            "https://www.indiacode.nic.in/bitstream/123456789/18974/1/narcotic-drugs-and-psychotropic-substances-act-1985.pdf#page=6",
+            "https://www.indiacode.nic.in/bitstream/123456789/18974/1/narcotic-drugs-and-psychotropic-substances-act-1985.pdf#page=12",
+            "https://www.indiacode.nic.in/bitstream/123456789/18974/1/narcotic-drugs-and-psychotropic-substances-act-1985.pdf#page=17"
+          ],
+          "exact_fragment": "“cannabis (hemp)” means— (a) charas, that is, the separated resin, in whatever form, whether crude or purified, obtained from the cannabis plant and also includes concentrated preparation and resin known as hashish oil or liquid hashish; (b) ganja, that is, the flowering or fruiting tops of the cannabis plant (excluding the seeds and leaves when not accompanied by the tops), from which alone any resin has not been extracted;",
+          "direct_fragment": "Section 8 prohibits cultivation of any cannabis plant and listed narcotic-drug conduct except for medical or scientific purposes in the manner and extent provided by the Act, rules or orders and any required licence, permit or authorisation.",
+          "source_annotation": "Current official Indian primary-law context explicitly names cannabis and its derivatives and preserves a restricted medical/scientific exception. It proves neither a KAS lawgiver nor a unitary KAS cannabis regime, so it does not supply a KAS legal axis or colour.",
+          "visual_review_result": "RETAINED_HISTORICAL_HUMAN_VISUAL_CONTEXT; India Code title, national extent and cannabis clauses were visually read in the saved PDF pages. Domain/address-bar acceptance remains separate from legal truth.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-39/KAS/screenshots/KAS-india-ndps-page05-05.png",
           "note": "Official India Code PDF. Visual review confirms the Narcotic Drugs and Psychotropic Substances Act, 1985 title and whole-of-India extent, cannabis/hemp definition including charas/hashish oil/liquid hashish and ganja, general prohibition on cultivating cannabis plant and cannabis-related production/possession/sale/purchase/transport/use/consumption except under the Act, and section 20 penalties for cannabis plant/cannabis contraventions. For KAS/Siachen Glacier this is Indian claimant-state cannabis-law context only, not a KAS-issued territorial cannabis-law page.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:49:51.042Z",
             "final_url": "https://www.indiacode.nic.in/bitstream/123456789/18974/1/narcotic-drugs-and-psychotropic-substances-act-1985.pdf",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "last_modified": "Mon, 01 May 2023 07:31:40 GMT",
+            "content_type": "application/pdf",
+            "content_length": 609101,
+            "document_sha256": "8cd8e71f5e1bd5a5d98a414d553c76838ae8bf9b493097981220305ef70deac2",
+            "relevant_fragment_sha256": "9307f04c0880dee7531da89572628f3d3d0948c2076c94fcbfdc1de79c7eb43d",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -140872,36 +141048,111 @@
               "NEEDS_SEMANTIC_REVIEW"
             ],
             "dependent_geos": [
+              "IN",
               "KAS"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
-            "semantic_probe": null
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 174732,
+              "ocr_used": false,
+              "relevant_pages": [
+                1,
+                2,
+                5,
+                6,
+                7,
+                8,
+                11,
+                12,
+                14,
+                15,
+                16,
+                17,
+                21,
+                27,
+                28,
+                30,
+                32,
+                45,
+                46,
+                48,
+                51,
+                52,
+                53
+              ],
+              "rendered_pages": [
+                1,
+                2,
+                5,
+                6,
+                7,
+                8,
+                11,
+                12,
+                14,
+                15,
+                16,
+                17,
+                21,
+                27,
+                28,
+                30,
+                32,
+                45,
+                46,
+                48,
+                51,
+                52,
+                53
+              ]
+            }
           }
         },
         {
           "title": "National Assembly of Pakistan - Cannabis Control and Regulatory Authority Act, 2024",
           "url": "https://www.na.gov.pk/uploads/documents/6713a2c8b8dfd_401.pdf",
           "source_kind": "PAKISTAN_CLAIMANT_STATE_CONTEXT_ONLY_GAZETTE_CANNABIS_CONTROL_REGULATORY_AUTHORITY_ACT_2024_NOT_KAS_TERRITORIAL_LAW",
+          "owner": "National Assembly of Pakistan / Gazette of Pakistan",
+          "source_owner_geo": "PK",
+          "applies_to_geo": [
+            "PK"
+          ],
+          "claimed_territory_geos": [
+            "KAS"
+          ],
+          "legal_basis_for_extension": "The federal Act applies throughout Pakistan. It is retained for KAS only as Pakistani claimant-law context and does not establish that the disputed Siachen Glacier GEO is subject to a Pakistani unitary cannabis regime.",
+          "source_authority": "National Assembly of Pakistan / Gazette of Pakistan",
+          "source_type": "CURRENT_CLAIMANT_NATIONAL_PRIMARY_CANNABIS_STATUTE",
+          "primary_or_context": "CLAIMANT_CANNABIS_LAW_CONTEXT_ONLY",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "effective_date": "Act XXIV of 2024, 24 September 2024; section 1 immediate commencement; official PDF last modified 2024-10-19.",
+          "official_fragment_locator": "Official Gazette PDF: title and section 1 on printed pp. 1-3; medicinal/industrial licensing provisions on printed pp. 13-15.",
+          "direct_fragment_urls": [
+            "https://www.na.gov.pk/uploads/documents/6713a2c8b8dfd_401.pdf#page=3",
+            "https://www.na.gov.pk/uploads/documents/6713a2c8b8dfd_401.pdf#page=13"
+          ],
+          "exact_fragment": "An Act to regulate the cultivation of cannabis plant, extraction, refining, manufacturing and sale of derivatives of the plant for medicinal and industrial use.",
+          "direct_fragment": "Section 1 extends the Act to the whole of Pakistan and brings it into force at once.",
+          "source_annotation": "Official Pakistani primary-law context directly regulates cannabis-plant derivatives for medicinal and industrial use. It is not patient-access evidence and cannot establish KAS territorial applicability or colour.",
+          "visual_review_result": "RETAINED_HISTORICAL_HUMAN_VISUAL_CONTEXT; the saved official Gazette page visibly shows the Act title, Pakistan-wide extent and cannabis terminology. Strict domain visibility remains separate.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-39/KAS/screenshots/KAS-pakistan-cannabis-act-2024-page01-01.png",
           "note": "Official National Assembly-hosted Gazette of Pakistan PDF. Visual review confirms the Cannabis Control and Regulatory Authority Act, 2024 title, Gazette publication, whole-of-Pakistan extent, definitions of cannabis, cannabis plant, CBD and THC, national cannabis policy, and licensed activities for cultivation, production, manufacturing, product development and sale of/from cannabis plant derivatives. For KAS/Siachen Glacier this is Pakistani claimant-state cannabis-law context only, not a KAS-issued territorial cannabis-law page.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:49:51.042Z",
             "final_url": "https://www.na.gov.pk/uploads/documents/6713a2c8b8dfd_401.pdf",
-            "http_status": null,
-            "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "http_status": 200,
+            "etag": "\"e1cef-624d35ea3a3b7\"",
+            "last_modified": "Sat, 19 Oct 2024 12:15:04 GMT",
+            "content_type": "application/pdf",
+            "content_length": 924911,
+            "document_sha256": "3e8e53c2e5139fcb42182bca46adf9e3d6e4000567b649dbf1515a6414c45681",
+            "relevant_fragment_sha256": "bf09f0d9c369b461d8332793f3ea11f8241aead794a338a5c115dcb8323762f2",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -140910,36 +141161,107 @@
               "NEEDS_SEMANTIC_REVIEW"
             ],
             "dependent_geos": [
-              "KAS"
+              "KAS",
+              "PK"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
-            "semantic_probe": null
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 45708,
+              "ocr_used": false,
+              "relevant_pages": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+              ],
+              "rendered_pages": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+              ]
+            }
           }
         },
         {
           "title": "Ministry of Foreign Affairs Pakistan - Jammu and Kashmir Dispute, Siachen context",
           "url": "https://mofa.gov.pk/storage/files/1/65451083a984b.pdf",
           "source_kind": "PAKISTAN_OFFICIAL_KASHMIR_DISPUTE_SIACHEN_CONTEXT_ONLY_NOT_CANNABIS_LAW",
+          "owner": "Ministry of Foreign Affairs, Government of Pakistan",
+          "source_owner_geo": "PK",
+          "applies_to_geo": [
+            "PK"
+          ],
+          "claimed_territory_geos": [
+            "KAS"
+          ],
+          "legal_basis_for_extension": "Pakistan Ministry of Foreign Affairs material states Pakistan's claimant/dispute position only. It does not create a KAS cannabis-law applicability bridge.",
+          "source_authority": "Ministry of Foreign Affairs, Government of Pakistan",
+          "source_type": "OFFICIAL_CLAIMANT_DISPUTE_SCOPE_CONTEXT",
+          "primary_or_context": "JURISDICTION_CONTEXT_ONLY",
+          "cannabis_specific": false,
+          "current": true,
+          "effective": true,
+          "effective_date": "Official dispute-context PDF last modified 2023-11-03; no cannabis legal rule is asserted.",
+          "official_fragment_locator": "Official Kashmir-dispute PDF, printed p. 25 / Siachen subsection; retained visual capture records the Siachen and ceasefire/LoC context.",
+          "direct_fragment_urls": [
+            "https://mofa.gov.pk/storage/files/1/65451083a984b.pdf#page=25"
+          ],
+          "exact_fragment": "Siachen thus emerged on the map as the world's highest battlefield.",
+          "source_annotation": "Official Pakistani claimant-scope source. It is not cannabis law and cannot derive a legal axis; it records why Pakistani national cannabis sources cannot be silently inherited by KAS.",
+          "visual_review_result": "RETAINED_HISTORICAL_HUMAN_VISUAL_CONTEXT; saved PDF page visibly shows Siachen, both sides and ceasefire/LoC context. Strict domain visibility is not a legal-truth input.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-39/KAS/screenshots/KAS-pakistan-mofa-kashmir-dispute-page16-16.png",
           "note": "Official Pakistan Ministry of Foreign Affairs PDF. Visual review confirms the document is about the Jammu and Kashmir dispute and visibly states that Siachen emerged as the world's highest battlefield, with both sides involved and ceasefire/LoC context. This is official territorial/dispute context only, not a cannabis-law page.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:49:51.042Z",
             "final_url": "https://mofa.gov.pk/storage/files/1/65451083a984b.pdf",
-            "http_status": null,
-            "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "http_status": 200,
+            "etag": "\"a839c-609411732e6c0\"",
+            "last_modified": "Fri, 03 Nov 2023 15:23:47 GMT",
+            "content_type": "application/pdf",
+            "content_length": 689052,
+            "document_sha256": "c9735512aafe91b89e105e42846ddb7c8e8e02b8af94588cf0f07a0cd0ddb102",
+            "relevant_fragment_sha256": "e8ee2047fb3afd691bada0609c21ba8072d0f46a185e1c21ad2524d312b1ea47",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -140948,52 +141270,77 @@
               "NEEDS_SEMANTIC_REVIEW"
             ],
             "dependent_geos": [
-              "KAS"
+              "KAS",
+              "PK"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
-            "semantic_probe": null
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 84471,
+              "ocr_used": false,
+              "relevant_pages": [
+                25
+              ],
+              "rendered_pages": [
+                25
+              ]
+            }
           }
         },
         {
           "title": "Ministry of External Affairs India - War Memorials in India, Siachen context",
           "url": "https://www.mea.gov.in/Uploads/PublicationDocs/23460_IWM_Book__11-06-2014_.pdf",
           "source_kind": "INDIA_OFFICIAL_MEA_SIACHEN_DISPUTE_NJ9842_CONTEXT_ONLY_NOT_CANNABIS_LAW",
+          "owner": "Ministry of External Affairs, Government of India",
+          "source_owner_geo": "IN",
+          "applies_to_geo": [
+            "IN"
+          ],
+          "claimed_territory_geos": [
+            "KAS"
+          ],
+          "legal_basis_for_extension": "India Ministry of External Affairs material states India's claimant/dispute position only. It does not create a KAS cannabis-law applicability bridge.",
+          "source_authority": "Ministry of External Affairs, Government of India",
+          "source_type": "OFFICIAL_CLAIMANT_DISPUTE_SCOPE_CONTEXT",
+          "primary_or_context": "JURISDICTION_CONTEXT_ONLY",
+          "cannabis_specific": false,
+          "current": true,
+          "effective": true,
+          "effective_date": "Retained official dispute-context publication; C1 HTTP 403 is access metadata only and does not establish legal change.",
+          "official_fragment_locator": "War Memorials in India PDF, Siachen section, printed p. 157; retained visual capture shows NJ 9842 and competing India/Pakistan interpretations.",
+          "direct_fragment_urls": [
+            "https://www.mea.gov.in/Uploads/PublicationDocs/23460_IWM_Book__11-06-2014_.pdf#page=157"
+          ],
+          "exact_fragment": "The origin of the Siachen dispute lies in the differing interpretation of the undemarcated Cease Fire Line / Line of Control in the area north of NJ 9842.",
+          "source_annotation": "Official Indian claimant-scope source. It is not cannabis law and cannot derive a legal axis; its C1 403 is an ACCESS_BLOCKED state only, never a conclusion about KAS cannabis law.",
+          "visual_review_result": "RETAINED_HISTORICAL_HUMAN_VISUAL_CONTEXT; saved PDF page visibly shows the Siachen dispute and the competing interpretations. Strict domain visibility is separate.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-39/KAS/screenshots/KAS-india-mea-siachen-context-page157-157.png",
           "note": "Official India Ministry of External Affairs PDF. Visual review confirms a Siachen section stating the origin of the Siachen dispute lies in differing interpretations of the undemarcated Cease Fire Line / Line of Control north of NJ 9842 and describes the Indian and Pakistani positions. This is official territorial/dispute context only, not a cannabis-law page.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:49:51.042Z",
             "final_url": "https://www.mea.gov.in/Uploads/PublicationDocs/23460_IWM_Book__11-06-2014_.pdf",
-            "http_status": null,
+            "http_status": 403,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
+            "content_type": "text/html",
+            "content_length": 919,
             "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "relevant_fragment_sha256": "580c354c6ec9e5d1073fe7fcdf9b9b90e2e7776943ecffd5c8ef7ed52d02fc83",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "HTTP_STATUS_403",
+            "change_reason": "HTTP_STATUS_403_IS_ACCESS_STATE_ONLY",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "NEEDS_SEMANTIC_REVIEW"
+              "ACCESS_BLOCKED"
             ],
             "dependent_geos": [
+              "IN",
               "KAS"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
+            "schema_issues": [],
             "semantic_probe": null
           }
         }
@@ -141065,6 +141412,31 @@
           "title": "India NDPS Act 1985 — определение cannabis (hemp)",
           "url": "https://www.indiacode.nic.in/bitstream/123456789/6834/1/narcotic-drugs-and-psychotropic-substances-act-1985.pdf",
           "source_kind": "INDIA_CLAIMANT_DIRECT_CANNABIS_LAW",
+          "owner": "India Code / Ministry of Law and Justice, Government of India",
+          "source_owner_geo": "IN",
+          "applies_to_geo": [
+            "IN"
+          ],
+          "claimed_territory_geos": [
+            "KAS"
+          ],
+          "legal_basis_for_extension": "This alternate official India Code copy is Indian national law. For KAS it is only claimant context and supplies no direct territorial applicability.",
+          "source_authority": "India Code / Ministry of Law and Justice, Government of India",
+          "source_type": "CURRENT_CLAIMANT_NATIONAL_PRIMARY_NARCOTIC_DRUG_STATUTE",
+          "primary_or_context": "CLAIMANT_CANNABIS_LAW_CONTEXT_ONLY",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "effective_date": "Narcotic Drugs and Psychotropic Substances Act, 1985; official alternate PDF last modified 2022-08-12.",
+          "official_fragment_locator": "Official NDPS Act PDF: section 2(iii) cannabis (hemp) definition and section 8(c) medical/scientific exception; printed pp. 6 and 11-12.",
+          "direct_fragment_urls": [
+            "https://www.indiacode.nic.in/bitstream/123456789/6834/1/narcotic-drugs-and-psychotropic-substances-act-1985.pdf#page=6",
+            "https://www.indiacode.nic.in/bitstream/123456789/6834/1/narcotic-drugs-and-psychotropic-substances-act-1985.pdf#page=12"
+          ],
+          "exact_fragment": "“cannabis (hemp)” means— (a) charas, that is, the separated resin, in whatever form, whether crude or purified, obtained from the cannabis plant and also includes concentrated preparation and resin known as hashish oil or liquid hashish; (b) ganja, that is, the flowering or fruiting tops of the cannabis plant (excluding the seeds and leaves when not accompanied by the tops), from which alone any resin has not been extracted;",
+          "direct_fragment": "Section 8(c) preserves only medical or scientific purposes in the manner and extent provided by the Act, rules or orders and any required licence, permit or authorisation.",
+          "source_annotation": "Alternate current official Indian PDF retained to cross-check the cannabis definition and medical/scientific exception. It is claimant-state context only, not a patient route and not KAS territorial law.",
+          "visual_review_result": "RETAINED_HISTORICAL_HUMAN_VISUAL_CONTEXT; the saved page visibly contains the cannabis definition and the saved second frame the medical/scientific exception. Strict domain visibility remains separate.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/KAS-india-ndps-cannabis.png",
           "fresh_visual_review": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
           "fresh_visual_analysis_ru": "На странице 12 виден общий запрет операций с narcotic drugs и явное исключение для medical or scientific purposes; ниже отдельно упомянута cannabis plant/ganja.",
@@ -141072,18 +141444,18 @@
             "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/KAS-india-medical-scientific-exception.png"
           ],
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:49:51.042Z",
             "final_url": "https://www.indiacode.nic.in/bitstream/123456789/6834/1/narcotic-drugs-and-psychotropic-substances-act-1985.pdf",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "last_modified": "Fri, 12 Aug 2022 11:07:54 GMT",
+            "content_type": "application/pdf",
+            "content_length": 4320099,
+            "document_sha256": "95b15b3c31a31a766255d0559a75d277f4cd4ef3994452833db378a446299f03",
+            "relevant_fragment_sha256": "9307f04c0880dee7531da89572628f3d3d0948c2076c94fcbfdc1de79c7eb43d",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -141092,37 +141464,106 @@
               "NEEDS_SEMANTIC_REVIEW"
             ],
             "dependent_geos": [
+              "IN",
               "KAS"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
-            "semantic_probe": null
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 192453,
+              "ocr_used": false,
+              "relevant_pages": [
+                2,
+                3,
+                4,
+                6,
+                7,
+                8,
+                11,
+                12,
+                15,
+                16,
+                17,
+                18,
+                24,
+                33,
+                37,
+                39,
+                50,
+                56,
+                59,
+                61
+              ],
+              "rendered_pages": [
+                2,
+                3,
+                4,
+                6,
+                7,
+                8,
+                11,
+                12,
+                15,
+                16,
+                17,
+                18,
+                24,
+                33,
+                37,
+                39,
+                50,
+                56,
+                59,
+                61
+              ]
+            }
           }
         },
         {
           "title": "Pakistan CNSA — определение cannabis, charas и ganja",
           "url": "https://pakistancode.gov.pk/pdffiles/administrator739c7aa745c5afab5decf2e100caf1c5.pdf",
           "source_kind": "PAKISTAN_CLAIMANT_DIRECT_CANNABIS_LAW",
+          "owner": "Pakistan Code / Ministry of Law and Justice",
+          "source_owner_geo": "PK",
+          "applies_to_geo": [
+            "PK"
+          ],
+          "claimed_territory_geos": [
+            "KAS"
+          ],
+          "legal_basis_for_extension": "This consolidated federal statute applies in Pakistan. It is KAS claimant-law context only and does not prove a unitary territorial cannabis regime for the disputed GEO.",
+          "source_authority": "Pakistan Code / Ministry of Law and Justice",
+          "source_type": "CURRENT_CLAIMANT_CONSOLIDATED_PRIMARY_NARCOTIC_STATUTE",
+          "primary_or_context": "CLAIMANT_CANNABIS_LAW_CONTEXT_ONLY",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "effective_date": "Current hosted consolidated text; official PDF last modified 2023-08-07.",
+          "official_fragment_locator": "Control of Narcotic Substances Act, 1997 official PDF: section 2 cannabis definitions printed p. 6; sections 4 and 6 prohibitions/medical-scientific-industrial exception printed pp. 11-12; section 9 penalties.",
+          "direct_fragment_urls": [
+            "https://pakistancode.gov.pk/pdffiles/administrator739c7aa745c5afab5decf2e100caf1c5.pdf#page=6",
+            "https://pakistancode.gov.pk/pdffiles/administrator739c7aa745c5afab5decf2e100caf1c5.pdf#page=11"
+          ],
+          "exact_fragment": "The Act defines cannabis/hemp, cannabis resin/charas/hashish oil, flowering or fruiting tops, bhang/siddhi/ganja and cannabis plant.",
+          "direct_fragment": "Sections 4 and 6 prohibit cannabis cultivation, possession, production, sale, purchase, distribution and transport except for medical, scientific or industrial purposes under law; section 9 gives cannabis/bhang penalties.",
+          "source_annotation": "Current official Pakistani consolidated cannabis statute retained as claimant context. It proves no KAS legal axis, no patient programme and no territorial inheritance of the Pakistan regime.",
+          "visual_review_result": "RETAINED_HISTORICAL_HUMAN_VISUAL_CONTEXT; the saved official page visibly names cannabis, cannabis resin/charas, ganja and cannabis plant. Strict domain visibility remains separate.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/KAS-pakistan-cnsa-cannabis.png",
           "fresh_visual_review": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
           "fresh_visual_analysis_ru": "На странице 6 официального консолидированного акта видны cannabis (hemp), cannabis resin/charas, ganja и cannabis plant.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:49:51.042Z",
             "final_url": "https://pakistancode.gov.pk/pdffiles/administrator739c7aa745c5afab5decf2e100caf1c5.pdf",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "last_modified": "Mon, 07 Aug 2023 09:25:38 GMT",
+            "content_type": "application/pdf",
+            "content_length": 553737,
+            "document_sha256": "e5e7cad13487f4828b787fe7991e4a4765175137eb62cc0325f55824a3ebaecf",
+            "relevant_fragment_sha256": "850d06d171fdcd198852741a77da1bc82ceb05c7687f19afc2c349d6c95d1f99",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -141131,37 +141572,92 @@
               "NEEDS_SEMANTIC_REVIEW"
             ],
             "dependent_geos": [
-              "KAS"
+              "KAS",
+              "PK"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
-            "semantic_probe": null
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 115508,
+              "ocr_used": false,
+              "relevant_pages": [
+                6,
+                7,
+                8,
+                9,
+                11,
+                13,
+                19,
+                24,
+                42,
+                45,
+                48,
+                49,
+                50
+              ],
+              "rendered_pages": [
+                6,
+                7,
+                8,
+                9,
+                11,
+                13,
+                19,
+                24,
+                42,
+                45,
+                48,
+                49,
+                50
+              ]
+            }
           }
         },
         {
           "title": "Pakistan Cannabis Control and Regulatory Authority Act 2024",
           "url": "https://www.pakistancode.gov.pk/pdffiles/administrator135567794d629a6ce6f1b32daadc651d.pdf",
           "source_kind": "PAKISTAN_CLAIMANT_REGULATED_MEDICINAL_CANNABIS_LAW",
+          "owner": "Pakistan Code / Ministry of Law and Justice",
+          "source_owner_geo": "PK",
+          "applies_to_geo": [
+            "PK"
+          ],
+          "claimed_territory_geos": [
+            "KAS"
+          ],
+          "legal_basis_for_extension": "The federal Act is directly applicable in Pakistan. It is KAS claimant-law context only and does not establish an applicable cannabis regime for the disputed GEO.",
+          "source_authority": "Pakistan Code / Ministry of Law and Justice",
+          "source_type": "CURRENT_CLAIMANT_NATIONAL_PRIMARY_CANNABIS_STATUTE",
+          "primary_or_context": "CLAIMANT_CANNABIS_LAW_CONTEXT_ONLY",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "effective_date": "Act XXIV of 2024, 24 September 2024; section 1 immediate commencement; official PDF last modified 2026-04-16.",
+          "official_fragment_locator": "Official CCRA Act PDF: title and section 1 printed p. 3; regulated medicinal/industrial activities printed pp. 13-15.",
+          "direct_fragment_urls": [
+            "https://www.pakistancode.gov.pk/pdffiles/administrator135567794d629a6ce6f1b32daadc651d.pdf#page=3",
+            "https://www.pakistancode.gov.pk/pdffiles/administrator135567794d629a6ce6f1b32daadc651d.pdf#page=13"
+          ],
+          "exact_fragment": "An Act to regulate the cultivation of cannabis plant, extraction, refining, manufacturing and sale of derivatives of the plant for medicinal and industrial use.",
+          "direct_fragment": "Section 1 extends the Act to all Pakistan and brings it into force at once; sections 20-23 license cannabis-derivative cultivation, production, manufacture, product development and sale.",
+          "source_annotation": "Current official Pakistan Code cannabis-law record. It is a regulated medicinal/industrial framework, not a proven patient-access route, and for KAS remains claimant context rather than a territorial legal conclusion.",
+          "visual_review_result": "RETAINED_HISTORICAL_HUMAN_VISUAL_CONTEXT; the saved official page visibly shows the title, medicinal/industrial use and all-Pakistan extent. Strict domain visibility remains separate.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/KAS-pakistan-ccra-2024.png",
           "fresh_visual_review": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
           "fresh_visual_analysis_ru": "На странице 3 видны название закона, medicinal and industrial use, действие на весь Pakistan и подробное определение cannabis.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:49:51.042Z",
             "final_url": "https://www.pakistancode.gov.pk/pdffiles/administrator135567794d629a6ce6f1b32daadc651d.pdf",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "last_modified": "Thu, 16 Apr 2026 05:01:51 GMT",
+            "content_type": "application/pdf",
+            "content_length": 320745,
+            "document_sha256": "5c1315d951caf588fb3601fd511143b076106a89f24c2f240b598eb292d807eb",
+            "relevant_fragment_sha256": "bf09f0d9c369b461d8332793f3ea11f8241aead794a338a5c115dcb8323762f2",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -141170,37 +141666,89 @@
               "NEEDS_SEMANTIC_REVIEW"
             ],
             "dependent_geos": [
-              "KAS"
+              "KAS",
+              "PK"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
-            "semantic_probe": null
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 45229,
+              "ocr_used": false,
+              "relevant_pages": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                7,
+                8,
+                11,
+                13,
+                14,
+                15,
+                18
+              ],
+              "rendered_pages": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                7,
+                8,
+                11,
+                13,
+                14,
+                15,
+                18
+              ]
+            }
           }
         },
         {
           "title": "Pakistan CCRA Amendment Act 2026",
           "url": "https://na.gov.pk/uploads/documents/69d4e17704917_332.pdf",
           "source_kind": "PAKISTAN_CLAIMANT_CURRENT_CANNABIS_LAW_AMENDMENT",
+          "owner": "National Assembly of Pakistan / Gazette of Pakistan",
+          "source_owner_geo": "PK",
+          "applies_to_geo": [
+            "PK"
+          ],
+          "claimed_territory_geos": [
+            "KAS"
+          ],
+          "legal_basis_for_extension": "The federal amendment applies in Pakistan. It is retained for KAS only to establish currentness of Pakistan claimant context and does not transfer legal applicability to the disputed GEO.",
+          "source_authority": "National Assembly of Pakistan / Gazette of Pakistan",
+          "source_type": "CURRENT_CLAIMANT_PRIMARY_CANNABIS_AMENDMENT",
+          "primary_or_context": "CLAIMANT_CANNABIS_LAW_CURRENTNESS_CONTEXT_ONLY",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "effective_date": "Presidential assent 2026-03-03; Gazette Extraordinary 2026-03-12; immediate commencement; official PDF last modified 2026-04-07.",
+          "official_fragment_locator": "Official Gazette Act XIX of 2026, p. 2; C1 records scan-only source with no usable text layer, so OCR was attempted only for this PDF.",
+          "direct_fragment_urls": [
+            "https://na.gov.pk/uploads/documents/69d4e17704917_332.pdf#page=2"
+          ],
+          "exact_fragment": "An Act further to amend the Cannabis Control and Regulatory Authority Act, 2024.",
+          "direct_fragment": "Section 2 changes only the section 7(4) proviso of the 2024 Act, replacing “Federal Government” with “Prime Minister”.",
+          "source_annotation": "Current official Pakistan cannabis-law amendment retained solely to prevent stale claimant-law context. It makes no patient-access finding and cannot establish KAS applicability.",
+          "visual_review_result": "RETAINED_HISTORICAL_HUMAN_VISUAL_CONTEXT; the saved Gazette page visibly shows Act XIX of 2026 and its narrow amendment purpose. The C1 OCR result did not itself produce legal evidence.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/KAS-pakistan-ccra-amendment-2026.png",
           "fresh_visual_review": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
           "fresh_visual_analysis_ru": "На первой странице Gazette of Pakistan читается Act XIX of 2026, президентское одобрение и прямое назначение: amend the Cannabis Control and Regulatory Authority Act, 2024.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:49:51.042Z",
             "final_url": "https://na.gov.pk/uploads/documents/69d4e17704917_332.pdf",
-            "http_status": null,
-            "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "http_status": 200,
+            "etag": "\"b3ef5-64edc8d522e55\"",
+            "last_modified": "Tue, 07 Apr 2026 10:50:31 GMT",
+            "content_type": "application/pdf",
+            "content_length": 737013,
+            "document_sha256": "bc8eface7b94684ee4961fc41479ad646625d789a3f63b0ea10d69ab8d618286",
+            "relevant_fragment_sha256": "930b9e6f0cb35f521c99170730e6e4db54e8718afd8441a267c9858c1ac4d4fa",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -141209,32 +141757,134 @@
               "NEEDS_SEMANTIC_REVIEW"
             ],
             "dependent_geos": [
-              "KAS"
+              "KAS",
+              "PK"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
-            "semantic_probe": null
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "ocr",
+              "text_layer_length": 0,
+              "ocr_used": true,
+              "relevant_pages": [],
+              "rendered_pages": []
+            }
           }
         },
         {
           "title": "Pakistan MOFA — Siachen/Kashmir claimant context",
           "url": "https://mofa.gov.pk/storage/files/1/65451083a984b.pdf",
           "source_kind": "PAKISTAN_CLAIMANT_SCOPE",
+          "owner": "Ministry of Foreign Affairs, Government of Pakistan",
+          "source_owner_geo": "PK",
+          "applies_to_geo": [
+            "PK"
+          ],
+          "claimed_territory_geos": [
+            "KAS"
+          ],
+          "legal_basis_for_extension": "Pakistan Ministry of Foreign Affairs material is a claimant-scope record only and never establishes a unitary KAS cannabis-law applicability bridge.",
+          "source_authority": "Ministry of Foreign Affairs, Government of Pakistan",
+          "source_type": "OFFICIAL_CLAIMANT_DISPUTE_SCOPE_CONTEXT",
+          "primary_or_context": "JURISDICTION_CONTEXT_ONLY",
+          "cannabis_specific": false,
+          "current": true,
+          "effective": true,
+          "effective_date": "Official dispute-context PDF last modified 2023-11-03; no cannabis legal rule is asserted.",
+          "official_fragment_locator": "Official Kashmir-dispute PDF, printed p. 25 / Siachen subsection; retained 2026-07-20 capture shows Siachen, ceasefire/LoC and Pakistan claimant narration.",
+          "direct_fragment_urls": [
+            "https://mofa.gov.pk/storage/files/1/65451083a984b.pdf#page=25"
+          ],
+          "exact_fragment": "Siachen thus emerged on the map as the world's highest battlefield.",
+          "source_annotation": "Second retained visual reference for the Pakistani claimant-scope source. It is jurisdiction context only, not a cannabis-law source and not an applicability bridge for KAS.",
+          "visual_review_result": "RETAINED_HISTORICAL_HUMAN_VISUAL_CONTEXT; the official PDF frame was opened locally without a desktop browser. Strict domain visibility remains separate.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/KAS-pakistan-siachen-scope.png",
           "fresh_visual_review": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
-          "fresh_visual_analysis_ru": "На официально опубликованной странице видны Siachen, ceasefire/LoC и Pakistan-side изложение Kashmir dispute. Это claimant context, не нейтральное решение суверенитета."
+          "fresh_visual_analysis_ru": "На официально опубликованной странице видны Siachen, ceasefire/LoC и Pakistan-side изложение Kashmir dispute. Это claimant context, не нейтральное решение суверенитета.",
+          "revalidation": {
+            "checked_at": "2026-08-12T05:59:51.502Z",
+            "final_url": "https://mofa.gov.pk/storage/files/1/65451083a984b.pdf",
+            "http_status": null,
+            "etag": null,
+            "last_modified": null,
+            "content_type": null,
+            "content_length": null,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "e8ee2047fb3afd691bada0609c21ba8072d0f46a185e1c21ad2524d312b1ea47",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "NOT_CHECKED_LOCAL_ONLY",
+            "change_reason": "BASELINE_HASH_NOT_ESTABLISHED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "NEEDS_SEMANTIC_REVIEW"
+            ],
+            "dependent_geos": [
+              "KAS",
+              "PK"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
         },
         {
           "title": "India MEA — Siachen и NJ 9842 claimant context",
           "url": "https://www.mea.gov.in/Uploads/PublicationDocs/23460_IWM_Book__11-06-2014_.pdf",
           "source_kind": "INDIA_CLAIMANT_SCOPE",
+          "owner": "Ministry of External Affairs, Government of India",
+          "source_owner_geo": "IN",
+          "applies_to_geo": [
+            "IN"
+          ],
+          "claimed_territory_geos": [
+            "KAS"
+          ],
+          "legal_basis_for_extension": "India Ministry of External Affairs material is a claimant-scope record only and never establishes a unitary KAS cannabis-law applicability bridge.",
+          "source_authority": "Ministry of External Affairs, Government of India",
+          "source_type": "OFFICIAL_CLAIMANT_DISPUTE_SCOPE_CONTEXT",
+          "primary_or_context": "JURISDICTION_CONTEXT_ONLY",
+          "cannabis_specific": false,
+          "current": true,
+          "effective": true,
+          "effective_date": "Retained official dispute-context publication; C1 HTTP 403 is access metadata only and does not establish legal change.",
+          "official_fragment_locator": "War Memorials in India PDF, Siachen section, printed p. 157; retained 2026-07-20 capture shows NJ 9842 and competing India/Pakistan interpretations.",
+          "direct_fragment_urls": [
+            "https://www.mea.gov.in/Uploads/PublicationDocs/23460_IWM_Book__11-06-2014_.pdf#page=157"
+          ],
+          "exact_fragment": "The origin of the Siachen dispute lies in the differing interpretation of the undemarcated Cease Fire Line / Line of Control in the area north of NJ 9842.",
+          "source_annotation": "Second retained visual reference for the Indian claimant-scope source. Its access block is not a legal conclusion and it is never cannabis-law evidence or an applicability bridge for KAS.",
+          "visual_review_result": "RETAINED_HISTORICAL_HUMAN_VISUAL_CONTEXT; the official PDF frame was opened locally without a desktop browser. Strict domain visibility remains separate.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/KAS-india-siachen-scope.png",
           "fresh_visual_review": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
-          "fresh_visual_analysis_ru": "На странице 157 публикации MEA видны Siachen, NJ 9842 и противоположные интерпретации India/Pakistan. Документ подтверждает спорный scope и запрещает выбирать одного суверена автоматически."
+          "fresh_visual_analysis_ru": "На странице 157 публикации MEA видны Siachen, NJ 9842 и противоположные интерпретации India/Pakistan. Документ подтверждает спорный scope и запрещает выбирать одного суверена автоматически.",
+          "revalidation": {
+            "checked_at": "2026-08-12T05:59:51.502Z",
+            "final_url": "https://www.mea.gov.in/Uploads/PublicationDocs/23460_IWM_Book__11-06-2014_.pdf",
+            "http_status": null,
+            "etag": null,
+            "last_modified": null,
+            "content_type": null,
+            "content_length": null,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "580c354c6ec9e5d1073fe7fcdf9b9b90e2e7776943ecffd5c8ef7ed52d02fc83",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "NOT_CHECKED_LOCAL_ONLY",
+            "change_reason": "BASELINE_HASH_NOT_ESTABLISHED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "NEEDS_SEMANTIC_REVIEW"
+            ],
+            "dependent_geos": [
+              "IN",
+              "KAS"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
         }
       ],
       "fresh_project_null_7_reaudit": {
@@ -150022,6 +150672,49 @@
         "ZM"
       ],
       "detail": "SN is proposal-only UNKNOWN with the explicit LEGAL_APPLICABILITY_UNRESOLVED reason. The retained official CENTIF Code directly establishes national cannabis-cultivation prohibition and cannabis-oil/derivative personal-consumption penalty context, while its Table I/II/III system leaves current cannabis classification and medical-authorisation applicability unresolved until a current cannabis-specific schedule is retrievable. C0 made zero HTTP requests; C1 attempted two unique official URLs once and recorded access-only errors; C2 had no usable response; C3 headless review returned HTTP 500 Web Page Blocked for both URLs. WAF/access states do not derive a legal conclusion. Targeted revalidation and reconciliation tests passed 66/66; global C0 dry-run fetched zero URLs; the required serial root pass cycle passed. The counts use compatible independent-truth aliases in the rebuilt 307-row matrix. APPLY_ALLOWED=false; PRODUCTION_TOUCHED=false; MAP_COLORS_CHANGED=false; SSOT_CHANGED=false."
+    },
+    {
+      "geo": "KAS",
+      "at": "2026-08-12T06:09:43Z",
+      "stage": "AUDIT_STOP_CHECKPOINT",
+      "result": "CI_STATUS=PASS;SMOKE_STATUS=PASS;POST_CHECKS_OK=1;HUB_STAGE_REPORT_OK=1;PROCESS_SLOT_RUNTIME_GUARD=PASS;PASS_CYCLE_EXIT_RC=0",
+      "ci_report_sha256": "f859ee5237fb4f9717a7bead38d2ff0e416a78b5ef626f1bf6fbd5e43e5d5203",
+      "structured_independent_packets": 284,
+      "normalized_independent_truth_colors": 284,
+      "remaining_without_independent_color": 23,
+      "normalized_color_distribution": {
+        "GREEN": 91,
+        "YELLOW": 107,
+        "RED": 21,
+        "UNKNOWN": 65,
+        "NO_INDEPENDENT_COLOR": 23
+      },
+      "remaining_canonical_geos": [
+        "SX",
+        "SB",
+        "SO",
+        "GS",
+        "SS",
+        "LK",
+        "SD",
+        "SR",
+        "SY",
+        "TJ",
+        "TZ",
+        "TH",
+        "TL",
+        "TG",
+        "TO",
+        "TN",
+        "TM",
+        "TC",
+        "TV",
+        "US",
+        "EH",
+        "YE",
+        "ZM"
+      ],
+      "detail": "KAS/Siachen Glacier retains ten schema-complete active claimant-law/dispute source records for eight official URL/PDF identities, including page-level links, owner, IN/PK applicability, exact fragments, annotations, visual state and revalidation. C0 made zero requests; the preceding serial C1 fetched each identity once, retaining seven HTTP 200 semantic baselines and the India MEA HTTP 403 as ACCESS_BLOCKED only. C2 used pdftotext for text PDFs and OCR only for scan-only Act XIX of 2026; C3 used retained local historical visual context without a visible browser. The general disputed-GEO rule derives proposal-only UNKNOWN / DISPUTED_GEO_NO_OWN_REGIME because no KAS-issued lawgiver or unitary territorial cannabis regime is proved. Targeted tests passed 67/67; global C0 dry-run checked 1,504 source records with FETCHED_URLS=0; required serial root pass cycle passed after lock release. The historical claimant-common-denominator YELLOW record is retained as provenance but cannot override the current independent Truth. APPLY_ALLOWED=false; PRODUCTION_TOUCHED=false; MAP_COLORS_CHANGED=false; SSOT_CHANGED=false."
     }
   ]
 }

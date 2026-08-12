@@ -879,7 +879,11 @@ const rows = geoList.map((geo) => {
     : curatedRow
       ? "VISUAL_REVIEW_PENDING: Screenshot review has not been completed."
     : contextRow?.notes || "No territory-specific manual note recorded in the source corpus.";
-  if (greyReauditRow) {
+  // A structured independent proposal is the current Truth-First result.
+  // Keep any earlier grey re-audit in `latestColorReaudit`/supplemental links
+  // for provenance, but never append its superseded colour rationale to the
+  // current comparison description.
+  if (greyReauditRow && !independentTruth) {
     const reauditReason = String(greyReauditRow.reasonRu || "").trim();
     if (reauditReason && !differenceDescription.includes(reauditReason)) {
       differenceDescription = `${differenceDescription} Повторный аудит: ${reauditReason}`;

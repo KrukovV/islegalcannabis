@@ -1725,7 +1725,7 @@
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "LIVE_PROJECT_LAYER_CAPTURE_PENDING",
-      "differenceDescription": "No GEO-specific current map fill, popup, API, SEO, SSOT or wiki-truth capture was used to derive this independent legal conclusion. Повторный аудит: Law 61/2023 заново отрендерен на точной странице 3: Article 5 запрещает в Albania внутренние retail/wholesale sale, distribution, acquisition и consumption cannabis products for medical purposes, одновременно регулируя лицензированное медицинское производство и экспорт. Это зелёный REGULATED по цветовой модели, но без вывода о patient access.",
+      "differenceDescription": "No GEO-specific current map fill, popup, API, SEO, SSOT or wiki-truth capture was used to derive this independent legal conclusion.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
@@ -1782,7 +1782,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "No GEO-specific current map fill, popup, API, SEO, SSOT or wiki-truth capture was used to derive this independent legal conclusion. Повторный аудит: Law 61/2023 заново отрендерен на точной странице 3: Article 5 запрещает в Albania внутренние retail/wholesale sale, distribution, acquisition и consumption cannabis products for medical purposes, одновременно регулируя лицензированное медицинское производство и экспорт. Это зелёный REGULATED по цветовой модели, но без вывода о patient access."
+          "notes": "No GEO-specific current map fill, popup, API, SEO, SSOT or wiki-truth capture was used to derive this independent legal conclusion."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -3972,7 +3972,7 @@
       ],
       "sourceCoverage": "OFFICIAL_LEGAL_AXIS_PENDING_VISUAL_ACCEPTANCE",
       "differenceStatus": "LAYER_COMPARISON_NOT_RECAPTURED_IN_THIS_INDEPENDENT_APPLICABILITY_PACKET",
-      "differenceDescription": "Current map, popup, API, SEO, SSOT and wiki-truth records remain comparison-only inputs and were not used to derive the no-unitary-regime conclusion. Повторный аудит: Свежая визуальная перепроверка закрывает AQ жёлтым и не выдаёт Antarctica за единое государство или единый уголовный кодекс. Официальная страница Antarctic Treaty Secretariat прямо говорит, что Parties реализуют Treaty и Environment Protocol через собственные national legislations, а посетители получают разрешения у соответствующих National Competent Authorities. Визуально проверенный Article VIII самого Antarctic Treaty закрепляет национальную юрисдикцию для observers, exchanged scientific personnel и сопровождающего персонала, а споры о юрисдикции для иных случаев решаются консультациями сторон. Одновременно действующий Annex II Article 4 устанавливает общий для Antarctic Treaty area материальный минимум: никакой не местный живой организм нельзя вводить на сушу, ледовые шельфы или в воду без permit; разрешения допускают cultivated plants и reproductive propagules только для controlled use, а living organisms — для controlled experimental use, после чего их требуется удалить или обезвредить. Официальный UNODC Single Convention визуально определяет Cannabis, Cannabis plant и Cannabis resin и показывает международный medical/scientific-only контроль, а актуальный INCB Yellow List визуально включает cannabis и cannabis resin/extracts/tinctures в Schedule I; эти документы используются как прямой cannabis-идентификатор и общий международный контекст, а не как выдуманный единый AQ criminal code. Поэтому для whole-Antarctica нет общего recreational legal market или общего права на выращивание: введение живого cannabis plant permit-only, а медицинское/научное обращение и иные possession/use вопросы зависят от национальной юрисдикции и компетентного органа. В трёхцветной модели такой ограниченный условный режим — жёлтый. Не утверждается, что все национальные режимы одинаковы, что найден единый AQ possession offence, что существует AQ patient programme или что конкретный cannabis medicine доступен. Статус SSOT не изменён.",
+      "differenceDescription": "Current map, popup, API, SEO, SSOT and wiki-truth records remain comparison-only inputs and were not used to derive the no-unitary-regime conclusion.",
       "parserSignals": [],
       "derivedStatus": {
         "recreational": "ILLEGAL",
@@ -4028,7 +4028,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "Current map, popup, API, SEO, SSOT and wiki-truth records remain comparison-only inputs and were not used to derive the no-unitary-regime conclusion. Повторный аудит: Свежая визуальная перепроверка закрывает AQ жёлтым и не выдаёт Antarctica за единое государство или единый уголовный кодекс. Официальная страница Antarctic Treaty Secretariat прямо говорит, что Parties реализуют Treaty и Environment Protocol через собственные national legislations, а посетители получают разрешения у соответствующих National Competent Authorities. Визуально проверенный Article VIII самого Antarctic Treaty закрепляет национальную юрисдикцию для observers, exchanged scientific personnel и сопровождающего персонала, а споры о юрисдикции для иных случаев решаются консультациями сторон. Одновременно действующий Annex II Article 4 устанавливает общий для Antarctic Treaty area материальный минимум: никакой не местный живой организм нельзя вводить на сушу, ледовые шельфы или в воду без permit; разрешения допускают cultivated plants и reproductive propagules только для controlled use, а living organisms — для controlled experimental use, после чего их требуется удалить или обезвредить. Официальный UNODC Single Convention визуально определяет Cannabis, Cannabis plant и Cannabis resin и показывает международный medical/scientific-only контроль, а актуальный INCB Yellow List визуально включает cannabis и cannabis resin/extracts/tinctures в Schedule I; эти документы используются как прямой cannabis-идентификатор и общий международный контекст, а не как выдуманный единый AQ criminal code. Поэтому для whole-Antarctica нет общего recreational legal market или общего права на выращивание: введение живого cannabis plant permit-only, а медицинское/научное обращение и иные possession/use вопросы зависят от национальной юрисдикции и компетентного органа. В трёхцветной модели такой ограниченный условный режим — жёлтый. Не утверждается, что все национальные режимы одинаковы, что найден единый AQ possession offence, что существует AQ patient programme или что конкретный cannabis medicine доступен. Статус SSOT не изменён."
+          "notes": "Current map, popup, API, SEO, SSOT and wiki-truth records remain comparison-only inputs and were not used to derive the no-unitary-regime conclusion."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -5912,7 +5912,7 @@
       ],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "CURRENT_MAP_SSOT_POPUP_API_SEO_WIKI_TRUTH_UNASSESSED_IN_THIS_PACKET",
-      "differenceDescription": "Live user-visible map layers were not captured; comparison values cannot seed the independent legal conclusion. Повторный аудит: Действующий административный кодекс визуально показывает штрафы за малые количества наркотиков и употребление без назначения.",
+      "differenceDescription": "Live user-visible map layers were not captured; comparison values cannot seed the independent legal conclusion.",
       "parserSignals": [
         "project=ILLEGAL, derived=LEGAL"
       ],
@@ -5975,7 +5975,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "Live user-visible map layers were not captured; comparison values cannot seed the independent legal conclusion. Повторный аудит: Действующий административный кодекс визуально показывает штрафы за малые количества наркотиков и употребление без назначения."
+          "notes": "Live user-visible map layers were not captured; comparison values cannot seed the independent legal conclusion."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -7432,7 +7432,7 @@
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "UNASSESSED_NO_CURRENT_MAP_POPUP_API_SEO_OR_SSOT_CAPTURE",
-      "differenceDescription": "Independent Azerbaijan official-law packet only; no live map, popup, API, SEO or SSOT comparison is claimed. Повторный аудит: Официальный PDF Ministry of Health визуально показывает Law 960-IIQ и List I запрещённых к обороту наркотических/психотропных веществ; пункт 56 прямо включает cannabis resin, extract и tincture. Отдельная действующая таблица e-Qanun визуально запрещает культивирование çətənə. Общие правила медицинского использования других narcotic medicines не отменяют cannabis-specific List I prohibition; официальный цвет — красный.",
+      "differenceDescription": "Independent Azerbaijan official-law packet only; no live map, popup, API, SEO or SSOT comparison is claimed.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
@@ -7489,7 +7489,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "Independent Azerbaijan official-law packet only; no live map, popup, API, SEO or SSOT comparison is claimed. Повторный аудит: Официальный PDF Ministry of Health визуально показывает Law 960-IIQ и List I запрещённых к обороту наркотических/психотропных веществ; пункт 56 прямо включает cannabis resin, extract и tincture. Отдельная действующая таблица e-Qanun визуально запрещает культивирование çətənə. Общие правила медицинского использования других narcotic medicines не отменяют cannabis-specific List I prohibition; официальный цвет — красный."
+          "notes": "Independent Azerbaijan official-law packet only; no live map, popup, API, SEO or SSOT comparison is claimed."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -8662,7 +8662,7 @@
       "supplementalOfficialLinks": [],
       "sourceCoverage": "OFFICIAL_CONTEXT_ONLY",
       "differenceStatus": "LIVE_LAYER_NOT_CAPTURED",
-      "differenceDescription": "No live BJN map, popup, API, SEO or SSOT layer is established. Claimant-state context and project-status absence cannot provide a map verdict. Повторный аудит: Официальный Decreto 1946/2013 визуально включает Cayos de Bajo Nuevo в Departamento Archipiélago de San Andrés, Providencia y Santa Catalina и прямо фиксирует полную суверенную юрисдикцию Colombia над этими островными территориями. Поэтому национальная Ley 1787/2016, которая на видимой странице распространяет медицинский и научный cannabis framework на всю национальную территорию Colombia, и решение Corte Constitucional C-127/23 о personal dose образуют прямую применимую cannabis-law цепочку. Для колумбийской административной юрисдикции BJN официальный цвет — зелёный; наличие международных притязаний остаётся явно указанным scope caveat и не выдаётся за отдельный закон, изданный самим BJN.",
+      "differenceDescription": "No live BJN map, popup, API, SEO or SSOT layer is established. Claimant-state context and project-status absence cannot provide a map verdict.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY",
@@ -8722,7 +8722,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "No live BJN map, popup, API, SEO or SSOT layer is established. Claimant-state context and project-status absence cannot provide a map verdict. Повторный аудит: Официальный Decreto 1946/2013 визуально включает Cayos de Bajo Nuevo в Departamento Archipiélago de San Andrés, Providencia y Santa Catalina и прямо фиксирует полную суверенную юрисдикцию Colombia над этими островными территориями. Поэтому национальная Ley 1787/2016, которая на видимой странице распространяет медицинский и научный cannabis framework на всю национальную территорию Colombia, и решение Corte Constitucional C-127/23 о personal dose образуют прямую применимую cannabis-law цепочку. Для колумбийской административной юрисдикции BJN официальный цвет — зелёный; наличие международных притязаний остаётся явно указанным scope caveat и не выдаётся за отдельный закон, изданный самим BJN."
+          "notes": "No live BJN map, popup, API, SEO or SSOT layer is established. Claimant-state context and project-status absence cannot provide a map verdict."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -11284,7 +11284,7 @@
       ],
       "sourceCoverage": "OFFICIAL_CONTEXT_ONLY",
       "differenceStatus": "COLOR_UNRESOLVED_NO_UNITARY_APPLICABLE_REGIME",
-      "differenceDescription": "UN-hosted material records an NGO description of Bir Tawil as unclaimed territory, while the UN Law of the Sea Bulletin preserves Egypt/Sudan boundary positions; neither is a BRT lawmaker, territorial cannabis statute, or extension rule. Egypt and Sudan access-state law does not become law of BRT merely because those states border the area. The general resolver requires direct territorial applicability before a colour may be derived. BRT remains UNKNOWN for NO_UNITARY_APPLICABLE_REGIME. Повторный аудит: Свежая визуальная перепроверка закрывает BRT жёлтым, не изобретая государство, территориальный уголовный кодекс или CannabisLawPage Bir Tawil. В отчёте Генерального секретаря ООН A/80/304 формулировка unclaimed territory приведена в разделе вкладов неправительственных организаций: это официально опубликованное negative/context evidence, но не обязательное юридическое решение ООН. Официальные заявления Egypt и Sudan, опубликованные в UN Law of the Sea Bulletin No. 94, визуально показывают несовместимые пограничные позиции: Egypt считает международной границей 22-ю параллель и относит территории к югу от неё к Sudan, тогда как Sudan заявляет Hala'ib к северу от 22-й параллели по унаследованной границе. Ни одна из просмотренных государственных веток не публикует орган Bir Tawil, территориальный cannabis-law, полицию, суд или patient programme; частные micronation-декларации поэтому отвергнуты. Для обязательного трёхцветного отображения применяется явно обозначенный operational-access fallback, а не территориальный закон: физический сухопутный доступ возможен только через Egypt или Sudan, и обе реальные CannabisLawPage просмотрены глазами. Egypt EDA публикует Law No. 182/1960 и актуальный индекс поправок до 2020 года; закон помещает Cannabis sativa/Indian hemp в запрещённые к выращиванию растения, запрещает неразрешённые cultivation, import, possession и trade, допускает только лицензируемые medical/scientific операции и предусматривает строгие наказания. Sudan Judiciary на действующем официальном сайте в 2026 году продолжает применять Narcotic Drugs and Psychotropic Substances Act 1994 и его таблицы, включая дела о hashish; визуально проверенная копия UNODC Legal Library определяет hashish как Indian hemp, перечисляет cannabis, cannabis resin и tetrahydrocannabinols, запрещает import, production, possession, transport и trade, оставляя только minister-authorized medical/scientific purposes и строгие уголовные наказания. Поэтому доказанного общего recreational legal market нет, а допустимость ограничена разрешительными медицинскими/научными режимами двух единственных сухопутных access states. В трёхцветной модели это жёлтый: зелёный ложно утверждал бы доказанную легальность, красный ложно приписал бы BRT собственный запрет. Enforcement строг на маршрутах Egypt/Sudan, но отдельной BRT enforcement authority нет. Вывод не распространяет автоматически суверенитет Egypt или Sudan на Bir Tawil, не создаёт BRT patient programme и не меняет статус SSOT.",
+      "differenceDescription": "UN-hosted material records an NGO description of Bir Tawil as unclaimed territory, while the UN Law of the Sea Bulletin preserves Egypt/Sudan boundary positions; neither is a BRT lawmaker, territorial cannabis statute, or extension rule. Egypt and Sudan access-state law does not become law of BRT merely because those states border the area. The general resolver requires direct territorial applicability before a colour may be derived. BRT remains UNKNOWN for NO_UNITARY_APPLICABLE_REGIME.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY",
@@ -11343,7 +11343,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "UN-hosted material records an NGO description of Bir Tawil as unclaimed territory, while the UN Law of the Sea Bulletin preserves Egypt/Sudan boundary positions; neither is a BRT lawmaker, territorial cannabis statute, or extension rule. Egypt and Sudan access-state law does not become law of BRT merely because those states border the area. The general resolver requires direct territorial applicability before a colour may be derived. BRT remains UNKNOWN for NO_UNITARY_APPLICABLE_REGIME. Повторный аудит: Свежая визуальная перепроверка закрывает BRT жёлтым, не изобретая государство, территориальный уголовный кодекс или CannabisLawPage Bir Tawil. В отчёте Генерального секретаря ООН A/80/304 формулировка unclaimed territory приведена в разделе вкладов неправительственных организаций: это официально опубликованное negative/context evidence, но не обязательное юридическое решение ООН. Официальные заявления Egypt и Sudan, опубликованные в UN Law of the Sea Bulletin No. 94, визуально показывают несовместимые пограничные позиции: Egypt считает международной границей 22-ю параллель и относит территории к югу от неё к Sudan, тогда как Sudan заявляет Hala'ib к северу от 22-й параллели по унаследованной границе. Ни одна из просмотренных государственных веток не публикует орган Bir Tawil, территориальный cannabis-law, полицию, суд или patient programme; частные micronation-декларации поэтому отвергнуты. Для обязательного трёхцветного отображения применяется явно обозначенный operational-access fallback, а не территориальный закон: физический сухопутный доступ возможен только через Egypt или Sudan, и обе реальные CannabisLawPage просмотрены глазами. Egypt EDA публикует Law No. 182/1960 и актуальный индекс поправок до 2020 года; закон помещает Cannabis sativa/Indian hemp в запрещённые к выращиванию растения, запрещает неразрешённые cultivation, import, possession и trade, допускает только лицензируемые medical/scientific операции и предусматривает строгие наказания. Sudan Judiciary на действующем официальном сайте в 2026 году продолжает применять Narcotic Drugs and Psychotropic Substances Act 1994 и его таблицы, включая дела о hashish; визуально проверенная копия UNODC Legal Library определяет hashish как Indian hemp, перечисляет cannabis, cannabis resin и tetrahydrocannabinols, запрещает import, production, possession, transport и trade, оставляя только minister-authorized medical/scientific purposes и строгие уголовные наказания. Поэтому доказанного общего recreational legal market нет, а допустимость ограничена разрешительными медицинскими/научными режимами двух единственных сухопутных access states. В трёхцветной модели это жёлтый: зелёный ложно утверждал бы доказанную легальность, красный ложно приписал бы BRT собственный запрет. Enforcement строг на маршрутах Egypt/Sudan, но отдельной BRT enforcement authority нет. Вывод не распространяет автоматически суверенитет Egypt или Sudan на Bir Tawil, не создаёт BRT patient programme и не меняет статус SSOT."
+          "notes": "UN-hosted material records an NGO description of Bir Tawil as unclaimed territory, while the UN Law of the Sea Bulletin preserves Egypt/Sudan boundary positions; neither is a BRT lawmaker, territorial cannabis statute, or extension rule. Egypt and Sudan access-state law does not become law of BRT merely because those states border the area. The general resolver requires direct territorial applicability before a colour may be derived. BRT remains UNKNOWN for NO_UNITARY_APPLICABLE_REGIME."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -14905,7 +14905,7 @@
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "UNASSESSED_CURRENT_MAP_SSOT_POPUP_API_SEO",
-      "differenceDescription": "This legal packet independently establishes only official-law axes. Stored project/proposal values are not used as legal inputs and live presentation layers require separate capture. Повторный аудит: Страница 156 официального закона визуально связывает две нормы: Article 385-1 запрещает употребление контролируемых наркотиков вне медицинского назначения, а Article 385-2 прямо называет cannabis oil и иные производные cannabis и наказывает незаконные приобретение, хранение или культивирование. Это доказывает узкое исключение по медицинскому назначению, но не наличие доступной пациентской программы или зарегистрированных cannabis-препаратов.",
+      "differenceDescription": "This legal packet independently establishes only official-law axes. Stored project/proposal values are not used as legal inputs and live presentation layers require separate capture.",
       "parserSignals": [],
       "derivedStatus": {
         "recreational": "ILLEGAL",
@@ -14962,7 +14962,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "This legal packet independently establishes only official-law axes. Stored project/proposal values are not used as legal inputs and live presentation layers require separate capture. Повторный аудит: Страница 156 официального закона визуально связывает две нормы: Article 385-1 запрещает употребление контролируемых наркотиков вне медицинского назначения, а Article 385-2 прямо называет cannabis oil и иные производные cannabis и наказывает незаконные приобретение, хранение или культивирование. Это доказывает узкое исключение по медицинскому назначению, но не наличие доступной пациентской программы или зарегистрированных cannabis-препаратов."
+          "notes": "This legal packet independently establishes only official-law axes. Stored project/proposal values are not used as legal inputs and live presentation layers require separate capture."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -16083,7 +16083,7 @@
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "INDEPENDENT_TRUTH_RECORDED_CURRENT_MAP_SSOT_POPUP_API_SEO_NOT_RECAPTURED",
-      "differenceDescription": "The prior project status called cannabis illegal and no medical interest, but this independent packet now records the exact primary-law chain, research-only limit and current official hosting. It does not assert a live map, SSOT, popup, API or SEO comparison. Повторный аудит: Официальная газета, стр. 985: section 8 прямо запрещает cultivation of cannabis plants на всей национальной территории.",
+      "differenceDescription": "The prior project status called cannabis illegal and no medical interest, but this independent packet now records the exact primary-law chain, research-only limit and current official hosting. It does not assert a live map, SSOT, popup, API or SEO comparison.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
@@ -16146,7 +16146,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "The prior project status called cannabis illegal and no medical interest, but this independent packet now records the exact primary-law chain, research-only limit and current official hosting. It does not assert a live map, SSOT, popup, API or SEO comparison. Повторный аудит: Официальная газета, стр. 985: section 8 прямо запрещает cultivation of cannabis plants на всей национальной территории."
+          "notes": "The prior project status called cannabis illegal and no medical interest, but this independent packet now records the exact primary-law chain, research-only limit and current official hosting. It does not assert a live map, SSOT, popup, API or SEO comparison."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -17851,7 +17851,7 @@
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "FALSE_YELLOW_SCHEDULE_ADOPTION_AND_GENERIC_PRESCRIPTION_MIXING",
-      "differenceDescription": "Independent recheck: Chad Law No. 024/PR/2000 Article 36 adopts ratified international narcotic/psychotropic schedules but delegates possession, prescription and dispensing rules to decrees. The visually reviewed Article 34/36 crop is generic and has no cannabis-specific patient, product, supply or current implementing-decree proof. Article 134 penalizes contravention of regulatory provisions, not cannabis conduct by itself. The INCB Yellow List visibly names cannabis in the international Schedule I, but is international context, not evidence of a current Chadian cannabis regime. Fresh searches of the Chad Official Gazette, Presidency, Health Ministry and decree/order terms found no applicable current cannabis-specific implementing instrument. Therefore the prior limited-lawful Yellow inference mixed schedule adoption, generic prescription delegation and treaty context; neither a lawful route nor full negative proof is established. TD remains proposal-only UNKNOWN; current map RED and SSOT remain untouched. Повторный аудит: Официальная копия Chad Loi 024/PR/2000 визуально показывает в Article 36, что Республика Чад принимает списки narcotics ратифицированных международных конвенций и регулирует их prescription/dispensing; актуальный официальный INCB Yellow List 64th edition (July 2025), страница 3, визуально включает CANNABIS и CANNABIS RESIN, EXTRACTS and TINCTURES в Schedule I. Articles 134–136 визуально устанавливают 1–6 лет за нарушения controlled-narcotic rules и удвоение за незаконное изготовление/выращивание. Это прямая составная cannabis-law цепочка: recreational незаконен, enforcement строгий, а medical — только узкий общий prescription framework без доказанной cannabis patient programme или доступного продукта. Официальный цвет TD — жёлтый; project medical=NONE требует пересмотра, SSOT не меняется.",
+      "differenceDescription": "Independent recheck: Chad Law No. 024/PR/2000 Article 36 adopts ratified international narcotic/psychotropic schedules but delegates possession, prescription and dispensing rules to decrees. The visually reviewed Article 34/36 crop is generic and has no cannabis-specific patient, product, supply or current implementing-decree proof. Article 134 penalizes contravention of regulatory provisions, not cannabis conduct by itself. The INCB Yellow List visibly names cannabis in the international Schedule I, but is international context, not evidence of a current Chadian cannabis regime. Fresh searches of the Chad Official Gazette, Presidency, Health Ministry and decree/order terms found no applicable current cannabis-specific implementing instrument. Therefore the prior limited-lawful Yellow inference mixed schedule adoption, generic prescription delegation and treaty context; neither a lawful route nor full negative proof is established. TD remains proposal-only UNKNOWN; current map RED and SSOT remain untouched.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
@@ -17910,7 +17910,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "Independent recheck: Chad Law No. 024/PR/2000 Article 36 adopts ratified international narcotic/psychotropic schedules but delegates possession, prescription and dispensing rules to decrees. The visually reviewed Article 34/36 crop is generic and has no cannabis-specific patient, product, supply or current implementing-decree proof. Article 134 penalizes contravention of regulatory provisions, not cannabis conduct by itself. The INCB Yellow List visibly names cannabis in the international Schedule I, but is international context, not evidence of a current Chadian cannabis regime. Fresh searches of the Chad Official Gazette, Presidency, Health Ministry and decree/order terms found no applicable current cannabis-specific implementing instrument. Therefore the prior limited-lawful Yellow inference mixed schedule adoption, generic prescription delegation and treaty context; neither a lawful route nor full negative proof is established. TD remains proposal-only UNKNOWN; current map RED and SSOT remain untouched. Повторный аудит: Официальная копия Chad Loi 024/PR/2000 визуально показывает в Article 36, что Республика Чад принимает списки narcotics ратифицированных международных конвенций и регулирует их prescription/dispensing; актуальный официальный INCB Yellow List 64th edition (July 2025), страница 3, визуально включает CANNABIS и CANNABIS RESIN, EXTRACTS and TINCTURES в Schedule I. Articles 134–136 визуально устанавливают 1–6 лет за нарушения controlled-narcotic rules и удвоение за незаконное изготовление/выращивание. Это прямая составная cannabis-law цепочка: recreational незаконен, enforcement строгий, а medical — только узкий общий prescription framework без доказанной cannabis patient programme или доступного продукта. Официальный цвет TD — жёлтый; project medical=NONE требует пересмотра, SSOT не меняется."
+          "notes": "Independent recheck: Chad Law No. 024/PR/2000 Article 36 adopts ratified international narcotic/psychotropic schedules but delegates possession, prescription and dispensing rules to decrees. The visually reviewed Article 34/36 crop is generic and has no cannabis-specific patient, product, supply or current implementing-decree proof. Article 134 penalizes contravention of regulatory provisions, not cannabis conduct by itself. The INCB Yellow List visibly names cannabis in the international Schedule I, but is international context, not evidence of a current Chadian cannabis regime. Fresh searches of the Chad Official Gazette, Presidency, Health Ministry and decree/order terms found no applicable current cannabis-specific implementing instrument. Therefore the prior limited-lawful Yellow inference mixed schedule adoption, generic prescription delegation and treaty context; neither a lawful route nor full negative proof is established. TD remains proposal-only UNKNOWN; current map RED and SSOT remain untouched."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -24767,7 +24767,7 @@
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "INSUFFICIENT_EVIDENCE",
-      "differenceDescription": "Official legal truth is independently derived, but live map, popup, API, SEO and SSOT layer capture is intentionally outside this legal-source packet. The explicit outcome prevents a missing-schema value from being misrepresented as an accepted comparison. Повторный аудит: Официальный eJO визуально показывает, что Arrêté 1932 относит chanvre indien, его смолу, препараты, экстракт и настойку к Tableau B; операции без разрешения запрещены, а статья 37 допускает отпуск для терапевтического применения по рецепту. Статья 5 конституционного акта LR/77-001 визуально сохраняет действовавшие на день независимости законы до их законной отмены или изменения. Официальный декрет 2026 года отдельно подтверждает существующие приговоры за drogue и trafic de stupéfiant. Официальный цвет — жёлтый: незаконный оборот запрещён, но имеется узкое разрешительно-рецептурное медицинское исключение.",
+      "differenceDescription": "Official legal truth is independently derived, but live map, popup, API, SEO and SSOT layer capture is intentionally outside this legal-source packet. The explicit outcome prevents a missing-schema value from being misrepresented as an accepted comparison.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
@@ -24827,7 +24827,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "Official legal truth is independently derived, but live map, popup, API, SEO and SSOT layer capture is intentionally outside this legal-source packet. The explicit outcome prevents a missing-schema value from being misrepresented as an accepted comparison. Повторный аудит: Официальный eJO визуально показывает, что Arrêté 1932 относит chanvre indien, его смолу, препараты, экстракт и настойку к Tableau B; операции без разрешения запрещены, а статья 37 допускает отпуск для терапевтического применения по рецепту. Статья 5 конституционного акта LR/77-001 визуально сохраняет действовавшие на день независимости законы до их законной отмены или изменения. Официальный декрет 2026 года отдельно подтверждает существующие приговоры за drogue и trafic de stupéfiant. Официальный цвет — жёлтый: незаконный оборот запрещён, но имеется узкое разрешительно-рецептурное медицинское исключение."
+          "notes": "Official legal truth is independently derived, but live map, popup, API, SEO and SSOT layer capture is intentionally outside this legal-source packet. The explicit outcome prevents a missing-schema value from being misrepresented as an accepted comparison."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -25053,7 +25053,7 @@
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "PROJECT_STATUS_MISMATCH",
-      "differenceDescription": "The independent result comes from the directly reviewed 2020 Act. No map, popup, API, SEO, SSOT or production state was captured or changed. Повторный аудит: Поправка 2020 визуально исключает из преступления владение не более 28 г и регулирует публичное употребление; отдельная норма допускает до трёх растений.",
+      "differenceDescription": "The independent result comes from the directly reviewed 2020 Act. No map, popup, API, SEO, SSOT or production state was captured or changed.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
@@ -25119,7 +25119,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "The independent result comes from the directly reviewed 2020 Act. No map, popup, API, SEO, SSOT or production state was captured or changed. Повторный аудит: Поправка 2020 визуально исключает из преступления владение не более 28 г и регулирует публичное употребление; отдельная норма допускает до трёх растений."
+          "notes": "The independent result comes from the directly reviewed 2020 Act. No map, popup, API, SEO, SSOT or production state was captured or changed."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -27648,7 +27648,7 @@
       ],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "INDEPENDENT_REAUDIT_CONFIRMS_FALSE_YELLOW_RISK_FROM_GENERIC_NARCOTIC_MIXING",
-      "differenceDescription": "Fresh direct extraction confirms the current EFDA generic narcotic/psychotropic Directive has prescription and personal-import routes but no cannabis-family term. The historical Act directly names canabis indica but its current force is unconfirmed. Under the general no-generic-prescription and currentness rules, both GREEN and YELLOW remain unproved; UNKNOWN is correct. Повторный аудит: Независимая повторная визуальная проверка отменяет прежний жёлтый proposal. Current EFDA Directive No. 1121/2025 и Proclamation No. 1112/2019 регулируют только generic narcotic and psychotropic medicines; их английские параллельные тексты не называют cannabis или marihuana. Convention-based definition и Article 7 о personal import по prescription не являются local cannabis-specific status или cannabis patient programme. INCB Yellow List остаётся международным контекстом, а не доказательством применимого local cannabis law. Единственная cannabis-specific domestic норма в evidence packet — Dangerous Drugs Proclamation 1942, но её current force не подтверждён. EFDA search дал лишь historical/formulary/expired-policy cannabis references. Поэтому current recreational, patient-product и cannabis-supply axes остаются UNCONFIRMED; честный proposal-only outcome — UNKNOWN без окраски.",
+      "differenceDescription": "Fresh direct extraction confirms the current EFDA generic narcotic/psychotropic Directive has prescription and personal-import routes but no cannabis-family term. The historical Act directly names canabis indica but its current force is unconfirmed. Under the general no-generic-prescription and currentness rules, both GREEN and YELLOW remain unproved; UNKNOWN is correct.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
@@ -27705,7 +27705,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "Fresh direct extraction confirms the current EFDA generic narcotic/psychotropic Directive has prescription and personal-import routes but no cannabis-family term. The historical Act directly names canabis indica but its current force is unconfirmed. Under the general no-generic-prescription and currentness rules, both GREEN and YELLOW remain unproved; UNKNOWN is correct. Повторный аудит: Независимая повторная визуальная проверка отменяет прежний жёлтый proposal. Current EFDA Directive No. 1121/2025 и Proclamation No. 1112/2019 регулируют только generic narcotic and psychotropic medicines; их английские параллельные тексты не называют cannabis или marihuana. Convention-based definition и Article 7 о personal import по prescription не являются local cannabis-specific status или cannabis patient programme. INCB Yellow List остаётся международным контекстом, а не доказательством применимого local cannabis law. Единственная cannabis-specific domestic норма в evidence packet — Dangerous Drugs Proclamation 1942, но её current force не подтверждён. EFDA search дал лишь historical/formulary/expired-policy cannabis references. Поэтому current recreational, patient-product и cannabis-supply axes остаются UNCONFIRMED; честный proposal-only outcome — UNKNOWN без окраски."
+          "notes": "Fresh direct extraction confirms the current EFDA generic narcotic/psychotropic Directive has prescription and personal-import routes but no cannabis-family term. The historical Act directly names canabis indica but its current force is unconfirmed. Under the general no-generic-prescription and currentness rules, both GREEN and YELLOW remain unproved; UNKNOWN is correct."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -29994,7 +29994,7 @@
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "PROJECT_STATUS_MISMATCH",
-      "differenceDescription": "French Polynesia is not a DROM/article 73 territory, so the French Guiana national-law scope shortcut was not reused. A 15 July 2025 official Polynesie francaise Ministry of Health / ARASS note, published on service-public.pf under the DGAE path, was downloaded and visually rendered. Page 1 visibly identifies Polynesie francaise and the Ministry of Health / ARASS, states the object as products of cannabis authorized in French Polynesia and their import conditions / professional obligations, and cites Loi du pays n 2024-19 of 23 August 2024 and Arrete n 118 CM of 6 February 2025 regulating activities relating to cannabis without narcotic properties and medicines containing cannabis or cannabinoids. Page 2 visibly states that only identified categories of cannabis products can be authorized, that they must have delta-9-THC less than or equal to 0.30 percent, comply with labeling/presentation and biosecurity rules, and that products failing all conditions are not authorized. It lists allowed categories such as food products from cannabis seeds or dried leaves for aqueous infusions, supplements from cannabis seed/oil/powder without narcotic properties, cosmetics with non-narcotic cannabinoids such as CBD, tobacco products from non-narcotic cannabis plant parts, bird-feed cannabis seeds, and cannabis-fibre products; it also says local production is authorized subject to mandatory declarations. Page 3 visibly maps cannabis/cannabinoid product categories to competent administrations, including ARASS for medicines and therapeutic oils, DGAE for foods/cosmetics/fibre products, Direction de la sante and biosecurity/customs involvement. Page 4 visibly states import conditions and professional obligations, including that Arrete 118 CM regulates manufacturing, packaging and labeling of cannabis products and that manufacturers/packagers must declare to DGAE. The official Direction de la sante Drogues et Addictions page was opened live with HTTP 200, the 'Ce que dit la loi' accordion was expanded, and the screenshot visibly states that consuming, planting, manufacturing, transporting, giving, selling, importing or exporting drugs such as pakalolo are prohibited by law with arrests/prosecutions/sanctions. Project recreational=ILLEGAL and enforcement=STRICT remain supported, but project medical=NONE is not aligned with the visually verified official 2024/2025 framework for cannabis/cannabinoid medicines and non-narcotic cannabis products. No project status SSOT was changed. Повторный аудит: Официальная записка 2025 визуально перечисляет Loi du pays 2024-19 и условия для cannabis/cannabinoid products и лекарств во French Polynesia.",
+      "differenceDescription": "French Polynesia is not a DROM/article 73 territory, so the French Guiana national-law scope shortcut was not reused. A 15 July 2025 official Polynesie francaise Ministry of Health / ARASS note, published on service-public.pf under the DGAE path, was downloaded and visually rendered. Page 1 visibly identifies Polynesie francaise and the Ministry of Health / ARASS, states the object as products of cannabis authorized in French Polynesia and their import conditions / professional obligations, and cites Loi du pays n 2024-19 of 23 August 2024 and Arrete n 118 CM of 6 February 2025 regulating activities relating to cannabis without narcotic properties and medicines containing cannabis or cannabinoids. Page 2 visibly states that only identified categories of cannabis products can be authorized, that they must have delta-9-THC less than or equal to 0.30 percent, comply with labeling/presentation and biosecurity rules, and that products failing all conditions are not authorized. It lists allowed categories such as food products from cannabis seeds or dried leaves for aqueous infusions, supplements from cannabis seed/oil/powder without narcotic properties, cosmetics with non-narcotic cannabinoids such as CBD, tobacco products from non-narcotic cannabis plant parts, bird-feed cannabis seeds, and cannabis-fibre products; it also says local production is authorized subject to mandatory declarations. Page 3 visibly maps cannabis/cannabinoid product categories to competent administrations, including ARASS for medicines and therapeutic oils, DGAE for foods/cosmetics/fibre products, Direction de la sante and biosecurity/customs involvement. Page 4 visibly states import conditions and professional obligations, including that Arrete 118 CM regulates manufacturing, packaging and labeling of cannabis products and that manufacturers/packagers must declare to DGAE. The official Direction de la sante Drogues et Addictions page was opened live with HTTP 200, the 'Ce que dit la loi' accordion was expanded, and the screenshot visibly states that consuming, planting, manufacturing, transporting, giving, selling, importing or exporting drugs such as pakalolo are prohibited by law with arrests/prosecutions/sanctions. Project recreational=ILLEGAL and enforcement=STRICT remain supported, but project medical=NONE is not aligned with the visually verified official 2024/2025 framework for cannabis/cannabinoid medicines and non-narcotic cannabis products. No project status SSOT was changed.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
@@ -30049,7 +30049,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "French Polynesia is not a DROM/article 73 territory, so the French Guiana national-law scope shortcut was not reused. A 15 July 2025 official Polynesie francaise Ministry of Health / ARASS note, published on service-public.pf under the DGAE path, was downloaded and visually rendered. Page 1 visibly identifies Polynesie francaise and the Ministry of Health / ARASS, states the object as products of cannabis authorized in French Polynesia and their import conditions / professional obligations, and cites Loi du pays n 2024-19 of 23 August 2024 and Arrete n 118 CM of 6 February 2025 regulating activities relating to cannabis without narcotic properties and medicines containing cannabis or cannabinoids. Page 2 visibly states that only identified categories of cannabis products can be authorized, that they must have delta-9-THC less than or equal to 0.30 percent, comply with labeling/presentation and biosecurity rules, and that products failing all conditions are not authorized. It lists allowed categories such as food products from cannabis seeds or dried leaves for aqueous infusions, supplements from cannabis seed/oil/powder without narcotic properties, cosmetics with non-narcotic cannabinoids such as CBD, tobacco products from non-narcotic cannabis plant parts, bird-feed cannabis seeds, and cannabis-fibre products; it also says local production is authorized subject to mandatory declarations. Page 3 visibly maps cannabis/cannabinoid product categories to competent administrations, including ARASS for medicines and therapeutic oils, DGAE for foods/cosmetics/fibre products, Direction de la sante and biosecurity/customs involvement. Page 4 visibly states import conditions and professional obligations, including that Arrete 118 CM regulates manufacturing, packaging and labeling of cannabis products and that manufacturers/packagers must declare to DGAE. The official Direction de la sante Drogues et Addictions page was opened live with HTTP 200, the 'Ce que dit la loi' accordion was expanded, and the screenshot visibly states that consuming, planting, manufacturing, transporting, giving, selling, importing or exporting drugs such as pakalolo are prohibited by law with arrests/prosecutions/sanctions. Project recreational=ILLEGAL and enforcement=STRICT remain supported, but project medical=NONE is not aligned with the visually verified official 2024/2025 framework for cannabis/cannabinoid medicines and non-narcotic cannabis products. No project status SSOT was changed. Повторный аудит: Официальная записка 2025 визуально перечисляет Loi du pays 2024-19 и условия для cannabis/cannabinoid products и лекарств во French Polynesia."
+          "notes": "French Polynesia is not a DROM/article 73 territory, so the French Guiana national-law scope shortcut was not reused. A 15 July 2025 official Polynesie francaise Ministry of Health / ARASS note, published on service-public.pf under the DGAE path, was downloaded and visually rendered. Page 1 visibly identifies Polynesie francaise and the Ministry of Health / ARASS, states the object as products of cannabis authorized in French Polynesia and their import conditions / professional obligations, and cites Loi du pays n 2024-19 of 23 August 2024 and Arrete n 118 CM of 6 February 2025 regulating activities relating to cannabis without narcotic properties and medicines containing cannabis or cannabinoids. Page 2 visibly states that only identified categories of cannabis products can be authorized, that they must have delta-9-THC less than or equal to 0.30 percent, comply with labeling/presentation and biosecurity rules, and that products failing all conditions are not authorized. It lists allowed categories such as food products from cannabis seeds or dried leaves for aqueous infusions, supplements from cannabis seed/oil/powder without narcotic properties, cosmetics with non-narcotic cannabinoids such as CBD, tobacco products from non-narcotic cannabis plant parts, bird-feed cannabis seeds, and cannabis-fibre products; it also says local production is authorized subject to mandatory declarations. Page 3 visibly maps cannabis/cannabinoid product categories to competent administrations, including ARASS for medicines and therapeutic oils, DGAE for foods/cosmetics/fibre products, Direction de la sante and biosecurity/customs involvement. Page 4 visibly states import conditions and professional obligations, including that Arrete 118 CM regulates manufacturing, packaging and labeling of cannabis products and that manufacturers/packagers must declare to DGAE. The official Direction de la sante Drogues et Addictions page was opened live with HTTP 200, the 'Ce que dit la loi' accordion was expanded, and the screenshot visibly states that consuming, planting, manufacturing, transporting, giving, selling, importing or exporting drugs such as pakalolo are prohibited by law with arrests/prosecutions/sanctions. Project recreational=ILLEGAL and enforcement=STRICT remain supported, but project medical=NONE is not aligned with the visually verified official 2024/2025 framework for cannabis/cannabinoid medicines and non-narcotic cannabis products. No project status SSOT was changed."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -30572,7 +30572,7 @@
       ],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "PRIOR_YELLOW_REJECTED_PENDING_CURRENT_PRIMARY_AND_MEDICAL_AXIS",
-      "differenceDescription": "The prior conclusion inferred YELLOW from a French prohibition/fine narrative despite TAAF legislative specialty. Current TAAF material proves the need for an express bridge and historic territorial enforcement context, not a current limited lawful regime or a complete RED negative proof. Повторный аудит: Официальная страница France визуально называет cannabis, запрет употребления, статью L3421-1, наказание до года и €3,750 и фиксированный штраф €200. Принятый amendment Assemblée nationale 2025 визуально показывает актуализацию L3833-1 для Terres australes et antarctiques françaises и прямо относит её к применению раздела Code de la santé publique о toxicomanie в TAAF. Медицинский cannabis-доступ для TAAF не подтверждён и не выдумывается; официальный цвет — жёлтый из доказанного запрета со смешанной фиксированной/судебной санкцией.",
+      "differenceDescription": "The prior conclusion inferred YELLOW from a French prohibition/fine narrative despite TAAF legislative specialty. Current TAAF material proves the need for an express bridge and historic territorial enforcement context, not a current limited lawful regime or a complete RED negative proof.",
       "parserSignals": [],
       "derivedStatus": {
         "recreational": "ILLEGAL",
@@ -30633,7 +30633,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "The prior conclusion inferred YELLOW from a French prohibition/fine narrative despite TAAF legislative specialty. Current TAAF material proves the need for an express bridge and historic territorial enforcement context, not a current limited lawful regime or a complete RED negative proof. Повторный аудит: Официальная страница France визуально называет cannabis, запрет употребления, статью L3421-1, наказание до года и €3,750 и фиксированный штраф €200. Принятый amendment Assemblée nationale 2025 визуально показывает актуализацию L3833-1 для Terres australes et antarctiques françaises и прямо относит её к применению раздела Code de la santé publique о toxicomanie в TAAF. Медицинский cannabis-доступ для TAAF не подтверждён и не выдумывается; официальный цвет — жёлтый из доказанного запрета со смешанной фиксированной/судебной санкцией."
+          "notes": "The prior conclusion inferred YELLOW from a French prohibition/fine narrative despite TAAF legislative specialty. Current TAAF material proves the need for an express bridge and historic territorial enforcement context, not a current limited lawful regime or a complete RED negative proof."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -33403,7 +33403,7 @@
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "NO_REAL_DIFFERENCE",
-      "differenceDescription": "Independent review retains Yellow for the general limited-lawful-mode rule. The false-positive risk lies in counting Act 1/2026 before commencement; the false-negative risk lies in ignoring the extant Cap.84A prescription framework. Neither map nor SSOT is altered. Повторный аудит: Действующий Cap.84A визуально включает Cannabis и Cannabis resin в перечень controlled drugs, запрещает cultivation и в section 12 создаёт лицензионный и practitioner/pharmacist prescription framework. Cannabis Commission отдельно визуально подтверждает, что Act 1/2026 ещё не вступил в силу и до formal commencement действует прежний закон. Поэтому текущий цвет — жёлтый только как узкое разрешительно-рецептурное исключение; доступная cannabis patient programme не доказана, а будущие лимиты реформы в текущий статус не засчитываются.",
+      "differenceDescription": "Independent review retains Yellow for the general limited-lawful-mode rule. The false-positive risk lies in counting Act 1/2026 before commencement; the false-negative risk lies in ignoring the extant Cap.84A prescription framework. Neither map nor SSOT is altered.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
@@ -33459,7 +33459,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "Independent review retains Yellow for the general limited-lawful-mode rule. The false-positive risk lies in counting Act 1/2026 before commencement; the false-negative risk lies in ignoring the extant Cap.84A prescription framework. Neither map nor SSOT is altered. Повторный аудит: Действующий Cap.84A визуально включает Cannabis и Cannabis resin в перечень controlled drugs, запрещает cultivation и в section 12 создаёт лицензионный и practitioner/pharmacist prescription framework. Cannabis Commission отдельно визуально подтверждает, что Act 1/2026 ещё не вступил в силу и до formal commencement действует прежний закон. Поэтому текущий цвет — жёлтый только как узкое разрешительно-рецептурное исключение; доступная cannabis patient programme не доказана, а будущие лимиты реформы в текущий статус не засчитываются."
+          "notes": "Independent review retains Yellow for the general limited-lawful-mode rule. The false-positive risk lies in counting Act 1/2026 before commencement; the false-negative risk lies in ignoring the extant Cap.84A prescription framework. Neither map nor SSOT is altered."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -38064,7 +38064,7 @@
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "NOT_ASSESSED_IN_THIS_INDEPENDENT_PACKET",
-      "differenceDescription": "No current live map, popup, API, SEO or SSOT status captured; former project classification is not used as an input. Повторный аудит: Indiana Health визуально относит marijuana (cannabis) к Schedule I и прямо определяет Schedule I как не имеющий accepted medical use; ранее свежо просмотренная страница Fort Wayne Police показывает действующие обвинения за Possession of Marijuana Class A/B misdemeanor. В совокупности официальный цвет — красный.",
+      "differenceDescription": "No current live map, popup, API, SEO or SSOT status captured; former project classification is not used as an input.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
@@ -38122,7 +38122,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "No current live map, popup, API, SEO or SSOT status captured; former project classification is not used as an input. Повторный аудит: Indiana Health визуально относит marijuana (cannabis) к Schedule I и прямо определяет Schedule I как не имеющий accepted medical use; ранее свежо просмотренная страница Fort Wayne Police показывает действующие обвинения за Possession of Marijuana Class A/B misdemeanor. В совокупности официальный цвет — красный."
+          "notes": "No current live map, popup, API, SEO or SSOT status captured; former project classification is not used as an input."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -38881,7 +38881,7 @@
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "NOT_ASSESSED_IN_THIS_INDEPENDENT_PACKET",
-      "differenceDescription": "The legal package establishes independent truth only. No current live map, popup, API, SEO or SSOT capture was performed in this packet. Повторный аудит: Iowa Code 2026 §124E.12 визуально даёт полную защиту пациентам/карточкам medical cannabidiol; §124.401 визуально наказывает marijuana possession до 6 месяцев/$1,000 вне Chapter 124E.",
+      "differenceDescription": "The legal package establishes independent truth only. No current live map, popup, API, SEO or SSOT capture was performed in this packet.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
@@ -38944,7 +38944,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "The legal package establishes independent truth only. No current live map, popup, API, SEO or SSOT capture was performed in this packet. Повторный аудит: Iowa Code 2026 §124E.12 визуально даёт полную защиту пациентам/карточкам medical cannabidiol; §124.401 визуально наказывает marijuana possession до 6 месяцев/$1,000 вне Chapter 124E."
+          "notes": "The legal package establishes independent truth only. No current live map, popup, API, SEO or SSOT capture was performed in this packet."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -40165,7 +40165,7 @@
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "PROJECT_STATUS_MISMATCH",
-      "differenceDescription": "The visible Isle of Man Government page says medicinal cannabis may be prescribed and dispensed in limited circumstances under the Misuse of Drugs Act 1976, describes import licensing, and lists licensed pharmacies. Project medical=NONE is therefore wrong. Повторный аудит: Страница 12 визуально запрещает cultivation of cannabis plant и показывает исключения для cannabis-based medicinal products.",
+      "differenceDescription": "The visible Isle of Man Government page says medicinal cannabis may be prescribed and dispensed in limited circumstances under the Misuse of Drugs Act 1976, describes import licensing, and lists licensed pharmacies. Project medical=NONE is therefore wrong.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
@@ -40217,7 +40217,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "The visible Isle of Man Government page says medicinal cannabis may be prescribed and dispensed in limited circumstances under the Misuse of Drugs Act 1976, describes import licensing, and lists licensed pharmacies. Project medical=NONE is therefore wrong. Повторный аудит: Страница 12 визуально запрещает cultivation of cannabis plant и показывает исключения для cannabis-based medicinal products."
+          "notes": "The visible Isle of Man Government page says medicinal cannabis may be prescribed and dispensed in limited circumstances under the Misuse of Drugs Act 1976, describes import licensing, and lists licensed pharmacies. Project medical=NONE is therefore wrong."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -45638,7 +45638,7 @@
       ],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "MATCH_WITH_INDUSTRIAL_HEMP_AND_RESEARCH_CAVEAT",
-      "differenceDescription": "The rendered current law visibly prohibits Cannabis sativa subsp. indica cultivation, permits qualifying industrial hemp outdoors, and separately provides a permit scope for research and teaching. It does not prove patient medical-cannabis access, so project ILLEGAL/NONE matches with those narrow caveats. Повторный аудит: Section 6 визуально запрещает Cannabis indica cultivation и допускает только сертифицированный industrial/horticultural Cannabis sativa.",
+      "differenceDescription": "The rendered current law visibly prohibits Cannabis sativa subsp. indica cultivation, permits qualifying industrial hemp outdoors, and separately provides a permit scope for research and teaching. It does not prove patient medical-cannabis access, so project ILLEGAL/NONE matches with those narrow caveats.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
@@ -45689,7 +45689,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "The rendered current law visibly prohibits Cannabis sativa subsp. indica cultivation, permits qualifying industrial hemp outdoors, and separately provides a permit scope for research and teaching. It does not prove patient medical-cannabis access, so project ILLEGAL/NONE matches with those narrow caveats. Повторный аудит: Section 6 визуально запрещает Cannabis indica cultivation и допускает только сертифицированный industrial/horticultural Cannabis sativa."
+          "notes": "The rendered current law visibly prohibits Cannabis sativa subsp. indica cultivation, permits qualifying industrial hemp outdoors, and separately provides a permit scope for research and teaching. It does not prove patient medical-cannabis access, so project ILLEGAL/NONE matches with those narrow caveats."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -48206,7 +48206,7 @@
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "PROJECT_COLOR_MISMATCH_LIMITED_THERAPEUTIC_AUTHORIZATION_REGIME",
-      "differenceDescription": "Current official law supports a limited cannabis-specific therapeutic authorisation, but not patient access. No map, SSOT or production value is changed. Повторный аудит: Закон Macao 17/2009 визуально включает Cannabis sativa и её производные в таблицу I-C. Переизданный Законом 27/2024 Decreto-Lei 34/99/M визуально распространяет контроль легального рынка на таблицы I-IV, требует разрешений для выращивания, производства, оборота, хранения и использования и допускает разрешение лишь для терапевтических, научных, аналитических или учебных целей. Это доказывает ограниченный разрешительный медицинский режим, но не доказывает действующую пациентскую программу; Article 9 о 30-дневном ввозе не используется, поскольку его перечень не включает таблицу I-C.",
+      "differenceDescription": "Current official law supports a limited cannabis-specific therapeutic authorisation, but not patient access. No map, SSOT or production value is changed.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
@@ -48264,7 +48264,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "Current official law supports a limited cannabis-specific therapeutic authorisation, but not patient access. No map, SSOT or production value is changed. Повторный аудит: Закон Macao 17/2009 визуально включает Cannabis sativa и её производные в таблицу I-C. Переизданный Законом 27/2024 Decreto-Lei 34/99/M визуально распространяет контроль легального рынка на таблицы I-IV, требует разрешений для выращивания, производства, оборота, хранения и использования и допускает разрешение лишь для терапевтических, научных, аналитических или учебных целей. Это доказывает ограниченный разрешительный медицинский режим, но не доказывает действующую пациентскую программу; Article 9 о 30-дневном ввозе не используется, поскольку его перечень не включает таблицу I-C."
+          "notes": "Current official law supports a limited cannabis-specific therapeutic authorisation, but not patient access. No map, SSOT or production value is changed."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -55528,7 +55528,7 @@
       ],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "PROJECT_MEDICAL_NONE_MISSES_CURRENT_LIMITED_CANNABIS_PRESCRIPTION_DISPENSING_AXIS",
-      "differenceDescription": "The independent review derives Yellow from the current territorial Schedule 4 plus Regulations 14–15 prescription/dispensing route. This is not an operational patient programme and not recreational access. Current project layers remain separately unverified at feature level because the live runtime reports MAP=NONE/RUNTIME=REMOVED. Повторный аудит: Текущая revised Act визуально запрещает cannabis cultivation (s.8), но допускает лицензированное культивирование/курение для research; Act No.24 For Assent не принят как действующий источник.",
+      "differenceDescription": "The independent review derives Yellow from the current territorial Schedule 4 plus Regulations 14–15 prescription/dispensing route. This is not an operational patient programme and not recreational access. Current project layers remain separately unverified at feature level because the live runtime reports MAP=NONE/RUNTIME=REMOVED.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
@@ -55591,7 +55591,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "The independent review derives Yellow from the current territorial Schedule 4 plus Regulations 14–15 prescription/dispensing route. This is not an operational patient programme and not recreational access. Current project layers remain separately unverified at feature level because the live runtime reports MAP=NONE/RUNTIME=REMOVED. Повторный аудит: Текущая revised Act визуально запрещает cannabis cultivation (s.8), но допускает лицензированное культивирование/курение для research; Act No.24 For Assent не принят как действующий источник."
+          "notes": "The independent review derives Yellow from the current territorial Schedule 4 plus Regulations 14–15 prescription/dispensing route. This is not an operational patient programme and not recreational access. Current project layers remain separately unverified at feature level because the live runtime reports MAP=NONE/RUNTIME=REMOVED."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -63025,7 +63025,7 @@
       ],
       "sourceCoverage": "OFFICIAL_CONTEXT_ONLY",
       "differenceStatus": "CURRENT_MAP_AND_SSOT_RED_VS_INDEPENDENT_YELLOW_PROPOSAL_ONLY",
-      "differenceDescription": "Live local map popup is RED / Access remains prohibited. The independent legal review now establishes a direct current domestic cannabis classification (대마 in Appendix 1) plus statutory patient possession, prescription and medical-institution supply clauses. This supports only a limited lawful cannabis mode, not operational patient access. No production layer is changed. Повторный аудит: Свежая визуальная перепроверка закрывает KP жёлтым композитным, а не одиночным источником. Актуальная UN Treaty Collection визуально показывает Democratic People's Republic of Korea стороной amended Single Convention с 19 March 2007. Официальный текст UNODC самой Convention визуально определяет Cannabis, Cannabis plant и Cannabis resin, определяет drug через Schedules I и II и в Article 4 обязывает стороны реализовать Convention на своей территории и ограничить производство, оборот, use и possession drugs исключительно medical and scientific purposes. Актуальный INCB Yellow List визуально помещает CANNABIS и CANNABIS RESIN, EXTRACTS AND TINCTURES в Schedule I. Действующий DPRK Drug Management Law в редакции 14 December 2021, опубликованный в официальной Unification Law Database Ministry of Government Legislation Republic of Korea, визуально запрещает general-sale supply и разрешает narcotic use только для medicine manufacture, treatment, education and scientific research; пациентский путь требует diagnosis/prescription и контролируемого possession/use. Drug Crime Prevention Act от 1 July 2021 визуально распространяется на учреждения, граждан и иностранцев в DPRK и вводит строгие запреты и ответственность за неразрешённые производство, хранение, торговлю, ввоз и use narcotics. Государственный отчёт DPRK CRC/C/PRK/4 дополнительно визуально подтверждает accession к трём международным drug-control conventions и отсутствие заявленного non-prescription narcotic use. Поэтому cannabis связан с действующим режимом не через непубличный Cabinet list, а через обязательную для DPRK Convention, её прямое cannabis-определение и Schedule I, вместе с текущим внутренним narcotic-control режимом. Общий recreational route незаконен; ограниченный prescription/medical/scientific правовой путь доказан, но фактическая доступность конкретного cannabis medicine не доказана. В трёхцветной модели это жёлтый.",
+      "differenceDescription": "Live local map popup is RED / Access remains prohibited. The independent legal review now establishes a direct current domestic cannabis classification (대마 in Appendix 1) plus statutory patient possession, prescription and medical-institution supply clauses. This supports only a limited lawful cannabis mode, not operational patient access. No production layer is changed.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY",
@@ -63090,7 +63090,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "Live local map popup is RED / Access remains prohibited. The independent legal review now establishes a direct current domestic cannabis classification (대마 in Appendix 1) plus statutory patient possession, prescription and medical-institution supply clauses. This supports only a limited lawful cannabis mode, not operational patient access. No production layer is changed. Повторный аудит: Свежая визуальная перепроверка закрывает KP жёлтым композитным, а не одиночным источником. Актуальная UN Treaty Collection визуально показывает Democratic People's Republic of Korea стороной amended Single Convention с 19 March 2007. Официальный текст UNODC самой Convention визуально определяет Cannabis, Cannabis plant и Cannabis resin, определяет drug через Schedules I и II и в Article 4 обязывает стороны реализовать Convention на своей территории и ограничить производство, оборот, use и possession drugs исключительно medical and scientific purposes. Актуальный INCB Yellow List визуально помещает CANNABIS и CANNABIS RESIN, EXTRACTS AND TINCTURES в Schedule I. Действующий DPRK Drug Management Law в редакции 14 December 2021, опубликованный в официальной Unification Law Database Ministry of Government Legislation Republic of Korea, визуально запрещает general-sale supply и разрешает narcotic use только для medicine manufacture, treatment, education and scientific research; пациентский путь требует diagnosis/prescription и контролируемого possession/use. Drug Crime Prevention Act от 1 July 2021 визуально распространяется на учреждения, граждан и иностранцев в DPRK и вводит строгие запреты и ответственность за неразрешённые производство, хранение, торговлю, ввоз и use narcotics. Государственный отчёт DPRK CRC/C/PRK/4 дополнительно визуально подтверждает accession к трём международным drug-control conventions и отсутствие заявленного non-prescription narcotic use. Поэтому cannabis связан с действующим режимом не через непубличный Cabinet list, а через обязательную для DPRK Convention, её прямое cannabis-определение и Schedule I, вместе с текущим внутренним narcotic-control режимом. Общий recreational route незаконен; ограниченный prescription/medical/scientific правовой путь доказан, но фактическая доступность конкретного cannabis medicine не доказана. В трёхцветной модели это жёлтый."
+          "notes": "Live local map popup is RED / Access remains prohibited. The independent legal review now establishes a direct current domestic cannabis classification (대마 in Appendix 1) plus statutory patient possession, prescription and medical-institution supply clauses. This supports only a limited lawful cannabis mode, not operational patient access. No production layer is changed."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -65465,18 +65465,18 @@
           "url": "https://pakistancode.gov.pk/pdffiles/administrator739c7aa745c5afab5decf2e100caf1c5.pdf",
           "sourceKind": "PAKISTAN_CODE_MINISTRY_OF_LAW_CONTROL_OF_NARCOTIC_SUBSTANCES_ACT_1997_CANNABIS_DEFINITIONS_PROHIBITIONS_AND_STRICT_PENALTIES",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:49:51.042Z",
             "final_url": "https://pakistancode.gov.pk/pdffiles/administrator739c7aa745c5afab5decf2e100caf1c5.pdf",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
+            "last_modified": "Mon, 07 Aug 2023 09:25:38 GMT",
+            "content_type": "application/pdf",
+            "content_length": 553737,
+            "document_sha256": "e5e7cad13487f4828b787fe7991e4a4765175137eb62cc0325f55824a3ebaecf",
             "relevant_fragment_sha256": null,
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -65515,18 +65515,18 @@
           "effectiveRuleVisible": true,
           "screenshotValid": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:49:51.042Z",
             "final_url": "https://na.gov.pk/uploads/documents/69d4e17704917_332.pdf",
-            "http_status": null,
-            "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
+            "http_status": 200,
+            "etag": "\"b3ef5-64edc8d522e55\"",
+            "last_modified": "Tue, 07 Apr 2026 10:50:31 GMT",
+            "content_type": "application/pdf",
+            "content_length": 737013,
+            "document_sha256": "bc8eface7b94684ee4961fc41479ad646625d789a3f63b0ea10d69ab8d618286",
             "relevant_fragment_sha256": "029e2b4eb8e406e845b2e836dd8a42130e5c5be1aa20e99ae6b29ca93ef6d166",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "BASELINE_HASH_NOT_ESTABLISHED",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -68789,7 +68789,7 @@
       ],
       "sourceCoverage": "OFFICIAL_CONTEXT_ONLY",
       "differenceStatus": "UNKNOWN_RETAINED_WITH_CURRENT_APPLICABILITY_AND_CANNABIS_SPECIFICITY_BLOCKERS_EXPLAINED",
-      "differenceDescription": "No current cannabis-specific territorial law, extension order or operational route is proved. Generic drugs, generic prescription and UK law references remain scope context only and cannot generate YELLOW or RED. Повторный аудит: Независимая повторная проверка сохраняет PN неокрашенным. Summary Offences Ordinance section 7 регулирует импорт generic ‘drugs of any kind’ и содержит generic prescription/Medical Officer exception; Health Centre policy регулирует generic medications. Ни один из этих текстов не называет cannabis и не доказывает cannabis product, cannabis prescription, cannabis import, dispensing или patient programme. Current Pitcairn laws portal и lists of UK Orders in Council не дают documented extension of a UK cannabis or Misuse of Drugs Act. INCB Yellow List identifies cannabis internationally, но не является применимым законом Pitcairn. Поэтому generic territorial drug wording, generic prescription и external cannabis identifier не могут образовать YELLOW: PN остаётся UNKNOWN / LEGAL_APPLICABILITY_UNRESOLVED. SSOT не изменён.",
+      "differenceDescription": "No current cannabis-specific territorial law, extension order or operational route is proved. Generic drugs, generic prescription and UK law references remain scope context only and cannot generate YELLOW or RED.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY",
@@ -68844,7 +68844,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "No current cannabis-specific territorial law, extension order or operational route is proved. Generic drugs, generic prescription and UK law references remain scope context only and cannot generate YELLOW or RED. Повторный аудит: Независимая повторная проверка сохраняет PN неокрашенным. Summary Offences Ordinance section 7 регулирует импорт generic ‘drugs of any kind’ и содержит generic prescription/Medical Officer exception; Health Centre policy регулирует generic medications. Ни один из этих текстов не называет cannabis и не доказывает cannabis product, cannabis prescription, cannabis import, dispensing или patient programme. Current Pitcairn laws portal и lists of UK Orders in Council не дают documented extension of a UK cannabis or Misuse of Drugs Act. INCB Yellow List identifies cannabis internationally, но не является применимым законом Pitcairn. Поэтому generic territorial drug wording, generic prescription и external cannabis identifier не могут образовать YELLOW: PN остаётся UNKNOWN / LEGAL_APPLICABILITY_UNRESOLVED. SSOT не изменён."
+          "notes": "No current cannabis-specific territorial law, extension order or operational route is proved. Generic drugs, generic prescription and UK law references remain scope context only and cannot generate YELLOW or RED."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -72018,7 +72018,7 @@
       "supplementalOfficialLinks": [],
       "sourceCoverage": "OFFICIAL_LEGAL_AXIS_PENDING_VISUAL_ACCEPTANCE",
       "differenceStatus": "LAYER_COMPARISON_NOT_RECAPTURED_IN_THIS_INDEPENDENT_LEGAL_PACKET",
-      "differenceDescription": "Historical map/proposal records remain comparison context only. This packet derives the proposal from applicable official law and does not treat prior map, popup, API, SEO, SSOT or overlay values as legal inputs. Повторный аудит: Официальная страница France визуально называет cannabis, запрет употребления, статью L3421-1, наказание до года и €3,750 и фиксированный штраф €200. Свежая официальная étude d'impact Sénat визуально цитирует LO 6213-1 о применении законов и регламентов de plein droit в Saint-Barthélemy, а официальный доклад Sénat подтверждает, что health и hospital financing остаются компетенцией государства. Префектура в 2026 визуально называет употребление cannabis на наших территориях. Переходный медицинский режим закончился 31 марта 2026, более поздний действующий пациентский доступ не подтверждён. Официальный цвет BL — жёлтый из-за смешанного штрафного/судебного исполнения.",
+      "differenceDescription": "Historical map/proposal records remain comparison context only. This packet derives the proposal from applicable official law and does not treat prior map, popup, API, SEO, SSOT or overlay values as legal inputs.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "FRESH_REVIEW_BLOCKED_BY_SOURCE_ACCESS",
@@ -72076,7 +72076,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "Historical map/proposal records remain comparison context only. This packet derives the proposal from applicable official law and does not treat prior map, popup, API, SEO, SSOT or overlay values as legal inputs. Повторный аудит: Официальная страница France визуально называет cannabis, запрет употребления, статью L3421-1, наказание до года и €3,750 и фиксированный штраф €200. Свежая официальная étude d'impact Sénat визуально цитирует LO 6213-1 о применении законов и регламентов de plein droit в Saint-Barthélemy, а официальный доклад Sénat подтверждает, что health и hospital financing остаются компетенцией государства. Префектура в 2026 визуально называет употребление cannabis на наших территориях. Переходный медицинский режим закончился 31 марта 2026, более поздний действующий пациентский доступ не подтверждён. Официальный цвет BL — жёлтый из-за смешанного штрафного/судебного исполнения."
+          "notes": "Historical map/proposal records remain comparison context only. This packet derives the proposal from applicable official law and does not treat prior map, popup, API, SEO, SSOT or overlay values as legal inputs."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -73517,7 +73517,7 @@
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "PROJECT_STATUS_REQUIRES_RECONCILIATION",
-      "differenceDescription": "The prior limited-law conclusion based on enforcement was incomplete. Current official evidence supports YELLOW only through a prescription-only cannabidiol pharmaceutical route; it does not support GREEN medical-cannabis programme or RED full patient-access absence. No map, SSOT or production value is changed. Повторный аудит: Официальная страница France визуально называет cannabis, запрет употребления, статью L3421-1, наказание до года и €3,750 и фиксированный штраф €200. Свежая официальная étude d'impact Sénat визуально подтверждает идентичный LO 6313-1 о применении законов и регламентов de plein droit в Saint-Martin; официальный парламентский разбор визуально перечисляет нормативные компетенции территории и не относит к ним cannabis/health regulation, сохраняя за государством уголовное право. Префектура в 2026 визуально называет употребление cannabis на наших территориях. Переходный медицинский режим закончился 31 марта 2026, более поздний действующий пациентский доступ не подтверждён. Официальный цвет MF — жёлтый из-за смешанного штрафного/судебного исполнения.",
+      "differenceDescription": "The prior limited-law conclusion based on enforcement was incomplete. Current official evidence supports YELLOW only through a prescription-only cannabidiol pharmaceutical route; it does not support GREEN medical-cannabis programme or RED full patient-access absence. No map, SSOT or production value is changed.",
       "parserSignals": [],
       "derivedStatus": {
         "recreational": "ILLEGAL",
@@ -73582,7 +73582,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "The prior limited-law conclusion based on enforcement was incomplete. Current official evidence supports YELLOW only through a prescription-only cannabidiol pharmaceutical route; it does not support GREEN medical-cannabis programme or RED full patient-access absence. No map, SSOT or production value is changed. Повторный аудит: Официальная страница France визуально называет cannabis, запрет употребления, статью L3421-1, наказание до года и €3,750 и фиксированный штраф €200. Свежая официальная étude d'impact Sénat визуально подтверждает идентичный LO 6313-1 о применении законов и регламентов de plein droit в Saint-Martin; официальный парламентский разбор визуально перечисляет нормативные компетенции территории и не относит к ним cannabis/health regulation, сохраняя за государством уголовное право. Префектура в 2026 визуально называет употребление cannabis на наших территориях. Переходный медицинский режим закончился 31 марта 2026, более поздний действующий пациентский доступ не подтверждён. Официальный цвет MF — жёлтый из-за смешанного штрафного/судебного исполнения."
+          "notes": "The prior limited-law conclusion based on enforcement was incomplete. Current official evidence supports YELLOW only through a prescription-only cannabidiol pharmaceutical route; it does not support GREEN medical-cannabis programme or RED full patient-access absence. No map, SSOT or production value is changed."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -73963,7 +73963,7 @@
       ],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "YELLOW_RETAINED_WITH_FALSE_DECRIMINALIZATION_RATIONALE_REMOVED",
-      "differenceDescription": "The former PM YELLOW rationale treated a criminal fixed-fine procedure as decriminalisation. This was false. The colour remains YELLOW only because current official evidence proves a limited prescription cannabidiol medicine route applicable through the Public Health Code; no operational medical-cannabis programme is inferred. Повторный аудит: Официальная страница France визуально называет cannabis, запрет употребления, статью L3421-1, наказание до года и €3,750 и фиксированный штраф €200. Официальный отчёт префекта Saint-Pierre-et-Miquelon визуально фиксирует пресечение местного оборота herbe и résine de cannabis; Sénat визуально подтверждает принцип применения французских законов и регламентов de plein droit в архипелаге вне узких местных компетенций. Service Public визуально показывает окончание переходного медицинского режима 31 марта 2026 и отсутствие новых пациентов с марта 2024; более поздний действующий пациентский доступ не подтверждён. Поэтому официальный цвет PM — жёлтый как незаконное употребление со смешанным штрафным/судебным исполнением, а не красный по умолчанию.",
+      "differenceDescription": "The former PM YELLOW rationale treated a criminal fixed-fine procedure as decriminalisation. This was false. The colour remains YELLOW only because current official evidence proves a limited prescription cannabidiol medicine route applicable through the Public Health Code; no operational medical-cannabis programme is inferred.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
@@ -74018,7 +74018,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "The former PM YELLOW rationale treated a criminal fixed-fine procedure as decriminalisation. This was false. The colour remains YELLOW only because current official evidence proves a limited prescription cannabidiol medicine route applicable through the Public Health Code; no operational medical-cannabis programme is inferred. Повторный аудит: Официальная страница France визуально называет cannabis, запрет употребления, статью L3421-1, наказание до года и €3,750 и фиксированный штраф €200. Официальный отчёт префекта Saint-Pierre-et-Miquelon визуально фиксирует пресечение местного оборота herbe и résine de cannabis; Sénat визуально подтверждает принцип применения французских законов и регламентов de plein droit в архипелаге вне узких местных компетенций. Service Public визуально показывает окончание переходного медицинского режима 31 марта 2026 и отсутствие новых пациентов с марта 2024; более поздний действующий пациентский доступ не подтверждён. Поэтому официальный цвет PM — жёлтый как незаконное употребление со смешанным штрафным/судебным исполнением, а не красный по умолчанию."
+          "notes": "The former PM YELLOW rationale treated a criminal fixed-fine procedure as decriminalisation. This was false. The colour remains YELLOW only because current official evidence proves a limited prescription cannabidiol medicine route applicable through the Public Health Code; no operational medical-cannabis programme is inferred."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -75700,7 +75700,7 @@
       ],
       "sourceCoverage": "OFFICIAL_CONTEXT_ONLY",
       "differenceStatus": "COLOR_UNRESOLVED_DISPUTED_GEO_CLAIMANT_CONTEXT_ONLY",
-      "differenceDescription": "Нейтральный PCA Award не решает суверенитет над Scarborough Shoal и не делимитирует границы. Philippines, China и Taiwan источники сохраняют claimant-jurisdiction и cannabis-law факты своих режимов, но не создают единый SCR-issued закон и не доказывают его полную применимость к спорной GEO. Общий resolver допускает colour при доказанном complete convergence и applicability; эти условия в данной записи не закрыты. SCR остаётся UNKNOWN до прямого территориального scope/applicability evidence. Повторный аудит: Свежая визуальная перепроверка закрывает SCR красным без выбора спорного суверена. Philippines RA 9522 относит Bajo de Masinloc / Scarborough Shoal к островам под заявленной юрисдикцией Philippines, а RA 9165 прямо определяет cannabis/marijuana/Indian hemp и устанавливает строгие уголовные запреты и наказания. Официальная китайская ветка заявляет Huangyan Island территорией China, а Criminal Law PRC в статьях 351 и 357 прямо называет marijuana и предусматривает строгую уголовную ответственность. Суверенитет остаётся спорным, но цветовой результат не спорен: каждая визуально проверенная применимая claimant-ветка даёт recreational=ILLEGAL, medical=NONE для общего территориального вывода и enforcement=STRICT. Поэтому SCR получает красный по правилу совпадения всех claimant-режимов; это не признание чьего-либо суверенитета.",
+      "differenceDescription": "Нейтральный PCA Award не решает суверенитет над Scarborough Shoal и не делимитирует границы. Philippines, China и Taiwan источники сохраняют claimant-jurisdiction и cannabis-law факты своих режимов, но не создают единый SCR-issued закон и не доказывают его полную применимость к спорной GEO. Общий resolver допускает colour при доказанном complete convergence и applicability; эти условия в данной записи не закрыты. SCR остаётся UNKNOWN до прямого территориального scope/applicability evidence.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY",
@@ -75763,7 +75763,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "Нейтральный PCA Award не решает суверенитет над Scarborough Shoal и не делимитирует границы. Philippines, China и Taiwan источники сохраняют claimant-jurisdiction и cannabis-law факты своих режимов, но не создают единый SCR-issued закон и не доказывают его полную применимость к спорной GEO. Общий resolver допускает colour при доказанном complete convergence и applicability; эти условия в данной записи не закрыты. SCR остаётся UNKNOWN до прямого территориального scope/applicability evidence. Повторный аудит: Свежая визуальная перепроверка закрывает SCR красным без выбора спорного суверена. Philippines RA 9522 относит Bajo de Masinloc / Scarborough Shoal к островам под заявленной юрисдикцией Philippines, а RA 9165 прямо определяет cannabis/marijuana/Indian hemp и устанавливает строгие уголовные запреты и наказания. Официальная китайская ветка заявляет Huangyan Island территорией China, а Criminal Law PRC в статьях 351 и 357 прямо называет marijuana и предусматривает строгую уголовную ответственность. Суверенитет остаётся спорным, но цветовой результат не спорен: каждая визуально проверенная применимая claimant-ветка даёт recreational=ILLEGAL, medical=NONE для общего территориального вывода и enforcement=STRICT. Поэтому SCR получает красный по правилу совпадения всех claimant-режимов; это не признание чьего-либо суверенитета."
+          "notes": "Нейтральный PCA Award не решает суверенитет над Scarborough Shoal и не делимитирует границы. Philippines, China и Taiwan источники сохраняют claimant-jurisdiction и cannabis-law факты своих режимов, но не создают единый SCR-issued закон и не доказывают его полную применимость к спорной GEO. Общий resolver допускает colour при доказанном complete convergence и applicability; эти условия в данной записи не закрыты. SCR остаётся UNKNOWN до прямого территориального scope/applicability evidence."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -76753,7 +76753,7 @@
       "supplementalOfficialLinks": [],
       "sourceCoverage": "OFFICIAL_CONTEXT_ONLY",
       "differenceStatus": "NO_PROJECT_STATUS_COLOR_RESOLVED_DISPUTED_GEO_CLAIMANT_STATE_CONTEXT_ONLY",
-      "differenceDescription": "Decreto 1946/2013 и решение ICJ подтверждают колумбийский административный и двусторонний суверенный контекст, но не доказывают единый безусловно применимый к спорной GEO cannabis-режим. Ley 1787/2016 и решение Corte Constitucional остаются официальными источниками права Colombia, а не SER-issued территориальными cannabis-law источниками. По общему disputed-geo правилу текущая неокрашенная карта не опровергнута; вывод остаётся UNKNOWN до прямого доказательства применимости. Повторный аудит: Официальный Decreto 1946/2013 визуально включает Cayos de Serranilla в Departamento Archipiélago de San Andrés, Providencia y Santa Catalina и прямо фиксирует полную суверенную юрисдикцию Colombia над этими островными территориями. Национальная Ley 1787/2016 на видимой странице распространяет медицинский и научный cannabis framework на всю национальную территорию Colombia, а решение Corte Constitucional C-127/23 фиксирует personal dose. Для колумбийской административной юрисдикции SER официальный цвет — зелёный; спорный международный статус остаётся scope caveat и не маскируется под отдельный SER-issued закон.",
+      "differenceDescription": "Decreto 1946/2013 и решение ICJ подтверждают колумбийский административный и двусторонний суверенный контекст, но не доказывают единый безусловно применимый к спорной GEO cannabis-режим. Ley 1787/2016 и решение Corte Constitucional остаются официальными источниками права Colombia, а не SER-issued территориальными cannabis-law источниками. По общему disputed-geo правилу текущая неокрашенная карта не опровергнута; вывод остаётся UNKNOWN до прямого доказательства применимости.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY",
@@ -76811,7 +76811,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "Decreto 1946/2013 и решение ICJ подтверждают колумбийский административный и двусторонний суверенный контекст, но не доказывают единый безусловно применимый к спорной GEO cannabis-режим. Ley 1787/2016 и решение Corte Constitucional остаются официальными источниками права Colombia, а не SER-issued территориальными cannabis-law источниками. По общему disputed-geo правилу текущая неокрашенная карта не опровергнута; вывод остаётся UNKNOWN до прямого доказательства применимости. Повторный аудит: Официальный Decreto 1946/2013 визуально включает Cayos de Serranilla в Departamento Archipiélago de San Andrés, Providencia y Santa Catalina и прямо фиксирует полную суверенную юрисдикцию Colombia над этими островными территориями. Национальная Ley 1787/2016 на видимой странице распространяет медицинский и научный cannabis framework на всю национальную территорию Colombia, а решение Corte Constitucional C-127/23 фиксирует personal dose. Для колумбийской административной юрисдикции SER официальный цвет — зелёный; спорный международный статус остаётся scope caveat и не маскируется под отдельный SER-issued закон."
+          "notes": "Decreto 1946/2013 и решение ICJ подтверждают колумбийский административный и двусторонний суверенный контекст, но не доказывают единый безусловно применимый к спорной GEO cannabis-режим. Ley 1787/2016 и решение Corte Constitucional остаются официальными источниками права Colombia, а не SER-issued территориальными cannabis-law источниками. По общему disputed-geo правилу текущая неокрашенная карта не опровергнута; вывод остаётся UNKNOWN до прямого доказательства применимости."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -77149,7 +77149,12 @@
       "territory": "KAS",
       "projectStatus": null,
       "officialStatus": null,
-      "independentTruth": null,
+      "independentTruth": {
+        "color": "UNKNOWN",
+        "rule": "DISPUTED_GEO_NO_OWN_REGIME",
+        "reviewedAt": "2026-08-12T09:00:00+03:00",
+        "conclusion": "The canonical KAS GEO is Siachen Glacier. Current official Indian and Pakistani primary-law records remain applicable to their respective national jurisdictions only, and official India/Pakistan dispute sources show competing claimant context north of NJ 9842. No KAS-issued cannabis statute, neutral territorial lawgiver, or direct evidence of one unitary cannabis regime for the whole disputed feature was found. KAS is therefore UNKNOWN and unpainted for legal applicability, never because the India MEA endpoint returned 403."
+      },
       "directOfficialCannabisLawLinks": [],
       "candidateLinksAwaitingVisualReview": [],
       "officialContextLinks": [
@@ -77157,24 +77162,37 @@
           "title": "India Code - Narcotic Drugs and Psychotropic Substances Act, 1985",
           "url": "https://www.indiacode.nic.in/bitstream/123456789/18974/1/narcotic-drugs-and-psychotropic-substances-act-1985.pdf",
           "sourceKind": "INDIA_CLAIMANT_STATE_CONTEXT_ONLY_NDPS_ACT_CANNABIS_HEMP_CHARAS_GANJA_PROHIBITION_AND_PENALTIES_NOT_KAS_TERRITORIAL_LAW",
+          "sourceOwnerGeo": "IN",
+          "appliesToGeos": [
+            "IN"
+          ],
+          "legalBasisForExtension": "The published national statute applies to India. It is retained for KAS only as Indian claimant-law context and is not evidence that the Act extends to the disputed Siachen Glacier GEO.",
+          "officialPublisher": "India Code / Ministry of Law and Justice, Government of India",
+          "sourceAnnotation": "Current official Indian primary-law context explicitly names cannabis and its derivatives and preserves a restricted medical/scientific exception. It proves neither a KAS lawgiver nor a unitary KAS cannabis regime, so it does not supply a KAS legal axis or colour.",
+          "sourceType": "CURRENT_CLAIMANT_NATIONAL_PRIMARY_NARCOTIC_DRUG_STATUTE",
+          "primaryOrContext": "CLAIMANT_CANNABIS_LAW_CONTEXT_ONLY",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:49:51.042Z",
             "final_url": "https://www.indiacode.nic.in/bitstream/123456789/18974/1/narcotic-drugs-and-psychotropic-substances-act-1985.pdf",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "last_modified": "Mon, 01 May 2023 07:31:40 GMT",
+            "content_type": "application/pdf",
+            "content_length": 609101,
+            "document_sha256": "8cd8e71f5e1bd5a5d98a414d553c76838ae8bf9b493097981220305ef70deac2",
+            "relevant_fragment_sha256": "9307f04c0880dee7531da89572628f3d3d0948c2076c94fcbfdc1de79c7eb43d",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
             ],
             "dependent_geos": [
+              "IN",
               "KAS"
             ]
           },
@@ -77189,25 +77207,38 @@
           "title": "National Assembly of Pakistan - Cannabis Control and Regulatory Authority Act, 2024",
           "url": "https://www.na.gov.pk/uploads/documents/6713a2c8b8dfd_401.pdf",
           "sourceKind": "PAKISTAN_CLAIMANT_STATE_CONTEXT_ONLY_GAZETTE_CANNABIS_CONTROL_REGULATORY_AUTHORITY_ACT_2024_NOT_KAS_TERRITORIAL_LAW",
+          "sourceOwnerGeo": "PK",
+          "appliesToGeos": [
+            "PK"
+          ],
+          "legalBasisForExtension": "The federal Act applies throughout Pakistan. It is retained for KAS only as Pakistani claimant-law context and does not establish that the disputed Siachen Glacier GEO is subject to a Pakistani unitary cannabis regime.",
+          "officialPublisher": "National Assembly of Pakistan / Gazette of Pakistan",
+          "sourceAnnotation": "Official Pakistani primary-law context directly regulates cannabis-plant derivatives for medicinal and industrial use. It is not patient-access evidence and cannot establish KAS territorial applicability or colour.",
+          "sourceType": "CURRENT_CLAIMANT_NATIONAL_PRIMARY_CANNABIS_STATUTE",
+          "primaryOrContext": "CLAIMANT_CANNABIS_LAW_CONTEXT_ONLY",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:49:51.042Z",
             "final_url": "https://www.na.gov.pk/uploads/documents/6713a2c8b8dfd_401.pdf",
-            "http_status": null,
-            "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "http_status": 200,
+            "etag": "\"e1cef-624d35ea3a3b7\"",
+            "last_modified": "Sat, 19 Oct 2024 12:15:04 GMT",
+            "content_type": "application/pdf",
+            "content_length": 924911,
+            "document_sha256": "3e8e53c2e5139fcb42182bca46adf9e3d6e4000567b649dbf1515a6414c45681",
+            "relevant_fragment_sha256": "bf09f0d9c369b461d8332793f3ea11f8241aead794a338a5c115dcb8323762f2",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
             ],
             "dependent_geos": [
-              "KAS"
+              "KAS",
+              "PK"
             ]
           },
           "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
@@ -77221,6 +77252,40 @@
           "title": "Pakistan MOFA — Siachen/Kashmir claimant context",
           "url": "https://mofa.gov.pk/storage/files/1/65451083a984b.pdf",
           "sourceKind": "PAKISTAN_CLAIMANT_SCOPE",
+          "sourceOwnerGeo": "PK",
+          "appliesToGeos": [
+            "PK"
+          ],
+          "legalBasisForExtension": "Pakistan Ministry of Foreign Affairs material is a claimant-scope record only and never establishes a unitary KAS cannabis-law applicability bridge.",
+          "officialPublisher": "Ministry of Foreign Affairs, Government of Pakistan",
+          "sourceAnnotation": "Second retained visual reference for the Pakistani claimant-scope source. It is jurisdiction context only, not a cannabis-law source and not an applicability bridge for KAS.",
+          "sourceType": "OFFICIAL_CLAIMANT_DISPUTE_SCOPE_CONTEXT",
+          "primaryOrContext": "JURISDICTION_CONTEXT_ONLY",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T05:59:51.502Z",
+            "final_url": "https://mofa.gov.pk/storage/files/1/65451083a984b.pdf",
+            "http_status": null,
+            "etag": null,
+            "last_modified": null,
+            "content_type": null,
+            "content_length": null,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "e8ee2047fb3afd691bada0609c21ba8072d0f46a185e1c21ad2524d312b1ea47",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "NOT_CHECKED_LOCAL_ONLY",
+            "change_reason": "BASELINE_HASH_NOT_ESTABLISHED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "KAS",
+              "PK"
+            ]
+          },
           "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
           "confidence": "high",
@@ -77232,6 +77297,40 @@
           "title": "India MEA — Siachen и NJ 9842 claimant context",
           "url": "https://www.mea.gov.in/Uploads/PublicationDocs/23460_IWM_Book__11-06-2014_.pdf",
           "sourceKind": "INDIA_CLAIMANT_SCOPE",
+          "sourceOwnerGeo": "IN",
+          "appliesToGeos": [
+            "IN"
+          ],
+          "legalBasisForExtension": "India Ministry of External Affairs material is a claimant-scope record only and never establishes a unitary KAS cannabis-law applicability bridge.",
+          "officialPublisher": "Ministry of External Affairs, Government of India",
+          "sourceAnnotation": "Second retained visual reference for the Indian claimant-scope source. Its access block is not a legal conclusion and it is never cannabis-law evidence or an applicability bridge for KAS.",
+          "sourceType": "OFFICIAL_CLAIMANT_DISPUTE_SCOPE_CONTEXT",
+          "primaryOrContext": "JURISDICTION_CONTEXT_ONLY",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T05:59:51.502Z",
+            "final_url": "https://www.mea.gov.in/Uploads/PublicationDocs/23460_IWM_Book__11-06-2014_.pdf",
+            "http_status": null,
+            "etag": null,
+            "last_modified": null,
+            "content_type": null,
+            "content_length": null,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "580c354c6ec9e5d1073fe7fcdf9b9b90e2e7776943ecffd5c8ef7ed52d02fc83",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "NOT_CHECKED_LOCAL_ONLY",
+            "change_reason": "BASELINE_HASH_NOT_ESTABLISHED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "IN",
+              "KAS"
+            ]
+          },
           "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
           "confidence": "high",
@@ -77243,24 +77342,37 @@
           "title": "India NDPS Act 1985 — определение cannabis (hemp)",
           "url": "https://www.indiacode.nic.in/bitstream/123456789/6834/1/narcotic-drugs-and-psychotropic-substances-act-1985.pdf",
           "sourceKind": "INDIA_CLAIMANT_DIRECT_CANNABIS_LAW",
+          "sourceOwnerGeo": "IN",
+          "appliesToGeos": [
+            "IN"
+          ],
+          "legalBasisForExtension": "This alternate official India Code copy is Indian national law. For KAS it is only claimant context and supplies no direct territorial applicability.",
+          "officialPublisher": "India Code / Ministry of Law and Justice, Government of India",
+          "sourceAnnotation": "Alternate current official Indian PDF retained to cross-check the cannabis definition and medical/scientific exception. It is claimant-state context only, not a patient route and not KAS territorial law.",
+          "sourceType": "CURRENT_CLAIMANT_NATIONAL_PRIMARY_NARCOTIC_DRUG_STATUTE",
+          "primaryOrContext": "CLAIMANT_CANNABIS_LAW_CONTEXT_ONLY",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:49:51.042Z",
             "final_url": "https://www.indiacode.nic.in/bitstream/123456789/6834/1/narcotic-drugs-and-psychotropic-substances-act-1985.pdf",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "last_modified": "Fri, 12 Aug 2022 11:07:54 GMT",
+            "content_type": "application/pdf",
+            "content_length": 4320099,
+            "document_sha256": "95b15b3c31a31a766255d0559a75d277f4cd4ef3994452833db378a446299f03",
+            "relevant_fragment_sha256": "9307f04c0880dee7531da89572628f3d3d0948c2076c94fcbfdc1de79c7eb43d",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
             ],
             "dependent_geos": [
+              "IN",
               "KAS"
             ]
           },
@@ -77275,25 +77387,38 @@
           "title": "Pakistan CNSA — определение cannabis, charas и ganja",
           "url": "https://pakistancode.gov.pk/pdffiles/administrator739c7aa745c5afab5decf2e100caf1c5.pdf",
           "sourceKind": "PAKISTAN_CLAIMANT_DIRECT_CANNABIS_LAW",
+          "sourceOwnerGeo": "PK",
+          "appliesToGeos": [
+            "PK"
+          ],
+          "legalBasisForExtension": "This consolidated federal statute applies in Pakistan. It is KAS claimant-law context only and does not prove a unitary territorial cannabis regime for the disputed GEO.",
+          "officialPublisher": "Pakistan Code / Ministry of Law and Justice",
+          "sourceAnnotation": "Current official Pakistani consolidated cannabis statute retained as claimant context. It proves no KAS legal axis, no patient programme and no territorial inheritance of the Pakistan regime.",
+          "sourceType": "CURRENT_CLAIMANT_CONSOLIDATED_PRIMARY_NARCOTIC_STATUTE",
+          "primaryOrContext": "CLAIMANT_CANNABIS_LAW_CONTEXT_ONLY",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:49:51.042Z",
             "final_url": "https://pakistancode.gov.pk/pdffiles/administrator739c7aa745c5afab5decf2e100caf1c5.pdf",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "last_modified": "Mon, 07 Aug 2023 09:25:38 GMT",
+            "content_type": "application/pdf",
+            "content_length": 553737,
+            "document_sha256": "e5e7cad13487f4828b787fe7991e4a4765175137eb62cc0325f55824a3ebaecf",
+            "relevant_fragment_sha256": "850d06d171fdcd198852741a77da1bc82ceb05c7687f19afc2c349d6c95d1f99",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
             ],
             "dependent_geos": [
-              "KAS"
+              "KAS",
+              "PK"
             ]
           },
           "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
@@ -77307,25 +77432,38 @@
           "title": "Pakistan Cannabis Control and Regulatory Authority Act 2024",
           "url": "https://www.pakistancode.gov.pk/pdffiles/administrator135567794d629a6ce6f1b32daadc651d.pdf",
           "sourceKind": "PAKISTAN_CLAIMANT_REGULATED_MEDICINAL_CANNABIS_LAW",
+          "sourceOwnerGeo": "PK",
+          "appliesToGeos": [
+            "PK"
+          ],
+          "legalBasisForExtension": "The federal Act is directly applicable in Pakistan. It is KAS claimant-law context only and does not establish an applicable cannabis regime for the disputed GEO.",
+          "officialPublisher": "Pakistan Code / Ministry of Law and Justice",
+          "sourceAnnotation": "Current official Pakistan Code cannabis-law record. It is a regulated medicinal/industrial framework, not a proven patient-access route, and for KAS remains claimant context rather than a territorial legal conclusion.",
+          "sourceType": "CURRENT_CLAIMANT_NATIONAL_PRIMARY_CANNABIS_STATUTE",
+          "primaryOrContext": "CLAIMANT_CANNABIS_LAW_CONTEXT_ONLY",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:49:51.042Z",
             "final_url": "https://www.pakistancode.gov.pk/pdffiles/administrator135567794d629a6ce6f1b32daadc651d.pdf",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "last_modified": "Thu, 16 Apr 2026 05:01:51 GMT",
+            "content_type": "application/pdf",
+            "content_length": 320745,
+            "document_sha256": "5c1315d951caf588fb3601fd511143b076106a89f24c2f240b598eb292d807eb",
+            "relevant_fragment_sha256": "bf09f0d9c369b461d8332793f3ea11f8241aead794a338a5c115dcb8323762f2",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
             ],
             "dependent_geos": [
-              "KAS"
+              "KAS",
+              "PK"
             ]
           },
           "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
@@ -77339,25 +77477,38 @@
           "title": "Pakistan CCRA Amendment Act 2026",
           "url": "https://na.gov.pk/uploads/documents/69d4e17704917_332.pdf",
           "sourceKind": "PAKISTAN_CLAIMANT_CURRENT_CANNABIS_LAW_AMENDMENT",
+          "sourceOwnerGeo": "PK",
+          "appliesToGeos": [
+            "PK"
+          ],
+          "legalBasisForExtension": "The federal amendment applies in Pakistan. It is retained for KAS only to establish currentness of Pakistan claimant context and does not transfer legal applicability to the disputed GEO.",
+          "officialPublisher": "National Assembly of Pakistan / Gazette of Pakistan",
+          "sourceAnnotation": "Current official Pakistan cannabis-law amendment retained solely to prevent stale claimant-law context. It makes no patient-access finding and cannot establish KAS applicability.",
+          "sourceType": "CURRENT_CLAIMANT_PRIMARY_CANNABIS_AMENDMENT",
+          "primaryOrContext": "CLAIMANT_CANNABIS_LAW_CURRENTNESS_CONTEXT_ONLY",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T05:49:51.042Z",
             "final_url": "https://na.gov.pk/uploads/documents/69d4e17704917_332.pdf",
-            "http_status": null,
-            "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "http_status": 200,
+            "etag": "\"b3ef5-64edc8d522e55\"",
+            "last_modified": "Tue, 07 Apr 2026 10:50:31 GMT",
+            "content_type": "application/pdf",
+            "content_length": 737013,
+            "document_sha256": "bc8eface7b94684ee4961fc41479ad646625d789a3f63b0ea10d69ab8d618286",
+            "relevant_fragment_sha256": "930b9e6f0cb35f521c99170730e6e4db54e8718afd8441a267c9858c1ac4d4fa",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
             ],
             "dependent_geos": [
-              "KAS"
+              "KAS",
+              "PK"
             ]
           },
           "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
@@ -77382,7 +77533,7 @@
       ],
       "sourceCoverage": "OFFICIAL_CONTEXT_ONLY",
       "differenceStatus": "COLOR_UNRESOLVED_DISPUTED_GEO_CLAIMANT_CONTEXT_ONLY",
-      "differenceDescription": "India and Pakistan official materials establish competing claimant contexts for Siachen/Kashmir, not a neutral territorial lawgiver or a documented single cannabis regime for the complete KAS GEO. India and Pakistan cannabis statutes remain claimant-state context evidence. The general resolver permits colour only after direct complete territorial applicability or proven convergence plus applicability; that threshold is not met here. KAS remains UNKNOWN until direct territorial scope/applicability evidence is available. Повторный аудит: Свежая визуальная перепроверка закрывает KAS жёлтым без выбора суверена. Официальный India Code NDPS Act визуально действует на всю India, определяет cannabis (hemp), запрещает выращивание, производство, владение, продажу, покупку, перевозку, употребление и потребление, но прямо сохраняет лицензируемое исключение для medical/scientific purposes; section 20 устанавливает cannabis-specific наказания. Действующий официальный Pakistan Code CNSA 1997 визуально определяет cannabis/hemp, charas/hashish oil, bhang/siddhi/ganja и cannabis plant; sections 4 и 6 запрещают выращивание, владение, производство, продажу, покупку и перевозку, кроме разрешённых medical/scientific/industrial purposes, а sections 5 и 9 устанавливают строгие сроки лишения свободы. Pakistan Cannabis Control and Regulatory Authority Act 2024 дополнительно создаёт регулируемую medicinal/industrial cannabis-систему. Документы India MEA и Pakistan MOFA подтверждают противоположные позиции по Siachen, поэтому суверен не выбирается. Для KAS применяется явно обозначенный консервативный общий знаменатель всех визуально проверенных claimant-режимов: recreational запрещён, medical/scientific доступ ограничен разрешительным режимом, enforcement строгий. Это даёт жёлтый цвет и не означает признания чьего-либо суверенитета или равенства национальных программ доступа.",
+      "differenceDescription": "India and Pakistan official materials establish competing claimant contexts for Siachen/Kashmir, not a neutral territorial lawgiver or a documented single cannabis regime for the complete KAS GEO. India and Pakistan cannabis statutes remain claimant-state context evidence. The general resolver permits colour only after direct complete territorial applicability or proven convergence plus applicability; that threshold is not met here. KAS remains UNKNOWN until direct territorial scope/applicability evidence is available.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY",
@@ -77448,7 +77599,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "India and Pakistan official materials establish competing claimant contexts for Siachen/Kashmir, not a neutral territorial lawgiver or a documented single cannabis regime for the complete KAS GEO. India and Pakistan cannabis statutes remain claimant-state context evidence. The general resolver permits colour only after direct complete territorial applicability or proven convergence plus applicability; that threshold is not met here. KAS remains UNKNOWN until direct territorial scope/applicability evidence is available. Повторный аудит: Свежая визуальная перепроверка закрывает KAS жёлтым без выбора суверена. Официальный India Code NDPS Act визуально действует на всю India, определяет cannabis (hemp), запрещает выращивание, производство, владение, продажу, покупку, перевозку, употребление и потребление, но прямо сохраняет лицензируемое исключение для medical/scientific purposes; section 20 устанавливает cannabis-specific наказания. Действующий официальный Pakistan Code CNSA 1997 визуально определяет cannabis/hemp, charas/hashish oil, bhang/siddhi/ganja и cannabis plant; sections 4 и 6 запрещают выращивание, владение, производство, продажу, покупку и перевозку, кроме разрешённых medical/scientific/industrial purposes, а sections 5 и 9 устанавливают строгие сроки лишения свободы. Pakistan Cannabis Control and Regulatory Authority Act 2024 дополнительно создаёт регулируемую medicinal/industrial cannabis-систему. Документы India MEA и Pakistan MOFA подтверждают противоположные позиции по Siachen, поэтому суверен не выбирается. Для KAS применяется явно обозначенный консервативный общий знаменатель всех визуально проверенных claimant-режимов: recreational запрещён, medical/scientific доступ ограничен разрешительным режимом, enforcement строгий. Это даёт жёлтый цвет и не означает признания чьего-либо суверенитета или равенства национальных программ доступа."
+          "notes": "India and Pakistan official materials establish competing claimant contexts for Siachen/Kashmir, not a neutral territorial lawgiver or a documented single cannabis regime for the complete KAS GEO. India and Pakistan cannabis statutes remain claimant-state context evidence. The general resolver permits colour only after direct complete territorial applicability or proven convergence plus applicability; that threshold is not met here. KAS remains UNKNOWN until direct territorial scope/applicability evidence is available."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -81144,7 +81295,7 @@
       ],
       "sourceCoverage": "OFFICIAL_CONTEXT_ONLY",
       "differenceStatus": "COLOR_UNRESOLVED_DISPUTED_GEO_CLAIMANT_CONTEXT_ONLY",
-      "differenceDescription": "Current Chile Ministry of Foreign Affairs material confirms that the 1998 Agreement remains in force while official mixed cartography and the Section B tracing work remain in execution. Argentina and Chile cannabis materials prove only their separate national regimes. A claimant-regime intersection cannot create a territorial cannabis law, patient route, or color for SPI. The prior LIMITED_OR_MEDICAL/YELLOW verdict is superseded by the general disputed-GEO applicability rule; all claimant evidence remains preserved as context only. No project status SSOT was changed. Повторный аудит: Свежая визуальная перепроверка закрывает SPI жёлтым без выбора стороны незавершённой границы. В аргентинской ветке действующая Ley 23.737 сохраняет наказание за владение, но официальный федеральный приговор 2025 года применяет Arriola и исключает наказание за частное личное владение без конкретного вреда третьим лицам; Ley 27.350 прямо создаёт регулируемый medical/scientific cannabis framework. В чилийской ветке действующая Ley 20.000 Article 8 прямо называет cannabis, наказывает неразрешённое выращивание, выделяет personal-use sanction scope и признаёт medical-treatment cultivation по рецепту врача; Decreto 404 отдельно запрещает операции с cannabis/resin/extracts/tinctures, сохраняя ISP-controlled research и human-use pharmaceutical scope. Chile Ministry of Foreign Affairs визуально подтверждает, что совместная картография Section B по Agreement 1998 ещё выполняется, поэтому суверен для всей SPI не выбирается. Консервативный общий знаменатель двух визуально проверенных claimant-режимов: рекреационный рынок не легализован, ограниченный/регулируемый медицинский путь существует, enforcement варьируется от мягкого personal-use carve-out до уголовного запрета. В трёхцветной модели это жёлтый; вывод не скрывает различия режимов и не признаёт суверенитет.",
+      "differenceDescription": "Current Chile Ministry of Foreign Affairs material confirms that the 1998 Agreement remains in force while official mixed cartography and the Section B tracing work remain in execution. Argentina and Chile cannabis materials prove only their separate national regimes. A claimant-regime intersection cannot create a territorial cannabis law, patient route, or color for SPI. The prior LIMITED_OR_MEDICAL/YELLOW verdict is superseded by the general disputed-GEO applicability rule; all claimant evidence remains preserved as context only. No project status SSOT was changed.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY",
@@ -81204,7 +81355,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "Current Chile Ministry of Foreign Affairs material confirms that the 1998 Agreement remains in force while official mixed cartography and the Section B tracing work remain in execution. Argentina and Chile cannabis materials prove only their separate national regimes. A claimant-regime intersection cannot create a territorial cannabis law, patient route, or color for SPI. The prior LIMITED_OR_MEDICAL/YELLOW verdict is superseded by the general disputed-GEO applicability rule; all claimant evidence remains preserved as context only. No project status SSOT was changed. Повторный аудит: Свежая визуальная перепроверка закрывает SPI жёлтым без выбора стороны незавершённой границы. В аргентинской ветке действующая Ley 23.737 сохраняет наказание за владение, но официальный федеральный приговор 2025 года применяет Arriola и исключает наказание за частное личное владение без конкретного вреда третьим лицам; Ley 27.350 прямо создаёт регулируемый medical/scientific cannabis framework. В чилийской ветке действующая Ley 20.000 Article 8 прямо называет cannabis, наказывает неразрешённое выращивание, выделяет personal-use sanction scope и признаёт medical-treatment cultivation по рецепту врача; Decreto 404 отдельно запрещает операции с cannabis/resin/extracts/tinctures, сохраняя ISP-controlled research и human-use pharmaceutical scope. Chile Ministry of Foreign Affairs визуально подтверждает, что совместная картография Section B по Agreement 1998 ещё выполняется, поэтому суверен для всей SPI не выбирается. Консервативный общий знаменатель двух визуально проверенных claimant-режимов: рекреационный рынок не легализован, ограниченный/регулируемый медицинский путь существует, enforcement варьируется от мягкого personal-use carve-out до уголовного запрета. В трёхцветной модели это жёлтый; вывод не скрывает различия режимов и не признаёт суверенитет."
+          "notes": "Current Chile Ministry of Foreign Affairs material confirms that the 1998 Agreement remains in force while official mixed cartography and the Section B tracing work remain in execution. Argentina and Chile cannabis materials prove only their separate national regimes. A claimant-regime intersection cannot create a territorial cannabis law, patient route, or color for SPI. The prior LIMITED_OR_MEDICAL/YELLOW verdict is superseded by the general disputed-GEO applicability rule; all claimant evidence remains preserved as context only. No project status SSOT was changed."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -82025,7 +82176,7 @@
       "supplementalOfficialLinks": [],
       "sourceCoverage": "OFFICIAL_CONTEXT_ONLY",
       "differenceStatus": "COLOR_UNRESOLVED_DISPUTED_GEO_CLAIMANT_CONTEXT_ONLY",
-      "differenceDescription": "Нейтральный PCA Award не решает суверенитет над Spratly Islands и не делимитирует границы. Источники China, Taiwan, Viet Nam, Malaysia, Brunei Darussalam и Philippines сохраняют cannabis-law факты своих claimant-режимов, но не создают единый PGA-issued закон и не доказывают применимость полного режима ко всему составному полигону. Общий resolver допускает colour при доказанном complete convergence и applicability; эти условия в данной записи не закрыты. PGA остаётся UNKNOWN до прямого территориального scope/applicability evidence. Повторный аудит: Свежая визуальная перепроверка закрывает PGA красным без выбора суверена и без выдумывания единого закона Spratly Islands. Официальный UN report A/47/623 визуально перечисляет шесть claimant-веток: China, Taiwan и Viet Nam заявляют весь архипелаг, а Malaysia, Brunei Darussalam и Philippines — отдельные атоллы. Для каждой ветки заново просмотрена реальная официальная CannabisLawPage: Brunei Cap.27 относит cannabis и cannabis resin к Class A и запрещает неразрешённые possession, consumption, trafficking, manufacture и import/export; China Criminal Law Articles 347, 348, 351 и 357 прямо называют marijuana и устанавливают уголовные наказания; Malaysia Act 234 определяет cannabis, запрещает владение без authorisation и строго наказывает trafficking; Philippines RA 9165 определяет marijuana/Indian hemp, наказывает использование и выращивание, оставляя только medical-experiment/research carve-out; Taiwan FDA визуально называет cannabis незаконным Category II narcotic; Vietnam Decree 28/2026 помещает cannabis plant и preparations в List I, запрещённый для медицинского и социального использования вне специального research/testing/forensic/security режима, а Law 73/2021 прямо определяет cây cần sa и запрещённые операции. Исключения для разрешённой науки, экспериментов или контролируемых целей различаются и не образуют общего пациентского доступа для всей PGA. Поэтому явно обозначенный консервативный общий знаменатель всех шести визуально проверенных claimant-режимов — recreational запрещён, territory-wide medical patient access отсутствует, уголовный enforcement строгий. В трёхцветной модели это красный; вывод не отрицает отдельные национальные исключения и не признаёт чей-либо суверенитет.",
+      "differenceDescription": "Нейтральный PCA Award не решает суверенитет над Spratly Islands и не делимитирует границы. Источники China, Taiwan, Viet Nam, Malaysia, Brunei Darussalam и Philippines сохраняют cannabis-law факты своих claimant-режимов, но не создают единый PGA-issued закон и не доказывают применимость полного режима ко всему составному полигону. Общий resolver допускает colour при доказанном complete convergence и applicability; эти условия в данной записи не закрыты. PGA остаётся UNKNOWN до прямого территориального scope/applicability evidence.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY",
@@ -82095,7 +82246,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "Нейтральный PCA Award не решает суверенитет над Spratly Islands и не делимитирует границы. Источники China, Taiwan, Viet Nam, Malaysia, Brunei Darussalam и Philippines сохраняют cannabis-law факты своих claimant-режимов, но не создают единый PGA-issued закон и не доказывают применимость полного режима ко всему составному полигону. Общий resolver допускает colour при доказанном complete convergence и applicability; эти условия в данной записи не закрыты. PGA остаётся UNKNOWN до прямого территориального scope/applicability evidence. Повторный аудит: Свежая визуальная перепроверка закрывает PGA красным без выбора суверена и без выдумывания единого закона Spratly Islands. Официальный UN report A/47/623 визуально перечисляет шесть claimant-веток: China, Taiwan и Viet Nam заявляют весь архипелаг, а Malaysia, Brunei Darussalam и Philippines — отдельные атоллы. Для каждой ветки заново просмотрена реальная официальная CannabisLawPage: Brunei Cap.27 относит cannabis и cannabis resin к Class A и запрещает неразрешённые possession, consumption, trafficking, manufacture и import/export; China Criminal Law Articles 347, 348, 351 и 357 прямо называют marijuana и устанавливают уголовные наказания; Malaysia Act 234 определяет cannabis, запрещает владение без authorisation и строго наказывает trafficking; Philippines RA 9165 определяет marijuana/Indian hemp, наказывает использование и выращивание, оставляя только medical-experiment/research carve-out; Taiwan FDA визуально называет cannabis незаконным Category II narcotic; Vietnam Decree 28/2026 помещает cannabis plant и preparations в List I, запрещённый для медицинского и социального использования вне специального research/testing/forensic/security режима, а Law 73/2021 прямо определяет cây cần sa и запрещённые операции. Исключения для разрешённой науки, экспериментов или контролируемых целей различаются и не образуют общего пациентского доступа для всей PGA. Поэтому явно обозначенный консервативный общий знаменатель всех шести визуально проверенных claimant-режимов — recreational запрещён, territory-wide medical patient access отсутствует, уголовный enforcement строгий. В трёхцветной модели это красный; вывод не отрицает отдельные национальные исключения и не признаёт чей-либо суверенитет."
+          "notes": "Нейтральный PCA Award не решает суверенитет над Spratly Islands и не делимитирует границы. Источники China, Taiwan, Viet Nam, Malaysia, Brunei Darussalam и Philippines сохраняют cannabis-law факты своих claimant-режимов, но не создают единый PGA-issued закон и не доказывают применимость полного режима ко всему составному полигону. Общий resolver допускает colour при доказанном complete convergence и applicability; эти условия в данной записи не закрыты. PGA остаётся UNKNOWN до прямого территориального scope/applicability evidence."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -83193,7 +83344,7 @@
       ],
       "sourceCoverage": "OFFICIAL_CONTEXT_ONLY",
       "differenceStatus": "BASELINE_RED_CONSERVATIVE_INTERSECTION_REJECTED_BY_GENERAL_COMPOSITE_RULE",
-      "differenceDescription": "The baseline collapsed component-specific medical applicability into a restrictive common color. Independent review proves Svalbard and Jan Mayen have different color-determinative medical axes, so the combined GEO is UNKNOWN proposal-only. No SSOT, map, runtime, production, or color application changed. Повторный аудит: Свежая визуальная перепроверка закрывает объединённый GEO SJ красным без переноса более благоприятного режима только одной физической части. Lov om Jan Mayen §§1–2 визуально подтверждает, что Jan Mayen является частью Kingdom of Norway и что норвежское уголовное право действует там прямо. Правительственный разбор Svalbardloven отдельно визуально подтверждает действие норвежского уголовного права на Svalbard. Действующий правительственный cannabis-раздел прямо объясняет, что оборот наркотиков допускается только для медицинских и научных целей, лечение cannabis регулируется отдельно, а иные dealing, use и possession уголовно наказуемы. Norwegian Medical Products Agency визуально подтверждает ограниченный пациентский путь через Sativex, Epidyolex и named-patient permits. Однако Forskrift 747 §11 прямо распространяет legemiddelloven и apotekloven на Svalbard, тогда как визуально проверенный исчерпывающий §18 для Jan Mayen их не перечисляет. Поэтому recreational prohibition и criminal enforcement доказаны для обеих частей, а ограниченный cannabis-patient pathway — только для Svalbard. По явно обозначенному консервативному общему знаменателю composite GEO получает красный: единого подтверждённого medical-cannabis access, общего для обеих частей, нет. Это не утверждение, что на Jan Mayen отсутствует любая медицинская помощь; это минимальный доказанный общий цвет объединённой ISO-строки.",
+      "differenceDescription": "The baseline collapsed component-specific medical applicability into a restrictive common color. Independent review proves Svalbard and Jan Mayen have different color-determinative medical axes, so the combined GEO is UNKNOWN proposal-only. No SSOT, map, runtime, production, or color application changed.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY",
@@ -83257,7 +83408,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "The baseline collapsed component-specific medical applicability into a restrictive common color. Independent review proves Svalbard and Jan Mayen have different color-determinative medical axes, so the combined GEO is UNKNOWN proposal-only. No SSOT, map, runtime, production, or color application changed. Повторный аудит: Свежая визуальная перепроверка закрывает объединённый GEO SJ красным без переноса более благоприятного режима только одной физической части. Lov om Jan Mayen §§1–2 визуально подтверждает, что Jan Mayen является частью Kingdom of Norway и что норвежское уголовное право действует там прямо. Правительственный разбор Svalbardloven отдельно визуально подтверждает действие норвежского уголовного права на Svalbard. Действующий правительственный cannabis-раздел прямо объясняет, что оборот наркотиков допускается только для медицинских и научных целей, лечение cannabis регулируется отдельно, а иные dealing, use и possession уголовно наказуемы. Norwegian Medical Products Agency визуально подтверждает ограниченный пациентский путь через Sativex, Epidyolex и named-patient permits. Однако Forskrift 747 §11 прямо распространяет legemiddelloven и apotekloven на Svalbard, тогда как визуально проверенный исчерпывающий §18 для Jan Mayen их не перечисляет. Поэтому recreational prohibition и criminal enforcement доказаны для обеих частей, а ограниченный cannabis-patient pathway — только для Svalbard. По явно обозначенному консервативному общему знаменателю composite GEO получает красный: единого подтверждённого medical-cannabis access, общего для обеих частей, нет. Это не утверждение, что на Jan Mayen отсутствует любая медицинская помощь; это минимальный доказанный общий цвет объединённой ISO-строки."
+          "notes": "The baseline collapsed component-specific medical applicability into a restrictive common color. Independent review proves Svalbard and Jan Mayen have different color-determinative medical axes, so the combined GEO is UNKNOWN proposal-only. No SSOT, map, runtime, production, or color application changed."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -86189,7 +86340,7 @@
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "PROJECT_MEDICAL_AND_ENFORCEMENT_SCOPE_REVIEW",
-      "differenceDescription": "Batch 355 adds fresh official .govt.nz PJS(P) visual proof for Tokelau Rule 49: cannabis plant or seed and derivatives/preparations/products are within drug definition; import/possession is an offence; written-prescription defence is visible. Existing project statuses/colors are not changed. NZ Legislation primary route remains preserved as blocked/search-index-only, not promoted. Повторный аудит: Rule 49 Drugs визуально определяет cannabis plant or seed и производные; import/possession — offence, есть written-prescription exception. Точная архивная копия использована из-за блокировки PacLII.",
+      "differenceDescription": "Batch 355 adds fresh official .govt.nz PJS(P) visual proof for Tokelau Rule 49: cannabis plant or seed and derivatives/preparations/products are within drug definition; import/possession is an offence; written-prescription defence is visible. Existing project statuses/colors are not changed. NZ Legislation primary route remains preserved as blocked/search-index-only, not promoted.",
       "parserSignals": [
         "project=MED_LIMITED, derived_med=NONE"
       ],
@@ -86252,7 +86403,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "Batch 355 adds fresh official .govt.nz PJS(P) visual proof for Tokelau Rule 49: cannabis plant or seed and derivatives/preparations/products are within drug definition; import/possession is an offence; written-prescription defence is visible. Existing project statuses/colors are not changed. NZ Legislation primary route remains preserved as blocked/search-index-only, not promoted. Повторный аудит: Rule 49 Drugs визуально определяет cannabis plant or seed и производные; import/possession — offence, есть written-prescription exception. Точная архивная копия использована из-за блокировки PacLII."
+          "notes": "Batch 355 adds fresh official .govt.nz PJS(P) visual proof for Tokelau Rule 49: cannabis plant or seed and derivatives/preparations/products are within drug definition; import/possession is an offence; written-prescription defence is visible. Existing project statuses/colors are not changed. NZ Legislation primary route remains preserved as blocked/search-index-only, not promoted."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -90981,7 +91132,7 @@
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "INSUFFICIENT_EVIDENCE",
-      "differenceDescription": "This packet establishes independent legal truth only. Live production map fill, popup, API, SEO, SSOT and wiki-truth proposal were intentionally not captured here and are not inferred from the prior static MATCH label. Повторный аудит: Официальная таблица визуально перечисляет гашиш/смолу cannabis и cannabis/marijuana с порогами small/large/especially large quantities.",
+      "differenceDescription": "This packet establishes independent legal truth only. Live production map fill, popup, API, SEO, SSOT and wiki-truth proposal were intentionally not captured here and are not inferred from the prior static MATCH label.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
@@ -91039,7 +91190,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "This packet establishes independent legal truth only. Live production map fill, popup, API, SEO, SSOT and wiki-truth proposal were intentionally not captured here and are not inferred from the prior static MATCH label. Повторный аудит: Официальная таблица визуально перечисляет гашиш/смолу cannabis и cannabis/marijuana с порогами small/large/especially large quantities."
+          "notes": "This packet establishes independent legal truth only. Live production map fill, popup, API, SEO, SSOT and wiki-truth proposal were intentionally not captured here and are not inferred from the prior static MATCH label."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -92048,7 +92199,7 @@
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "INSUFFICIENT_EVIDENCE",
-      "differenceDescription": "The earlier limited-personal-use conclusion relied on a UN mirror/nonofficial reproduction. The fresh official MINTUR citation conflicts on Gazette identity, and the official Assembly query returned 403 without primary text. Повторный аудит: Страница 13 Gaceta reproduction на UNODC SHERLOC визуально показывает arts.150-153, marijuana thresholds и personal consumption up to 20g; это исправляет прежний ложный NO_DIRECT.",
+      "differenceDescription": "The earlier limited-personal-use conclusion relied on a UN mirror/nonofficial reproduction. The fresh official MINTUR citation conflicts on Gazette identity, and the official Assembly query returned 403 without primary text.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
@@ -92104,7 +92255,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "The earlier limited-personal-use conclusion relied on a UN mirror/nonofficial reproduction. The fresh official MINTUR citation conflicts on Gazette identity, and the official Assembly query returned 403 without primary text. Повторный аудит: Страница 13 Gaceta reproduction на UNODC SHERLOC визуально показывает arts.150-153, marijuana thresholds и personal consumption up to 20g; это исправляет прежний ложный NO_DIRECT."
+          "notes": "The earlier limited-personal-use conclusion relied on a UN mirror/nonofficial reproduction. The fresh official MINTUR citation conflicts on Gazette identity, and the official Assembly query returned 403 without primary text."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
