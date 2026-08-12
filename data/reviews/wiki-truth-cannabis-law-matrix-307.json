@@ -29,7 +29,7 @@
     "colorReauditDirectOrComposite": 31,
     "colorReauditContextClaimantOrNegative": 8,
     "supplementalOfficialLinks": 32,
-    "allPublishedOfficialLinks": 1396,
+    "allPublishedOfficialLinks": 1399,
     "rowsWithPublishedOfficialLinks": 307,
     "rowsWithAnyOfficialUrl": 307
   },
@@ -83322,27 +83322,223 @@
         "medical": "NONE_OR_ONLY_GENERAL_MEDICAL_SCIENTIFIC_AUTHORIZATION; ACT_VISIBLY_ALLOWS_NARCOTIC_DRUGS_OR_PREPARATIONS_ONLY_FOR_MEDICAL_OR_SCIENTIFIC_PURPOSES_WITH_MINISTER_AUTHORIZATION_AND_TERMS_BUT_NO_CANNABIS_SPECIFIC_PATIENT_ACCESS_PROGRAM_WAS_VISUALLY_FOUND",
         "enforcement": "STRICT_WITH_TREATMENT_DIVERSION_CAVEAT; TRADE_PURPOSE_OFFENCES_VISIBLY_CARRY_LIFE_IMPRISONMENT_AND_AGGRAVATED_DEATH_PENALTY_WHILE_CONSUMPTION_CARRIES_UP_TO_FIVE_YEARS_AND_FINE_WITH_NO_PROCEEDINGS_FOR_ADDICTS_APPLYING_FOR_TREATMENT_SPONTANEOUSLY_OR_BEFORE_TRIAL"
       },
-      "independentTruth": null,
+      "independentTruth": {
+        "color": "YELLOW",
+        "rule": "GENERAL_CANNABIS_SCHEDULED_WITH_CURRENT_MEDICAL_SCIENTIFIC_MINISTERIAL_AUTHORISATION_WITHOUT_OPERATIONAL_PATIENT_ACCESS",
+        "reviewedAt": "2026-08-12T08:15:00Z",
+        "conclusion": "The current Sudan Judiciary decision records the 1994 Act's 2002-amended section-3 hashish/Indian-hemp definition, and the current Ministry of Interior states its Drug Control Administration operates under the 1994 Act. Retained dated Act crops add the cannabis/resin/THC table bridge, prohibited conduct and medical/scientific Minister-authorisation class. The combined chain proves limited lawful cannabis-related authorisation, never operational patient access."
+      },
       "directOfficialCannabisLawLinks": [
         {
           "title": "UNODC Legal Library archive - Sudan Narcotic Drugs and Psychotropic Substances Act, 1994",
           "url": "https://web.archive.org/web/20071004220747/http://www.unodc.org/unodc/en/legal_library/sd/legal_library_1996-12-18_1996-77.html?print=yes",
           "sourceKind": "UNODC_LEGAL_LIBRARY_ARCHIVE_REPRODUCTION_OF_SUDAN_NARCOTIC_DRUGS_AND_PSYCHOTROPIC_SUBSTANCES_ACT_1994_HASHISH_CANNABIS_DEFINITION_PROHIBITION_MEDICAL_SCIENTIFIC_EXCEPTION_STRICT_PENALTIES_TABLE_IV_CANNABIS_RESIN_THC",
+          "sourceOwnerGeo": "UNCONFIRMED",
+          "appliesToGeos": [
+            "SD"
+          ],
+          "legalBasisForExtension": "The archived text identifies a Sudan Transitional National Assembly Act, but the host is not a Sudan official owner and cannot alone establish the Act's current consolidated status.",
+          "officialPublisher": "Archived international legal-library reproduction of a Sudan Act; retained as historical text corroboration only",
+          "sourceAnnotation": "Retained historical cannabis-law text with a source-owner limitation. It supplies the exact cannabis-family/table language only when independently bridged by current Sudan-owned official material; generic medical/scientific authorization is not patient access.",
+          "sourceType": "ARCHIVED_UNODC_REPRODUCTION_OF_SUDAN_PRIMARY_LAW_NOT_CURRENT_SUDAN_OFFICIAL_OWNER",
+          "primaryOrContext": "HISTORICAL_CANNABIS_TEXT_CORROBORATION_REQUIRES_CURRENT_SUDAN_OWNER_BRIDGE",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": false,
+          "revalidation": {
+            "checked_at": "2026-08-12T08:10:25.018Z",
+            "final_url": "https://web.archive.org/web/20071004220747/http://www.unodc.org/unodc/en/legal_library/sd/legal_library_1996-12-18_1996-77.html?print=yes",
+            "http_status": null,
+            "etag": null,
+            "last_modified": null,
+            "content_type": null,
+            "content_length": null,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "30f915de089a4f09470216fb01980059ef5b20c11cf680dda2a8cb6925d0cbe6",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "SD"
+            ]
+          },
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "UNODC Legal Library archived text of Sudan's Narcotic Drugs and Psychotropic Substances Act, 1994. Visual review confirms the Sudan / Transitional National Assembly legislation title, the cancellation of the Hashish and Opium Law 1924, and the Act's definition of Hashish as the Indian hemp plant and any plant of the hemp variety, its parts and extracts and all preparations and mixtures therefrom. The rendered prohibition section visibly prohibits import, export, introduction into Sudan, production, manufacture, ownership, possession, obtaining, transport, trade, sale, purchase, delivery, receipt, prescription, exchange, assignment or brokerage of narcotic drugs or psychotropic substances except for medical and scientific purposes with Minister authorization and terms under the Act or other law; consumption is likewise prohibited except as allowed. The rendered penalties visibly include life imprisonment and fine for trade-purpose production, manufacture, import/export/transport, buying, selling, possession, dealing, circulation and cultivation of plants from which narcotic drugs are extracted, with death penalty aggravating cases. Consumption or obtaining/manufacturing/producing for consumption is visibly punishable up to five years and fine, with a treatment-diversion caveat for addicts applying spontaneously or before trial. Table IV visibly lists Cannabis and Cannabis resin, and Table V visibly lists tetrahydrocannabinols. Source caveat: this is an archived UNODC Legal Library reproduction of the Sudan Act, not a currently live Sudan ministry page.",
+          "note": "The archived Act defines Hashish as the Indian hemp plant and hemp variety plants, their parts, extracts, preparations and mixtures; Table IV lists Cannabis and Cannabis resin, and Table V lists tetrahydrocannabinols. It prohibits unauthorised narcotic conduct except medical or scientific purposes subject to Minister authorization.",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-27/SD/screenshots/SD-unodc-title-definition.png",
           "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "Sudan is closed as visually verified direct cannabis-law evidence with UNODC Legal Library source-scope caveat. The visually reviewed Act supports project ILLEGAL/NONE/STRICT, while disclosing the medical/scientific authorization language and treatment-diversion caveat. No project status SSOT was changed."
+          "visualReview": "Retained dated crops show the Act title, hashish/cannabis definition, restriction, medical/scientific exception, penalties and tables. They do not prove a current Sudan official host or a patient programme."
+        },
+        {
+          "title": "Judiciary of the Republic of Sudan - Supreme Court judgment applying the 1994 Narcotic Drugs and Psychotropic Substances Act as amended in 2002",
+          "url": "https://sj.gov.sd/ar/content/book/%D8%AD%D9%83%D9%88%D9%85%D8%A9-%D8%A7%D9%84%D8%B3%D9%88%D8%AF%D8%A7%D9%86-%D8%B6%D8%AF-%D8%A2-%D9%8A-%D8%A3-%D8%A3-%D8%A7-%D9%85-%D8%B9%D8%BA-%D8%A5%D9%85%D8%A4%D8%A8%D8%AF542017%D9%85",
+          "sourceKind": "SUDAN_JUDICIARY_OFFICIAL_2017_SUPREME_COURT_JUDGMENT_CANNABIS_HASHISH_INDIAN_HEMP_2002_AMENDMENT_ENFORCEMENT",
+          "sourceOwnerGeo": "SD",
+          "appliesToGeos": [
+            "SD"
+          ],
+          "legalBasisForExtension": "The Sudan Judiciary is a national public authority; the published decision concerns application of Sudan's Narcotic Drugs and Psychotropic Substances Act to Sudan conduct.",
+          "officialPublisher": "Official Sudan Judiciary published Supreme Court judgment",
+          "sourceAnnotation": "Official Judiciary cannabis-specific enforcement evidence. It confirms the Act's hashish/Indian-hemp bridge and historical application, while explicitly retaining the limitation that a judgment issued in 2017 is not a current consolidated statute or patient-access source.",
+          "sourceType": "CURRENTLY_HOSTED_OFFICIAL_SUDAN_JUDICIARY_CANNABIS_ENFORCEMENT_DECISION",
+          "primaryOrContext": "OFFICIAL_JUDICIAL_CANNABIS_DEFINITION_AND_ENFORCEMENT_CONTEXT_NOT_CURRENT_CONSOLIDATION",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": false,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T08:10:25.018Z",
+            "final_url": "https://sj.gov.sd/ar/content/book/%D8%AD%D9%83%D9%88%D9%85%D8%A9-%D8%A7%D9%84%D8%B3%D9%88%D8%AF%D8%A7%D9%86-%D8%B6%D8%AF-%D8%A2-%D9%8A-%D8%A3-%D8%A3-%D8%A7-%D9%85-%D8%B9%D8%BA-%D8%A5%D9%85%D8%A4%D8%A8%D8%AF542017%D9%85",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": "Wed, 12 Aug 2026 08:10:35 +0000",
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 127008,
+            "document_sha256": "7dfba6608e5b0b369cc840f885d5c4718cfefcf76f69a2bf73e49249c0b50662",
+            "relevant_fragment_sha256": "f1b9eaa8735f71ec7e35af8f46a7b587e95d8122e0e63f33d274de3563bd4819",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "SD"
+            ]
+          },
+          "evidenceScope": null,
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
+          "confidence": "high",
+          "note": "حيث جاء بالمادة التعريفية (3) من قانون المخدرات والمؤثرات العقلية لسنة 1994م تعديل لسنة 2002م أنه: يُقصد بالمخدرات: (الحشيش والأفيون ... إلخ) ، وأنه يُقصد بالحشيش:( نبات القنب الهندي ... إلخ).",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/BRT-sudan-current-cannabis-enforcement.png",
+          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
+          "visualReview": "The retained dated Judiciary crop was locally read and visibly shows the official judicial text, the 1994 Act with amendments through 2002, hashish/Indian hemp and THC. The fresh C1 request returned HTTP 200 with a new document hash; strict address-bar/domain acceptance remains separate from legal truth."
         }
       ],
       "candidateLinksAwaitingVisualReview": [],
-      "officialContextLinks": [],
+      "officialContextLinks": [
+        {
+          "title": "Sudan Ministry of Interior - General Administration for Drug Control",
+          "url": "https://moi.gov.sd/home",
+          "sourceKind": "SUDAN_MINISTRY_OF_INTERIOR_CURRENT_NARCOTICS_CONTROL_ACT_1994_IMPLEMENTATION_PAGE",
+          "sourceOwnerGeo": "SD",
+          "appliesToGeos": [
+            "SD"
+          ],
+          "legalBasisForExtension": "The Ministry of Interior is a Sudan national executive authority; its national narcotics-control mandate explicitly identifies the Sudan 1994 Act.",
+          "officialPublisher": "Official Ministry of Interior page for the General Administration for Drug Control",
+          "sourceAnnotation": "Current Sudan executive source that bridges the historical Act text to an active official narcotics-control mandate. It is deliberately not used as a cannabis-specific patient or pharmacy axis.",
+          "sourceType": "CURRENT_OFFICIAL_SUDAN_EXECUTIVE_NARCOTICS_CONTROL_PAGE",
+          "primaryOrContext": "CURRENT_ACT_CONTINUITY_AND_ENFORCEMENT_CONTEXT_NOT_CANNABIS_SPECIFIC_STATUTE_TEXT",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": false,
+          "officialOwnerVisible": false,
+          "cannabisFragmentVisible": false,
+          "effectiveRuleVisible": false,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T08:10:25.018Z",
+            "final_url": "https://moi.gov.sd/home",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 4453245,
+            "document_sha256": "21f262c3dc9579a7e4529f74e27c6f6d80d4d266aea982fda4692524d8a4ff5b",
+            "relevant_fragment_sha256": "d4d19b09f9fc183b615818a150ec9765d4bb781c2fd37dee3b674311c66859e3",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "SD"
+            ]
+          },
+          "evidenceScope": "RETAINED_REVIEWED_SOURCE_PROVENANCE_CONTEXT_ONLY",
+          "verification": "RETAINED_REVIEWED_SOURCE_PROVENANCE_CONTEXT",
+          "confidence": "low",
+          "note": "Current Sudan executive source that bridges the historical Act text to an active official narcotics-control mandate. It is deliberately not used as a cannabis-specific patient or pharmacy axis.",
+          "screenshotPath": null,
+          "visualReview": "Search discovery is not visual acceptance. C1/C2/C3 must retrieve and inspect the Ministry page or preserve any timeout/WAF/blank response as access metadata only."
+        },
+        {
+          "title": "Sudan National Medicines and Poisons Board - Medicines and Poisons Act 2009",
+          "url": "https://www.nmpb.gov.sd/law/The_medicines_and_poisons_act_2009.pdf",
+          "sourceKind": "SUDAN_NMPB_OFFICIAL_MEDICINES_AND_POISONS_ACT_2009_GENERIC_NARCOTIC_PHARMACY_BOUNDARY",
+          "sourceOwnerGeo": "SD",
+          "appliesToGeos": [
+            "SD"
+          ],
+          "legalBasisForExtension": "The National Medicines and Poisons Board is a Sudan national regulator and hosts its national medicines law PDF.",
+          "officialPublisher": "Official Sudan National Medicines and Poisons Board law publication",
+          "sourceAnnotation": "Official regulatory context retained to prevent generic e-licensing or pharmacy wording from being misclassified as cannabis patient access. It supplies no cannabis legal axis.",
+          "sourceType": "CURRENTLY_HOSTED_OFFICIAL_SUDAN_MEDICINES_LAW_PDF",
+          "primaryOrContext": "GENERIC_NARCOTIC_PHARMACY_CONTEXT_NEGATIVE_BOUNDARY_NOT_CANNABIS_PATIENT_EVIDENCE",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": false,
+          "officialOwnerVisible": false,
+          "cannabisFragmentVisible": false,
+          "effectiveRuleVisible": false,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T08:10:25.018Z",
+            "final_url": "https://www.nmpb.gov.sd/law/The_medicines_and_poisons_act_2009.pdf",
+            "http_status": null,
+            "etag": null,
+            "last_modified": null,
+            "content_type": null,
+            "content_length": null,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "07145eccebb1b53fcdd72bdbfc13f97d67d6185655f35908a321f278ac68125b",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "SD"
+            ]
+          },
+          "evidenceScope": "RETAINED_REVIEWED_SOURCE_PROVENANCE_CONTEXT_ONLY",
+          "verification": "RETAINED_REVIEWED_SOURCE_PROVENANCE_CONTEXT",
+          "confidence": "low",
+          "note": "Official regulatory context retained to prevent generic e-licensing or pharmacy wording from being misclassified as cannabis patient access. It supplies no cannabis legal axis.",
+          "screenshotPath": null,
+          "visualReview": "C1/C2/C3 must retrieve and inspect the official PDF; blank, timeout, WAF or 403 results are access metadata only and never a cannabis prohibition conclusion."
+        }
+      ],
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
-      "differenceStatus": "MATCH_WITH_UNODC_LEGAL_LIBRARY_SOURCE_SCOPE_AND_TREATMENT_DIVERSION_CAVEAT",
-      "differenceDescription": "Sudan is visually verified from the archived UNODC Legal Library reproduction of the Sudan Narcotic Drugs and Psychotropic Substances Act, 1994. The Act visibly defines Hashish as Indian hemp/hemp plant material and preparations, includes cannabis and cannabis resin in Table IV and tetrahydrocannabinols in Table V, broadly prohibits unauthorized dealing, possession, consumption, cultivation, import/export, production, manufacture, transport, sale, purchase and related acts except medical/scientific authorization routes, and sets strict penalties including life imprisonment for trade-purpose offences and death in aggravating cases. Project recreational=ILLEGAL, medical=NONE and enforcement=STRICT are supported, with two caveats: the source is an archived UNODC Legal Library reproduction rather than a live Sudan ministry page, and Section 20 includes treatment-diversion/non-prosecution for addicts who seek treatment spontaneously or before trial. No project status SSOT was changed.",
+      "differenceStatus": "AXIS_MISMATCH_COLOR_UNCONFIRMED_PENDING_LIVE_MAP_REOPEN",
+      "differenceDescription": "The independent SD packet retains project adult prohibition and strict enforcement, but distinguishes the applicable Act's cannabis-linked medical/scientific Minister-authorisation class from patient access and from project medical=NONE. The current live map/popup/API layer was not reopened in this hidden review, so it is not asserted that the visible map color matches or conflicts. No project status SSOT was changed.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
@@ -83352,10 +83548,11 @@
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-27/SD/screenshots/SD-unodc-prohibition-medical-scientific-exception.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-27/SD/screenshots/SD-unodc-trafficking-life-death-penalty.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-27/SD/screenshots/SD-unodc-consumption-treatment-diversion.png",
-        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-27/SD/screenshots/SD-unodc-table-iv-cannabis-resin-thc.png"
+        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-27/SD/screenshots/SD-unodc-table-iv-cannabis-resin-thc.png",
+        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-20/project-null-7-fresh/BRT-sudan-current-cannabis-enforcement.png"
       ],
       "reviewConfidence": "high",
-      "reviewNotes": "VISUALLY_VERIFIED: Sudan is closed as visually verified direct cannabis-law evidence with UNODC Legal Library source-scope caveat. The visually reviewed Act supports project ILLEGAL/NONE/STRICT, while disclosing the medical/scientific authorization language and treatment-diversion caveat. No project status SSOT was changed.",
+      "reviewNotes": "VISUALLY_VERIFIED: Sudan is independently proposal-only YELLOW through a current Sudan-owned Judiciary/Ministry continuity chain plus retained cannabis-table and medical/scientific Minister-authorisation text. It is not patient access or programme operation, and C1 access states do not derive negative axes. SSOT, map, runtime, production and deployment remain unchanged.",
       "truthLayers": {
         "primaryLaw": {
           "source": "DIRECT_OFFICIAL_LAW",
@@ -83397,7 +83594,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "Sudan is visually verified from the archived UNODC Legal Library reproduction of the Sudan Narcotic Drugs and Psychotropic Substances Act, 1994. The Act visibly defines Hashish as Indian hemp/hemp plant material and preparations, includes cannabis and cannabis resin in Table IV and tetrahydrocannabinols in Table V, broadly prohibits unauthorized dealing, possession, consumption, cultivation, import/export, production, manufacture, transport, sale, purchase and related acts except medical/scientific authorization routes, and sets strict penalties including life imprisonment for trade-purpose offences and death in aggravating cases. Project recreational=ILLEGAL, medical=NONE and enforcement=STRICT are supported, with two caveats: the source is an archived UNODC Legal Library reproduction rather than a live Sudan ministry page, and Section 20 includes treatment-diversion/non-prosecution for addicts who seek treatment spontaneously or before trial. No project status SSOT was changed."
+          "notes": "The independent SD packet retains project adult prohibition and strict enforcement, but distinguishes the applicable Act's cannabis-linked medical/scientific Minister-authorisation class from patient access and from project medical=NONE. The current live map/popup/API layer was not reopened in this hidden review, so it is not asserted that the visible map color matches or conflicts. No project status SSOT was changed."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
