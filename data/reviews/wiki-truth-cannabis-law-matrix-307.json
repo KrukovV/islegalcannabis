@@ -29,7 +29,7 @@
     "colorReauditDirectOrComposite": 31,
     "colorReauditContextClaimantOrNegative": 8,
     "supplementalOfficialLinks": 32,
-    "allPublishedOfficialLinks": 1375,
+    "allPublishedOfficialLinks": 1377,
     "rowsWithPublishedOfficialLinks": 307,
     "rowsWithAnyOfficialUrl": 307
   },
@@ -85277,33 +85277,53 @@
         "enforcement": "SOFT"
       },
       "officialStatus": {
-        "recreational": "ILLEGAL_WITH_DECRIMINALIZED_LOW_QUANTITY_PERSONAL_CANNABIS_CAVEAT; OFFICIAL_2019_AMENDMENT_VISIBLY_DEFINES_CANNABIS_AND_CANNABIS_RESIN_AND_KEEPS_OFFENCE_STRUCTURE_WHILE_EXCEPTING_POSSESSION_NOT_MORE_THAN_30G_CANNABIS_OR_5G_RESIN_AND_NOT_MORE_THAN_FOUR_GROWING_CANNABIS_PLANTS_FROM_THE_MAIN_POSSESSION_OFFENCE",
-        "medical": "LIMITED_STATUTORY_MEDICINAL_CANNABIS_FRAMEWORK_WITH_COMMENCEMENT_AND_OPERATIONAL_ACCESS_CAVEAT; OFFICIAL_2022_CANNABIS_CONTROL_ACT_VISIBLY_CREATES_LICENSING_AUTHORITY_MEDICINAL_CANNABIS_PATIENT_PRESCRIPTION_RECOMMENDATION_AND_PHARMACY_DISPENSING_RULES_BUT_VISIBLY_REQUIRES_PRESIDENTIAL_PROCLAMATION_FOR_COMMENCEMENT_AND_NO_SEPARATE_PROCLAMATION_OR_LIVE_PATIENT_ACCESS_REGISTRY_WAS_VISUALLY_CONFIRMED",
+        "recreational": "CURRENT_DECRIMINALIZED_LOW_QUANTITY_PERSONAL_CANNABIS_AND_LIMITED_HOME_CULTIVATION_EFFECTIVE_2019_12_23; ACT_24_2019_SECTION_6_EXCEPTS_POSSESSION_NOT_MORE_THAN_30G_CANNABIS_OR_5G_RESIN_AND_NOT_MORE_THAN_FOUR_GROWING_CANNABIS_PLANTS_FROM_THE_MAIN_OFFENCE_STRUCTURE; LEGAL_NOTICE_397_FIXES_COMMENCEMENT_ON_23_DECEMBER_2019",
+        "medical": "ENACTED_CANNABIS_CONTROL_FRAMEWORK_AWAITING_PROCLAMATION_NOT_OPERATIONAL; ACT_10_2022_SECTION_2_REQUIRES_PRESIDENTIAL_PROCLAMATION_AND_CURRENT_PARLIAMENT_STATUS_READS_ASSENT_AWAITING_PROCLAMATION; NO_OPERATIONAL_PATIENT_ACCESS_IS_DERIVED",
         "enforcement": "SOFT_FOR_LOW_QUANTITY_PERSONAL_POSSESSION_WITH_TARGETED_OFFENCE_CAVEATS; OFFICIAL_2019_AMENDMENT_VISIBLY_REPLACES_LOW_QUANTITY_PERSONAL_CANNABIS_POSSESSION_WITH_EXCEPTIONS_FINES_COMMUNITY_SERVICE_FIXED_PENALTY_AND_EXPUNGEMENT_PATHS_WHILE_PUBLIC_PLACE_USE_SENSITIVE_PLACE_POSSESSION_IMPAIRMENT_AND_HIGHER_QUANTITY_CASES_REMAIN_OFFENCES"
       },
-      "independentTruth": null,
+      "independentTruth": {
+        "color": "YELLOW",
+        "rule": "GENERAL_CURRENT_RECREATIONAL_DECRIMINALIZATION_FROM_EFFECTIVE_PRIMARY_LAW_AND_PROCLAMATION",
+        "reviewedAt": "2026-08-12T02:02:00Z",
+        "conclusion": "Act No. 24 of 2019 does not legalize unrestricted adult use: its enumerated section 5 exceptions are narrow. It does, however, directly establish a current cannabis-specific decriminalized/limited personal-possession and four-growing-plant pathway once Legal Notice No. 397 fixes commencement. That satisfies the general YELLOW threshold. The enacted 2022 patient/dispensing framework is separately current as a document but officially recorded as awaiting proclamation, so it cannot supply a patient, prescriber, pharmacy or programme-operational YES axis."
+      },
       "directOfficialCannabisLawLinks": [
         {
           "title": "Parliament of Trinidad and Tobago - Dangerous Drugs (Amendment) Act, 2019",
           "url": "https://www.ttparliament.org/wp-content/uploads/2022/01/a2019-24g.pdf",
           "sourceKind": "TRINIDAD_TOBAGO_PARLIAMENT_DANGEROUS_DRUGS_AMENDMENT_2019_CANNABIS_DEFINITION_LOW_QUANTITY_DECRIMINALIZATION_PUBLIC_USE_FIXED_PENALTY_EXPUNGEMENT",
+          "sourceOwnerGeo": "TT",
+          "appliesToGeos": [
+            "TT"
+          ],
+          "officialPublisher": "Parliament of the Republic of Trinidad and Tobago / Legal Supplement Part A to the Trinidad and Tobago Gazette",
+          "sourceType": "CURRENT_PRIMARY_LEGISLATION",
+          "primaryOrContext": "PRIMARY_LEGISLATION",
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": false,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "screenshotValid": true,
+          "historicalScreenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-18/TT/screenshots/pdf_pages/TT-2019-possession-cultivation-low-thresholds.png",
+          "officialHostVerified": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T02:10:09.279Z",
             "final_url": "https://www.ttparliament.org/wp-content/uploads/2022/01/a2019-24g.pdf",
-            "http_status": null,
+            "http_status": 304,
             "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
-            "queue": [
-              "C2",
-              "C3"
-            ],
+            "last_modified": "Mon, 07 Mar 2022 20:20:58 GMT",
+            "content_type": "application/pdf",
+            "content_length": 95206,
+            "document_sha256": "f3fdf9a43facd18a81864d589b167642e165061dd248e07c3138b75cdf771791",
+            "relevant_fragment_sha256": "08de3357cb33926ebe012c2e258c18c3dc8d9d2e82ef4685aede2ea4e3a192db",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_304_CONDITIONAL_GET",
+            "queue": [],
             "dependent_geos": [
               "TT"
             ]
@@ -85311,28 +85331,95 @@
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official Parliament of Trinidad and Tobago PDF of Act No. 24 of 2019, Legal Supplement Part A to the Trinidad and Tobago Gazette Vol. 58 No. 183 of 19 December 2019. Visual review confirms the Act title, assent date, cannabis and cannabis resin definitions, amendment of Dangerous Drugs Act section 5 so possession of not more than thirty grammes of cannabis or five grammes of cannabis resin and cultivation/possession of not more than four growing Cannabis plants fall into the listed exception, possession bands above thirty to sixty grammes and above sixty to one hundred grammes carry summary fines with community-service fallback, smoking or using cannabis/cannabis resin in a public place is an offence with fine/community-service fallback and possible Minister-approved public-place list, sensitive-place/driving/professional-misconduct offences can carry fine and imprisonment, and prior low-quantity cannabis records may be discharged or expunged.",
-          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-18/TT/screenshots/pdf_pages/TT-2019-possession-cultivation-low-thresholds.png",
-          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "Trinidad and Tobago is closed as visually verified direct official cannabis-law evidence from Parliament PDFs of the Dangerous Drugs (Amendment) Act 2019 and Cannabis Control Act 2022. Project ILLEGAL/LIMITED/SOFT is broadly supported, with explicit decriminalized-low-quantity, targeted-offence, expungement, and medical-commencement/operational-access caveats. No project status SSOT was changed."
+          "note": "(f) a person who has in his possession not more than—(i) thirty grammes of cannabis; or (ii) five grammes of Cannabis resin; and (g) a person who cultivates or has in his possession not more than four growing plants of the genus Cannabis.",
+          "screenshotPath": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/TT-dangerous-drugs-amendment-2019-s5-low-quantity-current-2026-08-12.png",
+          "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
+          "visualReview": "Current PDF page rendered and semantically/visually read in headless review; PDF crop shows the numbered Act and cannabis-specific exception but not browser chrome. Human visual acceptance remains pending."
         },
         {
           "title": "Parliament of Trinidad and Tobago - Cannabis Control Act, 2022",
           "url": "https://www.ttparliament.org/wp-content/uploads/2020/10/a2022-10.pdf",
           "sourceKind": "TRINIDAD_TOBAGO_PARLIAMENT_CANNABIS_CONTROL_ACT_2022_LICENSING_AUTHORITY_MEDICINAL_CANNABIS_PATIENT_PRESCRIPTION_DISPENSING_COMMENCEMENT_CAVEAT",
+          "sourceOwnerGeo": "TT",
+          "appliesToGeos": [
+            "TT"
+          ],
+          "officialPublisher": "Parliament of the Republic of Trinidad and Tobago / Legal Supplement Part A to the Trinidad and Tobago Gazette",
+          "sourceType": "ENACTED_CANNABIS_CONTROL_ACT_AWAITING_PROCLAMATION",
+          "primaryOrContext": "PRIMARY_LIFECYCLE_CONTEXT_NON_OPERATIONAL",
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": false,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "screenshotValid": true,
+          "historicalScreenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-18/TT/screenshots/pdf_pages/TT-2022-medicinal-cannabis-use-section-41.png",
+          "officialHostVerified": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T02:10:09.279Z",
             "final_url": "https://www.ttparliament.org/wp-content/uploads/2020/10/a2022-10.pdf",
-            "http_status": null,
+            "http_status": 304,
             "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "last_modified": "Tue, 21 Jun 2022 18:25:44 GMT",
+            "content_type": "application/pdf",
+            "content_length": 202467,
+            "document_sha256": "1c59bae8e7705b77c4704837a6c2170d4f133f079abfaf220f2e159272483c0c",
+            "relevant_fragment_sha256": "9288f1425ecd582f5f67517964e48581082e77ec1fbf52e3908cb56333c2c166",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_304_CONDITIONAL_GET",
+            "queue": [],
+            "dependent_geos": [
+              "TT"
+            ]
+          },
+          "evidenceScope": null,
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
+          "confidence": "high",
+          "note": "2. This Act shall come into operation on such date as is fixed by the President by Proclamation.",
+          "screenshotPath": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/TT-cannabis-control-2022-commencement-current-2026-08-12.png",
+          "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
+          "visualReview": "Current PDF page rendered and semantically/visually read in headless review; the commencement clause and cannabis definition are visible but browser chrome is absent. Human visual acceptance remains pending."
+        }
+      ],
+      "candidateLinksAwaitingVisualReview": [],
+      "officialContextLinks": [
+        {
+          "title": "Parliament of Trinidad and Tobago - Legal Notice No. 397 of 2019, Proclamation for Dangerous Drugs (Amendment) Act 2019",
+          "url": "https://www.ttparliament.org/wp-content/uploads/2022/01/ln2019-397.pdf",
+          "sourceKind": "TRINIDAD_TOBAGO_OFFICIAL_GAZETTE_LEGAL_NOTICE_397_DANGEROUS_DRUGS_AMENDMENT_ACT_2019_COMMENCEMENT",
+          "sourceOwnerGeo": "TT",
+          "appliesToGeos": [
+            "TT"
+          ],
+          "officialPublisher": "Legal Supplement Part B to the Trinidad and Tobago Gazette, Legal Notice No. 397",
+          "sourceType": "OFFICIAL_GAZETTE_COMMENCEMENT_PROCLAMATION",
+          "primaryOrContext": "PRIMARY_EFFECTIVE_DATE_CONFIRMATION",
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "screenshotValid": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T02:10:09.279Z",
+            "final_url": "https://www.ttparliament.org/wp-content/uploads/2022/01/ln2019-397.pdf",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": "Mon, 07 Mar 2022 20:41:41 GMT",
+            "content_type": "application/pdf",
+            "content_length": 26916,
+            "document_sha256": "f59d16904dffc0469a021fcf8b9c77b2e45fe57cd6bf3165ff556dd4b27960b3",
+            "relevant_fragment_sha256": "36227f3a8cb1e87bcd38ee391feba351bbb5f1b52789ffe622c4e8161b36d68a",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -85341,17 +85428,62 @@
               "TT"
             ]
           },
-          "evidenceScope": null,
-          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
+          "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
           "confidence": "high",
-          "note": "Official Parliament of Trinidad and Tobago PDF of Act No. 10 of 2022, the Cannabis Control Act, assented to 17 June 2022. Visual review confirms the Act title and stated purpose to regulate cannabis handling and establish the Trinidad and Tobago Cannabis Licensing Authority, the commencement clause requiring a date fixed by Presidential Proclamation, definitions for cannabis, cannabis material, handling, medicinal cannabis, patient, pharmacy and medical-practitioner recommendation, section 3(4) stating the Dangerous Drugs Act and related laws do not prohibit or render unlawful licensed handling under the Act, establishment/functions of the Cannabis Licensing Authority, Part V medicinal cannabis provisions including offence for use without prescription/recommendation, child-patient certificate/consent requirement, medical-practitioner records, caregiver notification, dispensing by pharmacist/authorised personnel only on prescription/recommendation and ID, and pharmacist quantity/form/information limits. Commencement/operational caveat: this pass visually confirmed the Act text and its proclamation-dependent commencement clause, but did not visually confirm a separate Presidential Proclamation or live operating patient-access registry.",
-          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-18/TT/screenshots/pdf_pages/TT-2022-medicinal-cannabis-use-section-41.png",
-          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "Trinidad and Tobago is closed as visually verified direct official cannabis-law evidence from Parliament PDFs of the Dangerous Drugs (Amendment) Act 2019 and Cannabis Control Act 2022. Project ILLEGAL/LIMITED/SOFT is broadly supported, with explicit decriminalized-low-quantity, targeted-offence, expungement, and medical-commencement/operational-access caveats. No project status SSOT was changed."
+          "note": "Fresh 2026 independent review confirms proposal-only YELLOW for Trinidad and Tobago under the general current recreational-decriminalization rule: Act No. 24 of 2019 expressly creates low-quantity cannabis/resin possession and four-growing-plant exceptions, and Legal Notice No. 397 makes that Act effective from 23 December 2019. Act No. 10 of 2022 remains enacted but awaiting Proclamation and therefore does not establish operational patient access. Historical captures remain retained; new headless current PDF/HTML captures, source ownership, territorial scope, exact fragments and revalidation metadata are in this same ledger. No project status SSOT was changed.",
+          "screenshotPath": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/TT-dangerous-drugs-amendment-2019-proclamation-current-2026-08-12.png",
+          "visualReview": "CONTEXT_ONLY"
+        },
+        {
+          "title": "Parliament of Trinidad and Tobago - Cannabis Control Bill 2020 legislative status",
+          "url": "https://www.ttparliament.org/publication/the-cannabis-control-bill-2020/",
+          "sourceKind": "TRINIDAD_TOBAGO_PARLIAMENT_CANNABIS_CONTROL_ACT_10_2022_AWAITING_PROCLAMATION_STATUS",
+          "sourceOwnerGeo": "TT",
+          "appliesToGeos": [
+            "TT"
+          ],
+          "officialPublisher": "Parliament of the Republic of Trinidad and Tobago legislative publication tracker",
+          "sourceType": "CURRENT_OFFICIAL_PARLIAMENT_LEGISLATIVE_STATUS_PAGE",
+          "primaryOrContext": "CURRENT_LIFECYCLE_CONTEXT_NON_OPERATIONAL",
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "screenshotValid": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T02:10:09.279Z",
+            "final_url": "https://www.ttparliament.org/publication/the-cannabis-control-bill-2020",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": "Wed, 12 Aug 2026 02:00:42 GMT",
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 201239,
+            "document_sha256": "eb4599e6cdc1879f120a1f36fa5f4e39597a2df6760d07c084a8d127d33d9be5",
+            "relevant_fragment_sha256": "8fc41da3958fbbc524ecb524ab9c084275d64a47e4b7e5b69ca809762fc93af5",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "TT"
+            ]
+          },
+          "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
+          "confidence": "high",
+          "note": "Fresh 2026 independent review confirms proposal-only YELLOW for Trinidad and Tobago under the general current recreational-decriminalization rule: Act No. 24 of 2019 expressly creates low-quantity cannabis/resin possession and four-growing-plant exceptions, and Legal Notice No. 397 makes that Act effective from 23 December 2019. Act No. 10 of 2022 remains enacted but awaiting Proclamation and therefore does not establish operational patient access. Historical captures remain retained; new headless current PDF/HTML captures, source ownership, territorial scope, exact fragments and revalidation metadata are in this same ledger. No project status SSOT was changed.",
+          "screenshotPath": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/TT-parliament-cannabis-control-awaiting-proclamation-current-2026-08-12.png",
+          "visualReview": "CONTEXT_ONLY"
         }
       ],
-      "candidateLinksAwaitingVisualReview": [],
-      "officialContextLinks": [],
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "MATCH_WITH_DECRIMINALIZED_LOW_QUANTITY_AND_MEDICINAL_COMMENCEMENT_CAVEAT",
@@ -85377,15 +85509,20 @@
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-18/TT/screenshots/pdf_pages/TT-2022-medicinal-cannabis-use-section-41.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-18/TT/screenshots/pdf_pages/TT-2022-dispensing-medicinal-cannabis.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-18/TT/screenshots/pdf_pages/TT-2022-pharmacist-dispensing-limits.png",
-        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-18/TT/screenshots/pdf_pages/TT-2022-religious-dispensary-thirty-grams.png"
+        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-18/TT/screenshots/pdf_pages/TT-2022-religious-dispensary-thirty-grams.png",
+        "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/TT-dangerous-drugs-amendment-2019-s5-low-quantity-current-2026-08-12.png",
+        "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/TT-dangerous-drugs-amendment-2019-proclamation-current-2026-08-12.png",
+        "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/TT-cannabis-control-2022-commencement-current-2026-08-12.png",
+        "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/TT-parliament-dangerous-drugs-act-metadata-current-2026-08-12.png",
+        "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/TT-parliament-cannabis-control-awaiting-proclamation-current-2026-08-12.png"
       ],
       "reviewConfidence": "high",
-      "reviewNotes": "VISUALLY_VERIFIED: Trinidad and Tobago is closed as visually verified direct official cannabis-law evidence from Parliament PDFs of the Dangerous Drugs (Amendment) Act 2019 and Cannabis Control Act 2022. Project ILLEGAL/LIMITED/SOFT is broadly supported, with explicit decriminalized-low-quantity, targeted-offence, expungement, and medical-commencement/operational-access caveats. No project status SSOT was changed.",
+      "reviewNotes": "VISUALLY_VERIFIED: Fresh 2026 independent review confirms proposal-only YELLOW for Trinidad and Tobago under the general current recreational-decriminalization rule: Act No. 24 of 2019 expressly creates low-quantity cannabis/resin possession and four-growing-plant exceptions, and Legal Notice No. 397 makes that Act effective from 23 December 2019. Act No. 10 of 2022 remains enacted but awaiting Proclamation and therefore does not establish operational patient access. Historical captures remain retained; new headless current PDF/HTML captures, source ownership, territorial scope, exact fragments and revalidation metadata are in this same ledger. No project status SSOT was changed.",
       "truthLayers": {
         "primaryLaw": {
           "source": "DIRECT_OFFICIAL_LAW",
           "axis": {
-            "recreational": "ILLEGAL",
+            "recreational": "DECRIMINALIZED",
             "medical": "LIMITED",
             "enforcement": "SOFT_FOR_LOW_QUANTITY_PERSONAL_POSSESSION_WITH_TARGETED_OFFENCE_CAVEATS; OFFICIAL_2019_AMENDMENT_VISIBLY_REPLACES_LOW_QUANTITY_PERSONAL_CANNABIS_POSSESSION_WITH_EXCEPTIONS_FINES_COMMUNITY_SERVICE_FIXED_PENALTY_AND_EXPUNGEMENT_PATHS_WHILE_PUBLIC_PLACE_USE_SENSITIVE_PLACE_POSSESSION_IMPAIRMENT_AND_HIGHER_QUANTITY_CASES_REMAIN_OFFENCES",
             "industrial_use": "UNKNOWN",
@@ -85406,7 +85543,7 @@
         "legalInterpretation": {
           "source": "OFFICIAL_TEXT_DERIVED",
           "axis": {
-            "recreational": "ILLEGAL",
+            "recreational": "DECRIMINALIZED",
             "medical": "LIMITED",
             "enforcement": "SOFT_FOR_LOW_QUANTITY_PERSONAL_POSSESSION_WITH_TARGETED_OFFENCE_CAVEATS; OFFICIAL_2019_AMENDMENT_VISIBLY_REPLACES_LOW_QUANTITY_PERSONAL_CANNABIS_POSSESSION_WITH_EXCEPTIONS_FINES_COMMUNITY_SERVICE_FIXED_PENALTY_AND_EXPUNGEMENT_PATHS_WHILE_PUBLIC_PLACE_USE_SENSITIVE_PLACE_POSSESSION_IMPAIRMENT_AND_HIGHER_QUANTITY_CASES_REMAIN_OFFENCES",
             "industrial_use": "UNKNOWN",
@@ -85450,7 +85587,7 @@
           }
         },
         "mismatch": {
-          "recreational": "MATCH",
+          "recreational": "MISMATCH",
           "medical": "MATCH",
           "enforcement": "UNKNOWN"
         },
