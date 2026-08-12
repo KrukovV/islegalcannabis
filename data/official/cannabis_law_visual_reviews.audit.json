@@ -102,6 +102,10 @@
           "cannabis_specific": true,
           "effective": true,
           "current": true,
+          "effective_date": "2026-01-01",
+          "official_fragment_locator": "Act No. 167/1998, § 5(12)-(13), as amended by Act No. 270/2025 Sb.; official e-Sbírka full-text tab.",
+          "exact_fragment": "Povolení k zacházení se nevyžaduje k přechovávání omamné látky konopí ... fyzickými osobami staršími 21 let pro vlastní potřebu v množství nejvýše 100 g ve svém obydlí nebo 25 g mimo své obydlí.",
+          "source_annotation": "Current primary law. Adults older than 21 require no handling permit for personal possession up to 100 g at home or 25 g outside and personal cultivation up to three cannabis plants.",
           "direct_fragment_available": true,
           "direct_fragment": "The current Government page lists “Protocol de prescripció i dispensació de cannabinoïdes pel tractament de l’espasticitat en Esclerosi Múltiple” as a downloadable 394KB PDF.",
           "effective_date": "Page retrieved 2026-08-10; linked protocol HTTP Last-Modified 2026-04-29.",
@@ -164,6 +168,9 @@
           "cannabis_specific": true,
           "effective": true,
           "current": true,
+          "official_fragment_locator": "Arizona Revised Statutes § 36-2852(A)(1)-(2), current Arizona Legislature page.",
+          "exact_fragment": "A.R.S. § 36-2852(A): for an individual at least twenty-one, listed possession, consuming, purchasing, transport, personal home cultivation and non-remunerated transfer acts are lawful, are not an offense, and cannot ground detention, arrest or penalties; subsection (A)(1) permits one ounce or less and (A)(2) up to six plants at the primary residence subject to conditions.",
+          "source_annotation": "Current Arizona Legislature primary statute for US-AZ. It proves listed adult possession, consumption, purchase, limited home cultivation and non-remunerated transfer are lawful; this source is distinct from the separate patient-programme sources.",
           "direct_fragment_available": true,
           "direct_fragment": "“Si la Comissió valora favorablement la proposta de tractament amb cannabinoides ... el Departament de Recursos Sanitaris procedeix a realitzar la importació ...” and, after special narcotics prescription, “el Servei de Farmàcia de l’HNSM pugui dispensar el medicament al pacient de manera ambulatòria.”",
           "effective_date": "Published 2015-05; current Government index rechecked 2026-08-10; live official PDF HTTP Last-Modified 2026-04-29.",
@@ -24474,6 +24481,10 @@
           "cannabis_specific": true,
           "effective": true,
           "current": true,
+          "effective_date": "2026-01-01",
+          "official_fragment_locator": "Act No. 167/1998, § 5(12)-(13), as amended by Act No. 270/2025 Sb.; official e-Sbírka full-text tab.",
+          "exact_fragment": "Povolení k zacházení se nevyžaduje k přechovávání omamné látky konopí ... fyzickými osobami staršími 21 let pro vlastní potřebu v množství nejvýše 100 g ve svém obydlí nebo 25 g mimo své obydlí.",
+          "source_annotation": "Current primary law. Adults older than 21 require no handling permit for personal possession up to 100 g at home or 25 g outside and personal cultivation up to three cannabis plants.",
           "direct_fragment_available": true,
           "screenshot_available": true,
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/official-reaudit-2026-08-01/CZ/CZ-e-sbirka-270-2025-adult-possession-cultivation-2026-08-02.png",
@@ -54256,6 +54267,9 @@
           "cannabis_specific": true,
           "effective": true,
           "current": true,
+          "official_fragment_locator": "Arizona Revised Statutes § 36-2852(A)(1)-(2), current Arizona Legislature page.",
+          "exact_fragment": "A.R.S. § 36-2852(A): for an individual at least twenty-one, listed possession, consuming, purchasing, transport, personal home cultivation and non-remunerated transfer acts are lawful, are not an offense, and cannot ground detention, arrest or penalties; subsection (A)(1) permits one ounce or less and (A)(2) up to six plants at the primary residence subject to conditions.",
+          "source_annotation": "Current Arizona Legislature primary statute for US-AZ. It proves listed adult possession, consumption, purchase, limited home cultivation and non-remunerated transfer are lawful; this source is distinct from the separate patient-programme sources.",
           "direct_fragment_available": true,
           "screenshot_available": true,
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/official-reaudit-2026-08-01/US-AZ/US-AZ-ars-36-2852-lawful-adult-possession-2026-08-02.jpeg",
@@ -140926,10 +140940,31 @@
           "title": "Parliament of Sierra Leone - The National Drugs Control Act, 2008",
           "url": "https://www.parliament.gov.sl/uploads/acts/The%20National%20Drugs%20Control%20Act,%202008.pdf",
           "source_kind": "SIERRA_LEONE_PARLIAMENT_NATIONAL_DRUGS_CONTROL_ACT_2008_CANNABIS_CANNABIS_RESIN_DEFINITIONS_POSSESSION_USE_PENALTY_UNLAWFUL_CROP_DESTRUCTION_AND_RISK_DRUG_SCHEDULE",
+          "owner": "Parliament of Sierra Leone",
+          "source_owner_geo": "SL",
+          "applies_to_geo": [
+            "SL"
+          ],
+          "legal_basis_for_extension": "Act No. 10 of 2008 was enacted by the President and Parliament of Sierra Leone and published in the Sierra Leone Gazette; it applies nationally to Sierra Leone.",
+          "source_authority": "Parliament of Sierra Leone / Sierra Leone Gazette",
+          "source_type": "PRIMARY_NATIONAL_DRUG_CONTROL_STATUTE",
+          "primary_or_context": "PRIMARY_CANNABIS_SPECIFIC_LAW",
+          "cannabis_specific": true,
+          "effective": true,
+          "current": true,
+          "current_effective_state": "CURRENT_APPLICATION_CORROBORATED_BY_PARLIAMENTARY_2021_REGULATION_AND_JUDICIARY_2026_ENFORCEMENT_RECORD",
+          "effective_date": "2008-08-07",
+          "official_fragment_locator": "National Drugs Control Act, 2008: s. 1 interpretation (PDF p. 4); s. 8(a) possession/use without lawful authority and penalty (PDF p. 11); s. 43 destruction of unlawfully cultivated cannabis plants (PDF p. 22); Schedule entries Cannabis and Cannabis resin (PDF p. 38).",
+          "exact_fragment": "“cannabis” means any part of the cannabis plant (including the seeds and leaves) from which cannabis resin has not been extracted;",
+          "direct_fragment": "Section 8(a): “A person who, without lawful authority, buys, sells, possesses, controls or uses any drug” commits an offence; the Schedule expressly lists “Cannabis” and “Cannabis resin”.",
+          "source_annotation": "Primary Parliament/Gazette PDF with a cannabis-specific statutory definition, Schedule entries and possession/use prohibition. The Act's general “lawful authority” wording is not treated as a patient-access route; treatment and rehabilitation language is not cannabis medicine.",
+          "legal_relevance": "Direct cannabis-specific statutory bridge for recreational possession/use and unlawful cultivation. Current application is corroborated separately; this record neither creates nor assumes patient eligibility, prescribing, supply, dispensing, import, cultivation or production access.",
+          "screenshot_state": "HISTORICAL_HUMAN_VISUAL_REVIEW_AVAILABLE; C1_PARLIAMENT_FETCH_ACCESS_BLOCKED_2026-08-12",
+          "official_domain_visible": true,
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-38/SL/screenshots/SL-parliament-national-drugs-control-act-2008-page03-03.png",
           "note": "Official Parliament of Sierra Leone PDF. Visual review confirms the National Drugs Control Act, 2008 title, signature by the President, Parliament enactment, and Gazette/Government Printing Department publication. The reviewed pages visibly define cannabis, cannabis plant and cannabis resin; prohibit buying, selling, possessing, controlling or using any drug without lawful authority by smoking, inhaling, sniffing, injecting or otherwise introducing it into the body; set a minimum five-year imprisonment penalty for section 8; empower authorised persons to destroy cannabis plants growing in the wild or cultivated unlawfully; and list Cannabis and Cannabis resin in the schedule.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T04:56:07.060Z",
             "final_url": "https://www.parliament.gov.sl/uploads/acts/The%20National%20Drugs%20Control%20Act,%202008.pdf",
             "http_status": null,
             "etag": null,
@@ -140937,26 +140972,21 @@
             "content_type": null,
             "content_length": null,
             "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "relevant_fragment_sha256": "88cb2d16e2e59b8523ff84a6a98f422bf2fed1526bed7dd9526868a0426651a3",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "NEEDS_SEMANTIC_REVIEW"
+              "ACCESS_BLOCKED"
             ],
             "dependent_geos": [
               "SL"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
+            "schema_issues": [],
             "semantic_probe": null
           }
         }
@@ -140966,10 +140996,29 @@
           "title": "Parliament of Sierra Leone - Constitutional Instrument No. 5 of 2024 Proclamation on drug and substance abuse / Kush public emergency",
           "url": "https://www.parliament.gov.sl/uploads/statutory_instruments/Constitutional%20Instrument%20Proclamation%2C%202024.pdf",
           "source_kind": "SIERRA_LEONE_PARLIAMENT_GAZETTE_2024_KUSH_DRUG_SUBSTANCE_ABUSE_PUBLIC_EMERGENCY_CONTEXT_NOT_CANNABIS_LEGALIZATION",
+          "owner": "Parliament of Sierra Leone",
+          "source_owner_geo": "SL",
+          "applies_to_geo": [
+            "SL"
+          ],
+          "legal_basis_for_extension": "Constitutional Instrument published through Parliament/Gazette for Sierra Leone.",
+          "source_authority": "Parliament of Sierra Leone / Extraordinary Gazette",
+          "source_type": "OFFICIAL_PUBLIC_EMERGENCY_INSTRUMENT",
+          "primary_or_context": "OFFICIAL_CONTEXT_ONLY",
+          "cannabis_specific": false,
+          "effective": true,
+          "current": true,
+          "effective_date": "2024-04-17",
+          "official_fragment_locator": "Constitutional Instrument No. 5 of 2024, proclamation text and Gazette heading (PDF p. 1).",
+          "exact_fragment": "a public emergency on drug and substance abuse, particularly the synthetic drug Kush",
+          "source_annotation": "Official 2024 Parliament/Gazette context record. Its precise subject is drug and substance abuse, particularly synthetic drug Kush; it is not cannabis legalisation, a medical-cannabis framework or a patient-access source.",
+          "legal_relevance": "Enforcement and public-health context only. It has no role in deriving cannabis legal axes or a color.",
+          "screenshot_state": "HISTORICAL_HUMAN_VISUAL_REVIEW_AVAILABLE; C1_PARLIAMENT_FETCH_ACCESS_BLOCKED_2026-08-12",
+          "official_domain_visible": true,
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-38/SL/screenshots/SL-parliament-constitutional-instrument-proclamation-2024-page01-1.png",
           "note": "Official Parliament-hosted Constitutional Instrument / Extraordinary Gazette. Visual review confirms a 2024 presidential public-emergency proclamation for drug and substance abuse, particularly the synthetic drug Kush. This is enforcement/public-health context only; it is not a cannabis legalization or medical-cannabis access framework.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T04:56:07.060Z",
             "final_url": "https://www.parliament.gov.sl/uploads/statutory_instruments/Constitutional%20Instrument%20Proclamation%2C%202024.pdf",
             "http_status": null,
             "etag": null,
@@ -140977,10 +141026,69 @@
             "content_type": null,
             "content_length": null,
             "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "relevant_fragment_sha256": "f27cc05a9831f5dcca4005e9d8fe4600da8e2d033807ee201468f627cebd176e",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "ACCESS_BLOCKED"
+            ],
+            "dependent_geos": [
+              "SL"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
+        }
+      ],
+      "current_official_sources": [
+        {
+          "title": "Ministry of Health, Sierra Leone - official hosted copy of The National Drugs Control Act, 2008",
+          "url": "https://portal.mohs.gov.sl/wp-content/uploads/2021/03/2008-national-drugs-control-act.pdf",
+          "source_kind": "SIERRA_LEONE_MINISTRY_OF_HEALTH_OFFICIAL_COPY_NATIONAL_DRUGS_CONTROL_ACT_2008_CANNABIS_TEXT",
+          "owner": "Ministry of Health, Sierra Leone",
+          "source_owner_geo": "SL",
+          "applies_to_geo": [
+            "SL"
+          ],
+          "legal_basis_for_extension": "Official Ministry of Health document-hosting copy of national Act No. 10 of 2008; the Act itself was enacted nationally by Parliament and published in the Gazette.",
+          "source_authority": "Ministry of Health, Sierra Leone; underlying law enacted by Parliament of Sierra Leone",
+          "source_type": "OFFICIAL_MINISTRY_HOSTED_PRIMARY_ACT_COPY",
+          "primary_or_context": "PRIMARY_CANNABIS_SPECIFIC_TEXT_MIRROR",
+          "cannabis_specific": true,
+          "effective": true,
+          "current": true,
+          "current_effective_state": "TEXT_RETRIEVAL_MIRROR; CURRENT_APPLICATION_CORROBORATED_SEPARATELY_BY_2021_REGULATION_AND_2026_JUDICIARY_RECORD",
+          "official_fragment_locator": "National Drugs Control Act, 2008: s. 1 interpretation (PDF p. 4); s. 8(a) (PDF p. 11); Schedule (PDF p. 38).",
+          "exact_fragment": "“cannabis” means any part of the cannabis plant (including the seeds and leaves) from which cannabis resin has not been extracted;",
+          "direct_fragment": "Section 8(a): “A person who, without lawful authority, buys, sells, possesses, controls or uses any drug” commits an offence; the Schedule expressly lists “Cannabis” and “Cannabis resin”.",
+          "source_annotation": "Accessible official MOH-hosted copy of the Parliament/Gazette Act. Used for C2 PDF text extraction of the cannabis-specific law, not as independent proof of a patient-access route.",
+          "legal_relevance": "Redundant official delivery path for the same primary cannabis law, allowing text-layer extraction and page-limited rendering when the Parliament PDF endpoint is unavailable. It does not add a medical patient axis.",
+          "screenshot_state": "C1_C2_VALID_TEXT_LAYER; C3_PDF_DOWNLOAD_ACCESS_BLOCKED; STRICT_DOMAIN_UNCONFIRMED",
+          "official_domain_visible": false,
+          "semantic_reviewed_by_human": true,
+          "visual_opened": true,
+          "screenshot_available": false,
+          "screenshot_valid": false,
+          "visual_review_result": "C1_C2_VALID_TEXT_LAYER: HTTP 200 official MOH PDF baseline; pdftotext produced a usable text layer and rendered only term-matched pages 1, 4, 22, 37 and 38; OCR was not used. Headless Chromium treated the PDF as a download, so no current browser screenshot is fabricated and strict visual acceptance remains separate.",
+          "note": "Official MOH-hosted copy of the Sierra Leone National Drugs Control Act 2008; retained with the Parliament original so current retrieval can be revalidated without replacing its primary-law provenance.",
+          "revalidation": {
+            "checked_at": "2026-08-12T04:56:07.060Z",
+            "final_url": "https://portal.mohs.gov.sl/wp-content/uploads/2021/03/2008-national-drugs-control-act.pdf",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": "Wed, 24 Mar 2021 05:19:48 GMT",
+            "content_type": "application/pdf",
+            "content_length": 132668,
+            "document_sha256": "cb1248d843f6c7dd158d6a9eda8117d737ec1cadf259986ec8cb2e482cb2881f",
+            "relevant_fragment_sha256": "88cb2d16e2e59b8523ff84a6a98f422bf2fed1526bed7dd9526868a0426651a3",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -140991,26 +141099,329 @@
             "dependent_geos": [
               "SL"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 109153,
+              "ocr_used": false,
+              "relevant_pages": [
+                1,
+                4,
+                22,
+                37,
+                38
+              ],
+              "rendered_pages": [
+                1,
+                4,
+                22,
+                37,
+                38
+              ]
+            }
+          }
+        },
+        {
+          "title": "Parliament of Sierra Leone - The National Drugs Control (Arrest and Seizure) Regulations, 2021",
+          "url": "https://www.parliament.gov.sl/uploads/statutory_instruments/S.I.%20%20THE%20NATIONAL%20DRUGS%20CONTROL%20ACT%2C2021.pdf",
+          "source_kind": "SIERRA_LEONE_PARLIAMENT_2021_NATIONAL_DRUGS_CONTROL_ACT_ENFORCEMENT_REGULATIONS_CURRENTNESS",
+          "owner": "Parliament of Sierra Leone",
+          "source_owner_geo": "SL",
+          "applies_to_geo": [
+            "SL"
+          ],
+          "legal_basis_for_extension": "Statutory Instrument made under section 25 of the national National Drugs Control Act 2008 and published in the Sierra Leone Gazette.",
+          "source_authority": "Parliament of Sierra Leone / Sierra Leone Gazette",
+          "source_type": "CURRENTNESS_AND_ENFORCEMENT_STATUTORY_INSTRUMENT",
+          "primary_or_context": "CURRENTNESS_AND_ENFORCEMENT_CONTEXT_ONLY",
+          "cannabis_specific": false,
+          "effective": true,
+          "current": true,
+          "effective_date": "2021-02-11",
+          "official_fragment_locator": "National Drugs Control (Arrest and Seizure) Regulations, 2021, title and preamble (PDF p. 1).",
+          "exact_fragment": "In exercise of the powers conferred on the Attorney-General and Minister of Justice by section 25 of the National Drugs Control Act 2008",
+          "source_annotation": "Official Parliament/Gazette instrument that expressly operates under Act No. 10 of 2008. It corroborates post-enactment application and enforcement machinery only; it contains no cannabis-specific patient, prescribing or supply route.",
+          "legal_relevance": "Currentness/enforcement corroboration for the 2008 Act. Generic enforcement authority is never used as evidence of patient access or to derive an independent cannabis color.",
+          "screenshot_state": "NOT_YET_VISUALLY_REVIEWED_CURRENT_2021_INSTRUMENT; C2_C3_QUEUED",
+          "official_domain_visible": false,
+          "note": "Official statutory instrument published in Gazette No. 7 of 11 February 2021; retained to evidence that Parliament was still making regulations under the 2008 Act.",
+          "revalidation": {
+            "checked_at": "2026-08-12T04:56:07.060Z",
+            "final_url": "https://www.parliament.gov.sl/uploads/statutory_instruments/S.I.%20%20THE%20NATIONAL%20DRUGS%20CONTROL%20ACT%2C2021.pdf",
+            "http_status": null,
+            "etag": null,
+            "last_modified": null,
+            "content_type": null,
+            "content_length": null,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "0d394dd0cd479695247b1d9c62284a37ae6b683a4dcd28f9d995108dfbf6aa57",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
             ],
+            "queue_reasons": [
+              "ACCESS_BLOCKED"
+            ],
+            "dependent_geos": [
+              "SL"
+            ],
+            "schema_issues": [],
             "semantic_probe": null
+          }
+        },
+        {
+          "title": "Judiciary of Sierra Leone - May Criminal Session of the High Court Opens with 48 Cases",
+          "url": "https://www.judiciary.gov.sl/?mo=4&p=1742&yr=2026",
+          "source_kind": "SIERRA_LEONE_JUDICIARY_2026_CANNABIS_SATIVA_UNLAWFUL_POSSESSION_NATIONAL_DRUGS_CONTROL_ACT_ENFORCEMENT",
+          "owner": "Judiciary of Sierra Leone",
+          "source_owner_geo": "SL",
+          "applies_to_geo": [
+            "SL"
+          ],
+          "legal_basis_for_extension": "Official Judiciary of Sierra Leone High Court criminal-session publication reporting an application of national Act No. 10 of 2008 in Sierra Leone.",
+          "source_authority": "Judiciary of Sierra Leone",
+          "source_type": "CURRENT_OFFICIAL_JUDICIARY_ENFORCEMENT_RECORD",
+          "primary_or_context": "CURRENT_CANNABIS_ENFORCEMENT_CORROBORATION",
+          "cannabis_specific": true,
+          "effective": true,
+          "current": true,
+          "effective_date": "2026-05-01",
+          "official_fragment_locator": "May Criminal Session of the High Court Opens with 48 Cases, Judiciary news item, paragraph naming Cannabis Sativa possession and claimed medicinal purpose.",
+          "exact_fragment": "Sallay Kanu, a mother of six with her last child aged four, was charged with unlawful possession of 2.1 kilograms of Cannabis Sativa.",
+          "direct_fragment": "The official Judiciary report records that the accused said the cannabis was intended for medicinal purpose for an asthmatic child; the report still identifies the charge as unlawful possession of Cannabis Sativa.",
+          "source_annotation": "Current official judicial enforcement record linking cannabis-specific possession to the National Drugs Control Act context. It corroborates ongoing enforcement; a news report of a charge is not treated as a complete patient-access statute or as a determination of every medical claim.",
+          "legal_relevance": "Current cannabis-specific enforcement corroboration after the 2008 Act and 2021 regulation. It prevents treating rehabilitation language or generic regulatory authority as a patient-access route, but does not alone prove a general patient prohibition.",
+          "screenshot_state": "CURRENT_HIDDEN_C3_FRAGMENT_CAPTURED; STRICT_DOMAIN_UNCONFIRMED",
+          "official_domain_visible": false,
+          "semantic_reviewed_by_human": true,
+          "visual_opened": true,
+          "screenshot_available": true,
+          "screenshot_valid": true,
+          "screenshot_path": "data/reviews/wiki-truth-307-visual-evidence/SL-judiciary-current-cannabis-enforcement-fragment-2026-08-12.png",
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "visual_review_result": "CURRENT_HIDDEN_C3_FRAGMENT_CAPTURE: headless Chromium received HTTP 200 and the official Judiciary title. The persisted target crop visibly shows the exact Cannabis Sativa unlawful-possession sentence and the claimed medicinal-purpose context. The crop does not itself show an owner/domain bar, so it is not strict domain acceptance and cannot alter legal truth.",
+          "note": "Official Judiciary page reporting a 2026 High Court criminal session. It is retained as current enforcement corroboration, distinct from the primary legal text and distinct from any patient-access inference.",
+          "revalidation": {
+            "checked_at": "2026-08-12T04:56:07.060Z",
+            "final_url": "https://www.judiciary.gov.sl/?mo=4&p=1742&yr=2026",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 82559,
+            "document_sha256": "0582a7e8590c92e54453d09fc52eeae6af58ca44d728e190b2594e8ed897099c",
+            "relevant_fragment_sha256": "25884913f7fcb04525d243fcd9b4ea68cf8a6b728cc3e686a3eea1aaa940430b",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "NEEDS_SEMANTIC_REVIEW"
+            ],
+            "dependent_geos": [
+              "SL"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
+        },
+        {
+          "title": "Pharmacy Board of Sierra Leone - Guidelines for the Cultivation and Processing of Medical Cannabis (PBSL-GL-022)",
+          "url": "https://pharmacyboard.gov.sl/admin/gallery/561872ecc0e939bdbe88a7f53ea6442d.pdf",
+          "source_kind": "SIERRA_LEONE_PHARMACY_BOARD_CURRENT_MEDICAL_CANNABIS_CULTIVATION_PROCESSING_EXPORT_GUIDELINE",
+          "owner": "Pharmacy Board of Sierra Leone",
+          "source_owner_geo": "SL",
+          "applies_to_geo": [
+            "SL"
+          ],
+          "legal_basis_for_extension": "Official national Pharmacy Board guideline, approved by the Registrar, for cannabis cultivation and processing in Sierra Leone.",
+          "source_authority": "Pharmacy Board of Sierra Leone",
+          "source_type": "CURRENT_CANNABIS_SPECIFIC_REGULATORY_GUIDELINE",
+          "primary_or_context": "LIMITED_LAWFUL_CANNABIS_REGIME",
+          "cannabis_specific": true,
+          "effective": true,
+          "current": true,
+          "effective_date": "2024-05-17",
+          "official_fragment_locator": "PBSL/GL/022 version 02, title/effective-date block; scope section 3.0 (PDF p. 5).",
+          "exact_fragment": "These guidelines apply to regulation and control of the cultivation, harvesting and primary processing of cannabis plants intended for medicinal use or the preparation of medicinal drugs.",
+          "direct_fragment": "The guideline states that it controls cultivation, production and manufacture of cannabis products for export and applies to cannabis plants intended for medicinal use or preparation of medicinal drugs.",
+          "source_annotation": "Current official Pharmacy Board guideline, effective 17 May 2024, proving a cannabis-specific regulated cultivation/processing regime. Its stated export and production scope is not patient eligibility, prescription, pharmacy/dispensing, patient import or an operational patient programme.",
+          "legal_relevance": "Supports proposal-only YELLOW as a proven limited lawful cannabis-related regime. It is never promoted to GREEN and is not used to infer patient access from cultivation, processing, production or export.",
+          "screenshot_state": "CURRENT_C3_PDF_TITLE_AND_SCOPE_RENDERED; STRICT_DOMAIN_UNCONFIRMED",
+          "official_domain_visible": false,
+          "semantic_reviewed_by_human": true,
+          "visual_opened": true,
+          "screenshot_available": true,
+          "screenshot_valid": true,
+          "screenshot_path": "data/reviews/wiki-truth-307-visual-evidence/SL-pbsl-gl022-current-scope-2026-08-12.png",
+          "screenshot_paths": [
+            "data/reviews/wiki-truth-307-visual-evidence/SL-pbsl-gl022-current-title-2026-08-12.png",
+            "data/reviews/wiki-truth-307-visual-evidence/SL-pbsl-gl022-current-scope-2026-08-12.png"
+          ],
+          "official_owner_visible": true,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "visual_review_result": "CURRENT_C3_PDF_RENDERED_AND_READ: title page visibly identifies the Pharmacy Board of Sierra Leone, PBSL/GL/022, medical cannabis and the 17 May 2024 effective date; scope page visibly limits the rule to cannabis cultivation, harvesting and primary processing for medicinal use/medicinal drugs, with production/export context. The PDF render has no browser address bar, so strict domain acceptance remains false and cannot affect legal truth.",
+          "note": "Official Pharmacy Board PDF retained with its direct medical-cannabis scope and explicit boundary: cultivation/processing/export regulation is not a patient-access route.",
+          "revalidation": {
+            "checked_at": "2026-08-12T05:06:13.529Z",
+            "final_url": "https://pharmacyboard.gov.sl/admin/gallery/561872ecc0e939bdbe88a7f53ea6442d.pdf",
+            "http_status": 200,
+            "etag": "\"5740738-91077-63c20988837fc\"",
+            "last_modified": "Tue, 12 Aug 2025 01:02:35 GMT",
+            "content_type": "application/pdf",
+            "content_length": 594039,
+            "document_sha256": "6e9907f61ea971ece7f17e37a462186960567b5be59c1e80405724989a064675",
+            "relevant_fragment_sha256": "565a5785cb5d3de7a1d15080da0f963b70cb14e8f3a4c4e69b21a0e21c586351",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "NEEDS_SEMANTIC_REVIEW"
+            ],
+            "dependent_geos": [
+              "SL"
+            ],
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 37159,
+              "ocr_used": false,
+              "relevant_pages": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
+              "rendered_pages": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
+            }
           }
         }
       ],
       "official_status": {
         "recreational": "ILLEGAL; NATIONAL_DRUGS_CONTROL_ACT_2008_VISIBLY_DEFINES_CANNABIS_CANNABIS_PLANT_AND_CANNABIS_RESIN_LISTS_CANNABIS_AND_CANNABIS_RESIN_IN_THE_SCHEDULE_AND_PROHIBITS_BUYING_SELLING_POSSESSING_CONTROLLING_OR_USING_DRUGS_WITHOUT_LAWFUL_AUTHORITY",
-        "medical": "NONE_OR_NOT_CONFIRMED_AS_CANNABIS_PATIENT_ACCESS; REVIEWED_ACT_CONTAINS_LAWFUL_AUTHORITY_AND_TREATMENT_REHABILITATION_LANGUAGE_BUT_NO_CANNABIS_SPECIFIC_MEDICAL_PATIENT_ACCESS_OR_REGULATED_MEDICAL_CANNABIS_FRAMEWORK_WAS_VISIBLY_CONFIRMED",
+        "medical": "CURRENT_LIMITED_LAWFUL_CANNABIS_CULTIVATION_PROCESSING_AND_EXPORT_REGIME_PBSL_GL_022; NOT_PATIENT_ELIGIBILITY_PRESCRIBING_DISPENSING_IMPORT_OR_OPERATIONAL_PROGRAMME",
         "enforcement": "STRICT_WITH_TREATMENT_ORDER_CONTEXT; SECTION_8_VISIBLY_SETS_IMPRISONMENT_NOT_LESS_THAN_FIVE_YEARS_FOR_UNLAWFUL_POSSESSION_OR_USE_AND_SECTION_43_VISIBLY_AUTHORIZES_WARRANTLESS_DESTRUCTION_OF_WILD_OR_UNLAWFULLY_CULTIVATED_CANNABIS_PLANTS_WHILE_SECTION_12_ALLOWS_TREATMENT_EDUCATION_AFTERCARE_REHABILITATION_OR_SOCIAL_REINTEGRATION_ORDERS"
       },
       "project_comparison": {
         "status": "MATCH_WITH_PARSER_FALSE_POSITIVE_LEGAL_REGULATED_CAVEAT_AND_2024_KUSH_CONTEXT",
         "reason": "Sierra Leone is visually verified from the official Parliament of Sierra Leone PDF of The National Drugs Control Act, 2008. Page 3 visibly shows Act No. 10 of 2008, the National Drugs Control Act title, presidential signature on 5 August 2008 and enactment by the President and Members of Parliament. Page 4 visibly defines cannabis, cannabis plant, cannabis resin and cultivation. Page 11 visibly prohibits, without lawful authority, buying, selling, possessing, controlling or using any drug by smoking, inhaling, sniffing, injecting or otherwise introducing it into the body, with conviction liability to imprisonment for a term not less than five years; it also shows treatment/education/aftercare/rehabilitation or social reintegration orders as additional/alternative measures in limited contexts. Page 22 visibly gives authorised persons power to destroy cannabis plants, coca bushes, opium poppy or other drug plants growing wild or unlawfully cultivated. Page 38 visibly lists Cannabis and Cannabis resin in the schedule. Page 39 visibly certifies the Act was passed in Parliament on 31 July 2008 and printed/published by the Government Printing Department in Gazette No. 38 of 7 August 2008. The 2024 Constitutional Instrument visibly declares a public emergency around drug and substance abuse, particularly synthetic drug Kush, as enforcement/public-health context; it is not medical cannabis legalization. Project recreational=ILLEGAL, medical=NONE and enforcement=STRICT are supported. Older parser-derived LEGAL/REGULATED signals are treated as false positives caused by Wikipedia/current-law term dilution and lawful-authority/treatment-order language, not as status truth. No project status SSOT was changed."
       },
-      "conclusion": "Sierra Leone is closed as visually verified direct official cannabis-law evidence from the Parliament-hosted National Drugs Control Act, 2008. The evidence supports project ILLEGAL/NONE/STRICT, with a caveat that older parser-derived LEGAL/REGULATED signals were false positives from non-official/Wikipedia and lawful-authority/treatment language. The 2024 Kush emergency proclamation is retained only as enforcement/public-health context. No project status SSOT was changed."
+      "conclusion": "Sierra Leone has visually verified Parliament-hosted 2008 cannabis law evidence and current official Pharmacy Board PBSL-GL-022 evidence. The current guideline proves a limited lawful cannabis cultivation, processing, production and export regime for medicinal use/medicinal drugs; it does not prove a patient-access programme. Project ILLEGAL/NONE/STRICT remains an audit comparison only and was not changed.",
+      "independent_truth_color": "YELLOW",
+      "independent_truth_status": "CURRENT_CANNABIS_SPECIFIC_REGULATED_MEDICINAL_CULTIVATION_PROCESSING_AND_EXPORT_REGIME_WITHOUT_PROVEN_PATIENT_ACCESS",
+      "independent_truth_rule": "GENERAL_CANNABIS_SPECIFIC_REGULATED_CULTIVATION_PROCESSING_FOR_MEDICINAL_PRODUCTS_WITHOUT_PROVEN_PATIENT_ACCESS",
+      "independent_truth_reviewed_at": "2026-08-12T08:07:57+03:00",
+      "audit_state": "CURRENT_SIERRA_LEONE_PBSL_GL_022_C0_C1_C2_C3_PROPOSAL_ONLY",
+      "strict_visual_acceptance": false,
+      "final_visual_acceptance": {
+        "state": "INCOMPLETE_STRICT_DOMAIN_ACCEPTANCE",
+        "legal_truth_affected": false,
+        "reason": "Current Pharmacy Board PDF title/scope pages and the Judiciary cannabis fragment were visually read headlessly, but PDF renders and fragment crop do not display a browser address bar; Parliament PDF C1 attempts remain ACCESS_BLOCKED."
+      },
+      "independent_review": {
+        "geo": "SL",
+        "territory": "Sierra Leone",
+        "review_mode": "INDEPENDENT_OFFICIAL_EVIDENCE_FIRST",
+        "proposal_only": true,
+        "reviewed_at": "2026-08-12T08:07:57+03:00",
+        "official_truth_color": "YELLOW",
+        "independent_truth_rule": "GENERAL_CANNABIS_SPECIFIC_REGULATED_CULTIVATION_PROCESSING_FOR_MEDICINAL_PRODUCTS_WITHOUT_PROVEN_PATIENT_ACCESS",
+        "legal_conclusion": "Proposal-only YELLOW. Current Pharmacy Board guideline PBSL/GL/022 directly regulates cannabis cultivation, harvesting and primary processing for medicinal use or medicinal drugs, with production/export context. This proves a limited lawful cannabis-related regime. It does not prove individual patient eligibility, prescriber, registration, patient supply, pharmacy/dispensary, patient import or an operational patient programme; cultivation, processing, production and export are never promoted to patient access.",
+        "jurisdiction": {
+          "territory_type": "SOVEREIGN_STATE",
+          "applicable_law": "National Drugs Control Act 2008, current application corroborated by the 2021 Parliament instrument and 2026 Judiciary record, together with Pharmacy Board PBSL/GL/022 effective 17 May 2024.",
+          "source_owner_vs_jurisdiction": "All accepted source owners are Sierra Leone national authorities and each record explicitly applies to SL. Parliament endpoint failures are retained only as access metadata.",
+          "disputed_or_composite": false
+        },
+        "evidence_axes": {
+          "cannabis_specificity": "YES_CURRENT_PBSL_GL_022_DIRECTLY_NAMES_MEDICAL_CANNABIS_AND_MEDICINAL_USE",
+          "limited_lawful_cannabis_regime": "YES_CURRENT_PBSL_GL_022_REGULATES_CULTIVATION_HARVESTING_AND_PRIMARY_PROCESSING_FOR_MEDICINAL_USE_OR_MEDICINAL_DRUGS",
+          "patient_eligible": "UNKNOWN_NO_CURRENT_OFFICIAL_INDIVIDUAL_CANNABIS_PATIENT_ELIGIBILITY_CLASS_PROVEN",
+          "prescriber_route": "UNKNOWN_NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_TO_PRESCRIBER_ROUTE_PROVEN",
+          "registration_route": "UNKNOWN_NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_REGISTRY_OR_CARD_ROUTE_PROVEN",
+          "lawful_supply": "UNKNOWN_NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_SUPPLY_CHAIN_OR_PATIENT_DISPENSING_ROUTE_PROVEN",
+          "pharmacy_or_dispensary": "UNKNOWN_NO_CURRENT_OFFICIAL_CANNABIS_PHARMACY_OR_PATIENT_DISPENSARY_PROVEN",
+          "import_route": "UNKNOWN_NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_IMPORT_ROUTE_PROVEN",
+          "programme_commenced": "UNKNOWN_NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_PROGRAMME_COMMENCEMENT_PROVEN",
+          "programme_operational": "UNKNOWN_NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_OPERATION_OR_DISPENSING_PROVEN",
+          "recreational_possession": "NO_UNLICENSED_CANNABIS_POSSESSION_OR_USE_UNDER_NATIONAL_DRUGS_CONTROL_ACT_SECTION_8_WITH_CURRENT_JUDICIARY_ENFORCEMENT_CORROBORATION",
+          "recreational_supply": "NO_UNLICENSED_BUYING_OR_SELLING_OF_CANNABIS_AS_A_DRUG_UNDER_NATIONAL_DRUGS_CONTROL_ACT_SECTION_8",
+          "recreational_cultivation": "NO_UNLICENSED_CANNABIS_CULTIVATION; ACT_SECTION_43_AND_PBSL_GUIDELINE_DISTINGUISH_UNLAWFUL_CROPS_FROM_REGULATED_PRODUCTION",
+          "penalty_regime": "YES_SECTION_8_PRESCRIBES_NOT_LESS_THAN_FIVE_YEARS_FOR_UNLAWFUL_POSSESSION_OR_USE; THE_2026_JUDICIARY_SOURCE_CORROBORATES_CURRENT_ENFORCEMENT"
+        },
+        "source_record_refs": [
+          "https://www.parliament.gov.sl/uploads/acts/The%20National%20Drugs%20Control%20Act,%202008.pdf",
+          "https://portal.mohs.gov.sl/wp-content/uploads/2021/03/2008-national-drugs-control-act.pdf",
+          "https://www.parliament.gov.sl/uploads/statutory_instruments/S.I.%20%20THE%20NATIONAL%20DRUGS%20CONTROL%20ACT%2C2021.pdf",
+          "https://www.judiciary.gov.sl/?mo=4&p=1742&yr=2026",
+          "https://pharmacyboard.gov.sl/admin/gallery/561872ecc0e939bdbe88a7f53ea6442d.pdf"
+        ],
+        "source_annotations": [
+          "The Parliament Act supplies cannabis-specific definitions, Schedule entries and the unlicensed possession/use boundary; C1 access failure is not legal evidence.",
+          "The accessible MOH official Act copy supplied the C2 text layer; cannabis was found through pdftotext without OCR.",
+          "The 2021 Parliament instrument corroborates that the Act remained an operational regulatory basis, but does not create a cannabis patient route.",
+          "The current Judiciary page visibly records an unlawful Cannabis Sativa possession charge including a claimed medicinal purpose; it corroborates enforcement but is not a universal patient-access determination.",
+          "PBSL/GL/022 directly proves current regulated medical-cannabis cultivation/processing and export context, while expressly remaining outside patient-access derivation."
+        ],
+        "visual_evidence": [
+          {
+            "path": "data/reviews/wiki-truth-307-visual-evidence/SL-pbsl-gl022-current-title-2026-08-12.png",
+            "visual_opened": true,
+            "official_owner_visible": true,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": true,
+            "effective_rule_visible": true,
+            "screenshot_valid": true
+          },
+          {
+            "path": "data/reviews/wiki-truth-307-visual-evidence/SL-pbsl-gl022-current-scope-2026-08-12.png",
+            "visual_opened": true,
+            "official_owner_visible": false,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": true,
+            "effective_rule_visible": true,
+            "screenshot_valid": true
+          },
+          {
+            "path": "data/reviews/wiki-truth-307-visual-evidence/SL-judiciary-current-cannabis-enforcement-fragment-2026-08-12.png",
+            "visual_opened": true,
+            "official_owner_visible": false,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": true,
+            "effective_rule_visible": true,
+            "screenshot_valid": true
+          }
+        ],
+        "visual_acceptance": {
+          "legal_truth_visual_review_complete": true,
+          "strict_visual_acceptance": false,
+          "reason": "Current official owner/title/effective date and cannabis scope were visually read from the PBSL PDF. PDF rendering lacks browser chrome and blocked Parliament endpoints have no fabricated acceptance; visual acceptance therefore remains separate from legal truth."
+        },
+        "current_layer_comparison": {
+          "project_status": "LEGACY_PROJECT_ILLEGAL_NONE_STRICT_WAS_NOT_AN_INPUT; INDEPENDENT_PACKET_DERIVES_PROPOSAL_ONLY_YELLOW_FROM_CURRENT_PBSL_CANNABIS_REGULATORY_SCOPE",
+          "runtime_map_color": "UNCONFIRMED_NOT_RECAPTURED_IN_THIS_LEGAL_PACKET",
+          "runtime_api_status": "UNCONFIRMED_NOT_RECAPTURED_IN_THIS_LEGAL_PACKET",
+          "wiki_truth_proposal": "YELLOW_PROPOSAL_FROM_THIS_INDEPENDENT_PACKET_AFTER_MATRIX_REBUILD",
+          "ssot": "UNTOUCHED_NO_APPLICATION_AUTHORIZED"
+        },
+        "no_mutation": {
+          "apply_allowed": false,
+          "ssot_changed": false,
+          "map_colors_changed": false,
+          "production_touched": false,
+          "runtime_touched": false,
+          "deployment_touched": false
+        },
+        "recommended_action": "RETAIN_PROPOSAL_ONLY_YELLOW_UNTIL_THE_SEPARATE_307_GEO_APPLY_GATE_AND_USER_AUTHORIZATION",
+        "confidence": "HIGH_FOR_CURRENT_CANNABIS_SPECIFIC_LIMITED_LAWFUL_CULTIVATION_PROCESSING_REGIME; NO_GREEN_PATIENT_ACCESS_THRESHOLD"
+      }
     },
     {
       "geo": "SG",

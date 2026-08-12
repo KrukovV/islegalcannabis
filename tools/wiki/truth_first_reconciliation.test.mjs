@@ -1,5 +1,8 @@
 import assert from "node:assert/strict";
+import fs from "node:fs";
+import path from "node:path";
 import test from "node:test";
+import { fileURLToPath } from "node:url";
 import {
   buildFreshAxisEvidenceByGeo,
   buildFreshAxisTruthOverride,
@@ -21,6 +24,14 @@ import {
 import { buildAxisCell } from "./build_wiki_truth_307_legal_knowledge_axis_matrix.mjs";
 import { evaluateLegalInterpretation } from "./build_wiki_truth_307_acceptance_audit.mjs";
 import { deriveOfficialTruthColor } from "../../apps/web/src/lib/wikiTruthColorEngine.js";
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
+const normalizedUrlKey = (value) => {
+  const parsed = new URL(value);
+  parsed.hash = "";
+  if (parsed.pathname !== "/") parsed.pathname = parsed.pathname.replace(/\/+$/, "");
+  return parsed.toString();
+};
 
 test("canonical GEO validator accepts an exact one-to-one ledger", () => {
   const result = assertCanonicalGeoUniverse({
@@ -172,6 +183,47 @@ test("source ownership rejects country-state terminal-code collisions", () => {
     }),
     /ownerSuffixCollisions=US-AZ:verified_sources\[0\]:AZ->US-AZ/,
   );
+});
+
+test("matrix publishes every annotated current-ledger source with revalidation audit metadata", () => {
+  const ledger = JSON.parse(fs.readFileSync(
+    path.join(ROOT, "data", "official", "cannabis_law_visual_reviews.audit.json"),
+    "utf8",
+  ));
+  const matrix = JSON.parse(fs.readFileSync(
+    path.join(ROOT, "data", "reviews", "wiki-truth-cannabis-law-matrix-307.json"),
+    "utf8",
+  ));
+  const matrixByGeo = new Map(matrix.rows.map((entry) => [entry.geo, entry]));
+  const currentSources = ledger.rows.flatMap((ledgerRow) =>
+    (ledgerRow.current_official_sources || []).map((source) => ({ ledgerRow, source })),
+  );
+
+  assert(currentSources.length > 0);
+  for (const { ledgerRow, source } of currentSources) {
+    const annotation = source.source_annotation || source.annotation || source.note;
+    assert(source.url, `${ledgerRow.geo}: current source URL`);
+    assert(annotation, `${ledgerRow.geo}:${source.url}: current source annotation`);
+    const matrixRow = matrixByGeo.get(ledgerRow.geo);
+    assert(matrixRow, `${ledgerRow.geo}: matrix row`);
+    const published = [
+      ...(matrixRow.directOfficialCannabisLawLinks || []),
+      ...(matrixRow.officialContextLinks || []),
+      ...(matrixRow.supplementalOfficialLinks || []),
+    ].find((link) => normalizedUrlKey(link.url) === normalizedUrlKey(source.url));
+    assert(published, `${ledgerRow.geo}:${source.url}: published from current ledger`);
+    assert.equal(published.sourceAnnotation, annotation, `${ledgerRow.geo}:${source.url}: annotation projection`);
+    assert.equal(
+      published.revalidation?.revalidation_state,
+      source.revalidation?.revalidation_state,
+      `${ledgerRow.geo}:${source.url}: revalidation-state projection`,
+    );
+    assert.equal(
+      published.revalidation?.access_state,
+      source.revalidation?.access_state,
+      `${ledgerRow.geo}:${source.url}: access-state projection`,
+    );
+  }
 });
 
 test("validated fresh primary-law axis findings remain direct matrix evidence", () => {

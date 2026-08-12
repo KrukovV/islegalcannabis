@@ -207,7 +207,8 @@ const sourceProvenance = (source) => {
     sourceOwnerGeo: source?.sourceOwnerGeo || source?.source_owner_geo,
     appliesToGeos: appliesToGeos.length ? appliesToGeos : undefined,
     legalBasisForExtension: source?.legalBasisForExtension || source?.legal_basis_for_extension,
-    officialPublisher: source?.officialPublisher || source?.sourceAuthority || source?.source_authority,
+    officialPublisher: source?.officialPublisher || source?.owner || source?.sourceAuthority || source?.source_authority,
+    sourceAnnotation: source?.sourceAnnotation || source?.source_annotation || source?.annotation,
     sourceType: source?.sourceType || source?.source_type,
     primaryOrContext: source?.primaryOrContext || source?.primary_or_context,
     cannabisSpecific: source?.cannabisSpecific ?? source?.cannabis_specific,
@@ -547,12 +548,33 @@ const rows = geoList.map((geo) => {
         ? visualRow.conclusion
         : "PENDING"
   }));
-  const reviewedStandaloneSources = historicalVisualReviewStatus === "VISUALLY_VERIFIED"
+  const historicalReviewedStandaloneSources = historicalVisualReviewStatus === "VISUALLY_VERIFIED"
     ? [
       ...(visualRow?.verified_sources || []),
       ...(visualRow?.official_source_annotations || []),
     ]
     : [];
+  // `current_official_sources` is the revalidation ledger, not a parallel
+  // source database. Publish its URL and audit metadata for the applicable
+  // GEO even when it has not met the separate strict visual-acceptance gate.
+  // A current source only becomes direct evidence through the existing
+  // screenshot/semantic gates below; otherwise it stays provenance context.
+  const currentOfficialSources = Array.isArray(visualRow?.current_official_sources)
+    ? visualRow.current_official_sources.filter((source) => source?.url)
+    : [];
+  const reviewedSourceByUrl = new Map();
+  for (const source of historicalReviewedStandaloneSources) {
+    if (!source?.url) continue;
+    const key = normalizedUrlKey(source.url);
+    // `verified_sources` precede less-complete annotation mirrors.
+    if (!reviewedSourceByUrl.has(key)) reviewedSourceByUrl.set(key, source);
+  }
+  for (const source of currentOfficialSources) {
+    // The current revalidation ledger is the authoritative current record for
+    // its URL and therefore intentionally supersedes a historical mirror.
+    reviewedSourceByUrl.set(normalizedUrlKey(source.url), source);
+  }
+  const reviewedStandaloneSources = [...reviewedSourceByUrl.values()];
   const acceptedVisualEvidenceForSource = (source) => {
     const currentPath = source?.current_screenshot_path || source?.screenshot_path || source?.screenshotPath;
     const currentCaptureValid = currentPath &&
@@ -609,7 +631,10 @@ const rows = geoList.map((geo) => {
       ? source.visual_review_result || visualRow.conclusion
       : `${visualRow.conclusion} Historical validated evidence remains direct because the same source is explicitly current/effective and its direct fragment was rechecked; the current capture is access-state only.`
   }));
-  const declaredSemanticLegalSources = (visualRow?.verified_sources || [])
+  const declaredSemanticLegalSources = [
+    ...(visualRow?.verified_sources || []),
+    ...currentOfficialSources,
+  ]
     .filter(isDeclaredSemanticLegalAxisSource);
   const legacySemanticLegalSources = historicalVisualReviewStatus === "VISUALLY_VERIFIED"
     ? reviewedStandaloneSources.filter((source) => source?.url && (
@@ -776,22 +801,24 @@ const rows = geoList.map((geo) => {
   // stricter direct-evidence gates (for example, an invalid fresh crop or an
   // explicitly unofficial historical copy). Keep it published as context; the
   // direct-url filter below prevents this fallback from changing legal truth.
-  const retainedReviewedSourceContextLinks = historicalVisualReviewStatus === "VISUALLY_VERIFIED"
-    ? reviewedStandaloneSources
-      .filter((source) => source?.url)
-      .map((source) => ({
-        title: source.title,
-        url: source.url,
-        sourceKind: source.source_kind || "reviewed_source_provenance_context",
-        ...sourceProvenance(source),
-        evidenceScope: "RETAINED_REVIEWED_SOURCE_PROVENANCE_CONTEXT_ONLY",
-        verification: "RETAINED_REVIEWED_SOURCE_PROVENANCE_CONTEXT",
-        confidence: "low",
-        note: source.annotation || source.legal_conclusion || visualRow.conclusion,
-        screenshotPath: null,
-        visualReview: source.visual_review_result || "RETAINED_CONTEXT_ONLY"
-      }))
-    : [];
+  const retainedReviewedSourceContextLinks = reviewedStandaloneSources
+    .filter((source) => source?.url)
+    .map((source) => ({
+      title: source.title,
+      url: source.url,
+      sourceKind: source.source_kind || source.source_type || "reviewed_source_provenance_context",
+      ...sourceProvenance(source),
+      evidenceScope: currentOfficialSources.includes(source)
+        ? "CURRENT_OFFICIAL_SOURCE_REVALIDATION_PROVENANCE_CONTEXT_ONLY"
+        : "RETAINED_REVIEWED_SOURCE_PROVENANCE_CONTEXT_ONLY",
+      verification: currentOfficialSources.includes(source)
+        ? "CURRENT_OFFICIAL_SOURCE_REVALIDATION_LEDGER"
+        : "RETAINED_REVIEWED_SOURCE_PROVENANCE_CONTEXT",
+      confidence: "low",
+      note: source.source_annotation || source.annotation || source.exact_fragment || source.direct_fragment || source.note || source.legal_conclusion || visualRow.conclusion,
+      screenshotPath: null,
+      visualReview: source.visual_review_result || "RETAINED_CONTEXT_ONLY"
+    }));
   const directUrlKeys = new Set(directLinks.map((link) => normalizedUrlKey(link.url)));
   const officialContextLinks = [...new Map([
     ...legacyContextLinks,
