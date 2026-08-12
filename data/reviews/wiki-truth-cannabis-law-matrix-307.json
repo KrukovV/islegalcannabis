@@ -78551,37 +78551,48 @@
         "medical": "REGULATED_OR_LIMITED; 2019_NATIONAL_GAZETTE_INSPECTORATE_VSA_POLICY_VISIBLY_STATES_SINT_MAARTEN_PATIENTS_SHOULD_HAVE_LEGAL_ACCESS_TO_MEDICINAL_CANNABIS_AND_ESTABLISHES_CONTROLLED_IMPORT_AUTHORIZED_PHARMACY_REGISTERED_PRESCRIBER_IMPORT_AUTHORIZATION_AND_OPIUM_EXEMPTION_PROCEDURES",
         "enforcement": "STRICT_WITH_MEDICAL_EXEMPTION_CAVEAT; GENERAL_CANNABIS_CULTIVATION_POSSESSION_USE_AND_DISTRIBUTION_ACTIONS_ARE_PROHIBITED_BY_OPIUMLANDSVERORDENING_WHILE_MEDICAL_ACCESS_DEPENDS_ON_OPIUM_EXEMPTIONS_IMPORT_AUTHORIZATIONS_REGISTERED_PRESCRIBERS_AND_AUTHORIZED_PHARMACY_CHANNELS"
       },
-      "independentTruth": null,
+      "independentTruth": {
+        "color": "YELLOW",
+        "rule": "GENERAL_CURRENT_CANNABIS_SPECIFIC_AUTHORISED_PRESCRIPTION_IMPORT_AND_PHARMACY_ROUTE_WITHOUT_OPERATIONAL_PROGRAMME_PROOF",
+        "reviewedAt": "2026-08-12T06:20:28Z",
+        "conclusion": "CURRENT_SINT_MAARTEN_CANNABIS_SPECIFIC_PRESCRIBER_IMPORT_AND_AUTHORISED_PHARMACY_POLICY_ROUTE_WITHOUT_PROVEN_OPERATIONAL_PATIENT_PROGRAMME"
+      },
       "directOfficialCannabisLawLinks": [
         {
           "title": "Lokale wet- en regelgeving - Sint Maarten Opiumlandsverordening",
           "url": "https://lokaleregelgeving.overheid.nl/CVDR142115",
           "sourceKind": "SINT_MAARTEN_LOKALE_REGELGEVING_OPIUMLANDSVERORDENING_HEMP_CANNABIS_DEFINITION_CULTIVATION_EXTRACT_TINCTURE_HEMP_RESIN_HASHISH_PROHIBITIONS_AND_MEDICAL_EXEMPTIONS",
-          "evidenceScope": null,
-          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
-          "confidence": "high",
-          "note": "Official Dutch local-regulations publication for Sint Maarten. Visual review confirms the Opiumlandsverordening title and current validity, defines hennep as flowering or fruiting tops or parts of plants of the genus cannabis from which resin has not been extracted, forbids cultivation of plants of the genus Cannabis, forbids import/export, preparation, processing, sale, delivery, transport, possession, presence and use of listed controlled substances, specifically forbids extract and tincture of hennep, and includes hemp, hemp resin and common hemp-resin preparations such as hashish, esrar, chiras and djamba in Article 4. Visual review also confirms medical/pharmacy/veterinary and written ministerial exemption language under the ordinance.",
-          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-36/SX/screenshots/SX-overheid-opium-hennep-definition.png",
-          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "Sint Maarten is closed as visually verified direct official cannabis-law/policy evidence. The Opiumlandsverordening supports recreational illegal and strict controlled-substance enforcement, while the 2019 National Gazette Inspectorate VSA policy contradicts project medical=NONE by establishing a controlled medicinal cannabis/CBD legal-access, prescriber, pharmacy and import framework. No project status SSOT was changed."
-        },
-        {
-          "title": "Sint Maarten National Gazette 2019 No. 16 - Inspectorate VSA Policy on Medicinal Cannabis and CBD products",
-          "url": "https://www.sintmaartengov.org/Documents/National%20Gazette/16.%20De%20Landscourant%2002%20augustus%20%202019.pdf",
-          "sourceKind": "SINT_MAARTEN_NATIONAL_GAZETTE_2019_INSPECTORATE_VSA_MEDICINAL_CANNABIS_CBD_POLICY_LEGAL_ACCESS_IMPORT_AUTHORIZED_PHARMACY_PRESCRIBER_FRAMEWORK",
+          "sourceOwnerGeo": "SX",
+          "appliesToGeos": [
+            "SX"
+          ],
+          "legalBasisForExtension": "This is Sint Maarten's own national Opiumlandsverordening, marked by its official record as in force from 2015-05-30 to the present; no Netherlands or other parent regime is imported.",
+          "officialPublisher": "Sint Maarten national legislation publisher; official Lokale wet- en regelgeving record",
+          "sourceAnnotation": "Current Sint Maarten primary-law evidence. Article 2a directly prohibits Cannabis cultivation; the ordinance controls cannabis/hemp-derived activities and retains written-ministerial, professional and lawful-medical-use exceptions. The exception is a legal boundary only: it does not prove an operational patient programme, issued prescriptions, stock or dispensing.",
+          "sourceType": "CURRENT_OFFICIAL_SINT_MAARTEN_PRIMARY_OPIUM_ORDINANCE",
+          "primaryOrContext": "PRIMARY_CANNABIS_PROHIBITION_SCOPE_AND_MEDICAL_EXEMPTION_BOUNDARY",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
-            "final_url": "https://www.sintmaartengov.org/Documents/National%20Gazette/16.%20De%20Landscourant%2002%20augustus%20%202019.pdf",
-            "http_status": null,
+            "checked_at": "2026-08-12T06:20:28.350Z",
+            "final_url": "https://lokaleregelgeving.overheid.nl/CVDR142115",
+            "http_status": 200,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "content_type": "text/html;charset=UTF-8",
+            "content_length": 121103,
+            "document_sha256": "42b0004d92daf55512f24519cc896d0ee0b5f9b9c0196a687956fb5651a43d25",
+            "relevant_fragment_sha256": "3b12f8925999bf957aadc83378791717edf7c81a7d39a54724ba329222c73c24",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -78593,10 +78604,61 @@
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official Sint Maarten Government National Gazette PDF. Visual review confirms the National Gazette issue dated 2 August 2019 includes the Inspectorate VSA Policy on Medicinal Cannabis and CBD products. Reviewed pages visibly distinguish medicinal cannabis from recreational cannabis, state patients of Sint Maarten should have legal access to affordable, high-quality safe medicinal cannabis, establish procedures for doctors and pharmacists to import, store, distribute, prescribe and dispense medicinal cannabis in a controlled and safe manner, summarize the legislative framework under the Opium Ordinance, require import exemption/authorization and registration/licensing, authorize prescribing only by registered medical practitioners with expertise for the relevant condition, and restrict medicinal cannabis flos import to Office of Medicinal Cannabis Netherlands strains through an authorized pharmacy.",
+          "note": "Artikel 2a: De verbouw van planten van het geslacht Cannabis is verboden. Artikel 7, eerste lid: Het verbod, gesteld in artikelen 3, eerste lid B, C en D, en 3a eerste lid, B, C en D en in artikel 4, eerste lid, B, is niet van toepassing: ... b. voor zover de minister schriftelijk verlof heeft gegeven tot het verrichten van een of meer van de daar bedoelde handelingen.",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-36/SX/screenshots/SX-overheid-opium-hennep-definition.png",
+          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
+          "visualReview": "Retained official HTML captures visibly show the in-force status, Article 2a cannabis-cultivation prohibition and Article 7 medical/exemption boundary. Address-bar acceptance is deliberately separate from legal truth."
+        },
+        {
+          "title": "Sint Maarten National Gazette 2019 No. 16 - Inspectorate VSA Policy on Medicinal Cannabis and CBD products",
+          "url": "https://www.sintmaartengov.org/Documents/National%20Gazette/16.%20De%20Landscourant%2002%20augustus%20%202019.pdf",
+          "sourceKind": "SINT_MAARTEN_NATIONAL_GAZETTE_2019_INSPECTORATE_VSA_MEDICINAL_CANNABIS_CBD_POLICY_LEGAL_ACCESS_IMPORT_AUTHORIZED_PHARMACY_PRESCRIBER_FRAMEWORK",
+          "sourceOwnerGeo": "SX",
+          "appliesToGeos": [
+            "SX"
+          ],
+          "legalBasisForExtension": "The policy is published in the official Sint Maarten National Gazette and expressly regulates medicinal-cannabis procedures for Sint Maarten; no Netherlands medicinal-cannabis regime is imported.",
+          "officialPublisher": "Inspectorate for Public Health, Social Development and Labour (Inspectorate VSA), Government of Sint Maarten",
+          "sourceAnnotation": "Current official Sint Maarten medicinal-cannabis policy. It directly establishes a cannabis-specific legal prescription, import-authorization and authorized-pharmacy route, while the text expressly says the central pharmacy was still to be determined. It therefore supports a limited lawful YELLOW route after independent review, never an operational patient-access GREEN conclusion.",
+          "sourceType": "CURRENT_OFFICIAL_SINT_MAARTEN_MEDICINAL_CANNABIS_POLICY_GAZETTE_PDF",
+          "primaryOrContext": "CURRENT_CANNABIS_SPECIFIC_PRESCRIBER_PHARMACY_IMPORT_POLICY_ROUTE_NOT_OPERATION_PROOF",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T06:20:28.350Z",
+            "final_url": "https://www.sintmaartengov.org/Documents/National%20Gazette/16.%20De%20Landscourant%2002%20augustus%20%202019.pdf",
+            "http_status": 200,
+            "etag": "\"{C8D98E87-22EB-4DF8-B07D-74B9B4398792},6\"",
+            "last_modified": "Thu, 24 Aug 2023 14:04:27 GMT",
+            "content_type": "application/pdf",
+            "content_length": 1347214,
+            "document_sha256": "e85db8319a3abe3be501ff207d307361535ead06c93783a4f7561db8d6158167",
+            "relevant_fragment_sha256": "6e110598c8ae6816e5727dabfcc1c2870cd699833d33ed05e292cfb9f29d90e2",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "SX"
+            ]
+          },
+          "evidenceScope": null,
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
+          "confidence": "high",
+          "note": "The objective is to establish a policy on procedures aimed at medical doctors and pharmacists, which takes into consideration the existing legal framework and makes it possible to import, store, distribute, prescribe and dispense medicinal cannabis in a controlled and safe manner. The patients of Sint Maarten should have legal access to affordable, high quality medicinal cannabis that is safe.",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-36/SX/screenshots/gazette_pages/SX-gazette-2019-16-page052-52.png",
           "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "Sint Maarten is closed as visually verified direct official cannabis-law/policy evidence. The Opiumlandsverordening supports recreational illegal and strict controlled-substance enforcement, while the 2019 National Gazette Inspectorate VSA policy contradicts project medical=NONE by establishing a controlled medicinal cannabis/CBD legal-access, prescriber, pharmacy and import framework. No project status SSOT was changed."
+          "visualReview": "Retained Gazette PDF pages visibly show the Inspectorate VSA policy title, Sint Maarten scope, medicinal-cannabis legal-access objective, prescriber condition, import authorization and the explicitly not-yet-determined central pharmacy. Address-bar acceptance is separate from legal truth."
         }
       ],
       "candidateLinksAwaitingVisualReview": [],
