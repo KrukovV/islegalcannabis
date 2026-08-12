@@ -29,7 +29,7 @@
     "colorReauditDirectOrComposite": 31,
     "colorReauditContextClaimantOrNegative": 8,
     "supplementalOfficialLinks": 32,
-    "allPublishedOfficialLinks": 1430,
+    "allPublishedOfficialLinks": 1431,
     "rowsWithPublishedOfficialLinks": 307,
     "rowsWithAnyOfficialUrl": 307
   },
@@ -37220,18 +37220,18 @@
           "screenshotValid": true,
           "visualReviewerTimestamp": "2026-08-10T05:17:41.259Z",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T14:02:03.859Z",
             "final_url": "https://www.fda.gov/news-events/public-health-focus/fda-regulation-cannabis-and-cannabis-derived-products-including-cannabidiol-cbd",
-            "http_status": null,
-            "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
+            "http_status": 200,
+            "etag": "\"1786515585\"",
+            "last_modified": "Wed, 12 Aug 2026 06:19:45 GMT",
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 28217,
+            "document_sha256": "d055e3755cae61aafe8ac6cd8f3eba52b758f7813a41e813361fa0cb102fcf69",
             "relevant_fragment_sha256": "010933a1c674c1edbfc94c794ecc721feb32e03da544eadbd4ecf6e31b058e85",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:LOCATOR_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -92474,55 +92474,272 @@
         "medical": "REGULATED_WITH_FEDERAL_AND_STATE_SCOPE_CAVEAT; FDA_VISIBLY_STATES_CANNABIS_ITSELF_IS_NOT_APPROVED_FOR_TREATMENT_BUT_APPROVED_CANNABIS_DERIVED_OR_RELATED_RX_PRODUCTS_EXIST_AND_ECFR_1312_30_VISIBLY_REFERENCES_MARIJUANA_MARIJUANA_EXTRACT_AND_NATURALLY_DERIVED_DELTA_9_THC_IN_FDA_APPROVED_PRODUCTS_OR_SUBJECT_TO_STATE_MEDICAL_MARIJUANA_LICENSE",
         "enforcement": "SOFT_BY_PROJECT_TAXONOMY_WITH_FEDERAL_SCHEDULE_I_ILLEGALITY_AND_STATE_VARIANCE_CAVEAT; OFFICIAL_FEDERAL_TEXT_SHOWS_SCHEDULE_I_CONTROL_BUT_NATIONAL_ENFORCEMENT_REALITY_IS_NOT_A_SIMPLE_STRICT_MATCH_BECAUSE_STATE_MEDICAL_AND_ADULT_USE_REGIMES_ARE_RECORDED_IN_SEPARATE_STATE_ROWS"
       },
-      "independentTruth": null,
+      "independentTruth": {
+        "color": "YELLOW",
+        "rule": "CURRENT_FEDERAL_LIMITED_NAMED_CANNABIS_DERIVED_PRESCRIPTION_PRODUCT_ROUTE_WITH_SEPARATE_STATE_REGIMES",
+        "reviewedAt": "2026-08-12T17:10:00+03:00",
+        "conclusion": "Proposal-only YELLOW. The US country row records applicable federal evidence while state regimes remain in their own GEO rows. Retained official eCFR captures directly show the federal Schedule I baseline for marihuana and tetrahydrocannabinols, with a narrow hemp/material exclusion and an FDA-approved-product/state-license permit context; current C1 reached an eCFR challenge page, which is access metadata only and cannot change that legal evidence. A current FDA page retrieved at HTTP 200 directly identifies Epidiolex, a cannabis-derived cannabidiol product, as FDA-approved for defined seizure conditions in patients aged one and older and says approved cannabis-derived/cannabis-related products are available only by prescription from a licensed healthcare provider. This proves a current, limited federally lawful cannabis-derived prescription-product route. It is not broad cannabis treatment approval, a state medical-cannabis regime, adult use, a federal cannabis patient registry, an evidenced national dispensing network or an operational general cannabis programme. The general named-product rule therefore derives YELLOW only; it prevents a blanket RED while remaining far below GREEN."
+      },
       "directOfficialCannabisLawLinks": [
         {
           "title": "Electronic Code of Federal Regulations - 21 CFR 1308.11 Schedule I",
           "url": "https://www.ecfr.gov/current/title-21/chapter-II/part-1308/subject-group-ECFRf62f8e189108c4d/section-1308.11",
           "sourceKind": "UNITED_STATES_ECFR_21_CFR_1308_11_SCHEDULE_I_MARIHUANA_TETRAHYDROCANNABINOLS",
+          "sourceOwnerGeo": "US",
+          "appliesToGeos": [
+            "US"
+          ],
+          "legalBasisForExtension": "Direct United States federal controlled-substances regulation applicable nationwide; separate state rows remain separate component regimes.",
+          "officialPublisher": "Official current eCFR publication of Title 21 federal regulations.",
+          "sourceAnnotation": "Direct current federal cannabis-control source. It establishes the federal Schedule I baseline for marihuana and tetrahydrocannabinols; it does not transfer a single state regime to the national row and does not itself decide patient access, supply or the final colour.",
+          "sourceType": "OFFICIAL_FEDERAL_CFR_PRIMARY_REGULATION_HTML",
+          "primaryOrContext": "PRIMARY_CURRENT_FEDERAL_CANNABIS_SCHEDULE_TEXT",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T13:56:57.318Z",
+            "final_url": "https://unblock.federalregister.gov/",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 3191,
+            "document_sha256": "ece53d881ddf0c89c8aae7713cfce576bd4712daf71b7747348cc2eccb2af69a",
+            "relevant_fragment_sha256": "e3f9a1ba2ee844241c8d6a2c0b5603adce08725dff0d69f9699a101689dce2de",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "WAF_OR_CHALLENGE",
+            "change_reason": "WAF_OR_CHALLENGE_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "US"
+            ]
+          },
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official eCFR current Title 21 section 1308.11 Schedule I page, displaying Title 21 up to date as of 16 Jul 2026. Visual review confirms Schedule I rows for Marihuana, drug code 7360, and Tetrahydrocannabinols, drug code 7370, with the THC row defining tetrahydrocannabinols naturally contained in a plant of the genus Cannabis as well as synthetic equivalents, excluding hemp as set forth in 7 U.S.C. 1639o.",
+          "note": "21 CFR 1308.11 lists \"Marihuana. 7360\" and \"Tetrahydrocannabinols. 7370\" in Schedule I. The tetrahydrocannabinols entry includes naturally occurring tetrahydrocannabinols in a plant of the genus Cannabis and synthetic equivalents, subject to its stated hemp exclusion.",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-10/US/screenshots/evidence_viewports/US-ecfr-1308-11-tetrahydrocannabinols.png",
-          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "United States is closed as visually verified direct official federal cannabis-law evidence from eCFR and FDA. Federal recreational cannabis remains illegal because Marihuana and Tetrahydrocannabinols are visible Schedule I entries. Medical=REGULATED is supported only with federal/state-scope caveats: FDA-approved cannabis-derived/related prescription products and eCFR state-medical-license import/export context exist, while cannabis itself is not FDA-approved as a treatment. Enforcement=SOFT remains a project-taxonomy judgment tied to federal/state divergence and separate state rows. No project status SSOT was changed."
+          "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
+          "visualReview": "Retained official eCFR capture visibly shows the current federal Schedule I entries for marihuana and tetrahydrocannabinols. Address-bar acceptance remains a separate C3 criterion and never changes legal truth."
         },
         {
           "title": "Electronic Code of Federal Regulations - 21 CFR 1308.35 Exemption of certain cannabis plant material",
           "url": "https://www.ecfr.gov/current/title-21/chapter-II/part-1308/section-1308.35",
           "sourceKind": "UNITED_STATES_ECFR_21_CFR_1308_35_HEMP_EXEMPT_CANNABIS_PLANT_MATERIAL_WITH_THC_NOT_FOR_HUMAN_CONSUMPTION",
+          "sourceOwnerGeo": "US",
+          "appliesToGeos": [
+            "US"
+          ],
+          "legalBasisForExtension": "Direct United States federal controlled-substances regulation applicable nationwide; the scope is an express federal exclusion caveat, not a state-law substitute.",
+          "officialPublisher": "Official current eCFR publication of Title 21 federal regulations.",
+          "sourceAnnotation": "Direct federal scope-exception source. Its limited non-human-consumption/hemp-material wording prevents overreading the Schedule I baseline; it is not adult-use legalization, patient eligibility, lawful patient supply, a pharmacy route or a cannabis programme.",
+          "sourceType": "OFFICIAL_FEDERAL_CFR_CURRENT_CANNABIS_MATERIAL_EXEMPTION_HTML",
+          "primaryOrContext": "PRIMARY_FEDERAL_CANNABIS_SCOPE_EXCEPTION_CONTEXT",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T13:56:57.318Z",
+            "final_url": "https://unblock.federalregister.gov/",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 3193,
+            "document_sha256": "1fc0dc2fdce0f3d26124b162881ef77b380f8bb4143511f6701fd79f061e1cfb",
+            "relevant_fragment_sha256": "c663f95e05b6969c2a0a81238b376adadf6423eb4bfd856ebd4a37f857e24987",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "WAF_OR_CHALLENGE",
+            "change_reason": "WAF_OR_CHALLENGE_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "US"
+            ]
+          },
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official eCFR section 1308.35. Visual review confirms a narrow exemption for certain processed cannabis plant material or animal feed mixtures containing THC when made from portions excluded from the Act's marijuana definition and not used or intended for human consumption. This supports the federal hemp/excluded-material caveat and does not legalize ordinary adult-use marijuana.",
+          "note": "21 CFR 1308.35 provides a narrow federal exemption for specified cannabis plant material or animal-feed mixtures containing tetrahydrocannabinols when made from material excluded from the statutory marijuana definition and not used or intended for human consumption.",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-10/US/screenshots/evidence_viewports/US-ecfr-1308-35-exempt-cannabis-plant-material.png",
-          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "United States is closed as visually verified direct official federal cannabis-law evidence from eCFR and FDA. Federal recreational cannabis remains illegal because Marihuana and Tetrahydrocannabinols are visible Schedule I entries. Medical=REGULATED is supported only with federal/state-scope caveats: FDA-approved cannabis-derived/related prescription products and eCFR state-medical-license import/export context exist, while cannabis itself is not FDA-approved as a treatment. Enforcement=SOFT remains a project-taxonomy judgment tied to federal/state divergence and separate state rows. No project status SSOT was changed."
+          "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
+          "visualReview": "Retained official eCFR capture visibly shows the narrow cannabis-material exemption. Strict visual acceptance remains separate from legal truth."
         },
         {
           "title": "Electronic Code of Federal Regulations - 21 CFR 1312.30 import/export permit provisions",
           "url": "https://www.ecfr.gov/current/title-21/chapter-II/part-1312/subject-group-ECFR171b7bbd5798513/section-1312.30",
           "sourceKind": "UNITED_STATES_ECFR_21_CFR_1312_30_FDA_APPROVED_PRODUCT_OR_STATE_MEDICAL_MARIJUANA_LICENSE_IMPORT_EXPORT_PERMIT_CONTEXT",
+          "sourceOwnerGeo": "US",
+          "appliesToGeos": [
+            "US"
+          ],
+          "legalBasisForExtension": "Direct United States federal import/export regulation. Its references to state medical-marijuana licenses acknowledge state scope but do not absorb state regimes into this national federal record.",
+          "officialPublisher": "Official current eCFR publication of Title 21 federal regulations.",
+          "sourceAnnotation": "Direct federal permit-context source. It records a restricted FDA-approved-product/state-license context and never proves a general federal patient eligibility, prescription, registry, pharmacy/dispensary, active supply or an operational national cannabis programme.",
+          "sourceType": "OFFICIAL_FEDERAL_CFR_CURRENT_IMPORT_EXPORT_PERMIT_REGULATION_HTML",
+          "primaryOrContext": "CURRENT_FEDERAL_IMPORT_EXPORT_AND_FDA_APPROVED_PRODUCT_CONTEXT",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T13:56:57.318Z",
+            "final_url": "https://unblock.federalregister.gov/",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 3195,
+            "document_sha256": "6ce7c7a5835a480fbc879c3784947e0f70496b814dc42cb388201a5f4ac12110",
+            "relevant_fragment_sha256": "d7fede141be639071bebdfefbdab17f42691790e6d80cccd28f19fd97743299e",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "WAF_OR_CHALLENGE",
+            "change_reason": "WAF_OR_CHALLENGE_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "US"
+            ]
+          },
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official eCFR section 1312.30. Visual review confirms marijuana, marijuana extract, and naturally derived delta-9-tetrahydrocannabinols entries for a U.S. Food and Drug Administration approved product or subject to a state medical marijuana license in import/export permit context. This is recorded as federal acknowledgement of regulated medical/state-license context, not federal adult-use legalization.",
+          "note": "21 CFR 1312.30 includes marihuana, marihuana extract and naturally derived delta-9-tetrahydrocannabinols in the federal import/export permit context when the substance is for an FDA-approved product or is subject to a state medical marijuana license.",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-10/US/screenshots/evidence_viewports/US-ecfr-1312-30-state-medical-marijuana-license.png",
-          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "United States is closed as visually verified direct official federal cannabis-law evidence from eCFR and FDA. Federal recreational cannabis remains illegal because Marihuana and Tetrahydrocannabinols are visible Schedule I entries. Medical=REGULATED is supported only with federal/state-scope caveats: FDA-approved cannabis-derived/related prescription products and eCFR state-medical-license import/export context exist, while cannabis itself is not FDA-approved as a treatment. Enforcement=SOFT remains a project-taxonomy judgment tied to federal/state divergence and separate state rows. No project status SSOT was changed."
+          "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
+          "visualReview": "Retained official eCFR capture visibly shows the FDA-approved-product/state-medical-marijuana-license permit context. Strict visual acceptance remains separate from legal truth."
         },
         {
           "title": "U.S. Food and Drug Administration - FDA and Cannabis: Research and Drug Approval Process",
           "url": "https://www.fda.gov/news-events/public-health-focus/fda-and-cannabis-research-and-drug-approval-process",
           "sourceKind": "UNITED_STATES_FDA_CANNABIS_DRUG_APPROVAL_PROCESS_CANNABIS_NOT_APPROVED_APPROVED_CANNABIS_DERIVED_AND_RELATED_RX_PRODUCTS",
+          "sourceOwnerGeo": "US",
+          "appliesToGeos": [
+            "US"
+          ],
+          "legalBasisForExtension": "Direct United States federal regulator information for FDA-approved products; it does not create or transfer state medical-cannabis law.",
+          "officialPublisher": "Official U.S. Food and Drug Administration public-health and drug-approval information.",
+          "sourceAnnotation": "Official FDA product-status source. Actual FDA-approved prescription products are retained as a narrow federal product pathway, but this page does not itself prove cannabis patient eligibility criteria, a cannabis-patient registry, pharmacy/dispensary availability, patient supply or an operational national programme. Prescription-product development or generic regulatory authority is never promoted to patient access.",
+          "sourceType": "OFFICIAL_FEDERAL_FDA_CANNABIS_DRUG_APPROVAL_AND_PRODUCT_STATUS_HTML",
+          "primaryOrContext": "CURRENT_FDA_CANNABIS_PRODUCT_APPROVAL_SCOPE_CONTEXT",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T13:56:57.318Z",
+            "final_url": "https://www.fda.gov/news-events/public-health-focus/fda-and-cannabis-research-and-drug-approval-process",
+            "http_status": 200,
+            "etag": "\"1786538826\"",
+            "last_modified": "Wed, 12 Aug 2026 12:47:06 GMT",
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 16118,
+            "document_sha256": "89e5ad790516befcc7c05e54ffb99569e033daa0bd3b7c359a2800fba3cf6ac5",
+            "relevant_fragment_sha256": "ce667d8c2b381a6cdae3d8f98b9970324b080a73a03fdb0d742b836ebfb7f9cf",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "US"
+            ]
+          },
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official FDA page. Visual review confirms FDA has not approved a marketing application for cannabis for treatment of any disease or condition, while FDA has approved one cannabis-derived drug product, Epidiolex, and three synthetic cannabis-related drug products, Marinol, Syndros and Cesamet, available by prescription from a licensed health care provider. The same page states certain Cannabis sativa cultivars and parts remain controlled under the CSA as Marihuana, with hemp removed from CSA control when at or below 0.3 percent THC dry weight.",
+          "note": "FDA states that it has not approved a marketing application for cannabis for the treatment of any disease or condition. FDA also states that it has approved one cannabis-derived drug product, Epidiolex, and three synthetic cannabis-related drug products, Marinol, Syndros and Cesamet, available by prescription from a licensed health care provider.",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-10/US/screenshots/evidence_viewports/US-fda-cannabis-drug-approval-process-not-approved.png",
-          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "United States is closed as visually verified direct official federal cannabis-law evidence from eCFR and FDA. Federal recreational cannabis remains illegal because Marihuana and Tetrahydrocannabinols are visible Schedule I entries. Medical=REGULATED is supported only with federal/state-scope caveats: FDA-approved cannabis-derived/related prescription products and eCFR state-medical-license import/export context exist, while cannabis itself is not FDA-approved as a treatment. Enforcement=SOFT remains a project-taxonomy judgment tied to federal/state divergence and separate state rows. No project status SSOT was changed."
+          "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
+          "visualReview": "Retained official FDA captures visibly distinguish unapproved cannabis itself from approved cannabis-derived and synthetic cannabis-related prescription products. Strict visual acceptance remains separate from legal truth."
+        },
+        {
+          "title": "U.S. Food and Drug Administration - FDA Regulation of Cannabis and Cannabis-Derived Products, Including Cannabidiol (CBD)",
+          "url": "https://www.fda.gov/news-events/public-health-focus/fda-regulation-cannabis-and-cannabis-derived-products-including-cannabidiol-cbd",
+          "sourceKind": "UNITED_STATES_FDA_CURRENT_CANNABIS_DERIVED_EPIDIOLEX_PRESCRIPTION_PRODUCT_AND_LIMITED_PATIENT_INDICATION",
+          "sourceOwnerGeo": "US",
+          "appliesToGeos": [
+            "US"
+          ],
+          "legalBasisForExtension": "Direct United States federal FDA product-approval information. It establishes the federally approved product's restricted medical scope and does not transfer state medical-cannabis law into the US country row.",
+          "officialPublisher": "Official U.S. Food and Drug Administration public-health and drug-regulation information.",
+          "sourceAnnotation": "Current official FDA confirmation of a real, limited federal cannabis-derived prescription-product route: defined patient conditions, an FDA-approved product and licensed-provider prescription. This proves only a named-product lawful medical mode. It does not convert CBD, research, product development, generic regulator authority or state regimes into broad cannabis patient access, adult use, pharmacy/dispensary coverage or GREEN.",
+          "sourceType": "OFFICIAL_FEDERAL_FDA_CURRENT_CANNABIS_DERIVED_PRODUCT_REGULATION_HTML",
+          "primaryOrContext": "CURRENT_FEDERAL_LIMITED_CANNABIS_DERIVED_PRESCRIPTION_PRODUCT_SCOPE",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T14:02:03.859Z",
+            "final_url": "https://www.fda.gov/news-events/public-health-focus/fda-regulation-cannabis-and-cannabis-derived-products-including-cannabidiol-cbd",
+            "http_status": 200,
+            "etag": "\"1786515585\"",
+            "last_modified": "Wed, 12 Aug 2026 06:19:45 GMT",
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 28217,
+            "document_sha256": "d055e3755cae61aafe8ac6cd8f3eba52b758f7813a41e813361fa0cb102fcf69",
+            "relevant_fragment_sha256": "de2dbb14ee21a66136125cccf3b14566d34d4f9b7cf1aea2cb97774a98fc640d",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED_SHARED_URL_FETCHED_ONCE",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "US"
+            ]
+          },
+          "evidenceScope": null,
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
+          "confidence": "high",
+          "note": "FDA states that approved cannabis-derived and cannabis-related drug products are available only with a prescription from a licensed healthcare provider. It identifies Epidiolex as a cannabidiol product approved for seizures associated with Lennox-Gastaut syndrome or Dravet syndrome in patients one year of age and older and for seizures associated with tuberous sclerosis complex in patients one year of age and older.",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-10/US/screenshots/evidence_viewports/US-fda-cannabis-approved-products-prescription.png",
+          "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
+          "visualReview": "The current official FDA page was retrieved and semantically read without a desktop browser. The retained official FDA product/prescription capture visibly corroborates the cannabis-derived product and prescription distinction. Strict address-bar acceptance remains separate and cannot alter legal truth."
         }
       ],
       "candidateLinksAwaitingVisualReview": [],
@@ -92531,6 +92748,46 @@
           "title": "Drug Enforcement Administration - Marijuana fact sheet",
           "url": "https://www.dea.gov/factsheets/marijuana",
           "sourceKind": "UNITED_STATES_DEA_MARIJUANA_FACT_SHEET_CONTEXT_LOCAL_ACCESS_DENIED",
+          "sourceOwnerGeo": "US",
+          "appliesToGeos": [
+            "US"
+          ],
+          "legalBasisForExtension": "Federal DEA context for the United States only; it is not a source for state-law conclusions.",
+          "officialPublisher": "Official U.S. Drug Enforcement Administration fact-sheet service.",
+          "sourceAnnotation": "Official DEA cannabis-context URL retained in the same ledger. Prior access denial is recorded only as retrieval metadata; it is never proof of prohibition, no-access, RED or UNKNOWN and does not supply any legal axis until accessible primary text is reviewed.",
+          "sourceType": "OFFICIAL_FEDERAL_DEA_CANNABIS_CONTEXT_PAGE",
+          "primaryOrContext": "ACCESS_LIMITED_CONTEXT_ONLY",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": false,
+          "visualOpened": false,
+          "officialOwnerVisible": false,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": false,
+          "effectiveRuleVisible": false,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T13:56:57.318Z",
+            "final_url": "https://www.dea.gov/factsheets/marijuana",
+            "http_status": 403,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html",
+            "content_length": 387,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "da00a15340cb0de3585e86c3e2838873e8bcb82e8813ea9bc139e11e559d2ffa",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "HTTP_STATUS_403",
+            "change_reason": "HTTP_STATUS_403_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "US"
+            ]
+          },
           "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
           "confidence": "high",
