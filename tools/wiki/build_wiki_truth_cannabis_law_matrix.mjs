@@ -494,6 +494,7 @@ const independentTruthProposalFor = (row) => {
     conclusion: firstNonEmptyString(
       row?.independent_conclusion,
       independentReview.legal_interpretation,
+      independentReview.legal_conclusion,
       independentReview.conclusion,
       independentTruthReaudit.legal_interpretation,
       independentTruthReaudit.conclusion,

@@ -950,7 +950,7 @@
         "color": "GREEN",
         "rule": "GENERAL_CURRENT_OFFICIAL_ADULT_USE_LEGALITY_CONFIRMED",
         "reviewedAt": "2026-08-08T15:03:58.996Z",
-        "conclusion": null
+        "conclusion": "Current adult-use legality independently satisfies Green. Medical registry evidence is retained separately and does not need to prove dispensing for this adult-use conclusion."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -5267,7 +5267,7 @@
         "color": "GREEN",
         "rule": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_PATIENT_PRESCRIBER_REGISTRATION_LAWFUL_SUPPLY_AND_LICENSED_DISPENSARY_AXES",
         "reviewedAt": "2026-08-08",
-        "conclusion": "GREEN"
+        "conclusion": "The current official evidence chain independently proves qualifying patient eligibility, physician certification, card issuance, licensed-dispensary purchase and continuing programme operation. This is a general multi-source operational-patient-access Green, not a country-specific exception."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -6751,7 +6751,7 @@
         "color": "GREEN",
         "rule": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_PATIENT_PRESCRIBER_REGISTRATION_LAWFUL_SUPPLY_AND_PHARMACY_OR_IMPORT_AXES",
         "reviewedAt": "2026-08-08",
-        "conclusion": null
+        "conclusion": "The operational patient route is evidenced across complementary official TGA pages. No single page must repeat every axis. This is a general multi-source operational-patient-access Green and cannot be downgraded merely because an individual HTTP client encountered an HTTP/2 transport error."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -11097,7 +11097,7 @@
         "color": "UNKNOWN",
         "rule": "NO_UNITARY_APPLICABLE_REGIME",
         "reviewedAt": "2026-08-09T00:00:00.000Z",
-        "conclusion": null
+        "conclusion": "Bir Tawil cannot inherit Egypt or Sudan cannabis law. Current UN-hosted sources establish only context: an NGO/private-sector description of an unclaimed area. No BRT lawmaker, territorial statute, extension order or unitary applicable regime was found. UNKNOWN remains unpainted."
       },
       "directOfficialCannabisLawLinks": [],
       "candidateLinksAwaitingVisualReview": [],
@@ -13496,7 +13496,7 @@
         "color": "UNKNOWN",
         "rule": "GENERAL_DEPENDENT_TERRITORY_LOCAL_APPLICABILITY_UNRESOLVED_NO_COLOR",
         "reviewedAt": "2026-08-09T00:00:00.000Z",
-        "conclusion": null
+        "conclusion": "The current territorial ordinance proves a restrictive local framework, but expressly makes Secretary of State regulations part of IO law only insofar as locally applicable. No direct current source resolves that medical-regulation bridge or proves an operational local patient route; neither RED nor YELLOW is legally derivable without guessing."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -15617,7 +15617,7 @@
         "color": "RED",
         "rule": "GENERAL_CURRENT_TABLE_I_NO_MEDICAL_USE_WITH_POSITIVE_RECREATIONAL_PROHIBITION_AND_NO_PATIENT_ACCESS",
         "reviewedAt": "2026-08-09T12:58:01.558Z",
-        "conclusion": null
+        "conclusion": "RED is independently supported: cannabis is expressly Table I, Table I is expressly without medical use, the patient-medicine pathways are confined to Tables II-III, Article 12 is research-only for Table I, and current primary-law restrictions and criminal sanctions close recreational conduct. Clinical/research/industrial licence language is not a patient programme."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -16224,7 +16224,7 @@
         "color": "GREEN",
         "rule": "GENERAL_CURRENT_FEDERAL_ADULT_LAWFUL_POSSESSION_CONFIRMED",
         "reviewedAt": "2026-08-08T15:22:50.206Z",
-        "conclusion": null
+        "conclusion": "The current federal Cannabis Act section 8 directly proves lawful adult possession of licit cannabis up to the stated 30g public-place limit. The conclusion does not depend on retail, medical access, cultivation or provincial rules."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -16818,7 +16818,7 @@
         "color": "YELLOW",
         "rule": "GENERAL_CURRENT_LIMITED_CANNABIS_PRESCRIPTION_AND_PROFESSIONAL_MEDICAL_EXCEPTION_WITHOUT_OPERATIONAL_PATIENT_ACCESS",
         "reviewedAt": "2026-08-09T13:05:34.481Z",
-        "conclusion": null
+        "conclusion": "BQ has a current direct BES statute and regulation, not an inferred European Netherlands policy. They prove a limited lawful professional medical/prescription regime for cannabis-related listed means. They do not prove patient eligibility, available cannabis medicine, an active dispensing provider, or an operational programme. YELLOW follows; no adult-use inference and no GREEN."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -17123,7 +17123,7 @@
         "color": "YELLOW",
         "rule": "GENERAL_CURRENT_PRESCRIBED_CANNABIS_EXCEPTION_WITH_LEGAL_PROFESSIONAL_ROUTE_BUT_NO_OPERATIONAL_SUPPLY_PROOF",
         "reviewedAt": "2026-08-09T00:00:00.000Z",
-        "conclusion": null
+        "conclusion": "Current KY law creates a narrow prescribed medical/therapeutic exception for cannabis extracts and tinctures, with licensed doctors, pharmacists, pharmacies and importers legally identified. The same current statute leaves detailed import/transport/storage/dispensing regulation to Cabinet. No current official evidence proves a product available to patients or implemented operating programme. YELLOW follows; law enacted does not equal operational programme."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -19153,7 +19153,7 @@
         "color": "GREEN",
         "rule": "GENERAL_CURRENT_APPLIED_TERRITORIAL_OPERATIONAL_PATIENT_ACCESS_MULTI_AXIS",
         "reviewedAt": "2026-08-09T00:00:00.000Z",
-        "conclusion": null
+        "conclusion": "CC does not inherit an Australian color by analogy. The current Cocos Act directly applies WA law and extends Commonwealth Acts. The current applied WA Act establishes prohibited cannabis and no adult-use path while preserving statutory medical authorisation. The current federal TGA page proves an operational patient prescription/SAS/AP supply route, and the current Australian Government IOTHS page proves GP and pharmacy services on CC. The combined, applicable official axes prove operational patient access and therefore GREEN."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -22133,7 +22133,7 @@
         "color": "GREEN",
         "rule": "GENERAL_OPERATIONAL_PATIENT_ACCESS_BY_PRESCRIPTION_AND_PHARMACY_DISPENSING",
         "reviewedAt": "2026-08-09T00:00:00.000Z",
-        "conclusion": null
+        "conclusion": "The current Croatian Ministry of Health medicines page retains a dedicated medicinal-cannabinoids section. Its official cannabinoid-supply notice records a THC/CBD preparation delivered for distribution to pharmacies and issued on a doctor prescription; the Ministry's current 2015 regulatory notice records the rule in force, patient-directed prescription and authorised wholesale import. Together the sources prove a patient-eligible, prescriber-led, active lawful pharmacy-supply route. Recreational possession remains unlawful and a personal-use misdemeanour, but does not reduce independently proven patient access."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -25661,7 +25661,7 @@
         "color": "GREEN",
         "rule": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_AGGREGATED_CURRENT_OFFICIAL_AXES",
         "reviewedAt": "2026-08-10T00:00:00.000Z",
-        "conclusion": null
+        "conclusion": "CURRENT_OPERATIONAL_PATIENT_ACCESS_THROUGH_DIAGNOSIS_AUTHORISED_PRESCRIBER_MEDICINAL_PRODUCT_ROUTE_AND_NATIONWIDE_PHARMACY_OR_BOTIQUIN_DISPENSING"
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -27412,7 +27412,7 @@
         "color": "UNKNOWN",
         "rule": "CURRENT_GENERIC_NARCOTIC_MEDICINE_ROUTE_NOT_CANNABIS_SPECIFIC_HISTORIC_CANNABIS_LAW_CURRENT_FORCE_UNCONFIRMED",
         "reviewedAt": "2026-08-09T00:00:00.000Z",
-        "conclusion": null
+        "conclusion": "The only cannabis-specific primary source is the 1942 Dangerous Drugs Proclamation. It was visually reviewed but its current force is unconfirmed. The current EFDA medicine directive and Proclamation 1112/2019 are generic narcotic-medicine instruments and do not name cannabis; they cannot create cannabis patient access or complete a negative cannabis finding. Independent Truth Color remains UNKNOWN and unpainted under the general currentness-and-cannabis-specificity rule."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -28589,7 +28589,7 @@
         "color": "YELLOW",
         "rule": "GENERAL_NAMED_CANNABIS_DERIVED_PHARMACEUTICAL_PRODUCT_ONLY",
         "reviewedAt": "2026-08-09T16:34:08.200Z",
-        "conclusion": null
+        "conclusion": "The current Fimea record proves one named cannabis-derived product, Sativex, with a narrow MS indication and specialist prescription route. It does not itself establish current retail availability, pharmacy dispensing or an operating cannabis patient programme. The current Finlex statutes separately retain recreational prohibition and a personal-use offence. Independent Truth Color remains YELLOW under the general named-pharmaceutical-product-only rule."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -28846,7 +28846,7 @@
         "color": "GREEN",
         "rule": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_PATIENT_PRESCRIBER_REGISTRY_LAWFUL_SUPPLY_AND_LICENSED_DISPENSING",
         "reviewedAt": "2026-08-08",
-        "conclusion": "GREEN"
+        "conclusion": "The official statute and regulator page independently prove all operational patient-access axes. Florida is Green under the general multi-source rule, not a country-specific override and not merely because an MMTC licence exists."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -30069,7 +30069,7 @@
         "color": "UNKNOWN",
         "rule": "LEGAL_APPLICABILITY_UNRESOLVED",
         "reviewedAt": "2026-08-10T00:00:00.000Z",
-        "conclusion": null
+        "conclusion": "LEGAL_APPLICABILITY_UNRESOLVED_FOR_CANNABIS_CLASSIFICATION_AND_MEDICAL_PATIENT_ACCESS_IN_TF"
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -35434,7 +35434,7 @@
         "color": "GREEN",
         "rule": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_PATIENT_PRESCRIBER_REGISTRATION_LAWFUL_SUPPLY_AND_CURRENT_DISPENSARY_AXES",
         "reviewedAt": "2026-08-08",
-        "conclusion": "GREEN"
+        "conclusion": "Three complementary current Hawaii DOH sources prove the operating patient route. Hawaii is Green under the general evidence-aggregation rule, not a country-specific override."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -36663,7 +36663,7 @@
         "color": "UNKNOWN",
         "rule": "GENERAL_NO_COLOR_WHEN_CURRENT_CANNABIS_SPECIFIC_APPLICABLE_LAW_AND_MEDICAL_AXIS_CANNOT_BE_DIRECTLY_VERIFIED",
         "reviewedAt": "2026-08-10T00:00:00.000Z",
-        "conclusion": null
+        "conclusion": "The existing current official licence page proves only institutional controlled-substance activity and does not name cannabis or a patient route. Current National Legislation Database and state health guidance were sought but direct HTTP/headless access failed; their search snippets cannot be substituted for primary law. Without a directly verified cannabis-specific medical exception or an operational patient route, Yellow is unproved. Without directly verified current primary law and a closed medical axis, Red is forbidden. UNKNOWN/unpainted follows the general fail-closed rule."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -36905,7 +36905,7 @@
         "color": "GREEN",
         "rule": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_REGULATOR_AVAILABILITY_MARKET_RECORD_AND_PRESCRIPTION_SUPPLY",
         "reviewedAt": "2026-08-10T00:00:00.000Z",
-        "conclusion": null
+        "conclusion": "The regulator says THC/CBD Sativex and Epidyolex are available in Iceland and supplies patient indications. The current official Sativex registry independently proves its cannabis active substances, prescription-only and specialist-restricted status, live market record, wholesaler and listed package. This is an active lawful patient route, not merely a historical named-product authorisation, so GREEN follows under the general operational-patient-access rule. Recreational prohibition remains separate."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -37656,7 +37656,7 @@
         "color": "YELLOW",
         "rule": "GENERAL_CANNABIS_SPECIFIC_STATUTORY_MEDICAL_OR_SCIENTIFIC_EXCEPTION_WITHOUT_OPERATIONAL_PATIENT_PROGRAMME",
         "reviewedAt": "2026-08-10T00:00:00.000Z",
-        "conclusion": null
+        "conclusion": "The current primary Act directly applies to cannabis plant cultivation and narcotic-drug conduct, and expressly preserves medical or scientific purposes only under the Act, rules/orders and any required licence, permit or authorisation. This proves a limited cannabis-specific lawful regime. It does not prove a patient eligibility, prescriber, pharmacy, product or current programme operation, so it is YELLOW rather than GREEN. The explicit exception prevents RED."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -39348,7 +39348,7 @@
         "color": "YELLOW",
         "rule": "GENERAL_CURRENT_CANNABIS_SCHEDULED_PRODUCT_WITH_PRIMARY_LAW_PRESCRIPTION_PHARMACY_ROUTE_BUT_NO_PROVEN_CANNABIS_PROGRAMME_OPERATION",
         "reviewedAt": "2026-08-11T14:15:00.000Z",
-        "conclusion": null
+        "conclusion": "YELLOW. Current applicable primary law expressly schedules cannabis/cannabis resin and extracts, prohibits non-exempt acts, and preserves medical/scientific statutory exceptions within a physician-prescription and pharmacy framework. This establishes a limited lawful cannabis-related medical mode, not proven operational patient access."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -40096,7 +40096,7 @@
         "color": "GREEN",
         "rule": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_TERRITORIAL_PRESCRIPTION_IMPORT_AND_LICENSED_PHARMACY_DISPENSING_EVIDENCE",
         "reviewedAt": "2026-08-10T00:00:00.000Z",
-        "conclusion": null
+        "conclusion": "The current Isle of Man territorial government page directly proves a private-prescription pathway, official import licences for community pharmacies, three named licensed import pharmacies, pharmacy dispensing after lawful import, and patients collecting processed prescriptions. This is operational patient access even though limited and privately funded, so GREEN follows from the general rule. No UK metropolitan-law assumption is used."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -40326,7 +40326,7 @@
         "color": "GREEN",
         "rule": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_PERMIT_SPECIALIST_AND_PHARMACIST_DISPENSING_EVIDENCE",
         "reviewedAt": "2026-08-10T00:00:00.000Z",
-        "conclusion": null
+        "conclusion": "The current government permit service establishes applications for new, renewed and updated medical-cannabis permits with specialist-doctor participation. The current Ministry page independently states that a patient begins medical cannabis therapy after qualified-doctor training and that a pharmacist dispenses the medical cannabis. These complementary axes prove operational patient access, so GREEN follows from the general rule. Administrative enforcement of recreational self-consumption remains separate and is not reclassified as adult-use."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -40625,7 +40625,7 @@
         "color": "GREEN",
         "rule": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_ITALIAN_PRESCRIBING_PHARMACY_PREPARATION_DISPENSING_AND_DISTRIBUTION_AXES",
         "reviewedAt": "2026-08-10",
-        "conclusion": null
+        "conclusion": "CURRENT_OPERATIONAL_PATIENT_ACCESS_PROVED_BY_PHYSICIAN_PRESCRIPTION_PHARMACY_MAGISTRAL_PREPARATION_PATIENT_DISPENSING_AND_CURRENT_MINISTRY_DISTRIBUTION_IMPORT_CONTINUITY; PRODUCTION_IS_ONLY_ONE_SUPPORTING_AXIS"
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -41354,7 +41354,7 @@
         "color": "YELLOW",
         "rule": "GENERAL_RECREATIONAL_DECRIMINALISATION_AND_LIMITED_CANNABIS_LICENSING_WITHOUT_ADULT_USE_OR_PATIENT_PROGRAMME",
         "reviewedAt": "2026-08-10T00:00:00.000Z",
-        "conclusion": null
+        "conclusion": "The current statutory two-ounce fixed-penalty and five-plant exceptions are decriminalisation/limited personal conduct, not adult-use legalisation. The current regulator establishes medical, therapeutic and scientific industry licensing, but the reviewed official material proves no current patient eligibility, prescriber, product, pharmacy/dispensary or active supply route. Yellow follows the general decriminalisation/limited-licensing rule."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -41815,7 +41815,7 @@
         "color": "GREEN",
         "rule": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_MULTISOURCE_PATIENT_ELIGIBILITY_PRESCRIBER_PHARMACY_DISPENSING_AND_SUPPLY_AXES",
         "reviewedAt": "2026-08-10T00:00:00+03:00",
-        "conclusion": null
+        "conclusion": "Operational patient access is proved by independent official guidance, actual pharmacist dispensing records and current supply data. The legal route is broader than Sativex/dronabinol, is not inferred from cultivation licensing, and does not depend on UK law."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -42642,7 +42642,7 @@
         "color": "RED",
         "rule": "GENERAL_CURRENT_EXPRESS_MEDICAL_USE_PROHIBITION_PLUS_PRIMARY_CRIMINAL_RECREATIONAL_PROHIBITION",
         "reviewedAt": "2026-08-10T00:00:00.000Z",
-        "conclusion": "RED"
+        "conclusion": "Current Table I expressly prohibits medical use of cannabis, marijuana, plant, resin and extract. Current Criminal Code Article 296 separately proves unlawful non-sale acquisition/possession/transport and Article 297 supply/sale conduct. The axes are independently positive for both the medical prohibition and recreational prohibition conditions of RED."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -45595,7 +45595,7 @@
         "color": "UNKNOWN",
         "rule": "GENERAL_RESEARCH_AND_HEMP_SCOPE_DO_NOT_ESTABLISH_CANNABIS_PATIENT_ACCESS_OR_FULL_NEGATIVE_STATUS",
         "reviewedAt": "2026-08-10T00:00:00.000Z",
-        "conclusion": null
+        "conclusion": "Current law affirmatively prohibits Indian cannabis cultivation and allows only research/training authorisation, with a separate industrial hemp boundary. Research neither establishes patient access nor constitutes a limited patient regime. The current direct packet does not prove a cannabis patient route, and it also does not give a sufficiently complete cannabis-specific current medical-exception and possession/supply analysis for RED. UNKNOWN/unpainted is the fail-closed result."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -45851,7 +45851,7 @@
         "color": "YELLOW",
         "rule": "CURRENT_LIMITED_MEDICAL_SCIENTIFIC_INDUSTRIAL_CANNABIS_CULTIVATION_REGULATORY_MODE_WITHOUT_PROVEN_OPERATIONAL_PATIENT_ACCESS",
         "reviewedAt": "2026-08-10T00:00:00Z",
-        "conclusion": null
+        "conclusion": "A proven limited lawful medical/scientific/industrial cannabis-cultivation regime exists under Law 178 implementation evidence. No operational patient access or adult-use path was proven from applicable official sources."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -46273,7 +46273,7 @@
         "color": "YELLOW",
         "rule": "CURRENT_LICENSED_MEDICINAL_CANNABIS_CULTIVATION_PROCESSING_EXPORT_AND_GENERIC_CONTROLLED_DRUG_PRESCRIPTION_FRAMEWORK_WITHOUT_PROVEN_OPERATIONAL_PATIENT_ACCESS",
         "reviewedAt": "2026-08-10T00:00:00Z",
-        "conclusion": null
+        "conclusion": "Licensed medical-grade cannabis cultivation, processing and export are proven as a limited lawful regime. The Act also contains a generic prescribed-drug-of-abuse pathway, but no cannabis-specific operational patient eligibility, prescribing, dispensing or supply route is proven."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -46623,7 +46623,7 @@
         "color": "UNKNOWN",
         "rule": "CURRENT_CANNABIS_SPECIFIC_STATUTE_AND_MEDICAL_PATIENT_AXIS_UNVERIFIED_WITH_HISTORICAL_OFFICIAL_MARIJUANA_ENFORCEMENT_CONTEXT",
         "reviewedAt": "2026-08-10T00:00:00Z",
-        "conclusion": null
+        "conclusion": "The official evidence proves historical marijuana enforcement and 2023 enactment of a general controlled-drug law, but no current cannabis-specific schedule/operative clause or current medical-patient exception was located. A full negative conclusion would be an absence-of-evidence inference."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -47520,7 +47520,7 @@
         "color": "YELLOW",
         "rule": "GENERAL_CURRENT_PHARMACEUTICAL_ONLY_CANNABIS_EXCEPTION_WITHOUT_OPERATIONAL_PATIENT_ACCESS",
         "reviewedAt": "2026-08-10T00:00:00.000Z",
-        "conclusion": null
+        "conclusion": "Lithuania has a direct, current cannabis-specific pharmaceutical exception: Schedule-I cannabis substances may be used medically when within a registered medicinal product. That is limited lawful pharmaceutical scope. Current official evidence does not prove a registered available cannabis product, individual compounding of cannabis, patient eligibility, prescriber route, pharmacy dispensing or operational programme. YELLOW follows, not GREEN; the named Sativex no-match does not prove total patient-access absence."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -47834,7 +47834,7 @@
         "color": "GREEN",
         "rule": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_MULTISOURCE_PATIENT_ELIGIBILITY_PRESCRIBER_TRACKING_LAWFUL_SUPPLY_AND_RETAIL_DISPENSING_AXES",
         "reviewedAt": "2026-08-10T00:00:00+03:00",
-        "conclusion": null
+        "conclusion": "A current, state-specific operational patient route is directly proved. It is not inferred from industry cultivation: the statute and 2026 rule jointly establish eligibility, prescriber, active recommendation/registration, licensed supply, retailer dispensing and patient/caregiver delivery."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -48250,7 +48250,7 @@
         "color": "YELLOW",
         "rule": "GENERAL_CURRENT_CANNABIS_SPECIFIC_ENTITY_THERAPEUTIC_AUTHORIZATION_WITHOUT_PATIENT_PRESCRIBER_SUPPLY_OR_PROGRAMME_PROOF",
         "reviewedAt": "2026-08-10",
-        "conclusion": null
+        "conclusion": "Current Macau law makes cannabis Table I-C and criminalises unauthorised conduct. A separate current lawful-market decree authorises entity activities for therapeutic/scientific/analytical/educational purposes under specific criteria; it is not a patient route and the separate personal medical-import provision excludes Table I-C. This proves limited lawful therapeutic authorization only: YELLOW, not GREEN. Its positive medical exception blocks RED."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -48828,7 +48828,7 @@
         "color": "GREEN",
         "rule": "GENERAL_LAWFUL_ADULT_POSSESSION_PLUS_OPERATIONAL_LICENSED_SUPPLY",
         "reviewedAt": "2026-08-10",
-        "conclusion": null
+        "conclusion": "OPERATIONAL_ADULT_USE"
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -50135,7 +50135,7 @@
         "color": "GREEN",
         "rule": "GENERAL_CURRENT_OPERATIONAL_ADULT_USE_WITH_AFFIRMATIVE_POSSESSION_CULTIVATION_AND_LICENSED_ASSOCIATION_SUPPLY",
         "reviewedAt": "2026-08-10",
-        "conclusion": null
+        "conclusion": "Malta independently satisfies the adult-use Green threshold. Current official Act LXVI makes adult possession up to seven grams and home cultivation up to four plants non-offending. Current regulator evidence proves that licensed associations lawfully cultivate and distribute cannabis. Medical evidence is separate and cannot downgrade this adult-use result."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -50421,7 +50421,7 @@
         "color": "YELLOW",
         "rule": "GENERAL_CURRENT_CANNABIS_SPECIFIC_STATUTORY_PRESCRIPTION_EXCEPTION_WITHOUT_OPERATIONAL_PATIENT_PROGRAMME_OR_SUPPLY_PROOF",
         "reviewedAt": "2026-08-10",
-        "conclusion": null
+        "conclusion": "The current national Act directly supplies a cannabis-linked medical/prescription exception because marijuana is included in prohibited drug and practitioners can prescribe/administer/dispense prohibited drugs while valid-prescription possession is exempt. The statute does not itself prove a current licensed practitioner, Government supply, pharmacy/clinic dispensing, patient application or operating programme. YELLOW follows from the limited statutory cannabis route; GREEN and RED are both excluded."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -50574,7 +50574,7 @@
         "color": "GREEN",
         "rule": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_AGGREGATED_CURRENT_OFFICIAL_AXES",
         "reviewedAt": "2026-08-10T19:55:30.324Z",
-        "conclusion": null
+        "conclusion": "CURRENT_OPERATIONAL_TRANSITIONAL_PATIENT_ACCESS_FOR_PREVIOUSLY_INCLUDED_PATIENTS_THROUGH_PRESCRIPTION_AND_DISPENSATION"
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -50858,7 +50858,7 @@
         "color": "GREEN",
         "rule": "GENERAL_LAWFUL_ADULT_POSSESSION_PLUS_OPERATIONAL_LICENSED_SUPPLY",
         "reviewedAt": "2026-08-10",
-        "conclusion": null
+        "conclusion": "OPERATIONAL_ADULT_USE"
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -53539,7 +53539,7 @@
         "color": "GREEN",
         "rule": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_PATIENT_PRESCRIBER_REGISTRATION_LAWFUL_SUPPLY_AND_LICENSED_DISPENSING",
         "reviewedAt": "2026-08-08",
-        "conclusion": "GREEN"
+        "conclusion": "Current Mississippi regulator and statutory sources prove all operating patient-access axes. The color follows the general multi-source rule and never from cultivation or licensing alone."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -53771,7 +53771,7 @@
         "color": "GREEN",
         "rule": "GENERAL_LAWFUL_ADULT_POSSESSION_PLUS_OPERATIONAL_LICENSED_SUPPLY",
         "reviewedAt": "2026-08-10",
-        "conclusion": null
+        "conclusion": "OPERATIONAL_ADULT_USE"
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -55282,7 +55282,7 @@
         "color": "UNKNOWN",
         "rule": "GENERAL_GENERIC_CONTROLLED_MEDICINE_EXCEPTION_AND_SCHEDULE_LISTING_DO_NOT_PROVE_CANNABIS_PATIENT_ACCESS_OR_FULL_NEGATIVE_STATUS",
         "reviewedAt": "2026-08-10",
-        "conclusion": null
+        "conclusion": "The current national Act visibly permits personal therapeutic possession of a medicine containing a controlled drug in a quantity determined by a doctor. The regulator list visibly includes cannabis, cannabis resin and cannabis extracts/tinctures. This generic legal bridge does not prove a current available cannabis medicine, patient eligibility, authorised cannabis prescriber, pharmacy/dispensary, individual import route or operational programme. It also prevents a full medical-negative conclusion. The only defensible independent color is therefore UNKNOWN/unpainted."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -57746,7 +57746,7 @@
         "color": "YELLOW",
         "rule": "GENERAL_CURRENT_LAWFUL_PATIENT_EXCEPTION_WITHOUT_OPERATIONAL_PATIENT_ACCESS_BECAUSE_DISPENSARY_AND_TRANSPORTER_CHANNELS_ARE_NOT_OPEN",
         "reviewedAt": "2026-08-10",
-        "conclusion": "YELLOW"
+        "conclusion": "CURRENT_STATE_LAW_PROVES_LIMITED_LAWFUL_PATIENT_EXCEPTION_AND_RECOMMENDATION_ROUTE; CURRENT_COMMISSION_PROVES_NO_OPEN_DISPENSARY_OR_TRANSPORTER_APPLICATION_CHANNEL, SO_OPERATIONAL_PATIENT_ACCESS_IS_NOT_PROVEN"
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -58286,7 +58286,7 @@
         "color": "GREEN",
         "rule": "GENERAL_CURRENT_OPERATIONAL_PATIENT_ACCESS_WITH_PROVEN_PATIENT_PRESCRIBER_GOVERNMENT_DISTRIBUTION_AND_PHARMACY_SUPPLY",
         "reviewedAt": "2026-08-10",
-        "conclusion": null
+        "conclusion": "The Netherlands has a complete, current operational patient path: specific-condition patient eligibility, doctor prescription, Office of Medicinal Cannabis quality/distribution, and five cannabis products available through pharmacies with current 2026 price/dispensing context. This independently meets the Green medical-access threshold. Coffee-shop toleration is separately formal illegality/non-prosecution and neither creates nor negates Green."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -61177,7 +61177,7 @@
         "color": "YELLOW",
         "rule": "GENERAL_CANNABIS_SPECIFIC_STATUTORY_MEDICAL_PREPARATION_EXCEPTION_WITH_CURRENT_RECREATIONAL_ENFORCEMENT_BUT_NO_PROVEN_OPERATIONAL_PROGRAMME",
         "reviewedAt": "2026-08-11T14:30:00.000Z",
-        "conclusion": null
+        "conclusion": "YELLOW. The directly read cannabis-specific statutory text establishes strong adult prohibition, but it also expressly preserves a qualifying medical-preparation import/sale/possession class. That limited lawful class prevents a complete RED conclusion; no operational patient-access axes justify GREEN. The statutory host/currentness limitation is explicit, hence MEDIUM confidence and no applied change."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -61520,7 +61520,7 @@
         "color": "YELLOW",
         "rule": "GENERAL_CANNABIS_SCHEDULED_CONTROLLED_DRUG_WITH_AUTHORISED_PRACTICE_AND_PATIENT_TREATMENT_EXCEPTION_BUT_NO_PROVEN_OPERATIONAL_PATIENT_ACCESS",
         "reviewedAt": "2026-08-11T15:21:14.425Z",
-        "conclusion": null
+        "conclusion": "Current applicable Niue primary law establishes recreational prohibition for cannabis-controlled substances, but its cannabis-linked controlled-drug clauses preserve a limited lawful route: Director-authorised practice may prescribe/supply/import controlled drugs, a supplied patient may administer them, and a person may enter/leave with up to one month of authorised treatment drug. This is enough for limited lawful YELLOW, not operational-patient-access GREEN. It also prevents full medical-negative RED. New Zealand medicinal-cannabis law is not imported by analogy."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -61912,7 +61912,7 @@
         "color": "YELLOW",
         "rule": "GENERAL_CANNABIS_SPECIFIC_PRESCRIPTION_IMPORT_AND_SUPPLY_EXCEPTION_WITHOUT_PROVEN_OPERATIONAL_PATIENT_ACCESS",
         "reviewedAt": "2026-08-11T16:06:38.960Z",
-        "conclusion": null
+        "conclusion": "Current applicable Norfolk Island primary law directly creates a cannabis-specific limited lawful prescription mode: cannabis extracts/tinctures are dangerous drugs; a patient may personally import a prescribed dangerous drug; and sale, possession and purchase under medical-practitioner prescription are excepted. The same Act prohibits unlicensed conduct and licenses cannabis separately. That produces YELLOW pending operational proof, not GREEN from a mere statutory route."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -68711,7 +68711,7 @@
         "color": "UNKNOWN",
         "rule": "GENERAL_DEPENDENT_TERRITORY_CONDITIONAL_METROPOLITAN_LAW_WITHOUT_CANNABIS_EXTENSION_OR_LOCAL_REGIME",
         "reviewedAt": "2026-08-10",
-        "conclusion": null
+        "conclusion": "Pitcairn’s own current laws portal makes UK law conditional on express extension or local-circumstances applicability. Official portal search, current ordinance listing and full-text scans of both revised-law volumes produced no cannabis-family rule, medical cannabis route or Misuse of Drugs extension order. Generic drug and prescription wording cannot establish either a lawful cannabis exception or full current cannabis prohibition. PN remains unpainted UNKNOWN."
       },
       "directOfficialCannabisLawLinks": [],
       "candidateLinksAwaitingVisualReview": [],
@@ -69937,7 +69937,7 @@
         "color": "UNKNOWN",
         "rule": "GENERAL_CANNABIS_SPECIFIC_NARROW_TRANSIT_RULE_AND_GENERIC_CONTROLLED_MEDICINE_REGIME_WITHOUT_SCHEDULE_LINK",
         "reviewedAt": "2026-08-10",
-        "conclusion": null
+        "conclusion": "Law 4 Article 17 is direct cannabis evidence but only for transit. Law 9 has current generic NDDPS prescription, pharmacy and penalty provisions, but no current official schedule page was opened to establish that cannabis is governed by those NDDPS clauses. Therefore generic medical prescription cannot create a cannabis YELLOW, while generic penalties plus a transit rule cannot establish RED. QA remains UNKNOWN/unpainted."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -70270,7 +70270,7 @@
         "color": "GREEN",
         "rule": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_AGGREGATED_CURRENT_OFFICIAL_AXES",
         "reviewedAt": "2026-08-12T01:27:02Z",
-        "conclusion": null
+        "conclusion": "CURRENT_OPERATIONAL_TRANSITIONAL_PATIENT_ACCESS_FOR_PREVIOUSLY_INCLUDED_PATIENTS_THROUGH_PRESCRIPTION_AND_LOCAL_PUI_DISPENSATION_IN_REUNION"
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -70876,7 +70876,7 @@
         "color": "YELLOW",
         "rule": "GENERAL_CURRENT_CANNABIS_FAMILY_PHARMACEUTICAL_PRODUCT_ONLY_WITHOUT_PROVEN_PATIENT_ACCESS_OR_OPERATIONAL_PROGRAMME",
         "reviewedAt": "2026-08-10",
-        "conclusion": null
+        "conclusion": "Romania has a current cannabis-family pharmaceutical-only fact: ANMDMR identifies Epidyolex/Cannabidiolum, its market authorisation representative and approved price. It does not prove patient pathway, dispensing or programme operation, so it supports YELLOW only. Current criminal and cultivation rules remain separate and cannot turn that limited lawful fact into RED."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -71607,7 +71607,7 @@
         "color": "YELLOW",
         "rule": "GENERAL_CURRENT_APPLICABLE_CANNABIS_SPECIFIC_MEDICINAL_PRODUCT_EXCEPTION_WITHOUT_OPERATIONAL_PATIENT_ACCESS",
         "reviewedAt": "2026-08-09T00:00:00.000Z",
-        "conclusion": null
+        "conclusion": "A current cannabis-family prescription product exception is proved, but the current official evidence does not prove operational patient access in Saint-Barthelemy. The expired transition article is lifecycle context only and is not used to infer a current programme state."
       },
       "directOfficialCannabisLawLinks": [],
       "candidateLinksAwaitingVisualReview": [],
@@ -72272,31 +72272,52 @@
       },
       "officialStatus": {
         "recreational": "NOT_FULLY_LEGAL_COMMERCIAL_ADULT_USE_NOT_CONFIRMED; DRUGS_AMENDMENT_ACT_2023_VISIBLY_CREATES_SMALL_POSSESSION_AND_CULTIVATION_CARVE_OUTS_FOR_FIFTY_SIX_GRAMMES_OR_LESS_OF_CANNABIS_OR_FIFTEEN_GRAMMES_OR_LESS_OF_CANNABIS_RESIN_AND_FIVE_CANNABIS_PLANTS_OR_LESS_IN_A_SECURED_PRIVATE_RESIDENCE_WITH_FIXED_PENALTY_COMMUNITY_SERVICE_OR_DEFAULT_IMPRISONMENT_CONTEXT",
-        "medical": "REGULATED; CANNABIS_ACT_2020_AND_2022_MEDICINAL_CANNABIS_LICENSING_REGULATIONS_VISIBLY_ESTABLISH_THE_MEDICINAL_CANNABIS_AUTHORITY_PATIENT_AND_CAREGIVER_IDENTIFICATION_CARDS_MEDICAL_DOCTOR_PRESCRIBING_QUALIFYING_MEDICAL_CONDITIONS_AND_LICENCES_FOR_CULTIVATION_MANUFACTURING_TESTING_DISPENSARY_LOUNGE_TRANSPORT_RESEARCH_IMPORT_AND_EXPORT_SCOPE",
+        "medical": "ENACTED_MEDICINAL_CANNABIS_FRAMEWORK_WITH_CURRENT_OPERATION_UNVERIFIED; CANNABIS_ACT_2020_SECTION_1_2_REQUIRES_A_MINISTERIAL_COMMENCEMENT_ORDER_AND_THE_2022_LICENSING_REGULATION_DESCRIBES_A_PROSPECTIVE_PATIENT_CARD_PRESCRIBER_AND_DISPENSARY_FRAMEWORK. NO_CURRENT_OFFICIAL_COMMENCEMENT_ORDER_ISSUED_PATIENT_CARD_AUTHORISED_PRESCRIBER_LICENSED_DISPENSER_OR_LAWFUL_PATIENT_SUPPLY_RECORD_WAS_INDEPENDENTLY_CONFIRMED_IN_THIS_PACKET.",
         "enforcement": "MIXED_SOFT_FOR_SMALL_POSSESSION_AND_FIVE_PLANTS_CARVE_OUT_SCOPE_STRICT_OUTSIDE_AUTHORIZED_OR_FIXED_PENALTY_SCOPE; POSSESSION_AND_CULTIVATION_SECTIONS_HAVE_VISIBLE_EXCEPTIONS_BUT_UNLICENSED_OR_NONCOMPLIANT_MEDICINAL_SUPPLY_AND_SCOPE_OUTSIDE_THE_2023_CARVE_OUTS_REMAIN_OFFENCE_CONTEXT"
       },
-      "independentTruth": null,
+      "independentTruth": {
+        "color": "YELLOW",
+        "rule": "GENERAL_CURRENT_RECREATIONAL_DECRIMINALIZATION_FROM_EFFECTIVE_PRIMARY_LAW",
+        "reviewedAt": "2026-08-12T02:28:00Z",
+        "conclusion": "CURRENT_PERSONAL_CANNABIS_DECRIMINALIZATION_FOR_DEFINED_LOW_QUANTITY_POSSESSION_AND_FIVE_PLANTS_WITH_FIXED_PENALTY_CONSEQUENCES"
+      },
       "directOfficialCannabisLawLinks": [
         {
           "title": "St. Kitts and Nevis Law Commission - Cannabis Act, 2020, No. 8 of 2020",
           "url": "https://lawcommission.gov.kn/wp-content/documents/Annual-Laws/2020/ACTs/Act-8-of-2020-Cannabis-Act-2020.pdf",
           "sourceKind": "ST_KITTS_NEVIS_LAW_COMMISSION_CANNABIS_ACT_2020_MEDICINAL_CANNABIS_AUTHORITY_PATIENT_ACCESS_LICENSING_AND_PLACE_OF_WORSHIP_USE",
+          "sourceOwnerGeo": "KN",
+          "appliesToGeos": [
+            "KN"
+          ],
+          "legalBasisForExtension": "The enacted Act is a Saint Christopher and Nevis national law; no parent, claimant or foreign regime is used.",
+          "officialPublisher": "St. Kitts and Nevis Law Commission, an arm of the Ministry of Justice and Legal Affairs",
+          "sourceType": "CURRENT_OFFICIAL_ENACTED_MEDICINAL_CANNABIS_FRAMEWORK_WITH_UNVERIFIED_COMMENCEMENT",
+          "primaryOrContext": "PRIMARY_LAW_LIFECYCLE_CONTEXT",
+          "cannabisSpecific": true,
+          "effective": "UNCONFIRMED_COMMENCEMENT",
+          "current": true,
+          "directFragmentAvailable": true,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "screenshotValid": true,
+          "officialHostVerified": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T02:30:08.651Z",
             "final_url": "https://lawcommission.gov.kn/wp-content/documents/Annual-Laws/2020/ACTs/Act-8-of-2020-Cannabis-Act-2020.pdf",
-            "http_status": null,
-            "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "http_status": 304,
+            "etag": "\"605a1b0c-54e8a\"",
+            "last_modified": "Tue, 23 Mar 2021 16:45:00 GMT",
+            "content_type": "application/pdf",
+            "content_length": 347786,
+            "document_sha256": "6b724556dc801ba5fb0ce8059590c533b88068fd43ef2132f62bbaaa22427cba",
+            "relevant_fragment_sha256": "2a98ba3752a408d128b5a04c7ee38a5147bc6c179d95429c93aafe9c51f89d73",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_304_CONDITIONAL_GET",
             "queue": [
-              "C2",
-              "C3"
+              "C2"
             ],
             "dependent_geos": [
               "KN"
@@ -72305,31 +72326,47 @@
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official St. Kitts and Nevis Law Commission PDF. Visual review confirms Cannabis Act, 2020 No. 8 of 2020. Rendered pages visibly establish the Medicinal Cannabis Authority, provide lawful access to medicinal cannabis for qualifying medical conditions, create a comprehensive licensing scheme for cultivation, supply, possession, production and use of medicinal cannabis, authorize medical-doctor prescribing, authorize patients with prescription/identification card to obtain, possess, store and use medicinal cannabis, provide patient/caregiver identification cards, regulate medicinal cannabis use at a registered place of worship, and prohibit supply without the relevant licence.",
-          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/KN/pdf_pages/KN-act-8-2020-page-08-08.png",
-          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "St. Kitts and Nevis is closed as visually verified official cannabis-law evidence from official Law Commission Cannabis Act 2020, Medicinal Cannabis Licensing Regulations 2022, and Drugs Amendment Act 2023 PDFs. The evidence shows a regulated medicinal cannabis framework and small-possession/five-plant carve-outs with fixed-penalty context, so the project ILLEGAL/LIMITED/STRICT row requires status review, but no project status SSOT was changed."
+          "note": "This Act shall come into force on such date as the Minister may, by Order, appoint and the Minister may appoint different dates for the coming into force of different Parts or sections of this Act.",
+          "screenshotPath": "data/reviews/wiki-truth-307-visual-evidence/KN-cannabis-act-2020-commencement-current-2026-08-12.png",
+          "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
+          "visualReview": "Current Law Commission PDF title, national enactment and section 1(2) commencement condition visually read; sections 34 and 46 were separately rendered as framework-only evidence."
         },
         {
           "title": "St. Kitts and Nevis Law Commission - Cannabis (Medicinal Cannabis Licensing) Regulations, 2022, SRO 17 of 2022",
           "url": "https://lawcommission.gov.kn/wp-content/documents/Annual-Laws/2022/SROs/Cannabis-Medicinal-Cannabis-Licensing-Regulations-SRO-17-of-2022.pdf",
           "sourceKind": "ST_KITTS_NEVIS_LAW_COMMISSION_MEDICINAL_CANNABIS_LICENSING_REGULATIONS_2022_BUSINESS_OPERATIONS",
+          "sourceOwnerGeo": "KN",
+          "appliesToGeos": [
+            "KN"
+          ],
+          "legalBasisForExtension": "The Regulation is a Saint Christopher and Nevis statutory instrument; no parent, claimant or foreign regime is used.",
+          "officialPublisher": "St. Kitts and Nevis Law Commission, an arm of the Ministry of Justice and Legal Affairs",
+          "sourceType": "CURRENT_OFFICIAL_MEDICINAL_CANNABIS_LICENSING_REGULATION_WITH_UNVERIFIED_UNDERLYING_COMMENCEMENT",
+          "primaryOrContext": "ENACTED_REGULATION_LIFECYCLE_AND_FRAMEWORK_CONTEXT",
+          "cannabisSpecific": true,
+          "effective": "UNCONFIRMED_COMMENCEMENT",
+          "current": true,
+          "directFragmentAvailable": true,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "screenshotValid": true,
+          "officialHostVerified": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T02:30:08.651Z",
             "final_url": "https://lawcommission.gov.kn/wp-content/documents/Annual-Laws/2022/SROs/Cannabis-Medicinal-Cannabis-Licensing-Regulations-SRO-17-of-2022.pdf",
-            "http_status": null,
-            "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "http_status": 304,
+            "etag": "\"67ef2100-b7baf\"",
+            "last_modified": "Fri, 04 Apr 2025 00:00:00 GMT",
+            "content_type": "application/pdf",
+            "content_length": 752559,
+            "document_sha256": "bac1106f7fba730d13d411858425d77a38b80183a951385d5565cbabe0ad7dc6",
+            "relevant_fragment_sha256": "13e2fb76912bc308466404016be3d1eec5ae6ac9d7bb936895846a9c420c8882",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_304_CONDITIONAL_GET",
             "queue": [
-              "C2",
-              "C3"
+              "C2"
             ],
             "dependent_geos": [
               "KN"
@@ -72338,31 +72375,47 @@
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official St. Kitts and Nevis Law Commission PDF. Visual review confirms the 2022 Medicinal Cannabis Licensing Regulations. Rendered page visibly states the Authority shall authorize, regulate, track, monitor and licence medicinal cannabis business operations including cultivation, infused products manufacturing, testing facility, dispensary operations for authorized patients/caregivers, medicinal cannabis lounge, transport, and research and development operations.",
-          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/KN/pdf_pages/KN-sro-17-2022-page-09-009.png",
-          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "St. Kitts and Nevis is closed as visually verified official cannabis-law evidence from official Law Commission Cannabis Act 2020, Medicinal Cannabis Licensing Regulations 2022, and Drugs Amendment Act 2023 PDFs. The evidence shows a regulated medicinal cannabis framework and small-possession/five-plant carve-outs with fixed-penalty context, so the project ILLEGAL/LIMITED/STRICT row requires status review, but no project status SSOT was changed."
+          "note": "In exercise of the power conferred by section 60 of the Cannabis Act, 2020, the Minister makes the following Regulations: [Published 28th July 2022 – Extra-Ordinary Gazette No. 39 of 2022].",
+          "screenshotPath": "data/reviews/wiki-truth-307-visual-evidence/KN-medicinal-cannabis-licensing-regulations-2022-current-2026-08-12.png",
+          "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
+          "visualReview": "Current Law Commission PDF title, publication line and patient/dispensary definitions visually read; it remains framework-only until an independently verified commencement and operation record exists."
         },
         {
           "title": "St. Kitts and Nevis Law Commission - Drugs (Prevention & Abatement of the Misuse and Abuse of Drugs) (Amendment) Act, 2023, No. 12 of 2023",
           "url": "https://lawcommission.gov.kn/wp-content/documents/Annual-Laws/2023/ACTs/Act-12-of-2023-Drugs-Prevention-Abatement-of-the-Misuse-and-Abuse-of-Drugs-Amendment-Act.pdf",
           "sourceKind": "ST_KITTS_NEVIS_LAW_COMMISSION_DRUGS_AMENDMENT_ACT_2023_CANNABIS_POSSESSION_56G_AND_FIVE_PLANTS_CARVE_OUTS",
+          "sourceOwnerGeo": "KN",
+          "appliesToGeos": [
+            "KN"
+          ],
+          "legalBasisForExtension": "The Act was enacted by the National Assembly of Saint Christopher and Nevis and published in the Extra-Ordinary Gazette; it applies nationally to KN.",
+          "officialPublisher": "St. Kitts and Nevis Law Commission, an arm of the Ministry of Justice and Legal Affairs",
+          "sourceType": "CURRENT_OFFICIAL_PRIMARY_CANNABIS_DECRIMINALIZATION_AMENDMENT",
+          "primaryOrContext": "PRIMARY_CURRENT_RECREATIONAL_DECRIMINALIZATION_LAW",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "screenshotValid": true,
+          "officialHostVerified": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T02:30:08.651Z",
             "final_url": "https://lawcommission.gov.kn/wp-content/documents/Annual-Laws/2023/ACTs/Act-12-of-2023-Drugs-Prevention-Abatement-of-the-Misuse-and-Abuse-of-Drugs-Amendment-Act.pdf",
-            "http_status": null,
-            "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "http_status": 304,
+            "etag": "\"64a9f880-5b5b9\"",
+            "last_modified": "Sun, 09 Jul 2023 00:00:00 GMT",
+            "content_type": "application/pdf",
+            "content_length": 374201,
+            "document_sha256": "0182f77d27037eb9763dc65423024327333417ea36773fe4245f57929f56b994",
+            "relevant_fragment_sha256": "0c68b6e3147f87bb65e093e04b38b984eb5be61bf38f7d0912a0901151b2654d",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_304_CONDITIONAL_GET",
             "queue": [
-              "C2",
-              "C3"
+              "C2"
             ],
             "dependent_geos": [
               "KN"
@@ -72371,18 +72424,18 @@
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official St. Kitts and Nevis Law Commission PDF. Visual review confirms the 2023 Drugs Amendment Act. Rendered pages visibly state section 6 possession provisions do not apply to licensed Medicinal Cannabis Authority persons, faith-based cannabis-use/cultivation licence holders, Chief Medical Officer licence holders, and a person possessing fifty-six grammes or less of cannabis or fifteen grammes or less of cannabis resin if storage/access conditions are met, with retention of possession and fixed-penalty/community-service/default-imprisonment consequences. Section 7 cultivation provisions visibly do not apply to Medicinal Cannabis Authority cultivation licence holders, Rastafari place-of-assembly cultivation, faith-based licence cultivation of five cannabis plants or less, and a person cultivating five cannabis plants or less in a secured private residence, again with retention and fixed-penalty/community-service/default-imprisonment consequences.",
-          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/KN/pdf_pages/KN-act-12-2023-page-02-03-2.png",
-          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "St. Kitts and Nevis is closed as visually verified official cannabis-law evidence from official Law Commission Cannabis Act 2020, Medicinal Cannabis Licensing Regulations 2022, and Drugs Amendment Act 2023 PDFs. The evidence shows a regulated medicinal cannabis framework and small-possession/five-plant carve-outs with fixed-penalty context, so the project ILLEGAL/LIMITED/STRICT row requires status review, but no project status SSOT was changed."
+          "note": "6A. Section 6, subsections (1) and (2) do not apply to— (d) a person who has in his or her possession fifty-six grammes or less of cannabis or fifteen grammes or less of cannabis resin, in a public place or on private premises, and such cannabis or cannabis resin is stored, handled or otherwise kept in such a manner so as to prevent minors or persons vulnerable to substance abuse from accessing such cannabis or cannabis resin, or any other unauthorized access to such cannabis; and that person shall— (i) be allowed to retain possession of such cannabis or cannabis resin; and (ii) be issued with— A. a fixed penalty notice for fifty dollars; or B. in default of payment, shall be liable to perform up to ten hours of community service; or C. in default of performing ten hours of community service, to imprisonment for three days.",
+          "screenshotPath": "data/reviews/wiki-truth-307-visual-evidence/KN-drugs-amendment-2023-possession-current-2026-08-12.png",
+          "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
+          "visualReview": "Current Law Commission PDF pages 2 and 3 visually read. The rendered primary-law pages show the exact possession and five-plant clauses; strict browser-domain acceptance remains incomplete because no browser chrome is present."
         }
       ],
       "candidateLinksAwaitingVisualReview": [],
       "officialContextLinks": [],
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
-      "differenceStatus": "CONFLICT_PROJECT_ILLEGAL_LIMITED_STRICT_VS_OFFICIAL_MEDICAL_REGULATED_AND_SMALL_POSSESSION_CULTIVATION_CARVE_OUTS",
-      "differenceDescription": "St. Kitts and Nevis is visually verified from official Law Commission PDFs. Cannabis Act, 2020 page 4 visibly establishes the Medicinal Cannabis Authority to regulate, monitor and control cultivation, supply, possession, production and use of medicinal cannabis. Page 8 visibly states the Act's object is lawful access to medicinal cannabis for qualifying medical conditions and a comprehensive licensing scheme, and establishes the Authority. Page 18 visibly authorizes medical-doctor prescribing and authorizes a patient with prescription, identification card and medical certificate to obtain, possess, store and use medicinal cannabis. Page 21 visibly provides patient/caregiver identification cards and authorizes patients/caregivers to obtain, possess, store, use or administer medicinal cannabis. Page 25 visibly shows licensed medicinal cannabis supply activities and penalties for supply without licence. The 2022 Licensing Regulations page 9 visibly authorizes and licences medicinal cannabis business operations including cultivation, products manufacturing, testing, dispensary, lounge, transport and research and development. The 2023 Drugs Amendment Act page 2 visibly states possession provisions do not apply to listed cannabis licence/faith/medical contexts and to a person possessing fifty-six grammes or less of cannabis or fifteen grammes or less of cannabis resin under storage/access conditions, with retention and fixed-penalty/community-service/default-imprisonment consequences. Page 3 visibly states cultivation provisions do not apply to Medicinal Cannabis Authority licence holders, Rastafari assembly cultivation, faith-based licence cultivation of five cannabis plants or less, or a person cultivating five cannabis plants or less in a secured private residence, also with retention and fixed-penalty/community-service/default-imprisonment consequences. Project recreational=ILLEGAL, medical=LIMITED and enforcement=STRICT therefore conflicts with the official evidence at least on medical=REGULATED and enforcement not uniformly STRICT for the small possession/cultivation carve-out scope. Adult-use commercial retail legalization was not visibly confirmed. No project status SSOT was changed.",
+      "differenceStatus": "AXIS_MISMATCH_PROJECT_ILLEGAL_LIMITED_STRICT_VS_CURRENT_RECREATIONAL_DECRIMINALIZATION_AND_OPERATION_UNVERIFIED_MEDICAL_FRAMEWORK",
+      "differenceDescription": "St. Kitts and Nevis is visually verified from current official Law Commission PDFs. The 2023 Drugs Amendment Act directly establishes the limited 56g/15g possession and five-plant personal scope with retention and fixed-penalty consequences. It supports a recreational decriminalization axis, not unrestricted adult retail or use. The 2020 Act and 2022 Regulation describe a medicinal Authority, patient card, prescriber and dispensary framework, but the Act expressly requires a Ministerial commencement Order and this review found no current Order or live patient/prescriber/licensed-dispensary evidence. Project recreational=ILLEGAL and enforcement=STRICT therefore differ from the proven limited personal scope; project medical=LIMITED is not promoted to an operational programme. No project status SSOT was changed.",
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
@@ -72395,10 +72448,16 @@
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/KN/pdf_pages/KN-act-8-2020-page-25-25.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/KN/pdf_pages/KN-sro-17-2022-page-09-009.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/KN/pdf_pages/KN-act-12-2023-page-02-03-2.png",
-        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/KN/pdf_pages/KN-act-12-2023-page-02-03-3.png"
+        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/KN/pdf_pages/KN-act-12-2023-page-02-03-3.png",
+        "data/reviews/wiki-truth-307-visual-evidence/KN-drugs-amendment-2023-possession-current-2026-08-12.png",
+        "data/reviews/wiki-truth-307-visual-evidence/KN-drugs-amendment-2023-cultivation-current-2026-08-12.png",
+        "data/reviews/wiki-truth-307-visual-evidence/KN-cannabis-act-2020-commencement-current-2026-08-12.png",
+        "data/reviews/wiki-truth-307-visual-evidence/KN-cannabis-act-2020-patient-framework-current-2026-08-12.png",
+        "data/reviews/wiki-truth-307-visual-evidence/KN-cannabis-act-2020-dispensing-framework-current-2026-08-12.png",
+        "data/reviews/wiki-truth-307-visual-evidence/KN-medicinal-cannabis-licensing-regulations-2022-current-2026-08-12.png"
       ],
       "reviewConfidence": "high",
-      "reviewNotes": "VISUALLY_VERIFIED: St. Kitts and Nevis is closed as visually verified official cannabis-law evidence from official Law Commission Cannabis Act 2020, Medicinal Cannabis Licensing Regulations 2022, and Drugs Amendment Act 2023 PDFs. The evidence shows a regulated medicinal cannabis framework and small-possession/five-plant carve-outs with fixed-penalty context, so the project ILLEGAL/LIMITED/STRICT row requires status review, but no project status SSOT was changed.",
+      "reviewNotes": "VISUALLY_VERIFIED: St. Kitts and Nevis is closed as visually verified official cannabis-law evidence from official Law Commission Cannabis Act 2020, Medicinal Cannabis Licensing Regulations 2022, and Drugs Amendment Act 2023 PDFs. The effective 2023 source proves limited personal possession/five-plant decriminalization with fixed-penalty consequences. The medical texts are retained as an enacted framework with operation unverified, not as current patient access. No project status SSOT was changed.",
       "truthLayers": {
         "primaryLaw": {
           "source": "DIRECT_OFFICIAL_LAW",
@@ -72440,7 +72499,7 @@
             "enforcement_mode": "UNKNOWN",
             "legal_state": "UNKNOWN"
           },
-          "notes": "St. Kitts and Nevis is visually verified from official Law Commission PDFs. Cannabis Act, 2020 page 4 visibly establishes the Medicinal Cannabis Authority to regulate, monitor and control cultivation, supply, possession, production and use of medicinal cannabis. Page 8 visibly states the Act's object is lawful access to medicinal cannabis for qualifying medical conditions and a comprehensive licensing scheme, and establishes the Authority. Page 18 visibly authorizes medical-doctor prescribing and authorizes a patient with prescription, identification card and medical certificate to obtain, possess, store and use medicinal cannabis. Page 21 visibly provides patient/caregiver identification cards and authorizes patients/caregivers to obtain, possess, store, use or administer medicinal cannabis. Page 25 visibly shows licensed medicinal cannabis supply activities and penalties for supply without licence. The 2022 Licensing Regulations page 9 visibly authorizes and licences medicinal cannabis business operations including cultivation, products manufacturing, testing, dispensary, lounge, transport and research and development. The 2023 Drugs Amendment Act page 2 visibly states possession provisions do not apply to listed cannabis licence/faith/medical contexts and to a person possessing fifty-six grammes or less of cannabis or fifteen grammes or less of cannabis resin under storage/access conditions, with retention and fixed-penalty/community-service/default-imprisonment consequences. Page 3 visibly states cultivation provisions do not apply to Medicinal Cannabis Authority licence holders, Rastafari assembly cultivation, faith-based licence cultivation of five cannabis plants or less, or a person cultivating five cannabis plants or less in a secured private residence, also with retention and fixed-penalty/community-service/default-imprisonment consequences. Project recreational=ILLEGAL, medical=LIMITED and enforcement=STRICT therefore conflicts with the official evidence at least on medical=REGULATED and enforcement not uniformly STRICT for the small possession/cultivation carve-out scope. Adult-use commercial retail legalization was not visibly confirmed. No project status SSOT was changed."
+          "notes": "St. Kitts and Nevis is visually verified from current official Law Commission PDFs. The 2023 Drugs Amendment Act directly establishes the limited 56g/15g possession and five-plant personal scope with retention and fixed-penalty consequences. It supports a recreational decriminalization axis, not unrestricted adult retail or use. The 2020 Act and 2022 Regulation describe a medicinal Authority, patient card, prescriber and dispensary framework, but the Act expressly requires a Ministerial commencement Order and this review found no current Order or live patient/prescriber/licensed-dispensary evidence. Project recreational=ILLEGAL and enforcement=STRICT therefore differ from the proven limited personal scope; project medical=LIMITED is not promoted to an operational programme. No project status SSOT was changed."
         },
         "wikipedia": {
           "source": "UNAVAILABLE",
@@ -72804,7 +72863,7 @@
         "color": "YELLOW",
         "rule": "GENERAL_CURRENT_CANNABIS_FAMILY_PHARMACEUTICAL_PRODUCT_WITH_PRESCRIPTION_AND_PHARMACY_SUPPLY_BUT_NO_OPERATIONAL_MEDICAL_CANNABIS_PROGRAM",
         "reviewedAt": "2026-08-10",
-        "conclusion": null
+        "conclusion": "The French pharmaceutical route applies to Saint-Martin through direct statutory applicability. The current Ministry database proves a prescription-only, commercially declared, city-pharmacy cannabidiol medicine. Under the colour rules this is a pharmaceutical-only cannabis-family route and supports YELLOW, not operational medical-cannabis GREEN. The expired trial does not prove full medical absence, so RED is excluded."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -73234,7 +73293,7 @@
         "color": "YELLOW",
         "rule": "GENERAL_CURRENT_CANNABIS_FAMILY_PHARMACEUTICAL_PRODUCT_WITH_PRESCRIPTION_AND_PHARMACY_SUPPLY_BUT_NO_OPERATIONAL_MEDICAL_CANNABIS_PROGRAM",
         "reviewedAt": "2026-08-10",
-        "conclusion": null
+        "conclusion": "PM is not decriminalised: the fixed fine is expressly criminal procedure following a continuing prohibition. The current official medicines database, made territorially applicable through Article L1425-1, proves only a named prescription cannabidiol product with commercialisation and city-pharmacy supply. The current result is YELLOW for a pharmaceutical-only cannabis-family route, not for a fine and not for a general medical-cannabis programme."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -80165,7 +80224,7 @@
         "color": "GREEN",
         "rule": "CURRENT_OPERATIONAL_HOSPITAL_SPECIALIST_CANNABIS_PATIENT_ACCESS",
         "reviewedAt": "2026-08-09T00:00:00.000Z",
-        "conclusion": null
+        "conclusion": "Royal Decree 903/2025 is in force and directly provides a current hospital-specialist prescription, lawful hospital-pharmacy preparation and patient dispensing route. AEMPS FN/2026/FMT/043 supplies the required current cannabis monograph and named patient indications. This is operational patient access, not a producer-registry inference."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -82415,7 +82474,7 @@
         "color": "GREEN",
         "rule": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_FOPH_PRESCRIPTION_AND_PHARMACY_MAGISTRAL_ROUTE",
         "reviewedAt": "2026-08-08T15:33:02.983Z",
-        "conclusion": null
+        "conclusion": "The FOPH current medical page proves the connected patient, physician prescription, pharmacy manufacture and regulated-supply route after the medical prohibition was lifted. This is operational patient access and independently satisfies Green. The separate non-medical prohibition, pilot trials and ten-gram non-punishment are recorded but do not control the medical conclusion."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -87617,7 +87676,7 @@
         "color": "GREEN",
         "rule": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_OFFICIAL_ELIGIBILITY_PRESCRIBER_AND_PHARMACIST_DISPENSING_EVIDENCE",
         "reviewedAt": "2026-08-09T00:00:00.000Z",
-        "conclusion": null
+        "conclusion": "A named-product record by itself would be limited lawful medicine only. Here the current official NHS page separately proves eligible patients, specialist prescription and real pharmacist dispensing of cannabis-based prescription medicine. Together with the current GOV.UK framework, those axes establish operational patient access for the limited eligible population. This is GREEN under the general multi-source operational-patient-access rule; it does not infer adult-use legalisation or a broad recreational market."
       },
       "directOfficialCannabisLawLinks": [
         {
@@ -91685,7 +91744,7 @@
         "color": "UNKNOWN",
         "rule": "GENERAL_RECREATIONAL_NARCOTICS_PROHIBITION_WITH_MEDICAL_CANNABIS_AXIS_UNRESOLVED",
         "reviewedAt": "2026-08-08T11:55:04.722Z",
-        "conclusion": null
+        "conclusion": "Current Penal Code Article 711-1 applies Books I-V in Wallis and Futuna. Current Public Health Code Article L5521-7 applies narcotics-classification provisions there. The current Order classifies cannabis and cannabis resin as narcotics, and Penal Code Article 222-37 criminalises illicit narcotics possession, acquisition and use. This proves the recreational prohibition axis through applicable official primary law."
       },
       "directOfficialCannabisLawLinks": [],
       "candidateLinksAwaitingVisualReview": [],
@@ -92431,7 +92490,7 @@
         "color": "GREEN",
         "rule": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_OFFICIAL_PATIENT_REGISTRATION_CARD_DISPENSARY_AND_IMPLEMENTED_PROGRAM_AXES",
         "reviewedAt": "2026-08-10",
-        "conclusion": "GREEN"
+        "conclusion": "CURRENT_OPERATIONAL_PATIENT_ACCESS_PROVED_BY_AGGREGATED_ELIGIBILITY_PRESCRIBER_REGISTRATION_CARD_LAWFUL_DISPENSING_AND_OPERATIONAL_AXES"
       },
       "directOfficialCannabisLawLinks": [
         {
