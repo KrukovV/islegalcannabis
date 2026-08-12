@@ -141893,8 +141893,39 @@
           "source_kind": "UKRAINE_RADA_LAW_3528_IX_MEDICAL_CANNABIS_HEMP_DEFINITIONS_RECREATIONAL_USE_DEFINITION_TRACKING_AND_PATIENT_ACCESS",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-12/UA/screenshots/evidence_viewports/UA-3528-cannabis-medical-definitions.png",
           "note": "Official Verkhovna Rada law page, document 3528-IX, current as introduced into force on 16 Aug 2024. Visual review confirms the title on state regulation of plants of the Cannabis genus for educational, scientific and technical activity, production of narcotic drugs, psychotropic substances and medicines to expand patient access to necessary treatment; definitions of cannabis, medical-purpose hemp/cannabis plants, industrial hemp, recreational use, cannabis plant, cannabis plant substance, cannabis resin and related products; controlled circulation of medical-purpose cannabis plants, cannabis plant substance and medicines made from them; electronic traceability of grown medical-purpose cannabis plants and derived products; and prescription dispensing / controlled supply language.",
+          "source_owner_geo": "UA",
+          "applies_to_geo": [
+            "UA"
+          ],
+          "legal_basis_for_extension": "Law of Ukraine enacted by the Verkhovna Rada. It amends national controlled-substances and medicines law and applies directly within Ukraine; no federal, claimant or territorial extension is inferred.",
+          "source_authority": "Verkhovna Rada of Ukraine",
+          "source_type": "PRIMARY_NATIONAL_CANNABIS_MEDICAL_REGULATION_AMENDING_STATUTE",
+          "primary_or_context": "PRIMARY",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "OFFICIAL_RADA_RECORD_MARKED_CURRENT; Law No. 3528-IX entered into force on 16 August 2024. The retained direct official capture was opened on 2026-07-22; fresh C1 access metadata is retained separately and never alters the legal axes.",
+          "effective_date": "2024-08-16",
+          "direct_fragment_available": true,
+          "direct_fragment_urls": [
+            "https://zakon.rada.gov.ua/laws/show/3528-20#Text"
+          ],
+          "locator": "Official Rada text (`#Text`): Law No. 3528-IX, amendments to the narcotics-law definitions and Articles 2, 15, 26 and 27; cannabis medical-circulation, e-prescription, pharmacy and recreational-sale clauses.",
+          "exact_fragment": "The Law defines `рекреаційне вживання` as consumption of cannabis plants or parts without a doctor's prescription and for reasons unrelated to medical use; prohibits the sale (dispensing) of cannabis plants and processed products with any tetrahydrocannabinol content for recreational use; and requires dispensing to persons of medicines produced from medical-purpose hemp or cannabis plant substance exclusively on a doctor's medical-indication electronic prescription. It also provides that a person may acquire, and pharmacies may retail, medicines produced from cannabis plant substance that are authorised for medical practice, by electronic prescription.",
+          "legal_relevance": "Direct cannabis-specific statutory patient/prescriber/e-prescription/pharmacy route and recreational-sale prohibition. It proves a limited lawful mode only; it does not prove a live patient programme or actual dispensing service.",
+          "screenshot_state": "RETAINED_OFFICIAL_HTML_VISUALLY_READ_2026-07-18_AND_DIRECT_OFFICIAL_PAGE_OPENED_2026-07-22; legal content is valid historical visual evidence, while fresh browser-domain acceptance is separately false.",
+          "historical_screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-12/UA/screenshots/evidence_viewports/UA-3528-electronic-tracking-medical-cannabis.png",
+          "semantic_reviewed_by_human": true,
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_valid": true,
+          "visual_review_result": "RETAINED_OFFICIAL_CANNABIS_PRESCRIPTION_AND_DISPENSING_FRAGMENT_READ; no browser-address-bar assertion is made.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T00:44:39.307Z",
             "final_url": "https://zakon.rada.gov.ua/laws/show/3528-20",
             "http_status": null,
             "etag": null,
@@ -141902,26 +141933,21 @@
             "content_type": null,
             "content_length": null,
             "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "relevant_fragment_sha256": "51a3da42abd9cbcba1580d780dde93fdbad84a41b524795f2c8e3bd12aacb62a",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "NEEDS_SEMANTIC_REVIEW"
+              "ACCESS_BLOCKED"
             ],
             "dependent_geos": [
               "UA"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
+            "schema_issues": [],
             "semantic_probe": null
           }
         },
@@ -141931,8 +141957,39 @@
           "source_kind": "UKRAINE_RADA_NARCOTIC_DRUGS_LAW_CURRENT_CANNABIS_MEDICAL_PURPOSE_HEMP_AND_CANNABIS_SUBSTANCE_CONTROL_FRAMEWORK",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-12/UA/screenshots/evidence_viewports/UA-narcotic-law-current-medical-cannabis-definition.png",
           "note": "Official current consolidated Verkhovna Rada page for Ukraine's law on narcotic drugs, psychotropic substances and precursors. Visual review confirms the current law text contains the same cannabis and medical-purpose hemp/cannabis terms added by Law 3528-IX, including medical-purpose cannabis plants and cannabis plant substance, supporting that the medical cannabis framework is part of the current controlling law rather than only an amendment history page.",
+          "source_owner_geo": "UA",
+          "applies_to_geo": [
+            "UA"
+          ],
+          "legal_basis_for_extension": "Current consolidated national statute published by the Verkhovna Rada; it applies directly to Ukraine and carries the Law No. 3528-IX cannabis amendments in the controlling act text.",
+          "source_authority": "Verkhovna Rada of Ukraine",
+          "source_type": "CURRENT_CONSOLIDATED_PRIMARY_NATIONAL_NARCOTIC_DRUGS_STATUTE",
+          "primary_or_context": "PRIMARY_CURRENT_CONSOLIDATED_TEXT",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "CURRENT_CONSOLIDATED_RADA_TEXT_VISUALLY_READ_WITH_3528_IX_CANNABIS_TERMS; fresh C1 access metadata remains separate from this retained direct evidence.",
+          "effective_date": "2024-08-16",
+          "direct_fragment_available": true,
+          "direct_fragment_urls": [
+            "https://zakon.rada.gov.ua/laws/show/60/95-%D0%B2%D1%80#Text"
+          ],
+          "locator": "Official Rada consolidated text (`#Text`), Article 1 definitions and Articles 2, 15, 26 and 27 as amended by Law No. 3528-IX; medical-purpose cannabis plant substance, e-prescription and pharmacy-retail clauses.",
+          "exact_fragment": "`рослинна субстанція канабісу` is an active pharmaceutical ingredient made from medical-purpose hemp or imported into Ukraine, entered in the State Register of Medicines and permitted for manufacture of medicines. The consolidated text provides acquisition by a natural person for medical indications, including authorised medicines made from cannabis plant substance, on a doctor's electronic prescription; retail sale of those medicines is through licensed pharmacies by electronic prescription, with electronic dispensing and traceability records.",
+          "legal_relevance": "Current cannabis-specific bridge from the 3528-IX amendment to the controlling narcotics statute. It proves a statutory medical prescription and pharmacy route, not an operating registry, stock or patient programme.",
+          "screenshot_state": "RETAINED_CURRENT_CONSOLIDATED_OFFICIAL_HTML_VISUALLY_READ_2026-07-18; source identity and cannabis-specific clauses are visible, while fresh browser-domain acceptance is separately false.",
+          "historical_screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-12/UA/screenshots/evidence_viewports/UA-narcotic-law-current-cannabis-substance-circulation.png",
+          "semantic_reviewed_by_human": true,
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_valid": true,
+          "visual_review_result": "RETAINED_OFFICIAL_CURRENT_CONSOLIDATED_CANNABIS_MEDICINE_AND_CIRCULATION_FRAGMENT_READ; no browser-address-bar assertion is made.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T00:44:39.307Z",
             "final_url": "https://zakon.rada.gov.ua/laws/show/60/95-%D0%B2%D1%80",
             "http_status": null,
             "etag": null,
@@ -141940,26 +141997,21 @@
             "content_type": null,
             "content_length": null,
             "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "relevant_fragment_sha256": "94bf20b0995ce5c032b8a7f02e6c73a39b31bd7cb764ef9f17fe3a1d7bcb3381",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "NEEDS_SEMANTIC_REVIEW"
+              "ACCESS_BLOCKED"
             ],
             "dependent_geos": [
               "UA"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
+            "schema_issues": [],
             "semantic_probe": null
           }
         },
@@ -141968,7 +142020,63 @@
           "url": "https://zakon.rada.gov.ua/laws/show/2341-14",
           "source_kind": "UKRAINE_RADA_CRIMINAL_CODE_ARTICLES_309_310_ILLEGAL_NARCOTIC_POSSESSION_AND_CANNABIS_CULTIVATION",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-12/UA/screenshots/evidence_viewports/UA-criminal-code-article-310-cultivation.png",
-          "note": "Official Verkhovna Rada Criminal Code page. Visual review confirms Article 309 criminalizes illegal production, manufacture, acquisition, storage, transport or mailing of narcotic drugs, psychotropic substances or analogues without intent to sell, with fines, correctional work, probation supervision, restriction of liberty and aggravated imprisonment bands; Article 310 expressly covers illegal sowing or growing hemp/cannabis (конопель) and sets fine/probation/restriction of liberty for smaller plant-count bands and imprisonment from three to seven years for aggravated or larger-count cultivation."
+          "note": "Official Verkhovna Rada Criminal Code page. Visual review confirms Article 309 criminalizes illegal production, manufacture, acquisition, storage, transport or mailing of narcotic drugs, psychotropic substances or analogues without intent to sell, with fines, correctional work, probation supervision, restriction of liberty and aggravated imprisonment bands; Article 310 expressly covers illegal sowing or growing hemp/cannabis (конопель) and sets fine/probation/restriction of liberty for smaller plant-count bands and imprisonment from three to seven years for aggravated or larger-count cultivation.",
+          "source_owner_geo": "UA",
+          "applies_to_geo": [
+            "UA"
+          ],
+          "legal_basis_for_extension": "National Criminal Code of Ukraine published by the Verkhovna Rada; the criminal provisions apply directly to Ukraine and are not extended from another jurisdiction.",
+          "source_authority": "Verkhovna Rada of Ukraine",
+          "source_type": "CURRENT_PRIMARY_NATIONAL_CRIMINAL_STATUTE",
+          "primary_or_context": "PRIMARY_RECREATIONAL_AND_PENALTY_CONTEXT",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "CURRENT_OFFICIAL_RADA_CRIMINAL_CODE_TEXT_VISUALLY_READ; it supplies unauthorised-cultivation and penalty context only and does not negate the separate medical route.",
+          "direct_fragment_available": true,
+          "direct_fragment_urls": [
+            "https://zakon.rada.gov.ua/laws/show/2341-14#Text"
+          ],
+          "locator": "Official Rada Criminal Code text (`#Text`), Articles 309 and 310; Article 310 expressly names `конопель` (hemp/cannabis).",
+          "exact_fragment": "Article 309 penalises unlawful production, manufacture, acquisition, storage, transport or mailing of narcotic drugs, psychotropic substances or analogues without intent to sell. Article 310 penalises unlawful sowing or growing of opium poppy or hemp/cannabis (`конопель`), including aggravated imprisonment bands for larger counts or aggravating circumstances.",
+          "legal_relevance": "Direct current penalty and unauthorised cannabis-cultivation context. It is not used to infer medical-access absence, because the separate cannabis-specific medical prescription and pharmacy provisions remain applicable.",
+          "screenshot_state": "RETAINED_OFFICIAL_HTML_ARTICLES_309_310_VISUALLY_READ_2026-07-18; current legal-content crop is retained, while fresh browser-domain acceptance is separately false.",
+          "historical_screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-12/UA/screenshots/evidence_viewports/UA-criminal-code-article-310-cultivation.png",
+          "semantic_reviewed_by_human": true,
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_valid": true,
+          "visual_review_result": "RETAINED_OFFICIAL_CANNABIS_CULTIVATION_AND_PENALTY_FRAGMENT_READ; no browser-address-bar assertion is made.",
+          "revalidation": {
+            "checked_at": "2026-08-12T00:44:39.307Z",
+            "final_url": "https://zakon.rada.gov.ua/laws/show/2341-14",
+            "http_status": null,
+            "etag": null,
+            "last_modified": null,
+            "content_type": null,
+            "content_length": null,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "e993ad2cbc678255492c367d021c0100c5aa034f7eead7ff0e849b5132eced35",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "ACCESS_BLOCKED"
+            ],
+            "dependent_geos": [
+              "UA"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
         }
       ],
       "verified_context_sources": [],
@@ -141981,7 +142089,203 @@
         "status": "MATCH_WITH_REGULATED_MEDICAL_CANNABIS_AND_CRIMINAL_ILLEGAL_USE_CAVEAT",
         "reason": "Ukraine is visually verified from official Verkhovna Rada law pages. Project recreational=ILLEGAL is supported because Law 3528-IX defines recreational use as cannabis/narcotic/psychotropic consumption without a doctor's prescription and for non-medical reasons, while the current narcotics law and Criminal Code preserve punishability for unauthorised narcotic-drug conduct and illegal hemp/cannabis cultivation. Project medical=REGULATED is supported because Law 3528-IX and the current narcotics law visibly create a controlled medical-purpose cannabis/hemp framework, cannabis plant substance, medicines, traceability and prescription/controlled supply mechanisms. Project enforcement=STRICT is supported by Criminal Code Articles 309 and 310, including aggravated imprisonment bands for illegal narcotic-drug conduct and hemp/cannabis cultivation. No project status SSOT was changed."
       },
-      "conclusion": "Ukraine is closed as visually verified direct official cannabis-law evidence from Verkhovna Rada Law 3528-IX, the current Narcotic Drugs law and the Criminal Code. Project ILLEGAL/REGULATED/STRICT is supported, with the caveat that medical cannabis is regulated through the controlled medical-purpose cannabis/hemp framework while recreational/non-prescribed use remains outside the authorization. No project status SSOT was changed."
+      "conclusion": "Ukraine is closed as visually verified direct official cannabis-law evidence from Verkhovna Rada Law 3528-IX, the current Narcotic Drugs law and the Criminal Code. Project ILLEGAL/REGULATED/STRICT is supported, with the caveat that medical cannabis is regulated through the controlled medical-purpose cannabis/hemp framework while recreational/non-prescribed use remains outside the authorization. No project status SSOT was changed.",
+      "independent_truth_color": "YELLOW",
+      "independent_truth_status": "CURRENT_CANNABIS_SPECIFIC_MEDICAL_E_PRESCRIPTION_AND_LICENSED_PHARMACY_ROUTE_NOT_PROVEN_OPERATIONAL",
+      "independent_truth_rule": "GENERAL_CURRENT_CANNABIS_SPECIFIC_STATUTORY_MEDICAL_E_PRESCRIPTION_AND_PHARMACY_ROUTE",
+      "audit_state": "INDEPENDENT_OFFICIAL_EVIDENCE_FIRST_PROPOSAL_ONLY",
+      "strict_visual_acceptance": false,
+      "strict_visual_acceptance_reason": "Retained official Rada HTML captures were reread, but no fresh browser-address-bar capture is claimed. Current direct retrieval is routed through C2/C3 when accessible; strict visual acceptance is separate from legal truth.",
+      "final_visual_acceptance": {
+        "strict_acceptance": false,
+        "reason": "RETAINED_OFFICIAL_HTML_CONTENT_VALID_BUT_NO_FRESH_BROWSER_DOMAIN_CAPTURE",
+        "legal_truth_affected": false
+      },
+      "independent_review": {
+        "geo": "UA",
+        "territory": "Ukraine",
+        "review_mode": "INDEPENDENT_OFFICIAL_EVIDENCE_FIRST",
+        "proposal_only": true,
+        "jurisdiction": {
+          "territory_type": "SOVEREIGN_STATE",
+          "applicable_law": "Law No. 3528-IX, in force from 16 August 2024, and its current consolidated incorporation in the Law on Narcotic Drugs, Psychotropic Substances and Precursors; Criminal Code Articles 309 and 310 provide the separate unauthorised-conduct context.",
+          "source_owner_vs_jurisdiction": "Each primary source is published by the Verkhovna Rada and applies directly to Ukraine. Any C1 timeout, WAF response or 403 is retained only in the affected source revalidation record and is not legal evidence.",
+          "disputed_or_composite": false
+        },
+        "official_truth_color": "YELLOW",
+        "truth_color": "YELLOW",
+        "truth_status": "CURRENT_CANNABIS_SPECIFIC_MEDICAL_E_PRESCRIPTION_AND_LICENSED_PHARMACY_ROUTE_NOT_PROVEN_OPERATIONAL",
+        "color_rule": "GENERAL_CURRENT_CANNABIS_SPECIFIC_STATUTORY_MEDICAL_E_PRESCRIPTION_AND_PHARMACY_ROUTE",
+        "reviewed_at": "2026-08-12",
+        "legal_interpretation": "Proposal-only YELLOW under the general current cannabis-specific statutory medical e-prescription and pharmacy-route rule. Law No. 3528-IX expressly prohibits recreational cannabis sale/dispensing and simultaneously requires dispensing of medicines made from medical-purpose hemp or cannabis plant substance only on a doctor's medical-indication electronic prescription. The current consolidated narcotics statute expressly connects cannabis-plant-substance medicines to acquisition by a natural person for medical indications and licensed-pharmacy retail by electronic prescription. This is neither cultivation, production, industrial hemp, CBD, generic licensing nor a generic controlled-drug exception. No current official source in this packet proves an operating cannabis patient registry, stock, licensed dispensing service or other active programme, so it cannot be GREEN. It cannot be RED because the current applicable statute expressly preserves the cannabis-specific patient/prescriber/pharmacy route. Access failures are metadata only and never a negative legal conclusion.",
+        "source_record_refs": [
+          "https://zakon.rada.gov.ua/laws/show/3528-20#Text",
+          "https://zakon.rada.gov.ua/laws/show/60/95-%D0%B2%D1%80#Text",
+          "https://zakon.rada.gov.ua/laws/show/2341-14#Text"
+        ],
+        "evidence_axes": {
+          "patient_eligible": {
+            "value": "YES_STATUTORY_MEDICAL_INDICATION_ROUTE",
+            "source_url": "https://zakon.rada.gov.ua/laws/show/60/95-%D0%B2%D1%80#Text",
+            "exact_fragment": "A natural person may acquire, for medical indications, medicines made from cannabis plant substance that are authorised for medical practice, on a doctor's electronic prescription.",
+            "effective_date": "2024-08-16",
+            "applicability": "Current consolidated Ukrainian national narcotics statute as amended by Law No. 3528-IX.",
+            "confidence": "HIGH_FOR_STATUTORY_ELIGIBILITY_ROUTE_NOT_OPERATIONAL_SERVICE",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-12/UA/screenshots/evidence_viewports/UA-narcotic-law-current-cannabis-substance-circulation.png"
+          },
+          "prescriber_route": {
+            "value": "YES_STATUTORY_ROUTE",
+            "source_url": "https://zakon.rada.gov.ua/laws/show/3528-20#Text",
+            "exact_fragment": "Dispensing to persons of medicines produced from medical-purpose hemp or cannabis plant substance is exclusively on a doctor's medical-indication electronic prescription.",
+            "effective_date": "2024-08-16",
+            "applicability": "Law No. 3528-IX, national Ukraine cannabis medical-circulation amendments.",
+            "confidence": "HIGH_FOR_STATUTORY_ROUTE_NOT_OPERATION",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-12/UA/screenshots/evidence_viewports/UA-3528-electronic-tracking-medical-cannabis.png"
+          },
+          "registration_route": {
+            "value": "UNKNOWN",
+            "reason": "No current official cannabis patient registry or card route was established in this packet; lack of a retrieved service page is not prohibition evidence."
+          },
+          "lawful_supply": {
+            "value": "LIMITED_STATUTORY_ROUTE_ONLY",
+            "source_url": "https://zakon.rada.gov.ua/laws/show/60/95-%D0%B2%D1%80#Text",
+            "exact_fragment": "The consolidated statute permits acquisition for medical indications and retail sale of authorised cannabis-plant-substance medicines by electronic prescription, with electronic dispensing and traceability records.",
+            "effective_date": "2024-08-16",
+            "applicability": "Current consolidated Ukrainian national narcotics statute as amended by Law No. 3528-IX.",
+            "confidence": "HIGH_FOR_STATUTORY_ROUTE_NOT_CURRENT_SERVICE_DELIVERY",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-12/UA/screenshots/evidence_viewports/UA-3528-electronic-tracking-medical-cannabis.png"
+          },
+          "pharmacy_or_dispensary": {
+            "value": "LIMITED_LICENSED_PHARMACY_ROUTE_ONLY",
+            "source_url": "https://zakon.rada.gov.ua/laws/show/60/95-%D0%B2%D1%80#Text",
+            "exact_fragment": "Retail sale to natural persons of authorised medicines made from cannabis plant substance is through licensed pharmacies and by electronic prescription.",
+            "effective_date": "2024-08-16",
+            "applicability": "Current consolidated Ukrainian national narcotics statute as amended by Law No. 3528-IX.",
+            "confidence": "HIGH_FOR_STATUTORY_PHARMACY_ROUTE_NOT_ACTUAL_DISPENSING",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-12/UA/screenshots/evidence_viewports/UA-narcotic-law-current-cannabis-substance-circulation.png"
+          },
+          "import_route": {
+            "value": "UNKNOWN",
+            "reason": "The statute defines imported cannabis plant substance in the regulated medicines chain, but this packet does not establish a patient import route."
+          },
+          "programme_operational": {
+            "value": "UNKNOWN",
+            "reason": "The law is in force, but no current official cannabis patient registry, stocked licensed pharmacy, actual dispensing record or operating programme was proved. This is not evidence of prohibition."
+          },
+          "programme_commenced": {
+            "value": "LAW_IN_FORCE_ONLY",
+            "source_url": "https://zakon.rada.gov.ua/laws/show/3528-20#Text",
+            "exact_fragment": "The official Rada record identifies Law No. 3528-IX as current and records its entry into force on 16 August 2024.",
+            "effective_date": "2024-08-16",
+            "applicability": "Law of Ukraine No. 3528-IX.",
+            "confidence": "HIGH_FOR_LAW_COMMENCEMENT_NOT_PROGRAMME_OPERATION",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-12/UA/screenshots/evidence_viewports/UA-3528-title-medical-cannabis-law.png"
+          },
+          "recreational_possession": {
+            "value": "RESTRICTED_UNAUTHORISED",
+            "source_url": "https://zakon.rada.gov.ua/laws/show/2341-14#Text",
+            "exact_fragment": "Article 309 penalises unlawful acquisition, storage, transport or mailing of narcotic drugs; the separate consolidated narcotics statute identifies cannabis and its regulated medical pathway.",
+            "effective_date": "CURRENT_OFFICIAL_CRIMINAL_CODE_TEXT_VISUALLY_READ",
+            "applicability": "Ukraine national Criminal Code and national cannabis/narcotics statute read together.",
+            "confidence": "HIGH_FOR_UNAUTHORISED_CONTROL_CONTEXT",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-12/UA/screenshots/evidence_viewports/UA-criminal-code-article-309-possession.png"
+          },
+          "recreational_supply": {
+            "value": "NO",
+            "source_url": "https://zakon.rada.gov.ua/laws/show/3528-20#Text",
+            "exact_fragment": "Sale (dispensing) of cannabis plants and processed products with any tetrahydrocannabinol content for recreational use is prohibited.",
+            "effective_date": "2024-08-16",
+            "applicability": "Law No. 3528-IX, Ukraine national cannabis regulation.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-12/UA/screenshots/evidence_viewports/UA-3528-recreational-use-definition.png"
+          },
+          "recreational_cultivation": {
+            "value": "NO_UNLICENSED",
+            "source_url": "https://zakon.rada.gov.ua/laws/show/2341-14#Text",
+            "exact_fragment": "Article 310 penalises unlawful sowing or growing of hemp/cannabis (`конопель`), including aggravated imprisonment bands.",
+            "effective_date": "CURRENT_OFFICIAL_CRIMINAL_CODE_TEXT_VISUALLY_READ",
+            "applicability": "Ukraine national Criminal Code.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-12/UA/screenshots/evidence_viewports/UA-criminal-code-article-310-cultivation.png"
+          },
+          "penalty_regime": {
+            "value": "YES",
+            "source_url": "https://zakon.rada.gov.ua/laws/show/2341-14#Text",
+            "exact_fragment": "Article 309 specifies penalties for unlawful narcotic-drug conduct, and Article 310 specifies penalties, including aggravated imprisonment, for unlawful hemp/cannabis cultivation.",
+            "effective_date": "CURRENT_OFFICIAL_CRIMINAL_CODE_TEXT_VISUALLY_READ",
+            "applicability": "Ukraine national Criminal Code.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-12/UA/screenshots/evidence_viewports/UA-criminal-code-article-310-cultivation.png"
+          }
+        },
+        "visual_evidence": [
+          {
+            "path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-12/UA/screenshots/evidence_viewports/UA-3528-electronic-tracking-medical-cannabis.png",
+            "visual_opened": true,
+            "official_owner_visible": true,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": true,
+            "effective_rule_visible": true,
+            "screenshot_valid": true,
+            "visual_summary": "Retained official Rada capture visibly shows cannabis medical-circulation traceability, medicines made in a pharmacy by doctor's prescription and dispensing to persons on electronic prescription."
+          },
+          {
+            "path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-12/UA/screenshots/evidence_viewports/UA-narcotic-law-current-cannabis-substance-circulation.png",
+            "visual_opened": true,
+            "official_owner_visible": true,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": true,
+            "effective_rule_visible": true,
+            "screenshot_valid": true,
+            "visual_summary": "Retained current consolidated Rada capture visibly shows the cannabis plant substance and recreational-use definitions added by Law No. 3528-IX."
+          },
+          {
+            "path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-12/UA/screenshots/evidence_viewports/UA-criminal-code-article-310-cultivation.png",
+            "visual_opened": true,
+            "official_owner_visible": true,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": true,
+            "effective_rule_visible": true,
+            "screenshot_valid": true,
+            "visual_summary": "Retained official Criminal Code capture visibly shows Article 310's unlawful hemp/cannabis cultivation penalty context."
+          }
+        ],
+        "visual_acceptance": {
+          "legal_truth_visual_review_complete": true,
+          "strict_visual_acceptance": false,
+          "reason": "Retained official content was visually reviewed; C3 final browser-domain acceptance remains false and cannot change legal truth."
+        },
+        "confidence": "HIGH_FOR_CURRENT_CANNABIS_SPECIFIC_STATUTORY_MEDICAL_ROUTE_NOT_OPERATIONAL_ACCESS",
+        "remaining_blockers": [
+          "NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_REGISTRY_OR_OPERATING_DISPENSING_SERVICE_PROVED",
+          "FRESH_C1_ACCESS_STATE_MUST_REMAIN_METADATA_ONLY_IF_OFFICIAL_RADA_ENDPOINT_IS_BLOCKED_OR_TIMES_OUT",
+          "STRICT_VISUAL_ACCEPTANCE_FALSE_BECAUSE_NO_FRESH_BROWSER_ADDRESS_BAR_CAPTURE_IS_CLAIMED"
+        ],
+        "current_layer_comparison": "NOT_CAPTURED_IN_THIS_PACKET_AND_NOT_USED_AS_LEGAL_INPUT; no map, popup, SEO, API, SSOT or production value was altered.",
+        "recommended_action": "RETAIN_PROPOSAL_ONLY_YELLOW; do not apply to SSOT, map, runtime, production or deployment without explicit user authorisation and final 307-row gate.",
+        "apply_gate": {
+          "APPLY_ALLOWED": false,
+          "PRODUCTION_TOUCHED": false,
+          "MAP_COLORS_CHANGED": false,
+          "SSOT_CHANGED": false
+        }
+      },
+      "latest_primary_law_update": {
+        "reviewed_at": "2026-08-12",
+        "current_citation": "Law No. 3528-IX (21 December 2023), in force 16 August 2024; current consolidated Law on Narcotic Drugs, Psychotropic Substances and Precursors No. 60/95-VR; Criminal Code No. 2341-III.",
+        "legal_state": "CURRENT_STATUTORY_MEDICAL_CANNABIS_E_PRESCRIPTION_AND_LICENSED_PHARMACY_ROUTE",
+        "patient_access_operational": false,
+        "mutation_boundary": "AUDIT_ONLY_NO_STATUS_SSOT_MAP_RUNTIME_OR_PRODUCTION_MUTATION"
+      }
     },
     {
       "geo": "AE",
