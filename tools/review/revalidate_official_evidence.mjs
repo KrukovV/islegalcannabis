@@ -116,6 +116,7 @@ function sourceAppliesTo(source) {
 function sourceLocator(source) {
   const values = [
     source?.official_fragment_locator,
+    source?.exact_locator,
     source?.direct_locator,
     source?.locator,
     source?.legal_text_location,

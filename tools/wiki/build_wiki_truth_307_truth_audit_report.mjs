@@ -675,6 +675,10 @@ function normalizeVisualReviewLedgerPacket(review) {
       officialHostVerified:
         source?.officialHostVerified === true ||
         source?.official_host_verified === true,
+      cannabisSpecific:
+        source?.cannabisSpecific ??
+        source?.cannabis_specific ??
+        null,
       visualEvidence: screenshot,
       visualReviewed,
       officialOwnerVisible:
@@ -924,6 +928,10 @@ function freshAxisOfficialSources(evidence) {
         officialHostVerified:
           source?.officialHostVerified === true ||
           source?.official_host_verified === true,
+        cannabisSpecific:
+          source?.cannabisSpecific ??
+          source?.cannabis_specific ??
+          null,
         officialOwnerVisible:
           visualEvidence?.officialOwnerVisible === true ||
           source?.officialOwnerVisible === true ||

@@ -47318,38 +47318,39 @@
           "legal_basis_for_extension": "DIRECT_SERBIA_NATIONAL",
           "source_authority": "Pravno-informacioni sistem Republike Srbije (official legal information system)",
           "primary_or_context": "PRIMARY",
-          "cannabis_specific": true,
+          "cannabis_specific": false,
           "current": true,
           "effective": true,
           "reviewed_by_human_visual": true,
           "visual_reviewer_timestamp": "2026-08-10T03:00:00+03:00",
           "source_type": "CURRENT_NATIONAL_CONSOLIDATED_CRIMINAL_CODE",
           "legal_role": "CURRENT_RECREATIONAL_PERSONAL_POSSESSION_PROHIBITION_AND_PENALTY",
-          "exact_fragment": "Ко неовлашћено држи у мањој количини за сопствену употребу опојне дроге, казниће се новчаном казном или затвором до три године; може се ослободити од казне. Члан 246а.",
+          "exact_fragment": "Члан 246а (1) Ко неовлашћено држи у мањој количини за сопствену употребу супстанце или препарате који су проглашени за опојне дроге, казниће се новчаном казном или затвором до три године, а може се ослободити од казне.",
+          "translated_interpretation": "Article 246a(1): unauthorised possession of a small quantity of substances or preparations declared narcotic drugs for personal use is punishable by a fine or up to three years' imprisonment; the offender may be released from punishment.",
           "exact_locator": "Criminal Code, Article 246a",
           "evidence_screenshot_path": "data/reviews/wiki-truth-307-visual-evidence/RS-criminal-246a-current-2026-08-10.png",
           "legacy_screenshot_paths": [
             "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/RS-code-246a.png"
           ],
-          "screenshot_valid": true,
+          "screenshot_valid": false,
           "official_owner_visible": true,
-          "cannabis_fragment_visible": true,
+          "cannabis_fragment_visible": false,
           "effective_rule_visible": true,
-          "visual_review_result": "CURRENT_OFFICIAL_FRAGMENT_VISIBLE",
-          "source_annotation": "Current consolidated national criminal provision. It proves criminal treatment of unauthorised personal possession; it is not evidence of decriminalization.",
+          "visual_review_result": "CURRENT_OFFICIAL_CRIMINAL_FRAGMENT_VISIBLE_CANNABIS_CLASSIFICATION_BRIDGE_REQUIRED",
+          "source_annotation": "Current consolidated national criminal provision. C1 HTTP 200 and C2 source-text re-read on 2026-08-12 confirmed the literal Serbian Article 246a fragment. It proves criminal treatment of unauthorised personal possession; it is cannabis-nonspecific alone and joins the current official cannabis schedule only as a separately cited classification bridge. It is not evidence of decriminalization or a patient axis.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T15:57:01.255Z",
             "final_url": "https://reg.pravno-informacioni-sistem.rs/api/viewdoc?doctype=reg&regactid=437844&uuid=f9f75050-d16f-484a-acad-4be0f1a5bcf5",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": "414efb97d32a13c41d58419e0e8f48a42d82b35c989f4065ac6bd852eb89d666",
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:LOCATOR_MISSING",
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 729089,
+            "document_sha256": "ea073d2ba3551af1762aadfa3dd955383b45267f672377c7cf171adc8c98b0a5",
+            "relevant_fragment_sha256": "b6bb166e5d52b094108b2f14929b03621f408c41b71979975a7804cff1c30860",
+            "revalidation_state": "NEEDS_VISUAL_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "C2_LITERAL_FRAGMENT_CONFIRMED_C3_CURRENT_LAYER_MISMATCH",
             "queue": [
               "C2",
               "C3"
@@ -47361,10 +47362,16 @@
             "dependent_geos": [
               "RS"
             ],
-            "schema_issues": [
-              "LOCATOR_MISSING"
-            ],
-            "semantic_probe": null
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "html_to_text",
+              "text_layer_length": 359716,
+              "ocr_used": false,
+              "relevant_pages": [],
+              "rendered_pages": [],
+              "matching_terms": [],
+            "exact_fragment_found": true
+            }
           }
         },
         {
@@ -47386,7 +47393,8 @@
           "visual_reviewer_timestamp": "2026-08-10T03:00:00+03:00",
           "source_type": "CURRENT_NATIONAL_CONTROLLED_SUBSTANCES_LIST_REGULATION",
           "legal_role": "CURRENT_CANNABIS_LIST_1_THERAPEUTIC_CLASSIFICATION",
-          "exact_fragment": "Листа 1: Опојне дроге које се користе у терапијске и научноистраживачке сврхе. Entries 47 CANNABIS / Канабис and 48 cannabis resin, extracts and tinctures.",
+          "exact_fragment": "Листа 1: Опојне дроге које се користе у терапијске и научноистраживачке сврхе. 47. CANNABIS Канабис надземни део биљке Cannabis и њених генетских модификација (где смола није екстрахована). 48. Смола канабиса, као и екстракти и тинктуре канабиса.",
+          "translated_interpretation": "List 1 consists of narcotic drugs used for therapeutic and scientific-research purposes; entries 47 and 48 expressly identify cannabis and cannabis resin, extracts and tinctures.",
           "exact_locator": "2026 List 1, header and entries 47-48",
           "evidence_screenshot_paths": [
             "data/reviews/wiki-truth-307-visual-evidence/RS-list-1-therapeutic-current-2026-08-10.png",
@@ -47400,20 +47408,20 @@
           "cannabis_fragment_visible": true,
           "effective_rule_visible": true,
           "visual_review_result": "CURRENT_OFFICIAL_FRAGMENT_VISIBLE",
-          "source_annotation": "Current national list regulation, issued 30 January 2026 and published in Official Gazette No. 12 on 6 February 2026. It makes cannabis a therapeutic/research List 1 substance; it does not prove an operational cannabis supply.",
+          "source_annotation": "Current national list regulation, issued 30 January 2026 and published in Official Gazette No. 12 on 6 February 2026. C1 HTTP 200 and C2 source-text re-read on 2026-08-12 confirmed the literal Serbian List 1 header and cannabis/resin entries 47-48. It is the separately cited cannabis-specific classification bridge for the national legal chain; it does not prove an operational cannabis supply.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T15:57:01.255Z",
             "final_url": "https://reg.pravno-informacioni-sistem.rs/api/viewdoc?doctype=reg&regactid=439715&uuid=2185fc0a-b5a7-4db7-8abe-1876411f0585",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
             "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": "982c3f5ee52945b5783bcbd4cb2adf95d0247ac3b66264176aa8af2c9156ceab",
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:LOCATOR_MISSING",
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 479409,
+            "document_sha256": "a56bfbbe840d0e399e38e0c14a21f7eb0655e5481c0df577de6af7060616385e",
+            "relevant_fragment_sha256": "5933e5ce9d31e4c5663e9a5da9cd9c034d9b53f51a06ec25d3166036180dd414",
+            "revalidation_state": "NEEDS_VISUAL_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "C2_LITERAL_FRAGMENT_CONFIRMED_C3_CURRENT_LAYER_MISMATCH",
             "queue": [
               "C2",
               "C3"
@@ -47425,10 +47433,22 @@
             "dependent_geos": [
               "RS"
             ],
-            "schema_issues": [
-              "LOCATOR_MISSING"
-            ],
-            "semantic_probe": null
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "html_to_text",
+              "text_layer_length": 179751,
+              "ocr_used": false,
+              "relevant_pages": [],
+              "rendered_pages": [],
+              "matching_terms": [
+                "cannabidiol",
+                "cannabis",
+                "cbd",
+                "tetrahydrocannabinol",
+                "thc"
+              ],
+            "exact_fragment_found": true
+            }
           }
         },
         {
@@ -47473,7 +47493,7 @@
           "visual_review_result": "READABLE_OFFICIAL_PDF_CROP_DOMAIN_CHROME_NOT_VISIBLE",
           "source_annotation": "Current Ministry-hosted primary Act. The visible provisions create a general List 1 therapeutic, prescription-pharmacy, patient-possession and named-patient-import legal framework. They do not themselves identify an actually supplied cannabis medicine, pharmacy stock, or completed patient import.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T15:57:01.255Z",
             "final_url": "https://www.zdravlje.gov.rs/extfile/sr/447633/%D0%97%D0%B0%D0%BA%D0%BE%D0%BD%20%D0%BE%20%D0%BF%D1%81%D0%B8%D1%85%D0%BE%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D0%B8%D0%BC%20%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%BC%20%D1%81%D1%83%D0%BF%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B0%D0%BC%D0%B0.pdf",
             "http_status": null,
             "etag": null,
@@ -47482,23 +47502,21 @@
             "content_length": null,
             "document_sha256": null,
             "relevant_fragment_sha256": "7f2336b7e9e7b4a7ad30edd75062c96ee8c20be001013f9e0c54052ea94878cd",
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:LOCATOR_MISSING",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "CURRENT_LAYER_MISMATCH",
-              "NEEDS_SEMANTIC_REVIEW"
+              "ACCESS_BLOCKED",
+              "CURRENT_LAYER_MISMATCH"
             ],
             "dependent_geos": [
               "RS"
             ],
-            "schema_issues": [
-              "LOCATOR_MISSING"
-            ],
+            "schema_issues": [],
             "semantic_probe": null
           }
         }
@@ -158799,6 +158817,26 @@
       },
       "remaining_canonical_geos": [],
       "detail": "ZM completes the 307-GEO proposal-only independent Truth-First ledger. It retains three fully annotated official National Assembly records: Cannabis Act No. 33 of 2021 PDF with page-level direct fragments, a current Act catalogue entry and a 2022 Hansard reference. C0 retained 1,574 current source records with FETCHED_URLS=0; C1 serially fetched each ZM canonical URL once and recorded final URL, HTTP 200 metadata and hashes. C2 used pdftotext on the 45,461-character Act PDF text layer and no OCR; C3 reviewed retained local official PDF crops without a desktop browser. Section 1(2) makes operation conditional on a Ministerial statutory instrument. The current catalogue and Hansard do not supply that instrument or a current consolidation, so ZM is proposal-only UNKNOWN / LEGAL_APPLICABILITY_UNRESOLVED. This is a direct legal-currentness conclusion, never access, WAF, blank viewer or screenshot state. Matrix has all 307 rows, 776 direct and 1,434 published official URL/PDF links; all 307 rows have a normalized independent color. APPLY_ALLOWED=false; PRODUCTION_TOUCHED=false; MAP_COLORS_CHANGED=false; SSOT_CHANGED=false."
+    },
+    {
+      "geo": "RS",
+      "at": "2026-08-12T19:23:04+03:00",
+      "stage": "REVALIDATION_AUDIT_STOP_CHECKPOINT",
+      "result": "CI_STATUS=PASS;CI_QUALITY=OK;SMOKE_STATUS=PASS;POST_CHECKS_OK=1;HUB_STAGE_REPORT_OK=1;PROCESS_SLOT_RUNTIME_GUARD=PASS;PASS_CYCLE_EXIT_RC=0",
+      "ci_report_sha256": "560965d7bbd6a9a6fdc98776f4a60a7b0afbe72c65d6a0218f9fc9a9d1202a1c",
+      "c0_source_records": 1574,
+      "c0_unique_evidence": 1365,
+      "c0_unique_fetch_urls": 1220,
+      "c0_fetched_urls": 0,
+      "normalized_independent_truth_colors": 307,
+      "normalized_color_distribution": {
+        "GREEN": 91,
+        "YELLOW": 118,
+        "RED": 25,
+        "UNKNOWN": 73,
+        "NO_INDEPENDENT_COLOR": 0
+      },
+      "detail": "RS retains three annotated canonical official source records in this sole ledger: current Criminal Code Article 246a, current 2026 List 1 cannabis/resin entries 47-48, and the Ministry Health controlled-substances Act PDF. C1 fetched the two legal-system URLs exactly once at HTTP 200; C2 retained their literal Serbian fragments and C3 remains queue metadata only. Article 246a is cannabis-nonspecific context and cannot satisfy patient axes; the separately cited List 1 supplies only the cannabis-classification bridge. The Ministry PDF NETWORK_ERROR remains ACCESS_BLOCKED access metadata only. RS remains proposal-only YELLOW, never GREEN, because current operational cannabis supply or dispensing is unproved. Focused tests passed 77/77; C0 made zero HTTP requests; the serial headless root pass cycle completed after its lock released. APPLY_ALLOWED=false; PRODUCTION_TOUCHED=false; MAP_COLORS_CHANGED=false; SSOT_CHANGED=false."
     }
   ]
 }

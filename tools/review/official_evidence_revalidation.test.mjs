@@ -331,6 +331,15 @@ test("source record hash prefers the retained original-language legal fragment",
   assert.equal(records[0].exactFragment, "القنب الهندي (كانابيس ساتيفا) والحشيش");
 });
 
+test("exact_locator is accepted as the canonical source locator alias", () => {
+  const records = collectOfficialSourceRecords(ledger([row("AA", [source(
+    "https://official.example/exact-locator",
+    { locator: undefined, exact_locator: "Article 35(1)(5)-(7)" },
+  )]) ]));
+  assert.equal(records.length, 1);
+  assert.equal(records[0].locator, "Article 35(1)(5)-(7)");
+});
+
 test("shared URL is fetched once and queues every linked GEO", async () => {
   const sharedUrl = "https://shared.example/law";
   const input = ledger([

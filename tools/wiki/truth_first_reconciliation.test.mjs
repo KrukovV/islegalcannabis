@@ -805,6 +805,69 @@ test("nested ledger packet keeps a conservative RED conclusion and snake-case so
   assert.equal(buildFreshAxisTruthOverride(packet)?.color, "RED");
 });
 
+test("cannabis-nonspecific source remains retained provenance and cannot satisfy a patient axis", () => {
+  const packet = normalizeVisualReviewLedgerPacket({
+    geo: "TEST-CLASSIFICATION-BRIDGE",
+    status: "VISUALLY_VERIFIED",
+    independent_review: {
+      independent_truth_color: "YELLOW",
+      color_rule: "GENERAL_CURRENT_SCHEDULE_PLUS_LIMITED_STATUTORY_FRAMEWORK",
+      evidence_axes: {
+        patient_eligible: "YES",
+        prescriber_route: "YES",
+        legal_therapeutic_framework: "YES",
+      },
+    },
+    verified_sources: [
+      {
+        title: "Current criminal code",
+        url: "https://laws.example.gov/criminal-code#article-1",
+        source_type: "CURRENT_PRIMARY_CRIMINAL_CODE",
+        source_authority: "Official legal information system",
+        source_owner_geo: "TEST-CLASSIFICATION-BRIDGE",
+        applies_to_geo: ["TEST-CLASSIFICATION-BRIDGE"],
+        cannabis_specific: false,
+        screenshot_path: "evidence/criminal-code.png",
+        screenshot_valid: true,
+        official_owner_visible: true,
+      },
+      {
+        title: "Current cannabis schedule",
+        url: "https://laws.example.gov/current-schedule#cannabis",
+        source_type: "CURRENT_CONTROLLED_SUBSTANCES_SCHEDULE",
+        source_authority: "Official legal information system",
+        source_owner_geo: "TEST-CLASSIFICATION-BRIDGE",
+        applies_to_geo: ["TEST-CLASSIFICATION-BRIDGE"],
+        cannabis_specific: true,
+        screenshot_path: "evidence/current-schedule.png",
+        screenshot_valid: true,
+        official_owner_visible: true,
+      },
+      {
+        title: "Current prescription statute",
+        url: "https://health.example.gov/prescription-statute#article-35",
+        source_type: "CURRENT_PRIMARY_PRESCRIPTION_STATUTE",
+        source_authority: "Ministry of Health",
+        source_owner_geo: "TEST-CLASSIFICATION-BRIDGE",
+        applies_to_geo: ["TEST-CLASSIFICATION-BRIDGE"],
+        cannabis_specific: true,
+        screenshot_path: "evidence/prescription-statute.png",
+        screenshot_valid: true,
+        official_owner_visible: true,
+      },
+    ],
+  });
+  const sources = packet.currentOfficialSources;
+  assert.equal(sources[0].cannabisSpecific, false);
+  assert.equal(sources[1].cannabisSpecific, true);
+  const color = buildFreshAxisTruthOverride(packet);
+  assert.equal(color?.color, "YELLOW");
+  assert.equal(color?.facts.patient, true);
+  assert.equal(color?.facts.lawfulRoute, true);
+  assert.equal(color?.facts.supply, false);
+  assert.equal(color?.facts.operational, false);
+});
+
 test("compatible independent evidence packets aggregate while divergent color conclusions stay fail-closed", () => {
   const geo = "TEST-COMPATIBLE-INDEPENDENT-PACKETS";
   const seedRow = { geo, ...operationalPatientEvidence() };
