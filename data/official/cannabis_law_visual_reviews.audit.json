@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "reviewed_at": "2026-08-12 GS independent official-law packet and proposal-only CI checkpoint recorded.",
+  "reviewed_at": "2026-08-12 SS independent official-law packet and proposal-only CI checkpoint recorded.",
   "archive_root": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16",
   "manifest": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/us-states/manifest.json",
   "contact_sheets": [
@@ -144498,8 +144498,68 @@
           "title": "South Sudan Ministry of Justice and Constitutional Affairs - Penal Code Act (9 of 2008)",
           "url": "https://mojca.gov.ss/wp-content/uploads/2023/03/Penal-Code-Act-9-of-2008.pdf",
           "source_kind": "SOUTH_SUDAN_MOJCA_PENAL_CODE_ACT_2008_CHAPTER_XXVI_DANGEROUS_DRUGS_CANNABIS_DEFINITION_DEALING_POSSESSION_USE_MEDICAL_PROFESSIONAL_CAVEAT_PENALTIES",
+          "source_owner": "Ministry of Justice and Constitutional Affairs, Republic of South Sudan",
+          "source_owner_geo": "SS",
+          "source_authority": "Republic of South Sudan Ministry of Justice and Constitutional Affairs official laws publisher",
+          "applies_to_geo": [
+            "SS"
+          ],
+          "legal_basis_for_extension": "The Ministry's official Penal Code Act PDF is a Republic of South Sudan primary law; no foreign, regional or claimant law is used.",
+          "source_type": "CURRENTLY_HOSTED_OFFICIAL_SOUTH_SUDAN_PENAL_CODE_PRIMARY_LAW_PDF",
+          "primary_or_context": "PRIMARY_CANNABIS_DEFINITION_UNAUTHORISED_CONDUCT_PROFESSIONAL_EXCEPTION_AND_PENALTIES",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "CURRENTLY_HOSTED_OFFICIAL_MINISTRY_PDF; FORMAL_CURRENT_CONSOLIDATION_OR_REPEAL_NOTICE_NOT_YET_INDEPENDENTLY_PROVED",
+          "effective_date": "Penal Code Act 2008; current Ministry-hosted PDF is the applicable primary-law source pending C1 freshness and amendment review.",
+          "official_fragment_locator": "Penal Code Act 2008, Chapter XXVI, sections 382-387: pp. 189-194 of the official PDF (cannabis definitions, unlawful dealing, possession/use, professional-capacity exception and penalties).",
+          "direct_fragment_urls": [
+            "https://mojca.gov.ss/wp-content/uploads/2023/03/Penal-Code-Act-9-of-2008.pdf#page=189",
+            "https://mojca.gov.ss/wp-content/uploads/2023/03/Penal-Code-Act-9-of-2008.pdf#page=194"
+          ],
+          "exact_fragment": "Chapter XXVI defines cannabis, cannabis plant, cannabis resin and prepared cannabis and includes cannabis plant, prepared cannabis and cannabis resin as dangerous drugs. Sections 383-384 criminalise unlawful dealing, import/export, distribution, transport, cultivation, production, possession, smoking/consumption and own-consumption cultivation/production/manufacture. Section 387 permits listed medical, dental, veterinary, pharmaceutical, government and approved-laboratory roles to lawfully acquire, possess, supply, prescribe, administer, manufacture or compound cannabis plant only in their professional capacity and as necessary.",
+          "direct_fragment": "The professional-capacity clause is not patient eligibility, a patient prescription route, pharmacy dispensing, lawful patient supply or programme operation. It cannot itself establish GREEN or a medical-patient conclusion.",
+          "annotation": "Direct South Sudan cannabis primary-law evidence. The statute proves unauthorised cannabis conduct and penalties while retaining a narrow professional handling exception. That exception is not reclassified into patient access; independent colour derives only after C1/C2/C3 and a general evidence rule.",
+          "applicability": "SS; Republic of South Sudan national Penal Code Act.",
+          "legal_relevance": "Direct cannabis schedule/definition, prohibited unauthorised conduct, professional exception and penalties; no patient-operation inference.",
+          "confidence": "HIGH_FOR_VISIBLE_CHAPTER_TEXT; MEDIUM_FOR_CURRENT_CONSOLIDATION_PENDING_FRESH_REVALIDATION.",
+          "direct_fragment_available": true,
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_host_verified": true,
+          "official_owner_visible": true,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_state": "RETAINED_DATED_OFFICIAL_MOJCA_PDF_CROPS_VISUALLY_REVIEWED_NO_DESKTOP_BROWSER",
+          "visual_review_result": "Retained dated Ministry PDF crops visibly show the chapter heading, cannabis definitions, prohibited conduct, penalties and professional-capacity boundary; official-domain/address-bar acceptance remains separate from legal truth.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-31/SS/screenshots/pdf_pages/SS-mojca-penal-code-page189.png",
-          "note": "Official South Sudan Ministry of Justice and Constitutional Affairs law PDF linked from the official Laws of the Republic of South Sudan page. Visual review confirms the Gazette supplement title page for the Penal Code Act, 2008, printed by Ministry Legal Affairs and Constitutional Development by order of the Government. Chapter XXVI visibly defines cannabis, cannabis plant, cannabis resin, prepared cannabis and dangerous drug to include cannabis plant, prepared cannabis and cannabis resin. Section 383 visibly criminalizes unlawful import, export, sale, distribution, delivery, transport, cultivation, production, manufacture, possession for dealing, incitement to consume, supply, administration and procurement of a dangerous drug, with ordinary-case penalty up to fourteen years or fine or both; aggravated circumstances explicitly apply to dangerous drugs other than cannabis. Section 384 visibly criminalizes unlawful possession, acquisition, smoking/consumption and own-consumption cultivation/production/manufacture of dangerous drugs, with penalty up to five years or fine or both. Section 385/386 visibly provide premises/proceeds offences up to ten years. Section 387 visibly allows listed professionals, including medical/dental/veterinary practitioners, pharmaceutical chemists and certain government/approved institutions/labs, to lawfully acquire, possess, supply, prescribe, administer, manufacture or compound cannabis plant and other listed drugs only in that professional capacity and as necessary."
+          "note": "Official South Sudan Ministry of Justice and Constitutional Affairs law PDF linked from the official Laws of the Republic of South Sudan page. Visual review confirms the Gazette supplement title page for the Penal Code Act, 2008, printed by Ministry Legal Affairs and Constitutional Development by order of the Government. Chapter XXVI visibly defines cannabis, cannabis plant, cannabis resin, prepared cannabis and dangerous drug to include cannabis plant, prepared cannabis and cannabis resin. Section 383 visibly criminalizes unlawful import, export, sale, distribution, delivery, transport, cultivation, production, manufacture, possession for dealing, incitement to consume, supply, administration and procurement of a dangerous drug, with ordinary-case penalty up to fourteen years or fine or both; aggravated circumstances explicitly apply to dangerous drugs other than cannabis. Section 384 visibly criminalizes unlawful possession, acquisition, smoking/consumption and own-consumption cultivation/production/manufacture of dangerous drugs, with penalty up to five years or fine or both. Section 385/386 visibly provide premises/proceeds offences up to ten years. Section 387 visibly allows listed professionals, including medical/dental/veterinary practitioners, pharmaceutical chemists and certain government/approved institutions/labs, to lawfully acquire, possess, supply, prescribe, administer, manufacture or compound cannabis plant and other listed drugs only in that professional capacity and as necessary.",
+          "revalidation": {
+            "checked_at": "2026-08-12T07:25:12.293Z",
+            "final_url": "https://mojca.gov.ss/wp-content/uploads/2023/03/Penal-Code-Act-9-of-2008.pdf",
+            "http_status": null,
+            "etag": null,
+            "last_modified": null,
+            "content_type": null,
+            "content_length": null,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "228faa24facb650568e7b997ded7819369981430a54c5e560224f629e279ca8c",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "ACCESS_BLOCKED"
+            ],
+            "dependent_geos": [
+              "SS"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
         }
       ],
       "verified_context_sources": [
@@ -144507,11 +144567,116 @@
           "title": "South Sudan Ministry of Justice and Constitutional Affairs - Drug and Food Control Authority Act (37 of 2012)",
           "url": "https://mojca.gov.ss/wp-content/uploads/2023/03/Drug-and-Food-Control-Authority-Act-37-of-2012.pdf",
           "source_kind": "SOUTH_SUDAN_MOJCA_DRUG_FOOD_CONTROL_AUTHORITY_ACT_RESTRICTED_MEDICINE_NARCOTIC_MEDICINE_PRESCRIPTION_CONTEXT",
+          "source_owner": "Ministry of Justice and Constitutional Affairs, Republic of South Sudan",
+          "source_owner_geo": "SS",
+          "source_authority": "Republic of South Sudan Ministry of Justice and Constitutional Affairs official laws publisher",
+          "applies_to_geo": [
+            "SS"
+          ],
+          "legal_basis_for_extension": "The Ministry's official Drug and Food Control Authority Act PDF is South Sudan national regulator context; it is not substituted for cannabis-specific primary law.",
+          "source_type": "CURRENTLY_HOSTED_OFFICIAL_SOUTH_SUDAN_DRUG_AND_FOOD_CONTROL_CONTEXT_PDF",
+          "primary_or_context": "CONTEXT_GENERIC_RESTRICTED_MEDICINE_PRESCRIPTION_AND_DISPENSING_NOT_CANNABIS_AXIS",
+          "cannabis_specific": false,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "CURRENTLY_HOSTED_OFFICIAL_MINISTRY_PDF_CONTEXT; NO_CANNABIS_SPECIFIC_PATIENT_AXIS",
+          "effective_date": "Drug and Food Control Authority Act 2012; current Ministry-hosted context PDF pending C1 freshness.",
+          "official_fragment_locator": "Drug and Food Control Authority Act 2012, definitions and restricted-medicine controls, retained PDF pp. 9 and 33.",
+          "direct_fragment_urls": [
+            "https://mojca.gov.ss/wp-content/uploads/2023/03/Drug-and-Food-Control-Authority-Act-37-of-2012.pdf#page=9",
+            "https://mojca.gov.ss/wp-content/uploads/2023/03/Drug-and-Food-Control-Authority-Act-37-of-2012.pdf#page=33"
+          ],
+          "exact_fragment": "The Act supplies general definitions and controls for narcotic/restricted medicines and their dispensing by registered pharmacists, medical practitioners, dentists, veterinary surgeons and other authorised channels. It does not identify cannabis, cannabis plant, resin, preparation, extract or tincture.",
+          "direct_fragment": "Generic restricted-medicine dispensing cannot establish a cannabis patient axis, lawful patient supply, patient eligibility, pharmacy service, programme operation or a negative medical conclusion.",
+          "annotation": "Official South Sudan regulator context retained with a deep PDF link and a limitation annotation. It corroborates generic controlled-medicine regulation only and is deliberately not used to derive cannabis medical access or its absence.",
+          "applicability": "SS; Republic of South Sudan national regulator context only.",
+          "legal_relevance": "Generic controlled-medicine context; no cannabis axis.",
+          "confidence": "HIGH_FOR_GENERIC_CONTEXT; NOT_CANNABIS_SPECIFIC.",
+          "direct_fragment_available": true,
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_host_verified": true,
+          "official_owner_visible": true,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": true,
+          "screenshot_state": "RETAINED_DATED_OFFICIAL_MOJCA_CONTEXT_PDF_CROPS_VISUALLY_REVIEWED_NO_DESKTOP_BROWSER",
+          "visual_review_result": "Retained dated Ministry PDF crops visibly show restricted-medicine regulatory context; no cannabis term was used as legal evidence.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-31/SS/screenshots/pdf_pages/SS-mojca-drug-food-control-page033-33.png",
-          "note": "Official MoJCA PDF used as context only. Visual/text review confirms general definitions for narcotic medicine and restricted medicine and rules on supply and dispensing of restricted medicines by registered pharmacists, medical practitioners, dentists, veterinary surgeons and other authorized channels. It was not treated as a cannabis-specific law page; the direct cannabis-law finding is the Penal Code Act Chapter XXVI."
-        }
-      ],
-      "official_status": {
+      "note": "Official MoJCA PDF used as context only. Visual/text review confirms general definitions for narcotic medicine and restricted medicine and rules on supply and dispensing of restricted medicines by registered pharmacists, medical practitioners, dentists, veterinary surgeons and other authorized channels. It was not treated as a cannabis-specific law page; the direct cannabis-law finding is the Penal Code Act Chapter XXVI.",
+      "revalidation": {
+            "checked_at": "2026-08-12T07:25:12.293Z",
+            "final_url": "https://mojca.gov.ss/wp-content/uploads/2023/03/Drug-and-Food-Control-Authority-Act-37-of-2012.pdf",
+            "http_status": null,
+            "etag": null,
+            "last_modified": null,
+            "content_type": null,
+            "content_length": null,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "a8b1dbe3b4471277fa39ac4bd45b133ffd9fe4f1db85588910250cb0ce3f8763",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "ACCESS_BLOCKED"
+            ],
+            "dependent_geos": [
+              "SS"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+      }
+    }
+  ],
+  "independent_truth_color": "YELLOW",
+  "independent_truth_status": "LIMITED_LAWFUL_PROFESSIONAL_CANNABIS_HANDLING_ROUTE_NOT_PATIENT_OPERATION",
+  "independent_truth_rule": "GENERAL_CANNABIS_SPECIFIC_PROFESSIONAL_AUTHORISATION_RULE_NO_PATIENT_OPERATION_INFERENCE",
+  "independent_truth_reviewed_at": "2026-08-12T07:30:08Z",
+  "independent_truth_proposal_only": true,
+  "independent_review_state": "C0_C1_C2_C3_COMPLETE_PROPOSAL_ONLY",
+  "independent_review": {
+    "reviewed_at": "2026-08-12T07:30:08Z",
+    "method": "C0 ledger/schema and URL deduplication; C1 one hidden conditional HTTP attempt per official PDF; C2 local pdftotext extraction from the retained matching SHA-256 official Penal Code PDF; C3 local review of retained official PDF crops, without a desktop browser.",
+    "official_truth_color": "YELLOW",
+    "legal_conclusion": "The current Ministry-hosted Penal Code text directly defines cannabis and criminalises unauthorised cannabis conduct, while section 387 separately authorises named medical, dental, veterinary, pharmaceutical, government and approved-laboratory roles, in professional capacity and as necessary, to lawfully acquire, possess, supply, prescribe, administer, manufacture or compound cannabis plant. That is a direct, cannabis-specific limited lawful professional route. It does not prove patient eligibility, a patient prescription route, pharmacy dispensing to a patient, lawful patient supply, or an operational cannabis programme.",
+    "color_rule": "A direct cannabis-specific statutory professional authorisation is proposal-only YELLOW limited lawful mode when it is not falsely converted into patient access. It cannot derive GREEN without separately proven patient eligibility, qualified prescriber route and active lawful patient supply, dispensing or import route.",
+    "applicability_reason": "DIRECT_NATIONAL_SOUTH_SUDAN_PRIMARY_LAW; the sole legal conclusion rests on a Republic of South Sudan MoJCA primary-law record scoped only to SS. C1 network errors are ACCESS_BLOCKED audit metadata, not evidence of prohibition, availability, repeal or legal applicability.",
+    "evidence_axes": {
+      "cannabis_specific_statutory_definition": "YES: Penal Code Act 2008 section 382 names cannabis plant, prepared cannabis and cannabis resin.",
+      "recreational_unauthorised_conduct": "PROHIBITED: sections 383-384 prohibit unauthorised dealing, import/export, cultivation, production, possession, use and consumption.",
+      "limited_lawful_professional_route": "YES: section 387 names cannabis plant and limits lawful professional acquisition, possession, supply, prescription, administration, manufacture and compounding to listed roles as necessary in that capacity.",
+      "patient_eligible": "UNKNOWN: no cannabis-specific patient eligibility criterion is proved.",
+      "prescriber_route": "UNKNOWN: professional capacity alone is not a verified patient-facing prescription route.",
+      "registration_route": "UNKNOWN: no patient registration route is proved.",
+      "lawful_supply": "UNKNOWN: no patient-facing lawful cannabis supply route is proved.",
+      "pharmacy_or_dispensary": "UNKNOWN: the generic Drug and Food Control Authority Act cannot establish cannabis dispensing.",
+      "import_route": "UNKNOWN: no patient import route is proved.",
+      "programme_operational": "UNKNOWN: no operational cannabis programme is proved.",
+      "penalty_regime": "YES: the Penal Code visibly provides ordinary penalties while excluding cannabis from the separate aggravated death/life dealing category."
+    },
+    "lifecycle": {
+      "currentness": "The Ministry currently hosts the primary-law PDF, but C1 returned NETWORK_ERROR for both MoJCA PDFs and therefore did not independently prove current consolidation, amendment or repeal status.",
+      "effective_date": "Penal Code Act 2008; no later cannabis-specific repeal or commencement instrument was found in this packet.",
+      "rule": "Current hosting plus retained exact primary-law text is sufficient for this proposal-only direct limited-lawful finding; uncertainty about current consolidation remains explicit and does not create a patient or negative-medical axis."
+    },
+    "c2_semantic_recheck": "The retained official Penal Code PDF SHA-256 is cad53b51a3cd16ebc677bad658626fabf5e9d13247f3c06e2f52680cd8c1d817. pdftotext found its usable text layer and cannabis terms at the chapter pages; OCR was not run. The extraction confirms the cannabis definitions and section 387 professional-capacity limitation.",
+    "c3_visual_recheck": "Retained dated MoJCA crops for PDF pages 189, 190, 193 and 194 were reviewed locally. They visibly show Chapter XXVI, the cannabis definitions/prohibitions and the section 387 professional exception. No Chromium, WebKit or desktop browser was opened.",
+    "strict_visual_acceptance": "PARTIAL_RETAINED_OFFICIAL_PDF_CROPS; legal truth is separate from address-bar/domain acceptance. Fresh official-domain visual acceptance remains queued because the C1 access state is NETWORK_ERROR.",
+    "no_mutation": {
+      "APPLY_ALLOWED": false,
+      "PRODUCTION_TOUCHED": false,
+      "MAP_COLORS_CHANGED": false,
+      "SSOT_CHANGED": false,
+      "runtime_changed": false,
+      "deployment_changed": false
+    },
+    "recommended_action": "Keep both annotated MoJCA PDF records and preserve the C2/C3 queue for future freshness confirmation. Do not apply the proposal to map, popup, API, SEO, SSOT or production without explicit authorization.",
+    "confidence": "MEDIUM: direct cannabis-specific statutory text and local visual evidence are strong; contemporaneous consolidation and fresh official-domain visual acceptance are unconfirmed."
+  },
+  "official_status": {
         "recreational": "ILLEGAL; OFFICIAL_MOJCA_PENAL_CODE_ACT_CHAPTER_XXVI_VISIBLY_DEFINES_CANNABIS_CANNABIS_PLANT_CANNABIS_RESIN_PREPARED_CANNABIS_AND_PROHIBITS_UNLAWFUL_DEALING_POSSESSION_USE_SMOKING_CONSUMPTION_CULTIVATION_PRODUCTION_MANUFACTURE_SUPPLY_ADMINISTRATION_IMPORT_EXPORT_AND_TRANSPORT",
         "medical": "NONE_OR_NOT_CONFIRMED_AS_CANNABIS_PATIENT_ACCESS; PENAL_CODE_VISIBLY_ALLOWS_LISTED_MEDICAL_DENTAL_VETERINARY_PHARMACEUTICAL_GOVERNMENT_MEDICAL_STORE_AND_APPROVED_LAB_ROLES_TO_LAWFULLY_ACQUIRE_POSSESS_SUPPLY_PRESCRIBE_ADMINISTER_MANUFACTURE_OR_COMPOUND_CANNABIS_PLANT_ONLY_IN_PROFESSIONAL_CAPACITY_AND_AS_NECESSARY_BUT_NO_CANNABIS_SPECIFIC_PATIENT_ACCESS_PROGRAM_WAS_VISUALLY_FOUND",
         "enforcement": "STRICT_WITH_CANNABIS_AGGRAVATION_CAVEAT; UNLAWFUL_DANGEROUS_DRUG_DEALING_INVOLVING_CANNABIS_IS_VISIBLY_PUNISHABLE_UP_TO_FOURTEEN_YEARS_OR_FINE_OR_BOTH_POSSESSION_OR_USE_UP_TO_FIVE_YEARS_OR_FINE_OR_BOTH_AND_PREMISES_OR_PROCEEDS_OFFENCES_UP_TO_TEN_YEARS_WHILE_DEATH_OR_LIFE_AGGRAVATED_DEALING_LANGUAGE_APPLIES_TO_DANGEROUS_DRUGS_OTHER_THAN_CANNABIS"
@@ -151682,6 +151847,44 @@
         "ZM"
       ],
       "detail": "SX/Sint Maarten retains two schema-complete current official records: its own Opiumlandsverordening and the Inspectorate VSA medicinal-cannabis policy in Landscourant 2019 No. 16. Both retain owner, SX applicability, direct locator/page links, literal cannabis fragment, annotation, current/effective state, retained visual state and revalidation. C0 made zero requests; serial C1 fetched each identity once at HTTP 200. The Gazette used pdftotext with a 204777-character text layer and no OCR; relevant cannabis-term pages were routed for review. Retained official local captures were inspected without opening a desktop browser. SX is proposal-only YELLOW under the general current cannabis-specific authorised prescription/import/pharmacy-route rule: the policy expressly says its central pharmacy was still to be determined, and no current patient enrolment, pharmacy identity, stock, dispensing event or operational programme was proved. No Netherlands or other parent/territorial law is imported. Targeted tests passed 67/67; global C0 dry-run checked 1505 source records with FETCHED_URLS=0; required serial root pass cycle passed after lock release. APPLY_ALLOWED=false; PRODUCTION_TOUCHED=false; MAP_COLORS_CHANGED=false; SSOT_CHANGED=false."
+    },
+    {
+      "geo": "SS",
+      "at": "2026-08-12T07:34:06Z",
+      "stage": "AUDIT_STOP_CHECKPOINT",
+      "result": "CI_STATUS=PASS;SMOKE_STATUS=PASS;POST_CHECKS_OK=1;HUB_STAGE_REPORT_OK=1;PROCESS_SLOT_RUNTIME_GUARD=PASS;PASS_CYCLE_EXIT_RC=0",
+      "ci_report_sha256": "966a9ef196e60a14fbf27eb819d383973d9edea2a0c102cadb83ef7d12403149",
+      "structured_independent_packets": 289,
+      "normalized_independent_truth_colors": 289,
+      "remaining_without_independent_color": 18,
+      "normalized_color_distribution": {
+        "GREEN": 91,
+        "YELLOW": 110,
+        "RED": 21,
+        "UNKNOWN": 67,
+        "NO_INDEPENDENT_COLOR": 18
+      },
+      "remaining_canonical_geos": [
+        "LK",
+        "SD",
+        "SR",
+        "SY",
+        "TJ",
+        "TZ",
+        "TH",
+        "TL",
+        "TG",
+        "TO",
+        "TN",
+        "TM",
+        "TC",
+        "TV",
+        "US",
+        "EH",
+        "YE",
+        "ZM"
+      ],
+      "detail": "SS retains two schema-complete Ministry of Justice and Constitutional Affairs PDF records for its national Penal Code Act 2008 and the generic Drug and Food Control Authority Act 2012 context. Both preserve owner, SS-only applicability, PDF-page deep links, literal fragments, nonempty annotations, current/effective caveats, retained visual state and revalidation. C0 made zero HTTP requests; C1 attempted each URL once and recorded NETWORK_ERROR/ACCESS_BLOCKED only as access metadata. C2 used pdftotext on the retained matching-hash Penal Code PDF and did not run OCR. C3 reviewed retained official crops locally without a desktop browser. Penal Code sections 382-384 define cannabis and prohibit unauthorised conduct; section 387 directly authorises narrowly named professional roles to handle cannabis plant as necessary in that capacity. Under the general cannabis-specific professional-authorisation rule this is proposal-only YELLOW limited lawful mode, never patient eligibility, prescription, registration, patient supply, pharmacy/dispensing, import or an operational programme. Targeted tests passed 67/67; global C0 retained 1514 records with FETCHED_URLS=0; required serial root pass cycle passed after lock release. APPLY_ALLOWED=false; PRODUCTION_TOUCHED=false; MAP_COLORS_CHANGED=false; SSOT_CHANGED=false."
     }
   ]
 }

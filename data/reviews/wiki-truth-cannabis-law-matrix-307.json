@@ -81401,19 +81401,63 @@
         "medical": "NONE_OR_NOT_CONFIRMED_AS_CANNABIS_PATIENT_ACCESS; PENAL_CODE_VISIBLY_ALLOWS_LISTED_MEDICAL_DENTAL_VETERINARY_PHARMACEUTICAL_GOVERNMENT_MEDICAL_STORE_AND_APPROVED_LAB_ROLES_TO_LAWFULLY_ACQUIRE_POSSESS_SUPPLY_PRESCRIBE_ADMINISTER_MANUFACTURE_OR_COMPOUND_CANNABIS_PLANT_ONLY_IN_PROFESSIONAL_CAPACITY_AND_AS_NECESSARY_BUT_NO_CANNABIS_SPECIFIC_PATIENT_ACCESS_PROGRAM_WAS_VISUALLY_FOUND",
         "enforcement": "STRICT_WITH_CANNABIS_AGGRAVATION_CAVEAT; UNLAWFUL_DANGEROUS_DRUG_DEALING_INVOLVING_CANNABIS_IS_VISIBLY_PUNISHABLE_UP_TO_FOURTEEN_YEARS_OR_FINE_OR_BOTH_POSSESSION_OR_USE_UP_TO_FIVE_YEARS_OR_FINE_OR_BOTH_AND_PREMISES_OR_PROCEEDS_OFFENCES_UP_TO_TEN_YEARS_WHILE_DEATH_OR_LIFE_AGGRAVATED_DEALING_LANGUAGE_APPLIES_TO_DANGEROUS_DRUGS_OTHER_THAN_CANNABIS"
       },
-      "independentTruth": null,
+      "independentTruth": {
+        "color": "YELLOW",
+        "rule": "GENERAL_CANNABIS_SPECIFIC_PROFESSIONAL_AUTHORISATION_RULE_NO_PATIENT_OPERATION_INFERENCE",
+        "reviewedAt": "2026-08-12T07:30:08Z",
+        "conclusion": "The current Ministry-hosted Penal Code text directly defines cannabis and criminalises unauthorised cannabis conduct, while section 387 separately authorises named medical, dental, veterinary, pharmaceutical, government and approved-laboratory roles, in professional capacity and as necessary, to lawfully acquire, possess, supply, prescribe, administer, manufacture or compound cannabis plant. That is a direct, cannabis-specific limited lawful professional route. It does not prove patient eligibility, a patient prescription route, pharmacy dispensing to a patient, lawful patient supply, or an operational cannabis programme."
+      },
       "directOfficialCannabisLawLinks": [
         {
           "title": "South Sudan Ministry of Justice and Constitutional Affairs - Penal Code Act (9 of 2008)",
           "url": "https://mojca.gov.ss/wp-content/uploads/2023/03/Penal-Code-Act-9-of-2008.pdf",
           "sourceKind": "SOUTH_SUDAN_MOJCA_PENAL_CODE_ACT_2008_CHAPTER_XXVI_DANGEROUS_DRUGS_CANNABIS_DEFINITION_DEALING_POSSESSION_USE_MEDICAL_PROFESSIONAL_CAVEAT_PENALTIES",
+          "sourceOwnerGeo": "SS",
+          "appliesToGeos": [
+            "SS"
+          ],
+          "legalBasisForExtension": "The Ministry's official Penal Code Act PDF is a Republic of South Sudan primary law; no foreign, regional or claimant law is used.",
+          "officialPublisher": "Republic of South Sudan Ministry of Justice and Constitutional Affairs official laws publisher",
+          "sourceAnnotation": "Direct South Sudan cannabis primary-law evidence. The statute proves unauthorised cannabis conduct and penalties while retaining a narrow professional handling exception. That exception is not reclassified into patient access; independent colour derives only after C1/C2/C3 and a general evidence rule.",
+          "sourceType": "CURRENTLY_HOSTED_OFFICIAL_SOUTH_SUDAN_PENAL_CODE_PRIMARY_LAW_PDF",
+          "primaryOrContext": "PRIMARY_CANNABIS_DEFINITION_UNAUTHORISED_CONDUCT_PROFESSIONAL_EXCEPTION_AND_PENALTIES",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T07:25:12.293Z",
+            "final_url": "https://mojca.gov.ss/wp-content/uploads/2023/03/Penal-Code-Act-9-of-2008.pdf",
+            "http_status": null,
+            "etag": null,
+            "last_modified": null,
+            "content_type": null,
+            "content_length": null,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "228faa24facb650568e7b997ded7819369981430a54c5e560224f629e279ca8c",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "SS"
+            ]
+          },
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official South Sudan Ministry of Justice and Constitutional Affairs law PDF linked from the official Laws of the Republic of South Sudan page. Visual review confirms the Gazette supplement title page for the Penal Code Act, 2008, printed by Ministry Legal Affairs and Constitutional Development by order of the Government. Chapter XXVI visibly defines cannabis, cannabis plant, cannabis resin, prepared cannabis and dangerous drug to include cannabis plant, prepared cannabis and cannabis resin. Section 383 visibly criminalizes unlawful import, export, sale, distribution, delivery, transport, cultivation, production, manufacture, possession for dealing, incitement to consume, supply, administration and procurement of a dangerous drug, with ordinary-case penalty up to fourteen years or fine or both; aggravated circumstances explicitly apply to dangerous drugs other than cannabis. Section 384 visibly criminalizes unlawful possession, acquisition, smoking/consumption and own-consumption cultivation/production/manufacture of dangerous drugs, with penalty up to five years or fine or both. Section 385/386 visibly provide premises/proceeds offences up to ten years. Section 387 visibly allows listed professionals, including medical/dental/veterinary practitioners, pharmaceutical chemists and certain government/approved institutions/labs, to lawfully acquire, possess, supply, prescribe, administer, manufacture or compound cannabis plant and other listed drugs only in that professional capacity and as necessary.",
+          "note": "Chapter XXVI defines cannabis, cannabis plant, cannabis resin and prepared cannabis and includes cannabis plant, prepared cannabis and cannabis resin as dangerous drugs. Sections 383-384 criminalise unlawful dealing, import/export, distribution, transport, cultivation, production, possession, smoking/consumption and own-consumption cultivation/production/manufacture. Section 387 permits listed medical, dental, veterinary, pharmaceutical, government and approved-laboratory roles to lawfully acquire, possess, supply, prescribe, administer, manufacture or compound cannabis plant only in their professional capacity and as necessary.",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-31/SS/screenshots/pdf_pages/SS-mojca-penal-code-page189.png",
           "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "South Sudan is closed as visually verified direct official cannabis-law evidence from the official MoJCA Penal Code Act (9 of 2008). Recreational illegal and strict enforcement are supported by dangerous-drug cannabis definitions, dealing, possession/use and penalty provisions. Medical NONE remains defensible only with an explicit caveat for professional lawful handling of cannabis plant by listed medical/pharmaceutical/government/lab roles and no visually found cannabis-specific patient-access framework. No project status SSOT was changed."
+          "visualReview": "Retained dated Ministry PDF crops visibly show the chapter heading, cannabis definitions, prohibited conduct, penalties and professional-capacity boundary; official-domain/address-bar acceptance remains separate from legal truth."
         }
       ],
       "candidateLinksAwaitingVisualReview": [],
@@ -81422,6 +81466,45 @@
           "title": "South Sudan Ministry of Justice and Constitutional Affairs - Drug and Food Control Authority Act (37 of 2012)",
           "url": "https://mojca.gov.ss/wp-content/uploads/2023/03/Drug-and-Food-Control-Authority-Act-37-of-2012.pdf",
           "sourceKind": "SOUTH_SUDAN_MOJCA_DRUG_FOOD_CONTROL_AUTHORITY_ACT_RESTRICTED_MEDICINE_NARCOTIC_MEDICINE_PRESCRIPTION_CONTEXT",
+          "sourceOwnerGeo": "SS",
+          "appliesToGeos": [
+            "SS"
+          ],
+          "legalBasisForExtension": "The Ministry's official Drug and Food Control Authority Act PDF is South Sudan national regulator context; it is not substituted for cannabis-specific primary law.",
+          "officialPublisher": "Republic of South Sudan Ministry of Justice and Constitutional Affairs official laws publisher",
+          "sourceAnnotation": "Official South Sudan regulator context retained with a deep PDF link and a limitation annotation. It corroborates generic controlled-medicine regulation only and is deliberately not used to derive cannabis medical access or its absence.",
+          "sourceType": "CURRENTLY_HOSTED_OFFICIAL_SOUTH_SUDAN_DRUG_AND_FOOD_CONTROL_CONTEXT_PDF",
+          "primaryOrContext": "CONTEXT_GENERIC_RESTRICTED_MEDICINE_PRESCRIPTION_AND_DISPENSING_NOT_CANNABIS_AXIS",
+          "cannabisSpecific": false,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "cannabisFragmentVisible": false,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T07:25:12.293Z",
+            "final_url": "https://mojca.gov.ss/wp-content/uploads/2023/03/Drug-and-Food-Control-Authority-Act-37-of-2012.pdf",
+            "http_status": null,
+            "etag": null,
+            "last_modified": null,
+            "content_type": null,
+            "content_length": null,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "a8b1dbe3b4471277fa39ac4bd45b133ffd9fe4f1db85588910250cb0ce3f8763",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "SS"
+            ]
+          },
           "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
           "confidence": "high",
