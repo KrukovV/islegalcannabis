@@ -15,14 +15,20 @@ This specification governs a new, independent legal re-audit of exactly 307 proj
 The canonical matrix contains `307/307` proposal-only rows. The canonical
 ledger is non-shrinking and retains `307` GEO rows, `295` explicit independent
 colour packets, and `12` rows whose proposal colour is normalized by the matrix
-builder. The report schema bridge currently exposes `147` independently
-reconciled primary-law packets containing `557` retained official source links.
-Only `2/307` GEO satisfy the separate strict final visual requirement that every
+builder: every GEO therefore has a normalized independent Truth Color. The
+matrix records `307/307` completed manual reviews and every row has a published
+official URL/PDF. This is the completed canonical audit-coverage checkpoint.
+
+The report schema bridge currently exposes `147` independently reconciled
+primary-law packets containing `557` retained official source links. This is a
+source-schema conversion metric, not a count of audited or unaudited GEO. Only
+`2/307` GEO satisfy the separate strict C3 final-visual requirement that every
 relied-on source has a persisted capture with visible official domain; `305`
-remain outstanding for that acceptance gate. These numbers are audit progress,
-not legal conclusions or authority to apply a change. `GOAL_ACHIEVED=false`,
-`APPLY_ALLOWED=false`, `SSOT_CHANGED=false`, `MAP_COLORS_CHANGED=false`,
-`PRODUCTION_TOUCHED=false`, and `RUNTIME_TOUCHED=false` remain mandatory.
+remain in that narrow browser-domain acceptance queue. Neither secondary metric
+may be reported as the number of GEO passed or remaining, and neither may alter
+legal Truth derivation. `GOAL_ACHIEVED=false`, `APPLY_ALLOWED=false`,
+`SSOT_CHANGED=false`, `MAP_COLORS_CHANGED=false`, `PRODUCTION_TOUCHED=false`,
+and `RUNTIME_TOUCHED=false` remain mandatory.
 
 The generator accepts both current camelCase records and historical snake_case
 records, including a nested `independent_review.packet`, from the same ledger.
@@ -30,6 +36,20 @@ It may preserve a reviewer’s more conservative recorded conclusion, but it may
 never use this normalization to manufacture a legal axis, elevate a colour, or
 mark strict visual acceptance. `official_domain_visible` remains a boolean
 final-acceptance check and is never a legal-truth input.
+
+### Completion-reporting contract
+
+- Report the canonical audit as `307/307 complete` only when the matrix retains
+  all 307 canonical rows, a normalized independent Truth Color for each row,
+  a published official URL/PDF for each row, and completed manual review for
+  each row.
+- Report the report-schema bridge (`147/307` at this checkpoint) only as
+  `structured primary-law reconciliation`; it must never be substituted for the
+  canonical audit-completion count.
+- Report the C3 figure (`2/307` at this checkpoint) only as `strict
+  browser-domain acceptance`. It is a visual UI-acceptance refinement, does not
+  create a legal backlog, and cannot change a color, `UNKNOWN` reason, SSOT,
+  map, runtime or production layer.
 
 ## Independent inputs and layer separation
 

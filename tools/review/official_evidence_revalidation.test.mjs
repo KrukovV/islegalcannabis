@@ -489,7 +489,11 @@ test("local HTTP fixture covers 304, unchanged, changed, redirect, timeout and W
     make("redirect"),
     make("waf"),
   ])]);
-  const result = await runRevalidation({ ledger: input, network: true, timeoutMs: 200 });
+  // The deliberately slow `/timeout` route is asserted below with its own
+  // short limit. Give the normal localhost routes enough headroom when this
+  // fixture runs beside the full CI/build workload; otherwise a scheduling
+  // delay can turn a valid 304 into an unrelated ACCESS_BLOCKED result.
+  const result = await runRevalidation({ ledger: input, network: true, timeoutMs: 1_000 });
   assert.equal(stateByPath(result, "/304").revalidation_state, "NOT_MODIFIED");
   assert.equal(stateByPath(result, "/unchanged").revalidation_state, "NOT_MODIFIED");
   assert.equal(stateByPath(result, "/changed").revalidation_state, "CONTENT_CHANGED");

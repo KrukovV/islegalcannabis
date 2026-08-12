@@ -73,7 +73,7 @@ last_cmd=""
 trap 'last_cmd=$BASH_COMMAND' DEBUG
 bash tools/git-health.sh || { CI_LOCAL_REASON="GIT_HEALTH_FAIL"; CI_LOCAL_STEP="git_health"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 ALLOW_SCOPE_OVERRIDE=1 npm run --workspace-root where || { CI_LOCAL_REASON="WHERE_FAIL"; CI_LOCAL_STEP="where"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
-CI_LOCAL_AUDIT_SCOPE_PATHS="${CI_LOCAL_AUDIT_SCOPE_PATHS:-Reports/**,CONTINUITY.md,data/wiki/**,data/wiki_cache/**,data/wiki_notes/**,data/official/**,data/reviews/**,docs/**,tools/**,apps/web/**}"
+CI_LOCAL_AUDIT_SCOPE_PATHS="${CI_LOCAL_AUDIT_SCOPE_PATHS:-AGENTS.md,Reports/**,CONTINUITY.md,data/wiki/**,data/wiki_cache/**,data/wiki_notes/**,data/official/**,data/reviews/**,docs/**,tools/**,apps/web/**}"
 GUARDS_OUTPUT=$(ALLOW_SCOPE_OVERRIDE=1 ALLOW_SCOPE_PATHS="${CI_LOCAL_AUDIT_SCOPE_PATHS}" node tools/guards/run_all.mjs 2>&1) || {
   echo "${GUARDS_OUTPUT}"
   GUARDS_COUNTS_LINE=$(printf "%s\n" "${GUARDS_OUTPUT}" | grep -E "^GUARDS_COUNTS=" | tail -n 1 || true)
