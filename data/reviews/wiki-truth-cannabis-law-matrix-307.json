@@ -29,7 +29,7 @@
     "colorReauditDirectOrComposite": 31,
     "colorReauditContextClaimantOrNegative": 8,
     "supplementalOfficialLinks": 32,
-    "allPublishedOfficialLinks": 1394,
+    "allPublishedOfficialLinks": 1396,
     "rowsWithPublishedOfficialLinks": 307,
     "rowsWithAnyOfficialUrl": 307
   },
@@ -82941,14 +82941,37 @@
         "medical": "REGULATED_LIMITED_AYURVEDA_AND_DANGEROUS_DRUGS_AUTHORIZATION; OFFICIAL_ORDINANCE_VISIBLY_ALLOWS_DANGEROUS_DRUG_SUPPLY_BY_MEDICAL_PRACTITIONERS_DENTISTS_VETERINARY_SURGEONS_AND_PHARMACISTS_WITH_PRESCRIPTION_OR_DIRECTOR_AUTHORIZATION_AND_2024_AYURVEDA_CODE_VISIBLY_REGULATES_CANNABIS_FOR_AYURVEDA_MEDICINE_AND_SURGERY_THROUGH_COUNCIL_LICENSE_PERMIT_AND_SECURITY_CHANNELS",
         "enforcement": "STRICT_OR_AT_LEAST_NOT_SOFT_ON_TEXT; OFFICIAL_2022_ACT_VISIBLY_SETS_CANNABIS_TRAFFICKING_POSSESSION_IMPORT_OR_EXPORT_PENALTIES_FROM_ONE_TO_TWO_YEARS_FOR_LESS_THAN_1KG_UP_TO_TEN_TO_FIFTEEN_YEARS_FOR_100KG_OR_ABOVE"
       },
-      "independentTruth": null,
+      "independentTruth": {
+        "color": "YELLOW",
+        "rule": "GENERAL_CANNABIS_SCHEDULE_PLUS_REGULATED_PRESCRIPTION_OR_NARROW_LAWFUL_MODE_RULE_NO_PATIENT_OPERATION_INFERENCE",
+        "reviewedAt": "2026-08-12T07:46:08Z",
+        "conclusion": "Sri Lanka primary law directly identifies Cannabis, Cannabis Resin, Extracts and Tinctures and retains graded custodial penalties for unauthorised cannabis conduct. The current NDDCB Ordinance directly defines Cannabis sativa L. and prohibits unauthorised hemp/bhang/hashish/ganja conduct, while retaining regulated practitioner/pharmacist prescription and supply clauses in that same dangerous-drug framework. The effective 2024 Ayurveda Code separately regulates Cannabis in a licensed/permit-controlled Ayurveda mode. These directly prove a limited cannabis-specific lawful mode, not an operational patient-access programme."
+      },
       "directOfficialCannabisLawLinks": [
         {
           "title": "Sri Lanka documents.gov.lk - Poisons, Opium and Dangerous Drugs (Amendment) Act, No. 41 of 2022",
           "url": "https://documents.gov.lk/view/act/2022/11/41-2022_E.pdf",
           "sourceKind": "SRI_LANKA_OFFICIAL_ACT_41_2022_CANNABIS_SCHEDULE_AND_QUANTITY_GRADED_PENALTY_TABLE",
+          "sourceOwnerGeo": "LK",
+          "appliesToGeos": [
+            "LK"
+          ],
+          "legalBasisForExtension": "Act No. 41 of 2022 is a Sri Lanka national primary-law amendment published on the Government documents portal; no external or regional law is used.",
+          "officialPublisher": "Official Government of Sri Lanka Acts and Gazette publisher on documents.gov.lk",
+          "sourceAnnotation": "Direct Sri Lanka primary-law amendment evidence. It retains a page-level official PDF link, the named cannabis/resin/extract/tincture schedule fragment and graded cannabis custody penalties; it is not used to infer patient access or a negative medical axis.",
+          "sourceType": "CURRENTLY_HOSTED_OFFICIAL_SRI_LANKA_PRIMARY_LAW_AMENDMENT_PDF",
+          "primaryOrContext": "PRIMARY_CANNABIS_SCHEDULE_AND_QUANTITY_GRADED_PENALTY_REGIME",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T07:40:59.036Z",
             "final_url": "https://documents.gov.lk/view/act/2022/11/41-2022_E.pdf",
             "http_status": null,
             "etag": null,
@@ -82956,10 +82979,10 @@
             "content_type": null,
             "content_length": null,
             "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "relevant_fragment_sha256": "4a2e0788c7622cbdcc6014ea0e43286bf9f87943bc8ece2b913e0250b909b27f",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
             "queue": [
               "C2",
               "C3"
@@ -82971,40 +82994,199 @@
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official documents.gov.lk Act PDF. Visual review confirms the Parliament/Government Printing title page for the Poisons, Opium and Dangerous Drugs (Amendment) Act, No. 41 of 2022, certified 23 November 2022. The rendered schedule page visibly lists Cannabis as the flowering or fruiting tops of the cannabis plant and Cannabis Resin, Extracts and Tinctures as separated resin obtained from the cannabis plant. The rendered Part III penalty table visibly includes Cannabis and quantity bands for trafficking, possession, import or export: 100 kilograms or above carries fine plus ten to fifteen years imprisonment; 5 to under 100 kilograms carries five to ten years; 1 to under 5 kilograms carries two to five years; less than 1 kilogram carries one to two years, with fines. This is direct current official cannabis-law evidence for Sri Lanka.",
+          "note": "The Act's schedule names Cannabis as the flowering or fruiting tops of the cannabis plant and separately names Cannabis Resin, Extracts and Tinctures. Its Part III table applies cannabis quantity bands to trafficking, possession, import and export, with custodial penalties from one to two years for less than one kilogram through ten to fifteen years for one hundred kilograms or above.",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-28/LK/screenshots/pdf_pages/LK-documents-act-41-2022-cannabis-schedule.png",
           "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "Sri Lanka is closed as visually verified direct official cannabis-law evidence. Official sources support recreational illegal and a limited regulated medical/Ayurveda authorization channel, but they conflict with project enforcement=SOFT because current official cannabis quantity bands carry custodial penalties. The matrix records the enforcement conflict and no project status SSOT was changed."
+          "visualReview": "Retained dated official PDF crops visibly show the Act title, cannabis/resin/extract/tincture schedule and the cannabis quantity/penalty table; fresh official-domain acceptance is separate from legal truth."
         },
         {
           "title": "Sri Lanka National Dangerous Drugs Control Board - Poisons, Opium and Dangerous Drugs Ordinance",
           "url": "https://www.nddcb.gov.lk/Docs/acts/25345.pdf",
           "sourceKind": "SRI_LANKA_NDDCB_POISONS_OPIUM_DANGEROUS_DRUGS_ORDINANCE_HEMP_CANNABIS_PROHIBITIONS_DANGEROUS_DRUGS_MEDICAL_SUPPLY_ROUTES",
+          "sourceOwnerGeo": "LK",
+          "appliesToGeos": [
+            "LK"
+          ],
+          "legalBasisForExtension": "The National Dangerous Drugs Control Board is a Sri Lanka public authority and its Ordinance PDF is scoped to Sri Lanka; it is not treated as foreign or generic source evidence.",
+          "officialPublisher": "Sri Lanka National Dangerous Drugs Control Board official law publication",
+          "sourceAnnotation": "Direct Sri Lanka cannabis-law source with a limitation annotation. It provides the Cannabis sativa/bhang/hashish/ganja prohibition bridge and separately records controlled professional supply language that cannot be promoted into patient access by itself.",
+          "sourceType": "CURRENTLY_HOSTED_OFFICIAL_SRI_LANKA_DANGEROUS_DRUGS_ORDINANCE_PDF",
+          "primaryOrContext": "PRIMARY_CANNABIS_DEFINITION_AND_UNAUTHORISED_CONDUCT_WITH_CONTEXTUAL_PROFESSIONAL_SUPPLY_BOUNDARY",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T07:40:59.036Z",
+            "final_url": "https://www.nddcb.gov.lk/Docs/acts/25345.pdf",
+            "http_status": 200,
+            "etag": "\"4037f-6147595a4e1b4\"",
+            "last_modified": "Mon, 25 Mar 2024 05:38:34 GMT",
+            "content_type": "application/pdf",
+            "content_length": 263039,
+            "document_sha256": "8c510c53d0b89b75e33e3e8259050a1f9817a8ee9e73f3e5bf65711cb01181bd",
+            "relevant_fragment_sha256": "983dc953e490f89d06b23eb337af5854a73b88fce01ab19c5f7143398bb434de",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "LK"
+            ]
+          },
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official National Dangerous Drugs Control Board law PDF. Visual review confirms Chapter III defines hemp plant as Cannabis sativa L., prohibits unlicensed sowing, planting, cultivation, possession, collection, import/export of hemp plant and plant parts, and prohibits collection, preparation, processing, sale, manufacture, storage, possession, consumption, distribution or use of hemp resin preparations/extracts commonly known as bhang, hashish or ganja. Chapter V visibly deems scheduled drugs dangerous drugs, restricts wholesale/retail trade, possession and use, and provides that no person may possess or knowingly consume a dangerous drug except through Ordinance/licence or medical-practitioner/pharmacist prescription routes. Sections 54, 54A, 55, 56, 57 and 61 visibly regulate sale/supply, trafficking/import/export/possession offences, Director supply to medical practitioners and others, medical/dental/veterinary/pharmacist supply, and record-keeping including extract or tincture of hemp plant or hemp resin.",
+          "note": "Chapter III defines the hemp plant as Cannabis sativa L. and prohibits unlicensed sowing, planting, cultivation, possession, collection, import/export and related handling. It also prohibits hemp resin preparations or extracts known as bhang, hashish or ganja. Chapter V restricts dangerous-drug possession, consumption, supply and trade, while regulated professional supply clauses are retained as a separate limited context.",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-28/LK/screenshots/pdf_pages/LK-nddcb-ordinance-hemp-bhang-hashish-ganja.png",
           "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "Sri Lanka is closed as visually verified direct official cannabis-law evidence. Official sources support recreational illegal and a limited regulated medical/Ayurveda authorization channel, but they conflict with project enforcement=SOFT because current official cannabis quantity bands carry custodial penalties. The matrix records the enforcement conflict and no project status SSOT was changed."
+          "visualReview": "Retained dated Board PDF crops visibly show the Cannabis sativa/bhang/hashish/ganja text, dangerous-drug conduct and professional-supply boundary; fresh official-domain acceptance remains separate from legal truth."
         },
         {
           "title": "Sri Lanka documents.gov.lk Gazette No. 2379/02 - Ayurveda Code for Ayurveda Medicine and Surgery Regulations, 2024",
           "url": "https://documents.gov.lk/view/egz/2024/4/2379-02_E.pdf",
           "sourceKind": "SRI_LANKA_OFFICIAL_AYURVEDA_CODE_2024_CANNABIS_REGULATORY_COUNCIL_LICENSE_PERMIT_SECURITY_MEDICAL_CONTEXT",
+          "sourceOwnerGeo": "LK",
+          "appliesToGeos": [
+            "LK"
+          ],
+          "legalBasisForExtension": "Gazette No. 2379/02 is a Sri Lanka national ministerial regulation made under the Ayurveda Act and published on the Government documents portal.",
+          "officialPublisher": "Official Government of Sri Lanka Gazette publisher on documents.gov.lk",
+          "sourceAnnotation": "Official 2024 Sri Lanka Gazette record of a narrow cannabis-specific Ayurveda regulation. It is retained as direct limited-lawful regulatory evidence with an explicit patient-access limitation, not as recreational legality or operational medical-programme proof.",
+          "sourceType": "CURRENTLY_HOSTED_OFFICIAL_SRI_LANKA_GAZETTE_AYURVEDA_REGULATION_PDF",
+          "primaryOrContext": "PRIMARY_NARROW_CANNABIS_SPECIFIC_AYURVEDA_REGULATORY_MODE_NOT_PATIENT_OPERATION",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T07:40:59.036Z",
             "final_url": "https://documents.gov.lk/view/egz/2024/4/2379-02_E.pdf",
+            "http_status": 404,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 15206,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "69f79f12bf0d983b6ac04792a57899908cf41a78cdc0c13e33ce83d5e8a16fd5",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "HTTP_STATUS_404",
+            "change_reason": "HTTP_STATUS_404_IS_NOT_LEGAL_EVIDENCE",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "LK"
+            ]
+          },
+          "evidenceScope": null,
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
+          "confidence": "high",
+          "note": "The 2024 Ayurveda Code regulates manufacture, preparation, export, purchase, storage, distribution, sale, transport, supply and quality control of Cannabis to the extent required in Ayurveda medicine and surgery. It assigns the Regulatory Council functions over cannabis cultivation, storage, distribution and related cannabis products and establishes a Medicinal Plants Evaluation Committee for cannabis cultivation or harvesting projects and security coordination.",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-28/LK/screenshots/pdf_pages/LK-ayurveda-code-cannabis-regulatory-scope.png",
+          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
+          "visualReview": "Retained dated Gazette PDF crops visibly show the Gazette title and cannabis-specific Ayurveda regulatory scope; fresh official-domain acceptance remains separate from legal truth."
+        },
+        {
+          "title": "Sri Lanka documents.gov.lk canonical Acts endpoint - Poisons, Opium and Dangerous Drugs (Amendment) Act, No. 41 of 2022",
+          "url": "https://documents.gov.lk/view/acts/2022/11/41-2022_E.pdf",
+          "sourceKind": "SRI_LANKA_OFFICIAL_ACT_41_2022_CANONICAL_ENDPOINT_CANNABIS_SCHEDULE_AND_QUANTITY_GRADED_PENALTY_TABLE",
+          "sourceOwnerGeo": "LK",
+          "appliesToGeos": [
+            "LK"
+          ],
+          "legalBasisForExtension": "The canonical documents.gov.lk Acts endpoint publishes a Sri Lanka national primary-law amendment; it replaces the retained legacy singular-path endpoint without deleting it.",
+          "officialPublisher": "Official Government of Sri Lanka Acts and Gazette publisher on documents.gov.lk",
+          "sourceAnnotation": "Canonical current endpoint for the existing Act 41 evidence. It keeps direct PDF page links for the cannabis schedule and penalty table while retaining the legacy endpoint and its ACCESS_BLOCKED result as audit history.",
+          "sourceType": "CURRENT_OFFICIAL_SRI_LANKA_PRIMARY_LAW_AMENDMENT_PDF",
+          "primaryOrContext": "PRIMARY_CANNABIS_SCHEDULE_AND_QUANTITY_GRADED_PENALTY_REGIME",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T07:46:08.638Z",
+            "final_url": "https://documents.gov.lk/view/acts/2022/11/41-2022_E.pdf",
+            "http_status": 404,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=utf-8",
+            "content_length": 15208,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "12a72d9fb68ea34a208680a29ed59dd4d3bba82634c21c6c9b9eb6edff2e9cbf",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "HTTP_STATUS_404",
+            "change_reason": "HTTP_STATUS_404_IS_NOT_LEGAL_EVIDENCE",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "LK"
+            ]
+          },
+          "evidenceScope": null,
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
+          "confidence": "high",
+          "note": "Schedule entries 26-27 identify Cannabis as flowering or fruiting tops of the cannabis plant and Cannabis Resin, Extracts and Tinctures as resin obtained from that plant. The Part III cannabis table applies custody/fine bands to trafficking, possession, import and export, including one to two years for less than one kilogram and ten to fifteen years for one hundred kilograms or above.",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-28/LK/screenshots/pdf_pages/LK-documents-act-41-2022-cannabis-schedule.png",
+          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
+          "visualReview": "Retained dated official PDF crops visibly show the Act title, certification, cannabis/resin/extract/tincture schedule and cannabis custody table; fresh official-domain/address-bar acceptance remains separate from legal truth."
+        },
+        {
+          "title": "Sri Lanka documents.gov.lk canonical Extra Gazettes endpoint - Gazette No. 2379/02 Ayurveda Code for Ayurveda Medicine and Surgery Regulations, 2024",
+          "url": "https://www.documents.gov.lk/view/extra-gazettes/2024/4/2379-02_E.pdf",
+          "sourceKind": "SRI_LANKA_OFFICIAL_GAZETTE_2379_02_CANONICAL_ENDPOINT_CANNABIS_AYURVEDA_REGULATORY_MODE",
+          "sourceOwnerGeo": "LK",
+          "appliesToGeos": [
+            "LK"
+          ],
+          "legalBasisForExtension": "The canonical documents.gov.lk Extra Gazettes endpoint publishes a Sri Lanka national regulation made by the Minister of Health under the Ayurveda Act; it replaces the retained legacy endpoint without deleting it.",
+          "officialPublisher": "Official Government of Sri Lanka Gazette publisher on documents.gov.lk",
+          "sourceAnnotation": "Canonical current Gazette endpoint that supplies an explicit 8 April 2024 commencement date and cannabis-specific Ayurveda scope. It supports a narrow lawful regulatory route only when combined with the separate statutory cannabis derivative/prescription bridge; it never creates patient-operation or recreational legality.",
+          "sourceType": "CURRENT_OFFICIAL_SRI_LANKA_GAZETTE_AYURVEDA_REGULATION_PDF",
+          "primaryOrContext": "PRIMARY_CANNABIS_SPECIFIC_LIMITED_AYURVEDA_REGULATORY_MODE_NOT_PATIENT_OPERATION",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T07:46:08.638Z",
+            "final_url": "https://www.documents.gov.lk/view/extra-gazettes/2024/4/2379-02_E.pdf",
             "http_status": null,
             "etag": null,
             "last_modified": null,
             "content_type": null,
             "content_length": null,
             "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "relevant_fragment_sha256": "0cb0b4f8178a44ff60d1395fb6b9163e362aca22f40245baa61d9e5012be2484",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "NETWORK_ERROR",
+            "change_reason": "NETWORK_ERROR_IS_ACCESS_STATE_ONLY",
             "queue": [
               "C2",
               "C3"
@@ -83016,10 +83198,10 @@
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official documents.gov.lk Gazette Extraordinary PDF for the Ayurveda Code for Ayurveda Medicine and Surgery Regulations, 2024, made by the Minister of Health under the Ayurveda Act. Visual review confirms the Gazette title page and regulatory provisions placing Cannabis within Ayurveda regulatory scope: regulation of manufacturing/preparation/exportation/purchase/storage/distribution/sale/advertising/transportation/supply/quality control of Cannabis, opium and dangerous drugs to the extent required in Ayurveda medicine and surgery; Regulatory Council functions for cultivation, storing, distribution, transportation of Cannabis and manufacturing/exportation/storing/distribution/transportation/sale of cannabis-related declared articles, substances, drugs and Ayurveda products; instructions for Cannabis and other dangerous drugs used in Ayurveda medicine and surgery; and a Medicinal Plants Evaluation Committee to evaluate cannabis cultivation/harvesting projects and coordinate with Ayurveda authorities on security and cannabis projects. This supports a narrow regulated medical/Ayurveda channel, not recreational legality.",
+          "note": "Regulation 1 says the 2024 Ayurveda Code comes into operation on 8 April 2024. Regulation 4 regulates manufacture, preparation, export, purchase, storage, distribution, sale, transport, supply and quality control of Cannabis to the extent required in Ayurveda medicine and surgery, and controls registration, approvals, licences, certificates and permits for those activities. Regulation 5(e) covers instructions and rules for cultivation and regulated handling of Cannabis used in Ayurveda medicine and surgery.",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-28/LK/screenshots/pdf_pages/LK-ayurveda-code-cannabis-regulatory-scope.png",
           "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "Sri Lanka is closed as visually verified direct official cannabis-law evidence. Official sources support recreational illegal and a limited regulated medical/Ayurveda authorization channel, but they conflict with project enforcement=SOFT because current official cannabis quantity bands carry custodial penalties. The matrix records the enforcement conflict and no project status SSOT was changed."
+          "visualReview": "Retained dated official Gazette crops visibly show the Gazette title, cannabis-specific regulatory scope and regulation text; fresh official-domain/address-bar acceptance remains separate from legal truth."
         }
       ],
       "candidateLinksAwaitingVisualReview": [],

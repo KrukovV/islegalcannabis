@@ -296,6 +296,28 @@ test("shared URL is fetched once and queues every linked GEO", async () => {
   assert.deepEqual(result.c2QueueGeos, ["AA", "BB"]);
 });
 
+test("URL filter fetches only the requested canonical source and preserves other records", async () => {
+  const wanted = source("https://official.example/current-law");
+  const untouched = source("https://official.example/already-checked");
+  const input = ledger([row("AA", [wanted, untouched])]);
+  let fetchCount = 0;
+  const result = await runRevalidation({
+    ledger: input,
+    geos: new Set(["AA"]),
+    urls: new Set(["https://official.example/current-law"]),
+    network: true,
+    fetchImpl: async (url) => {
+      fetchCount += 1;
+      assert.equal(url, "https://official.example/current-law");
+      return new Response("cannabis exact fragment", { headers: { "content-type": "text/html" } });
+    },
+  });
+  assert.equal(fetchCount, 1);
+  assert.equal(result.records.length, 1);
+  assert.equal(result.fetchedUrls.length, 1);
+  assert.equal(untouched.revalidation, undefined);
+});
+
 test("regulator e-licensing and visual metadata cannot mutate patient axes or Truth Color", async () => {
   const evidence = source("https://regulator.example/licensing", {
     source_type: "GENERIC_REGULATOR_E_LICENSING_PORTAL",

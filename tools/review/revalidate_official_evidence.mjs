@@ -729,6 +729,7 @@ function legalBoundaryDigest(value) {
 export async function runRevalidation({
   ledger,
   geos = null,
+  urls = null,
   network = false,
   checkedAt = new Date().toISOString(),
   batchSize = 25,
@@ -742,7 +743,14 @@ export async function runRevalidation({
   if (network) assert.equal(typeof fetchImpl, "function", "fetch implementation is required for --network");
   const beforeWithoutRevalidation = stripRevalidation(ledger);
   const beforeLegalDigest = legalBoundaryDigest(ledger);
-  const records = selectRecordsForGeos(collectOfficialSourceRecords(ledger), geos);
+  const urlFilter = urls
+    ? new Set([...urls].map(canonicalUrl).filter(Boolean))
+    : null;
+  let records = selectRecordsForGeos(collectOfficialSourceRecords(ledger), geos);
+  if (urlFilter) {
+    records = records.filter((record) => urlFilter.has(record.url));
+    assert(records.length > 0, "URL_FILTER_MATCHED_NO_CURRENT_OFFICIAL_SOURCE");
+  }
   const sourceIdentityBefore = records.map((record) => `${record.rowGeo}|${record.sourcePath}|${record.dedupeKey}`);
 
   for (const record of records) {
@@ -788,7 +796,8 @@ export async function runRevalidation({
     beforeLegalDigest,
     "REVALIDATION_MUTATED_LEGAL_OR_COLOR_BOUNDARY",
   );
-  const afterRecords = selectRecordsForGeos(collectOfficialSourceRecords(ledger), geos);
+  let afterRecords = selectRecordsForGeos(collectOfficialSourceRecords(ledger), geos);
+  if (urlFilter) afterRecords = afterRecords.filter((record) => urlFilter.has(record.url));
   const sourceIdentityAfter = afterRecords.map((record) => `${record.rowGeo}|${record.sourcePath}|${record.dedupeKey}`);
   assert.deepEqual(sourceIdentityAfter, sourceIdentityBefore, "REVALIDATION_SOURCE_SHRINK_OR_REORDER");
 
@@ -818,6 +827,7 @@ function parseArgs(argv) {
   const options = {
     all: false,
     geos: [],
+    urls: [],
     network: false,
     explicitDryRun: false,
     applyLocal: false,
@@ -833,6 +843,8 @@ function parseArgs(argv) {
     else if (arg === "--apply-local") options.applyLocal = true;
     else if (arg === "--geo") options.geos.push(...String(args[++index] || "").split(","));
     else if (arg.startsWith("--geo=")) options.geos.push(...arg.slice(6).split(","));
+    else if (arg === "--url") options.urls.push(String(args[++index] || ""));
+    else if (arg.startsWith("--url=")) options.urls.push(arg.slice(6));
     else if (arg === "--batch-size") options.batchSize = Number(args[++index]);
     else if (arg.startsWith("--batch-size=")) options.batchSize = Number(arg.slice(13));
     else if (arg === "--ledger") options.ledgerPath = path.resolve(args[++index]);
@@ -840,6 +852,7 @@ function parseArgs(argv) {
     else throw new Error(`UNKNOWN_ARGUMENT ${arg}`);
   }
   options.geos = Array.from(new Set(options.geos.map((geo) => geo.trim().toUpperCase()).filter(Boolean))).sort();
+  options.urls = Array.from(new Set(options.urls.map(canonicalUrl).filter(Boolean))).sort();
   if (options.all && options.geos.length) throw new Error("USE_EITHER_ALL_OR_GEO");
   if (options.network && options.explicitDryRun) throw new Error("NETWORK_AND_DRY_RUN_ARE_MUTUALLY_EXCLUSIVE");
   if (options.applyLocal && options.network) throw new Error("APPLY_LOCAL_AND_NETWORK_ARE_MUTUALLY_EXCLUSIVE");
@@ -859,6 +872,7 @@ async function main() {
   const result = await runRevalidation({
     ledger,
     geos,
+    urls: options.urls.length ? new Set(options.urls) : null,
     network: options.network,
     batchSize: options.batchSize,
   });
@@ -876,6 +890,7 @@ async function main() {
   console.log(`SOURCE_RECORDS=${result.sourceCount}`);
   console.log(`UNIQUE_EVIDENCE=${result.uniqueEvidenceCount}`);
   console.log(`UNIQUE_FETCH_URLS=${result.uniqueFetchUrlCount}`);
+  console.log(`URL_FILTER_COUNT=${options.urls.length}`);
   console.log(`FETCHED_URLS=${result.fetchedUrls.length}`);
   console.log(`STATE_COUNTS=${JSON.stringify(result.stateCounts)}`);
   console.log(`C2_QUEUE_GEO_COUNT=${result.c2QueueGeos.length}`);
