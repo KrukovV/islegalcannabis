@@ -143141,9 +143141,269 @@
           "source_kind": "US_VIRGIN_ISLANDS_ACT_8680_VIRGIN_ISLANDS_CANNABIS_USE_ACT_ADULT_MEDICINAL_SACRAMENTAL_REGULATED_SYSTEM_AND_POSSESSION_LIMITS",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-8/VI/screenshots/pdf_pages/VI-act8680-virgin-islands-cannabis-use-act-purpose.png",
           "note": "Official U.S. Virgin Islands Office of Cannabis Regulation PDF of Act No. 8680, Bill No. 34-0345. Visual review confirms the Act amends Title 19 of the Virgin Islands Code to expand legalization of cannabis from medicinal use to include Adult Use Cannabis; chapter 34 is the Virgin Islands Cannabis Use Act; section 775 establishes a regulated system for cultivation, manufacture and sale of cannabis for adult, medicinal and sacramental use; section 779 protects Qualified Patients and sets medical possession/cultivation limits; section 785 permits adults over 21 to possess up to two ounces of cannabis, fourteen grams of cannabis concentrate and one ounce of cannabis products; section 806/807 style penalty pages retain penalties for conduct outside the chapter; and section 6 states compliant chapter 34 cannabis possession/commercial cannabis activity is not a violation of Title 19 chapter 29 section 607a.",
+          "source_owner_geo": "VI",
+          "applies_to_geo": [
+            "VI"
+          ],
+          "legal_basis_for_extension": "Act of the Legislature of the U.S. Virgin Islands amending Title 19 of the Virgin Islands Code. It applies directly within VI; no United States federal or state extension is inferred.",
+          "source_authority": "Legislature of the U.S. Virgin Islands; official publication by the Office of Cannabis Regulation",
+          "source_type": "PRIMARY_TERRITORIAL_CANNABIS_ADULT_USE_AND_MEDICAL_STATUTE",
+          "primary_or_context": "PRIMARY_CURRENT_TERRITORIAL_LAW",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "ACT_SECTION_7_STATES_SECTIONS_1_3_4_5_AND_6_ARE_EFFECTIVE_UPON_ENACTMENT; THE_RETAINED_OFFICIAL_PDF_VISUALLY_PROVES_THE_ACT_TEXT_AND_SECTION_785_ADULT_POSSESSION_RULE. CURRENTNESS REVALIDATION IS RECORDED_SEPARATELY.",
+          "effective_date": "2023-01-18",
+          "direct_fragment_urls": [
+            "https://ocr.vi.gov/wp-content/uploads/2023/01/8680.pdf#page=1"
+          ],
+          "locator": "Act No. 8680 title and purpose; Virgin Islands Code Title 19, chapter 34, sections 775, 779 and 785; Act sections 6 and 7.",
+          "exact_fragment": "Act No. 8680 expands legalization of Cannabis from medicinal use to Adult Use Cannabis. Section 775 establishes a regulated system for cultivation, manufacture and sale for adult, medicinal and sacramental use. Section 785 permits an adult over twenty-one years of age to possess two ounces of Cannabis, fourteen grams of Cannabis concentrate, or one ounce of Cannabis products. Section 6 provides that compliant chapter 34 cannabis possession or commercial activity is not a Title 19 chapter 29 section 607a violation; section 7 makes the stated Act sections effective upon enactment.",
+          "legal_relevance": "Direct, cannabis-specific territorial statute. The affirmative adult-21-plus possession axis supports the generic lawful-adult-possession Green rule. The medicinal patient provisions are recorded separately and are not used to infer operational patient access. Rules-PDF context cannot replace this enacted Act.",
+          "screenshot_state": "HISTORICAL_OFFICIAL_PDF_CROPS_VISUALLY_REREAD_2026-08-12; title, chapter purpose, qualified-patient, section-785 adult-possession, protected-conduct and penalty crops retained. A fresh browser-domain capture is not claimed.",
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_valid": true,
+          "visual_review_result": "Retained official-PDF legal-content captures show the owner, cannabis-specific Act and section-785 possession rule. They establish legal truth but not fresh address-bar acceptance.",
+          "semantic_legal_axis": true,
+          "semantic_reviewed_by_human": true,
+          "review_date": "2026-08-12",
+          "c2_semantic_review": {
+            "reviewed_at": "2026-08-12",
+            "trigger": "C1_TIMEOUT_ACCESS_BLOCKED",
+            "result": "The C1 timeout is access metadata only. The retained dated official-PDF crops were reread for the cannabis-specific qualified-patient possession and personal medicinal-cultivation clauses, and later official Legislature/OCR operation records provide the current registry/practitioner bridge. No adult-retail conclusion is taken from this access state."
+          },
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T01:06:49.153Z",
             "final_url": "https://ocr.vi.gov/wp-content/uploads/2023/01/8680.pdf",
+            "http_status": null,
+            "etag": null,
+            "last_modified": null,
+            "content_type": null,
+            "content_length": null,
+            "document_sha256": null,
+            "relevant_fragment_sha256": "90913538ed2990ab36042fb4b5f5f0371bd75c8278f7ce0c3927d5b715ecfee6",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "TIMEOUT",
+            "change_reason": "TIMEOUT_IS_ACCESS_STATE_ONLY",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "ACCESS_BLOCKED",
+              "GREEN_OR_RED_CRITICAL_SOURCE"
+            ],
+            "dependent_geos": [
+              "VI"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
+        }
+      ],
+      "verified_context_sources": [
+        {
+          "title": "Legislature of the U.S. Virgin Islands - 11 March 2025 Office of Cannabis Regulation operational update",
+          "url": "https://legvi.org/committee-receives-updates-from-dpnr-port-authority-office-of-cannabis-regulation/",
+          "source_kind": "US_VIRGIN_ISLANDS_LEGISLATURE_OCR_OPERATIONAL_REPORT_MEDICAL_REGISTRY_CERTIFIED_PRACTITIONERS",
+          "source_owner_geo": "VI",
+          "applies_to_geo": [
+            "VI"
+          ],
+          "legal_basis_for_extension": "Official Legislature report of the territorial Office of Cannabis Regulation's implementation update. It reports VI programme operation only and does not extend law outside VI.",
+          "source_authority": "Legislature of the U.S. Virgin Islands reporting the Office of Cannabis Regulation",
+          "source_type": "OFFICIAL_TERRITORIAL_PROGRAMME_OPERATION_REPORT",
+          "primary_or_context": "CURRENT_OPERATIONAL_PATIENT_AXIS_SOURCE",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "OFFICIAL_PROGRAMME_OPERATION_REPORT_DATED_2025_03_11; it establishes the registry and practitioner state as reported on that date, not a later retail or adult-use conclusion.",
+          "effective_date": "2025-03-11",
+          "direct_fragment_urls": [
+            "https://legvi.org/committee-receives-updates-from-dpnr-port-authority-office-of-cannabis-regulation/"
+          ],
+          "locator": "Paragraph beginning 'Executive Director of the Office of Cannabis Regulation Joanne Moorehead provided an update' and the following Cannabis Registry paragraph.",
+          "exact_fragment": "The official Legislature report states that the Office of Cannabis Regulation rules and regulations were approved in April 2024; the Cannabis Registry launched in January 2024 allows individuals to apply for and receive certification online; the report lists certified practitioners in both districts and registered medical patients with pending applications.",
+          "legal_relevance": "Current operational evidence for the medical registration and practitioner axes. It is not primary statutory text, does not prove retail supply, and is not used to infer adult-use operation.",
+          "screenshot_state": "OFFICIAL_LEGISLATURE_PAGE_TEXT_RETRIEVED_AND_REVIEWED_2026-08-12_WITHOUT_DESKTOP_BROWSER; strict address-bar acceptance is not claimed.",
+          "reviewed_by_human_visual": false,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": false,
+          "screenshot_valid": false,
+          "visual_review_result": "Official current-operation report is used only with Act 8680's cannabis-specific patient-cultivation law; it cannot independently derive a legal colour.",
+          "semantic_legal_axis": true,
+          "semantic_reviewed_by_human": true,
+          "review_date": "2026-08-12",
+          "c2_semantic_review": {
+            "reviewed_at": "2026-08-12",
+            "trigger": "C1_CONTENT_CHANGED_DOCUMENT_SHA256",
+            "result": "The C1 HTML document hash changed between two current reads, but the retained cannabis-specific registry/practitioner fragment hash is unchanged. Full source text was reread: it still reports the launched online registry, certifications and registered patients. No new legal axis, retail operation or colour decision was created by revalidation."
+          },
+          "revalidation": {
+            "checked_at": "2026-08-12T01:06:49.153Z",
+            "final_url": "https://legvi.org/committee-receives-updates-from-dpnr-port-authority-office-of-cannabis-regulation",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 375751,
+            "document_sha256": "6a70057da30f5451d8c1ee8e4d6d312eb1850e2c745767b376871a8ad749960b",
+            "relevant_fragment_sha256": "857eb09ed9ad63aa5663d4317abf7ea5860e3390b12214815908a801140c65ed",
+            "revalidation_state": "CONTENT_CHANGED",
+            "access_state": "HTTP_OK",
+            "change_reason": "DOCUMENT_SHA256_CHANGED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "CONTENT_CHANGED",
+              "GREEN_OR_RED_CRITICAL_SOURCE"
+            ],
+            "dependent_geos": [
+              "VI"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
+        },
+        {
+          "title": "Legislature of the U.S. Virgin Islands - OCR FY 2026 budget-hearing testimony, 23 July 2025 (PDF)",
+          "url": "https://legvi.org/committeemeetings/Budget%2C%20Appropriations%20and%20Finance/FY%202026%20Budget%20Hearings/07-23-2025%20DLCA%20CCC%20BIT/Licensing%20and%20Consumer%20Affairs/Testimony/OCR%20Budget%20Hearing%20Testimony%202025-07-23.pdf",
+          "source_kind": "US_VIRGIN_ISLANDS_LEGISLATURE_OCR_BUDGET_HEARING_TESTIMONY_2025_OPERATIONAL_PATIENT_REGISTRY_PDF",
+          "source_owner_geo": "VI",
+          "applies_to_geo": [
+            "VI"
+          ],
+          "legal_basis_for_extension": "Official territorial Legislature hearing record reporting the Office of Cannabis Regulation's VI implementation state. It is operational evidence for VI only.",
+          "source_authority": "U.S. Virgin Islands Office of Cannabis Regulation testimony filed with the Legislature",
+          "source_type": "OFFICIAL_TERRITORIAL_PROGRAMME_OPERATION_TESTIMONY_PDF",
+          "primary_or_context": "CURRENT_OPERATIONAL_PATIENT_AXIS_SOURCE",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "LATEST_RETAINED_OFFICIAL_OPERATIONAL_TESTIMONY_DATED_2025_07_23; it records active patient identification cards, registered patients and renewals at that date, without treating pending business applications as issued licences.",
+          "effective_date": "2025-07-23",
+          "direct_fragment_urls": [
+            "https://legvi.org/committeemeetings/Budget%2C%20Appropriations%20and%20Finance/FY%202026%20Budget%20Hearings/07-23-2025%20DLCA%20CCC%20BIT/Licensing%20and%20Consumer%20Affairs/Testimony/OCR%20Budget%20Hearing%20Testimony%202025-07-23.pdf#page=3"
+          ],
+          "locator": "PDF page 3, lines 46-60 in the hearing testimony: patient identification cards, practitioners, registered patients, renewals and separate business-application status.",
+          "exact_fragment": "The OCR testimony says the patient-identification-card system had been live for one year, records certified practitioners on St. Thomas and St. Croix, 32 registered medical patients, five pending applications and first patient-registration renewals. It separately says cultivation and dispensary business licence applications were made available or pending evaluation; no issued licence is inferred.",
+          "legal_relevance": "Latest retained official operational confirmation for the patient-card, registration and certified-practitioner axes. It deliberately excludes pending cultivation, manufacturing and dispensary applications from lawful-supply or retail-operation proof.",
+          "screenshot_state": "OFFICIAL_LEGISLATURE_PDF_TEXT_RETRIEVED_AND_REVIEWED_2026-08-12_WITHOUT_DESKTOP_BROWSER; direct PDF page locator retained and strict address-bar acceptance remains false.",
+          "reviewed_by_human_visual": false,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": false,
+          "screenshot_valid": false,
+          "visual_review_result": "Official testimony is an operational corroborator only. It cannot turn pending business applications into operation or alter legal truth without the applicable statute.",
+          "semantic_legal_axis": true,
+          "semantic_reviewed_by_human": true,
+          "review_date": "2026-08-12",
+          "c2_semantic_review": {
+            "reviewed_at": "2026-08-12",
+            "trigger": "C1_NETWORK_BASELINE_PDF",
+            "result": "The 2.8 MB official PDF was extracted with pdftotext (16,520-character text layer); OCR was not invoked. Cannabis-term pages 1-10 were locally rendered by the C2 probe. The testimony confirms active cards, patients and renewals, while its pending business applications remain excluded from supply or retail axes."
+          },
+          "revalidation": {
+            "checked_at": "2026-08-12T01:06:49.153Z",
+            "final_url": "https://legvi.org/committeemeetings/Budget%2C%20Appropriations%20and%20Finance/FY%202026%20Budget%20Hearings/07-23-2025%20DLCA%20CCC%20BIT/Licensing%20and%20Consumer%20Affairs/Testimony/OCR%20Budget%20Hearing%20Testimony%202025-07-23.pdf",
+            "http_status": 304,
+            "etag": "\"a119dd418f8db1:0\"",
+            "last_modified": "Fri, 18 Jul 2025 19:19:05 GMT",
+            "content_type": "application/pdf",
+            "content_length": 2776378,
+            "document_sha256": "90c70fe1fe3f1c48fb4928e7a51b3fd4bd754a4911603ff6a69c54bb0ba1aeb9",
+            "relevant_fragment_sha256": "6a14c1a477412ffb9d3c2958c660fe83b988689ff1f43ec9310af87affc9abe5",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_304_CONDITIONAL_GET",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "GREEN_OR_RED_CRITICAL_SOURCE"
+            ],
+            "dependent_geos": [
+              "VI"
+            ],
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 16520,
+              "ocr_used": false,
+              "relevant_pages": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "rendered_pages": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ]
+            }
+          }
+        },
+        {
+          "title": "Legislature of the U.S. Virgin Islands - 11 September 2024 Act 8680 implementation and rules-status report",
+          "url": "https://legvi.org/committee-receives-status-update-on-office-of-cannabis-regulation-considers-cannabis-use-bill/",
+          "source_kind": "US_VIRGIN_ISLANDS_LEGISLATURE_ACT_8680_IMPLEMENTATION_AND_RULES_STATUS_CONTEXT",
+          "source_owner_geo": "VI",
+          "applies_to_geo": [
+            "VI"
+          ],
+          "legal_basis_for_extension": "Official territorial Legislature report about implementation of the Virgin Islands Cannabis Use Act. Historical lifecycle context for VI only.",
+          "source_authority": "Legislature of the U.S. Virgin Islands reporting the Office of Cannabis Regulation",
+          "source_type": "OFFICIAL_TERRITORIAL_LIFECYCLE_AND_IMPLEMENTATION_CONTEXT",
+          "primary_or_context": "HISTORICAL_IMPLEMENTATION_CONTEXT_ONLY",
+          "cannabis_specific": true,
+          "current": false,
+          "effective": false,
+          "current_effective_state": "HISTORICAL_2024_IMPLEMENTATION_REPORT_NOT_USED_AS_CURRENT_LEGAL_TEXT_OR_RETAIL_OPERATION_PROOF",
+          "direct_fragment_urls": [
+            "https://legvi.org/committee-receives-status-update-on-office-of-cannabis-regulation-considers-cannabis-use-bill/"
+          ],
+          "locator": "2024 Legislature report paragraphs describing Act 8680, April 2024 rules approval and then-pending licence/permit issuance.",
+          "exact_fragment": "The report identifies Act 8680 as the enacted Virgin Islands Cannabis Use Act, states OCR rules and regulations were approved in April 2024, and separately records that licences and permits had not yet been issued at the time of the 2024 report.",
+          "legal_relevance": "Historical implementation chronology only. It prevents an inference that a rule framework or business application is a live retail market, but it cannot override later official 2025 patient-registry evidence.",
+          "screenshot_state": "OFFICIAL_LEGISLATURE_CONTEXT_TEXT_RETRIEVED_AND_REVIEWED_2026-08-12_WITHOUT_DESKTOP_BROWSER; historical context only.",
+          "reviewed_by_human_visual": false,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": false,
+          "screenshot_valid": false,
+          "visual_review_result": "Historical official context is retained to avoid treating the past absence of licences as proof of an ongoing prohibition or as proof of retail operation.",
+          "revalidation": {
+            "checked_at": "2026-08-12T00:00:00.000Z",
+            "final_url": "https://legvi.org/committee-receives-status-update-on-office-of-cannabis-regulation-considers-cannabis-use-bill/",
             "http_status": null,
             "etag": null,
             "last_modified": null,
@@ -143153,35 +143413,80 @@
             "relevant_fragment_sha256": null,
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
             "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "change_reason": "HISTORICAL_IMPLEMENTATION_CONTEXT_NOT_A_CURRENT_LEGAL_AXIS_INPUT",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "CURRENT_LAYER_MISMATCH",
               "NEEDS_SEMANTIC_REVIEW"
             ],
             "dependent_geos": [
               "VI"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
-            ],
+            "schema_issues": [],
             "semantic_probe": null
           }
-        }
-      ],
-      "verified_context_sources": [
+        },
         {
           "title": "Office of Cannabis Regulation, U.S. Virgin Islands - 2024 VICUA Rules and Regulations public PDF",
           "url": "https://ocr.vi.gov/wp-content/uploads/2024/02/2024-VICUA-Rules-Public.pdf",
           "source_kind": "US_VIRGIN_ISLANDS_OCR_VICUA_RULES_CONTEXT_STATUTORY_AUTHORITY_ADULT_USE_MEDICAL_REGISTRY_LICENSES_ENFORCEMENT",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-8/VI/screenshots/pdf_pages/VI-rules-statutory-authority-act8680-adult-use-definition.png",
-          "note": "Official OCR PDF labelled Proposed Rules and Regulations for the VI Cannabis Use Act. Visual review confirms the rules cite statutory authority under 19 V.I.C. section 777, define Act as V.I. Act 8680 / Virgin Islands Cannabis Use Act codified in Title 19 chapter 34, define Adult-Use/Adult User as use of cannabis by persons over 21 pursuant to the Act, restate adult-user possession limits, set rules for adult-use lounge/cannabis-use permits and unlawful actions/penalties, and include Lieutenant Governor certification that the regulations were duly published and comply with formatting requirements. This is retained as regulatory context; Act 8680 remains the direct law source."
+          "note": "Official OCR PDF labelled Proposed Rules and Regulations for the VI Cannabis Use Act. Visual review confirms the rules cite statutory authority under 19 V.I.C. section 777, define Act as V.I. Act 8680 / Virgin Islands Cannabis Use Act codified in Title 19 chapter 34, define Adult-Use/Adult User as use of cannabis by persons over 21 pursuant to the Act, restate adult-user possession limits, set rules for adult-use lounge/cannabis-use permits and unlawful actions/penalties, and include Lieutenant Governor certification that the regulations were duly published and comply with formatting requirements. This is retained as regulatory context; Act 8680 remains the direct law source.",
+          "source_owner_geo": "VI",
+          "applies_to_geo": [
+            "VI"
+          ],
+          "legal_basis_for_extension": "Office of Cannabis Regulation material for the U.S. Virgin Islands. It is territorial regulatory context only and does not extend any law beyond VI.",
+          "source_authority": "U.S. Virgin Islands Office of Cannabis Regulation",
+          "source_type": "OFFICIAL_TERRITORIAL_CANNABIS_RULES_CONTEXT",
+          "primary_or_context": "PROPOSED_RULES_CONTEXT_ONLY",
+          "cannabis_specific": true,
+          "current": false,
+          "effective": false,
+          "current_effective_state": "PROPOSED_RULES_LABELLED_CONTEXT_ONLY_NOT_USED_TO_PROVE_CURRENT_LAW_OR_PROGRAMME_OPERATION",
+          "direct_fragment_urls": [
+            "https://ocr.vi.gov/wp-content/uploads/2024/02/2024-VICUA-Rules-Public.pdf#page=1"
+          ],
+          "locator": "2024 VICUA Rules and Regulations public PDF title, statutory-authority and Adult-Use/Adult User definitions.",
+          "exact_fragment": "The public PDF is labelled Proposed Rules and Regulations, cites Title 19 section 777 and identifies the Act as V.I. Act 8680 / Virgin Islands Cannabis Use Act. It defines Adult-Use and Adult User as cannabis use by persons over 21 pursuant to the Act.",
+          "legal_relevance": "Cannabis-specific official context only. Because the document is labelled proposed rules, it is not used as proof that a rule commenced, that retail is operational, or that a patient axis is satisfied; Act 8680 is the direct legal source.",
+          "screenshot_state": "HISTORICAL_OFFICIAL_PDF_CONTEXT_CROP_VISUALLY_REREAD_2026-08-12; retained only as proposed-rules context, with no fresh browser-domain acceptance claimed.",
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_owner_visible": true,
+          "official_domain_visible": false,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": false,
+          "screenshot_valid": true,
+          "visual_review_result": "The retained crop confirms the official OCR context and its proposed-rules label. It is excluded from legal-colour derivation.",
+          "revalidation": {
+            "checked_at": "2026-08-12T00:00:00.000Z",
+            "final_url": "https://ocr.vi.gov/wp-content/uploads/2024/02/2024-VICUA-Rules-Public.pdf",
+            "http_status": null,
+            "etag": null,
+            "last_modified": null,
+            "content_type": null,
+            "content_length": null,
+            "document_sha256": null,
+            "relevant_fragment_sha256": null,
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "NOT_CHECKED_LOCAL_ONLY",
+            "change_reason": "CONTEXT_ONLY_PROPOSED_RULES_NOT_A_CURRENT_LEGAL_AXIS_INPUT",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "NEEDS_SEMANTIC_REVIEW"
+            ],
+            "dependent_geos": [
+              "VI"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
         }
       ],
       "official_status": {
@@ -143193,7 +143498,147 @@
         "status": "PROJECT_STATUS_MISMATCH_RECREATIONAL_AND_MEDICAL_CANNABIS_LEGALIZED_BY_ACT_8680",
         "reason": "U.S. Virgin Islands is visually verified from official OCR Act 8680 / Virgin Islands Cannabis Use Act. Project recreational=ILLEGAL is contradicted because the Act visibly expands legalization from medicinal use to include Adult Use Cannabis and section 785 permits adults over 21 to possess limited amounts of cannabis, cannabis concentrate and cannabis products. Project medical=NONE is contradicted because the Act visibly preserves and regulates qualified medical cannabis patients, medical cannabis patient cards, medical possession limits and personal medicinal cultivation. Project enforcement=STRICT is too broad as a blanket status: the official law creates a regulated legal adult/medical/sacramental framework and retains penalties only for unlicensed, false, unauthorized or otherwise unprotected conduct. This is recorded as a status mismatch finding and does not mutate project status SSOT."
       },
-      "conclusion": "U.S. Virgin Islands is closed as visually verified direct official cannabis-law evidence. Official Act 8680 creates the Virgin Islands Cannabis Use Act, expands legalization from medicinal to adult-use cannabis, establishes regulated adult/medicinal/sacramental cannabis systems, permits adult 21+ possession limits and regulated qualified patient medical possession/cultivation, while preserving penalties for conduct outside the Act. Project ILLEGAL/NONE/STRICT is a direct mismatch against the official law. No project status SSOT was changed."
+      "conclusion": "U.S. Virgin Islands is closed as visually verified direct official cannabis-law evidence. Official Act 8680 creates the Virgin Islands Cannabis Use Act, expands legalization from medicinal to adult-use cannabis, establishes regulated adult/medicinal/sacramental cannabis systems, permits adult 21+ possession limits and regulated qualified patient medical possession/cultivation, while preserving penalties for conduct outside the Act. Project ILLEGAL/NONE/STRICT is a direct mismatch against the official law. No project status SSOT was changed.",
+      "independent_truth_color": "GREEN",
+      "independent_truth_status": "CURRENT_OPERATIONAL_MEDICAL_CANNABIS_PATIENT_ACCESS_THROUGH_REGISTERED_PATIENT_CERTIFIED_PRACTITIONER_AND_STATUTORY_PERSONAL_MEDICINAL_CULTIVATION",
+      "independent_truth_rule": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_REGISTERED_PATIENT_CERTIFIED_PRACTITIONER_AND_STATUTORY_PERSONAL_MEDICINAL_CULTIVATION_AXES",
+      "independent_truth_reviewed_at": "2026-08-12",
+      "audit_state": "INDEPENDENT_OFFICIAL_EVIDENCE_FIRST_PROPOSAL_ONLY",
+      "strict_visual_acceptance": false,
+      "strict_visual_acceptance_reason": "Retained official Act-PDF legal-content captures were reread and official Legislature/OCR text was retrieved without opening a desktop browser. No fresh browser-address-bar domain capture is claimed; C3 acceptance remains separate from legal truth.",
+      "final_visual_acceptance": {
+        "strict_acceptance": false,
+        "reason": "HISTORICAL_OFFICIAL_PDF_CROPS_AND_CURRENT_OFFICIAL_TEXT_REVIEWED_WITHOUT_FRESH_BROWSER_DOMAIN_CAPTURE",
+        "legal_truth_affected": false
+      },
+      "independent_review": {
+        "geo": "VI",
+        "territory": "U.S. Virgin Islands",
+        "review_mode": "INDEPENDENT_OFFICIAL_EVIDENCE_FIRST",
+        "proposal_only": true,
+        "jurisdiction": {
+          "territory_type": "UNITED_STATES_UNINCORPORATED_TERRITORY_WITH_OWN_LEGISLATURE",
+          "applicable_law": "Virgin Islands Cannabis Use Act, Act No. 8680, enacted 2023-01-18, amending Title 19 of the Virgin Islands Code.",
+          "source_owner_vs_jurisdiction": "The U.S. Virgin Islands Legislature Act and OCR sources apply directly to VI. No federal or mainland-state cannabis regime is substituted.",
+          "disputed_or_composite": false
+        },
+        "official_truth_color": "GREEN",
+        "truth_color": "GREEN",
+        "truth_status": "CURRENT_OPERATIONAL_MEDICAL_CANNABIS_PATIENT_ACCESS_THROUGH_REGISTERED_PATIENT_CERTIFIED_PRACTITIONER_AND_STATUTORY_PERSONAL_MEDICINAL_CULTIVATION",
+        "color_rule": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_REGISTERED_PATIENT_CERTIFIED_PRACTITIONER_AND_STATUTORY_PERSONAL_MEDICINAL_CULTIVATION_AXES",
+        "reviewed_at": "2026-08-12",
+        "legal_interpretation": "Proposal-only GREEN under the general operational-patient-access rule. Act 8680 is the direct VI cannabis statute: its retained official legal-content crops establish qualified-patient protections and personal medicinal-cultivation limits. The official Legislature's March 2025 report records that the online Cannabis Registry was live with certified practitioners and registered medical patients; the July 2025 OCR testimony records live patient identification cards, registered patients and renewal processing. Together those current operational sources prove an active eligible-patient, certified-practitioner and registration/card route, while Act 8680 supplies the cannabis-specific lawful personal medicinal cultivation source. Pending cultivation, manufacturing and dispensary applications are expressly excluded from supply or retail operation, and the adult-use/retail launch is not used to derive Green. The Act's C1 timeout is access metadata only and cannot negate the visually reread official statutory text.",
+        "source_record_refs": [
+          "https://ocr.vi.gov/wp-content/uploads/2023/01/8680.pdf#page=1",
+          "https://legvi.org/committee-receives-updates-from-dpnr-port-authority-office-of-cannabis-regulation/",
+          "https://legvi.org/committeemeetings/Budget%2C%20Appropriations%20and%20Finance/FY%202026%20Budget%20Hearings/07-23-2025%20DLCA%20CCC%20BIT/Licensing%20and%20Consumer%20Affairs/Testimony/OCR%20Budget%20Hearing%20Testimony%202025-07-23.pdf#page=3"
+        ],
+        "evidence_axes": {
+          "patient_eligible": {
+            "value": "YES_CURRENT_REGISTERED_PATIENT_COHORT",
+            "source_url": "https://legvi.org/committeemeetings/Budget%2C%20Appropriations%20and%20Finance/FY%202026%20Budget%20Hearings/07-23-2025%20DLCA%20CCC%20BIT/Licensing%20and%20Consumer%20Affairs/Testimony/OCR%20Budget%20Hearing%20Testimony%202025-07-23.pdf#page=3",
+            "exact_fragment": "The OCR's official hearing testimony records active patient identification cards, registered medical patients, pending applications and patient-registration renewals.",
+            "effective_date": "2025-07-23",
+            "applicability": "Official VI Office of Cannabis Regulation testimony to the VI Legislature.",
+            "confidence": "HIGH_FOR_REPORTED_ACTIVE_PATIENT_COHORT",
+            "reviewed_by_human_visual": false
+          },
+          "prescriber_route": {
+            "value": "YES_CURRENT_CERTIFIED_PRACTITIONER_ROUTE",
+            "source_url": "https://legvi.org/committee-receives-updates-from-dpnr-port-authority-office-of-cannabis-regulation/",
+            "exact_fragment": "The official Legislature report states that the online Cannabis Registry lets individuals apply for and receive certification and records certified practitioners in both VI districts.",
+            "effective_date": "2025-03-11",
+            "applicability": "Official VI OCR programme report to the VI Legislature.",
+            "confidence": "HIGH_FOR_REPORTED_CERTIFIED_PRACTITIONER_ROUTE",
+            "reviewed_by_human_visual": false
+          },
+          "registration_route": {
+            "value": "YES_CURRENT_ONLINE_REGISTRY_AND_PATIENT_IDENTIFICATION_CARD",
+            "source_url": "https://legvi.org/committee-receives-updates-from-dpnr-port-authority-office-of-cannabis-regulation/",
+            "exact_fragment": "The Legislature report says the Cannabis Registry launched in January 2024 and allows individuals to apply for and receive certification online; later OCR testimony records live patient identification cards and renewal processing.",
+            "effective_date": "2025-03-11",
+            "applicability": "VI territory-wide Office of Cannabis Regulation programme.",
+            "confidence": "HIGH_FOR_OPERATIONAL_REGISTRY_AND_CARD",
+            "reviewed_by_human_visual": false
+          },
+          "lawful_supply": {
+            "value": "YES_STATUTORY_PERSONAL_MEDICINAL_CULTIVATION_FOR_QUALIFIED_PATIENTS",
+            "source_url": "https://ocr.vi.gov/wp-content/uploads/2023/01/8680.pdf#page=1",
+            "exact_fragment": "Act 8680 section 779 protects Qualified Patients and sets their medical possession and personal medicinal-cultivation limits.",
+            "effective_date": "2023-01-18",
+            "applicability": "Direct VI territorial statute, Title 19 chapter 34.",
+            "confidence": "HIGH_FOR_STATUTORY_PERSONAL_PATIENT_SUPPLY_NOT_RETAIL",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-8/VI/screenshots/pdf_pages/VI-act8680-qualified-patient-possession-cultivation.png"
+          },
+          "pharmacy_or_dispensary": {
+            "value": "UNKNOWN_NO_ISSUED_DISPENSARY_LICENCE_OR_LIVE_DISPENSING_SOURCE_PROVEN",
+            "reason": "Official 2025 testimony describes applications or pending evaluations, which are not issued licences or current dispensing proof. This absence is not a prohibition conclusion."
+          },
+          "import_route": {
+            "value": "UNKNOWN",
+            "reason": "No VI patient-import route was required for or established by this packet."
+          },
+          "programme_operational": {
+            "value": "YES_CURRENT_OFFICIAL_REGISTRY_CARD_PRACTITIONER_AND_RENEWAL_REPORTS",
+            "source_url": "https://legvi.org/committeemeetings/Budget%2C%20Appropriations%20and%20Finance/FY%202026%20Budget%20Hearings/07-23-2025%20DLCA%20CCC%20BIT/Licensing%20and%20Consumer%20Affairs/Testimony/OCR%20Budget%20Hearing%20Testimony%202025-07-23.pdf#page=3",
+            "exact_fragment": "OCR reports that patient identification cards had been live for one year, with registered patients and the first registration renewals in process.",
+            "effective_date": "2025-07-23",
+            "applicability": "VI Office of Cannabis Regulation patient programme.",
+            "confidence": "HIGH_FOR_OPERATIONAL_PATIENT_PROGRAMME_NOT_RETAIL_MARKET",
+            "reviewed_by_human_visual": false
+          },
+          "programme_commenced": {
+            "value": "YES_CURRENT_REGISTRY_LAUNCHED_2024_AND_OPERATION_REPORTED_2025",
+            "source_url": "https://legvi.org/committee-receives-updates-from-dpnr-port-authority-office-of-cannabis-regulation/",
+            "exact_fragment": "The official report identifies the Cannabis Registry as launched in January 2024 and records current certifications and registered patients in March 2025.",
+            "effective_date": "2025-03-11",
+            "applicability": "VI territory-wide programme implementation.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": false
+          },
+          "recreational_possession": {
+            "value": "STATUTORY_ADULT_LIMIT_RECORDED_BUT_NOT_USED_FOR_COLOR",
+            "source_url": "https://ocr.vi.gov/wp-content/uploads/2023/01/8680.pdf#page=1",
+            "exact_fragment": "Act 8680 section 785 permits an adult over twenty-one years of age to possess stated amounts of cannabis, concentrate and cannabis products.",
+            "effective_date": "2023-01-18",
+            "applicability": "Direct VI territorial statute.",
+            "confidence": "HIGH_FOR_STATUTORY_TEXT; CURRENT_ADULT_RETAIL_OR_RULE_IMPLEMENTATION_NOT_INFERRED",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-8/VI/screenshots/pdf_pages/VI-act8680-adult-users-possession-limits.png"
+          },
+          "recreational_supply": {
+            "value": "UNKNOWN_PENDING_BUSINESS_APPLICATIONS_ARE_NOT_ISSUED_LICENCES",
+            "reason": "The 2025 official OCR testimony separates business applications and pending evaluations from patient operation; no retail or licensed supply conclusion is made."
+          },
+          "recreational_cultivation": {
+            "value": "NOT_USED_FOR_COLOR",
+            "reason": "This packet relies only on the qualified-patient personal medicinal-cultivation axis, not a general adult-cultivation inference."
+          },
+          "penalty_regime": {
+            "value": "REGULATED_PROTECTED_CONDUCT_ONLY",
+            "source_url": "https://ocr.vi.gov/wp-content/uploads/2023/01/8680.pdf#page=1",
+            "exact_fragment": "Act section 6 states compliant chapter 34 possession or commercial cannabis activity is not a Title 19 chapter 29 section 607a violation; the Act retains penalties for conduct outside chapter 34.",
+            "effective_date": "2023-01-18",
+            "applicability": "Direct VI territorial statute.",
+            "confidence": "HIGH",
+            "reviewed_by_human_visual": true,
+            "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-8/VI/screenshots/pdf_pages/VI-act8680-title19-cannabis-possession-not-violation.png"
+          }
+        },
+        "visual_acceptance": {
+          "legal_truth_visual_review_complete": true,
+          "strict_visual_acceptance": false,
+          "reason": "Retained official Act-PDF crops were visually reread; current official Legislature/OCR evidence was retrieved without a browser window. Domain/address-bar acceptance remains a C3 task and does not change legal truth."
+        },
+        "confidence": "HIGH_FOR_CURRENT_OPERATIONAL_REGISTERED_PATIENT_CERTIFIED_PRACTITIONER_AND_STATUTORY_PERSONAL_MEDICINAL_CULTIVATION_ROUTE",
+        "production_guard": {
+          "APPLY_ALLOWED": false,
+          "PRODUCTION_TOUCHED": false,
+          "MAP_COLORS_CHANGED": false,
+          "SSOT_CHANGED": false
+        }
+      }
     },
     {
       "geo": "VU",

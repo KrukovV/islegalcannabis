@@ -29,7 +29,7 @@
     "colorReauditDirectOrComposite": 31,
     "colorReauditContextClaimantOrNegative": 8,
     "supplementalOfficialLinks": 32,
-    "allPublishedOfficialLinks": 1372,
+    "allPublishedOfficialLinks": 1375,
     "rowsWithPublishedOfficialLinks": 307,
     "rowsWithAnyOfficialUrl": 307
   },
@@ -88113,14 +88113,36 @@
         "medical": "REGULATED; OFFICIAL_ACT_8680_VISIBLY_CONTINUES_MEDICINAL_CANNABIS_AUTHORIZATION_WITH_MEDICAL_CANNABIS_PATIENT_CARD_QUALIFIED_PATIENT_RIGHTS_MEDICAL_POSSESSION_LIMITS_AND_PERSONAL_MEDICINAL_CULTIVATION_LIMITS",
         "enforcement": "REGULATED_WITH_PENALTIES_FOR_UNLICENSED_OR_UNPROTECTED_CONDUCT; OFFICIAL_ACT_8680_VISIBLY_LEGALIZES_PROTECTED_ADULT_MEDICINAL_AND_SACRAMENTAL_CONDUCT_WHILE_RETAINING_CIVIL_CRIMINAL_AND_ADMINISTRATIVE_PENALTIES_FOR_CONDUCT_OUTSIDE_THE_CHAPTER"
       },
-      "independentTruth": null,
+      "independentTruth": {
+        "color": "GREEN",
+        "rule": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_REGISTERED_PATIENT_CERTIFIED_PRACTITIONER_AND_STATUTORY_PERSONAL_MEDICINAL_CULTIVATION_AXES",
+        "reviewedAt": "2026-08-12",
+        "conclusion": "Proposal-only GREEN under the general operational-patient-access rule. Act 8680 is the direct VI cannabis statute: its retained official legal-content crops establish qualified-patient protections and personal medicinal-cultivation limits. The official Legislature's March 2025 report records that the online Cannabis Registry was live with certified practitioners and registered medical patients; the July 2025 OCR testimony records live patient identification cards, registered patients and renewal processing. Together those current operational sources prove an active eligible-patient, certified-practitioner and registration/card route, while Act 8680 supplies the cannabis-specific lawful personal medicinal cultivation source. Pending cultivation, manufacturing and dispensary applications are expressly excluded from supply or retail operation, and the adult-use/retail launch is not used to derive Green. The Act's C1 timeout is access metadata only and cannot negate the visually reread official statutory text."
+      },
       "directOfficialCannabisLawLinks": [
         {
           "title": "Office of Cannabis Regulation, U.S. Virgin Islands - Act No. 8680 / Virgin Islands Cannabis Use Act",
           "url": "https://ocr.vi.gov/wp-content/uploads/2023/01/8680.pdf",
           "sourceKind": "US_VIRGIN_ISLANDS_ACT_8680_VIRGIN_ISLANDS_CANNABIS_USE_ACT_ADULT_MEDICINAL_SACRAMENTAL_REGULATED_SYSTEM_AND_POSSESSION_LIMITS",
+          "sourceOwnerGeo": "VI",
+          "appliesToGeos": [
+            "VI"
+          ],
+          "legalBasisForExtension": "Act of the Legislature of the U.S. Virgin Islands amending Title 19 of the Virgin Islands Code. It applies directly within VI; no United States federal or state extension is inferred.",
+          "officialPublisher": "Legislature of the U.S. Virgin Islands; official publication by the Office of Cannabis Regulation",
+          "sourceType": "PRIMARY_TERRITORIAL_CANNABIS_ADULT_USE_AND_MEDICAL_STATUTE",
+          "primaryOrContext": "PRIMARY_CURRENT_TERRITORIAL_LAW",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "screenshotValid": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T01:06:49.153Z",
             "final_url": "https://ocr.vi.gov/wp-content/uploads/2023/01/8680.pdf",
             "http_status": null,
             "etag": null,
@@ -88128,10 +88150,10 @@
             "content_type": null,
             "content_length": null,
             "document_sha256": null,
-            "relevant_fragment_sha256": null,
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "relevant_fragment_sha256": "90913538ed2990ab36042fb4b5f5f0371bd75c8278f7ce0c3927d5b715ecfee6",
+            "revalidation_state": "ACCESS_BLOCKED",
+            "access_state": "TIMEOUT",
+            "change_reason": "TIMEOUT_IS_ACCESS_STATE_ONLY",
             "queue": [
               "C2",
               "C3"
@@ -88143,18 +88165,203 @@
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official U.S. Virgin Islands Office of Cannabis Regulation PDF of Act No. 8680, Bill No. 34-0345. Visual review confirms the Act amends Title 19 of the Virgin Islands Code to expand legalization of cannabis from medicinal use to include Adult Use Cannabis; chapter 34 is the Virgin Islands Cannabis Use Act; section 775 establishes a regulated system for cultivation, manufacture and sale of cannabis for adult, medicinal and sacramental use; section 779 protects Qualified Patients and sets medical possession/cultivation limits; section 785 permits adults over 21 to possess up to two ounces of cannabis, fourteen grams of cannabis concentrate and one ounce of cannabis products; section 806/807 style penalty pages retain penalties for conduct outside the chapter; and section 6 states compliant chapter 34 cannabis possession/commercial cannabis activity is not a violation of Title 19 chapter 29 section 607a.",
+          "note": "Act No. 8680 expands legalization of Cannabis from medicinal use to Adult Use Cannabis. Section 775 establishes a regulated system for cultivation, manufacture and sale for adult, medicinal and sacramental use. Section 785 permits an adult over twenty-one years of age to possess two ounces of Cannabis, fourteen grams of Cannabis concentrate, or one ounce of Cannabis products. Section 6 provides that compliant chapter 34 cannabis possession or commercial activity is not a Title 19 chapter 29 section 607a violation; section 7 makes the stated Act sections effective upon enactment.",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-8/VI/screenshots/pdf_pages/VI-act8680-virgin-islands-cannabis-use-act-purpose.png",
-          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "U.S. Virgin Islands is closed as visually verified direct official cannabis-law evidence. Official Act 8680 creates the Virgin Islands Cannabis Use Act, expands legalization from medicinal to adult-use cannabis, establishes regulated adult/medicinal/sacramental cannabis systems, permits adult 21+ possession limits and regulated qualified patient medical possession/cultivation, while preserving penalties for conduct outside the Act. Project ILLEGAL/NONE/STRICT is a direct mismatch against the official law. No project status SSOT was changed."
+          "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
+          "visualReview": "Retained official-PDF legal-content captures show the owner, cannabis-specific Act and section-785 possession rule. They establish legal truth but not fresh address-bar acceptance."
         }
       ],
       "candidateLinksAwaitingVisualReview": [],
       "officialContextLinks": [
         {
+          "title": "Legislature of the U.S. Virgin Islands - 11 March 2025 Office of Cannabis Regulation operational update",
+          "url": "https://legvi.org/committee-receives-updates-from-dpnr-port-authority-office-of-cannabis-regulation/",
+          "sourceKind": "US_VIRGIN_ISLANDS_LEGISLATURE_OCR_OPERATIONAL_REPORT_MEDICAL_REGISTRY_CERTIFIED_PRACTITIONERS",
+          "sourceOwnerGeo": "VI",
+          "appliesToGeos": [
+            "VI"
+          ],
+          "legalBasisForExtension": "Official Legislature report of the territorial Office of Cannabis Regulation's implementation update. It reports VI programme operation only and does not extend law outside VI.",
+          "officialPublisher": "Legislature of the U.S. Virgin Islands reporting the Office of Cannabis Regulation",
+          "sourceType": "OFFICIAL_TERRITORIAL_PROGRAMME_OPERATION_REPORT",
+          "primaryOrContext": "CURRENT_OPERATIONAL_PATIENT_AXIS_SOURCE",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": false,
+          "screenshotValid": false,
+          "revalidation": {
+            "checked_at": "2026-08-12T01:06:49.153Z",
+            "final_url": "https://legvi.org/committee-receives-updates-from-dpnr-port-authority-office-of-cannabis-regulation",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 375751,
+            "document_sha256": "6a70057da30f5451d8c1ee8e4d6d312eb1850e2c745767b376871a8ad749960b",
+            "relevant_fragment_sha256": "857eb09ed9ad63aa5663d4317abf7ea5860e3390b12214815908a801140c65ed",
+            "revalidation_state": "CONTENT_CHANGED",
+            "access_state": "HTTP_OK",
+            "change_reason": "DOCUMENT_SHA256_CHANGED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "VI"
+            ]
+          },
+          "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
+          "confidence": "high",
+          "note": "U.S. Virgin Islands is closed as visually verified direct official cannabis-law evidence. Official Act 8680 creates the Virgin Islands Cannabis Use Act, expands legalization from medicinal to adult-use cannabis, establishes regulated adult/medicinal/sacramental cannabis systems, permits adult 21+ possession limits and regulated qualified patient medical possession/cultivation, while preserving penalties for conduct outside the Act. Project ILLEGAL/NONE/STRICT is a direct mismatch against the official law. No project status SSOT was changed.",
+          "screenshotPath": null,
+          "visualReview": "CONTEXT_ONLY"
+        },
+        {
+          "title": "Legislature of the U.S. Virgin Islands - OCR FY 2026 budget-hearing testimony, 23 July 2025 (PDF)",
+          "url": "https://legvi.org/committeemeetings/Budget%2C%20Appropriations%20and%20Finance/FY%202026%20Budget%20Hearings/07-23-2025%20DLCA%20CCC%20BIT/Licensing%20and%20Consumer%20Affairs/Testimony/OCR%20Budget%20Hearing%20Testimony%202025-07-23.pdf",
+          "sourceKind": "US_VIRGIN_ISLANDS_LEGISLATURE_OCR_BUDGET_HEARING_TESTIMONY_2025_OPERATIONAL_PATIENT_REGISTRY_PDF",
+          "sourceOwnerGeo": "VI",
+          "appliesToGeos": [
+            "VI"
+          ],
+          "legalBasisForExtension": "Official territorial Legislature hearing record reporting the Office of Cannabis Regulation's VI implementation state. It is operational evidence for VI only.",
+          "officialPublisher": "U.S. Virgin Islands Office of Cannabis Regulation testimony filed with the Legislature",
+          "sourceType": "OFFICIAL_TERRITORIAL_PROGRAMME_OPERATION_TESTIMONY_PDF",
+          "primaryOrContext": "CURRENT_OPERATIONAL_PATIENT_AXIS_SOURCE",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": false,
+          "screenshotValid": false,
+          "revalidation": {
+            "checked_at": "2026-08-12T01:06:49.153Z",
+            "final_url": "https://legvi.org/committeemeetings/Budget%2C%20Appropriations%20and%20Finance/FY%202026%20Budget%20Hearings/07-23-2025%20DLCA%20CCC%20BIT/Licensing%20and%20Consumer%20Affairs/Testimony/OCR%20Budget%20Hearing%20Testimony%202025-07-23.pdf",
+            "http_status": 304,
+            "etag": "\"a119dd418f8db1:0\"",
+            "last_modified": "Fri, 18 Jul 2025 19:19:05 GMT",
+            "content_type": "application/pdf",
+            "content_length": 2776378,
+            "document_sha256": "90c70fe1fe3f1c48fb4928e7a51b3fd4bd754a4911603ff6a69c54bb0ba1aeb9",
+            "relevant_fragment_sha256": "6a14c1a477412ffb9d3c2958c660fe83b988689ff1f43ec9310af87affc9abe5",
+            "revalidation_state": "NOT_MODIFIED",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_304_CONDITIONAL_GET",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "VI"
+            ]
+          },
+          "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
+          "confidence": "high",
+          "note": "U.S. Virgin Islands is closed as visually verified direct official cannabis-law evidence. Official Act 8680 creates the Virgin Islands Cannabis Use Act, expands legalization from medicinal to adult-use cannabis, establishes regulated adult/medicinal/sacramental cannabis systems, permits adult 21+ possession limits and regulated qualified patient medical possession/cultivation, while preserving penalties for conduct outside the Act. Project ILLEGAL/NONE/STRICT is a direct mismatch against the official law. No project status SSOT was changed.",
+          "screenshotPath": null,
+          "visualReview": "CONTEXT_ONLY"
+        },
+        {
+          "title": "Legislature of the U.S. Virgin Islands - 11 September 2024 Act 8680 implementation and rules-status report",
+          "url": "https://legvi.org/committee-receives-status-update-on-office-of-cannabis-regulation-considers-cannabis-use-bill/",
+          "sourceKind": "US_VIRGIN_ISLANDS_LEGISLATURE_ACT_8680_IMPLEMENTATION_AND_RULES_STATUS_CONTEXT",
+          "sourceOwnerGeo": "VI",
+          "appliesToGeos": [
+            "VI"
+          ],
+          "legalBasisForExtension": "Official territorial Legislature report about implementation of the Virgin Islands Cannabis Use Act. Historical lifecycle context for VI only.",
+          "officialPublisher": "Legislature of the U.S. Virgin Islands reporting the Office of Cannabis Regulation",
+          "sourceType": "OFFICIAL_TERRITORIAL_LIFECYCLE_AND_IMPLEMENTATION_CONTEXT",
+          "primaryOrContext": "HISTORICAL_IMPLEMENTATION_CONTEXT_ONLY",
+          "cannabisSpecific": true,
+          "effective": false,
+          "current": false,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": false,
+          "screenshotValid": false,
+          "revalidation": {
+            "checked_at": "2026-08-12T00:00:00.000Z",
+            "final_url": "https://legvi.org/committee-receives-status-update-on-office-of-cannabis-regulation-considers-cannabis-use-bill/",
+            "http_status": null,
+            "etag": null,
+            "last_modified": null,
+            "content_type": null,
+            "content_length": null,
+            "document_sha256": null,
+            "relevant_fragment_sha256": null,
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "NOT_CHECKED_LOCAL_ONLY",
+            "change_reason": "HISTORICAL_IMPLEMENTATION_CONTEXT_NOT_A_CURRENT_LEGAL_AXIS_INPUT",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "VI"
+            ]
+          },
+          "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
+          "confidence": "high",
+          "note": "U.S. Virgin Islands is closed as visually verified direct official cannabis-law evidence. Official Act 8680 creates the Virgin Islands Cannabis Use Act, expands legalization from medicinal to adult-use cannabis, establishes regulated adult/medicinal/sacramental cannabis systems, permits adult 21+ possession limits and regulated qualified patient medical possession/cultivation, while preserving penalties for conduct outside the Act. Project ILLEGAL/NONE/STRICT is a direct mismatch against the official law. No project status SSOT was changed.",
+          "screenshotPath": null,
+          "visualReview": "CONTEXT_ONLY"
+        },
+        {
           "title": "Office of Cannabis Regulation, U.S. Virgin Islands - 2024 VICUA Rules and Regulations public PDF",
           "url": "https://ocr.vi.gov/wp-content/uploads/2024/02/2024-VICUA-Rules-Public.pdf",
           "sourceKind": "US_VIRGIN_ISLANDS_OCR_VICUA_RULES_CONTEXT_STATUTORY_AUTHORITY_ADULT_USE_MEDICAL_REGISTRY_LICENSES_ENFORCEMENT",
+          "sourceOwnerGeo": "VI",
+          "appliesToGeos": [
+            "VI"
+          ],
+          "legalBasisForExtension": "Office of Cannabis Regulation material for the U.S. Virgin Islands. It is territorial regulatory context only and does not extend any law beyond VI.",
+          "officialPublisher": "U.S. Virgin Islands Office of Cannabis Regulation",
+          "sourceType": "OFFICIAL_TERRITORIAL_CANNABIS_RULES_CONTEXT",
+          "primaryOrContext": "PROPOSED_RULES_CONTEXT_ONLY",
+          "cannabisSpecific": true,
+          "effective": false,
+          "current": false,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": false,
+          "screenshotValid": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T00:00:00.000Z",
+            "final_url": "https://ocr.vi.gov/wp-content/uploads/2024/02/2024-VICUA-Rules-Public.pdf",
+            "http_status": null,
+            "etag": null,
+            "last_modified": null,
+            "content_type": null,
+            "content_length": null,
+            "document_sha256": null,
+            "relevant_fragment_sha256": null,
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "NOT_CHECKED_LOCAL_ONLY",
+            "change_reason": "CONTEXT_ONLY_PROPOSED_RULES_NOT_A_CURRENT_LEGAL_AXIS_INPUT",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "VI"
+            ]
+          },
           "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
           "confidence": "high",
@@ -88170,7 +88377,7 @@
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
-      "strictVisualAcceptance": null,
+      "strictVisualAcceptance": false,
       "screenshotPaths": [
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-8/VI/screenshots/pdf_pages/VI-act8680-title-expand-medicinal-to-adult-use.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-8/VI/screenshots/pdf_pages/VI-act8680-virgin-islands-cannabis-use-act-purpose.png",

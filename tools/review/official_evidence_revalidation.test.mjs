@@ -185,6 +185,26 @@ test("redirect to another owner requires review and never inherits applicability
   assert.equal(result.records[0].source.source_owner_geo, "AA");
 });
 
+test("a transport redirect that normalizes only a trailing slash does not create a false owner-change review", async () => {
+  const evidence = source("https://official.example/law/");
+  const result = await runRevalidation({
+    ledger: ledger([row("AA", [evidence])]),
+    network: true,
+    fetchImpl: async () => ({
+      status: 200,
+      ok: true,
+      redirected: true,
+      url: "https://official.example/law",
+      headers: new Headers({ "content-type": "text/html" }),
+      arrayBuffer: async () => Buffer.from("cannabis exact fragment"),
+    }),
+  });
+  const revalidation = result.records[0].source.revalidation;
+  assert.equal(revalidation.final_url, "https://official.example/law");
+  assert.equal(revalidation.revalidation_state, "NEEDS_SEMANTIC_REVIEW");
+  assert.equal(revalidation.change_reason, "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED");
+});
+
 test("WAF, timeout, 403 and blank viewer are access states, not legal conclusions", async () => {
   const paths = ["waf", "timeout", "forbidden", "blank"];
   const input = ledger([row("AA", paths.map((name) => source(`https://official.example/${name}`))) ]);

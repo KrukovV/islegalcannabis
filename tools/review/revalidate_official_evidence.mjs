@@ -567,7 +567,9 @@ function applyNetworkResult(record, result, checkedAt, terms, pdfTools) {
   const { response, bytes } = result;
   const metadata = contentMetadata(response, bytes);
   const finalUrl = canonicalUrl(response.url || record.url);
-  const redirectedOwner = normalizedHost(finalUrl) !== normalizedHost(record.url);
+  const canonicalRecordUrl = canonicalUrl(record.url);
+  const redirectedOwner = normalizedHost(finalUrl) !== normalizedHost(canonicalRecordUrl);
+  const canonicalLocationChanged = finalUrl !== canonicalRecordUrl;
   let state = previous.revalidation_state;
   let accessState = "HTTP_OK";
   let reason = "";
@@ -596,9 +598,9 @@ function applyNetworkResult(record, result, checkedAt, terms, pdfTools) {
       state = "ACCESS_BLOCKED";
       accessState = WAF_OR_BLANK_RE.test(bodyText.slice(0, 2000)) ? "WAF_OR_CHALLENGE" : "BLANK_VIEWER";
       reason = `${accessState}_IS_ACCESS_STATE_ONLY`;
-    } else if (redirectedOwner || response.redirected) {
+    } else if (redirectedOwner || canonicalLocationChanged) {
       state = "REDIRECT_OR_OWNER_CHANGED";
-      reason = `FINAL_URL_CHANGED:${record.url}->${finalUrl}`;
+      reason = `FINAL_URL_CHANGED:${canonicalRecordUrl}->${finalUrl}`;
     } else if (previous.document_sha256 && previous.document_sha256 === documentHash) {
       const etagChanged = previous.etag && metadata.etag && previous.etag !== metadata.etag;
       const lastModifiedChanged = previous.last_modified && metadata.last_modified &&
