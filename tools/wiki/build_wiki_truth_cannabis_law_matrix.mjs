@@ -1052,7 +1052,7 @@ if (
 
 const directLinkCount = rows.reduce((total, row) => total + row.directOfficialCannabisLawLinks.length, 0);
 const publishedLinkCount = rows.reduce(
-  (total, row) => total + row.directOfficialCannabisLawLinks.length + row.officialContextLinks.length,
+  (total, row) => total + row.directOfficialCannabisLawLinks.length + row.officialContextLinks.length + row.supplementalOfficialLinks.length,
   0
 );
 const supplementalOfficialLinkCount = rows.reduce(

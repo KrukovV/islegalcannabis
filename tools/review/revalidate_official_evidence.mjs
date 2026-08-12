@@ -562,7 +562,7 @@ function selectRecordsForGeos(records, geos) {
   return records.filter((record) => sharedUrls.has(record.url));
 }
 
-function applyNetworkResult(record, result, checkedAt, terms, pdfTools) {
+function applyNetworkResult(record, result, checkedAt, terms, pdfTools, semanticProbeCache) {
   const previous = baseRevalidation(record, checkedAt);
   const { response, bytes } = result;
   const metadata = contentMetadata(response, bytes);
@@ -629,7 +629,14 @@ function applyNetworkResult(record, result, checkedAt, terms, pdfTools) {
       "EFFECTIVE_DATE_REVIEW_DUE",
     ].includes(state);
     if (state !== "ACCESS_BLOCKED" && contentType.includes("pdf") && bytes && semanticProbeRequired) {
-      semanticProbe = pdfTools.inspect({ buffer: bytes, terms });
+      // Different official hosts may publish byte-identical current PDFs. Preserve
+      // every source URL/owner record, but do not rerun pdftotext/pdftoppm for the
+      // same document bytes in one serial revalidation run.
+      semanticProbe = semanticProbeCache.get(documentHash);
+      if (!semanticProbe) {
+        semanticProbe = pdfTools.inspect({ buffer: bytes, terms });
+        semanticProbeCache.set(documentHash, semanticProbe);
+      }
       const extractedHash = fragmentHashFromText(semanticProbe.extracted_text, record.exactFragment);
       if (extractedHash) relevantHash = extractedHash;
     } else if (state !== "ACCESS_BLOCKED" && bodyText) {
@@ -764,6 +771,7 @@ export async function runRevalidation({
     const effectivePdfTools = pdfTools || {
       inspect: ({ buffer, terms: pdfTerms }) => inspectPdf({ buffer, terms: pdfTerms }),
     };
+    const semanticProbeCache = new Map();
     for (let offset = 0; offset < groups.length; offset += batchSize) {
       const batch = groups.slice(offset, offset + batchSize);
       for (const [url, urlRecords] of batch) {
@@ -777,7 +785,14 @@ export async function runRevalidation({
             timeoutMs,
           });
           for (const record of urlRecords) {
-            applyNetworkResult(record, result, checkedAt, effectiveTerms, effectivePdfTools);
+            applyNetworkResult(
+              record,
+              result,
+              checkedAt,
+              effectiveTerms,
+              effectivePdfTools,
+              semanticProbeCache,
+            );
           }
         } catch (error) {
           for (const record of urlRecords) applyNetworkError(record, error, checkedAt);

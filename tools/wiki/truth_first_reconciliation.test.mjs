@@ -226,6 +226,14 @@ test("matrix publishes every annotated current-ledger source with revalidation a
   }
 });
 
+test("matrix-builder published-link reporting includes supplemental official links", () => {
+  const builder = fs.readFileSync(path.join(ROOT, "tools", "wiki", "build_wiki_truth_cannabis_law_matrix.mjs"), "utf8");
+  assert.match(
+    builder,
+    /const publishedLinkCount = rows\.reduce\(\s*\(total, row\) => total \+ row\.directOfficialCannabisLawLinks\.length \+ row\.officialContextLinks\.length \+ row\.supplementalOfficialLinks\.length,/s,
+  );
+});
+
 test("matrix keeps canonical ledger official status ahead of legacy supplemental patches", () => {
   const ledger = JSON.parse(fs.readFileSync(
     path.join(ROOT, "data", "official", "cannabis_law_visual_reviews.audit.json"),

@@ -29,7 +29,7 @@
     "colorReauditDirectOrComposite": 31,
     "colorReauditContextClaimantOrNegative": 8,
     "supplementalOfficialLinks": 32,
-    "allPublishedOfficialLinks": 1407,
+    "allPublishedOfficialLinks": 1409,
     "rowsWithPublishedOfficialLinks": 307,
     "rowsWithAnyOfficialUrl": 307
   },
@@ -86280,37 +86280,49 @@
         "medical": "NONE_OR_ONLY_GENERAL_MEDICINAL_CANNABIS_MEDICAL_NECESSITY_LANGUAGE; ACT_VISIBLY_DEFINES_MEDICINAL_CANNABIS_AS_EXTRACT_OR_TINCTURE_AND_SECTION_69_ALLOWS_SUPPLY_OF_NARCOTIC_DRUGS_TO_ADDICTS_OR_OTHERS_WHERE_MEDICALLY_NECESSARY_BUT_NO_CANNABIS_SPECIFIC_PATIENT_ACCESS_PROGRAM_WAS_VISUALLY_CONFIRMED",
         "enforcement": "STRICT; SECTION_11_VISIBLY_CARRIES_IMPRISONMENT_NOT_LESS_THAN_THIRTY_YEARS_FOR_PROHIBITED_PLANT_CULTIVATION_OR_DEALING_SECTION_15_TRAFFICKING_CARRIES_LIFE_IMPRISONMENT_AND_SECTION_18_SMALL_QUANTITY_POSSESSION_OR_USE_CAN_CARRY_IMPRISONMENT"
       },
-      "independentTruth": null,
+      "independentTruth": {
+        "color": "RED",
+        "rule": "GENERAL_CURRENT_CANNABIS_SPECIFIC_RECREATIONAL_PROHIBITION_WITH_GENERIC_TREATMENT_AND_REGULATION_NON_PROMOTION_BOUNDARY",
+        "reviewedAt": "2026-08-12T13:39:00+03:00",
+        "conclusion": null
+      },
       "directOfficialCannabisLawLinks": [
         {
           "title": "Tanzania National Prosecution Service - Drug Control and Enforcement Act, Cap. 95 R.E. 2023",
           "url": "https://www.nps.go.tz/uploads/documents/sw-1751202638-THE%20DRUG%20CONTROL%20AND%20ENFORCEMENT%20ACT.pdf",
           "sourceKind": "TANZANIA_NPS_DRUG_CONTROL_AND_ENFORCEMENT_ACT_CAP_95_RE_2023_CANNABIS_DEFINITIONS_PROHIBITED_PLANT_CULTIVATION_TRAFFICKING_POSSESSION_SCHEDULES",
-          "evidenceScope": null,
-          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
-          "confidence": "high",
-          "note": "Official National Prosecution Service PDF of Tanzania's Drug Control and Enforcement Act, Cap. 95 R.E. 2023. Visual review confirms the Chapter 95 title and arrangement of sections, cannabis definitions, medicinal cannabis definition as extract or tincture of cannabis, production and prohibited-plant definitions including cannabis and cannabis plant, Section 11 prohibition of cultivation/dealing with prohibited plants with imprisonment not less than thirty years, Sections 15 and 16 trafficking offences with life imprisonment for trafficking and not less than thirty years for lesser trafficking quantities including cannabis or khat, Section 18 small-quantity possession/use offence carrying fines or imprisonment, Section 69 treatment-centre/supply language for addicts and medical necessity, and schedules listing cannabis, cannabis resin, extracts and tinctures.",
-          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-23/TZ/screenshots/pdf_pages/TZ-nps-act-cannabis-definitions.png",
-          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "Tanzania is closed as visually verified direct official cannabis-law evidence from NPS and Parliament PDFs. Project ILLEGAL/NONE/STRICT is supported, with a disclosed medicinal-cannabis-definition and medical-necessity caveat rather than a project status change. No project status SSOT was changed."
-        },
-        {
-          "title": "Parliament of Tanzania - Drug Control and Enforcement (General) Regulations, 2016, G.N. No. 173",
-          "url": "https://www.parliament.go.tz/uploads/documents/sw-1738844545-1476204842-GN%20173-DRUGS%20CONTROL%20AND%20ENFORCEMENT%20%28GENERAL%29%20REGULATIONS%2C%202016.pdf",
-          "sourceKind": "TANZANIA_PARLIAMENT_DRUG_CONTROL_AND_ENFORCEMENT_GENERAL_REGULATIONS_2016_CANNABIS_HERB_SMALL_QUANTITY_SAMPLING",
+          "sourceOwnerGeo": "TZ",
+          "appliesToGeos": [
+            "TZ"
+          ],
+          "legalBasisForExtension": "Direct national statute published by Tanzania's National Prosecution Service; the OAG MIS revised-Act record independently publishes the identical current PDF.",
+          "officialPublisher": "Official National Prosecution Service legislation publication of Tanzania's revised Drug Control and Enforcement Act, Cap. 95 R.E. 2023.",
+          "sourceAnnotation": "Current official Cap. 95 source. The direct cannabis definition bridges section 11's prohibited-plant offence to cannabis; the separate current OAG download has the same document SHA-256. The section 69 treatment clause is retained as an exception boundary and is never promoted from generic controlled-drug wording to cannabis-specific patient access, YELLOW or GREEN evidence.",
+          "sourceType": "CURRENT_OFFICIAL_NATIONAL_STATUTE_PDF",
+          "primaryOrContext": "CURRENT_PRIMARY_CANNABIS_SCOPE_AND_RECREATIONAL_PROHIBITION_WITH_SEPARATE_GENERIC_TREATMENT_BOUNDARY",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
-            "final_url": "https://www.parliament.go.tz/uploads/documents/sw-1738844545-1476204842-GN%20173-DRUGS%20CONTROL%20AND%20ENFORCEMENT%20%28GENERAL%29%20REGULATIONS%2C%202016.pdf",
-            "http_status": null,
+            "checked_at": "2026-08-12T10:26:14.781Z",
+            "final_url": "https://www.nps.go.tz/uploads/documents/sw-1751202638-THE%20DRUG%20CONTROL%20AND%20ENFORCEMENT%20ACT.pdf",
+            "http_status": 200,
             "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "last_modified": "Sun, 29 Jun 2025 13:10:38 GMT",
+            "content_type": "application/pdf",
+            "content_length": 1766377,
+            "document_sha256": "65c9d040e654be863807e2f475c2c0b7be7f44d98a5a319ec26f4c323173802f",
+            "relevant_fragment_sha256": "d89dff3ba05461d24cb024ce9b649370dcda3bbc64731cd0e9d2fbb11aea49f6",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -86322,10 +86334,166 @@
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official Parliament of Tanzania PDF of the Drug Control and Enforcement (General) Regulations, 2016, G.N. No. 173, made under Section 67 of the Act. Visual review confirms the title, cannabis herb definition as dried leaves and flowering tops of the plant of the genus cannabis, small-quantity thresholds of cannabis not exceeding 50g and cannabis resin or cannabis oil not exceeding 5g, and sampling/bunching provisions for cannabis resin, cannabis herb and khat. This is direct official cannabis-law regulation evidence.",
-          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-23/TZ/screenshots/pdf_pages/TZ-parliament-regulations-cannabis-herb-definition.png",
-          "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
-          "visualReview": "Tanzania is closed as visually verified direct official cannabis-law evidence from NPS and Parliament PDFs. Project ILLEGAL/NONE/STRICT is supported, with a disclosed medicinal-cannabis-definition and medical-necessity caveat rather than a project status change. No project status SSOT was changed."
+          "note": "“prohibited plant” means cannabis plant, khat plant, coca plant, papaver somniferum or opium poppy and papaver setigerum;",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-23/TZ/screenshots/pdf_pages/TZ-nps-act-cannabis-definitions.png",
+          "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
+          "visualReview": "Retained official PDF crops show the NPS Act title, cannabis definitions, section 11 and section 69 material. C1 HTTP 200 returned the same bytes as the current OAG revised-Act download and C2 re-read the exact statutory chain. Browser chrome is not asserted; strict visual acceptance is separate from legal truth."
+        },
+        {
+          "title": "Parliament of Tanzania - Drug Control and Enforcement (General) Regulations, 2016, G.N. No. 173",
+          "url": "https://www.parliament.go.tz/uploads/documents/sw-1738844545-1476204842-GN%20173-DRUGS%20CONTROL%20AND%20ENFORCEMENT%20%28GENERAL%29%20REGULATIONS%2C%202016.pdf",
+          "sourceKind": "TANZANIA_PARLIAMENT_DRUG_CONTROL_AND_ENFORCEMENT_GENERAL_REGULATIONS_2016_CANNABIS_HERB_SMALL_QUANTITY_SAMPLING",
+          "sourceOwnerGeo": "TZ",
+          "appliesToGeos": [
+            "TZ"
+          ],
+          "legalBasisForExtension": "Direct national subsidiary legislation made under section 67 of Tanzania's Drug Control and Enforcement Act.",
+          "officialPublisher": "Official Parliament of Tanzania publication of Government Notice No. 173 under the Drug Control and Enforcement Act, Cap. 95.",
+          "sourceAnnotation": "Official cannabis-specific subsidiary-law source. The small-quantity thresholds are evidence of classification and procedure only; they never decriminalise possession or create patient access. The current Cap. 95 statute supplies the prohibition and the separate generic-treatment boundary.",
+          "sourceType": "OFFICIAL_NATIONAL_SUBSIDIARY_LEGISLATION_PDF",
+          "primaryOrContext": "PRIMARY_CANNABIS_DEFINITION_AND_PROCEDURAL_QUANTITY_CONTEXT_NOT_PATIENT_ACCESS",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T10:26:14.781Z",
+            "final_url": "https://www.parliament.go.tz/uploads/documents/sw-1738844545-1476204842-GN%20173-DRUGS%20CONTROL%20AND%20ENFORCEMENT%20%28GENERAL%29%20REGULATIONS%2C%202016.pdf",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": "Sun, 09 Feb 2025 13:44:43 GMT",
+            "content_type": "application/pdf",
+            "content_length": 276876,
+            "document_sha256": "aebc6953c472c71609d39ca2b57007e29418cf70247386c0aba5f5628ab01fe0",
+            "relevant_fragment_sha256": "a245b49019159bb90e16419c435ea96f4b52ad1763fe8569062c7d313a1450e8",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "TZ"
+            ]
+          },
+          "evidenceScope": null,
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
+          "confidence": "high",
+          "note": "“cannabis herb” means dried leaves and flowering tops of the pant of the genus cannabis;",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-08-12/TZ/screenshots/TZ-parliament-regulations-cannabis-herb-page-3.png",
+          "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
+          "visualReview": "Retained official PDF crops and the 2026-08-12 decisive headless renders show the Parliament-hosted regulation title, cannabis-herb definition, small-quantity procedure and cannabis sampling provisions. Browser chrome is not asserted; visual state does not derive legal truth."
+        },
+        {
+          "title": "Attorney General's Office Management Information System - Drug Control and Enforcement Act, Cap. 95 R.E. 2023",
+          "url": "https://oagmis.oag.go.tz/portal/acts/revised/200/download",
+          "sourceKind": "TANZANIA_OAG_MIS_CURRENT_REVISED_DRUG_CONTROL_AND_ENFORCEMENT_ACT_CAP_95_RE_2023_CANNABIS_PROHIBITED_PLANT_SECTION_11",
+          "sourceOwnerGeo": "TZ",
+          "appliesToGeos": [
+            "TZ"
+          ],
+          "legalBasisForExtension": "Direct current national revised Act published by the Attorney General's Office of Tanzania.",
+          "officialPublisher": "Official Attorney General's Office Management Information System revised-Act download; the OAG MIS catalogue identifies Chapter 95 as The Drug Control and Enforcement Act.",
+          "sourceAnnotation": "Current OAG primary source and direct PDF deep links. It proves the active statutory cannabis scope and the section 11 recreational prohibition. Although it defines medicinal cannabis and contains generic medical-necessity language, neither fact proves patient eligibility, a cannabis prescriber, registry, lawful cannabis supply, dispensing, import or operational programme; generic regulator/treatment text is explicitly non-promoting.",
+          "sourceType": "CURRENT_OFFICIAL_NATIONAL_REVISED_STATUTE_PDF",
+          "primaryOrContext": "CURRENT_PRIMARY_CANNABIS_SCOPE_AND_RECREATIONAL_PROHIBITION_WITH_GENERIC_MEDICAL_NECESSITY_BOUNDARY",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": false,
+          "officialOwnerVisible": false,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T10:26:14.781Z",
+            "final_url": "https://oagmis.oag.go.tz/portal/acts/revised/200/download",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "application/pdf",
+            "content_length": 1766377,
+            "document_sha256": "65c9d040e654be863807e2f475c2c0b7be7f44d98a5a319ec26f4c323173802f",
+            "relevant_fragment_sha256": "d89dff3ba05461d24cb024ce9b649370dcda3bbc64731cd0e9d2fbb11aea49f6",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "TZ"
+            ]
+          },
+          "evidenceScope": null,
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
+          "confidence": "high",
+          "note": "“prohibited plant” means cannabis plant, khat plant, coca plant, papaver somniferum or opium poppy and papaver setigerum;",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-08-12/TZ/screenshots/TZ-oag-cap95-current-section-11-prohibition-page-17.png",
+          "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
+          "visualReview": "The C1 current OAG PDF was text-extracted in C2 and decisive pages 10, 17 and 51 were rendered headlessly. They cover the cannabis/prohibited-plant definition, section 11 prohibition and generic section 69 treatment boundary. Browser chrome and a human final acceptance are not asserted; visual acceptance is separate from legal truth."
+        },
+        {
+          "title": "Drug Control and Enforcement Authority - Cannabis (Bangi) legal-information page",
+          "url": "https://www.dcea.go.tz/pages/fact-about-marijuana",
+          "sourceKind": "TANZANIA_DCEA_CURRENT_CANNABIS_PUBLIC_LEGAL_INFORMATION_CAP_95_CRIMINAL_OFFENCE_EXPLANATION",
+          "sourceOwnerGeo": "TZ",
+          "appliesToGeos": [
+            "TZ"
+          ],
+          "legalBasisForExtension": "Official national drug-control authority public legal-information page referring directly to Cap. 95 for Tanzania.",
+          "officialPublisher": "Official Drug Control and Enforcement Authority page under the Office of the Prime Minister of the United Republic of Tanzania.",
+          "sourceAnnotation": "Current official cannabis-specific enforcement explanation, retained alongside—not instead of—the OAG/NPS primary Act PDF. It is corroborative context for recreational prohibition. Its public-information wording and any treatment discussion are never converted into patient eligibility, prescription, registration, lawful cannabis supply, dispensing, import or an operational programme.",
+          "sourceType": "CURRENT_OFFICIAL_DRUG_CONTROL_AUTHORITY_LEGAL_INFORMATION_PAGE",
+          "primaryOrContext": "CURRENT_OFFICIAL_CANNABIS_SPECIFIC_ENFORCEMENT_CONTEXT_CONFIRMING_PRIMARY_STATUTE",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": true,
+          "effectiveRuleVisible": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T10:26:14.781Z",
+            "final_url": "https://www.dcea.go.tz/pages/fact-about-marijuana",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 8731,
+            "document_sha256": "a43746aec88bb4b443239f1c2ab08232214c8771f7414741b4dfa08c113052ce",
+            "relevant_fragment_sha256": "f21498c23ac0451e8db23af581f682d4ae290931f24b5b3b95d487d0961fe217",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "TZ"
+            ]
+          },
+          "evidenceScope": null,
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
+          "confidence": "high",
+          "note": "Kwa mujibu wa Sheria ya Kudhibiti na Kupambana na Dawa za Kulevya, sura ya 95, kilimo na biashara ya bangi katika Taifa letu ni KOSA LA JINAI.",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-08-12/TZ/screenshots/TZ-dcea-cannabis-cap95-criminal-offence-headless.png",
+          "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
+          "visualReview": "The C1-retrieved DCEA page was rendered headlessly from the retained response with external subresources blocked. The official DCEA heading and the Cap. 95 cannabis criminal-offence paragraph are visible in the capture; it has no browser address bar and no human final acceptance is claimed. Visual acceptance never changes legal truth."
         }
       ],
       "candidateLinksAwaitingVisualReview": [],
@@ -86337,7 +86505,7 @@
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
-      "strictVisualAcceptance": null,
+      "strictVisualAcceptance": false,
       "screenshotPaths": [
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-23/TZ/screenshots/pdf_pages/TZ-nps-act-title.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-23/TZ/screenshots/pdf_pages/TZ-nps-act-cannabis-definitions.png",
@@ -86351,7 +86519,10 @@
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-23/TZ/screenshots/pdf_pages/TZ-nps-act-schedule-iv-cannabis-resin.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-23/TZ/screenshots/pdf_pages/TZ-parliament-regulations-title.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-23/TZ/screenshots/pdf_pages/TZ-parliament-regulations-cannabis-herb-definition.png",
-        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-23/TZ/screenshots/pdf_pages/TZ-parliament-regulations-cannabis-bunching-sampling.png"
+        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-23/TZ/screenshots/pdf_pages/TZ-parliament-regulations-cannabis-bunching-sampling.png",
+        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-08-12/TZ/screenshots/TZ-parliament-regulations-cannabis-herb-page-3.png",
+        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-08-12/TZ/screenshots/TZ-oag-cap95-current-section-11-prohibition-page-17.png",
+        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-08-12/TZ/screenshots/TZ-dcea-cannabis-cap95-criminal-offence-headless.png"
       ],
       "reviewConfidence": "high",
       "reviewNotes": "VISUALLY_VERIFIED: Tanzania is closed as visually verified direct official cannabis-law evidence from NPS and Parliament PDFs. Project ILLEGAL/NONE/STRICT is supported, with a disclosed medicinal-cannabis-definition and medical-necessity caveat rather than a project status change. No project status SSOT was changed.",

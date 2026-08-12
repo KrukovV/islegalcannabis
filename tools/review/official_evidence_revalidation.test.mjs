@@ -302,6 +302,49 @@ test("shared URL is fetched once and queues every linked GEO", async () => {
   assert.deepEqual(result.c2QueueGeos, ["AA", "BB"]);
 });
 
+test("byte-identical PDFs from separate official URLs share one C2 extraction without merging source records", async () => {
+  const firstUrl = "https://gazette-a.example/current-law.pdf";
+  const secondUrl = "https://gazette-b.example/current-law.pdf";
+  const input = ledger([row("AA", [
+    source(firstUrl),
+    source(secondUrl),
+  ])]);
+  let fetchCount = 0;
+  let inspectCount = 0;
+  const result = await runRevalidation({
+    ledger: input,
+    network: true,
+    fetchImpl: async () => {
+      fetchCount += 1;
+      return new Response(Buffer.from("same current PDF bytes"), {
+        status: 200,
+        headers: { "content-type": "application/pdf" },
+      });
+    },
+    pdfTools: {
+      inspect: () => {
+        inspectCount += 1;
+        return {
+          extractor: "pdftotext",
+          text_layer_length: 100,
+          ocr_used: false,
+          relevant_pages: [4],
+          rendered_pages: [4],
+          extracted_text: "cannabis exact fragment",
+        };
+      },
+    },
+  });
+  assert.equal(fetchCount, 2);
+  assert.equal(inspectCount, 1);
+  assert.equal(result.records.length, 2);
+  assert.notEqual(result.records[0].source.url, result.records[1].source.url);
+  assert.equal(
+    result.records[0].source.revalidation.document_sha256,
+    result.records[1].source.revalidation.document_sha256,
+  );
+});
+
 test("URL filter fetches only the requested canonical source and preserves other records", async () => {
   const wanted = source("https://official.example/current-law");
   const untouched = source("https://official.example/already-checked");
