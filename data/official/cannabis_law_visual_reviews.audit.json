@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "reviewed_at": "2026-08-11 PK independent official-law packet and CI checkpoint recorded; proposal-only.",
+  "reviewed_at": "2026-08-12 SB independent official-law packet and CI checkpoint recorded; proposal-only.",
   "archive_root": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16",
   "manifest": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/us-states/manifest.json",
   "contact_sheets": [
@@ -143320,10 +143320,117 @@
           "title": "Solomon Islands Attorney-General's Chambers - Dangerous Drugs Act (Cap. 98)",
           "url": "https://attorneygenerals.gov.sb/legislation-dashboard/download-info/dangerous-drugs-act-cap-98v2_as-at-011009/",
           "source_kind": "SOLOMON_ISLANDS_ATTORNEY_GENERAL_DANGEROUS_DRUGS_ACT_CAP98_INDIAN_HEMP_CANNABIS_DEFINITION_IMPORT_EXPORT_SEED_CULTIVATION_EXTRACT_TINCTURE_POSSESSION_MEDICAL_SCIENTIFIC_AUTHORIZATION",
+          "source_owner": "Attorney-General's Chambers, Solomon Islands Government / Ministry of Justice and Legal Affairs",
+          "source_owner_geo": "SB",
+          "source_authority": "Attorney-General's Chambers of Solomon Islands, official legislation publisher",
+          "applies_to_geo": [
+            "SB"
+          ],
+          "legal_basis_for_extension": "The Attorney-General's Chambers page publishes an Attorney-General-authorised Dangerous Drugs Act reprint for Solomon Islands, categorised as an Act Currently in Force; no foreign, parent or regional regime is used.",
+          "source_type": "CURRENT_OFFICIAL_SOLOMON_ISLANDS_PRIMARY_DANGEROUS_DRUGS_ACT_REPRINT_AND_DOWNLOAD_PAGE",
+          "primary_or_context": "PRIMARY_CANNABIS_SCOPE_RECREATIONAL_PROHIBITION_AND_GENERIC_DANGEROUS_DRUG_CONTROL_CONTEXT",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "ATTORNEY_GENERAL_AUTHORISED_REPRINT_PUBLISHED_2024_09_13_CATEGORY_ACTS_CURRENTLY_IN_FORCE",
+          "effective_date": "Official download page identifies the reprint as as at 2009-10-01 and added 2024-09-13; no later amendment, repeal or commencement statement is visible in the retained official material.",
+          "official_fragment_locator": "Dangerous Drugs Act (Cap. 98), PDF p. 6 (Indian hemp definition), p. 7 (Part I application; import/export, seed and cultivation prohibitions) and pp. 9-11 (Part III extract/tincture scope and generic dangerous-drug control/rule-making provisions).",
+          "direct_fragment_urls": [
+            "https://attorneygenerals.gov.sb/legislation-dashboard/download-info/dangerous-drugs-act-cap-98v2_as-at-011009/"
+          ],
+          "exact_fragment": "“Indian hemp” means either of the plants Cannabis sativa or Cannabis indica or any portion thereof; The provisions of this Part of this Act shall apply to raw opium, coca leaf and Indian hemp and resins obtained from Indian hemp and preparations of which such resins form the base. No person shall import or export any of the substances to which this Part of this Act applies. No person shall cultivate in Solomon Islands the opium poppy or Indian hemp or coca leaf plant.",
+          "direct_fragment": "Part III expressly includes “any extract or tincture of Indian hemp” among the dangerous drugs to which it applies, but its medical, scientific, licence, pharmacist and Minister rule-making controls are general dangerous-drug provisions rather than a cannabis-specific patient-access programme.",
+          "annotation": "Current SB primary-law source. It directly links Indian hemp to Cannabis sativa/indica and prohibits import/export and cultivation. It also preserves only a generic controlled-dangerous-drug authorisation framework for Indian-hemp extracts/tinctures; this cannot establish a cannabis patient route, a patient negative axis, a pharmacy service or a Truth Color without additional cannabis-specific applicable evidence.",
+          "applicability": "SB; Solomon Islands national Act currently published by the Attorney-General's Chambers.",
+          "legal_relevance": "Direct cannabis definition and primary recreational prohibition; generic medical/scientific controls remain non-patient context.",
+          "confidence": "HIGH_FOR_CANNABIS_SCOPE_AND_PROHIBITION_MEDIUM_FOR_MEDICAL_ACCESS_BOUNDARY",
+          "direct_fragment_available": true,
+          "reviewed_by_human_visual": true,
+          "visual_opened": true,
+          "official_host_verified": true,
+          "official_owner_visible": true,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
+          "screenshot_state": "RETAINED_OFFICIAL_AG_REPRINT_AND_DOWNLOAD_PAGE_VISUALLY_REVIEWED_NO_DESKTOP_BROWSER",
+          "visual_review_result": "Retained official Attorney-General page and PDF captures visibly show the AG owner, current-Acts category, reprint authorisation, Indian-hemp/Cannabis definition and substantive prohibition pages. Browser address-bar proof is separate from legal truth.",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-35/SB/screenshots/ag_pdf_pages/SB-ag-dangerous-drugs-act-page006-06.png",
-          "note": "Official Attorney-General's Chambers / Solomon Islands Government / Ministry of Justice and Legal Affairs download page for Dangerous-Drugs-Act-Cap.-98v2_as-at-011009.pdf, category Acts Currently in Force, D. Visual review confirms the Attorney-General-authorised reprint of the Dangerous Drugs Act (Cap. 98), the definition of Indian hemp as Cannabis sativa or Cannabis indica or any portion thereof, Part I application to Indian hemp, Indian hemp resins and resin-base preparations, prohibitions on import/export of Indian hemp and Indian hemp seeds, prohibition on cultivating Indian hemp in Solomon Islands, search/seizure/forfeiture provisions, and Part III control of any extract or tincture of Indian hemp with import/export, manufacture, sale, possession, distribution, custody, medical/scientific and authorization controls."
+          "note": "Official Attorney-General's Chambers / Solomon Islands Government / Ministry of Justice and Legal Affairs download page for Dangerous-Drugs-Act-Cap.-98v2_as-at-011009.pdf, category Acts Currently in Force, D. Visual review confirms the Attorney-General-authorised reprint of the Dangerous Drugs Act (Cap. 98), the definition of Indian hemp as Cannabis sativa or Cannabis indica or any portion thereof, Part I application to Indian hemp, Indian hemp resins and resin-base preparations, prohibitions on import/export of Indian hemp and Indian hemp seeds, prohibition on cultivating Indian hemp in Solomon Islands, search/seizure/forfeiture provisions, and Part III control of any extract or tincture of Indian hemp with import/export, manufacture, sale, possession, distribution, custody, medical/scientific and authorization controls.",
+          "revalidation": {
+            "checked_at": "2026-08-12T06:34:02.781Z",
+            "final_url": "https://attorneygenerals.gov.sb/legislation-dashboard/download-info/dangerous-drugs-act-cap-98v2_as-at-011009",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html; charset=UTF-8",
+            "content_length": 28385,
+            "document_sha256": "b2970d288aa36f721ee8d58905c1e458f0ba2e772e0309fdfc655e633e71cdbe",
+            "relevant_fragment_sha256": "458a4b8fefbe7e469cc48a5cecbfa66fe533553aceb3afff47be6005ce3210b0",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "NEEDS_SEMANTIC_REVIEW"
+            ],
+            "dependent_geos": [
+              "SB"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
         }
       ],
+      "independent_truth_color": "UNKNOWN",
+      "independent_truth_status": "LEGAL_APPLICABILITY_UNRESOLVED",
+      "independent_truth_rule": "GENERAL_CURRENT_PRIMARY_CANNABIS_PROHIBITION_WITH_GENERIC_CONTROLLED_DRUG_MEDICAL_RULES_REQUIRES_CURRENT_CANNABIS_SPECIFIC_IMPLEMENTING_CHAIN",
+      "independent_truth_reviewed_at": "2026-08-12T06:34:02Z",
+      "independent_truth_proposal_only": true,
+      "independent_review_state": "C0_C1_C2_C3_COMPLETE_PROPOSAL_ONLY",
+      "independent_review": {
+        "reviewed_at": "2026-08-12T06:34:02Z",
+        "method": "C0_LOCAL_SCHEMA_AND_DEDUPLICATION_C1_SERIAL_HTTP_C2_PDF_TEXT_EXTRACTION_C3_RETAINED_OFFICIAL_CAPTURE_REVIEW",
+        "legal_conclusion": "The SB Attorney-General reprint is current official primary evidence that defines Indian hemp as Cannabis sativa or Cannabis indica and directly prohibits import, export and cultivation. Its prescription, pharmacist, licence, medical, scientific and Ministerial controls apply generally to dangerous drugs and do not identify an operative cannabis patient route or prove its absence.",
+        "official_truth_color": "UNKNOWN",
+        "color_rule": "GENERAL_CURRENT_PRIMARY_CANNABIS_PROHIBITION_WITH_GENERIC_CONTROLLED_DRUG_MEDICAL_RULES_REQUIRES_CURRENT_CANNABIS_SPECIFIC_IMPLEMENTING_CHAIN",
+        "applicability_reason": "LEGAL_APPLICABILITY_UNRESOLVED",
+        "evidence_axes": {
+          "cannabis_specificity": "YES: current SB Act expressly defines Indian hemp as Cannabis sativa or Cannabis indica and includes Indian-hemp extracts/tinctures.",
+          "recreational_cultivation": "NO: current SB Act prohibits cultivation of Indian hemp in Solomon Islands.",
+          "medical_cannabis_law": "UNKNOWN: medical/scientific and pharmacist controls are generic dangerous-drug controls, not a cannabis-specific patient law.",
+          "patient_eligible": "UNKNOWN",
+          "prescriber_route": "UNKNOWN",
+          "lawful_supply": "UNKNOWN",
+          "programme_operational": "UNKNOWN"
+        },
+        "lifecycle": {
+          "currentness": "Attorney-General download page returned HTTP 200 on 2026-08-12 and identifies the Attorney-General-authorised reprint as an Act Currently in Force, added 2024-09-13.",
+          "rule": "Primary cannabis prohibition plus generic controlled-drug medical controls cannot prove patient access, patient-access absence, YELLOW or RED without a current cannabis-specific implementing chain."
+        },
+        "strict_visual_acceptance": "PARTIAL: retained local official Attorney-General download/PDF captures were visually reviewed without opening a desktop browser; address-bar visibility remains a final visual-acceptance concern only.",
+        "no_mutation": {
+          "APPLY_ALLOWED": false,
+          "PRODUCTION_TOUCHED": false,
+          "MAP_COLORS_CHANGED": false,
+          "SSOT_CHANGED": false
+        },
+        "audit_checkpoint": {
+          "checked_at": "2026-08-12T06:44:00+03:00",
+          "command": "CI_WRITE_ROOT=1 bash tools/pass_cycle.sh",
+          "ci_status": "PASS",
+          "smoke_status": "PASS",
+          "post_checks_ok": true,
+          "hub_stage_report_ok": true,
+          "process_slot_runtime_guard": "PASS",
+          "report_sha256": "6ab1ba62ae3a49661b539627958da5bdf9a9cbd4b122654e156451a1383da613",
+          "pass_cycle_exit": "rc=0 status=PASS guard_status=0",
+          "result": "SB_PROPOSAL_PACKET_AND_GENERATED_MATRIX_VALIDATED; no applied layer mutated"
+        },
+        "recommended_action": "Find a current SB official cannabis-specific medical, patient, supply or implementing instrument and the current personal-possession penalty clause before a colour can be derived.",
+        "confidence": "HIGH for source ownership, SB applicability, cannabis definition and cultivation prohibition; INSUFFICIENT for a complete colour conclusion."
+      },
       "verified_context_sources": [],
       "official_status": {
         "recreational": "ILLEGAL; DANGEROUS_DRUGS_ACT_CAP98_VISIBLY_DEFINES_INDIAN_HEMP_AS_CANNABIS_SATIVA_OR_CANNABIS_INDICA_OR_ANY_PORTION_THEREOF_AND_PROHIBITS_IMPORT_EXPORT_SEEDS_AND_CULTIVATION_OF_INDIAN_HEMP",
