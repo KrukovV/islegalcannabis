@@ -123294,150 +123294,6 @@
         "legal_truth_affected": false
       },
       "independent_review": {
-        "geo": "TZ",
-        "territory": "Tanzania",
-        "review_mode": "INDEPENDENT_OFFICIAL_EVIDENCE_FIRST",
-        "proposal_only": true,
-        "reviewed_at": "2026-08-12T13:39:00+03:00",
-        "official_truth_color": "RED",
-        "independent_truth_rule": "GENERAL_CURRENT_CANNABIS_SPECIFIC_RECREATIONAL_PROHIBITION_WITH_GENERIC_TREATMENT_AND_REGULATION_NON_PROMOTION_BOUNDARY",
-        "legal_conclusion": "Proposal-only RED. The current official OAG revised Act Cap. 95 R.E. 2023 directly defines cannabis plant as a prohibited plant, and section 11 makes cultivation and enumerated dealings with every prohibited plant an offence carrying not less than thirty years. The independently hosted NPS current PDF is byte-identical. The current DCEA cannabis page expressly applies Cap. 95 to cannabis cultivation, trade, storage, use and processing as criminal conduct. The Regulations' cannabis small-quantity and sampling text is procedural only. Cap. 95 section 12 is an Authority-by-regulations power and section 69 is generic supply for registered addicts/medical necessity; neither source identifies a cannabis patient, prescriber, registry, lawful cannabis supply, dispensing, import or operational programme. Those generic boundaries are not promoted to YELLOW/GREEN and do not weaken the current cannabis-specific recreational prohibition. No access result or missing screenshot derives the colour.",
-        "packet": {
-          "jurisdiction": {
-            "territory_type": "SOVEREIGN_STATE_DIRECT_DOMESTIC_LAW",
-            "applicable_law": "The Drug Control and Enforcement Act, Cap. 95 R.E. 2023, directly published by OAG MIS and NPS, with the Parliament's 2016 General Regulations and current DCEA cannabis legal-information page.",
-            "source_owner_vs_jurisdiction": "Every accepted source owner is a Tanzania national authority and every record explicitly applies to TZ; no foreign, claimant, map, SSOT, Wikipedia or prior colour is used as legal input.",
-            "disputed_or_composite": false
-          },
-          "official_truth_color": "RED",
-          "truth_color": "RED",
-          "truth_status": "CURRENT_CANNABIS_SPECIFIC_STATUTORY_PROHIBITION_WITH_GENERIC_TREATMENT_AND_REGULATORY_NON_PROMOTION_BOUNDARIES",
-          "color_rule": "GENERAL_CURRENT_CANNABIS_SPECIFIC_RECREATIONAL_PROHIBITION_WITH_GENERIC_TREATMENT_AND_REGULATION_NON_PROMOTION_BOUNDARY",
-          "reviewed_at": "2026-08-12T13:39:00+03:00",
-          "legal_interpretation": "Cap. 95 directly supplies the cannabis-to-prohibited-plant bridge and the current section 11 cultivation/dealing offence. Its section 12 is conditional Authority rulemaking power, not proof that a cannabis permission was made operative; its section 69 is a generic regulated narcotic-drug/psychotropic supply boundary, not a cannabis-specific patient instrument. G.N. 173 provides cannabis definition and quantity/sampling procedure but no lawful-possession exception. The official DCEA page is current cannabis-specific corroboration of Cap. 95, not a substitute for statute. Targeted current OAG, DCEA, Ministry of Health and TMDA discovery returned generic regulator/import/registration material but no current official cannabis patient instrument; generic material is retained as a review boundary, never treated as positive or negative patient evidence.",
-          "source_record_refs": [
-            "https://oagmis.oag.go.tz/portal/acts/revised/200/download#page=10",
-            "https://oagmis.oag.go.tz/portal/acts/revised/200/download#page=17",
-            "https://oagmis.oag.go.tz/portal/acts/revised/200/download#page=51",
-            "https://www.nps.go.tz/uploads/documents/sw-1751202638-THE%20DRUG%20CONTROL%20AND%20ENFORCEMENT%20ACT.pdf#page=17",
-            "https://www.parliament.go.tz/uploads/documents/sw-1738844545-1476204842-GN%20173-DRUGS%20CONTROL%20AND%20ENFORCEMENT%20%28GENERAL%29%20REGULATIONS%2C%202016.pdf#page=3",
-            "https://www.dcea.go.tz/pages/fact-about-marijuana"
-          ],
-          "evidence_axes": {
-            "cannabis_specificity": "YES_CURRENT_CAP_95_SECTION_2_DEFINES_CANNABIS_PLANT_AS_A_PROHIBITED_PLANT_AND_DCEA_CURRENT_PAGE_NAMES_BANGI_CANNABIS",
-            "medical_cannabis_law": "NO_CURRENT_CANNABIS_SPECIFIC_PATIENT_INSTRUMENT_PROVEN_CAP_95_DEFINES_MEDICINAL_CANNABIS_BUT_SECTION_69_IS_GENERIC_NARCOTIC_DRUG_SUPPLY_ONLY",
-            "patient_eligible": "NO_NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_CLASS_OR_ELIGIBILITY_CRITERIA_PROVEN",
-            "prescriber_route": "NO_NO_CURRENT_OFFICIAL_CANNABIS_PRESCRIBER_ROUTE_PROVEN",
-            "registration_route": "NO_NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_REGISTRY_CARD_OR_COHORT_ROUTE_PROVEN",
-            "lawful_supply": "NO_NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_SUPPLY_OR_DISPENSING_ROUTE_PROVEN_GENERIC_SECTION_69_WORDING_IS_NOT_CANNABIS_SPECIFIC_SUPPLY",
-            "pharmacy_or_dispensary": "NO_NO_CURRENT_OFFICIAL_CANNABIS_PHARMACY_OR_PATIENT_DISPENSARY_ROUTE_PROVEN",
-            "import_route": "NO_NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_IMPORT_ROUTE_PROVEN_GENERIC_TMDA_IMPORT_MATERIAL_IS_NOT_CANNABIS_PATIENT_EVIDENCE",
-            "programme_commenced": "NO_NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_PROGRAMME_COMMENCEMENT_PROVEN",
-            "programme_operational": "NO_NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_OPERATION_STOCK_DISPENSING_OR_SERVICE_PROVEN",
-            "recreational_possession": "PROHIBITED_CURRENT_CAP_95_SECTION_11_PROHIBITED_PLANT_OFFENCE_WITH_CANNABIS_PLANT_DIRECTLY_DEFINED_IN_SECTION_2",
-            "recreational_supply": "PROHIBITED_CURRENT_CAP_95_SECTION_11_ENUMERATES_SELL_PURCHASE_TRANSPORT_IMPORT_EXPORT_AND_USE_IN_RESPECT_OF_PROHIBITED_PLANTS",
-            "recreational_cultivation": "PROHIBITED_CURRENT_CAP_95_SECTION_11_1_A_CULTIVATION_OF_ANY_PROHIBITED_PLANT_WITH_CANNABIS_PLANT_DIRECTLY_LISTED",
-            "penalty_regime": "YES_CURRENT_CAP_95_SECTION_11_SETS_IMPRISONMENT_NOT_LESS_THAN_THIRTY_YEARS_FOR_THE_PROHIBITED_PLANT_OFFENCE"
-          },
-          "lifecycle": {
-            "currentness": "C1 fetched each of the four canonical URLs once at HTTP 200. Current OAG MIS and NPS Cap. 95 PDFs have the identical SHA-256 65c9d040e654be863807e2f475c2c0b7be7f44d98a5a319ec26f4c323173802f; they remain separate non-shrinking owner/URL records. The OAG PDF identifies Cap. 95 R.E. 2023 and its PDF metadata was created in 2025.",
-            "effective_date": "The current Act's section 11 is read with section 2's cannabis/prohibited-plant definition. Section 12's Authority-by-regulations clause creates no current cannabis permission without an applicable regulation; retained G.N. 173 is a definition/sampling regulation. Section 69's generic treatment-centre supply wording has no cannabis patient implementation in the reviewed current official material.",
-            "rule": "Cultivation, production, research, regulator licensing, import/export control, generic controlled-drug supply, generic treatment, generic prescription or general medical-necessity wording never become cannabis patient axes. HTTP 404, timeout, WAF, Cloudflare, blank viewers and screenshot state are access/acceptance metadata only, never legal conclusions."
-          },
-          "source_annotations": [
-            "OAG MIS current revised Cap. 95 is the primary current statute; its page-level links identify the cannabis bridge, section 11 prohibition and section 69 generic boundary.",
-            "NPS publishes the byte-identical Cap. 95 PDF and is retained as a separate official owner/currentness record, not a duplicate legal conclusion.",
-            "Parliament G.N. 173 supplies cannabis herb/resin/oil definition and small-quantity procedural context only; it is not a decriminalisation or patient-access source.",
-            "DCEA's current cannabis page directly confirms Cap. 95 criminal-offence treatment of cannabis but does not replace statutory text.",
-            "No access condition, screenshot presence, generic TMDA material or strict visual-acceptance field is input to legal colour."
-          ],
-          "visual_evidence": [
-            {
-              "path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-08-12/TZ/screenshots/TZ-oag-cap95-current-cannabis-prohibited-plant-page-10.png",
-              "visual_opened": true,
-              "official_owner_visible": false,
-              "official_domain_visible": false,
-              "cannabis_fragment_visible": true,
-              "effective_rule_visible": true,
-              "screenshot_valid": true
-            },
-            {
-              "path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-08-12/TZ/screenshots/TZ-oag-cap95-current-section-11-prohibition-page-17.png",
-              "visual_opened": true,
-              "official_owner_visible": false,
-              "official_domain_visible": false,
-              "cannabis_fragment_visible": false,
-              "effective_rule_visible": true,
-              "screenshot_valid": true
-            },
-            {
-              "path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-08-12/TZ/screenshots/TZ-oag-cap95-current-section-69-generic-boundary-page-51.png",
-              "visual_opened": true,
-              "official_owner_visible": false,
-              "official_domain_visible": false,
-              "cannabis_fragment_visible": false,
-              "effective_rule_visible": true,
-              "screenshot_valid": true
-            },
-            {
-              "path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-08-12/TZ/screenshots/TZ-parliament-regulations-cannabis-herb-page-3.png",
-              "visual_opened": true,
-              "official_owner_visible": false,
-              "official_domain_visible": false,
-              "cannabis_fragment_visible": true,
-              "effective_rule_visible": true,
-              "screenshot_valid": true
-            },
-            {
-              "path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-08-12/TZ/screenshots/TZ-dcea-cannabis-cap95-criminal-offence-headless.png",
-              "visual_opened": true,
-              "official_owner_visible": true,
-              "official_domain_visible": false,
-              "cannabis_fragment_visible": true,
-              "effective_rule_visible": true,
-              "screenshot_valid": true
-            }
-          ],
-          "visual_acceptance": {
-            "legal_truth_visual_review_complete": true,
-            "strict_visual_acceptance": false,
-            "reason": "Current decisive pages and DCEA legal-information paragraph were captured headlessly without a desktop browser; no browser address bar/domain or human final acceptance is asserted."
-          },
-          "current_layer_comparison": {
-            "project_status": "PROJECT_RECREATIONAL_ILLEGAL_AND_ENFORCEMENT_STRICT_WERE_NOT_INPUTS; INDEPENDENT_PACKET_PROVES_PROPOSAL_ONLY_RED_FROM_OFFICIAL_EVIDENCE",
-            "runtime_map_color": "UNCONFIRMED_NOT_RECAPTURED_IN_THIS_LEGAL_PACKET",
-            "runtime_api_status": "UNCONFIRMED_NOT_RECAPTURED_IN_THIS_LEGAL_PACKET",
-            "wiki_truth_proposal": "RED_PROPOSAL_AFTER_MATRIX_REBUILD_ONLY",
-            "ssot": "UNTOUCHED_NO_APPLICATION_AUTHORIZED"
-          },
-          "no_mutation": {
-            "apply_allowed": false,
-            "ssot_changed": false,
-            "map_colors_changed": false,
-            "production_touched": false,
-            "runtime_touched": false,
-            "deployment_touched": false
-          },
-          "recommended_action": "RETAIN_PROPOSAL_ONLY_RED_UNTIL_THE_SEPARATE_307_GEO_APPLY_GATE_AND_EXPLICIT_USER_AUTHORIZATION; REOPEN_IF_A_CURRENT_CANNABIS_SPECIFIC_PATIENT_ELIGIBILITY_PRESCRIBER_SUPPLY_DISPENSING_IMPORT_OR_OPERATIONAL_SOURCE_APPEARS.",
-          "confidence": "HIGH_FOR_CURRENT_CANNABIS_PROHIBITED_PLANT_AND_SECTION_11_RECREATIONAL_PROHIBITION; HIGH_FOR_NON_PROMOTION_OF_GENERIC_SECTION_12_SECTION_69_AND_TMDA_REGULATOR_MATERIAL; MEDIUM_FOR_THE_NEGATIVE_CURRENT_CANNABIS_PATIENT_ROUTE_REVIEW_BOUNDARY."
-        }
-      },
-      "official_status": {
-        "recreational": "ILLEGAL; DJBC_CONSOLIDATION_PAGE_28_VISIBLY_LISTS_CANNABIS_AND_CANNABIS_RESIN_IN_SCHEDULE_1_ILLICIT_DRUGS_AND PAGE_31_VISIBLY_LISTS_CANNABIS_FRUIT_CANNABIS_PLANT_CANNABIS_SEED_AND_CANNABIS_OIL_AS_OTHER_ILLICIT_DRUGS",
-        "medical": "NONE_AS_CANNABIS_PATIENT_PROGRAM_NOT_CONFIRMED_WITH_GENERAL_PRESCRIBED_DRUG_TRAVELLER_AND_LAWFUL_OCCUPATION_LICENSE_CAVEAT; PAGE_8_VISIBLY_ALLOWS_LIMITED_PRESCRIBED_ILLICIT_DRUG_POSSESSION_FOR_MEDICAL_TREATMENT_AND GENERAL_OCCUPATION_OR_MINISTER_LICENSE_EXEMPTIONS_BUT DOES_NOT_VISIBLY_CREATE_A_CANNABIS_PATIENT_ACCESS_PROGRAM",
-        "enforcement": "STRICT; 2004_CONSOLIDATION_PAGE_7_VISIBLY_CRIMINALIZES_UNLAWFUL_ACQUIRE_SELL_SUPPLY_POSSESS_PRODUCE_MANUFACTURE_CULTIVATE_USE_OR_ADMINISTER_ANY_ILLICIT_DRUG; 2024_RONLAW_PAGE_5_VISIBLY_SUBSTITUTES_POSSESSION_WITH_12_MONTHS_TO_3_YEARS_AND INSERTS_SECTION_6A_MANUFACTURE_CULTIVATION_SUPPLY_DEALING_WITH_LIFE_IMPRISONMENT_AND_AT_LEAST_10_YEARS_WITHOUT_PAROLE_OR_PROBATION"
-      },
-      "project_comparison": {
-        "status": "MATCH_WITH_2024_STRICT_PENALTY_UPDATE_AND_GENERAL_MEDICAL_EXEMPTION_CAVEAT",
-        "reason": "Nauru is visually verified from the Republic of Nauru / Department of Justice and Border Control Illicit Drugs Control Act 2004 consolidation and the official RONLAW Illicit Drugs Control (Amendment) Act 2024. The consolidation title page visibly states Republic of Nauru and that the consolidation is prepared and published in a legislation database by the Department of Justice and Border Control under the Legislation Publication Act 2011. Page 7 visibly criminalizes unlawful possession, manufacture, cultivation, use, administration, supply and dealing in any illicit drug. Page 28 visibly lists Cannabis and cannabis resin in Schedule 1 - Illicit Drugs. Page 31 visibly lists Cannabis fruit, Cannabis plant, Cannabis seed and Cannabis oil as other illicit drugs. The official RONLAW 2024 amendment title page visibly states No. 24 of 2024, certified 23 December 2024, and amends the Illicit Drugs Control Act 2004; page 5 visibly inserts Section 6A for unlawful manufacture, cultivation and supply/dealing with life imprisonment and at least 10 years without parole/probation, and amends Section 7 to the same life-imprisonment standard. This supports project recreational=ILLEGAL and enforcement=STRICT, with a stricter-2024-penalty caveat. Page 8 of the consolidation visibly includes international traveller prescribed-drug and general lawful occupation/minister-license exemptions for illicit drugs, but no cannabis-specific patient access programme was visually confirmed, so project medical=NONE is not contradicted but needs a general medical/licensing exemption caveat. No project status SSOT was changed."
-      },
-      "conclusion": "Nauru is closed as visually verified official cannabis-law evidence. Official/DJBC Act 2004 screenshots visibly list cannabis and cannabis resin, cannabis plant, seed, fruit and oil in the illicit-drugs schedules and criminalize unlawful cannabis-related possession/manufacture/cultivation/use/supply/dealing because those are illicit drugs. The official RONLAW 2024 amendment visibly updates the current penalties, including life imprisonment with at least 10 years without parole/probation for manufacture/cultivation/supply/dealing conduct. Project ILLEGAL/NONE/STRICT is supported, with caveats for the 2024 strict penalty update and general prescribed-drug/licensing exemptions that do not prove a cannabis patient programme. No project status SSOT was changed.",
-      "audit_state": "INDEPENDENT_REVIEW_COMPLETE_STRICT_VISUAL_PARTIAL",
-      "independent_truth_color": "YELLOW",
-      "independent_truth_rule": "GENERAL_CURRENT_CANNABIS_SPECIFIC_SCHEDULE_PLUS_LAWFUL_PRESCRIBED_OR_PROVIDED_TREATMENT_EXEMPTION_NOT_OPERATIONAL_PROGRAMME",
-      "independent_truth_reviewed_at": "2026-08-11T11:35:00.000Z",
-      "independent_conclusion": "Independent proposal-only YELLOW. Cannabis/resin is expressly an illicit drug, while the same preserved current Act permits any person to possess an illicit drug lawfully prescribed or provided for treating a medical condition and exempts lawful professional possession/supply/administration; it also retains medicinal import licensing. The certified 2024 amendment strengthens prohibition penalties but does not amend Sections 14 or 48. No current official product, register, named licence, pharmacy stock, dispensing or operational programme is proven, so Green is not derived. The old medical=NONE conclusion is not independently provable as a complete medical-negative axis.",
-      "independent_review": {
         "review_date": "2026-08-11",
         "review_mode": "OFFICIAL_LAW_INDEPENDENT_PROPOSAL_ONLY",
         "official_truth_status": "CURRENT_CANNABIS_SPECIFIC_PRESCRIBED_OR_PROVIDED_TREATMENT_AND_LAWFUL_PROFESSIONAL_ROUTE_NOT_OPERATIONAL",
@@ -123604,6 +123460,21 @@
           "reason": "The two prior NR direct links remain published with complete annotations. They are no longer counted as strict direct evidence because fresh direct-PDF crops do not show the official domain/address bar; legal axes remain derived from direct official text under the separate strict-visual-acceptance rule."
         }
       },
+      "official_status": {
+        "recreational": "ILLEGAL; DJBC_CONSOLIDATION_PAGE_28_VISIBLY_LISTS_CANNABIS_AND_CANNABIS_RESIN_IN_SCHEDULE_1_ILLICIT_DRUGS_AND PAGE_31_VISIBLY_LISTS_CANNABIS_FRUIT_CANNABIS_PLANT_CANNABIS_SEED_AND_CANNABIS_OIL_AS_OTHER_ILLICIT_DRUGS",
+        "medical": "NONE_AS_CANNABIS_PATIENT_PROGRAM_NOT_CONFIRMED_WITH_GENERAL_PRESCRIBED_DRUG_TRAVELLER_AND_LAWFUL_OCCUPATION_LICENSE_CAVEAT; PAGE_8_VISIBLY_ALLOWS_LIMITED_PRESCRIBED_ILLICIT_DRUG_POSSESSION_FOR_MEDICAL_TREATMENT_AND GENERAL_OCCUPATION_OR_MINISTER_LICENSE_EXEMPTIONS_BUT DOES_NOT_VISIBLY_CREATE_A_CANNABIS_PATIENT_ACCESS_PROGRAM",
+        "enforcement": "STRICT; 2004_CONSOLIDATION_PAGE_7_VISIBLY_CRIMINALIZES_UNLAWFUL_ACQUIRE_SELL_SUPPLY_POSSESS_PRODUCE_MANUFACTURE_CULTIVATE_USE_OR_ADMINISTER_ANY_ILLICIT_DRUG; 2024_RONLAW_PAGE_5_VISIBLY_SUBSTITUTES_POSSESSION_WITH_12_MONTHS_TO_3_YEARS_AND INSERTS_SECTION_6A_MANUFACTURE_CULTIVATION_SUPPLY_DEALING_WITH_LIFE_IMPRISONMENT_AND_AT_LEAST_10_YEARS_WITHOUT_PAROLE_OR_PROBATION"
+      },
+      "project_comparison": {
+        "status": "MATCH_WITH_2024_STRICT_PENALTY_UPDATE_AND_GENERAL_MEDICAL_EXEMPTION_CAVEAT",
+        "reason": "Nauru is visually verified from the Republic of Nauru / Department of Justice and Border Control Illicit Drugs Control Act 2004 consolidation and the official RONLAW Illicit Drugs Control (Amendment) Act 2024. The consolidation title page visibly states Republic of Nauru and that the consolidation is prepared and published in a legislation database by the Department of Justice and Border Control under the Legislation Publication Act 2011. Page 7 visibly criminalizes unlawful possession, manufacture, cultivation, use, administration, supply and dealing in any illicit drug. Page 28 visibly lists Cannabis and cannabis resin in Schedule 1 - Illicit Drugs. Page 31 visibly lists Cannabis fruit, Cannabis plant, Cannabis seed and Cannabis oil as other illicit drugs. The official RONLAW 2024 amendment title page visibly states No. 24 of 2024, certified 23 December 2024, and amends the Illicit Drugs Control Act 2004; page 5 visibly inserts Section 6A for unlawful manufacture, cultivation and supply/dealing with life imprisonment and at least 10 years without parole/probation, and amends Section 7 to the same life-imprisonment standard. This supports project recreational=ILLEGAL and enforcement=STRICT, with a stricter-2024-penalty caveat. Page 8 of the consolidation visibly includes international traveller prescribed-drug and general lawful occupation/minister-license exemptions for illicit drugs, but no cannabis-specific patient access programme was visually confirmed, so project medical=NONE is not contradicted but needs a general medical/licensing exemption caveat. No project status SSOT was changed."
+      },
+      "conclusion": "Nauru is closed as visually verified official cannabis-law evidence. Official/DJBC Act 2004 screenshots visibly list cannabis and cannabis resin, cannabis plant, seed, fruit and oil in the illicit-drugs schedules and criminalize unlawful cannabis-related possession/manufacture/cultivation/use/supply/dealing because those are illicit drugs. The official RONLAW 2024 amendment visibly updates the current penalties, including life imprisonment with at least 10 years without parole/probation for manufacture/cultivation/supply/dealing conduct. Project ILLEGAL/NONE/STRICT is supported, with caveats for the 2024 strict penalty update and general prescribed-drug/licensing exemptions that do not prove a cannabis patient programme. No project status SSOT was changed.",
+      "audit_state": "INDEPENDENT_REVIEW_COMPLETE_STRICT_VISUAL_PARTIAL",
+      "independent_truth_color": "YELLOW",
+      "independent_truth_rule": "GENERAL_CURRENT_CANNABIS_SPECIFIC_SCHEDULE_PLUS_LAWFUL_PRESCRIBED_OR_PROVIDED_TREATMENT_EXEMPTION_NOT_OPERATIONAL_PROGRAMME",
+      "independent_truth_reviewed_at": "2026-08-11T11:35:00.000Z",
+      "independent_conclusion": "Independent proposal-only YELLOW. Cannabis/resin is expressly an illicit drug, while the same preserved current Act permits any person to possess an illicit drug lawfully prescribed or provided for treating a medical condition and exempts lawful professional possession/supply/administration; it also retains medicinal import licensing. The certified 2024 amendment strengthens prohibition penalties but does not amend Sections 14 or 48. No current official product, register, named licence, pharmacy stock, dispensing or operational programme is proven, so Green is not derived. The old medical=NONE conclusion is not independently provable as a complete medical-negative axis.",
       "audit_checkpoints": [
         {
           "label": "NR_CURRENT_SCHEDULE1_CANNABIS_AND_SECTION14_TREATMENT_ROUTE_RECONCILED",
@@ -148835,28 +148706,38 @@
           "title": "Thailand Ministry of Public Health - Notification specifying Category V narcotics, B.E. 2565 (2022)",
           "url": "https://ops.moph.go.th/public/download/document/laws/%E0%B8%81%E0%B8%8E%E0%B8%AB%E0%B8%A1%E0%B8%B2%E0%B8%A2%E0%B8%AA%E0%B8%B2%E0%B8%98%E0%B8%B2%E0%B8%A3%E0%B8%93%E0%B8%AA%E0%B8%B8%E0%B8%82/229.N9xJTFwa0t9XjNlT4FFJ10fnyQKshtq0.pdf",
           "source_kind": "THAILAND_MOPH_CATEGORY_V_NARCOTICS_2022_CANNABIS_HEMP_EXTRACTS_THC_ABOVE_0_2_PERCENT_AND_SEED_EXCEPTIONS",
+          "source_owner_geo": "TH",
+          "applies_to_geo": [
+            "TH"
+          ],
+          "source_authority": "Thailand Ministry of Public Health / Royal Gazette",
+          "source_type": "OFFICIAL_MINISTERIAL_NARCOTICS_SCHEDULE_NOTICE",
+          "primary_or_context": "PRIMARY_LAW",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "RETAINED_CURRENT_HIGH_THC_EXTRACT_NARCOTICS_SCHEDULE_COMPONENT_PENDING_C1_CURRENTNESS_RECHECK; THE_2025_CONTROLLED_HERB_NOTICE_SEPARATELY_GOVERNS_CANNABIS_FLOWER",
+          "official_host_verified": true,
+          "direct_fragment_available": true,
+          "official_fragment_locator": "Category V narcotics, item (3), cannabis/hemp extracts and the stated THC/seed exceptions; notification dated 8 February 2022 and published 9 February 2022.",
+          "exact_fragment": "Item (3) specifies extracts from every part of cannabis or hemp plants in genus Cannabis, while excepting authorised domestic extracts containing tetrahydrocannabinol not exceeding 0.2 percent by weight and extracts from domestically cultivated cannabis/hemp seeds.",
+          "annotation": "Direct official Ministry/Royal Gazette schedule record retained for the high-THC-extract boundary. It does not make cannabis flower unlawful or prove a patient route. The later 2025 controlled-herb notice is retained separately for flower/inflorescence regulation; generic licensing, cultivation, processing, export and regulator wording never become patient-access axes.",
+          "screenshot_state": "RETAINED_OFFICIAL_MOPH_PDF_CROP_VISUALLY_REVIEWED_LOCALLY_NO_DESKTOP_BROWSER",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-22/TH/screenshots/pdf_pages/TH-moph-category-v-narcotics-2022-1.png",
-          "note": "Official Ministry of Public Health PDF copy of the Royal Gazette notification dated 8 February 2022 and published 9 February 2022. Visual review confirms the Ministry of Public Health title, Category V narcotics heading, and item (3) for extracts from every part of cannabis or hemp plants in genus Cannabis, with visible exceptions for domestically authorized extracts containing not more than 0.2% THC by weight and extracts from domestically cultivated cannabis/hemp seeds. The notice applies after 120 days from publication. This is direct official cannabis/hemp narcotics-schedule evidence."
-        },
-        {
-          "title": "Thailand Royal Gazette - Ministry of Public Health Notification: Controlled Herb (Cannabis), B.E. 2568 (2025)",
-          "url": "https://ratchakitcha.soc.go.th/documents/76076.pdf",
-          "source_kind": "THAILAND_ROYAL_GAZETTE_CONTROLLED_HERB_CANNABIS_2025_LICENSED_RESEARCH_EXPORT_SALE_PROCESSING_TRADE_RESTRICTIONS_BANS_ON_SMOKING_VENDING_ONLINE_ADVERTISING_AND_SENSITIVE_PLACES",
-          "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-22/TH/screenshots/pdf_pages/TH-royal-gazette-controlled-herb-cannabis-2025-1.png",
-          "note": "Official Royal Gazette PDF, volume 142 special part 229 Ngor, dated 25 June 2025. Visual review confirms the Ministry of Public Health notification title Controlled Herb (Cannabis) B.E. 2568, repeal of the 2022 controlled-herb cannabis notification, and cannabis in genus Cannabis family Cannabaceae, specifically the flower/inflorescence part, being treated as a controlled herb. The rendered pages visibly require licensing for study/research, export, sale or processing controlled cannabis for trade; require source/use/stock reporting; limit sale/processing to licensed recipients; require licensed cannabis to come from certified cultivation/harvest sources; prohibit sale for smoking in business premises except sale by listed health/traditional-medical professionals for their own patients; prohibit vending-machine/electronic/computer-network sales; prohibit advertising; and prohibit sales in religious premises, dormitories, public parks, zoos and amusement parks. A medical/professional supply caveat is visible, including use only as necessary for treatment and not more than thirty days.",
+          "note": "Official Ministry of Public Health PDF copy of the Royal Gazette notification dated 8 February 2022 and published 9 February 2022. Visual review confirms the Ministry of Public Health title, Category V narcotics heading, and item (3) for extracts from every part of cannabis or hemp plants in genus Cannabis, with visible exceptions for domestically authorized extracts containing not more than 0.2% THC by weight and extracts from domestically cultivated cannabis/hemp seeds. The notice applies after 120 days from publication. This is direct official cannabis/hemp narcotics-schedule evidence.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
-            "final_url": "https://ratchakitcha.soc.go.th/documents/76076.pdf",
-            "http_status": null,
-            "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "checked_at": "2026-08-12T10:45:33.499Z",
+            "final_url": "https://ops.moph.go.th/public/download/document/laws/%E0%B8%81%E0%B8%8E%E0%B8%AB%E0%B8%A1%E0%B8%B2%E0%B8%A2%E0%B8%AA%E0%B8%B2%E0%B8%98%E0%B8%B2%E0%B8%A3%E0%B8%93%E0%B8%AA%E0%B8%B8%E0%B8%82/229.N9xJTFwa0t9XjNlT4FFJ10fnyQKshtq0.pdf",
+            "http_status": 200,
+            "etag": "\"25799-5db432028669e\"",
+            "last_modified": "Mon, 28 Mar 2022 08:30:32 GMT",
+            "content_type": "application/pdf",
+            "content_length": 153497,
+            "document_sha256": "2841633b3309d7dc14f155def20ca829cde7ab1d9304134d5cc4db72649c4d1f",
+            "relevant_fragment_sha256": "51b2d8dcfdde03f6a36ea34df0e88e78a50888fd9824d85c1ac3a65edbaf2110",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -148867,34 +148748,116 @@
             "dependent_geos": [
               "TH"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 3239,
+              "ocr_used": false,
+              "relevant_pages": [
+                1
+              ],
+              "rendered_pages": [
+                1
+              ]
+            }
+          }
+        },
+        {
+          "title": "Thailand Royal Gazette - Ministry of Public Health Notification: Controlled Herb (Cannabis), B.E. 2568 (2025)",
+          "url": "https://ratchakitcha.soc.go.th/documents/76076.pdf",
+          "source_kind": "THAILAND_ROYAL_GAZETTE_CONTROLLED_HERB_CANNABIS_2025_LICENSED_RESEARCH_EXPORT_SALE_PROCESSING_TRADE_RESTRICTIONS_BANS_ON_SMOKING_VENDING_ONLINE_ADVERTISING_AND_SENSITIVE_PLACES",
+          "source_owner_geo": "TH",
+          "applies_to_geo": [
+            "TH"
+          ],
+          "source_authority": "Royal Gazette of Thailand / Ministry of Public Health",
+          "source_type": "OFFICIAL_MINISTERIAL_CONTROLLED_HERB_NOTIFICATION",
+          "primary_or_context": "PRIMARY_LAW",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "CURRENT_2025_CONTROLLED_HERB_CANNABIS_NOTIFICATION; OFFICIAL_2026_DTAM_ACTIVITY_CONFIRMS_ONGOING_ADMINISTRATION_PENDING_C1_RECHECK",
+          "official_host_verified": true,
+          "direct_fragment_available": true,
+          "official_fragment_locator": "Royal Gazette volume 142 special part 229 Ngor, 25 June 2025; definition and licensing/sale restrictions for the flower or inflorescence of Cannabis family Cannabaceae.",
+          "exact_fragment": "The notification identifies the flower or inflorescence of cannabis in the genus Cannabis, family Cannabaceae as a controlled herb; study/research, export, sale or processing for trade require permission, electronic/network sale is prohibited, and listed health professionals may supply for their own patients only as necessary for treatment and for no more than thirty days.",
+          "annotation": "Current primary cannabis-flower rule. It proves a controlled, licensed legal mode and a narrowly regulated professional-to-own-patient supply clause, but the record does not by itself prove patient eligibility, registry, pharmacy/dispensary, lawful product stock or an operational patient programme; it must not be promoted to GREEN. Its restrictions do not turn a controlled-herb regime into a recreational prohibition without a cannabis-specific offence source.",
+          "screenshot_state": "RETAINED_OFFICIAL_ROYAL_GAZETTE_PDF_CROPS_VISUALLY_REVIEWED_LOCALLY_NO_DESKTOP_BROWSER",
+          "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-22/TH/screenshots/pdf_pages/TH-royal-gazette-controlled-herb-cannabis-2025-1.png",
+          "note": "Official Royal Gazette PDF, volume 142 special part 229 Ngor, dated 25 June 2025. Visual review confirms the Ministry of Public Health notification title Controlled Herb (Cannabis) B.E. 2568, repeal of the 2022 controlled-herb cannabis notification, and cannabis in genus Cannabis family Cannabaceae, specifically the flower/inflorescence part, being treated as a controlled herb. The rendered pages visibly require licensing for study/research, export, sale or processing controlled cannabis for trade; require source/use/stock reporting; limit sale/processing to licensed recipients; require licensed cannabis to come from certified cultivation/harvest sources; prohibit sale for smoking in business premises except sale by listed health/traditional-medical professionals for their own patients; prohibit vending-machine/electronic/computer-network sales; prohibit advertising; and prohibit sales in religious premises, dormitories, public parks, zoos and amusement parks. A medical/professional supply caveat is visible, including use only as necessary for treatment and not more than thirty days.",
+          "revalidation": {
+            "checked_at": "2026-08-12T10:45:33.499Z",
+            "final_url": "https://ratchakitcha.soc.go.th/documents/76076.pdf",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": "Wed, 12 Aug 2026 10:45:37 GMT",
+            "content_type": "application/pdf",
+            "content_length": 61909,
+            "document_sha256": "6141ed683d47e5ad833b6bdd6cc491121da5f102fca54058640d507257325937",
+            "relevant_fragment_sha256": "a300bbc4d04f33895033ae70675280b2f2dcfaaf9cfff6cb1e645946c07e6811",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
             ],
-            "semantic_probe": null
+            "queue_reasons": [
+              "NEEDS_SEMANTIC_REVIEW"
+            ],
+            "dependent_geos": [
+              "TH"
+            ],
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 3938,
+              "ocr_used": false,
+              "relevant_pages": [
+                1
+              ],
+              "rendered_pages": [
+                1
+              ]
+            }
           }
         },
         {
           "title": "Thailand Royal Gazette - Department of Thai Traditional and Alternative Medicine forms under Controlled Herb (Cannabis), B.E. 2568 (2025)",
           "url": "https://ratchakitcha.soc.go.th/documents/76682.pdf",
           "source_kind": "THAILAND_ROYAL_GAZETTE_2025_CONTROLLED_CANNABIS_REPORTING_EXPORT_AND_PRESCRIPTION_SUPPLY_FORMS",
+          "source_owner_geo": "TH",
+          "applies_to_geo": [
+            "TH"
+          ],
+          "source_authority": "Royal Gazette of Thailand / Department of Thai Traditional and Alternative Medicine",
+          "source_type": "OFFICIAL_DEPARTMENTAL_FORM_NOTIFICATION",
+          "primary_or_context": "IMPLEMENTING_REGULATORY_FORM",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "CURRENT_2025_IMPLEMENTING_FORMS_UNDER_THE_CONTROLLED_HERB_CANNABIS_NOTIFICATION_PENDING_C1_RECHECK",
+          "official_host_verified": true,
+          "direct_fragment_available": true,
+          "official_fragment_locator": "Royal Gazette volume 142 special part 233 Ngor, 30 June 2025; Department forms for controlled-cannabis reporting, export detail and prescription/supply.",
+          "exact_fragment": "The Departmental notification issues the forms used under the Ministry of Public Health Controlled Herb (Cannabis) B.E. 2568 notification, including the controlled-cannabis prescription and supply form.",
+          "annotation": "Official implementing-form record. It corroborates a professional prescription/supply control layer under the primary 2025 notification but is not independent proof of patient eligibility, registration, a dispensary, medicine stock or operational patient access. It is retained as a non-promoting implementation source with its exact Royal Gazette PDF URL.",
+          "screenshot_state": "RETAINED_OFFICIAL_ROYAL_GAZETTE_FORM_PDF_CROP_VISUALLY_REVIEWED_LOCALLY_NO_DESKTOP_BROWSER",
           "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-22/TH/screenshots/pdf_pages/TH-royal-gazette-controlled-herb-cannabis-prescription-form-2025-1.png",
           "note": "Official Royal Gazette PDF, volume 142 special part 233 Ngor, dated 30 June 2025, issued by the Department of Thai Traditional and Alternative Medicine. Visual review confirms this notice sets reporting, export-detail and controlled-cannabis prescription/supply forms under the Ministry of Public Health Controlled Herb (Cannabis) B.E. 2568 notification. The visible prescription/supply form structure confirms the professional/medical control layer rather than unrestricted consumer sale.",
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T10:45:33.499Z",
             "final_url": "https://ratchakitcha.soc.go.th/documents/76682.pdf",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "last_modified": "Wed, 12 Aug 2026 10:45:39 GMT",
+            "content_type": "application/pdf",
+            "content_length": 110207,
+            "document_sha256": "caf32fcfad099690d8de9644d02360a0db89cb047c40cc08fe9e497cdd7164a3",
+            "relevant_fragment_sha256": "c705c9123c9255f218ba7dd64f560c98b811601708827802fabc73a5047864d1",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -148905,21 +148868,243 @@
             "dependent_geos": [
               "TH"
             ],
-            "schema_issues": [
-              "OWNER_MISSING",
-              "APPLICABILITY_MISSING",
-              "LOCATOR_MISSING",
-              "EXACT_FRAGMENT_MISSING"
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 2061,
+              "ocr_used": false,
+              "relevant_pages": [],
+              "rendered_pages": []
+            }
+          }
+        }
+      ],
+      "verified_context_sources": [
+        {
+          "title": "Thailand Department of Thai Traditional and Alternative Medicine - current publication of the 2025 Controlled Herb (Cannabis) notification",
+          "url": "https://www.dtam.moph.go.th/sub-law/42864/",
+          "source_kind": "THAILAND_DTAM_CURRENT_LAW_PUBLICATION_2025_CONTROLLED_HERB_CANNABIS_NOTIFICATION",
+          "source_owner_geo": "TH",
+          "applies_to_geo": [
+            "TH"
+          ],
+          "source_authority": "Department of Thai Traditional and Alternative Medicine, Ministry of Public Health",
+          "source_type": "OFFICIAL_HEALTH_DEPARTMENT_CURRENT_LAW_PUBLICATION",
+          "primary_or_context": "CURRENTNESS_AND_PRIMARY_LAW_HUB",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "OFFICIAL_DTAM_LAW_PAGE_PUBLISHED_2025_12_19_AND_C1_RECHECKED_2026_08_12",
+          "official_host_verified": true,
+          "direct_fragment_available": true,
+          "official_fragment_locator": "DTAM law page heading and linked document: Ministry of Public Health Notification on Controlled Herb (Cannabis), B.E. 2568; page created 19 December 2025.",
+          "exact_fragment": "The official Department page is headed “ประกาศกระทรวงสาธารณสุข เรื่อง สมุนไพรควบคุม (กัญชา) พ.ศ. 2568” (Ministry of Public Health Notification on Controlled Herb (Cannabis), B.E. 2568) and links the notification PDF.",
+          "annotation": "Current official publication hub for the same 2025 primary notification retained above. It confirms maintained official publication after the Gazette issuance but does not replace the Gazette text, prove patient eligibility, a patient registry, dispensary, product stock or programme operation. It is currentness/context evidence only and cannot independently change a legal axis or colour.",
+          "screenshot_state": "C3_CONTEXT_SOURCE_HEADLESS_OR_RETAINED_REVIEW_PENDING_NO_DESKTOP_BROWSER",
+          "note": "Official DTAM page retained with its precise URL, authority, TH scope, title fragment and non-promoting currentness annotation.",
+          "revalidation": {
+            "checked_at": "2026-08-12T10:47:15.549Z",
+            "final_url": "https://www.dtam.moph.go.th/sub-law/42864",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html",
+            "content_length": 960,
+            "document_sha256": "3503335176cc7ff55113985bcb66cbd1bcfa2082e2f71ca0d17e7dda72625efb",
+            "relevant_fragment_sha256": "be1f17ec1abf39f00b370d686d3aff55663004830aa4b8fcf01f3e38e53bd053",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
             ],
+            "queue_reasons": [
+              "NEEDS_SEMANTIC_REVIEW"
+            ],
+            "dependent_geos": [
+              "TH"
+            ],
+            "schema_issues": [],
+            "semantic_probe": null
+          }
+        },
+        {
+          "title": "Thailand Department of Thai Traditional and Alternative Medicine - public guide to applying for a Controlled Herb (Cannabis) licence",
+          "url": "https://www.dtam.moph.go.th/news-release/44715/",
+          "source_kind": "THAILAND_DTAM_2026_CONTROLLED_HERB_CANNABIS_LICENCE_APPLICATION_GUIDE",
+          "source_owner_geo": "TH",
+          "applies_to_geo": [
+            "TH"
+          ],
+          "source_authority": "Department of Thai Traditional and Alternative Medicine, Ministry of Public Health / Medical Cannabis Division",
+          "source_type": "OFFICIAL_PUBLIC_SERVICE_GUIDE",
+          "primary_or_context": "CURRENTNESS_AND_REGULATORY_IMPLEMENTATION",
+          "cannabis_specific": true,
+          "current": true,
+          "effective": true,
+          "current_effective_state": "OFFICIAL_DTAM_GUIDE_CREATED_2026_04_30_AND_C1_RECHECKED_2026_08_12",
+          "official_host_verified": true,
+          "direct_fragment_available": true,
+          "official_fragment_locator": "DTAM public-service guide title, Medical Cannabis Division attribution, and the linked CN-ITA.pdf application guide; page created 30 April 2026.",
+          "exact_fragment": "The official page is headed “คู่มือสำหรับประชาชน การยื่นคำขออนุญาตสมุนไพรควบคุม (กัญชา)” (public guide for applying for a controlled-herb (cannabis) licence), attributes it to the Medical Cannabis Division, and links CN-ITA.pdf.",
+          "annotation": "Current official implementation page retained to document that an administrative cannabis-licence process was publicly maintained in 2026. Regulator e-licensing and licence application concern entity/activity control only; they never establish patient eligibility, prescription, registration, lawful patient supply, dispensing or an operational patient programme and therefore never promote GREEN.",
+          "screenshot_state": "C3_CONTEXT_SOURCE_HEADLESS_OR_RETAINED_REVIEW_PENDING_NO_DESKTOP_BROWSER",
+          "note": "Official DTAM licence-guide URL preserved with a cannabis-specific title fragment and explicit Truth-First boundary against treating generic/enterprise licensing as patient access.",
+          "revalidation": {
+            "checked_at": "2026-08-12T10:47:15.549Z",
+            "final_url": "https://www.dtam.moph.go.th/news-release/44715",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html",
+            "content_length": 955,
+            "document_sha256": "22a263e3dbe2bd8c8ee28d5ee8d9c2040343c5aae05f35d7e9dc8f1a59a936e6",
+            "relevant_fragment_sha256": "6ddba5cb422b4ffba7dd0de8345465b021753b6cfca6b7112134a96048de3318",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "NEEDS_SEMANTIC_REVIEW"
+            ],
+            "dependent_geos": [
+              "TH"
+            ],
+            "schema_issues": [],
             "semantic_probe": null
           }
         }
       ],
-      "verified_context_sources": [],
       "official_status": {
         "recreational": "LEGAL_OR_DECRIMINALIZED_ONLY_WITH_CONTROLLED_HERB_RESTRICTIONS; OFFICIAL_2022_CATEGORY_V_NOTICE_VISIBLY_EXCLUDES_MOST_CANNABIS_PLANT_MATERIAL_FROM_CATEGORY_V_NARCOTICS_WHILE_RETAINING_HIGH_THC_EXTRACTS_AND_2025_ROYAL_GAZETTE_NOTICE_VISIBLY_REGULATES_CANNABIS_FLOWER_AS_A_CONTROLLED_HERB_WITH_LICENSE_AND_SALE_RESTRICTIONS",
         "medical": "REGULATED; OFFICIAL_2025_ROYAL_GAZETTE_NOTICE_VISIBLY_ALLOWS_LISTED_HEALTH_TRADITIONAL_MEDICAL_AND_RELATED_PROFESSIONALS_TO_SUPPLY_CONTROLLED_CANNABIS_TO_THEIR_OWN_PATIENTS_FOR_MEDICAL_PURPOSES_WITH_QUANTITY_DURATION_LIMITS_AND_OFFICIAL_PRESCRIPTION_SUPPLY_FORMS",
         "enforcement": "SOFT_OR_REGULATORY_ON_THE_REVIEWED_TEXT; OFFICIAL_EVIDENCE_VISIBLY_SHOWS_LICENSED_CONTROLLED_HERB_RESTRICTIONS_AND_RETAINED_NARCOTIC_CONTROL_FOR_HIGH_THC_EXTRACTS_RATHER_THAN_A_GENERAL_CRIMINAL_PROHIBITION_ON_CANNABIS_FLOWER"
+      },
+      "independent_truth_color": "YELLOW",
+      "independent_truth_status": "CURRENT_CANNABIS_FLOWER_CONTROLLED_HERB_LICENCE_REGIME_WITH_LIMITED_PROFESSIONAL_PATIENT_SUPPLY_AND_NO_FULL_OPERATIONAL_ACCESS_CHAIN_PROVEN",
+      "independent_truth_rule": "GENERAL_CURRENT_CANNABIS_SPECIFIC_LIMITED_LAWFUL_REGIME_WITHOUT_OPERATIONAL_ADULT_USE_OR_COMPLETE_PATIENT_ACCESS_THRESHOLD",
+      "independent_truth_reviewed_at": "2026-08-12T13:12:00+03:00",
+      "independent_truth_proposal_only": true,
+      "independent_review_state": "C0_C1_C2_COMPLETE_C3_RETAINED_OFFICIAL_PDF_PAGES_REVIEWED_LOCALLY_STRICT_VISUAL_ACCEPTANCE_FALSE",
+      "strict_visual_acceptance": false,
+      "strict_visual_acceptance_reason": "RETAINED_OFFICIAL_ROYAL_GAZETTE_AND_MOPH_PDF_CROPS_WERE_READ_LOCALLY_WITHOUT_A_DESKTOP_BROWSER_OR_VISIBLE_ADDRESS_BAR_DOMAIN",
+      "final_visual_acceptance": {
+        "strict_acceptance": false,
+        "reason": "RETAINED_OFFICIAL_PDF_CROPS_PROVE_TITLE_CANNABIS_FRAGMENT_AND_EFFECTIVE_RULE_TEXT_BUT_DO_NOT_SHOW_BROWSER_ADDRESS_BAR_DOMAIN",
+        "legal_truth_affected": false
+      },
+      "independent_review": {
+        "geo": "TH",
+        "territory": "Thailand",
+        "review_mode": "INDEPENDENT_OFFICIAL_EVIDENCE_FIRST",
+        "proposal_only": true,
+        "reviewed_at": "2026-08-12T13:12:00+03:00",
+        "official_truth_color": "YELLOW",
+        "independent_truth_rule": "GENERAL_CURRENT_CANNABIS_SPECIFIC_LIMITED_LAWFUL_REGIME_WITHOUT_OPERATIONAL_ADULT_USE_OR_COMPLETE_PATIENT_ACCESS_THRESHOLD",
+        "legal_conclusion": "Proposal-only YELLOW. The current 2025 Royal Gazette notification directly classifies only the flower/inflorescence of Cannabis as a controlled herb, allows study/research, export, sale or processing for trade by licence, and limits commercial disposal to licensees. It separately permits named health and traditional-health professionals to supply their own patients for treatment with a thirty-day limit. The 2026 official DTAM law page and public licence guide show maintained official publication and administrative implementation. This is a cannabis-specific limited lawful regime. It does not prove a complete operational adult-use route or the patient eligibility, registry, pharmacy/dispensary, product-stock and programme-operation axes required for GREEN. The 2022 Category V source is retained only for its high-THC extract boundary; it neither negates the flower regime nor supplies a patient route.",
+        "jurisdiction": {
+          "territory_type": "SOVEREIGN_STATE_DIRECT_DOMESTIC_LAW",
+          "applicable_law": "Thailand Ministry of Public Health Notification on Controlled Herb (Cannabis), B.E. 2568, published in Royal Gazette volume 142 special part 229 Ngor on 25 June 2025, with its official implementing-form notification and 2026 DTAM publication/guide context.",
+          "source_owner_vs_jurisdiction": "Every accepted source is published by a Thai national health authority or the Royal Gazette and directly applies to TH.",
+          "disputed_or_composite": false
+        },
+        "source_record_refs": [
+          "https://ratchakitcha.soc.go.th/documents/76076.pdf#page=8",
+          "https://ratchakitcha.soc.go.th/documents/76076.pdf#page=9",
+          "https://ratchakitcha.soc.go.th/documents/76682.pdf#page=17",
+          "https://ops.moph.go.th/public/download/document/laws/%E0%B8%81%E0%B8%8E%E0%B8%AB%E0%B8%A1%E0%B8%B2%E0%B8%A2%E0%B8%AA%E0%B8%B2%E0%B8%98%E0%B8%B2%E0%B8%A3%E0%B8%93%E0%B8%AA%E0%B8%B8%E0%B8%82/229.N9xJTFwa0t9XjNlT4FFJ10fnyQKshtq0.pdf#page=8",
+          "https://www.dtam.moph.go.th/sub-law/42864/",
+          "https://www.dtam.moph.go.th/news-release/44715/"
+        ],
+        "evidence_axes": {
+          "cannabis_specificity": "YES_CURRENT_PRIMARY_NOTIFICATION_DIRECTLY_NAMES_CANNABIS_GENUS_AND_CONTROLS_ITS_FLOWER_INFLORESCENCE",
+          "limited_lawful_cannabis_regime": "YES_CURRENT_PRIMARY_NOTIFICATION_REQUIRES_A_LICENCE_FOR_STUDY_RESEARCH_EXPORT_SALE_OR_PROCESSING_FOR_TRADE_AND_RESTRICTS_SALE_TO_LICENSED_RECIPIENTS",
+          "patient_eligible": "UNKNOWN_NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_ELIGIBILITY_CLASS_OR_CONDITIONS_PROVEN",
+          "prescriber_route": "LIMITED_CANNABIS_SPECIFIC_NAMED_HEALTH_AND_TRADITIONAL_HEALTH_PROFESSIONALS_MAY_SUPPLY_THEIR_OWN_PATIENTS_FOR_TREATMENT_BUT_NO_COMPLETE_PATIENT_ACCESS_CHAIN_IS_PROVEN",
+          "registration_route": "UNKNOWN_NO_CURRENT_OFFICIAL_CANNABIS_PATIENT_CARD_OR_REGISTRY_ROUTE_PROVEN",
+          "lawful_supply": "LIMITED_LICENSED_SALE_AND_NARROW_PROFESSIONAL_TO_OWN_PATIENT_SUPPLY_CLAUSE_PROVEN_BUT_NO_PATIENT_LEVEL_STOCK_OR_DISPENSING_OPERATION_PROVEN",
+          "pharmacy_or_dispensary": "UNKNOWN_NO_CURRENT_OFFICIAL_CANNABIS_PHARMACY_OR_PATIENT_DISPENSARY_ROUTE_PROVEN",
+          "import_route": "UNKNOWN_NO_INDIVIDUAL_PATIENT_IMPORT_ROUTE_PROVEN",
+          "programme_commenced": "UNKNOWN_THE_2025_RULE_IS_EFFECTIVE_BUT_NO_SEPARATE_CANNABIS_PATIENT_PROGRAMME_COMMENCEMENT_IS_PROVEN",
+          "programme_operational": "UNKNOWN_2026_LICENCE_GUIDE_PROVES_ADMINISTRATIVE_IMPLEMENTATION_ONLY_NOT_A_COMPLETE_PATIENT_SERVICE_OR_STOCK_ROUTE",
+          "recreational_possession": "UNKNOWN_NO_CURRENT_OFFICIAL_PRIMARY_SOURCE_IN_THIS_PACKET_PROVES_A_GENERAL_ADULT_PERSONAL_POSSESSION_RIGHT",
+          "recreational_supply": "LIMITED_LICENSED_COMMERCIAL_SALE_MODE_PROVEN_NOT_UNRESTRICTED_ADULT_RETAIL",
+          "recreational_cultivation": "UNKNOWN_THE_RETAINED_OFFICIAL_EVIDENCE_PROVES_LICENSED_CONTROL_AND_SOURCE_CERTIFICATION_NOT_A_GENERAL_PERSONAL_CULTIVATION_RIGHT",
+          "penalty_regime": "UNKNOWN_NO_CURRENT_CANNABIS_SPECIFIC_OFFENCE_TO_PENALTY_CHAIN_RETRIEVED_IN_THIS_PACKET"
+        },
+        "lifecycle": {
+          "currentness": "C1 conditionally fetched the three retained PDF URLs once each at HTTP 200 on 2026-08-12. All had a text layer and used pdftotext; OCR was not used. The current DTAM law-publication and April 2026 licence-guide URLs each returned HTTP 200 in the same evidence packet and are retained as currentness/implementation context.",
+          "effective_date": "The primary Royal Gazette notice states it takes effect from Gazette publication and repeals the earlier 2022 controlled-herb notice. The retained 2022 Category V schedule is limited to the high-THC extract boundary and is not used to override the later flower-specific notification.",
+          "rule": "A cannabis-specific licensed controlled-herb regime is enough for YELLOW when it proves a current limited lawful mode. Cultivation, processing, export, research, generic regulatory licensing and licence applications do not constitute patient access. The narrow professional-to-own-patient clause does not reach GREEN without the remaining required patient axes and operation evidence. Visual acceptance and access state are not legal-truth inputs."
+        },
+        "c0_local_recheck": "C0 retained five TH source records, deduplicated five evidence URLs and issued zero HTTP requests. Every accepted record has owner, TH applicability, locator/deep PDF page link or official page URL, exact cannabis fragment, nonempty annotation and screenshot state.",
+        "c1_conditional_http_recheck": "The first serial C1 rechecked each of the three TH PDF URLs once at HTTP 200; the later URL-filtered serial C1 rechecked the two newly retained DTAM context URLs once each at HTTP 200. No redirect, WAF, timeout or blank viewer derives a legal conclusion. No URL was fetched more than once in either runner invocation.",
+        "c2_semantic_recheck": "All three primary/implementation PDFs had text layers and used pdftotext with no OCR. The 2022 and 2025 primary PDFs identified the cannabis term on page 1 of their source documents; the forms PDF is retained for its official title and implementation linkage even though the query-derived page inventory did not select a cannabis term page. The semantic reading uses the retained exact source fragments and does not alter legal axes through the revalidation runner.",
+        "c3_visual_recheck": "C3 read the retained Royal Gazette and MOPH page crops locally. The 2025 crop visibly shows the Royal Gazette header, notification title, effective/repeal clauses, cannabis flower/inflorescence definition and licensed activity; its second crop visibly shows the named professional-to-own-patient treatment exception and thirty-day limit. The 2025 form crop visibly shows the Department notice and controlled-cannabis form linkage. No desktop browser was opened.",
+        "visual_evidence": [
+          {
+            "path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-22/TH/screenshots/pdf_pages/TH-moph-category-v-narcotics-2022-1.png",
+            "visual_opened": true,
+            "official_owner_visible": true,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": true,
+            "effective_rule_visible": true,
+            "screenshot_valid": true
+          },
+          {
+            "path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-22/TH/screenshots/pdf_pages/TH-royal-gazette-controlled-herb-cannabis-2025-1.png",
+            "visual_opened": true,
+            "official_owner_visible": true,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": true,
+            "effective_rule_visible": true,
+            "screenshot_valid": true
+          },
+          {
+            "path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-22/TH/screenshots/pdf_pages/TH-royal-gazette-controlled-herb-cannabis-2025-2.png",
+            "visual_opened": true,
+            "official_owner_visible": true,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": true,
+            "effective_rule_visible": true,
+            "screenshot_valid": true
+          },
+          {
+            "path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-22/TH/screenshots/pdf_pages/TH-royal-gazette-controlled-herb-cannabis-prescription-form-2025-1.png",
+            "visual_opened": true,
+            "official_owner_visible": true,
+            "official_domain_visible": false,
+            "cannabis_fragment_visible": true,
+            "effective_rule_visible": true,
+            "screenshot_valid": true
+          }
+        ],
+        "visual_acceptance": {
+          "legal_truth_visual_review_complete": true,
+          "strict_visual_acceptance": false,
+          "reason": "Retained official PDF crops were reviewed locally, without a browser address bar; legal truth is separate."
+        },
+        "current_layer_comparison": {
+          "project_status": "PROJECT_LEGAL_REGULATED_SOFT_WAS_NOT_AN_INPUT. THE_INDEPENDENT_PACKET_PROVES_ONLY_A_PROPOSAL_YELLOW_FROM_CURRENT_OFFICIAL_EVIDENCE.",
+          "runtime_map_color": "UNCONFIRMED_NOT_RECAPTURED_IN_THIS_LEGAL_PACKET",
+          "runtime_api_status": "UNCONFIRMED_NOT_RECAPTURED_IN_THIS_LEGAL_PACKET",
+          "wiki_truth_proposal": "YELLOW_PROPOSAL_AFTER_THE_DERIVED_MATRIX_REBUILD",
+          "ssot": "UNTOUCHED_NO_APPLICATION_AUTHORIZED"
+        },
+        "no_mutation": {
+          "apply_allowed": false,
+          "ssot_changed": false,
+          "map_colors_changed": false,
+          "production_touched": false,
+          "runtime_touched": false,
+          "deployment_touched": false
+        },
+        "recommended_action": "RETAIN_PROPOSAL_ONLY_YELLOW_UNTIL_THE_SEPARATE_307_GEO_APPLY_GATE_AND_USER_AUTHORIZATION",
+        "confidence": "HIGH_FOR_CURRENT_CANNABIS_FLOWER_CONTROLLED_HERB_AND_LICENSED_ACTIVITY_REGIME; HIGH_FOR_NON_PROMOTION_OF_GENERIC_LICENSING; MEDIUM_FOR_THE_INCOMPLETE_PATIENT_OPERATION_BOUNDARY"
       },
       "project_comparison": {
         "status": "MATCH_WITH_CONTROLLED_HERB_AND_HIGH_THC_EXTRACT_NARCOTICS_CAVEAT",

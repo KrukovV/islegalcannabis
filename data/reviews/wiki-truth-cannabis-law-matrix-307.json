@@ -29,7 +29,7 @@
     "colorReauditDirectOrComposite": 31,
     "colorReauditContextClaimantOrNegative": 8,
     "supplementalOfficialLinks": 32,
-    "allPublishedOfficialLinks": 1409,
+    "allPublishedOfficialLinks": 1411,
     "rowsWithPublishedOfficialLinks": 307,
     "rowsWithAnyOfficialUrl": 307
   },
@@ -87321,16 +87321,55 @@
         "medical": "REGULATED; OFFICIAL_2025_ROYAL_GAZETTE_NOTICE_VISIBLY_ALLOWS_LISTED_HEALTH_TRADITIONAL_MEDICAL_AND_RELATED_PROFESSIONALS_TO_SUPPLY_CONTROLLED_CANNABIS_TO_THEIR_OWN_PATIENTS_FOR_MEDICAL_PURPOSES_WITH_QUANTITY_DURATION_LIMITS_AND_OFFICIAL_PRESCRIPTION_SUPPLY_FORMS",
         "enforcement": "SOFT_OR_REGULATORY_ON_THE_REVIEWED_TEXT; OFFICIAL_EVIDENCE_VISIBLY_SHOWS_LICENSED_CONTROLLED_HERB_RESTRICTIONS_AND_RETAINED_NARCOTIC_CONTROL_FOR_HIGH_THC_EXTRACTS_RATHER_THAN_A_GENERAL_CRIMINAL_PROHIBITION_ON_CANNABIS_FLOWER"
       },
-      "independentTruth": null,
+      "independentTruth": {
+        "color": "YELLOW",
+        "rule": "GENERAL_CURRENT_CANNABIS_SPECIFIC_LIMITED_LAWFUL_REGIME_WITHOUT_OPERATIONAL_ADULT_USE_OR_COMPLETE_PATIENT_ACCESS_THRESHOLD",
+        "reviewedAt": "2026-08-12T13:12:00+03:00",
+        "conclusion": "Proposal-only YELLOW. The current 2025 Royal Gazette notification directly classifies only the flower/inflorescence of Cannabis as a controlled herb, allows study/research, export, sale or processing for trade by licence, and limits commercial disposal to licensees. It separately permits named health and traditional-health professionals to supply their own patients for treatment with a thirty-day limit. The 2026 official DTAM law page and public licence guide show maintained official publication and administrative implementation. This is a cannabis-specific limited lawful regime. It does not prove a complete operational adult-use route or the patient eligibility, registry, pharmacy/dispensary, product-stock and programme-operation axes required for GREEN. The 2022 Category V source is retained only for its high-THC extract boundary; it neither negates the flower regime nor supplies a patient route."
+      },
       "directOfficialCannabisLawLinks": [
         {
           "title": "Thailand Ministry of Public Health - Notification specifying Category V narcotics, B.E. 2565 (2022)",
           "url": "https://ops.moph.go.th/public/download/document/laws/%E0%B8%81%E0%B8%8E%E0%B8%AB%E0%B8%A1%E0%B8%B2%E0%B8%A2%E0%B8%AA%E0%B8%B2%E0%B8%98%E0%B8%B2%E0%B8%A3%E0%B8%93%E0%B8%AA%E0%B8%B8%E0%B8%82/229.N9xJTFwa0t9XjNlT4FFJ10fnyQKshtq0.pdf",
           "sourceKind": "THAILAND_MOPH_CATEGORY_V_NARCOTICS_2022_CANNABIS_HEMP_EXTRACTS_THC_ABOVE_0_2_PERCENT_AND_SEED_EXCEPTIONS",
+          "sourceOwnerGeo": "TH",
+          "appliesToGeos": [
+            "TH"
+          ],
+          "officialPublisher": "Thailand Ministry of Public Health / Royal Gazette",
+          "sourceAnnotation": "Direct official Ministry/Royal Gazette schedule record retained for the high-THC-extract boundary. It does not make cannabis flower unlawful or prove a patient route. The later 2025 controlled-herb notice is retained separately for flower/inflorescence regulation; generic licensing, cultivation, processing, export and regulator wording never become patient-access axes.",
+          "sourceType": "OFFICIAL_MINISTERIAL_NARCOTICS_SCHEDULE_NOTICE",
+          "primaryOrContext": "PRIMARY_LAW",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T10:45:33.499Z",
+            "final_url": "https://ops.moph.go.th/public/download/document/laws/%E0%B8%81%E0%B8%8E%E0%B8%AB%E0%B8%A1%E0%B8%B2%E0%B8%A2%E0%B8%AA%E0%B8%B2%E0%B8%98%E0%B8%B2%E0%B8%A3%E0%B8%93%E0%B8%AA%E0%B8%B8%E0%B8%82/229.N9xJTFwa0t9XjNlT4FFJ10fnyQKshtq0.pdf",
+            "http_status": 200,
+            "etag": "\"25799-5db432028669e\"",
+            "last_modified": "Mon, 28 Mar 2022 08:30:32 GMT",
+            "content_type": "application/pdf",
+            "content_length": 153497,
+            "document_sha256": "2841633b3309d7dc14f155def20ca829cde7ab1d9304134d5cc4db72649c4d1f",
+            "relevant_fragment_sha256": "51b2d8dcfdde03f6a36ea34df0e88e78a50888fd9824d85c1ac3a65edbaf2110",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "TH"
+            ]
+          },
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official Ministry of Public Health PDF copy of the Royal Gazette notification dated 8 February 2022 and published 9 February 2022. Visual review confirms the Ministry of Public Health title, Category V narcotics heading, and item (3) for extracts from every part of cannabis or hemp plants in genus Cannabis, with visible exceptions for domestically authorized extracts containing not more than 0.2% THC by weight and extracts from domestically cultivated cannabis/hemp seeds. The notice applies after 120 days from publication. This is direct official cannabis/hemp narcotics-schedule evidence.",
+          "note": "Item (3) specifies extracts from every part of cannabis or hemp plants in genus Cannabis, while excepting authorised domestic extracts containing tetrahydrocannabinol not exceeding 0.2 percent by weight and extracts from domestically cultivated cannabis/hemp seeds.",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-22/TH/screenshots/pdf_pages/TH-moph-category-v-narcotics-2022-1.png",
           "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
           "visualReview": "Thailand is closed as visually verified direct official cannabis-law evidence from Ministry of Public Health and Royal Gazette PDFs. The official sources support project LEGAL/REGULATED/SOFT only with explicit caveats: cannabis flower is a licensed controlled herb, sale/advertising/smoking/online/place restrictions apply, medical/professional supply forms are regulated, and high-THC extracts remain Category V narcotics. No project status SSOT was changed."
@@ -87339,19 +87378,32 @@
           "title": "Thailand Royal Gazette - Ministry of Public Health Notification: Controlled Herb (Cannabis), B.E. 2568 (2025)",
           "url": "https://ratchakitcha.soc.go.th/documents/76076.pdf",
           "sourceKind": "THAILAND_ROYAL_GAZETTE_CONTROLLED_HERB_CANNABIS_2025_LICENSED_RESEARCH_EXPORT_SALE_PROCESSING_TRADE_RESTRICTIONS_BANS_ON_SMOKING_VENDING_ONLINE_ADVERTISING_AND_SENSITIVE_PLACES",
+          "sourceOwnerGeo": "TH",
+          "appliesToGeos": [
+            "TH"
+          ],
+          "officialPublisher": "Royal Gazette of Thailand / Ministry of Public Health",
+          "sourceAnnotation": "Current primary cannabis-flower rule. It proves a controlled, licensed legal mode and a narrowly regulated professional-to-own-patient supply clause, but the record does not by itself prove patient eligibility, registry, pharmacy/dispensary, lawful product stock or an operational patient programme; it must not be promoted to GREEN. Its restrictions do not turn a controlled-herb regime into a recreational prohibition without a cannabis-specific offence source.",
+          "sourceType": "OFFICIAL_MINISTERIAL_CONTROLLED_HERB_NOTIFICATION",
+          "primaryOrContext": "PRIMARY_LAW",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "officialHostVerified": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T10:45:33.499Z",
             "final_url": "https://ratchakitcha.soc.go.th/documents/76076.pdf",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "last_modified": "Wed, 12 Aug 2026 10:45:37 GMT",
+            "content_type": "application/pdf",
+            "content_length": 61909,
+            "document_sha256": "6141ed683d47e5ad833b6bdd6cc491121da5f102fca54058640d507257325937",
+            "relevant_fragment_sha256": "a300bbc4d04f33895033ae70675280b2f2dcfaaf9cfff6cb1e645946c07e6811",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -87363,7 +87415,7 @@
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official Royal Gazette PDF, volume 142 special part 229 Ngor, dated 25 June 2025. Visual review confirms the Ministry of Public Health notification title Controlled Herb (Cannabis) B.E. 2568, repeal of the 2022 controlled-herb cannabis notification, and cannabis in genus Cannabis family Cannabaceae, specifically the flower/inflorescence part, being treated as a controlled herb. The rendered pages visibly require licensing for study/research, export, sale or processing controlled cannabis for trade; require source/use/stock reporting; limit sale/processing to licensed recipients; require licensed cannabis to come from certified cultivation/harvest sources; prohibit sale for smoking in business premises except sale by listed health/traditional-medical professionals for their own patients; prohibit vending-machine/electronic/computer-network sales; prohibit advertising; and prohibit sales in religious premises, dormitories, public parks, zoos and amusement parks. A medical/professional supply caveat is visible, including use only as necessary for treatment and not more than thirty days.",
+          "note": "The notification identifies the flower or inflorescence of cannabis in the genus Cannabis, family Cannabaceae as a controlled herb; study/research, export, sale or processing for trade require permission, electronic/network sale is prohibited, and listed health professionals may supply for their own patients only as necessary for treatment and for no more than thirty days.",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-22/TH/screenshots/pdf_pages/TH-royal-gazette-controlled-herb-cannabis-2025-1.png",
           "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
           "visualReview": "Thailand is closed as visually verified direct official cannabis-law evidence from Ministry of Public Health and Royal Gazette PDFs. The official sources support project LEGAL/REGULATED/SOFT only with explicit caveats: cannabis flower is a licensed controlled herb, sale/advertising/smoking/online/place restrictions apply, medical/professional supply forms are regulated, and high-THC extracts remain Category V narcotics. No project status SSOT was changed."
@@ -87372,19 +87424,32 @@
           "title": "Thailand Royal Gazette - Department of Thai Traditional and Alternative Medicine forms under Controlled Herb (Cannabis), B.E. 2568 (2025)",
           "url": "https://ratchakitcha.soc.go.th/documents/76682.pdf",
           "sourceKind": "THAILAND_ROYAL_GAZETTE_2025_CONTROLLED_CANNABIS_REPORTING_EXPORT_AND_PRESCRIPTION_SUPPLY_FORMS",
+          "sourceOwnerGeo": "TH",
+          "appliesToGeos": [
+            "TH"
+          ],
+          "officialPublisher": "Royal Gazette of Thailand / Department of Thai Traditional and Alternative Medicine",
+          "sourceAnnotation": "Official implementing-form record. It corroborates a professional prescription/supply control layer under the primary 2025 notification but is not independent proof of patient eligibility, registration, a dispensary, medicine stock or operational patient access. It is retained as a non-promoting implementation source with its exact Royal Gazette PDF URL.",
+          "sourceType": "OFFICIAL_DEPARTMENTAL_FORM_NOTIFICATION",
+          "primaryOrContext": "IMPLEMENTING_REGULATORY_FORM",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "officialHostVerified": true,
           "revalidation": {
-            "checked_at": "2026-08-11T22:10:17.133Z",
+            "checked_at": "2026-08-12T10:45:33.499Z",
             "final_url": "https://ratchakitcha.soc.go.th/documents/76682.pdf",
-            "http_status": null,
+            "http_status": 200,
             "etag": null,
-            "last_modified": null,
-            "content_type": null,
-            "content_length": null,
-            "document_sha256": null,
-            "relevant_fragment_sha256": null,
+            "last_modified": "Wed, 12 Aug 2026 10:45:39 GMT",
+            "content_type": "application/pdf",
+            "content_length": 110207,
+            "document_sha256": "caf32fcfad099690d8de9644d02360a0db89cb047c40cc08fe9e497cdd7164a3",
+            "relevant_fragment_sha256": "c705c9123c9255f218ba7dd64f560c98b811601708827802fabc73a5047864d1",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
-            "access_state": "NOT_CHECKED_LOCAL_ONLY",
-            "change_reason": "C0_SCHEMA:OWNER_MISSING,APPLICABILITY_MISSING,LOCATOR_MISSING,EXACT_FRAGMENT_MISSING",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
               "C2",
               "C3"
@@ -87396,14 +87461,105 @@
           "evidenceScope": null,
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
-          "note": "Official Royal Gazette PDF, volume 142 special part 233 Ngor, dated 30 June 2025, issued by the Department of Thai Traditional and Alternative Medicine. Visual review confirms this notice sets reporting, export-detail and controlled-cannabis prescription/supply forms under the Ministry of Public Health Controlled Herb (Cannabis) B.E. 2568 notification. The visible prescription/supply form structure confirms the professional/medical control layer rather than unrestricted consumer sale.",
+          "note": "The Departmental notification issues the forms used under the Ministry of Public Health Controlled Herb (Cannabis) B.E. 2568 notification, including the controlled-cannabis prescription and supply form.",
           "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-22/TH/screenshots/pdf_pages/TH-royal-gazette-controlled-herb-cannabis-prescription-form-2025-1.png",
           "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
           "visualReview": "Thailand is closed as visually verified direct official cannabis-law evidence from Ministry of Public Health and Royal Gazette PDFs. The official sources support project LEGAL/REGULATED/SOFT only with explicit caveats: cannabis flower is a licensed controlled herb, sale/advertising/smoking/online/place restrictions apply, medical/professional supply forms are regulated, and high-THC extracts remain Category V narcotics. No project status SSOT was changed."
         }
       ],
       "candidateLinksAwaitingVisualReview": [],
-      "officialContextLinks": [],
+      "officialContextLinks": [
+        {
+          "title": "Thailand Department of Thai Traditional and Alternative Medicine - current publication of the 2025 Controlled Herb (Cannabis) notification",
+          "url": "https://www.dtam.moph.go.th/sub-law/42864/",
+          "sourceKind": "THAILAND_DTAM_CURRENT_LAW_PUBLICATION_2025_CONTROLLED_HERB_CANNABIS_NOTIFICATION",
+          "sourceOwnerGeo": "TH",
+          "appliesToGeos": [
+            "TH"
+          ],
+          "officialPublisher": "Department of Thai Traditional and Alternative Medicine, Ministry of Public Health",
+          "sourceAnnotation": "Current official publication hub for the same 2025 primary notification retained above. It confirms maintained official publication after the Gazette issuance but does not replace the Gazette text, prove patient eligibility, a patient registry, dispensary, product stock or programme operation. It is currentness/context evidence only and cannot independently change a legal axis or colour.",
+          "sourceType": "OFFICIAL_HEALTH_DEPARTMENT_CURRENT_LAW_PUBLICATION",
+          "primaryOrContext": "CURRENTNESS_AND_PRIMARY_LAW_HUB",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T10:47:15.549Z",
+            "final_url": "https://www.dtam.moph.go.th/sub-law/42864",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html",
+            "content_length": 960,
+            "document_sha256": "3503335176cc7ff55113985bcb66cbd1bcfa2082e2f71ca0d17e7dda72625efb",
+            "relevant_fragment_sha256": "be1f17ec1abf39f00b370d686d3aff55663004830aa4b8fcf01f3e38e53bd053",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "TH"
+            ]
+          },
+          "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
+          "confidence": "high",
+          "note": "Official DTAM page retained with its precise URL, authority, TH scope, title fragment and non-promoting currentness annotation.",
+          "screenshotPath": null,
+          "visualReview": "CONTEXT_ONLY"
+        },
+        {
+          "title": "Thailand Department of Thai Traditional and Alternative Medicine - public guide to applying for a Controlled Herb (Cannabis) licence",
+          "url": "https://www.dtam.moph.go.th/news-release/44715/",
+          "sourceKind": "THAILAND_DTAM_2026_CONTROLLED_HERB_CANNABIS_LICENCE_APPLICATION_GUIDE",
+          "sourceOwnerGeo": "TH",
+          "appliesToGeos": [
+            "TH"
+          ],
+          "officialPublisher": "Department of Thai Traditional and Alternative Medicine, Ministry of Public Health / Medical Cannabis Division",
+          "sourceAnnotation": "Current official implementation page retained to document that an administrative cannabis-licence process was publicly maintained in 2026. Regulator e-licensing and licence application concern entity/activity control only; they never establish patient eligibility, prescription, registration, lawful patient supply, dispensing or an operational patient programme and therefore never promote GREEN.",
+          "sourceType": "OFFICIAL_PUBLIC_SERVICE_GUIDE",
+          "primaryOrContext": "CURRENTNESS_AND_REGULATORY_IMPLEMENTATION",
+          "cannabisSpecific": true,
+          "effective": true,
+          "current": true,
+          "directFragmentAvailable": true,
+          "officialHostVerified": true,
+          "revalidation": {
+            "checked_at": "2026-08-12T10:47:15.549Z",
+            "final_url": "https://www.dtam.moph.go.th/news-release/44715",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html",
+            "content_length": 955,
+            "document_sha256": "22a263e3dbe2bd8c8ee28d5ee8d9c2040343c5aae05f35d7e9dc8f1a59a936e6",
+            "relevant_fragment_sha256": "6ddba5cb422b4ffba7dd0de8345465b021753b6cfca6b7112134a96048de3318",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "dependent_geos": [
+              "TH"
+            ]
+          },
+          "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
+          "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
+          "confidence": "high",
+          "note": "Official DTAM licence-guide URL preserved with a cannabis-specific title fragment and explicit Truth-First boundary against treating generic/enterprise licensing as patient access.",
+          "screenshotPath": null,
+          "visualReview": "CONTEXT_ONLY"
+        }
+      ],
       "supplementalOfficialLinks": [],
       "sourceCoverage": "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW",
       "differenceStatus": "MATCH_WITH_CONTROLLED_HERB_AND_HIGH_THC_EXTRACT_NARCOTICS_CAVEAT",
@@ -87411,7 +87567,7 @@
       "parserSignals": [],
       "derivedStatus": null,
       "visualReviewStatus": "VISUALLY_VERIFIED",
-      "strictVisualAcceptance": null,
+      "strictVisualAcceptance": false,
       "screenshotPaths": [
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-22/TH/screenshots/pdf_pages/TH-moph-category-v-narcotics-2022-1.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-18/remaining-22/TH/screenshots/pdf_pages/TH-royal-gazette-controlled-herb-cannabis-2025-1.png",
