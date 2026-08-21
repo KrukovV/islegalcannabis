@@ -166,6 +166,25 @@ A temporary endpoint timeout, blank PDF viewer, or absence of all facts on one o
 
 **UNKNOWN minimisation invariant.** This is a knowledge-building audit, not a mechanism for converting incomplete retrieval into a blank map. Before assigning `UNKNOWN`, the review must exhaust the existing applicable official registry and retained direct visual evidence, current statute/gazette text, amendment or repeal chain, regulator or operational-programme material, and any constitutional or statutory territorial-extension source. A missing operational patient page does not reopen a cannabis-specific primary-law conclusion that itself expressly defines the medical scope: a current law that places cannabis in a no-medical-interest prohibited class can prove `RED`, and a current applicable cannabis-specific authorisation can prove `YELLOW`, provided all color-required axes are directly established. Record which required source classes were checked and the precise legal blocker. `UNKNOWN` remains required only where the territorial regime itself cannot honestly be derived; it is never a fallback for a parser miss, one-page incompleteness, access failure, or unaggregated sources.
 
+### UNKNOWN-73 closure extension
+
+The mandatory execution contract for the current proposal-only `UNKNOWN=73`
+baseline is `docs/UNKNOWN_73_COLOR_CLOSURE_SPEC.md`. It controls the
+separation of primary law, operational patient evidence, official
+retail/dispensing evidence, Store Truth persistence, territorial applicability,
+target deduplication, and final counters.
+
+Official adult-use retail evidence can satisfy the general operational
+adult-use rule only when its official category, current lifecycle state, and
+GEO applicability are directly proved. An official medical pharmacy or
+dispensary proves only its expressly regulated lawful-supply/dispensing axis;
+it cannot replace patient eligibility, a prescriber route, or programme
+operation. Generic pharmacies, hemp/research/export permissions, commercial
+directories, and stale registries remain non-promoting. A disputed, synthetic,
+or composite GEO remains unpainted unless one regime is proved for the whole
+mapped GEO; component splitting is a model decision, never a claimant-law
+color shortcut.
+
 For a composite GEO, a color may be derived only from one proven unitary legal regime for the entire mapped GEO. A conservative intersection is forbidden: the stricter component cannot erase a distinct lawful patient or adult-use route in another component, and the more permissive component cannot erase a proven prohibition in another. If components differ on any color-determinative recreational or patient-access axis, derive unpainted `UNKNOWN` with `COMPONENTS_HAVE_DIFFERENT_REGIMES`; record the component evidence separately.
 
 An express current criminal-law exclusion of personal use and small doses from criminal liability is affirmative limited non-criminal evidence when applicable current cannabis scope is independently proved. It supports `YELLOW`, not `GREEN`; a general statement that cannabis is “not legalised” cannot erase that narrow axis.

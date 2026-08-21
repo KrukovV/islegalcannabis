@@ -195,3 +195,27 @@ Example (ok response):
 ## Annotated Official Evidence Contract
 
 Every 307-GEO legal conclusion is proposal-only until apply authorization and must preserve annotated direct official evidence in the audit ledger: URL, owner and territorial applicability, authority/source type, exact legal fragment, effective/currentness assessment, visual-review state and capture path. Unannotated links are leads, not evidence.
+
+## UNKNOWN-73 legal/store closure contract
+
+`docs/UNKNOWN_73_COLOR_CLOSURE_SPEC.md` is mandatory for work intended to
+reduce the current proposal-only 73-GEO unpainted set. The work maximizes
+legitimate `GREEN`, `YELLOW`, and `RED` conclusions while preserving
+`UNKNOWN` where no unitary applicable territorial regime exists.
+
+- An official cannabis retailer may prove operational adult-use only with a
+  current official retail category, lifecycle state, and exact GEO
+  applicability. A medical retailer proves only the supply/dispensing axis
+  unless the independent patient/prescriber/operation axes are also proved.
+- Official Store data persists only through the canonical Store Truth pipeline.
+  Commercial directories, generic pharmacies, cultivation/export, hemp/CBD,
+  bills, stale data and unverified coordinates create neither a Truth
+  conclusion nor a visible Store leaf.
+- Each accepted source retains owner, applicability, extension basis, role,
+  exact fragment, effective/current state, visual review and revalidation
+  metadata. Access failure is not legal evidence.
+- A claimant, parent/metropolitan state, neighbouring country, or component
+  cannot supply a color without a direct territorial applicability bridge.
+- Product changes remain `/truth-map`-only. `/` and `/new-map` remain free
+  of the Store and Social layers, and store leaves and Social chat markers
+  remain semantically exclusive.
