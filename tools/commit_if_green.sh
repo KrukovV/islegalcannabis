@@ -536,18 +536,21 @@ if ! tag_target_commit="$(git rev-parse --verify "${tag_target}^{commit}" 2>/dev
   append_ci_final "TAG_FAIL=1 reason=TAG_TARGET_INVALID target=${tag_target}"
   exit 1
 fi
-tag_force=( -f )
 if [ -n "${TAG_TARGET}" ]; then
   if git show-ref --verify --quiet "refs/tags/${tag}"; then
     echo "TAG_FAIL=1 reason=TAG_TARGET_REF_EXISTS name=${tag}"
     append_ci_final "TAG_FAIL=1 reason=TAG_TARGET_REF_EXISTS name=${tag}"
     exit 1
   fi
-  tag_force=()
-fi
-if ! git tag -a "${tag_force[@]}" "${tag}" "${tag_target_commit}" -m "green: $(date -u +%FT%TZ) target=${tag_target_commit}"; then
-  echo "TAG_FAIL=1 Not committing."
-  exit 1
+  if ! git tag -a "${tag}" "${tag_target_commit}" -m "green: $(date -u +%FT%TZ) target=${tag_target_commit}"; then
+    echo "TAG_FAIL=1 Not committing."
+    exit 1
+  fi
+else
+  if ! git tag -a -f "${tag}" "${tag_target_commit}" -m "green: $(date -u +%FT%TZ) target=${tag_target_commit}"; then
+    echo "TAG_FAIL=1 Not committing."
+    exit 1
+  fi
 fi
 append_ci_final "TAG_CREATED name=${tag} target=${tag_target_commit}"
 echo "TAG_CREATED=1 name=${tag} target=${tag_target_commit}"
@@ -565,9 +568,16 @@ if [ "${PROD_TAG_REQUESTED}" = "1" ] || [ "${ENABLE_PROD_TAG:-0}" = "1" ]; then
     append_ci_final "TAG_FAIL=1 reason=TAG_TARGET_REF_EXISTS name=${prod_tag}"
     exit 1
   fi
-  if ! git tag -a "${tag_force[@]}" "${prod_tag}" "${tag_target_commit}" -m "prod: $(date -u +%FT%TZ) target=${tag_target_commit}"; then
-    echo "TAG_FAIL=1 Not committing."
-    exit 1
+  if [ -n "${TAG_TARGET}" ]; then
+    if ! git tag -a "${prod_tag}" "${tag_target_commit}" -m "prod: $(date -u +%FT%TZ) target=${tag_target_commit}"; then
+      echo "TAG_FAIL=1 Not committing."
+      exit 1
+    fi
+  else
+    if ! git tag -a -f "${prod_tag}" "${tag_target_commit}" -m "prod: $(date -u +%FT%TZ) target=${tag_target_commit}"; then
+      echo "TAG_FAIL=1 Not committing."
+      exit 1
+    fi
   fi
   append_ci_final "TAG_CREATED name=${prod_tag} target=${tag_target_commit}"
   echo "TAG_CREATED=1 name=${prod_tag} target=${tag_target_commit}"
