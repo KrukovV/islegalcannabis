@@ -24,28 +24,29 @@
       "url": "https://en.wikipedia.org/wiki/Cannabis_in_Djibouti"
     }
   ],
-  "notes_text": "Main article: Cannabis in Djibouti",
-  "notes_text_len": 34,
-  "notes": "Main article: Cannabis in Djibouti",
+  "notes_text": "Main article: Cannabis in Djibouti.\n\n'''Cannabis in Djibouti''' is illegal with penalties for the production, sale, and possession of marijuana for medicinal or recreational purposes. Offenders may be fined or receive up to five years in prison. Use of cannabis in Djibouti is low due to poor conditions for cultivation and the local preference for the legal drug khat.\n\nThe port of Djibouti is utilized as a drug trafficking hub. Cannabis from Southwest and Southeast Asia is transferred through Djibouti to other countries in Africa, the Middle East, and Europe.",
+  "notes_text_len": 564,
+  "notes": "Main article: Cannabis in Djibouti.\n\n'''Cannabis in Djibouti''' is illegal with penalties for the production, sale, and possession of marijuana for medicinal or recreational purposes. Offenders may be fined or receive up to five years in prison. Use of cannabis in Djibouti is low due to poor conditions for cultivation and the local preference for the legal drug khat.\n\nThe port of Djibouti is utilized as a drug trafficking hub. Cannabis from Southwest and Southeast Asia is transferred through Djibouti to other countries in Africa, the Middle East, and Europe.",
   "notes_raw": "{{main|Cannabis in Djibouti}}",
   "notes_sections_used": [
-    "main_article"
+    "main_article",
+    "lead"
   ],
   "notes_main_article": "Cannabis in Djibouti",
   "notes_rev": "",
-  "notes_kind": "MIN_ONLY",
-  "notes_reason_code": "NO_EXTRA_TEXT",
+  "notes_kind": "RICH",
+  "notes_reason_code": "NOTES_WEAKEN_BLOCKED_SAME_STATUS",
   "recreational_status": "Illegal",
   "medical_status": "Illegal",
   "source_type": "WIKI_COUNTRIES",
   "primary_source": "WIKI_COUNTRIES",
   "source_page": "Legality of cannabis",
   "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-  "source_revision": "1360109215",
+  "source_revision": "1369217124",
   "source_table": "countries",
-  "wiki_revision_id": "1360109215",
-  "fetched_at": "2026-06-21T17:29:39.863Z",
+  "wiki_revision_id": "1369217124",
+  "fetched_at": "2026-08-21T15:32:41.930Z",
   "sources_reason_code": "",
   "source": "countries",
-  "revision_id": "1360109215"
+  "revision_id": "1369217124"
 }
