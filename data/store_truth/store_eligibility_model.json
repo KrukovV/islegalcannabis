@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-23T19:37:54.528Z",
+  "generated_at": "2026-08-23T19:45:28.554Z",
   "local_only": true,
   "legal_truth_input": "data/reviews/wiki-truth-307-final-reconciliation.json",
   "evidence_input": "data/store_truth/store_eligibility_evidence.json",
