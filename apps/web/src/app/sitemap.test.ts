@@ -27,4 +27,9 @@ describe("sitemap", () => {
     expect(urls).toContain("https://www.islegal.info/es/c/nld");
     expect(urls).toContain("https://www.islegal.info/pt/c/nld");
   });
+
+  it("never publishes the local-only Truth Map route", () => {
+    const urls = sitemap().map((entry) => entry.url);
+    expect(urls.some((url) => url.includes("/truth-map"))).toBe(false);
+  });
 });
