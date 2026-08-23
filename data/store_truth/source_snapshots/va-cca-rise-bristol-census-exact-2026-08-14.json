@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-14T18:02:12.807Z",
+  "input_path": "data/store_truth/source_snapshots/va-cca-rise-bristol-census-input-2026-08-14.json",
+  "input_sha256": "8633695d266af1ea78ff6cf919e377c7db5b4440f305726b744c9bfdc2c13a83",
+  "census_geocoder_url": "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+  "census_benchmark": "Public_AR_Current",
+  "census_response_sha256": "b34dda50ca61a478846cf8a86c52bf4e79321237eccc3ab3f44ffba062725a61",
+  "records": [
+    {
+      "source_record_id": "squarespace-location:440e8abd4330b4bb32126fc3",
+      "address": "780 Gate City Hwy",
+      "city": "Bristol",
+      "region": "VA",
+      "postal_code": "24201",
+      "latitude": 36.601387030993,
+      "longitude": -82.219533782391,
+      "census_matched_postal_code": "24201",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "780 GATE CITY HWY, BRISTOL, VA, 24201"
+      }
+    }
+  ],
+  "counts": {
+    "input_records": 1,
+    "census_response_rows": 1,
+    "one_to_one_exact_census_geocodes": 1,
+    "blocked_census_no_exact_in_jurisdiction_match": 0
+  }
+}

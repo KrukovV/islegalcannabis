@@ -1,0 +1,26 @@
+{
+  "public_location_headers": {
+    "legal_name": "PHARMACY NAME",
+    "address": "ADDRESS",
+    "directory_county": "COUNTY"
+  },
+  "required_fields": [
+    "legal_name",
+    "address"
+  ],
+  "identity_fields": [
+    "legal_name",
+    "address"
+  ],
+  "store_type": "MEDICAL_DISPENSARY",
+  "license_type": "CURRENT_UTAH_MEDICAL_CANNABIS_PHARMACY_DIRECTORY",
+  "region": "UT",
+  "country": "US",
+  "medical": true,
+  "license_status": "UNKNOWN_STATUS",
+  "operational_status": "UNKNOWN_STATUS",
+  "confidence": "PROVEN",
+  "location_evidence": "STRONG",
+  "coordinates_source": "OFFICIAL_DIRECTORY_NO_COORDINATE_FIELD",
+  "coordinates_confidence": "UNKNOWN"
+}

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Georgia Licensed Medical Cannabis Dispensaries</name>
+    <description><![CDATA[The official map of licensed medical cannabis dispensaries in Georgia updated by the Georgia Access to Medical Cannabis Commission ("GMCC"). GMCC is the State of Georgia agency responsible for cannabis licensing, regulatory compliance, and providing access to patients on the Georgia Low THC Oil Patient Registry. <br><br>VERIFY A MEDICAL CANNABIS LICENSE<br>-----------------------------------------------------------------<br>To verify the status of a license, or for more information about the patient registry, visit the Commission's website at www.gmcc.ga.gov]]></description>
+    <Style id="icon-1624-0F9D58-normal">
+      <IconStyle>
+        <color>ff589d0f</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1624-0F9D58-highlight">
+      <IconStyle>
+        <color>ff589d0f</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1624-0F9D58">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1624-0F9D58-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1624-0F9D58-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Folder>
+      <name>Dispensaries</name>
+      <Placemark>
+        <name>Trulieve Macon</name>
+        <description><![CDATA[Trulieve Medical Cannabis Dispensary of Macon<br>3556 Riverside Drive<br>Suite A<br>Macon, Georgia 31210<br>Dispensing License DISP0001]]></description>
+        <styleUrl>#icon-1624-0F9D58</styleUrl>
+        <Point>
+          <coordinates>
+            -83.6833325,32.8975623,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Trulieve Marietta</name>
+        <description><![CDATA[Trulieve Medical Cannabis Dispensary of Marietta<br>220 Cobb Parkway North<br>Suite 600<br>Marietta, Georgia 30062<br>Dispensing License DISP0002]]></description>
+        <styleUrl>#icon-1624-0F9D58</styleUrl>
+        <Point>
+          <coordinates>
+            -84.5225041,33.9556006,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Trulieve Pooler</name>
+        <description><![CDATA[Trulieve Medical Cannabis Dispensary of Pooler<br>2003 Pooler Parkway<br>Pooler, Georgia 31322<br>Dispensing License DISP0003]]></description>
+        <styleUrl>#icon-1624-0F9D58</styleUrl>
+        <Point>
+          <coordinates>
+            -81.2799086,32.0811698,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Botanical Sciences Marietta</name>
+        <description><![CDATA[Georgia Dispensary 3, LLC dba<br>Botanical Sciences<br>2468 Windy Hill Rd<br>Suite 900<br>Marietta, Georgia 30067<br>Dispensing License DISP0004]]></description>
+        <styleUrl>#icon-1624-0F9D58</styleUrl>
+        <Point>
+          <coordinates>
+            -84.4816349,33.902355,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Botanical Sciences Pooler</name>
+        <description><![CDATA[Georgia Dispensary 4, LLC dba <br>Botanical Sciences<br>100 Zoya Lane<br>Suite 112<br>Pooler, Georgia 31322<br>Dispensing License DISP0005]]></description>
+        <styleUrl>#icon-1624-0F9D58</styleUrl>
+        <Point>
+          <coordinates>
+            -81.2769441,32.0870758,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Trulieve Newnan</name>
+        <description><![CDATA[Trulieve Medical Cannabis Dispensary of Newnan<br>1690 Highway 34 East<br>Suite D<br>Newnan, Georgia 30265<br>Dispensing License DISP0006]]></description>
+        <styleUrl>#icon-1624-0F9D58</styleUrl>
+        <Point>
+          <coordinates>
+            -84.7251988,33.4018397,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Botanical Sciences Chamblee</name>
+        <description><![CDATA[Georgia Dispensary 1, LLC dba<br>Botanical Sciences<br>3927 Buford Hwy NE<br>Atlanta, Georgia 30345<br>Dispensing License DISP0007]]></description>
+        <styleUrl>#icon-1624-0F9D58</styleUrl>
+        <Point>
+          <coordinates>
+            -84.3114939,33.8579104,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Botanical Sciences Stockbridge</name>
+        <description><![CDATA[Georgia Dispensary 2, LLC dba<br>Botanical Sciences<br>1791 Rock Quarry Rd<br>Stockbridge, Georgia 30281<br>Dispensing License DISP0008]]></description>
+        <styleUrl>#icon-1624-0F9D58</styleUrl>
+        <Point>
+          <coordinates>
+            -84.2289087,33.5079524,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Trulieve Evans</name>
+        <description><![CDATA[Trulieve Medical Cannabis Dispensary of Evans<br>4218 Washington Rd<br>Unit 1<br>Evans, Georgia 30809<br>Dispensing License DISP0009]]></description>
+        <styleUrl>#icon-1624-0F9D58</styleUrl>
+        <Point>
+          <coordinates>
+            -82.121703,33.523809,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Fine Fettle Smyrna</name>
+        <description><![CDATA[FFD GA Smyrna LLC <br>d/b/a Fine Fettle<br>2110 Paces Ferry Road SE<br>Smyrna, Georgia 30080<br>Dispensing License DISP0011]]></description>
+        <styleUrl>#icon-1624-0F9D58</styleUrl>
+        <Point>
+          <coordinates>
+            -84.4916136,33.8643372,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Fine Fettle Decatur</name>
+        <description><![CDATA[FFD GA Decatur LLC<br>d/b/a Fine Fettle<br>2607 Lawrenceville Highway<br>Decatur, Georgia 30033<br>Dispensing License DISP0013]]></description>
+        <styleUrl>#icon-1624-0F9D58</styleUrl>
+        <Point>
+          <coordinates>
+            -84.2620781,33.8228465,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Fine Fettle Athens</name>
+        <description><![CDATA[FFD GA Athens LLC<br>3035 Atlanta Highway<br>Athens, Georgia 30606<br>Dispensing License DISP0012]]></description>
+        <styleUrl>#icon-1624-0F9D58</styleUrl>
+        <Point>
+          <coordinates>
+            -83.439548,33.9431955,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Trulieve Columbus</name>
+        <description><![CDATA[Trulieve Medical Cannabis Dispensary of Columbus<br>4328 Armour Road<br>Columbus, Georgia 31904<br>Dispensing License DISP0014]]></description>
+        <styleUrl>#icon-1624-0F9D58</styleUrl>
+        <Point>
+          <coordinates>
+            -84.9522879,32.5042004,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Treevana Milledgeville</name>
+        <description><![CDATA[Treevana Remedy, Inc.<br>3015 Heritage Place<br>Suite B<br>Milledgeville, Georgia 31061<br>Dispensing License DISP0015]]></description>
+        <styleUrl>#icon-1624-0F9D58</styleUrl>
+        <Point>
+          <coordinates>
+            -83.259218,33.1182227,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Botanical Sciences Atlanta</name>
+        <description><![CDATA[Georgia Dispensary 6, LLC d/b/a <br>Botanical Sciences<br>1532 Howell Mill Rd. <br>Atlanta, Georgia 30318<br>Dispensing License DISP0018]]></description>
+        <styleUrl>#icon-1624-0F9D58</styleUrl>
+        <Point>
+          <coordinates>
+            -84.4164236,33.7974041,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>True Bliss Atlanta</name>
+        <description><![CDATA[TT GA Retail 3 LLC d/b/a <br>True Bliss Dispensary<br>66 Peachtree Street NW<br>Atlanta, Georgia 30303<br>Dispensing License DISP0017]]></description>
+        <styleUrl>#icon-1624-0F9D58</styleUrl>
+        <Point>
+          <coordinates>
+            -84.3890696,33.7556122,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Fine Fettle Evans</name>
+        <description><![CDATA[FFD GA Evans LLC<br>4300 Towne Centre<br>Evans, Georgia 30809<br>Dispensing License DISP0020]]></description>
+        <styleUrl>#icon-1624-0F9D58</styleUrl>
+        <Point>
+          <coordinates>
+            -82.126118,33.5321857,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>True Bliss Atlanta</name>
+        <description><![CDATA[TT GA Retail 2 LLC <br>dba True Bliss Dispensary<br>1831 Peachtree Rd NE<br>Suite B<br>Atlanta, Georgia 30309<br>Dispensing License DISP0019]]></description>
+        <styleUrl>#icon-1624-0F9D58</styleUrl>
+        <Point>
+          <coordinates>
+            -84.3935921,33.8051594,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

@@ -1,0 +1,36 @@
+[
+  {
+    "source_record_id": "30838",
+    "geo_id": "US-AK",
+    "legal_name": "Stash Cannabis Company, LLC",
+    "trade_name": "Stash Cannabis Company",
+    "license_number": "30838",
+    "license_type": "Retail Marijuana Store",
+    "store_type": "ADULT_USE_RETAIL",
+    "address": "12825 W. Big Lake Road, Building #2",
+    "city": "Big Lake",
+    "region": "AK",
+    "postal_code": "99654",
+    "country": "US",
+    "latitude": null,
+    "longitude": null,
+    "official_website": "",
+    "regulator_url": "https://www.commerce.alaska.gov/abc/marijuana/Home/License/ab8a3b85-34f6-49ec-9c49-9d22e9a1af5a",
+    "license_status": "ACTIVE",
+    "operational_status": "ACTIVE",
+    "adult_use": true,
+    "confidence": "PROVEN",
+    "coordinates_source": "OFFICIAL_RECORD_NO_COORDINATE_FIELD",
+    "coordinates_confidence": "UNKNOWN",
+    "location_evidence": "STRONG",
+    "legal_gate": {
+      "geo_access_legal": true,
+      "store_type_legal": true,
+      "store_type_eligibility_ref": "data/store_truth/store_eligibility_model.json#US-AK:ADULT_USE_RETAIL",
+      "store_type_eligibility_fingerprint": "store-eligibility:35bca6ae8201c042f5975d2f",
+      "canonical_truth_ref": "data/reviews/wiki-truth-307-final-reconciliation.json#US-AK",
+      "canonical_truth_fingerprint": "US-AK:GREEN:GENERAL_CURRENT_OFFICIAL_ADULT_USE_LEGALITY_CONFIRMED",
+      "evidence_basis": "INDEPENDENT_OFFICIAL_LEGAL_AND_LICENSE_RECORD_REVIEW"
+    }
+  }
+]

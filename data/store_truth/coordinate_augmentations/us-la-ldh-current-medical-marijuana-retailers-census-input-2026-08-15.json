@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-14T22:20:49.183Z",
+  "source_id": "official-la-ldh-current-medical-marijuana-retailers-2026-08-15",
+  "source_snapshot_path": "data/store_truth/source_snapshots/us-la-ldh-current-medical-marijuana-retailers-2026-08-15.json",
+  "source_snapshot_sha256": "3c55f4541e7d758cbb537a06379783815bb2d57c0f82c33da0d58b0e4a8530b4",
+  "source_url": "https://ldh.la.gov/page/medical-marijuana",
+  "records": [
+    {
+      "source_record_id": "US-LA:BASE:01:48d9e8a5de858cb713702096",
+      "address": "1667 Tchoupitoulas Blvd., Suite B",
+      "city": "New Orleans",
+      "region": "LA",
+      "postal_code": "70130"
+    },
+    {
+      "source_record_id": "US-LA:BASE:02:07bf485482e8bbc27685e3ba",
+      "address": "100 W. Airline Hwy",
+      "city": "Kenner",
+      "region": "LA",
+      "postal_code": "70062"
+    },
+    {
+      "source_record_id": "US-LA:BASE:03:a024753fd01c7350de2bba1c",
+      "address": "8037 Picardy Avenue",
+      "city": "Baton Rouge",
+      "region": "LA",
+      "postal_code": "70809"
+    },
+    {
+      "source_record_id": "US-LA:BASE:04:c446dc49a7671d9b110807f2",
+      "address": "174 Arlington Street",
+      "city": "Morgan City",
+      "region": "LA",
+      "postal_code": "70280"
+    },
+    {
+      "source_record_id": "US-LA:BASE:05:e4a2244d69df5ed78e613517",
+      "address": "2104 Ambassador Caffery Parkway",
+      "city": "Lafayette",
+      "region": "LA",
+      "postal_code": "70506"
+    },
+    {
+      "source_record_id": "US-LA:BASE:06:05abd04e6ccd91c785ca3106",
+      "address": "3005 L'Auberge Blvd.",
+      "city": "Lake Charles",
+      "region": "LA",
+      "postal_code": "70601"
+    },
+    {
+      "source_record_id": "US-LA:BASE:07:87bce7b40771b5a144772fa1",
+      "address": "40 Pinecrest Drive",
+      "city": "Pineville",
+      "region": "LA",
+      "postal_code": "71360"
+    },
+    {
+      "source_record_id": "US-LA:BASE:08:7aa86cf8778a886fb791019c",
+      "address": "4590 E. Texas Street",
+      "city": "Bossier City",
+      "region": "LA",
+      "postal_code": "71111"
+    },
+    {
+      "source_record_id": "US-LA:BASE:09:58044e59ada16030b2e811d5",
+      "address": "1707 McKeen Place",
+      "city": "Monroe",
+      "region": "LA",
+      "postal_code": "71201"
+    },
+    {
+      "source_record_id": "US-LA:BASE:10:05f0d5203c80bcfc3508ebb8",
+      "address": "69090 Highway 190 Service Road",
+      "city": "Covington",
+      "region": "LA",
+      "postal_code": "70433"
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:01:ec15f7f98fe08c2158c4e4f3",
+      "address": "5055 Veterans Memorial Blvd.",
+      "city": "Metairie",
+      "region": "LA",
+      "postal_code": "70006"
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:02:1626fcc838eacc46f65cbd7f",
+      "address": "1544 Manhattan Blvd.",
+      "city": "Harvey",
+      "region": "LA",
+      "postal_code": "70058"
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:03:3116874e8ca4782cbde83d49",
+      "address": "1407 S. Carrollton Avenue",
+      "city": "New Orleans",
+      "region": "LA",
+      "postal_code": "70118"
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:04:1a6a68253fd2efe290054546",
+      "address": "1940 O'Neal Lane",
+      "city": "Baton Rouge",
+      "region": "LA",
+      "postal_code": "70816"
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:05:8aebc69aa28c5c5b702f4a7a",
+      "address": "17097 Airline Hwy",
+      "city": "Prairieville",
+      "region": "LA",
+      "postal_code": "70769"
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:06:2a08eaed162c42197e682161",
+      "address": "6048 W. Park Avenue",
+      "city": "Houma",
+      "region": "LA",
+      "postal_code": "70364"
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:07:1f4f5cea14b88d9957f62bd4",
+      "address": "4079 I-49 S. Service Road",
+      "city": "Opelousas",
+      "region": "LA",
+      "postal_code": "70570"
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:08:35ee6c0dc16997c449fa67ef",
+      "address": "1700 Center Street",
+      "city": "New Iberia",
+      "region": "LA",
+      "postal_code": "70560"
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:09:f7dd894f46f67c837f80a71b",
+      "address": "1920 Evangeline Road",
+      "city": "Jennings",
+      "region": "LA",
+      "postal_code": "70546"
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:10:3205a6100daa61de5b309008",
+      "address": "303 South Cities Service Hwy.",
+      "city": "Sulphur",
+      "region": "LA",
+      "postal_code": "70663"
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:11:b2e366765d3c1024b142c270",
+      "address": "101 Cocoville Road",
+      "city": "Mansura",
+      "region": "LA",
+      "postal_code": "71350"
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:12:167e34ab1d5ff4f612a4c967",
+      "address": "111 W. Harriet Street",
+      "city": "Leesville",
+      "region": "LA",
+      "postal_code": "71446"
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:13:df43ffa7483ddfa7d76e6338",
+      "address": "5033 University Parkway",
+      "city": "Natchitoches",
+      "region": "LA",
+      "postal_code": "71457"
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:14:30a98bce2dec1858ef8f5f87",
+      "address": "9352 Mansfield Road",
+      "city": "Shreveport",
+      "region": "LA",
+      "postal_code": "71118"
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:15:a1c042057e71658509a60af7",
+      "address": "111 McMillian Road",
+      "city": "West Monroe",
+      "region": "LA",
+      "postal_code": "71291"
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:16:0dc033f224cbf3f83c14052b",
+      "address": "746 Celebrity Drive",
+      "city": "Ruston",
+      "region": "LA",
+      "postal_code": "71270"
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:17:f6ec0ec0c3a9a09df57adfca",
+      "address": "796 East I-10 Service Road",
+      "city": "Slidell",
+      "region": "LA",
+      "postal_code": "70461"
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:18:6ad53c3e89f15e4c7cbec057",
+      "address": "1410 SW Railroad Avenue",
+      "city": "Hammond",
+      "region": "LA",
+      "postal_code": "70403"
+    }
+  ]
+}

@@ -10,6 +10,8 @@ module.exports = [
       "Reports/**",
       "QUARANTINE/**",
       "Artifacts/**",
+      "tmp/**",
+      ".checkpoints/**",
       "**/.worktrees/**",
       "playwright/**",
       "vendor/**",

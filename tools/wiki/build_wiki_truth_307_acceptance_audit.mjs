@@ -230,6 +230,39 @@ function hasVisualProof(matrixRow) {
   return inspectVisualProof(matrixRow).complete;
 }
 
+function hasScopeExceptionVisualProof(matrixRow) {
+  const isExistingScreenshot = (screenshotPath) => {
+    if (!screenshotPath) return false;
+    const resolvedPath = path.isAbsolute(screenshotPath)
+      ? screenshotPath
+      : path.resolve(ROOT, screenshotPath);
+    try {
+      const stat = fs.statSync(resolvedPath);
+      return stat.isFile() && stat.size > 0;
+    } catch {
+      return false;
+    }
+  };
+  return evidenceLinks(matrixRow).some((link) => {
+    const screenshotPaths = [
+      link?.screenshotPath,
+      ...(Array.isArray(link?.freshScreenshotPaths) ? link.freshScreenshotPaths : []),
+    ];
+    const scope = normalizeStatus(
+      [link?.evidenceScope, link?.sourceKind, link?.role, link?.verification]
+        .filter(Boolean)
+        .join(" "),
+    );
+    return (
+      /CONTEXT|SCOPE|JURISDICTION|TERRITORIAL/.test(scope) &&
+      link?.officialOwnerVisible === true &&
+      link?.effectiveRuleVisible === true &&
+      link?.screenshotValid === true &&
+      screenshotPaths.some(isExistingScreenshot)
+    );
+  });
+}
+
 function hasInterpretiveLegalReview(matrixRow) {
   const layer = matrixRow?.truthLayers?.legalInterpretation || {};
   const text = compact(
@@ -282,7 +315,11 @@ function hasDocumentedNoApplicableTerritoryLaw(matrixRow) {
   );
   const hasScopeException =
     /unclaimed|disputed|claimant|without choosing sovereign|no public lawmaker|no territorial cannabis-law|no territorial law|not territory-issued|no single territorial|no unitary|national jurisdiction dependent|aggregation of|scope unresolved|jurisdiction[- ]scope unresolved|no local medical cannabis program|no territory-issued cannabis page|без выбора суверена|не выбирая|спорн|нет общего|единого уголовного кодекса|не выдумывая/i.test(text);
-  return hasScopeException && hasReadableLawText(matrixRow) && hasVisualProof(matrixRow);
+  return (
+    hasScopeException &&
+    hasReadableLawText(matrixRow) &&
+    hasScopeExceptionVisualProof(matrixRow)
+  );
 }
 
 function evaluation(status, reason, evidence = {}) {
@@ -349,6 +386,19 @@ function evaluatePrimaryLaw(reportRow, matrixRow, primaryLawBlocker) {
     reportRow.effectiveSourceCoverage ||
     reportRow.diagnostics?.evidence?.effectiveSourceCoverage ||
     reportRow.sourceCoverage;
+  // A documented no-unitary-regime finding is an explicit completion path for
+  // the primary-law requirement. It must not be downgraded merely because the
+  // raw source-coverage label records the absence of a single cannabis statute.
+  if (
+    reportRow?.truth?.color === "UNKNOWN" &&
+    hasDocumentedNoApplicableTerritoryLaw(matrixRow)
+  ) {
+    return evaluation("PROVEN", "Official evidence and visual review document that no single territory-issued or determinable applicable cannabis-law regime can honestly be selected; this is the permitted uncolored/scope-exception case.", {
+      effectiveSourceCoverage,
+      rawSourceCoverage: reportRow.sourceCoverage,
+      evidenceLinkCount: evidenceLinks(matrixRow).length,
+    });
+  }
   if (
     effectiveSourceCoverage === "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW" &&
     links.length > 0
@@ -413,6 +463,8 @@ function evaluatePrimaryLaw(reportRow, matrixRow, primaryLawBlocker) {
     blocker: summarizePrimaryLawBlocker(primaryLawBlocker),
   });
 }
+
+export { evaluatePrimaryLaw };
 
 export function evaluateLegalInterpretation(reportRow, matrixRow) {
   const layer = matrixRow?.truthLayers?.legalInterpretation || {};
@@ -3600,4 +3652,6 @@ function main() {
   }
 }
 
-main();
+if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
+  main();
+}

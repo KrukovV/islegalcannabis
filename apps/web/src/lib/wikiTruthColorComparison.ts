@@ -559,9 +559,13 @@ export function summarizeOfficialEvidenceRevalidation(
   if (!metadata.length) return "Revalidation metadata: отсутствует.";
   const states = new Map<string, number>();
   for (const entry of metadata) {
+    // Older context-only evidence may predate the typed revalidation field.
+    // Preserve it in the audit instead of allowing metadata-only incompleteness
+    // to break the whole /wiki-truth view or influence legal derivation.
+    const state = entry.revalidation_state || "ANNOTATED_CONTEXT_ONLY";
     states.set(
-      entry.revalidation_state,
-      (states.get(entry.revalidation_state) || 0) + 1,
+      state,
+      (states.get(state) || 0) + 1,
     );
   }
   const lastChecked = metadata

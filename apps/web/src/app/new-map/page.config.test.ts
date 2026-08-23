@@ -17,6 +17,47 @@ describe("new-map route config", () => {
     expect(source).not.toContain("export const NEW_MAP_VISIBLE_STAMP");
   });
 
+  it("reports the mounted local MapLibre route as active", () => {
+    const filePath = path.join(process.cwd(), "src", "app", "new-map", "runtimeConfig.ts");
+    const source = fs.readFileSync(filePath, "utf8");
+    expect(source).toContain('mapRenderer: "maplibre"');
+    expect(source).toContain('mapRuntime: "active"');
+  });
+
+  it("keeps the public main-map runtime free of audit Store and Social layers", () => {
+    const mapRootPath = path.join(process.cwd(), "src", "new-map", "MapRoot.tsx");
+    const pagePath = path.join(process.cwd(), "src", "app", "new-map", "page.tsx");
+    const entryPath = path.join(process.cwd(), "src", "app", "new-map", "NewMapClientEntry.tsx");
+    const mapRoot = fs.readFileSync(mapRootPath, "utf8");
+    const page = fs.readFileSync(pagePath, "utf8");
+    const entry = fs.readFileSync(entryPath, "utf8");
+    expect(mapRoot).not.toContain('"./stores/StoreLayer"');
+    expect(mapRoot).not.toContain('"./social/SocialLayer"');
+    expect(page).not.toContain("getSocialRuntimeConfig");
+    expect(entry).not.toContain("socialConfig");
+  });
+
+  it("checks runtime parity against the local map endpoint", () => {
+    const mapRootPath = path.join(process.cwd(), "src", "new-map", "MapRoot.tsx");
+    const metaRoutePath = path.join(process.cwd(), "src", "app", "api", "new-map", "build-meta", "route.ts");
+    const mapRoot = fs.readFileSync(mapRootPath, "utf8");
+    const metaRoute = fs.readFileSync(metaRoutePath, "utf8");
+    expect(mapRoot).toContain('runtimeMetaPath="/api/new-map/build-meta"');
+    expect(metaRoute).toContain("getNewMapRuntimeIdentity()");
+  });
+
+  it("accepts only a bounded explicit local map viewport", () => {
+    const pagePath = path.join(process.cwd(), "src", "app", "new-map", "page.tsx");
+    const mapRootPath = path.join(process.cwd(), "src", "new-map", "MapRoot.tsx");
+    const page = fs.readFileSync(pagePath, "utf8");
+    const mapRoot = fs.readFileSync(mapRootPath, "utf8");
+    expect(page).toContain("function readBoundedNumber");
+    expect(page).toContain("readBoundedNumber(resolvedSearchParams?.lat, -90, 90)");
+    expect(page).toContain("readBoundedNumber(resolvedSearchParams?.lng, -180, 180)");
+    expect(page).toContain("readBoundedNumber(resolvedSearchParams?.zoom, 0, 14)");
+    expect(mapRoot).toContain("initialMapView?.zoom");
+  });
+
   it("keeps early new-map JSON fetches without stale Carto preconnect hints", () => {
     const filePath = path.join(process.cwd(), "src", "app", "layout.tsx");
     const source = fs.readFileSync(filePath, "utf8");

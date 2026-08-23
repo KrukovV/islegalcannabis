@@ -1,15 +1,15 @@
-import { expect, test } from "playwright/test";
+import { expect, test } from "@playwright/test";
 
 const GPS_POINT = { latitude: 50.0755, longitude: 14.4378 };
 const QA_ROUTE = "/new-map?qa=1";
 
-async function waitForMapReady(page: import("playwright/test").Page) {
+async function waitForMapReady(page: import("@playwright/test").Page) {
   await page.waitForSelector('[data-testid="new-map-root"]', { timeout: 5000, state: "attached" });
   await page.waitForSelector('[data-testid="new-map-surface"]', { timeout: 5000, state: "attached" });
   await page.waitForFunction(() => document.querySelector('[data-testid="new-map-surface"]')?.getAttribute("data-map-ready") === "1", { timeout: 20000 });
 }
 
-async function waitForGpsCenter(page: import("playwright/test").Page) {
+async function waitForGpsCenter(page: import("@playwright/test").Page) {
   await page.waitForFunction(({ lng, lat }) => {
     const map = window.__NEW_MAP_DEBUG__?.map;
     const center = map?.getCenter?.();

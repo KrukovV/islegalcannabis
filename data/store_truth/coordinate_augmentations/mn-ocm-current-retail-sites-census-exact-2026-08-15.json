@@ -1,0 +1,1727 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-14T21:02:55.721Z",
+  "input_path": "data/store_truth/source_snapshots/mn-ocm-current-retail-sites-census-input-2026-08-15.json",
+  "input_sha256": "3a6b9e88e1d91d4ea1caad198af9427754880aa20affa8f0d091d3ba3e9c5676",
+  "census_geocoder_url": "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+  "census_benchmark": "Public_AR_Current",
+  "census_response_sha256": "6fe6f0ef6d91a2908f2c624456b58605dfdc060196ba35f855707836653f3a6e",
+  "records": [
+    {
+      "source_record_id": "DIS-L24-000039:ecb6c8a7badfbbcf3c0b1ad3",
+      "address": "3496 Shoreline Drive",
+      "city": "Wayzata",
+      "region": "MN",
+      "postal_code": "55391",
+      "latitude": 44.934674779466,
+      "longitude": -93.611988212702,
+      "census_matched_postal_code": "55391",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3496 SHORELINE DR, WAYZATA, MN, 55391"
+      }
+    },
+    {
+      "source_record_id": "DIS-L24-000408:88a636e293d91e637c45ca58",
+      "address": "520 N Broadway",
+      "city": "Pelican Rapids",
+      "region": "MN",
+      "postal_code": "56572",
+      "latitude": 46.575854815197,
+      "longitude": -96.083713344617,
+      "census_matched_postal_code": "56572",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "520 N BROADWAY, PELICAN RAPIDS, MN, 56572"
+      }
+    },
+    {
+      "source_record_id": "DIS-L25-000004:05b977eea9fdf124da57a37d",
+      "address": "205 Central Avenue N",
+      "city": "Milaca",
+      "region": "MN",
+      "postal_code": "56353",
+      "latitude": 45.756113917099,
+      "longitude": -93.651768443113,
+      "census_matched_postal_code": "56353",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "205 CENTRAL AVE N, MILACA, MN, 56353"
+      }
+    },
+    {
+      "source_record_id": "DIS-L25-000016:efd945cec8d8a5fecc095493",
+      "address": "104 E 4th Street",
+      "city": "Winona",
+      "region": "MN",
+      "postal_code": "55987",
+      "latitude": 44.050995291142,
+      "longitude": -91.635364626705,
+      "census_matched_postal_code": "55987",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "104 E 4TH ST, WINONA, MN, 55987"
+      }
+    },
+    {
+      "source_record_id": "DIS-L25-000046:561a770aa306a11603505b36",
+      "address": "839 East River Road",
+      "city": "Anoka",
+      "region": "MN",
+      "postal_code": "55303",
+      "latitude": 45.186822624159,
+      "longitude": -93.37572124198,
+      "census_matched_postal_code": "55303",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "839 E RIVER RD, ANOKA, MN, 55303"
+      }
+    },
+    {
+      "source_record_id": "DIS-L25-000120:ef2a801a61a365f6c8f2ec22",
+      "address": "1778 Greeley Street S",
+      "city": "Stillwater",
+      "region": "MN",
+      "postal_code": "55082",
+      "latitude": 45.040344731801,
+      "longitude": -92.821124527062,
+      "census_matched_postal_code": "55082",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1778 GREELEY ST S, STILLWATER, MN, 55082"
+      }
+    },
+    {
+      "source_record_id": "MDCMB-L25-000001:3701cbe9e39dfff6063daad6",
+      "address": "2239 Ford Parkway",
+      "city": "Saint Paul",
+      "region": "MN",
+      "postal_code": "55116",
+      "latitude": 44.917955821899,
+      "longitude": -93.194736863247,
+      "census_matched_postal_code": "55116",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2239 FORD PKWY, SAINT PAUL, MN, 55116"
+      }
+    },
+    {
+      "source_record_id": "MDCMB-L25-000001:754f8ab7e290be27539a6ff1",
+      "address": "1340 Town Centre Drive",
+      "city": "Eagan",
+      "region": "MN",
+      "postal_code": "55123",
+      "latitude": 44.830785279985,
+      "longitude": -93.164035846964,
+      "census_matched_postal_code": "55123",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1340 TOWN CENTRE DR, EAGAN, MN, 55123"
+      }
+    },
+    {
+      "source_record_id": "MDCMB-L25-000001:d6658b3a9a17e5e303fd3e81",
+      "address": "8016 Brooklyn Boulevard",
+      "city": "Brooklyn Park",
+      "region": "MN",
+      "postal_code": "55445",
+      "latitude": 45.094635002445,
+      "longitude": -93.377659895836,
+      "census_matched_postal_code": "55445",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "8016 BROOKLYN BLVD, BROOKLYN PARK, MN, 55445"
+      }
+    },
+    {
+      "source_record_id": "MDCMB-L25-000002:18345969bd5376d47d3b1c91",
+      "address": "3456 E Circle Drive NE",
+      "city": "Rochester",
+      "region": "MN",
+      "postal_code": "55906",
+      "latitude": 44.058020779088,
+      "longitude": -92.450307932046,
+      "census_matched_postal_code": "55906",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3456 E CIRCLE DR NE, ROCHESTER, MN, 55906"
+      }
+    },
+    {
+      "source_record_id": "MDCMB-L25-000002:60deb9a9b1396d55cbac3121",
+      "address": "5232 W 84th Street",
+      "city": "Bloomington",
+      "region": "MN",
+      "postal_code": "55437",
+      "latitude": 44.851735288204,
+      "longitude": -93.346987795606,
+      "census_matched_postal_code": "55437",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "5232 W 84TH ST, BLOOMINGTON, MN, 55437"
+      }
+    },
+    {
+      "source_record_id": "MDCMB-L25-000002:dc20819384da9bf14d829413",
+      "address": "672 County Highway 10",
+      "city": "Blaine",
+      "region": "MN",
+      "postal_code": "55434",
+      "latitude": 45.125965277271,
+      "longitude": -93.252746551308,
+      "census_matched_postal_code": "55434",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "672 CO RD 10, BLAINE, MN, 55434"
+      }
+    },
+    {
+      "source_record_id": "MEZZO-L24-000055:4c51cba04ad9cc29b6f2b768",
+      "address": "1982 Rainbow Street",
+      "city": "Mora",
+      "region": "MN",
+      "postal_code": "55051",
+      "latitude": 45.874059286465,
+      "longitude": -93.162934951091,
+      "census_matched_postal_code": "55051",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1982 RAINBOW ST, MORA, MN, 55051"
+      }
+    },
+    {
+      "source_record_id": "MEZZO-L24-000072:9dc30bbcc76f9558765f89cc",
+      "address": "603 Esch Dr.",
+      "city": "Caledonia",
+      "region": "MN",
+      "postal_code": "55921",
+      "latitude": 43.639682521403,
+      "longitude": -91.502299491735,
+      "census_matched_postal_code": "55921",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "603 ESCH DR, CALEDONIA, MN, 55921"
+      }
+    },
+    {
+      "source_record_id": "MEZZO-L24-000140:81fe34f6cfbf87941712cf40",
+      "address": "911 W 50th Street",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55419",
+      "latitude": 44.912256722297,
+      "longitude": -93.291008215474,
+      "census_matched_postal_code": "55419",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "911 W 50TH ST, MINNEAPOLIS, MN, 55419"
+      }
+    },
+    {
+      "source_record_id": "MEZZO-L24-000170:98248b34b707859dcf5fe56d",
+      "address": "3094 White Bear Avenue",
+      "city": "Maplewood",
+      "region": "MN",
+      "postal_code": "55109",
+      "latitude": 45.033973368877,
+      "longitude": -93.017529700324,
+      "census_matched_postal_code": "55109",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3094 WHITE BEAR AVE, MAPLEWOOD, MN, 55109"
+      }
+    },
+    {
+      "source_record_id": "MEZZO-L24-000173:c03ba7de2515ecd9247204c0",
+      "address": "120 W Superior Street",
+      "city": "Duluth",
+      "region": "MN",
+      "postal_code": "55802",
+      "latitude": 46.785739960152,
+      "longitude": -92.099654156071,
+      "census_matched_postal_code": "55802",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "120 W SUPERIOR ST, DULUTH, MN, 55802"
+      }
+    },
+    {
+      "source_record_id": "MEZZO-L24-000185:775351e614a2650610978598",
+      "address": "209 Nokomis Street",
+      "city": "Alexandria",
+      "region": "MN",
+      "postal_code": "56308",
+      "latitude": 45.890423375119,
+      "longitude": -95.366548893974,
+      "census_matched_postal_code": "56308",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "209 NOKOMIS ST, ALEXANDRIA, MN, 56308"
+      }
+    },
+    {
+      "source_record_id": "MEZZO-L24-000185:f793902994bc6be6e9972c1e",
+      "address": "48 Main Street S",
+      "city": "Hutchinson",
+      "region": "MN",
+      "postal_code": "55350",
+      "latitude": 44.891702453345,
+      "longitude": -94.369375318572,
+      "census_matched_postal_code": "55350",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "48 MAIN ST S, HUTCHINSON, MN, 55350"
+      }
+    },
+    {
+      "source_record_id": "MEZZO-L24-000260:175089b6de13dc37f501f717",
+      "address": "501 1st Avenue NE",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55413",
+      "latitude": 44.990060654667,
+      "longitude": -93.254175099643,
+      "census_matched_postal_code": "55413",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "501 1ST AVE NE, MINNEAPOLIS, MN, 55413"
+      }
+    },
+    {
+      "source_record_id": "MEZZO-L24-000300:2b710b11caba67f660629e91",
+      "address": "8337 210th Street W",
+      "city": "Lakeville",
+      "region": "MN",
+      "postal_code": "55044",
+      "latitude": 44.645242348874,
+      "longitude": -93.233577893011,
+      "census_matched_postal_code": "55044",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "8337 210TH ST W, LAKEVILLE, MN, 55044"
+      }
+    },
+    {
+      "source_record_id": "MEZZO-L24-000306:ada35692ec68598be245b40b",
+      "address": "1201 DuPont Avenue N",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55411",
+      "latitude": 44.991553690535,
+      "longitude": -93.292668702701,
+      "census_matched_postal_code": "55411",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1201 DUPONT AVE N, MINNEAPOLIS, MN, 55411"
+      }
+    },
+    {
+      "source_record_id": "MEZZO-L25-000014:3e88553bb3195f22d8b26c33",
+      "address": "4024 Peavey Road",
+      "city": "Chaska",
+      "region": "MN",
+      "postal_code": "55318",
+      "latitude": 44.849894035824,
+      "longitude": -93.594967347393,
+      "census_matched_postal_code": "55318",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "4024 PEAVEY RD, CHASKA, MN, 55318"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L24-000028:2ba81f83c04228679c2bcd44",
+      "address": "25246 Rice Road",
+      "city": "Hinckley",
+      "region": "MN",
+      "postal_code": "55037",
+      "latitude": 45.932266190999,
+      "longitude": -92.888148863916,
+      "census_matched_postal_code": "55037",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "25246 RICE RD, HINCKLEY, MN, 55037"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L24-000036:edbc9c4486829036fe35bf8d",
+      "address": "2718 Bridge Avenue",
+      "city": "Albert Lea",
+      "region": "MN",
+      "postal_code": "56007",
+      "latitude": 43.684315315262,
+      "longitude": -93.358841280632,
+      "census_matched_postal_code": "56007",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2718 BRIDGE AVE, ALBERT LEA, MN, 56007"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L24-000063:b6e5c2e6548f2b561051ccb3",
+      "address": "3400 University Avenue SE",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55414",
+      "latitude": 44.968269880563,
+      "longitude": -93.208547376634,
+      "census_matched_postal_code": "55414",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3400 UNIVERSITY AVE SE, MINNEAPOLIS, MN, 55414"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L24-000177:152a3db48193fd00e905ddf0",
+      "address": "1039 S Broadway Avenue",
+      "city": "Albert Lea",
+      "region": "MN",
+      "postal_code": "56007",
+      "latitude": 43.639902472752,
+      "longitude": -93.368590726314,
+      "census_matched_postal_code": "56007",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1039 S BROADWAY AVE, ALBERT LEA, MN, 56007"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L24-000181:3681ba9905566262fa23b00c",
+      "address": "24000 US Highway 218",
+      "city": "Austin",
+      "region": "MN",
+      "postal_code": "55912",
+      "latitude": 43.700062473932,
+      "longitude": -92.990032745123,
+      "census_matched_postal_code": "55912",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "24000 US HWY 218, AUSTIN, MN, 55912"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L24-000211:c3b5443ff57d4f5fdeb6bcbe",
+      "address": "5152 Hiawatha Avenue",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55417",
+      "latitude": 44.909571243341,
+      "longitude": -93.207147112525,
+      "census_matched_postal_code": "55417",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "5152 HIAWATHA AVE, MINNEAPOLIS, MN, 55417"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L24-000216:5a6f66914c298a696e869576",
+      "address": "2313 W 50th Street",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55410",
+      "latitude": 44.912312312052,
+      "longitude": -93.309021144131,
+      "census_matched_postal_code": "55410",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2313 W 50TH ST, MINNEAPOLIS, MN, 55410"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L24-000236:756dd3ca6fccad9c4d95041d",
+      "address": "162 E 3rd Street",
+      "city": "Winona",
+      "region": "MN",
+      "postal_code": "55987",
+      "latitude": 44.051509435468,
+      "longitude": -91.633179048396,
+      "census_matched_postal_code": "55987",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "162 E 3RD ST, WINONA, MN, 55987"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L24-000244:e121e3dbdd5eee1c07bc367b",
+      "address": "73 Minnesota Avenue",
+      "city": "Breckenridge",
+      "region": "MN",
+      "postal_code": "56520",
+      "latitude": 46.263201528116,
+      "longitude": -96.596081916934,
+      "census_matched_postal_code": "56520",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "73 MINNESOTA AVE, BRECKENRIDGE, MN, 56520"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L24-000248:94b025831f54440e94f854dc",
+      "address": "26 W 1st Street",
+      "city": "Duluth",
+      "region": "MN",
+      "postal_code": "55802",
+      "latitude": 46.787322971082,
+      "longitude": -92.099571681146,
+      "census_matched_postal_code": "55802",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "26 W 1ST ST, DULUTH, MN, 55802"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L24-000290:3462552c0709a5b734c0b03d",
+      "address": "1559 Randolph Avenue",
+      "city": "Saint Paul",
+      "region": "MN",
+      "postal_code": "55105",
+      "latitude": 44.927032302834,
+      "longitude": -93.165620859033,
+      "census_matched_postal_code": "55105",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1559 RANDOLPH AVE, SAINT PAUL, MN, 55105"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L24-000333:e0d70b6c2144a3fc6ccac8e9",
+      "address": "1112 Jackson Avenue",
+      "city": "Detroit lakes",
+      "region": "MN",
+      "postal_code": "56501",
+      "latitude": 46.813371552101,
+      "longitude": -95.834596223365,
+      "census_matched_postal_code": "56501",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1112 JACKSON AVE, DETROIT LAKES, MN, 56501"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L24-000347:b28a857fba47b643f8fc8956",
+      "address": "513 Central Avenue NE",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55413",
+      "latitude": 44.989277091949,
+      "longitude": -93.252957440415,
+      "census_matched_postal_code": "55413",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "513 CENTRAL AVE NE, MINNEAPOLIS, MN, 55413"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L24-000350:945016102d07a41c30595b6d",
+      "address": "1202 S Kniss Avenue",
+      "city": "Luverne",
+      "region": "MN",
+      "postal_code": "56156",
+      "latitude": 43.638300370817,
+      "longitude": -96.213210357767,
+      "census_matched_postal_code": "56156",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1202 S KNISS AVE, LUVERNE, MN, 56156"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L24-000358:14b9169d3e9619f1a839db5e",
+      "address": "1439 W Lake Street",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55408",
+      "latitude": 44.948310717627,
+      "longitude": -93.299473287726,
+      "census_matched_postal_code": "55408",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1439 W LAKE ST, MINNEAPOLIS, MN, 55408"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L24-000426:639a76049250aece114bd65c",
+      "address": "215 S Chestnut Street",
+      "city": "La Crescent",
+      "region": "MN",
+      "postal_code": "55947",
+      "latitude": 43.827011226536,
+      "longitude": -91.302280921965,
+      "census_matched_postal_code": "55947",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "215 S CHESTNUT ST, LA CRESCENT, MN, 55947"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L24-000481:8087877d5b6c5e8af67996d9",
+      "address": "5005 University Avenue NE",
+      "city": "Columbia Heights",
+      "region": "MN",
+      "postal_code": "55421",
+      "latitude": 45.059193755287,
+      "longitude": -93.262790394516,
+      "census_matched_postal_code": "55421",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "5005 UNIVERSITY AVE NE, COLUMBIA HEIGHTS, MN, 55421"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L24-000538:4e8a0f167118cbd18bbc151d",
+      "address": "1330 Grand Avenue",
+      "city": "Saint Paul",
+      "region": "MN",
+      "postal_code": "55105",
+      "latitude": 44.939975580205,
+      "longitude": -93.156415795362,
+      "census_matched_postal_code": "55105",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1330 GRAND AVE, SAINT PAUL, MN, 55105"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000333:571ae2a44f677643e6709678",
+      "address": "102 E Grove Street",
+      "city": "Caledonia",
+      "region": "MN",
+      "postal_code": "55921",
+      "latitude": 43.633557898641,
+      "longitude": -91.496896385229,
+      "census_matched_postal_code": "55921",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "102 E GROVE ST, CALEDONIA, MN, 55921"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000396:495f6d9f5f35c6fa8c4d9089",
+      "address": "2316 Hendrickson Road",
+      "city": "Albert Lea",
+      "region": "MN",
+      "postal_code": "56007",
+      "latitude": 43.662413886047,
+      "longitude": -93.328112798874,
+      "census_matched_postal_code": "56007",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2316 HENDRICKSON RD, ALBERT LEA, MN, 56007"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000398:dbf59484237e62d53b0b7751",
+      "address": "4126 Egan Drive",
+      "city": "Savage",
+      "region": "MN",
+      "postal_code": "55378",
+      "latitude": 44.746511542798,
+      "longitude": -93.330923569974,
+      "census_matched_postal_code": "55378",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "4126 EGAN DR, SAVAGE, MN, 55378"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000411:48b2692c99fea3070a213bdf",
+      "address": "514 E 60th Street",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55419",
+      "latitude": 44.894362314773,
+      "longitude": -93.268914488387,
+      "census_matched_postal_code": "55419",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "514 E 60TH ST, MINNEAPOLIS, MN, 55419"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000412:65be9548732cd050387dad10",
+      "address": "1220 W 4th Street",
+      "city": "Rush City",
+      "region": "MN",
+      "postal_code": "55069",
+      "latitude": 45.684277306594,
+      "longitude": -92.981547870858,
+      "census_matched_postal_code": "55069",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1220 W 4TH ST, RUSH CITY, MN, 55069"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000436:769bba1c23e215c6bc4fe9c7",
+      "address": "103 W 2nd Street",
+      "city": "Chaska",
+      "region": "MN",
+      "postal_code": "55318",
+      "latitude": 44.785204501078,
+      "longitude": -93.600408954428,
+      "census_matched_postal_code": "55318",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "103 W 2ND ST, CHASKA, MN, 55318"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000444:d4bc3fef5e69ddacce1c25ea",
+      "address": "4 N Minnesota Street",
+      "city": "New Ulm",
+      "region": "MN",
+      "postal_code": "56073",
+      "latitude": 44.313373240541,
+      "longitude": -94.458943760781,
+      "census_matched_postal_code": "56073",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "4 N MINNESOTA ST, NEW ULM, MN, 56073"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000469:b8f055bbd24cad5dca8cd8e0",
+      "address": "675 Randolph Avenue",
+      "city": "Saint Paul",
+      "region": "MN",
+      "postal_code": "55102",
+      "latitude": 44.926918487422,
+      "longitude": -93.129318757916,
+      "census_matched_postal_code": "55102",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "675 RANDOLPH AVE, SAINT PAUL, MN, 55102"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000498:805a7c634de292fbc868eae3",
+      "address": "7114 Otter Lake Road",
+      "city": "Lino Lakes",
+      "region": "MN",
+      "postal_code": "55038",
+      "latitude": 45.165228177707,
+      "longitude": -93.0253743203,
+      "census_matched_postal_code": "55038",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "7114 OTTER LAKE RD, LINO LAKES, MN, 55038"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000500:96ca78b9a08e3802ac1b0413",
+      "address": "2033 W Superior Street",
+      "city": "Duluth",
+      "region": "MN",
+      "postal_code": "55806",
+      "latitude": 46.767608609117,
+      "longitude": -92.123516317481,
+      "census_matched_postal_code": "55806",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2033 W SUPERIOR ST, DULUTH, MN, 55806"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000505:7fe677ad3ed4b3e9df9fe580",
+      "address": "206 W Main Street",
+      "city": "Luverne",
+      "region": "MN",
+      "postal_code": "56156",
+      "latitude": 43.654360701543,
+      "longitude": -96.211470563493,
+      "census_matched_postal_code": "56156",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "206 W MAIN ST, LUVERNE, MN, 56156"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000523:488a60db0a59ad5b27b44271",
+      "address": "5 E 38th Street",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55409",
+      "latitude": 44.93403849972,
+      "longitude": -93.277780629958,
+      "census_matched_postal_code": "55409",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "5 E 38TH ST, MINNEAPOLIS, MN, 55409"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000543:9f0752a145ca71f864b4115f",
+      "address": "34443 County Road 3",
+      "city": "Crosslake",
+      "region": "MN",
+      "postal_code": "56442",
+      "latitude": 46.652490360309,
+      "longitude": -94.114511871524,
+      "census_matched_postal_code": "56442",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "34443 CO RD 3, CROSSLAKE, MN, 56442"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000559:fec283eb6fc364b39edbd98d",
+      "address": "706 S Kniss Avenue",
+      "city": "Luverne",
+      "region": "MN",
+      "postal_code": "56156",
+      "latitude": 43.64653394396,
+      "longitude": -96.21322309337,
+      "census_matched_postal_code": "56156",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "706 S KNISS AVE, LUVERNE, MN, 56156"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000565:ffcfd83c48a02e322061e975",
+      "address": "2518 Central Avenue NE",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55418",
+      "latitude": 45.013525860747,
+      "longitude": -93.247417296006,
+      "census_matched_postal_code": "55418",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2518 CENTRAL AVE NE, MINNEAPOLIS, MN, 55418"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000567:2b4253d147d18fd90dab471b",
+      "address": "317 Central Avenue N",
+      "city": "Faribault",
+      "region": "MN",
+      "postal_code": "55021",
+      "latitude": 44.293858858637,
+      "longitude": -93.268287462826,
+      "census_matched_postal_code": "55021",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "317 CENTRAL AVE N, FARIBAULT, MN, 55021"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000569:7c49bb01509f90463d0b1aa1",
+      "address": "901 W 36th Street",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55408",
+      "latitude": 44.93765471858,
+      "longitude": -93.290837687525,
+      "census_matched_postal_code": "55408",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "901 W 36TH ST, MINNEAPOLIS, MN, 55408"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000592:c4e84fd21293e49545533723",
+      "address": "1506 11th Street N",
+      "city": "Moorhead",
+      "region": "MN",
+      "postal_code": "56560",
+      "latitude": 46.890595768223,
+      "longitude": -96.76238271168,
+      "census_matched_postal_code": "56560",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1506 11TH ST N, MOORHEAD, MN, 56560"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000611:0671d6e83468292ba194c1e0",
+      "address": "4110 Main Street",
+      "city": "Saint Bonifacius",
+      "region": "MN",
+      "postal_code": "55375",
+      "latitude": 44.90416683181,
+      "longitude": -93.747253013363,
+      "census_matched_postal_code": "55375",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "4110 MAIN ST, SAINT BONIFACIUS, MN, 55375"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000630:7b21bcb95d1cd395bb80ed82",
+      "address": "899 Randolph Avenue",
+      "city": "Saint Paul",
+      "region": "MN",
+      "postal_code": "55102",
+      "latitude": 44.926957107874,
+      "longitude": -93.13805154908,
+      "census_matched_postal_code": "55102",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "899 RANDOLPH AVE, SAINT PAUL, MN, 55102"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000656:73dd4e2f7470e6d9065766bc",
+      "address": "250 N Medina Street",
+      "city": "Loretto",
+      "region": "MN",
+      "postal_code": "55357",
+      "latitude": 45.054539522032,
+      "longitude": -93.635409581635,
+      "census_matched_postal_code": "55357",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "250 N MEDINA ST, LORETTO, MN, 55357"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000673:8464f6634f5b40449760ac08",
+      "address": "2075 Cliff Road",
+      "city": "Eagan",
+      "region": "MN",
+      "postal_code": "55122",
+      "latitude": 44.790227652275,
+      "longitude": -93.210041997191,
+      "census_matched_postal_code": "55122",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2075 CLIFF RD, EAGAN, MN, 55122"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000679:bd2311db46e9fc2cef5ff909",
+      "address": "502 Mainstreet",
+      "city": "Hopkins",
+      "region": "MN",
+      "postal_code": "55343",
+      "latitude": 44.924369836379,
+      "longitude": -93.406276164058,
+      "census_matched_postal_code": "55343",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "502 MAINSTREET, HOPKINS, MN, 55343"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000684:2b6cecd9d84dbfc9a5a2db83",
+      "address": "7424 Lyndale Avenue S",
+      "city": "Richfield",
+      "region": "MN",
+      "postal_code": "55423",
+      "latitude": 44.8686215888,
+      "longitude": -93.288472952334,
+      "census_matched_postal_code": "55423",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "7424 LYNDALE AVE S, RICHFIELD, MN, 55423"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000733:e63021a55418c868c751fda2",
+      "address": "121 Sioux Road",
+      "city": "Mankato",
+      "region": "MN",
+      "postal_code": "56001",
+      "latitude": 44.167878050075,
+      "longitude": -93.952337211372,
+      "census_matched_postal_code": "56001",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "121 SIOUX RD, MANKATO, MN, 56001"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000815:838a6049addf932ab2241ed6",
+      "address": "7610 University Avenue NE",
+      "city": "Fridley",
+      "region": "MN",
+      "postal_code": "55432",
+      "latitude": 45.10734456544,
+      "longitude": -93.263995412295,
+      "census_matched_postal_code": "55432",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "7610 UNIVERSITY AVE NE, FRIDLEY, MN, 55432"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000836:b92604143ffa8f830353fc79",
+      "address": "1889 Madison Avenue",
+      "city": "Mankato",
+      "region": "MN",
+      "postal_code": "56001",
+      "latitude": 44.166825156767,
+      "longitude": -93.94961984862,
+      "census_matched_postal_code": "56001",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1889 MADISON AVE, MANKATO, MN, 56001"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000846:4992897d0eca0bf3be5a53d6",
+      "address": "5125 Edina Industrial Boulevard",
+      "city": "Edina",
+      "region": "MN",
+      "postal_code": "55439",
+      "latitude": 44.863930113416,
+      "longitude": -93.354179634525,
+      "census_matched_postal_code": "55439",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "5125 EDINA INDUSTRIAL BLVD, EDINA, MN, 55439"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000860:bd5aaf21c1bb7d6ea2c30bdf",
+      "address": "249 7th Street E",
+      "city": "Saint Paul",
+      "region": "MN",
+      "postal_code": "55101",
+      "latitude": 44.951081359252,
+      "longitude": -93.088356392212,
+      "census_matched_postal_code": "55101",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "249 7TH ST E, SAINT PAUL, MN, 55101"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000902:d93783b4c9061b98bcf0cf52",
+      "address": "1915 Suburban Avenue",
+      "city": "Saint Paul",
+      "region": "MN",
+      "postal_code": "55119",
+      "latitude": 44.949718126386,
+      "longitude": -93.019902800397,
+      "census_matched_postal_code": "55119",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1915 SUBURBAN AVE, SAINT PAUL, MN, 55119"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000912:f2a156840f33ddac1d962937",
+      "address": "12990 1st Street",
+      "city": "Becker",
+      "region": "MN",
+      "postal_code": "55308",
+      "latitude": 45.402611231482,
+      "longitude": -93.891575642201,
+      "census_matched_postal_code": "55308",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "12990 1ST ST, BECKER, MN, 55308"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000913:73532972fe9f2b8505fe8d0b",
+      "address": "4145 Hiawatha Avenue",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55406",
+      "latitude": 44.927925285782,
+      "longitude": -93.224190776615,
+      "census_matched_postal_code": "55406",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "4145 HIAWATHA AVE, MINNEAPOLIS, MN, 55406"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000917:8cb3c139af71cb58f311f2bd",
+      "address": "17951 State Highway 371",
+      "city": "Brainerd",
+      "region": "MN",
+      "postal_code": "56401",
+      "latitude": 46.41201256461,
+      "longitude": -94.286013979943,
+      "census_matched_postal_code": "56401",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "17951 STATE HWY 371, BRAINERD, MN, 56401"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000923:75e949fc781bafc0e6e46527",
+      "address": "2706 Ekko Avenue",
+      "city": "Albert Lea",
+      "region": "MN",
+      "postal_code": "56007",
+      "latitude": 43.684090463072,
+      "longitude": -93.354978408242,
+      "census_matched_postal_code": "56007",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2706 EKKO AVE, ALBERT LEA, MN, 56007"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-000977:24e96371afa27b545de8f37f",
+      "address": "1670 White Bear Avenue N",
+      "city": "Saint Paul",
+      "region": "MN",
+      "postal_code": "55106",
+      "latitude": 44.991604974907,
+      "longitude": -93.02513979994,
+      "census_matched_postal_code": "55106",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1670 WHITE BEAR AVE N, SAINT PAUL, MN, 55106"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-001058:8c63b2aacfd94fdc9a154032",
+      "address": "722 N Chestnut Street",
+      "city": "Chaska",
+      "region": "MN",
+      "postal_code": "55318",
+      "latitude": 44.797481932802,
+      "longitude": -93.60158344544,
+      "census_matched_postal_code": "55318",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "722 N CHESTNUT ST, CHASKA, MN, 55318"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-001080:b0ab6588466c8819f945dc74",
+      "address": "72 E 3rd Street",
+      "city": "Winona",
+      "region": "MN",
+      "postal_code": "55987",
+      "latitude": 44.052164458123,
+      "longitude": -91.635501213983,
+      "census_matched_postal_code": "55987",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "72 E 3RD ST, WINONA, MN, 55987"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-001117:d2be18a3b8036e37c7866cfc",
+      "address": "173 E 2nd Street",
+      "city": "Winona",
+      "region": "MN",
+      "postal_code": "55987",
+      "latitude": 44.052262970417,
+      "longitude": -91.632515612604,
+      "census_matched_postal_code": "55987",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "173 E 2ND ST, WINONA, MN, 55987"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-001154:50eb15b545b316140f922f9d",
+      "address": "2006 E Main Street",
+      "city": "Albert Lea",
+      "region": "MN",
+      "postal_code": "56007",
+      "latitude": 43.652842128126,
+      "longitude": -93.342693581112,
+      "census_matched_postal_code": "56007",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2006 E MAIN ST, ALBERT LEA, MN, 56007"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-001211:6746b94720f458a205ea699d",
+      "address": "2 E Main Street",
+      "city": "Crosby",
+      "region": "MN",
+      "postal_code": "56441",
+      "latitude": 46.482360547327,
+      "longitude": -93.952218123155,
+      "census_matched_postal_code": "56441",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2 E MAIN ST, CROSBY, MN, 56441"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-001269:11d37c66a81667165715dda4",
+      "address": "7702 Olson Memorial Highway",
+      "city": "Golden Valley",
+      "region": "MN",
+      "postal_code": "55427",
+      "latitude": 44.983518146113,
+      "longitude": -93.378471357404,
+      "census_matched_postal_code": "55427",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "7702 OLSON MEMORIAL HWY, GOLDEN VALLEY, MN, 55427"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-001282:280e12c8988add4a2e152cb7",
+      "address": "202 S Minnesota Avenue",
+      "city": "Saint Peter",
+      "region": "MN",
+      "postal_code": "56082",
+      "latitude": 44.324968531505,
+      "longitude": -93.956624418967,
+      "census_matched_postal_code": "56082",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "202 S MINNESOTA AVE, SAINT PETER, MN, 56082"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-001284:effb18940c2da99a00db1bb5",
+      "address": "4753 Chicago Avenue S",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55407",
+      "latitude": 44.916951015394,
+      "longitude": -93.262551363487,
+      "census_matched_postal_code": "55407",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "4753 CHICAGO AVE S, MINNEAPOLIS, MN, 55407"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-001289:72868e7fc6110b94e361d58e",
+      "address": "1906 W Superior Street",
+      "city": "Duluth",
+      "region": "MN",
+      "postal_code": "55806",
+      "latitude": 46.768700366492,
+      "longitude": -92.121822524589,
+      "census_matched_postal_code": "55806",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1906 W SUPERIOR ST, DULUTH, MN, 55806"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-001295:846d523453c0f85aa7da6adc",
+      "address": "220 Sandberg Road",
+      "city": "Monticello",
+      "region": "MN",
+      "postal_code": "55362",
+      "latitude": 45.294360680358,
+      "longitude": -93.802739642997,
+      "census_matched_postal_code": "55362",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "220 SANDBERG RD, MONTICELLO, MN, 55362"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-001309:7063a7335c6beffb52306d58",
+      "address": "1321 Center Avenue",
+      "city": "Moorhead",
+      "region": "MN",
+      "postal_code": "56560",
+      "latitude": 46.8748806095,
+      "longitude": -96.757743576448,
+      "census_matched_postal_code": "56560",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1321 CENTER AVE, MOORHEAD, MN, 56560"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-001342:0318d798d35feb1a56899f89",
+      "address": "14275 Bank Street",
+      "city": "Becker",
+      "region": "MN",
+      "postal_code": "55308",
+      "latitude": 45.38505519969,
+      "longitude": -93.862355426264,
+      "census_matched_postal_code": "55308",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "14275 BANK ST, BECKER, MN, 55308"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-001360:9de8f6ada7b6f784e7e20343",
+      "address": "38812 State Highway 48",
+      "city": "Hinckley",
+      "region": "MN",
+      "postal_code": "55037",
+      "latitude": 46.011795133815,
+      "longitude": -92.74365935073,
+      "census_matched_postal_code": "55037",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "38812 STATE HWY 48, HINCKLEY, MN, 55037"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-001374:5502806dd024fdf4367f08c7",
+      "address": "2103 Vermillion Street",
+      "city": "Hastings",
+      "region": "MN",
+      "postal_code": "55033",
+      "latitude": 44.723563076128,
+      "longitude": -92.851440422981,
+      "census_matched_postal_code": "55033",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2103 VERMILLION ST, HASTINGS, MN, 55033"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-001453:6686859dbd808544f3d85cf4",
+      "address": "21564 MN-78",
+      "city": "Battle Lake",
+      "region": "MN",
+      "postal_code": "56515",
+      "latitude": 46.275490136467,
+      "longitude": -95.71353738848,
+      "census_matched_postal_code": "56515",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "21564 STATE HWY 78, BATTLE LAKE, MN, 56515"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-001470:033325c7d929dffeed0a3b07",
+      "address": "517 Minnesota Avenue W",
+      "city": "Walker",
+      "region": "MN",
+      "postal_code": "56484",
+      "latitude": 47.101668491268,
+      "longitude": -94.582379979266,
+      "census_matched_postal_code": "56484",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "517 MINNESOTA AVE W, WALKER, MN, 56484"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-001513:fe299fe266b6cfd16f03a3fc",
+      "address": "300 Belgrade Avenue",
+      "city": "North Mankato",
+      "region": "MN",
+      "postal_code": "56003",
+      "latitude": 44.170212066699,
+      "longitude": -94.008682940373,
+      "census_matched_postal_code": "56003",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "300 BELGRADE AVE, NORTH MANKATO, MN, 56003"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-001549:5086f06dade8166063ae49a2",
+      "address": "455 Old Highway 8 NW",
+      "city": "New Brighton",
+      "region": "MN",
+      "postal_code": "55112",
+      "latitude": 45.056763286934,
+      "longitude": -93.198004125533,
+      "census_matched_postal_code": "55112",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "455 OLD HWY 8 NW, NEW BRIGHTON, MN, 55112"
+      }
+    },
+    {
+      "source_record_id": "MICRO-L25-001594:da17d5c9f83a39c738de0909",
+      "address": "508 Lake Street S",
+      "city": "Forest Lake",
+      "region": "MN",
+      "postal_code": "55025",
+      "latitude": 45.273490992133,
+      "longitude": -92.983789788008,
+      "census_matched_postal_code": "55025",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "508 LAKE ST S, FOREST LAKE, MN, 55025"
+      }
+    }
+  ],
+  "counts": {
+    "input_records": 213,
+    "census_response_rows": 213,
+    "one_to_one_exact_census_geocodes": 95,
+    "blocked_census_no_exact_in_jurisdiction_match": 118
+  }
+}

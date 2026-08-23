@@ -149,7 +149,8 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
   const streamSettleTimeoutRef = useRef<number | null>(null);
   const warmStartedRef = useRef(false);
   const activeGeoRef = useRef<string | null>(activeGeo?.iso2 || null);
-  const [aiInputLocked, setAiInputLocked] = useState(shouldLockAiInputByDefault);
+  // Keep the first server and browser render identical; localhost availability is resolved after hydration.
+  const [aiInputLocked, setAiInputLocked] = useState(true);
   const [isOpen, setIsOpen] = useState(true);
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);

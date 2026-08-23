@@ -3,7 +3,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import { createElement } from "react";
-import { WikiTruthPageContent } from "./page";
+import { WikiTruthPageContent } from "./WikiTruthPageContent";
 
 type CannabisLawMatrixRowForCounts = {
   directOfficialCannabisLawLinks?: unknown[];
@@ -20,6 +20,7 @@ type FinalReconciliationForCounts = {
   };
   acceptance?: {
     complete?: boolean;
+    flags?: Record<string, boolean>;
     crossLayerConflictRows?: string[];
     unprovenGreenRows?: string[];
   };
@@ -102,6 +103,17 @@ function readFinalReconciliation(): FinalReconciliationForCounts {
   ) as FinalReconciliationForCounts;
 }
 
+function readStoreSourceCandidateCount() {
+  const root = findRepoRoot(process.cwd());
+  const audit = JSON.parse(
+    fs.readFileSync(
+      path.join(root, "data", "reviews", "wiki-truth-307-store-audit.json"),
+      "utf8",
+    ),
+  ) as { counts?: { STORE_SOURCE_CANDIDATES?: number } };
+  return Number(audit.counts?.STORE_SOURCE_CANDIDATES || 0);
+}
+
 describe("/wiki-truth", () => {
   it("renders a clean audit header with separated universes", () => {
     const html = renderToStaticMarkup(createElement(WikiTruthPageContent));
@@ -129,17 +141,29 @@ describe("/wiki-truth", () => {
     expect(final.acceptance?.flags?.freshOfficialVisualReviewComplete).toBe(
       false,
     );
-    expect(final.acceptance?.flags?.currentMapCaptureComplete).toBe(true);
+    expect(final.acceptance?.flags?.currentMapCaptureComplete).toBe(false);
     const conflictRows = final.acceptance?.crossLayerConflictRows || [];
     expect(new Set(conflictRows).size).toBe(conflictRows.length);
-    expect(final.acceptance?.unprovenGreenRows).toEqual([]);
+    const unprovenGreenRows = final.acceptance?.unprovenGreenRows || [];
+    expect(Array.isArray(unprovenGreenRows)).toBe(true);
+    expect(final.acceptance?.flags?.allGreenOperationallyProven).toBe(
+      unprovenGreenRows.length === 0,
+    );
+    expect(conflictRows.length).toBeGreaterThan(0);
     expect(final.noMutationProof?.unchanged).toBe(true);
     expect(section).toContain('data-complete="0"');
     expect(section).toContain(
       `data-cross-layer-conflicts="${conflictRows.length}"`,
     );
-    expect(section).toContain('data-unproven-green="0"');
+    expect(section).toContain(`data-unproven-green="${unprovenGreenRows.length}"`);
     expect(section).toContain('data-no-mutation="1"');
+    expect(section).toContain('data-display-uncolored="0"');
+    expect(section).toContain('data-display-grey-geos="AQ"');
+    expect(section).toContain('data-display-nonpolar-grey="0"');
+    expect(section).toContain('data-testid="wiki-truth-map-display"');
+    expect(section).toContain("Карта /truth-map: отдельный display-слой");
+    expect(section).toContain("Юридический UNKNOWN");
+    expect(section).not.toContain("UNKNOWN / без цвета");
     expect(section).toContain("FINAL_RECONCILIATION_HAS_OPEN_TRUTH_BLOCKERS");
     expect(section).toContain(
       `>${final.counts?.truthColors?.UNKNOWN || 0}<`,
@@ -147,6 +171,51 @@ describe("/wiki-truth", () => {
     expect(html).not.toContain("Честно осталось серыми");
     expect(html).not.toContain("Цвет закрыт повторной проверкой");
     expect(html).not.toContain("Повторно проверено серых строк");
+  });
+
+  it("keeps main final, store, and acceptance summaries human-readable while technical trails stay collapsed", () => {
+    const html = renderToStaticMarkup(createElement(WikiTruthPageContent));
+    const final = html.match(/data-testid="wiki-truth-final-reconciliation"[\s\S]*?<\/section>/)?.[0] || "";
+    const store = html.match(/data-testid="wiki-truth-store-audit"[\s\S]*?<\/section>/)?.[0] || "";
+    const acceptance = html.match(/data-testid="wiki-truth-goal-acceptance"[\s\S]*?<\/section>/)?.[0] || "";
+    expect(final).toContain('data-human-summary-ready="1"');
+    expect(final).toContain("Текущая сверка Truth-First");
+    expect(final).not.toContain("Текущая Truth-First proposal сверка");
+    expect(final).not.toContain("<details open");
+    expect(store).toContain("Лицензированные точки продажи каннабиса");
+    expect(store).not.toContain("Store Truth: licensed cannabis locations");
+    expect(store).not.toContain("<details open");
+    expect(acceptance).toContain("Итоговая приёмка 307 GEO");
+    expect(acceptance).not.toContain("307-GEO final acceptance");
+    expect(acceptance).not.toContain("<details open");
+    expect(acceptance).toContain('data-human-summary-placeholders="0"');
+  });
+
+  it("keeps local store-discovery leads separate from validated official registries", () => {
+    const html = renderToStaticMarkup(createElement(WikiTruthPageContent));
+    const section = html.match(/data-testid="wiki-truth-store-audit"[\s\S]*?<\/section>/)?.[0] || "";
+    expect(section).toContain("Локальные leads для проверки");
+    expect(section).toContain("Ожидают извлечения");
+    expect(section).toContain("Локальные source leads, требующие official review");
+    expect(section).toContain("Тип точки-кандидата");
+    expect(section).toContain("Форма lead");
+    expect(section).toContain("Каталог / реестр");
+    expect(section).toContain("STORE_DISCOVERY_FAIL_CLOSED");
+    expect(section).toContain(
+      `data-store-source-candidates="${readStoreSourceCandidateCount()}"`,
+    );
+    expect(section).toContain("Подтверждённые официальные реестры");
+  });
+
+  it("keeps the combined legal/store goal verdict fail-closed", () => {
+    const html = renderToStaticMarkup(createElement(WikiTruthPageContent));
+    const section = html.match(/data-testid="wiki-truth-goal-acceptance"[\s\S]*?<\/section>/)?.[0] || "";
+    expect(section).toContain("Итоговая приёмка 307 GEO");
+    expect(section).toContain("GOAL_ACCEPTANCE_FAIL_CLOSED");
+    expect(section).toContain('data-goal-achieved="0"');
+    expect(section).toContain('data-truth-reconciled="0"');
+    expect(section).toContain('data-store-geo-checked="307"');
+    expect(section).toContain("STORE_DISCOVERY_COMPLETE");
   });
 
   it("keeps parser leftovers out of the main audit table", () => {

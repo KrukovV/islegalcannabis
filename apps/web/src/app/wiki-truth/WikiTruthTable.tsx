@@ -18,6 +18,8 @@ import CannabisLawLegalKnowledgeAxisMatrix from "./CannabisLawLegalKnowledgeAxis
 import CannabisLawPrimaryLawBlockers from "./CannabisLawPrimaryLawBlockers";
 import CannabisLawRuntimeApplyPipeline from "./CannabisLawRuntimeApplyPipeline";
 import CannabisLawFinalReconciliation from "./CannabisLawFinalReconciliation";
+import CannabisStoreAudit from "./CannabisStoreAudit";
+import GoalAcceptanceAudit from "./GoalAcceptanceAudit";
 import type { WikiTruthAcceptanceAuditView } from "@/lib/wikiTruthAcceptanceAudit";
 import type { WikiTruthColorComparisonRow } from "@/lib/wikiTruthColorComparison";
 import type { WikiTruthColorApplyGateView } from "@/lib/wikiTruthColorApplyGate";
@@ -28,6 +30,9 @@ import type { WikiTruthLegalKnowledgeAxisMatrixView } from "@/lib/wikiTruthLegal
 import type { WikiTruthPrimaryLawBlockersView } from "@/lib/wikiTruthPrimaryLawBlockers";
 import type { WikiTruthRuntimeApplyPipelineView } from "@/lib/wikiTruthRuntimeApplyPipeline";
 import type { WikiTruthFinalReconciliationView } from "@/lib/wikiTruthFinalReconciliation";
+import type { WikiTruthStoreAuditView } from "@/lib/wikiTruthStoreAudit";
+import type { WikiTruthGoalAcceptanceView } from "@/lib/wikiTruthGoalAcceptance";
+import type { TruthMapDatasetMeta } from "@/truth-map/truthMapSource";
 import { ruAuditValue, ruBoolean, SUMMARY_LABELS } from "./wikiTruthRu";
 
 function renderLinks(
@@ -152,6 +157,9 @@ export default function WikiTruthTable({
   primaryLawBlockers,
   runtimeApplyPipeline,
   finalReconciliation,
+  truthMapDisplay,
+  storeAudit,
+  goalAcceptance,
 }: {
   audit: WikiTruthAuditModel;
   acceptanceAudit: WikiTruthAcceptanceAuditView;
@@ -164,6 +172,9 @@ export default function WikiTruthTable({
   primaryLawBlockers: WikiTruthPrimaryLawBlockersView;
   runtimeApplyPipeline: WikiTruthRuntimeApplyPipelineView;
   finalReconciliation: WikiTruthFinalReconciliationView;
+  truthMapDisplay: TruthMapDatasetMeta;
+  storeAudit: WikiTruthStoreAuditView;
+  goalAcceptance: WikiTruthGoalAcceptanceView;
 }) {
   return (
     <div className="auditView">
@@ -212,7 +223,12 @@ export default function WikiTruthTable({
 
       <CannabisLawFinalReconciliation
         reconciliation={finalReconciliation}
+        truthMapDisplay={truthMapDisplay}
       />
+
+      <CannabisStoreAudit audit={storeAudit} />
+
+      <GoalAcceptanceAudit acceptance={goalAcceptance} />
 
       <CannabisLawMatrix matrix={audit.cannabisLawMatrix} />
 

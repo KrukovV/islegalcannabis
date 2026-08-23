@@ -21,6 +21,7 @@ type BuildMeta = {
 
 type Props = {
   runtimeIdentity: RuntimeIdentity;
+  runtimeMetaPath?: string;
 };
 
 function getCurrentRuntimeStamp() {
@@ -75,7 +76,7 @@ function runtimeMatches(left: ReturnType<typeof normalizeRuntimeStamp>, right: B
   );
 }
 
-export default function RuntimeParityBadge({ runtimeIdentity }: Props) {
+export default function RuntimeParityBadge({ runtimeIdentity, runtimeMetaPath = "/api/build-meta" }: Props) {
   const pathname = usePathname();
   const isNewMapRoute = pathname?.startsWith("/new-map");
   const [isActual, setIsActual] = useState<boolean | null>(null);
@@ -96,7 +97,7 @@ export default function RuntimeParityBadge({ runtimeIdentity }: Props) {
 
     const check = async () => {
       try {
-        const response = await fetch("/api/build-meta", { cache: "no-store" });
+        const response = await fetch(runtimeMetaPath, { cache: "no-store" });
         if (!response.ok || !alive) return;
         const payload = (await response.json()) as BuildMeta;
         const currentRuntimeStamp = getCurrentRuntimeStamp() || runtimeStamp;
@@ -122,7 +123,7 @@ export default function RuntimeParityBadge({ runtimeIdentity }: Props) {
       alive = false;
       window.clearInterval(timer);
     };
-  }, [checkEnabled, runtimeStamp]);
+  }, [checkEnabled, runtimeMetaPath, runtimeStamp]);
 
   const actual = isActual === true;
   const checking = isActual == null;

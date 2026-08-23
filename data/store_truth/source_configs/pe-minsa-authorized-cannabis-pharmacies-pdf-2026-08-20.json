@@ -1,0 +1,45 @@
+{
+  "source_url": "https://cdn.www.gob.pe/uploads/document/file/4497099/4177776-establecimientos-farmaceuticos-que-tienen-licencia-para-importacion-y-o-comercializacion-de-cannabis-y-sus-derivados-para-fin-medicinal-y-terapeutico.pdf?v=1768338137",
+  "source_pdf_sha256": "5e813f2ce34faa2dd221f501430a2db659d7d21eeb98e1299749222e763a746c",
+  "country": "PE",
+  "store_type": "AUTHORIZED_PHARMACY",
+  "license_type": "MINSA/DIGEMID authorised pharmacy for medicinal cannabis derivatives",
+  "medical": true,
+  "license_status": "UNKNOWN_STATUS",
+  "operational_status": "UNKNOWN_STATUS",
+  "confidence": "PROVEN",
+  "coordinates_source": "OFFICIAL_MINSA_PDF_ADDRESS_NO_COORDINATE_FIELD",
+  "coordinates_confidence": "UNKNOWN",
+  "location_evidence": "STRONG",
+  "expected_record_count": 50,
+  "tables": [
+    {
+      "page": 3,
+      "y_min": 150,
+      "y_max": 745,
+      "required_header_phrases": ["BOTICAS Y FARMACIAS AUTORIZADAS PARA LA COMERCIALIZACIÓN DE DERIVADOS DE CANNABIS", "Razón social", "Distrito", "Dirección"],
+      "number_column": { "x_min": 80, "x_max": 116 },
+      "columns": {
+        "legal_name": { "x_min": 116, "x_max": 230 },
+        "city": { "x_min": 230, "x_max": 338 },
+        "address": { "x_min": 338, "x_max": 532 }
+      },
+      "required_fields": ["legal_name", "city", "address"],
+      "expected_numbers": { "from": 1, "to": 27 }
+    },
+    {
+      "page": 4,
+      "y_min": 120,
+      "y_max": 718,
+      "required_header_phrases": ["Razón social", "Distrito", "Dirección"],
+      "number_column": { "x_min": 74, "x_max": 107 },
+      "columns": {
+        "legal_name": { "x_min": 107, "x_max": 230 },
+        "city": { "x_min": 230, "x_max": 295 },
+        "address": { "x_min": 295, "x_max": 520 }
+      },
+      "required_fields": ["legal_name", "city", "address"],
+      "expected_numbers": { "from": 28, "to": 50 }
+    }
+  ]
+}

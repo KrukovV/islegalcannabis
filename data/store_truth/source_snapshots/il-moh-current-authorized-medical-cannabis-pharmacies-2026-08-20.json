@@ -1,0 +1,2949 @@
+[
+  {
+    "_id": 1,
+    "pharmacy_name": "טלפארמה עד הבית",
+    "pharmacy_street": "טוליפמן 7",
+    "pharmacy_city": "ראשון לציון",
+    "pharmacy_delivery": "כן"
+  },
+  {
+    "_id": 2,
+    "pharmacy_name": "דראגסטור נט בע\"מ",
+    "pharmacy_street": "ברגמן צבי 10",
+    "pharmacy_city": "פתח תקווה",
+    "pharmacy_delivery": "כן"
+  },
+  {
+    "_id": 3,
+    "pharmacy_name": "מקס פארם",
+    "pharmacy_street": "הנביאים 1",
+    "pharmacy_city": "חולון",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 4,
+    "pharmacy_name": "בית מרקחת פרמה-שיא",
+    "pharmacy_street": "בקעת בית נטופה 25",
+    "pharmacy_city": "כפר סבא",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 5,
+    "pharmacy_name": "סופר פארם ביג פולג",
+    "pharmacy_street": "גיבורי ישראל 5",
+    "pharmacy_city": "נתניה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 6,
+    "pharmacy_name": "סופר פארם מרכז דויד אפרידר",
+    "pharmacy_street": "הנשיא 3",
+    "pharmacy_city": "אשקלון",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 7,
+    "pharmacy_name": "סופר פארם רוטשילד ראשון לציון",
+    "pharmacy_street": "רוטשילד 45",
+    "pharmacy_city": "ראשון לציון",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 8,
+    "pharmacy_name": "סופר פארם תל מונד",
+    "pharmacy_street": "הדקל 47",
+    "pharmacy_city": "תל מונד",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 9,
+    "pharmacy_name": "סופר פארם כרמיאל",
+    "pharmacy_street": "מעלה כמון",
+    "pharmacy_city": "כרמיאל",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 10,
+    "pharmacy_name": "סופר פארם תלפיות ירושלים",
+    "pharmacy_street": "גנרל פייר קניג 24",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 11,
+    "pharmacy_name": "סופר פארם קניון איילון",
+    "pharmacy_street": "אבא הלל 301",
+    "pharmacy_city": "רמת גן",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 12,
+    "pharmacy_name": "סופר פארם גראנד קניון חיפה",
+    "pharmacy_street": "גולן שמחה 54",
+    "pharmacy_city": "חיפה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 13,
+    "pharmacy_name": "סופר פארם קניון רננים",
+    "pharmacy_street": "המלאכה 2",
+    "pharmacy_city": "רעננה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 14,
+    "pharmacy_name": "בית מרקחת ס.ל.א מקבוצת טבע",
+    "pharmacy_street": "התאנה 1, אזור התעשייה",
+    "pharmacy_city": "חבל מודיעין",
+    "pharmacy_delivery": "כן"
+  },
+  {
+    "_id": 15,
+    "pharmacy_name": "שלאין",
+    "pharmacy_street": "אלנבי 138",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 16,
+    "pharmacy_name": "בית מרקחת טללים בע\"מ",
+    "pharmacy_street": "שדרות הרצל 102",
+    "pharmacy_city": "רמלה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 17,
+    "pharmacy_name": "בית מרקחת הנגב בע\"מ",
+    "pharmacy_street": "קרן קיימת לישראל 94",
+    "pharmacy_city": "באר שבע",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 18,
+    "pharmacy_name": "רצפט בע\"מ",
+    "pharmacy_street": "שדרות ניצה 8",
+    "pharmacy_city": "נתניה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 19,
+    "pharmacy_name": "מדי פלוס בר אילן",
+    "pharmacy_street": "בר אילן 2",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 20,
+    "pharmacy_name": "מדי פלוס כנפי נשרים",
+    "pharmacy_street": "כנפי נשרים 10",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 21,
+    "pharmacy_name": "מדי פלוס אורנים",
+    "pharmacy_street": "שדרות ש\"י עגנון 20",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 22,
+    "pharmacy_name": "סופר פארם בית הכרם",
+    "pharmacy_street": "אביזהר 1",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 23,
+    "pharmacy_name": "סופר פארם קניון מרגליות הוד השרון",
+    "pharmacy_street": "ז'בוטינסקי 3",
+    "pharmacy_city": "הוד השרון",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 24,
+    "pharmacy_name": "סופר פארם חורב",
+    "pharmacy_street": "חורב 15",
+    "pharmacy_city": "חיפה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 25,
+    "pharmacy_name": "סופר פארם אליהו קורן",
+    "pharmacy_street": "אסתר רזיאל נאור 6",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 26,
+    "pharmacy_name": "סופר פארם קניון עיר ימים",
+    "pharmacy_street": "בני ברמן 2",
+    "pharmacy_city": "נתניה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 27,
+    "pharmacy_name": "סופר פארם קניון חולון",
+    "pharmacy_street": "גולדה מאיר 7",
+    "pharmacy_city": "חולון",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 28,
+    "pharmacy_name": "סופר פארם גראנד קניון באר שבע",
+    "pharmacy_street": "טוביהו דוד 125",
+    "pharmacy_city": "באר שבע",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 29,
+    "pharmacy_name": "בית מרקחת ישראל",
+    "pharmacy_street": "אשכנזי 19",
+    "pharmacy_city": "יהוד",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 30,
+    "pharmacy_name": "בית מרקחת גבעת שמואל בע\"מ",
+    "pharmacy_street": "בן גוריון 11",
+    "pharmacy_city": "גבעת שמואל",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 31,
+    "pharmacy_name": "בית מרקחת בריאות (2013)",
+    "pharmacy_street": "קראוזה 46",
+    "pharmacy_city": "חולון",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 32,
+    "pharmacy_name": "לומינרה פארם בע\"מ",
+    "pharmacy_street": "בת שבע 1",
+    "pharmacy_city": "לוד",
+    "pharmacy_delivery": "כן"
+  },
+  {
+    "_id": 33,
+    "pharmacy_name": "דרייפינגר סילביה קלרה",
+    "pharmacy_street": "וייצמן 169",
+    "pharmacy_city": "כפר סבא",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 34,
+    "pharmacy_name": "בית מרקחת גבעת זאב",
+    "pharmacy_street": "המכבים 50",
+    "pharmacy_city": "גבעת זאב",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 35,
+    "pharmacy_name": "הלן פארם בע\"מ",
+    "pharmacy_street": "אגוז 1",
+    "pharmacy_city": "יבנה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 36,
+    "pharmacy_name": "העלייה השנייה בית מרקחת בע\"מ",
+    "pharmacy_street": "העלייה השנייה 44",
+    "pharmacy_city": "חיפה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 37,
+    "pharmacy_name": "סופר פארם קריית ביאליק",
+    "pharmacy_street": "פלמ''ח 44",
+    "pharmacy_city": "קריית ביאליק",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 38,
+    "pharmacy_name": "סופר פארם גדרה",
+    "pharmacy_street": "שד' בן גוריון 105",
+    "pharmacy_city": "גדרה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 39,
+    "pharmacy_name": "סופר פארם איכילוב",
+    "pharmacy_street": "ויצמן 14",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 40,
+    "pharmacy_name": "סופר פארם ארלוזורוב",
+    "pharmacy_street": "דיזנגוף 208",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 41,
+    "pharmacy_name": "גבעול תל חי",
+    "pharmacy_street": "תל חי 63",
+    "pharmacy_city": "אשדוד",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 42,
+    "pharmacy_name": "סופר פארם תמרים אילת ",
+    "pharmacy_street": "שדרות התמרים 9",
+    "pharmacy_city": "אילת",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 43,
+    "pharmacy_name": "בית מרקחת ברון בע\"מ",
+    "pharmacy_street": "טשרניחובסקי 24",
+    "pharmacy_city": "כפר סבא",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 44,
+    "pharmacy_name": "בית מרקחת שבתאי לוי",
+    "pharmacy_street": "שבתאי לוי 18",
+    "pharmacy_city": "חיפה",
+    "pharmacy_delivery": "כן"
+  },
+  {
+    "_id": 45,
+    "pharmacy_name": "סופר פארם ביג יקנעם",
+    "pharmacy_street": "שדרות רבין 9, מרכז ביג",
+    "pharmacy_city": "יקנעם עילית",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 46,
+    "pharmacy_name": "סופר פארם קריית שמונה",
+    "pharmacy_street": "הנשיא 4, קניון בני נח",
+    "pharmacy_city": "קריית שמונה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 47,
+    "pharmacy_name": "סופר פארם קריית מוצקין",
+    "pharmacy_street": "ירושלים 1",
+    "pharmacy_city": "קריית מוצקין",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 48,
+    "pharmacy_name": "סופר פארם רמב\"ם חיפה",
+    "pharmacy_street": "העלייה השנייה 8",
+    "pharmacy_city": "חיפה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 49,
+    "pharmacy_name": "קלאב פארם שלי",
+    "pharmacy_street": "השריג 2",
+    "pharmacy_city": "בנימינה",
+    "pharmacy_delivery": "כן"
+  },
+  {
+    "_id": 50,
+    "pharmacy_name": "סופר פארם הדסה עין כרם",
+    "pharmacy_street": "הנרייטה סולד 1",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 51,
+    "pharmacy_name": "דויטשער פארם בע\"מ",
+    "pharmacy_street": "מאה שערים 83",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 52,
+    "pharmacy_name": "בורוכוביץ יחזקאל (בית מרקחת הנשיא)",
+    "pharmacy_street": "הנשיא וייצמן 42",
+    "pharmacy_city": "חדרה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 53,
+    "pharmacy_name": "בית מרקחת קרית אונו בע\"מ",
+    "pharmacy_street": "הלוחמים 9",
+    "pharmacy_city": "אבן יהודה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 54,
+    "pharmacy_name": "גבעול תל אביב",
+    "pharmacy_street": "הירקון 288",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 55,
+    "pharmacy_name": "סופר פארם מעלות",
+    "pharmacy_street": "א.ת מעלות צים",
+    "pharmacy_city": "מעלות תרשיחא",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 56,
+    "pharmacy_name": "סופר פארם רמת ישי",
+    "pharmacy_street": "אקליפטוס 3, אזור התעשייה",
+    "pharmacy_city": "רמת ישי",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 57,
+    "pharmacy_name": "סופר פארם קניון גבעתיים",
+    "pharmacy_street": "דרך יצחק רבין 53",
+    "pharmacy_city": "גבעתיים",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 58,
+    "pharmacy_name": "סופר פארם סטאר סנטר",
+    "pharmacy_street": "ז'בוטינסקי 41",
+    "pharmacy_city": "אשדוד",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 59,
+    "pharmacy_name": "סופר פארם נעימי",
+    "pharmacy_street": "דרך יצחק רבין 2",
+    "pharmacy_city": "בית שמש",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 60,
+    "pharmacy_name": "לאון פארם פתח תקווה",
+    "pharmacy_street": "לוחמי הגטו 6",
+    "pharmacy_city": "פתח תקווה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 61,
+    "pharmacy_name": "סופר פארם קניון העמקים",
+    "pharmacy_street": "יהושע חנקין 14",
+    "pharmacy_city": "עפולה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 62,
+    "pharmacy_name": "סופר פארם ביג",
+    "pharmacy_street": "הסתת 14",
+    "pharmacy_city": "אילת",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 63,
+    "pharmacy_name": "סופר פארם גן יבנה",
+    "pharmacy_street": "המגינים 56",
+    "pharmacy_city": "גן יבנה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 64,
+    "pharmacy_name": "סופר פארם ביג פוריה",
+    "pharmacy_street": "המברג 1",
+    "pharmacy_city": "טבריה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 65,
+    "pharmacy_name": "סופר פארם תל השומר",
+    "pharmacy_street": "",
+    "pharmacy_city": "תל השומר",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 66,
+    "pharmacy_name": "סופר פארם כפר יאסיף",
+    "pharmacy_street": "",
+    "pharmacy_city": "כפר יאסיף",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 67,
+    "pharmacy_name": "סופר פארם ביג פאשן",
+    "pharmacy_street": "יהודה הלוי 1",
+    "pharmacy_city": "טבריה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 68,
+    "pharmacy_name": "גבעול דורון רעננה",
+    "pharmacy_street": "גאולה 6",
+    "pharmacy_city": "רעננה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 69,
+    "pharmacy_name": "רמת אליהו",
+    "pharmacy_street": "צייטלין 10",
+    "pharmacy_city": "ראשון לציון",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 70,
+    "pharmacy_name": "סנא פארם",
+    "pharmacy_street": "היוצרים 15",
+    "pharmacy_city": "כרמיאל",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 71,
+    "pharmacy_name": "מיני פארם",
+    "pharmacy_street": "שפרינצק 20",
+    "pharmacy_city": "פתח תקווה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 72,
+    "pharmacy_name": "פארם ירוק",
+    "pharmacy_street": "הגביש 1",
+    "pharmacy_city": "נתניה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 73,
+    "pharmacy_name": "בית מרקחת פרס נובל",
+    "pharmacy_street": "שמעון פרס 33",
+    "pharmacy_city": "ראשון לציון",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 74,
+    "pharmacy_name": "בית מרקחת השרון",
+    "pharmacy_street": "דרך רמתיים 55",
+    "pharmacy_city": "הוד השרון",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 75,
+    "pharmacy_name": "בית מרקחת השרון",
+    "pharmacy_street": "המלך ג'ורג' 54",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 76,
+    "pharmacy_name": "מעיין חיים בית דגן",
+    "pharmacy_street": "טרומפלדור 20",
+    "pharmacy_city": "בית דגן",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 77,
+    "pharmacy_name": "ורונה פארם",
+    "pharmacy_street": "טארק עבד אל חי",
+    "pharmacy_city": "טירה",
+    "pharmacy_delivery": "כן"
+  },
+  {
+    "_id": 78,
+    "pharmacy_name": "בית מרקחת דרור",
+    "pharmacy_street": "דרור 3",
+    "pharmacy_city": "ראשון לציון",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 79,
+    "pharmacy_name": "מעלות בע\"מ",
+    "pharmacy_street": "הרב קוק 14",
+    "pharmacy_city": "מעלות",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 80,
+    "pharmacy_name": "אקו פארם",
+    "pharmacy_street": "האלוף נרקיס 9 אזור תעשייה",
+    "pharmacy_city": "מעלות",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 81,
+    "pharmacy_name": "כנרת כפר סבא",
+    "pharmacy_street": "ויצמן 119",
+    "pharmacy_city": "כפר סבא",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 82,
+    "pharmacy_name": "סופר פארם גבעת סביון",
+    "pharmacy_street": "הגליל 78",
+    "pharmacy_city": "גני תקווה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 83,
+    "pharmacy_name": "ארמון חדש",
+    "pharmacy_street": "גוטל לוין 48",
+    "pharmacy_city": "חיפה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 84,
+    "pharmacy_name": "פנו-פארם",
+    "pharmacy_street": "המרכבה 31",
+    "pharmacy_city": "חולון",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 85,
+    "pharmacy_name": "סופר פארם צים",
+    "pharmacy_street": "מרכז מסחרי צים",
+    "pharmacy_city": "נתיבות",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 86,
+    "pharmacy_name": "סופר פארם שדרות",
+    "pharmacy_street": "הפלדה 1",
+    "pharmacy_city": "שדרות",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 87,
+    "pharmacy_name": "סופר פארם אוסישקין רמת השרון",
+    "pharmacy_street": "אוסישקין 62",
+    "pharmacy_city": "רמת השרון",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 88,
+    "pharmacy_name": "גבעול דימונה",
+    "pharmacy_street": "שמעון בר יוחאי 6",
+    "pharmacy_city": "דימונה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 89,
+    "pharmacy_name": "בית מרקחת תפרחת",
+    "pharmacy_street": "שד' ירושלים 29",
+    "pharmacy_city": "קריית ים",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 90,
+    "pharmacy_name": "פרמה טבע אריאל",
+    "pharmacy_street": "יהודה 10",
+    "pharmacy_city": "אריאל",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 91,
+    "pharmacy_name": "לאון פארם חיפה",
+    "pharmacy_street": "שד' הנשיא 130, מרכז הכרמל",
+    "pharmacy_city": "חיפה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 92,
+    "pharmacy_name": "בית מרקחת מוריה",
+    "pharmacy_street": "דרך בית לחם 82",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 93,
+    "pharmacy_name": "בית מרקחת בר אילן",
+    "pharmacy_street": "בר אילן 29",
+    "pharmacy_city": "רעננה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 94,
+    "pharmacy_name": "סופר פארם רמלוד",
+    "pharmacy_street": "צופית 40",
+    "pharmacy_city": "רמלה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 95,
+    "pharmacy_name": "סופר פארם כופר היישוב",
+    "pharmacy_street": "ביאליק 10",
+    "pharmacy_city": "רמת גן",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 96,
+    "pharmacy_name": "גבעול גרין זון",
+    "pharmacy_street": "כוכב יקנעם",
+    "pharmacy_city": "יקנעם עילית",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 97,
+    "pharmacy_name": "סופר פארם קניון אורון",
+    "pharmacy_street": "רוטשילד 182",
+    "pharmacy_city": "פתח תקווה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 98,
+    "pharmacy_name": "סופר פארם בית אמריקה",
+    "pharmacy_street": "רוטשילד 72",
+    "pharmacy_city": "פתח תקווה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 99,
+    "pharmacy_name": "סופר פארם היכל פ\"ת",
+    "pharmacy_street": "הסתדרות 26",
+    "pharmacy_city": "פתח תקווה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 100,
+    "pharmacy_name": "סופר פארם רחובות (הרצל)",
+    "pharmacy_street": "הרצל 182",
+    "pharmacy_city": "רחובות",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 101,
+    "pharmacy_name": "סופר פארם קניון רמי לוי",
+    "pharmacy_street": "החוצבים 10",
+    "pharmacy_city": "מבשרת ציון",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 102,
+    "pharmacy_name": "סופר פארם פסגת זאב",
+    "pharmacy_street": "משה דיין 106",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 103,
+    "pharmacy_name": "סופר פארם עטרות",
+    "pharmacy_street": "דרך רמאללה 101 עטרות",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 104,
+    "pharmacy_name": "סופר פארם גבעת שאול",
+    "pharmacy_street": "כנפי נשרים 22",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 105,
+    "pharmacy_name": "כפר סבא הירוקה",
+    "pharmacy_street": "רפפורט 3",
+    "pharmacy_city": "כפר סבא",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 106,
+    "pharmacy_name": "היפר גרין פארם בע\"מ",
+    "pharmacy_street": "שבט לוי 14",
+    "pharmacy_city": "אשדוד",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 107,
+    "pharmacy_name": "לב הרצליה",
+    "pharmacy_street": "בן גוריון 2",
+    "pharmacy_city": "הרצליה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 108,
+    "pharmacy_name": "בית מרקחת יו פארם",
+    "pharmacy_street": "ינאי 6",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 109,
+    "pharmacy_name": "סופר פארם שער אשקלון",
+    "pharmacy_street": "אזור תעשייה צומת כפר סילבר",
+    "pharmacy_city": "אשקלון",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 110,
+    "pharmacy_name": "סופר פארם דיזנגוף סנטר",
+    "pharmacy_street": "דיזנגוף סנטר 64",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 111,
+    "pharmacy_name": "סופר פארם סיטי אשדוד",
+    "pharmacy_street": "הבנים 1",
+    "pharmacy_city": "אשדוד",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 112,
+    "pharmacy_name": "סופר פארם יבנה הירוקה",
+    "pharmacy_street": "הדוגית 16",
+    "pharmacy_city": "יבנה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 113,
+    "pharmacy_name": "סופר פארם אסף הרופא",
+    "pharmacy_street": "אסף סנטר",
+    "pharmacy_city": "באר יעקב",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 114,
+    "pharmacy_name": "סופר פארם רמות רכס",
+    "pharmacy_street": "אוסקר שינדלר 21",
+    "pharmacy_city": "באר שבע",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 115,
+    "pharmacy_name": "סופר פארם אשקלון",
+    "pharmacy_street": "שדרות בן גוריון 21, מרכז גירון",
+    "pharmacy_city": "אשקלון",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 116,
+    "pharmacy_name": "בסט פארם",
+    "pharmacy_street": "אברהם סופר 3",
+    "pharmacy_city": "אשדוד",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 117,
+    "pharmacy_name": "סופר פארם מדרחוב",
+    "pharmacy_street": "ההסתדרות 3",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 118,
+    "pharmacy_name": "מדיקל פארם שפרעם",
+    "pharmacy_street": "אלאום תריזא 1",
+    "pharmacy_city": "שפרעם",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 119,
+    "pharmacy_name": "מדיק פארם באר שבע",
+    "pharmacy_street": "זאב ז'בוטינסקי 9",
+    "pharmacy_city": "באר שבע",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 120,
+    "pharmacy_name": "פנופארם ראשון לציון",
+    "pharmacy_street": "לח\"י 16 פינת אלטלנה 6",
+    "pharmacy_city": "ראשון לציון",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 121,
+    "pharmacy_name": "פנופארם הוד השרון",
+    "pharmacy_street": "הרקון 2",
+    "pharmacy_city": "הוד השרון",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 122,
+    "pharmacy_name": "ביפארם קרית אתא",
+    "pharmacy_street": "העצמאות 37",
+    "pharmacy_city": "קרית אתא",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 123,
+    "pharmacy_name": "ביפארם איכילוב",
+    "pharmacy_street": "וייצמן 6",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 124,
+    "pharmacy_name": "ביפארם רחובות מזרח",
+    "pharmacy_street": "דרך ירושלים 15",
+    "pharmacy_city": "רחובות",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 125,
+    "pharmacy_name": "סופר פארם טמרה",
+    "pharmacy_street": "מרכז מסחרי",
+    "pharmacy_city": "טמרה",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 126,
+    "pharmacy_name": "גבעול אשדוד",
+    "pharmacy_street": "גיא אוני 12, רובע ט'",
+    "pharmacy_city": "אשדוד",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 127,
+    "pharmacy_name": "ביומקס פארם",
+    "pharmacy_street": "החלמונית 20",
+    "pharmacy_city": "ראשון לציון",
+    "pharmacy_delivery": "לא"
+  },
+  {
+    "_id": 128,
+    "pharmacy_name": "גני טל - בני עייש",
+    "pharmacy_street": "יצחק רבין 1",
+    "pharmacy_city": "בני עייש",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 129,
+    "pharmacy_name": "בית מרקחת צרפתי",
+    "pharmacy_street": "צביה ויצחק 580",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 130,
+    "pharmacy_name": "שרה פארם - צור יצחק",
+    "pharmacy_street": "נחל איילון 20",
+    "pharmacy_city": "צור יצחק",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 131,
+    "pharmacy_name": "גוד פארם בע\"מ",
+    "pharmacy_street": "בן יהודה 14",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 132,
+    "pharmacy_name": "וואן פארם להבים",
+    "pharmacy_street": "שדרות הרימון 1",
+    "pharmacy_city": "להבים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 133,
+    "pharmacy_name": "צמח פארם",
+    "pharmacy_street": "מתחם מול כנרת צמח",
+    "pharmacy_city": "עמק הירדן",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 134,
+    "pharmacy_name": "פארמה שאול",
+    "pharmacy_street": "שפת אמת 4",
+    "pharmacy_city": "בית שמש",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 135,
+    "pharmacy_name": "מדי פארם חולון",
+    "pharmacy_street": "חיים לנדאו 9",
+    "pharmacy_city": "חולון",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 136,
+    "pharmacy_name": "בית מרקחת דיימן",
+    "pharmacy_street": "אלי כהן 39",
+    "pharmacy_city": "אשקלון",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 137,
+    "pharmacy_name": "בית המרקחת מטר פארם",
+    "pharmacy_street": "בן עמי 35",
+    "pharmacy_city": "עכו",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 138,
+    "pharmacy_name": "גרין פארם",
+    "pharmacy_street": "אמנון ותמר 6",
+    "pharmacy_city": "נתניה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 139,
+    "pharmacy_name": "פארמה קו-אופ",
+    "pharmacy_street": "",
+    "pharmacy_city": "כפר יפיע",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 140,
+    "pharmacy_name": "סופר פארם בילו סנטר",
+    "pharmacy_street": "הדקל 1",
+    "pharmacy_city": "קרית עקרון",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 141,
+    "pharmacy_name": "גבעול ירושלים",
+    "pharmacy_street": "יפו 216",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 142,
+    "pharmacy_name": "סופר פארם ביג קרית שמונה",
+    "pharmacy_street": "אזור תעשייה דרום",
+    "pharmacy_city": "קרית שמונה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 143,
+    "pharmacy_name": "סופר פארם קניון הזהב",
+    "pharmacy_street": "סחרוב 21",
+    "pharmacy_city": "ראשון לציון",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 144,
+    "pharmacy_name": "סופר פארם בית הבד",
+    "pharmacy_street": "בית הבד 2 פינת דרך רמתיים 27",
+    "pharmacy_city": "הוד השרון",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 145,
+    "pharmacy_name": "סופר פארם קרית השרון",
+    "pharmacy_street": "שדרות טום לנטוס 60 קריית השרון",
+    "pharmacy_city": "נתניה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 146,
+    "pharmacy_name": "שבע פארם",
+    "pharmacy_street": "חיים לנדאו 4",
+    "pharmacy_city": "באר שבע",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 147,
+    "pharmacy_name": "וידא פארם",
+    "pharmacy_street": "אלמג'ד 1",
+    "pharmacy_city": "סח'נין",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 148,
+    "pharmacy_name": "בית מרקחת לב כרמל",
+    "pharmacy_street": "שדרות הנשיא 133",
+    "pharmacy_city": "חיפה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 149,
+    "pharmacy_name": "בית מרקחת אילן דימונה",
+    "pharmacy_street": "מרכז מסחרי חדש",
+    "pharmacy_city": "דימונה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 150,
+    "pharmacy_name": "ברודר",
+    "pharmacy_street": "דרך יצחק רבין 15",
+    "pharmacy_city": "בית שמש",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 151,
+    "pharmacy_name": "פארמוקן",
+    "pharmacy_street": "ירושלים 17",
+    "pharmacy_city": "עפולה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 152,
+    "pharmacy_name": "בית מרקחת קאר פארם",
+    "pharmacy_street": "העלייה 33",
+    "pharmacy_city": "כפר יונה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 153,
+    "pharmacy_name": "סופר פארם עמק סנטר",
+    "pharmacy_street": "שדרות רבין 18",
+    "pharmacy_city": "עפולה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 154,
+    "pharmacy_name": "בית מרקחת ד\"ר חורי",
+    "pharmacy_street": "סוקולוב 70",
+    "pharmacy_city": "חולון",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 155,
+    "pharmacy_name": "סופר פארם אודיטוריום חיפה",
+    "pharmacy_street": "שדרות הנשיא 134",
+    "pharmacy_city": "חיפה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 156,
+    "pharmacy_name": "סופר פארם קרית חיים",
+    "pharmacy_street": "אח\"י אילת 34",
+    "pharmacy_city": "קרית חיים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 157,
+    "pharmacy_name": "ביפארם כפר סבא",
+    "pharmacy_street": "כצנלסון 20",
+    "pharmacy_city": "כפר סבא",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 158,
+    "pharmacy_name": "שבעת הכוכבים",
+    "pharmacy_street": "שדרות שבעת הכוכבים 8",
+    "pharmacy_city": "הרצליה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 159,
+    "pharmacy_name": "בית שמש",
+    "pharmacy_street": "יגאל אלון 1",
+    "pharmacy_city": "בית שמש",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 160,
+    "pharmacy_name": "מגדל העמק",
+    "pharmacy_street": "אריאל שרון 41",
+    "pharmacy_city": "נצרת עלית",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 161,
+    "pharmacy_name": "ממילא",
+    "pharmacy_street": "שלמה המלך 9",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 162,
+    "pharmacy_name": "בית האומות ירושלים",
+    "pharmacy_street": "דרך חברון 101",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 163,
+    "pharmacy_name": "ביג עפולה",
+    "pharmacy_street": "השוק 13",
+    "pharmacy_city": "עפולה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 164,
+    "pharmacy_name": "אבן יהודה",
+    "pharmacy_street": "המייסדים 62 פינת ההסתדרות",
+    "pharmacy_city": "אבן יהודה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 165,
+    "pharmacy_name": "בית מרקחת מזור",
+    "pharmacy_street": "עמק רפאים 25",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 166,
+    "pharmacy_name": "בית מרקחת השל\"ה",
+    "pharmacy_street": "השל\"ה 9",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 167,
+    "pharmacy_name": "ביפארם יקנעם",
+    "pharmacy_street": "התמר 2",
+    "pharmacy_city": "יקנעם עילית",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 168,
+    "pharmacy_name": "בית מרקחת הפלמ\"ח פסגת זאב",
+    "pharmacy_street": "משה דיין 107",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 169,
+    "pharmacy_name": "ביפארם אלונים",
+    "pharmacy_street": "מרכז מסחרי צומת",
+    "pharmacy_city": "אלונים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 170,
+    "pharmacy_name": "ביפארם אילת",
+    "pharmacy_street": "טיילת מלכת שבא",
+    "pharmacy_city": "אילת",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 171,
+    "pharmacy_name": "ביפארם סביונים",
+    "pharmacy_street": "משה דיין 3",
+    "pharmacy_city": "יהוד",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 172,
+    "pharmacy_name": "סופר פארם קניון רחובות",
+    "pharmacy_street": "בילו 2",
+    "pharmacy_city": "רחובות",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 173,
+    "pharmacy_name": "סופר פארם מול הים",
+    "pharmacy_street": "הפלמ\"ח 1",
+    "pharmacy_city": "אילת",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 174,
+    "pharmacy_name": "סופר פארם מעלה אדומים",
+    "pharmacy_street": "דרך קדם 5",
+    "pharmacy_city": "מעלה אדומים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 175,
+    "pharmacy_name": "סופר פארם גן שמואל",
+    "pharmacy_street": "מרכז מסחרי",
+    "pharmacy_city": "קיבוץ גן שמואל",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 176,
+    "pharmacy_name": "סופר פארם לב העיר",
+    "pharmacy_street": "כיכר פז 3",
+    "pharmacy_city": "קרית גת",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 177,
+    "pharmacy_name": "סופר פארם שחמון אילת",
+    "pharmacy_street": "שדרות ששת הימים 290 - 294",
+    "pharmacy_city": "אילת",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 178,
+    "pharmacy_name": "סופר פארם מגדל שלום",
+    "pharmacy_street": "אחד העם 9",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 179,
+    "pharmacy_name": "סופר פארם איינשטיין",
+    "pharmacy_street": "איינשטיין 139",
+    "pharmacy_city": "חיפה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 180,
+    "pharmacy_name": "סופר פארם טיילת אילת",
+    "pharmacy_street": "דרך פעמי השלום פינת אנטיב",
+    "pharmacy_city": "אילת",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 181,
+    "pharmacy_name": "סופר פארם רכבת עפולה",
+    "pharmacy_street": "שדרות יצחק רבין 20",
+    "pharmacy_city": "עפולה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 182,
+    "pharmacy_name": "אופקים פארם",
+    "pharmacy_street": "הרצל 29",
+    "pharmacy_city": "אופקים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 183,
+    "pharmacy_name": "סופר פארם קניון אחים ישראל",
+    "pharmacy_street": "יד חרוצים 18",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 184,
+    "pharmacy_name": "הדר פארם",
+    "pharmacy_street": "הדקלים 18",
+    "pharmacy_city": "פרדס חנה - כרכור",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 185,
+    "pharmacy_name": "ג'יני פארם",
+    "pharmacy_street": "צאלון 1",
+    "pharmacy_city": "מודיעין מכבים רעות",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 186,
+    "pharmacy_name": "בית מרקחת אבו עזמי",
+    "pharmacy_street": "עומר בן אל-חטאב 76",
+    "pharmacy_city": "טירה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 187,
+    "pharmacy_name": "סופר פארם דימונה",
+    "pharmacy_street": "אזור תעשייה 395",
+    "pharmacy_city": "דימונה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 188,
+    "pharmacy_name": "סופר פארם ערד",
+    "pharmacy_street": "הקנאים 27",
+    "pharmacy_city": "ערד",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 189,
+    "pharmacy_name": "סופר פארם ישפרו פלאנט באר שבע",
+    "pharmacy_street": "ברוך קטינקא 2",
+    "pharmacy_city": "באר שבע",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 190,
+    "pharmacy_name": "סופר פארם קניון הנגב",
+    "pharmacy_street": "צומת אלי כהן רחוב שדרות הנשיאים",
+    "pharmacy_city": "באר שבע",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 191,
+    "pharmacy_name": "סופר פארם ירכא",
+    "pharmacy_street": "ביג פאשן אאוטלט",
+    "pharmacy_city": "כפר ירכא",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 192,
+    "pharmacy_name": "סופר פארם בית שאן",
+    "pharmacy_street": "ירושלים הבירה פינת השחם",
+    "pharmacy_city": "בית שאן",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 193,
+    "pharmacy_name": "סופר פארם טבעון",
+    "pharmacy_street": "מרווה 1",
+    "pharmacy_city": "טבעון",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 194,
+    "pharmacy_name": "סופר פארם ביג נצרת",
+    "pharmacy_street": "תופיק זיאד 53",
+    "pharmacy_city": "נצרת  ",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 195,
+    "pharmacy_name": "בית מרקחת רימונים פארם בע\"מ",
+    "pharmacy_street": "ארהרונוביץ 12",
+    "pharmacy_city": "בני ברק",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 196,
+    "pharmacy_name": "ביוקאן פארם בע\"מ",
+    "pharmacy_street": "אלי הורוביץ 27",
+    "pharmacy_city": "רחובות",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 197,
+    "pharmacy_name": "הפלמ\"ח בע\"מ ",
+    "pharmacy_street": "בית הדפוס 12",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 198,
+    "pharmacy_name": "בית מרקחת הפלמ\"ח  ",
+    "pharmacy_street": "הפלמ\"ח 28",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 199,
+    "pharmacy_name": "פארמה פירסט בע\"מ",
+    "pharmacy_street": "שדרות יעקב 50",
+    "pharmacy_city": "ראשון לציון",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 200,
+    "pharmacy_name": "סופר פארם איירפורט סיטי",
+    "pharmacy_street": "קרית שדה התעופה",
+    "pharmacy_city": "לוד",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 201,
+    "pharmacy_name": "סופר פארם נשר",
+    "pharmacy_street": "דרך בן יהודה 111",
+    "pharmacy_city": "חיפה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 202,
+    "pharmacy_name": "סופר פארם קרית אתא",
+    "pharmacy_street": "ההסתדרות 248",
+    "pharmacy_city": "חיפה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 203,
+    "pharmacy_name": "בית מרקחת פארמסי 1",
+    "pharmacy_street": "מתחם 5 מגרש 929",
+    "pharmacy_city": "רהט",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 204,
+    "pharmacy_name": "גבעול הרצליה",
+    "pharmacy_street": "חבצלת השרון 36",
+    "pharmacy_city": "הרצליה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 205,
+    "pharmacy_name": "סופר פארם נתיבות",
+    "pharmacy_street": "ירושלים פינת טדי קולק",
+    "pharmacy_city": "נתיבות",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 206,
+    "pharmacy_name": "בית מרקחת השושנים",
+    "pharmacy_street": "השושנים 26",
+    "pharmacy_city": "נצרת עלית",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 207,
+    "pharmacy_name": "סופר פארם טירת הכרמל",
+    "pharmacy_street": "מלחמת ששת הימים 1",
+    "pharmacy_city": "טירת הכרמל",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 208,
+    "pharmacy_name": "בית מרקחת הפלמ\"ח",
+    "pharmacy_street": "הפלמ\"ח 28",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 209,
+    "pharmacy_name": "בית מרקחת גרין פארם",
+    "pharmacy_street": "אל ח'אלה",
+    "pharmacy_city": "עראבה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 210,
+    "pharmacy_name": "ביפארם אמות",
+    "pharmacy_street": "חייל הנדסה 1",
+    "pharmacy_city": "באר שבע",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 211,
+    "pharmacy_name": "ביפארם אסותא",
+    "pharmacy_street": "בית חולים אסותא",
+    "pharmacy_city": "אשדוד",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 212,
+    "pharmacy_name": "בית מרקחת אורני",
+    "pharmacy_street": "גואל 3",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 213,
+    "pharmacy_name": "בית מרקחת אומגה פארם",
+    "pharmacy_street": "כביש ראשי",
+    "pharmacy_city": "כפר ריינה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 214,
+    "pharmacy_name": "בית מרקחת ממש פארם",
+    "pharmacy_street": "משה ברזני 35",
+    "pharmacy_city": "קרית גת",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 215,
+    "pharmacy_name": "בית מרקחת היי פארם",
+    "pharmacy_street": "שדרות המגינים 97",
+    "pharmacy_city": "חיפה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 216,
+    "pharmacy_name": "סופר פארם סיטי סנטר",
+    "pharmacy_street": "שדרות בן גוריון 6 פינת יפו",
+    "pharmacy_city": "חיפה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 217,
+    "pharmacy_name": "סופר פארם אום אל פאחם",
+    "pharmacy_street": "אום אל פאחם 27, בית 101",
+    "pharmacy_city": "אום אל פאחם",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 218,
+    "pharmacy_name": "בית מרקחת שפע",
+    "pharmacy_street": "בן יהודה 180",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 219,
+    "pharmacy_name": "בית מרקחת פרמה-רד",
+    "pharmacy_street": "שדרות העצמאות 62",
+    "pharmacy_city": "בת ים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 220,
+    "pharmacy_name": "בית מרקחת חורי",
+    "pharmacy_street": "חורי 13",
+    "pharmacy_city": "חיפה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 221,
+    "pharmacy_name": "נזרין פארם",
+    "pharmacy_street": "הגליל 27 ",
+    "pharmacy_city": "נצרת",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 222,
+    "pharmacy_name": "נידאא פארם",
+    "pharmacy_street": "השוק 13",
+    "pharmacy_city": "מעלות תרשיחא",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 223,
+    "pharmacy_name": "הרמוני פרמסי",
+    "pharmacy_street": "הארבעה 30",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 224,
+    "pharmacy_name": "גבעול באר שבע",
+    "pharmacy_street": "מונטיפיורי 1",
+    "pharmacy_city": "באר שבע",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 225,
+    "pharmacy_name": "פארמה פלוס",
+    "pharmacy_street": "סוקולוב 18",
+    "pharmacy_city": "הרצליה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 226,
+    "pharmacy_name": "הגליל",
+    "pharmacy_street": "מרכז מסחרי",
+    "pharmacy_city": "מעלות תרשיחא",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 227,
+    "pharmacy_name": "סופר פארם תחנה מרכזית",
+    "pharmacy_street": "יפו 234",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 228,
+    "pharmacy_name": "סופר פארם קניון עזריאלי רמלה",
+    "pharmacy_street": "שדרות דוד רזיאל 1",
+    "pharmacy_city": "רמלה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 229,
+    "pharmacy_name": "סופר פארם בורוכוב",
+    "pharmacy_street": "בורוכוב 54",
+    "pharmacy_city": "גבעתיים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 230,
+    "pharmacy_name": "Be משמר השרון",
+    "pharmacy_street": "מרכז מסחרי אלון מתחם אלונית",
+    "pharmacy_city": "צומת משמר השרון",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 231,
+    "pharmacy_name": "Be גבעת שמואל ",
+    "pharmacy_street": "יוני נתניהו 27",
+    "pharmacy_city": "גבעת שמואל",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 232,
+    "pharmacy_name": "בית מרקחת הפנטגון",
+    "pharmacy_street": "הגדוד העברי 4",
+    "pharmacy_city": "קריית מוצקין",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 233,
+    "pharmacy_name": "בית מרקחת אורנים",
+    "pharmacy_street": "מרכז מסחרי זייד",
+    "pharmacy_city": "קריית טבעון",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 234,
+    "pharmacy_name": "אלעין פארם",
+    "pharmacy_street": "שכונת אלעין",
+    "pharmacy_city": "כפר שעב",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 235,
+    "pharmacy_name": "בית מרקחת מיראקלס",
+    "pharmacy_street": "מוהליבר 48",
+    "pharmacy_city": "ראשון לציון",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 236,
+    "pharmacy_name": "בית מרקחת פאמילי פרמאסי",
+    "pharmacy_street": "שטמפפר 24",
+    "pharmacy_city": "פתח תקווה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 237,
+    "pharmacy_name": "בית מרקחת אלהאם פארם ביענה",
+    "pharmacy_street": "אלכרם אלאחמר",
+    "pharmacy_city": "כפר ביענה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 238,
+    "pharmacy_name": "לאון פארם בבלי",
+    "pharmacy_street": "הרב עוזיאל 1",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 239,
+    "pharmacy_name": "בית מרקחת אורן הכרמל",
+    "pharmacy_street": "הזית 1",
+    "pharmacy_city": "נשר",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 240,
+    "pharmacy_name": "עראבה פארם",
+    "pharmacy_street": "",
+    "pharmacy_city": "עראבה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 241,
+    "pharmacy_name": "בית מרקחת כרמלית",
+    "pharmacy_street": "אליהו הנביא 6",
+    "pharmacy_city": "חיפה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 242,
+    "pharmacy_name": "בית מרקחת טריכומה פארמה בע\"מ",
+    "pharmacy_street": "גוש עציון 13",
+    "pharmacy_city": "גבעת שמואל",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 243,
+    "pharmacy_name": "בית מרקחת יקיר / תפן קפיטל",
+    "pharmacy_street": "ספיר 2",
+    "pharmacy_city": "הרצליה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 244,
+    "pharmacy_name": "דושי סנטר נצרת",
+    "pharmacy_street": "סאפוריה 700",
+    "pharmacy_city": "נצרת",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 245,
+    "pharmacy_name": "בית מרקחת מפרשי ארגמן",
+    "pharmacy_street": "דוד המלך 18",
+    "pharmacy_city": "אשדוד",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 246,
+    "pharmacy_name": "סופר פארם עכו",
+    "pharmacy_street": "בן עמי 67",
+    "pharmacy_city": "עכו",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 247,
+    "pharmacy_name": "סופר פארם רמת הנשיא",
+    "pharmacy_street": "שונית 12",
+    "pharmacy_city": "חיפה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 248,
+    "pharmacy_name": "סופר פארם ארנה נהריה",
+    "pharmacy_street": "שדרות בן צבי 1",
+    "pharmacy_city": "נהריה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 249,
+    "pharmacy_name": "בית מרקחת הרצליה פיתוח",
+    "pharmacy_street": "וינגייט 142",
+    "pharmacy_city": "הרצליה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 250,
+    "pharmacy_name": "בית מרקחת ערד פארם",
+    "pharmacy_street": "בן יאיר 33",
+    "pharmacy_city": "ערד",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 251,
+    "pharmacy_name": "בית מרקחת גני טל",
+    "pharmacy_street": "יצחק רבין 1",
+    "pharmacy_city": "גני טל בני עי\"ש",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 252,
+    "pharmacy_name": "בית מרקחת אודית פארם",
+    "pharmacy_street": "אלמדינה 9",
+    "pharmacy_city": "אום אל פאחם",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 253,
+    "pharmacy_name": "בית מרקחת אשכול",
+    "pharmacy_street": "אבשלום סנטר",
+    "pharmacy_city": "מועצה אזורית אשכול",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 254,
+    "pharmacy_name": "לאון פארם בן יהודה",
+    "pharmacy_street": "בן יהודה 34",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 255,
+    "pharmacy_name": "פארמה האום",
+    "pharmacy_street": "יקינטון 3",
+    "pharmacy_city": "נוף הגליל",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 256,
+    "pharmacy_name": "מרכז עכו",
+    "pharmacy_street": "בן עמי 27",
+    "pharmacy_city": "עכו",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 257,
+    "pharmacy_name": "רינה פארם",
+    "pharmacy_street": "ילין דוד 32",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 258,
+    "pharmacy_name": "סופר פארם קניון מודיעין",
+    "pharmacy_street": "לב העיר 2",
+    "pharmacy_city": "מודיעין",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 259,
+    "pharmacy_name": "בי פארם קרית שמונה",
+    "pharmacy_street": "טשרניחובסקי 4",
+    "pharmacy_city": "קרית שמונה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 260,
+    "pharmacy_name": "בית מרקחת א. פארם טייבה",
+    "pharmacy_street": "כביש 24",
+    "pharmacy_city": "צפון טייבה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 261,
+    "pharmacy_name": "רמת הנשיא",
+    "pharmacy_street": "אלי כהן 1",
+    "pharmacy_city": "בת ים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 262,
+    "pharmacy_name": "טשרניחובסקי",
+    "pharmacy_street": "טשרניחובסקי 35",
+    "pharmacy_city": "חיפה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 263,
+    "pharmacy_name": "סופר פארם רמז",
+    "pharmacy_street": "רמז 16",
+    "pharmacy_city": "נתניה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 264,
+    "pharmacy_name": "סופר פארם מול זכרון",
+    "pharmacy_street": "אזור התעשייה מערבי כביש 4",
+    "pharmacy_city": "זכרון יעקב",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 265,
+    "pharmacy_name": "פרדס",
+    "pharmacy_street": "שדרות נווה יעקב 611",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 266,
+    "pharmacy_name": "רפאל",
+    "pharmacy_street": "שדרות ירושלים 1",
+    "pharmacy_city": "קריית מוצקין",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 267,
+    "pharmacy_name": "ניו דיי פארמה",
+    "pharmacy_street": "שכטמן 10",
+    "pharmacy_city": "חדרה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 268,
+    "pharmacy_name": "לאון פארם בצלאל",
+    "pharmacy_street": "המכבי 2",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 269,
+    "pharmacy_name": "האר\"י",
+    "pharmacy_street": "האר\"י 1",
+    "pharmacy_city": "נתניה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 270,
+    "pharmacy_name": "בית מרקחת תלתן (קנאביסרי)",
+    "pharmacy_street": "עפרה חזה 9",
+    "pharmacy_city": "בת ים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 271,
+    "pharmacy_name": "הסנה-מרפא",
+    "pharmacy_street": "ההסתדרות 271",
+    "pharmacy_city": "חיפה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 272,
+    "pharmacy_name": "ליף קריית אתא",
+    "pharmacy_street": "העצמאות 18",
+    "pharmacy_city": "קרית אתא",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 273,
+    "pharmacy_name": "סופר פארם כרמיאל קק\"ל",
+    "pharmacy_street": "קרן קיימת לישראל 99",
+    "pharmacy_city": "כרמיאל",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 274,
+    "pharmacy_name": "סופר פארם כוכב יאיר",
+    "pharmacy_street": "צומת כוכב יאיר",
+    "pharmacy_city": "",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 275,
+    "pharmacy_name": "סופר פארם אבנת",
+    "pharmacy_street": "ז'בוטינסקי 72",
+    "pharmacy_city": "פתח תקווה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 276,
+    "pharmacy_name": "סופר פארם המכללה",
+    "pharmacy_street": "שדרות יצחק רבין 7",
+    "pharmacy_city": "ראשון לציון",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 277,
+    "pharmacy_name": "סופר פארם חוצות אשקלון",
+    "pharmacy_street": "רחוב נח\"ל 1",
+    "pharmacy_city": "אשקלון",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 278,
+    "pharmacy_name": "אבו גוש",
+    "pharmacy_street": "דרך השלום 33",
+    "pharmacy_city": "אבו גוש",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 279,
+    "pharmacy_name": "בריאות הדר",
+    "pharmacy_street": "מתחם אלונית",
+    "pharmacy_city": "כרכור",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 280,
+    "pharmacy_name": "בית מרקחת ברק",
+    "pharmacy_street": "רמז 15",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 281,
+    "pharmacy_name": "בית מרקחת מרים פארם",
+    "pharmacy_street": "ידידיה פרנקל 29",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 282,
+    "pharmacy_name": "רפואה סנטר",
+    "pharmacy_street": "רבי עקיבא 62",
+    "pharmacy_city": "בני ברק",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 283,
+    "pharmacy_name": "ביפארם סינמה סיטי",
+    "pharmacy_street": "המחקר 3",
+    "pharmacy_city": "נתניה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 284,
+    "pharmacy_name": "ביפארם ק. השרון",
+    "pharmacy_street": "שכונת קרית השרון",
+    "pharmacy_city": "נתניה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 285,
+    "pharmacy_name": "בית מרקחת אפרת פארם",
+    "pharmacy_street": "דוד המלך 15",
+    "pharmacy_city": "אפרת",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 286,
+    "pharmacy_name": "בזלת פארמה",
+    "pharmacy_street": "האילן 35",
+    "pharmacy_city": "אור עקיבא",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 287,
+    "pharmacy_name": "עמק רפאים",
+    "pharmacy_street": "עמק רפאים 24",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 288,
+    "pharmacy_name": "מאי פארם",
+    "pharmacy_street": "כניסה מזרחית",
+    "pharmacy_city": "כפר חורפיש",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 289,
+    "pharmacy_name": "פרמה 10 הנשיא",
+    "pharmacy_street": "הנשיא הראשון 34",
+    "pharmacy_city": "רחובות",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 290,
+    "pharmacy_name": "בית מרקחת רפאל שפע פארם",
+    "pharmacy_street": "שמגר 16",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 291,
+    "pharmacy_name": "נהריה רגבה",
+    "pharmacy_street": "מרכז ביג חוצות רגבה",
+    "pharmacy_city": "נהריה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 292,
+    "pharmacy_name": "מדיקל פארם מג'אר",
+    "pharmacy_street": "ראס חאביה",
+    "pharmacy_city": "כפר מג'אר",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 293,
+    "pharmacy_name": "בית מרקחת מתן",
+    "pharmacy_street": "הדר 84",
+    "pharmacy_city": "מתן",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 294,
+    "pharmacy_name": "בית מרקחת גן העיר",
+    "pharmacy_street": "אבן גבירול 83",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 295,
+    "pharmacy_name": "הבנים 1, אשדוד",
+    "pharmacy_street": "חטיבת הנח\"ל 4",
+    "pharmacy_city": "חדרה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 296,
+    "pharmacy_name": "בית מרקחת אמל פארם",
+    "pharmacy_street": "כפר מסעדה",
+    "pharmacy_city": "מסעדה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 297,
+    "pharmacy_name": "בית מרקחת מיכלין",
+    "pharmacy_street": "שד' התמרים (מרכז רטנר)",
+    "pharmacy_city": "אילת",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 298,
+    "pharmacy_name": "אולטרה פארם",
+    "pharmacy_street": "דינוביץ' 29 ",
+    "pharmacy_city": "פתח תקווה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 299,
+    "pharmacy_name": "סופר פארם אשדוד סיטי",
+    "pharmacy_street": "הבנים 1",
+    "pharmacy_city": "אשדוד",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 300,
+    "pharmacy_name": "סופר פארם הר יונה",
+    "pharmacy_street": "הפיריון 2",
+    "pharmacy_city": "נוף הגליל",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 301,
+    "pharmacy_name": "בית מרקחת רפאל – נתניה",
+    "pharmacy_street": "דיזנגוף 28",
+    "pharmacy_city": "נתניה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 302,
+    "pharmacy_name": "בית מרקחת העם",
+    "pharmacy_street": "מג'ד אל שמס 625",
+    "pharmacy_city": "רמת הגולן",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 303,
+    "pharmacy_name": "אמיר מדיקל פארם נהריה",
+    "pharmacy_street": "המרכז הרפואי לגליל",
+    "pharmacy_city": "נהריה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 304,
+    "pharmacy_name": "בית מרקחת אסף עפולה",
+    "pharmacy_street": "מנחם אוסישקין 7 ",
+    "pharmacy_city": "עפולה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 306,
+    "pharmacy_name": "בית מרקחת פארמרי ",
+    "pharmacy_street": "הכרמל 1 ",
+    "pharmacy_city": "אור עקיבא",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 307,
+    "pharmacy_name": "מדיקאנה טייבה",
+    "pharmacy_street": "שדרות הזיתים 1",
+    "pharmacy_city": "טייבה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 308,
+    "pharmacy_name": "סופר פארם צפת",
+    "pharmacy_street": "הגדוד השלישי 3",
+    "pharmacy_city": "צפת",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 309,
+    "pharmacy_name": "בית מרקחת כפר ורדים",
+    "pharmacy_street": "מרכז מסחרי כפר ורדים",
+    "pharmacy_city": "כפר ורדים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 310,
+    "pharmacy_name": "בית מרקחת הדוב הגדול",
+    "pharmacy_street": "הרצל 95",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 311,
+    "pharmacy_name": "בית מרקחת ויטה ורדה",
+    "pharmacy_street": "צה\"ל 35 מתחם מיקס",
+    "pharmacy_city": "חדרה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 312,
+    "pharmacy_name": "טריכומה בת ים",
+    "pharmacy_street": "בן גוריון 125",
+    "pharmacy_city": "בת ים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 313,
+    "pharmacy_name": "בית מרקחת חי –רמלה",
+    "pharmacy_street": "אבא אחימאיר 3 , קרית מנחם ",
+    "pharmacy_city": "רמלה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 314,
+    "pharmacy_name": "בית מרקחת  אל כרמל עוספייה",
+    "pharmacy_street": "אבא חושי כביש ראשי",
+    "pharmacy_city": "עוספייה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 315,
+    "pharmacy_name": "סופר פארם אור עקיבא",
+    "pharmacy_street": "שדרות הנשיא וייצמן 157",
+    "pharmacy_city": "אור עקיבא",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 316,
+    "pharmacy_name": "סופר פארם דליית אל-כרמל",
+    "pharmacy_street": "רחוב ראשי 1",
+    "pharmacy_city": "דליית אל-כרמל",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 317,
+    "pharmacy_name": "בית מרקחת המזרח עכו",
+    "pharmacy_street": "אברהם בן שושן 14",
+    "pharmacy_city": "עכו",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 318,
+    "pharmacy_name": "בית מרקחת עץ החיים ",
+    "pharmacy_street": "בן צבי 76",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 319,
+    "pharmacy_name": "בית מרקחת בי פארם שילת",
+    "pharmacy_street": "גלבוע פינת כרמל, צומת שילת",
+    "pharmacy_city": "מודיעין",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 320,
+    "pharmacy_name": "סופר פארם ג'דיידה-מכר",
+    "pharmacy_street": "רח' 1001, ג'דיידה-מכר",
+    "pharmacy_city": "דיידה-מכר",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 321,
+    "pharmacy_name": "סופר פארם שרונה ת\"א דיילי'ס",
+    "pharmacy_street": "שד' מנחם בגין 121",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 322,
+    "pharmacy_name": "סופר פארם באקה סנטר",
+    "pharmacy_street": "we סנטר",
+    "pharmacy_city": "באקה אל גרביה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 323,
+    "pharmacy_name": "בית מרקחת מדיקל הצפון (חורי)",
+    "pharmacy_street": "תחנת הדלק מונפורט",
+    "pharmacy_city": "א.ת. מעיליה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 324,
+    "pharmacy_name": "בית מרקחת מדיקה - ראש העין ",
+    "pharmacy_street": "מרבד הקסמים 42 ",
+    "pharmacy_city": "ראש העין ",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 325,
+    "pharmacy_name": "בית מרקחת GHP גדרה",
+    "pharmacy_street": "פינס 1 ",
+    "pharmacy_city": "גדרה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 326,
+    "pharmacy_name": "בית מרקחת רפאל",
+    "pharmacy_street": "סחרוב 3",
+    "pharmacy_city": "ראשון לציון",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 327,
+    "pharmacy_name": "בית מרקחת אוור פארם ",
+    "pharmacy_street": "רחוב ראשי עוספיה",
+    "pharmacy_city": "עוספיה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 328,
+    "pharmacy_name": "בית מרקחת פולג (נתניה)",
+    "pharmacy_street": "פנחס לבון 30",
+    "pharmacy_city": "נתניה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 329,
+    "pharmacy_name": "בית מרקחת טריכומה אשדוד ",
+    "pharmacy_street": "האורגים 22",
+    "pharmacy_city": "אשדוד",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 330,
+    "pharmacy_name": "סופר פארם כפר כנא",
+    "pharmacy_street": "כביש ראשי כפר כנא, שכונת פוק אלעין",
+    "pharmacy_city": "כפר כנא",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 331,
+    "pharmacy_name": "סופר פארם יפיע",
+    "pharmacy_street": "רחוב נצרת-חיפה",
+    "pharmacy_city": "יפיע",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 332,
+    "pharmacy_name": "סופר פארם טבריה",
+    "pharmacy_street": "ירדן פינת השילוח 1",
+    "pharmacy_city": " טבריה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 333,
+    "pharmacy_name": "בית מרקחת כרמל פארם",
+    "pharmacy_street": "רח' דרך ארץ 61",
+    "pharmacy_city": "חריש",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 334,
+    "pharmacy_name": "סופר פארם קניון שאול המלך ",
+    "pharmacy_street": "קניון שאול המלך",
+    "pharmacy_city": "באר שבע",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 335,
+    "pharmacy_name": "סופר פארם רמת ישי",
+    "pharmacy_street": "רחוב האקליפטוס 3 ",
+    "pharmacy_city": "רמת ישי",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 336,
+    "pharmacy_name": "בית מרקחת מונטי",
+    "pharmacy_street": "אוסישקין 41",
+    "pharmacy_city": "רמת השרון",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 337,
+    "pharmacy_name": "חדרה שכונת הפארק",
+    "pharmacy_street": "גמלא 3",
+    "pharmacy_city": "חדרה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 338,
+    "pharmacy_name": "בית מרקחת נור פארם כפר קרע",
+    "pharmacy_street": "רחוב ראשי כפר קרע",
+    "pharmacy_city": "כפר קרע",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 339,
+    "pharmacy_name": "בית מרקחת טמרה פארם",
+    "pharmacy_street": "בכניסה לעיר טמרה",
+    "pharmacy_city": "טמרה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 340,
+    "pharmacy_name": "בית מרקחת ביסאן פארם",
+    "pharmacy_street": "כניסה ראשית - קלאנסוה",
+    "pharmacy_city": "קלאנסוה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 341,
+    "pharmacy_name": "בית מרקחת מגדיאל",
+    "pharmacy_street": "דרך מגדיאל 54",
+    "pharmacy_city": "הוד השרון",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 342,
+    "pharmacy_name": "בית מרקחת פארמה פלוס",
+    "pharmacy_street": "יוסי בן יועזר 23 (קטמון) ",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 343,
+    "pharmacy_name": "בית מרקחת לני'ס",
+    "pharmacy_street": "שד' דם המכבים 42",
+    "pharmacy_city": "מודיעין",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 344,
+    "pharmacy_name": "בית המרקחת וירונה פארם – קלנסווה",
+    "pharmacy_street": "כביש ראשי – קלנסווה",
+    "pharmacy_city": "קלנסווה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 345,
+    "pharmacy_name": "בית מרקחת קרית השרון",
+    "pharmacy_street": "קלאוזנר 9 פינת דגניה 49 ",
+    "pharmacy_city": "נתניה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 346,
+    "pharmacy_name": "סופר פארם קניון השרון",
+    "pharmacy_street": "הרצל 58, קניון השרון",
+    "pharmacy_city": "נתניה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 347,
+    "pharmacy_name": "סופר פארם קדימה",
+    "pharmacy_street": "רחוב האופה 1",
+    "pharmacy_city": "קדימה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 348,
+    "pharmacy_name": "פארם פלוס נתניה",
+    "pharmacy_street": "ויצמן 5",
+    "pharmacy_city": "נתניה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 349,
+    "pharmacy_name": "גבעול כוכב הצפון",
+    "pharmacy_street": "בילויה 5",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 350,
+    "pharmacy_name": "בית מרקחת גרין פארם עפולה",
+    "pharmacy_street": "המלאכה 21",
+    "pharmacy_city": "עפולה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 351,
+    "pharmacy_name": "בית מרקחת פארמה 4 יו",
+    "pharmacy_street": "הרב ניסנבוים 35",
+    "pharmacy_city": "בת ים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 352,
+    "pharmacy_name": "בית מרקחת מדיסיד",
+    "pharmacy_street": "שמשון 3 פארק אולימפיה ",
+    "pharmacy_city": "פתח תקווה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 353,
+    "pharmacy_name": "בית מרקחת ליף",
+    "pharmacy_street": "בן זכאי 30",
+    "pharmacy_city": "טבריה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 354,
+    "pharmacy_name": "בית מרקחת לב אפק פארם",
+    "pharmacy_street": "ברקן 1 פינת בזק 1 – נווה אפק",
+    "pharmacy_city": "ראש העין ",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 355,
+    "pharmacy_name": "סופר פארם - לב ",
+    "pharmacy_street": "רוטשילד 40",
+    "pharmacy_city": "חדרה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 356,
+    "pharmacy_name": "בית מרקחת אזורי חן",
+    "pharmacy_street": "גרינברג 25",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 357,
+    "pharmacy_name": "היי פארם אשקלון",
+    "pharmacy_street": "הנמל 2",
+    "pharmacy_city": "אשקלון",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 358,
+    "pharmacy_name": "בית מרקחת אסידל ",
+    "pharmacy_street": "רחוב האצל 52",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 359,
+    "pharmacy_name": "סופר פארם - חדרה מזרח",
+    "pharmacy_street": "רחוב צה\"ל 35",
+    "pharmacy_city": "חדרה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 360,
+    "pharmacy_name": "בית מרקחת בלו ברוש (נשר)",
+    "pharmacy_street": "רחוב בר יהודה 60 ",
+    "pharmacy_city": "נשר",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 361,
+    "pharmacy_name": "בית מרקחת נווה שאנן",
+    "pharmacy_street": "התיכון 37",
+    "pharmacy_city": "חיפה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 362,
+    "pharmacy_name": "סופר פארם שער הצפון ",
+    "pharmacy_street": "קרן היסוד 14",
+    "pharmacy_city": "קרית אתא",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 363,
+    "pharmacy_name": "סופר פארם גלובוס אשקלון",
+    "pharmacy_street": "גלובוס סנטר ",
+    "pharmacy_city": "אשקלון",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 364,
+    "pharmacy_name": "בית מרקחת הבנקים",
+    "pharmacy_street": "העצמאות 102",
+    "pharmacy_city": "חיפה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 365,
+    "pharmacy_name": "בית מרקחת אריה פארם",
+    "pharmacy_street": "הרצל 42",
+    "pharmacy_city": "גן יבנה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 366,
+    "pharmacy_name": "בית מרקחת קנגרין מדיקל",
+    "pharmacy_street": "דרך בן יהודה 15",
+    "pharmacy_city": "חיפה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 367,
+    "pharmacy_name": "בית מרקחת פארמה נייס ",
+    "pharmacy_street": "שכונה 34 בית 5",
+    "pharmacy_city": "רהט",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 368,
+    "pharmacy_name": "סופר פארם קרית ים",
+    "pharmacy_street": "שדרות ירושלים 51,",
+    "pharmacy_city": "קרית-ים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 369,
+    "pharmacy_name": "עין שמר Be",
+    "pharmacy_street": "פארק מסחרי עין שמר",
+    "pharmacy_city": "עין שמר",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 370,
+    "pharmacy_name": "אייס מול אילת",
+    "pharmacy_street": "קאמפן 8",
+    "pharmacy_city": "אילת",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 371,
+    "pharmacy_name": "סופר פארם פרדס חנה",
+    "pharmacy_street": "הגלעד 1 ",
+    "pharmacy_city": "פרדס חנה כרכור",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 372,
+    "pharmacy_name": "סופר פארם צורן",
+    "pharmacy_street": "שד' יצחק רבין 38",
+    "pharmacy_city": "קדימה-צורן",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 373,
+    "pharmacy_name": "בית מרקחת רסקו",
+    "pharmacy_street": "אלחדיף פינת אילת, כיכר רסקו",
+    "pharmacy_city": "טבריה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 374,
+    "pharmacy_name": "בית מרקחת פאי פארם",
+    "pharmacy_street": "אלקבץ 1",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 375,
+    "pharmacy_name": "בית מרקחת לני פארם",
+    "pharmacy_street": "הרצל 201 ",
+    "pharmacy_city": "רחובות",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 377,
+    "pharmacy_name": "בית מרקחת סניטס לוד",
+    "pharmacy_street": "הרצל 60",
+    "pharmacy_city": "לוד",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 378,
+    "pharmacy_name": "סופר פארם כפר יונה",
+    "pharmacy_street": "שדרות בן גוריון 1",
+    "pharmacy_city": "כפר יונה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 379,
+    "pharmacy_name": "בית מרקחת גרין פארמסיה (טייבה)",
+    "pharmacy_street": "חלקה 29 גוש 7846 טייבה",
+    "pharmacy_city": "טייבה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 380,
+    "pharmacy_name": "בית מרקחת לה פארמציה (טירה)",
+    "pharmacy_street": "אל סולטאני 35 טירה המשולש",
+    "pharmacy_city": "טירה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 381,
+    "pharmacy_name": "בית מרקחת פארם מיתר",
+    "pharmacy_street": "מרכז מסחרי, מיתר",
+    "pharmacy_city": "מיתר",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 382,
+    "pharmacy_name": "סופר פארם ראש פינה",
+    "pharmacy_street": "האגס פינת התפוח",
+    "pharmacy_city": "ראש פינה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 383,
+    "pharmacy_name": "סופר פארם שער ראשון ",
+    "pharmacy_street": "רחוב גולדה מאיר 1",
+    "pharmacy_city": "ראשון לציון",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 384,
+    "pharmacy_name": "סופר פארם כפר סבא",
+    "pharmacy_street": "ויצמן 78 ",
+    "pharmacy_city": "כפר סבא",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 385,
+    "pharmacy_name": "סופר פארם שפיים",
+    "pharmacy_street": "קיבוץ שפיים",
+    "pharmacy_city": " שפיים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 386,
+    "pharmacy_name": "סופר פארם מרינה הרצליה",
+    "pharmacy_street": "רח' יורדי ים 1",
+    "pharmacy_city": "הרצליה ",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 387,
+    "pharmacy_name": "סופר פארם אופקים",
+    "pharmacy_street": "הרתך 7 אופק סנטר",
+    "pharmacy_city": "אופקים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 388,
+    "pharmacy_name": "בית מרקחת אלפארמשאני",
+    "pharmacy_street": "דוחא 47 ",
+    "pharmacy_city": "סחנין",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 389,
+    "pharmacy_name": "גוד פארם בע\"מ",
+    "pharmacy_street": "בן גוריון 84",
+    "pharmacy_city": "קריית מוצקין",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 390,
+    "pharmacy_name": "בית מרקחת אורטה",
+    "pharmacy_street": "בני אפרים 247",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 391,
+    "pharmacy_name": "בית מרקחת מירוני (חיפה)",
+    "pharmacy_street": "הרצל 29 ",
+    "pharmacy_city": "חיפה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 392,
+    "pharmacy_name": "בית מרקחת אשכול",
+    "pharmacy_street": "שכ' קרוונים 1 אבשלום",
+    "pharmacy_city": "אבשלום",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 393,
+    "pharmacy_name": "פארמה פירסט",
+    "pharmacy_street": "שד' יעקב 50 מגדלי הנשיא ",
+    "pharmacy_city": "ראשון לציון",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 394,
+    "pharmacy_name": "סופר פארם צמרות",
+    "pharmacy_street": "צמרות 2",
+    "pharmacy_city": "הרצליה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 395,
+    "pharmacy_name": "בית מרקחת נווה עופר בע\"מ",
+    "pharmacy_street": "גרינבוים 41",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 396,
+    "pharmacy_name": "בית מרקחת אקטיב פארם ",
+    "pharmacy_street": "הקישון 22",
+    "pharmacy_city": "באר שבע",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 397,
+    "pharmacy_name": "בית מרקחת פארם איקס",
+    "pharmacy_street": "אחד העם 5 ",
+    "pharmacy_city": "חדרה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 398,
+    "pharmacy_name": "בית מרקחת יקיר - מיקי פארם",
+    "pharmacy_street": "רח' ספיר 2",
+    "pharmacy_city": "הרצליה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 399,
+    "pharmacy_name": "סופר פארם נוה שאנן",
+    "pharmacy_street": "טרומפלדור 54",
+    "pharmacy_city": "חיפה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 400,
+    "pharmacy_name": "סופר פארם פארק הנחל ",
+    "pharmacy_street": "רח' נחל פרת 21",
+    "pharmacy_city": "באר שבע",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 401,
+    "pharmacy_name": "סופר פארם צמרת תל-אביב",
+    "pharmacy_street": "ניסים אלוני 10, פארק צמרת G",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 402,
+    "pharmacy_name": "בית מרקחת רפאנא",
+    "pharmacy_street": "נגבה 38",
+    "pharmacy_city": "רמת גן",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 403,
+    "pharmacy_name": "בית מרקחת ירוחם פארם",
+    "pharmacy_street": "צבי בורנשטיין 15 ",
+    "pharmacy_city": "ירוחם",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 404,
+    "pharmacy_name": "בית מרקחת מ.ש.י. פארם-עוזיאל‎",
+    "pharmacy_street": "עוזיאל 20 , בית וגן ",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 405,
+    "pharmacy_name": "סופר פארם רמלה",
+    "pharmacy_street": "שדרות הרצל 91",
+    "pharmacy_city": "רמלה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 406,
+    "pharmacy_name": "סופר פארם נווה זמר רעננה",
+    "pharmacy_street": "סשה ארגוב 23",
+    "pharmacy_city": "רעננה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 407,
+    "pharmacy_name": "סופר פארם קניון רמת אביב",
+    "pharmacy_street": "איינשטיין 40, קניון אביב",
+    "pharmacy_city": "רמת אביב",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 408,
+    "pharmacy_name": "סופר פארם קניון עזריאלי אור יהודה",
+    "pharmacy_street": "אליהו סעדון 120",
+    "pharmacy_city": "אור יהודה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 409,
+    "pharmacy_name": "סופר פארם גבעת אלונים ",
+    "pharmacy_street": "רח' דוכיפת 3",
+    "pharmacy_city": "קרית אתא",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 410,
+    "pharmacy_name": "בית מרקחת ווייט וולף - הזאב הלבן",
+    "pharmacy_street": "הקדר 4",
+    "pharmacy_city": "נתניה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 411,
+    "pharmacy_name": "בית מרקחת מרפא - לב ירושלים",
+    "pharmacy_street": "המלך ג'ורג' 16 ב' ",
+    "pharmacy_city": "ירושלים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 412,
+    "pharmacy_name": "בית מרקחת א.ב. פארמה ",
+    "pharmacy_street": "הדקלים 7 א.ת. לב הארץ",
+    "pharmacy_city": "כפר קאסם",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 413,
+    "pharmacy_name": "בי\"מ נובו פארם בע\"מ-בית שאן‎",
+    "pharmacy_street": "העמל 7            ",
+    "pharmacy_city": " בית שאן ",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 414,
+    "pharmacy_name": "בית מרקחת שקד פארם",
+    "pharmacy_street": "החוחית 16",
+    "pharmacy_city": "זכרון יעקב",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 415,
+    "pharmacy_name": "בית מרקחת אזור פארמסי בע\"מ",
+    "pharmacy_street": "העליה השניה 43",
+    "pharmacy_city": "אזור",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 416,
+    "pharmacy_name": "קוקיז אילת",
+    "pharmacy_street": "רחבת חנויות סיטי סנטר",
+    "pharmacy_city": "אילת",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 417,
+    "pharmacy_name": "קלאב פארם אם הדרך",
+    "pharmacy_street": "קניון אם הדרך",
+    "pharmacy_city": "בית ינאי",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 418,
+    "pharmacy_name": "בריאות עמידר נהריה",
+    "pharmacy_street": "ההגנה 29",
+    "pharmacy_city": "נהריה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 419,
+    "pharmacy_name": "בי\"מ קאר פארם כפר יונה2",
+    "pharmacy_street": "גליל 2",
+    "pharmacy_city": "כפר יונה",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 420,
+    "pharmacy_name": "בי\"מ נוגה-גבעתיים בע\"מ",
+    "pharmacy_street": "ויצמן 17",
+    "pharmacy_city": "גבעתיים",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 421,
+    "pharmacy_name": "בי\"מ נאות פארם בע\"מ",
+    "pharmacy_street": "אפרים לרון 112",
+    "pharmacy_city": "באר שבע",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 422,
+    "pharmacy_name": "בית מרקחת מרזוק 7 (באד 13)",
+    "pharmacy_street": "רח' מרזוק ועזר 7",
+    "pharmacy_city": "תל אביב",
+    "pharmacy_delivery": ""
+  },
+  {
+    "_id": 423,
+    "pharmacy_name": "בית מרקחת מרכז פסוטה",
+    "pharmacy_street": "פסוטה",
+    "pharmacy_city": "",
+    "pharmacy_delivery": ""
+  }
+]

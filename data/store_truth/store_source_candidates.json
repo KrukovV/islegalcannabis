@@ -1,0 +1,184 @@
+{
+  "schema_version": 3,
+  "generated_at": "2026-08-23T19:37:54.705Z",
+  "local_only": true,
+  "source_input": "data/reviews/wiki-truth-307-final-reconciliation.json",
+  "external_leads_input": "data/store_truth/external_store_source_leads.json",
+  "purpose": "Review queue only. It scans source-specific directory/registry metadata and retains separately reviewed official C1/C2 leads; candidates are not validated licensed-store sources or locations.",
+  "candidates": [
+    {
+      "candidate_id": "candidate:AG:5201072a420b0efc6ace",
+      "geo_id": "AG",
+      "authority": "Antigua and Barbuda Medicinal Cannabis Authority",
+      "source_url": "https://mca.gov.ag/patient-access/licensed-dispensaries/",
+      "source_type_candidate": "HTML_OR_INTERACTIVE",
+      "inventory_shape": "REGISTRY_DIRECTORY_CANDIDATE",
+      "store_type_candidates": [
+        "MEDICAL_DISPENSARY"
+      ],
+      "source_classification": "NEEDS_REVIEW",
+      "status": "NEEDS_REVIEW",
+      "source_confidence": "PARTIAL",
+      "evidence": {
+        "authority_match": "CANDIDATE_OFFICIAL",
+        "jurisdiction_match": "PROVEN_BY_EXISTING_LEDGER",
+        "cannabis_specificity": "CANDIDATE_MATCH",
+        "store_semantics_match": "CANDIDATE_LICENSED_LOCATION_DATA",
+        "location_inventory_match": "CANDIDATE_DIRECTORY_OR_LIST",
+        "license_semantics_match": "CANDIDATE_MATCH",
+        "data_extractability": "NEEDS_ENDPOINT_INSPECTION",
+        "freshness": "UNCONFIRMED_NO_SOURCE_FETCH",
+        "coverage": "UNCONFIRMED_NO_SOURCE_FETCH",
+        "source_stability": "UNCONFIRMED_NO_SOURCE_FETCH"
+      },
+      "provenance": {
+        "origin": "CANONICAL_LEGAL_LEDGER_LOCAL_SEMANTIC_SCAN",
+        "legal_evidence_ref": "data/reviews/wiki-truth-307-final-reconciliation.json#rows[AG].primaryLaw.officialSources[5]",
+        "packet_geo": "AG",
+        "source_owner_geo": "AG",
+        "applies_to_geos": [
+          "AG",
+          "AG"
+        ],
+        "title": "Antigua and Barbuda Medicinal Cannabis Authority - licensed dispensaries",
+        "source_kind": "OFFICIAL_MCA_CURRENT_LICENSED_DISPENSARY_LIST",
+        "evidence_role": "CURRENT_NAMED_DISPENSARY_CONFIRMATION"
+      },
+      "discovered_at": "2026-08-23T19:37:54.677Z",
+      "checked_at": null,
+      "review_reason": "A source-only licensed-location lead is not an official location registry until authority, scope, content, freshness and extraction are independently verified."
+    },
+    {
+      "candidate_id": "candidate:LU:52cd8b5879453a71ca14",
+      "geo_id": "LU",
+      "authority": "Luxembourg Ministry of Health and Social Security",
+      "source_url": "https://sante.public.lu/dam-assets/fr/publications/c/cannabis-medicinal-autorise-au-luxembourg-fr/cannabis-medicinal-autorise-au-luxembourg-en.pdf",
+      "source_type_candidate": "PDF",
+      "inventory_shape": "REGISTRY_DIRECTORY_CANDIDATE",
+      "store_type_candidates": [
+        "CANNABIS_PHARMACY"
+      ],
+      "source_classification": "NEEDS_REVIEW",
+      "status": "NEEDS_REVIEW",
+      "source_confidence": "PARTIAL",
+      "evidence": {
+        "authority_match": "PROVEN_BY_INDEPENDENT_EXTERNAL_C1_C2_REVIEW",
+        "jurisdiction_match": "PROVEN_BY_INDEPENDENT_EXTERNAL_C1_C2_REVIEW",
+        "cannabis_specificity": "PROVEN_BY_INDEPENDENT_EXTERNAL_C1_C2_REVIEW",
+        "store_semantics_match": "CANDIDATE_LICENSED_LOCATION_DATA",
+        "location_inventory_match": "CANDIDATE_DIRECTORY_OR_LIST",
+        "license_semantics_match": "PROVEN_BY_INDEPENDENT_EXTERNAL_C1_C2_REVIEW",
+        "data_extractability": "CURRENTNESS_AND_LOCATION_FIELDS_REQUIRE_SOURCE_PASSPORT_AND_C3_CONTENT_CAPTURE",
+        "freshness": "CURRENT_C1_REVALIDATED_NOT_FULL_REGISTRY",
+        "coverage": "UNCONFIRMED_PENDING_SOURCE_PASSPORT",
+        "source_stability": "UNCONFIRMED_PENDING_SOURCE_PASSPORT",
+        "c3_visual_review": "NOT_ACCEPTED_OFFICIAL_PDF_VIEWER_NO_INSPECTABLE_TEXT"
+      },
+      "provenance": {
+        "origin": "INDEPENDENT_EXTERNAL_OFFICIAL_C1_C2_REVIEW",
+        "registry_parent_url": "https://sante.public.lu/dam-assets/fr/publications/c/cannabis-medicinal-autorise-au-luxembourg-fr/cannabis-medicinal-autorise-au-luxembourg-en.pdf",
+        "exact_fragment": "The Ministry of Health and Social Security medicinal-cannabis information PDF states that patients may collect prescribed medicinal cannabis from one of four hospital pharmacies and names CHL Luxembourg, HRS Luxembourg (Kirchberg site), CHEM Esch-sur-Alzette and CHDN Ettelbruck. The official browser reached the redirected santesecu.public.lu PDF viewer, but it exposed only the official document URL/title and no inspectable rendered document body. That is not C3 proof of owner, visible cannabis fragment and effective/current rule. The source also does not prove an individual licence lifecycle, street address, WGS84 coordinate, current stock or factual opening state. It remains a C1/C2 source-only lead until a complete source-passport validation and C3 content capture.",
+        "review_protocol": "C1_CURRENT_OFFICIAL_MINISTRY_PDF_HTTP_FETCH_C2_SEMANTIC_REVIEW; C3_OFFICIAL_BROWSER_PDF_VIEWER_REACHED_REDIRECTED_OFFICIAL_DOMAIN_BUT_EXPOSED_NO_INSPECTABLE_RENDERED_DOCUMENT_TEXT; NO_RECORD_OR_MARKER_ACCEPTED",
+        "c3_status": "NOT_ACCEPTED_OFFICIAL_PDF_VIEWER_NO_INSPECTABLE_TEXT",
+        "revalidation": {
+          "checked_at": "2026-08-21T03:16:00Z",
+          "http_status": 200,
+          "response_sha256": "6ab864e17e92f5900304215ec02a6c489a7ba058dc1e5ed5643afc7c2e6e12ed",
+          "structured_sha256": "6ab864e17e92f5900304215ec02a6c489a7ba058dc1e5ed5643afc7c2e6e12ed",
+          "structured_fingerprint_scope": "OFFICIAL_PDF_NAMED_HOSPITAL_PHARMACY_LIST_ONLY",
+          "observed_records": 4,
+          "observed_pages": 1,
+          "query_scope": "DIRECT_PUBLIC_OFFICIAL_MINISTRY_INFORMATION_PDF"
+        }
+      },
+      "discovered_at": "2026-08-21T03:27:28Z",
+      "checked_at": "2026-08-21T03:16:00Z",
+      "review_reason": "C1/C2 identify a current official licensed-location source, but this remains a source-only lead until a source passport, complete snapshot validation and independent acceptance gates pass."
+    },
+    {
+      "candidate_id": "candidate:US-AZ:cb1c8ac61ece5d850219",
+      "geo_id": "US-AZ",
+      "authority": "Arizona Department of Health Services",
+      "source_url": "https://hsapps.azdhs.gov/ls/sod/Provider.aspx?ProviderName=203",
+      "source_type_candidate": "HTML_OR_INTERACTIVE",
+      "inventory_shape": "REGISTRY_DIRECTORY_CANDIDATE",
+      "store_type_candidates": [
+        "OTHER_REGULATED_POINT"
+      ],
+      "source_classification": "NEEDS_REVIEW",
+      "status": "NEEDS_REVIEW",
+      "source_confidence": "PARTIAL",
+      "evidence": {
+        "authority_match": "PROVEN_BY_INDEPENDENT_EXTERNAL_C1_C2_REVIEW",
+        "jurisdiction_match": "PROVEN_BY_INDEPENDENT_EXTERNAL_C1_C2_REVIEW",
+        "cannabis_specificity": "PROVEN_BY_INDEPENDENT_EXTERNAL_C1_C2_REVIEW",
+        "store_semantics_match": "CANDIDATE_LICENSED_LOCATION_DATA",
+        "location_inventory_match": "CANDIDATE_DIRECTORY_OR_LIST",
+        "license_semantics_match": "PROVEN_BY_INDEPENDENT_EXTERNAL_C1_C2_REVIEW",
+        "data_extractability": "PAGINATED_PUBLIC_SEARCH_FORM_REQUIRES_TYPE_FILTER_AND_STATUS_REVIEW",
+        "freshness": "CURRENT_C1_REVALIDATED_NOT_FULL_REGISTRY",
+        "coverage": "UNCONFIRMED_PENDING_SOURCE_PASSPORT",
+        "source_stability": "UNCONFIRMED_PENDING_SOURCE_PASSPORT",
+        "c3_visual_review": "PROVEN"
+      },
+      "provenance": {
+        "origin": "INDEPENDENT_EXTERNAL_OFFICIAL_C1_C2_REVIEW",
+        "registry_parent_url": "https://www.azdhs.gov/licensing/medical-marijuana/",
+        "exact_fragment": "The current Arizona Department of Health Services public Licensing Facilities and Providers result page identifies itself as an official ADHS directory and exposes a paginated table with Name, Address, City/State and Type. Direct C3 review visibly confirms 263 mixed facility records and one ‘203 Organix, Llc’ row typed ‘Marijuana Facilities’ with a complete Arizona address. The observed query is not a cannabis-only result set, exposes no complete Marijuana Facilities filter/export, and publishes no per-row licence or operating state. It is therefore only a bounded official discovery lead: no individual record, licence assertion, coordinate, source passport or map marker is inferred.",
+        "review_protocol": "C1_CURRENT_ADHS_PUBLIC_DIRECTORY_HTTP_FETCH_AND_C2_SEMANTIC_TABLE_REVIEW; C3_DIRECT_OFFICIAL_BROWSER_VISUAL_REVIEW_CONFIRMS_MIXED_263_ROW_RESULT_AND_VISIBLE_MARIJUANA_FACILITIES_ROW; PUBLIC_QUERY_HAS_NO_CANNABIS_ONLY_FILTER_EXPORT_OR_PER_ROW_LIFECYCLE",
+        "c3_status": "PROVEN",
+        "revalidation": {
+          "checked_at": "2026-08-20T12:44:14.000Z",
+          "http_status": 200,
+          "response_sha256": "015ff700b26911a2e849446b5b9f57a1aad76b40c827057a46af899547d541fc",
+          "structured_sha256": "f0edc97b084865166c3c262cede3993611dc6bd3add0bcd2b312b5de6c426eee",
+          "structured_fingerprint_scope": "FIRST_PAGE_VISIBLE_ROWS_AND_COUNTS",
+          "observed_records": 263,
+          "observed_pages": 18,
+          "query_scope": "NAME_QUERY_ONLY_MIXED_FACILITIES"
+        }
+      },
+      "discovered_at": "2026-08-20T13:46:48.000Z",
+      "checked_at": "2026-08-20T12:44:14.000Z",
+      "review_reason": "C1/C2 identify a current official licensed-location source, but this remains a source-only lead until a source passport, complete snapshot validation and independent acceptance gates pass."
+    },
+    {
+      "candidate_id": "candidate:US-NM:e298a4dfe41fd1f6954c",
+      "geo_id": "US-NM",
+      "authority": "New Mexico Regulation and Licensing Department, Cannabis Control Division",
+      "source_url": "https://nmrldlpi.my.site.com/ccd/s/public-license-search",
+      "source_type_candidate": "HTML_OR_INTERACTIVE",
+      "inventory_shape": "REGISTRY_DIRECTORY_CANDIDATE",
+      "store_type_candidates": [
+        "ADULT_USE_RETAIL"
+      ],
+      "source_classification": "NEEDS_REVIEW",
+      "status": "NEEDS_REVIEW",
+      "source_confidence": "PARTIAL",
+      "evidence": {
+        "authority_match": "PROVEN_BY_INDEPENDENT_EXTERNAL_C1_C2_REVIEW",
+        "jurisdiction_match": "PROVEN_BY_INDEPENDENT_EXTERNAL_C1_C2_REVIEW",
+        "cannabis_specificity": "PROVEN_BY_INDEPENDENT_EXTERNAL_C1_C2_REVIEW",
+        "store_semantics_match": "CANDIDATE_LICENSED_LOCATION_DATA",
+        "location_inventory_match": "CANDIDATE_DIRECTORY_OR_LIST",
+        "license_semantics_match": "PROVEN_BY_INDEPENDENT_EXTERNAL_C1_C2_REVIEW",
+        "data_extractability": "NEEDS_ENDPOINT_INSPECTION",
+        "freshness": "PROVEN_BY_INDEPENDENT_EXTERNAL_C1_C2_REVIEW",
+        "coverage": "UNCONFIRMED_PENDING_SOURCE_PASSPORT",
+        "source_stability": "UNCONFIRMED_PENDING_SOURCE_PASSPORT",
+        "c3_visual_review": "PROVEN"
+      },
+      "provenance": {
+        "origin": "INDEPENDENT_EXTERNAL_OFFICIAL_C1_C2_REVIEW",
+        "registry_parent_url": "https://crop.rld.nm.gov/licensing-data.html",
+        "exact_fragment": "The current public Cannabis Control Division License Search is a regulator-branded, unauthenticated interface titled ‘Search for a License’. It states that queries return issued license data only and that full license details are available through the view action. Its public license-type filter includes ‘Cannabis Retailer’; its status filter includes Active, Suspended, Revoked for Disciplinary Action, Canceled and Pending Processing. The available interface did not expose a completed, verifiable full retailer result set during this bounded review, so no result row, source passport, canonical-store record, status assertion, address, coordinate or map marker is inferred.",
+        "review_protocol": "C1_CURRENT_OFFICIAL_CROP_LICENSE_DATA_PARENT_AND_PUBLIC_LICENSE_SEARCH_HTTP_FETCH_C2_SEMANTIC_REVIEW_C3_DIRECT_PUBLIC_LICENSE_SEARCH_VISUAL_REVIEW; NO_COMPLETED_RESULT_SET_OR_EXPORT_ACCEPTED",
+        "c3_status": "PROVEN",
+        "revalidation": null
+      },
+      "discovered_at": "2026-08-14T21:40:43.000Z",
+      "checked_at": "2026-08-14T21:40:43.000Z",
+      "review_reason": "C1/C2 identify a current official licensed-location source, but this remains a source-only lead until a source passport, complete snapshot validation and independent acceptance gates pass."
+    }
+  ]
+}

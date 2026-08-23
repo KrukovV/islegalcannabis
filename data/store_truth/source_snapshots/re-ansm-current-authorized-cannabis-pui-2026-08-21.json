@@ -1,0 +1,29 @@
+[
+  {
+    "Numéro de département": 974,
+    "Département": "La Réunion",
+    "Nom de la PUI formée": "CH Ouest Réunion",
+    "Code Postal": 97460,
+    "Ville": "SAINT-PAUL\nLA REUNION",
+    "Région": "La Réunion",
+    "source_record_id": "XLSX_ROW:bcfa808d5e09ec2e6a1af393"
+  },
+  {
+    "Numéro de département": 974,
+    "Département": "La Réunion",
+    "Nom de la PUI formée": "CHU La Réunion GHSR",
+    "Code Postal": 97448,
+    "Ville": "SAINT-PIERRE",
+    "Région": "La Réunion",
+    "source_record_id": "XLSX_ROW:ddf3438a8904d6827c4c6f9c"
+  },
+  {
+    "Numéro de département": 974,
+    "Département": "La Réunion",
+    "Nom de la PUI formée": "CHU Nord Réunion – Hôpital Félix Guyon",
+    "Code Postal": 97417,
+    "Ville": "SAINT DENIS (REUNION)",
+    "Région": "La Réunion",
+    "source_record_id": "XLSX_ROW:e8ce2800185b1b8ea1da200b"
+  }
+]

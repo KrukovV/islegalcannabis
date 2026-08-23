@@ -89,6 +89,7 @@ data/reviews/**
 !data/reviews/DE.review.json
 !data/reviews/wiki-truth-cannabis-law-matrix-307.json
 !data/reviews/wiki-truth-grey-color-reaudit-39.json
+!data/reviews/truth-map-display-policy.v1.json
 Artifacts/
 .checkpoints/
 Reports/.checkpoints/

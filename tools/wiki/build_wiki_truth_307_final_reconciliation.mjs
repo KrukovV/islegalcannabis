@@ -8,6 +8,39 @@ const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, "../..");
 const REVIEWS = path.join(ROOT, "data/reviews");
 const EXPECTED_COLORS = new Set(["GREEN", "YELLOW", "RED", "UNKNOWN"]);
+const CONFIDENCE_LEVELS = new Set([
+  "PROVEN",
+  "STRONG",
+  "PARTIAL",
+  "CONFLICTING",
+  "UNKNOWN",
+]);
+const CANONICAL_CONFIDENCE_FIELDS = [
+  "truth_confidence",
+  "source_authority",
+  "source_freshness",
+  "evidence_completeness",
+  "jurisdiction_match_confidence",
+  "legal_interpretation_confidence",
+];
+const CANONICAL_AXIS_FIELDS = [
+  "adult_use",
+  "medical_use",
+  "operational_patient_access",
+  "possession",
+  "cultivation",
+  "dispensing",
+  "retail",
+  "pharmacy_access",
+  "club_access",
+  "prescription_only",
+  "pharmaceutical_only",
+  "research_only",
+  "cultivation_only",
+  "export_only",
+  "decriminalized",
+  "pending_legislation",
+];
 
 const INPUTS = {
   baseline: "wiki-truth-307-final-reconciliation-baseline.json",
@@ -203,10 +236,26 @@ function hasFreshIndependentVisualEvidence(row) {
   const sources = Array.isArray(row?.primaryLaw?.freshAxisOfficialSources)
     ? row.primaryLaw.freshAxisOfficialSources
     : [];
+  const truthEvidenceSource = String(
+    row?.truthEvidenceSource || row?.truthSource || "",
+  );
   return (
-    /^FRESH_PRIMARY_LAW_AXIS_RECONCILIATION$/.test(String(row?.truthSource || "")) &&
+    /^FRESH_PRIMARY_LAW_AXIS_RECONCILIATION$/.test(truthEvidenceSource) &&
     sources.length > 0 &&
     sources.every(hasCompleteSourceVisualLinkage)
+  );
+}
+
+function humanReadableVisualReview(value) {
+  if (typeof value === "string") return value;
+  if (!value || typeof value !== "object" || Array.isArray(value)) return "";
+  return String(
+    value.reviewSummary ||
+    value.review_summary ||
+    value.summary ||
+    value.rationale ||
+    value.protocol ||
+    "",
   );
 }
 
@@ -231,6 +280,462 @@ function hasProvenAdultUse(axisFindings, truthRuleId) {
     isPositiveLegalAxisStatus(possessionStatus) &&
     (isPositiveLegalAxisStatus(useStatus) || isPositiveLegalAxisStatus(cultivationStatus))
   );
+}
+
+function normalizeExpectedColor(value) {
+  const color = String(value || "").toUpperCase();
+  return EXPECTED_COLORS.has(color) ? color : null;
+}
+
+// The independently reviewed canonical ledger is the only final-truth input.
+// Earlier derived truth reports remain diagnostic comparisons and may never
+// overwrite a newer ledger conclusion simply because their extractor is stale.
+function selectCanonicalTruthResult(truthRow, matrixRow) {
+  const independent = matrixRow?.independentTruth || {};
+  const ledgerColor = normalizeExpectedColor(independent.color);
+  const ledgerRule = String(independent.rule || "").trim();
+  if (ledgerColor && ledgerRule) {
+    return {
+      color: ledgerColor,
+      ruleId: ledgerRule,
+      source: "CANONICAL_INDEPENDENT_LEDGER",
+      reason: String(independent.conclusion || matrixRow?.reviewNotes || "").trim() || "Independent canonical ledger result.",
+      confidence: String(matrixRow?.reviewConfidence || "UNKNOWN").toUpperCase(),
+      reviewedAt: String(independent.reviewedAt || "").trim(),
+    };
+  }
+  return {
+    color: normalizeExpectedColor(truthRow?.truth?.color) || "UNKNOWN",
+    ruleId: String(truthRow?.truth?.ruleId || truthRow?.truth?.source || "NO_RULE"),
+    source: String(truthRow?.truth?.source || "NO_SOURCE"),
+    reason: String(truthRow?.truth?.reason || ""),
+    confidence: "PARTIAL",
+    reviewedAt: "",
+  };
+}
+
+function hasIndependentLedgerGreenProof(matrixRow, officialSources) {
+  return independentLedgerGreenProofKind(matrixRow, officialSources) !== null;
+}
+
+function independentLedgerGreenProofKind(matrixRow, officialSources) {
+  const official = matrixRow?.officialStatus || {};
+  const operationalAxes = Object.values(official)
+    .map((value) => String(value || "").toUpperCase())
+    .join(" ");
+  if (hasOperationalLedgerGreenProof(matrixRow, officialSources)) {
+    return /OPERATIONAL_(?:.*PATIENT|.*DISPENSARY|.*PHARMACY)/.test(
+      operationalAxes,
+    )
+      ? "PROVEN_OPERATIONAL_PATIENT_ACCESS"
+      : "PROVEN_ADULT_USE_LEGALITY";
+  }
+  const reviewedSources = officialSources.filter(hasStrictCurrentCannabisEvidence);
+  if (hasReviewedOperationalAdultUse(reviewedSources)) {
+    return "PROVEN_ADULT_USE_LEGALITY";
+  }
+  if (hasReviewedOperationalPatientAccess(reviewedSources)) {
+    return "PROVEN_OPERATIONAL_PATIENT_ACCESS";
+  }
+  return null;
+}
+
+function hasOperationalLedgerGreenProof(matrixRow, officialSources) {
+  const official = matrixRow?.officialStatus || {};
+  const operationalAxes = Object.values(official)
+    .map((value) => String(value || "").toUpperCase())
+    .join(" ");
+  const hasOperationalAxis = /OPERATIONAL_(?:ADULT_USE|.*PATIENT|.*RETAIL|.*DISPENSARY|.*PHARMACY)/.test(operationalAxes);
+  const hasOfficialSource = officialSources.some((source) => {
+    const url = String(source?.url || "").trim();
+    return /^https?:\/\//i.test(url) && source?.cannabisSpecific !== false;
+  });
+  return hasOperationalAxis && hasOfficialSource;
+}
+
+function hasStrictCurrentCannabisEvidence(source) {
+  const url = String(source?.url || "").trim();
+  return (
+    /^https?:\/\//i.test(url) &&
+    source?.current === true &&
+    source?.effective === true &&
+    source?.cannabisSpecific === true &&
+    source?.directFragmentAvailable === true &&
+    source?.screenshotValid === true &&
+    source?.visualOpened === true &&
+    source?.officialOwnerVisible === true &&
+    source?.cannabisFragmentVisible === true &&
+    source?.effectiveRuleVisible === true
+  );
+}
+
+function sourceEvidenceText(source) {
+  return [
+    source?.note,
+    source?.fragment,
+    source?.exactFragment,
+    source?.directFragment,
+    source?.sourceAnnotation,
+  ]
+    .map((value) => String(value || ""))
+    .join(" ")
+    .toUpperCase();
+}
+
+function hasReviewedOperationalAdultUse(reviewedSources) {
+  const hasLawfulAdultUse = reviewedSources.some((source) => {
+    const text = sourceEvidenceText(source);
+    return (
+      /\b(?:ADULTS?(?:[- ]USE)?|21(?:\s+YEARS?(?:\s+OF\s+AGE)?)?|TWENTY[- ]ONE(?:\s+YEARS?(?:\s+OF\s+AGE)?)?)\b/.test(text) &&
+      /\b(?:LAWFUL(?:LY)?|LEGAL|MAY\s+(?:PURCHASE|USE|POSSESS)|MAY\s+NOT\s+BE\s+AN\s+OFFEN[CS]E|NOT\s+SUBJECT\s+TO\s+(?:ARREST|CRIMINAL\s+PROSECUTION)|ALLOWS?\s+FOR\s+THE\s+LEGAL\s+SALE)\b/.test(
+        text,
+      )
+    );
+  });
+  const hasOperatingAdultSupply = reviewedSources.some((source) => {
+    const text = sourceEvidenceText(source);
+    const licensedRetail =
+      /\b(?:LICEN[CS](?:ED|ES|ING)?|REGULATED)\b/.test(text) &&
+      /\b(?:DISPENSAR(?:Y|IES)|RETAIL|SALE|SELL|PURCHASE)\b/.test(text);
+    const operationalSignal =
+      /\b(?:ISSUED\s+LICEN[CS]ES?|LISTED|DIRECTORY|THERE\s+ARE\s+CURRENTLY|OPEN(?:ED)?|MAY\s+SELL)\b/.test(
+        text,
+      ) &&
+      !/\bPERMITTED\s+TO\s+OPERATE\b/.test(text);
+    return licensedRetail && operationalSignal;
+  });
+  return hasLawfulAdultUse && hasOperatingAdultSupply;
+}
+
+function hasReviewedOperationalPatientAccess(reviewedSources) {
+  const hasPatientEligibilityAndClinicalRoute = reviewedSources.some((source) => {
+    const text = sourceEvidenceText(source);
+    return (
+      /\b(?:PATIENTS?|PEOPLE|PERSONS?|CAREGIVERS?|INDIVIDUALS?|ISLANDERS?)\b/.test(text) &&
+      /\b(?:PRESCRI(?:BE|BED|PTION)|DOCTORS?|PHYSICIANS?|MEDICAL\s+PROFESSIONALS?|REGISTR(?:Y|ED|ATION))\b/.test(
+        text,
+      )
+    );
+  });
+  const hasLawfulCannabisSupply = reviewedSources.some((source) => {
+    const text = sourceEvidenceText(source);
+    return /\b(?:DISPENS(?:E|ING|ATION)|SUPPLY|IMPORT(?:\s+LICEN[CS]E)?|FREE\s+OF\s+CHARGE|PRODUCTS?\s+RECEIVED)\b/.test(
+      text,
+    );
+  });
+  const hasOperation = reviewedSources.some((source) => {
+    const text = sourceEvidenceText(source);
+    return /\b(?:ENROLLED|REGISTERED\s+MEDICAL\s+PROFESSIONALS?|PRODUCTS?\s+RECEIVED|CURRENTLY|OPEN(?:ED)?|OPERAT(?:ION|IONAL|ING)|LEGAL\s+PROCESS\s+FOR\s+ISSUING\s+IMPORT\s+LICEN[CS]ES)\b/.test(
+      text,
+    );
+  });
+  return (
+    hasPatientEligibilityAndClinicalRoute && hasLawfulCannabisSupply && hasOperation
+  );
+}
+
+function axisCell(axisGroups, group, axis) {
+  const cell = axisGroups?.[group]?.[axis];
+  if (!cell || typeof cell !== "object") {
+    return {
+      value: "UNKNOWN_UNPROVEN_AXIS",
+      status: "UNKNOWN",
+      source_layer: "NONE",
+      evidence_class: "EXPLICIT_UNKNOWN_NOT_DERIVED_FROM_COLOR",
+    };
+  }
+  return {
+    value: String(cell.value || "UNKNOWN_UNPROVEN_AXIS"),
+    status: String(cell.status || "UNKNOWN"),
+    source_layer: String(cell.sourceLayer || "NONE"),
+    evidence_class: String(
+      cell.evidenceClass || "EXPLICIT_UNKNOWN_NOT_DERIVED_FROM_COLOR",
+    ),
+  };
+}
+
+function canonicalJurisdiction(geo, axisGroups, officialSources) {
+  const sourceOwnerGeos = [...new Set(
+    officialSources
+      .map((source) => String(source?.sourceOwnerGeo || "").trim().toUpperCase())
+      .filter(Boolean),
+  )].sort();
+  const parentGeoId = geo.includes("-") ? geo.split("-", 1)[0] : null;
+  const jurisdictionSignals = Object.entries(axisGroups?.jurisdiction || {})
+    .filter(([, cell]) => String(cell?.status || "UNKNOWN").toUpperCase() !== "UNKNOWN")
+    .map(([key]) => key.toUpperCase());
+  return {
+    jurisdiction_level:
+      jurisdictionSignals[0] ||
+      (parentGeoId ? "SUBNATIONAL_OR_TERRITORIAL_GEO" : "CANONICAL_GEO"),
+    parent_geo_id: parentGeoId,
+    governing_jurisdiction:
+      sourceOwnerGeos.length === 1
+        ? sourceOwnerGeos[0]
+        : sourceOwnerGeos.length > 1
+          ? "MULTIPLE_OFFICIAL_AUTHORITIES"
+          : "UNCONFIRMED_FROM_SOURCE_SCOPE",
+    governing_jurisdiction_source_geos: sourceOwnerGeos,
+  };
+}
+
+function reviewedAt(officialSources, canonicalTruth) {
+  const timestamps = officialSources
+    .map((source) => String(source?.revalidation?.checked_at || "").trim())
+    .filter((value) => Number.isFinite(Date.parse(value)))
+    .sort();
+  if (timestamps.length > 0) return timestamps.at(-1);
+  const canonicalReviewedAt = String(canonicalTruth?.reviewedAt || "").trim();
+  return canonicalReviewedAt || null;
+}
+
+function evidenceFreshness(officialSources) {
+  if (officialSources.length === 0) return "NO_OFFICIAL_SOURCE";
+  if (
+    officialSources.some(
+      (source) => source?.current === true && source?.effective === true,
+    )
+  ) {
+    return "CURRENT_EFFECTIVE_OFFICIAL_SOURCE_PRESENT";
+  }
+  return "CURRENTNESS_OR_EFFECTIVE_DATE_UNCONFIRMED";
+}
+
+function confidenceLevel(value) {
+  const normalized = String(value || "").trim().toUpperCase();
+  if (CONFIDENCE_LEVELS.has(normalized)) return normalized;
+  if (/^(?:HIGH|VERY_HIGH|CONFIDENT|REVIEWED)$/.test(normalized)) {
+    return "STRONG";
+  }
+  if (/^(?:MEDIUM|LOW|LIMITED|INCOMPLETE)$/.test(normalized)) {
+    return "PARTIAL";
+  }
+  if (/(?:CONFLICT|DISAGREE|MISMATCH)/.test(normalized)) {
+    return "CONFLICTING";
+  }
+  return "UNKNOWN";
+}
+
+function sourceUrl(source) {
+  return String(source?.url || "").trim();
+}
+
+function hasSourceAuthority(source) {
+  return [
+    source?.officialPublisher,
+    source?.sourceOwner,
+    source?.sourceAuthority,
+  ].some((value) => String(value || "").trim());
+}
+
+function sourceAuthorityConfidence(officialSources) {
+  const sources = officialSources.filter((source) => /^https?:\/\//i.test(sourceUrl(source)));
+  if (sources.length === 0) return "UNKNOWN";
+  const visuallyConfirmed = sources.filter(
+    (source) =>
+      hasSourceAuthority(source) &&
+      (source?.officialOwnerVisible === true || source?.officialHostVerified === true),
+  );
+  if (visuallyConfirmed.length === sources.length) return "PROVEN";
+  if (visuallyConfirmed.length > 0) return "STRONG";
+  if (sources.some(hasSourceAuthority)) return "PARTIAL";
+  return "UNKNOWN";
+}
+
+function sourceFreshnessConfidence(officialSources, truthEvidenceSource) {
+  const sources = officialSources.filter((source) => /^https?:\/\//i.test(sourceUrl(source)));
+  if (sources.length === 0) return "UNKNOWN";
+  const currentEffective = sources.filter(
+    (source) => source?.current === true && Boolean(source?.effective),
+  );
+  if (
+    truthEvidenceSource === "FRESH_PRIMARY_LAW_AXIS_RECONCILIATION" &&
+    currentEffective.length === sources.length
+  ) {
+    return "PROVEN";
+  }
+  if (currentEffective.length === sources.length) return "STRONG";
+  if (currentEffective.length > 0) return "PARTIAL";
+  return "UNKNOWN";
+}
+
+function evidenceCompletenessConfidence(officialSources) {
+  const sources = officialSources.filter((source) => /^https?:\/\//i.test(sourceUrl(source)));
+  if (sources.length === 0) return "UNKNOWN";
+  const strict = sources.filter(hasStrictCurrentCannabisEvidence);
+  if (strict.length === sources.length) return "PROVEN";
+  if (strict.length > 0) return "STRONG";
+  if (sources.some((source) => source?.directFragmentAvailable === true)) {
+    return "PARTIAL";
+  }
+  return "UNKNOWN";
+}
+
+function sourceAppliesToGeo(source, geo) {
+  const sourceOwnerGeo = String(source?.sourceOwnerGeo || "").trim().toUpperCase();
+  if (sourceOwnerGeo === geo) return true;
+  const appliesToGeos = Array.isArray(source?.appliesToGeos)
+    ? source.appliesToGeos.map((value) => String(value || "").trim().toUpperCase())
+    : [];
+  return appliesToGeos.includes(geo);
+}
+
+function jurisdictionMatchConfidence(geo, officialSources) {
+  const sources = officialSources.filter((source) => /^https?:\/\//i.test(sourceUrl(source)));
+  if (sources.length === 0) return "UNKNOWN";
+  const matched = sources.filter((source) => sourceAppliesToGeo(source, geo));
+  if (matched.length === sources.length) return "PROVEN";
+  if (matched.length > 0) return "PARTIAL";
+  return "UNKNOWN";
+}
+
+function buildCanonicalTruthResult({
+  geo,
+  territory,
+  canonicalTruth,
+  truthRow,
+  axisRow,
+  officialSources,
+}) {
+  const truthEvidenceSource = String(
+    truthRow?.truth?.source || canonicalTruth?.source || "NO_SOURCE",
+  );
+  const axisGroups = axisRow?.axisGroups || {};
+  const patientFacts = truthRow?.truth?.facts || {};
+  const operationAxis = axisCell(axisGroups, "legal_state", "operational");
+  const freshOperationalPatientAccess =
+    canonicalTruth?.color === "GREEN" &&
+    truthRow?.truth?.source === "FRESH_PRIMARY_LAW_AXIS_RECONCILIATION" &&
+    patientFacts.patient === true &&
+    patientFacts.lawfulRoute === true &&
+    patientFacts.supply === true &&
+    patientFacts.operational === true;
+  // The legal-axis matrix can be intentionally coarse while a validated
+  // multi-source reconciliation establishes every patient-access predicate.
+  // Materialize that proven result instead of retaining a contradictory
+  // NOT_CONFIRMED_OPERATIONAL placeholder beside the same four facts.
+  const operationalPatientAccessAxis = freshOperationalPatientAccess
+    ? {
+      value: "PROVEN_OPERATIONAL_PATIENT_ACCESS",
+      status: "PROVEN",
+      source_layer: "FRESH_PRIMARY_LAW_AXIS_RECONCILIATION",
+      evidence_class: "DIRECT_VALIDATED_MULTI_SOURCE_AXIS_FINDINGS",
+    }
+    : operationAxis;
+  const patientAccessAxis = axisCell(axisGroups, "medical", "patient_access");
+  const primaryLawSources = officialSources
+    .filter((source) => /^PRIMARY(?:_|$)/.test(source.primaryOrContext || ""))
+    .map((source) => source.url);
+  const regulatorSources = officialSources
+    .filter((source) => /(?:REGULATOR|AUTHORITY|CANNABIS.*ADMINISTRATION)/.test(source.sourceType || ""))
+    .map((source) => source.url);
+  const jurisdiction = canonicalJurisdiction(geo, axisGroups, officialSources);
+  const effectiveSourceUrls = officialSources
+    .filter((source) => source?.effective === true)
+    .map((source) => source.url);
+  return {
+    geo_id: geo,
+    display_name: territory,
+    ...jurisdiction,
+    adult_use: axisCell(axisGroups, "recreational", "use"),
+    medical_use: patientAccessAxis,
+    operational_patient_access: {
+      ...operationalPatientAccessAxis,
+      patient_facts: {
+        patient: patientFacts.patient === true,
+        lawful_route: patientFacts.lawfulRoute === true,
+        supply: patientFacts.supply === true,
+        operational: patientFacts.operational === true,
+      },
+    },
+    possession: axisCell(axisGroups, "recreational", "possession"),
+    cultivation: axisCell(axisGroups, "recreational", "cultivation_personal"),
+    dispensing: axisCell(axisGroups, "medical", "dispensing"),
+    retail: axisCell(axisGroups, "recreational", "sale"),
+    pharmacy_access: axisCell(axisGroups, "medical", "licensed_pharmacy"),
+    club_access: axisCell(axisGroups, "medical", "compassionate_use"),
+    prescription_only: axisCell(axisGroups, "medical", "physician_prescription"),
+    pharmaceutical_only: axisCell(axisGroups, "medical", "pharmaceutical_products"),
+    research_only: axisCell(axisGroups, "industry", "research"),
+    cultivation_only: axisCell(axisGroups, "medical", "cultivation_only"),
+    export_only: axisCell(axisGroups, "medical", "export_only"),
+    decriminalized: axisCell(axisGroups, "enforcement", "decriminalized"),
+    pending_legislation: axisCell(axisGroups, "legal_state", "bill"),
+    primary_law: primaryLawSources,
+    official_regulator: regulatorSources,
+    official_sources: officialSources.map((source) => source.url),
+    effective_date: {
+      status:
+        effectiveSourceUrls.length > 0
+          ? "CURRENT_EFFECTIVE_SOURCE_PRESENT"
+          : "UNCONFIRMED_NO_EFFECTIVE_SOURCE",
+      source_urls: effectiveSourceUrls,
+    },
+    checked_at: reviewedAt(officialSources, canonicalTruth),
+    evidence_freshness: evidenceFreshness(officialSources),
+    source_authority: sourceAuthorityConfidence(officialSources),
+    source_freshness: sourceFreshnessConfidence(officialSources, truthEvidenceSource),
+    evidence_source: truthEvidenceSource,
+    evidence_completeness: evidenceCompletenessConfidence(officialSources),
+    jurisdiction_match_confidence: jurisdictionMatchConfidence(geo, officialSources),
+    legal_interpretation_confidence: confidenceLevel(canonicalTruth.confidence),
+    truth_status: canonicalTruth.ruleId,
+    truth_color: canonicalTruth.color,
+    resolver_rule: canonicalTruth.ruleId,
+    truth_confidence: confidenceLevel(canonicalTruth.confidence),
+    human_explanation: canonicalTruth.reason,
+    apply_state: "UNRESOLVED_UNTIL_RECONCILIATION_APPLY_GATE",
+  };
+}
+
+function hasCanonicalTruthResult(row) {
+  const result = row?.canonicalTruthResult;
+  if (!result || typeof result !== "object") return false;
+  if (result.geo_id !== row.geo || result.truth_color !== row.truthColor) {
+    return false;
+  }
+  const requiredScalars = [
+    "display_name",
+    "jurisdiction_level",
+    "governing_jurisdiction",
+    "evidence_freshness",
+    "truth_status",
+    "resolver_rule",
+    "truth_confidence",
+    "human_explanation",
+    "apply_state",
+  ];
+  if (requiredScalars.some((key) => !String(result[key] || "").trim())) {
+    return false;
+  }
+  if (!Object.hasOwn(result, "parent_geo_id")) return false;
+  if (!Array.isArray(result.official_sources)) return false;
+  if (
+    CANONICAL_CONFIDENCE_FIELDS.some(
+      (field) => !CONFIDENCE_LEVELS.has(String(result[field] || "").trim()),
+    )
+  ) {
+    return false;
+  }
+  if (!result.effective_date || typeof result.effective_date !== "object") {
+    return false;
+  }
+  return CANONICAL_AXIS_FIELDS.every((field) => {
+    const axis = result[field];
+    return (
+      axis &&
+      typeof axis === "object" &&
+      String(axis.value || "").trim() &&
+      String(axis.status || "").trim()
+    );
+  });
+}
+
+function deriveApplyState({ truthColor, currentMapCaptured, currentMapColor, freshIndependentVisualEvidence, officialSources, layerConflict }) {
+  if (truthColor !== "UNKNOWN" && officialSources.length === 0) return "BLOCKED";
+  if (!currentMapCaptured || layerConflict || currentMapColor !== truthColor) return "BLOCKED";
+  if (!freshIndependentVisualEvidence) return "NEEDS_REVIEW";
+  return "SAFE_TO_APPLY";
 }
 
 function classifyColorVerdict(row) {
@@ -296,12 +801,46 @@ function normalizeLinks(row) {
       url: String(link?.url || ""),
       sourceKind: String(link?.sourceKind || link?.source_kind || ""),
       verification: String(link?.verification || ""),
-      visualReview: String(
+      visualReview: humanReadableVisualReview(
         link?.visualReview ||
-          link?.freshVisualAnalysisRu ||
-          link?.note ||
-          "",
+        link?.visual_review ||
+        link?.visual_review_result ||
+        link?.revalidation?.c2_c3_review ||
+        link?.freshVisualAnalysisRu ||
+        link?.note ||
+        "",
       ),
+      current: link?.current,
+      effective: link?.effective,
+      cannabisSpecific: link?.cannabisSpecific,
+      directFragmentAvailable:
+        link?.directFragmentAvailable === true ||
+        Boolean(
+          link?.directFragment ||
+            link?.direct_fragment ||
+            link?.exactFragment ||
+            link?.exact_fragment,
+        ),
+      screenshotValid: link?.screenshotValid,
+      visualOpened: link?.visualOpened,
+      officialOwnerVisible: link?.officialOwnerVisible,
+      officialDomainVisible: link?.officialDomainVisible,
+      cannabisFragmentVisible: link?.cannabisFragmentVisible,
+      effectiveRuleVisible: link?.effectiveRuleVisible,
+      note: String(link?.note || ""),
+      fragment: String(link?.fragment || link?.exactFragment || ""),
+      sourceAnnotation: String(link?.sourceAnnotation || ""),
+      sourceOwnerGeo: String(link?.sourceOwnerGeo || "").trim(),
+      appliesToGeos: Array.isArray(link?.appliesToGeos)
+        ? link.appliesToGeos.map((geo) => String(geo || "").trim()).filter(Boolean)
+        : [],
+      legalBasisForExtension: String(link?.legalBasisForExtension || ""),
+      officialPublisher: String(link?.officialPublisher || ""),
+      sourceType: String(link?.sourceType || ""),
+      primaryOrContext: String(link?.primaryOrContext || ""),
+      revalidation: link?.revalidation && typeof link.revalidation === "object"
+        ? link.revalidation
+        : null,
     }))
     .filter((link) => {
       if (!link.url || seen.has(link.url)) return false;
@@ -423,6 +962,19 @@ function isDerivedAuditCachePath(item) {
     .startsWith("cache/");
 }
 
+const HUMAN_SUMMARY_PLACEHOLDER_RE = /\[object Object\]|\bundefined\b/i;
+
+function humanSummaryPlaceholderRows(rows) {
+  return rows
+    .filter((row) =>
+      HUMAN_SUMMARY_PLACEHOLDER_RE.test(
+        `${row?.truthReason || ""}\n${row?.canonicalTruthResult?.human_explanation || ""}`,
+      ),
+    )
+    .map((row) => String(row.geo || "").trim().toUpperCase())
+    .filter(Boolean);
+}
+
 function falseClass(mapColor, truthColor, verdict) {
   if (mapColor === truthColor || verdict !== "MAP_WRONG_TRUTH_RIGHT") return null;
   return `FALSE_${mapColor}`;
@@ -438,6 +990,7 @@ function markdown(report) {
     `Changes: ${report.changes.length}`,
     `Cross-layer conflicts: ${report.acceptance.crossLayerConflictRows.length}`,
     `Unproven GREEN: ${report.acceptance.unprovenGreenRows.length}`,
+    `Human-summary placeholders: ${report.acceptance.humanSummaryPlaceholderRows.length}`,
     `UNKNOWN: ${report.unknownRows.length}`,
     `Protected files unchanged: ${report.noMutationProof.unchanged}`,
     "",
@@ -808,7 +1361,8 @@ function main() {
     const applyRow = applyByGeo.get(geo) || {};
     const dossierRow = dossierByGeo.get(geo) || {};
     const runtimeConflictRow = runtimeConflictByGeo.get(geo) || {};
-    const truthColor = String(truthRow?.truth?.color || "UNKNOWN");
+    const canonicalTruth = selectCanonicalTruthResult(truthRow, matrixRow);
+    const truthColor = canonicalTruth.color;
     const previousColor = String(baselineRow?.truthColor || "UNKNOWN");
     const officialSources = normalizeLinks(matrixRow);
     const freshAxisOfficialSources = Array.isArray(
@@ -824,20 +1378,26 @@ function main() {
       evidenceSourcesByUrl.set(url, { ...current, ...source, url });
     }
     const reconciledOfficialSources = [...evidenceSourcesByUrl.values()];
-    const truthRuleId = String(
-      truthRow?.truth?.ruleId || truthRow?.truth?.source || "NO_RULE",
+    const truthRuleId = canonicalTruth.ruleId;
+    const truthSource = canonicalTruth.source;
+    const truthEvidenceSource = String(
+      truthRow?.truth?.source || truthSource || "NO_SOURCE",
     );
-    const truthSource = String(truthRow?.truth?.source || "NO_SOURCE");
     const patientFacts = truthRow?.truth?.facts || {};
+    const independentGreenProofKind = independentLedgerGreenProofKind(
+      matrixRow,
+      reconciledOfficialSources,
+    );
     const adultUseGreenProof = hasProvenAdultUse(
       truthRow?.truth?.axisFindings,
       truthRuleId,
-    );
+    ) || independentGreenProofKind === "PROVEN_ADULT_USE_LEGALITY";
     const patientAccessGreenProof =
-      patientFacts.patient === true &&
-      patientFacts.lawfulRoute === true &&
-      patientFacts.supply === true &&
-      patientFacts.operational === true;
+      (patientFacts.patient === true &&
+        patientFacts.lawfulRoute === true &&
+        patientFacts.supply === true &&
+        patientFacts.operational === true) ||
+      independentGreenProofKind === "PROVEN_OPERATIONAL_PATIENT_ACCESS";
     const persistedLiveMapSnapshot = normalizeLiveMapCapture(
       liveMapCaptureByGeo.get(geo),
     );
@@ -856,7 +1416,16 @@ function main() {
         };
     const freshIndependentVisualEvidence = hasFreshIndependentVisualEvidence({
       truthSource,
+      truthEvidenceSource,
       primaryLaw: { freshAxisOfficialSources },
+    });
+    const canonicalTruthResult = buildCanonicalTruthResult({
+      geo,
+      territory: String(truthRow.territory || matrixRow.territory || ""),
+      canonicalTruth,
+      truthRow,
+      axisRow: legalAxisRow,
+      officialSources: reconciledOfficialSources,
     });
     const greenProof =
       truthColor !== "GREEN" ||
@@ -871,6 +1440,7 @@ function main() {
             ? "PROVEN_OPERATIONAL_PATIENT_ACCESS"
             : "UNPROVEN";
     const layerColors = {
+      canonicalLedger: truthColor,
       detailedReview: String(
         truthRow?.diagnostics?.color?.truth?.color || "MISSING",
       ),
@@ -896,7 +1466,9 @@ function main() {
       previousColor,
       truthColor,
       truthRuleId,
-      truthReason: String(truthRow?.truth?.reason || ""),
+      truthReason: canonicalTruth.reason,
+      truthConfidence: confidenceLevel(canonicalTruth.confidence),
+      canonicalTruth,
       layerConflict,
       currentMapCaptured,
       currentMapColor,
@@ -912,7 +1484,10 @@ function main() {
       truthStatus: truthRuleId,
       truthRuleId,
       truthSource,
-      truthReason: String(truthRow?.truth?.reason || ""),
+      truthEvidenceSource,
+      truthReason: canonicalTruth.reason,
+      truthConfidence: confidenceLevel(canonicalTruth.confidence),
+      canonicalTruthResult,
       patientAccessFacts: patientFacts,
       greenProof,
       greenProofKind,
@@ -972,6 +1547,18 @@ function main() {
     };
   });
 
+  for (const row of rows) {
+    row.applyState = deriveApplyState({
+      truthColor: row.truthColor,
+      currentMapCaptured: row.currentMapCaptured,
+      currentMapColor: row.currentMapSnapshot?.color,
+      freshIndependentVisualEvidence: row.freshIndependentVisualEvidence,
+      officialSources: row.primaryLaw.officialSources,
+      layerConflict: row.layerConflict,
+    });
+    row.canonicalTruthResult.apply_state = row.applyState;
+  }
+
   const changes = rows
     .filter((row) => row.changed)
     .map((row) => ({
@@ -987,6 +1574,8 @@ function main() {
       primaryLaw: {
         primaryLawUrl: row.primaryLaw.primaryLawUrl,
       },
+      applyState: row.applyState,
+      truthConfidence: row.truthConfidence,
     }));
   const falseColorRows = {
     FALSE_GREEN: changes.filter((row) => row.falseClass === "FALSE_GREEN"),
@@ -1041,6 +1630,10 @@ function main() {
   const duplicateGeos = rows
     .map((row) => row.geo)
     .filter((geo, index, all) => all.indexOf(geo) !== index);
+  const invalidCanonicalTruthResultRows = rows
+    .filter((row) => !hasCanonicalTruthResult(row))
+    .map((row) => row.geo);
+  const invalidHumanSummaryRows = humanSummaryPlaceholderRows(rows);
   const pageModelSource = fs.readFileSync(
     path.join(ROOT, "apps/web/src/lib/wikiTruthPageModel.ts"),
     "utf8",
@@ -1089,6 +1682,8 @@ function main() {
 
   const flags = {
     rows307Reconciled: rows.length === rowsExpected && duplicateGeos.length === 0,
+    canonicalTruthResultSchemaComplete:
+      invalidCanonicalTruthResultRows.length === 0,
     oneTruthColorPerGeo:
       invalidColorRows.length === 0 && duplicateGeos.length === 0,
     currentMapCaptureComplete,
@@ -1101,6 +1696,8 @@ function main() {
     unknownRowsUncolored: unknownRows.every(
       (row) => row.truthColor === "UNKNOWN",
     ),
+    humanSummariesFreeOfMachinePlaceholders:
+      invalidHumanSummaryRows.length === 0,
     noLegacyUiReads: !staleUiReads,
     ssotMapProductionRuntimeUnchanged:
       authoritativeHashProof.length > 0 &&
@@ -1118,7 +1715,7 @@ function main() {
   const matrixCounts = matrix.counts || {};
   const output = {
     generatedAt: new Date().toISOString(),
-    reportVersion: "2.2.0-final-reconciliation-independent-of-acceptance",
+    reportVersion: "2.6.0-canonical-confidence-dimensions-final-reconciliation",
     deterministicColorFunction:
       "deriveOfficialTruthColor(Primary Law applicability + independent legal facts)",
     nonMutating: true,
@@ -1143,11 +1740,21 @@ function main() {
       "RED from no-patient evidence requires a proved recreational prohibition.",
       "Derived audit caches are reported separately and never make SSOT/map/production/runtime mutation proof fail.",
       "Reconciliation artifacts are generated from current truth output and never reused as verdict input.",
+      "Canonical final truth is read from the independently reviewed ledger projection; older derived truth reports are comparison layers only.",
       "FINAL_RECONCILIATION_COMPLETE requires fresh visual official review for every GEO, not historical screenshots alone.",
       "FINAL_RECONCILIATION_COMPLETE requires a live user-visible map capture for every GEO; PROJECT_PAIR and MAP=NONE are not map proof.",
+      "Canonical human explanations preserve structured visual-acceptance status and reason without serializing machine objects.",
     ],
     counts: {
       truthColors: countBy(rows, (row) => row.truthColor),
+      truthConfidence: {
+        PROVEN: 0,
+        STRONG: 0,
+        PARTIAL: 0,
+        CONFLICTING: 0,
+        UNKNOWN: 0,
+        ...countBy(rows, (row) => row.canonicalTruthResult.truth_confidence),
+      },
       falseClasses: {
         FALSE_GREEN: 0,
         FALSE_YELLOW: 0,
@@ -1179,6 +1786,10 @@ function main() {
         browserAttempts: sourceLog.browser.length,
         httpAttempts: sourceLog.http.length,
       },
+      applyStates: countBy(rows, (row) => row.applyState),
+      humanSummary: {
+        MACHINE_PLACEHOLDER_ROWS: invalidHumanSummaryRows.length,
+      },
     },
     changes,
     falseColorRows,
@@ -1199,6 +1810,8 @@ function main() {
       coloredWithoutOfficialEvidence,
       invalidColorRows,
       duplicateGeos,
+      invalidCanonicalTruthResultRows,
+      humanSummaryPlaceholderRows: invalidHumanSummaryRows,
       freshOfficialVisualReviewComplete,
       currentMapCaptureComplete,
       freshOfficialVisualReviewGeos: [...freshVisualEvidenceGeos].sort(),
@@ -1289,11 +1902,19 @@ function main() {
 }
 
 export {
+  buildCanonicalTruthResult,
   classifyColorVerdict,
+  confidenceLevel,
+  hasCanonicalTruthResult,
+  deriveApplyState,
+  humanReadableVisualReview,
   hasFreshIndependentVisualEvidence,
+  hasIndependentLedgerGreenProof,
+  independentLedgerGreenProofKind,
   hasLiveMapCapture,
   hasProvenAdultUse,
   normalizeLiveMapCapture,
+  selectCanonicalTruthResult,
 };
 
 if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {

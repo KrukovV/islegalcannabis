@@ -14,6 +14,29 @@ Standard app API responses built with `apps/web/src/lib/api/response.ts` include
 - `/trust-view` must stay a stable localhost route resolving to the `/wiki-truth` audit UI.
 - `/changes` and `/api/ssot/changes` read from the SSOT diff cache/registry; they must not rebuild alternate truth in UI code.
 
+## SEO and production indexability contract
+
+`docs/SEO_INDEXABILITY_SPEC.md` is the canonical contract for public country
+routes, metadata, sitemaps, runtime-data tracing, production acceptance and
+Google indexing terminology.
+
+- Every canonical sitemap URL must be live before it is advertised: HTTP 200,
+  GEO-correct title, exact canonical and `index, follow` are one contract.
+- The home sitemap URL and rendered home canonical must both be the exact string
+  `https://www.islegal.info/`; normalized equivalence without the trailing slash
+  does not satisfy the release contract.
+- Protected accepted baseline is 311 unique URLs with split counts 238 country,
+  50 U.S. state and 22 localized URLs; the sitemap index contains four entries.
+- Country runtime data is retained with an explicit monorepo trace root and
+  route-scoped includes only. Global trace wildcards are forbidden.
+- `/truth-map`, `/wiki-truth`, Social, DM and Store audit surfaces must not enter
+  production trace includes or sitemap output. Public `/truth-map` and
+  `/wiki-truth` remain 404.
+- SEO/trace repair cannot mutate Legal Truth, SSOT, Store eligibility, Social,
+  map colours or popup conclusions.
+- Crawlability and Google index convergence are different states. Without
+  current Search Console evidence, use `GOOGLE_RECRAWL_UNCONFIRMED`.
+
 ## UI output (SSOT)
 - Must show: jurisdiction, status badge (level+label), facts (4–6), key risks, sources + updated_at, requestId, location method + confidence.
 - Unknown/provisional/needs_review: show honest banner, avoid definitive language; sources remain visible.
@@ -195,3 +218,34 @@ Example (ok response):
 ## Annotated Official Evidence Contract
 
 Every 307-GEO legal conclusion is proposal-only until apply authorization and must preserve annotated direct official evidence in the audit ledger: URL, owner and territorial applicability, authority/source type, exact legal fragment, effective/currentness assessment, visual-review state and capture path. Unannotated links are leads, not evidence.
+
+## UNKNOWN-73 legal/store closure contract
+
+`docs/UNKNOWN_73_COLOR_CLOSURE_SPEC.md` is mandatory for work intended to
+reduce the current proposal-only 73-GEO unpainted set. The work maximizes
+legitimate `GREEN`, `YELLOW`, and `RED` conclusions while preserving
+`UNKNOWN` where no unitary applicable territorial regime exists.
+
+- An official cannabis retailer may prove operational adult-use only with a
+  current official retail category, lifecycle state, and exact GEO
+  applicability. A medical retailer proves only the supply/dispensing axis
+  unless the independent patient/prescriber/operation axes are also proved.
+- Official Store data persists only through the canonical Store Truth pipeline.
+  Commercial directories, generic pharmacies, cultivation/export, hemp/CBD,
+  bills, stale data and unverified coordinates create neither a Truth
+  conclusion nor a visible Store leaf.
+- Each accepted source retains owner, applicability, extension basis, role,
+  exact fragment, effective/current state, visual review and revalidation
+  metadata. Access failure is not legal evidence.
+- A decisive official-source question must use the documented access ladder
+  before it is called exhausted: current owner page, the authority's
+  API/open-data/search/export surface, official PDF/Gazette/Act/schedule or
+  registry snapshot, then another competent official authority with explicit
+  GEO applicability. Record every attempted official path and annotate every
+  retained link; one blocked page is a non-promoting access state, never a
+  final negative conclusion.
+- A claimant, parent/metropolitan state, neighbouring country, or component
+  cannot supply a color without a direct territorial applicability bridge.
+- Product changes remain `/truth-map`-only. `/` and `/new-map` remain free
+  of the Store and Social layers, and store leaves and Social chat markers
+  remain semantically exclusive.

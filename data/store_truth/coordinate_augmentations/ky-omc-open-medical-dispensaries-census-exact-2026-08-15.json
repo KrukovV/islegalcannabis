@@ -1,0 +1,233 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-15T01:10:25.368Z",
+  "input_path": "data/store_truth/coordinate_augmentation/ky-omc-open-medical-dispensaries-2026-08-13-census-input.json",
+  "input_sha256": "4a3a9327a72dd4706d83b55fc5fee69ea22a9b144d21fe0ffb6ea968df5ee7b4",
+  "census_geocoder_url": "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+  "census_benchmark": "Public_AR_Current",
+  "census_response_sha256": "99e999efdae9b518ce87bb7ca0d94712199074f5cc77693909256828546bea2a",
+  "records": [
+    {
+      "source_record_id": "13572abd682f2f8ebe8b33af",
+      "address": "108 E. Main Street",
+      "city": "Princeton",
+      "region": "KY",
+      "postal_code": "42445",
+      "latitude": 37.108535535378,
+      "longitude": -87.881846399107,
+      "census_matched_postal_code": "42445",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "108 E MAIN ST, PRINCETON, KY, 42445"
+      }
+    },
+    {
+      "source_record_id": "2103b2ac846ef70b06074e0f",
+      "address": "1849 Alysheba Way",
+      "city": "Lexington",
+      "region": "KY",
+      "postal_code": "40509",
+      "latitude": 38.019654032003,
+      "longitude": -84.419280839562,
+      "census_matched_postal_code": "40509",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1849 ALYSHEBA WAY, LEXINGTON, KY, 40509"
+      }
+    },
+    {
+      "source_record_id": "28527d6b610569abed76da2e",
+      "address": "2624 Walter Garrett Ln",
+      "city": "Oak Grove",
+      "region": "KY",
+      "postal_code": "42262",
+      "latitude": 36.682514114629,
+      "longitude": -87.408891226813,
+      "census_matched_postal_code": "42262",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2624 WALTER GARRETT LN, OAK GROVE, KY, 42262"
+      }
+    },
+    {
+      "source_record_id": "39c3f9ae73c4020e47d6547c",
+      "address": "172 Imperial Way",
+      "city": "Nicholasville",
+      "region": "KY",
+      "postal_code": "40356",
+      "latitude": 37.902156624221,
+      "longitude": -84.565912166649,
+      "census_matched_postal_code": "40356",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "172 IMPERIAL WAY, NICHOLASVILLE, KY, 40356"
+      }
+    },
+    {
+      "source_record_id": "48859ddd5b8e6d07c1f4452d",
+      "address": "3508 Winchester Ave",
+      "city": "Ashland",
+      "region": "KY",
+      "postal_code": "41101",
+      "latitude": 38.465403305036,
+      "longitude": -82.617903446914,
+      "census_matched_postal_code": "41101",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3508 WINCHESTER AVE, ASHLAND, KY, 41101"
+      }
+    },
+    {
+      "source_record_id": "6df57da1b9a22323b25d66c2",
+      "address": "1220 Paris Rd",
+      "city": "Mayfield",
+      "region": "KY",
+      "postal_code": "42066",
+      "latitude": 36.722174678041,
+      "longitude": -88.626972451483,
+      "census_matched_postal_code": "42066",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1220 PARIS RD, MAYFIELD, KY, 42066"
+      }
+    },
+    {
+      "source_record_id": "91c54f5942ad57cf36210ff6",
+      "address": "6809 Burlington Pike",
+      "city": "Florence",
+      "region": "KY",
+      "postal_code": "41042",
+      "latitude": 39.010797509254,
+      "longitude": -84.628341544567,
+      "census_matched_postal_code": "41042",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "6809 BURLINGTON PIKE, FLORENCE, KY, 41042"
+      }
+    },
+    {
+      "source_record_id": "9be31773ad3b47e1de17abbf",
+      "address": "325 Leonardwood Dr.",
+      "city": "Frankfort",
+      "region": "KY",
+      "postal_code": "40601",
+      "latitude": 38.161197059116,
+      "longitude": -84.896568254936,
+      "census_matched_postal_code": "40601",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "325 LEONARDWOOD DR, FRANKFORT, KY, 40601"
+      }
+    },
+    {
+      "source_record_id": "a1c53e79563adc1082718432",
+      "address": "300 N. Main St",
+      "city": "Beaver Dam",
+      "region": "KY",
+      "postal_code": "42320",
+      "latitude": 37.40398502633,
+      "longitude": -86.875927745021,
+      "census_matched_postal_code": "42320",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "300 N MAIN ST, BEAVER DAM, KY, 42320"
+      }
+    },
+    {
+      "source_record_id": "aacb50990660ca79041c9c22",
+      "address": "1895 Cumberland Falls Highway",
+      "city": "Corbin",
+      "region": "KY",
+      "postal_code": "40701",
+      "latitude": 36.918238353091,
+      "longitude": -84.126868485733,
+      "census_matched_postal_code": "40701",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1895 CUMBERLAND FALLS HWY, CORBIN, KY, 40701"
+      }
+    },
+    {
+      "source_record_id": "c24bcf742acc1d5b2fda1474",
+      "address": "140 Faith Assembly Church Rd",
+      "city": "London",
+      "region": "KY",
+      "postal_code": "40741",
+      "latitude": 37.148702725424,
+      "longitude": -84.113136620992,
+      "census_matched_postal_code": "40741",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "140 FAITH ASSEMBLY CHURCH RD, LONDON, KY, 40741"
+      }
+    },
+    {
+      "source_record_id": "cc482df6a288750bd1463775",
+      "address": "1300 N 16th St",
+      "city": "Murray",
+      "region": "KY",
+      "postal_code": "42071",
+      "latitude": 36.626685033795,
+      "longitude": -88.324240322423,
+      "census_matched_postal_code": "42071",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1300 N 16TH ST, MURRAY, KY, 42071"
+      }
+    }
+  ],
+  "counts": {
+    "input_records": 20,
+    "census_response_rows": 20,
+    "one_to_one_exact_census_geocodes": 12,
+    "blocked_census_no_exact_in_jurisdiction_match": 8
+  }
+}

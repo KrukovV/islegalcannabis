@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import CountrySeoPage, { getSafeSeoCountryData, sanitizeEvidenceQuoteText } from "./CountrySeoPage";
@@ -25,6 +27,14 @@ function normalizeHtmlText(value: string) {
 }
 
 describe("CountrySeoPage quote sanitizer", () => {
+  it("does not configure audit-only Social or Store layers on SEO pages", () => {
+    const page = fs.readFileSync(path.join(process.cwd(), "src", "app", "_components", "CountrySeoPage.tsx"), "utf8");
+    const clientEntry = fs.readFileSync(path.join(process.cwd(), "src", "app", "new-map", "NewMapClientEntry.tsx"), "utf8");
+    expect(page).not.toContain("socialConfig");
+    expect(clientEntry).not.toContain("PublicSocialMapConfig");
+    expect(clientEntry).not.toContain("socialConfig");
+  });
+
   it("strips wiki table style preamble from evidence quotes", () => {
     const sanitized = sanitizeEvidenceQuoteText(
       'style="background:#C4C9CD;" | {{Hs|5}} Cannabis is strictly illegal in Wyoming.'

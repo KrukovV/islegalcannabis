@@ -11,6 +11,7 @@ const ROOT = path.resolve(__dirname, "../..");
 const TOTAL_GEO_EXPECTED = 307;
 const ACCEPTANCE_AUDIT_PATH = path.join(ROOT, "data/reviews/wiki-truth-307-acceptance-audit.json");
 const TRUTH_AUDIT_REPORT_PATH = path.join(ROOT, "data/reviews/wiki-truth-307-truth-audit-report.json");
+const FINAL_RECONCILIATION_PATH = path.join(ROOT, "data/reviews/wiki-truth-307-final-reconciliation.json");
 const COLOR_REVIEW_DOSSIER_PATH = path.join(ROOT, "data/reviews/wiki-truth-307-color-review-dossier.json");
 const RUNTIME_AUTHORIZATION_READINESS_PATH = path.join(ROOT, "data/reviews/wiki-truth-307-runtime-authorization-readiness.json");
 const RUNTIME_POST_APPLY_VERIFICATION_PATH = path.join(ROOT, "data/reviews/wiki-truth-307-runtime-post-apply-verification.json");
@@ -23,6 +24,7 @@ const OUT_MD_PATH = path.join(ROOT, "data/reviews/wiki-truth-307-completion-gap-
 const INPUT_PATHS = Object.freeze([
   ACCEPTANCE_AUDIT_PATH,
   TRUTH_AUDIT_REPORT_PATH,
+  FINAL_RECONCILIATION_PATH,
   COLOR_REVIEW_DOSSIER_PATH,
   RUNTIME_AUTHORIZATION_READINESS_PATH,
   RUNTIME_POST_APPLY_VERIFICATION_PATH,
@@ -321,6 +323,7 @@ function buildMarkdown(output) {
 function main() {
   const acceptanceAudit = readJson(ACCEPTANCE_AUDIT_PATH);
   const truthAuditReport = readJsonIfExists(TRUTH_AUDIT_REPORT_PATH);
+  const finalReconciliation = readJsonIfExists(FINAL_RECONCILIATION_PATH);
   const colorReviewDossier = readJsonIfExists(COLOR_REVIEW_DOSSIER_PATH);
   const runtimeAuthorizationReadiness = readJsonIfExists(RUNTIME_AUTHORIZATION_READINESS_PATH);
   const runtimePostApplyVerification = readJsonIfExists(RUNTIME_POST_APPLY_VERIFICATION_PATH);
@@ -394,6 +397,9 @@ function main() {
     rows307:
       Number(acceptanceAudit?.rowsTotal || 0) === TOTAL_GEO_EXPECTED &&
       Number(truthAuditReport?.rowsTotal || 0) === TOTAL_GEO_EXPECTED,
+    finalReconciliationRows307:
+      Number(finalReconciliation?.rowsTotal || 0) === TOTAL_GEO_EXPECTED &&
+      Number(finalReconciliation?.rowsExpected || 0) === TOTAL_GEO_EXPECTED,
     upstreamAcceptanceCompleteMatchesClaim:
       upstreamAcceptanceCompleteForGap === completionClaimAllowed,
     completionClaimAllowedMatchesAcceptance:
@@ -448,7 +454,7 @@ function main() {
 
   const output = {
     generatedAt: new Date().toISOString(),
-    reportVersion: "1.1.0",
+    reportVersion: "1.2.0-canonical-final-truth-counts",
     dossierStatus: "TRUTH_FIRST_COMPLETION_GAP_DOSSIER_READY_NO_MUTATION",
     localOnly: true,
     nonMutating: true,
@@ -488,7 +494,11 @@ function main() {
       legalAxisCellsTotal: Number(legalKnowledgeAxisMatrix?.cellsTotal || 0),
       legalAxisKnownCells: Number(legalKnowledgeAxisMatrix?.summary?.knownAxisCells || 0),
       legalAxisUnknownCells: Number(legalKnowledgeAxisMatrix?.summary?.unknownAxisCells || 0),
-      currentTruthColorCounts: legalKnowledgeAxisMatrix?.counts?.truthColor || {},
+      // The final reconciliation is the canonical legal conclusion. Keep the
+      // raw matrix projection available for diagnostics, but never label it
+      // as the current Truth result in the completion report.
+      currentTruthColorCounts: finalReconciliation?.counts?.truthColors || {},
+      rawDerivedTruthColorCounts: legalKnowledgeAxisMatrix?.counts?.truthColor || {},
       currentWikiAuditStatusCounts: legalKnowledgeAxisMatrix?.counts?.wikiAuditStatus || {},
       currentSsotStatusCounts: legalKnowledgeAxisMatrix?.counts?.ssotStatus || {},
       requirementStatusCounts: statusCounts,

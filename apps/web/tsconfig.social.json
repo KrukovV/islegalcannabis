@@ -1,0 +1,22 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "incremental": false,
+    "noEmit": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "src/social/**/*.ts",
+    "src/dm/**/*.ts",
+    "src/app/api/social/**/*.ts",
+    "src/truth-map/TruthMapSocialPanel.tsx",
+    "src/truth-map/TruthMapRoot.tsx",
+    "src/new-map/social/SocialLayer.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "e2e/**"
+  ]
+}

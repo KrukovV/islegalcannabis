@@ -279,6 +279,23 @@ export function normalizeLegalAxisValue(value) {
 }
 
 export function classifySourceRelevance(record) {
+  // Explicit provenance is stronger than incidental words in a review note.
+  // A government geographic/classification source can be necessary to prove a
+  // scope exception, but it must never become cannabis-law evidence merely
+  // because its audit annotation says "not cannabis-law evidence".
+  const declaredRole = String(record?.primaryOrContext || record?.primary_or_context || "");
+  const declaredType = String(record?.sourceType || record?.source_type || "");
+  const isExplicitNonCannabisContext =
+    (record?.cannabisSpecific === false || record?.cannabis_specific === false) &&
+    /(?:SYNTHETIC|GEOGRAPHIC(?:AL)?[_\s-]*CLASSIFICATION|ANSI|FIPS)/i.test(`${declaredRole} ${declaredType}`);
+  if (isExplicitNonCannabisContext) {
+    return {
+      acceptedAsDirect: false,
+      evidence_scope: "OFFICIAL_CONTEXT_ONLY",
+      exclusion_reason: "EXPLICIT_NON_CANNABIS_CONTEXT_PROVENANCE",
+    };
+  }
+
   const text = compactEvidenceText(record);
   const formalText = [
     record?.title,

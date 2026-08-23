@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "route": "/truth-map",
+  "canonicalUniverse": "data/reviews/geo-list-307.json",
+  "polarDisplayGreyGeos": ["AQ"],
+  "legalTruthMutationAllowed": false,
+  "ssotMutationAllowed": false,
+  "productionMutationAllowed": false,
+  "displayUncoloredAllowed": false,
+  "nonPolarGreyAllowed": false
+}

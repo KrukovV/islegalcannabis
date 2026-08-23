@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-15T03:14:00.000Z",
+  "source_url": "https://www.dps.texas.gov/section/compassionate-use-program/licensed-dispensaries",
+  "input_sha256": "110c4a92c2f7d09e55fe1d8d2c308f333abd92ee3ba2340cf3aab388305b6407",
+  "source_scope": "The Texas Department of Public Safety page explicitly labels these three entries Current Active Licensed Dispensaries. The durable local snapshot retains only the public licence number, stated organisation name and the directly stated legal/DBA relation. It deliberately omits email, website, physical location, telephone and any assertion that a particular premises is open for walk-in sales.",
+  "records": [
+    {
+      "source_record_id": "TX-DPS-TCUP-0004",
+      "legal_name": "Fluent",
+      "trade_name": "",
+      "license_number": "0004",
+      "license_type": "CURRENT_TX_DPS_TCUP_LICENSED_DISPENSING_ORGANIZATION",
+      "store_type": "MEDICAL_DISPENSARY"
+    },
+    {
+      "source_record_id": "TX-DPS-TCUP-0005",
+      "legal_name": "Texas Original",
+      "trade_name": "",
+      "license_number": "0005",
+      "license_type": "CURRENT_TX_DPS_TCUP_LICENSED_DISPENSING_ORGANIZATION",
+      "store_type": "MEDICAL_DISPENSARY"
+    },
+    {
+      "source_record_id": "TX-DPS-TCUP-0006",
+      "legal_name": "Surterra Texas LLC",
+      "trade_name": "goodblend",
+      "license_number": "0006",
+      "license_type": "CURRENT_TX_DPS_TCUP_LICENSED_DISPENSING_ORGANIZATION",
+      "store_type": "MEDICAL_DISPENSARY"
+    }
+  ]
+}

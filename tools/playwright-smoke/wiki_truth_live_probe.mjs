@@ -289,8 +289,8 @@ const expectedColorReviewDossierLegalBasisCounts =
     return counts;
   }, {});
 const expectedColorReviewDossierPrimaryLawBlockers = (
-  Array.isArray(colorReviewDossierArtifact.primaryLawBlockers?.geos)
-    ? colorReviewDossierArtifact.primaryLawBlockers.geos
+  Array.isArray(colorReviewDossierArtifact.primaryLawBlockerGeos)
+    ? colorReviewDossierArtifact.primaryLawBlockerGeos
     : []
 )
   .map((geo) => String(geo || ""))

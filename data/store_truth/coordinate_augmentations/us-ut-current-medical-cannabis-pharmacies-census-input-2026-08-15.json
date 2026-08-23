@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-14T22:01:07.872Z",
+  "source_id": "official-ut-dhhs-current-medical-cannabis-pharmacy-locations-2026-08-15",
+  "source_snapshot_path": "data/store_truth/source_snapshots/us-ut-current-medical-cannabis-pharmacies-2026-08-15.json",
+  "source_snapshot_sha256": "e73cc6714ffb9bd3e0df3ec97ef4c377090f8f7a9f691f188761237c87a3860e",
+  "source_url": "https://medicalcannabis.utah.gov/pharmacy-locations/",
+  "records": [
+    {
+      "source_record_id": "BEEHIVEFARMACYBRIGHAMCITY:870W1150SSUITECBRIGHAMCITY84302",
+      "address": "870 W 1150 S, Suite C",
+      "city": "Brigham City",
+      "region": "UT",
+      "postal_code": "84302"
+    },
+    {
+      "source_record_id": "BEEHIVEFARMACYSALTLAKECITY:1991S3600WSALTLAKECITYUT84104",
+      "address": "1991 S 3600 W",
+      "city": "Salt Lake City",
+      "region": "UT",
+      "postal_code": "84104"
+    },
+    {
+      "source_record_id": "BLOCPHARMACYSOUTHJORDAN:10392SOUTHJORDANGATEWAYSOUTHJORDANUT84095",
+      "address": "10392 South Jordan Gateway",
+      "city": "South Jordan",
+      "region": "UT",
+      "postal_code": "84095"
+    },
+    {
+      "source_record_id": "BLOCPHARMACYSTGEORGE:1624SCONVENTIONCENTERDRIVESTGEORGEUT84790",
+      "address": "1624 S Convention Center Drive",
+      "city": "St. George",
+      "region": "UT",
+      "postal_code": "84790"
+    },
+    {
+      "source_record_id": "CURALEAFLEHI:3633NTHANKSGIVINGWAYLEHIUT84043",
+      "address": "3633 N Thanksgiving Way",
+      "city": "Lehi",
+      "region": "UT",
+      "postal_code": "84043"
+    },
+    {
+      "source_record_id": "CURALEAFPARKCITY:1351KEARNSBLVDSTE110BPARKCITYUT84060",
+      "address": "1351 Kearns Blvd, STE 110-B",
+      "city": "Park City",
+      "region": "UT",
+      "postal_code": "84060"
+    },
+    {
+      "source_record_id": "CURALEAFPROVO:222NDRAPERLANEPROVOUT84601",
+      "address": "222 N Draper Lane",
+      "city": "Provo",
+      "region": "UT",
+      "postal_code": "84601"
+    },
+    {
+      "source_record_id": "CURALEAFSPRINGVILLE:484S1750WUNITFSPRINGVILLEUT84663",
+      "address": "484 S 1750 W, Unit F",
+      "city": "Springville",
+      "region": "UT",
+      "postal_code": "84663"
+    },
+    {
+      "source_record_id": "DRAGONFLYWELLNESSPRICE:20EMAINSTREETPRICEUT84501",
+      "address": "20 E Main Street",
+      "city": "Price",
+      "region": "UT",
+      "postal_code": "84501"
+    },
+    {
+      "source_record_id": "DRAGONFLYWELLNESSSALTLAKECITY:711SOUTHSTATESTREETSALTLAKECITYUT84111",
+      "address": "711 South State Street",
+      "city": "Salt Lake City",
+      "region": "UT",
+      "postal_code": "84111"
+    },
+    {
+      "source_record_id": "THEFLOWERSHOPLOGAN:2150NMAINSUITE1NORTHLOGANUT84341",
+      "address": "2150 N Main, Suite 1",
+      "city": "North Logan",
+      "region": "UT",
+      "postal_code": "84341"
+    },
+    {
+      "source_record_id": "THEFLOWERSHOPOGDEN:3775SWALLAVESOUTHOGDENUT84405",
+      "address": "3775 S Wall Ave",
+      "city": "South Ogden",
+      "region": "UT",
+      "postal_code": "84405"
+    },
+    {
+      "source_record_id": "WHOLESOMECOCANNABIS:580W100NSUITE1WESTBOUNTIFULUT84010",
+      "address": "580 W 100 N Suite 1",
+      "city": "West Bountiful",
+      "region": "UT",
+      "postal_code": "84010"
+    },
+    {
+      "source_record_id": "ZIONMEDICINAL:301SMAINSTREETCEDARCITYUT84720",
+      "address": "301 S Main Street",
+      "city": "Cedar City",
+      "region": "UT",
+      "postal_code": "84720"
+    }
+  ]
+}

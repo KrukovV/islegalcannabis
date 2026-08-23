@@ -1,4 +1,4 @@
-import { expect, test } from "playwright/test";
+import { expect, test } from "@playwright/test";
 
 async function waitForMap(page: Parameters<typeof test>[0]["page"], path: string) {
   await page.goto(path, { waitUntil: "domcontentloaded" });

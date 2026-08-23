@@ -73,7 +73,7 @@ last_cmd=""
 trap 'last_cmd=$BASH_COMMAND' DEBUG
 bash tools/git-health.sh || { CI_LOCAL_REASON="GIT_HEALTH_FAIL"; CI_LOCAL_STEP="git_health"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 ALLOW_SCOPE_OVERRIDE=1 npm run --workspace-root where || { CI_LOCAL_REASON="WHERE_FAIL"; CI_LOCAL_STEP="where"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
-CI_LOCAL_AUDIT_SCOPE_PATHS="${CI_LOCAL_AUDIT_SCOPE_PATHS:-AGENTS.md,Reports/**,CONTINUITY.md,data/wiki/**,data/wiki_cache/**,data/wiki_notes/**,data/official/**,data/reviews/**,docs/**,tools/**,apps/web/**}"
+CI_LOCAL_AUDIT_SCOPE_PATHS="${CI_LOCAL_AUDIT_SCOPE_PATHS:-.gitattributes,AGENTS.md,vercel.json,Reports/**,CONTINUITY.md,data/wiki/**,data/wiki_cache/**,data/wiki_notes/**,data/official/**,data/reviews/**,data/store_truth/**,docs/**,tools/**,apps/web/**}"
 GUARDS_OUTPUT=$(ALLOW_SCOPE_OVERRIDE=1 ALLOW_SCOPE_PATHS="${CI_LOCAL_AUDIT_SCOPE_PATHS}" node tools/guards/run_all.mjs 2>&1) || {
   echo "${GUARDS_OUTPUT}"
   GUARDS_COUNTS_LINE=$(printf "%s\n" "${GUARDS_OUTPUT}" | grep -E "^GUARDS_COUNTS=" | tail -n 1 || true)
@@ -145,7 +145,9 @@ node tools/laws/validate_sources.mjs || { CI_LOCAL_REASON="VALIDATE_LAWS_SOURCES
 npm run coverage || { CI_LOCAL_REASON="COVERAGE_FAIL"; CI_LOCAL_STEP="coverage"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 node tools/ledger/compact.test.mjs || { CI_LOCAL_REASON="LEDGER_COMPACT_TEST_FAIL"; CI_LOCAL_STEP="ledger_compact_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 node tools/ledger/compact.mjs --dry-run || { CI_LOCAL_REASON="LEDGER_COMPACT_FAIL"; CI_LOCAL_STEP="ledger_compact"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
+node --test tools/lockfile_consistency.test.mjs || { CI_LOCAL_REASON="LOCKFILE_CONSISTENCY_TEST_FAIL"; CI_LOCAL_STEP="lockfile_consistency_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 node tools/vercel_bypass.test.mjs || { CI_LOCAL_REASON="VERCEL_BYPASS_TEST_FAIL"; CI_LOCAL_STEP="vercel_bypass_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
+node --test tools/vercel_non_deploy_branch.test.mjs || { CI_LOCAL_REASON="VERCEL_NON_DEPLOY_BRANCH_TEST_FAIL"; CI_LOCAL_STEP="vercel_non_deploy_branch_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 node tools/prod_live_quality_gate.test.mjs || { CI_LOCAL_REASON="PROD_LIVE_GATE_TEST_FAIL"; CI_LOCAL_STEP="prod_live_gate_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 node tools/prod_new_map_js_city_gate.test.mjs || { CI_LOCAL_REASON="PROD_JS_CITY_GATE_TEST_FAIL"; CI_LOCAL_STEP="prod_js_city_gate_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 node tools/ingest/run_ingest.test.mjs || { CI_LOCAL_REASON="INGEST_TEST_FAIL"; CI_LOCAL_STEP="ingest_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }

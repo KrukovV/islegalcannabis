@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-15T01:09:53.067Z",
+  "source_id": "official-ky-omc-open-medical-dispensaries-2026-08-13",
+  "source_snapshot_path": "data/store_truth/source_snapshots/ky-omc-open-medical-dispensaries-2026-08-13.json",
+  "source_snapshot_sha256": "268fe61f06fe71951917c6375d410e7072873a7dc083268c3341428f0ac51498",
+  "source_url": "https://kymedcan.ky.gov/patients-and-caregivers/Pages/Find-A-Dispensary.aspx",
+  "records": [
+    {
+      "source_record_id": "09d1f8d8894c5d73ef861745",
+      "address": "140 N Hopkinsville St",
+      "city": "Nortonville",
+      "region": "KY",
+      "postal_code": "42442"
+    },
+    {
+      "source_record_id": "13572abd682f2f8ebe8b33af",
+      "address": "108 E. Main Street",
+      "city": "Princeton",
+      "region": "KY",
+      "postal_code": "42445"
+    },
+    {
+      "source_record_id": "2103b2ac846ef70b06074e0f",
+      "address": "1849 Alysheba Way",
+      "city": "Lexington",
+      "region": "KY",
+      "postal_code": "40509"
+    },
+    {
+      "source_record_id": "28527d6b610569abed76da2e",
+      "address": "2624 Walter Garrett Ln",
+      "city": "Oak Grove",
+      "region": "KY",
+      "postal_code": "42262"
+    },
+    {
+      "source_record_id": "382c93d3228622bdd86c0c76",
+      "address": "435 Jordon Dr",
+      "city": "Paducah",
+      "region": "KY",
+      "postal_code": "42001"
+    },
+    {
+      "source_record_id": "39c3f9ae73c4020e47d6547c",
+      "address": "172 Imperial Way",
+      "city": "Nicholasville",
+      "region": "KY",
+      "postal_code": "40356"
+    },
+    {
+      "source_record_id": "48859ddd5b8e6d07c1f4452d",
+      "address": "3508 Winchester Ave",
+      "city": "Ashland",
+      "region": "KY",
+      "postal_code": "41101"
+    },
+    {
+      "source_record_id": "5309d4a41671057bf246fd37",
+      "address": "2401-B Bardstown Rd",
+      "city": "Louisville",
+      "region": "KY",
+      "postal_code": "40205"
+    },
+    {
+      "source_record_id": "6df57da1b9a22323b25d66c2",
+      "address": "1220 Paris Rd",
+      "city": "Mayfield",
+      "region": "KY",
+      "postal_code": "42066"
+    },
+    {
+      "source_record_id": "7437dc1f96e63f75fd96cf87",
+      "address": "635 Donaldson Hwy",
+      "city": "Erlanger",
+      "region": "KY",
+      "postal_code": "41018"
+    },
+    {
+      "source_record_id": "91c54f5942ad57cf36210ff6",
+      "address": "6809 Burlington Pike",
+      "city": "Florence",
+      "region": "KY",
+      "postal_code": "41042"
+    },
+    {
+      "source_record_id": "955e5ed4fb7b7d634b31bf70",
+      "address": "1501-1641 Paris Pike",
+      "city": "Georgetown",
+      "region": "KY",
+      "postal_code": "42324"
+    },
+    {
+      "source_record_id": "99fc77c56d1586160e5bbbfd",
+      "address": "950 N Mulberry St, Suites 220A, 220B, and 220C",
+      "city": "Elizabethtown",
+      "region": "KY",
+      "postal_code": "42701"
+    },
+    {
+      "source_record_id": "9be31773ad3b47e1de17abbf",
+      "address": "325 Leonardwood Dr.",
+      "city": "Frankfort",
+      "region": "KY",
+      "postal_code": "40601"
+    },
+    {
+      "source_record_id": "a1c53e79563adc1082718432",
+      "address": "300 N. Main St",
+      "city": "Beaver Dam",
+      "region": "KY",
+      "postal_code": "42320"
+    },
+    {
+      "source_record_id": "aacb50990660ca79041c9c22",
+      "address": "1895 Cumberland Falls Highway",
+      "city": "Corbin",
+      "region": "KY",
+      "postal_code": "40701"
+    },
+    {
+      "source_record_id": "b0cb8bac0f2fa547f6501681",
+      "address": "1900 Murphy Ave",
+      "city": "Ferguson",
+      "region": "KY",
+      "postal_code": "42533"
+    },
+    {
+      "source_record_id": "c24bcf742acc1d5b2fda1474",
+      "address": "140 Faith Assembly Church Rd",
+      "city": "London",
+      "region": "KY",
+      "postal_code": "40741"
+    },
+    {
+      "source_record_id": "cc482df6a288750bd1463775",
+      "address": "1300 N 16th St",
+      "city": "Murray",
+      "region": "KY",
+      "postal_code": "42071"
+    },
+    {
+      "source_record_id": "f4a141c87c801075edef3a64",
+      "address": "2708 Scottsville Rd, Ste A",
+      "city": "Bowling Green",
+      "region": "KY",
+      "postal_code": "42104"
+    }
+  ]
+}

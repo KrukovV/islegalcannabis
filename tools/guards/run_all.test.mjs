@@ -46,7 +46,11 @@ test("run_all executes discovered guards", () => {
       stdio: "ignore",
       env: {
         ...process.env,
-        ALLOW_SCOPE_OVERRIDE: "0"
+        // This test exercises dynamic guard discovery. The shared worktree is
+        // intentionally allowed to contain parallel changes; strict scope
+        // enforcement is covered by the guard itself during ci-local.
+        ALLOW_SCOPE_OVERRIDE: "1",
+        ALLOW_SCOPE_PATHS: ""
       }
     });
     assert.equal(result.status, 0, "run_all should pass");

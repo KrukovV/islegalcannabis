@@ -9,11 +9,17 @@ import {
   normalizeVisualReviewLedgerPacket,
 } from "./build_wiki_truth_307_truth_audit_report.mjs";
 import {
+  buildCanonicalTruthResult,
   classifyColorVerdict,
+  hasCanonicalTruthResult,
   hasFreshIndependentVisualEvidence,
+  humanReadableVisualReview,
+  hasIndependentLedgerGreenProof,
+  independentLedgerGreenProofKind,
   hasLiveMapCapture,
   hasProvenAdultUse,
   normalizeLiveMapCapture,
+  selectCanonicalTruthResult,
 } from "./build_wiki_truth_307_final_reconciliation.mjs";
 import {
   assertCanonicalGeoUniverse,
@@ -22,8 +28,12 @@ import {
   selectNextCanonicalGeo,
 } from "./canonical_geo_universe.mjs";
 import { buildAxisCell } from "./build_wiki_truth_307_legal_knowledge_axis_matrix.mjs";
-import { evaluateLegalInterpretation } from "./build_wiki_truth_307_acceptance_audit.mjs";
+import {
+  evaluateLegalInterpretation,
+  evaluatePrimaryLaw,
+} from "./build_wiki_truth_307_acceptance_audit.mjs";
 import { deriveOfficialTruthColor } from "../../apps/web/src/lib/wikiTruthColorEngine.js";
+import { reconcileDeclaredIndependentTruth } from "./independent_truth_consistency.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const normalizedUrlKey = (value) => {
@@ -234,6 +244,76 @@ test("matrix-builder published-link reporting includes supplemental official lin
   );
 });
 
+test("pass_cycle refreshes the canonical matrix once before projection tests", () => {
+  const passCycle = fs.readFileSync(path.join(ROOT, "tools", "pass_cycle.sh"), "utf8");
+  const refreshCommand = 'run_step "wiki_truth_307_build_wiki_truth_cannabis_law_matrix"';
+  const projectionTests = 'echo "RUN_OFFICIAL_EVIDENCE_REVALIDATION_TESTS=1"';
+  const refreshIndex = passCycle.indexOf(refreshCommand);
+  const projectionTestsIndex = passCycle.indexOf(projectionTests);
+  const derivedBuildersStart = passCycle.indexOf("TRUTH_FIRST_DERIVED_BUILDERS=(");
+  const derivedBuildersEnd = passCycle.indexOf("\n)", derivedBuildersStart);
+
+  assert(refreshIndex >= 0, "canonical matrix refresh command must exist");
+  assert(projectionTestsIndex >= 0, "projection-test stage must exist");
+  assert(refreshIndex < projectionTestsIndex, "canonical matrix must be fresh before projection tests");
+  assert.equal(passCycle.split(refreshCommand).length - 1, 1, "canonical matrix refresh must run exactly once");
+  assert(derivedBuildersStart >= 0 && derivedBuildersEnd > derivedBuildersStart, "derived-builder stage must exist");
+  assert.doesNotMatch(
+    passCycle.slice(derivedBuildersStart, derivedBuildersEnd),
+    /build_wiki_truth_cannabis_law_matrix\.mjs/,
+    "canonical matrix builder must not be repeated after projection tests",
+  );
+});
+
+test("matrix keeps structured strict visual acceptance human-readable", () => {
+  const matrix = JSON.parse(fs.readFileSync(
+    path.join(ROOT, "data", "reviews", "wiki-truth-cannabis-law-matrix-307.json"),
+    "utf8",
+  ));
+  for (const row of matrix.rows) {
+    assert.doesNotMatch(
+      String(row.reviewNotes || ""),
+      /\[object Object\]|\bundefined\b|\bnull\b/i,
+      `${row.geo}: review notes must not expose a serialized machine value`,
+    );
+  }
+  const dz = matrix.rows.find((row) => row.geo === "DZ");
+  assert.match(dz?.reviewNotes || "", /PARTIAL_CURRENT_OFFICIAL_GAZETTE_RENDERED/);
+  assert.match(dz?.reviewNotes || "", /browser address bar\/domain is absent/i);
+});
+
+test("structured C2/C3 source review renders its human summary without exposing an object coercion", () => {
+  const review = {
+    protocol: "C2_SEMANTIC_AND_C3_DIRECT_OFFICIAL_BROWSER_VISUAL_REVIEW",
+    review_summary: "Official owner, domain, cannabis fragment, and effective rule were visibly reviewed.",
+  };
+  assert.equal(
+    humanReadableVisualReview(review),
+    "Official owner, domain, cannabis fragment, and effective rule were visibly reviewed.",
+  );
+  assert.equal(
+    humanReadableVisualReview({ protocol: review.protocol }),
+    review.protocol,
+  );
+  assert.doesNotMatch(humanReadableVisualReview(review), /\[object Object\]/);
+});
+
+test("final reconciliation keeps every published source review human-readable", () => {
+  const report = JSON.parse(fs.readFileSync(
+    path.join(ROOT, "data", "reviews", "wiki-truth-307-final-reconciliation.json"),
+    "utf8",
+  ));
+  for (const row of report.rows || []) {
+    for (const source of row?.primaryLaw?.officialSources || []) {
+      assert.doesNotMatch(
+        String(source?.visualReview || ""),
+        /\[object Object\]|\bundefined\b|\bnull\b/i,
+        `${row.geo}: ${source?.url || "official source"} review must remain human-readable`,
+      );
+    }
+  }
+});
+
 test("matrix keeps canonical ledger official status ahead of legacy supplemental patches", () => {
   const ledger = JSON.parse(fs.readFileSync(
     path.join(ROOT, "data", "official", "cannabis_law_visual_reviews.audit.json"),
@@ -388,9 +468,18 @@ test("missing patient-access evidence cannot create a Red color from recreationa
 });
 
 test("documented competing claimant regimes prove the uncolored scope interpretation without selecting a claimant", () => {
+  const screenshotPath = new URL("./truth_first_reconciliation.test.mjs", import.meta.url).pathname;
   const result = evaluateLegalInterpretation({}, {
     visualReviewStatus: "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY",
-    screenshotPaths: [new URL("./truth_first_reconciliation.test.mjs", import.meta.url).pathname],
+    screenshotPaths: [screenshotPath],
+    officialContextLinks: [{
+      title: "Current official jurisdiction context",
+      evidenceScope: "OFFICIAL_CONTEXT_ONLY",
+      officialOwnerVisible: true,
+      effectiveRuleVisible: true,
+      screenshotValid: true,
+      screenshotPath,
+    }],
     truthLayers: {
       legalInterpretation: {
         source: "UNAVAILABLE",
@@ -407,6 +496,50 @@ test("documented competing claimant regimes prove the uncolored scope interpreta
   });
   assert.equal(result.status, "PROVEN");
   assert.equal(result.evidence.scopeException, true);
+});
+
+test("a structured current applicable primary-law packet proves manual legal interpretation", () => {
+  const result = evaluateLegalInterpretation({}, {
+    visualReviewStatus: "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY",
+    screenshotPaths: [new URL("./truth_first_reconciliation.test.mjs", import.meta.url).pathname],
+    truthLayers: {
+      legalInterpretation: {
+        source: "MANUAL_LEGAL_INTERPRETATION",
+        axis: {
+          recreational: "UNKNOWN",
+          medical: "UNKNOWN",
+          enforcement: "UNKNOWN",
+        },
+        notes: "Current applicable primary law and a separately reviewed cannabis bridge support the independent limited-route conclusion.",
+      },
+    },
+    differenceDescription: "The structured independent packet is proposal-only and leaves applied layers unchanged.",
+    reviewNotes: "Primary-law and cannabis-bridge pages were independently reviewed with retained visual evidence.",
+    officialContextLinks: [{
+      title: "Current applicable primary law",
+      url: "https://official.example/current-law",
+      sourceKind: "PRIMARY_STATUTE",
+      note: "Current cannabis-linked prescription route.",
+      screenshotPath: new URL("./truth_first_reconciliation.test.mjs", import.meta.url).pathname,
+    }],
+  });
+  assert.equal(result.status, "PROVEN");
+  assert.equal(result.evidence.source, "MANUAL_LEGAL_INTERPRETATION");
+});
+
+test("matrix leaves no eligible structured primary-law packet without a legal interpretation layer", () => {
+  const matrix = JSON.parse(fs.readFileSync(
+    path.join(ROOT, "data/reviews/wiki-truth-cannabis-law-matrix-307.json"),
+    "utf8",
+  ));
+  const violations = (matrix.rows || [])
+    .filter((row) => row.independentLegalInterpretation)
+    .filter((row) => ![
+      "MANUAL_LEGAL_INTERPRETATION",
+      "OFFICIAL_TEXT_DERIVED",
+    ].includes(row.truthLayers?.legalInterpretation?.source))
+    .map((row) => row.geo);
+  assert.deepEqual(violations, []);
 });
 
 function operationalPatientEvidence(overrides = {}) {
@@ -541,6 +674,9 @@ test("snake-case structured review packets contribute official multi-source axes
           url: "https://health.example.gov/patient-route",
           source_type: "OFFICIAL_PROGRAMME_PATIENT_ROUTE",
           official_owner: "Health Department",
+          official_owner_visible: true,
+          official_domain_visible: true,
+          screenshot_valid: true,
           visual_evidence: "evidence/patient-route.png",
           visual_reviewed: true,
         },
@@ -549,6 +685,9 @@ test("snake-case structured review packets contribute official multi-source axes
           url: "https://laws.example.gov/dispensing",
           source_type: "OFFICIAL_PRIMARY_DISPENSING_RULE",
           official_owner: "Official legislature",
+          official_owner_visible: true,
+          official_domain_visible: true,
+          screenshot_valid: true,
           visual_evidence: "evidence/dispensing.png",
           visual_reviewed: true,
         },
@@ -560,6 +699,21 @@ test("snake-case structured review packets contribute official multi-source axes
   assert.equal(result?.facts.lawfulRoute, true);
   assert.equal(result?.facts.supply, true);
   assert.equal(result?.facts.operational, true);
+  assert.deepEqual(
+    result?.officialSources.map((source) => ({
+      officialOwnerVisible: source.officialOwnerVisible,
+      officialDomainVisible: source.officialDomainVisible,
+      screenshotValid: source.screenshotValid,
+    })),
+    [
+      { officialOwnerVisible: true, officialDomainVisible: true, screenshotValid: true },
+      { officialOwnerVisible: true, officialDomainVisible: true, screenshotValid: true },
+    ],
+  );
+  assert.equal(hasFreshIndependentVisualEvidence({
+    truthSource: result?.source,
+    primaryLaw: { freshAxisOfficialSources: result?.officialSources },
+  }), true);
 });
 
 test("visual-review ledger packets feed legal truth without depending on final screenshot acceptance", () => {
@@ -908,6 +1062,120 @@ test("compatible independent evidence packets aggregate while divergent color co
   assert.equal(buildFreshAxisTruthOverride(divergent), null);
 });
 
+test("freshTruthColor seed conclusions conflict with a divergent independent ledger conclusion", () => {
+  const geo = "TEST-FRESH-TRUTH-COLOR-CONFLICT";
+  const seedRow = {
+    geo,
+    ...operationalPatientEvidence({
+      truthFirstColorConclusion: {
+        freshTruthColor: "GREEN",
+        freshTruthRule: "GENERAL_OPERATIONAL_PATIENT_ACCESS_MULTI_AXIS",
+        reason: "Current official evidence proves the connected patient route.",
+      },
+    }),
+  };
+  const divergentLedger = {
+    geo,
+    status: "VISUALLY_VERIFIED",
+    independent_truth_color: "YELLOW",
+    independent_truth_rule: "GENERAL_LIMITED_LAWFUL_ROUTE",
+    evidence_axes: {
+      patient_eligible: "YES_CURRENT_PATIENT_ROUTE",
+      prescriber_route: "YES_CURRENT_PRESCRIBER_ROUTE",
+      lawful_supply: "YES_CURRENT_LAWFUL_SUPPLY",
+      programme_operational: "NO_CURRENT_OPERATIONAL_PROGRAMME_PROOF",
+    },
+    verified_sources: [
+      {
+        title: "Current official patient route",
+        url: "https://health.example.gov/current-patient-route",
+        source_kind: "OFFICIAL_HEALTH_PATIENT_ROUTE",
+        screenshot_path: "evidence/current-patient-route.png",
+      },
+      {
+        title: "Current official lawful supply",
+        url: "https://legislation.example/current-lawful-supply",
+        source_kind: "OFFICIAL_LAWFUL_SUPPLY_RULE",
+        screenshot_path: "evidence/current-lawful-supply.png",
+      },
+    ],
+  };
+  const evidence = buildFreshAxisEvidenceByGeo(
+    { rows: [seedRow] },
+    { rows: [divergentLedger] },
+  ).get(geo);
+  assert.equal(evidence?.reconciliationStatus, "FRESH_AXIS_CONFLICT_REQUIRES_REVIEW");
+  assert.equal(buildFreshAxisTruthOverride(evidence), null);
+});
+
+test("an incomplete supplemental packet cannot invalidate an agreeing verified source packet", () => {
+  const geo = "TEST-SUPPLEMENTAL-PACKET-RETAINS-VERIFIED-TRUTH";
+  const seedRow = { geo, ...operationalPatientEvidence() };
+  const incompleteLedger = {
+    geo,
+    status: "PARTIAL_CURRENT_SOURCE_SCREENSHOT_PENDING",
+    independent_truth_color: "GREEN",
+    independent_truth_rule: "GENERAL_OPERATIONAL_PATIENT_ACCESS_MULTI_AXIS",
+    evidence_axes: {
+      patient_eligible: "YES_CURRENT_PATIENT_ROUTE",
+      prescriber_route: "YES_CURRENT_PRESCRIBER_ROUTE",
+      lawful_supply: "YES_CURRENT_LAWFUL_SUPPLY",
+      programme_operational: "YES_CURRENT_OPERATIONAL_PROGRAMME",
+    },
+    verified_sources: [
+      {
+        title: "Historical context only",
+        url: "https://archive.example/historical-context",
+        source_kind: "OFFICIAL_HISTORICAL_CONTEXT",
+      },
+    ],
+  };
+  const evidence = buildFreshAxisEvidenceByGeo(
+    { rows: [seedRow] },
+    { rows: [incompleteLedger] },
+  ).get(geo);
+  const result = buildFreshAxisTruthOverride(evidence);
+  assert.equal(evidence?.reconciliationStatus, "FRESH_AXIS_RECONCILED");
+  assert.equal(result?.color, "GREEN");
+  assert.equal(result?.officialSourceCount, 2);
+});
+
+test("an unqualified contextual lead cannot veto qualified sources in the same official packet", () => {
+  const evidence = operationalPatientEvidence({
+    officialSources: [],
+    currentOfficialSources: [
+      {
+        url: "https://health.example.gov/patient-route",
+        sourceType: "CURRENT_OFFICIAL_PATIENT_REGISTRY",
+        sourceOwner: "Health Ministry",
+        sourceOwnerGeo: "TEST-PACKET-QUALIFIED-SOURCES",
+        appliesToGeos: ["TEST-PACKET-QUALIFIED-SOURCES"],
+        officialHostVerified: true,
+      },
+      {
+        url: "https://laws.example.gov/dispensing-route",
+        sourceType: "CURRENT_PRIMARY_DISPENSING_STATUTE",
+        sourceOwner: "Official legislature",
+        sourceOwnerGeo: "TEST-PACKET-QUALIFIED-SOURCES",
+        appliesToGeos: ["TEST-PACKET-QUALIFIED-SOURCES"],
+        officialHostVerified: true,
+      },
+      {
+        url: "https://archive.invalid/unverified-context",
+        sourceType: "HISTORICAL_CONTEXT_LEAD",
+        sourceOwner: "Unverified context",
+      },
+    ],
+  });
+  const result = buildFreshAxisTruthOverride(evidence);
+  assert.equal(result?.color, "GREEN");
+  assert.equal(result?.officialSourceCount, 2);
+  assert.equal(
+    result?.officialSources.some((source) => source.url.includes("unverified-context")),
+    false,
+  );
+});
+
 test("one current primary lawful-possession and personal-cultivation statute can establish legal truth", () => {
   const packet = normalizeVisualReviewLedgerPacket({
     geo: "TEST-ADULT-POSSESSION",
@@ -968,6 +1236,430 @@ test("proven recreational possession and use remain adult-use proof in final rec
     }, "FRESH_PRIMARY_LAW_AXIS_GREEN"),
     true,
   );
+});
+
+test("canonical result materializes only the confidence vocabulary required by the 307-GEO audit", () => {
+  const axis = { value: "PROVEN", status: "KNOWN", sourceLayer: "TEST", evidenceClass: "TEST" };
+  const result = buildCanonicalTruthResult({
+    geo: "TEST-CONFIDENCE",
+    territory: "Confidence test",
+    canonicalTruth: {
+      color: "GREEN",
+      ruleId: "GENERAL_TEST_OPERATIONAL_ACCESS",
+      source: "FRESH_PRIMARY_LAW_AXIS_RECONCILIATION",
+      confidence: "HIGH",
+      reason: "Independent official sources prove the test route.",
+      reviewedAt: "2026-08-13T00:00:00.000Z",
+    },
+    truthRow: { truth: { facts: { patient: true, lawfulRoute: true, supply: true, operational: true } } },
+    axisRow: { axisGroups: { recreational: { use: axis, possession: axis }, legal_state: { operational: axis } } },
+    officialSources: [{
+      url: "https://regulator.example.gov/current-route",
+      officialPublisher: "Test cannabis regulator",
+      officialOwnerVisible: true,
+      sourceOwnerGeo: "TEST-CONFIDENCE",
+      appliesToGeos: ["TEST-CONFIDENCE"],
+      current: true,
+      effective: true,
+      cannabisSpecific: true,
+      directFragmentAvailable: true,
+      screenshotValid: true,
+      visualOpened: true,
+      cannabisFragmentVisible: true,
+      effectiveRuleVisible: true,
+      primaryOrContext: "PRIMARY",
+    }],
+  });
+  assert.equal(result.truth_confidence, "STRONG");
+  assert.equal(result.source_authority, "PROVEN");
+  assert.equal(result.source_freshness, "PROVEN");
+  assert.equal(result.evidence_source, "FRESH_PRIMARY_LAW_AXIS_RECONCILIATION");
+  assert.equal(result.evidence_completeness, "PROVEN");
+  assert.equal(result.jurisdiction_match_confidence, "PROVEN");
+  assert.equal(result.legal_interpretation_confidence, "STRONG");
+  assert.equal(
+    hasCanonicalTruthResult({ geo: "TEST-CONFIDENCE", truthColor: "GREEN", canonicalTruthResult: result }),
+    true,
+  );
+  assert.equal(
+    hasCanonicalTruthResult({
+      geo: "TEST-CONFIDENCE",
+      truthColor: "GREEN",
+      canonicalTruthResult: { ...result, truth_confidence: "HIGH" },
+    }),
+    false,
+  );
+});
+
+test("canonical-ledger result retains independent fresh-axis source freshness", () => {
+  const axis = { value: "PROVEN", status: "KNOWN", sourceLayer: "TEST", evidenceClass: "TEST" };
+  const result = buildCanonicalTruthResult({
+    geo: "TEST-LEDGER-PROVENANCE",
+    territory: "Ledger provenance test",
+    canonicalTruth: {
+      color: "GREEN",
+      ruleId: "GENERAL_TEST_LEDGER_RULE",
+      source: "CANONICAL_INDEPENDENT_LEDGER",
+      confidence: "PROVEN",
+      reason: "Canonical ledger retains the independently reconciled evidence.",
+      reviewedAt: "2026-08-14T00:00:00.000Z",
+    },
+    truthRow: {
+      truth: {
+        source: "FRESH_PRIMARY_LAW_AXIS_RECONCILIATION",
+        facts: { patient: false, lawfulRoute: false, supply: false, operational: false },
+      },
+    },
+    axisRow: { axisGroups: { legal_state: { operational: axis } } },
+    officialSources: [{
+      url: "https://regulator.example.gov/current-law",
+      officialPublisher: "Test cannabis regulator",
+      officialOwnerVisible: true,
+      sourceOwnerGeo: "TEST-LEDGER-PROVENANCE",
+      appliesToGeos: ["TEST-LEDGER-PROVENANCE"],
+      current: true,
+      effective: true,
+      cannabisSpecific: true,
+      directFragmentAvailable: true,
+      screenshotValid: true,
+      visualOpened: true,
+      cannabisFragmentVisible: true,
+      effectiveRuleVisible: true,
+      primaryOrContext: "PRIMARY",
+    }],
+  });
+  assert.equal(result.source_freshness, "PROVEN");
+  assert.equal(result.evidence_source, "FRESH_PRIMARY_LAW_AXIS_RECONCILIATION");
+});
+
+test("canonical result materializes validated fresh patient-access facts over a coarse axis placeholder", () => {
+  const result = buildCanonicalTruthResult({
+    geo: "TEST-FRESH-PATIENT-ACCESS",
+    territory: "Fresh patient access test",
+    canonicalTruth: {
+      color: "GREEN",
+      ruleId: "GENERAL_OPERATIONAL_PATIENT_ACCESS_MULTI_AXIS",
+      source: "CANONICAL_INDEPENDENT_LEDGER",
+      confidence: "HIGH",
+    },
+    truthRow: {
+      truth: {
+        source: "FRESH_PRIMARY_LAW_AXIS_RECONCILIATION",
+        facts: { patient: true, lawfulRoute: true, supply: true, operational: true },
+      },
+    },
+    axisRow: {
+      axisGroups: {
+        legal_state: {
+          operational: {
+            value: "NOT_CONFIRMED_OPERATIONAL",
+            status: "KNOWN_COARSE",
+            sourceLayer: "OFFICIAL_LEGAL_INTERPRETATION_TEXT",
+            evidenceClass: "COARSE_TRUTH_RULE_AXIS_DERIVATION",
+          },
+        },
+      },
+    },
+    officialSources: [],
+  });
+  assert.equal(result.operational_patient_access.value, "PROVEN_OPERATIONAL_PATIENT_ACCESS");
+  assert.equal(result.operational_patient_access.status, "PROVEN");
+  assert.equal(
+    result.operational_patient_access.evidence_class,
+    "DIRECT_VALIDATED_MULTI_SOURCE_AXIS_FINDINGS",
+  );
+});
+
+function currentFinalReconciliationRows() {
+  const report = JSON.parse(fs.readFileSync(
+    path.join(ROOT, "data", "reviews", "wiki-truth-307-final-reconciliation.json"),
+    "utf8",
+  ));
+  return new Map(report.rows.map((row) => [row.geo, row]));
+}
+
+test("final reconciliation exposes only controlled confidence values to the audit UI", () => {
+  const report = JSON.parse(fs.readFileSync(
+    path.join(ROOT, "data", "reviews", "wiki-truth-307-final-reconciliation.json"),
+    "utf8",
+  ));
+  const allowed = new Set(["PROVEN", "STRONG", "PARTIAL", "CONFLICTING", "UNKNOWN"]);
+  assert.equal(report.rows.length, 307);
+  assert.ok(report.rows.every((row) => allowed.has(row.truthConfidence)));
+  assert.deepEqual(
+    Object.keys(report.counts.truthConfidence || {}).sort(),
+    [...allowed].sort(),
+  );
+  assert.equal(
+    Object.values(report.counts.truthConfidence || {}).reduce((sum, value) => sum + Number(value || 0), 0),
+    307,
+  );
+});
+
+test("final reconciliation keeps fresh-axis evidence provenance separate from canonical ledger presentation", () => {
+  const report = JSON.parse(fs.readFileSync(
+    path.join(ROOT, "data/reviews/wiki-truth-307-final-reconciliation.json"),
+    "utf8",
+  ));
+  const rows = new Map(report.rows.map((row) => [row.geo, row]));
+  for (const geo of ["CA", "US-MN", "SL"]) {
+    const row = rows.get(geo);
+    assert.equal(row?.truthSource, "CANONICAL_INDEPENDENT_LEDGER");
+    assert.equal(row?.truthEvidenceSource, "FRESH_PRIMARY_LAW_AXIS_RECONCILIATION");
+    assert.equal(row?.freshIndependentVisualEvidence, true);
+    assert.equal(
+      row?.canonicalTruthResult?.evidence_source,
+      "FRESH_PRIMARY_LAW_AXIS_RECONCILIATION",
+    );
+  }
+});
+
+test("completion dossier labels canonical final colours separately from raw derivation", () => {
+  const finalReconciliation = JSON.parse(fs.readFileSync(
+    path.join(ROOT, "data/reviews/wiki-truth-307-final-reconciliation.json"),
+    "utf8",
+  ));
+  const completionDossier = JSON.parse(fs.readFileSync(
+    path.join(ROOT, "data/reviews/wiki-truth-307-completion-gap-dossier.json"),
+    "utf8",
+  ));
+  assert.deepEqual(
+    completionDossier.summary?.currentTruthColorCounts,
+    finalReconciliation.counts?.truthColors,
+  );
+  assert.notDeepEqual(
+    completionDossier.summary?.rawDerivedTruthColorCounts,
+    completionDossier.summary?.currentTruthColorCounts,
+  );
+});
+
+test("documented no-unitary scope exception completes primary-law review without a territorial statute", () => {
+  const report = JSON.parse(fs.readFileSync(
+    path.join(ROOT, "data/reviews/wiki-truth-307-truth-audit-report.json"),
+    "utf8",
+  ));
+  const matrix = JSON.parse(fs.readFileSync(
+    path.join(ROOT, "data/reviews/wiki-truth-cannabis-law-matrix-307.json"),
+    "utf8",
+  ));
+  const reportRow = report.rows.find((row) => row.geo === "AQ");
+  const matrixRow = matrix.rows.find((row) => row.geo === "AQ");
+  const result = evaluatePrimaryLaw(reportRow, matrixRow, null);
+  assert.equal(result.status, "PROVEN");
+  assert.match(result.reason, /no single territory-issued/i);
+});
+
+test("scope exception requires current link-level visual proof rather than a stale aggregate screenshot", () => {
+  const screenshotPath = new URL("./truth_first_reconciliation.test.mjs", import.meta.url).pathname;
+  const baseMatrixRow = {
+    visualReviewStatus: "VISUALLY_REVIEWED_OFFICIAL_CONTEXT_ONLY",
+    screenshotPaths: ["/missing/historical-scope-capture.png"],
+    differenceDescription: "No unitary territorial cannabis-law regime can be selected.",
+    reviewNotes: "Official jurisdiction context was reviewed without selecting a sovereign.",
+    officialContextLinks: [{
+      title: "Current official jurisdiction context",
+      evidenceScope: "OFFICIAL_CONTEXT_ONLY",
+      officialOwnerVisible: true,
+      effectiveRuleVisible: true,
+      screenshotValid: true,
+      screenshotPath,
+    }],
+  };
+  const reportRow = {
+    sourceCoverage: "OFFICIAL_LEGAL_AXIS_PENDING_VISUAL_ACCEPTANCE",
+    truth: { color: "UNKNOWN" },
+  };
+  assert.equal(evaluatePrimaryLaw(reportRow, baseMatrixRow, null).status, "PROVEN");
+  assert.equal(evaluatePrimaryLaw(reportRow, {
+    ...baseMatrixRow,
+    officialContextLinks: [{
+      ...baseMatrixRow.officialContextLinks[0],
+      screenshotValid: false,
+    }],
+  }, null).status, "PARTIAL");
+});
+
+test("required legal regression corpus remains fixture-only and passes through the general reconciliation result", () => {
+  const rows = currentFinalReconciliationRows();
+  for (const geo of ["UY", "US-CO", "US-DE", "US-OK", "US-PA", "AR"]) {
+    assert.equal(rows.get(geo)?.truthColor, "GREEN", `${geo} must retain operational access`);
+  }
+  assert.equal(rows.get("FO")?.truthColor, "YELLOW");
+  assert.equal(rows.get("GE")?.canonicalTruthResult?.governing_jurisdiction, "GE");
+  assert.equal(rows.get("US-GA")?.canonicalTruthResult?.governing_jurisdiction, "US-GA");
+  assert.notDeepEqual(
+    rows.get("GE")?.canonicalTruthResult?.official_sources,
+    rows.get("US-GA")?.canonicalTruthResult?.official_sources,
+  );
+  for (const geo of ["AF", "AQ", "BJN", "BV", "GQ", "US-GA", "HN", "CI", "LR", "MV", "KP", "PN", "SER", "SJ", "UM", "WF"]) {
+    const row = rows.get(geo);
+    assert.ok(row?.truthRuleId, `${geo}: explicit resolver rule`);
+    assert.ok(row?.truthReason, `${geo}: explicit evidence explanation`);
+    assert.notEqual(row?.applyState, "SAFE_TO_APPLY", `${geo}: no auto-application while reconciliation is open`);
+  }
+  for (const geo of ["AQ", "BV", "PN", "SJ", "UM", "BJN", "BRT", "SER", "KAS", "SPI", "PGA"]) {
+    const row = rows.get(geo);
+    assert.equal(row?.truthColor, "UNKNOWN", `${geo}: no automatic inherited colour`);
+    assert.match(String(row?.truthRuleId || ""), /NO_UNITARY|DISPUTED|UNRESOLVED|DEPENDENT|COMPONENTS/);
+  }
+  for (const [geo, color] of [["AL", "YELLOW"], ["BA", "YELLOW"], ["ZM", "YELLOW"], ["ZW", "YELLOW"], ["AG", "GREEN"]]) {
+    assert.equal(rows.get(geo)?.truthColor, color, `${geo}: positive correction remains stable`);
+  }
+});
+
+test("reviewed current legal and operating adult-use sources prove the independent green gate", () => {
+  const result = hasIndependentLedgerGreenProof({}, [
+    {
+      url: "https://regulator.example/adult-law",
+      current: true,
+      effective: true,
+      cannabisSpecific: true,
+      directFragmentAvailable: true,
+      screenshotValid: true,
+      visualOpened: true,
+      officialOwnerVisible: true,
+      cannabisFragmentVisible: true,
+      effectiveRuleVisible: true,
+      note: "Adults 21 years or older may lawfully possess and use cannabis.",
+    },
+    {
+      url: "https://regulator.example/dispensary-directory",
+      current: true,
+      effective: true,
+      cannabisSpecific: true,
+      directFragmentAvailable: true,
+      screenshotValid: true,
+      visualOpened: true,
+      officialOwnerVisible: true,
+      cannabisFragmentVisible: true,
+      effectiveRuleVisible: true,
+      note: "The regulator has issued licenses to adult-use dispensaries listed in this directory.",
+    },
+  ]);
+  assert.equal(result, true);
+});
+
+test("statutory permission or an incomplete visual review cannot prove operational adult use", () => {
+  const base = {
+    url: "https://legislature.example/law",
+    current: true,
+    effective: true,
+    cannabisSpecific: true,
+    directFragmentAvailable: true,
+    screenshotValid: true,
+    visualOpened: true,
+    officialOwnerVisible: true,
+    cannabisFragmentVisible: true,
+    effectiveRuleVisible: true,
+  };
+  assert.equal(hasIndependentLedgerGreenProof({}, [{
+    ...base,
+    note: "An adult-use consumer who obtains cannabis from a licensed dispensary may use it; 400 dispensaries are permitted to operate.",
+  }]), false);
+  assert.equal(hasIndependentLedgerGreenProof({}, [{
+    ...base,
+    screenshotValid: false,
+    note: "Adults 21 years or older may lawfully purchase from licensed dispensaries currently open.",
+  }]), false);
+});
+
+test("strict reviewed patient route, supply, and operation prove independent green access", () => {
+  const base = {
+    url: "https://health.example/programme",
+    current: true,
+    effective: true,
+    cannabisSpecific: true,
+    directFragmentAvailable: true,
+    screenshotValid: true,
+    visualOpened: true,
+    officialOwnerVisible: true,
+    cannabisFragmentVisible: true,
+    effectiveRuleVisible: true,
+  };
+  assert.equal(hasIndependentLedgerGreenProof({}, [
+    {
+      ...base,
+      note: "A patient enters the registry with a medical prescription; dispensing follows registry verification.",
+    },
+    {
+      ...base,
+      url: "https://health.example/report",
+      note: "The current report records enrolled patients, registered medical professionals, and cannabis products received.",
+    },
+  ]), true);
+  assert.equal(hasIndependentLedgerGreenProof({}, [{
+    ...base,
+    note: "A patient may receive a prescription and cannabis supply under the programme.",
+  }]), false);
+});
+
+test("operational ledger status preserves whether Green proof is medical or adult-use", () => {
+  const source = {
+    url: "https://pharmacy.example/current-sales",
+    cannabisSpecific: true,
+  };
+  assert.equal(
+    independentLedgerGreenProofKind(
+      { officialStatus: { medical: "OPERATIONAL_MEDICAL_DISPENSARY_CURRENT_SALES_REPORTED" } },
+      [source],
+    ),
+    "PROVEN_OPERATIONAL_PATIENT_ACCESS",
+  );
+  assert.equal(
+    independentLedgerGreenProofKind(
+      { officialStatus: { recreational: "OPERATIONAL_ADULT_USE_CURRENT_RETAIL" } },
+      [source],
+    ),
+    "PROVEN_ADULT_USE_LEGALITY",
+  );
+});
+
+test("an active individual private-prescription import process needs both official licensing and pharmacy shipment", () => {
+  const source = {
+    url: "https://health.example/individual-import",
+    current: true,
+    effective: true,
+    cannabisSpecific: true,
+    directFragmentAvailable: true,
+    screenshotValid: true,
+    visualOpened: true,
+    officialOwnerVisible: true,
+    cannabisFragmentVisible: true,
+    effectiveRuleVisible: true,
+    exactFragment: "These controlled cannabis substances are obtained by private prescription. Each individual importation requires an official import licence, and upon receipt the individual forwards it to a pharmacy for shipment. The authority complies with the legal process for issuing import licences and local doctors may prescribe privately.",
+  };
+  assert.equal(hasIndependentLedgerGreenProof({}, [source]), true);
+  assert.equal(hasIndependentLedgerGreenProof({}, [{
+    ...source,
+    exactFragment: "These controlled cannabis substances are obtained by private prescription and an individual may apply for an import licence.",
+  }]), false);
+});
+
+test("final reconciliation keeps the current independent ledger result ahead of a stale derived report", () => {
+  const canonical = selectCanonicalTruthResult(
+    { truth: { color: "UNKNOWN", ruleId: "OFFICIAL_STATUS_INDETERMINATE" } },
+    {
+      independentTruth: { color: "GREEN", rule: "GENERAL_OPERATIONAL_ADULT_USE", reviewedAt: "2026-08-12" },
+      reviewConfidence: "strong",
+      reviewNotes: "Independent official evidence confirms operational adult-use access.",
+    },
+  );
+  assert.equal(canonical.color, "GREEN");
+  assert.equal(canonical.ruleId, "GENERAL_OPERATIONAL_ADULT_USE");
+  assert.equal(canonical.source, "CANONICAL_INDEPENDENT_LEDGER");
+});
+
+test("an explicit limited-access conclusion cannot remain GREEN through a stale structured color", () => {
+  const result = reconcileDeclaredIndependentTruth({
+    declaredColor: "GREEN",
+    declaredRule: "GENERAL_OPERATIONAL_PATIENT_ACCESS",
+    conclusions: [
+      "The framework proves limited lawful access only. Independent Truth Color is YELLOW, not GREEN.",
+    ],
+  });
+  assert.equal(result.color, "YELLOW");
+  assert.equal(result.corrected, true);
+  assert.equal(result.rule, "CONCLUSION_EXPLICIT_COLOR_CONSISTENCY_GUARD_YELLOW");
 });
 
 test("source-access attempts without structured axes cannot create a truth override", () => {
@@ -1047,6 +1739,20 @@ test("fresh visual evidence requires an explicit official-domain proof for every
   assert.equal(hasFreshIndependentVisualEvidence(row), false);
   row.primaryLaw.freshAxisOfficialSources[0].officialDomainVisible = true;
   assert.equal(hasFreshIndependentVisualEvidence(row), true);
+});
+
+test("canonical-ledger presentation does not erase fresh-axis visual provenance", () => {
+  assert.equal(hasFreshIndependentVisualEvidence({
+    truthSource: "CANONICAL_INDEPENDENT_LEDGER",
+    truthEvidenceSource: "FRESH_PRIMARY_LAW_AXIS_RECONCILIATION",
+    primaryLaw: {
+      freshAxisOfficialSources: [{
+        officialOwnerVisible: true,
+        officialDomainVisible: true,
+        screenshotValid: true,
+      }],
+    },
+  }), true);
 });
 
 

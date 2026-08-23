@@ -1,0 +1,198 @@
+[
+  {
+    "source_record_id": "US-LA:BASE:01",
+    "legal_name": "H & W Acquisition Company LLC",
+    "address": "1667 Tchoupitoulas Blvd., Suite B, New Orleans, LA 70130",
+    "region": "LA",
+    "directory_kind": "BASE"
+  },
+  {
+    "source_record_id": "US-LA:BASE:02",
+    "legal_name": "Crescent City Therapeutics, LLC",
+    "address": "100 W. Airline Hwy, Kenner, LA 70062",
+    "region": "LA",
+    "directory_kind": "BASE"
+  },
+  {
+    "source_record_id": "US-LA:BASE:03",
+    "legal_name": "Capitol Wellness Solutions, LLC",
+    "address": "8037 Picardy Avenue, Baton Rouge, LA 70809",
+    "region": "LA",
+    "directory_kind": "BASE"
+  },
+  {
+    "source_record_id": "US-LA:BASE:04",
+    "legal_name": "Green Leaf Dispensary, LLC",
+    "address": "174 Arlington Street, Morgan City, LA 70280",
+    "region": "LA",
+    "directory_kind": "BASE"
+  },
+  {
+    "source_record_id": "US-LA:BASE:05",
+    "legal_name": "The Apothecary Shoppe, LLC",
+    "address": "2104 Ambassador Caffery Parkway, Lafayette, LA 70506",
+    "region": "LA",
+    "directory_kind": "BASE"
+  },
+  {
+    "source_record_id": "US-LA:BASE:06",
+    "legal_name": "Medicis, LLC",
+    "address": "3005 L'Auberge Blvd., Lake Charles, LA 70601",
+    "region": "LA",
+    "directory_kind": "BASE"
+  },
+  {
+    "source_record_id": "US-LA:BASE:07",
+    "legal_name": "The Medicine Cabinet Pharmacy, LLC",
+    "address": "40 Pinecrest Drive, Pineville, LA 71360",
+    "region": "LA",
+    "directory_kind": "BASE"
+  },
+  {
+    "source_record_id": "US-LA:BASE:08",
+    "legal_name": "Hope Pharmacy, LLC",
+    "address": "4590 E. Texas Street, Bossier City, LA 71111",
+    "region": "LA",
+    "directory_kind": "BASE"
+  },
+  {
+    "source_record_id": "US-LA:BASE:09",
+    "legal_name": "Delta Medmar, LLC",
+    "address": "1707 McKeen Place, Monroe, LA 71201",
+    "region": "LA",
+    "directory_kind": "BASE"
+  },
+  {
+    "source_record_id": "US-LA:BASE:10",
+    "legal_name": "Willow Pharmacy, Inc.",
+    "address": "69090 Highway 190 Service Road, Covington, LA 70433",
+    "region": "LA",
+    "directory_kind": "BASE"
+  },
+  {
+    "source_record_id": "US-LA:SATELLITE:01",
+    "legal_name": "H & W Acquisition Company LLC",
+    "address": "5055 Veterans Memorial Blvd., Metairie, LA 70006",
+    "region": "LA",
+    "directory_kind": "SATELLITE"
+  },
+  {
+    "source_record_id": "US-LA:SATELLITE:02",
+    "legal_name": "H & W Acquisition Company LLC",
+    "address": "1544 Manhattan Blvd., Harvey, LA 70058",
+    "region": "LA",
+    "directory_kind": "SATELLITE"
+  },
+  {
+    "source_record_id": "US-LA:SATELLITE:03",
+    "legal_name": "Crescent City Therapeutics, LLC",
+    "address": "1407 S. Carrollton Avenue, New Orleans, LA 70118",
+    "region": "LA",
+    "directory_kind": "SATELLITE"
+  },
+  {
+    "source_record_id": "US-LA:SATELLITE:04",
+    "legal_name": "Capitol Wellness Solutions, LLC",
+    "address": "1940 O'Neal Lane, Baton Rouge, LA 70816",
+    "region": "LA",
+    "directory_kind": "SATELLITE"
+  },
+  {
+    "source_record_id": "US-LA:SATELLITE:05",
+    "legal_name": "Capitol Wellness Solutions, LLC",
+    "address": "17097 Airline Hwy, Prairieville, LA 70769",
+    "region": "LA",
+    "directory_kind": "SATELLITE"
+  },
+  {
+    "source_record_id": "US-LA:SATELLITE:06",
+    "legal_name": "Green Leaf Dispensary, LLC",
+    "address": "6048 W. Park Avenue, Houma, LA 70364",
+    "region": "LA",
+    "directory_kind": "SATELLITE"
+  },
+  {
+    "source_record_id": "US-LA:SATELLITE:07",
+    "legal_name": "The Apothecary Shoppe, LLC",
+    "address": "4079 I-49 S. Service Road, Opelousas, LA 70570",
+    "region": "LA",
+    "directory_kind": "SATELLITE"
+  },
+  {
+    "source_record_id": "US-LA:SATELLITE:08",
+    "legal_name": "The Apothecary Shoppe, LLC",
+    "address": "1700 Center Street, New Iberia, LA 70560",
+    "region": "LA",
+    "directory_kind": "SATELLITE"
+  },
+  {
+    "source_record_id": "US-LA:SATELLITE:09",
+    "legal_name": "Medicis, LLC",
+    "address": "1920 Evangeline Road, Jennings, LA 70546",
+    "region": "LA",
+    "directory_kind": "SATELLITE"
+  },
+  {
+    "source_record_id": "US-LA:SATELLITE:10",
+    "legal_name": "Medicis, LLC",
+    "address": "303 South Cities Service Hwy., Sulphur, LA 70663",
+    "region": "LA",
+    "directory_kind": "SATELLITE"
+  },
+  {
+    "source_record_id": "US-LA:SATELLITE:11",
+    "legal_name": "The Medicine Cabinet Pharmacy, LLC",
+    "address": "101 Cocoville Road, Mansura, LA 71350",
+    "region": "LA",
+    "directory_kind": "SATELLITE"
+  },
+  {
+    "source_record_id": "US-LA:SATELLITE:12",
+    "legal_name": "The Medicine Cabinet Pharmacy, LLC",
+    "address": "111 W. Harriet Street, Leesville, LA 71446",
+    "region": "LA",
+    "directory_kind": "SATELLITE"
+  },
+  {
+    "source_record_id": "US-LA:SATELLITE:13",
+    "legal_name": "Hope Pharmacy, LLC",
+    "address": "5033 University Parkway, Natchitoches, LA 71457",
+    "region": "LA",
+    "directory_kind": "SATELLITE"
+  },
+  {
+    "source_record_id": "US-LA:SATELLITE:14",
+    "legal_name": "Hope Pharmacy, LLC",
+    "address": "9352 Mansfield Road, Shreveport, LA 71118",
+    "region": "LA",
+    "directory_kind": "SATELLITE"
+  },
+  {
+    "source_record_id": "US-LA:SATELLITE:15",
+    "legal_name": "Delta Medmar, LLC",
+    "address": "111 McMillian Road, West Monroe, LA 71291",
+    "region": "LA",
+    "directory_kind": "SATELLITE"
+  },
+  {
+    "source_record_id": "US-LA:SATELLITE:16",
+    "legal_name": "Delta Medmar, LLC",
+    "address": "746 Celebrity Drive, Ruston, LA 71270",
+    "region": "LA",
+    "directory_kind": "SATELLITE"
+  },
+  {
+    "source_record_id": "US-LA:SATELLITE:17",
+    "legal_name": "Willow Pharmacy, Inc.",
+    "address": "796 East I-10 Service Road, Slidell, LA 70461",
+    "region": "LA",
+    "directory_kind": "SATELLITE"
+  },
+  {
+    "source_record_id": "US-LA:SATELLITE:18",
+    "legal_name": "Willow Pharmacy, Inc.",
+    "address": "1410 SW Railroad Avenue, Hammond, LA 70403",
+    "region": "LA",
+    "directory_kind": "SATELLITE"
+  }
+]

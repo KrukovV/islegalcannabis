@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-15T04:41:22.240Z",
+  "input_path": "data/store_truth/coordinate_augmentations/us-ut-current-medical-cannabis-pharmacies-census-input-2026-08-15.json",
+  "input_sha256": "92a3eed6aab27437c0fe3b89ac1fa8b6a153b91d6dd4acb590902bc295f4ea46",
+  "census_geocoder_url": "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+  "census_benchmark": "Public_AR_Current",
+  "census_response_sha256": "9d18bdbad3bf61a08977f3149744a493e32f5514907e38b55df140e9ebf2fa41",
+  "records": [
+    {
+      "source_record_id": "BEEHIVEFARMACYSALTLAKECITY:1991S3600WSALTLAKECITYUT84104",
+      "address": "1991 S 3600 W",
+      "city": "Salt Lake City",
+      "region": "UT",
+      "postal_code": "84104",
+      "latitude": 40.727182886823,
+      "longitude": -111.97710008514,
+      "census_matched_postal_code": "84104",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1991 S 3600 W, SALT LAKE CITY, UT, 84104"
+      }
+    },
+    {
+      "source_record_id": "BLOCPHARMACYSOUTHJORDAN:10392SOUTHJORDANGATEWAYSOUTHJORDANUT84095",
+      "address": "10392 South Jordan Gateway",
+      "city": "South Jordan",
+      "region": "UT",
+      "postal_code": "84095",
+      "latitude": 40.562128162737,
+      "longitude": -111.902575926995,
+      "census_matched_postal_code": "84095",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "10392 S JORDAN GATEWAY, SOUTH JORDAN, UT, 84095"
+      }
+    },
+    {
+      "source_record_id": "BLOCPHARMACYSTGEORGE:1624SCONVENTIONCENTERDRIVESTGEORGEUT84790",
+      "address": "1624 S Convention Center Drive",
+      "city": "St. George",
+      "region": "UT",
+      "postal_code": "84790",
+      "latitude": 37.08043843566,
+      "longitude": -113.582507938886,
+      "census_matched_postal_code": "84790",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1624 S CONVENTION CENTER DR, ST GEORGE, UT, 84790"
+      }
+    },
+    {
+      "source_record_id": "CURALEAFPROVO:222NDRAPERLANEPROVOUT84601",
+      "address": "222 N Draper Lane",
+      "city": "Provo",
+      "region": "UT",
+      "postal_code": "84601",
+      "latitude": 40.236461626615,
+      "longitude": -111.686354486927,
+      "census_matched_postal_code": "84601",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "222 N DRAPER LN, PROVO, UT, 84601"
+      }
+    },
+    {
+      "source_record_id": "DRAGONFLYWELLNESSPRICE:20EMAINSTREETPRICEUT84501",
+      "address": "20 E Main Street",
+      "city": "Price",
+      "region": "UT",
+      "postal_code": "84501",
+      "latitude": 39.599531441631,
+      "longitude": -110.810827744166,
+      "census_matched_postal_code": "84501",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "20 E MAIN ST, PRICE, UT, 84501"
+      }
+    },
+    {
+      "source_record_id": "DRAGONFLYWELLNESSSALTLAKECITY:711SOUTHSTATESTREETSALTLAKECITYUT84111",
+      "address": "711 South State Street",
+      "city": "Salt Lake City",
+      "region": "UT",
+      "postal_code": "84111",
+      "latitude": 40.753465429873,
+      "longitude": -111.888142130249,
+      "census_matched_postal_code": "84111",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "711 S STATE ST, SALT LAKE CITY, UT, 84111"
+      }
+    },
+    {
+      "source_record_id": "ZIONMEDICINAL:301SMAINSTREETCEDARCITYUT84720",
+      "address": "301 S Main Street",
+      "city": "Cedar City",
+      "region": "UT",
+      "postal_code": "84720",
+      "latitude": 37.67209333328,
+      "longitude": -113.061504097525,
+      "census_matched_postal_code": "84720",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "301 S MAIN ST, CEDAR CITY, UT, 84720"
+      }
+    }
+  ],
+  "counts": {
+    "input_records": 14,
+    "census_response_rows": 14,
+    "one_to_one_exact_census_geocodes": 7,
+    "blocked_census_no_exact_in_jurisdiction_match": 7
+  }
+}

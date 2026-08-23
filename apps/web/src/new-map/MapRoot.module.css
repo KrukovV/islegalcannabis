@@ -119,6 +119,40 @@
   color: #607282;
 }
 
+.truthMapStoreControl {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 12px;
+  font-size: 0.82rem;
+  line-height: 1.25;
+  color: #415568;
+  pointer-events: auto;
+}
+
+.truthMapStoreControl button {
+  flex: 0 0 auto;
+  border: 1px solid rgba(91, 112, 131, 0.4);
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #283746;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.truthMapStoreControl button:hover {
+  background: #ffffff;
+  border-color: #415568;
+}
+
+.truthMapStoreControl button:focus-visible {
+  outline: 3px solid rgba(124, 58, 237, 0.35);
+  outline-offset: 2px;
+}
+
 .errorBox {
   position: absolute;
   z-index: 31;
@@ -570,7 +604,7 @@
   display: none;
 }
 
-:global(.new-map-country-popup-shell) :global(.maplibregl-popup-content) {
+.root :global(.new-map-country-popup-shell) :global(.maplibregl-popup-content) {
   border-radius: 18px;
   border: 1px solid rgba(103, 120, 133, 0.2);
   background: rgba(255, 255, 255, 0.96);
@@ -586,19 +620,40 @@
   -webkit-overflow-scrolling: touch;
 }
 
-:global(.new-map-country-popup-shell) :global(.maplibregl-popup-tip) {
+.root :global(.new-map-country-popup-shell) :global(.maplibregl-popup-tip) {
   border-top-color: rgba(255, 255, 255, 0.96);
 }
 
-:global(.new-map-country-popup-shell) :global(.maplibregl-popup-close-button) {
+.root :global(.new-map-country-popup-shell) :global(.maplibregl-popup-close-button) {
   right: 6px;
   top: 6px;
   font-size: 16px;
   opacity: 0.85;
 }
 
-:global(.new-map-country-popup-shell) :global(.maplibregl-popup-close-button:hover) {
+.root :global(.new-map-country-popup-shell) :global(.maplibregl-popup-close-button:hover) {
   opacity: 1;
+}
+
+.root :global(.new-map-store-popup-shell) :global(.maplibregl-popup-content) {
+  max-width: 320px;
+  border: 1px solid #bfdbfe;
+  border-radius: 12px;
+  padding: 12px;
+  color: #0f172a;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.root :global(.new-map-store-popup-shell) :global(.maplibregl-popup-content strong) {
+  display: block;
+  margin-right: 18px;
+  font-size: 14px;
+}
+
+.root :global(.new-map-store-popup-shell) :global(.maplibregl-popup-content a) {
+  color: #1d4ed8;
+  text-decoration: underline;
 }
 
 .countryPopup {
@@ -1031,7 +1086,7 @@
     width: calc(100vw - max(12px, var(--new-map-safe-left)) - max(12px, var(--new-map-safe-right)));
   }
 
-  :global(.new-map-country-popup-shell) :global(.maplibregl-popup-content) {
+  .root :global(.new-map-country-popup-shell) :global(.maplibregl-popup-content) {
     max-width: calc(100vw - max(12px, var(--new-map-safe-left)) - max(12px, var(--new-map-safe-right)));
   }
 }

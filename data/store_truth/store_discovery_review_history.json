@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "local_only": true,
+  "purpose": "Historical Store-purpose reviews completed before the structured packet ledger. This records a source family, not a legal or location conclusion. A later review for the same GEO must declare and prove a materially new official complete source family.",
+  "reviews": [
+    {
+      "review_id": "EC:arcsa-therapeutic-cannabis-and-identifier-query:historical",
+      "geo_id": "EC",
+      "source_family": "ARCSA_THERAPEUTIC_CANNABIS_AND_IDENTIFIER_ONLY_ESTABLISHMENT_QUERY",
+      "recorded_at": "2026-08-21T00:00:00Z",
+      "evidence_ref": "docs/PLAN.md: Christmas Island/Ecuador two-new-territory Store-source boundary",
+      "result": "The official therapeutic-cannabis rule and ARCSA identifier-based establishment query do not provide a public cannabis-premise inventory."
+    },
+    {
+      "review_id": "IS:ima-cannabis-faq-and-generic-pharmacy-directory:historical",
+      "geo_id": "IS",
+      "source_family": "IMA_CANNABIS_FAQ_AND_GENERIC_PHARMACY_DIRECTORY",
+      "recorded_at": "2026-08-21T00:00:00Z",
+      "evidence_ref": "docs/PLAN.md: United Kingdom/Iceland two-new-territory Store boundary",
+      "result": "The official cannabis medicine FAQ and generic pharmacy directory do not bind a named pharmacy to cannabis dispensing."
+    }
+  ]
+}

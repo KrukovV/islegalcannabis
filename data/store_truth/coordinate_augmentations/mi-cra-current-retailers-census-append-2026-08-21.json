@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "fetched_at": "2026-08-21T11:26:00.014Z",
+  "local_only": true,
+  "input_snapshot_path": "data/store_truth/source_snapshots/mi-cra-current-retailers-census-input-2026-08-14.json",
+  "input_snapshot_sha256": "0fc793386008d182dce4044016a89d2f32044c062873a5a307a07cb8886f9a22",
+  "census_benchmark": "Public_AR_Current",
+  "match_policy": "ONE_MATCH_OPTIONAL_MATCH_TYPE_MATCH_OR_EXACT_SAME_CANONICAL_ONELINE_ADDRESS_AND_IN_DECLARED_BOUNDS",
+  "requested_candidates": 50,
+  "accepted_records": 0,
+  "blocked_records": 50,
+  "records": []
+}

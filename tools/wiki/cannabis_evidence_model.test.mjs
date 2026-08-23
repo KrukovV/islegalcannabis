@@ -71,6 +71,20 @@ test("context-only evidence cannot create a legal color", () => {
   );
 });
 
+test("explicit non-cannabis geographic context cannot become direct law from audit wording", () => {
+  const result = classifySourceRelevance({
+    title: "United States Census Bureau - ANSI Codes for States and Insular Areas",
+    source_type: "CURRENT_OFFICIAL_GEOGRAPHIC_CLASSIFICATION_CONTEXT",
+    primary_or_context: "SYNTHETIC_AGGREGATE_CONTEXT_NOT_UM_CANNABIS_LAW",
+    cannabis_specific: false,
+    note: "Individual Minor Outlying Island Territories are listed separately.",
+    visualReview: "Scope-exception evidence only; not cannabis-law evidence.",
+  });
+  assert.equal(result.acceptedAsDirect, false);
+  assert.equal(result.evidence_scope, "OFFICIAL_CONTEXT_ONLY");
+  assert.equal(result.exclusion_reason, "EXPLICIT_NON_CANNABIS_CONTEXT_PROVENANCE");
+});
+
 test("cannabis resin, hashish and bhang remain cannabis-family evidence", () => {
   assert.equal(hasCannabisFamilySignal("Cannabis resin is listed in Schedule I"), true);
   assert.equal(hasCannabisFamilySignal("Hashish is listed in the narcotics law"), true);

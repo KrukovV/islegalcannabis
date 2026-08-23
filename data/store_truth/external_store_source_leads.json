@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "local_only": true,
+  "purpose": "Externally reviewed official source leads. A lead is never a validated registry, store-type legality result, canonical store record, or map marker.",
+  "leads": [
+    {
+      "geo_id": "LU",
+      "authority": "Luxembourg Ministry of Health and Social Security",
+      "source_url": "https://sante.public.lu/dam-assets/fr/publications/c/cannabis-medicinal-autorise-au-luxembourg-fr/cannabis-medicinal-autorise-au-luxembourg-en.pdf",
+      "registry_parent_url": "https://sante.public.lu/dam-assets/fr/publications/c/cannabis-medicinal-autorise-au-luxembourg-fr/cannabis-medicinal-autorise-au-luxembourg-en.pdf",
+      "source_type_candidate": "PDF",
+      "inventory_shape": "REGISTRY_DIRECTORY_CANDIDATE",
+      "store_type_candidates": [
+        "CANNABIS_PHARMACY"
+      ],
+      "data_extractability": "CURRENTNESS_AND_LOCATION_FIELDS_REQUIRE_SOURCE_PASSPORT_AND_C3_CONTENT_CAPTURE",
+      "exact_fragment": "The Ministry of Health and Social Security medicinal-cannabis information PDF states that patients may collect prescribed medicinal cannabis from one of four hospital pharmacies and names CHL Luxembourg, HRS Luxembourg (Kirchberg site), CHEM Esch-sur-Alzette and CHDN Ettelbruck. The official browser reached the redirected santesecu.public.lu PDF viewer, but it exposed only the official document URL/title and no inspectable rendered document body. That is not C3 proof of owner, visible cannabis fragment and effective/current rule. The source also does not prove an individual licence lifecycle, street address, WGS84 coordinate, current stock or factual opening state. It remains a C1/C2 source-only lead until a complete source-passport validation and C3 content capture.",
+      "independent_review": {
+        "c1_status": "PROVEN",
+        "c2_status": "PROVEN",
+        "c3_status": "NOT_ACCEPTED_OFFICIAL_PDF_VIEWER_NO_INSPECTABLE_TEXT",
+        "reviewed_at": "2026-08-21T03:27:28Z",
+        "review_protocol": "C1_CURRENT_OFFICIAL_MINISTRY_PDF_HTTP_FETCH_C2_SEMANTIC_REVIEW; C3_OFFICIAL_BROWSER_PDF_VIEWER_REACHED_REDIRECTED_OFFICIAL_DOMAIN_BUT_EXPOSED_NO_INSPECTABLE_RENDERED_DOCUMENT_TEXT; NO_RECORD_OR_MARKER_ACCEPTED"
+      },
+      "revalidation": {
+        "checked_at": "2026-08-21T03:16:00Z",
+        "http_status": 200,
+        "response_sha256": "6ab864e17e92f5900304215ec02a6c489a7ba058dc1e5ed5643afc7c2e6e12ed",
+        "structured_sha256": "6ab864e17e92f5900304215ec02a6c489a7ba058dc1e5ed5643afc7c2e6e12ed",
+        "structured_fingerprint_scope": "OFFICIAL_PDF_NAMED_HOSPITAL_PHARMACY_LIST_ONLY",
+        "observed_records": 4,
+        "observed_pages": 1,
+        "query_scope": "DIRECT_PUBLIC_OFFICIAL_MINISTRY_INFORMATION_PDF"
+      }
+    },
+    {
+      "geo_id": "US-MI",
+      "authority": "Michigan Cannabis Regulatory Agency",
+      "source_url": "https://aca3.accela.com/MIMM/Cap/CapHome.aspx?module=Adult_Use&TabName=Adult_Use",
+      "registry_parent_url": "https://www.michigan.gov/cra/verify-a-license-1",
+      "source_type_candidate": "HTML_OR_INTERACTIVE",
+      "inventory_shape": "REGISTRY_DIRECTORY_CANDIDATE",
+      "store_type_candidates": [
+        "ADULT_USE_RETAIL"
+      ],
+      "data_extractability": "NEEDS_ENDPOINT_INSPECTION",
+      "exact_fragment": "The current Michigan Cannabis Regulatory Agency Verify a License page visibly links the Adult-Use Establishment License portal and instructs users to leave all search fields blank, click search, and then click Download results to download the entire licensee database. The Agency's current Adult-Use Establishments page separately states that CRA regulates adult-use marijuana establishments and licensees under MRTMA. The linked Accela portal did not connect in independent browser review, so no result row, export, source passport, store record, operational status or marker is inferred.",
+      "independent_review": {
+        "c1_status": "PROVEN",
+        "c2_status": "PROVEN",
+        "c3_status": "PROVEN",
+        "reviewed_at": "2026-08-13T20:47:18.000Z",
+        "review_protocol": "C1_CURRENT_CRA_VERIFY_PARENT_HTTP_FETCH_AND_C2_SEMANTIC_REVIEW_C3_DIRECT_CRA_PARENT_VISUAL_REVIEW; LINKED_ACCELA_PORTAL_DIRECT_BROWSER=ERR_SOCKET_NOT_CONNECTED; NO_RESULT_OR_EXPORT_ACCEPTED"
+      }
+    },
+    {
+      "geo_id": "US-CO",
+      "authority": "Colorado Marijuana Enforcement Division",
+      "source_url": "https://docs.google.com/spreadsheets/d/1PqYThJJwGEsrwWvciu9vXosuC0BzAw4YtD03RvlSKzE/edit?usp=sharing",
+      "registry_parent_url": "https://med.colorado.gov/licensee-information-and-lookup-tool/licensed-facilities",
+      "source_type_candidate": "CSV",
+      "inventory_shape": "REGISTRY_DIRECTORY_CANDIDATE",
+      "store_type_candidates": [
+        "MEDICAL_DISPENSARY"
+      ],
+      "data_extractability": "MACHINE_READABLE_CANDIDATE",
+      "exact_fragment": "The Colorado MED Licensed Facilities page says all lists are updated monthly and links its Stores list. The current official export presents license number, facility name, DBA, facility type, street, city, ZIP code, expiration date and date updated; sampled rows are Medical Marijuana Store facilities updated 2026-08-03.",
+      "independent_review": {
+        "c1_status": "PROVEN",
+        "c2_status": "PROVEN",
+        "c3_status": "PROVEN",
+        "reviewed_at": "2026-08-13T17:18:23.000Z",
+        "review_protocol": "C1_CURRENT_OFFICIAL_MED_PARENT_AND_CSV_EXPORT_FETCH_AND_C2_SEMANTIC_REVIEW_C3_DIRECT_MED_PARENT_VISUAL_REVIEW; CSV_DIRECT_BROWSER=ERR_SOCKET_NOT_CONNECTED"
+      }
+    },
+    {
+      "geo_id": "US-NM",
+      "authority": "New Mexico Regulation and Licensing Department, Cannabis Control Division",
+      "source_url": "https://nmrldlpi.my.site.com/ccd/s/public-license-search",
+      "registry_parent_url": "https://crop.rld.nm.gov/licensing-data.html",
+      "source_type_candidate": "HTML_OR_INTERACTIVE",
+      "inventory_shape": "REGISTRY_DIRECTORY_CANDIDATE",
+      "store_type_candidates": [
+        "ADULT_USE_RETAIL"
+      ],
+      "data_extractability": "NEEDS_ENDPOINT_INSPECTION",
+      "exact_fragment": "The current public Cannabis Control Division License Search is a regulator-branded, unauthenticated interface titled ‘Search for a License’. It states that queries return issued license data only and that full license details are available through the view action. Its public license-type filter includes ‘Cannabis Retailer’; its status filter includes Active, Suspended, Revoked for Disciplinary Action, Canceled and Pending Processing. The available interface did not expose a completed, verifiable full retailer result set during this bounded review, so no result row, source passport, canonical-store record, status assertion, address, coordinate or map marker is inferred.",
+      "independent_review": {
+        "c1_status": "PROVEN",
+        "c2_status": "PROVEN",
+        "c3_status": "PROVEN",
+        "reviewed_at": "2026-08-14T21:40:43.000Z",
+        "review_protocol": "C1_CURRENT_OFFICIAL_CROP_LICENSE_DATA_PARENT_AND_PUBLIC_LICENSE_SEARCH_HTTP_FETCH_C2_SEMANTIC_REVIEW_C3_DIRECT_PUBLIC_LICENSE_SEARCH_VISUAL_REVIEW; NO_COMPLETED_RESULT_SET_OR_EXPORT_ACCEPTED"
+      },
+      "latest_revalidation": {
+        "checked_at": "2026-08-21T03:36:11Z",
+        "c1_http_status": 200,
+        "c1_response_sha256": "fe5454a50f0ba0800e98237add423c6e18ee28bd005d7001efb6023c20cb7867",
+        "c1_response_bytes": 124965,
+        "c2_result": "PUBLIC_SALESFORCE_COMMUNITY_SHELL_ONLY_NO_COMPLETED_RETAILER_RESULT_SET_OR_EXPORT",
+        "c3_result": "ACCESS_BLOCKED_ERR_SOCKET_NOT_CONNECTED",
+        "result": "NO_PROMOTION_CURRENT_SOURCE_PASSPORT_STILL_REQUIRES_A_COMPLETE_REPRODUCIBLE_RETAILER_RESULT_SET_WITH_PER_RECORD_STATUS_AND_LOCATION_FIELDS"
+      },
+      "additional_official_surface_review": {
+        "checked_at": "2026-08-21T03:41:12Z",
+        "source_url": "https://crop.rld.nm.gov/default.html",
+        "authority": "New Mexico Regulation and Licensing Department, Cannabis Control Division",
+        "c1_http_status": 200,
+        "c1_response_sha256": "eb43625e7c035d6f7f1c00ff53e1322b4ec01ce5322fd73fefa4e69c459017bb",
+        "c1_response_bytes": 9673,
+        "c3_result": "PROVEN_PUBLIC_CROP_PORTAL_VISIBLE_WITH_LICENSING_DATA_BUT_NO_VISIBLE_DISPENSARY_DIRECTORY",
+        "linked_dispensary_route": "https://crop.rld.nm.gov/dispensaries.html",
+        "linked_dispensary_route_c1_http_status": 404,
+        "linked_dispensary_route_c1_response_sha256": "be24818cdef0518b8eafbcf98a4fac543366d5d5b7f24aaa42423538373760c2",
+        "result": "NO_PROMOTION_THE_CURRENT_OFFICIAL_PORTAL_PROVIDES_AGGREGATE_LICENSING_TRANSPARENCY_BUT_NO_CURRENT_PUBLIC_DISPENSARY_DIRECTORY_OR_LOCATION_ROWS"
+      }
+    },
+    {
+      "geo_id": "US-AZ",
+      "authority": "Arizona Department of Health Services",
+      "source_url": "https://hsapps.azdhs.gov/ls/sod/Provider.aspx?ProviderName=203",
+      "registry_parent_url": "https://www.azdhs.gov/licensing/medical-marijuana/",
+      "source_type_candidate": "HTML_OR_INTERACTIVE",
+      "inventory_shape": "REGISTRY_DIRECTORY_CANDIDATE",
+      "store_type_candidates": [
+        "OTHER_REGULATED_POINT"
+      ],
+      "data_extractability": "PAGINATED_PUBLIC_SEARCH_FORM_REQUIRES_TYPE_FILTER_AND_STATUS_REVIEW",
+    "exact_fragment": "The current Arizona Department of Health Services public Licensing Facilities and Providers result page identifies itself as an official ADHS directory and exposes a paginated table with Name, Address, City/State and Type. Direct C3 review visibly confirms 263 mixed facility records and one ‘203 Organix, Llc’ row typed ‘Marijuana Facilities’ with a complete Arizona address. The observed query is not a cannabis-only result set, exposes no complete Marijuana Facilities filter/export, and publishes no per-row licence or operating state. It is therefore only a bounded official discovery lead: no individual record, licence assertion, coordinate, source passport or map marker is inferred.",
+      "independent_review": {
+        "c1_status": "PROVEN",
+        "c2_status": "PROVEN",
+      "c3_status": "PROVEN",
+      "reviewed_at": "2026-08-20T13:46:48.000Z",
+      "review_protocol": "C1_CURRENT_ADHS_PUBLIC_DIRECTORY_HTTP_FETCH_AND_C2_SEMANTIC_TABLE_REVIEW; C3_DIRECT_OFFICIAL_BROWSER_VISUAL_REVIEW_CONFIRMS_MIXED_263_ROW_RESULT_AND_VISIBLE_MARIJUANA_FACILITIES_ROW; PUBLIC_QUERY_HAS_NO_CANNABIS_ONLY_FILTER_EXPORT_OR_PER_ROW_LIFECYCLE"
+      },
+      "revalidation": {
+        "checked_at": "2026-08-20T12:44:14.000Z",
+        "http_status": 200,
+        "response_sha256": "015ff700b26911a2e849446b5b9f57a1aad76b40c827057a46af899547d541fc",
+        "structured_sha256": "f0edc97b084865166c3c262cede3993611dc6bd3add0bcd2b312b5de6c426eee",
+        "structured_fingerprint_scope": "FIRST_PAGE_VISIBLE_ROWS_AND_COUNTS",
+        "observed_records": 263,
+        "observed_pages": 18,
+        "query_scope": "NAME_QUERY_ONLY_MIXED_FACILITIES"
+      },
+      "latest_revalidation": {
+        "checked_at": "2026-08-21T03:36:11Z",
+        "c1_http_status": 200,
+        "c1_response_sha256": "10021d63f2b2b9c527ba28290832b3eb1d04d18bc505c656f511f8c5ee2a8542",
+        "c1_response_bytes": 21904,
+        "c2_c3_result": "OFFICIAL_263_ROW_MIXED_FACILITY_TABLE_RECONFIRMED_VISIBLE_WITH_ONE_MARIJUANA_FACILITIES_ROW_BUT_NO_CANNABIS_ONLY_COMPLETE_FILTER_EXPORT_OR_PER_RECORD_LIFECYCLE",
+        "result": "NO_PROMOTION_CURRENT_SOURCE_PASSPORT_STILL_REQUIRES_A_COMPLETE_REPRODUCIBLE_CANNABIS_SPECIFIC_RESULT_SET"
+      },
+      "additional_official_surface_review": {
+        "checked_at": "2026-08-21T03:41:12Z",
+        "source_url": "https://www.azdhs.gov/gis/",
+        "authority": "Arizona Department of Health Services",
+        "c1_http_status": 200,
+        "c1_response_sha256": "aba3f84efd4e984dd3553f3f3a5fb99b7a409b859b16998baf2b3950173eed0f",
+        "c1_response_bytes": 79874,
+        "exact_fragment": "Medical Marijuana Dispensaries - Map Your CHAA: Enter your address to determine which CHAA you are in and how many Medical Marijuana Dispensaries are in that CHAA.",
+        "c3_result": "ACCESS_BLOCKED_ERR_SOCKET_NOT_CONNECTED",
+        "result": "NO_PROMOTION_THE_OFFICIAL_GIS_SURFACE_PUBLISHES_AREA_LEVEL_COUNTS_ONLY_NOT_NAMED_LICENSED_PREMISES_OR_COORDINATES"
+      }
+    },
+    {
+      "geo_id": "CA-NL",
+      "authority": "Newfoundland and Labrador Liquor Corporation",
+      "source_url": "https://shopcannabisnl.com/apps/store-locator/stores/surrounding?shop=nlc-production.myshopify.com&latitude=50.021858&longitude=-59.501953&max_distance=0&limit=0&calc_distance=0&record_search=0&distance_unit=KM&store_name_like=",
+      "registry_parent_url": "https://www.gov.nl.ca/cannabis/purchasing-cannabis/",
+      "source_type_candidate": "JSON",
+      "inventory_shape": "REGISTRY_DIRECTORY_CANDIDATE",
+      "store_type_candidates": [
+        "ADULT_USE_RETAIL"
+      ],
+      "data_extractability": "MACHINE_READABLE_CANDIDATE_PENDING_C3",
+      "exact_fragment": "The current Government of Newfoundland and Labrador purchasing page states that NLC regulates cannabis supply, distribution and retail and that purchasing from anyone other than NLC or an NLC-licensed retailer is illegal. The current NLC-owned public Store Locator configuration says 'Licensed Cannabis Retailers' and declares 64 locations; its documented public surrounding-stores endpoint returned exactly 64 name/address/city/WGS84 records. Direct visual C3 navigation to the official NLC locator was blocked by browser safety policy, so the browser access block is recorded and neither the 64 rows nor their points are accepted as a validated source, canonical Store Truth records or map leaves.",
+      "independent_review": {
+        "c1_status": "PROVEN",
+        "c2_status": "PROVEN",
+        "c3_status": "ACCESS_BLOCKED_BROWSER_SAFETY_POLICY",
+        "reviewed_at": "2026-08-20T18:40:12.000Z",
+        "review_protocol": "C1_CURRENT_GOVERNMENT_PARENT_HTTP_200_AND_NLC_PUBLIC_WIDGET_CONFIG_PLUS_SURROUNDING_STORES_JSON_HTTP_200; C2_EXACT_64_PUBLIC_ROWS_WITH_WGS84_AND_CURRENT_WIDGET_TIMESTAMP; C3_DIRECT_NLC_LOCATOR_BLOCKED_BY_BROWSER_SAFETY_POLICY; NO_BYPASS_OR_SOURCE_ACCEPTANCE"
+      },
+      "revalidation": {
+        "checked_at": "2026-08-20T18:40:12.000Z",
+        "http_status": 200,
+        "response_sha256": "7d32ef74d0a8b4b2194037178dc1fb9eac65fb26b5defd62f240b54fcf8e4098",
+        "structured_sha256": "7d32ef74d0a8b4b2194037178dc1fb9eac65fb26b5defd62f240b54fcf8e4098",
+        "structured_fingerprint_scope": "ALL_64_PUBLIC_SURROUNDING_STORES_ROWS_AT_DECLARED_INITIAL_CENTER",
+        "observed_records": 64,
+        "observed_pages": 1,
+        "query_scope": "PUBLIC_DECLARED_INITIAL_CENTER_ALL_LOCATIONS_LIMIT_0_MAX_DISTANCE_0",
+        "government_response_sha256": "2b0bdbd5a63efa2466563217dfbeb9f0608e8f60e7e24f35b25abfdafa1c6b76",
+        "widget_response_sha256": "c740cf7d3a9df40b767ec1e4489452a4673d3e0f66f71fd759b1914f269ee13e",
+        "widget_updated_at": "2026-08-19 17:06:32"
+      }
+    }
+  ]
+}

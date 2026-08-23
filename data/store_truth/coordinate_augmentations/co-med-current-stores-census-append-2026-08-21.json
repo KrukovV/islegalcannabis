@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "fetched_at": "2026-08-21T11:25:45.975Z",
+  "local_only": true,
+  "input_snapshot_path": "data/store_truth/source_snapshots/co-med-current-stores-census-input-2026-08-14.json",
+  "input_snapshot_sha256": "eddcc20dd4d3d78532dfa8451e3de3d32b8afa16433c349533894e404833c5cc",
+  "census_benchmark": "Public_AR_Current",
+  "match_policy": "ONE_MATCH_OPTIONAL_MATCH_TYPE_MATCH_OR_EXACT_SAME_CANONICAL_ONELINE_ADDRESS_AND_IN_DECLARED_BOUNDS",
+  "requested_candidates": 50,
+  "accepted_records": 1,
+  "blocked_records": 49,
+  "records": [
+    {
+      "source_record_id": "402-00614",
+      "address": "825A CHAMBERS AVE",
+      "city": "EAGLE",
+      "region": "CO",
+      "postal_code": "81631",
+      "latitude": 39.662958235531,
+      "longitude": -106.818788249516,
+      "source_combined_address": "825A Chambers Avenue, Eagle, CO, 81631",
+      "public_source_fields": {
+        "census_matched_address": "825A CHAMBERS AVE, EAGLE, CO, 81631"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1268 @@
+[
+  {
+    "type": "Hybrid Retailer",
+    "business": "CONNECTICUT PHARMACEUTICAL SOLUTIONS LLC",
+    "dba": "ZEN LEAF",
+    "license": "AMHF.0008257",
+    "street": "606 West Main Street",
+    "city": "Norwich",
+    "zipcode": "06360",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.10071,
+        41.51609
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "CONNECTICUT PHARMACEUTICAL SOLUTIONS LLC",
+    "dba": "ZEN LEAF",
+    "license": "AMHF.0008258",
+    "street": "2903 BERLIN TPKE",
+    "city": "NEWINGTON",
+    "zipcode": "06111-4115",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.71736,
+        41.67079
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "FFD WEST LLC",
+    "dba": "FINE FETTLE DISPENSARY - STAMFORD",
+    "license": "AMHF.0008247",
+    "street": "12 RESEARCH DR",
+    "city": "STAMFORD",
+    "zipcode": "06906-1419",
+    "website": {
+      "url": "https://www.finefettle.com/"
+    },
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -73.52019,
+        41.07777
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "C-3 VENTURES LLC",
+    "dba": "STILL RIVER WELLNESS",
+    "license": "AMHF.0008264",
+    "street": "3568 WINSTED RD",
+    "city": "TORRINGTON",
+    "zipcode": "06790-2213",
+    "website": {
+      "url": "https://stillriverwellness.com/pre-order/"
+    },
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -73.0761,
+        41.88085
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "JANANII LLC",
+    "dba": "JANANII LLC",
+    "license": "ACRE.0008858",
+    "street": "3490 WHITNEY AVE",
+    "city": "HAMDEN",
+    "zipcode": "06518-1936",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.90604,
+        41.42158
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "DIVINE 1 LLC",
+    "dba": "CLONE CANABISS",
+    "license": "AMHF.0003139",
+    "street": "834 Broad Street",
+    "city": "Meriden",
+    "zipcode": "06450",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.7864,
+        41.54163
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "DIVINE 1 LLC",
+    "dba": "CLONE CANABISS",
+    "license": "ACRE.0008896",
+    "street": "39 NEW HAVEN RD",
+    "city": "SEYMOUR",
+    "zipcode": "06483-3460",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -73.06197,
+        41.39729
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "DIVINE 1 LLC",
+    "dba": "CLONE CANABISS",
+    "license": "AMHF.0003319",
+    "street": "425 W Main Street",
+    "city": "Norwich",
+    "zipcode": "06360",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.09378,
+        41.51987
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "CHILLAX LLC",
+    "dba": "THE LIV",
+    "license": "ACRE.0004289",
+    "street": "97 Providence Pike",
+    "city": "Putnam",
+    "zipcode": "06260",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -71.87378,
+        41.92515
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "CHILLAX LLC",
+    "dba": "THE LIV",
+    "license": "AMHF.0002942",
+    "street": "2661 Berlin Turnpike",
+    "city": "Newington",
+    "zipcode": "06111",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.71405,
+        41.67801
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "SLAP ASH RETAIL II LLC",
+    "dba": "HIGH PROFILE CANNABIS SHOP",
+    "license": "ACRE.0002642",
+    "street": "195 Albany Turnpike",
+    "city": "Canton",
+    "zipcode": "06019",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.89589,
+        41.82549
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "EJ VENTURES 2 LLC",
+    "dba": "AFFINITY DISPENSARY",
+    "license": "AMHF.0008235",
+    "street": "2000 COMMERCE DR",
+    "city": "BRIDGEPORT",
+    "zipcode": "06605",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -73.21975,
+        41.16795
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "FFDN EJV, LLC",
+    "dba": "FFDN EJV, LLC",
+    "license": "AMHF.0008291",
+    "street": "233 Boston Post Road",
+    "city": "Old Saybrook",
+    "zipcode": "06475",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.3678,
+        41.30907
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "FFDW EJV LLC",
+    "dba": "FFDW EJV LLC",
+    "license": "AMHF.0008289",
+    "street": "91 HALE RD",
+    "city": "MANCHESTER",
+    "zipcode": "06042-1769",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.52914,
+        41.81182
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "FFDC EJV, LLC",
+    "dba": "FFDC EJV, LLC",
+    "license": "AMHF.0008292",
+    "street": "191 Main Street",
+    "city": "Norwalk",
+    "zipcode": "06851",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -73.42196,
+        41.12645
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "ACREAGE CONNECTICUT RETAIL JV LLC",
+    "dba": "LIT NEW HAVEN",
+    "license": "ACRE.0015697",
+    "street": "169 East St",
+    "city": "New Haven",
+    "zipcode": "06511",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.91032,
+        41.30293
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "TY'S DISPENSARY LLC",
+    "dba": "CRISP CANNABIS",
+    "license": "AMHF.0004449",
+    "street": "1234 Huntington Tpke",
+    "city": "Bridgeport",
+    "zipcode": "06610",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -73.16679,
+        41.22464
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "UMN EQUITY JOINT VENTURE LLC",
+    "dba": "UMN EQUITY JOINT VENTURE LLC",
+    "license": "ACRE.0014925",
+    "street": "157 Boston Post Rd",
+    "city": "North Windham",
+    "zipcode": "06256",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.1878,
+        41.72977
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "BUDR HARTFORD HOLDING LLC",
+    "dba": "BUDR HARTFORD HOLDING LLC",
+    "license": "AMHF.0008296",
+    "street": "108 Federal Road",
+    "city": "Danbury",
+    "zipcode": "06810",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -73.42002,
+        41.42019
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "SFC CT LLC",
+    "dba": "VENU FLOWER COLLECTIVE",
+    "license": "ACRE.0015659",
+    "street": "895 Washington Street",
+    "city": "Middletown",
+    "zipcode": "06457",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.68225,
+        41.5539
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "BUDR HOLDING 2 LLC",
+    "dba": "BUDR CANNABIS",
+    "license": "AMHF.0008295",
+    "street": "1037 BOULEVARD",
+    "city": "WEST HARTFORD",
+    "zipcode": "06119",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.71582,
+        41.76005
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "Budr Holding 3 LLC",
+    "dba": "Budr Holding 3 LLC",
+    "license": "AMHF.0008294",
+    "street": "9 Fieldstone Commons",
+    "city": "Tolland",
+    "zipcode": "06084",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.3584,
+        41.86074
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "Insa CT Retail I, LLC",
+    "dba": "Insa CT Retail I, LLC",
+    "license": "ACRE.0015682",
+    "street": "167 Brainard Rd",
+    "city": "Hartford",
+    "zipcode": "06114",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.65977,
+        41.73533
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "Insa CT Retail II, LLC",
+    "dba": "Insa CT Retail II, LLC",
+    "license": "ACRE.0015678",
+    "street": "222 Sargent Dr",
+    "city": "New Haven",
+    "zipcode": "06511",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.92067,
+        41.29329
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "FFDC EJV II LLC",
+    "dba": "FINE FETTLE - WEST HARTFORD",
+    "license": "AMHF.0008290",
+    "street": "1232 Farmington Ave",
+    "city": "West Hartford",
+    "zipcode": "06107",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.76609,
+        41.75538
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "FFD PINK EJV, LLC",
+    "dba": "FFD PINK EJV, LLC",
+    "license": "AMHF.0008273",
+    "street": "1212 Farmington Ave",
+    "city": "Bristol",
+    "zipcode": "06010",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.90351,
+        41.6967
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "FFD BLUE EJV, LLC",
+    "dba": "FFD BLUE EJV, LLC",
+    "license": "AMHF.0008293",
+    "street": "85 TURNPIKE DRIVE",
+    "city": "WATERBURY",
+    "zipcode": "06708",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -73.09149,
+        41.56641
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "GREEN ACRES CT ONE, LLC",
+    "dba": "420 WAREHOUSE CANNABIS STORE, LLC",
+    "license": "ACRE.0015689",
+    "street": "1 Hartford Square",
+    "city": "New Britain",
+    "zipcode": "06052",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.81071,
+        41.66501
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "Budr Holding 6 LLC",
+    "dba": "Budr Holding 6 LLC",
+    "license": "AMHF.0008281",
+    "street": "7365 MAIN STREET",
+    "city": "STRATFORD",
+    "zipcode": "06614",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -73.10107,
+        41.25409
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "Nautilus Botanicals EJV1 LLC",
+    "dba": "Nautilus Botanicals EJV1 LLC",
+    "license": "AMHF.0008282",
+    "street": "63 Amity Rd",
+    "city": "New Haven",
+    "zipcode": "06515",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.97786,
+        41.33657
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "STAMFORD DISPENSARY LLC",
+    "dba": "SWEETSPOT DISPENSARY",
+    "license": "AMHF.0008284",
+    "street": "111 High Ridge Road",
+    "city": "Stamford",
+    "zipcode": "06905",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -73.54913,
+        41.076
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "CT NIGHTJAR 1",
+    "dba": "CT NIGHTJAR 1",
+    "license": "AMHF.0008285",
+    "street": "15 Colton Road",
+    "city": "East Lyme",
+    "zipcode": "06333",
+    "website": {
+      "url": "https://nightjarcannabis.com/"
+    },
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.25317,
+        41.32202
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "Rodeo Rocky Hill LLC",
+    "dba": "Rodeo Rocky Hill LLC",
+    "license": "ACRE.0015704",
+    "street": "1625 Silas Deane Hwy",
+    "city": "Rocky Hill",
+    "zipcode": "06760",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.65214,
+        41.67842
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "NOVA RETAIL CT LLC",
+    "dba": "NOVA FARMS CANNABIS DISPENSARY",
+    "license": "AMHF.0008286",
+    "street": "623 HARTFORD RD",
+    "city": "NEW BRITAIN",
+    "zipcode": "06053-1526",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.76282,
+        41.71473
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "CONNECTIBUDS EJV 2 LLC",
+    "dba": "HI PEOPLE CANNABIS MARKET",
+    "license": "ACRE.0015686",
+    "street": "90 Pershing Drive",
+    "city": "Derby",
+    "zipcode": "06418",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -73.0846,
+        41.3278
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "CONNECTIBUDS EJV 1 LLC",
+    "dba": "HI PEOPLE CANNABIS MARKET",
+    "license": "ACRE.0015685",
+    "street": "306 Market Street",
+    "city": "Hartford",
+    "zipcode": "06120",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.6707,
+        41.77189
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "SWEETSPOT WEST HARTFORD LLC",
+    "dba": "SWEETSPOT WEST HARTFORD LLC",
+    "license": "AMHF.0008269",
+    "street": "2 Park Road",
+    "city": "West Hartford",
+    "zipcode": "06119",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.71498,
+        41.75648
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "C3 EJV I LLC",
+    "dba": "HIGH PROFILE CANNABIS SHOP",
+    "license": "ACRE.0015705",
+    "street": "185 Spencer St.",
+    "city": "Manchester",
+    "zipcode": "06040",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.56875,
+        41.76731
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "NUTMEG NEW LONDON JV LLC",
+    "dba": "HIGHER COLLECTIVE",
+    "license": "ACRE.0015657",
+    "street": "595 Bank Street",
+    "city": "New London",
+    "zipcode": "06320",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.10283,
+        41.34984
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "NUTMEG NORTHWEST JV LLC",
+    "dba": "HIGHER COLLECTIVE",
+    "license": "ACRE.0015662",
+    "street": "53 McDermott Avenue",
+    "city": "Torrington",
+    "zipcode": "06790",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -73.12478,
+        41.81382
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "NUTMEG SOUTHWEST JV LLC",
+    "dba": "HIGHER COLLECTIVE",
+    "license": "ACRE.0015654",
+    "street": "3369 FAIRFIELD AVE",
+    "city": "BRIDGEPORT",
+    "zipcode": "06605-3224",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -73.23516,
+        41.15473
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "NUTMEG KILLINGLY JV LLC",
+    "dba": "HIGHER COLLECTIVE",
+    "license": "ACRE.0015655",
+    "street": "1078 N MAIN ST",
+    "city": "KILLINGLY",
+    "zipcode": "06241-2127",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -71.87562,
+        41.83969
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "Nutmeg Hamden JV LLC",
+    "dba": "Nutmeg Hamden JV LLC",
+    "license": "ACRE.0015653",
+    "street": "3825 WHITNEY AVE",
+    "city": "HAMDEN",
+    "zipcode": "06518-1519",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.90748,
+        41.43279
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "NUTMEG HARTFORD JV LLC",
+    "dba": "COOKIES X THE GOODS",
+    "license": "ACRE.0015652",
+    "street": "1396 Park Street",
+    "city": "Hartford",
+    "zipcode": "06106",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.70144,
+        41.75819
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "DEBBIE'S DISPENSARY LLC",
+    "dba": "CRISP CANNABIS",
+    "license": "ACRE.0009619",
+    "street": "500 Main St",
+    "city": "East Hartford",
+    "zipcode": "06118",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.64309,
+        41.75751
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "SARA'S DISPENSARY LLC",
+    "dba": "CRISP CANNABIS",
+    "license": "ACRE.0005925",
+    "street": "33 Berlin Road",
+    "city": "Cromwell",
+    "zipcode": "06416",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.68267,
+        41.6022
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "HWY 95, LLC.",
+    "dba": "THE HARVEST CORNER CANNABIS COMPANY",
+    "license": "ACRE.0015660",
+    "street": "493 Westchester Rd.",
+    "city": "Colchester",
+    "zipcode": "06415",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.4119,
+        41.54681
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "ALPHA CT 1 LLC",
+    "dba": "SHANGRI-LA",
+    "license": "ACRE.0003242",
+    "street": "359 NEW BRITAIN AVE",
+    "city": "PLAINVILLE",
+    "zipcode": "06062-2013",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.83792,
+        41.6744
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "ALPHA CT 3 LLC",
+    "dba": "SHANGRI-LA",
+    "license": "ACRE.0004665",
+    "street": "75 CONNECTICUT AVE",
+    "city": "NORWALK",
+    "zipcode": "06850-3528",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -73.4253,
+        41.10647
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "ALPHA CT 3 LLC",
+    "dba": "SHANGRI-LA",
+    "license": "ACRE.0003185",
+    "street": "53 INTERSTATE LN",
+    "city": "WATERBURY",
+    "zipcode": "06705-2658",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.99759,
+        41.53543
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "SHANGRI-LA CT INC",
+    "dba": "SHANGRI-LA CT INC",
+    "license": "ACRE.0011824",
+    "street": "430 Main Avenue",
+    "city": "Norwalk",
+    "zipcode": "06851",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -73.42594,
+        41.14778
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "SLAP ASH RETAIL I LLC",
+    "dba": "HIGH PROFILE CANNABIS SHOP",
+    "license": "ACRE.0013138",
+    "street": "2607 Whitney Ave",
+    "city": "Hamden",
+    "zipcode": "06518",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.89815,
+        41.39134
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "FFD NEWINGTON LLC",
+    "dba": "FINE FETTLE DISPENSARY - NEWINGTON",
+    "license": "AMHF.0008249",
+    "street": "2280 BERLIN TPKE",
+    "city": "NEWINGTON",
+    "zipcode": "06111-3202",
+    "website": {
+      "url": "https://www.finefettle.com/"
+    },
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.70531,
+        41.69038
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "FFD CENTRAL LLC",
+    "dba": "FINE FETTLE DISPENSARY",
+    "license": "AMHF.0008248",
+    "street": "1548 W MAIN ST",
+    "city": "WILLIMANTIC",
+    "zipcode": "06226-1142",
+    "website": {
+      "url": "https://www.finefettle.com/"
+    },
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.23598,
+        41.71898
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "WILLOW BROOK WELLNESS LLC",
+    "dba": "ZEN LEAF MERIDEN",
+    "license": "AMHF.0008259",
+    "street": "55 Nott Highway",
+    "city": "Ashford",
+    "zipcode": "06278",
+    "website": {
+      "url": "https://zenleafdispensaries.com"
+    },
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.18227,
+        41.85902
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "WILLOW BROOK WELLNESS LLC",
+    "dba": "ZEN LEAF MERIDEN",
+    "license": "AMHF.0008260",
+    "street": "98 ELM ST",
+    "city": "ENFIELD",
+    "zipcode": "06082-3732",
+    "website": {
+      "url": "https://zenleafdispensaries.com"
+    },
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.58344,
+        41.9979
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "WILLOW BROOK WELLNESS LLC",
+    "dba": "ZEN LEAF MERIDEN",
+    "license": "AMHF.0008254",
+    "street": "1371 E MAIN ST",
+    "city": "MERIDEN",
+    "zipcode": "06450-4869",
+    "website": {
+      "url": "https://zenleafdispensaries.com"
+    },
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.75697,
+        41.52552
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "AFFINITY HEALTH & WELLNESS INC",
+    "dba": "AFFINITY DISPENSARY",
+    "license": "AMHF.0008252",
+    "street": "1351 WHALLEY AVE",
+    "city": "NEW HAVEN",
+    "zipcode": "06515-1149",
+    "website": {
+      "url": "https://affinityct.com/"
+    },
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.97428,
+        41.33251
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "CURALEAF STAMFORD INC",
+    "dba": "CURALEAF STAMFORD INC",
+    "license": "AMHF.0008256",
+    "street": "814 E MAIN ST",
+    "city": "STAMFORD",
+    "zipcode": "06902-3832",
+    "website": {
+      "url": "https://ct.curaleaf.com/shop/curaleaf-ct-stamford"
+    },
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -73.52787,
+        41.05568
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "CURALEAF GROTON LLC",
+    "dba": "CURALEAF GROTON LLC",
+    "license": "AMHF.0008270",
+    "street": "79 GOLD STAR HWY",
+    "city": "GROTON",
+    "zipcode": "06340-3429",
+    "website": {
+      "url": "https://ct.curaleaf.com/shop/curaleaf-ct-groton"
+    },
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.06632,
+        41.36664
+      ]
+    }
+  },
+  {
+    "type": "Medical Marijuana Only",
+    "business": "BLUEPOINT WELLNESS OF WESTPORT LLC",
+    "dba": "BLUEPOINT WELLNESS OF WESTPORT LLC",
+    "license": "MMDF.0000029",
+    "street": "1460 POST RD E",
+    "city": "WESTPORT",
+    "zipcode": "06880-5500",
+    "website": {
+      "url": "https://www.bluepointwellnessct.com/order/westport/"
+    },
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -73.31338,
+        41.13852
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "CURALEAF MILFORD INC",
+    "dba": "CURALEAF MILFORD INC",
+    "license": "AMHF.0008272",
+    "street": "240 BUCKLAND ST",
+    "city": "MANCHESTER",
+    "zipcode": "06042-1604",
+    "website": {
+      "url": "https://ct.curaleaf.com/shop/curaleaf-ct-milford"
+    },
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.55426,
+        41.80383
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "SOUTHERN CT WELLNESS AND HEALING LLC",
+    "dba": "SOUTHERN CT WELLNESS AND HEALING LLC",
+    "license": "AMHF.0008277",
+    "street": "175 BOSTON POST RD",
+    "city": "ORANGE",
+    "zipcode": "06477-3205",
+    "website": {
+      "url": "https://www.soctwellness.com/"
+    },
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.99493,
+        41.27271
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "CARING NATURE LLC",
+    "dba": "ZEN LEAF",
+    "license": "AMHF.0008287",
+    "street": "237 E AURORA ST",
+    "city": "WATERBURY",
+    "zipcode": "06708-2044",
+    "website": {
+      "url": "https://zenleafdispensaries.com/locations/waterbury/"
+    },
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -73.05754,
+        41.57033
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "CARING NATURE LLC",
+    "dba": "ZEN LEAF",
+    "license": "AMHF.0008262",
+    "street": "585 South Main Street",
+    "city": "Naugatuck",
+    "zipcode": "06770",
+    "website": {
+      "url": "https://zenleafdispensaries.com/locations/waterbury/"
+    },
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -73.04809,
+        41.47845
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "CT Nightjar 2, LLC",
+    "dba": "CT Nightjar 2, LLC",
+    "license": "AMHF.0008288",
+    "street": "1409 Dixwell Ave",
+    "city": "Hamden",
+    "zipcode": "06514",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.93024,
+        41.3509
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "CONNECTICUT RETAIL SOLUTIONS II, LLC",
+    "dba": "AYR CANNABIS",
+    "license": "AMHF.0008275",
+    "street": "185 Spencer Street",
+    "city": "Manchester",
+    "zipcode": "06040",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.56875,
+        41.76731
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "TRULIEVE BRISTOL INC",
+    "dba": "TRULIEVE CANNABIS DISPENSARY",
+    "license": "AMHF.0008263",
+    "street": "820 FARMINGTON AVE",
+    "city": "BRISTOL",
+    "zipcode": "06010-3921",
+    "website": {
+      "url": "https://www.trulieve.com/dispensaries/bristol-ct"
+    },
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.91603,
+        41.69263
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "CT BGP, LLC",
+    "dba": "BUDR CANNABIS",
+    "license": "AMHF.0008251",
+    "street": "887 NORWICH NEW LONDON TPKE",
+    "city": "UNCASVILLE",
+    "zipcode": "06382-1917",
+    "website": {
+      "url": "https://www.shopbotanist.com/locations/montville/"
+    },
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.10596,
+        41.44989
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "CT BGP, LLC",
+    "dba": "BUDR CANNABIS",
+    "license": "AMHF.0008283",
+    "street": "234 TALCOTTVILLE RD",
+    "city": "VERNON ROCKVILLE",
+    "zipcode": "06066-4617",
+    "website": {
+      "url": "https://www.primewellnessofct.com/"
+    },
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.49135,
+        41.8358
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "CT BGP, LLC",
+    "dba": "BUDR CANNABIS",
+    "license": "AMHF.0008268",
+    "street": "105 MILL PLAIN RD",
+    "city": "DANBURY",
+    "zipcode": "06811-5198",
+    "website": {
+      "url": "https://www.shopbotanist.com/locations/danbury/hours-and-info/"
+    },
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -73.51942,
+        41.39298
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "BLUEPOINT APOTHECARY, LLC",
+    "dba": "RISE",
+    "license": "AMHF.0008250",
+    "street": "471 E MAIN ST",
+    "city": "BRANFORD",
+    "zipcode": "06405-2961",
+    "website": {
+      "url": "https://www.bluepointwellnessct.com/"
+    },
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.77273,
+        41.29794
+      ]
+    }
+  },
+  {
+    "type": "Hybrid Retailer",
+    "business": "CURALEAF HARTFORD INC",
+    "dba": "CURALEAF HARTFORD INC",
+    "license": "AMHF.0008265",
+    "street": "92 WESTON ST",
+    "city": "HARTFORD",
+    "zipcode": "06120-1510",
+    "website": {
+      "url": "https://ct.curaleaf.com/shop/curaleaf-ct-hartford"
+    },
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.66265,
+        41.78681
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "C3 EJV II LLC",
+    "dba": "C3 EJV II LLC",
+    "license": "ACRE.0015694",
+    "street": "130 Honeyspot Road",
+    "city": "Stratford",
+    "zipcode": "06615",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -73.14376,
+        41.18323
+      ]
+    }
+  },
+  {
+    "type": "Adult-Use Cannabis Only",
+    "business": "Hydra East, LLC",
+    "dba": "Hydra East, LLC",
+    "license": "ACRE.0014886",
+    "street": "9 Hazard Ave",
+    "city": "Enfield",
+    "zipcode": "06082",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -72.58334,
+        41.99034
+      ]
+    }
+  }
+]

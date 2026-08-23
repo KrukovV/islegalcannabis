@@ -1,0 +1,30 @@
+{
+  "public_location_headers": {
+    "legal_name": "Legal Name",
+    "trade_name": "Doing Business As",
+    "city": "Location"
+  },
+  "required_fields": [
+    "legal_name",
+    "trade_name",
+    "city"
+  ],
+  "identity_fields": [
+    "legal_name",
+    "trade_name",
+    "city"
+  ],
+  "section_heading": "Dispensary Establishments",
+  "duplicate_identity_mode": "SOURCE_ROW_OCCURRENCE",
+  "store_type": "MEDICAL_DISPENSARY",
+  "license_type": "CURRENT_SD_DOH_MEDICAL_CANNABIS_DISPENSARY_ESTABLISHMENTS_LIST",
+  "region": "SD",
+  "country": "US",
+  "license_status": "UNKNOWN_STATUS",
+  "operational_status": "UNKNOWN_STATUS",
+  "medical": true,
+  "confidence": "PROVEN",
+  "location_evidence": "STRONG",
+  "coordinates_source": "OFFICIAL_DIRECTORY_NO_COORDINATE_FIELD",
+  "coordinates_confidence": "UNKNOWN"
+}

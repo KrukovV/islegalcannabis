@@ -1,0 +1,259 @@
+{
+  "schema_version": 1,
+  "local_only": true,
+  "source_url": "https://eopyy.gov.gr/el/medicinelist/epidyolex/",
+  "page_evidence": [
+    {
+      "page": 1,
+      "url": "https://eopyy.gov.gr/el/medicinelist/epidyolex/?page=1",
+      "sha256": "8c8fe1d43d8a016aca3d2269cb48711e45bfbf19f3526b48fba8ef763fa4b1fb",
+      "records": 10
+    },
+    {
+      "page": 2,
+      "url": "https://eopyy.gov.gr/el/medicinelist/epidyolex/?page=2",
+      "sha256": "d74f75616fc88f9bd2ef482877d93751e2733831f19f3b1087f630198c7722e9",
+      "records": 10
+    },
+    {
+      "page": 3,
+      "url": "https://eopyy.gov.gr/el/medicinelist/epidyolex/?page=3",
+      "sha256": "46959fab8011ed3a3076ff171ddc4b22d90daa1e490cd61e16d1287a3387554c",
+      "records": 9
+    }
+  ],
+  "records": [
+    {
+      "source_record_id": "html-card:677b015d91bddb01e0ff0ca4",
+      "legal_name": "Κεντρικό Φαρμακείο",
+      "address": "Απ. Παύλου 12",
+      "latitude": 38.032102,
+      "longitude": 23.790266,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/kentriko-farmakeio/"
+    },
+    {
+      "source_record_id": "html-card:1e0e93d0b4016dfcc3ab1ea0",
+      "legal_name": "Φαρμακείο Αγ. Νικολάου",
+      "address": "Λασθένους 15",
+      "latitude": 35.190561,
+      "longitude": 25.7201863,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/farmakeio-ag-nikolaou/"
+    },
+    {
+      "source_record_id": "html-card:e2e1ee8a9a6fbb951808fb55",
+      "legal_name": "Φαρμακείο Αθήνας",
+      "address": "Ηπείρου 38 (στον 1ο όροφο)",
+      "latitude": 37.9908,
+      "longitude": 23.72727,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/farmakeio-athinas/"
+    },
+    {
+      "source_record_id": "html-card:473ddd3adae9b258e04f2269",
+      "legal_name": "Φαρμακείο Αλεξάνδρας",
+      "address": "Λ. Αλεξάνδρας 175B",
+      "latitude": 37.987619,
+      "longitude": 23.756769,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/farmakeio-aleksandras/"
+    },
+    {
+      "source_record_id": "html-card:c0a6c97b127700f43a6c9716",
+      "legal_name": "Φαρμακείο Αχαϊας (Πάτρας)",
+      "address": "Γιαννιτσών 3",
+      "latitude": 38.255646,
+      "longitude": 21.739752,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/farmakeio-aha%CF%8Aas-patras/"
+    },
+    {
+      "source_record_id": "html-card:7932f65e9ad0a50e108cdf06",
+      "legal_name": "Φαρμακείο Βόλου",
+      "address": "Θρακών 20",
+      "latitude": 39.365298,
+      "longitude": 22.937986,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/farmakeio-bolou/"
+    },
+    {
+      "source_record_id": "html-card:d250779d96540f37e2b1fd43",
+      "legal_name": "Φαρμακείο Έβρου (Αλεξανδρούπολης)",
+      "address": "Τέρμα Τρωάδος απέναντι από το στάδιο Φ. Κοσμάς – Πρώην Κέντρο Νεότητας",
+      "latitude": 40.844252,
+      "longitude": 25.865369,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/farmakeio-ebrou-aleksandroupolis/"
+    },
+    {
+      "source_record_id": "html-card:a8f48ccc9437982be8627eee",
+      "legal_name": "Φαρμακείο Εϋβοίας",
+      "address": "Πλατεία Αγίας Βαρβάρας Κτήριο ΕΦΚΑ",
+      "latitude": 38.462504,
+      "longitude": 23.593064,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/farmakeio-eyboias/"
+    },
+    {
+      "source_record_id": "html-card:646fe54f40468313efe1d560",
+      "legal_name": "Φαρμακείο Ηλείας (Πύργου)",
+      "address": "Τάκη Πετροπύλου 8",
+      "latitude": 37.673409,
+      "longitude": 21.435137,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/farmakeio-ileias-pyrgou/"
+    },
+    {
+      "source_record_id": "html-card:c559b604cd687f81a4d269ff",
+      "legal_name": "Φαρμακείο Ηρακλείου",
+      "address": "3ο χλμ Εθνικής Οδού Ηρακλείου-Φαιστού",
+      "latitude": 35.317777,
+      "longitude": 25.098027,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/farmakeio-irakleiou/"
+    },
+    {
+      "source_record_id": "html-card:0b33a235a86a334a48d5899f",
+      "legal_name": "Φαρμακείο Ιωαννίνων",
+      "address": "Παύλου Μελά 23-25",
+      "latitude": 39.671908,
+      "longitude": 20.847778,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/farmakeio-ioanninon/"
+    },
+    {
+      "source_record_id": "html-card:dcb44638354efe8a297bd9d5",
+      "legal_name": "Φαρμακείο Καβάλας",
+      "address": "Φιλικής Εταιρείας 6",
+      "latitude": 40.93597,
+      "longitude": 24.408302,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/farmakeio-kabalas/"
+    },
+    {
+      "source_record_id": "html-card:90efabff8a2257a8385fa486",
+      "legal_name": "Φαρμακείο Καλλιθέας",
+      "address": "Κολοκοτρώνη 47",
+      "latitude": 37.94736,
+      "longitude": 23.68756,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/farmakeio-kallitheas/"
+    },
+    {
+      "source_record_id": "html-card:3a5ef12ba747fc170cc17193",
+      "legal_name": "Φαρμακείο Κατερίνης",
+      "address": "Κανελόπουλου Παναγιώτη 1",
+      "latitude": 40.2636697,
+      "longitude": 22.5100821,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/farmakeio-katerinis/"
+    },
+    {
+      "source_record_id": "html-card:45031c80dd15546791f5af73",
+      "legal_name": "Φαρμακείο Κέντρου Θεσσαλονίκης",
+      "address": "Μιχαήλ Καλού 6",
+      "latitude": 40.643092,
+      "longitude": 22.931763,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/farmakeio-kentrou-thessalonikis/"
+    },
+    {
+      "source_record_id": "html-card:40e0015e41c87f536bdd248c",
+      "legal_name": "Φαρμακείο Κέρκυρας",
+      "address": "9η Παρ. Ι. Θεοτόκη",
+      "latitude": 39.623832,
+      "longitude": 19.914648,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/farmakeio-kerkyras/"
+    },
+    {
+      "source_record_id": "html-card:543703b89f82077b69939df0",
+      "legal_name": "Φαρμακείο Κομοτηνής",
+      "address": "Υψηλάντου 2",
+      "latitude": 41.116733,
+      "longitude": 25.395738,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/farmakeio-komotinis/"
+    },
+    {
+      "source_record_id": "html-card:4a8e77ee7a3ef610369bfd34",
+      "legal_name": "Φαρμακείο Λαμίας",
+      "address": "Ροζάκη Αγγελή 59 ( Ισόγειο - εντός στοάς)",
+      "latitude": 38.90059,
+      "longitude": 22.43669,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/farmakeio-lamias/"
+    },
+    {
+      "source_record_id": "html-card:31fcb32892dd5162013b9e7c",
+      "legal_name": "Φαρμακείο Λάρισας",
+      "address": "Ηρώων Πολυτεχνείου 211",
+      "latitude": 39.64118,
+      "longitude": 22.42962,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/farmakeio-larisas/"
+    },
+    {
+      "source_record_id": "html-card:28e17b19871e08ad9bee4d17",
+      "legal_name": "Φαρμακείο Μεσολογγίου",
+      "address": "Χαρ. Τρικούπη και Κύπρου",
+      "latitude": 38.36973,
+      "longitude": 21.42478,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/farmakeio-mesologgiou/"
+    },
+    {
+      "source_record_id": "html-card:27c6e42f3d39f9ccb8935332",
+      "legal_name": "Φαρμακείο Μεσσηνίας",
+      "address": "Πλάτωνος και Κανάρη γωνία (επί της Πλάτωνος)",
+      "latitude": 37.03277,
+      "longitude": 22.112097,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/farmakeio-messinias/"
+    },
+    {
+      "source_record_id": "html-card:d4ac6d792520623e270c6a8b",
+      "legal_name": "Φαρμακείο Μυτιλήνης",
+      "address": "Πλ. Μαρτύρων",
+      "latitude": 39.106753,
+      "longitude": 26.557266,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/farmakeio-mytilinis/"
+    },
+    {
+      "source_record_id": "html-card:2689e2dcc8173c3ba137c165",
+      "legal_name": "Φαρμακείο Περιστερίου",
+      "address": "Σαρανταπόρου 58",
+      "latitude": 38.0114198,
+      "longitude": 23.6907692,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/farmakeio-peristeriou/"
+    },
+    {
+      "source_record_id": "html-card:e5bf48d21ad9239c36d432b7",
+      "legal_name": "Φαρμακείο Πρέβεζας",
+      "address": "Σελευκείας 9",
+      "latitude": 38.96442,
+      "longitude": 20.75254,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/farmakeio-prebezas/"
+    },
+    {
+      "source_record_id": "html-card:becc254c2ecbb674b92112da",
+      "legal_name": "Φαρμακείο Ρόδου",
+      "address": "ΑΥΣΤΡΑΛΙΑΣ 88-92 ΠΕΡΙΟΧΗ ΝΕΑΣ ΜΑΡΙΝΑΣ",
+      "latitude": 36.436616,
+      "longitude": 28.237631,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/farmakeio-rodou/"
+    },
+    {
+      "source_record_id": "html-card:766bf21a7d25791212720a9c",
+      "legal_name": "Φαρμακείο Σερρών",
+      "address": "Πρίγκηπος Χριστοφόρου 25",
+      "latitude": 41.092135,
+      "longitude": 23.551751,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/farmakeio-serron/"
+    },
+    {
+      "source_record_id": "html-card:c87e45df058392571971d2ca",
+      "legal_name": "Φαρμακείο Τούμπας",
+      "address": "Κωνσταντίνου Καραμανλή (Εγνατία) 38",
+      "latitude": 40.6166346,
+      "longitude": 22.9626819,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/farmakeio-toumpas/"
+    },
+    {
+      "source_record_id": "html-card:1465c6d27accce5bf2c7b59a",
+      "legal_name": "Φαρμακείο Τρίπολης",
+      "address": "2ο χλμ Τρίπολης-Σπάρτης",
+      "latitude": 37.499489,
+      "longitude": 22.378147,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/farmakeio-tripolis/"
+    },
+    {
+      "source_record_id": "html-card:ba114e791c6ef7c959dff63e",
+      "legal_name": "Φαρμακείο Χανίων",
+      "address": "Λ. Καραμανλή 99",
+      "latitude": 35.500009,
+      "longitude": 24.030093,
+      "regulator_url": "https://eopyy.gov.gr/el/pharmacylist/farmakeio-hanion/"
+    }
+  ]
+}

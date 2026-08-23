@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "purpose": "Fail-closed coordinate join between the current IRCCA authorised-pharmacy table and the KML map embedded by IRCCA on its official pharmacy-access page. A point attaches only when one retained public pharmacy address has one exact normalized KML placemark-name match inside Uruguay. The pending C3 source state is not changed by this coordinate artifact.",
+  "registry_snapshot_path": "data/store_truth/source_snapshots/uy-ircca-current-authorized-pharmacies-2026-08-15.json",
+  "registry_snapshot_sha256": "d84091df7122dd48eb5cdf0ebed32070e115b07609c11e04afe5b9ae07a9a5e4",
+  "registry_records_field": "records",
+  "registry_name_fields": [
+    "address"
+  ],
+  "required_registry_values": {
+    "country": "UY",
+    "store_type": "AUTHORIZED_PHARMACY"
+  },
+  "coordinate_bounds": {
+    "west": -58.6,
+    "east": -53.0,
+    "south": -35.2,
+    "north": -30.0
+  },
+  "map_sources": [
+    {
+      "map_id": "ircca-current-authorized-pharmacy-map",
+      "source_url": "https://www.google.com/maps/d/embed?mid=1bmxZdUPhVK6zUyKr7AB31vIiL06mqqQ&ehbc=2E312F&noprof=1",
+      "download_url": "https://www.google.com/maps/d/kml?mid=1bmxZdUPhVK6zUyKr7AB31vIiL06mqqQ&forcekml=1",
+      "snapshot_path": "data/store_truth/source_snapshots/uy-ircca-current-authorized-pharmacy-map-2026-08-21.kml",
+      "snapshot_sha256": "1e9e55152a0f5a49355173f3e04e63944f72134711feb98c25c251211732d00e"
+    }
+  ]
+}

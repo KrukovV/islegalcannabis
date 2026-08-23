@@ -12,6 +12,12 @@ export const metadata: Metadata = {
   }
 };
 
+function readBoundedNumber(value: string | string[] | undefined, min: number, max: number) {
+  if (typeof value !== "string" || value.trim() === "") return null;
+  const parsed = Number(value);
+  return Number.isFinite(parsed) && parsed >= min && parsed <= max ? parsed : null;
+}
+
 export default async function NewMapPage({
   searchParams
 }: {
@@ -24,12 +30,17 @@ export default async function NewMapPage({
   const initialGeoCode =
     (typeof resolvedSearchParams?.geo === "string" ? resolvedSearchParams.geo : null) ||
     (typeof resolvedSearchParams?.code === "string" ? resolvedSearchParams.code : null);
+  const lat = readBoundedNumber(resolvedSearchParams?.lat, -90, 90);
+  const lng = readBoundedNumber(resolvedSearchParams?.lng, -180, 180);
+  const zoom = readBoundedNumber(resolvedSearchParams?.zoom, 0, 14);
+  const initialMapView = lat === null || lng === null || zoom === null ? null : { lat, lng, zoom };
   return (
     <NewMapClientEntry
       countriesUrl={countriesUrl}
       visibleStamp={visibleStamp}
       runtimeIdentity={runtimeIdentity}
       initialGeoCode={initialGeoCode}
+      initialMapView={initialMapView}
     />
   );
 }

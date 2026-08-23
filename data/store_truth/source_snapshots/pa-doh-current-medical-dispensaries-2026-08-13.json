@@ -1,0 +1,4326 @@
+[
+  {
+    "objectid": "70",
+    "facility_name": "Harvest of Whitehall",
+    "longitude": "-75.48519990",
+    "latitude": "40.63151796",
+    "facility_url": "www.harvesthoc.com",
+    "geocoding_certainty": "00",
+    "open_on": "2/9/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "1809 MacArthur Rd",
+    "city_or_borough": "Whitehall",
+    "state": "PA",
+    "zip_code": "18052",
+    "telephone_number": "445-465-7555",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.48532,
+        40.63148
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "12",
+    ":@computed_region_4fjn_fq7k": "50"
+  },
+  {
+    "objectid": "139",
+    "facility_name": "Delta 9 PA",
+    "longitude": "-79.53779952",
+    "latitude": "40.30349563",
+    "facility_url": "https://www.delta9pa.com/",
+    "geocoding_certainty": "00",
+    "open_on": "12/20/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "305 East Pittsburgh Street",
+    "city_or_borough": "Greensburg",
+    "state": "PA",
+    "zip_code": "15601",
+    "telephone_number": "724-600-4438",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -79.53752,
+        40.30334
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "9",
+    ":@computed_region_4fjn_fq7k": "46"
+  },
+  {
+    "objectid": "102",
+    "facility_name": "Verilife",
+    "longitude": "-76.20538443",
+    "latitude": "40.02537054",
+    "facility_url": "www.verilife.com/pa",
+    "geocoding_certainty": "00",
+    "open_on": "11/23/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "2359 Lincoln Highway",
+    "city_or_borough": "East Lancaster",
+    "state": "PA",
+    "zip_code": "17602",
+    "telephone_number": "717-999-0840",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -76.20534,
+        40.02521
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "15",
+    ":@computed_region_4fjn_fq7k": "45"
+  },
+  {
+    "objectid": "1",
+    "facility_name": "Cresco Yeltrah - Butler County",
+    "longitude": "-79.90584488",
+    "latitude": "40.86026391",
+    "facility_url": "https://www.cydispensary.com",
+    "geocoding_certainty": "00",
+    "open_on": "2/15/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "201 Pillow St",
+    "city_or_borough": "Bulter",
+    "state": "PA",
+    "zip_code": "16001",
+    "telephone_number": "724-276-0069",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -79.90593,
+        40.86042
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "11",
+    ":@computed_region_4fjn_fq7k": "29"
+  },
+  {
+    "objectid": "89",
+    "facility_name": "Zen Leaf Philadelphia",
+    "longitude": "-75.03513561",
+    "latitude": "40.07304414",
+    "facility_url": "www.zenleafdispensaries.com",
+    "geocoding_certainty": "00",
+    "open_on": "7/21/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "2504 Welsh Road",
+    "city_or_borough": "Philadelphia",
+    "state": "PA",
+    "zip_code": "19152",
+    "telephone_number": "267-585-5700",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.03362,
+        40.07291
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "5",
+    ":@computed_region_4fjn_fq7k": "49"
+  },
+  {
+    "objectid": "171",
+    "facility_name": "Rise-Philadelphia",
+    "longitude": "-75.08706469",
+    "latitude": "39.99784945",
+    "facility_url": "www.risedispensaries.com",
+    "geocoding_certainty": "00",
+    "open_on": "6/17/2023",
+    "available_on_10_04_19": "yes",
+    "street": "3903 Aramingo Ave",
+    "city_or_borough": "Philadelphia",
+    "state": "PA",
+    "zip_code": "19137",
+    "telephone_number": "267-585-0072",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.08735,
+        39.99792
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "5",
+    ":@computed_region_4fjn_fq7k": "49"
+  },
+  {
+    "objectid": "116",
+    "facility_name": "Curaleaf",
+    "longitude": "-80.08163032",
+    "latitude": "42.05057089",
+    "facility_url": "www.curaleaf.com",
+    "geocoding_certainty": "00",
+    "open_on": "3/8/2022",
+    "available_on_10_04_19": "Yes",
+    "street": "7891 Peach St",
+    "city_or_borough": "Erie",
+    "state": "PA",
+    "zip_code": "16509",
+    "telephone_number": "814-616-7050",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -80.08201,
+        42.05047
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "11",
+    ":@computed_region_4fjn_fq7k": "56"
+  },
+  {
+    "objectid": "6",
+    "facility_name": "Keystone Shops - Devon",
+    "longitude": "-75.43074307",
+    "latitude": "40.04476323",
+    "facility_url": "https://keystoneshops.com",
+    "geocoding_certainty": "00",
+    "open_on": "2/17/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "420 West Lancaster Ave",
+    "city_or_borough": "Devon",
+    "state": "PA",
+    "zip_code": "19333",
+    "telephone_number": "484-581-7189",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.4284,
+        40.04442
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "14",
+    ":@computed_region_4fjn_fq7k": "27"
+  },
+  {
+    "objectid": "121",
+    "facility_name": "Maitri Medicinals-Greensburg",
+    "longitude": "-79.54639221",
+    "latitude": "40.28613478",
+    "facility_url": "www.maitrimeds.com",
+    "geocoding_certainty": "00",
+    "open_on": "5/14/2022",
+    "available_on_10_04_19": "Yes",
+    "street": "1075 S Main St. Suites 104 &106",
+    "city_or_borough": "Greensburg",
+    "state": "PA",
+    "zip_code": "15601",
+    "telephone_number": "724-420-5724",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -79.54644,
+        40.28692
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "9",
+    ":@computed_region_4fjn_fq7k": "46"
+  },
+  {
+    "objectid": "11",
+    "facility_name": "Cure Pennsylvania",
+    "longitude": "-75.54714409",
+    "latitude": "40.12996180",
+    "facility_url": "https://curepenn.com",
+    "geocoding_certainty": "00",
+    "open_on": "4/6/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "500 Kimberton Road",
+    "city_or_borough": "Phoenixville",
+    "state": "PA",
+    "zip_code": "19460",
+    "telephone_number": "610-546-2873",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.54695,
+        40.12995
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "14",
+    ":@computed_region_4fjn_fq7k": "27"
+  },
+  {
+    "objectid": "57",
+    "facility_name": "Vytal Options - Lancaster",
+    "longitude": "-76.30488017",
+    "latitude": "40.04144624",
+    "facility_url": "www.vytaloptions.com",
+    "geocoding_certainty": "00",
+    "open_on": "10/1/2020",
+    "available_on_10_04_19": "Yes",
+    "street": "39 E Chestnut Street",
+    "city_or_borough": "Lancaster",
+    "state": "PA",
+    "zip_code": "17602",
+    "telephone_number": "717-327-4740",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -76.3048,
+        40.04135
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "15",
+    ":@computed_region_4fjn_fq7k": "45"
+  },
+  {
+    "objectid": "143",
+    "facility_name": "AES Herbology û Morton",
+    "longitude": "-75.33139828",
+    "latitude": "39.91760801",
+    "facility_url": "https://www.myherbology.com",
+    "geocoding_certainty": "00",
+    "open_on": "5/6/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "409 Baltimore Pike",
+    "city_or_borough": "Morton",
+    "state": "PA",
+    "zip_code": "19070",
+    "telephone_number": "610-490-8966",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.33145,
+        39.91748
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "18",
+    ":@computed_region_4fjn_fq7k": "54"
+  },
+  {
+    "objectid": "154",
+    "facility_name": "Herbology Brookville",
+    "longitude": "-79.09613845",
+    "latitude": "41.16302097",
+    "facility_url": "https://www.myherbology.com",
+    "geocoding_certainty": "00",
+    "open_on": "8/21/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "240 W Main Street",
+    "city_or_borough": "Brookville",
+    "state": "PA",
+    "zip_code": "15825",
+    "telephone_number": "814-759-4069",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -79.09627,
+        41.16279
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "3",
+    ":@computed_region_4fjn_fq7k": "42"
+  },
+  {
+    "objectid": "175",
+    "facility_name": "Sunnyside-Altoona",
+    "longitude": "-78.40718711",
+    "latitude": "40.47079343",
+    "facility_url": "www.sunnyside.shop",
+    "geocoding_certainty": "00",
+    "open_on": "10/5/2023",
+    "available_on_10_04_19": "yes",
+    "street": "534 W Plank Rd",
+    "city_or_borough": "Altoona",
+    "state": "PA",
+    "zip_code": "16602",
+    "telephone_number": "814-298-6555",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -78.40719,
+        40.47091
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "13",
+    ":@computed_region_4fjn_fq7k": "23"
+  },
+  {
+    "objectid": "43",
+    "facility_name": "RISE - Cranberry",
+    "longitude": "-80.10348298",
+    "latitude": "40.71486348",
+    "facility_url": "www.risedispensaries.com",
+    "geocoding_certainty": "00",
+    "open_on": "3/31/2020",
+    "available_on_10_04_19": "Yes",
+    "street": "20808 Route 19",
+    "city_or_borough": "Cranberry Township",
+    "state": "PA",
+    "zip_code": "16066",
+    "telephone_number": "445-900-1081",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -80.10391,
+        40.71413
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "11",
+    ":@computed_region_4fjn_fq7k": "29"
+  },
+  {
+    "objectid": "25",
+    "facility_name": "Liberty - Norristown",
+    "longitude": "-75.38033176",
+    "latitude": "40.13324002",
+    "facility_url": "https://www.libertydispensarypa.com",
+    "geocoding_certainty": "00",
+    "open_on": "7/9/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "2030 West Main Street",
+    "city_or_borough": "Norristown",
+    "state": "PA",
+    "zip_code": "19403",
+    "telephone_number": "484-612-4520",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.3803,
+        40.13342
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "8",
+    ":@computed_region_4fjn_fq7k": "1"
+  },
+  {
+    "objectid": "38",
+    "facility_name": "RISE - New Castle",
+    "longitude": "-80.39981643",
+    "latitude": "41.01453744",
+    "facility_url": "www.risecannabis.com",
+    "geocoding_certainty": "00",
+    "open_on": "12/17/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "2622 W. State Street",
+    "city_or_borough": "New Castle",
+    "state": "PA",
+    "zip_code": "16101",
+    "telephone_number": "724-250-8081",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -80.39994,
+        41.01413
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "11",
+    ":@computed_region_4fjn_fq7k": "53"
+  },
+  {
+    "objectid": "26",
+    "facility_name": "Liberty - Philadelphia",
+    "longitude": "-75.04982829",
+    "latitude": "40.08300917",
+    "facility_url": "https://www.libertydispensarypa.com",
+    "geocoding_certainty": "00",
+    "open_on": "7/16/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "8900 Krewstown Road",
+    "city_or_borough": "Philadelphia",
+    "state": "PA",
+    "zip_code": "19115",
+    "telephone_number": "267-686-2824",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.04969,
+        40.08289
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "5",
+    ":@computed_region_4fjn_fq7k": "49"
+  },
+  {
+    "objectid": "53",
+    "facility_name": "Verilife Shamokin",
+    "longitude": "-76.55131547",
+    "latitude": "40.79184416",
+    "facility_url": "www.verilife.com/pa",
+    "geocoding_certainty": "00",
+    "open_on": "8/3/2020",
+    "available_on_10_04_19": "Yes",
+    "street": "520 N. Shamokin Street",
+    "city_or_borough": "Shamokin",
+    "state": "PA",
+    "zip_code": "17872",
+    "telephone_number": "888-493-6066",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -76.55116,
+        40.79192
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "1",
+    ":@computed_region_4fjn_fq7k": "15"
+  },
+  {
+    "objectid": "15",
+    "facility_name": "RISE - Steelton",
+    "longitude": "-76.82745716",
+    "latitude": "40.22514755",
+    "facility_url": "https://risecannabis.com",
+    "geocoding_certainty": "00",
+    "open_on": "5/3/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "801 South Front Street",
+    "city_or_borough": "Steelton",
+    "state": "PA",
+    "zip_code": "17113",
+    "telephone_number": "717-279-5818",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -76.82727,
+        40.22506
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "16",
+    ":@computed_region_4fjn_fq7k": "40"
+  },
+  {
+    "objectid": "111",
+    "facility_name": "Curaleaf",
+    "longitude": "-75.40802836",
+    "latitude": "40.04736591",
+    "facility_url": "www.curaleaf.com",
+    "geocoding_certainty": "00",
+    "open_on": "1/18/2022",
+    "available_on_10_04_19": "Yes",
+    "street": "707 West Lancaster Ave",
+    "city_or_borough": "Wayne",
+    "state": "PA",
+    "zip_code": "19087",
+    "telephone_number": "484-584-0270",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.40807,
+        40.04716
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "14",
+    ":@computed_region_4fjn_fq7k": "27"
+  },
+  {
+    "objectid": "126",
+    "facility_name": "Zen Leaf New Kensington",
+    "longitude": "-79.75213654",
+    "latitude": "40.59153127",
+    "facility_url": "www.zenleafdispensaries.com",
+    "geocoding_certainty": "00",
+    "open_on": "9/7/2022",
+    "available_on_10_04_19": "Yes",
+    "street": "215 Tarentum Bridge Road",
+    "city_or_borough": "New Kensington",
+    "state": "PA",
+    "zip_code": "15068",
+    "telephone_number": "814-447-2936",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -79.75207,
+        40.59148
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "9",
+    ":@computed_region_4fjn_fq7k": "46"
+  },
+  {
+    "objectid": "158",
+    "facility_name": "Nature's Medicines Selinsgrove",
+    "longitude": "-76.84068869",
+    "latitude": "40.82857207",
+    "facility_url": "https://naturesmedicines.com",
+    "geocoding_certainty": "00",
+    "open_on": "9/26/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "1420 N Susquehanna Trail",
+    "city_or_borough": "Selinsgrove",
+    "state": "PA",
+    "zip_code": "17870",
+    "telephone_number": "570-828-3999",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -76.8408,
+        40.82845
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "2",
+    ":@computed_region_4fjn_fq7k": "20"
+  },
+  {
+    "objectid": "21",
+    "facility_name": "Nature's Medicines",
+    "longitude": "-77.90972240",
+    "latitude": "40.81011815",
+    "facility_url": "https://naturesmedicines.com",
+    "geocoding_certainty": "00",
+    "open_on": "6/21/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "2105 N Atherton Street",
+    "city_or_borough": "State College",
+    "state": "PA",
+    "zip_code": "16803",
+    "telephone_number": "814-924-0597",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -77.9098,
+        40.80969
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "3",
+    ":@computed_region_4fjn_fq7k": "33"
+  },
+  {
+    "objectid": "47",
+    "facility_name": "RISE - Chambersburg 1640",
+    "longitude": "-77.66599237",
+    "latitude": "39.91285712",
+    "facility_url": "www.risedispensaries.com",
+    "geocoding_certainty": "00",
+    "open_on": "6/16/2020",
+    "available_on_10_04_19": "Yes",
+    "street": "Orchard Drive",
+    "city_or_borough": "Chambersburg",
+    "state": "PA",
+    "zip_code": "17201",
+    "telephone_number": "717-400-5833"
+  },
+  {
+    "objectid": "94",
+    "facility_name": "Beyond Hello",
+    "longitude": "-75.19306190",
+    "latitude": "39.95846912",
+    "facility_url": "www.beyond-hello.com",
+    "geocoding_certainty": "00",
+    "open_on": "8/31/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "3519 Lancaster Ave.",
+    "city_or_borough": "Philadelphia",
+    "state": "PA",
+    "zip_code": "19104",
+    "telephone_number": "445-895-1999",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.19313,
+        39.95831
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "6",
+    ":@computed_region_4fjn_fq7k": "49"
+  },
+  {
+    "objectid": "153",
+    "facility_name": "Nature's Medicines Bloomsburg",
+    "longitude": "-76.48927823",
+    "latitude": "41.01867339",
+    "facility_url": "https://naturesmedicines.com",
+    "geocoding_certainty": "00",
+    "open_on": "8/7/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "261 Columbia Mall",
+    "city_or_borough": "Drive Bloomsburg",
+    "state": "PA",
+    "zip_code": "17815",
+    "telephone_number": "570-828-3888",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -76.48919,
+        41.01883
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "1",
+    ":@computed_region_4fjn_fq7k": "37"
+  },
+  {
+    "objectid": "58",
+    "facility_name": "Harvest of Camp Hill",
+    "longitude": "-76.92619433",
+    "latitude": "40.22391572",
+    "facility_url": "www.harvestinc.com/state/pennsylvania",
+    "geocoding_certainty": "00",
+    "open_on": "10/14/2020",
+    "available_on_10_04_19": "Yes",
+    "street": "3401 Hartzdale Drive",
+    "city_or_borough": "Camp Hill",
+    "state": "PA",
+    "zip_code": "17011",
+    "telephone_number": "570-273-8701",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -76.92552,
+        40.2242
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "16",
+    ":@computed_region_4fjn_fq7k": "39"
+  },
+  {
+    "objectid": "79",
+    "facility_name": "Bloc Dispensary - Bethlehem",
+    "longitude": "-75.34596558",
+    "latitude": "40.67105029",
+    "facility_url": "www.blocdispensary.com",
+    "geocoding_certainty": "00",
+    "open_on": "4/29/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "3650 Nazareth Pike",
+    "city_or_borough": "Bethlehem",
+    "state": "PA",
+    "zip_code": "18020",
+    "telephone_number": "484-214-5400",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.34645,
+        40.67079
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "12",
+    ":@computed_region_4fjn_fq7k": "14"
+  },
+  {
+    "objectid": "30",
+    "facility_name": "Restore Integrative Wellness Center LLC",
+    "longitude": "-75.12845831",
+    "latitude": "40.07542857",
+    "facility_url": "https://restoreiwc.com",
+    "geocoding_certainty": "00",
+    "open_on": "10/2/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "8003 Old York Road",
+    "city_or_borough": "Elkins Park",
+    "state": "PA",
+    "zip_code": "19027",
+    "telephone_number": "215-709-2360",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.12869,
+        40.07554
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "8",
+    ":@computed_region_4fjn_fq7k": "1"
+  },
+  {
+    "objectid": "165",
+    "facility_name": "Ascend Dispensary-Wayne",
+    "longitude": "-75.40978690",
+    "latitude": "40.04763544",
+    "facility_url": "www.letsascend.com",
+    "geocoding_certainty": "00",
+    "open_on": "11/19/2022",
+    "available_on_10_04_19": "Yes",
+    "street": "745 Lancaster Ave",
+    "city_or_borough": "Wayne",
+    "state": "PA",
+    "zip_code": "19087",
+    "telephone_number": "610-453-0770",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.40955,
+        40.04764
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "14",
+    ":@computed_region_4fjn_fq7k": "27"
+  },
+  {
+    "objectid": "180",
+    "facility_name": "Ascend Dispensary-Monaca",
+    "longitude": "-80.31146774",
+    "latitude": "40.67050847",
+    "facility_url": "www.letsascend.com",
+    "geocoding_certainty": "00",
+    "open_on": "3/13/2024",
+    "available_on_10_04_19": "yes",
+    "street": "1451 Old BrodHead Rd",
+    "city_or_borough": "Monaca",
+    "state": "PA",
+    "zip_code": "15061",
+    "telephone_number": "878-978-3097",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -80.31128,
+        40.67044
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "17",
+    ":@computed_region_4fjn_fq7k": "66"
+  },
+  {
+    "objectid": "107",
+    "facility_name": "Beyond Hello",
+    "longitude": "-76.19599550",
+    "latitude": "40.68582741",
+    "facility_url": "www.beyond-hello.com",
+    "geocoding_certainty": "00",
+    "open_on": "12/20/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "101 N. Centre St",
+    "city_or_borough": "Pottsville",
+    "state": "PA",
+    "zip_code": "17901",
+    "telephone_number": "570-691-0100",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -76.19577,
+        40.68596
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "1",
+    ":@computed_region_4fjn_fq7k": "19"
+  },
+  {
+    "objectid": "122",
+    "facility_name": "Zen Leaf Wynnewood",
+    "longitude": "-75.28196168",
+    "latitude": "40.00366869",
+    "facility_url": "www.zenleafdispensaries.com",
+    "geocoding_certainty": "00",
+    "open_on": "6/1/2022",
+    "available_on_10_04_19": "Yes",
+    "street": "257 E Lancaster Ave",
+    "city_or_borough": "Wynnewood",
+    "state": "PA",
+    "zip_code": "19096",
+    "telephone_number": "814-447-2936",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.28223,
+        40.00375
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "18",
+    ":@computed_region_4fjn_fq7k": "1"
+  },
+  {
+    "objectid": "85",
+    "facility_name": "Beyond/Hello - Easton",
+    "longitude": "-75.28906549",
+    "latitude": "40.71843981",
+    "facility_url": "www.beyond-hello.com",
+    "geocoding_certainty": "00",
+    "open_on": "6/11/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "3812 Easton Nazareth Highway",
+    "city_or_borough": "Easton",
+    "state": "PA",
+    "zip_code": "18045",
+    "telephone_number": "610-829-9799",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.29007,
+        40.71856
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "12",
+    ":@computed_region_4fjn_fq7k": "14"
+  },
+  {
+    "objectid": "148",
+    "facility_name": "Herbology - Lebanon",
+    "longitude": "-76.42523619",
+    "latitude": "40.33936688",
+    "facility_url": "https://www.myherbology.com",
+    "geocoding_certainty": "00",
+    "open_on": "7/10/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "815 Cumberland Street",
+    "city_or_borough": "Lebanon",
+    "state": "PA",
+    "zip_code": "17042",
+    "telephone_number": "717-769-4174",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -76.42527,
+        40.33924
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "1",
+    ":@computed_region_4fjn_fq7k": "28"
+  },
+  {
+    "objectid": "62",
+    "facility_name": "Ethos Pittsburgh West",
+    "longitude": "-80.18348069",
+    "latitude": "40.45108545",
+    "facility_url": "www.ethospa.com",
+    "geocoding_certainty": "00",
+    "open_on": "11/24/2020",
+    "available_on_10_04_19": "Yes",
+    "street": "470 Home Drive",
+    "city_or_borough": "Pittsburgh",
+    "state": "PA",
+    "zip_code": "15275",
+    "telephone_number": "412-664-5402",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -80.18222,
+        40.45199
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "17",
+    ":@computed_region_4fjn_fq7k": "64"
+  },
+  {
+    "objectid": "133",
+    "facility_name": "Herbology - Philadelphia",
+    "longitude": "-75.15679961",
+    "latitude": "39.93521476",
+    "facility_url": "https://www.myherbology.com",
+    "geocoding_certainty": "00",
+    "open_on": "11/2/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "1125-1127 Passyunk Avenue",
+    "city_or_borough": "Philadelphia",
+    "state": "PA",
+    "zip_code": "19147",
+    "telephone_number": "267-691-0565",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.15692,
+        39.93528
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "6",
+    ":@computed_region_4fjn_fq7k": "49"
+  },
+  {
+    "objectid": "90",
+    "facility_name": "The Healing Research Center - Robinson",
+    "longitude": "-80.16057123",
+    "latitude": "40.45374096",
+    "facility_url": "www.thehealingresearchcenterusa.com",
+    "geocoding_certainty": "00",
+    "open_on": "7/29/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "6300 Robinson Center Dr.",
+    "city_or_borough": "Pittsburgh",
+    "state": "PA",
+    "zip_code": "15205",
+    "telephone_number": "412-615-4990",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -80.16,
+        40.45269
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "17",
+    ":@computed_region_4fjn_fq7k": "64"
+  },
+  {
+    "objectid": "134",
+    "facility_name": "Liberty",
+    "longitude": "-74.95026049",
+    "latitude": "40.13700109",
+    "facility_url": "https://www.libertydispensarypa.com",
+    "geocoding_certainty": "00",
+    "open_on": "11/9/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "4201 Neshaminy Blvd Unit 101",
+    "city_or_borough": "Bensalem",
+    "state": "PA",
+    "zip_code": "19020",
+    "telephone_number": "267-512-6103",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -74.95091,
+        40.13597
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "4",
+    ":@computed_region_4fjn_fq7k": "3"
+  },
+  {
+    "objectid": "117",
+    "facility_name": "Organic Remedies",
+    "longitude": "-80.02667462",
+    "latitude": "40.34204430",
+    "facility_url": "www.organic remedies.com",
+    "geocoding_certainty": "00",
+    "open_on": "4/18/2022",
+    "available_on_10_04_19": "Yes",
+    "street": "5002 Library Road",
+    "city_or_borough": "Bethel Park",
+    "state": "PA",
+    "zip_code": "15102",
+    "telephone_number": "412-838-2800",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -80.02665,
+        40.34181
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "10",
+    ":@computed_region_4fjn_fq7k": "64"
+  },
+  {
+    "objectid": "2",
+    "facility_name": "Justice Grown",
+    "longitude": "-75.89908649",
+    "latitude": "41.25729732",
+    "facility_url": "https://www.justicegrownpa.com",
+    "geocoding_certainty": "00",
+    "open_on": "2/16/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "7B Gateway Shopping Center",
+    "city_or_borough": "Edwardsville",
+    "state": "PA",
+    "zip_code": "18704",
+    "telephone_number": "570-763-7200",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.90263,
+        41.25723
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "7",
+    ":@computed_region_4fjn_fq7k": "51"
+  },
+  {
+    "objectid": "75",
+    "facility_name": "Curaleaf Horsham",
+    "longitude": "-75.13135919",
+    "latitude": "40.17957363",
+    "facility_url": "www.curaleaf.com/shop/pennsylvania/curaleaf-pa-horsham/info",
+    "geocoding_certainty": "00",
+    "open_on": "4/6/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "255 Horsham Road",
+    "city_or_borough": "Horsham",
+    "state": "PA",
+    "zip_code": "19044",
+    "telephone_number": "267-631-0003",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.13124,
+        40.17963
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "8",
+    ":@computed_region_4fjn_fq7k": "1"
+  },
+  {
+    "objectid": "7",
+    "facility_name": "TerraVida Holistic Centers - Sellersville",
+    "longitude": "-75.30893899",
+    "latitude": "40.35821864",
+    "facility_url": "https://www.terravidahc.com",
+    "geocoding_certainty": "00",
+    "open_on": "2/17/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "64 N. Main St",
+    "city_or_borough": "Sellersville",
+    "state": "PA",
+    "zip_code": "18960",
+    "telephone_number": "215-257-3243",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.30881,
+        40.35809
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "4",
+    ":@computed_region_4fjn_fq7k": "3"
+  },
+  {
+    "objectid": "61",
+    "facility_name": "RISE Monroeville",
+    "longitude": "-79.78191325",
+    "latitude": "40.43644763",
+    "facility_url": "www.risedispensaries.com",
+    "geocoding_certainty": "00",
+    "open_on": "10/21/2020",
+    "available_on_10_04_19": "Yes",
+    "street": "3838 William Penn Highway",
+    "city_or_borough": "Monroeville",
+    "state": "PA",
+    "zip_code": "15146",
+    "telephone_number": "412-516-9096",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -79.78168,
+        40.43646
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "10",
+    ":@computed_region_4fjn_fq7k": "64"
+  },
+  {
+    "objectid": "118",
+    "facility_name": "Fluent Dispensary",
+    "longitude": "-76.49770815",
+    "latitude": "40.33341082",
+    "facility_url": "pa.getfluent.com",
+    "geocoding_certainty": "00",
+    "open_on": "4/20/2022",
+    "available_on_10_04_19": "Yes",
+    "street": "1015 East Main Street",
+    "city_or_borough": "Annville",
+    "state": "PA",
+    "zip_code": "17003",
+    "telephone_number": "717-820-5111",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -76.49738,
+        40.33349
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "1",
+    ":@computed_region_4fjn_fq7k": "28"
+  },
+  {
+    "objectid": "86",
+    "facility_name": "Ayr Wellness- Gibsonia",
+    "longitude": "-79.94044231",
+    "latitude": "40.63775696",
+    "facility_url": "www.ayrwellnessdispensary.com",
+    "geocoding_certainty": "00",
+    "open_on": "6/21/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "112 Northtowne Sq",
+    "city_or_borough": "Gibsonia",
+    "state": "PA",
+    "zip_code": "15044",
+    "telephone_number": "878-728-1001",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -79.94041,
+        40.63751
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "17",
+    ":@computed_region_4fjn_fq7k": "64"
+  },
+  {
+    "objectid": "103",
+    "facility_name": "Organic Remedies",
+    "longitude": "-80.01172386",
+    "latitude": "40.54078415",
+    "facility_url": "www.organicremediespa.com",
+    "geocoding_certainty": "00",
+    "open_on": "11/26/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "7402 McKnight Road",
+    "city_or_borough": "Pittsburgh",
+    "state": "PA",
+    "zip_code": "15237",
+    "telephone_number": "412-690-0803",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -80.01175,
+        40.54087
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "17",
+    ":@computed_region_4fjn_fq7k": "64"
+  },
+  {
+    "objectid": "29",
+    "facility_name": "The Healing Center Monroeville",
+    "longitude": "-79.79387063",
+    "latitude": "40.43126421",
+    "facility_url": "http://www.thehealingcenterusa.com",
+    "geocoding_certainty": "00",
+    "open_on": "9/28/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "130 Mall Circle Drive",
+    "city_or_borough": "Monroeville",
+    "state": "PA",
+    "zip_code": "15146",
+    "telephone_number": "412-256-7045",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -79.79393,
+        40.43122
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "10",
+    ":@computed_region_4fjn_fq7k": "64"
+  },
+  {
+    "objectid": "39",
+    "facility_name": "Beyond Hello - West Chester",
+    "longitude": "-75.55503818",
+    "latitude": "39.96817902",
+    "facility_url": "www.beyond-hello.com",
+    "geocoding_certainty": "00",
+    "open_on": "12/18/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "1261 West Chester Pike",
+    "city_or_borough": "West Chester",
+    "state": "PA",
+    "zip_code": "19382",
+    "telephone_number": "610-471-1059",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.55515,
+        39.96811
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "14",
+    ":@computed_region_4fjn_fq7k": "27"
+  },
+  {
+    "objectid": "161",
+    "facility_name": "Harvest of Scranton",
+    "longitude": "-75.66839231",
+    "latitude": "41.40446650",
+    "facility_url": "https://www.harvestinc.com",
+    "geocoding_certainty": "00",
+    "open_on": "10/17/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "340 S Washington Ave",
+    "city_or_borough": "Scranton",
+    "state": "PA",
+    "zip_code": "18505",
+    "telephone_number": "570-209-7401",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.66789,
+        41.4042
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "7",
+    ":@computed_region_4fjn_fq7k": "44"
+  },
+  {
+    "objectid": "71",
+    "facility_name": "Ayr Wellness - Plymouth Meeting",
+    "longitude": "-75.28621280",
+    "latitude": "40.11550369",
+    "facility_url": "www.ayr-wellness.com/dispensaries/pennsylvania",
+    "geocoding_certainty": "00",
+    "open_on": "2/26/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "505 W Germantown Pike",
+    "city_or_borough": "Plymouth Meeting",
+    "state": "PA",
+    "zip_code": "19462",
+    "telephone_number": "610-814-7047",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.28608,
+        40.11564
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "8",
+    ":@computed_region_4fjn_fq7k": "1"
+  },
+  {
+    "objectid": "22",
+    "facility_name": "Cresco Yeltrah - Allegheny County",
+    "longitude": "-79.98256267",
+    "latitude": "40.45192491",
+    "facility_url": "https://www.cydispensary.com",
+    "geocoding_certainty": "00",
+    "open_on": "6/26/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "2116 Penn Avenue",
+    "city_or_borough": "Pittsburgh",
+    "state": "PA",
+    "zip_code": "15222",
+    "telephone_number": "724-276-0069",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -79.98264,
+        40.45201
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "10",
+    ":@computed_region_4fjn_fq7k": "64"
+  },
+  {
+    "objectid": "138",
+    "facility_name": "Columbia Care - Allentown",
+    "longitude": "-75.52551273",
+    "latitude": "40.59880951",
+    "facility_url": "https://col-care.com",
+    "geocoding_certainty": "00",
+    "open_on": "12/17/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "3025 W Tilghman Street",
+    "city_or_borough": "Allentown",
+    "state": "PA",
+    "zip_code": "18104",
+    "telephone_number": "484-838-7900",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.52505,
+        40.59882
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "12",
+    ":@computed_region_4fjn_fq7k": "50"
+  },
+  {
+    "objectid": "166",
+    "facility_name": "Sunnyside-Erie",
+    "longitude": "-80.08204301",
+    "latitude": "42.05098225",
+    "facility_url": "www.sunnyside.shop",
+    "geocoding_certainty": "00",
+    "open_on": "2/15/2023",
+    "available_on_10_04_19": "Yes",
+    "street": "7851 Peach Street",
+    "city_or_borough": "Erie",
+    "state": "PA",
+    "zip_code": "16509",
+    "telephone_number": "582-205-0124",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -80.08222,
+        42.05089
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "11",
+    ":@computed_region_4fjn_fq7k": "56"
+  },
+  {
+    "objectid": "34",
+    "facility_name": "Green Goods - Bethlehem",
+    "longitude": "-75.38570196",
+    "latitude": "40.58537354",
+    "facility_url": "www.visitgreengoods.com",
+    "geocoding_certainty": "00",
+    "open_on": "11/6/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "3679 Route 378 Unit 10",
+    "city_or_borough": "Bethlehem",
+    "state": "PA",
+    "zip_code": "18015",
+    "telephone_number": "800-514-8532",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.38587,
+        40.58542
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "12",
+    ":@computed_region_4fjn_fq7k": "14"
+  },
+  {
+    "objectid": "93",
+    "facility_name": "Harvest of Philadelphia",
+    "longitude": "-75.16487795",
+    "latitude": "39.94446650",
+    "facility_url": "www.harvesthoc.com",
+    "geocoding_certainty": "00",
+    "open_on": "8/19/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "501-505 S. Broad St.",
+    "city_or_borough": "Philadelphia",
+    "state": "PA",
+    "zip_code": "19147",
+    "telephone_number": "267-946-0004",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.16534,
+        39.94453
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "6",
+    ":@computed_region_4fjn_fq7k": "49"
+  },
+  {
+    "objectid": "66",
+    "facility_name": "Ethos Pennsylvania - Hazleton",
+    "longitude": "-76.02936874",
+    "latitude": "40.98081034",
+    "facility_url": "www.ethospa.com",
+    "geocoding_certainty": "00",
+    "open_on": "12/18/2020",
+    "available_on_10_04_19": "Yes",
+    "street": "113 Woodbine Street #2",
+    "city_or_borough": "Hazleton",
+    "state": "PA",
+    "zip_code": "18202",
+    "telephone_number": "570-914-9211",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -76.02916,
+        40.98142
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "1",
+    ":@computed_region_4fjn_fq7k": "51"
+  },
+  {
+    "objectid": "98",
+    "facility_name": "Green Goods - Stroudsburg",
+    "longitude": "-75.21215667",
+    "latitude": "40.98979833",
+    "facility_url": "www.beyond-hello.com",
+    "geocoding_certainty": "00",
+    "open_on": "10/27/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "852 North Ninth Street",
+    "city_or_borough": "Stroudsburg",
+    "state": "PA",
+    "zip_code": "18360",
+    "telephone_number": "272-271-2999",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.21223,
+        40.98958
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "12",
+    ":@computed_region_4fjn_fq7k": "12"
+  },
+  {
+    "objectid": "157",
+    "facility_name": "Harvest of Reading - Lancaster Ave",
+    "longitude": "-75.93466886",
+    "latitude": "40.32247372",
+    "facility_url": "https://www.harvestinc.com",
+    "geocoding_certainty": "00",
+    "open_on": "9/25/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "201 Lancaster Ave",
+    "city_or_borough": "Reading",
+    "state": "PA",
+    "zip_code": "19611",
+    "telephone_number": "484-207-1717",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.93414,
+        40.32244
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "14",
+    ":@computed_region_4fjn_fq7k": "26"
+  },
+  {
+    "objectid": "10",
+    "facility_name": "Organic Remedies - Chambersburg",
+    "longitude": "-77.65481312",
+    "latitude": "39.91519598",
+    "facility_url": "https://organicremediespa.com",
+    "geocoding_certainty": "00",
+    "open_on": "3/20/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "900 Wayne Avenue",
+    "city_or_borough": "Chambersburg",
+    "state": "PA",
+    "zip_code": "17201",
+    "telephone_number": "717-251-2321",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -77.65446,
+        39.91559
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "13",
+    ":@computed_region_4fjn_fq7k": "59"
+  },
+  {
+    "objectid": "54",
+    "facility_name": "Ethos Pennsylvania - Montgomeryville",
+    "longitude": "-75.23875570",
+    "latitude": "40.23433286",
+    "facility_url": "www.ethospa.com",
+    "geocoding_certainty": "00",
+    "open_on": "8/25/2020",
+    "available_on_10_04_19": "Yes",
+    "street": "921 Bethlehem Pike",
+    "city_or_borough": "Montgomeryville",
+    "state": "PA",
+    "zip_code": "18936",
+    "telephone_number": "267-857-7295",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.23855,
+        40.23404
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "4",
+    ":@computed_region_4fjn_fq7k": "1"
+  },
+  {
+    "objectid": "170",
+    "facility_name": "Zenleaf-Pittsburgh McKnight Rd",
+    "longitude": "-80.00497557",
+    "latitude": "40.52285548",
+    "facility_url": "www.zenleafdispensaries.com",
+    "geocoding_certainty": "00",
+    "open_on": "5/22/2023",
+    "available_on_10_04_19": "yes",
+    "street": "4778 McKnight Rd",
+    "city_or_borough": "Pittsburgh",
+    "state": "PA",
+    "zip_code": "15237",
+    "telephone_number": "412-4740136",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -80.00513,
+        40.52287
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "17",
+    ":@computed_region_4fjn_fq7k": "64"
+  },
+  {
+    "objectid": "142",
+    "facility_name": "Cresco Yeltrah - New Kensington",
+    "longitude": "-79.76600711",
+    "latitude": "40.56302178",
+    "facility_url": "https://www.cydispensary.com",
+    "geocoding_certainty": "00",
+    "open_on": "2/25/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "4 Kensington Square",
+    "city_or_borough": "New Kensington",
+    "state": "PA",
+    "zip_code": "15068",
+    "telephone_number": "724-276-0069",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -79.76635,
+        40.56311
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "9",
+    ":@computed_region_4fjn_fq7k": "46"
+  },
+  {
+    "objectid": "110",
+    "facility_name": "Curaleaf",
+    "longitude": "-79.49648812",
+    "latitude": "40.30276916",
+    "facility_url": "www.curaleaf.com",
+    "geocoding_certainty": "00",
+    "open_on": "1/14/2022",
+    "available_on_10_04_19": "Yes",
+    "street": "5133 US 30",
+    "city_or_borough": "Greensburg",
+    "state": "PA",
+    "zip_code": "15601",
+    "telephone_number": "724-853-5135",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -79.49611,
+        40.30275
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "9",
+    ":@computed_region_4fjn_fq7k": "46"
+  },
+  {
+    "objectid": "125",
+    "facility_name": "Ayr Wellness - Indiana",
+    "longitude": "-79.18058814",
+    "latitude": "40.60809731",
+    "facility_url": "www.ayrwellnessdispensary.com",
+    "geocoding_certainty": "00",
+    "open_on": "7/30/2022",
+    "available_on_10_04_19": "Yes",
+    "street": "2244 Oakland Ave",
+    "city_or_borough": "Indiana",
+    "state": "PA",
+    "zip_code": "15701",
+    "telephone_number": "833-420-8620",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -79.18027,
+        40.6079
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "3",
+    ":@computed_region_4fjn_fq7k": "41"
+  },
+  {
+    "objectid": "78",
+    "facility_name": "Verilife - Williamsport",
+    "longitude": "-76.95707428",
+    "latitude": "41.24709051",
+    "facility_url": "www.verilife.com/pa",
+    "geocoding_certainty": "00",
+    "open_on": "4/12/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "2300 E 3rd Street",
+    "city_or_borough": "Williamsport",
+    "state": "PA",
+    "zip_code": "17701",
+    "telephone_number": "570-260-6907",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -76.95702,
+        41.24751
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "2",
+    ":@computed_region_4fjn_fq7k": "52"
+  },
+  {
+    "objectid": "97",
+    "facility_name": "Sunnyside û Wyomissing",
+    "longitude": "-75.95734315",
+    "latitude": "40.33968261",
+    "facility_url": "www.sunnyside.shop",
+    "geocoding_certainty": "00",
+    "open_on": "10/22/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "208 North Park Road Unit 1",
+    "city_or_borough": "Wyomissing",
+    "state": "PA",
+    "zip_code": "19610",
+    "telephone_number": "720-443-9144",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.95698,
+        40.33943
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "14",
+    ":@computed_region_4fjn_fq7k": "26"
+  },
+  {
+    "objectid": "174",
+    "facility_name": "Rise - Carlisle",
+    "longitude": "-77.14141781",
+    "latitude": "40.23317451",
+    "facility_url": "www.risedispensaries.com",
+    "geocoding_certainty": "00",
+    "open_on": "7/12/2023",
+    "available_on_10_04_19": "yes",
+    "street": "1186 Harrisburg Pike",
+    "city_or_borough": "Carlisle",
+    "state": "PA",
+    "zip_code": "17103",
+    "telephone_number": "717-279-5820",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -77.14152,
+        40.23308
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "16",
+    ":@computed_region_4fjn_fq7k": "39"
+  },
+  {
+    "objectid": "14",
+    "facility_name": "Keystone Shops - King of Prussia",
+    "longitude": "-75.35795935",
+    "latitude": "40.08639257",
+    "facility_url": "https://keystoneshops.com",
+    "geocoding_certainty": "00",
+    "open_on": "5/2/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "367 S Henderson",
+    "city_or_borough": "King of Prussia",
+    "state": "PA",
+    "zip_code": "19406",
+    "telephone_number": "484-581-7189",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.35761,
+        40.08624
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "8",
+    ":@computed_region_4fjn_fq7k": "1"
+  },
+  {
+    "objectid": "130",
+    "facility_name": "Vytal Options",
+    "longitude": "-77.89551601",
+    "latitude": "40.81075871",
+    "facility_url": "www.vytaloptions.com",
+    "geocoding_certainty": "00",
+    "open_on": "10/31/2022",
+    "available_on_10_04_19": "Yes",
+    "street": "1653 North Atherton Street",
+    "city_or_borough": "State College",
+    "state": "PA",
+    "zip_code": "16803",
+    "telephone_number": "814-680-6078",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -77.89557,
+        40.81064
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "3",
+    ":@computed_region_4fjn_fq7k": "33"
+  },
+  {
+    "objectid": "42",
+    "facility_name": "The Healing Center û Cranberry",
+    "longitude": "-80.11035011",
+    "latitude": "40.69165004",
+    "facility_url": "http://www.thehealingcenterusa.com/",
+    "geocoding_certainty": "00",
+    "open_on": "3/16/2020",
+    "available_on_10_04_19": "Yes",
+    "street": "270 Executive Drive",
+    "city_or_borough": "Cranberry",
+    "state": "PA",
+    "zip_code": "16066",
+    "telephone_number": "1-855-443-4325",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -80.11041,
+        40.69183
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "17",
+    ":@computed_region_4fjn_fq7k": "29"
+  },
+  {
+    "objectid": "135",
+    "facility_name": "Herbology - Altoona",
+    "longitude": "-78.36945475",
+    "latitude": "40.52164962",
+    "facility_url": "https://www.myherbology.com",
+    "geocoding_certainty": "00",
+    "open_on": "11/12/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "514 E Pleasant Valley Blvd",
+    "city_or_borough": "Altoona",
+    "state": "PA",
+    "zip_code": "16602",
+    "telephone_number": "814-626-9520",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -78.36895,
+        40.5215
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "13",
+    ":@computed_region_4fjn_fq7k": "23"
+  },
+  {
+    "objectid": "74",
+    "facility_name": "RISE Meadville",
+    "longitude": "-80.16032440",
+    "latitude": "41.62311347",
+    "facility_url": "www.risedispensaries.com",
+    "geocoding_certainty": "00",
+    "open_on": "3/31/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "18914 Park Avenue Plaza",
+    "city_or_borough": "Meadville",
+    "state": "PA",
+    "zip_code": "16335",
+    "telephone_number": "814-900-4674",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -80.16013,
+        41.62304
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "11",
+    ":@computed_region_4fjn_fq7k": "38"
+  },
+  {
+    "objectid": "129",
+    "facility_name": "Ascend Dispensary-Scranton",
+    "longitude": "-75.69201225",
+    "latitude": "41.37727641",
+    "facility_url": "www.letsascend.com",
+    "geocoding_certainty": "00",
+    "open_on": "10/19/2022",
+    "available_on_10_04_19": "Yes",
+    "street": "605 Davis Street",
+    "city_or_borough": "Scranton",
+    "state": "PA",
+    "zip_code": "18505",
+    "telephone_number": "717-606-1268",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.69208,
+        41.37725
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "7",
+    ":@computed_region_4fjn_fq7k": "44"
+  },
+  {
+    "objectid": "106",
+    "facility_name": "Beyond Hello",
+    "longitude": "-79.97718585",
+    "latitude": "40.42872101",
+    "facility_url": "www.beyond-hello.com",
+    "geocoding_certainty": "00",
+    "open_on": "12/15/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "2009 East Carson St",
+    "city_or_borough": "Pittsburgh",
+    "state": "PA",
+    "zip_code": "15203",
+    "telephone_number": "215-948-6048",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -79.9771,
+        40.42857
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "10",
+    ":@computed_region_4fjn_fq7k": "64"
+  },
+  {
+    "objectid": "3",
+    "facility_name": "Keystone Canna Remedies",
+    "longitude": "-75.35532096",
+    "latitude": "40.63189447",
+    "facility_url": "https://www.keystonecannaremedies.com",
+    "geocoding_certainty": "00",
+    "open_on": "2/16/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "1309 Stefko Blvd",
+    "city_or_borough": "Bethlehem",
+    "state": "PA",
+    "zip_code": "18017",
+    "telephone_number": "484-408-6122",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.35496,
+        40.63193
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "12",
+    ":@computed_region_4fjn_fq7k": "14"
+  },
+  {
+    "objectid": "167",
+    "facility_name": "Zen Leaf Clifton Heights",
+    "longitude": "-75.30971208",
+    "latitude": "39.92552328",
+    "facility_url": "www.zenleafdispensaries.com",
+    "geocoding_certainty": "00",
+    "open_on": "2/15/2023",
+    "available_on_10_04_19": "Yes",
+    "street": "5321 West Baltimore Pike",
+    "city_or_borough": "Clifton Heights",
+    "state": "PA",
+    "zip_code": "19018",
+    "telephone_number": "814-447-2936",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.30963,
+        39.92544
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "18",
+    ":@computed_region_4fjn_fq7k": "54"
+  },
+  {
+    "objectid": "33",
+    "facility_name": "Green Goods",
+    "longitude": "-75.68796988",
+    "latitude": "41.39949530",
+    "facility_url": "www.visitgreengoods.com",
+    "geocoding_certainty": "00",
+    "open_on": "10/27/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "1146 S Main Avenue",
+    "city_or_borough": "Scranton",
+    "state": "PA",
+    "zip_code": "18504",
+    "telephone_number": "800-514-8532",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.68824,
+        41.3994
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "7",
+    ":@computed_region_4fjn_fq7k": "44"
+  },
+  {
+    "objectid": "35",
+    "facility_name": "Harvest of Johnstown",
+    "longitude": "-78.92034368",
+    "latitude": "40.32646535",
+    "facility_url": "https://www.harvestinc.com",
+    "geocoding_certainty": "00",
+    "open_on": "11/12/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "339 Main Street",
+    "city_or_borough": "Johnstown",
+    "state": "PA",
+    "zip_code": "15901",
+    "telephone_number": "814-258-8190",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -78.9202,
+        40.32644
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "13",
+    ":@computed_region_4fjn_fq7k": "30"
+  },
+  {
+    "objectid": "149",
+    "facility_name": "Beyond Hello - Johnstown",
+    "longitude": "-78.91937522",
+    "latitude": "40.32560105",
+    "facility_url": "http://beyond-hello.com",
+    "geocoding_certainty": "00",
+    "open_on": "7/22/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "416 Main Street",
+    "city_or_borough": "Johnstown",
+    "state": "PA",
+    "zip_code": "15901",
+    "telephone_number": "814-357-9930",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -78.91935,
+        40.32579
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "13",
+    ":@computed_region_4fjn_fq7k": "30"
+  },
+  {
+    "objectid": "46",
+    "facility_name": "Liberty - Aliquippa",
+    "longitude": "-80.28255674",
+    "latitude": "40.60618424",
+    "facility_url": "www.libertydispensarypa.com",
+    "geocoding_certainty": "00",
+    "open_on": "5/18/2020",
+    "available_on_10_04_19": "Yes",
+    "street": "2320 Sheffield Rd",
+    "city_or_borough": "Aliquippa",
+    "state": "PA",
+    "zip_code": "15001",
+    "telephone_number": "724-203-3029",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -80.28247,
+        40.60605
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "17",
+    ":@computed_region_4fjn_fq7k": "66"
+  },
+  {
+    "objectid": "162",
+    "facility_name": "Organic Remedies - York",
+    "longitude": "-76.68263226",
+    "latitude": "39.95870186",
+    "facility_url": "https://organicremediespa.com",
+    "geocoding_certainty": "00",
+    "open_on": "10/24/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "1098 Haines Road",
+    "city_or_borough": "York",
+    "state": "PA",
+    "zip_code": "17402",
+    "telephone_number": "717-699-7083",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -76.68262,
+        39.95857
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "16",
+    ":@computed_region_4fjn_fq7k": "48"
+  },
+  {
+    "objectid": "65",
+    "facility_name": "Verilife - Chester",
+    "longitude": "-75.37529764",
+    "latitude": "39.85814775",
+    "facility_url": "www.verilife.com/pa",
+    "geocoding_certainty": "00",
+    "open_on": "12/17/2020",
+    "available_on_10_04_19": "Yes",
+    "street": "875 Upland Avenue Unit 55",
+    "city_or_borough": "Chester",
+    "state": "PA",
+    "zip_code": "19013",
+    "telephone_number": "610-245-5610",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.37452,
+        39.85718
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "18",
+    ":@computed_region_4fjn_fq7k": "54"
+  },
+  {
+    "objectid": "181",
+    "facility_name": "Hive-Shamokin Dam",
+    "longitude": "-76.82736946",
+    "latitude": "40.84260231",
+    "geocoding_certainty": "00",
+    "open_on": "4/20/2024",
+    "available_on_10_04_19": "Yes",
+    "street": "2625 North Susquehanna Trail",
+    "city_or_borough": "Shamokin Dam",
+    "state": "PA",
+    "zip_code": "17876",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -76.82694,
+        40.8423
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "2",
+    ":@computed_region_4fjn_fq7k": "20"
+  },
+  {
+    "objectid": "18",
+    "facility_name": "Restore Integrative Wellness Center LLC",
+    "longitude": "-75.13427146",
+    "latitude": "39.96565169",
+    "facility_url": "https://restoreiwc.com",
+    "geocoding_certainty": "00",
+    "open_on": "5/30/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "957-963 Frankford Avenue",
+    "city_or_borough": "Philadelphia",
+    "state": "PA",
+    "zip_code": "19125",
+    "telephone_number": "215-999-2980",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.13443,
+        39.96561
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "5",
+    ":@computed_region_4fjn_fq7k": "49"
+  },
+  {
+    "objectid": "150",
+    "facility_name": "Herbology - King of Prussia",
+    "longitude": "-75.40051659",
+    "latitude": "40.08273462",
+    "facility_url": "https://www.myherbology.com",
+    "geocoding_certainty": "00",
+    "open_on": "7/22/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "110 N Warner Rd",
+    "city_or_borough": "King of Prussia",
+    "state": "PA",
+    "zip_code": "19406",
+    "telephone_number": "610-601-2054",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.40271,
+        40.08152
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "8",
+    ":@computed_region_4fjn_fq7k": "1"
+  },
+  {
+    "objectid": "177",
+    "facility_name": "Agronomed Biologics LLCNorristown",
+    "longitude": "-75.40008992",
+    "latitude": "40.13062478",
+    "facility_url": "www.zenleafdispensaries.com",
+    "geocoding_certainty": "00",
+    "open_on": "2/13/2024",
+    "available_on_10_04_19": "yes",
+    "street": "436 Egypt Rd",
+    "city_or_borough": "Norristown",
+    "state": "PA",
+    "zip_code": "19403",
+    "telephone_number": "484-285-8707",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.40032,
+        40.13059
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "8",
+    ":@computed_region_4fjn_fq7k": "1"
+  },
+  {
+    "objectid": "23",
+    "facility_name": "The Healing Center - Washington",
+    "longitude": "-80.26262851",
+    "latitude": "40.16915431",
+    "facility_url": "http://www.thehealingcenterusa.com",
+    "geocoding_certainty": "00",
+    "open_on": "6/30/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "799 West Chestnut Street",
+    "city_or_borough": "Washington",
+    "state": "PA",
+    "zip_code": "15301",
+    "telephone_number": "724-914-4944",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -80.26248,
+        40.16923
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "9",
+    ":@computed_region_4fjn_fq7k": "7"
+  },
+  {
+    "objectid": "45",
+    "facility_name": "Beyond Hello - Ardmore",
+    "longitude": "-75.29175145",
+    "latitude": "40.00723888",
+    "facility_url": "www.beyond-hello.com",
+    "geocoding_certainty": "00",
+    "open_on": "5/18/2020",
+    "available_on_10_04_19": "Yes",
+    "street": "39 Cricket Ave",
+    "city_or_borough": "Ardmore",
+    "state": "PA",
+    "zip_code": "19003",
+    "telephone_number": "610-471-1099",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.2918,
+        40.00736
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "18",
+    ":@computed_region_4fjn_fq7k": "1"
+  },
+  {
+    "objectid": "60",
+    "facility_name": "Ethos Pennsylvania - Wilkes Barre",
+    "longitude": "-75.83906600",
+    "latitude": "41.24596100",
+    "facility_url": "www.ethospa.com",
+    "geocoding_certainty": "00",
+    "open_on": "10/21/2020",
+    "available_on_10_04_19": "Yes",
+    "street": "326 Bear Creek Commons",
+    "city_or_borough": "Wilkes-Barre",
+    "state": "PA",
+    "zip_code": "18702",
+    "telephone_number": "570-800-2385",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.83783,
+        41.24649
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "7",
+    ":@computed_region_4fjn_fq7k": "51"
+  },
+  {
+    "objectid": "119",
+    "facility_name": "Verilife",
+    "longitude": "-77.83283296",
+    "latitude": "40.78460536",
+    "facility_url": "www.verilife.com/pa",
+    "geocoding_certainty": "00",
+    "open_on": "4/23/2022",
+    "available_on_10_04_19": "Yes",
+    "street": "1820 S Atherton Street",
+    "city_or_borough": "State College",
+    "state": "PA",
+    "zip_code": "16801",
+    "telephone_number": "814-420-5056",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -77.83286,
+        40.78481
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "2",
+    ":@computed_region_4fjn_fq7k": "33"
+  },
+  {
+    "objectid": "28",
+    "facility_name": "Maitri Medicinals - Uniontown",
+    "longitude": "-79.72648635",
+    "latitude": "39.90097572",
+    "facility_url": "https://www.maitrimedicinals.com",
+    "geocoding_certainty": "00",
+    "open_on": "9/4/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "27-31 West Main Street",
+    "city_or_borough": "Uniontown",
+    "state": "PA",
+    "zip_code": "15401",
+    "telephone_number": "724-550-4565",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -79.72644,
+        39.90111
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "9",
+    ":@computed_region_4fjn_fq7k": "57"
+  },
+  {
+    "objectid": "72",
+    "facility_name": "BEYOND/HELLO - Irwin",
+    "longitude": "-79.69688682",
+    "latitude": "40.32277399",
+    "facility_url": "www.beyond-hello.com",
+    "geocoding_certainty": "00",
+    "open_on": "3/12/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "9337 Lincoln Highway",
+    "city_or_borough": "Irwin",
+    "state": "PA",
+    "zip_code": "15642",
+    "telephone_number": "724-382-7068",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -79.69703,
+        40.32266
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "9",
+    ":@computed_region_4fjn_fq7k": "46"
+  },
+  {
+    "objectid": "13",
+    "facility_name": "RISE - Erie",
+    "longitude": "-80.13060025",
+    "latitude": "42.11044690",
+    "facility_url": "https://risecannabis.com",
+    "geocoding_certainty": "00",
+    "open_on": "4/18/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "2108 W. 8th Street",
+    "city_or_borough": "Erie",
+    "state": "PA",
+    "zip_code": "16505",
+    "telephone_number": "814-277-2835",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -80.13049,
+        42.11029
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "11",
+    ":@computed_region_4fjn_fq7k": "56"
+  },
+  {
+    "objectid": "55",
+    "facility_name": "Restore Pottstown",
+    "longitude": "-75.61761776",
+    "latitude": "40.24323515",
+    "facility_url": "www.restoreiwc.com",
+    "geocoding_certainty": "00",
+    "open_on": "9/8/2020",
+    "available_on_10_04_19": "Yes",
+    "street": "1450 East High Street",
+    "city_or_borough": "Pottstown",
+    "state": "PA",
+    "zip_code": "19464",
+    "telephone_number": "484-391-2951",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.61775,
+        40.24323
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "8",
+    ":@computed_region_4fjn_fq7k": "1"
+  },
+  {
+    "objectid": "145",
+    "facility_name": "RISE - Latrobe",
+    "longitude": "-79.43691399",
+    "latitude": "40.28698639",
+    "facility_url": "https://risecannabis.com",
+    "geocoding_certainty": "00",
+    "open_on": "6/20/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "117 Beatty County Rd",
+    "city_or_borough": "Latrobe",
+    "state": "PA",
+    "zip_code": "15650",
+    "telephone_number": "724-220-4106",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -79.43673,
+        40.28689
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "9",
+    ":@computed_region_4fjn_fq7k": "46"
+  },
+  {
+    "objectid": "50",
+    "facility_name": "Vytal Options - Harrisburg",
+    "longitude": "-76.80898180",
+    "latitude": "40.30260329",
+    "facility_url": "www.vytaloptions.com",
+    "geocoding_certainty": "00",
+    "open_on": "7/1/2020",
+    "available_on_10_04_19": "Yes",
+    "street": "4711 Queen Avenue Suite 101",
+    "city_or_borough": "Harrisburg",
+    "state": "PA",
+    "zip_code": "17109",
+    "telephone_number": "717-303-3017",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -76.80922,
+        40.30275
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "16",
+    ":@computed_region_4fjn_fq7k": "40"
+  },
+  {
+    "objectid": "87",
+    "facility_name": "Sunnyside* - Philadelphia",
+    "longitude": "-75.16108646",
+    "latitude": "39.95067157",
+    "facility_url": "www.sunnyside.shop",
+    "geocoding_certainty": "00",
+    "open_on": "6/21/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "1221 Chestnut Street",
+    "city_or_borough": "Philadelphia",
+    "state": "PA",
+    "zip_code": "19107",
+    "telephone_number": "267-857-4240",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.1611,
+        39.95051
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "6",
+    ":@computed_region_4fjn_fq7k": "49"
+  },
+  {
+    "objectid": "160",
+    "facility_name": "Delta 9 PA",
+    "longitude": "-79.95480282",
+    "latitude": "40.48101681",
+    "facility_url": "https://www.delta9pa.com/",
+    "geocoding_certainty": "00",
+    "open_on": "10/17/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "211 52nd Street",
+    "city_or_borough": "Pittsburgh",
+    "state": "PA",
+    "zip_code": "15201",
+    "telephone_number": "412-439-2093",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -79.95501,
+        40.48079
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "10",
+    ":@computed_region_4fjn_fq7k": "64"
+  },
+  {
+    "objectid": "173",
+    "facility_name": "Sunnyside-Somerset",
+    "longitude": "-79.07482172",
+    "latitude": "40.01127847",
+    "facility_url": "www.sunnyside.shop",
+    "geocoding_certainty": "00",
+    "open_on": "6/28/2023",
+    "available_on_10_04_19": "yes",
+    "street": "250 Stoystown Rd",
+    "city_or_borough": "Somerset",
+    "state": "PA",
+    "zip_code": "15501",
+    "telephone_number": "814-485-0317",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -79.07511,
+        40.01127
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "13",
+    ":@computed_region_4fjn_fq7k": "21"
+  },
+  {
+    "objectid": "114",
+    "facility_name": "Restore Integrative Wellness Center",
+    "longitude": "-75.24980213",
+    "latitude": "39.93308906",
+    "facility_url": "www.restore integrative wellness center.com",
+    "geocoding_certainty": "00",
+    "open_on": "2/14/2022",
+    "available_on_10_04_19": "Yes",
+    "street": "735 Church Lane",
+    "city_or_borough": "Yeadon",
+    "state": "PA",
+    "zip_code": "19050",
+    "telephone_number": "610-947-1991",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.24968,
+        39.93312
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "18",
+    ":@computed_region_4fjn_fq7k": "54"
+  },
+  {
+    "objectid": "82",
+    "facility_name": "Ethos - Pittsburgh South",
+    "longitude": "-79.94608730",
+    "latitude": "40.33129445",
+    "facility_url": "www.ethospa.com",
+    "geocoding_certainty": "00",
+    "open_on": "5/19/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "560 Clairton Boulevard",
+    "city_or_borough": "Pittsburgh",
+    "state": "PA",
+    "zip_code": "15236",
+    "telephone_number": "412-790-6194",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -79.94604,
+        40.33119
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "10",
+    ":@computed_region_4fjn_fq7k": "64"
+  },
+  {
+    "objectid": "77",
+    "facility_name": "Liberty - Cranberry",
+    "longitude": "-80.11156970",
+    "latitude": "40.68322854",
+    "facility_url": "www.libertydispensarypa.com",
+    "geocoding_certainty": "00",
+    "open_on": "4/6/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "900 Commonwealth Drive Suite 500",
+    "city_or_borough": "Cranberry Township",
+    "state": "PA",
+    "zip_code": "16066",
+    "telephone_number": "878-208-7299",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -80.11142,
+        40.68339
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "17",
+    ":@computed_region_4fjn_fq7k": "29"
+  },
+  {
+    "objectid": "8",
+    "facility_name": "The Apothecarium Dispensary",
+    "longitude": "-75.28724699",
+    "latitude": "40.11244223",
+    "facility_url": "https://ilerahealthcare.com",
+    "geocoding_certainty": "00",
+    "open_on": "3/2/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "420 Plymouth Road",
+    "city_or_borough": "Plymouth Meeting",
+    "state": "PA",
+    "zip_code": "19462",
+    "telephone_number": "484-531-4420",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.28724,
+        40.11251
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "8",
+    ":@computed_region_4fjn_fq7k": "1"
+  },
+  {
+    "objectid": "40",
+    "facility_name": "Ethos Pennsylvania - Philadelphia",
+    "longitude": "-75.15559008",
+    "latitude": "39.94725457",
+    "facility_url": "www.ethospa.com",
+    "geocoding_certainty": "00",
+    "open_on": "1/2/2020",
+    "available_on_10_04_19": "Yes",
+    "street": "807 Locust Street",
+    "city_or_borough": "Philadelphia",
+    "state": "PA",
+    "zip_code": "19107",
+    "telephone_number": "267-861-7350",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.15551,
+        39.94708
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "6",
+    ":@computed_region_4fjn_fq7k": "49"
+  },
+  {
+    "objectid": "99",
+    "facility_name": "Verilife",
+    "longitude": "-75.28660991",
+    "latitude": "40.11778840",
+    "facility_url": "www.verilife.com/pa",
+    "geocoding_certainty": "00",
+    "open_on": "11/6/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "601 W. Germantown Pike",
+    "city_or_borough": "Plymouth Meeting",
+    "state": "PA",
+    "zip_code": "19462",
+    "telephone_number": "484-484-9105",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.28643,
+        40.11788
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "8",
+    ":@computed_region_4fjn_fq7k": "1"
+  },
+  {
+    "objectid": "104",
+    "facility_name": "Zenleaf - Chadds Ford",
+    "longitude": "-75.55197614",
+    "latitude": "39.88644221",
+    "facility_url": "www.zenleafdispensaries.com",
+    "geocoding_certainty": "00",
+    "open_on": "12/3/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "300 Oakland Rd.",
+    "city_or_borough": "Chadds Ford",
+    "state": "PA",
+    "zip_code": "19382",
+    "telephone_number": "814-447-2936",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.55186,
+        39.88659
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "18",
+    ":@computed_region_4fjn_fq7k": "54"
+  },
+  {
+    "objectid": "141",
+    "facility_name": "Maitri Medicinals - Pittsburgh",
+    "longitude": "-79.93037654",
+    "latitude": "40.45850111",
+    "facility_url": "https://www.maitrimedicinals.com",
+    "geocoding_certainty": "00",
+    "open_on": "1/24/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "5845 Centre Ave",
+    "city_or_borough": "Pittsburgh",
+    "state": "PA",
+    "zip_code": "15206",
+    "telephone_number": "412-404-7464",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -79.9303,
+        40.45867
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "10",
+    ":@computed_region_4fjn_fq7k": "64"
+  },
+  {
+    "objectid": "92",
+    "facility_name": "Fluent Care",
+    "longitude": "-76.99560208",
+    "latitude": "40.24400242",
+    "facility_url": "pa.getfluent.com",
+    "geocoding_certainty": "00",
+    "open_on": "8/19/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "6200 Carlise Pike",
+    "city_or_borough": "Mechanicsburg",
+    "state": "PA",
+    "zip_code": "17050",
+    "telephone_number": "717-610-5911",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -76.99543,
+        40.24387
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "16",
+    ":@computed_region_4fjn_fq7k": "39"
+  },
+  {
+    "objectid": "67",
+    "facility_name": "Curaleaf Harrisburg",
+    "longitude": "-76.75305678",
+    "latitude": "40.32983282",
+    "facility_url": "https://curaleaf.com/shop/pennsylvania/curaleaf-pa-harrisburg/",
+    "geocoding_certainty": "00",
+    "open_on": "1/29/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "7040 Jonestown Road",
+    "city_or_borough": "Harrisburg",
+    "state": "PA",
+    "zip_code": "17112",
+    "telephone_number": "717-996-9010",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -76.75284,
+        40.32984
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "16",
+    ":@computed_region_4fjn_fq7k": "40"
+  },
+  {
+    "objectid": "156",
+    "facility_name": "RISE - Hermitage",
+    "longitude": "-80.45749448",
+    "latitude": "41.23304411",
+    "facility_url": "https://risecannabis.com",
+    "geocoding_certainty": "00",
+    "open_on": "9/19/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "2880 E State Street",
+    "city_or_borough": "Hermitage",
+    "state": "PA",
+    "zip_code": "16148",
+    "telephone_number": "724-500-5508",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -80.45738,
+        41.23336
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "11",
+    ":@computed_region_4fjn_fq7k": "10"
+  },
+  {
+    "objectid": "109",
+    "facility_name": "Trulieve",
+    "longitude": "-75.16063946",
+    "latitude": "39.95392449",
+    "facility_url": "www.trulieve.com",
+    "geocoding_certainty": "00",
+    "open_on": "1/8/2022",
+    "available_on_10_04_19": "Yes",
+    "street": "1222-1226 Arch Street",
+    "city_or_borough": "Philadelphia",
+    "state": "PA",
+    "zip_code": "19107",
+    "telephone_number": "267-946-1470",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.16059,
+        39.9541
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "6",
+    ":@computed_region_4fjn_fq7k": "49"
+  },
+  {
+    "objectid": "131",
+    "facility_name": "Herbology - DuBois Wellness Center LLC",
+    "longitude": "-78.77091951",
+    "latitude": "41.09844562",
+    "facility_url": "https://www.myherbology.com",
+    "geocoding_certainty": "00",
+    "open_on": "10/15/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "1222 South Brady Street",
+    "city_or_borough": "DuBois",
+    "state": "PA",
+    "zip_code": "15801",
+    "telephone_number": "814-299-4120",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -78.77092,
+        41.0983
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "3",
+    ":@computed_region_4fjn_fq7k": "35"
+  },
+  {
+    "objectid": "136",
+    "facility_name": "Solevo - Jackson Pointe",
+    "longitude": "-80.11784481",
+    "latitude": "40.75511828",
+    "facility_url": "https://www.solevowellness.com",
+    "geocoding_certainty": "00",
+    "open_on": "11/20/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "22095 Perry Highway Suite 301",
+    "city_or_borough": "Zelienople",
+    "state": "PA",
+    "zip_code": "16063",
+    "telephone_number": "412-422-0420",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -80.11761,
+        40.75496
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "11",
+    ":@computed_region_4fjn_fq7k": "29"
+  },
+  {
+    "objectid": "4",
+    "facility_name": "Organic Remedies-Enola",
+    "longitude": "-76.97265873",
+    "latitude": "40.28967773",
+    "facility_url": "https://organicremediespa.com",
+    "geocoding_certainty": "00",
+    "open_on": "2/16/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "4425 Valley Road",
+    "city_or_borough": "Enola",
+    "state": "PA",
+    "zip_code": "17025",
+    "telephone_number": "717-562-7758",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -76.97278,
+        40.28984
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "16",
+    ":@computed_region_4fjn_fq7k": "39"
+  },
+  {
+    "objectid": "81",
+    "facility_name": "The Healing Research Center - Chester",
+    "longitude": "-75.37530362",
+    "latitude": "39.83809123",
+    "facility_url": "www.thehealingresearchcenterusa.com",
+    "geocoding_certainty": "00",
+    "open_on": "5/14/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "122 Norris Street",
+    "city_or_borough": "Chester",
+    "state": "PA",
+    "zip_code": "19013",
+    "telephone_number": "267-831-3262",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.37496,
+        39.8381
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "18",
+    ":@computed_region_4fjn_fq7k": "54"
+  },
+  {
+    "objectid": "168",
+    "facility_name": "Rise-Grove City",
+    "longitude": "-80.16101699",
+    "latitude": "41.14195816",
+    "facility_url": "www.risedispensaries.com",
+    "geocoding_certainty": "00",
+    "open_on": "4/17/2023",
+    "available_on_10_04_19": "Yes",
+    "street": "225 Westside Square drive",
+    "city_or_borough": "Mercer",
+    "state": "PA",
+    "zip_code": "16137",
+    "telephone_number": "878-598-0206",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -80.16296,
+        41.14155
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "11",
+    ":@computed_region_4fjn_fq7k": "10"
+  },
+  {
+    "objectid": "36",
+    "facility_name": "Harvest of Harrisburg",
+    "longitude": "-76.89405953",
+    "latitude": "40.28708495",
+    "facility_url": "https://www.harvestinc.com",
+    "geocoding_certainty": "00",
+    "open_on": "11/19/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "2500-2504 N 6th St",
+    "city_or_borough": "Harrisburg",
+    "state": "PA",
+    "zip_code": "17110",
+    "telephone_number": "717-356-0800",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -76.89404,
+        40.28699
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "16",
+    ":@computed_region_4fjn_fq7k": "40"
+  },
+  {
+    "objectid": "163",
+    "facility_name": "Pennsylvania Dispensary Solutions- Beyond Hello-Dickson City",
+    "longitude": "-75.64724465",
+    "latitude": "41.46558215",
+    "facility_url": "https://beyond-hello.com/pennsylvania/dispensaries",
+    "geocoding_certainty": "00",
+    "open_on": "11/8/2022",
+    "available_on_10_04_19": "Yes",
+    "street": "832 Scranton Carbondale Highway",
+    "city_or_borough": "Dickson City",
+    "state": "PA",
+    "zip_code": "18519",
+    "telephone_number": "570-800-6760",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.64733,
+        41.46577
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "7",
+    ":@computed_region_4fjn_fq7k": "44"
+  },
+  {
+    "objectid": "113",
+    "facility_name": "Organic Remedies",
+    "longitude": "-75.46603196",
+    "latitude": "40.04215214",
+    "facility_url": "www.organic remedies.com",
+    "geocoding_certainty": "00",
+    "open_on": "2/7/2022",
+    "available_on_10_04_19": "Yes",
+    "street": "1538-40 E. Lancaster Ave",
+    "city_or_borough": "Paoli",
+    "state": "PA",
+    "zip_code": "19301",
+    "telephone_number": "610-596-8340",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.46587,
+        40.04219
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "14",
+    ":@computed_region_4fjn_fq7k": "27"
+  },
+  {
+    "objectid": "124",
+    "facility_name": "Curaleaf Lancaster",
+    "longitude": "-76.33386623",
+    "latitude": "40.07125104",
+    "facility_url": "www.curaleaf.com",
+    "geocoding_certainty": "00",
+    "open_on": "6/16/2022",
+    "available_on_10_04_19": "Yes",
+    "street": "1440 Manheim Pike",
+    "city_or_borough": "Lancaster",
+    "state": "PA",
+    "zip_code": "17601",
+    "telephone_number": "717-553-2045",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -76.33373,
+        40.07111
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "15",
+    ":@computed_region_4fjn_fq7k": "45"
+  },
+  {
+    "objectid": "146",
+    "facility_name": "Keystone Canna Remedies - Allentown",
+    "longitude": "-75.52489597",
+    "latitude": "40.57805928",
+    "facility_url": "https://www.keystonecannaremedies.com",
+    "geocoding_certainty": "00",
+    "open_on": "6/22/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "3340 Hamilton Blvd",
+    "city_or_borough": "Allentown",
+    "state": "PA",
+    "zip_code": "18103",
+    "telephone_number": "484-408-6122",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.52499,
+        40.57799
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "12",
+    ":@computed_region_4fjn_fq7k": "50"
+  },
+  {
+    "objectid": "49",
+    "facility_name": "RISE - Duncansville",
+    "longitude": "-78.40831874",
+    "latitude": "40.45012307",
+    "facility_url": "www.risedispensaries.com",
+    "geocoding_certainty": "00",
+    "open_on": "6/30/2020",
+    "available_on_10_04_19": "Yes",
+    "street": "370 Pound Lane",
+    "city_or_borough": "Duncansville",
+    "state": "PA",
+    "zip_code": "16634",
+    "telephone_number": "814-815-8077",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -78.40851,
+        40.45015
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "13",
+    ":@computed_region_4fjn_fq7k": "23"
+  },
+  {
+    "objectid": "64",
+    "facility_name": "Zen Leaf York",
+    "longitude": "-76.75196583",
+    "latitude": "39.97985700",
+    "facility_url": "https://zenleafdispensaries.com/dispensary/zen-leaf-york/",
+    "geocoding_certainty": "00",
+    "open_on": "12/16/2020",
+    "available_on_10_04_19": "Yes",
+    "street": "890 Loucks Road",
+    "city_or_borough": "York",
+    "state": "PA",
+    "zip_code": "17404",
+    "telephone_number": "717-794-7064",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -76.75178,
+        39.97981
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "16",
+    ":@computed_region_4fjn_fq7k": "48"
+  },
+  {
+    "objectid": "19",
+    "facility_name": "Knox Medical (Cansortium Pennsylvania LLC)",
+    "longitude": "-76.99453231",
+    "latitude": "39.79088804",
+    "facility_url": "(hKtNtpOsX:/)/www.getfluent.com",
+    "geocoding_certainty": "00",
+    "open_on": "6/5/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "648 Frederick Street",
+    "city_or_borough": "Hanover",
+    "state": "PA",
+    "zip_code": "17331",
+    "telephone_number": "888-441-5669",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -76.99459,
+        39.7908
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "15",
+    ":@computed_region_4fjn_fq7k": "48"
+  },
+  {
+    "objectid": "151",
+    "facility_name": "Keystone Shops - South Philadelphia",
+    "longitude": "-75.15463518",
+    "latitude": "39.90764810",
+    "facility_url": "https://keystoneshops.com",
+    "geocoding_certainty": "00",
+    "open_on": "7/26/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "300 Packer Avenue",
+    "city_or_borough": "Philadelphia",
+    "state": "PA",
+    "zip_code": "19148",
+    "telephone_number": "215-876-0420",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.15445,
+        39.90762
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "18",
+    ":@computed_region_4fjn_fq7k": "49"
+  },
+  {
+    "objectid": "96",
+    "facility_name": "Harvest of Pittsburgh",
+    "longitude": "-80.00405822",
+    "latitude": "40.44846774",
+    "facility_url": "www.harvesthoc.com",
+    "geocoding_certainty": "00",
+    "open_on": "10/21/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "200 Federal Street",
+    "city_or_borough": "Pittsburgh",
+    "state": "PA",
+    "zip_code": "15212",
+    "telephone_number": "412-912-9050",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -80.00427,
+        40.44835
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "10",
+    ":@computed_region_4fjn_fq7k": "64"
+  },
+  {
+    "objectid": "51",
+    "facility_name": "Apothecarium Dispensary - Thorndale",
+    "longitude": "-75.77260021",
+    "latitude": "39.99200271",
+    "facility_url": "www.apothecariumpa.com",
+    "geocoding_certainty": "00",
+    "open_on": "7/6/2020",
+    "available_on_10_04_19": "Yes",
+    "street": "2701 Lincoln Highway",
+    "city_or_borough": "East Thorndale",
+    "state": "PA",
+    "zip_code": "19372",
+    "telephone_number": "484-789-6420"
+  },
+  {
+    "objectid": "68",
+    "facility_name": "Rise Erie Peach",
+    "longitude": "-80.08959045",
+    "latitude": "42.05921014",
+    "facility_url": "www.risedispensaries.com",
+    "geocoding_certainty": "00",
+    "open_on": "2/3/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "1950 Rotunda Drive",
+    "city_or_borough": "Erie",
+    "state": "PA",
+    "zip_code": "16509",
+    "telephone_number": "814-480-9432",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -80.08935,
+        42.05909
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "11",
+    ":@computed_region_4fjn_fq7k": "56"
+  },
+  {
+    "objectid": "178",
+    "facility_name": "Sunnyside- Gettysburg",
+    "longitude": "-77.19844300",
+    "latitude": "39.84661500",
+    "facility_url": "www.sunnyside.shop",
+    "geocoding_certainty": "00",
+    "open_on": "2/20/2024",
+    "available_on_10_04_19": "yes",
+    "street": "1380 York Rd",
+    "city_or_borough": "Gettysburg",
+    "state": "PA",
+    "zip_code": "17325",
+    "telephone_number": "717-912-3077",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -77.19839,
+        39.84648
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "13",
+    ":@computed_region_4fjn_fq7k": "63"
+  },
+  {
+    "objectid": "17",
+    "facility_name": "TerraVida Holistic Centers - Malvern",
+    "longitude": "-75.57090716",
+    "latitude": "40.03603766",
+    "facility_url": "https://www.terravidahc.com",
+    "geocoding_certainty": "00",
+    "open_on": "5/23/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "249 Planebrook Road",
+    "city_or_borough": "Malvern",
+    "state": "PA",
+    "zip_code": "19355",
+    "telephone_number": "484-328-3442",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.57117,
+        40.03667
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "14",
+    ":@computed_region_4fjn_fq7k": "27"
+  },
+  {
+    "objectid": "128",
+    "facility_name": "Vytal Options",
+    "longitude": "-75.72353222",
+    "latitude": "39.84444819",
+    "facility_url": "www.vytaloptions.com",
+    "geocoding_certainty": "00",
+    "open_on": "10/17/2022",
+    "available_on_10_04_19": "Yes",
+    "street": "716 W Baltimore Pike",
+    "city_or_borough": "Kennett Square",
+    "state": "PA",
+    "zip_code": "19348",
+    "telephone_number": "484-581-0999",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.72234,
+        39.84526
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "14",
+    ":@computed_region_4fjn_fq7k": "27"
+  },
+  {
+    "objectid": "32",
+    "facility_name": "RISE - York",
+    "longitude": "-76.81989684",
+    "latitude": "39.92940063",
+    "facility_url": "https://risecannabis.com",
+    "geocoding_certainty": "00",
+    "open_on": "10/5/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "4395 West Market Street",
+    "city_or_borough": "York",
+    "state": "PA",
+    "zip_code": "17408",
+    "telephone_number": "717-800-1729",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -76.81965,
+        39.92924
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "16",
+    ":@computed_region_4fjn_fq7k": "48"
+  },
+  {
+    "objectid": "155",
+    "facility_name": "Beyond Hello - Northern Liberties Philadelphia",
+    "longitude": "-75.14657685",
+    "latitude": "39.96013556",
+    "facility_url": "http://beyond-hello.com",
+    "geocoding_certainty": "00",
+    "open_on": "8/26/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "475 N 5th Street",
+    "city_or_borough": "Philadelphia",
+    "state": "PA",
+    "zip_code": "19123",
+    "telephone_number": "215-475-3580",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.14689,
+        39.96001
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "5",
+    ":@computed_region_4fjn_fq7k": "49"
+  },
+  {
+    "objectid": "12",
+    "facility_name": "Columbia Care - Keyser Dispensary",
+    "longitude": "-75.66877920",
+    "latitude": "41.44331001",
+    "facility_url": "https://col-care.com",
+    "geocoding_certainty": "00",
+    "open_on": "4/16/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "1790 North Keyser Avenue",
+    "city_or_borough": "Scranton",
+    "state": "PA",
+    "zip_code": "18508",
+    "telephone_number": "570-309-6098",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.6663,
+        41.44537
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "7",
+    ":@computed_region_4fjn_fq7k": "44"
+  },
+  {
+    "objectid": "73",
+    "facility_name": "Vytal Options - Lansdale",
+    "longitude": "-75.30350100",
+    "latitude": "40.24091586",
+    "facility_url": "www.vytaloptions.com",
+    "geocoding_certainty": "00",
+    "open_on": "3/29/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "850 S. Valley Forge Road Suite P",
+    "city_or_borough": "Lansdale",
+    "state": "PA",
+    "zip_code": "19446",
+    "telephone_number": "267-498-0803",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.30332,
+        40.24141
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "8",
+    ":@computed_region_4fjn_fq7k": "1"
+  },
+  {
+    "objectid": "176",
+    "facility_name": "Franklin Bioscience Mt Pocono",
+    "longitude": "-75.37494276",
+    "latitude": "41.12013471",
+    "facility_url": "https://beyond-hello.com/pennsylvania/dispensaries",
+    "geocoding_certainty": "00",
+    "open_on": "1/12/2024",
+    "available_on_10_04_19": "yes",
+    "street": "3192 SR940 Suite 101",
+    "city_or_borough": "Mt Pocono",
+    "state": "PA",
+    "zip_code": "18344",
+    "telephone_number": "570-216-8590",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.37625,
+        41.12035
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "7",
+    ":@computed_region_4fjn_fq7k": "12"
+  },
+  {
+    "objectid": "144",
+    "facility_name": "DuBois Wellness Center - Herbology",
+    "longitude": "-78.64702217",
+    "latitude": "41.95610793",
+    "facility_url": "https://www.myherbology.com",
+    "geocoding_certainty": "00",
+    "open_on": "5/13/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "109 Main Street",
+    "city_or_borough": "Bradford",
+    "state": "PA",
+    "zip_code": "16701",
+    "telephone_number": "814-250-0922",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -78.64697,
+        41.95595
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "3",
+    ":@computed_region_4fjn_fq7k": "9"
+  },
+  {
+    "objectid": "44",
+    "facility_name": "Apothecarium Dispensary",
+    "longitude": "-76.20224772",
+    "latitude": "40.02550811",
+    "facility_url": "www.apothecariumpa.com",
+    "geocoding_certainty": "00",
+    "open_on": "4/13/2020",
+    "available_on_10_04_19": "Yes",
+    "street": "2405 Covered Bridge Dr Suite 125",
+    "city_or_borough": "Lancaster",
+    "state": "PA",
+    "zip_code": "17602",
+    "telephone_number": "717-803-2420",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -76.20239,
+        40.02507
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "15",
+    ":@computed_region_4fjn_fq7k": "45"
+  },
+  {
+    "objectid": "100",
+    "facility_name": "Ayr Wellness",
+    "longitude": "-75.24303278",
+    "latitude": "40.24769708",
+    "facility_url": "www.ayrwellnessdispensary.com",
+    "geocoding_certainty": "00",
+    "open_on": "11/12/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "801 Horsham Rd.",
+    "city_or_borough": "Montgomeryville",
+    "state": "PA",
+    "zip_code": "18936",
+    "telephone_number": "215-702-6068",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.23949,
+        40.24472
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "4",
+    ":@computed_region_4fjn_fq7k": "1"
+  },
+  {
+    "objectid": "88",
+    "facility_name": "Ethos - NE Philadelphia",
+    "longitude": "-75.02559710",
+    "latitude": "40.08007932",
+    "facility_url": "www.ethospa.com",
+    "geocoding_certainty": "00",
+    "open_on": "6/30/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "2467 Grant Avenue",
+    "city_or_borough": "Philadelphia",
+    "state": "PA",
+    "zip_code": "19114",
+    "telephone_number": "267-857-9397",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.02587,
+        40.07938
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "5",
+    ":@computed_region_4fjn_fq7k": "49"
+  },
+  {
+    "objectid": "105",
+    "facility_name": "Verilife",
+    "longitude": "-75.66227163",
+    "latitude": "40.25554594",
+    "facility_url": "www.verilife.com/pa",
+    "geocoding_certainty": "00",
+    "open_on": "12/4/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "204 Shoemaker Rd. A",
+    "city_or_borough": "Pottstown",
+    "state": "PA",
+    "zip_code": "19464",
+    "telephone_number": "610-600-6007",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.6618,
+        40.25541
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "8",
+    ":@computed_region_4fjn_fq7k": "1"
+  },
+  {
+    "objectid": "41",
+    "facility_name": "Solevo Wellness - Washington",
+    "longitude": "-80.20082779",
+    "latitude": "40.21647042",
+    "facility_url": "www.solevowellness.com",
+    "geocoding_certainty": "00",
+    "open_on": "2/14/2020",
+    "available_on_10_04_19": "Yes",
+    "street": "200 Adios Drive Suite 20",
+    "city_or_borough": "Washington",
+    "state": "PA",
+    "zip_code": "15301",
+    "telephone_number": "412-422-0420",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -80.1996,
+        40.2156
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "9",
+    ":@computed_region_4fjn_fq7k": "7"
+  },
+  {
+    "objectid": "27",
+    "facility_name": "Herbology û Gettysburg",
+    "longitude": "-77.23126641",
+    "latitude": "39.83018247",
+    "facility_url": "https://www.myherbology.com",
+    "geocoding_certainty": "00",
+    "open_on": "8/7/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "19 Baltimore Street",
+    "city_or_borough": "Gettysburg",
+    "state": "PA",
+    "zip_code": "17325",
+    "telephone_number": "717-398-0540",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -77.23113,
+        39.83016
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "13",
+    ":@computed_region_4fjn_fq7k": "63"
+  },
+  {
+    "objectid": "159",
+    "facility_name": "Restore - Doylestown",
+    "longitude": "-75.12967107",
+    "latitude": "40.33273666",
+    "facility_url": "https://restoreiwc.com",
+    "geocoding_certainty": "00",
+    "open_on": "10/14/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "812 N Easton Road Unit 6",
+    "city_or_borough": "Doylestown",
+    "state": "PA",
+    "zip_code": "18902",
+    "telephone_number": "267-621-3014",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.13001,
+        40.33314
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "4",
+    ":@computed_region_4fjn_fq7k": "3"
+  },
+  {
+    "objectid": "56",
+    "facility_name": "Harvest of Cranberry Township",
+    "longitude": "-80.10326749",
+    "latitude": "40.68875253",
+    "facility_url": "www.harvesthoc.com",
+    "geocoding_certainty": "00",
+    "open_on": "9/30/2020",
+    "available_on_10_04_19": "Yes",
+    "street": "20269 Route 19 N",
+    "city_or_borough": "Cranberry Township",
+    "state": "PA",
+    "zip_code": "16066",
+    "telephone_number": "878-217-0350",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -80.10259,
+        40.68932
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "17",
+    ":@computed_region_4fjn_fq7k": "29"
+  },
+  {
+    "objectid": "115",
+    "facility_name": "Curaleaf",
+    "longitude": "-77.84668575",
+    "latitude": "40.78410007",
+    "facility_url": "www.curaleaf.com",
+    "geocoding_certainty": "00",
+    "open_on": "2/19/2022",
+    "available_on_10_04_19": "Yes",
+    "street": "1248 S. Atherton Street",
+    "city_or_borough": "State College",
+    "state": "PA",
+    "zip_code": "16801",
+    "telephone_number": "814-826-1140",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -77.84661,
+        40.78442
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "2",
+    ":@computed_region_4fjn_fq7k": "33"
+  },
+  {
+    "objectid": "172",
+    "facility_name": "Sunnyside-Washington",
+    "longitude": "-80.22080012",
+    "latitude": "40.18611834",
+    "facility_url": "www.sunnyside.shop",
+    "geocoding_certainty": "00",
+    "open_on": "6/27/2023",
+    "available_on_10_04_19": "yes",
+    "street": "360 Washington Rd",
+    "city_or_borough": "Washington",
+    "state": "PA",
+    "zip_code": "15301",
+    "telephone_number": "878-226-8067",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -80.2216,
+        40.1865
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "9",
+    ":@computed_region_4fjn_fq7k": "7"
+  },
+  {
+    "objectid": "140",
+    "facility_name": "Beyond Hello - Franklin Bioscience Penn Dispensary",
+    "longitude": "-75.16073925",
+    "latitude": "39.94960838",
+    "facility_url": "http://beyond-hello.com",
+    "geocoding_certainty": "00",
+    "open_on": "1/24/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "1206 Sansom Street",
+    "city_or_borough": "Philadelphia",
+    "state": "PA",
+    "zip_code": "19107",
+    "telephone_number": "267-804-7168",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.16044,
+        39.94964
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "6",
+    ":@computed_region_4fjn_fq7k": "49"
+  },
+  {
+    "objectid": "24",
+    "facility_name": "Keystone Center of Integrative Wellness",
+    "longitude": "-77.03629122",
+    "latitude": "41.24457969",
+    "facility_url": "https://www.keystoneciw.com",
+    "geocoding_certainty": "00",
+    "open_on": "7/6/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "1490 High Street",
+    "city_or_borough": "Williamsport",
+    "state": "PA",
+    "zip_code": "17701",
+    "telephone_number": "570-218-4402",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -77.03614,
+        41.24461
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "2",
+    ":@computed_region_4fjn_fq7k": "52"
+  },
+  {
+    "objectid": "9",
+    "facility_name": "Cure Pennsylvania",
+    "longitude": "-76.32048802",
+    "latitude": "40.07197969",
+    "facility_url": "https://curepenn.com",
+    "geocoding_certainty": "00",
+    "open_on": "3/7/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "1866 Fruitville Pike",
+    "city_or_borough": "Lancaster",
+    "state": "PA",
+    "zip_code": "17601",
+    "telephone_number": "717-619-2873",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -76.32128,
+        40.07266
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "15",
+    ":@computed_region_4fjn_fq7k": "45"
+  },
+  {
+    "objectid": "76",
+    "facility_name": "Curaleaf Philadelphia",
+    "longitude": "-75.23173423",
+    "latitude": "39.99832829",
+    "facility_url": "www.curaleaf.com/shop/pennsylvania/curaleaf-pa-philadelphia-city-ave",
+    "geocoding_certainty": "00",
+    "open_on": "4/6/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "5058 City Avenue",
+    "city_or_borough": "Philadelphia",
+    "state": "PA",
+    "zip_code": "19131",
+    "telephone_number": "610-934-2291",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.23144,
+        39.99839
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "6",
+    ":@computed_region_4fjn_fq7k": "49"
+  },
+  {
+    "objectid": "120",
+    "facility_name": "Ethos Pennsylvania -Pittsburgh North of Harmarville",
+    "longitude": "-79.83025988",
+    "latitude": "40.54000417",
+    "facility_url": "www.ethospa.com",
+    "geocoding_certainty": "00",
+    "open_on": "4/28/2022",
+    "available_on_10_04_19": "Yes",
+    "street": "5 Alpha Drive",
+    "city_or_borough": "East Pittsburgh",
+    "state": "PA",
+    "zip_code": "15238",
+    "telephone_number": "412-548-6334",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -79.866,
+        40.49166
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "17",
+    ":@computed_region_4fjn_fq7k": "64"
+  },
+  {
+    "objectid": "59",
+    "facility_name": "Ayr Wellness - New Castle",
+    "longitude": "-80.35998154",
+    "latitude": "41.00978219",
+    "facility_url": "www.ayr-wellness.com",
+    "geocoding_certainty": "00",
+    "open_on": "10/16/2020",
+    "available_on_10_04_19": "Yes",
+    "street": "809 Sampson Street",
+    "city_or_borough": "New Castle",
+    "state": "PA",
+    "zip_code": "16101",
+    "telephone_number": "724-652-1010",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -80.36056,
+        41.01038
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "11",
+    ":@computed_region_4fjn_fq7k": "53"
+  },
+  {
+    "objectid": "83",
+    "facility_name": "Harvest of York",
+    "longitude": "-76.95707428",
+    "latitude": "41.24709051",
+    "facility_url": "www.harvesthoc.com/locations/pennsylvania/york/harvest-of-york/",
+    "geocoding_certainty": "00",
+    "open_on": "5/26/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "2300 E Market Street Suite L",
+    "city_or_borough": "York",
+    "state": "PA",
+    "zip_code": "17402",
+    "telephone_number": "not yet available",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -76.68143,
+        39.97367
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "16",
+    ":@computed_region_4fjn_fq7k": "48"
+  },
+  {
+    "objectid": "152",
+    "facility_name": "Justice Grown - Hayden Gateway",
+    "longitude": "-75.63473798",
+    "latitude": "41.45244641",
+    "facility_url": "https://www.justicegrownpa.com",
+    "geocoding_certainty": "00",
+    "open_on": "8/2/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "272 Main Street",
+    "city_or_borough": "Dickson City",
+    "state": "PA",
+    "zip_code": "18519",
+    "telephone_number": "570-291-4747",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.63477,
+        41.45238
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "7",
+    ":@computed_region_4fjn_fq7k": "44"
+  },
+  {
+    "objectid": "37",
+    "facility_name": "RISE - King of Prussia",
+    "longitude": "-75.37450448",
+    "latitude": "40.09050657",
+    "facility_url": "www.risedispensaries.com",
+    "geocoding_certainty": "00",
+    "open_on": "11/26/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "445 West DeKalb Pike",
+    "city_or_borough": "King of Prussia",
+    "state": "PA",
+    "zip_code": "19706",
+    "telephone_number": "610-596-9266",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.37474,
+        40.09037
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "8",
+    ":@computed_region_4fjn_fq7k": "1"
+  },
+  {
+    "objectid": "169",
+    "facility_name": "Trulieve KOP-Limerick",
+    "longitude": "-75.35795662",
+    "latitude": "40.08639167",
+    "facility_url": "www.trulieve.com",
+    "geocoding_certainty": "00",
+    "open_on": "5/19/2023",
+    "available_on_10_04_19": "yes",
+    "street": "451 W Ridge Pike Suite 461",
+    "city_or_borough": "Limerick",
+    "state": "PA",
+    "zip_code": "19468",
+    "telephone_number": "610-428-3645",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.52936,
+        40.23333
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "8",
+    ":@computed_region_4fjn_fq7k": "1"
+  },
+  {
+    "objectid": "147",
+    "facility_name": "RISE - Mechanicsburg",
+    "longitude": "-77.01502657",
+    "latitude": "40.21831376",
+    "facility_url": "https://risecannabis.com",
+    "geocoding_certainty": "00",
+    "open_on": "6/27/2019",
+    "available_on_10_04_19": "Yes",
+    "street": "507 N York Street",
+    "city_or_borough": "Mechanicsburg",
+    "state": "PA",
+    "zip_code": "17055",
+    "telephone_number": "717-400-5610",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -77.01492,
+        40.2185
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "16",
+    ":@computed_region_4fjn_fq7k": "39"
+  },
+  {
+    "objectid": "31",
+    "facility_name": "Harvest of Reading",
+    "longitude": "-75.92712521",
+    "latitude": "40.38341831",
+    "facility_url": "https://www.harvestinc.com",
+    "geocoding_certainty": "00",
+    "open_on": "10/4/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "3225 N. 5th Street Highway",
+    "city_or_borough": "Reading",
+    "state": "PA",
+    "zip_code": "19605",
+    "telephone_number": "484-513-3732",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.92587,
+        40.38416
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "1",
+    ":@computed_region_4fjn_fq7k": "26"
+  },
+  {
+    "objectid": "52",
+    "facility_name": "BEYOND/HELLO - Reading",
+    "longitude": "-75.93100178",
+    "latitude": "40.33432377",
+    "facility_url": "www.beyond-hello.com",
+    "geocoding_certainty": "00",
+    "open_on": "7/15/2020",
+    "available_on_10_04_19": "Yes",
+    "street": "300 Cherry Street",
+    "city_or_borough": "Reading",
+    "state": "PA",
+    "zip_code": "19602",
+    "telephone_number": "610-471-1184",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.94434,
+        40.33474
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "14",
+    ":@computed_region_4fjn_fq7k": "26"
+  },
+  {
+    "objectid": "20",
+    "facility_name": "Ethos Pennsylvania - Allentown",
+    "longitude": "-75.47758412",
+    "latitude": "40.56131552",
+    "facility_url": "https://missiondispensaries.com",
+    "geocoding_certainty": "00",
+    "open_on": "6/7/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "2733 W. Emmaus Avenue",
+    "city_or_borough": "Allentown",
+    "state": "PA",
+    "zip_code": "18103",
+    "telephone_number": "267-662-1937",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.47755,
+        40.56145
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "12",
+    ":@computed_region_4fjn_fq7k": "50"
+  },
+  {
+    "objectid": "108",
+    "facility_name": "Ayr Wellness",
+    "longitude": "-75.31426397",
+    "latitude": "40.01928514",
+    "facility_url": "www.ayrwellnessdispensary.com",
+    "geocoding_certainty": "00",
+    "open_on": "12/31/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "712 Lancaster Ave",
+    "city_or_borough": "Bryn Mawr",
+    "state": "PA",
+    "zip_code": "19010",
+    "telephone_number": "610-445-8600",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.31415,
+        40.01926
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "18",
+    ":@computed_region_4fjn_fq7k": "1"
+  },
+  {
+    "objectid": "5",
+    "facility_name": "Solevo-Squirrel Hill",
+    "longitude": "-79.92695816",
+    "latitude": "40.42748474",
+    "facility_url": "https://www.solevowellness.com",
+    "geocoding_certainty": "00",
+    "open_on": "2/16/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "5600 Forward Ave",
+    "city_or_borough": "Pittsburgh",
+    "state": "PA",
+    "zip_code": "15217",
+    "telephone_number": "412-422-0420",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -79.92708,
+        40.4277
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "10",
+    ":@computed_region_4fjn_fq7k": "64"
+  },
+  {
+    "objectid": "127",
+    "facility_name": "Curaleaf",
+    "longitude": "-75.43466952",
+    "latitude": "40.63781916",
+    "facility_url": "www.curaleaf.com",
+    "geocoding_certainty": "00",
+    "open_on": "9/17/2022",
+    "available_on_10_04_19": "Yes",
+    "street": "1801 Airport Road",
+    "city_or_borough": "Allentown",
+    "state": "PA",
+    "zip_code": "18109",
+    "telephone_number": "610-596-8545",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.43451,
+        40.638
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "12",
+    ":@computed_region_4fjn_fq7k": "50"
+  },
+  {
+    "objectid": "137",
+    "facility_name": "Columbia Care PA LLC - Wilkes- Barre",
+    "longitude": "-75.84353898",
+    "latitude": "41.24995788",
+    "facility_url": "https://col-care.com",
+    "geocoding_certainty": "00",
+    "open_on": "12/3/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "765 Kidder Street",
+    "city_or_borough": "Wilkes-Barre",
+    "state": "PA",
+    "zip_code": "18702",
+    "telephone_number": "570-362-7020",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.84281,
+        41.25019
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "7",
+    ":@computed_region_4fjn_fq7k": "51"
+  },
+  {
+    "objectid": "80",
+    "facility_name": "Laurel Harvest Labs",
+    "longitude": "-75.24435244",
+    "latitude": "40.24878305",
+    "facility_url": "www.laurelharvestlabs.com",
+    "geocoding_certainty": "00",
+    "open_on": "5/1/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "721 Bethlehem Pike",
+    "city_or_borough": "Montgomeryville",
+    "state": "PA",
+    "zip_code": "18936",
+    "telephone_number": "267-263-7770",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.24456,
+        40.249
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "4",
+    ":@computed_region_4fjn_fq7k": "1"
+  },
+  {
+    "objectid": "95",
+    "facility_name": "Vytal Options",
+    "longitude": "-75.62809209",
+    "latitude": "40.58312116",
+    "facility_url": "www.vytaloptions.com",
+    "geocoding_certainty": "00",
+    "open_on": "9/27/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "7720 Main St.",
+    "city_or_borough": "Fogelsville",
+    "state": "PA",
+    "zip_code": "18051",
+    "telephone_number": "484-214-4440",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.62731,
+        40.58281
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "12",
+    ":@computed_region_4fjn_fq7k": "50"
+  },
+  {
+    "objectid": "132",
+    "facility_name": "CURE Pennsylvania - Philadelphia",
+    "longitude": "-75.22163377",
+    "latitude": "40.00311515",
+    "facility_url": "https://curepenn.com",
+    "geocoding_certainty": "00",
+    "open_on": "11/2/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "4502 City Avenue",
+    "city_or_borough": "Philadelphia",
+    "state": "PA",
+    "zip_code": "19131",
+    "telephone_number": "215-876-2873",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.22175,
+        40.00274
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "6",
+    ":@computed_region_4fjn_fq7k": "49"
+  },
+  {
+    "objectid": "48",
+    "facility_name": "Keystone Canna Remedies - Stroudsburg",
+    "longitude": "-75.24605565",
+    "latitude": "40.99307755",
+    "facility_url": "www.keystonecannaremedies.com",
+    "geocoding_certainty": "00",
+    "open_on": "6/18/2020",
+    "available_on_10_04_19": "Yes",
+    "street": "1523 N 9th Street",
+    "city_or_borough": "Stroudsburg",
+    "state": "PA",
+    "zip_code": "18360",
+    "telephone_number": "484-408-6122",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.24618,
+        40.99313
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "12",
+    ":@computed_region_4fjn_fq7k": "12"
+  },
+  {
+    "objectid": "16",
+    "facility_name": "Beyond Hello - Bristol",
+    "longitude": "-74.88716279",
+    "latitude": "40.13168453",
+    "facility_url": "https://www.beyond-hello.com",
+    "geocoding_certainty": "00",
+    "open_on": "5/11/2018",
+    "available_on_10_04_19": "Yes",
+    "street": "2412-2414 Durham Road",
+    "city_or_borough": "Bristol",
+    "state": "PA",
+    "zip_code": "19007",
+    "telephone_number": "267-580-5801",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -74.88798,
+        40.13193
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "4",
+    ":@computed_region_4fjn_fq7k": "3"
+  },
+  {
+    "objectid": "164",
+    "facility_name": "Liberty Pittsburgh",
+    "longitude": "-80.03903143",
+    "latitude": "40.39109177",
+    "facility_url": "www.libertydispensarypa.com",
+    "geocoding_certainty": "00",
+    "open_on": "11/18/2022",
+    "available_on_10_04_19": "Yes",
+    "street": "3105 W Liberty Ave",
+    "city_or_borough": "Pittsburgh",
+    "state": "PA",
+    "zip_code": "15216",
+    "telephone_number": "267-241-5970",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -80.03916,
+        40.3912
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "17",
+    ":@computed_region_4fjn_fq7k": "64"
+  },
+  {
+    "objectid": "69",
+    "facility_name": "Zen Leaf Altoona",
+    "longitude": "-78.40754798",
+    "latitude": "40.46896674",
+    "facility_url": "https://zenleafdispensaries.com/dispensary/zen-leaf-altoona/",
+    "geocoding_certainty": "00",
+    "open_on": "2/3/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "590 W. Plank Road",
+    "city_or_borough": "Altoona",
+    "state": "PA",
+    "zip_code": "16602",
+    "telephone_number": "814-499-6181",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -78.40757,
+        40.46883
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "13",
+    ":@computed_region_4fjn_fq7k": "23"
+  },
+  {
+    "objectid": "63",
+    "facility_name": "Zen Leaf Harrisburg",
+    "longitude": "-76.86353179",
+    "latitude": "40.26515705",
+    "facility_url": "https://zenleafdispensaries.com/dispensary/zen-leaf-harrisburg/",
+    "geocoding_certainty": "00",
+    "open_on": "12/2/2020",
+    "available_on_10_04_19": "Yes",
+    "street": "137 S. 17th Street",
+    "city_or_borough": "Harrisburg",
+    "state": "PA",
+    "zip_code": "17104",
+    "telephone_number": "717-794-7064",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -76.86371,
+        40.26507
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "16",
+    ":@computed_region_4fjn_fq7k": "40"
+  },
+  {
+    "objectid": "179",
+    "facility_name": "PharmaCann Penn LLC-Philadelphia",
+    "longitude": "-75.14513362",
+    "latitude": "39.93043630",
+    "facility_url": "www.verilife.com/pa",
+    "geocoding_certainty": "00",
+    "open_on": "2/23/2024",
+    "available_on_10_04_19": "yes",
+    "street": "1300 S Christopher Columbus Blvd Ste 11",
+    "city_or_borough": "Philadelphia",
+    "state": "PA",
+    "zip_code": "19147",
+    "telephone_number": "215-248-6560",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.14448,
+        39.93036
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "6",
+    ":@computed_region_4fjn_fq7k": "49"
+  },
+  {
+    "objectid": "91",
+    "facility_name": "Rise - Warminster",
+    "longitude": "-75.10030169",
+    "latitude": "40.20183778",
+    "facility_url": "www.risedispensaries.com",
+    "geocoding_certainty": "00",
+    "open_on": "8/10/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "435 York Rd.",
+    "city_or_borough": "Warminster",
+    "state": "PA",
+    "zip_code": "18974",
+    "telephone_number": "267-682-5652",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.1003,
+        40.20198
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "4",
+    ":@computed_region_4fjn_fq7k": "3"
+  },
+  {
+    "objectid": "112",
+    "facility_name": "Sunnyside",
+    "longitude": "-75.24555971",
+    "latitude": "40.13904121",
+    "facility_url": "www.sunnyside.shop",
+    "geocoding_certainty": "00",
+    "open_on": "1/18/2022",
+    "available_on_10_04_19": "Yes",
+    "street": "28 West Skippack Pike",
+    "city_or_borough": "Ambler",
+    "state": "PA",
+    "zip_code": "19002",
+    "telephone_number": "484-709-1932",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.24539,
+        40.13905
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "8",
+    ":@computed_region_4fjn_fq7k": "1"
+  },
+  {
+    "objectid": "123",
+    "facility_name": "Trulieve-Coatesville",
+    "longitude": "-75.78632313",
+    "latitude": "39.98950923",
+    "facility_url": "www.trulieve.com",
+    "geocoding_certainty": "00",
+    "open_on": "6/2/2022",
+    "available_on_10_04_19": "Yes",
+    "street": "1951 Lincoln Hwy E",
+    "city_or_borough": "Coatesville",
+    "state": "PA",
+    "zip_code": "19320",
+    "telephone_number": "484-859-0848",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.78619,
+        39.9893
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "14",
+    ":@computed_region_4fjn_fq7k": "27"
+  },
+  {
+    "objectid": "84",
+    "facility_name": "Restore IWC",
+    "longitude": "-76.34947962",
+    "latitude": "40.09307347",
+    "facility_url": "www.restoreiwc.com",
+    "geocoding_certainty": "00",
+    "open_on": "6/7/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "5471 Main Street",
+    "city_or_borough": "East Petersburg",
+    "state": "PA",
+    "zip_code": "17520",
+    "telephone_number": "717-209-7430",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -76.34961,
+        40.09277
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "15",
+    ":@computed_region_4fjn_fq7k": "45"
+  },
+  {
+    "objectid": "101",
+    "facility_name": "Verilife",
+    "longitude": "-75.34427882",
+    "latitude": "40.42169076",
+    "facility_url": "www.verilife.com/pa",
+    "geocoding_certainty": "00",
+    "open_on": "11/20/2021",
+    "available_on_10_04_19": "Yes",
+    "street": "895 S. West End Blvd.",
+    "city_or_borough": "Quakertown",
+    "state": "PA",
+    "zip_code": "18951",
+    "telephone_number": "215-515-5997",
+    "georeference": {
+      "type": "Point",
+      "coordinates": [
+        -75.34454,
+        40.42166
+      ]
+    },
+    ":@computed_region_3x3q_vpda": "4",
+    ":@computed_region_4fjn_fq7k": "3"
+  }
+]

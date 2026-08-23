@@ -6,6 +6,7 @@ This specification governs a new, independent legal re-audit of exactly 307 proj
 
 - `GOAL_ACHIEVED=false` until every acceptance condition in this document is met.
 - This is an audit-only workflow. It must not change production, runtime, SSOT, or map colors.
+- Public SEO/indexability and production route exposure are governed separately by `docs/SEO_INDEXABILITY_SPEC.md`; this audit cannot alter that contract or use audit completion as deployment authorization.
 - Every discovered change is a proposal until the user explicitly authorizes application.
 - The audit begins at the canonical Git root and uses `data/reviews/geo-list-307.json` as its universe.
 - Archive copies, temporary worktrees, existing `/wiki-truth` colors, and Wikipedia are comparison material only. They are not Official Truth inputs.
@@ -104,7 +105,7 @@ screenshot
 
 Preserve every accepted URL/PDF record when a stronger official host is later found: add the direct Gazette, court, parliament or regulator URL as its own owner-scoped record and retain the earlier official reproduction with an explicit provenance annotation. For a PDF, store a `#page=` deep link only when its viewer page is known; otherwise retain the stable PDF URL plus the printed-page/article/table locator rather than inventing an anchor. A generic legal, pharmaceutical or regulator source must explicitly state its non-promotion boundary and can never fill a cannabis patient axis merely because it licenses, controls or excludes a broad scheduled-material class.
 
-Every current ledger source also carries one `revalidation` object in that same record: `checked_at`, `final_url`, `http_status`, `etag`, `last_modified`, `content_type`, `content_length`, `document_sha256`, `relevant_fragment_sha256`, `revalidation_state`, `access_state`, and `change_reason`. C0 is local-only and deduplicates by owner, canonical URL and locator without a network request; C1 uses conditional GET, never requires HEAD, and fetches one canonical URL at most once per run. A `304` or unchanged `200` preserves legal axes and never creates a color decision. WAF/Cloudflare/AWS-WAF challenge pages, timeout, `403`, redirect uncertainty and blank viewers are access metadata and queue C2/C3 where required; they are never evidence of a prohibition, patient route, legal color, or `UNKNOWN` conclusion. C2 re-extracts only changed, critical, disputed/composite, effective-date-due or access-blocked evidence; text PDFs use `pdftotext` first, render only cannabis-term-relevant pages, and use OCR only when no usable text layer exists. C3 accepts retained/headless visual evidence only for the stated acceptance scope. Visual acceptance and visible official domain remain separate from legal derivation.
+Every current ledger source also carries one `revalidation` object in that same record: `checked_at`, `final_url`, `http_status`, `etag`, `last_modified`, `content_type`, `content_length`, `document_sha256`, `relevant_fragment_sha256`, `revalidation_state`, `access_state`, and `change_reason`. C0 is local-only and deduplicates by owner, canonical URL and locator without a network request; C1 uses conditional GET, never requires HEAD, and fetches one canonical URL at most once per run. A `304` or unchanged `200` preserves legal axes and never creates a color decision. WAF/Cloudflare/AWS-WAF challenge pages, timeout, `403`, redirect uncertainty and blank viewers are access metadata and queue C2/C3 where required; they are never evidence of a prohibition, patient route, legal color, or `UNKNOWN` conclusion. Before a source question can be called exhausted, use the official-first access ladder: current owner endpoint, its documented API/open-data/search/export surface, stable official PDF/Gazette/Act/schedule/registry snapshot, and then a different competent official authority with explicit GEO applicability. Capture the exact successful surface and record every access-boundary method; never treat one blocked route as final. C2 re-extracts only changed, critical, disputed/composite, effective-date-due or access-blocked evidence; text PDFs use `pdftotext` first, render only cannabis-term-relevant pages, and use OCR only when no usable text layer exists. C3 accepts retained/headless visual evidence only for the stated acceptance scope. Visual acceptance and visible official domain remain separate from legal derivation.
 
 For changed HTML, C2 records a local `html_to_text` semantic probe with the
 matching query-derived cannabis terms and literal-fragment presence. It never
@@ -165,6 +166,25 @@ An official retail or pharmacy point-of-sale authorization proves lawful supply 
 A temporary endpoint timeout, blank PDF viewer, or absence of all facts on one official page does not itself make a GEO UNKNOWN. Preserve and aggregate previously direct-reviewed, current and applicable official evidence; record fresh access failure separately. Where that evidence directly proves a cannabis-specific lawful authorisation class, the result is YELLOW unless the Green threshold is independently met. Use UNKNOWN only when the legal regime or territorial applicability itself cannot be derived after the required source chain is checked.
 
 **UNKNOWN minimisation invariant.** This is a knowledge-building audit, not a mechanism for converting incomplete retrieval into a blank map. Before assigning `UNKNOWN`, the review must exhaust the existing applicable official registry and retained direct visual evidence, current statute/gazette text, amendment or repeal chain, regulator or operational-programme material, and any constitutional or statutory territorial-extension source. A missing operational patient page does not reopen a cannabis-specific primary-law conclusion that itself expressly defines the medical scope: a current law that places cannabis in a no-medical-interest prohibited class can prove `RED`, and a current applicable cannabis-specific authorisation can prove `YELLOW`, provided all color-required axes are directly established. Record which required source classes were checked and the precise legal blocker. `UNKNOWN` remains required only where the territorial regime itself cannot honestly be derived; it is never a fallback for a parser miss, one-page incompleteness, access failure, or unaggregated sources.
+
+### UNKNOWN-73 closure extension
+
+The mandatory execution contract for the current proposal-only `UNKNOWN=73`
+baseline is `docs/UNKNOWN_73_COLOR_CLOSURE_SPEC.md`. It controls the
+separation of primary law, operational patient evidence, official
+retail/dispensing evidence, Store Truth persistence, territorial applicability,
+target deduplication, and final counters.
+
+Official adult-use retail evidence can satisfy the general operational
+adult-use rule only when its official category, current lifecycle state, and
+GEO applicability are directly proved. An official medical pharmacy or
+dispensary proves only its expressly regulated lawful-supply/dispensing axis;
+it cannot replace patient eligibility, a prescriber route, or programme
+operation. Generic pharmacies, hemp/research/export permissions, commercial
+directories, and stale registries remain non-promoting. A disputed, synthetic,
+or composite GEO remains unpainted unless one regime is proved for the whole
+mapped GEO; component splitting is a model decision, never a claimant-law
+color shortcut.
 
 For a composite GEO, a color may be derived only from one proven unitary legal regime for the entire mapped GEO. A conservative intersection is forbidden: the stricter component cannot erase a distinct lawful patient or adult-use route in another component, and the more permissive component cannot erase a proven prohibition in another. If components differ on any color-determinative recreational or patient-access axis, derive unpainted `UNKNOWN` with `COMPONENTS_HAVE_DIFFERENT_REGIMES`; record the component evidence separately.
 

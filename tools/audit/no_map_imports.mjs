@@ -37,6 +37,8 @@ const allowedExtensions = new Set([".js", ".mjs", ".cjs", ".ts", ".tsx", ".jsx",
 const allowedNewMapRoots = [
   path.join(ROOT, "apps", "web", "src", "new-map"),
   path.join(ROOT, "apps", "web", "src", "app", "new-map"),
+  path.join(ROOT, "apps", "web", "src", "truth-map"),
+  path.join(ROOT, "apps", "web", "src", "app", "truth-map"),
   path.join(ROOT, "tools", "new-map")
 ];
 
@@ -87,12 +89,17 @@ const mapRuntimeDirs = [
   path.join(ROOT, "apps", "web", "src", "app", "_components", "mapRuntime")
 ];
 const mapRuntimeRemoved = mapRuntimeDirs.every((dir) => !fs.existsSync(dir));
+const activeMapRoutes = [
+  "apps/web/src/app/new-map/page.tsx",
+  "apps/web/src/app/truth-map/page.tsx"
+].filter((relativePath) => fs.existsSync(path.join(ROOT, relativePath)));
 const payload = {
   generatedAt: new Date().toISOString(),
   mapRuntimeRemoved,
   mapImportsFound: offendingFiles.length,
   offendingFiles,
-  mapRoutesRemoved: !mapRouteExists
+  mapRoutesRemoved: !mapRouteExists,
+  activeMapRoutes
 };
 
 await fsPromises.mkdir(ARTIFACTS, { recursive: true });
@@ -100,6 +107,7 @@ await fsPromises.writeFile(path.join(ARTIFACTS, "no-map-imports.json"), JSON.str
 
 console.log(`MAP_RUNTIME_REMOVED=${mapRuntimeRemoved ? 1 : 0}`);
 console.log(`MAP_IMPORTS_FOUND=${offendingFiles.length}`);
-console.log(`MAP_ROUTES_REMOVED=${mapRouteExists ? 0 : 1}`);
+console.log(`LEGACY_MAP_ROUTES_REMOVED=${mapRouteExists ? 0 : 1}`);
+console.log(`ACTIVE_MAP_ROUTES=${activeMapRoutes.join(",") || "NONE"}`);
 
-process.exit(mapRuntimeRemoved && offendingFiles.length === 0 && !mapRouteExists ? 0 : 1);
+process.exit(mapRuntimeRemoved && offendingFiles.length === 0 && !mapRouteExists && activeMapRoutes.length > 0 ? 0 : 1);

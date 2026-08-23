@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "fetched_at": "2026-08-21T01:07:05.259Z",
+  "local_only": true,
+  "input_snapshot_path": "data/store_truth/coordinate_augmentations/va-cca-current-unmatched-location-census-input-remaining-2026-08-21.json",
+  "input_snapshot_sha256": "e817ea1bf7e9323bbd9399a86d57029197f3dd7b128a81931f4b1a0ffe0f36ea",
+  "census_benchmark": "Public_AR_Current",
+  "match_policy": "ONE_MATCH_OPTIONAL_MATCH_TYPE_MATCH_OR_EXACT_SAME_CANONICAL_ONELINE_ADDRESS_AND_IN_DECLARED_BOUNDS",
+  "requested_candidates": 2,
+  "accepted_records": 0,
+  "blocked_records": 2,
+  "records": []
+}
