@@ -7,6 +7,8 @@ Statuses: pending | in_progress | done
 - [done] Render existing official legal links, annotations and short quotation excerpts only in `/truth-map` popups and route-local explanatory text.
 - [done] Keep each determined legal-information indicator aligned with Legal Truth and map display colour (`GREEN→✅`, `YELLOW→⚠️`, `RED→❌`); an `UNKNOWN` red-direction indicator is explicitly not presented as a confirmed prohibition.
 - [done] Add route-local tests and visual/console acceptance without changing `/`, `/new-map`, country SEO routes, SSOT or sitemap.
+- [done] Run an opt-in live WebKit popup audit on 11 random canonical GEO (`ZM, LV, VU, KE, BF, MS, US-OH, BS, AI, SJ, BD`): `11/11` captured, no missing GEO, and rendered legal/display/icon values preserve every determined mapping while `UNKNOWN` remains labelled non-final. The external receipt is `/tmp/islegal-truth-map-random-11-legal-icon-audit-manifest.json`; screenshots are outside the repository under `~/islegalcannabis_archive/truth-map-random-11-legal-icon-audit/`.
+- [done] Refresh the canonical opt-in WebKit evidence-popup manifest: `307/307` captured, `0` missing, and the fail-closed Truth Map visual guard passes. The fresh receipt records all determined mappings (`90 GREEN→✅`, `122 YELLOW→⚠️`, `26 RED→❌`) and keeps all `69 UNKNOWN` values explicitly non-final; screenshots stay in the external canonical archive and the committed manifest contains their paths and rendered fields.
 
 ## Full Worktree Preservation Without Deployment
 

@@ -13,6 +13,9 @@ const canonicalGeoAuditCount = 307;
 test("truth-map visual audit captures only the isolated audit route when explicitly enabled", async ({ page }) => {
   test.skip(!enabled, "TRUTH_MAP_VISUAL_AUDIT=1 is required for capture");
   expect(requestedGeos.length).toBeGreaterThan(0);
+  if (requestedGeos.length === canonicalGeoAuditCount) {
+    test.setTimeout(600_000);
+  }
 
   const runId = new Date().toISOString().replace(/[:.]/g, "-");
   const archiveRoot = process.env.TRUTH_MAP_VISUAL_AUDIT_ARCHIVE_DIR
@@ -39,7 +42,14 @@ test("truth-map visual audit captures only the isolated audit route when explici
   await page.goto("/truth-map?qa=1", { waitUntil: "domcontentloaded" });
   await page.waitForFunction(() => Boolean(window.__TRUTH_MAP_QA__), { timeout: 20_000 });
 
-  const rows: Array<{ geo: string; popupScreenshot: string | null; status: "CAPTURED" | "MISSING" }> = [];
+  const rows: Array<{
+    geo: string;
+    popupScreenshot: string | null;
+    status: "CAPTURED" | "MISSING";
+    legalTruthColor?: string;
+    mapDisplayText?: string;
+    legalEvidenceIcon?: string;
+  }> = [];
   for (const geo of requestedGeos) {
     const opened = await page.evaluate(async (target) => window.__TRUTH_MAP_QA__?.openGeo(target) ?? false, geo);
     if (!opened) {
@@ -48,9 +58,30 @@ test("truth-map visual audit captures only the isolated audit route when explici
     }
     const popup = page.getByTestId("truth-map-country-popup");
     await expect(popup).toBeVisible({ timeout: 10_000 });
-    await expect(popup).toContainText("Legal conclusion:");
-    await expect(popup.getByTestId("truth-map-legal-evidence")).toBeVisible();
-    await expect(popup.getByTestId("truth-map-legal-evidence")).toContainText(/✅|⚠️|❌/);
+    const popupText = await popup.textContent();
+    const legalTruthColor = popupText?.match(/Legal conclusion: (GREEN|YELLOW|RED|UNKNOWN)/)?.[1];
+    expect(legalTruthColor).toBeTruthy();
+    const legalEvidence = popup.getByTestId("truth-map-legal-evidence");
+    await expect(legalEvidence).toBeVisible();
+    await expect(legalEvidence).toContainText(/✅|⚠️|❌/);
+    const legalEvidenceText = await legalEvidence.textContent();
+    const legalEvidenceIcon = legalEvidenceText?.match(/✅|⚠️|❌/)?.[0];
+    if (legalTruthColor === "GREEN") {
+      await expect(popup).toContainText("Map display: legal verdict GREEN.");
+      await expect(legalEvidence).toContainText("✅");
+    } else if (legalTruthColor === "YELLOW") {
+      await expect(popup).toContainText("Map display: legal verdict YELLOW.");
+      await expect(legalEvidence).toContainText("⚠️");
+    } else if (legalTruthColor === "RED") {
+      await expect(popup).toContainText("Map display: legal verdict RED.");
+      await expect(legalEvidence).toContainText("❌");
+      await expect(legalEvidence).toContainText("Prohibition evidenced in applicable law");
+    } else {
+      await expect(popup).toContainText("not a final legal conclusion");
+      if (legalEvidenceText?.includes("❌")) {
+        await expect(legalEvidence).toContainText("not a confirmed prohibition finding");
+      }
+    }
     await expect(popup.getByText("Reconciliation rationale", { exact: true })).toBeVisible();
     if (geo === "AF") {
       await expect(popup.getByTestId("truth-map-research-direction")).toContainText("not a final legal conclusion");
@@ -84,7 +115,16 @@ test("truth-map visual audit captures only the isolated audit route when explici
     }
     const popupScreenshot = path.join(popupDir, `${geo}.png`);
     await popup.screenshot({ path: popupScreenshot });
-    rows.push({ geo, popupScreenshot, status: "CAPTURED" });
+    rows.push({
+      geo,
+      popupScreenshot,
+      status: "CAPTURED",
+      legalTruthColor,
+      mapDisplayText: legalTruthColor && legalTruthColor !== "UNKNOWN"
+        ? `legal verdict ${legalTruthColor}`
+        : popupText?.match(/Map display: (research direction (?:GREEN|YELLOW|RED)|GRAY — polar scope exception)/)?.[1] || "UNKNOWN_DISPLAY",
+      legalEvidenceIcon,
+    });
   }
 
   fs.writeFileSync(manifestPath, `${JSON.stringify({

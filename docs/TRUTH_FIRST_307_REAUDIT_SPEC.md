@@ -10,6 +10,7 @@ This specification governs a new, independent legal re-audit of exactly 307 proj
 - Every discovered change is a proposal until the user explicitly authorizes application.
 - The audit begins at the canonical Git root and uses `data/reviews/geo-list-307.json` as its universe.
 - Archive copies, temporary worktrees, existing `/wiki-truth` colors, and Wikipedia are comparison material only. They are not Official Truth inputs.
+- The audit-only `/truth-map` evidence-popup projection is governed by `docs/TRUTH_MAP_LEGAL_EVIDENCE_PRESENTATION_SPEC.md`. It consumes the final reconciliation without altering legal truth: determined `GREEN|YELLOW|RED` render `✅|⚠️|❌` respectively, while an `UNKNOWN` evidence indicator remains explicitly non-final.
 
 ### Current audited checkpoint — 2026-08-12
 

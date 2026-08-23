@@ -93,6 +93,12 @@ Google indexing terminology.
 - Popup/SEO source quotes must not surface unattributed quote fragments.
 - Territory, parent-jurisdiction, root-only, and synthetic fallback cases may stay law/source-only; fake thematic sections are forbidden.
 
+## Truth Map legal-evidence presentation contract
+- `docs/TRUTH_MAP_LEGAL_EVIDENCE_PRESENTATION_SPEC.md` is the canonical contract for the audit-only `/truth-map` legal-information popup and route-local explanatory text.
+- For every determined audit legal conclusion, `GREEN→✅`, `YELLOW→⚠️`, and `RED→❌` must agree with the route-local legal display verdict. This is independent of the public map and country SEO contracts.
+- A `❌` on audit legal `UNKNOWN` may communicate an unresolved prohibition direction or absent applicable conclusion only when the popup visibly preserves `UNKNOWN`, `not a final legal conclusion`, and `not a confirmed prohibition finding`.
+- `/truth-map` remains noindex/production-404 and outside public SEO. Its route-local indicator must not be re-used by `/`, `/new-map`, legal APIs, Store Truth, Social, or public country SEO.
+
 ## Unified geo-sync contract
 - Popup/wiki screenshot parity is not enough when canonical resolver, normalized legal model, map color, or SEO rendering changes.
 - The active release gate for those changes is the full `307` GEO unified geo-sync audit documented in `docs/GEO_SYNC_AUDIT.md`.
