@@ -11,12 +11,65 @@ universe remains `data/reviews/geo-list-307.json`.
 The objective is to derive the maximum number of honest `GREEN`, `YELLOW`, or
 `RED` conclusions from current applicable official evidence, and to preserve a
 strict final scope explanation for a GEO that cannot legally receive one color.
-This is not an instruction to paint every polygon. `UNKNOWN` remains mandatory
-where a whole mapped GEO has no single applicable regime.
+`UNKNOWN` remains mandatory in the legal evidence layer where a whole mapped
+GEO has no single applicable regime. The isolated `/truth-map` presentation
+layer must nevertheless render every geometry in one of the existing
+green/yellow/red visual families, with a visible distinction between a legal
+verdict and a research direction. It must never turn that presentation choice
+into a legal conclusion.
 
-All work remains proposal-only until a separate apply authorization. This
-specification does not authorize an SSOT, production, deployment, API, SEO, or
-runtime map-color change.
+This specification authorizes only the audit-route `/truth-map` display layer.
+It does not authorize an SSOT, production, deployment, legal-status API, SEO,
+or `/`/`/new-map` change.
+
+## `/truth-map` display contract: no grey without false legal colour
+
+Every map feature in the isolated audit route must expose both fields:
+
+```text
+LEGAL_TRUTH_COLOR = GREEN | YELLOW | RED | UNKNOWN
+TRUTH_MAP_DISPLAY_COLOR = GREEN | YELLOW | RED
+```
+
+`LEGAL_TRUTH_COLOR` remains the result of the legal evidence resolver and is
+never changed to reduce a display counter. `TRUTH_MAP_DISPLAY_COLOR` is a
+separate presentation value. It must not be used by SSOT, SEO, a legal-status
+API, Store eligibility, or an assertion in a country popup.
+
+The display resolver is schema-driven and must have no GEO-specific branch:
+
+```text
+legal GREEN | YELLOW | RED
+  -> identical display colour; DISPLAY_COLOR_BASIS=LEGAL_VERDICT
+
+legal UNKNOWN + documented whole-geometry / territorial-applicability conflict
+  -> display YELLOW; DISPLAY_COLOR_BASIS=EVIDENCE_DIRECTION_SCOPE_UNRESOLVED
+
+legal UNKNOWN + current applicable cannabis-prohibition evidence but open
+medical axis
+  -> display RED; DISPLAY_COLOR_BASIS=EVIDENCE_DIRECTION_PROHIBITION
+
+other legal UNKNOWN
+  -> display YELLOW; DISPLAY_COLOR_BASIS=EVIDENCE_DIRECTION_INSUFFICIENT_OFFICIAL_EVIDENCE
+```
+
+`GREEN` is never a fallback direction: evidence sufficient for a green display
+must promote the legal conclusion through the ordinary general resolver.
+
+Every non-`LEGAL_VERDICT` feature must visibly state in its popup and detail
+surface:
+
+```text
+Legal conclusion: unresolved
+Map display: research direction, not a final legal conclusion
+Display basis: <basis>
+```
+
+The visual layer may use a hatch, badge, or equivalent non-legal indicator,
+but no GEO may retain a grey, transparent, `UNKNOWN`, null, or missing display
+fill. Acceptance requires `DISPLAY_UNCOLORED_GEOS=0` for all 307 canonical
+GEOs while every legal `UNKNOWN` retains an explicit reason and linked source
+annotations.
 
 ## Canonical sources and layer separation
 
@@ -239,11 +292,57 @@ non-promoting until all of those questions are answered.
 8. Persist validated Store data through the existing Store Truth pipeline.
 9. Emit a proposal-only decision and explicit diff.
 
+### Mandatory official-source access ladder
+
+Never end a target review after the first unavailable page. For every decisive
+law, operational route, or Store-registry question, exhaust the following
+official-first ladder in order and retain the outcome of each applicable step:
+
+```text
+1. Current regulator / ministry / parliament / government HTML endpoint.
+2. The same authority's documented API, open-data export, search result, or
+   licence-registry endpoint.
+3. Stable official PDF, Gazette, consolidated Act, schedule, amendment,
+   commencement notice, or downloadable registry snapshot.
+4. A different competent official authority for the same question
+   (health/pharmacy regulator, licensing authority, official journal, customs,
+   court, or territorial administration), with explicit GEO applicability.
+5. Rendered visual review of the accepted official surface or an explicit
+   browser/PDF-viewer access blocker.
+```
+
+An access failure records the URL, method, HTTP/access state, final URL where
+available, and a concise annotation of what remains unproved. It never stops
+the ladder, becomes a negative legal finding, or justifies a forced color. A
+query/search result is a discovery lead until the linked official record itself
+is annotated. Every retained official URL/PDF/API/export must include owner,
+exact GEO applicability, source type/role, current/effective state, literal
+fragment or exact no-registry boundary, locator, review date, visual state, and
+revalidation data. Links without those annotations are not accepted evidence.
+
 Each productive packet covers at least two previously unprocessed target GEOs:
 
 ```text
 NEW_TARGET_GEOS_PER_PACKET >= 2
 ```
+
+Every packet must also publish a closure delta against the canonical
+`data/reviews/wiki-truth-307-final-reconciliation.json` `UNKNOWN` set:
+
+```text
+TARGET_UNKNOWN_START=<count before the packet>
+NEW_TARGET_GEOS_PER_PACKET=<distinct canonical UNKNOWN GEOs first reviewed for this purpose>
+UNKNOWN_TO_GREEN=<legal Truth rows actually resolved by this packet>
+UNKNOWN_TO_YELLOW=<legal Truth rows actually resolved by this packet>
+UNKNOWN_TO_RED=<legal Truth rows actually resolved by this packet>
+TARGET_UNKNOWN_END=<count after the packet>
+```
+
+`evidence_direction_candidate` is not a legal Truth color and must always
+contribute `0` to every `UNKNOWN_TO_*` counter. A packet that only improves a
+source/access boundary is valid work, but its closure delta must say `0` rather
+than claim progress. The canonical 73-row target list, not a different Wiki,
+Store, registry, or visual-acceptance universe, supplies these counters.
 
 A repeated GEO may receive credit only for a materially new official source
 family, a changed law/schedule/amendment/commencement/registry, a precise
@@ -330,4 +429,3 @@ LEGACY_ROUTE_REGRESSIONS=0
 
 An unresolved source/access gap and an irreducible unitary-regime scope result
 are reported separately. Neither is silently converted to a color.
-

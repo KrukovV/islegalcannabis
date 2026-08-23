@@ -4,7 +4,8 @@ Hard Rule:
 - At the start of every response, read CONTINUITY.md and update Goal/State/Done/Now/Next if changes occurred.
 - Update the ledger after important outcomes (CI PASS/FAIL, smoke results, new invariants, generated artifacts).
 - Use `bash tools/pass_cycle.sh` as the single command for CI + checkpoint + ledger updates.
-- Before final response, always run `bash tools/pass_cycle.sh` and verify `Reports/ci-final.txt` has `POST_CHECKS_OK=1` and `HUB_STAGE_REPORT_OK=1`.
+- Before final response, run `bash tools/pass_cycle.sh` and verify `Reports/ci-final.txt` has `POST_CHECKS_OK=1` and `HUB_STAGE_REPORT_OK=1`, except for the explicit documentation-only exception below.
+- Documentation-only exception: when the user explicitly requests Markdown/rules/specification changes without tests and without `pass_cycle`, edit only documentation/rule/ledger files, do not run tests, smoke, UI automation, builds, or `pass_cycle`, and record `VALIDATION=NOT_RUN_USER_REQUEST` without making a new PASS/regression claim.
 - Keep the ledger concise; unknowns must be marked UNCONFIRMED (do not guess).
 - Execution Mode only: actions + results. Forbidden phrases: "considering", "figuring out", "refine approach".
 - No auto-plan lines: do not store or print "Next: ..." in CONTINUITY.md or stdout; only user-provided tasks may define future steps.
@@ -27,6 +28,29 @@ Hard Rule:
   - delete .next/dev/lock while a dev process may be alive
   - auto-switch ports (3001/3010/etc.)
 - A running user-started UI is ground truth and must not be disturbed.
+
+## SEO / Production Indexability Contract (Hard Rule)
+
+- The canonical SEO/indexability specification is `docs/SEO_INDEXABILITY_SPEC.md`; summaries in plans, ledgers or reports must not weaken it.
+- Every URL advertised by the canonical production sitemap must return HTTP 200 with a nonempty GEO-correct title, exact canonical URL and `index, follow`; a sitemap 200 with advertised page 404 is release FAIL.
+- Protected accepted sitemap baseline is `311` unique full URLs with split counts `238` countries, `50` U.S. states and `22` localized URLs, plus `4` entries in the sitemap index. Silent shrink or partition drift is forbidden without an explicit spec/test update and user-authorized release.
+- Monorepo runtime data must be retained through route-scoped Next.js output tracing only. A global `/*` include, whole-repository trace, or trace include for `/truth-map`, `/wiki-truth`, Social, DM or Store APIs is forbidden.
+- `/truth-map` and `/wiki-truth` must remain production 404 and absent from every sitemap; localhost audit availability must not be used as evidence that those routes are safe to expose publicly.
+- SEO/trace work must not change Legal Truth, SSOT, GEO colours, Store eligibility, Social state, popup conclusions or `/new-map` product semantics.
+- Production release requires a green canonical-root `bash tools/pass_cycle.sh`, the repository green release path, a complete live crawl of every advertised URL, populated split sitemaps, representative real-browser popup/metadata proof, and a green post-release root cycle.
+- Report `CRAWLABILITY_PASS` separately from Google state. A push, Vercel READY, sitemap 200 or live HTTP crawl never proves `GOOGLE_INDEX_CONFIRMED`; until current Search Console evidence exists, use `GOOGLE_RECRAWL_UNCONFIRMED`.
+
+## Truth Map AI + Social UX Contract (Hard Rule)
+
+- The canonical Social product specification is `docs/SOCIAL_LAYER_SPEC.md`; implementation/status notes must not silently redefine it.
+- `/truth-map` must retain the canonical editable AI-assistant input dock as the primary persistent map control. Social may be added beside/above it, but must never replace, hide, disable, or overlap the AI dock.
+- Social is compact by default and expands independently. Closing/collapsing Social must not change AI-assistant availability.
+- Marker semantics are exclusive and must never be reused across domains:
+  - validated cannabis stores use only the cannabis-leaf marker (`validated-cannabis-store-leaf`, `/cannabis-store-leaf.svg`);
+  - Social MAP activity uses only the chat-bubble marker (`social-map-activity-chat-bubble`, `/social-discussion-chat.svg`) with the active-discussion count.
+- A Social marker selects an already-public privacy-safe H3 discussion area; it is not a store, user pin, exact location, distance indicator, or legal-truth signal.
+- Public Social and its map layer remain `/truth-map`-only. `/` and `/new-map` must remain free of Social UI/layers unless the user explicitly changes the route contract.
+- Social UI must not change Legal Truth, GEO colours, stores, SSOT, SEO, production, or deployment state.
 
 ## Storage Hygiene (Hard Rule)
 

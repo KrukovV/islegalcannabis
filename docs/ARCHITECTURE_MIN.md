@@ -73,8 +73,16 @@
   - Quality/commit decisions must read this file only.
   - Writers only in `tools/*` pipeline/guards.
 
+- `data/index.json`, `data/countries/**/*.json`, `data/graph/country-graph.json`
+  (country runtime inputs)
+  - Read at runtime only by the existing country-page/API/sitemap route family.
+  - Retained in Vercel through route-scoped tracing from the monorepo root.
+  - Must never be promoted into a global trace or reused to package local audit,
+    Social, DM or Store routes.
+
 ## Mandatory Invariants
 
+- `docs/SEO_INDEXABILITY_SPEC.md` is the canonical authority for public country routes, sitemaps, route-scoped runtime tracing, production crawlability and Google indexing terminology.
 - DNS is diagnostic-only. Online status derives only from truth probes.
 - SSOT is read-mostly. UI/API never write SSOT.
 - CI is read-only (no writes to `data/**`). UPDATE mode is the only writer.
@@ -95,3 +103,7 @@
 - Location precedence is fixed: `manual > gps > ip`.
   - GPS provider `UNAVAILABLE`/timeout is downgraded to IP recovery; map/location features remain usable with approximate-status messaging.
 - Storage hygiene is enforced: `QUARANTINE` exactly one PASS snapshot, `Reports` operational only, historical archives outside the repo.
+- Public sitemap and country runtime are one indexability boundary: every advertised URL must be 200/title/canonical/index-follow in production, and a route-data trace regression must fail before release.
+- Accepted sitemap baseline is 311 unique URLs with `238/50/22` country/state/i18n partitions and four sitemap-index entries; silent shrink is forbidden.
+- `/truth-map` and `/wiki-truth` remain production 404 and absent from every sitemap. Route-scoped SEO tracing must never expose audit, Social, DM or Store runtime.
+- `CRAWLABILITY_PASS` is not `GOOGLE_INDEX_CONFIRMED`; Google recrawl remains external until current Search Console evidence exists.

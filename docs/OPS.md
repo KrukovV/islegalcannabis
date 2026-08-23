@@ -21,6 +21,38 @@ HUB_STAGE_REPORT_OK=1
 
 Lint is mandatory before Smoke/UI; any lint error fails the run.
 
+## SEO/indexability release and recovery
+
+The canonical requirements and accepted baseline live in
+`docs/SEO_INDEXABILITY_SPEC.md`.
+
+Before release:
+
+1. Confirm the candidate diff is limited to the authorized SEO/trace/docs scope.
+2. Confirm Next output tracing is route-scoped and has no `/*`, `/truth-map`,
+   `/wiki-truth`, Social, DM or Store include.
+3. Verify localhost country/state/localized samples return 200 with title,
+   canonical and `index, follow`.
+4. Verify sitemap counts `311/238/50/22` and four sitemap-index entries.
+5. Run `bash tools/pass_cycle.sh` and require the full PASS receipt.
+6. Release only through `Tools/commit_if_green.sh`. Use an isolated clean clone
+   when the canonical worktree contains parallel uncommitted work.
+
+After Vercel promotion:
+
+1. Crawl all 311 URLs from `https://www.islegal.info/sitemap.xml` with bounded
+   concurrency and require 311 HTTP-200/indexable HTML results.
+2. Recheck the split counts and `robots.txt` Googlebot/sitemap policy.
+3. Require production 404 for `/truth-map` and `/wiki-truth` and zero audit-route
+   URLs in every sitemap.
+4. Use a real browser to verify a representative country popup, canonical
+   metadata and the absence of Truth Map, Social and Store audit controls.
+5. Run the canonical-root `pass_cycle` again after recording the live receipt.
+
+Do not report immediate Google index recovery from these checks. Report
+`CRAWLABILITY_PASS` and `GOOGLE_RECRAWL_UNCONFIRMED` until Search Console shows a
+current crawl/index result.
+
 ## UI Singleton
 
 Only one Next.js dev server instance is allowed. Use:
