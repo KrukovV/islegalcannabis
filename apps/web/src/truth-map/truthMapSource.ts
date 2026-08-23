@@ -25,7 +25,11 @@ export type TruthMapDisplayColorBasis =
   | "EVIDENCE_DIRECTION_INSUFFICIENT_OFFICIAL_EVIDENCE"
   | "POLAR_UNRESOLVED_SCOPE";
 
-export type TruthMapLegalEvidenceStatus = "CONFIRMED" | "PARTIAL" | "UNAVAILABLE";
+export type TruthMapLegalEvidenceStatus =
+  | "VERIFIED_ACCESS"
+  | "LIMITED_OR_QUALIFIED"
+  | "PROHIBITION_EVIDENCED"
+  | "UNRESOLVED";
 
 export type TruthMapLegalEvidenceCitation = {
   title: string;
@@ -283,7 +287,11 @@ function evidenceSourcesForRow(row: FinalTruthRow) {
     });
 }
 
-export function resolveTruthMapLegalEvidence(row: FinalTruthRow | undefined, truthColor: TruthColor) {
+export function resolveTruthMapLegalEvidence(
+  row: FinalTruthRow | undefined,
+  truthColor: TruthColor,
+  displayColor: TruthMapDisplayColor
+) {
   const coverage = String(row?.primaryLaw?.sourceCoverage || "NO_CANDIDATE_PAGE_FOUND").trim().toUpperCase();
   const citations: TruthMapLegalEvidenceCitation[] = row
     ? evidenceSourcesForRow(row).slice(0, 2).map(({ source, url }) => ({
@@ -295,28 +303,61 @@ export function resolveTruthMapLegalEvidence(row: FinalTruthRow | undefined, tru
     }))
     : [];
 
-  if (truthColor !== "UNKNOWN" && coverage === "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW" && citations.some((citation) => citation.quote)) {
+  if (truthColor === "GREEN") {
+    const reviewed = coverage === "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW" && citations.some((citation) => citation.quote);
     return {
-      status: "CONFIRMED" as const,
+      status: "VERIFIED_ACCESS" as const,
       icon: "✅" as const,
-      label: "Verified legal evidence",
-      summary: "Applicable official legal evidence has been reviewed and supports this reconciled conclusion.",
+      label: reviewed ? "Lawful access verified" : "Lawful access conclusion",
+      summary: reviewed
+        ? "Applicable official legal evidence has been reviewed and supports this lawful-access conclusion."
+        : "The reconciled legal conclusion is GREEN; retained official evidence is available below.",
+      citations
+    };
+  }
+
+  if (truthColor === "RED") {
+    return {
+      status: "PROHIBITION_EVIDENCED" as const,
+      icon: "❌" as const,
+      label: "Prohibition evidenced in applicable law",
+      summary: "Reviewed official legal evidence supports this prohibition conclusion for the territory.",
+      citations
+    };
+  }
+
+  if (truthColor === "YELLOW") {
+    return {
+      status: "LIMITED_OR_QUALIFIED" as const,
+      icon: "⚠️" as const,
+      label: "Limited or qualified legal status",
+      summary: "Official legal material supports a limited lawful regime, not verified general access.",
+      citations
+    };
+  }
+
+  if (truthColor === "UNKNOWN" && displayColor === "RED") {
+    return {
+      status: "UNRESOLVED" as const,
+      icon: "❌" as const,
+      label: "Possible prohibition — legal conclusion unresolved",
+      summary: "Evidence direction points to prohibition, but the legal conclusion remains UNKNOWN. This is not a confirmed prohibition finding.",
       citations
     };
   }
 
   if (truthColor === "UNKNOWN" && (coverage === "NO_CANDIDATE_PAGE_FOUND" || coverage === "OFFICIAL_SOURCE_ACCESS_BLOCKED")) {
     return {
-      status: "UNAVAILABLE" as const,
+      status: "UNRESOLVED" as const,
       icon: "❌" as const,
       label: "No confirmed applicable conclusion",
-      summary: "The retained record does not confirm an applicable legal conclusion. This is not a prohibition finding.",
+      summary: "The retained record does not confirm an applicable legal conclusion. This is not a confirmed prohibition finding.",
       citations
     };
   }
 
   return {
-    status: "PARTIAL" as const,
+    status: "LIMITED_OR_QUALIFIED" as const,
     icon: "⚠️" as const,
     label: "Legal evidence needs qualification",
     summary: "Official material is retained, but scope, currentness, or a required legal axis remains unresolved.",
@@ -335,7 +376,7 @@ function truthProperties(
   const truthRuleId = String(row?.truthRuleId || "LEGAL_APPLICABILITY_UNRESOLVED");
   const truthReason = String(row?.truthReason || "No canonical final-reconciliation row is available for this geometry.");
   const display = resolveTruthMapDisplayColor(geo, truthColor, truthRuleId, truthReason, policy);
-  const legalEvidence = resolveTruthMapLegalEvidence(row, truthColor);
+  const legalEvidence = resolveTruthMapLegalEvidence(row, truthColor, display.color);
   const legalMapCategory = toMapCategory(truthColor);
   const displayMapCategory = display.color === "GRAY" ? "UNKNOWN" : toMapCategory(display.color);
   const displayBaseColor = display.color === "GRAY" ? "#9aa0a6" : resolveLegalFillColor(displayMapCategory);

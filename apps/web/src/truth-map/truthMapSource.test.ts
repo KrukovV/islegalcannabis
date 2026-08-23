@@ -47,7 +47,7 @@ describe("truth-map final reconciliation projection", () => {
     expect(california?.properties?.truthMapDisplayColor).toBe("GREEN");
     expect(california?.properties?.displayColorBasis).toBe("LEGAL_VERDICT");
     expect(california?.properties?.truthRuleId).toContain("OPERATIONAL_ADULT_USE");
-    expect(california?.properties?.legalEvidenceStatus).toBe("CONFIRMED");
+    expect(california?.properties?.legalEvidenceStatus).toBe("VERIFIED_ACCESS");
     expect(california?.properties?.legalEvidenceIcon).toBe("✅");
     expect(california?.properties?.legalEvidenceCitationCount).toBeGreaterThan(0);
     expect(JSON.parse(california?.properties?.legalEvidenceCitationsJson || "[]")[0]).toMatchObject({
@@ -93,17 +93,44 @@ describe("truth-map final reconciliation projection", () => {
     const dataset = buildTruthMapDataset();
     const afghanistan = dataset.countries.features.find((feature) => feature.properties?.geo === "AF");
     const saoTome = dataset.countries.features.find((feature) => feature.properties?.geo === "ST");
+    const belarus = dataset.countries.features.find((feature) => feature.properties?.geo === "BY");
     expect(afghanistan?.properties).toMatchObject({
       legalTruthColor: "UNKNOWN",
       truthMapDisplayColor: "RED",
-      legalEvidenceStatus: "PARTIAL",
-      legalEvidenceIcon: "⚠️",
-    });
-    expect(saoTome?.properties).toMatchObject({
-      legalTruthColor: "UNKNOWN",
-      legalEvidenceStatus: "UNAVAILABLE",
+      legalEvidenceStatus: "UNRESOLVED",
       legalEvidenceIcon: "❌",
     });
-    expect(saoTome?.properties?.legalEvidenceSummary).toContain("not a prohibition finding");
+    expect(afghanistan?.properties?.legalEvidenceSummary).toContain("not a confirmed prohibition finding");
+    expect(saoTome?.properties).toMatchObject({
+      legalTruthColor: "UNKNOWN",
+      legalEvidenceStatus: "UNRESOLVED",
+      legalEvidenceIcon: "❌",
+    });
+    expect(saoTome?.properties?.legalEvidenceSummary).toContain("not a confirmed prohibition finding");
+    expect(belarus?.properties).toMatchObject({
+      legalTruthColor: "RED",
+      legalEvidenceStatus: "PROHIBITION_EVIDENCED",
+      legalEvidenceIcon: "❌",
+      truthMapDisplayColor: "RED",
+    });
+    expect(belarus?.properties?.legalEvidenceLabel).toContain("Prohibition evidenced");
+    expect(belarus?.properties?.legalEvidenceSummary).not.toContain("not a confirmed prohibition finding");
+  });
+
+  it("keeps every legally determined GEO icon aligned with its legal and display colour", () => {
+    const dataset = buildTruthMapDataset();
+    const expected = {
+      GREEN: { icon: "✅", status: "VERIFIED_ACCESS" },
+      YELLOW: { icon: "⚠️", status: "LIMITED_OR_QUALIFIED" },
+      RED: { icon: "❌", status: "PROHIBITION_EVIDENCED" },
+    } as const;
+    for (const feature of [...dataset.countries.features, ...dataset.usStates.features]) {
+      const properties = feature.properties;
+      if (!properties || properties.legalTruthColor === "UNKNOWN") continue;
+      const expectation = expected[properties.legalTruthColor];
+      expect(properties.legalEvidenceIcon).toBe(expectation.icon);
+      expect(properties.legalEvidenceStatus).toBe(expectation.status);
+      expect(properties.truthMapDisplayColor).toBe(properties.legalTruthColor);
+    }
   });
 });

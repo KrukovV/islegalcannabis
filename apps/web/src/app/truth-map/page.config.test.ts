@@ -41,7 +41,8 @@ describe("truth-map audit route", () => {
     expect(truthMap).toContain("useSocialMapLayer");
     expect(truthMap).toContain("TruthMapSocialPanel");
     expect(truthMap).toContain('data-testid="truth-map-legal-evidence-guide"');
-    expect(truthMap).toContain("not a prohibition finding");
+    expect(truthMap).toContain("✅ GREEN: verified lawful access");
+    expect(truthMap).toContain("UNKNOWN is never presented as a confirmed prohibition");
   });
 
   it("keeps the Social Chat surface on the audit route only", () => {

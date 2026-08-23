@@ -54,6 +54,8 @@ test("truth-map visual audit captures only the isolated audit route when explici
     await expect(popup.getByText("Reconciliation rationale", { exact: true })).toBeVisible();
     if (geo === "AF") {
       await expect(popup.getByTestId("truth-map-research-direction")).toContainText("not a final legal conclusion");
+      await expect(popup.getByTestId("truth-map-legal-evidence")).toContainText("❌");
+      await expect(popup.getByTestId("truth-map-legal-evidence")).toContainText("not a confirmed prohibition finding");
     }
     if (geo === "AQ") {
       await expect(popup.getByTestId("truth-map-research-direction")).toContainText("GRAY — polar scope exception");
@@ -64,9 +66,21 @@ test("truth-map visual audit captures only the isolated audit route when explici
       await expect(popup.getByTestId("truth-map-legal-evidence")).toContainText("✅");
       await expect(popup.getByTestId("truth-map-legal-evidence").locator("a").first()).toHaveAttribute("target", "_blank");
     }
+    if (geo === "AX") {
+      await expect(popup).toContainText("Legal conclusion: YELLOW");
+      await expect(popup).toContainText("Map display: legal verdict YELLOW.");
+      await expect(popup.getByTestId("truth-map-legal-evidence")).toContainText("⚠️");
+      await expect(popup.getByTestId("truth-map-legal-evidence")).toContainText("Limited or qualified legal status");
+    }
+    if (geo === "BY") {
+      await expect(popup).toContainText("Legal conclusion: RED");
+      await expect(popup.getByTestId("truth-map-legal-evidence")).toContainText("❌");
+      await expect(popup.getByTestId("truth-map-legal-evidence")).toContainText("Prohibition evidenced in applicable law");
+      await expect(popup.getByTestId("truth-map-legal-evidence")).not.toContainText("not a confirmed prohibition finding");
+    }
     if (geo === "ST") {
       await expect(popup.getByTestId("truth-map-legal-evidence")).toContainText("❌");
-      await expect(popup.getByTestId("truth-map-legal-evidence")).toContainText("not a prohibition finding");
+      await expect(popup.getByTestId("truth-map-legal-evidence")).toContainText("not a confirmed prohibition finding");
     }
     const popupScreenshot = path.join(popupDir, `${geo}.png`);
     await popup.screenshot({ path: popupScreenshot });

@@ -56,6 +56,26 @@
   background: #f8fafb;
 }
 
+.root :global(.truth-map-legal-evidence[data-legal-evidence-status="VERIFIED_ACCESS"]) {
+  border-color: #b9dcc8;
+  background: #f3fbf5;
+}
+
+.root :global(.truth-map-legal-evidence[data-legal-evidence-status="LIMITED_OR_QUALIFIED"]) {
+  border-color: #ead7a3;
+  background: #fffbed;
+}
+
+.root :global(.truth-map-legal-evidence[data-legal-evidence-status="PROHIBITION_EVIDENCED"]) {
+  border-color: #f1c3c3;
+  background: #fff7f7;
+}
+
+.root :global(.truth-map-legal-evidence[data-legal-evidence-status="UNRESOLVED"]) {
+  border-color: #e6d4ca;
+  background: #fffaf7;
+}
+
 .root :global(.truth-map-legal-evidence-heading) {
   display: flex;
   align-items: flex-start;

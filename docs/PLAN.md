@@ -5,7 +5,7 @@ Statuses: pending | in_progress | done
 ## Truth Map legal-evidence presentation
 
 - [done] Render existing official legal links, annotations and short quotation excerpts only in `/truth-map` popups and route-local explanatory text.
-- [done] Keep the three legal-information indicators separate from Legal Truth and map display colour; an unavailable applicable conclusion is explicitly not presented as a prohibition.
+- [done] Keep each determined legal-information indicator aligned with Legal Truth and map display colour (`GREEN→✅`, `YELLOW→⚠️`, `RED→❌`); an `UNKNOWN` red-direction indicator is explicitly not presented as a confirmed prohibition.
 - [done] Add route-local tests and visual/console acceptance without changing `/`, `/new-map`, country SEO routes, SSOT or sitemap.
 
 ## Full Worktree Preservation Without Deployment
