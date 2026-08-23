@@ -25,6 +25,16 @@ export type TruthMapDisplayColorBasis =
   | "EVIDENCE_DIRECTION_INSUFFICIENT_OFFICIAL_EVIDENCE"
   | "POLAR_UNRESOLVED_SCOPE";
 
+export type TruthMapLegalEvidenceStatus = "CONFIRMED" | "PARTIAL" | "UNAVAILABLE";
+
+export type TruthMapLegalEvidenceCitation = {
+  title: string;
+  url: string;
+  publisher: string;
+  annotation: string;
+  quote: string;
+};
+
 export type TruthMapDisplayPolicy = {
   schemaVersion: 1;
   route: "/truth-map";
@@ -37,6 +47,20 @@ export type TruthMapDisplayPolicy = {
   nonPolarGreyAllowed: false;
 };
 
+type FinalTruthEvidenceSource = {
+  title?: string;
+  url?: string;
+  officialPublisher?: string;
+  primaryOrContext?: string;
+  verification?: string;
+  visualReview?: string;
+  cannabisSpecific?: boolean;
+  directFragmentAvailable?: boolean;
+  fragment?: string;
+  note?: string;
+  sourceAnnotation?: string;
+};
+
 type FinalTruthRow = {
   geo?: string;
   territory?: string;
@@ -47,7 +71,9 @@ type FinalTruthRow = {
   applyState?: string;
   primaryLaw?: {
     primaryLawUrl?: string;
-    officialSources?: Array<{ url?: string }>;
+    sourceCoverage?: string;
+    officialSources?: FinalTruthEvidenceSource[];
+    freshAxisOfficialSources?: FinalTruthEvidenceSource[];
   };
   canonicalTruthResult?: { primary_law?: string[] };
 };
@@ -74,6 +100,12 @@ export type TruthMapFeatureProperties = LegalCountryFeatureProperties & {
   truthConfidence: string;
   applyState: string;
   sourceUrl: string | null;
+  legalEvidenceStatus: TruthMapLegalEvidenceStatus;
+  legalEvidenceIcon: "✅" | "⚠️" | "❌";
+  legalEvidenceLabel: string;
+  legalEvidenceSummary: string;
+  legalEvidenceCitationCount: number;
+  legalEvidenceCitationsJson: string;
   truthDataset: "FINAL_307_RECONCILIATION";
 };
 
@@ -211,6 +243,87 @@ function sourceUrlForRow(row: FinalTruthRow): string | null {
   return row.primaryLaw?.officialSources?.map((source) => String(source.url || "")).find(Boolean) || null;
 }
 
+function cleanEvidenceText(value: unknown, maxLength = 280) {
+  const text = String(value || "").replace(/\s+/g, " ").trim();
+  if (!text) return "";
+  return text.length <= maxLength ? text : `${text.slice(0, maxLength - 1).trimEnd()}…`;
+}
+
+function sourceAnnotation(source: FinalTruthEvidenceSource) {
+  const explicit = cleanEvidenceText(source.sourceAnnotation, 150);
+  if (explicit) return explicit;
+  const role = source.primaryOrContext === "PRIMARY"
+    ? "Primary legal source"
+    : source.primaryOrContext === "OPERATIONAL"
+      ? "Official operational record"
+      : "Official legal record";
+  const review = String(source.verification || source.visualReview || "").toUpperCase().includes("VISUAL")
+    ? "visual review recorded"
+    : source.directFragmentAvailable
+      ? "quoted legal fragment retained"
+      : "scope recorded";
+  return `${role} · ${review}`;
+}
+
+function evidenceSourcesForRow(row: FinalTruthRow) {
+  const sources = [
+    ...(row.primaryLaw?.officialSources || []),
+    ...(row.primaryLaw?.freshAxisOfficialSources || [])
+  ];
+  const seen = new Set<string>();
+  return sources
+    .map((source) => ({ source, url: String(source.url || "").trim() }))
+    .filter(({ url }) => Boolean(url) && !seen.has(url) && Boolean(seen.add(url)))
+    .sort(({ source: left }, { source: right }) => {
+      const score = (candidate: FinalTruthEvidenceSource) =>
+        (candidate.primaryOrContext === "PRIMARY" ? 4 : 0)
+        + (candidate.directFragmentAvailable ? 2 : 0)
+        + (candidate.cannabisSpecific ? 1 : 0);
+      return score(right) - score(left);
+    });
+}
+
+export function resolveTruthMapLegalEvidence(row: FinalTruthRow | undefined, truthColor: TruthColor) {
+  const coverage = String(row?.primaryLaw?.sourceCoverage || "NO_CANDIDATE_PAGE_FOUND").trim().toUpperCase();
+  const citations: TruthMapLegalEvidenceCitation[] = row
+    ? evidenceSourcesForRow(row).slice(0, 2).map(({ source, url }) => ({
+      title: cleanEvidenceText(source.title, 140) || "Official legal source",
+      url,
+      publisher: cleanEvidenceText(source.officialPublisher, 120) || "Official publisher recorded in the audit",
+      annotation: sourceAnnotation(source),
+      quote: cleanEvidenceText(source.fragment || source.note, 280)
+    }))
+    : [];
+
+  if (truthColor !== "UNKNOWN" && coverage === "VISUALLY_VERIFIED_OFFICIAL_CANNABIS_LAW" && citations.some((citation) => citation.quote)) {
+    return {
+      status: "CONFIRMED" as const,
+      icon: "✅" as const,
+      label: "Verified legal evidence",
+      summary: "Applicable official legal evidence has been reviewed and supports this reconciled conclusion.",
+      citations
+    };
+  }
+
+  if (truthColor === "UNKNOWN" && (coverage === "NO_CANDIDATE_PAGE_FOUND" || coverage === "OFFICIAL_SOURCE_ACCESS_BLOCKED")) {
+    return {
+      status: "UNAVAILABLE" as const,
+      icon: "❌" as const,
+      label: "No confirmed applicable conclusion",
+      summary: "The retained record does not confirm an applicable legal conclusion. This is not a prohibition finding.",
+      citations
+    };
+  }
+
+  return {
+    status: "PARTIAL" as const,
+    icon: "⚠️" as const,
+    label: "Legal evidence needs qualification",
+    summary: "Official material is retained, but scope, currentness, or a required legal axis remains unresolved.",
+    citations
+  };
+}
+
 function truthProperties(
   row: FinalTruthRow | undefined,
   geometryProperties: Record<string, unknown>,
@@ -222,6 +335,7 @@ function truthProperties(
   const truthRuleId = String(row?.truthRuleId || "LEGAL_APPLICABILITY_UNRESOLVED");
   const truthReason = String(row?.truthReason || "No canonical final-reconciliation row is available for this geometry.");
   const display = resolveTruthMapDisplayColor(geo, truthColor, truthRuleId, truthReason, policy);
+  const legalEvidence = resolveTruthMapLegalEvidence(row, truthColor);
   const legalMapCategory = toMapCategory(truthColor);
   const displayMapCategory = display.color === "GRAY" ? "UNKNOWN" : toMapCategory(display.color);
   const displayBaseColor = display.color === "GRAY" ? "#9aa0a6" : resolveLegalFillColor(displayMapCategory);
@@ -252,6 +366,12 @@ function truthProperties(
     truthConfidence: String(row?.truthConfidence || "UNCONFIRMED"),
     applyState: String(row?.applyState || "BLOCKED"),
     sourceUrl: row ? sourceUrlForRow(row) : null,
+    legalEvidenceStatus: legalEvidence.status,
+    legalEvidenceIcon: legalEvidence.icon,
+    legalEvidenceLabel: legalEvidence.label,
+    legalEvidenceSummary: legalEvidence.summary,
+    legalEvidenceCitationCount: legalEvidence.citations.length,
+    legalEvidenceCitationsJson: JSON.stringify(legalEvidence.citations),
     truthDataset: "FINAL_307_RECONCILIATION"
   };
 }

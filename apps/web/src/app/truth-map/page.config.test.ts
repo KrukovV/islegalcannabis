@@ -40,6 +40,8 @@ describe("truth-map audit route", () => {
     expect(truthMap).toContain('data-store-layer-enabled={String(storesEnabled)}');
     expect(truthMap).toContain("useSocialMapLayer");
     expect(truthMap).toContain("TruthMapSocialPanel");
+    expect(truthMap).toContain('data-testid="truth-map-legal-evidence-guide"');
+    expect(truthMap).toContain("not a prohibition finding");
   });
 
   it("keeps the Social Chat surface on the audit route only", () => {

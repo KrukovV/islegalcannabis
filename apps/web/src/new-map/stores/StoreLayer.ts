@@ -35,11 +35,19 @@ function operationalStatusLabel(status: unknown) {
 }
 
 function removeLayerIfPresent(map: maplibregl.Map, id: string) {
-  if (map.getLayer(id)) map.removeLayer(id);
+  try {
+    if (map.getLayer(id)) map.removeLayer(id);
+  } catch {
+    // Route teardown can run after MapLibre has already discarded its style.
+  }
 }
 
 function removeSourceIfPresent(map: maplibregl.Map, id: string) {
-  if (map.getSource(id)) map.removeSource(id);
+  try {
+    if (map.getSource(id)) map.removeSource(id);
+  } catch {
+    // Route teardown can run after MapLibre has already discarded its style.
+  }
 }
 
 function loadStoreMarkerImageData(): Promise<ImageData> {

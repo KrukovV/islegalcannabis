@@ -47,6 +47,15 @@ describe("truth-map final reconciliation projection", () => {
     expect(california?.properties?.truthMapDisplayColor).toBe("GREEN");
     expect(california?.properties?.displayColorBasis).toBe("LEGAL_VERDICT");
     expect(california?.properties?.truthRuleId).toContain("OPERATIONAL_ADULT_USE");
+    expect(california?.properties?.legalEvidenceStatus).toBe("CONFIRMED");
+    expect(california?.properties?.legalEvidenceIcon).toBe("✅");
+    expect(california?.properties?.legalEvidenceCitationCount).toBeGreaterThan(0);
+    expect(JSON.parse(california?.properties?.legalEvidenceCitationsJson || "[]")[0]).toMatchObject({
+      title: expect.any(String),
+      url: expect.stringContaining("http"),
+      annotation: expect.any(String),
+      quote: expect.any(String),
+    });
     expect(resolveTruthMapDisplayColor("US-CA", "GREEN", "", "", polarPolicy).color).toBe("GREEN");
     expect(resolveTruthMapDisplayColor("XX", "YELLOW", "", "", polarPolicy).color).toBe("YELLOW");
     expect(resolveTruthMapDisplayColor("XX", "RED", "", "", polarPolicy).color).toBe("RED");
@@ -78,5 +87,23 @@ describe("truth-map final reconciliation projection", () => {
         expect(feature.properties.baseColor).not.toBe("transparent");
       }
     }
+  });
+
+  it("keeps evidence indicators independent from legal and display colours", () => {
+    const dataset = buildTruthMapDataset();
+    const afghanistan = dataset.countries.features.find((feature) => feature.properties?.geo === "AF");
+    const saoTome = dataset.countries.features.find((feature) => feature.properties?.geo === "ST");
+    expect(afghanistan?.properties).toMatchObject({
+      legalTruthColor: "UNKNOWN",
+      truthMapDisplayColor: "RED",
+      legalEvidenceStatus: "PARTIAL",
+      legalEvidenceIcon: "⚠️",
+    });
+    expect(saoTome?.properties).toMatchObject({
+      legalTruthColor: "UNKNOWN",
+      legalEvidenceStatus: "UNAVAILABLE",
+      legalEvidenceIcon: "❌",
+    });
+    expect(saoTome?.properties?.legalEvidenceSummary).toContain("not a prohibition finding");
   });
 });

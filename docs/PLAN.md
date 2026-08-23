@@ -2,6 +2,12 @@
 
 Statuses: pending | in_progress | done
 
+## Truth Map legal-evidence presentation
+
+- [done] Render existing official legal links, annotations and short quotation excerpts only in `/truth-map` popups and route-local explanatory text.
+- [done] Keep the three legal-information indicators separate from Legal Truth and map display colour; an unavailable applicable conclusion is explicitly not presented as a prohibition.
+- [done] Add route-local tests and visual/console acceptance without changing `/`, `/new-map`, country SEO routes, SSOT or sitemap.
+
 ## Full Worktree Preservation Without Deployment
 
 - [done] Inventory and review all current Git-visible work, including tracked/generated 307-GEO data, Store Truth, `/truth-map`, Social/DM, `/wiki-truth`, CI/build tooling, documentation and dependency locks. Preserve every meaningful project file, identify derived versus source ownership, reject credentials/caches, and reconcile the local base with current `origin/main` without resetting or overwriting the worktree.

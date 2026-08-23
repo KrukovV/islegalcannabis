@@ -8,6 +8,7 @@ import MapGeoDock from "@/new-map/MapGeoDock";
 import type { CountryCardEntry, LegalCountryCollection, NewMapBootResult } from "@/new-map/map.types";
 import { NEW_MAP_BASEMAP_STYLE_URL } from "@/new-map/runtimeUrls";
 import styles from "@/new-map/MapRoot.module.css";
+import truthStyles from "./TruthMapRoot.module.css";
 import {
   STORE_CLUSTER_COUNT_LAYER_ID,
   STORE_CLUSTER_LAYER_ID,
@@ -64,16 +65,34 @@ function escapeHtml(value: unknown) {
     .replace(/'/g, "&#39;");
 }
 
+function parseLegalEvidenceCitations(value: unknown) {
+  try {
+    const parsed = JSON.parse(String(value || "[]")) as Array<Record<string, unknown>>;
+    return Array.isArray(parsed)
+      ? parsed
+        .map((citation) => ({
+          title: String(citation.title || "Official legal source"),
+          url: String(citation.url || ""),
+          publisher: String(citation.publisher || ""),
+          annotation: String(citation.annotation || ""),
+          quote: String(citation.quote || "")
+        }))
+        .filter((citation) => Boolean(citation.url))
+      : [];
+  } catch {
+    return [];
+  }
+}
+
 function renderTruthPopup(properties: TruthMapFeatureProperties) {
-  const officialLink = properties.sourceUrl
-    ? `<div><a href="${escapeHtml(properties.sourceUrl)}" target="_blank" rel="noreferrer noopener">Official evidence</a></div>`
-    : "";
+  const citations = parseLegalEvidenceCitations(properties.legalEvidenceCitationsJson);
+  const legalEvidence = `<section class="truth-map-legal-evidence" data-testid="truth-map-legal-evidence"><div class="truth-map-legal-evidence-heading"><span class="truth-map-legal-evidence-icon" aria-hidden="true">${escapeHtml(properties.legalEvidenceIcon)}</span><div><strong>${escapeHtml(properties.legalEvidenceLabel)}</strong><div class="truth-map-legal-evidence-summary">${escapeHtml(properties.legalEvidenceSummary)}</div></div></div>${citations.length ? `<ol class="truth-map-legal-citations">${citations.map((citation) => `<li><a href="${escapeHtml(citation.url)}" target="_blank" rel="noreferrer noopener">${escapeHtml(citation.title)}</a><div class="truth-map-legal-annotation">${escapeHtml(citation.publisher)} · ${escapeHtml(citation.annotation)}</div>${citation.quote ? `<blockquote>${escapeHtml(citation.quote)}</blockquote>` : ""}</li>`).join("")}</ol>` : `<p class="truth-map-legal-annotation">No link is retained for this record.</p>`}</section>`;
   const displayDirection = properties.displayIsResearchDirection
     ? properties.truthMapDisplayColor === "GRAY"
       ? `<div data-testid="truth-map-research-direction">Map display: GRAY — polar scope exception.</div><div>Display basis: ${escapeHtml(properties.displayColorBasis)}</div><div>This map display is not a final legal conclusion.</div>`
       : `<div data-testid="truth-map-research-direction">Map display: research direction ${escapeHtml(properties.truthMapDisplayColor)} — not a final legal conclusion.</div><div>Display basis: ${escapeHtml(properties.displayColorBasis)}</div>`
     : `<div>Map display: legal verdict ${escapeHtml(properties.truthMapDisplayColor)}.</div>`;
-  return `<section data-testid="truth-map-country-popup"><strong>${escapeHtml(properties.displayName)}</strong><div>Legal conclusion: ${escapeHtml(properties.legalTruthColor)} · ${escapeHtml(properties.truthConfidence)}</div>${displayDirection}<div>Rule: ${escapeHtml(properties.truthRuleId)}</div><div>${escapeHtml(properties.truthReason)}</div><div>Apply state: ${escapeHtml(properties.applyState)}</div>${officialLink}<small>Audit preview only — not applied to SSOT, production map, SEO, or deployment.</small></section>`;
+  return `<section class="truth-map-country-popup" data-testid="truth-map-country-popup"><div class="truth-map-popup-title"><strong>${escapeHtml(properties.displayName)}</strong><span>${escapeHtml(properties.geo)}</span></div><div>Legal conclusion: ${escapeHtml(properties.legalTruthColor)} · ${escapeHtml(properties.truthConfidence)}</div>${displayDirection}${legalEvidence}<details class="truth-map-popup-details"><summary>Reconciliation rationale</summary><div>Rule: ${escapeHtml(properties.truthRuleId)}</div><div>${escapeHtml(properties.truthReason)}</div><div>Apply state: ${escapeHtml(properties.applyState)}</div></details><small>Audit preview only — not applied to SSOT, production map, SEO, or deployment.</small></section>`;
 }
 
 function metaSummary(meta: TruthMapDatasetMeta | null) {
@@ -109,6 +128,8 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
   const openTruthPopup = useCallback((properties: TruthMapFeatureProperties, lngLat: { lng: number; lat: number }) => {
     const map = mapRef.current;
     if (!map) return;
+    const mapPoint = map.project([lngLat.lng, lngLat.lat]);
+    const popupAnchor: "top" | "bottom" = mapPoint.y > map.getContainer().clientHeight / 2 ? "bottom" : "top";
     setSelectedGeo({
       country: properties.displayName || properties.geo,
       iso2: properties.geo,
@@ -116,7 +137,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
       lng: lngLat.lng,
     });
     popupRef.current?.remove();
-    popupRef.current = new maplibregl.Popup({ closeButton: true, closeOnClick: true, className: "truth-map-popup-shell" })
+    popupRef.current = new maplibregl.Popup({ closeButton: true, closeOnClick: true, className: "truth-map-popup-shell", anchor: popupAnchor, offset: 12 })
       .setLngLat(lngLat)
       .setHTML(renderTruthPopup(properties))
       .addTo(map);
@@ -293,7 +314,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
   }, [countriesUrl, usStatesUrl, openTruthPopup]);
 
   return (
-    <main className={styles.root} data-testid="truth-map-root" data-truth-map-source="FINAL_307_RECONCILIATION" data-store-layer-enabled={String(storesEnabled)}>
+    <main className={`${styles.root} ${truthStyles.root}`} data-testid="truth-map-root" data-truth-map-source="FINAL_307_RECONCILIATION" data-store-layer-enabled={String(storesEnabled)}>
       <div ref={containerRef} className={styles.mapSurface} data-testid="truth-map-canvas" />
       <section className={styles.overlay} aria-live="polite">
         <div className={styles.card} data-testid="truth-map-audit-notice">
@@ -301,6 +322,10 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
           <h2>Current independently reconciled colours</h2>
           <p>Proposal-only layer from the final 307-GEO reconciliation. It does not replace the existing map or apply any SSOT, SEO, production, or deployment mutation.</p>
           <p className={styles.meta}>{metaSummary(meta)}</p>
+          <div className={truthStyles.evidenceGuide} data-testid="truth-map-legal-evidence-guide">
+            <strong>Legal information in every popup</strong>
+            <span>✅ verified applicable evidence · ⚠️ evidence needs qualification · ❌ no confirmed applicable conclusion — not a prohibition finding.</span>
+          </div>
           <p className={styles.meta}>Verified regulated stores load only in a suitable viewport and zoom. World view intentionally shows no individual markers.</p>
           <div className={styles.truthMapStoreControl} data-testid="truth-map-store-control">
             <span><strong>Verified stores</strong> · cannabis leaves</span>

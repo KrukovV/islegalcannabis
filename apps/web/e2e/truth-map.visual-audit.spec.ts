@@ -49,6 +49,9 @@ test("truth-map visual audit captures only the isolated audit route when explici
     const popup = page.getByTestId("truth-map-country-popup");
     await expect(popup).toBeVisible({ timeout: 10_000 });
     await expect(popup).toContainText("Legal conclusion:");
+    await expect(popup.getByTestId("truth-map-legal-evidence")).toBeVisible();
+    await expect(popup.getByTestId("truth-map-legal-evidence")).toContainText(/✅|⚠️|❌/);
+    await expect(popup.getByText("Reconciliation rationale", { exact: true })).toBeVisible();
     if (geo === "AF") {
       await expect(popup.getByTestId("truth-map-research-direction")).toContainText("not a final legal conclusion");
     }
@@ -58,6 +61,12 @@ test("truth-map visual audit captures only the isolated audit route when explici
     }
     if (geo === "US-CA") {
       await expect(popup).toContainText("Map display: legal verdict GREEN.");
+      await expect(popup.getByTestId("truth-map-legal-evidence")).toContainText("✅");
+      await expect(popup.getByTestId("truth-map-legal-evidence").locator("a").first()).toHaveAttribute("target", "_blank");
+    }
+    if (geo === "ST") {
+      await expect(popup.getByTestId("truth-map-legal-evidence")).toContainText("❌");
+      await expect(popup.getByTestId("truth-map-legal-evidence")).toContainText("not a prohibition finding");
     }
     const popupScreenshot = path.join(popupDir, `${geo}.png`);
     await popup.screenshot({ path: popupScreenshot });
