@@ -5,7 +5,8 @@ Statuses: pending | in_progress | done
 ## SEO Documentation, Rules and Canonical Specification
 
 - [done] Publish one non-conflicting SEO/indexability authority chain across `docs/SEO_INDEXABILITY_SPEC.md`, `AGENTS.md`, `docs/CONTRACT.md`, `docs/ARCHITECTURE_MIN.md`, `docs/OPS.md`, this plan and `CONTINUITY.md`. Preserve all existing Social, DM, Truth-First and UNKNOWN-closure documentation; commit no runtime or data files. Root `README.md` is deliberately unchanged because the canonical documentation scope guard excludes it.
-- [in_progress] The mandatory canonical-root `bash tools/pass_cycle.sh` is green. Verify the exact documentation-only diff in an isolated clean release clone and commit/push it only through `Tools/commit_if_green.sh`.
+- [done] The mandatory canonical-root `bash tools/pass_cycle.sh` is green. Exact-set/hash verification in an isolated clean clone reported 14 expected documentation paths, zero unexpected/mismatched/runtime paths, and `Tools/commit_if_green.sh` published commit `fc55068` plus tag `good/docs-seo-indexability-20260823`.
+- [done] The mandatory post-push root cycle is green with receipt SHA-256 `65ff789f8add5fb0c92f600339dc6ab2312a1df06d9bea52f02a2e3283977fe3`. Publish only this final `CONTINUITY.md`/`docs/PLAN.md` closure receipt without including runtime/data work.
 
 ## SEO Structure Repair + Derived Matrix Synchronization
 
