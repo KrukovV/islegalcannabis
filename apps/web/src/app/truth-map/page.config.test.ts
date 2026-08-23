@@ -32,6 +32,7 @@ describe("truth-map audit route", () => {
     expect(mainMap).not.toContain("useSocialMapLayer");
     expect(storeLayer).toContain('"/api/truth-map/stores"');
     expect(storeLayer).toContain('"icon-image": STORE_MARKER_ICON_ID');
+    expect(storeLayer).toContain('"icon-size": ["interpolate", ["linear"], ["zoom"], 9, 1.02, 12, 1.17, 15, 1.35]');
     expect(storeLayer).toContain('type: "symbol"');
     expect(fs.readFileSync(path.join(process.cwd(), "public", "cannabis-store-leaf.svg"), "utf8")).toContain("<svg");
     expect(truthMap).toContain("useStoreMapLayer");
@@ -62,6 +63,8 @@ describe("truth-map audit route", () => {
     expect(socialLayer).toContain("SOCIAL_MAP_ACTIVITY_INVALIDATED_EVENT");
     expect(socialLayer).toContain("geoCell: item.geoCell");
     expect(socialLayer).toContain('"/social-discussion-chat.svg"');
+    expect(socialLayer).toContain('15, ["interpolate", ["linear"], ["get", "activeDiscussionCount"], 1, 1.45, 10, 1.55, 100, 1.65]');
+    expect(socialLayer).toContain('"text-size": ["interpolate", ["linear"], ["zoom"], 9, 12, 12, 13, 15, 14]');
     expect(socialLayer).not.toContain('"/cannabis-store-leaf.svg"');
     const socialIcon = fs.readFileSync(path.join(process.cwd(), "public", "social-discussion-chat.svg"), "utf8");
     const storeIcon = fs.readFileSync(path.join(process.cwd(), "public", "cannabis-store-leaf.svg"), "utf8");

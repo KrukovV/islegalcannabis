@@ -48,6 +48,26 @@ Hard requirements:
 - The safe-area focus clears when the current viewport no longer contains that area.
 - Realtime invalidation refreshes Social activity without requiring a manual pan or reload.
 
+### Full-zoom presentation contract
+
+This is a route-local `/truth-map` presentation rule, not a change to a
+store record, a Social discussion, Legal Truth or the public `/new-map`.
+
+- At local map zoom `15`, the validated-store leaf has MapLibre
+  `icon-size=1.35` (the approved `1.5×` increase from `0.90`).
+- At the same zoom, a Social chat bubble is never smaller than a leaf: its
+  `icon-size` is `1.45` for one active discussion and may grow only with the
+  aggregate active-discussion count, up to `1.65`.
+- The discussion count remains legible at local zoom `15` with a `14px` text
+  presentation. Size communicates neither legal status nor store validation.
+- The Social API accepts viewport zoom through `14`. When the visual map is at
+  zoom `15`, the client requests `min(mapZoom, 14)` while retaining the local
+  z15 rendering. The query remains bounded to the existing privacy-safe H3
+  viewport contract and must not add raw location fields, persistence or a new
+  discussion.
+- The cannabis leaf and the chat bubble remain different image IDs, assets,
+  layers and click outcomes regardless of their relative sizes.
+
 ## 4. Public message visibility
 
 MAP publication flow:

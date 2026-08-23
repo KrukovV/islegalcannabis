@@ -99,6 +99,13 @@ Google indexing terminology.
 - A `❌` on audit legal `UNKNOWN` may communicate an unresolved prohibition direction or absent applicable conclusion only when the popup visibly preserves `UNKNOWN`, `not a final legal conclusion`, and `not a confirmed prohibition finding`.
 - `/truth-map` remains noindex/production-404 and outside public SEO. Its route-local indicator must not be re-used by `/`, `/new-map`, legal APIs, Store Truth, Social, or public country SEO.
 
+## Truth Map full-zoom marker-scale contract
+- The `/truth-map` local z15 presentation uses `icon-size=1.35` for the validated-store leaf. This is a rendering-only `1.5×` increase from the former `0.90`; it must not change Store eligibility, markers' source data, or the public map.
+- The distinct Social chat-bubble marker is `1.45` for a one-discussion aggregate at z15 and may increase with the aggregate active-discussion count up to `1.65`. It must never be smaller than the leaf; its count text is `14px` at z15.
+- The Social map API supports a maximum query zoom of `14`. A visual z15 map therefore queries `min(mapZoom, 14)` and preserves z15 symbol rendering. The clamp is transport compatibility only: it cannot alter the H3 privacy boundary, create/persist discussion data, or infer a user location.
+- Leaf and bubble remain separate image IDs, assets, source layers, click semantics and colours. Relative size neither changes their meaning nor supplies legal, Store or Social Truth.
+- This contract is route-local to `/truth-map`; despite shared implementation modules, it may not alter `/`, `/new-map`, legal colours, legal APIs, SSOT, country SEO, production or deployment.
+
 ## Unified geo-sync contract
 - Popup/wiki screenshot parity is not enough when canonical resolver, normalized legal model, map color, or SEO rendering changes.
 - The active release gate for those changes is the full `307` GEO unified geo-sync audit documented in `docs/GEO_SYNC_AUDIT.md`.

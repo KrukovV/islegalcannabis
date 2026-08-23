@@ -1,7 +1,7 @@
 import { latLngToCell } from "h3-js";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { GET } from "./route";
-import { parseSocialMapQuery } from "@/social/mapRequest";
+import { parseSocialMapQuery, SOCIAL_MAP_QUERY_MAX_ZOOM } from "@/social/mapRequest";
 
 describe("/api/social/map", () => {
   const safeCell = latLngToCell(40.7128, -74.006, 4);
@@ -16,6 +16,8 @@ describe("/api/social/map", () => {
 
   it("accepts only bounded H3 cells and never viewport coordinates", () => {
     expect(parseSocialMapQuery(new URL(`http://localhost/api/social/map?cells=${safeCell}&zoom=10`))).toEqual({ cells: [safeCell], zoom: 10 });
+    expect(parseSocialMapQuery(new URL(`http://localhost/api/social/map?cells=${safeCell}&zoom=${SOCIAL_MAP_QUERY_MAX_ZOOM}`)))
+      .toEqual({ cells: [safeCell], zoom: SOCIAL_MAP_QUERY_MAX_ZOOM });
     expect(() => parseSocialMapQuery(new URL(`http://localhost/api/social/map?cells=${safeCell}&zoom=10&lat=40.7`)))
       .toThrow("SOCIAL_RAW_LOCATION_QUERY_FORBIDDEN");
     expect(() => parseSocialMapQuery(new URL(`http://localhost/api/social/map?cells=${safeCell}&zoom=10&west=-74.1&east=-73.9`)))

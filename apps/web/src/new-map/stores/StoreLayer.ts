@@ -106,7 +106,7 @@ async function ensureStoreLayers(map: maplibregl.Map, isDisposed: () => boolean)
       filter: ["==", ["get", "kind"], "store"],
       layout: {
         "icon-image": STORE_MARKER_ICON_ID,
-        "icon-size": ["interpolate", ["linear"], ["zoom"], 9, 0.68, 12, 0.78, 15, 0.9],
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 9, 1.02, 12, 1.17, 15, 1.35],
         "icon-allow-overlap": true,
         "icon-ignore-placement": true,
         "icon-rotation-alignment": "map",

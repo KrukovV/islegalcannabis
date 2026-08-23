@@ -10,6 +10,7 @@ const FORBIDDEN_QUERY_KEYS = new Set([
 ]);
 
 export type SocialMapQuery = { cells: string[]; zoom: number };
+export const SOCIAL_MAP_QUERY_MAX_ZOOM = 14;
 
 export function parseSocialMapQuery(url: URL): SocialMapQuery {
   for (const key of url.searchParams.keys()) {
@@ -18,7 +19,7 @@ export function parseSocialMapQuery(url: URL): SocialMapQuery {
     }
   }
   const zoom = Number(url.searchParams.get("zoom"));
-  if (!Number.isFinite(zoom) || zoom < 0 || zoom > 14) throw new Error("SOCIAL_VIEWPORT_ZOOM_INVALID");
+  if (!Number.isFinite(zoom) || zoom < 0 || zoom > SOCIAL_MAP_QUERY_MAX_ZOOM) throw new Error("SOCIAL_VIEWPORT_ZOOM_INVALID");
   const cells = [...new Set(
     String(url.searchParams.get("cells") || "")
       .split(",")

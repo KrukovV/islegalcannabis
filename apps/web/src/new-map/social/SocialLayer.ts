@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { cellToLatLng } from "h3-js";
 import maplibregl from "maplibre-gl";
 import type { MapDiscussionActivity } from "@/social/domain";
+import { SOCIAL_MAP_QUERY_MAX_ZOOM } from "@/social/mapRequest";
 import {
   getSocialMapVisibilityLevel,
   isSocialQueryCell,
@@ -76,7 +77,12 @@ async function ensureLayers(map: maplibregl.Map, isDisposed: () => boolean) {
       source: SOURCE_ID,
       layout: {
         "icon-image": SOCIAL_MAP_ACTIVITY_ICON_ID,
-        "icon-size": ["interpolate", ["linear"], ["get", "activeDiscussionCount"], 1, 0.58, 10, 0.7, 100, 0.9],
+        "icon-size": [
+          "interpolate", ["linear"], ["zoom"],
+          9, ["interpolate", ["linear"], ["get", "activeDiscussionCount"], 1, 1.08, 10, 1.18, 100, 1.28],
+          12, ["interpolate", ["linear"], ["get", "activeDiscussionCount"], 1, 1.22, 10, 1.32, 100, 1.42],
+          15, ["interpolate", ["linear"], ["get", "activeDiscussionCount"], 1, 1.45, 10, 1.55, 100, 1.65],
+        ],
         "icon-allow-overlap": true,
         "icon-ignore-placement": true,
         "icon-rotation-alignment": "map",
@@ -98,7 +104,7 @@ async function ensureLayers(map: maplibregl.Map, isDisposed: () => boolean) {
       source: SOURCE_ID,
       layout: {
         "text-field": ["to-string", ["get", "activeDiscussionCount"]],
-        "text-size": 11,
+        "text-size": ["interpolate", ["linear"], ["zoom"], 9, 12, 12, 13, 15, 14],
         "text-font": ["Open Sans Bold", "Noto Sans Regular"],
         "text-allow-overlap": true,
         "text-ignore-placement": true,
@@ -217,7 +223,7 @@ export function useSocialMapLayer(map: maplibregl.Map | null, ready: boolean, co
       abortRef.current = controller;
       const url = new URL("/api/social/map", window.location.origin);
       url.searchParams.set("cells", cells.join(","));
-      url.searchParams.set("zoom", String(map.getZoom()));
+      url.searchParams.set("zoom", String(Math.min(map.getZoom(), SOCIAL_MAP_QUERY_MAX_ZOOM)));
       try {
         const response = await fetch(url, { cache: "no-store", credentials: "same-origin", signal: controller.signal });
         if (!response.ok) throw new Error(`social_map_fetch:${response.status}`);

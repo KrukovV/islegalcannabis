@@ -48,6 +48,7 @@ Hard Rule:
 - Marker semantics are exclusive and must never be reused across domains:
   - validated cannabis stores use only the cannabis-leaf marker (`validated-cannabis-store-leaf`, `/cannabis-store-leaf.svg`);
   - Social MAP activity uses only the chat-bubble marker (`social-map-activity-chat-bubble`, `/social-discussion-chat.svg`) with the active-discussion count.
+- At `/truth-map` local zoom `15`, the store leaf is `icon-size=1.35` and the Social chat bubble is at least `1.45` (`1.65` only for denser aggregate activity), so the bubble is never smaller. Visual z15 Social requests use the API-safe `min(mapZoom, 14)` without changing H3 privacy scope, Store data, Social truth or `/new-map`.
 - A Social marker selects an already-public privacy-safe H3 discussion area; it is not a store, user pin, exact location, distance indicator, or legal-truth signal.
 - Public Social and its map layer remain `/truth-map`-only. `/` and `/new-map` must remain free of Social UI/layers unless the user explicitly changes the route contract.
 - Social UI must not change Legal Truth, GEO colours, stores, SSOT, SEO, production, or deployment state.

@@ -4,6 +4,7 @@ Statuses: pending | in_progress | done
 
 ## Truth Map legal-evidence presentation
 
+- [done] Increase `/truth-map` local full-zoom store leaves from `0.90` to `1.35` (1.5×) and set the distinct Social discussion bubble to at least `1.45` at z15, with larger counts growing to `1.65`. A non-persistent canvas fixture screenshot proves the visual relationship; the client clamps a z15 Social request to the API-safe `zoom=14`, preserving real activity markers without route/data/semantic change.
 - [done] Render existing official legal links, annotations and short quotation excerpts only in `/truth-map` popups and route-local explanatory text.
 - [done] Keep each determined legal-information indicator aligned with Legal Truth and map display colour (`GREEN→✅`, `YELLOW→⚠️`, `RED→❌`); an `UNKNOWN` red-direction indicator is explicitly not presented as a confirmed prohibition.
 - [done] Add route-local tests and visual/console acceptance without changing `/`, `/new-map`, country SEO routes, SSOT or sitemap.
