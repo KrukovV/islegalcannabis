@@ -244,17 +244,23 @@ test("matrix-builder published-link reporting includes supplemental official lin
   );
 });
 
-test("pass_cycle refreshes the canonical matrix once before projection tests", () => {
+test("pass_cycle refreshes the canonical matrix once before every projection-test path", () => {
   const passCycle = fs.readFileSync(path.join(ROOT, "tools", "pass_cycle.sh"), "utf8");
+  const netHealth = fs.readFileSync(path.join(ROOT, "tools", "pass_cycle.net_health.sh"), "utf8");
   const refreshCommand = 'run_step "wiki_truth_307_build_wiki_truth_cannabis_law_matrix"';
+  const netHealthSource = 'source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/pass_cycle.net_health.sh"';
   const projectionTests = 'echo "RUN_OFFICIAL_EVIDENCE_REVALIDATION_TESTS=1"';
   const refreshIndex = passCycle.indexOf(refreshCommand);
+  const netHealthSourceIndex = passCycle.indexOf(netHealthSource);
   const projectionTestsIndex = passCycle.indexOf(projectionTests);
   const derivedBuildersStart = passCycle.indexOf("TRUTH_FIRST_DERIVED_BUILDERS=(");
   const derivedBuildersEnd = passCycle.indexOf("\n)", derivedBuildersStart);
 
   assert(refreshIndex >= 0, "canonical matrix refresh command must exist");
+  assert(netHealthSourceIndex >= 0, "network-health stage must be sourced");
   assert(projectionTestsIndex >= 0, "projection-test stage must exist");
+  assert.match(netHealth, /run_ci_local_step/, "network-health stage must invoke ci-local");
+  assert(refreshIndex < netHealthSourceIndex, "canonical matrix must be fresh before sourced ci-local projection tests");
   assert(refreshIndex < projectionTestsIndex, "canonical matrix must be fresh before projection tests");
   assert.equal(passCycle.split(refreshCommand).length - 1, 1, "canonical matrix refresh must run exactly once");
   assert(derivedBuildersStart >= 0 && derivedBuildersEnd > derivedBuildersStart, "derived-builder stage must exist");

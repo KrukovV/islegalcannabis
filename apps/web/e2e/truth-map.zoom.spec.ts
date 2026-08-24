@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 
 const TRUTH_MAP_QA_ROUTE = "/truth-map?qa=1&lat=40.7033862&lng=-73.9893613&zoom=15";
 
-test("truth-map reaches full local zoom without changing the existing map route", async ({ page }) => {
+test("truth-map declutters global store counts and reaches full local zoom without changing the existing map route", async ({ page }) => {
   // This is one serial visual route contract spanning the audited local
   // jurisdictions. MapLibre readiness plus viewport reconciliation is
   // intentionally awaited at each stop, so the suite-level bound must exceed
@@ -19,11 +19,13 @@ test("truth-map reaches full local zoom without changing the existing map route"
     return {
       camera,
       maxZoom: map?.getMaxZoom?.(),
+      renderWorldCopies: map?.getRenderWorldCopies?.(),
       storeLevel: window.__TRUTH_MAP_QA__?.getStoreVisibilityLevel(),
     };
   });
 
   expect(truthMap.maxZoom).toBe(15);
+  expect(truthMap.renderWorldCopies).toBe(false);
   expect(truthMap.camera?.zoom).toBeCloseTo(15, 5);
   expect(truthMap.camera?.lng).toBeCloseTo(-73.9893613, 5);
   expect(truthMap.camera?.lat).toBeCloseTo(40.7033862, 5);
@@ -39,17 +41,102 @@ test("truth-map reaches full local zoom without changing the existing map route"
   await expect(storeToggle).toHaveAttribute("aria-pressed", "true");
   await page.waitForFunction(() => window.__TRUTH_MAP_DEBUG__?.map?.getLayer("validated-cannabis-store-markers")?.type === "symbol", { timeout: 20_000 });
 
+  await page.goto("/truth-map?qa=1&lat=20&lng=-30&zoom=1.5", { waitUntil: "domcontentloaded" });
+  await page.waitForFunction(() => window.__TRUTH_MAP_QA__?.getStoreVisibilityLevel() === "LOW", { timeout: 20_000 });
+  await page.waitForFunction(() => Number(window.__TRUTH_MAP_QA__?.getStoreCountrySummaryCount() || "0") > 0, { timeout: 20_000 });
+  await page.waitForFunction(() => {
+    const map = window.__TRUTH_MAP_DEBUG__?.map;
+    return (map?.queryRenderedFeatures({ layers: ["validated-cannabis-store-country-summaries"] }).length || 0) > 0;
+  }, { timeout: 20_000 });
+  const globalSummaryResponse = await page.request.get("/api/truth-map/stores/summary");
+  expect(globalSummaryResponse.ok()).toBe(true);
+  const summaryPayload = await globalSummaryResponse.json() as {
+    meta: { geoCount: number; countryCount: number; visibleStores: number };
+    rows: Array<{ geo_id: string; count: number; anchor_lng: number; anchor_lat: number }>;
+    countryRows: Array<{ geo_id: string; count: number; anchor_lng: number; anchor_lat: number }>;
+  };
+  const globalStoreState = await page.evaluate(() => {
+    const map = window.__TRUTH_MAP_DEBUG__?.map;
+    const layers = map?.getStyle().layers || [];
+    const countrySummaryIndex = layers.findIndex((layer) => layer.id === "validated-cannabis-store-country-summaries");
+    const firstNativeLabelIndex = layers.findIndex((layer) => (
+      layer.type === "symbol"
+      && !layer.id.startsWith("validated-cannabis-store-")
+      && layer.id !== "legal-territory-label"
+    ));
+    return {
+      geoSummaryRendered: map?.queryRenderedFeatures({ layers: ["validated-cannabis-store-geo-summaries"] }).length,
+      countrySummaryRendered: map?.queryRenderedFeatures({ layers: ["validated-cannabis-store-country-summaries"] }).length,
+      countrySummaryCount: map?.getCanvas().dataset.storeCountrySummaryCount,
+      countrySummaryMaxZoom: map?.getLayer("validated-cannabis-store-country-summaries")?.maxzoom,
+      geoSummaryMinZoom: map?.getLayer("validated-cannabis-store-geo-summaries")?.minzoom,
+      countrySummaryBeforeNativeLabels: countrySummaryIndex >= 0 && firstNativeLabelIndex > countrySummaryIndex,
+    };
+  });
+  expect(Number(globalStoreState.countrySummaryCount)).toBe(summaryPayload.meta.countryCount);
+  expect(summaryPayload.meta.countryCount).toBeLessThan(summaryPayload.meta.geoCount);
+  expect(globalStoreState.geoSummaryRendered).toBe(0);
+  expect(globalStoreState.countrySummaryRendered).toBe(summaryPayload.meta.countryCount);
+  expect(globalStoreState.countrySummaryMaxZoom).toBe(4.2);
+  expect(globalStoreState.geoSummaryMinZoom).toBe(4.2);
+  expect(globalStoreState.countrySummaryBeforeNativeLabels).toBe(true);
+
+  const greeceCountrySummary = summaryPayload.countryRows.find((row) => row.geo_id === "GR");
+  const unitedStatesCountrySummary = summaryPayload.countryRows.find((row) => row.geo_id === "US");
+  if (!greeceCountrySummary || !unitedStatesCountrySummary) {
+    throw new Error("truth_map_country_summary_fixture_missing");
+  }
+
+  // The exact affected examples remain present after separate camera changes.
+  // Their stable symbol layout must not depend on unrelated country-label
+  // collisions or arriving basemap tiles.
+  await page.goto("/truth-map?qa=1&lat=38.5&lng=23.5&zoom=3.7", { waitUntil: "domcontentloaded" });
+  await page.waitForFunction(({ geo, count }) => {
+    const map = window.__TRUTH_MAP_DEBUG__?.map;
+    return (map?.queryRenderedFeatures({ layers: ["validated-cannabis-store-country-summaries"] }) || [])
+      .some((feature) => feature.properties?.geo_id === geo && Number(feature.properties?.count) === count);
+  }, { geo: greeceCountrySummary.geo_id, count: greeceCountrySummary.count }, { timeout: 20_000 });
+
+  await page.goto("/truth-map?qa=1&lat=40&lng=-108&zoom=3.7", { waitUntil: "domcontentloaded" });
+  await page.waitForFunction(({ geo, count }) => {
+    const map = window.__TRUTH_MAP_DEBUG__?.map;
+    return (map?.queryRenderedFeatures({ layers: ["validated-cannabis-store-country-summaries"] }) || [])
+      .some((feature) => feature.properties?.geo_id === geo && Number(feature.properties?.count) === count);
+  }, { geo: unitedStatesCountrySummary.geo_id, count: unitedStatesCountrySummary.count }, { timeout: 20_000 });
+
   await page.goto("/truth-map?qa=1&lat=40.7033862&lng=-73.9893613&zoom=5", { waitUntil: "domcontentloaded" });
   await page.waitForFunction(() => window.__TRUTH_MAP_QA__?.getStoreVisibilityLevel() === "LOW", { timeout: 20_000 });
+  await page.waitForFunction(() => Number(window.__TRUTH_MAP_QA__?.getStoreGeoSummaryCount() || "0") > 0, { timeout: 20_000 });
   const lowZoomStoreState = await page.evaluate(() => {
     const map = window.__TRUTH_MAP_DEBUG__?.map;
     return {
       markers: map?.queryRenderedFeatures({ layers: ["validated-cannabis-store-markers"] }).length,
       candidates: map?.getCanvas().dataset.storeSpatialCandidates,
+      summaryCount: map?.getCanvas().dataset.storeGeoSummaryCount,
+      summaryIcon: map?.getLayoutProperty("validated-cannabis-store-geo-summaries", "icon-image"),
+      summaryIconAnchor: map?.getLayoutProperty("validated-cannabis-store-geo-summaries", "icon-anchor"),
+      summaryCountAnchor: map?.getLayoutProperty("validated-cannabis-store-geo-summaries", "text-anchor"),
+      summaryCountOffset: map?.getLayoutProperty("validated-cannabis-store-geo-summaries", "text-offset"),
+      summaryCountHalo: map?.getPaintProperty("validated-cannabis-store-geo-summaries", "text-halo-width"),
+      summaryMaxZoom: map?.getLayer("validated-cannabis-store-geo-summaries")?.maxzoom,
     };
   });
   expect(lowZoomStoreState.markers).toBe(0);
   expect(lowZoomStoreState.candidates).toBe("0");
+  expect(Number(lowZoomStoreState.summaryCount)).toBe(summaryPayload.meta.geoCount);
+  expect(summaryPayload.meta.visibleStores).toBeGreaterThan(0);
+  expect(summaryPayload.rows.every((row) => (
+    Number.isInteger(row.count)
+    && row.count > 0
+    && Number.isInteger(row.anchor_lng * 2)
+    && Number.isInteger(row.anchor_lat * 2)
+  ))).toBe(true);
+  expect(lowZoomStoreState.summaryIcon).toBe("validated-cannabis-store-geo-summary-shop");
+  expect(lowZoomStoreState.summaryIconAnchor).toBe("right");
+  expect(lowZoomStoreState.summaryCountAnchor).toBe("left");
+  expect(lowZoomStoreState.summaryCountOffset).toEqual([0.45, 0]);
+  expect(lowZoomStoreState.summaryCountHalo).toBe(2);
+  expect(lowZoomStoreState.summaryMaxZoom).toBe(5.8);
 
   await page.goto("/truth-map?qa=1&lat=40.7033862&lng=-73.9893613&zoom=8", { waitUntil: "domcontentloaded" });
   await page.waitForFunction(() => window.__TRUTH_MAP_QA__?.getStoreVisibilityLevel() === "MEDIUM", { timeout: 20_000 });
@@ -57,6 +144,15 @@ test("truth-map reaches full local zoom without changing the existing map route"
     const map = window.__TRUTH_MAP_DEBUG__?.map;
     return (map?.queryRenderedFeatures({ layers: ["validated-cannabis-store-clusters"] }).length || 0) > 0;
   }, { timeout: 20_000 });
+  const mediumZoomStoreState = await page.evaluate(() => {
+    const map = window.__TRUTH_MAP_DEBUG__?.map;
+    return {
+      geo: map?.queryRenderedFeatures({ layers: ["validated-cannabis-store-geo-summaries"] }).length || 0,
+      country: map?.queryRenderedFeatures({ layers: ["validated-cannabis-store-country-summaries"] }).length || 0,
+    };
+  });
+  expect(mediumZoomStoreState.geo).toBe(0);
+  expect(mediumZoomStoreState.country).toBe(0);
 
   await page.goto("/truth-map?qa=1&lat=34.0522&lng=-118.2437&zoom=12", { waitUntil: "domcontentloaded" });
   await page.waitForFunction(() => window.__TRUTH_MAP_QA__?.getStoreVisibilityLevel() === "LOCAL", { timeout: 20_000 });

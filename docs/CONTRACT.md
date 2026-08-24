@@ -101,11 +101,14 @@ Google indexing terminology.
 - A current lawful patient route and a supplementary penalty for unauthorised conduct are not contradictory. The popup must name the conduct and say that the supplementary restriction does not apply to the verified lawful route where that is the modelled scope boundary. Legacy "why this colour" material must not duplicate or compete with the authoritative current reconciliation rationale.
 - `/truth-map` remains noindex/production-404 and outside public SEO. Its route-local indicator must not be re-used by `/`, `/new-map`, legal APIs, Store Truth, Social, or public country SEO.
 
-## Truth Map full-zoom marker-scale contract
+## Truth Map Store and Social marker-scale contract
+- The `/truth-map` low-zoom Store presentation is one neutral storefront icon plus a separately legible integer count. It is produced only from records that already pass the exact Store Truth visibility gate used for individual leaves, and uses a single low-precision, half-degree-rounded aggregate anchor computed from all such records in its displayed group. It is never a label-anchor fallback or an individual shop coordinate. The icon and high-contrast count must render together without collision-driven suppression, and contain no individual address, licence, operator or store-popup data.
+- The fixed Store zoom sequence is: zoom `<4.2` renders country-level storefront aggregates; `4.2 <= zoom < 5.8` renders country/state/territory GEO aggregates; `5.8 <= zoom < 10.2` preserves the existing viewport clusters; `zoom >= 10.2` preserves individual validated cannabis leaves. Clicking an aggregate only zooms into the next existing presentation level. These are presentation layers of the same accepted Store Truth records, not a new Store eligibility or data source.
+- Store summary, cluster and leaf layers must be inserted below the first native basemap symbol layer. Geographic country/place labels therefore render above Store Truth presentation and cannot be visually erased by a Store icon or count. The summary symbols do not participate in placement, so their visibility is stable while native labels retain visual priority by layer order. `/truth-map` disables repeated world copies, preventing duplicate continents and duplicate Store aggregates at maximum zoom-out.
 - The `/truth-map` local z15 presentation uses `icon-size=1.35` for the validated-store leaf. This is a rendering-only `1.5×` increase from the former `0.90`; it must not change Store eligibility, markers' source data, or the public map.
 - The distinct Social chat-bubble marker is `1.45` for a one-discussion aggregate at z15 and may increase with the aggregate active-discussion count up to `1.65`. It must never be smaller than the leaf; its count text is `14px` at z15.
 - The Social map API supports a maximum query zoom of `14`. A visual z15 map therefore queries `min(mapZoom, 14)` and preserves z15 symbol rendering. The clamp is transport compatibility only: it cannot alter the H3 privacy boundary, create/persist discussion data, or infer a user location.
-- Leaf and bubble remain separate image IDs, assets, source layers, click semantics and colours. Relative size neither changes their meaning nor supplies legal, Store or Social Truth.
+- The storefront aggregate, leaf and bubble remain separate image IDs, assets, source layers, click semantics and colours. Relative size neither changes their meaning nor supplies legal, Store or Social Truth.
 - This contract is route-local to `/truth-map`; despite shared implementation modules, it may not alter `/`, `/new-map`, legal colours, legal APIs, SSOT, country SEO, production or deployment.
 
 ## Unified geo-sync contract
@@ -190,6 +193,7 @@ Google indexing terminology.
 ## Network truth and CI contract
 - `bash tools/pass_cycle.sh` is the single command for CI, checkpoint, and ledger verification.
 - Lint runs before Smoke/UI and any lint error fails the run.
+- The generated `data/reviews/wiki-truth-cannabis-law-matrix-307.json` is refreshed exactly once from the canonical visual-review ledger before `pass_cycle` enters any sourced `ci-local`, reconciliation, or projection-test path. A stale matrix is a CI failure; the deterministic refresh is not a Legal Truth, SSOT, Store Truth, route, or production mutation.
 - Final `pass_cycle` must run the one-request Vercel root diagnostic access/render check for production `/new-map`, write a PNG screenshot and timing measurements, and compare them against `data/baselines/prod_live_quality_baseline.json`.
 - Scenario-level production UI audits must reuse one browser context for all audited countries, states, popups, and screenshots. Root seed requests remain diagnostic, but `BYPASS_COOKIE_PRESENT` is not a mandatory gate for screenshot capture.
 - Production evidence must distinguish browser app access from bypass diagnostics. `ok=1` proves the real app rendered; cookie observations such as `seed_cookie_observed=1` and `cookie_detected=1` are recorded for forensics only and do not block screenshot capture by themselves.
@@ -208,6 +212,7 @@ Google indexing terminology.
 
 ## Storage hygiene contract
 - `QUARANTINE` contains exactly one PASS snapshot; historical archives live outside the repo.
+- Raw popup/wiki visual screenshots are external evidence, not repository runtime inputs. `Artifacts/` retains only the guard-required manifest, report and metadata files; raw image copies are archived under `~/islegalcannabis_archive/<run-id>/` after verifying that the governing manifest resolves its evidence externally.
 - `Reports` contains operational logs only.
 - Archives live under `~/islegalcannabis_archive/` unless an explicit external path is provided.
 - `.codex/**` is a disposable derived layer and must not be treated as product SSOT.

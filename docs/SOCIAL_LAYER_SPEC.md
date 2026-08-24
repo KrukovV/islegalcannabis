@@ -36,6 +36,7 @@ Marker meaning is exclusive and visually unambiguous:
 
 | Domain | Meaning | MapLibre image ID | Asset | Required presentation |
 | --- | --- | --- | --- | --- |
+| Store aggregate at global zoom | Count of individually map-eligible regulated cannabis locations grouped by canonical country | `validated-cannabis-store-geo-summary-shop` | `/cannabis-store-summary-shop.svg` | Neutral storefront plus a separately legible count at a low-precision, half-degree-rounded country aggregate anchor; no individual location data |
 | Validated stores | Independently validated regulated cannabis location | `validated-cannabis-store-leaf` | `/cannabis-store-leaf.svg` | Cannabis leaf; colour may encode validated store type |
 | Social activity | One or more active public MAP discussions in a privacy-safe area | `social-map-activity-chat-bubble` | `/social-discussion-chat.svg` | Magenta chat bubble with active-discussion count |
 
@@ -43,6 +44,8 @@ Hard requirements:
 
 - Social must never reuse the cannabis-leaf asset, store icon ID or store layer.
 - Stores must never use the Social chat-bubble asset or Social activity layer.
+- The Store aggregate and the leaf are two presentations of the same visible Store Truth records. Below z4.2 there is one stable aggregate per canonical country; from z4.2 to z5.8 there is one stable aggregate per country/state/territory GEO; from z5.8 to z10.2 existing viewport clusters apply; at z10.2 and above individual leaves apply. Each aggregate uses a low-precision, half-degree-rounded anchor computed from all currently visible records in its displayed group. The storefront and count are rendered together, visually separate and retain a high-contrast halo; neither participates in symbol placement, so unrelated label/tile updates cannot make a total blink. The aggregate carries only `geo_id`, count and its rounded aggregate anchor, cannot open a location popup, and must never add an unvalidated Store record.
+- Every Store presentation layer is inserted below the first native basemap text layer. Store icons, counts and clusters must never cover a country or place label; labels remain readable above supplemental Store presentation. `/truth-map` disables repeated world copies, so the world and its Store aggregates occur only once at maximum zoom-out.
 - A Social marker is not a user pin, store, exact post coordinate, distance-to-user indicator, popularity claim or Legal Truth signal.
 - Clicking a Social marker opens/focuses discussions for the already-returned safe H3 query cell and must not open a store or country popup.
 - The safe-area focus clears when the current viewport no longer contains that area.

@@ -12,6 +12,8 @@ import { NEW_MAP_BASEMAP_STYLE_URL } from "@/new-map/runtimeUrls";
 import styles from "@/new-map/MapRoot.module.css";
 import truthStyles from "./TruthMapRoot.module.css";
 import {
+  STORE_COUNTRY_SUMMARY_LAYER_ID,
+  STORE_GEO_SUMMARY_LAYER_ID,
   STORE_CLUSTER_COUNT_LAYER_ID,
   STORE_CLUSTER_LAYER_ID,
   STORE_MARKER_LAYER_ID,
@@ -42,6 +44,8 @@ type TruthMapQaController = {
   openGeo: (_geo: string) => Promise<boolean>;
   getCamera: () => { lng: number; lat: number; zoom: number };
   getStoreVisibilityLevel: () => string | undefined;
+  getStoreGeoSummaryCount: () => string | undefined;
+  getStoreCountrySummaryCount: () => string | undefined;
   getSocialVisibilityLevel: () => string | undefined;
 };
 
@@ -273,6 +277,8 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
           STORE_MARKER_LAYER_ID,
           STORE_CLUSTER_LAYER_ID,
           STORE_CLUSTER_COUNT_LAYER_ID,
+          STORE_GEO_SUMMARY_LAYER_ID,
+          STORE_COUNTRY_SUMMARY_LAYER_ID,
           SOCIAL_MAP_ACTIVITY_LAYER_ID,
           SOCIAL_MAP_ACTIVITY_COUNT_LAYER_ID,
         ].filter((layerId) => Boolean(map.getLayer(layerId)));
@@ -293,6 +299,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
       }
     });
     runtime.map.setMaxZoom(15);
+    runtime.map.setRenderWorldCopies(false);
     runtimeRef.current = runtime;
     mapRef.current = runtime.map;
     setMapInstance(runtime.map);
@@ -381,6 +388,8 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
             return { lng: center.lng, lat: center.lat, zoom: runtime.map.getZoom() };
           },
           getStoreVisibilityLevel: () => runtime.map.getCanvas().dataset.storeVisibilityLevel,
+          getStoreGeoSummaryCount: () => runtime.map.getCanvas().dataset.storeGeoSummaryCount,
+          getStoreCountrySummaryCount: () => runtime.map.getCanvas().dataset.storeCountrySummaryCount,
           getSocialVisibilityLevel: () => runtime.map.getCanvas().dataset.socialVisibilityLevel,
         };
         if (disposed) hover.destroy();
@@ -424,7 +433,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
             <strong>Legal information in every popup</strong>
             <span>✅ GREEN: verified lawful access · ⚠️ YELLOW: limited or qualified status · ❌ RED: prohibition evidenced in applicable law. For UNKNOWN, ⚠️/❌ only describe evidence direction; UNKNOWN is never presented as a confirmed prohibition.</span>
           </div>
-          <p className={styles.meta}>Verified regulated stores load only in a suitable viewport and zoom. World view intentionally shows no individual markers.</p>
+          <p className={styles.meta}>World view groups verified Store Truth counts by country. Zoom in for country, state and territory counts, then the existing local clusters and individual cannabis leaves.</p>
           <div className={styles.truthMapStoreControl} data-testid="truth-map-store-control">
             <span><strong>Verified stores</strong> · cannabis leaves</span>
             <button

@@ -92,7 +92,7 @@ YELLOW -> ⚠️ + legal verdict YELLOW
 RED    -> ❌ + legal verdict RED
 ```
 
-The opt-in WebKit audit must open every requested popup on the existing singleton, wait for the selected GEO identity, verify the same rule from rendered text, and save an external screenshot. Its manifest records `geo`, `legalTruthColor`, `mapDisplayText`, and `legalEvidenceIcon` for every captured row.
+The opt-in WebKit audit must open every requested popup on the existing singleton, wait for the selected GEO identity, verify the same rule from rendered text, and save an external screenshot. Its manifest records `geo`, `legalTruthColor`, `mapDisplayText`, and `legalEvidenceIcon` for every captured row. The audit resolves the canonical repository root from the test file location, never from the caller's working directory, so a full run can update only `Artifacts/truth-map-visual-audit/manifest.json` at the Git root; a manifest written under `apps/web/Artifacts/` is invalid evidence and must be preserved externally rather than accepted by the guard.
 
 For the canonical 307-GEO run, every rendered supplementary restriction must
 have an `Action:` statement and one external supplementary source link. The

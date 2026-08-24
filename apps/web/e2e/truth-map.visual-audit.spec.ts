@@ -9,12 +9,11 @@ const requestedGeos = String(process.env.TRUTH_MAP_VISUAL_AUDIT_GEOS || "")
   .map((value) => value.trim().toUpperCase())
   .filter(Boolean);
 const canonicalGeoAuditCount = 307;
-const repoRoot = fs.existsSync(path.join(process.cwd(), "Artifacts"))
-  ? process.cwd()
-  : path.resolve(process.cwd(), "..", "..");
+const repoRoot = path.resolve(__dirname, "..", "..", "..");
 
 test("truth-map visual audit captures only the isolated audit route when explicitly enabled", async ({ page }) => {
   test.skip(!enabled, "TRUTH_MAP_VISUAL_AUDIT=1 is required for capture");
+  expect(fs.existsSync(path.join(repoRoot, "data", "reviews", "geo-list-307.json"))).toBe(true);
   expect(requestedGeos.length).toBeGreaterThan(0);
   if (requestedGeos.length === canonicalGeoAuditCount) {
     test.setTimeout(900_000);

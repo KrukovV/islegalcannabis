@@ -11,6 +11,7 @@ Hard Rule:
 - No auto-plan lines: do not store or print "Next: ..." in CONTINUITY.md or stdout; only user-provided tasks may define future steps.
 - `CONTINUITY.md` has exactly one active `Goal:`, `State:`, `Done:`, and `Now:` header. Historical evidence remains as dated bullets or in the canonical audit ledger; duplicate state headers and `Next:` lines are invalid continuity state.
 - Lint is mandatory before Smoke/UI in CI; any lint error must fail the run (no pseudo-pass). Artifacts/Reports/QUARANTINE are never linted.
+- Matrix freshness is mandatory: `data/reviews/wiki-truth-cannabis-law-matrix-307.json` is regenerated exactly once from the canonical visual-review ledger before any `ci-local` or other reconciliation/projection test reads it. A stale generated matrix is CI FAIL; rebuilding it does not mutate Legal Truth, SSOT, Store Truth or production data.
 - Network Truth Policy: DNS is diagnostic only; ONLINE truth derives solely from HTTP/API/CONNECT/FALLBACK probes; cache may allow DEGRADED_CACHE but never sets ONLINE=1; single-probe-per-run uses `Artifacts/net_probe/<RUN_ID>.json` and must keep pass_cycle/quality_gate/hub_stage_report consistent; do not reintroduce dns_fail -> offline/online flip without explicit requirement change.
 - DNS — только диагностика; `online` вычисляется только по truth-probes (HTTP/health/API и подобное), DNS не влияет на ветвления/stop_reason/работу проекта.
 - DNS is diagnostic only; online is computed only from truth-probes (HTTP/health/API), DNS never affects branching/stop_reason/работу.
@@ -46,8 +47,11 @@ Hard Rule:
 - `/truth-map` must retain the canonical editable AI-assistant input dock as the primary persistent map control. Social may be added beside/above it, but must never replace, hide, disable, or overlap the AI dock.
 - Social is compact by default and expands independently. Closing/collapsing Social must not change AI-assistant availability.
 - Marker semantics are exclusive and must never be reused across domains:
-  - validated cannabis stores use only the cannabis-leaf marker (`validated-cannabis-store-leaf`, `/cannabis-store-leaf.svg`);
+  - individual validated cannabis stores use only the cannabis-leaf marker (`validated-cannabis-store-leaf`, `/cannabis-store-leaf.svg`);
+  - at global zoom `<4.2`, the same validated Store Truth gate may render one neutral storefront aggregate (`validated-cannabis-store-geo-summary-shop`, `/cannabis-store-summary-shop.svg`) and a legible country-level count; from `4.2` to `5.8`, it renders the corresponding country/state/territory count. Both use a low-precision, half-degree-rounded aggregate anchor derived from all visible records in the displayed group; they are not individual store markers and carry no individual location data;
+  - Store aggregates use fixed zoom bands and must ignore symbol-placement collisions, so their count cannot blink during a pan or basemap-label update. Every Store summary, cluster and leaf layer must be inserted below the first native basemap text layer, so country and place labels always render above Store presentation; `/truth-map` must disable repeated world copies so neither Store totals nor continents duplicate at maximum zoom-out;
   - Social MAP activity uses only the chat-bubble marker (`social-map-activity-chat-bubble`, `/social-discussion-chat.svg`) with the active-discussion count.
+- The route-local Store zoom sequence is fixed: below `5.8` only one Store Truth-gated storefront aggregate per GEO; `5.8–10.2` the existing viewport clusters; from `10.2` individual cannabis leaves. Aggregate counts and leaf records use the same visibility gate. This must not alter `/`, `/new-map`, Store data, Store eligibility, Legal Truth or Social.
 - At `/truth-map` local zoom `15`, the store leaf is `icon-size=1.35` and the Social chat bubble is at least `1.45` (`1.65` only for denser aggregate activity), so the bubble is never smaller. Visual z15 Social requests use the API-safe `min(mapZoom, 14)` without changing H3 privacy scope, Store data, Social truth or `/new-map`.
 - A Social marker selects an already-public privacy-safe H3 discussion area; it is not a store, user pin, exact location, distance indicator, or legal-truth signal.
 - Public Social and its map layer remain `/truth-map`-only. `/` and `/new-map` must remain free of Social UI/layers unless the user explicitly changes the route contract.
@@ -67,6 +71,7 @@ Hard Rule:
 - QUARANTINE must contain exactly 1 PASS snapshot; all other snapshots live خارج репозитория.
 - Reports is operational logs only; history archives must be outside the repo.
 - Archives belong in `~/islegalcannabis_archive/` (or an explicit external path).
+- Raw popup/wiki full-page screenshots must not accumulate in repository `Artifacts/`. Keep only the guard-required manifests, reports and metadata locally; archive raw image evidence under `~/islegalcannabis_archive/<run-id>/` after confirming the governing manifest already resolves its evidence from an external archive.
 - CI must fail on disk bloat (see size guards in `tools/pass_cycle.sh`).
 - `.codex/**` is a disposable derived layer, never a product SSOT. It may be backed up, rebuilt, or ignored locally; project agents and repo workflows must not depend on unique `.codex` contents or stale resume metadata.
 

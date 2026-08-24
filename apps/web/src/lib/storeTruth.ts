@@ -152,6 +152,18 @@ export type StoreQuery = StoreBounds & {
   types?: StoreType[];
 };
 
+export type StoreGeoSummary = {
+  geo_id: string;
+  count: number;
+  anchor_lng: number;
+  anchor_lat: number;
+};
+
+export type StoreSummaryLevels = {
+  geoRows: StoreGeoSummary[];
+  countryRows: StoreGeoSummary[];
+};
+
 type StoreDataEnvelope<T> = { sources?: T[]; records?: T[] };
 type StoreEligibilityModelEnvelope = { rows?: StoreEligibilityModelRow[] };
 type FinalReconciliationEnvelope = {
@@ -526,19 +538,15 @@ function toClusterFeatures(records: CanonicalStoreRecord[], zoom: number) {
   });
 }
 
-export function queryVisibleStores(query: StoreQuery) {
-  const level = getStoreVisibilityLevel(Number(query.zoom));
-  if (level === "LOW") {
-    return { level, features: [], visibleStores: 0, blockedStores: 0, circularTruthDependencies: 0 };
-  }
-  const startedAt = performance.now();
-  const dataset = loadStoreDataset();
+function selectValidatedStoreRecords(
+  records: CanonicalStoreRecord[],
+  dataset: ReturnType<typeof loadStoreDataset>,
+  selectedTypes: Set<StoreType>,
+) {
   const canonicalTruthByGeo = loadCanonicalLegalTruthByGeo();
-  const selectedTypes = new Set((query.types || []).filter((type) => STORE_TYPES.includes(type)));
   let blockedStores = 0;
   let circularTruthDependencies = 0;
-  const spatialCandidates = selectStoreSpatialCandidates(dataset.spatialIndex, query);
-  const visible = spatialCandidates.filter((record) => {
+  const visible = records.filter((record) => {
     if (selectedTypes.size > 0 && !selectedTypes.has(record.store_type)) return false;
     const decision = validateStoreVisibility(
       record,
@@ -551,7 +559,86 @@ export function queryVisibleStores(query: StoreQuery) {
       if (decision.reasons.includes("CIRCULAR_TRUTH_DEPENDENCY")) circularTruthDependencies += 1;
     }
     return decision.visible;
-  }).slice(0, STORE_ZOOM_POLICY.maxResults);
+  });
+  return { visible, blockedStores, circularTruthDependencies };
+}
+
+function rootCountryGeo(geoId: string) {
+  return normalizeGeo(geoId).split("-", 1)[0] || "";
+}
+
+function summarizeStoreRecords(
+  records: CanonicalStoreRecord[],
+  resolveGeoId: (_record: CanonicalStoreRecord) => string,
+): StoreGeoSummary[] {
+  const byGeo = new Map<string, CanonicalStoreRecord[]>();
+  for (const record of records) {
+    const geoId = resolveGeoId(record);
+    if (!geoId) continue;
+    const groupedRecords = byGeo.get(geoId) || [];
+    groupedRecords.push(record);
+    byGeo.set(geoId, groupedRecords);
+  }
+  return [...byGeo.entries()]
+    .map(([geo_id, groupedRecords]) => {
+      const longitudeSin = groupedRecords.reduce((total, record) => total + Math.sin(Number(record.longitude) * Math.PI / 180), 0);
+      const longitudeCos = groupedRecords.reduce((total, record) => total + Math.cos(Number(record.longitude) * Math.PI / 180), 0);
+      const averageLongitude = longitudeSin === 0 && longitudeCos === 0
+        ? 0
+        : Math.atan2(longitudeSin, longitudeCos) * 180 / Math.PI;
+      const averageLatitude = groupedRecords.reduce((total, record) => total + Number(record.latitude), 0) / groupedRecords.length;
+      return {
+        geo_id,
+        count: groupedRecords.length,
+        anchor_lng: Math.round(averageLongitude * 2) / 2,
+        anchor_lat: Math.round(averageLatitude * 2) / 2,
+      };
+    })
+    .sort((left, right) => left.geo_id.localeCompare(right.geo_id));
+}
+
+/**
+ * Route-local low-zoom store presentation. Both levels contain only counts
+ * for locations that already pass the same Store Truth visibility gate as
+ * individual leaf markers. Every anchor is a half-degree-rounded aggregate,
+ * never an individual premises coordinate.
+ */
+export function queryStoreSummaryLevels(): StoreSummaryLevels {
+  const dataset = loadStoreDataset();
+  const { visible } = selectValidatedStoreRecords(
+    [...dataset.spatialIndex.values()].flat(),
+    dataset,
+    new Set<StoreType>(),
+  );
+  return {
+    geoRows: summarizeStoreRecords(visible, (record) => normalizeGeo(record.geo_id)),
+    countryRows: summarizeStoreRecords(visible, (record) => rootCountryGeo(record.geo_id)),
+  };
+}
+
+export function queryStoreGeoSummaries(): StoreGeoSummary[] {
+  return queryStoreSummaryLevels().geoRows;
+}
+
+export function queryStoreCountrySummaries(): StoreGeoSummary[] {
+  return queryStoreSummaryLevels().countryRows;
+}
+
+export function queryVisibleStores(query: StoreQuery) {
+  const level = getStoreVisibilityLevel(Number(query.zoom));
+  if (level === "LOW") {
+    return { level, features: [], visibleStores: 0, blockedStores: 0, circularTruthDependencies: 0 };
+  }
+  const startedAt = performance.now();
+  const dataset = loadStoreDataset();
+  const selectedTypes = new Set((query.types || []).filter((type) => STORE_TYPES.includes(type)));
+  const spatialCandidates = selectStoreSpatialCandidates(dataset.spatialIndex, query);
+  const { visible: validated, blockedStores, circularTruthDependencies } = selectValidatedStoreRecords(
+    spatialCandidates,
+    dataset,
+    selectedTypes,
+  );
+  const visible = validated.slice(0, STORE_ZOOM_POLICY.maxResults);
   return {
     level,
     features: level === "MEDIUM" ? toClusterFeatures(visible, Number(query.zoom)) : visible.map(toStoreFeature),

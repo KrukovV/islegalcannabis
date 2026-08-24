@@ -1361,6 +1361,12 @@ if [ -n "${JSON_SKIP_WORKTREE_FILES}" ]; then
 fi
 echo "JSON_SKIP_WORKTREE_GUARD=PASS"
 
+echo "RUN_TRUTH_FIRST_MATRIX_REFRESH=1"
+SUMMARY_LINES+=("RUN_TRUTH_FIRST_MATRIX_REFRESH=1")
+run_step "wiki_truth_307_build_wiki_truth_cannabis_law_matrix" 120 "${NODE_BIN} tools/wiki/build_wiki_truth_cannabis_law_matrix.mjs"
+SUMMARY_LINES+=("TRUTH_FIRST_MATRIX_REFRESH_OK=1")
+echo "TRUTH_FIRST_MATRIX_REFRESH_OK=1"
+
 source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/pass_cycle.net_health.sh"
 # PASS_CYCLE_EGRESS_TRUTH_FALLBACK: retain the mandatory network-truth proof without changing its axes or policy.
 if [[ "${EGRESS_TRUTH_LINE:-}" != EGRESS_TRUTH\ * ]]; then
@@ -3036,11 +3042,6 @@ echo "LINT_OK=1"
   tail -n 60 "${ROOT}/Reports/lint.log" || true
   echo "LINT_LOG_TAIL_END"
 } >> "${STEP_LOG}"
-echo "RUN_TRUTH_FIRST_MATRIX_REFRESH=1"
-SUMMARY_LINES+=("RUN_TRUTH_FIRST_MATRIX_REFRESH=1")
-run_step "wiki_truth_307_build_wiki_truth_cannabis_law_matrix" 120 "${NODE_BIN} tools/wiki/build_wiki_truth_cannabis_law_matrix.mjs"
-SUMMARY_LINES+=("TRUTH_FIRST_MATRIX_REFRESH_OK=1")
-echo "TRUTH_FIRST_MATRIX_REFRESH_OK=1"
 echo "RUN_OFFICIAL_EVIDENCE_REVALIDATION_TESTS=1"
 SUMMARY_LINES+=("RUN_OFFICIAL_EVIDENCE_REVALIDATION_TESTS=1")
 CURRENT_STEP="official_evidence_revalidation_tests"
