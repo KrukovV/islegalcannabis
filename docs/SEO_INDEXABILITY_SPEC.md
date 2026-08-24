@@ -2,9 +2,13 @@
 
 Status: canonical project specification
 
-Accepted production baseline: `c79eaae5031cbc3c244ba11e6c90d76b090aacaa`
+Accepted trace-repair baseline: `c79eaae5031cbc3c244ba11e6c90d76b090aacaa`
 
-Accepted at: 2026-08-23
+Accepted exact-home-canonical hotfix: `2b6bf809044079e69211365c8f5034b6e41e5dc9`
+
+Trace repair accepted at: 2026-08-23
+
+Home-canonical hotfix accepted at: 2026-08-24
 
 Canonical host: `https://www.islegal.info`
 
@@ -123,6 +127,26 @@ sitemap-index.xml          4 sitemap entries
 The full 311-URL set is one root URL plus 238 country URLs, 50 U.S. state URLs
 and 22 localized URLs. A sitemap URL is valid only when the production URL it
 advertises is fetchable and indexable.
+
+The root URL is exact, not merely normalization-equivalent:
+
+```text
+sitemap:   https://www.islegal.info/
+canonical: https://www.islegal.info/
+```
+
+The trailing slash is part of this strict equality contract. A rendered home
+canonical of `https://www.islegal.info` is release FAIL even though browsers and
+search engines normally treat it as equivalent.
+
+### Home canonical implementation guard
+
+The root route must render exactly one raw canonical link whose `href` is the
+literal `https://www.islegal.info/`. The root page owns that link because a
+framework-normalized metadata fallback can remove the required trailing slash.
+The global layout must not emit a competing canonical fallback. The focused
+rendered regression in `apps/web/e2e/favicon.spec.ts` must assert both the
+single literal root canonical and the matching sitemap root `<loc>`.
 
 These counts are a protected baseline, not an eternal business limit. An
 intentional registry expansion may increase them. A shrink, reclassification or

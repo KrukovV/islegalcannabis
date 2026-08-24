@@ -33,6 +33,7 @@ Hard Rule:
 
 - The canonical SEO/indexability specification is `docs/SEO_INDEXABILITY_SPEC.md`; summaries in plans, ledgers or reports must not weaken it.
 - Every URL advertised by the canonical production sitemap must return HTTP 200 with a nonempty GEO-correct title, exact canonical URL and `index, follow`; a sitemap 200 with advertised page 404 is release FAIL.
+- The rendered `/` head must contain exactly one `link[rel="canonical"]` with the literal href `https://www.islegal.info/`. A layout-level canonical fallback must never compete with this root-specific value; `apps/web/e2e/favicon.spec.ts` is the focused rendered regression proof and must also assert the sitemap root URL.
 - Protected accepted sitemap baseline is `311` unique full URLs with split counts `238` countries, `50` U.S. states and `22` localized URLs, plus `4` entries in the sitemap index. Silent shrink or partition drift is forbidden without an explicit spec/test update and user-authorized release.
 - Monorepo runtime data must be retained through route-scoped Next.js output tracing only. A global `/*` include, whole-repository trace, or trace include for `/truth-map`, `/wiki-truth`, Social, DM or Store APIs is forbidden.
 - `/truth-map` and `/wiki-truth` must remain production 404 and absent from every sitemap; localhost audit availability must not be used as evidence that those routes are safe to expose publicly.

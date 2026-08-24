@@ -2,6 +2,11 @@
 
 Statuses: pending | in_progress | done
 
+## Exact Home Canonical Hotfix
+
+- [done] Release only the three-file home-canonical patch as `2b6bf809` (`apps/web/src/app/page.tsx`, `apps/web/src/app/layout.tsx`, `apps/web/e2e/favicon.spec.ts`) from an isolated `main` worktree. The patch emits one literal `https://www.islegal.info/` canonical for `/`, removes the competing global fallback, and adds rendered WebKit coverage. It changes no Legal Truth, SSOT, Store Truth, Social, `/truth-map`, `/new-map` or country SEO data.
+- [done] Verify production build `YN-rFdfg9c9LhRy7gHTJq` at commit `2b6bf809`: a complete crawl of all 311 `sitemap.xml` URLs returned HTTP 200, a nonempty title, exact canonical and `index, follow`; `/truth-map` and `/wiki-truth` remained 404 and absent from the sitemap. Production WebKit passes `2/2` focused home tests and the in-app browser reports zero console warnings/errors. Google recrawl remains `UNCONFIRMED`.
+
 ## SEO Documentation, Rules and Canonical Specification
 
 - [done] Publish one non-conflicting SEO/indexability authority chain across `docs/SEO_INDEXABILITY_SPEC.md`, `AGENTS.md`, `docs/CONTRACT.md`, `docs/ARCHITECTURE_MIN.md`, `docs/OPS.md`, this plan and `CONTINUITY.md`. Preserve all existing Social, DM, Truth-First and UNKNOWN-closure documentation; commit no runtime or data files. Root `README.md` is deliberately unchanged because the canonical documentation scope guard excludes it.

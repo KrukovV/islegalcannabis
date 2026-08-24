@@ -22,6 +22,10 @@ Google indexing terminology.
 
 - Every canonical sitemap URL must be live before it is advertised: HTTP 200,
   GEO-correct title, exact canonical and `index, follow` are one contract.
+- The home sitemap URL and rendered home canonical must both be the exact string
+  `https://www.islegal.info/`; normalized equivalence without the trailing slash
+  does not satisfy the release contract. The root route owns this single raw
+  canonical link, and a global metadata canonical fallback is forbidden.
 - Protected accepted baseline is 311 unique URLs with split counts 238 country,
   50 U.S. state and 22 localized URLs; the sitemap index contains four entries.
 - Country runtime data is retained with an explicit monorepo trace root and
