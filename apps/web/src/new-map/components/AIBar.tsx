@@ -16,6 +16,7 @@ type Props = {
   geoStatus: GeoStatus;
   ipStatus: IpStatus;
   onGpsClick: () => void;
+  disableWarmup?: boolean;
 };
 
 type ChatMessage = {
@@ -137,7 +138,7 @@ function allowsShortAssistantText(text: string) {
   return String(text || "").trim() === "Все норм 🙂";
 }
 
-export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Props) {
+export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick, disableWarmup = false }: Props) {
   const requestControllerRef = useRef<AbortController | null>(null);
   const resetRequestRef = useRef<Promise<void> | null>(null);
   const answerCardRef = useRef<HTMLDivElement | null>(null);
@@ -214,6 +215,10 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
       queueMicrotask(() => setAiInputLocked(true));
       return;
     }
+    if (disableWarmup) {
+      queueMicrotask(() => setAiInputLocked(false));
+      return;
+    }
     const keepUnlockedOnLocalhost = true;
     const model =
       typeof window !== "undefined"
@@ -228,7 +233,7 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
       .catch(() => {
         setAiInputLocked(keepUnlockedOnLocalhost ? false : true);
       });
-  }, []);
+  }, [disableWarmup]);
 
   useEffect(() => {
     try {

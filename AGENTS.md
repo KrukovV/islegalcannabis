@@ -53,6 +53,15 @@ Hard Rule:
 - Public Social and its map layer remain `/truth-map`-only. `/` and `/new-map` must remain free of Social UI/layers unless the user explicitly changes the route contract.
 - Social UI must not change Legal Truth, GEO colours, stores, SSOT, SEO, production, or deployment state.
 
+## Truth Map Rich Popup Context Contract (Hard Rule)
+
+- `docs/TRUTH_MAP_LEGAL_EVIDENCE_PRESENTATION_SPEC.md` is the canonical contract for legal evidence and supplementary territory context on `/truth-map`.
+- Current Legal Truth, its colour/indicator and retained current official legal evidence are authoritative and render before any reused rich territory material.
+- A displayed supplementary restriction must state the applicable action, provide one retained source link and visibly say it is supplementary/not the current legal conclusion. Otherwise omit it fail-closed.
+- Historic, enforcement, product, cultivation, market and profile material must use a supplementary/historical heading whenever ordinary wording could be read as the current legal verdict. A legacy `why this colour` block must not duplicate the current reconciliation rationale.
+- This is one schema-driven rule for all 307 GEO. GEO-specific content, legal, colour or wording branches are forbidden. A current lawful route and an explicitly scoped penalty for unauthorised conduct must never be rendered as a contradiction.
+- The canonical full visual audit waits for the selected GEO identity and verifies supplementary action/source/boundary presentation for all 307 route-local popups. It must not inspect or alter `/`, `/new-map`, legal APIs, SSOT, Store Truth, SEO, production or deployment.
+
 ## Storage Hygiene (Hard Rule)
 
 - QUARANTINE must contain exactly 1 PASS snapshot; all other snapshots live خارج репозитория.

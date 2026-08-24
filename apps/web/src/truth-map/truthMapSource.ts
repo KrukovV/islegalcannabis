@@ -379,8 +379,10 @@ function truthProperties(
   const legalEvidence = resolveTruthMapLegalEvidence(row, truthColor, display.color);
   const legalMapCategory = toMapCategory(truthColor);
   const displayMapCategory = display.color === "GRAY" ? "UNKNOWN" : toMapCategory(display.color);
-  const displayBaseColor = display.color === "GRAY" ? "#9aa0a6" : resolveLegalFillColor(displayMapCategory);
-  const displayHoverColor = display.color === "GRAY" ? "#b7bec5" : resolveLegalHoverColor(displayMapCategory);
+  // Keep the route-local polar exception visually identical to the accepted
+  // Antarctica treatment on /new-map; this never changes legal UNKNOWN.
+  const displayBaseColor = display.color === "GRAY" ? "#c5ccd3" : resolveLegalFillColor(displayMapCategory);
+  const displayHoverColor = display.color === "GRAY" ? "#d4dae0" : resolveLegalHoverColor(displayMapCategory);
   return {
     geo,
     displayName,
@@ -390,8 +392,8 @@ function truthProperties(
     displayMapCategory,
     baseColor: displayBaseColor,
     hoverColor: displayHoverColor,
-    fillOpacity: display.color === "GRAY" ? 0.62 : resolveLegalFillOpacity(displayMapCategory),
-    hoverOpacity: display.color === "GRAY" ? 0.72 : resolveLegalHoverOpacity(displayMapCategory),
+    fillOpacity: display.color === "GRAY" ? 1 : resolveLegalFillOpacity(displayMapCategory),
+    hoverOpacity: display.color === "GRAY" ? 1 : resolveLegalHoverOpacity(displayMapCategory),
     labelAnchorLng: typeof geometryProperties.labelAnchorLng === "number" ? geometryProperties.labelAnchorLng : null,
     labelAnchorLat: typeof geometryProperties.labelAnchorLat === "number" ? geometryProperties.labelAnchorLat : null,
     pointFallbackVisibility: geometryProperties.pointFallbackVisibility === "visible" ? "visible" : "hidden",

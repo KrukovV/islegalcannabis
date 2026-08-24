@@ -9,23 +9,24 @@ const requestedGeos = String(process.env.TRUTH_MAP_VISUAL_AUDIT_GEOS || "")
   .map((value) => value.trim().toUpperCase())
   .filter(Boolean);
 const canonicalGeoAuditCount = 307;
+const repoRoot = fs.existsSync(path.join(process.cwd(), "Artifacts"))
+  ? process.cwd()
+  : path.resolve(process.cwd(), "..", "..");
 
 test("truth-map visual audit captures only the isolated audit route when explicitly enabled", async ({ page }) => {
   test.skip(!enabled, "TRUTH_MAP_VISUAL_AUDIT=1 is required for capture");
   expect(requestedGeos.length).toBeGreaterThan(0);
   if (requestedGeos.length === canonicalGeoAuditCount) {
-    test.setTimeout(600_000);
+    test.setTimeout(900_000);
   }
 
   const runId = new Date().toISOString().replace(/[:.]/g, "-");
   const archiveRoot = process.env.TRUTH_MAP_VISUAL_AUDIT_ARCHIVE_DIR
     || path.join(os.homedir(), "islegalcannabis_archive", "truth-map-visual-audit", runId);
   const popupDir = path.join(archiveRoot, "popup");
-  const canonicalManifestPath = path.resolve(process.cwd(), "..", "..", "Artifacts", "truth-map-visual-audit", "manifest.json");
+  const canonicalManifestPath = path.join(repoRoot, "Artifacts", "truth-map-visual-audit", "manifest.json");
   const partialManifestPath = path.resolve(
-    process.cwd(),
-    "..",
-    "..",
+    repoRoot,
     "Artifacts",
     "truth-map-visual-audit",
     "partial",
@@ -56,14 +57,30 @@ test("truth-map visual audit captures only the isolated audit route when explici
       rows.push({ geo, popupScreenshot: null, status: "MISSING" });
       continue;
     }
-    const popup = page.getByTestId("truth-map-country-popup");
+    const popup = page.locator('[data-popup-variant="truth-map"]');
     await expect(popup).toBeVisible({ timeout: 10_000 });
+    await expect(popup).toContainText(`ISO2: ${geo}`, { timeout: 10_000 });
     const popupText = await popup.textContent();
-    const legalTruthColor = popupText?.match(/Legal conclusion: (GREEN|YELLOW|RED|UNKNOWN)/)?.[1];
+    const legalTruthColor = popupText?.match(/Current legal conclusion: (GREEN|YELLOW|RED|UNKNOWN)/)?.[1];
     expect(legalTruthColor).toBeTruthy();
+    await expect(popup.getByText("Status", { exact: true })).toBeVisible();
+    await expect(popup.getByTestId("viewport-country-popup-header")).toBeVisible();
+    await expect(popup.getByTestId("viewport-country-popup-close")).toBeVisible();
     const legalEvidence = popup.getByTestId("truth-map-legal-evidence");
     await expect(legalEvidence).toBeVisible();
     await expect(legalEvidence).toContainText(/✅|⚠️|❌/);
+    const supplementaryContextItems = popup.locator('[data-context-kind="supplementary-map-context"]');
+    const supplementaryCount = await supplementaryContextItems.count();
+    if (supplementaryCount > 0) {
+      expect(await popup.getByText(/Supplementary (action-specific context|scope notes) — not the current legal conclusion/, { exact: true }).count()).toBeGreaterThan(0);
+    }
+    for (let index = 0; index < supplementaryCount; index += 1) {
+      const item = supplementaryContextItems.nth(index);
+      await expect(item).toContainText(/^Action: /);
+      await expect(item.getByText("Supplementary source", { exact: true })).toHaveAttribute("target", "_blank");
+    }
+    await expect(popup).not.toContainText("Criminal penalties can include prison.");
+    await expect(popup).not.toContainText("Sale and distribution stay banned.");
     const legalEvidenceText = await legalEvidence.textContent();
     const legalEvidenceIcon = legalEvidenceText?.match(/✅|⚠️|❌/)?.[0];
     if (legalTruthColor === "GREEN") {
@@ -82,7 +99,7 @@ test("truth-map visual audit captures only the isolated audit route when explici
         await expect(legalEvidence).toContainText("not a confirmed prohibition finding");
       }
     }
-    await expect(popup.getByText("Reconciliation rationale", { exact: true })).toBeVisible();
+    await expect(legalEvidence.getByText("Current reconciliation rationale", { exact: true })).toBeVisible();
     if (geo === "AF") {
       await expect(popup.getByTestId("truth-map-research-direction")).toContainText("not a final legal conclusion");
       await expect(popup.getByTestId("truth-map-legal-evidence")).toContainText("❌");
@@ -92,19 +109,23 @@ test("truth-map visual audit captures only the isolated audit route when explici
       await expect(popup.getByTestId("truth-map-research-direction")).toContainText("GRAY — polar scope exception");
       await expect(popup).toContainText("This map display is not a final legal conclusion.");
     }
+    if (geo === "ES") {
+      await expect(popup).toContainText("Supplementary enforcement context — not the current legal conclusion");
+      await expect(popup).not.toContainText("Enforcement Reality", { exact: true });
+    }
     if (geo === "US-CA") {
       await expect(popup).toContainText("Map display: legal verdict GREEN.");
       await expect(popup.getByTestId("truth-map-legal-evidence")).toContainText("✅");
       await expect(popup.getByTestId("truth-map-legal-evidence").locator("a").first()).toHaveAttribute("target", "_blank");
     }
     if (geo === "AX") {
-      await expect(popup).toContainText("Legal conclusion: YELLOW");
+      await expect(popup).toContainText("Current legal conclusion: YELLOW");
       await expect(popup).toContainText("Map display: legal verdict YELLOW.");
       await expect(popup.getByTestId("truth-map-legal-evidence")).toContainText("⚠️");
       await expect(popup.getByTestId("truth-map-legal-evidence")).toContainText("Limited or qualified legal status");
     }
     if (geo === "BY") {
-      await expect(popup).toContainText("Legal conclusion: RED");
+      await expect(popup).toContainText("Current legal conclusion: RED");
       await expect(popup.getByTestId("truth-map-legal-evidence")).toContainText("❌");
       await expect(popup.getByTestId("truth-map-legal-evidence")).toContainText("Prohibition evidenced in applicable law");
       await expect(popup.getByTestId("truth-map-legal-evidence")).not.toContainText("not a confirmed prohibition finding");
@@ -115,6 +136,18 @@ test("truth-map visual audit captures only the isolated audit route when explici
     }
     const popupScreenshot = path.join(popupDir, `${geo}.png`);
     await popup.screenshot({ path: popupScreenshot });
+    if (geo === "FR") {
+      await popup.evaluate((node) => { node.scrollTop = Math.min(480, node.scrollHeight); });
+      const popupBox = await popup.boundingBox();
+      const closeButton = popup.getByTestId("viewport-country-popup-close");
+      const closeBox = await closeButton.boundingBox();
+      expect(popupBox).toBeTruthy();
+      expect(closeBox).toBeTruthy();
+      expect(closeBox!.y).toBeGreaterThanOrEqual(popupBox!.y);
+      expect(closeBox!.y + closeBox!.height).toBeLessThanOrEqual(popupBox!.y + popupBox!.height);
+      await closeButton.click();
+      await expect(popup).toBeHidden();
+    }
     rows.push({
       geo,
       popupScreenshot,

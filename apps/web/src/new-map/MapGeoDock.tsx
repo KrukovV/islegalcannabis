@@ -20,6 +20,7 @@ type Props = {
   routeGeo: ActiveGeo;
   clearSelectedGeo: () => void;
   applyGeoToMap: (_geo: ActiveGeo, _options?: { recenter?: boolean }) => void;
+  disableAiWarmup?: boolean;
 };
 
 export default function MapGeoDock({
@@ -28,7 +29,8 @@ export default function MapGeoDock({
   selectedGeo,
   routeGeo,
   clearSelectedGeo,
-  applyGeoToMap
+  applyGeoToMap,
+  disableAiWarmup = false
 }: Props) {
   const lastAutoCenterKeyRef = useRef<string | null>(null);
   const ipBootstrapStartedRef = useRef(false);
@@ -109,6 +111,7 @@ export default function MapGeoDock({
       geoStatus={geoStatus}
       ipStatus={ipStatus}
       onGpsClick={handleGpsClick}
+      disableWarmup={disableAiWarmup}
     />
   );
 }

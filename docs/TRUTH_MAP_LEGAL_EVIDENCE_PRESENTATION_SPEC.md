@@ -50,7 +50,39 @@ Every popup renders retained route-local evidence before the collapsible reconci
 
 The popup must remain usable above the persistent AI dock. Its semantic styling never changes the map polygon fill.
 
-## 5. Required verification
+## 5. Rich territory context cannot override legal truth
+
+`/truth-map` may route-locally reuse the rich territory card material that is
+available to the public map, but the two information layers have different
+authority:
+
+- the current legal conclusion, its colour/indicator, and retained official
+  legal evidence are the authoritative conclusion and are rendered first;
+- historic, enforcement, product, cultivation, market, culture and other
+  card-profile material is supplementary context only. It never changes or
+  qualifies the current legal conclusion by implication;
+- a supplementary restriction is renderable only when the common projection
+  can provide all of: (1) the applicable action or conduct, (2) one retained
+  source link, and (3) an explicit boundary explaining that it is not the
+  current legal conclusion. Otherwise it is omitted fail-closed;
+- its source label must identify it as supplementary rather than presenting a
+  legacy, contextual or non-official item as current official legal evidence;
+- supplementary profile headings must explicitly identify historical or
+  supplementary context where their ordinary wording could be read as the
+  current legal verdict;
+- this projection is schema-driven for every canonical GEO. A GEO-specific
+  branch, wording override, or status patch is forbidden.
+
+For example, a verified hospital-patient access conclusion can remain `GREEN`
+while a supplementary enforcement item explains that unauthorised sale,
+import, trafficking or another offence-specific act can still carry a penalty.
+The item must make that action and boundary visible; it must not imply that
+the verified lawful route itself is criminal.
+
+The current reconciliation rationale appears once, in the authoritative legal
+evidence block. A duplicated legacy "why this colour" block is forbidden.
+
+## 6. Required verification
 
 The unit dataset test covers all determined GEO:
 
@@ -60,11 +92,17 @@ YELLOW -> ⚠️ + legal verdict YELLOW
 RED    -> ❌ + legal verdict RED
 ```
 
-The opt-in WebKit audit must open every requested popup on the existing singleton, verify the same rule from rendered text, and save an external screenshot. Its manifest records `geo`, `legalTruthColor`, `mapDisplayText`, and `legalEvidenceIcon` for every captured row.
+The opt-in WebKit audit must open every requested popup on the existing singleton, wait for the selected GEO identity, verify the same rule from rendered text, and save an external screenshot. Its manifest records `geo`, `legalTruthColor`, `mapDisplayText`, and `legalEvidenceIcon` for every captured row.
+
+For the canonical 307-GEO run, every rendered supplementary restriction must
+have an `Action:` statement and one external supplementary source link. The
+audit must also reject the prior unspecific legacy phrases that mixed a
+restriction with the current conclusion, verify the sticky close control after
+popup scroll, and preserve the route-local popup identity before collecting a
+row.
 
 A random live sample is supplemental evidence, never a replacement for the separate canonical 307-GEO visual-manifest refresh. Guard freshness must not be faked, weakened, or repaired by timestamp changes.
 
-## 6. Route boundary
+## 7. Route boundary
 
 This is an audit-only `/truth-map` presentation contract. It is not the public country SEO colour/badge contract, and it must not make `/truth-map` indexable. The public sitemap, `/`, `/new-map`, legal APIs, SSOT, Store Truth, Social semantics, map colours, production and deployment remain independent.
-

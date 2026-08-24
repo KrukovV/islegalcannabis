@@ -70,6 +70,10 @@ describe("truth-map final reconciliation projection", () => {
     expect(antarctica?.properties?.displayColorBasis).toBe("POLAR_UNRESOLVED_SCOPE");
     expect(antarctica?.properties?.displayGreyAllowedByPolicy).toBe(true);
     expect(antarctica?.properties?.displayIsResearchDirection).toBe(true);
+    expect(antarctica?.properties?.baseColor).toBe("#c5ccd3");
+    expect(antarctica?.properties?.hoverColor).toBe("#d4dae0");
+    expect(antarctica?.properties?.fillOpacity).toBe(1);
+    expect(antarctica?.properties?.hoverOpacity).toBe(1);
     expect(resolveTruthMapDisplayColor("BRT", "UNKNOWN", "NO_UNITARY_APPLICABLE_REGIME", "", polarPolicy)).toMatchObject({
       color: "YELLOW",
       basis: "EVIDENCE_DIRECTION_SCOPE_UNRESOLVED",

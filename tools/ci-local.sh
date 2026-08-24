@@ -73,7 +73,7 @@ last_cmd=""
 trap 'last_cmd=$BASH_COMMAND' DEBUG
 bash tools/git-health.sh || { CI_LOCAL_REASON="GIT_HEALTH_FAIL"; CI_LOCAL_STEP="git_health"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 ALLOW_SCOPE_OVERRIDE=1 npm run --workspace-root where || { CI_LOCAL_REASON="WHERE_FAIL"; CI_LOCAL_STEP="where"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
-CI_LOCAL_AUDIT_SCOPE_PATHS="${CI_LOCAL_AUDIT_SCOPE_PATHS:-.gitattributes,AGENTS.md,vercel.json,Reports/**,CONTINUITY.md,data/wiki/**,data/wiki_cache/**,data/wiki_notes/**,data/official/**,data/reviews/**,data/store_truth/**,docs/**,tools/**,apps/web/**}"
+CI_LOCAL_AUDIT_SCOPE_PATHS="${CI_LOCAL_AUDIT_SCOPE_PATHS:-.gitattributes,AGENTS.md,vercel.json,Reports/**,CONTINUITY.md,data/wiki/**,data/wiki_cache/**,data/wiki_notes/**,data/official/**,data/reviews/**,data/store_truth/**,docs/**,tools/**,apps/web/**,package.json,playwright.config.ts,tests/ui/**}"
 GUARDS_OUTPUT=$(ALLOW_SCOPE_OVERRIDE=1 ALLOW_SCOPE_PATHS="${CI_LOCAL_AUDIT_SCOPE_PATHS}" node tools/guards/run_all.mjs 2>&1) || {
   echo "${GUARDS_OUTPUT}"
   GUARDS_COUNTS_LINE=$(printf "%s\n" "${GUARDS_OUTPUT}" | grep -E "^GUARDS_COUNTS=" | tail -n 1 || true)
@@ -116,6 +116,7 @@ npm run lint || { CI_LOCAL_REASON="LINT_FAIL"; CI_LOCAL_STEP="lint"; CI_LOCAL_CM
 npm test || { CI_LOCAL_REASON="TEST_FAIL"; CI_LOCAL_STEP="test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 npm run web:build || { CI_LOCAL_REASON="WEB_BUILD_FAIL"; CI_LOCAL_STEP="web_build"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 node tools/source_maps_build.test.mjs || { CI_LOCAL_REASON="SOURCE_MAPS_BUILD_TEST_FAIL"; CI_LOCAL_STEP="source_maps_build_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
+node --test tools/playwright_runtime.test.mjs || { CI_LOCAL_REASON="PLAYWRIGHT_RUNTIME_TEST_FAIL"; CI_LOCAL_STEP="playwright_runtime_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 SSOT_METRICS_OUTPUT=$(node tools/ssot/ssot_metrics.js 2>&1) || {
   CI_LOCAL_REASON="SSOT_METRICS_FAIL"
   CI_LOCAL_STEP="ssot_metrics"
@@ -333,11 +334,7 @@ if [ -z "${SMOKE_PORT_OUTPUT}" ] || ! echo "${SMOKE_PORT_OUTPUT}" | grep -E "^[0
   fi
 if [ "${UI_E2E:-1}" = "1" ]; then
     export PLAYWRIGHT_BASE_URL="http://127.0.0.1:${SMOKE_PORT}"
-    (cd apps/web && npx -y playwright install chromium)
-    PLAYWRIGHT_NPX_DIR=$(ls -td "${HOME}/.npm/_npx/"* 2>/dev/null | head -n 1 || true)
-    if [ -n "${PLAYWRIGHT_NPX_DIR}" ] && [ -d "${PLAYWRIGHT_NPX_DIR}/node_modules" ]; then
-      export NODE_PATH="${PLAYWRIGHT_NPX_DIR}/node_modules"
-    fi
+    (cd apps/web && ./node_modules/.bin/playwright install chromium webkit)
     WEB_LOG=$(mktemp)
     PORT="${SMOKE_PORT}" npm -w apps/web run start -- -p "${SMOKE_PORT}" >"${WEB_LOG}" 2>&1 &
     WEB_PID=$!

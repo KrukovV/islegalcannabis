@@ -1,13 +1,9 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { createRequire } from "node:module";
 import { buildVercelBypassHeaders, redactVercelBypassSecret } from "./vercel_bypass.mjs";
+import { playwright } from "./playwright_runtime.mjs";
 
 const repoRoot = process.cwd();
-const require = createRequire(import.meta.url);
-const playwright = require(require.resolve("playwright", {
-  paths: [path.join(repoRoot, "apps/web")]
-}));
 
 const url = process.env.NEW_MAP_GPS_URL || "https://www.islegal.info/new-map";
 const label = process.env.NEW_MAP_GPS_LABEL || "prod-gps";

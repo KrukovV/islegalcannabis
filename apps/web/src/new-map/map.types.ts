@@ -79,9 +79,9 @@ export type CountryCardEntry = {
   panel: {
     levelTitle: string;
     summary: string;
-    critical: Array<{ id: string; text: string; href: string; sourceUrl?: string }>;
-    info: Array<{ id: string; text: string; href: string; sourceUrl?: string }>;
-    why: Array<{ id: string; text: string; href: string; sourceUrl?: string }>;
+    critical: Array<{ id: string; text: string; href: string; sourceUrl?: string; sourceLabel?: string; contextKind?: "supplementary-map-context"; plainText?: boolean }>;
+    info: Array<{ id: string; text: string; href: string; sourceUrl?: string; sourceLabel?: string; contextKind?: "supplementary-map-context"; plainText?: boolean }>;
+    why: Array<{ id: string; text: string; href: string; sourceUrl?: string; sourceLabel?: string; contextKind?: "supplementary-map-context"; plainText?: boolean }>;
   };
   sources: Array<{ id: string; title: string; url: string }>;
   coordinates?: { lat: number; lng: number };

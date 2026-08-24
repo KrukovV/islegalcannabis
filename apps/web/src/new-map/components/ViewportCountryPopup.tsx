@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { SeoLocale } from "@/lib/seo/i18n";
@@ -16,13 +16,29 @@ export default function ViewportCountryPopup({
   locale,
   anchor,
   onClose,
-  onOpenDetails
+  onOpenDetails,
+  className,
+  rootTestId = "new-map-root",
+  popupVariant = "new-map",
+  supplementalContent,
+  sectionLabels,
+  profileSectionLabels
 }: {
   entry: CountryCardEntry;
   locale: SeoLocale;
   anchor: { x: number; y: number } | null;
   onClose: () => void;
   onOpenDetails?: (_entry: CountryCardEntry) => void;
+  className?: string;
+  rootTestId?: string;
+  popupVariant?: string;
+  supplementalContent?: ReactNode;
+  sectionLabels?: Partial<{
+    hardRestrictions: string;
+    moreContext: string;
+    whyThisColor: string;
+  }>;
+  profileSectionLabels?: Partial<Record<string, string>>;
 }) {
   const panelRef = useRef<HTMLElement | null>(null);
   const currentPath = usePathname() || "/";
@@ -46,7 +62,7 @@ export default function ViewportCountryPopup({
 
     const updatePosition = () => {
       const rect = panel.getBoundingClientRect();
-      const root = document.querySelector('[data-testid="new-map-root"]');
+      const root = document.querySelector(`[data-testid="${rootTestId}"]`);
       const rootStyle = root ? window.getComputedStyle(root) : null;
       const viewport = readVisualViewportSnapshot();
       const safeTop = Math.max(12, parseCssPx(rootStyle?.getPropertyValue("--new-map-safe-top") || null, 0));
@@ -91,11 +107,11 @@ export default function ViewportCountryPopup({
       unsubscribeViewport();
       window.cancelAnimationFrame(frameId);
     };
-  }, [anchor, entry.geo]);
+  }, [anchor, entry.geo, rootTestId]);
 
   const renderList = (
     title: string,
-    items: Array<{ id: string; text: string; href: string; sourceUrl?: string }>
+    items: CountryCardEntry["panel"]["critical"]
   ) => {
     if (!items.length) return null;
     const isSelfLink = (href: string) => isSameLink(href, currentPath, currentPath);
@@ -119,15 +135,17 @@ export default function ViewportCountryPopup({
         <div className={styles.viewportPopupSectionTitle}>{title}</div>
         <ul className={styles.viewportPopupList}>
           {items.map((item) => (
-            <li key={item.id} className={styles.viewportPopupListItem}>
-              {isSelfLink(item.href) ? null : (
+            <li key={item.id} className={styles.viewportPopupListItem} data-context-kind={item.contextKind}>
+              {isSelfLink(item.href) ? null : item.plainText ? (
+                <strong>{item.text}</strong>
+              ) : (
                 <Link href={item.href} className={reasonLinkClass(item.href)}>
                   <strong>{item.text}</strong>
                 </Link>
               )}
               {item.sourceUrl && !isSameReasonSourceLink(item.sourceUrl, item.href) ? (
                 <a className={sourceLinkClass(item.sourceUrl)} href={item.sourceUrl} {...getLinkTarget(item.sourceUrl)}>
-                  {sourceDisplayTitle(`Source: ${item.text}`, item.sourceUrl)}
+                  {sourceDisplayTitle(item.sourceLabel || `Source: ${item.text}`, item.sourceUrl)}
                 </a>
               ) : null}
             </li>
@@ -181,10 +199,11 @@ export default function ViewportCountryPopup({
   const renderProfileSection = (title: string, items: string[] | undefined, limit?: number) => {
     const visible = (items || []).slice(0, limit ?? (items?.length || 0));
     if (!visible.length) return null;
+    const displayTitle = profileSectionLabels?.[title] || title;
     return (
       <section className={styles.viewportPopupSection}>
         <div className={styles.viewportPopupSectionTitle}>
-          {title}
+          {displayTitle}
         {entry.cannabisProfile?.sourceUrl && !isSameLink(entry.cannabisProfile.sourceUrl, `/c/${entry.code}`, currentPath) ? (
             <>
               {" · "}
@@ -251,15 +270,16 @@ export default function ViewportCountryPopup({
   return (
     <aside
       ref={panelRef}
-      className={styles.viewportPopupPanel}
+      className={[styles.viewportPopupPanel, className].filter(Boolean).join(" ")}
       data-testid="new-map-country-popup"
+      data-popup-variant={popupVariant}
       data-placement={position.placement}
       style={{
         left: `${position.left}px`,
         top: `${position.top}px`
       }}
     >
-      <div className={styles.viewportPopupHeader}>
+      <div className={styles.viewportPopupHeader} data-testid="viewport-country-popup-header">
         <div className={styles.viewportPopupHeaderText}>
           <div className={styles.viewportPopupTitle}>{entry.displayName}</div>
           <div className={styles.viewportPopupMeta}>ISO2: {entry.iso2 || "Unknown"}</div>
@@ -273,6 +293,7 @@ export default function ViewportCountryPopup({
             className={styles.viewportPopupClose}
             onClick={onClose}
             aria-label={`Close ${entry.displayName} panel`}
+            data-testid="viewport-country-popup-close"
           >
             ×
           </button>
@@ -285,10 +306,11 @@ export default function ViewportCountryPopup({
           <li className={styles.viewportPopupPlainItem}>{panel.summary}</li>
         </ul>
       </section>
+      {supplementalContent}
       {jurisdictionSection.length > 0 ? renderProfileSection("Jurisdiction", jurisdictionSection) : null}
-      {renderList(panel?.labels.hardRestrictions || "Hard restrictions", panel?.critical || entry.panel.critical)}
-      {renderList(panel?.labels.moreContext || "More context", panel?.info || entry.panel.info)}
-      {renderList(panel?.labels.whyThisColor || "Why this color", panel?.why || entry.panel.why)}
+      {renderList(sectionLabels?.hardRestrictions || panel?.labels.hardRestrictions || "Hard restrictions", panel?.critical || entry.panel.critical)}
+      {renderList(sectionLabels?.moreContext || panel?.labels.moreContext || "More context", panel?.info || entry.panel.info)}
+      {renderList(sectionLabels?.whyThisColor || panel?.labels.whyThisColor || "Why this color", panel?.why || entry.panel.why)}
       {renderProfileSection("History", historySectionItems)}
       {renderProfileSection("Culture", cultureSectionItems)}
       {renderProfileSection("Enforcement Reality", enforcementSectionItems)}

@@ -1,4 +1,4 @@
-import { chromium } from "@playwright/test";
+import { chromium } from "../../tools/playwright_runtime.mjs";
 import { acquireProjectProcessSlot } from "../../tools/runtime/processSlots.mjs";
 import { assertNodeRuntimeSettled } from "../../tools/runtime/nodeRuntimeGuard.mjs";
 

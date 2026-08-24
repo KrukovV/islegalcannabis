@@ -3442,8 +3442,8 @@ fi
 
 WIKI_TRUTH_LIVE_CHROMIUM_OUTPUT=""
 CURRENT_STEP="wiki_truth_live_probe_chromium"
-CURRENT_CMD="NODE_PATH=${ROOT}/tools/playwright-smoke/node_modules BROWSER=chromium ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
-capture_timeout_output 180 "cd \"${ROOT}\" && NODE_PATH=\"${ROOT}/tools/playwright-smoke/node_modules\" BROWSER=chromium HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
+CURRENT_CMD="BROWSER=chromium ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
+capture_timeout_output 180 "cd \"${ROOT}\" && BROWSER=chromium HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
 WIKI_TRUTH_LIVE_CHROMIUM_OUTPUT="WIKI_TRUTH_LIVE_CHROMIUM_ATTEMPT=1 rc=${CAPTURE_TIMEOUT_RC}
 ${CAPTURE_TIMEOUT_OUTPUT}"
 WIKI_TRUTH_LIVE_CHROMIUM_RC="${CAPTURE_TIMEOUT_RC}"
@@ -3452,7 +3452,7 @@ if [ "${WIKI_TRUTH_LIVE_CHROMIUM_RC}" -ne 0 ]; then
   # browser probe. Keep the probe fail-closed, but allow the cold listener to
   # become HTTP-ready before its single retry.
   sleep 15
-  capture_timeout_output 180 "cd \"${ROOT}\" && NODE_PATH=\"${ROOT}/tools/playwright-smoke/node_modules\" BROWSER=chromium HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
+  capture_timeout_output 180 "cd \"${ROOT}\" && BROWSER=chromium HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
   WIKI_TRUTH_LIVE_CHROMIUM_OUTPUT="${WIKI_TRUTH_LIVE_CHROMIUM_OUTPUT}
 WIKI_TRUTH_LIVE_CHROMIUM_ATTEMPT=2 rc=${CAPTURE_TIMEOUT_RC}
 ${CAPTURE_TIMEOUT_OUTPUT}"
@@ -3473,15 +3473,15 @@ fi
 
 WIKI_TRUTH_LIVE_WEBKIT_OUTPUT=""
 CURRENT_STEP="wiki_truth_live_probe_webkit"
-CURRENT_CMD="NODE_PATH=${ROOT}/tools/playwright-smoke/node_modules BROWSER=webkit ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
-capture_timeout_output 180 "cd \"${ROOT}\" && NODE_PATH=\"${ROOT}/tools/playwright-smoke/node_modules\" BROWSER=webkit HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
+CURRENT_CMD="BROWSER=webkit ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
+capture_timeout_output 180 "cd \"${ROOT}\" && BROWSER=webkit HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
 WIKI_TRUTH_LIVE_WEBKIT_OUTPUT="WIKI_TRUTH_LIVE_WEBKIT_ATTEMPT=1 rc=${CAPTURE_TIMEOUT_RC}
 ${CAPTURE_TIMEOUT_OUTPUT}"
 WIKI_TRUTH_LIVE_WEBKIT_RC="${CAPTURE_TIMEOUT_RC}"
 if [ "${WIKI_TRUTH_LIVE_WEBKIT_RC}" -ne 0 ]; then
   # Match Chromium's bounded cold-server recovery window.
   sleep 15
-  capture_timeout_output 180 "cd \"${ROOT}\" && NODE_PATH=\"${ROOT}/tools/playwright-smoke/node_modules\" BROWSER=webkit HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
+  capture_timeout_output 180 "cd \"${ROOT}\" && BROWSER=webkit HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
   WIKI_TRUTH_LIVE_WEBKIT_OUTPUT="${WIKI_TRUTH_LIVE_WEBKIT_OUTPUT}
 WIKI_TRUTH_LIVE_WEBKIT_ATTEMPT=2 rc=${CAPTURE_TIMEOUT_RC}
 ${CAPTURE_TIMEOUT_OUTPUT}"

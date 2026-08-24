@@ -1,10 +1,12 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import maplibregl from "maplibre-gl";
 import type { RuntimeIdentity } from "@/lib/runtimeIdentity";
 import { createMap, NEW_MAP_SOURCE_ID, NEW_MAP_US_STATES_SOURCE_ID } from "@/new-map/createMap";
 import MapGeoDock from "@/new-map/MapGeoDock";
+import ViewportCountryPopup from "@/new-map/components/ViewportCountryPopup";
+import { attachHoverController } from "@/new-map/hoverController";
 import type { CountryCardEntry, LegalCountryCollection, NewMapBootResult } from "@/new-map/map.types";
 import { NEW_MAP_BASEMAP_STYLE_URL } from "@/new-map/runtimeUrls";
 import styles from "@/new-map/MapRoot.module.css";
@@ -23,6 +25,7 @@ import {
 import type { SocialRuntimeConfig } from "@/social/runtimeConfig";
 import TruthMapSocialPanel from "./TruthMapSocialPanel";
 import type { TruthMapCollection, TruthMapDatasetMeta, TruthMapFeatureProperties } from "./truthMapSource";
+import { projectTruthMapRichCard, TRUTH_MAP_CONTEXT_LABELS, TRUTH_MAP_PROFILE_SECTION_LABELS } from "./truthMapRichCard";
 
 type Props = {
   countriesUrl: string;
@@ -54,16 +57,10 @@ type ActiveGeo = {
   lng?: number;
 } | null;
 
-const EMPTY_CARD_INDEX: Record<string, CountryCardEntry> = {};
-
-function escapeHtml(value: unknown) {
-  return String(value || "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
+type TruthMapPopupSelection = {
+  properties: TruthMapFeatureProperties;
+  lngLat: { lng: number; lat: number };
+};
 
 function parseLegalEvidenceCitations(value: unknown) {
   try {
@@ -84,15 +81,50 @@ function parseLegalEvidenceCitations(value: unknown) {
   }
 }
 
-function renderTruthPopup(properties: TruthMapFeatureProperties) {
+function TruthMapLegalEvidence({ properties }: { properties: TruthMapFeatureProperties }) {
   const citations = parseLegalEvidenceCitations(properties.legalEvidenceCitationsJson);
-  const legalEvidence = `<section class="truth-map-legal-evidence" data-testid="truth-map-legal-evidence" data-legal-evidence-status="${escapeHtml(properties.legalEvidenceStatus)}"><div class="truth-map-legal-evidence-heading"><span class="truth-map-legal-evidence-icon" aria-hidden="true">${escapeHtml(properties.legalEvidenceIcon)}</span><div><strong>${escapeHtml(properties.legalEvidenceLabel)}</strong><div class="truth-map-legal-evidence-summary">${escapeHtml(properties.legalEvidenceSummary)}</div></div></div>${citations.length ? `<ol class="truth-map-legal-citations">${citations.map((citation) => `<li><a href="${escapeHtml(citation.url)}" target="_blank" rel="noreferrer noopener">${escapeHtml(citation.title)}</a><div class="truth-map-legal-annotation">${escapeHtml(citation.publisher)} · ${escapeHtml(citation.annotation)}</div>${citation.quote ? `<blockquote>${escapeHtml(citation.quote)}</blockquote>` : ""}</li>`).join("")}</ol>` : `<p class="truth-map-legal-annotation">No link is retained for this record.</p>`}</section>`;
   const displayDirection = properties.displayIsResearchDirection
     ? properties.truthMapDisplayColor === "GRAY"
-      ? `<div data-testid="truth-map-research-direction">Map display: GRAY — polar scope exception.</div><div>Display basis: ${escapeHtml(properties.displayColorBasis)}</div><div>This map display is not a final legal conclusion.</div>`
-      : `<div data-testid="truth-map-research-direction">Map display: research direction ${escapeHtml(properties.truthMapDisplayColor)} — not a final legal conclusion.</div><div>Display basis: ${escapeHtml(properties.displayColorBasis)}</div>`
-    : `<div>Map display: legal verdict ${escapeHtml(properties.truthMapDisplayColor)}.</div>`;
-  return `<section class="truth-map-country-popup" data-testid="truth-map-country-popup"><div class="truth-map-popup-title"><strong>${escapeHtml(properties.displayName)}</strong><span>${escapeHtml(properties.geo)}</span></div><div>Legal conclusion: ${escapeHtml(properties.legalTruthColor)} · ${escapeHtml(properties.truthConfidence)}</div>${displayDirection}${legalEvidence}<details class="truth-map-popup-details"><summary>Reconciliation rationale</summary><div>Rule: ${escapeHtml(properties.truthRuleId)}</div><div>${escapeHtml(properties.truthReason)}</div><div>Apply state: ${escapeHtml(properties.applyState)}</div></details><small>Audit preview only — not applied to SSOT, production map, SEO, or deployment.</small></section>`;
+      ? <><div data-testid="truth-map-research-direction">Map display: GRAY — polar scope exception.</div><div>Display basis: {properties.displayColorBasis}</div><div>This map display is not a final legal conclusion.</div></>
+      : <><div data-testid="truth-map-research-direction">Map display: research direction {properties.truthMapDisplayColor} — not a final legal conclusion.</div><div>Display basis: {properties.displayColorBasis}</div></>
+    : <div>Map display: legal verdict {properties.truthMapDisplayColor}.</div>;
+  return (
+    <section className="truth-map-legal-evidence" data-testid="truth-map-legal-evidence" data-legal-evidence-status={properties.legalEvidenceStatus}>
+      <div className="truth-map-current-legal-title">Current legal conclusion: {properties.legalTruthColor} · {properties.truthConfidence}</div>
+      <div className="truth-map-legal-evidence-heading">
+        <span className="truth-map-legal-evidence-icon" aria-hidden="true">{properties.legalEvidenceIcon}</span>
+        <div>
+          <strong>{properties.legalEvidenceLabel}</strong>
+          <div className="truth-map-legal-evidence-summary">{properties.legalEvidenceSummary}</div>
+        </div>
+      </div>
+      <div className="truth-map-display-direction">{displayDirection}</div>
+      {citations.length ? (
+        <ol className="truth-map-legal-citations">
+          {citations.map((citation) => (
+            <li key={`${citation.url}-${citation.title}`}>
+              <a href={citation.url} target="_blank" rel="nofollow noopener noreferrer">{citation.title}</a>
+              <div className="truth-map-legal-annotation">{[citation.publisher, citation.annotation].filter(Boolean).join(" · ")}</div>
+              {citation.quote ? <blockquote>{citation.quote}</blockquote> : null}
+            </li>
+          ))}
+        </ol>
+      ) : <p className="truth-map-legal-annotation">No official link is retained for this record.</p>}
+      <details className="truth-map-popup-details">
+        <summary>Current reconciliation rationale</summary>
+        <div>Rule: {properties.truthRuleId}</div>
+        <div>{properties.truthReason}</div>
+        <div>Apply state: {properties.applyState}</div>
+      </details>
+      <small>Audit preview only — not applied to SSOT, production map, SEO, or deployment.</small>
+    </section>
+  );
+}
+
+function popupAnchorFor(map: maplibregl.Map, lngLat: { lng: number; lat: number }) {
+  const point = map.project([lngLat.lng, lngLat.lat]);
+  const rect = map.getCanvas().getBoundingClientRect();
+  return { x: rect.left + point.x, y: rect.top + point.y };
 }
 
 function metaSummary(meta: TruthMapDatasetMeta | null) {
@@ -106,13 +138,16 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const runtimeRef = useRef<NewMapBootResult | null>(null);
-  const popupRef = useRef<maplibregl.Popup | null>(null);
   const locationMarkerRef = useRef<maplibregl.Marker | null>(null);
+  const cardEntryRequestsRef = useRef<Record<string, Promise<CountryCardEntry | null>>>({});
   const [mapInstance, setMapInstance] = useState<maplibregl.Map | null>(null);
   const [mapReady, setMapReady] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [meta, setMeta] = useState<TruthMapDatasetMeta | null>(null);
   const [selectedGeo, setSelectedGeo] = useState<ActiveGeo>(null);
+  const [selectedPopup, setSelectedPopup] = useState<TruthMapPopupSelection | null>(null);
+  const [popupAnchor, setPopupAnchor] = useState<{ x: number; y: number } | null>(null);
+  const [cardIndex, setCardIndex] = useState<Record<string, CountryCardEntry>>({});
   const [storesEnabled, setStoresEnabled] = useState(true);
   const initialMapViewRef = useRef(initialMapView);
 
@@ -120,28 +155,75 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
   useSocialMapLayer(mapInstance, mapReady, socialConfig);
 
   const clearSelectedGeo = useCallback(() => {
-    popupRef.current?.remove();
-    popupRef.current = null;
+    setSelectedPopup(null);
+    setPopupAnchor(null);
     setSelectedGeo(null);
   }, []);
 
   const openTruthPopup = useCallback((properties: TruthMapFeatureProperties, lngLat: { lng: number; lat: number }) => {
     const map = mapRef.current;
     if (!map) return;
-    const mapPoint = map.project([lngLat.lng, lngLat.lat]);
-    const popupAnchor: "top" | "bottom" = mapPoint.y > map.getContainer().clientHeight / 2 ? "bottom" : "top";
     setSelectedGeo({
       country: properties.displayName || properties.geo,
       iso2: properties.geo,
       lat: lngLat.lat,
       lng: lngLat.lng,
     });
-    popupRef.current?.remove();
-    popupRef.current = new maplibregl.Popup({ closeButton: true, closeOnClick: true, className: "truth-map-popup-shell", anchor: popupAnchor, offset: 12 })
-      .setLngLat(lngLat)
-      .setHTML(renderTruthPopup(properties))
-      .addTo(map);
+    setSelectedPopup({ properties, lngLat });
+    setPopupAnchor(popupAnchorFor(map, lngLat));
   }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    void fetch("/api/new-map/card-index", { credentials: "same-origin" })
+      .then(async (response) => response.ok ? response.json() as Promise<Record<string, CountryCardEntry>> : null)
+      .then((nextIndex) => {
+        if (!cancelled && nextIndex) setCardIndex(nextIndex);
+      })
+      .catch(() => {
+        // A clicked card below still retries its one territory entry. Map data remains usable.
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    const geo = selectedPopup?.properties.geo;
+    if (!geo || cardIndex[geo]) return;
+    const existingRequest = cardEntryRequestsRef.current[geo];
+    const request = existingRequest || fetch(`/api/new-map/card-entry?geo=${encodeURIComponent(geo)}`, { credentials: "same-origin" })
+      .then(async (response) => response.ok ? response.json() as Promise<CountryCardEntry> : null)
+      .catch(() => null);
+    cardEntryRequestsRef.current[geo] = request;
+    let cancelled = false;
+    void request.then((entry) => {
+      if (!cancelled && entry) {
+        setCardIndex((current) => current[geo] ? current : { ...current, [geo]: entry });
+      }
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [cardIndex, selectedPopup]);
+
+  useEffect(() => {
+    if (!selectedPopup || !mapInstance) return;
+    const updateAnchor = () => setPopupAnchor(popupAnchorFor(mapInstance, selectedPopup.lngLat));
+    updateAnchor();
+    mapInstance.on("move", updateAnchor);
+    mapInstance.on("resize", updateAnchor);
+    return () => {
+      mapInstance.off("move", updateAnchor);
+      mapInstance.off("resize", updateAnchor);
+    };
+  }, [mapInstance, selectedPopup]);
+
+  const selectedRichEntry = useMemo(() => {
+    if (!selectedPopup) return null;
+    const entry = cardIndex[selectedPopup.properties.geo];
+    return entry ? projectTruthMapRichCard(entry, selectedPopup.properties) : null;
+  }, [cardIndex, selectedPopup]);
 
   const applyGeoToMap = useCallback((geo: ActiveGeo, options?: { recenter?: boolean }) => {
     const map = mapRef.current;
@@ -218,6 +300,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
     host.__TRUTH_MAP_DEBUG__ = { map: runtime.map };
 
     const load = async () => {
+      let hover: ReturnType<typeof attachHoverController> | null = null;
       try {
         const [response, statesResponse] = await Promise.all([
           fetch(countriesUrl, { cache: "no-store", credentials: "same-origin" }),
@@ -230,6 +313,16 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
           statesResponse.json() as Promise<TruthMapCollection>,
         ]);
         if (disposed) return;
+        // The basemap phase has installed the shared feature layers. Attach the
+        // same controller as /new-map before waiting for all reconciliation data,
+        // so the pointer feedback is never contingent on a delayed idle event.
+        await runtime.basemapReady;
+        if (disposed) return;
+        hover = attachHoverController(runtime.map, {
+          onHoverChange: (geo) => {
+            runtime.map.getCanvas().dataset.truthMapHoveredGeo = geo || "";
+          }
+        });
         runtime.setData(countries as LegalCountryCollection);
         setMeta(countries.meta || null);
         await runtime.ready;
@@ -239,8 +332,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
           runtime.map.jumpTo({ center: [initialView.lng, initialView.lat], zoom: initialView.zoom, pitch: 0, bearing: 0 });
         }
         setMapReady(true);
-        if (new URLSearchParams(window.location.search).get("qa") !== "1") return;
-        host.__TRUTH_MAP_QA__ = {
+        if (new URLSearchParams(window.location.search).get("qa") === "1") host.__TRUTH_MAP_QA__ = {
           jumpTo: (lng, lat, zoom) => new Promise<void>((resolve) => {
             let complete = false;
             const finish = () => {
@@ -291,16 +383,22 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
           getStoreVisibilityLevel: () => runtime.map.getCanvas().dataset.storeVisibilityLevel,
           getSocialVisibilityLevel: () => runtime.map.getCanvas().dataset.socialVisibilityLevel,
         };
+        if (disposed) hover.destroy();
+        return hover;
       } catch (loadError) {
+        hover?.destroy();
         if (!disposed) setError(loadError instanceof Error ? loadError.message : "truth_map_dataset_fetch_failed");
       }
     };
-    void load();
+    let hoverCleanup: (() => void) | null = null;
+    void load().then((hover) => {
+      hoverCleanup = hover ? () => hover.destroy() : null;
+      if (disposed) hoverCleanup?.();
+    });
 
     return () => {
       disposed = true;
-      popupRef.current?.remove();
-      popupRef.current = null;
+      hoverCleanup?.();
       locationMarkerRef.current?.remove();
       locationMarkerRef.current = null;
       if (host.__TRUTH_MAP_DEBUG__?.map === runtime.map) delete host.__TRUTH_MAP_DEBUG__;
@@ -344,12 +442,32 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
       </section>
       <MapGeoDock
         mapReady={mapReady}
-        cardIndex={EMPTY_CARD_INDEX}
+        cardIndex={cardIndex}
         selectedGeo={selectedGeo}
         routeGeo={null}
         clearSelectedGeo={clearSelectedGeo}
         applyGeoToMap={applyGeoToMap}
+        disableAiWarmup
       />
+      {selectedPopup && !selectedRichEntry ? (
+        <div className={truthStyles.richPopupLoading} data-testid="truth-map-rich-popup-loading" role="status">
+          Opening the full territory record…
+        </div>
+      ) : null}
+      {selectedPopup && selectedRichEntry && popupAnchor ? (
+        <ViewportCountryPopup
+          entry={selectedRichEntry}
+          locale="en"
+          anchor={popupAnchor}
+          onClose={clearSelectedGeo}
+          className={truthStyles.richPopup}
+          rootTestId="truth-map-root"
+          popupVariant="truth-map"
+          supplementalContent={<TruthMapLegalEvidence properties={selectedPopup.properties} />}
+          sectionLabels={TRUTH_MAP_CONTEXT_LABELS}
+          profileSectionLabels={TRUTH_MAP_PROFILE_SECTION_LABELS}
+        />
+      ) : null}
       <TruthMapSocialPanel config={socialConfig} map={mapInstance} mapReady={mapReady} initiallyOpen={socialPanelInitiallyOpen} />
       <div hidden data-testid="truth-map-runtime" data-source={runtimeIdentity.dataSource} data-snapshot={runtimeIdentity.finalSnapshotId} />
     </main>

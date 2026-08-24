@@ -1,13 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
-import { defineConfig, devices } from "@playwright/test";
+import { defineConfig, devices } from "./tools/playwright_runtime.mjs";
 
 const baseURL = process.env.PLAYWRIGHT_BASE_URL || "http://localhost:3000";
 const existingUiLock = fs.existsSync(path.join(process.cwd(), "apps", "web", ".next", "dev", "lock"));
 const shouldUseExistingUiOnly = process.env.PLAYWRIGHT_USE_EXISTING_UI_ONLY === "1" || existingUiLock;
 
 export default defineConfig({
-  testDir: "./tests",
+  testDir: "./apps/web/e2e",
   retries: 1,
   workers: 1,
   use: {

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import fs from "node:fs/promises";
 import path from "node:path";
-import { chromium, webkit } from "@playwright/test";
+import { chromium, webkit } from "../playwright_runtime.mjs";
 import { acquireProjectProcessSlot } from "../runtime/processSlots.mjs";
 
 const ROOT = process.cwd();
