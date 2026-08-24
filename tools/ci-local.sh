@@ -377,11 +377,19 @@ if [ "${UI_E2E:-1}" = "1" ]; then
     CI_LOCAL_STEP="smoke_report"
     print_fail "${CI_LOCAL_REASON}"
   fi
-  SMOKE_JSON=$(${NODE_BIN} -e 'const fs=require("fs");const data=JSON.parse(fs.readFileSync("Reports/smoke-report.json","utf8"));process.stdout.write(`${data.total};${data.passed};${data.failed}`)')
-  SMOKE_TOTAL=${SMOKE_JSON%%;*}
-  SMOKE_REST=${SMOKE_JSON#*;}
-  SMOKE_PASSED=${SMOKE_REST%%;*}
-  SMOKE_FAILED=${SMOKE_REST##*;}
+  if ! SMOKE_METRICS=$(${NODE_BIN} tools/playwright-smoke/verify_smoke_report.mjs Reports/smoke-report.json); then
+    CI_LOCAL_REASON="SMOKE_ACCOUNTING_INVALID"
+    CI_LOCAL_STEP="smoke_report"
+    print_fail "${CI_LOCAL_REASON}"
+  fi
+  printf "%s\n" "${SMOKE_METRICS}"
+  smoke_metric() {
+    printf "%s\n" "${SMOKE_METRICS}" | sed -nE "s/^$1=([0-9]+)$/\\1/p" | tail -n 1
+  }
+  SMOKE_TOTAL=$(smoke_metric "SMOKE_TOTAL")
+  SMOKE_PASSED=$(smoke_metric "SMOKE_PASSED")
+  SMOKE_FAILED=$(smoke_metric "SMOKE_FAILED")
+  SMOKE_SKIPPED=$(smoke_metric "SMOKE_SKIPPED")
   if [ "${SMOKE_TOTAL}" -eq 0 ]; then
     CI_LOCAL_REASON="SMOKE_EMPTY"
     CI_LOCAL_STEP="smoke_report"
@@ -405,7 +413,7 @@ if [ "${UI_E2E:-1}" = "1" ]; then
     CI_LOCAL_STEP="smoke_summary"
     print_fail "${CI_LOCAL_REASON}"
   fi
-  SMOKE_RESULT="${SMOKE_PASSED}/${SMOKE_FAILED}"
+  SMOKE_RESULT="${SMOKE_PASSED}/${SMOKE_FAILED} skipped=${SMOKE_SKIPPED}"
   mkdir -p .checkpoints
   CI_RESULT="PASS"
   echo "CI_RESULT=${CI_RESULT}; SMOKE=${SMOKE_RESULT}" | tee .checkpoints/ci-result.txt

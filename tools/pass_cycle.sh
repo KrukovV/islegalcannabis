@@ -2683,11 +2683,19 @@ if [ ! -f "${SMOKE_REPORT_JSON}" ]; then
   FAIL_RC=1
   fail_with_reason "SMOKE_NO_REPORT"
 fi
-SMOKE_PARSED=$(${NODE_BIN} -e 'const fs=require("fs");const data=JSON.parse(fs.readFileSync(process.argv[1],"utf8"));const total=Number(data.total||0)||0;const passed=Number(data.passed||0)||0;const failed=Number(data.failed||0)||0;process.stdout.write(`${total};${passed};${failed}`);' "${SMOKE_REPORT_JSON}")
-SMOKE_TOTAL="${SMOKE_PARSED%%;*}"
-SMOKE_REST="${SMOKE_PARSED#*;}"
-SMOKE_OK="${SMOKE_REST%%;*}"
-SMOKE_FAIL="${SMOKE_REST##*;}"
+if ! SMOKE_METRICS=$(${NODE_BIN} tools/playwright-smoke/verify_smoke_report.mjs "${SMOKE_REPORT_JSON}"); then
+  FAIL_STEP="smoke_report"
+  FAIL_CMD="${NODE_BIN} tools/playwright-smoke/verify_smoke_report.mjs ${SMOKE_REPORT_JSON}"
+  FAIL_RC=1
+  fail_with_reason "SMOKE_ACCOUNTING_INVALID"
+fi
+smoke_metric() {
+  printf "%s\n" "${SMOKE_METRICS}" | sed -nE "s/^$1=([0-9]+)$/\\1/p" | tail -n 1
+}
+SMOKE_TOTAL=$(smoke_metric "SMOKE_TOTAL")
+SMOKE_OK=$(smoke_metric "SMOKE_PASSED")
+SMOKE_FAIL=$(smoke_metric "SMOKE_FAILED")
+SMOKE_SKIPPED=$(smoke_metric "SMOKE_SKIPPED")
 if [ "${SMOKE_TOTAL}" -eq 0 ]; then
   FAIL_STEP="smoke_report"
   FAIL_CMD="Reports/smoke-report.json"
@@ -2710,13 +2718,15 @@ append_ci_line "SMOKE_STATUS=PASS"
 append_ci_line "SMOKE_TOTAL=${SMOKE_TOTAL}"
 append_ci_line "SMOKE_PASSED=${SMOKE_OK}"
 append_ci_line "SMOKE_FAILED=${SMOKE_FAIL}"
-SMOKE_LABEL="Smoke ${SMOKE_OK}/${SMOKE_FAIL} (total ${SMOKE_TOTAL})"
+append_ci_line "SMOKE_SKIPPED=${SMOKE_SKIPPED}"
+SMOKE_LABEL="Smoke ${SMOKE_OK}/${SMOKE_FAIL} (total ${SMOKE_TOTAL}; skipped ${SMOKE_SKIPPED})"
 SUMMARY_LINES[0]="${PASS_LINE1}"
 SUMMARY_LINES+=("${SMOKE_LABEL}")
 SUMMARY_LINES+=("SMOKE_STATUS=PASS")
 SUMMARY_LINES+=("SMOKE_TOTAL=${SMOKE_TOTAL}")
 SUMMARY_LINES+=("SMOKE_PASSED=${SMOKE_OK}")
 SUMMARY_LINES+=("SMOKE_FAILED=${SMOKE_FAIL}")
+SUMMARY_LINES+=("SMOKE_SKIPPED=${SMOKE_SKIPPED}")
 SUMMARY_LINES+=("QUARANTINE_SIZE_MB=${QUARANTINE_SIZE_MB}")
 SUMMARY_LINES+=("REPORTS_SIZE_MB=${REPORTS_SIZE_MB}")
 CI_STATUS_LINE="CI_STATUS=${CI_STATUS}"
@@ -2775,12 +2785,6 @@ SUMMARY_LINES+=(
   "Checkpoint: ${LATEST_CHECKPOINT}"
 )
 SMOKE_LABEL_LATEST="${SMOKE_LABEL}"
-if [ -f "${REPORTS_FINAL}" ]; then
-  SMOKE_TOTAL_LATEST="$(grep -E '^SMOKE_TOTAL=' "${REPORTS_FINAL}" | head -n1 | cut -d= -f2 || true)"
-  SMOKE_OK_LATEST="$(grep -E '^SMOKE_PASSED=' "${REPORTS_FINAL}" | head -n1 | cut -d= -f2 || true)"
-  SMOKE_FAIL_LATEST="$(grep -E '^SMOKE_FAILED=' "${REPORTS_FINAL}" | head -n1 | cut -d= -f2 || true)"
-  SMOKE_LABEL_LATEST="Smoke ${SMOKE_OK_LATEST:-?}/${SMOKE_FAIL_LATEST:-?} (total ${SMOKE_TOTAL_LATEST:-?})"
-fi
 for idx in "${!SUMMARY_LINES[@]}"; do
   if [[ "${SUMMARY_LINES[$idx]}" == Smoke\ * ]]; then
     SUMMARY_LINES[$idx]="${SMOKE_LABEL_LATEST}"
@@ -3736,6 +3740,7 @@ append_ci_line "SMOKE_STATUS=PASS"
 append_ci_line "SMOKE_TOTAL=${SMOKE_TOTAL}"
 append_ci_line "SMOKE_PASSED=${SMOKE_OK}"
 append_ci_line "SMOKE_FAILED=${SMOKE_FAIL}"
+append_ci_line "SMOKE_SKIPPED=${SMOKE_SKIPPED}"
 if [ "${SUMMARY_MODE}" = "MVP" ]; then
   ${NODE_BIN} tools/guards/compact_ci_summary.mjs --file "${STDOUT_FILE}" --max-lines 60
 fi

@@ -30,6 +30,7 @@
 - API: `/api/check?country=US&region=CA`, `/api/check?country=DE`
 - CI: `bash tools/pass_cycle.sh`
 - Contract smoke: use pass_cycle unless a narrower task explicitly names a smoke script.
+- Required UI smoke against the already running singleton: `PLAYWRIGHT_BASE_URL=http://127.0.0.1:3000 npm -w apps/web run ui:e2e`. The command excludes only `@opt-in-visual-audit`; then run `node tools/playwright-smoke/normalize_report.mjs Reports/playwright-smoke.json Reports/smoke-report.json` and `node tools/playwright-smoke/verify_smoke_report.mjs Reports/smoke-report.json`. A valid mandatory receipt has `SMOKE_FAILED=0` and `SMOKE_SKIPPED=0`.
 - Final handoff CI requires `VERCEL_AUTOMATION_BYPASS_SECRET` in env because `pass_cycle` runs the live `/new-map` render gate, payload/long-task metrics, country/city ZoomIn label timing, stale-GPS refresh/hover/ZoomIn/ZoomOut checks, and JS/source-map thresholds. Cookie evidence stays diagnostic.
 
 ## Popup/wiki audit

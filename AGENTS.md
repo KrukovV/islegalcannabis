@@ -92,6 +92,7 @@ Sandbox/Approval Workflow:
 
 Tools usage:
 - Prefer rg, fallback to grep -R when rg is unavailable.
+- Mandatory UI smoke accounting is fail-closed: `Reports/smoke-report.json` must account for every required test as `passed`, `failed` or `skipped`, with `total = passed + failed + skipped`. A mandatory smoke run may pass only when `failed=0` and `skipped=0`; opt-in visual audits must be tagged and excluded from the mandatory command, never silently accepted as skips.
 
 Network Truth Policy:
 - DNS is diagnostic only; it must never flip ONLINE/OFFLINE.

@@ -25,7 +25,7 @@
     "popup:visual:audit": "npm exec -- tsx scripts/popup-visual-audit.ts",
     "popup:visual:audit:full": "npm exec -- tsx scripts/popup-visual-audit-full.ts",
     "geo:sync:audit": "npm exec -- tsx scripts/geo-sync-audit.ts",
-    "ui:e2e": "./node_modules/.bin/playwright test e2e/favicon.spec.ts e2e/map-render.spec.ts e2e/new-map.geo-perf.spec.ts e2e/new-map.geo.spec.ts e2e/new-map.popup.spec.ts e2e/new-map.preload.spec.ts e2e/mobile-cold-start.spec.ts e2e/truth-map.zoom.spec.ts e2e/truth-map.social.spec.ts e2e/us-state-route.spec.ts",
+    "ui:e2e": "./node_modules/.bin/playwright test e2e/favicon.spec.ts e2e/map-render.spec.ts e2e/new-map.geo-perf.spec.ts e2e/new-map.geo.spec.ts e2e/new-map.popup.spec.ts e2e/new-map.preload.spec.ts e2e/mobile-cold-start.spec.ts e2e/truth-map.zoom.spec.ts e2e/truth-map.social.spec.ts e2e/us-state-route.spec.ts --grep-invert @opt-in-visual-audit",
     "pw:ui": "./node_modules/.bin/playwright test --ui",
     "pw:headed": "./node_modules/.bin/playwright test --headed",
     "pw:state": "./node_modules/.bin/playwright test e2e/us-state-route.spec.ts --headed --project=webkit",

@@ -14,6 +14,13 @@ Standard app API responses built with `apps/web/src/lib/api/response.ts` include
 - `/trust-view` must stay a stable localhost route resolving to the `/wiki-truth` audit UI.
 - `/changes` and `/api/ssot/changes` read from the SSOT diff cache/registry; they must not rebuild alternate truth in UI code.
 
+## Mandatory UI smoke accounting
+
+- The mandatory `apps/web` UI smoke command excludes only Playwright tests explicitly tagged `@opt-in-visual-audit`; those audits remain available through their explicit opt-in environment variables and are not silently counted as smoke coverage.
+- `Reports/smoke-report.json` is valid only when its test rows and counters agree: `total = passed + failed + skipped` and every row has one of those statuses.
+- A mandatory smoke receipt may report `SMOKE_STATUS=PASS` only when `failed=0` and `skipped=0`. The shared verifier is called by both `Tools/ci-local.sh` and `tools/pass_cycle.sh`; a counter mismatch or a skipped required test fails the cycle.
+- CI output must always publish all four numbers: `SMOKE_TOTAL`, `SMOKE_PASSED`, `SMOKE_FAILED`, and `SMOKE_SKIPPED`.
+
 ## SEO and production indexability contract
 
 `docs/SEO_INDEXABILITY_SPEC.md` is the canonical contract for public country
