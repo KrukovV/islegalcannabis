@@ -2,6 +2,10 @@
 
 Statuses: pending | in_progress | done
 
+## Publication receipts
+
+- [done] Publish the verified Amsterdam municipal-toleration Store Truth and Truth Map presentation package as `c8470612c5cf12f384747cf5e80525f42e3cebe0` on `codex/preserve-full-worktree-20260823`, tagged `good/truth-map-netherlands-amsterdam-20260825`. The package includes the 167-row municipality source snapshot/configuration, 135 exact PDOK/BAG public coordinates, 32 retained ambiguity-blocked rows, Store/Social parity, leaf-render repair, tests, contracts and rules. The final root receipt is green: `586` unit/API tests, smoke `22/0/0`, Truth Map visual and polar-policy guards `PASS`, `POST_CHECKS_OK=1`, `HUB_STAGE_REPORT_OK=1`; the post-push tree is clean. This is a review publication only: no production tag, deployment, Legal Truth, SSOT, `/`, `/new-map` or SEO mutation occurred.
+
 ## CI matrix freshness
 
 - [done] Restore complete mandatory UI-smoke accounting without weakening the audit suite: the formerly permanent California state-popup `test.skip` is active again; opt-in 307-GEO visual audits are explicitly tagged and excluded from the mandatory command. The shared report verifier checks every row and enforces `total = passed + failed + skipped`, then both `ci-local` and root `pass_cycle` reject a nonzero required skip. The fresh existing-server WebKit mandatory UI suite records `22 passed`, `0 failed`, `0 skipped`; the verifier regression suite is `4/4`; and the fresh root receipt is `Smoke 22/0 (total 22; skipped 0)`, `CI_STATUS=PASS`, `POST_CHECKS_OK=1`, `HUB_STAGE_REPORT_OK=1`.
