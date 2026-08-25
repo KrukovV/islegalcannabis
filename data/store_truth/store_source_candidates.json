@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "generated_at": "2026-08-23T19:50:24.276Z",
+  "generated_at": "2026-08-25T10:39:06.100Z",
   "local_only": true,
   "source_input": "data/reviews/wiki-truth-307-final-reconciliation.json",
   "external_leads_input": "data/store_truth/external_store_source_leads.json",
@@ -44,7 +44,7 @@
         "source_kind": "OFFICIAL_MCA_CURRENT_LICENSED_DISPENSARY_LIST",
         "evidence_role": "CURRENT_NAMED_DISPENSARY_CONFIRMATION"
       },
-      "discovered_at": "2026-08-23T19:50:24.251Z",
+      "discovered_at": "2026-08-25T10:39:06.022Z",
       "checked_at": null,
       "review_reason": "A source-only licensed-location lead is not an official location registry until authority, scope, content, freshness and extraction are independently verified."
     },

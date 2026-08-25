@@ -470,4 +470,33 @@ describe("/api/truth-map/stores", () => {
       source_authority: "Alabama Medical Cannabis Commission",
     });
   });
+
+  it("projects only exact-coordinate Amsterdam municipal toleration addresses without inventing a coffeeshop operator", async () => {
+    const sourceId = "official-nl-amsterdam-current-gedooglijst-addresses-2026-08-24";
+    const source = loadStoreSources().find((item) => item.source_id === sourceId);
+    const records = loadCanonicalStoreRecords().filter((item) => item.source_id === sourceId);
+    expect(records).toHaveLength(167);
+    const exact = records.filter((item) => validateStoreVisibility(
+      item,
+      source,
+      loadCanonicalLegalTruthByGeo().get("NL"),
+      loadStoreEligibilityByGeo().get("NL"),
+    ).visible);
+    expect(exact).toHaveLength(135);
+    expect(records.filter((item) => item.latitude === null || item.longitude === null)).toHaveLength(32);
+
+    const sample = exact[0]!;
+    const response = await GET(new Request(`http://localhost/api/truth-map/stores?west=${sample.longitude - 0.02}&south=${sample.latitude - 0.02}&east=${sample.longitude + 0.02}&north=${sample.latitude + 0.02}&zoom=13`));
+    const payload = await response.json();
+    const amsterdam = payload.features.find((feature: { properties?: { store_id?: string } }) => feature.properties?.store_id === sample.canonical_store_id);
+    expect(amsterdam?.properties).toMatchObject({
+      geo_id: "NL",
+      legal_name: "Municipal tolerated coffeeshop address",
+      license_status: "UNKNOWN_STATUS",
+      operational_status: "UNKNOWN_STATUS",
+      store_type: "ADULT_USE_RETAIL",
+      record_kind: "MUNICIPAL_TOLERATION_ADDRESS",
+      source_authority: "Mayor of Amsterdam / Municipality of Amsterdam",
+    });
+  });
 });

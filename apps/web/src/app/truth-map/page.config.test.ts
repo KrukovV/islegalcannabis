@@ -26,6 +26,7 @@ describe("truth-map audit route", () => {
 
   it("keeps Store projection and its viewport API isolated to the audit map", () => {
     const mainMap = fs.readFileSync(path.join(process.cwd(), "src", "new-map", "MapRoot.tsx"), "utf8");
+    const mapFactory = fs.readFileSync(path.join(process.cwd(), "src", "new-map", "createMap.ts"), "utf8");
     const storeLayer = fs.readFileSync(path.join(process.cwd(), "src", "new-map", "stores", "StoreLayer.ts"), "utf8");
     const truthMap = fs.readFileSync(path.join(process.cwd(), "src", "truth-map", "TruthMapRoot.tsx"), "utf8");
     expect(mainMap).not.toContain("useStoreMapLayer");
@@ -48,7 +49,8 @@ describe("truth-map audit route", () => {
     expect(fs.readFileSync(path.join(process.cwd(), "public", "cannabis-store-summary-shop.svg"), "utf8")).toContain("<svg");
     expect(truthMap).toContain("useStoreMapLayer");
     expect(truthMap).toContain("useStoreMapLayer(mapInstance, mapReady, storesEnabled)");
-    expect(truthMap).toContain("runtime.map.setRenderWorldCopies(false)");
+    expect(mapFactory).toContain("renderWorldCopies: true");
+    expect(truthMap).not.toContain("runtime.map.setRenderWorldCopies(false)");
     expect(truthMap).toContain("getStoreGeoSummaryCount");
     expect(truthMap).toContain('data-testid="truth-map-store-control"');
     expect(truthMap).toContain('data-store-layer-enabled={String(storesEnabled)}');

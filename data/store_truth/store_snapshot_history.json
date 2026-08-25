@@ -949,6 +949,19 @@
       "normalized_records": 273,
       "retained_missing_from_source": 0,
       "local_only": true
+    },
+    {
+      "snapshot_id": "official-nl-amsterdam-current-gedooglijst-addresses-2026-08-24:346be48d75bb76a3",
+      "source_id": "official-nl-amsterdam-current-gedooglijst-addresses-2026-08-24",
+      "observed_at": "2026-08-24T20:51:04.762Z",
+      "input_path": "data/store_truth/source_snapshots/nl-amsterdam-current-gedooglijst-addresses-2026-08-24.json",
+      "input_sha256": "346be48d75bb76a3a8b54b1eaf7f62513224fc7875dd1d4768d5dfeffd111457",
+      "extraction_state": "EXTRACTED",
+      "format": "JSON",
+      "extracted_records": 167,
+      "normalized_records": 167,
+      "retained_missing_from_source": 0,
+      "local_only": true
     }
   ]
 }

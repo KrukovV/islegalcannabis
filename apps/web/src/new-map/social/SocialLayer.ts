@@ -29,11 +29,21 @@ export type SocialMapActivitySelection = {
 type ActivityPayload = { ok: true; activity: MapDiscussionActivity[] };
 
 function removeLayerIfPresent(map: maplibregl.Map, id: string) {
-  if (map.getLayer(id)) map.removeLayer(id);
+  try {
+    if (map.getLayer(id)) map.removeLayer(id);
+  } catch {
+    // The owning map may already have disposed its style during route teardown.
+    // There is no remaining layer to remove in that lifecycle state.
+  }
 }
 
 function removeSourceIfPresent(map: maplibregl.Map, id: string) {
-  if (map.getSource(id)) map.removeSource(id);
+  try {
+    if (map.getSource(id)) map.removeSource(id);
+  } catch {
+    // The owning map may already have disposed its style during route teardown.
+    // There is no remaining source to remove in that lifecycle state.
+  }
 }
 
 function loadSocialActivityIcon(): Promise<ImageData> {

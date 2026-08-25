@@ -57,4 +57,11 @@ describe("/api/truth-map/stores/summary", () => {
         .sort((left, right) => left.geo_id.localeCompare(right.geo_id)),
     );
   });
+
+  it("includes only the exact-coordinate Netherlands municipal policy records in the GEO total", () => {
+    const nl = queryStoreGeoSummaries().find((row) => row.geo_id === "NL");
+    expect(nl?.count).toBe(135);
+    expect(nl?.anchor_lng).toBeGreaterThan(3);
+    expect(nl?.anchor_lat).toBeGreaterThan(50);
+  });
 });

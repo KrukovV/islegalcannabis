@@ -1387,6 +1387,24 @@
       "reviewed_at": "2026-08-21T09:22:00Z",
       "review_protocol": "C1_CURRENT_OFFICIAL_SFDA_PDF_FETCH_C2_SEMANTIC_REVIEW_C3_DIRECT_OFFICIAL_BROWSER_LANDING_PAGE_REVIEW_PDF_BODY_NOT_RENDERED",
       "review_scope": "Independent Saudi Arabia CANNABIS_PHARMACY legality remains non-promoting. C1 retrieved the unchanged current SFDA PDF at HTTP 200 with SHA-256 f063e8aee29fb3cef7ca6cc9ac3b46d4c9e5901c9d37028135f5e8bda0297794. C2 retained the linked cannabis schedule, licensed-doctor prescription and dispenser-pharmacy clauses. C3 directly rendered the current SFDA government owner, schedule title, date and Download control, but the linked PDF body did not render in the official browser. The 2026-08-12 retained same-hash visual review remains legal-ledger provenance only; this entry cannot validate the Store type or create a source candidate, Store Truth record, coordinate or /truth-map leaf until the current PDF body is directly renderable."
+    },
+    {
+      "evidence_id": "official-nl-government-current-coffeeshop-toleration-adult-use-retail-2026-08-24",
+      "geo_id": "NL",
+      "store_type": "ADULT_USE_RETAIL",
+      "legal_state": "LEGAL",
+      "status": "VALIDATED",
+      "independent_of_store_registry": true,
+      "official": true,
+      "source_classification": "OFFICIAL_PRIMARY",
+      "jurisdiction_validation": "VALID",
+      "confidence": "PROVEN",
+      "authority": "Government of the Netherlands",
+      "source_url": "https://www.government.nl/themes/family-health-and-care/drugs/toleration-policy-regarding-soft-drugs-and-coffee-shops",
+      "exact_fragment": "The current Government.nl toleration-policy page says that coffee shops are permitted to sell cannabis under certain strict conditions; it also explains that municipalities determine whether to allow coffee shops in their area and how many there may be. This establishes the adult-use retail type only where the separate municipal source proves that a current specific location is within the applicable toleration policy; it does not establish a named operator, licence lifecycle, factual opening state or every Netherlands municipality as a retail location.",
+      "reviewed_at": "2026-08-24T20:49:18.054Z",
+      "review_protocol": "C1_CURRENT_GOVERNMENT_NL_TOLERATION_POLICY_HTTP_FETCH_C2_SEMANTIC_REVIEW_C3_DIRECT_OFFICIAL_BROWSER_VISUAL_REVIEW",
+      "review_scope": "Independent Netherlands ADULT_USE_RETAIL legality evidence only. The Government.nl policy confirms a conditional national coffeeshop toleration framework, while municipality-specific permission remains necessary. The separate current Amsterdam Gedooglijst is used solely to prove its 167 municipal toleration addresses and PDOK/BAG is used solely to verify exact coordinates. No legal conclusion is inferred from a Store Truth record, Google Maps, a business listing, a generic address register or the Netherlands canonical GREEN medical-access colour."
     }
   ]
 }

@@ -87,9 +87,10 @@ export type CanonicalStoreRecord = {
   last_confirmed_at: string;
   status_changed_at: string;
   confidence: "PROVEN" | "STRONG" | "PARTIAL" | "UNKNOWN";
-  coordinates_source: "OFFICIAL_COORDINATES" | "OFFICIAL_ADDRESS_GEOCODED" | "OFFICIAL_RECORD_NO_COORDINATE_FIELD" | "OFFICIAL_CURRENT_REGULATOR_MAP_CSV" | "UNKNOWN";
+  coordinates_source: "OFFICIAL_COORDINATES" | "OFFICIAL_ADDRESS_GEOCODED" | "OFFICIAL_RECORD_NO_COORDINATE_FIELD" | "OFFICIAL_CURRENT_REGULATOR_MAP_CSV" | "OFFICIAL_PDOK_BAG_EXACT_ADDRESS_POINT" | "OFFICIAL_PDOK_BAG_COORDINATE_AMBIGUOUS" | "UNKNOWN";
   coordinates_confidence: "PROVEN" | "STRONG" | "PARTIAL" | "UNKNOWN";
   location_evidence: "STRONG" | "PARTIAL" | "UNKNOWN";
+  public_source_fields?: Record<string, string>;
   first_seen_at: string;
   last_seen_at: string;
   legal_gate: {
@@ -506,6 +507,8 @@ function toStoreFeature(record: CanonicalStoreRecord) {
       source_authority: record.source_authority,
       source_url: record.source_url,
       source_checked_at: record.source_checked_at,
+      record_kind: record.public_source_fields?.record_kind || "",
+      source_semantics: record.public_source_fields?.source_semantics || "",
     },
   };
 }

@@ -86,6 +86,21 @@ test("existing map stays free of the truth-map Social layer", async ({ page }) =
   expect(existingMapLayers.stores).toBeUndefined();
 });
 
+test("truth-map releases Social layers before its MapLibre style is disposed", async ({ page }) => {
+  const runtimeErrors: string[] = [];
+  page.on("pageerror", (error) => runtimeErrors.push(error.message));
+  page.on("console", (message) => {
+    if (message.type() === "error") runtimeErrors.push(message.text());
+  });
+
+  await page.goto(TRUTH_MAP_QA_ROUTE, { waitUntil: "domcontentloaded" });
+  await page.waitForFunction(() => Boolean(window.__TRUTH_MAP_DEBUG__?.map), { timeout: 20_000 });
+  await page.goto("/new-map?qa=1", { waitUntil: "domcontentloaded" });
+  await page.waitForFunction(() => Boolean(window.__NEW_MAP_DEBUG__?.map), { timeout: 30_000 });
+
+  expect(runtimeErrors.filter((message) => /cannot read properties of undefined \(reading 'getLayer'\)|social-map-activity.*does not exist/i.test(message))).toEqual([]);
+});
+
 test("truth-map keeps the AI assistant primary and Social compact by default", async ({ page }) => {
   const runtimeErrors: string[] = [];
   page.on("pageerror", (error) => runtimeErrors.push(error.message));

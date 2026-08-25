@@ -9,6 +9,11 @@ import ViewportCountryPopup from "@/new-map/components/ViewportCountryPopup";
 import { attachHoverController } from "@/new-map/hoverController";
 import type { CountryCardEntry, LegalCountryCollection, NewMapBootResult } from "@/new-map/map.types";
 import { NEW_MAP_BASEMAP_STYLE_URL } from "@/new-map/runtimeUrls";
+import {
+  readVisualViewportKeyboardOffset,
+  readVisualViewportSnapshot,
+  subscribeToVisualViewportChanges,
+} from "@/new-map/viewportMetrics";
 import styles from "@/new-map/MapRoot.module.css";
 import truthStyles from "./TruthMapRoot.module.css";
 import {
@@ -16,6 +21,7 @@ import {
   STORE_GEO_SUMMARY_LAYER_ID,
   STORE_CLUSTER_COUNT_LAYER_ID,
   STORE_CLUSTER_LAYER_ID,
+  STORE_MARKER_HITBOX_LAYER_ID,
   STORE_MARKER_LAYER_ID,
   useStoreMapLayer
 } from "@/new-map/stores/StoreLayer";
@@ -146,6 +152,9 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
   const cardEntryRequestsRef = useRef<Record<string, Promise<CountryCardEntry | null>>>({});
   const [mapInstance, setMapInstance] = useState<maplibregl.Map | null>(null);
   const [mapReady, setMapReady] = useState(false);
+  const [keyboardOffset, setKeyboardOffset] = useState(0);
+  const [visibleViewportHeight, setVisibleViewportHeight] = useState<number | null>(null);
+  const [dockHeight, setDockHeight] = useState(72);
   const [error, setError] = useState<string | null>(null);
   const [meta, setMeta] = useState<TruthMapDatasetMeta | null>(null);
   const [selectedGeo, setSelectedGeo] = useState<ActiveGeo>(null);
@@ -157,6 +166,54 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
 
   useStoreMapLayer(mapInstance, mapReady, storesEnabled);
   useSocialMapLayer(mapInstance, mapReady, socialConfig);
+
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    document.body.dataset.newMapRoute = "1";
+    return () => {
+      if (document.body.dataset.newMapRoute === "1") delete document.body.dataset.newMapRoute;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const syncViewportMetrics = () => {
+      setKeyboardOffset(readVisualViewportKeyboardOffset());
+      const snapshot = readVisualViewportSnapshot();
+      setVisibleViewportHeight(Math.round(snapshot.height || window.innerHeight));
+    };
+    syncViewportMetrics();
+    return subscribeToVisualViewportChanges(syncViewportMetrics);
+  }, []);
+
+  useEffect(() => {
+    if (typeof document === "undefined" || typeof window === "undefined") return;
+    let frameId = 0;
+    const resizeObserver = typeof ResizeObserver === "function" ? new ResizeObserver(() => scheduleMeasure()) : null;
+
+    const measure = () => {
+      const dockNode = document.querySelector('[data-testid="new-map-ai-dock"]') as HTMLElement | null;
+      resizeObserver?.disconnect();
+      if (dockNode) resizeObserver?.observe(dockNode);
+      const nextHeight = dockNode ? Math.max(72, Math.ceil(dockNode.getBoundingClientRect().height)) : 72;
+      setDockHeight((current) => (Math.abs(current - nextHeight) > 1 ? nextHeight : current));
+    };
+
+    const scheduleMeasure = () => {
+      window.cancelAnimationFrame(frameId);
+      frameId = window.requestAnimationFrame(measure);
+    };
+
+    const mutationObserver = typeof MutationObserver === "function" ? new MutationObserver(scheduleMeasure) : null;
+    mutationObserver?.observe(document.body, { childList: true, subtree: true });
+    scheduleMeasure();
+
+    return () => {
+      mutationObserver?.disconnect();
+      resizeObserver?.disconnect();
+      window.cancelAnimationFrame(frameId);
+    };
+  }, []);
 
   const clearSelectedGeo = useCallback(() => {
     setSelectedPopup(null);
@@ -244,6 +301,8 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
     markerElement.setAttribute("aria-label", "Where I am");
     markerElement.setAttribute("title", "Where I am");
     markerElement.setAttribute("data-user-marker", "1");
+    markerElement.setAttribute("data-user-marker-label", "Where I am");
+    markerElement.setAttribute("data-user-marker-position", `${geo.lng},${geo.lat}`);
 
     if (!locationMarkerRef.current) {
       locationMarkerRef.current = new maplibregl.Marker({ element: markerElement, anchor: "bottom" })
@@ -254,11 +313,9 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
     }
 
     if (options?.recenter) {
-      map.easeTo({
+      map.jumpTo({
         center: [geo.lng, geo.lat],
-        zoom: Math.max(map.getZoom(), 3.2),
-        duration: 500,
-        essential: true,
+        zoom: Math.max(map.getZoom(), 3.2)
       });
     }
   }, []);
@@ -277,6 +334,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
           STORE_MARKER_LAYER_ID,
           STORE_CLUSTER_LAYER_ID,
           STORE_CLUSTER_COUNT_LAYER_ID,
+          STORE_MARKER_HITBOX_LAYER_ID,
           STORE_GEO_SUMMARY_LAYER_ID,
           STORE_COUNTRY_SUMMARY_LAYER_ID,
           SOCIAL_MAP_ACTIVITY_LAYER_ID,
@@ -299,7 +357,6 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
       }
     });
     runtime.map.setMaxZoom(15);
-    runtime.map.setRenderWorldCopies(false);
     runtimeRef.current = runtime;
     mapRef.current = runtime.map;
     setMapInstance(runtime.map);
@@ -421,8 +478,20 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
   }, [countriesUrl, usStatesUrl, openTruthPopup]);
 
   return (
-    <main className={`${styles.root} ${truthStyles.root}`} data-testid="truth-map-root" data-truth-map-source="FINAL_307_RECONCILIATION" data-store-layer-enabled={String(storesEnabled)}>
-      <div ref={containerRef} className={styles.mapSurface} data-testid="truth-map-canvas" />
+    <main
+      className={`${styles.root} ${truthStyles.root}`}
+      data-testid="truth-map-root"
+      data-truth-map-source="FINAL_307_RECONCILIATION"
+      data-store-layer-enabled={String(storesEnabled)}
+      data-keyboard-open={keyboardOffset > 24 ? "1" : "0"}
+      data-keyboard-offset={keyboardOffset}
+      style={{
+        ["--new-map-keyboard-offset" as string]: `${keyboardOffset}px`,
+        ["--new-map-visible-height" as string]: visibleViewportHeight ? `${visibleViewportHeight}px` : undefined,
+        ["--new-map-dock-height" as string]: `${dockHeight}px`,
+      }}
+    >
+      <div ref={containerRef} className={styles.mapSurface} data-testid="truth-map-canvas" data-map-ready={mapReady ? "1" : "0"} />
       <section className={styles.overlay} aria-live="polite">
         <div className={styles.card} data-testid="truth-map-audit-notice">
           <div className={styles.eyebrow}>Truth Map · Audit Preview</div>

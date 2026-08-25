@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-23T19:50:24.116Z",
+  "generated_at": "2026-08-25T10:39:05.515Z",
   "local_only": true,
   "legal_truth_input": "data/reviews/wiki-truth-307-final-reconciliation.json",
   "evidence_input": "data/store_truth/store_eligibility_evidence.json",
@@ -13804,10 +13804,12 @@
       "canonical_truth_rule": "GENERAL_CURRENT_OPERATIONAL_PATIENT_ACCESS_WITH_PROVEN_PATIENT_PRESCRIBER_GOVERNMENT_DISTRIBUTION_AND_PHARMACY_SUPPLY",
       "canonical_truth_fingerprint": "NL:GREEN:GENERAL_CURRENT_OPERATIONAL_PATIENT_ACCESS_WITH_PROVEN_PATIENT_PRESCRIBER_GOVERNMENT_DISTRIBUTION_AND_PHARMACY_SUPPLY",
       "retail_legality": {
-        "state": "UNPROVEN",
-        "reason": "CANONICAL_COLOR_ALONE_DOES_NOT_PROVE_STORE_TYPE_LEGALITY",
-        "evidence_ids": [],
-        "fingerprint": "store-eligibility:cc088aecd5345e85158c8011"
+        "state": "PROVEN_LEGAL",
+        "reason": "INDEPENDENT_OFFICIAL_STORE_TYPE_EVIDENCE",
+        "evidence_ids": [
+          "official-nl-government-current-coffeeshop-toleration-adult-use-retail-2026-08-24"
+        ],
+        "fingerprint": "store-eligibility:3d6b3c71aabf1d5877f78ad8"
       },
       "medical_dispensary_legality": {
         "state": "UNPROVEN",
@@ -13829,10 +13831,12 @@
       },
       "by_store_type": {
         "ADULT_USE_RETAIL": {
-          "state": "UNPROVEN",
-          "reason": "CANONICAL_COLOR_ALONE_DOES_NOT_PROVE_STORE_TYPE_LEGALITY",
-          "evidence_ids": [],
-          "fingerprint": "store-eligibility:cc088aecd5345e85158c8011"
+          "state": "PROVEN_LEGAL",
+          "reason": "INDEPENDENT_OFFICIAL_STORE_TYPE_EVIDENCE",
+          "evidence_ids": [
+            "official-nl-government-current-coffeeshop-toleration-adult-use-retail-2026-08-24"
+          ],
+          "fingerprint": "store-eligibility:3d6b3c71aabf1d5877f78ad8"
         },
         "MEDICAL_DISPENSARY": {
           "state": "UNPROVEN",

@@ -14,6 +14,7 @@ export const STORE_COUNTRY_SUMMARY_LAYER_ID = "validated-cannabis-store-country-
 export const STORE_CLUSTER_LAYER_ID = "validated-cannabis-store-clusters";
 export const STORE_CLUSTER_COUNT_LAYER_ID = "validated-cannabis-store-cluster-counts";
 export const STORE_MARKER_LAYER_ID = "validated-cannabis-store-markers";
+export const STORE_MARKER_HITBOX_LAYER_ID = "validated-cannabis-store-marker-hitboxes";
 export const STORE_MARKER_ICON_ID = "validated-cannabis-store-leaf";
 export const STORE_GEO_SUMMARY_ICON_ID = "validated-cannabis-store-geo-summary-shop";
 const STORE_MARKER_ICON_PATH = "/cannabis-store-leaf.svg";
@@ -112,7 +113,11 @@ async function ensureStoreLayers(map: maplibregl.Map, isDisposed: () => boolean)
     const image = await loadMarkerImageData(STORE_MARKER_ICON_PATH);
     if (isDisposed()) return false;
     if (!map.hasImage(STORE_MARKER_ICON_ID)) {
-      map.addImage(STORE_MARKER_ICON_ID, image, { pixelRatio: 2, sdf: true });
+      // This is a fully painted SVG raster, not a signed-distance-field sprite.
+      // Registering it as SDF makes MapLibre reinterpret the bitmap during tinting
+      // and can fragment the leaf at local zoom. The asset carries its own
+      // high-contrast fill and outline instead.
+      map.addImage(STORE_MARKER_ICON_ID, image, { pixelRatio: 2, sdf: false });
     }
   }
   if (!map.hasImage(STORE_GEO_SUMMARY_ICON_ID)) {
@@ -217,25 +222,29 @@ async function ensureStoreLayers(map: maplibregl.Map, isDisposed: () => boolean)
       layout: {
         "icon-image": STORE_MARKER_ICON_ID,
         "icon-size": ["interpolate", ["linear"], ["zoom"], 9, 1.02, 12, 1.17, 15, 1.35],
-        "icon-allow-overlap": true,
-        "icon-ignore-placement": true,
+        // Local leaves obey symbol placement: dense municipal address lists stay
+        // readable, and zooming further reveals the remaining precise records.
+        "icon-allow-overlap": false,
+        "icon-ignore-placement": false,
+        "icon-padding": 5,
         "icon-rotation-alignment": "map",
         "icon-pitch-alignment": "map",
       },
+    }, beforeId);
+  }
+  if (!map.getLayer(STORE_MARKER_HITBOX_LAYER_ID)) {
+    map.addLayer({
+      id: STORE_MARKER_HITBOX_LAYER_ID,
+      type: "circle",
+      source: SOURCE_ID,
+      filter: ["==", ["get", "kind"], "store"],
+      // A leaf silhouette contains transparent gaps. This identical-source,
+      // non-visual target keeps a visible leaf reliably clickable without
+      // adding a second marker, changing a record's location, or widening the
+      // Store Truth visibility gate.
       paint: {
-        "icon-color": [
-          "match",
-          ["get", "store_type"],
-          "ADULT_USE_RETAIL", "#7c3aed",
-          "MEDICAL_DISPENSARY", "#0284c7",
-          "CANNABIS_PHARMACY", "#0f766e",
-          "AUTHORIZED_PHARMACY", "#0369a1",
-          "CANNABIS_CLUB", "#a16207",
-          "#334155",
-        ],
-        "icon-halo-color": "rgba(255, 255, 255, 0.96)",
-        "icon-halo-width": 1.2,
-        "icon-halo-blur": 0.15,
+        "circle-radius": ["interpolate", ["linear"], ["zoom"], 10.2, 11, 15, 15],
+        "circle-opacity": 0,
       },
     }, beforeId);
   }
@@ -295,9 +304,13 @@ export function buildStoreGeoSummaryFeatures(rows: StoreGeoSummaryRow[]): StoreF
   };
 }
 
-function renderStorePopup(feature: GeoJSON.Feature<GeoJSON.Point, Record<string, unknown>>) {
+export function renderStorePopup(feature: GeoJSON.Feature<GeoJSON.Point, Record<string, unknown>>) {
   const properties = feature.properties || {};
-  const title = escapeHtml(properties.trade_name || properties.legal_name || "Verified regulated point");
+  const municipalTolerationAddress = properties.record_kind === "MUNICIPAL_TOLERATION_ADDRESS";
+  const title = escapeHtml(municipalTolerationAddress
+    ? "Municipal tolerated coffeeshop address"
+    : properties.trade_name || properties.legal_name || "Verified regulated point");
+  const sourceSemantics = String(properties.source_semantics || "");
   const regulatorUrl = String(properties.regulator_url || "");
   const sourceUrl = String(properties.source_url || "");
   const officialWebsite = String(properties.official_website || "");
@@ -312,7 +325,11 @@ function renderStorePopup(feature: GeoJSON.Feature<GeoJSON.Point, Record<string,
       ? `<a href="${escapeHtml(officialWebsite)}" target="_blank" rel="noreferrer noopener">Official website</a>`
       : "",
   ].filter(Boolean).join(" · ");
-  return `<section data-testid="store-popup"><strong>${title}</strong><div>${escapeHtml(storeTypeLabel(properties.store_type))}</div><div>${escapeHtml(properties.address)} ${escapeHtml(properties.city)}</div><div>License: ${escapeHtml(properties.license_number || "not published")} · ${escapeHtml(properties.license_status)}</div><div>${escapeHtml(operationalStatusLabel(properties.operational_status))}</div><div>Source: ${escapeHtml(properties.source_authority)}</div><div>Last verified: ${escapeHtml(properties.source_checked_at)}</div>${links ? `<div>${links}</div>` : ""}</section>`;
+  const lifecycle = municipalTolerationAddress
+    ? "Individual permit, operator, hours and factual operating status: not published"
+    : `License: ${escapeHtml(properties.license_number || "not published")} · ${escapeHtml(properties.license_status)}`;
+  const region = String(properties.region || "");
+  return `<section data-testid="store-popup"><strong>${title}</strong><div>${escapeHtml(storeTypeLabel(properties.store_type))}</div><div>${escapeHtml(properties.address)} ${escapeHtml(properties.city)}</div>${region ? `<div>Province / region: ${escapeHtml(region)}</div>` : ""}<div>${lifecycle}</div><div>${escapeHtml(operationalStatusLabel(properties.operational_status))}</div>${sourceSemantics ? `<div>${escapeHtml(sourceSemantics)}</div>` : ""}<div>Source: ${escapeHtml(properties.source_authority)}</div><div>Last verified: ${escapeHtml(properties.source_checked_at)}</div>${links ? `<div>${links}</div>` : ""}</section>`;
 }
 
 export function useStoreMapLayer(
@@ -438,12 +455,15 @@ export function useStoreMapLayer(
         map.on("moveend", scheduleSync);
         map.on("zoomend", scheduleSync);
         map.on("click", STORE_MARKER_LAYER_ID, onMarkerClick);
+        map.on("click", STORE_MARKER_HITBOX_LAYER_ID, onMarkerClick);
         map.on("click", STORE_CLUSTER_LAYER_ID, onClusterClick);
         map.on("click", STORE_CLUSTER_COUNT_LAYER_ID, onClusterClick);
         map.on("click", STORE_GEO_SUMMARY_LAYER_ID, onGeoSummaryClick);
         map.on("click", STORE_COUNTRY_SUMMARY_LAYER_ID, onCountrySummaryClick);
         map.on("mouseenter", STORE_MARKER_LAYER_ID, onMarkerEnter);
         map.on("mouseleave", STORE_MARKER_LAYER_ID, onMarkerLeave);
+        map.on("mouseenter", STORE_MARKER_HITBOX_LAYER_ID, onMarkerEnter);
+        map.on("mouseleave", STORE_MARKER_HITBOX_LAYER_ID, onMarkerLeave);
         map.on("mouseenter", STORE_GEO_SUMMARY_LAYER_ID, onMarkerEnter);
         map.on("mouseleave", STORE_GEO_SUMMARY_LAYER_ID, onMarkerLeave);
         map.on("mouseenter", STORE_COUNTRY_SUMMARY_LAYER_ID, onMarkerEnter);
@@ -466,18 +486,22 @@ export function useStoreMapLayer(
         map.off("moveend", scheduleSync);
         map.off("zoomend", scheduleSync);
         map.off("click", STORE_MARKER_LAYER_ID, onMarkerClick);
+        map.off("click", STORE_MARKER_HITBOX_LAYER_ID, onMarkerClick);
         map.off("click", STORE_CLUSTER_LAYER_ID, onClusterClick);
         map.off("click", STORE_CLUSTER_COUNT_LAYER_ID, onClusterClick);
         map.off("click", STORE_GEO_SUMMARY_LAYER_ID, onGeoSummaryClick);
         map.off("click", STORE_COUNTRY_SUMMARY_LAYER_ID, onCountrySummaryClick);
         map.off("mouseenter", STORE_MARKER_LAYER_ID, onMarkerEnter);
         map.off("mouseleave", STORE_MARKER_LAYER_ID, onMarkerLeave);
+        map.off("mouseenter", STORE_MARKER_HITBOX_LAYER_ID, onMarkerEnter);
+        map.off("mouseleave", STORE_MARKER_HITBOX_LAYER_ID, onMarkerLeave);
         map.off("mouseenter", STORE_GEO_SUMMARY_LAYER_ID, onMarkerEnter);
         map.off("mouseleave", STORE_GEO_SUMMARY_LAYER_ID, onMarkerLeave);
         map.off("mouseenter", STORE_COUNTRY_SUMMARY_LAYER_ID, onMarkerEnter);
         map.off("mouseleave", STORE_COUNTRY_SUMMARY_LAYER_ID, onMarkerLeave);
       }
       removeLayerIfPresent(map, STORE_MARKER_LAYER_ID);
+      removeLayerIfPresent(map, STORE_MARKER_HITBOX_LAYER_ID);
       removeLayerIfPresent(map, STORE_CLUSTER_COUNT_LAYER_ID);
       removeLayerIfPresent(map, STORE_CLUSTER_LAYER_ID);
       removeLayerIfPresent(map, STORE_GEO_SUMMARY_LAYER_ID);

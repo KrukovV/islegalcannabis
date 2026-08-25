@@ -5008,6 +5008,96 @@
         "source_stability": "STRONG"
       },
       "confidence": "PROVEN"
+    },
+    {
+      "source_id": "official-nl-amsterdam-current-gedooglijst-addresses-2026-08-24",
+      "geo_id": "NL",
+      "authority": "Mayor of Amsterdam / Municipality of Amsterdam",
+      "source_url": "https://lokaleregelgeving.overheid.nl/CVDR756282",
+      "source_coordinate_authority": "PDOK Locatieserver / BAG",
+      "source_coordinate_url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free",
+      "source_type": "JSON",
+      "upstream_format": "CURRENT_OFFICIAL_MUNICIPAL_TOLERATION_POLICY_ADDRESS_TABLE_WITH_EXACT_PDOK_BAG_ADDRESS_COORDINATE_JOIN",
+      "snapshot_path": "data/store_truth/source_snapshots/nl-amsterdam-current-gedooglijst-addresses-2026-08-24.json",
+      "snapshot_sha256": "346be48d75bb76a3a8b54b1eaf7f62513224fc7875dd1d4768d5dfeffd111457",
+      "store_types": [
+        "ADULT_USE_RETAIL"
+      ],
+      "source_classification": "OFFICIAL_PRIMARY",
+      "official": true,
+      "jurisdiction_validation": "VALID",
+      "status": "ACTIVE",
+      "discovered_at": "2026-08-24T20:49:18.054Z",
+      "checked_at": "2026-08-24T20:49:18.054Z",
+      "parser": "JSON_DECLARATIVE_CURRENT_OFFICIAL_MUNICIPAL_TOLERATION_ADDRESS_POLICY_WITH_EXACT_PDOK_BAG_COORDINATE_JOIN_V1",
+      "refresh_policy": "MANUAL_CURRENT_MUNICIPAL_POLICY_C1_C2_C3_REVIEW_AND_FULL_EXACT_PDOK_BAG_ADDRESS_REBIND",
+      "allow_source_row_identity": true,
+      "source_row_identity_note": "The official Gedooglijst publishes a tolerated civic address, not an operator or individual licence number. Each local identity is a deterministic hash of that public street, house-number suffix, postcode and municipality row; it is reconciliation provenance only, never a company name or licence number.",
+      "default_fields": {
+        "store_type": "ADULT_USE_RETAIL",
+        "license_type": "Municipal coffeeshop toleration-list address",
+        "license_status": "UNKNOWN_STATUS",
+        "operational_status": "UNKNOWN_STATUS",
+        "country": "NL",
+        "region": "Noord-Holland",
+        "adult_use": true,
+        "medical": false,
+        "confidence": "PROVEN",
+        "regulator_url": "https://lokaleregelgeving.overheid.nl/CVDR756282",
+        "legal_gate": {
+          "geo_access_legal": true,
+          "store_type_legal": true,
+          "store_type_eligibility_ref": "data/store_truth/store_eligibility_model.json#NL:ADULT_USE_RETAIL",
+          "store_type_eligibility_fingerprint": "store-eligibility:3d6b3c71aabf1d5877f78ad8",
+          "canonical_truth_ref": "data/reviews/wiki-truth-307-final-reconciliation.json#NL",
+          "canonical_truth_fingerprint": "NL:GREEN:GENERAL_CURRENT_OPERATIONAL_PATIENT_ACCESS_WITH_PROVEN_PATIENT_PRESCRIBER_GOVERNMENT_DISTRIBUTION_AND_PHARMACY_SUPPLY",
+          "evidence_basis": "INDEPENDENT_GOVERNMENT_NL_COFFEESHOP_TOLERATION_POLICY_AND_CURRENT_OFFICIAL_AMSTERDAM_MUNICIPAL_TOLERATION_ADDRESS_LIST"
+        }
+      },
+      "field_map": {
+        "legal_name": "legal_name",
+        "trade_name": "trade_name",
+        "license_number": "license_number",
+        "license_type": "license_type",
+        "store_type": "store_type",
+        "address": "address",
+        "city": "city",
+        "region": "region",
+        "postal_code": "postal_code",
+        "country": "country",
+        "latitude": "latitude",
+        "longitude": "longitude",
+        "license_status": "license_status",
+        "operational_status": "operational_status",
+        "regulator_url": "regulator_url"
+      },
+      "public_field_map": {
+        "record_kind": "public_source_fields.record_kind",
+        "source_semantics": "public_source_fields.source_semantics",
+        "municipality_policy": "public_source_fields.municipality_policy",
+        "source_street": "public_source_fields.source_street",
+        "source_house_number": "public_source_fields.source_house_number",
+        "source_house_number_suffix": "public_source_fields.source_house_number_suffix",
+        "pdok_adresseerbaarobject_id": "public_source_fields.pdok_adresseerbaarobject_id",
+        "pdok_adresseerbaarobject_ids": "public_source_fields.pdok_adresseerbaarobject_ids",
+        "pdok_weergavenaam": "public_source_fields.pdok_weergavenaam",
+        "coordinate_boundary": "public_source_fields.coordinate_boundary"
+      },
+      "provenance_evidence": "C1 fetched the official local-regulation page on 2026-08-24 at HTTP 200 (HTML SHA-256 e04af64b174d0239181afa046e625bf647a68e52e0845afa36c99212d4b4a539). C2 extracted its sole five-column current address table exactly as published: 167 Amsterdam civic addresses. The rule is current from 2026-03-05 and states that the Mayor can grant an exploitation permit and toleration statement only at the listed addresses. C3 directly rendered the official owner, current effective date, policy title, digital-current-list wording and address table. The separate current Government.nl toleration-policy page was independently C3 reviewed and establishes that coffee shops may sell cannabis only under strict conditions and municipalities decide whether to allow shops and how many. The source list does not publish an operator name, individual licence lifecycle, opening hours or factual operating state; all such values remain UNKNOWN_STATUS. Each of the 167 policy addresses was queried against the official PDOK/BAG address service using exact postcode, municipality, street, house number and suffix. 135 rows resolve to one exact WGS84 coordinate; 32 parent civic-address rows resolve to multiple BAG coordinates and are retained with an explicit coordinate-boundary marker, never inferred or shown on the map. This source therefore publishes only the 135 exact-location records after the independent legal-type gate passes.",
+      "independent_validation": "PROVEN",
+      "inspection": {
+        "evaluated_at": "2026-08-24T20:49:18.054Z",
+        "authority_match": "PROVEN",
+        "jurisdiction_match": "PROVEN",
+        "cannabis_specificity": "PROVEN",
+        "store_semantics_match": "PROVEN",
+        "license_semantics_match": "PROVEN",
+        "data_extractability": "PROVEN",
+        "freshness": "PROVEN",
+        "coverage": "PROVEN",
+        "source_stability": "STRONG"
+      },
+      "confidence": "PROVEN"
     }
   ]
 }
