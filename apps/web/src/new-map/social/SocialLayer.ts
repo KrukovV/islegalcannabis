@@ -5,6 +5,7 @@ import { cellToLatLng } from "h3-js";
 import maplibregl from "maplibre-gl";
 import type { MapDiscussionActivity } from "@/social/domain";
 import { SOCIAL_MAP_QUERY_MAX_ZOOM } from "@/social/mapRequest";
+import { findOverlayInsertionBeforeId, moveEarlyNativeLabelsAboveOverlays } from "@/new-map/overlayLayerPlacement";
 import {
   getSocialMapVisibilityLevel,
   isSocialQueryCell,
@@ -73,10 +74,14 @@ async function ensureLayers(map: maplibregl.Map, isDisposed: () => boolean) {
     const image = await loadSocialActivityIcon();
     if (isDisposed()) return false;
     if (!map.hasImage(SOCIAL_MAP_ACTIVITY_ICON_ID)) {
-      map.addImage(SOCIAL_MAP_ACTIVITY_ICON_ID, image, { pixelRatio: 2, sdf: true });
+      // The bubble is a full-colour sprite with its own contrast outline. Do
+      // not reinterpret it as an SDF and runtime-tint it: that can thin or
+      // fragment the outline in the same way as a Store leaf.
+      map.addImage(SOCIAL_MAP_ACTIVITY_ICON_ID, image, { pixelRatio: 2, sdf: false });
     }
   }
   if (isDisposed()) return false;
+  const beforeId = findOverlayInsertionBeforeId(map);
   if (map.getLayer(SOCIAL_MAP_ACTIVITY_LAYER_ID)?.type !== "symbol") {
     removeLayerIfPresent(map, SOCIAL_MAP_ACTIVITY_LAYER_ID);
   }
@@ -95,17 +100,13 @@ async function ensureLayers(map: maplibregl.Map, isDisposed: () => boolean) {
         ],
         "icon-allow-overlap": true,
         "icon-ignore-placement": true,
-        "icon-rotation-alignment": "map",
-        "icon-pitch-alignment": "map",
+        "icon-rotation-alignment": "viewport",
+        "icon-pitch-alignment": "viewport",
       },
       paint: {
-        "icon-color": "#c026d3",
-        "icon-halo-color": "rgba(255, 255, 255, 0.96)",
-        "icon-halo-width": 1.2,
-        "icon-halo-blur": 0.15,
         "icon-opacity": 0.94,
       },
-    });
+    }, beforeId);
   }
   if (!map.getLayer(SOCIAL_MAP_ACTIVITY_COUNT_LAYER_ID)) {
     map.addLayer({
@@ -120,8 +121,9 @@ async function ensureLayers(map: maplibregl.Map, isDisposed: () => boolean) {
         "text-ignore-placement": true,
       },
       paint: { "text-color": "#ffffff", "text-halo-color": "rgba(30, 27, 75, 0.36)", "text-halo-width": 0.5 },
-    });
+    }, beforeId);
   }
+  moveEarlyNativeLabelsAboveOverlays(map, beforeId);
   return true;
 }
 

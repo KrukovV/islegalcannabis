@@ -19,7 +19,6 @@ import truthStyles from "./TruthMapRoot.module.css";
 import {
   STORE_COUNTRY_SUMMARY_LAYER_ID,
   STORE_GEO_SUMMARY_LAYER_ID,
-  STORE_CLUSTER_COUNT_LAYER_ID,
   STORE_CLUSTER_LAYER_ID,
   STORE_MARKER_HITBOX_LAYER_ID,
   STORE_MARKER_LAYER_ID,
@@ -333,7 +332,6 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
         const mountedOverlayLayers = [
           STORE_MARKER_LAYER_ID,
           STORE_CLUSTER_LAYER_ID,
-          STORE_CLUSTER_COUNT_LAYER_ID,
           STORE_MARKER_HITBOX_LAYER_ID,
           STORE_GEO_SUMMARY_LAYER_ID,
           STORE_COUNTRY_SUMMARY_LAYER_ID,

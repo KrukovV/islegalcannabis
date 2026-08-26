@@ -1,5 +1,28 @@
 import { describe, expect, it } from "vitest";
-import { buildStoreGeoSummaryFeatures, renderStorePopup } from "./StoreLayer";
+import { buildStoreGeoSummaryFeatures, canonicalizeStoreViewportBounds, renderStorePopup } from "./StoreLayer";
+
+describe("canonicalizeStoreViewportBounds", () => {
+  it("keeps continuous world-copy cameras queryable against canonical Store Truth coordinates", () => {
+    expect(canonicalizeStoreViewportBounds({
+      west: 285.94884060430036,
+      south: 40.67409921637261,
+      east: 286.0724367957082,
+      north: 40.73266031137331,
+    })).toEqual({
+      west: -74.05115939569964,
+      south: 40.67409921637261,
+      east: -73.9275632042918,
+      north: 40.73266031137331,
+    });
+  });
+
+  it("retains antimeridian-crossing bounds and maps a full wrapped world to the canonical extent", () => {
+    expect(canonicalizeStoreViewportBounds({ west: 179, south: -10, east: 181, north: 10 }))
+      .toEqual({ west: 179, south: -10, east: -179, north: 10 });
+    expect(canonicalizeStoreViewportBounds({ west: 180, south: -10, east: 540, north: 10 }))
+      .toEqual({ west: -180, south: -10, east: 180, north: 10 });
+  });
+});
 
 describe("buildStoreGeoSummaryFeatures", () => {
   it("places one count marker at the low-precision aggregate anchor and omits incomplete rows", () => {

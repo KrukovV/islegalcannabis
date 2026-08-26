@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import maplibregl from "maplibre-gl";
 import { getStoreVisibilityLevel } from "@/lib/storeTruthPolicy";
+import { findOverlayInsertionBeforeId, moveEarlyNativeLabelsAboveOverlays } from "@/new-map/overlayLayerPlacement";
 
 const SOURCE_ID = "validated-cannabis-stores";
 const GEO_SUMMARY_SOURCE_ID = "validated-cannabis-store-geo-summaries";
@@ -12,22 +13,51 @@ const STORE_GEO_SUMMARY_API_PATH = "/api/truth-map/stores/summary";
 export const STORE_GEO_SUMMARY_LAYER_ID = "validated-cannabis-store-geo-summaries";
 export const STORE_COUNTRY_SUMMARY_LAYER_ID = "validated-cannabis-store-country-summaries";
 export const STORE_CLUSTER_LAYER_ID = "validated-cannabis-store-clusters";
-export const STORE_CLUSTER_COUNT_LAYER_ID = "validated-cannabis-store-cluster-counts";
 export const STORE_MARKER_LAYER_ID = "validated-cannabis-store-markers";
 export const STORE_MARKER_HITBOX_LAYER_ID = "validated-cannabis-store-marker-hitboxes";
 export const STORE_MARKER_ICON_ID = "validated-cannabis-store-leaf";
 export const STORE_GEO_SUMMARY_ICON_ID = "validated-cannabis-store-geo-summary-shop";
 const STORE_MARKER_ICON_PATH = "/cannabis-store-leaf.svg";
 const STORE_GEO_SUMMARY_ICON_PATH = "/cannabis-store-summary-shop.svg";
+// Use the historic 2× MapLibre image contract: a 48px SVG raster displays as
+// a 24px symbol before the local zoom scale.  A 4× re-raster made the outline
+// fall between device pixels in the map sprite, which turned local leaves into
+// thin, broken-looking strokes on some WebKit canvases.
+const STORE_ICON_RASTER_SIZE = 48;
+const STORE_ICON_PIXEL_RATIO = 2;
 const EMPTY_DATA: GeoJSON.FeatureCollection = { type: "FeatureCollection", features: [] };
 
 type StoreFeatureCollection = GeoJSON.FeatureCollection<GeoJSON.Point, Record<string, unknown>>;
 type StoreGeoSummaryRow = { geo_id: string; count: number; anchor_lng: number; anchor_lat: number };
+export type StoreViewportBounds = { west: number; south: number; east: number; north: number };
 // Stable bands prevent MapLibre's collision placement from making a Store
 // total appear and disappear as unrelated basemap labels stream in or out.
 // Store layers are still inserted below those labels, so geography keeps the
 // visual precedence without suppressing a validated aggregate.
 const WORLD_SUMMARY_MAX_ZOOM = 4.2;
+
+function normalizeStoreLongitude(longitude: number) {
+  const normalized = ((((longitude + 180) % 360) + 360) % 360) - 180;
+  // Keep an east-edge value as +180 so a viewport that crosses the
+  // antimeridian retains its west > east representation for the API.
+  return normalized === -180 && longitude > 0 ? 180 : normalized;
+}
+
+// MapLibre deliberately keeps the camera continuous across world copies. Its
+// visible bounds can therefore be outside [-180, 180], while Store Truth is
+// indexed in canonical WGS84 longitudes. Canonicalise only the request bounds;
+// never alter the map camera or the source coordinates.
+export function canonicalizeStoreViewportBounds(bounds: StoreViewportBounds): StoreViewportBounds {
+  if (bounds.east - bounds.west >= 360) {
+    return { west: -180, south: bounds.south, east: 180, north: bounds.north };
+  }
+  return {
+    west: normalizeStoreLongitude(bounds.west),
+    south: bounds.south,
+    east: normalizeStoreLongitude(bounds.east),
+    north: bounds.north,
+  };
+}
 
 function escapeHtml(value: unknown) {
   return String(value || "")
@@ -66,36 +96,22 @@ function removeSourceIfPresent(map: maplibregl.Map, id: string) {
 
 function loadMarkerImageData(path: string): Promise<ImageData> {
   return new Promise((resolve, reject) => {
-    const image = new Image(48, 48);
+    const image = new Image(STORE_ICON_RASTER_SIZE, STORE_ICON_RASTER_SIZE);
     image.onload = () => {
       const canvas = document.createElement("canvas");
-      canvas.width = 48;
-      canvas.height = 48;
+      canvas.width = STORE_ICON_RASTER_SIZE;
+      canvas.height = STORE_ICON_RASTER_SIZE;
       const context = canvas.getContext("2d");
       if (!context) {
         reject(new Error("cannabis_store_leaf_canvas_unavailable"));
         return;
       }
-      context.drawImage(image, 0, 0, 48, 48);
-      resolve(context.getImageData(0, 0, 48, 48));
+      context.drawImage(image, 0, 0, STORE_ICON_RASTER_SIZE, STORE_ICON_RASTER_SIZE);
+      resolve(context.getImageData(0, 0, STORE_ICON_RASTER_SIZE, STORE_ICON_RASTER_SIZE));
     };
     image.onerror = () => reject(new Error("cannabis_store_leaf_load_failed"));
     image.src = path;
   });
-}
-
-/**
- * Store symbols are supplemental map data, never replacements for geography.
- * Insert them below the first native label so country/place names remain
- * readable at every zoom level.
- */
-function findStoreInsertionBeforeId(map: maplibregl.Map) {
-  const layers = map.getStyle().layers || [];
-  return layers.find((layer) => (
-    layer.type === "symbol"
-    && !layer.id.startsWith("validated-cannabis-store-")
-    && layer.id !== "legal-territory-label"
-  ))?.id || (map.getLayer("legal-territory-label") ? "legal-territory-label" : undefined);
 }
 
 async function ensureStoreLayers(map: maplibregl.Map, isDisposed: () => boolean) {
@@ -115,20 +131,19 @@ async function ensureStoreLayers(map: maplibregl.Map, isDisposed: () => boolean)
     if (!map.hasImage(STORE_MARKER_ICON_ID)) {
       // This is a fully painted SVG raster, not a signed-distance-field sprite.
       // Registering it as SDF makes MapLibre reinterpret the bitmap during tinting
-      // and can fragment the leaf at local zoom. The asset carries its own
-      // high-contrast fill and outline instead.
-      map.addImage(STORE_MARKER_ICON_ID, image, { pixelRatio: 2, sdf: false });
+      // and can fragment the clean static green leaf at local zoom.
+      map.addImage(STORE_MARKER_ICON_ID, image, { pixelRatio: STORE_ICON_PIXEL_RATIO, sdf: false });
     }
   }
   if (!map.hasImage(STORE_GEO_SUMMARY_ICON_ID)) {
     const image = await loadMarkerImageData(STORE_GEO_SUMMARY_ICON_PATH);
     if (isDisposed()) return false;
     if (!map.hasImage(STORE_GEO_SUMMARY_ICON_ID)) {
-      map.addImage(STORE_GEO_SUMMARY_ICON_ID, image, { pixelRatio: 2, sdf: true });
+      map.addImage(STORE_GEO_SUMMARY_ICON_ID, image, { pixelRatio: STORE_ICON_PIXEL_RATIO, sdf: true });
     }
   }
   if (isDisposed()) return false;
-  const beforeId = findStoreInsertionBeforeId(map);
+  const beforeId = findOverlayInsertionBeforeId(map);
   if (!map.getLayer(STORE_COUNTRY_SUMMARY_LAYER_ID)) {
     map.addLayer({
       id: STORE_COUNTRY_SUMMARY_LAYER_ID,
@@ -201,15 +216,44 @@ async function ensureStoreLayers(map: maplibregl.Map, isDisposed: () => boolean)
   if (!map.getLayer(STORE_CLUSTER_LAYER_ID)) {
     map.addLayer({
       id: STORE_CLUSTER_LAYER_ID,
-      type: "circle",
+      // A cluster is one storefront/count pair at the centroid of its verified
+      // members. A one-record cluster therefore stays on the exact coordinate
+      // of its local leaf rather than jumping to a grid centre. Native place
+      // labels still draw above this supplemental presentation.
+      type: "symbol",
       source: SOURCE_ID,
       filter: ["==", ["get", "kind"], "cluster"],
+      layout: {
+        "icon-image": STORE_GEO_SUMMARY_ICON_ID,
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 5.8, 0.78, 8, 0.9, 10.19, 1.02],
+        "icon-anchor": "right",
+        "icon-offset": [-0.1, 0],
+        "icon-rotation-alignment": "viewport",
+        "icon-pitch-alignment": "viewport",
+        "text-field": ["to-string", ["get", "count"]],
+        "text-size": ["interpolate", ["linear"], ["zoom"], 5.8, 13, 8, 14, 10.19, 15],
+        "text-font": ["Open Sans Bold", "Noto Sans Regular"],
+        "text-anchor": "left",
+        "text-offset": [0.45, 0],
+        "text-rotation-alignment": "viewport",
+        "text-pitch-alignment": "viewport",
+        "icon-optional": false,
+        "text-optional": false,
+        "icon-allow-overlap": true,
+        "icon-ignore-placement": true,
+        "text-allow-overlap": true,
+        "text-ignore-placement": true,
+        "icon-padding": 5,
+        "text-padding": 5,
+      },
       paint: {
-        "circle-radius": ["interpolate", ["linear"], ["get", "count"], 1, 15, 25, 24, 100, 34],
-        "circle-color": "#1d4ed8",
-        "circle-stroke-color": "#eff6ff",
-        "circle-stroke-width": 2,
-        "circle-opacity": 0.88,
+        "icon-color": "#1d4ed8",
+        "icon-halo-color": "rgba(255, 255, 255, 0.98)",
+        "icon-halo-width": 1.2,
+        "icon-halo-blur": 0.15,
+        "text-color": "#0f4cb8",
+        "text-halo-color": "rgba(255, 255, 255, 0.98)",
+        "text-halo-width": 2,
       },
     }, beforeId);
   }
@@ -222,13 +266,17 @@ async function ensureStoreLayers(map: maplibregl.Map, isDisposed: () => boolean)
       layout: {
         "icon-image": STORE_MARKER_ICON_ID,
         "icon-size": ["interpolate", ["linear"], ["zoom"], 9, 1.02, 12, 1.17, 15, 1.35],
-        // Local leaves obey symbol placement: dense municipal address lists stay
-        // readable, and zooming further reveals the remaining precise records.
-        "icon-allow-overlap": false,
-        "icon-ignore-placement": false,
-        "icon-padding": 5,
-        "icon-rotation-alignment": "map",
-        "icon-pitch-alignment": "map",
+        // The leaf is the precise, validated Store presentation. It must not
+        // disappear merely because a streaming native label occupies the same
+        // screen cell. Native labels remain visually above this supplemental
+        // layer by layer order, so this does not hide geography.
+        "icon-allow-overlap": true,
+        "icon-ignore-placement": true,
+        "icon-padding": 0,
+        // Keep the full-colour raster upright in the viewport. A Store leaf
+        // must not shear with map pitch or visually merge into road geometry.
+        "icon-rotation-alignment": "viewport",
+        "icon-pitch-alignment": "viewport",
       },
     }, beforeId);
   }
@@ -248,26 +296,7 @@ async function ensureStoreLayers(map: maplibregl.Map, isDisposed: () => boolean)
       },
     }, beforeId);
   }
-  if (!map.getLayer(STORE_CLUSTER_COUNT_LAYER_ID)) {
-    map.addLayer({
-      id: STORE_CLUSTER_COUNT_LAYER_ID,
-      type: "symbol",
-      source: SOURCE_ID,
-      filter: ["==", ["get", "kind"], "cluster"],
-      layout: {
-        "text-field": ["to-string", ["get", "count"]],
-        "text-size": 12,
-        "text-font": ["Open Sans Bold", "Noto Sans Regular"],
-        "text-allow-overlap": true,
-        "text-ignore-placement": true
-      },
-      paint: {
-        "text-color": "#ffffff",
-        "text-halo-color": "rgba(15, 23, 42, 0.34)",
-        "text-halo-width": 0.5
-      }
-    }, beforeId);
-  }
+  moveEarlyNativeLabelsAboveOverlays(map, beforeId);
   return true;
 }
 
@@ -392,11 +421,17 @@ export function useStoreMapLayer(
       const controller = new AbortController();
       abortRef.current = controller;
       const bounds = map.getBounds();
+      const viewport = canonicalizeStoreViewportBounds({
+        west: bounds.getWest(),
+        south: bounds.getSouth(),
+        east: bounds.getEast(),
+        north: bounds.getNorth(),
+      });
       const url = new URL(STORE_VIEWPORT_API_PATH, window.location.origin);
-      url.searchParams.set("west", String(bounds.getWest()));
-      url.searchParams.set("south", String(bounds.getSouth()));
-      url.searchParams.set("east", String(bounds.getEast()));
-      url.searchParams.set("north", String(bounds.getNorth()));
+      url.searchParams.set("west", String(viewport.west));
+      url.searchParams.set("south", String(viewport.south));
+      url.searchParams.set("east", String(viewport.east));
+      url.searchParams.set("north", String(viewport.north));
       url.searchParams.set("zoom", String(map.getZoom()));
       try {
         const response = await fetch(url, { cache: "no-store", credentials: "same-origin", signal: controller.signal });
@@ -457,7 +492,6 @@ export function useStoreMapLayer(
         map.on("click", STORE_MARKER_LAYER_ID, onMarkerClick);
         map.on("click", STORE_MARKER_HITBOX_LAYER_ID, onMarkerClick);
         map.on("click", STORE_CLUSTER_LAYER_ID, onClusterClick);
-        map.on("click", STORE_CLUSTER_COUNT_LAYER_ID, onClusterClick);
         map.on("click", STORE_GEO_SUMMARY_LAYER_ID, onGeoSummaryClick);
         map.on("click", STORE_COUNTRY_SUMMARY_LAYER_ID, onCountrySummaryClick);
         map.on("mouseenter", STORE_MARKER_LAYER_ID, onMarkerEnter);
@@ -488,7 +522,6 @@ export function useStoreMapLayer(
         map.off("click", STORE_MARKER_LAYER_ID, onMarkerClick);
         map.off("click", STORE_MARKER_HITBOX_LAYER_ID, onMarkerClick);
         map.off("click", STORE_CLUSTER_LAYER_ID, onClusterClick);
-        map.off("click", STORE_CLUSTER_COUNT_LAYER_ID, onClusterClick);
         map.off("click", STORE_GEO_SUMMARY_LAYER_ID, onGeoSummaryClick);
         map.off("click", STORE_COUNTRY_SUMMARY_LAYER_ID, onCountrySummaryClick);
         map.off("mouseenter", STORE_MARKER_LAYER_ID, onMarkerEnter);
@@ -502,7 +535,6 @@ export function useStoreMapLayer(
       }
       removeLayerIfPresent(map, STORE_MARKER_LAYER_ID);
       removeLayerIfPresent(map, STORE_MARKER_HITBOX_LAYER_ID);
-      removeLayerIfPresent(map, STORE_CLUSTER_COUNT_LAYER_ID);
       removeLayerIfPresent(map, STORE_CLUSTER_LAYER_ID);
       removeLayerIfPresent(map, STORE_GEO_SUMMARY_LAYER_ID);
       removeLayerIfPresent(map, STORE_COUNTRY_SUMMARY_LAYER_ID);

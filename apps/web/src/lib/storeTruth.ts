@@ -515,7 +515,9 @@ function toStoreFeature(record: CanonicalStoreRecord) {
 
 function clusterKey(record: CanonicalStoreRecord, zoom: number) {
   const precision = zoom >= 8 ? 0.18 : 0.65;
-  return `${Math.floor(record.latitude / precision)}:${Math.floor(record.longitude / precision)}`;
+  const latitudeBucket = Math.floor(record.latitude / precision);
+  const longitudeBucket = Math.floor(record.longitude / precision);
+  return `${latitudeBucket}:${longitudeBucket}`;
 }
 
 function toClusterFeatures(records: CanonicalStoreRecord[], zoom: number) {
@@ -527,6 +529,9 @@ function toClusterFeatures(records: CanonicalStoreRecord[], zoom: number) {
     clusters.set(key, current);
   }
   return [...clusters.values()].map((items) => {
+    // A cluster represents its constituent verified locations.  In particular,
+    // a one-record cluster must stay at that record's exact coordinate so the
+    // medium-to-local transition cannot make a storefront jump across the map.
     const latitude = items.reduce((sum, item) => sum + item.latitude, 0) / items.length;
     const longitude = items.reduce((sum, item) => sum + item.longitude, 0) / items.length;
     return {

@@ -186,6 +186,24 @@ describe("canonical store truth", () => {
     expect(result.features.every((feature) => STORE_TYPES.includes(feature.properties.store_type))).toBe(true);
   });
 
+  it("keeps a one-record medium cluster on its exact local-leaf coordinate", () => {
+    const localWorld = queryVisibleStores({ west: -180, south: -90, east: 180, north: 90, zoom: 12 });
+    const isolated = localWorld.features.find((feature) => {
+      if (feature.geometry.type !== "Point") return false;
+      const [longitude, latitude] = feature.geometry.coordinates;
+      const bounds = { west: longitude - 0.02, south: latitude - 0.02, east: longitude + 0.02, north: latitude + 0.02 };
+      return queryVisibleStores({ ...bounds, zoom: 12 }).visibleStores === 1;
+    });
+    expect(isolated?.geometry.type).toBe("Point");
+    if (!isolated || isolated.geometry.type !== "Point") return;
+    const [longitude, latitude] = isolated.geometry.coordinates;
+    const bounds = { west: longitude - 0.02, south: latitude - 0.02, east: longitude + 0.02, north: latitude + 0.02 };
+    const medium = queryVisibleStores({ ...bounds, zoom: 10.19 });
+    expect(medium.features).toHaveLength(1);
+    expect(medium.features[0].properties).toMatchObject({ kind: "cluster", count: 1 });
+    expect(medium.features[0].geometry).toEqual(isolated.geometry);
+  });
+
   it("uses a server-side spatial index without leaking adjacent or antimeridian records", () => {
     const eastern = { ...record, canonical_store_id: "US-CO:EAST", longitude: 179, latitude: 10 };
     const western = { ...record, canonical_store_id: "US-CO:WEST", longitude: -179, latitude: 10 };

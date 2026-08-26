@@ -65,6 +65,46 @@ test("truth-map full local zoom renders a social bubble no smaller than the enla
       storeIconSize: map.getLayoutProperty("validated-cannabis-store-markers", "icon-size"),
       socialIconSize: map.getLayoutProperty("social-map-activity-cells", "icon-size"),
       socialTextSize: map.getLayoutProperty("social-map-activity-counts", "text-size"),
+      storeRotationAlignment: map.getLayoutProperty("validated-cannabis-store-markers", "icon-rotation-alignment"),
+      storePitchAlignment: map.getLayoutProperty("validated-cannabis-store-markers", "icon-pitch-alignment"),
+      socialRotationAlignment: map.getLayoutProperty("social-map-activity-cells", "icon-rotation-alignment"),
+      socialPitchAlignment: map.getLayoutProperty("social-map-activity-cells", "icon-pitch-alignment"),
+      overlaysBeforeNativeLabels: (() => {
+        const layers = map.getStyle().layers || [];
+        const finalNativeGeometry = layers.reduce((lastIndex, layer, index) => (
+          layer.type !== "symbol"
+          && !layer.id.startsWith("validated-cannabis-store-")
+          && !layer.id.startsWith("social-map-activity-")
+          && !layer.id.startsWith("legal-")
+          && !layer.id.startsWith("us-states-")
+            ? index
+            : lastIndex
+        ), -1);
+        const firstNativeLabel = layers.findIndex((layer, index) => index > finalNativeGeometry && (
+          layer.type === "symbol"
+          && !layer.id.startsWith("validated-cannabis-store-")
+          && !layer.id.startsWith("social-map-activity-")
+          && layer.id !== "legal-territory-label"
+        ));
+        const storeLayer = layers.findIndex((layer) => layer.id === "validated-cannabis-store-markers");
+        const socialLayer = layers.findIndex((layer) => layer.id === "social-map-activity-cells");
+        const socialCountLayer = layers.findIndex((layer) => layer.id === "social-map-activity-counts");
+        const lastOverlay = Math.max(storeLayer, socialLayer, socialCountLayer);
+        const everyNativeLabelAboveOverlays = layers.every((layer, index) => (
+          layer.type !== "symbol"
+          || layer.id.startsWith("validated-cannabis-store-")
+          || layer.id.startsWith("social-map-activity-")
+          || layer.id.startsWith("legal-")
+          || index > lastOverlay
+        ));
+        return storeLayer > finalNativeGeometry
+          && socialLayer > finalNativeGeometry
+          && socialCountLayer > finalNativeGeometry
+          && firstNativeLabel > storeLayer
+          && firstNativeLabel > socialLayer
+          && firstNativeLabel > socialCountLayer
+          && everyNativeLabelAboveOverlays;
+      })(),
       socialPoint: map.project(socialCoordinate),
     };
   }, QA_SOCIAL_CELL);
@@ -74,6 +114,11 @@ test("truth-map full local zoom renders a social bubble no smaller than the enla
   expect(markerScale?.storeIconSize).toEqual(STORE_ICON_SIZE_AT_LOCAL_ZOOM);
   expect(markerScale?.socialIconSize).toEqual(SOCIAL_ICON_SIZE_AT_LOCAL_ZOOM);
   expect(markerScale?.socialTextSize).toEqual(SOCIAL_COUNT_TEXT_SIZE_AT_LOCAL_ZOOM);
+  expect(markerScale?.storeRotationAlignment).toBe("viewport");
+  expect(markerScale?.storePitchAlignment).toBe("viewport");
+  expect(markerScale?.socialRotationAlignment).toBe("viewport");
+  expect(markerScale?.socialPitchAlignment).toBe("viewport");
+  expect(markerScale?.overlaysBeforeNativeLabels).toBe(true);
   expect(markerScale?.socialPoint.x).toBeGreaterThan(440);
   expect(markerScale?.socialPoint.x).toBeLessThan(870);
   expect(markerScale?.socialPoint.y).toBeGreaterThan(70);

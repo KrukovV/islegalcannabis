@@ -13,6 +13,134 @@ async function gotoReadyTruthMap(page: Page, route: string) {
   ), undefined, { timeout: MAP_READY_TIMEOUT });
 }
 
+test("truth-map shares the stable city-label visibility ranges used by new-map", async ({ page }) => {
+  test.setTimeout(90_000);
+  const runtimeErrors: string[] = [];
+  page.on("pageerror", (error) => runtimeErrors.push(error.message));
+  page.on("console", (message) => {
+    if (message.type() === "error") runtimeErrors.push(message.text());
+  });
+
+  // Mongolia is sparse enough to expose labels being switched off during a
+  // zoom. Both routes use createMap(), so the assertion fixes their shared
+  // visibility policy rather than prescribing labels for one territory.
+  await gotoReadyTruthMap(page, "/truth-map?qa=1&lat=46.8625&lng=103.8467&zoom=5.4");
+  const labelBandState = await page.evaluate(async () => {
+    const map = window.__TRUTH_MAP_DEBUG__?.map;
+    if (!map) throw new Error("truth_map_missing_for_native_label_bands");
+    const isNativePlaceLabel = (id: string) => /place_city|place_town|place_villages|place_hamlet|place_suburbs?/i.test(id);
+    const summarize = (layers: Array<{ id?: string; type?: string; minzoom?: number; maxzoom?: number }>) => layers
+      .filter((layer) => layer.type === "symbol" && isNativePlaceLabel(String(layer.id || "")))
+      .map((layer) => ({ id: String(layer.id), minzoom: layer.minzoom ?? 0, maxzoom: layer.maxzoom ?? 24 }))
+      .sort((left, right) => left.id.localeCompare(right.id));
+    const activeBands = summarize(map.getStyle().layers || []);
+    const stops: Array<{ zoom: number; activeLayerIds: string[]; renderedLabelCount: number }> = [];
+    for (const zoom of [5.9, 6.4, 7.4, 8.4]) {
+      await new Promise<void>((resolve) => {
+        let settled = false;
+        const finish = () => {
+          if (settled) return;
+          settled = true;
+          resolve();
+        };
+        map.once("idle", finish);
+        map.jumpTo({ center: [103.8467, 46.8625], zoom });
+        window.setTimeout(finish, 5_000);
+      });
+      const activeLayerIds = activeBands
+        .filter((layer) => layer.minzoom <= zoom && zoom < layer.maxzoom)
+        .map((layer) => layer.id);
+      stops.push({
+        zoom: map.getZoom(),
+        activeLayerIds,
+        renderedLabelCount: map.queryRenderedFeatures({ layers: activeLayerIds }).length
+      });
+    }
+    return { activeBands, stops };
+  });
+
+  expect(labelBandState.activeBands).toEqual(expect.arrayContaining([
+    expect.objectContaining({ id: expect.stringMatching(/place_city/i), minzoom: 5.8, maxzoom: 24 }),
+    expect.objectContaining({ id: expect.stringMatching(/place_town|place_villages|place_hamlet|place_suburbs?/i), minzoom: 6.6, maxzoom: 24 })
+  ]));
+  expect(labelBandState.activeBands.every((layer) => (
+    /place_city/i.test(layer.id)
+      ? layer.minzoom === 5.8 && layer.maxzoom === 24
+      : layer.minzoom === 6.6 && layer.maxzoom === 24
+  ))).toBe(true);
+  expect(labelBandState.stops.every((stop) => stop.activeLayerIds.length > 0)).toBe(true);
+  expect(labelBandState.stops.every((stop) => stop.renderedLabelCount > 0)).toBe(true);
+  expect(runtimeErrors).toEqual([]);
+});
+
+test("truth-map reloads local Store leaves after an in-place viewport move, including a wrapped world copy", async ({ page }) => {
+  test.setTimeout(120_000);
+  const runtimeErrors: string[] = [];
+  page.on("pageerror", (error) => runtimeErrors.push(error.message));
+  page.on("console", (message) => {
+    if (message.type() === "error") runtimeErrors.push(message.text());
+  });
+
+  await gotoReadyTruthMap(page, TRUTH_MAP_QA_ROUTE);
+  await page.waitForFunction(() => {
+    const map = window.__TRUTH_MAP_DEBUG__?.map;
+    if (!map?.getLayer("validated-cannabis-store-markers")) return false;
+    return (map.queryRenderedFeatures({ layers: ["validated-cannabis-store-markers"] }) || [])
+      .some((feature) => feature.properties?.geo_id === "US-NY");
+  }, undefined, { timeout: 20_000 });
+
+  const initialQueryId = await page.evaluate(() => window.__TRUTH_MAP_DEBUG__?.map?.getCanvas().dataset.storeQueryId || "");
+  const greeceResponse = page.waitForResponse((response) => {
+    if (!response.url().includes("/api/truth-map/stores?")) return false;
+    const url = new URL(response.url());
+    return response.status() === 200
+      && Number(url.searchParams.get("west")) > 22
+      && Number(url.searchParams.get("east")) < 25;
+  }, { timeout: 20_000 });
+  await page.evaluate(async () => {
+    const map = window.__TRUTH_MAP_DEBUG__?.map;
+    if (!map) throw new Error("truth_map_missing_for_viewport_move");
+    await new Promise<void>((resolve) => {
+      map.once("moveend", () => resolve());
+      map.easeTo({ center: [23.593064, 38.462504], zoom: 13, duration: 250, essential: true });
+    });
+  });
+  await greeceResponse;
+  await page.waitForFunction((previousQueryId) => {
+    const map = window.__TRUTH_MAP_DEBUG__?.map;
+    if (!map?.getLayer("validated-cannabis-store-markers")) return false;
+    return map.getCanvas().dataset.storeQueryId !== previousQueryId
+      && (map.queryRenderedFeatures({ layers: ["validated-cannabis-store-markers"] }) || [])
+        .some((feature) => feature.properties?.geo_id === "GR");
+  }, initialQueryId, { timeout: 20_000 });
+
+  const wrappedResponse = page.waitForResponse((response) => {
+    if (!response.url().includes("/api/truth-map/stores?")) return false;
+    const url = new URL(response.url());
+    return response.status() === 200
+      && Number(url.searchParams.get("west")) < -73
+      && Number(url.searchParams.get("east")) < -73;
+  }, { timeout: 20_000 });
+  await page.evaluate(() => {
+    window.__TRUTH_MAP_DEBUG__?.map?.jumpTo({ center: [286.0106387, 40.7033862], zoom: 13 });
+  });
+  await wrappedResponse;
+  const wrappedState = await (await page.waitForFunction(() => {
+    const map = window.__TRUTH_MAP_DEBUG__?.map;
+    if (!map?.getLayer("validated-cannabis-store-markers")) return null;
+    const hasNewYorkLeaf = (map.queryRenderedFeatures({ layers: ["validated-cannabis-store-markers"] }) || [])
+      .some((feature) => feature.properties?.geo_id === "US-NY");
+    const bounds = map.getBounds();
+    return hasNewYorkLeaf && map.getCanvas().dataset.storeVisibilityLevel === "LOCAL"
+      ? { west: bounds.getWest(), east: bounds.getEast(), center: map.getCenter().lng }
+      : null;
+  }, undefined, { timeout: 20_000 })).jsonValue() as { west: number; east: number; center: number };
+  expect(wrappedState.west).toBeGreaterThan(180);
+  expect(wrappedState.east).toBeGreaterThan(180);
+  expect(wrappedState.center).toBeGreaterThan(180);
+  expect(runtimeErrors).toEqual([]);
+});
+
 test("truth-map declutters global store counts and reaches full local zoom without changing the existing map route", async ({ page }) => {
   // This is one serial visual route contract spanning the audited local
   // jurisdictions. Each camera stop has its own 20-second readiness bound;
@@ -86,10 +214,20 @@ test("truth-map declutters global store counts and reaches full local zoom witho
     const map = window.__TRUTH_MAP_DEBUG__?.map;
     const layers = map?.getStyle().layers || [];
     const countrySummaryIndex = layers.findIndex((layer) => layer.id === "validated-cannabis-store-country-summaries");
-    const firstNativeLabelIndex = layers.findIndex((layer) => (
+    const finalNativeGeometryIndex = layers.reduce((lastIndex, layer, index) => (
+      layer.type !== "symbol"
+      && !layer.id.startsWith("validated-cannabis-store-")
+      && !layer.id.startsWith("social-map-activity-")
+      && !layer.id.startsWith("legal-")
+      && !layer.id.startsWith("us-states-")
+        ? index
+        : lastIndex
+    ), -1);
+    const firstNativeLabelIndex = layers.findIndex((layer, index) => index > finalNativeGeometryIndex && (
       layer.type === "symbol"
       && !layer.id.startsWith("validated-cannabis-store-")
-      && layer.id !== "legal-territory-label"
+      && !layer.id.startsWith("social-map-activity-")
+      && !layer.id.startsWith("legal-")
     ));
     return {
       geoSummaryRendered: map?.queryRenderedFeatures({ layers: ["validated-cannabis-store-geo-summaries"] }).length,
@@ -97,6 +235,7 @@ test("truth-map declutters global store counts and reaches full local zoom witho
       countrySummaryCount: map?.getCanvas().dataset.storeCountrySummaryCount,
       countrySummaryMaxZoom: map?.getLayer("validated-cannabis-store-country-summaries")?.maxzoom,
       geoSummaryMinZoom: map?.getLayer("validated-cannabis-store-geo-summaries")?.minzoom,
+      countrySummaryAboveNativeGeometry: countrySummaryIndex > finalNativeGeometryIndex,
       countrySummaryBeforeNativeLabels: countrySummaryIndex >= 0 && firstNativeLabelIndex > countrySummaryIndex,
     };
   });
@@ -106,6 +245,7 @@ test("truth-map declutters global store counts and reaches full local zoom witho
   expect(globalStoreState.countrySummaryRendered).toBe(summaryPayload.meta.countryCount);
   expect(globalStoreState.countrySummaryMaxZoom).toBe(4.2);
   expect(globalStoreState.geoSummaryMinZoom).toBe(4.2);
+  expect(globalStoreState.countrySummaryAboveNativeGeometry).toBe(true);
   expect(globalStoreState.countrySummaryBeforeNativeLabels).toBe(true);
 
   const greeceCountrySummary = summaryPayload.countryRows.find((row) => row.geo_id === "GR");
@@ -189,10 +329,52 @@ test("truth-map declutters global store counts and reaches full local zoom witho
     return {
       geo: map?.queryRenderedFeatures({ layers: ["validated-cannabis-store-geo-summaries"] }).length || 0,
       country: map?.queryRenderedFeatures({ layers: ["validated-cannabis-store-country-summaries"] }).length || 0,
+      clusterType: map?.getLayer("validated-cannabis-store-clusters")?.type,
+      clusterIcon: map?.getLayoutProperty("validated-cannabis-store-clusters", "icon-image"),
+      clusterText: map?.getLayoutProperty("validated-cannabis-store-clusters", "text-field"),
+      clusterAllowOverlap: map?.getLayoutProperty("validated-cannabis-store-clusters", "icon-allow-overlap"),
+      clusterTextAllowOverlap: map?.getLayoutProperty("validated-cannabis-store-clusters", "text-allow-overlap"),
+      legacyClusterCountLayerPresent: Boolean(map?.getLayer("validated-cannabis-store-cluster-counts")),
     };
   });
   expect(mediumZoomStoreState.geo).toBe(0);
   expect(mediumZoomStoreState.country).toBe(0);
+  expect(mediumZoomStoreState.clusterType).toBe("symbol");
+  expect(mediumZoomStoreState.clusterIcon).toBe("validated-cannabis-store-geo-summary-shop");
+  expect(mediumZoomStoreState.clusterText).toEqual(["to-string", ["get", "count"]]);
+  expect(mediumZoomStoreState.clusterAllowOverlap).toBe(true);
+  expect(mediumZoomStoreState.clusterTextAllowOverlap).toBe(true);
+  expect(mediumZoomStoreState.legacyClusterCountLayerPresent).toBe(false);
+
+  // A one-record cluster must transform into the corresponding local leaf at
+  // the same coordinate. This protects the hand-off that previously made a
+  // visible storefront jump to a grid centre and then disappear behind labels.
+  await gotoReadyTruthMap(page, "/truth-map?qa=1&lat=38.4&lng=23.6&zoom=10.19");
+  await page.waitForFunction(() => {
+    const map = window.__TRUTH_MAP_DEBUG__?.map;
+    return (map?.queryRenderedFeatures({ layers: ["validated-cannabis-store-clusters"] }) || [])
+      .some((feature) => Number(feature.properties?.count) === 1);
+  }, { timeout: 20_000 });
+  const singletonClusterCoordinate = await page.evaluate(() => {
+    const map = window.__TRUTH_MAP_DEBUG__?.map;
+    const feature = (map?.queryRenderedFeatures({ layers: ["validated-cannabis-store-clusters"] }) || [])
+      .find((candidate) => candidate.geometry.type === "Point" && Number(candidate.properties?.count) === 1);
+    return feature?.geometry.type === "Point"
+      ? feature.geometry.coordinates as [number, number]
+      : null;
+  });
+  expect(singletonClusterCoordinate).not.toBeNull();
+  if (!singletonClusterCoordinate) throw new Error("truth_map_singleton_cluster_missing");
+  await page.evaluate((coordinate) => {
+    window.__TRUTH_MAP_DEBUG__?.map?.jumpTo({ center: coordinate, zoom: 10.21 });
+  }, singletonClusterCoordinate);
+  await page.waitForFunction((coordinate) => {
+    const map = window.__TRUTH_MAP_DEBUG__?.map;
+    return (map?.queryRenderedFeatures({ layers: ["validated-cannabis-store-markers"] }) || [])
+      .some((feature) => feature.geometry.type === "Point"
+        && Math.abs(feature.geometry.coordinates[0] - coordinate[0]) < 0.000001
+        && Math.abs(feature.geometry.coordinates[1] - coordinate[1]) < 0.000001);
+  }, singletonClusterCoordinate, { timeout: 20_000 });
 
   await gotoReadyTruthMap(page, "/truth-map?qa=1&lat=34.0522&lng=-118.2437&zoom=12");
   await page.waitForFunction(() => window.__TRUTH_MAP_QA__?.getStoreVisibilityLevel() === "LOCAL", { timeout: 20_000 });
@@ -243,6 +425,8 @@ test("truth-map declutters global store counts and reaches full local zoom witho
       allowOverlap: map?.getLayoutProperty("validated-cannabis-store-markers", "icon-allow-overlap"),
       ignorePlacement: map?.getLayoutProperty("validated-cannabis-store-markers", "icon-ignore-placement"),
       padding: map?.getLayoutProperty("validated-cannabis-store-markers", "icon-padding"),
+      rotationAlignment: map?.getLayoutProperty("validated-cannabis-store-markers", "icon-rotation-alignment"),
+      pitchAlignment: map?.getLayoutProperty("validated-cannabis-store-markers", "icon-pitch-alignment"),
       runtimeTint: map?.getPaintProperty("validated-cannabis-store-markers", "icon-color") ?? null,
       hitboxType: map?.getLayer("validated-cannabis-store-marker-hitboxes")?.type,
       hitboxOpacity: map?.getPaintProperty("validated-cannabis-store-marker-hitboxes", "circle-opacity"),
@@ -250,9 +434,11 @@ test("truth-map declutters global store counts and reaches full local zoom witho
   });
   expect(netherlandsLeafPresentation).toEqual({
     icon: "validated-cannabis-store-leaf",
-    allowOverlap: false,
-    ignorePlacement: false,
-    padding: 5,
+    allowOverlap: true,
+    ignorePlacement: true,
+    padding: 0,
+    rotationAlignment: "viewport",
+    pitchAlignment: "viewport",
     runtimeTint: null,
     hitboxType: "circle",
     hitboxOpacity: 0,
