@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-26T14:27:09.000Z",
+  "source_id": "official-nl-deventer-current-coffeeshop-permit-nieuwe-markt-4-2026-08-26",
+  "source_url": "https://zoek.officielebekendmakingen.nl/gmb-2026-295512.html",
+  "coordinate_authority": "PDOK Locatieserver / BAG",
+  "coordinate_url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free",
+  "scope": "One individual official municipal permit notice; not a complete municipality directory.",
+  "records": [
+    {
+      "source_record_id": "gmb-2026-295512",
+      "legal_name": "Municipal authorised coffeeshop premises",
+      "trade_name": "",
+      "license_number": "96371-2025",
+      "license_type": "Municipal exploitation permit and coffeeshop toleration statement",
+      "store_type": "ADULT_USE_RETAIL",
+      "address": "Nieuwe Markt 4",
+      "city": "Deventer",
+      "region": "Overijssel",
+      "postal_code": "7411PA",
+      "country": "NL",
+      "license_status": "UNKNOWN_STATUS",
+      "operational_status": "UNKNOWN_STATUS",
+      "adult_use": true,
+      "medical": false,
+      "confidence": "PROVEN",
+      "coordinates_source": "OFFICIAL_PDOK_BAG_EXACT_ADDRESS_POINT",
+      "coordinates_confidence": "PROVEN",
+      "location_evidence": "STRONG",
+      "regulator_url": "https://zoek.officielebekendmakingen.nl/gmb-2026-295512.html",
+      "latitude": 52.2520468,
+      "longitude": 6.15363825,
+      "public_source_fields": {
+        "record_kind": "INDIVIDUAL_MUNICIPAL_COFFEESHOP_PERMIT",
+        "source_semantics": "One official municipal permit notice. It grants a five-year coffeeshop exploitation permit and toleration statement for sale of soft drugs at the listed premises; it is not a complete municipal directory and does not publish operating hours or a current operating-state field.",
+        "municipality": "Deventer",
+        "official_publication_id": "gmb-2026-295512",
+        "permit_date": "2026-06-24",
+        "permit_term": "Five years",
+        "pdok_adresseerbaarobject_id": "0150010000005624",
+        "pdok_weergavenaam": "Nieuwe Markt 4, 7411PA Deventer"
+      }
+    }
+  ]
+}

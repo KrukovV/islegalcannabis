@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-26T14:27:09.000Z",
+  "source_id": "official-nl-haarlem-current-coffeeshop-permit-jw-lucasweg-1-2026-08-26",
+  "source_url": "https://zoek.officielebekendmakingen.nl/gmb-2025-262311.html",
+  "coordinate_authority": "PDOK Locatieserver / BAG",
+  "coordinate_url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free",
+  "scope": "One individual official municipal permit notice; not a complete municipality directory.",
+  "records": [
+    {
+      "source_record_id": "gmb-2025-262311",
+      "legal_name": "Municipal authorised coffeeshop premises",
+      "trade_name": "",
+      "license_number": "0392-2024-0069468",
+      "license_type": "Municipal exploitation permit and coffeeshop toleration statement",
+      "store_type": "ADULT_USE_RETAIL",
+      "address": "J.W. Lucasweg 1",
+      "city": "Haarlem",
+      "region": "Noord-Holland",
+      "postal_code": "2031BE",
+      "country": "NL",
+      "license_status": "UNKNOWN_STATUS",
+      "operational_status": "UNKNOWN_STATUS",
+      "adult_use": true,
+      "medical": false,
+      "confidence": "PROVEN",
+      "coordinates_source": "OFFICIAL_PDOK_BAG_EXACT_ADDRESS_POINT",
+      "coordinates_confidence": "PROVEN",
+      "location_evidence": "STRONG",
+      "regulator_url": "https://zoek.officielebekendmakingen.nl/gmb-2025-262311.html",
+      "latitude": 52.39065093,
+      "longitude": 4.6627247,
+      "public_source_fields": {
+        "record_kind": "INDIVIDUAL_MUNICIPAL_COFFEESHOP_PERMIT",
+        "source_semantics": "One official municipal permit notice. It proves the listed premises received a coffeeshop exploitation permit and toleration statement; it is not a complete municipal directory and does not publish operating hours or a current operating-state field.",
+        "municipality": "Haarlem",
+        "official_publication_id": "gmb-2025-262311",
+        "permit_date": "2025-06-13",
+        "permit_term": "Not stated in the public notice",
+        "pdok_adresseerbaarobject_id": "0392010000081155",
+        "pdok_weergavenaam": "J.W. Lucasweg 1, 2031BE Haarlem"
+      }
+    }
+  ]
+}

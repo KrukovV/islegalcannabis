@@ -962,6 +962,71 @@
       "normalized_records": 167,
       "retained_missing_from_source": 0,
       "local_only": true
+    },
+    {
+      "snapshot_id": "official-nl-haarlem-current-coffeeshop-permit-jw-lucasweg-1-2026-08-26:a5947d41df99d6d8",
+      "source_id": "official-nl-haarlem-current-coffeeshop-permit-jw-lucasweg-1-2026-08-26",
+      "observed_at": "2026-08-26T14:32:43.859Z",
+      "input_path": "data/store_truth/source_snapshots/nl-haarlem-current-coffeeshop-permit-jw-lucasweg-1-2026-08-26.json",
+      "input_sha256": "a5947d41df99d6d8a9c1d7f3bcc54e486ead1aa27186326b578685d3eefb0b94",
+      "extraction_state": "EXTRACTED",
+      "format": "JSON",
+      "extracted_records": 1,
+      "normalized_records": 1,
+      "retained_missing_from_source": 0,
+      "local_only": true
+    },
+    {
+      "snapshot_id": "official-nl-lisse-current-coffeeshop-permit-heereweg-153-2026-08-26:b095a492720b8ae5",
+      "source_id": "official-nl-lisse-current-coffeeshop-permit-heereweg-153-2026-08-26",
+      "observed_at": "2026-08-26T14:32:45.283Z",
+      "input_path": "data/store_truth/source_snapshots/nl-lisse-current-coffeeshop-permit-heereweg-153-2026-08-26.json",
+      "input_sha256": "b095a492720b8ae5ff1574a538e1cb80bcc6b8e386d34da1642789f708f4046c",
+      "extraction_state": "EXTRACTED",
+      "format": "JSON",
+      "extracted_records": 1,
+      "normalized_records": 1,
+      "retained_missing_from_source": 0,
+      "local_only": true
+    },
+    {
+      "snapshot_id": "official-nl-deventer-current-coffeeshop-permit-nieuwe-markt-4-2026-08-26:eb6bb43bc0ec4b4a",
+      "source_id": "official-nl-deventer-current-coffeeshop-permit-nieuwe-markt-4-2026-08-26",
+      "observed_at": "2026-08-26T14:32:47.769Z",
+      "input_path": "data/store_truth/source_snapshots/nl-deventer-current-coffeeshop-permit-nieuwe-markt-4-2026-08-26.json",
+      "input_sha256": "eb6bb43bc0ec4b4a70dc5efdca924b3560e86f9f5a77eb272ce40d78f070e517",
+      "extraction_state": "EXTRACTED",
+      "format": "JSON",
+      "extracted_records": 1,
+      "normalized_records": 1,
+      "retained_missing_from_source": 0,
+      "local_only": true
+    },
+    {
+      "snapshot_id": "official-nl-dordrecht-current-coffeeshop-permit-bagijnhof-31-2026-08-26:892369e4a2c64c0f",
+      "source_id": "official-nl-dordrecht-current-coffeeshop-permit-bagijnhof-31-2026-08-26",
+      "observed_at": "2026-08-26T14:32:49.062Z",
+      "input_path": "data/store_truth/source_snapshots/nl-dordrecht-current-coffeeshop-permit-bagijnhof-31-2026-08-26.json",
+      "input_sha256": "892369e4a2c64c0f88733a62d0bc0092307b358fae5eab453701e31cad60de8c",
+      "extraction_state": "EXTRACTED",
+      "format": "JSON",
+      "extracted_records": 1,
+      "normalized_records": 1,
+      "retained_missing_from_source": 0,
+      "local_only": true
+    },
+    {
+      "snapshot_id": "official-nl-midden-groningen-current-coffeeshop-permit-parallelweg-1-2026-08-26:741cfc91bb24fc8f",
+      "source_id": "official-nl-midden-groningen-current-coffeeshop-permit-parallelweg-1-2026-08-26",
+      "observed_at": "2026-08-26T14:32:49.967Z",
+      "input_path": "data/store_truth/source_snapshots/nl-midden-groningen-current-coffeeshop-permit-parallelweg-1-2026-08-26.json",
+      "input_sha256": "741cfc91bb24fc8f479550281f7e781c164cdd3b509353f2b8b512e8584a95f4",
+      "extraction_state": "EXTRACTED",
+      "format": "JSON",
+      "extracted_records": 1,
+      "normalized_records": 1,
+      "retained_missing_from_source": 0,
+      "local_only": true
     }
   ]
 }

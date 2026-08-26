@@ -499,4 +499,50 @@ describe("/api/truth-map/stores", () => {
       source_authority: "Mayor of Amsterdam / Municipality of Amsterdam",
     });
   });
+
+  it("projects only individually permitted Dutch coffeeshop premises with exact official BAG coordinates", async () => {
+    const permitSources = [
+      "official-nl-haarlem-current-coffeeshop-permit-jw-lucasweg-1-2026-08-26",
+      "official-nl-lisse-current-coffeeshop-permit-heereweg-153-2026-08-26",
+      "official-nl-deventer-current-coffeeshop-permit-nieuwe-markt-4-2026-08-26",
+      "official-nl-dordrecht-current-coffeeshop-permit-bagijnhof-31-2026-08-26",
+      "official-nl-midden-groningen-current-coffeeshop-permit-parallelweg-1-2026-08-26",
+    ];
+    const records = loadCanonicalStoreRecords().filter((item) => permitSources.includes(item.source_id));
+    expect(records).toHaveLength(5);
+    expect(records.map((record) => record.address).sort()).toEqual([
+      "Bagijnhof 31",
+      "Heereweg 153",
+      "J.W. Lucasweg 1",
+      "Nieuwe Markt 4",
+      "Parallelweg 1",
+    ]);
+    for (const record of records) {
+      const source = loadStoreSources().find((item) => item.source_id === record.source_id);
+      expect(validateStoreVisibility(
+        record,
+        source,
+        loadCanonicalLegalTruthByGeo().get("NL"),
+        loadStoreEligibilityByGeo().get("NL"),
+      ).reasons).toEqual([]);
+      expect(record.public_source_fields.source_semantics).toContain("not a complete municipal directory");
+      expect(record.coordinates_source).toBe("OFFICIAL_PDOK_BAG_EXACT_ADDRESS_POINT");
+    }
+
+    const deventer = records.find((record) => record.address === "Nieuwe Markt 4")!;
+    const response = await GET(new Request(`http://localhost/api/truth-map/stores?west=${deventer.longitude - 0.02}&south=${deventer.latitude - 0.02}&east=${deventer.longitude + 0.02}&north=${deventer.latitude + 0.02}&zoom=13`));
+    const payload = await response.json();
+    const projected = payload.features.find((feature: { properties?: { store_id?: string } }) => (
+      feature.properties?.store_id === deventer.canonical_store_id
+    ));
+    expect(projected?.properties).toMatchObject({
+      geo_id: "NL",
+      legal_name: "Municipal authorised coffeeshop premises",
+      license_status: "UNKNOWN_STATUS",
+      operational_status: "UNKNOWN_STATUS",
+      store_type: "ADULT_USE_RETAIL",
+      record_kind: "INDIVIDUAL_MUNICIPAL_COFFEESHOP_PERMIT",
+      source_authority: "Municipality of Deventer",
+    });
+  });
 });

@@ -162,6 +162,15 @@ published parent address to multiple distinct coordinates, retain the row with
 an explicit coordinate rejection reason and do not project a leaf. A
 commercial-map pin, centroid or guessed unit is not a replacement.
 
+The same rule applies to one-premises municipal authorisation notices. Each
+notice may contribute only the explicitly identified civic premises, with its
+official publication or case reference and one authoritative civic-coordinate
+match. It must retain the boundary that it is not a complete municipal
+directory. A published permission term does not manufacture a current licence
+or factual operating state: unless the current official notice states that
+lifecycle explicitly, the corresponding Store Truth fields remain
+`UNKNOWN_STATUS`.
+
 The exclusive `/truth-map` cannabis-leaf marker is permitted only where all
 current Store eligibility gates pass: official regulator source, qualifying
 cannabis retail/dispensing category, valid lifecycle state, exact GEO,

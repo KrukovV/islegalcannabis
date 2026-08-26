@@ -264,7 +264,7 @@ write_git_bundle() {
 set -euo pipefail
 cd "$(pwd)"
 git apply --binary "${patch_path}"
-stage_paths=(.gitignore .vercelignore README.md CONTINUITY.md apps docs packages tools Tools data/wiki data/reviews data/ssot_snapshots data/ssot_diffs.json data/official cache/ssot_diff_cache.json package.json package-lock.json)
+stage_paths=(.gitignore .vercelignore README.md CONTINUITY.md apps docs packages tools Tools data/wiki data/reviews data/store_truth data/ssot_snapshots data/ssot_diffs.json data/official cache/ssot_diff_cache.json package.json package-lock.json)
 existing_paths=()
 for path in "\${stage_paths[@]}"; do
   [ -e "\${path}" ] && existing_paths+=("\${path}")
@@ -497,6 +497,7 @@ stage_paths=(
   Tools
   data/wiki
   data/reviews
+  data/store_truth
   data/ssot_snapshots
   data/ssot_diffs.json
   data/official
