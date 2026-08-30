@@ -119,22 +119,35 @@ function simplifyMultiPolygonCoordinates(coordinates: MultiPolygon["coordinates"
   return coordinates.map((polygon) => simplifyPolygonCoordinates(polygon));
 }
 
-function simplifyGeometry(geometry: Polygon | MultiPolygon | Point): Polygon | MultiPolygon | Point {
+/**
+ * Shared production geometry compaction used by the proven public-map static
+ * asset route. It intentionally preserves every feature property unchanged.
+ */
+export function simplifyMapGeometry<T extends Polygon | MultiPolygon | Point>(geometry: T): T {
   if (geometry.type === "Point") {
     return {
       type: "Point",
       coordinates: roundPosition(geometry.coordinates)
-    };
+    } as T;
   }
   if (geometry.type === "Polygon") {
     return {
       type: "Polygon",
       coordinates: simplifyPolygonCoordinates(geometry.coordinates)
-    };
+    } as T;
   }
   return {
     type: "MultiPolygon",
     coordinates: simplifyMultiPolygonCoordinates(geometry.coordinates)
+  } as T;
+}
+
+export function simplifyMapFeatureGeometry<TProperties>(
+  feature: Feature<Polygon | MultiPolygon | Point, TProperties>
+): Feature<Polygon | MultiPolygon | Point, TProperties> {
+  return {
+    ...feature,
+    geometry: simplifyMapGeometry(feature.geometry)
   };
 }
 
@@ -144,7 +157,7 @@ function slimFeature(
   return {
     type: "Feature",
     id: feature.id,
-    geometry: simplifyGeometry(feature.geometry),
+    geometry: simplifyMapGeometry(feature.geometry),
     properties: {
       geo: feature.properties.geo,
       displayName: feature.properties.displayName,

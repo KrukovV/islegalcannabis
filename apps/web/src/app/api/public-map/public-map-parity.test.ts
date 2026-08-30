@@ -1,17 +1,28 @@
 import { describe, expect, it } from "vitest";
 import { GET as publicCountries } from "./countries/route";
-import { GET as auditCountries } from "../truth-map/countries/route";
+import { GET as publicStates } from "./us-states/route";
 import { GET as publicStores } from "./stores/route";
 import { GET as auditStores } from "../truth-map/stores/route";
 import { GET as publicSummary } from "./stores/summary/route";
 import { GET as auditSummary } from "../truth-map/stores/summary/route";
+import {
+  STATIC_TRUTH_MAP_COUNTRIES_HASH,
+  STATIC_TRUTH_MAP_COUNTRIES_URL,
+  STATIC_TRUTH_MAP_US_STATES_HASH,
+  STATIC_TRUTH_MAP_US_STATES_URL
+} from "@/truth-map/staticTruthMap";
 
 describe("public-map read adapters", () => {
-  it("serves exactly the same canonical 307-GEO display datasets as the local audit route", async () => {
-    const [publicResponse, auditResponse] = await Promise.all([publicCountries(), auditCountries()]);
-    expect(publicResponse.status).toBe(200);
-    expect(publicResponse.headers.get("cache-control")).toBe("no-store");
-    expect(await publicResponse.json()).toEqual(await auditResponse.json());
+  it("keeps the proven content-addressed static delivery path for 307-GEO display datasets", async () => {
+    const [countriesResponse, statesResponse] = await Promise.all([publicCountries(), publicStates()]);
+    expect(countriesResponse.status).toBe(308);
+    expect(countriesResponse.headers.get("location")).toBe(STATIC_TRUTH_MAP_COUNTRIES_URL);
+    expect(countriesResponse.headers.get("x-truth-map-hash")).toBe(STATIC_TRUTH_MAP_COUNTRIES_HASH);
+    expect(statesResponse.status).toBe(308);
+    expect(statesResponse.headers.get("location")).toBe(STATIC_TRUTH_MAP_US_STATES_URL);
+    expect(statesResponse.headers.get("x-truth-map-hash")).toBe(STATIC_TRUTH_MAP_US_STATES_HASH);
+    expect(countriesResponse.headers.get("cache-control")).toContain("stale-while-revalidate");
+    expect(statesResponse.headers.get("cache-control")).toContain("stale-while-revalidate");
   });
 
   it("preserves the Store Truth visibility gate for individual leaves", async () => {

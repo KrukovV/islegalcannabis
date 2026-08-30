@@ -141,6 +141,11 @@ export type TruthMapDataset = {
   meta: TruthMapDatasetMeta;
 };
 
+export type TruthMapRuntimeMeta = Pick<
+  TruthMapDatasetMeta,
+  "generatedAt" | "datasetHash" | "finalSnapshotId"
+>;
+
 type TruthMapDatasetCache = { signature: string; dataset: TruthMapDataset };
 
 let cache: TruthMapDatasetCache | null = null;
@@ -505,4 +510,17 @@ export function buildTruthMapDataset(): TruthMapDataset {
 
 export function getTruthMapDatasetMeta() {
   return buildTruthMapDataset().meta;
+}
+
+/**
+ * The public root only needs build identity. Keep that SSR path independent of
+ * the full 10m geometry collection, which is loaded by the map client later.
+ */
+export function getTruthMapRuntimeMeta(): TruthMapRuntimeMeta {
+  const { source, raw } = readFinalTruthFile();
+  return {
+    generatedAt: String(source.generatedAt || "UNCONFIRMED"),
+    datasetHash: crypto.createHash("sha256").update(raw).digest("hex"),
+    finalSnapshotId: "FINAL_307_RECONCILIATION"
+  };
 }

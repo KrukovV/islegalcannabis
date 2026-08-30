@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "assets": {
+    "countries": {
+      "hash": "0a8f7a9b6107",
+      "file": "countries.0a8f7a9b6107.json.br",
+      "byteLength": 2621440,
+      "brotliByteLength": 544071
+    },
+    "us-states": {
+      "hash": "e144a4f9e90b",
+      "file": "us-states.e144a4f9e90b.json.br",
+      "byteLength": 207730,
+      "brotliByteLength": 39324
+    }
+  }
+}

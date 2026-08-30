@@ -1,9 +1,19 @@
-import { NextResponse } from "next/server";
-import { buildTruthMapDataset } from "@/truth-map/truthMapSource";
+import {
+  STATIC_TRUTH_MAP_US_STATES_HASH,
+  STATIC_TRUTH_MAP_US_STATES_URL
+} from "@/truth-map/staticTruthMap";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "force-static";
+export const revalidate = false;
 
-/** Public display adapter: the same canonical 307-GEO projection as the audit route. */
+/** Public compatibility adapter for the proven content-addressed static asset. */
 export async function GET() {
-  return NextResponse.json(buildTruthMapDataset().usStates, { headers: { "Cache-Control": "no-store" } });
+  return new Response(null, {
+    status: 308,
+    headers: {
+      Location: STATIC_TRUTH_MAP_US_STATES_URL,
+      "Cache-Control": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800",
+      "X-Truth-Map-Hash": STATIC_TRUTH_MAP_US_STATES_HASH
+    }
+  });
 }

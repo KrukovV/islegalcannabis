@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { buildTruthMapDataset, resolveTruthMapDisplayColor } from "./truthMapSource";
+import {
+  buildTruthMapDataset,
+  getTruthMapRuntimeMeta,
+  resolveTruthMapDisplayColor
+} from "./truthMapSource";
 
 const polarPolicy = {
   schemaVersion: 1,
@@ -28,6 +32,13 @@ describe("truth-map final reconciliation projection", () => {
     expect(dataset.meta.displayNonPolarGreyGeos).toEqual([]);
     expect(dataset.meta.nonMutating).toBe(true);
     expect(dataset.meta.localOnly).toBe(true);
+  });
+
+  it("keeps root runtime identity independent of full geometry materialisation", () => {
+    const runtime = getTruthMapRuntimeMeta();
+    expect(runtime.finalSnapshotId).toBe("FINAL_307_RECONCILIATION");
+    expect(runtime.generatedAt).not.toBe("UNCONFIRMED");
+    expect(runtime.datasetHash).toMatch(/^[a-f0-9]{64}$/);
   });
 
   it("does not inherit an old SSOT color for a changed legal proposal", () => {

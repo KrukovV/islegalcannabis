@@ -1,10 +1,10 @@
 import { getBuildStamp } from "@/lib/buildStamp";
 import { buildRuntimeIdentity, formatVisibleRuntimeStamp } from "@/lib/runtimeIdentity";
 import { checkNearLegalEnabled, checkPremium } from "@/middleware/featureGate";
-import { getTruthMapDatasetMeta } from "@/truth-map/truthMapSource";
+import { getStaticTruthMapRuntimeMeta } from "@/truth-map/staticTruthMap";
 
 export function getTruthMapRuntimeIdentity() {
-  const dataset = getTruthMapDatasetMeta();
+  const dataset = getStaticTruthMapRuntimeMeta();
   return buildRuntimeIdentity({
     buildStamp: getBuildStamp(),
     snapshot: { finalSnapshotId: dataset.finalSnapshotId, builtAt: dataset.generatedAt, datasetHash: dataset.datasetHash },

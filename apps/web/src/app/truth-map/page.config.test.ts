@@ -17,6 +17,9 @@ describe("truth-map audit route", () => {
     const root = fs.readFileSync(path.join(process.cwd(), "src", "app", "page.tsx"), "utf8");
     const currentMap = fs.readFileSync(path.join(process.cwd(), "src", "app", "new-map", "page.tsx"), "utf8");
     const localRoot = fs.readFileSync(path.join(process.cwd(), "src", "app", "_components", "LocalPublicMapRoot.tsx"), "utf8");
+    const runtime = fs.readFileSync(path.join(process.cwd(), "src", "app", "truth-map", "runtimeConfig.ts"), "utf8");
+    const staticPayload = fs.readFileSync(path.join(process.cwd(), "src", "truth-map", "staticTruthMap.ts"), "utf8");
+    const nextConfig = fs.readFileSync(path.join(process.cwd(), "next.config.ts"), "utf8");
     expect(root).toContain("TruthMapRoot");
     expect(root).toContain('presentation="public"');
     expect(root).toContain('countriesUrl: "/api/public-map/countries"');
@@ -27,6 +30,10 @@ describe("truth-map audit route", () => {
     expect(root).toContain("isLocalAuditHost");
     expect(root).toContain("LocalPublicMapRoot");
     expect(root).toContain('showPublicMapNotice={false}');
+    expect(runtime).toContain("getStaticTruthMapRuntimeMeta");
+    expect(runtime).not.toContain("truthMapSource");
+    expect(staticPayload).not.toContain("truthMapSource");
+    expect(nextConfig).not.toContain("wiki-truth-307-final-reconciliation.json");
     expect(localRoot).toContain("MapGeoDock");
     expect(localRoot).not.toContain("TruthMapSocialPanel");
     expect(currentMap).toContain("permanentRedirect(canonicalPublicMapTarget(resolvedSearchParams))");
@@ -146,8 +153,10 @@ describe("truth-map audit route", () => {
 
   it("keeps QA popup selection inside the complete route-local reconciliation datasets", () => {
     const truthMap = fs.readFileSync(path.join(process.cwd(), "src", "truth-map", "TruthMapRoot.tsx"), "utf8");
-    expect(truthMap).toContain("Promise.all([\n          fetch(countriesUrl");
-    expect(truthMap).toContain("fetch(usStatesUrl");
+    expect(truthMap).toContain("fetchTruthMapCollection(countriesUrl)");
+    expect(truthMap).toContain("fetchTruthMapCollection(usStatesUrl)");
+    expect(truthMap).not.toContain("TRUTH_MAP_COLLECTION_CHUNKS_V1");
+    expect(truthMap).not.toContain("truth_map_dataset_chunk_fetch");
     expect(truthMap).toContain("countries.features.find");
     expect(truthMap).toContain("usStates.features.find");
     expect(truthMap).toContain("openGeo: async (geo)");

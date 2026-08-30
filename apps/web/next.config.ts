@@ -10,11 +10,12 @@ const countryRuntimeData = [
 ];
 const publicMapRuntimeData = [
   ...countryRuntimeData,
-  "../../data/reviews/wiki-truth-307-final-reconciliation.json",
-  "../../data/reviews/truth-map-display-policy.v1.json",
   "../../data/store_truth/canonical_store_records.json",
   "../../data/store_truth/store_source_registry.json",
   "../../data/store_truth/store_eligibility_model.json"
+];
+const publicMapStaticAssets = [
+  "../../apps/web/src/truth-map/static-assets/**/*"
 ];
 const countryRuntimeRoutes = [
   "/c/*",
@@ -45,7 +46,8 @@ const nextConfig: NextConfig = {
   outputFileTracingRoot: path.resolve(__dirname, "../.."),
   outputFileTracingIncludes: Object.fromEntries([
     ...countryRuntimeRoutes.map((route) => [route, countryRuntimeData]),
-    ...publicMapRuntimeRoutes.map((route) => [route, publicMapRuntimeData]),
+    ...publicMapRuntimeRoutes.map((route) => [route, [...publicMapRuntimeData, ...publicMapStaticAssets]]),
+    ["/static/truth-map/*", publicMapStaticAssets],
   ]),
   transpilePackages: ["@islegal/shared"],
   turbopack: {

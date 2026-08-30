@@ -92,6 +92,12 @@ type TruthMapPopupSelection = {
   lngLat: { lng: number; lat: number };
 };
 
+async function fetchTruthMapCollection(url: string): Promise<TruthMapCollection> {
+  const response = await fetch(url, { credentials: "same-origin" });
+  if (!response.ok) throw new Error(`truth_map_dataset_fetch:${response.status}`);
+  return response.json() as Promise<TruthMapCollection>;
+}
+
 function parseLegalEvidenceCitations(value: unknown) {
   try {
     const parsed = JSON.parse(String(value || "[]")) as Array<Record<string, unknown>>;
@@ -453,15 +459,9 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
     const load = async () => {
       let hover: ReturnType<typeof attachHoverController> | null = null;
       try {
-        const [response, statesResponse] = await Promise.all([
-          fetch(countriesUrl, { cache: "no-store", credentials: "same-origin" }),
-          fetch(usStatesUrl, { cache: "no-store", credentials: "same-origin" }),
-        ]);
-        if (!response.ok) throw new Error(`truth_map_dataset_fetch:${response.status}`);
-        if (!statesResponse.ok) throw new Error(`truth_map_states_dataset_fetch:${statesResponse.status}`);
         const [countries, usStates] = await Promise.all([
-          response.json() as Promise<TruthMapCollection>,
-          statesResponse.json() as Promise<TruthMapCollection>,
+          fetchTruthMapCollection(countriesUrl),
+          fetchTruthMapCollection(usStatesUrl),
         ]);
         if (disposed) return;
         // The basemap phase has installed the shared feature layers. Attach the

@@ -1366,6 +1366,9 @@ SUMMARY_LINES+=("RUN_TRUTH_FIRST_MATRIX_REFRESH=1")
 run_step "wiki_truth_307_build_wiki_truth_cannabis_law_matrix" 120 "${NODE_BIN} tools/wiki/build_wiki_truth_cannabis_law_matrix.mjs"
 SUMMARY_LINES+=("TRUTH_FIRST_MATRIX_REFRESH_OK=1")
 echo "TRUTH_FIRST_MATRIX_REFRESH_OK=1"
+run_step "public_truth_map_static_assets" 120 "cd \"${ROOT}/apps/web\" && npm run public-map:static-assets"
+SUMMARY_LINES+=("PUBLIC_TRUTH_MAP_STATIC_ASSETS_OK=1")
+echo "PUBLIC_TRUTH_MAP_STATIC_ASSETS_OK=1"
 
 source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/pass_cycle.net_health.sh"
 # PASS_CYCLE_EGRESS_TRUTH_FALLBACK: retain the mandatory network-truth proof without changing its axes or policy.
