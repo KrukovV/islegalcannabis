@@ -101,7 +101,7 @@ describe("truth-map audit route", () => {
     expect(truthMap).toContain("publicLocalDock");
     expect(truthMap).toContain("AsciiOverlay");
     expect(truthMap).toContain("bindAsciiMapTriggers");
-    expect(truthMap).toContain('surfaceTestId="public-map-canvas"');
+    expect(truthMap).toContain('surfaceTestId={publicPresentation ? "public-map-canvas" : "truth-map-canvas"}');
     expect(truthMap).not.toContain("MapGeoDock");
   });
 

@@ -474,14 +474,15 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
             runtime.map.getCanvas().dataset.truthMapHoveredGeo = geo || "";
           }
         });
-        if (publicPresentation) {
-          const { bindAsciiMapTriggers } = await import("@/new-map/ascii/ascii-triggers");
-          if (disposed) {
-            hover.destroy();
-            return null;
-          }
-          asciiCleanup = bindAsciiMapTriggers(runtime.map);
+        // Reuse the established map-trigger binding for both shells.  The
+        // canvas itself is visual-only; this keeps the local audit preview's
+        // Antarctica animation in the same state as the public display map.
+        const { bindAsciiMapTriggers } = await import("@/new-map/ascii/ascii-triggers");
+        if (disposed) {
+          hover.destroy();
+          return null;
         }
+        asciiCleanup = bindAsciiMapTriggers(runtime.map);
         runtime.setData(countries as LegalCountryCollection);
         setMeta(countries.meta || null);
         await runtime.ready;
@@ -609,7 +610,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
       }}
     >
       <div ref={containerRef} className={styles.mapSurface} data-testid={publicPresentation ? "public-map-canvas" : "truth-map-canvas"} data-map-ready={mapReady ? "1" : "0"} />
-      {publicPresentation ? <AsciiOverlay surfaceTestId="public-map-canvas" /> : null}
+      <AsciiOverlay surfaceTestId={publicPresentation ? "public-map-canvas" : "truth-map-canvas"} />
       <section className={styles.overlay} aria-live="polite">
         {publicPresentation && showPublicMapNotice ? (
           <div className={styles.card} data-testid="public-map-notice">
