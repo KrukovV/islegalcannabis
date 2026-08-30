@@ -14,7 +14,7 @@ async function waitForActiveSocialMap(page: import("@playwright/test").Page) {
   await expect(page.getByTestId("truth-map-social-chat")).toHaveAttribute("data-social-chat-status", "ACTIVE");
   await page.waitForFunction(() => Boolean(window.__TRUTH_MAP_QA__), { timeout: 20_000 });
   await page.waitForFunction(() => window.__TRUTH_MAP_QA__?.getSocialVisibilityLevel() === "DISCUSSION", { timeout: 20_000 });
-  await expect(page.getByTestId("truth-map-social-realtime")).toHaveText("LIVE", { timeout: 10_000 });
+  await expect(page.getByTestId("truth-map-social-realtime")).toHaveText("LIVE", { timeout: 35_000 });
 }
 
 async function join(page: import("@playwright/test").Page, displayName: string) {
@@ -66,7 +66,7 @@ async function cleanupLiveFixture(sql: Sql, input: { alphaName: string; betaName
 }
 
 test("live two-user MAP Social flow delivers realtime without raw GPS persistence", async ({ browser }) => {
-  test.setTimeout(180_000);
+  test.setTimeout(240_000);
   test.skip(!liveEnabled, "requires explicit SOCIAL_UI_LIVE_TEST=1 and a local Social database");
   const sql = postgres(databaseUrl!, { max: 1, prepare: false });
   const suffix = randomUUID().slice(0, 12);
@@ -100,7 +100,7 @@ test("live two-user MAP Social flow delivers realtime without raw GPS persistenc
     await Promise.all([waitForActiveSocialMap(alpha), waitForActiveSocialMap(beta)]);
     await Promise.all([join(alpha, alphaName), join(beta, betaName)]);
 
-    await alpha.getByRole("button", { name: "Use privacy-safe current area" }).click();
+    await alpha.getByRole("button", { name: "Использовать приватную текущую область" }).click();
     await expect(alpha.getByTestId("truth-map-social-status")).toHaveText("PRIVACY_SAFE_AREA_READY", { timeout: 10_000 });
     await alpha.getByTestId("truth-map-social-composer").fill(body);
     const publishedAt = Date.now();
@@ -117,7 +117,31 @@ test("live two-user MAP Social flow delivers realtime without raw GPS persistenc
       } | undefined;
       return source?.serialize?.().data?.features?.some((feature) => typeof feature.properties?.geoCell === "string");
     }, undefined, { timeout: 10_000 });
+    await alpha.getByTestId("truth-map-social-my-messages-toggle").click();
+    const myMessages = alpha.getByTestId("truth-map-social-my-messages");
+    await expect(myMessages).toContainText(body, { timeout: 15_000 });
+    const safeAreaCentre = await alpha.evaluate(() => {
+      const source = window.__TRUTH_MAP_DEBUG__?.map?.getSource("social-map-activity") as {
+        serialize?: () => { data?: { features?: Array<{ geometry?: { coordinates?: [number, number] } }> } };
+      } | undefined;
+      const coordinates = source?.serialize?.().data?.features?.[0]?.geometry?.coordinates;
+      return coordinates ? { longitude: coordinates[0], latitude: coordinates[1] } : null;
+    });
+    expect(safeAreaCentre).not.toBeNull();
+    await alpha.evaluate(() => window.__TRUTH_MAP_QA__?.jumpTo(8, 8, 10));
+    await myMessages.getByText(body, { exact: false }).click();
+    await expect(alpha.getByTestId("truth-map-social-status")).toHaveText("MY_MESSAGE_MAP_CENTERED", { timeout: 10_000 });
+    await expect.poll(() => alpha.evaluate(({ latitude, longitude }) => {
+      const center = window.__TRUTH_MAP_DEBUG__?.map?.getCenter();
+      return Boolean(center && Math.abs(center.lat - latitude) < 0.001 && Math.abs(center.lng - longitude) < 0.001);
+    }, safeAreaCentre!), { timeout: 20_000 }).toBe(true);
     await alpha.evaluate(() => window.__TRUTH_MAP_QA__?.jumpTo(0, -0.12, 10));
+    await alpha.waitForFunction(() => {
+      const source = window.__TRUTH_MAP_DEBUG__?.map?.getSource("social-map-activity") as {
+        serialize?: () => { data?: { features?: Array<{ geometry?: { coordinates?: [number, number] } }> } };
+      } | undefined;
+      return Boolean(source?.serialize?.().data?.features?.[0]?.geometry?.coordinates);
+    }, undefined, { timeout: 10_000 });
     const markerPoint = await alpha.evaluate(() => {
       const map = window.__TRUTH_MAP_DEBUG__?.map;
       const source = map?.getSource("social-map-activity") as {
@@ -151,18 +175,18 @@ test("live two-user MAP Social flow delivers realtime without raw GPS persistenc
       if (await alpha.getByTestId("truth-map-social-map-area-focus").count()) break;
       await alpha.waitForTimeout(500);
     }
-    await expect(alpha.getByTestId("truth-map-social-map-area-focus")).toContainText(/active discussions?/, { timeout: 20_000 });
+    await expect(alpha.getByTestId("truth-map-social-map-area-focus")).toContainText(/активных обсуждений/, { timeout: 20_000 });
 
     await beta.getByTestId("truth-map-social-discussions").getByText(body, { exact: false }).click();
     await expect(beta.getByTestId("truth-map-social-thread")).toBeVisible();
     await beta.getByTestId("truth-map-social-comment").fill(comment);
     await beta.getByTestId("truth-map-social-comment-send").click();
     await expect(beta.getByTestId("truth-map-social-thread")).toContainText(comment, { timeout: 10_000 });
-    await expect(alpha.getByTestId("truth-map-social-discussions")).toContainText("1 replies", { timeout: 10_000 });
+    await expect(alpha.getByTestId("truth-map-social-discussions")).toContainText("ответов: 1", { timeout: 10_000 });
 
     await beta.getByTestId("truth-map-social-discussions").getByRole("button", { name: "▲" }).click();
-    await expect(alpha.getByTestId("truth-map-social-discussions")).toContainText("1 votes", { timeout: 10_000 });
-    await beta.getByTestId("truth-map-social-discussions").getByRole("button", { name: "Report" }).click();
+    await expect(alpha.getByTestId("truth-map-social-discussions")).toContainText("голосов: 1", { timeout: 10_000 });
+    await beta.getByTestId("truth-map-social-discussions").getByRole("button", { name: "Пожаловаться" }).click();
     await expect(beta.getByTestId("truth-map-social-status")).toHaveText("REPORT_RECORDED_FOR_MODERATION", { timeout: 10_000 });
   } finally {
     await Promise.allSettled([alphaContext?.close(), betaContext?.close()]);

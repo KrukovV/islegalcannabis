@@ -4,7 +4,9 @@ import { resolveBrowserLocaleRedirect, resolveSeoRouteLocale } from "@/lib/seo/w
 import { isLocalAuditHost } from "@/lib/privateAuditHost";
 
 function isPrivateTruthAuditPath(pathname: string) {
-  return pathname === "/wiki-truth" ||
+  return pathname === "/truth-map" ||
+    pathname.startsWith("/truth-map/") ||
+    pathname === "/wiki-truth" ||
     pathname.startsWith("/wiki-truth/") ||
     pathname === "/trust-view" ||
     pathname.startsWith("/trust-view/");

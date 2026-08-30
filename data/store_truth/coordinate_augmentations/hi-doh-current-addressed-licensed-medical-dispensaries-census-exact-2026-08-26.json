@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "fetched_at": "2026-08-26T15:45:08.655Z",
+  "local_only": true,
+  "input_snapshot_path": "data/store_truth/source_snapshots/hi-doh-current-addressed-licensed-medical-dispensary-locations-2026-08-26.json",
+  "input_snapshot_sha256": "b065a37444e91fe7e089f39c8f7fdcc7f257525fcd523380889f2de9fdcd1164",
+  "census_benchmark": "Public_AR_Current",
+  "match_policy": "ONE_MATCH_OPTIONAL_MATCH_TYPE_MATCH_OR_EXACT_SAME_CANONICAL_ONELINE_ADDRESS_AND_IN_DECLARED_BOUNDS",
+  "requested_candidates": 24,
+  "accepted_records": 12,
+  "blocked_records": 12,
+  "records": [
+    {
+      "source_record_id": "HI-DOH-HAWAII-ISLAND-BIG-ISLAND-GROWN-74-5617-PAWAI-PL",
+      "address": "74-5617 PAWAI PL",
+      "city": "KAILUA KONA",
+      "region": "HI",
+      "postal_code": "96740",
+      "latitude": 19.643864805162,
+      "longitude": -155.998682905052,
+      "source_combined_address": "74-5617 Pawai Place., Kailua-Kona, HI, 96740",
+      "public_source_fields": {
+        "census_matched_address": "74-5617 PAWAI PL, KAILUA KONA, HI, 96740"
+      }
+    },
+    {
+      "source_record_id": "HI-DOH-HAWAII-ISLAND-HAWAIIAN-ETHOS-578-KANOELEHUA-AVE",
+      "address": "578 KANOELEHUA AVE",
+      "city": "HILO",
+      "region": "HI",
+      "postal_code": "96720",
+      "latitude": 19.713634828063,
+      "longitude": -155.064371851623,
+      "source_combined_address": "578 Kanoelehua Ave., Hilo, HI, 96720",
+      "public_source_fields": {
+        "census_matched_address": "578 KANOELEHUA AVE, HILO, HI, 96720"
+      }
+    },
+    {
+      "source_record_id": "HI-DOH-MAUI-MAUI-GROWN-THERAPIES-44-PAA-ST",
+      "address": "44 PAA ST",
+      "city": "KAHULUI",
+      "region": "HI",
+      "postal_code": "96732",
+      "latitude": 20.867536712763,
+      "longitude": -156.496856893778,
+      "source_combined_address": "44 Paa St., Kahului, HI, 96732",
+      "public_source_fields": {
+        "census_matched_address": "44 PAA ST, KAHULUI, HI, 96732"
+      }
+    },
+    {
+      "source_record_id": "HI-DOH-MAUI-PONO-LIFE-SCIENCES-95-E-LIPOA-ST",
+      "address": "95 E LIPOA ST",
+      "city": "KIHEI",
+      "region": "HI",
+      "postal_code": "96753",
+      "latitude": 20.747983382963,
+      "longitude": -156.452140483861,
+      "source_combined_address": "95 E. Lipoa St, Kihei, HI, 96753",
+      "public_source_fields": {
+        "census_matched_address": "95 E LIPOA ST, KIHEI, HI, 96753"
+      }
+    },
+    {
+      "source_record_id": "HI-DOH-OAHU-ALOHA-GREEN-2113-KALAKAUA-AVE",
+      "address": "2113 KALAKAUA AVE",
+      "city": "HONOLULU",
+      "region": "HI",
+      "postal_code": "96815",
+      "latitude": 21.281575735191,
+      "longitude": -157.83070027536,
+      "source_combined_address": "2113 Kalakaua Ave., Honolulu, HI, 96815",
+      "public_source_fields": {
+        "census_matched_address": "2113 KALAKAUA AVE, HONOLULU, HI, 96815"
+      }
+    },
+    {
+      "source_record_id": "HI-DOH-OAHU-ALOHA-GREEN-3131-N-NIMITZ-HWY",
+      "address": "3131 N NIMITZ HWY",
+      "city": "HONOLULU",
+      "region": "HI",
+      "postal_code": "96819",
+      "latitude": 21.335909931046,
+      "longitude": -157.908141043028,
+      "source_combined_address": "3131 North Nimitz Hwy., Honolulu, HI, 96819",
+      "public_source_fields": {
+        "census_matched_address": "3131 N NIMITZ HWY, HONOLULU, HI, 96819"
+      }
+    },
+    {
+      "source_record_id": "HI-DOH-OAHU-CURE-OAHU-70-KIHAPAI-ST",
+      "address": "70 KIHAPAI ST",
+      "city": "KAILUA",
+      "region": "HI",
+      "postal_code": "96734",
+      "latitude": 21.394668652943,
+      "longitude": -157.746417350345,
+      "source_combined_address": "70 Kihapai Street, Kailua, HI, 96734",
+      "public_source_fields": {
+        "census_matched_address": "70 KIHAPAI ST, KAILUA, HI, 96734"
+      }
+    },
+    {
+      "source_record_id": "HI-DOH-OAHU-CURE-OAHU-727-KAPAHULU-AVE",
+      "address": "727 KAPAHULU AVE",
+      "city": "HONOLULU",
+      "region": "HI",
+      "postal_code": "96816",
+      "latitude": 21.280624778436,
+      "longitude": -157.814047806649,
+      "source_combined_address": "727 Kapahulu Ave., Honolulu, HI, 96816",
+      "public_source_fields": {
+        "census_matched_address": "727 KAPAHULU AVE, HONOLULU, HI, 96816"
+      }
+    },
+    {
+      "source_record_id": "HI-DOH-OAHU-NOA-BOTANICALS-1308-YOUNG-ST",
+      "address": "1308 YOUNG ST",
+      "city": "HONOLULU",
+      "region": "HI",
+      "postal_code": "96814",
+      "latitude": 21.29983380043,
+      "longitude": -157.841093970365,
+      "source_combined_address": "1308 Young Street, Honolulu, HI, 96814",
+      "public_source_fields": {
+        "census_matched_address": "1308 YOUNG ST, HONOLULU, HI, 96814"
+      }
+    },
+    {
+      "source_record_id": "HI-DOH-OAHU-NOA-BOTANICALS-345-ROYAL-HAWAIIAN-AVE",
+      "address": "345 ROYAL HAWAIIAN AVE",
+      "city": "HONOLULU",
+      "region": "HI",
+      "postal_code": "96815",
+      "latitude": 21.280271473811,
+      "longitude": -157.828212783561,
+      "source_combined_address": "345 Royal Hawaiian Avenue, Honolulu, HI, 96815",
+      "public_source_fields": {
+        "census_matched_address": "345 ROYAL HAWAIIAN AVE, HONOLULU, HI, 96815"
+      }
+    },
+    {
+      "source_record_id": "HI-DOH-OAHU-NOA-BOTANICALS-46-028-KAWA-ST",
+      "address": "46-028 KAWA ST",
+      "city": "KANEOHE",
+      "region": "HI",
+      "postal_code": "96744",
+      "latitude": 21.418206768178,
+      "longitude": -157.803266941214,
+      "source_combined_address": "46-028 Kawa St., Kaneohe, HI, 96744",
+      "public_source_fields": {
+        "census_matched_address": "46-028 KAWA ST, KANEOHE, HI, 96744"
+      }
+    },
+    {
+      "source_record_id": "HI-DOH-OAHU-NOA-BOTANICALS-98-302-KAMEHAMEHA-HWY",
+      "address": "98-302 KAMEHAMEHA HWY",
+      "city": "AIEA",
+      "region": "HI",
+      "postal_code": "96701",
+      "latitude": 21.380030028741,
+      "longitude": -157.93836788458,
+      "source_combined_address": "98-302 Kamehameha Hwy, Aiea, HI, 96701",
+      "public_source_fields": {
+        "census_matched_address": "98-302 KAMEHAMEHA HWY, AIEA, HI, 96701"
+      }
+    }
+  ]
+}

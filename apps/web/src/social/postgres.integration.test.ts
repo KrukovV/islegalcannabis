@@ -101,6 +101,10 @@ describeDatabase("Social PostgreSQL vertical slice", () => {
     await repository.createDiscussion(lawDiscussion);
     await expect(repository.listDiscussions({ type: "LAW", lawId: "law-integration", sort: "NEW", limit: 10 }))
       .resolves.toEqual(expect.arrayContaining([expect.objectContaining({ id: lawDiscussion.id, expiresAt: null })]));
+    await expect(repository.listOwnMapDiscussions({ authorId: aliceCreated.identity.userId, limit: 10 }))
+      .resolves.toEqual(expect.arrayContaining([
+        expect.objectContaining({ id: mapDiscussion.id, geo: { geoCell, geoResolution: 4, geoQueryCell: geoCell } }),
+      ]));
 
     const interactions = new PostgresSocialInteractionRepository(sql);
     const comment = await interactions.createComment(bobCreated.identity, mapDiscussion.id, null, "Second user reply");

@@ -349,6 +349,8 @@ export default function ViewportCountryPopup({
           <a
             className={styles.viewportPopupCta}
             href={entry.pageHref}
+            data-testid="country-popup-seo-link"
+            data-seo-content-link="1"
             onClick={(event) => {
               if (!onOpenDetails) return;
               event.preventDefault();

@@ -8,6 +8,14 @@ const countryRuntimeData = [
   "../../data/countries/**/*.json",
   "../../data/graph/country-graph.json"
 ];
+const publicMapRuntimeData = [
+  ...countryRuntimeData,
+  "../../data/reviews/wiki-truth-307-final-reconciliation.json",
+  "../../data/reviews/truth-map-display-policy.v1.json",
+  "../../data/store_truth/canonical_store_records.json",
+  "../../data/store_truth/store_source_registry.json",
+  "../../data/store_truth/store_eligibility_model.json"
+];
 const countryRuntimeRoutes = [
   "/c/*",
   "/api/nearby",
@@ -18,6 +26,13 @@ const countryRuntimeRoutes = [
   "/sitemap-states.xml",
   "/sitemap-i18n.xml"
 ];
+const publicMapRuntimeRoutes = [
+  "/",
+  "/api/public-map/countries",
+  "/api/public-map/us-states",
+  "/api/public-map/stores",
+  "/api/public-map/stores/summary"
+];
 
 // Keep both bundlers on the same explicit browser-safe no-op module.
 const nextConfig: NextConfig = {
@@ -25,13 +40,13 @@ const nextConfig: NextConfig = {
   experimental: {
     externalDir: true
   },
-  // Country pages, their existing APIs, and split sitemap handlers read the
-  // monorepo data tree at request time. Scope the inputs to only those routes;
-  // audit, Truth Map, Social, Store, and unrelated traces stay untouched.
+  // Country/SEO routes and the canonical public display map read bounded
+  // monorepo datasets at request time. Audit, Social and DM traces stay out.
   outputFileTracingRoot: path.resolve(__dirname, "../.."),
-  outputFileTracingIncludes: Object.fromEntries(
-    countryRuntimeRoutes.map((route) => [route, countryRuntimeData])
-  ),
+  outputFileTracingIncludes: Object.fromEntries([
+    ...countryRuntimeRoutes.map((route) => [route, countryRuntimeData]),
+    ...publicMapRuntimeRoutes.map((route) => [route, publicMapRuntimeData]),
+  ]),
   transpilePackages: ["@islegal/shared"],
   turbopack: {
     root: path.resolve(__dirname, "../.."),

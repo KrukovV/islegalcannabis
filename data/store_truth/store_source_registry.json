@@ -503,7 +503,7 @@
       "public_field_map": {
         "group_label": "public_source_fields.group_label"
       },
-      "provenance_evidence": "C1 fetched the current Hawaii Department of Health Medical Cannabis Registry Program Dispensary Websites page at HTTP 200 on 2026-08-14. C2 used a generic bounded grouped-link directory adapter over the page's declared current-licensed statement and its four HHS-labelled island headings: Hawaii Island, Maui, Oahu and Kauai. Exactly eight state-listed named dispensaries and their HHS-published website links are retained; the structured records fingerprint is `40e7d60912957b55f8f3f2d221581236c09c63d60b27df0ffd917f609dcc927f`. The prior direct C3 review established the same regulator owner, current licensed-medical-dispensary statement and eight named entries. The source publishes no street address, city, ZIP, licence number, coordinate or per-record active/revoked/suspended field. Each record is retained under an explicit official source-row identity with `UNKNOWN_STATUS` licence/operating state, partial location evidence and no coordinate; no record can enter the map projection. Hawaii medical-dispensary type legality remains separately unproven in the store eligibility model, so this source does not alter Legal Truth or establish a visible retail pathway.",
+  "provenance_evidence": "C1 fetched the current Hawaii Department of Health Medical Cannabis Registry Program Dispensary Websites page at HTTP 200 on 2026-08-14. C2 used a generic bounded grouped-link directory adapter over the page's declared current-licensed statement and its four HHS-labelled island headings: Hawaii Island, Maui, Oahu and Kauai. Exactly eight state-listed named dispensaries and their HHS-published website links are retained; the structured records fingerprint is `40e7d60912957b55f8f3f2d221581236c09c63d60b27df0ffd917f609dcc927f`. The prior direct C3 review established the same regulator owner, current licensed-medical-dispensary statement and eight named entries. The source publishes no street address, city, ZIP, licence number, coordinate or per-record active/revoked/suspended field. Each record is retained under an explicit official source-row identity with `UNKNOWN_STATUS` licence/operating state, partial location evidence and no coordinate; no record can enter the map projection. Hawaii medical-dispensary type legality is separately proven in the Store eligibility model; this location-free source still cannot establish a visible point.",
       "independent_validation": "PROVEN",
       "inspection": {
         "evaluated_at": "2026-08-14T20:08:09.000Z",
@@ -5522,6 +5522,191 @@
       "independent_validation": "PROVEN",
       "inspection": {
         "evaluated_at": "2026-08-26T14:27:09.000Z",
+        "authority_match": "PROVEN",
+        "jurisdiction_match": "PROVEN",
+        "cannabis_specificity": "PROVEN",
+        "store_semantics_match": "PROVEN",
+        "license_semantics_match": "PROVEN",
+        "data_extractability": "PROVEN",
+        "freshness": "PROVEN",
+        "coverage": "STRONG",
+        "source_stability": "STRONG"
+      },
+      "confidence": "PROVEN"
+    },
+    {
+      "source_id": "official-us-oh-dcc-current-existing-medical-dispensaries-2026-08-26",
+      "geo_id": "US-OH",
+      "authority": "Ohio Department of Commerce, Division of Cannabis Control",
+      "source_url": "https://com.ohio.gov/divisions-and-programs/cannabis-control/licensee-resources/applications/10b-facility-site-map",
+      "source_data_url": "https://dam.assets.ohio.gov/raw/upload/com.ohio.gov/DCC/DCC_Existing_Dispensaries_-_Phase_Two.xlsx",
+      "source_type": "JSON",
+      "upstream_format": "CURRENT_OFFICIAL_DCC_EXISTING_DISPENSARIES_XLSX_WITH_PUBLISHED_WGS84_COORDINATES",
+      "snapshot_path": "data/store_truth/source_snapshots/oh-dcc-current-existing-medical-dispensaries-2026-08-26.json",
+      "snapshot_sha256": "53a45cfb340a633a399a4b60157cbba9b6203f1788ea41d750771ea1568f1b3f",
+      "store_types": [
+        "MEDICAL_DISPENSARY"
+      ],
+      "source_classification": "OFFICIAL_REGULATOR",
+      "official": true,
+      "jurisdiction_validation": "VALID",
+      "status": "ACTIVE",
+      "discovered_at": "2026-08-26T15:29:54.000Z",
+      "checked_at": "2026-08-26T15:29:54.000Z",
+      "parser": "JSON_DECLARATIVE_CURRENT_DCC_EXISTING_DISPENSARY_XLSX_SELECTION_V1",
+      "refresh_policy": "MANUAL_CURRENT_OFFICIAL_DCC_PAGE_XLSX_C1_C2_C3_REVIEW",
+      "license_identity_scope": "LICENSE_AND_ADDRESS",
+      "default_fields": {
+        "store_type": "MEDICAL_DISPENSARY",
+        "region": "OH",
+        "country": "US",
+        "license_status": "ACTIVE",
+        "operational_status": "ACTIVE",
+        "medical": true,
+        "confidence": "PROVEN",
+        "coordinates_source": "OFFICIAL_DCC_CURRENT_EXISTING_DISPENSARY_XLSX_GEOMETRY",
+        "coordinates_confidence": "PROVEN",
+        "location_evidence": "STRONG",
+        "regulator_url": "https://com.ohio.gov/divisions-and-programs/cannabis-control/licensee-resources/applications/10b-facility-site-map",
+        "legal_gate": {
+          "geo_access_legal": true,
+          "store_type_legal": true,
+          "store_type_eligibility_ref": "data/store_truth/store_eligibility_model.json#US-OH:MEDICAL_DISPENSARY",
+          "store_type_eligibility_fingerprint": "store-eligibility:611103b6985a85a6d907947f",
+          "canonical_truth_ref": "data/reviews/wiki-truth-307-final-reconciliation.json#US-OH",
+          "canonical_truth_fingerprint": "US-OH:GREEN:CURRENT_OPERATIONAL_MEDICAL_PATIENT_ACCESS_FROM_REGISTERED_PATIENT_STATUTE_AND_CURRENT_PHARMACY_BOARD_SALES_REPORTING",
+          "evidence_basis": "INDEPENDENT_OFFICIAL_OHIO_MEDICAL_DISPENSARY_LEGALITY_AND_CURRENT_DCC_EXISTING_DISPENSARY_DIRECTORY"
+        }
+      },
+      "field_map": {
+        "legal_name": "Business Name",
+        "license_number": "License Number",
+        "license_type": "License Type",
+        "store_type": "store_type",
+        "address": "Street Address",
+        "city": "City",
+        "region": "region",
+        "postal_code": "ZIP",
+        "country": "country",
+        "latitude": "Latitude",
+        "longitude": "Longitude",
+        "license_status": "license_status",
+        "operational_status": "operational_status"
+      },
+      "provenance_evidence": "C1 fetched the official Ohio Department of Commerce Division of Cannabis Control (DCC) current 10(B) Facility Site Location Map page and its linked Existing Dispensaries XLSX at HTTP 200 on 2026-08-26. C2 extracted the XLSX's `Dispensary LonLat` sheet and retained only its 134 rows whose declared Licence Type is `Existing Dispensary`; every retained row has a public DCC licence number, business name, street address, city, ZIP and finite WGS84 longitude/latitude. The same workbook's four `Existing Dispensary - Provisional` rows and 145 proposed 10(B) rows are deliberately excluded. C3 directly rendered the official DCC page, its DCC/Ohio Department of Commerce owner and its statement that the linked list shows current medical or dual-use dispensaries and proposed 10(B) dispensaries, with existing dispensaries marked green and proposed 10(B) locations black. The selected source snapshot is therefore only the official table's declared Existing Dispensary group; it does not claim coverage of the provisional or proposed groups. Separate official Ohio medical-dispensary legality evidence is retained in the Store eligibility model. No third-party geocoder, map, address correction or lifecycle inference is used.",
+      "independent_validation": "PROVEN",
+      "inspection": {
+        "evaluated_at": "2026-08-26T15:29:54.000Z",
+        "authority_match": "PROVEN",
+        "jurisdiction_match": "PROVEN",
+        "cannabis_specificity": "PROVEN",
+        "store_semantics_match": "PROVEN",
+        "license_semantics_match": "PROVEN",
+        "data_extractability": "PROVEN",
+        "freshness": "PROVEN",
+        "coverage": "STRONG",
+        "source_stability": "STRONG"
+      },
+      "confidence": "PROVEN"
+    },
+    {
+      "source_id": "official-us-hi-doh-current-addressed-medical-dispensary-locations-2026-08-26",
+      "geo_id": "US-HI",
+      "authority": "State of Hawaii Department of Health, Medical Cannabis Registry Program",
+      "source_url": "https://health.hawaii.gov/medicalcannabisregistry/oahu-dispensary-locations/",
+      "source_page_url": "https://health.hawaii.gov/medicalcannabisregistry/dispensaries/",
+      "source_alias_urls": [
+        "https://health.hawaii.gov/medicalcannabisregistry/hawaii-island-dispensary-locations/",
+        "https://health.hawaii.gov/medicalcannabisregistry/maui-dispensary-locations/",
+        "https://health.hawaii.gov/medicalcannabisregistry/kauai-dispensary-location/"
+      ],
+      "source_type": "JSON",
+      "upstream_format": "CURRENT_OFFICIAL_HAWAII_DOH_LICENSED_MEDICAL_DISPENSARY_LOCATION_PAGES_WITH_FULL_ADDRESS_AND_OPERATING_HOURS",
+      "snapshot_path": "data/store_truth/source_snapshots/hi-doh-current-addressed-licensed-medical-dispensary-locations-2026-08-26.json",
+      "snapshot_sha256": "b065a37444e91fe7e089f39c8f7fdcc7f257525fcd523380889f2de9fdcd1164",
+      "store_types": [
+        "MEDICAL_DISPENSARY"
+      ],
+      "source_classification": "OFFICIAL_REGULATOR",
+      "official": true,
+      "jurisdiction_validation": "VALID",
+      "status": "ACTIVE",
+      "discovered_at": "2026-08-26T16:41:00.000Z",
+      "checked_at": "2026-08-26T16:41:00.000Z",
+      "parser": "JSON_DECLARATIVE_CURRENT_OFFICIAL_HAWAII_DOH_FOUR_ISLAND_LOCATION_DIRECTORY_V1",
+      "refresh_policy": "MANUAL_CURRENT_OFFICIAL_DOH_C1_C2_C3_FOUR_PAGE_REVIEW_WITH_EXPLICIT_PERMANENT_CLOSURE_EXCLUSION_AND_EXACT_CENSUS_REBIND",
+      "allow_source_row_identity": true,
+      "coordinate_augmentation": {
+        "provider": "US_CENSUS_PUBLIC_AR_CURRENT",
+        "source_snapshot_path": "data/store_truth/source_snapshots/hi-doh-current-addressed-licensed-medical-dispensary-locations-2026-08-26.json",
+        "source_snapshot_sha256": "b065a37444e91fe7e089f39c8f7fdcc7f257525fcd523380889f2de9fdcd1164",
+        "snapshot_path": "data/store_truth/coordinate_augmentations/hi-doh-current-addressed-licensed-medical-dispensaries-census-exact-2026-08-26.json",
+        "snapshot_sha256": "7a1dbd4dcb2ccca47abaa4a8b35a6c25c31379ca7ac96b4b7a787fc628cf6864",
+        "source_record_id_field": "source_record_id",
+        "source_address_fields": {
+          "address": "address",
+          "city": "city",
+          "region": "region",
+          "postal_code": "postal_code"
+        },
+        "source_coordinate_fields": {
+          "latitude": "latitude",
+          "longitude": "longitude"
+        }
+      },
+      "default_fields": {
+        "store_type": "MEDICAL_DISPENSARY",
+        "license_type": "Hawaii DOH Licensed Medical Cannabis Dispensary",
+        "region": "HI",
+        "country": "US",
+        "license_status": "UNKNOWN_STATUS",
+        "operational_status": "ACTIVE",
+        "medical": true,
+        "adult_use": false,
+        "confidence": "PROVEN",
+        "coordinates_source": "OFFICIAL_DIRECTORY_NO_COORDINATE_FIELD",
+        "coordinates_confidence": "UNKNOWN",
+        "location_evidence": "STRONG",
+        "regulator_url": "https://health.hawaii.gov/medicalcannabisregistry/dispensaries/",
+        "legal_gate": {
+          "geo_access_legal": true,
+          "store_type_legal": true,
+          "store_type_eligibility_ref": "data/store_truth/store_eligibility_model.json#US-HI:MEDICAL_DISPENSARY",
+          "store_type_eligibility_fingerprint": "store-eligibility:8899ea41b347659b81ba533e",
+          "canonical_truth_ref": "data/reviews/wiki-truth-307-final-reconciliation.json#US-HI",
+          "canonical_truth_fingerprint": "US-HI:GREEN:GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_PATIENT_PRESCRIBER_REGISTRATION_LAWFUL_SUPPLY_AND_CURRENT_DISPENSARY_AXES",
+          "evidence_basis": "INDEPENDENT_OFFICIAL_HAWAII_DOH_MEDICAL_DISPENSARY_LEGALITY_AND_CURRENT_DOH_ADDRESS_DIRECTORY"
+        }
+      },
+      "field_map": {
+        "legal_name": "legal_name",
+        "trade_name": "trade_name",
+        "license_number": "license_number",
+        "license_type": "license_type",
+        "store_type": "store_type",
+        "address": "address",
+        "city": "city",
+        "region": "region",
+        "postal_code": "postal_code",
+        "country": "country",
+        "latitude": "latitude",
+        "longitude": "longitude",
+        "license_status": "license_status",
+        "operational_status": "operational_status",
+        "regulator_url": "regulator_url"
+      },
+      "public_field_map": {
+        "island": "public_source_fields.island",
+        "location_label": "public_source_fields.location_label",
+        "listed_hours": "public_source_fields.listed_hours",
+        "source_page_url": "public_source_fields.source_page_url",
+        "census_benchmark": "public_source_fields.census_benchmark",
+        "census_matched_address": "public_source_fields.census_matched_address"
+      },
+      "provenance_evidence": "C1 fetched the current State of Hawaii Department of Health Medical Cannabis Registry Program location index and its four official public location pages at HTTP 200 on 2026-08-26. C2 retained the 24 location records that publish a named dispensary, full public street/city/state/ZIP address and operating hours: 11 Oahu, 6 Hawaii Island, 5 Maui and 2 Kauai. Maui's five entries that DOH explicitly labels `Permanently Closed` are excluded, not treated as operating premises. C3 directly rendered all four current DOH location pages, visibly confirming the State of Hawaii Department of Health / Medical Cannabis Registry Program owner, named dispensary groups, retained full addresses and operating hours; it also visibly confirmed the permanent-closure labels excluded from the Maui snapshot. The independent current DOH Dispensary Program page states that the Department regulates the statewide licensed-dispensary system and performs onsite inspection and monitoring of licensed dispensaries that grow, manufacture and sell medical cannabis products to qualifying patients. The public location directory does not publish individual licence numbers or a per-record licence state; records retain `UNKNOWN_STATUS` for licence state and only use `ACTIVE` operational status where the current DOH page publishes hours. A bounded federal U.S. Census Bureau `Public_AR_Current` run evaluated all 24 exact published address rows within Hawaii bounds and accepted only 12 one-match exact normalized street/city/state/ZIP records; the other 12 remain stored but coordinate-blocked. No commercial map, approximate location, coordinate borrowing or closure inference is used.",
+      "independent_validation": "PROVEN",
+      "inspection": {
+        "evaluated_at": "2026-08-26T16:41:00.000Z",
         "authority_match": "PROVEN",
         "jurisdiction_match": "PROVEN",
         "cannabis_specificity": "PROVEN",

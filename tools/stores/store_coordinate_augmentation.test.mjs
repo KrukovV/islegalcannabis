@@ -62,6 +62,25 @@ test("accepts only standard USPS street-type normalization for an otherwise exac
   );
 });
 
+test("accepts the same USPS cardinal-direction normalization used by the strict Census fetcher", () => {
+  const [record] = applyExactCensusCoordinateAugmentation({
+    source,
+    payload: {
+      ...payload,
+      records: [{
+        ...payload.records[0],
+        address: "3131 N Nimitz Hwy",
+        city: "Honolulu",
+        region: "HI",
+        postal_code: "96819",
+        public_source_fields: { census_matched_address: "3131 N NIMITZ HWY, HONOLULU, HI, 96819" },
+      }],
+    },
+    rows: [{ id: 123, street: "3131 North Nimitz Highway", city: "Honolulu", state: "HI", zip: "96819", lat: null, lng: null }],
+  });
+  assert.equal(record.lat, 42.1);
+});
+
 test("fails closed on an address mismatch or a pre-existing source coordinate", () => {
   assert.throws(() => applyExactCensusCoordinateAugmentation({ source, payload, rows: [{ id: 123, street: "11 Main Street", city: "Sample City", state: "MA", zip: "01001", lat: null, lng: null }] }), /ADDRESS_MISMATCH/);
   assert.throws(() => applyExactCensusCoordinateAugmentation({ source, payload, rows: [{ id: 123, street: "10 Main Street", city: "Sample City", state: "MA", zip: "01001", lat: 42.1, lng: null }] }), /SOURCE_COORDINATE_ALREADY_PRESENT/);

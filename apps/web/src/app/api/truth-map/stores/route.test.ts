@@ -283,11 +283,24 @@ describe("/api/truth-map/stores", () => {
     });
   });
 
-  it("does not project location-free Hawaii regulator directory names as map pins", async () => {
+  it("projects only SHA-bound exact-address Hawaii DOH medical-dispensary points", async () => {
     const response = await GET(new Request("http://localhost/api/truth-map/stores?west=-157.95&south=21.24&east=-157.76&north=21.38&zoom=13"));
     const payload = await response.json();
     expect(payload.meta.level).toBe("LOCAL");
-    expect(payload.features.some((feature: { properties?: { geo_id?: string } }) => feature.properties?.geo_id === "US-HI")).toBe(false);
+    const hawaii = payload.features.filter((feature: { properties?: { geo_id?: string } }) => feature.properties?.geo_id === "US-HI");
+    expect(hawaii).toHaveLength(5);
+    expect(hawaii.map((feature: { properties?: { address?: string } }) => feature.properties?.address).sort()).toEqual([
+      "1308 Young Street",
+      "2113 Kalakaua Ave.",
+      "3131 North Nimitz Hwy.",
+      "345 Royal Hawaiian Avenue",
+      "727 Kapahulu Ave.",
+    ]);
+    expect(hawaii.every((feature: { properties?: { source_authority?: string; license_status?: string; operational_status?: string } }) => (
+      feature.properties?.source_authority === "State of Hawaii Department of Health, Medical Cannabis Registry Program" &&
+      feature.properties?.license_status === "UNKNOWN_STATUS" &&
+      feature.properties?.operational_status === "ACTIVE"
+    ))).toBe(true);
   });
 
   it("keeps current Yukon licensed-retailer records out of the map without exact official coordinates and country-scope eligibility", async () => {

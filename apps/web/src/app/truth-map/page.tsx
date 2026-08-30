@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { formatVisibleRuntimeStamp } from "@/lib/runtimeIdentity";
-import TruthMapRoot from "@/truth-map/TruthMapRoot";
+import TruthMapAuditRoot from "@/truth-map/TruthMapAuditRoot";
 import { getSocialRuntimeConfig } from "@/social/runtimeConfig";
 import { getTruthMapRuntimeIdentity } from "./runtimeConfig";
 
@@ -21,5 +21,5 @@ export default async function TruthMapPage({ searchParams }: { searchParams?: Pr
   const zoom = readBoundedNumber(resolvedSearchParams?.zoom, 0, 15);
   const initialMapView = lat === null || lng === null || zoom === null ? null : { lat, lng, zoom };
   const socialPanelInitiallyOpen = resolvedSearchParams?.qa === "1";
-  return <TruthMapRoot countriesUrl="/api/truth-map/countries" usStatesUrl="/api/truth-map/us-states" visibleStamp={formatVisibleRuntimeStamp(runtimeIdentity)} runtimeIdentity={runtimeIdentity} initialMapView={initialMapView} socialConfig={getSocialRuntimeConfig()} socialPanelInitiallyOpen={socialPanelInitiallyOpen} />;
+  return <TruthMapAuditRoot countriesUrl="/api/truth-map/countries" usStatesUrl="/api/truth-map/us-states" visibleStamp={formatVisibleRuntimeStamp(runtimeIdentity)} runtimeIdentity={runtimeIdentity} initialMapView={initialMapView} socialConfig={getSocialRuntimeConfig()} socialPanelInitiallyOpen={socialPanelInitiallyOpen} />;
 }

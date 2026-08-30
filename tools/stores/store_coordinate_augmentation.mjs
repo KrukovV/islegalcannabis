@@ -30,6 +30,10 @@ function normalizedUsStreetAddress(value) {
     .replace(/\bCOURT\b/g, "CT")
     .replace(/\bPLACE\b/g, "PL")
     .replace(/\bPARKWAY\b/g, "PKWY")
+    .replace(/\bNORTH\b/g, "N")
+    .replace(/\bSOUTH\b/g, "S")
+    .replace(/\bEAST\b/g, "E")
+    .replace(/\bWEST\b/g, "W")
     .replace(/[^A-Z0-9]+/g, "");
 }
 

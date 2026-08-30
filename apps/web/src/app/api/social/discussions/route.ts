@@ -47,6 +47,33 @@ export async function GET(request: Request) {
   if (!DISCUSSION_TYPES.includes(type as CreateDiscussionInput["type"])) {
     return errorResponse(requestId, 400, "SOCIAL_DISCUSSION_TYPE_INVALID", "Invalid Social discussion type.");
   }
+  const mine = url.searchParams.get("mine");
+  if (mine !== null && mine !== "1") {
+    return errorResponse(requestId, 400, "SOCIAL_MINE_QUERY_INVALID", "The own-message query must be explicitly enabled.");
+  }
+  const sort = url.searchParams.get("sort") === "TOP" ? "TOP" : "NEW";
+  const limit = Math.min(Math.max(Number(url.searchParams.get("limit")) || 20, 1), 50);
+  if (mine === "1") {
+    if (type !== "MAP") {
+      return errorResponse(requestId, 400, "SOCIAL_MINE_MAP_ONLY", "Only active MAP messages can be centred safely on the map.");
+    }
+    try {
+      const sql = getSocialSql();
+      const viewer = config.identityConfigured ? await getSocialIdentity(sql, request) : null;
+      if (!viewer) return errorResponse(requestId, 401, "SOCIAL_IDENTITY_REQUIRED", "A verified isLegal user identity is required.");
+      const discussions = await new PostgresSocialDiscussionRepository(sql).listOwnMapDiscussions({
+        authorId: viewer.userId,
+        limit,
+      });
+      return okResponse(requestId, {
+        discussions,
+        nextCursor: discussions.length === limit ? discussions.at(-1)?.createdAt || null : null,
+        meta: { durableTruth: "POSTGRESQL", scope: "OWN_ACTIVE_MAP", sort, cache: "NO_STORE" },
+      });
+    } catch {
+      return errorResponse(requestId, 503, "SOCIAL_STORAGE_UNAVAILABLE", "Public Social storage is unavailable.");
+    }
+  }
   const cells = [...new Set(String(url.searchParams.get("cells") || "").split(",").map((cell) => cell.trim()).filter(Boolean))];
   if (type === "MAP" && (cells.length === 0 || cells.length > MAX_SOCIAL_VIEWPORT_QUERY_CELLS || !cells.every(isSocialQueryCell))) {
     return errorResponse(requestId, 400, "SOCIAL_VIEWPORT_CELLS_INVALID", "A bounded privacy-safe cell viewport is required.");
@@ -57,8 +84,6 @@ export async function GET(request: Request) {
   if (type === "GEO" && !geoId) return errorResponse(requestId, 400, "SOCIAL_GEO_ID_REQUIRED", "GEO discussion requires geoId.");
   if (type === "LAW" && !lawId) return errorResponse(requestId, 400, "SOCIAL_LAW_ID_REQUIRED", "LAW discussion requires lawId.");
   if (type === "NEWS" && !newsId) return errorResponse(requestId, 400, "SOCIAL_NEWS_ID_REQUIRED", "NEWS discussion requires newsId.");
-  const sort = url.searchParams.get("sort") === "TOP" ? "TOP" : "NEW";
-  const limit = Math.min(Math.max(Number(url.searchParams.get("limit")) || 20, 1), 50);
   const cursor = stringOrNull(url.searchParams.get("cursor"));
   try {
     const sql = getSocialSql();

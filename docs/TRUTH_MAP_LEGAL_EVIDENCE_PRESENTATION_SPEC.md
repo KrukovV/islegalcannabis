@@ -1,8 +1,8 @@
 # Truth Map legal-evidence presentation specification
 
-Status: canonical route-local presentation contract
+Status: canonical public-map and audit-map presentation contract
 
-Scope: `/truth-map` only. This specification governs the audit-map popup and explanatory text rendered on that route. It does not authorize a legal re-audit, colour change, SSOT mutation, public SEO change, Store Truth change, `/` change, `/new-map` change, production exposure, deployment, or application of a proposal result.
+Scope: the canonical public `/` map and local-only `/truth-map` audit map. This specification governs their shared legal-evidence popup. It does not authorize a legal re-audit, colour change, SSOT mutation, Store Truth change, production deployment, or application of a proposal result. The local audit explanation remains proposal-only; the public map omits that audit label while retaining the same legal conclusion and official evidence.
 
 ## 1. Separate legal truth from presentation
 
@@ -48,13 +48,12 @@ Every popup renders retained route-local evidence before the collapsible reconci
 - bounded exact fragment when retained;
 - `target="_blank"` and `rel="noreferrer noopener"` for external links.
 
-The popup must remain usable above the persistent AI dock. Its semantic styling never changes the map polygon fill.
+The popup must remain usable above the persistent local-audit AI dock and without that dock on the production public map. A localhost public-map QA wrapper may retain the same AI dock, without Social or DM. Its semantic styling never changes the map polygon fill.
 
 ## 5. Rich territory context cannot override legal truth
 
-`/truth-map` may route-locally reuse the rich territory card material that is
-available to the public map, but the two information layers have different
-authority:
+The public map and `/truth-map` reuse the same rich territory card material,
+but the two information layers have different authority:
 
 - the current legal conclusion, its colour/indicator, and retained official
   legal evidence are the authoritative conclusion and are rendered first;
@@ -82,6 +81,13 @@ the verified lawful route itself is criminal.
 The current reconciliation rationale appears once, in the authoritative legal
 evidence block. A duplicated legacy "why this colour" block is forbidden.
 
+The rich-popup CTA for its matching `/c/[code]` SEO content is a dotted-underlined
+internal link. Selecting it opens the existing SEO panel in place and changes
+browser history without a document reload. Closing that panel restores the same
+rich popup record. This navigation must never remove, abbreviate or replace the
+legal-evidence, supplementary-context, historical or profile sections that the
+schema projects for the GEO.
+
 ## 6. Required verification
 
 The unit dataset test covers all determined GEO:
@@ -105,4 +111,10 @@ A random live sample is supplemental evidence, never a replacement for the separ
 
 ## 7. Route boundary
 
-This is an audit-only `/truth-map` presentation contract. It is not the public country SEO colour/badge contract, and it must not make `/truth-map` indexable. The public sitemap, `/`, `/new-map`, legal APIs, SSOT, Store Truth, Social semantics, map colours, production and deployment remain independent.
+This shared popup contract must not make `/truth-map` indexable. The public
+sitemap, legal APIs, SSOT, Store Truth, Social semantics, map colours,
+production and deployment remain independent. The production public map
+contains no legacy `CannabisLawMap` card, AI, Social, DM or audit controls;
+those local audit controls remain exclusive to `/truth-map`, except that the
+localhost public-map QA wrapper retains the established AI dock without Social
+or DM.

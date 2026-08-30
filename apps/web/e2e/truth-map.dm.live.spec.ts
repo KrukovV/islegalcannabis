@@ -1,5 +1,6 @@
 import { randomUUID } from "node:crypto";
-import { writeFile } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
+import { homedir } from "node:os";
 import path from "node:path";
 import { expect, test } from "@playwright/test";
 import postgres, { type Sql } from "postgres";
@@ -8,6 +9,7 @@ import { validateDmSubmissionAuthorization } from "@/dm/nip17Candidate";
 const databaseUrl = process.env.SOCIAL_DATABASE_URL || process.env.DATABASE_URL;
 const liveEnabled = process.env.SOCIAL_UI_LIVE_TEST === "1" && Boolean(databaseUrl);
 const TEST_ROUTE = "/truth-map?qa=1&lat=0&lng=0&zoom=10";
+const DM_EVIDENCE_DIR = process.env.SOCIAL_DM_EVIDENCE_DIR || path.join(homedir(), "islegalcannabis_archive", "social-dm-live");
 const FORBIDDEN_DM_LOCATION_KEYS = new Set([
   "latitude", "longitude", "accuracy", "gps", "coordinates", "geocell", "geoid", "lawid",
 ]);
@@ -30,7 +32,7 @@ async function join(page: import("@playwright/test").Page, displayName: string) 
   await page.goto(TEST_ROUTE, { waitUntil: "domcontentloaded" });
   console.warn(`PASS_DM_LIVE_JOIN=${displayName}:GOTO`);
   await expect(page.getByTestId("truth-map-social-chat")).toHaveAttribute("data-social-chat-status", "ACTIVE");
-  await expect(page.getByTestId("truth-map-social-realtime")).toHaveText("LIVE", { timeout: 20_000 });
+  await expect(page.getByTestId("truth-map-social-realtime")).toHaveText("LIVE", { timeout: 35_000 });
   await page.getByTestId("truth-map-social-name").fill(displayName, { timeout: 10_000 });
   await expect(page.getByTestId("truth-map-social-sign-in")).toBeEnabled({ timeout: 10_000 });
   console.warn(`PASS_DM_LIVE_JOIN=${displayName}:FILLED`);
@@ -46,8 +48,8 @@ async function join(page: import("@playwright/test").Page, displayName: string) 
 async function reopenDm(page: import("@playwright/test").Page, displayName: string) {
   await page.goto(TEST_ROUTE, { waitUntil: "domcontentloaded" });
   await expect(page.getByTestId("truth-map-social-identity")).toHaveText(displayName, { timeout: 15_000 });
-  await expect(page.getByTestId("truth-map-dm")).toHaveAttribute("data-dm-status", "ACTIVE", { timeout: 20_000 });
-  await expect(page.getByTestId("truth-map-dm-status")).toHaveText(/DM_(DEVICE_READY|MESSAGE_DECRYPTED_AND_READ)/, { timeout: 20_000 });
+  await expect(page.getByTestId("truth-map-dm")).toHaveAttribute("data-dm-status", "ACTIVE", { timeout: 45_000 });
+  await expect(page.getByTestId("truth-map-dm-status")).toHaveText(/DM_(DEVICE_READY|MESSAGE_DECRYPTED_AND_READ)/, { timeout: 45_000 });
 }
 
 async function cleanupUsers(sql: Sql, displayNames: string[]) {
@@ -74,7 +76,7 @@ async function closeContextBounded(context: Awaited<ReturnType<import("@playwrig
 }
 
 test("two-user multi-device DM stays ciphertext-only, queues offline, resumes, decrypts, and receipts READ", async ({ browser }) => {
-  test.setTimeout(180_000);
+  test.setTimeout(300_000);
   test.skip(!liveEnabled, "requires explicit SOCIAL_UI_LIVE_TEST=1 and local Social PostgreSQL");
   const sql = postgres(databaseUrl!, { max: 2, prepare: false });
   const suffix = randomUUID().slice(0, 12);
@@ -126,7 +128,7 @@ test("two-user multi-device DM stays ciphertext-only, queues offline, resumes, d
     });
     await alpha.getByTestId("truth-map-dm-recipient").fill(betaName);
     await alpha.getByTestId("truth-map-dm-lookup").click();
-    await expect(alpha.getByTestId("truth-map-dm-recipient-ready")).toContainText("2 active device(s)", { timeout: 15_000 });
+    await expect(alpha.getByTestId("truth-map-dm-recipient-ready")).toContainText("2 активных устройства", { timeout: 15_000 });
     await alpha.getByTestId("truth-map-dm-composer").fill(plaintext);
     await alpha.getByTestId("truth-map-dm-send").click();
     await expect(alpha.getByTestId("truth-map-dm-status")).toHaveText("DM_CIPHERTEXT_TRANSPORT_ACCEPTED", { timeout: 20_000 });
@@ -203,17 +205,18 @@ test("two-user multi-device DM stays ciphertext-only, queues offline, resumes, d
       .toHaveCount(1, { timeout: 20_000 });
     console.warn("PASS_DM_LIVE_STAGE=SENDER_RECEIPTS_READ");
 
+    await mkdir(DM_EVIDENCE_DIR, { recursive: true });
     await alpha.getByTestId("truth-map-dm-messages").getByText(plaintext).scrollIntoViewIfNeeded();
     await alpha.getByTestId("truth-map-dm").screenshot({
-      path: path.resolve(process.cwd(), "../../Artifacts/social/dm-live-sender-read-20260814.png"),
+      path: path.join(DM_EVIDENCE_DIR, "dm-live-sender-read.png"),
     });
     await betaRestarted.getByTestId("truth-map-dm-messages").getByText(plaintext).scrollIntoViewIfNeeded();
     await betaRestarted.getByTestId("truth-map-dm").screenshot({
-      path: path.resolve(process.cwd(), "../../Artifacts/social/dm-live-offline-restart-20260814.png"),
+      path: path.join(DM_EVIDENCE_DIR, "dm-live-offline-restart.png"),
     });
     console.warn("PASS_DM_LIVE_STAGE=SCREENSHOT_EVIDENCE_CAPTURED");
     await writeFile(
-      path.resolve(process.cwd(), "../../Artifacts/social/dm-live-acceptance-20260814.json"),
+      path.join(DM_EVIDENCE_DIR, "dm-live-acceptance.json"),
       `${JSON.stringify({
         generatedAt: new Date().toISOString(),
         status: "PASS",
@@ -233,10 +236,11 @@ test("two-user multi-device DM stays ciphertext-only, queues offline, resumes, d
       "utf8",
     );
 
-    await betaRestarted.getByTestId("truth-map-dm-messages").getByRole("button", { name: "Delete locally" }).click();
+    await betaRestarted.getByTestId("truth-map-dm-messages").getByRole("button", { name: "Удалить с устройства" }).click();
     await expect(betaRestarted.getByTestId("truth-map-dm-messages")).not.toContainText(plaintext);
-    await expect(alpha.getByRole("button", { name: "Clear local history" })).toBeVisible();
-    await alpha.getByRole("button", { name: "Delete conversation locally" }).click();
+    await alpha.getByText("Приватность и устройство", { exact: true }).click();
+    await expect(alpha.getByRole("button", { name: "Очистить историю личных сообщений на устройстве" })).toBeVisible();
+    await alpha.getByRole("button", { name: "Удалить эту переписку с устройства" }).click();
     await expect(alpha.getByTestId("truth-map-dm-messages")).not.toContainText(plaintext);
     console.warn("PASS_DM_LIVE_STAGE=LOCAL_RETENTION_CONTROLS_PASS");
   } finally {

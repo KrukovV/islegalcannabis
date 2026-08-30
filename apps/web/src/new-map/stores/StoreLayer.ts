@@ -10,6 +10,21 @@ const GEO_SUMMARY_SOURCE_ID = "validated-cannabis-store-geo-summaries";
 const COUNTRY_SUMMARY_SOURCE_ID = "validated-cannabis-store-country-summaries";
 const STORE_VIEWPORT_API_PATH = "/api/truth-map/stores";
 const STORE_GEO_SUMMARY_API_PATH = "/api/truth-map/stores/summary";
+
+export type StoreMapLayerEndpoints = Readonly<{
+  viewport: string;
+  summary: string;
+}>;
+
+export const AUDIT_STORE_MAP_LAYER_ENDPOINTS: StoreMapLayerEndpoints = {
+  viewport: STORE_VIEWPORT_API_PATH,
+  summary: STORE_GEO_SUMMARY_API_PATH,
+};
+
+export const PUBLIC_STORE_MAP_LAYER_ENDPOINTS: StoreMapLayerEndpoints = {
+  viewport: "/api/public-map/stores",
+  summary: "/api/public-map/stores/summary",
+};
 export const STORE_GEO_SUMMARY_LAYER_ID = "validated-cannabis-store-geo-summaries";
 export const STORE_COUNTRY_SUMMARY_LAYER_ID = "validated-cannabis-store-country-summaries";
 export const STORE_CLUSTER_LAYER_ID = "validated-cannabis-store-clusters";
@@ -365,7 +380,9 @@ export function useStoreMapLayer(
   map: maplibregl.Map | null,
   ready: boolean,
   enabled = true,
+  endpoints: StoreMapLayerEndpoints = AUDIT_STORE_MAP_LAYER_ENDPOINTS,
 ) {
+  const { viewport: viewportApiPath, summary: summaryApiPath } = endpoints;
   const requestIdRef = useRef(0);
   const abortRef = useRef<AbortController | null>(null);
   const summaryAbortRef = useRef<AbortController | null>(null);
@@ -385,7 +402,7 @@ export function useStoreMapLayer(
       const controller = new AbortController();
       summaryAbortRef.current = controller;
       try {
-        const response = await fetch(STORE_GEO_SUMMARY_API_PATH, { cache: "no-store", credentials: "same-origin", signal: controller.signal });
+        const response = await fetch(summaryApiPath, { cache: "no-store", credentials: "same-origin", signal: controller.signal });
         if (!response.ok) throw new Error(`store_geo_summary_fetch:${response.status}`);
         const payload = await response.json() as { rows?: StoreGeoSummaryRow[]; countryRows?: StoreGeoSummaryRow[] };
         if (disposed || controller.signal.aborted) return;
@@ -427,7 +444,7 @@ export function useStoreMapLayer(
         east: bounds.getEast(),
         north: bounds.getNorth(),
       });
-      const url = new URL(STORE_VIEWPORT_API_PATH, window.location.origin);
+      const url = new URL(viewportApiPath, window.location.origin);
       url.searchParams.set("west", String(viewport.west));
       url.searchParams.set("south", String(viewport.south));
       url.searchParams.set("east", String(viewport.east));
@@ -542,5 +559,5 @@ export function useStoreMapLayer(
       removeSourceIfPresent(map, GEO_SUMMARY_SOURCE_ID);
       removeSourceIfPresent(map, COUNTRY_SUMMARY_SOURCE_ID);
     };
-  }, [enabled, map, ready]);
+  }, [enabled, map, ready, summaryApiPath, viewportApiPath]);
 }

@@ -13,27 +13,40 @@ describe("truth-map audit route", () => {
     expect(runtime).toContain('mapRuntime: "active"');
   });
 
-  it("does not alter either current public map route", () => {
+  it("uses the reconciled display core as the public map without production Social or AI", () => {
     const root = fs.readFileSync(path.join(process.cwd(), "src", "app", "page.tsx"), "utf8");
     const currentMap = fs.readFileSync(path.join(process.cwd(), "src", "app", "new-map", "page.tsx"), "utf8");
-    expect(root).toContain('import NewMapPage from "./new-map/page";');
-    expect(root).toContain("await NewMapPage({ searchParams })");
-    expect(root).not.toContain("TruthMapRoot");
+    const localRoot = fs.readFileSync(path.join(process.cwd(), "src", "app", "_components", "LocalPublicMapRoot.tsx"), "utf8");
+    expect(root).toContain("TruthMapRoot");
+    expect(root).toContain('presentation="public"');
+    expect(root).toContain('countriesUrl: "/api/public-map/countries"');
+    expect(root).toContain('usStatesUrl: "/api/public-map/us-states"');
+    expect(root).not.toContain("getSocialRuntimeConfig");
+    expect(root).not.toContain("MapGeoDock");
     expect(root).not.toContain("TruthMapSocialPanel");
+    expect(root).toContain("isLocalAuditHost");
+    expect(root).toContain("LocalPublicMapRoot");
+    expect(root).toContain('showPublicMapNotice={false}');
+    expect(localRoot).toContain("MapGeoDock");
+    expect(localRoot).not.toContain("TruthMapSocialPanel");
+    expect(currentMap).toContain("permanentRedirect(canonicalPublicMapTarget(resolvedSearchParams))");
     expect(currentMap).toContain("NewMapClientEntry");
-    expect(currentMap).not.toContain("TruthMapRoot");
   });
 
-  it("keeps Store projection and its viewport API isolated to the audit map", () => {
+  it("uses the canonical Store Truth gate through separate public read adapters", () => {
     const mainMap = fs.readFileSync(path.join(process.cwd(), "src", "new-map", "MapRoot.tsx"), "utf8");
     const mapFactory = fs.readFileSync(path.join(process.cwd(), "src", "new-map", "createMap.ts"), "utf8");
     const storeLayer = fs.readFileSync(path.join(process.cwd(), "src", "new-map", "stores", "StoreLayer.ts"), "utf8");
     const overlayPlacement = fs.readFileSync(path.join(process.cwd(), "src", "new-map", "overlayLayerPlacement.ts"), "utf8");
     const truthMap = fs.readFileSync(path.join(process.cwd(), "src", "truth-map", "TruthMapRoot.tsx"), "utf8");
+    const auditRoot = fs.readFileSync(path.join(process.cwd(), "src", "truth-map", "TruthMapAuditRoot.tsx"), "utf8");
     expect(mainMap).not.toContain("useStoreMapLayer");
     expect(mainMap).not.toContain("useSocialMapLayer");
     expect(storeLayer).toContain('"/api/truth-map/stores"');
     expect(storeLayer).toContain('"/api/truth-map/stores/summary"');
+    expect(storeLayer).toContain('"/api/public-map/stores"');
+    expect(storeLayer).toContain('"/api/public-map/stores/summary"');
+    expect(storeLayer).toContain("PUBLIC_STORE_MAP_LAYER_ENDPOINTS");
     expect(storeLayer).toContain('"icon-image": STORE_MARKER_ICON_ID');
     expect(storeLayer).toContain('"icon-image": STORE_GEO_SUMMARY_ICON_ID');
     expect(storeLayer).toContain('"icon-anchor": "right"');
@@ -60,17 +73,29 @@ describe("truth-map audit route", () => {
     expect(fs.readFileSync(path.join(process.cwd(), "public", "cannabis-store-leaf.svg"), "utf8")).toContain("<svg");
     expect(fs.readFileSync(path.join(process.cwd(), "public", "cannabis-store-summary-shop.svg"), "utf8")).toContain("<svg");
     expect(truthMap).toContain("useStoreMapLayer");
-    expect(truthMap).toContain("useStoreMapLayer(mapInstance, mapReady, storesEnabled)");
+    expect(truthMap).toContain("publicPresentation ? PUBLIC_STORE_MAP_LAYER_ENDPOINTS : undefined");
     expect(mapFactory).toContain("renderWorldCopies: true");
     expect(truthMap).not.toContain("runtime.map.setRenderWorldCopies(false)");
     expect(truthMap).toContain("getStoreGeoSummaryCount");
     expect(truthMap).toContain('data-testid="truth-map-store-control"');
     expect(truthMap).toContain('data-store-layer-enabled={String(storesEnabled)}');
-    expect(truthMap).toContain("useSocialMapLayer");
-    expect(truthMap).toContain("TruthMapSocialPanel");
+    expect(truthMap).not.toContain("TruthMapAuditSocialLayer");
+    expect(truthMap).not.toContain("TruthMapSocialPanel");
+    expect(truthMap).not.toContain("MapGeoDock");
+    expect(auditRoot).toContain("TruthMapAuditSocialLayer");
+    expect(auditRoot).toContain("TruthMapSocialPanel");
+    expect(auditRoot).toContain("MapGeoDock");
     expect(truthMap).toContain('data-testid="truth-map-legal-evidence-guide"');
     expect(truthMap).toContain("✅ GREEN: verified lawful access");
     expect(truthMap).toContain("UNKNOWN is never presented as a confirmed prohibition");
+    expect(truthMap).toContain("UnifiedSeoStatusPanel");
+    expect(truthMap).toContain("onOpenDetails={handleOpenDetails}");
+    expect(truthMap).toContain("showPublicMapNotice");
+    expect(truthMap).toContain("publicLocalDock");
+    expect(truthMap).toContain("AsciiOverlay");
+    expect(truthMap).toContain("bindAsciiMapTriggers");
+    expect(truthMap).toContain('surfaceTestId="public-map-canvas"');
+    expect(truthMap).not.toContain("MapGeoDock");
   });
 
   it("keeps the Social Chat surface on the audit route only", () => {
@@ -108,7 +133,7 @@ describe("truth-map audit route", () => {
     expect(socialIcon).not.toBe(storeIcon);
   });
 
-  it("allows 5m-scale zoom only on the isolated audit route", () => {
+  it("keeps the public and audit display maps at the verified local-store zoom ceiling", () => {
     const page = fs.readFileSync(path.join(process.cwd(), "src", "app", "truth-map", "page.tsx"), "utf8");
     const truthMap = fs.readFileSync(path.join(process.cwd(), "src", "truth-map", "TruthMapRoot.tsx"), "utf8");
     const createMap = fs.readFileSync(path.join(process.cwd(), "src", "new-map", "createMap.ts"), "utf8");

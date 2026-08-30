@@ -17,6 +17,8 @@ describe("ViewportCountryPopup", () => {
     );
 
     expect(html).toContain("Details →");
+    expect(html).toContain('data-testid="country-popup-seo-link"');
+    expect(html).toContain('data-seo-content-link="1"');
     expect(html).toContain('href="/c/aus"');
     expect(html).not.toContain("Legal source →");
   });

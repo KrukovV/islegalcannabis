@@ -59,6 +59,27 @@ function toDiscussion(row: DiscussionRow): Discussion {
 export class PostgresSocialDiscussionRepository implements SocialDiscussionRepository {
   constructor(private readonly _sql: Sql) {}
 
+  async listOwnMapDiscussions(input: { authorId: string; limit: number }) {
+    const rows = await this._sql<DiscussionRow[]>`
+      SELECT discussions.id, discussions.type, discussions.author_id,
+        users.display_name AS author_display_name, discussions.geo_id,
+        discussions.geo_cell, discussions.geo_resolution, discussions.geo_query_cell,
+        discussions.law_id, discussions.news_id, discussions.source_id,
+        discussions.title, discussions.body, discussions.language,
+        discussions.created_at, discussions.updated_at, discussions.expires_at,
+        discussions.status, discussions.reply_count, discussions.vote_score
+      FROM social_discussions discussions
+      LEFT JOIN social_users users ON users.id::text = discussions.author_id
+      WHERE discussions.author_id = ${input.authorId}
+        AND discussions.type = 'MAP'
+        AND discussions.status = 'ACTIVE'
+        AND (discussions.expires_at IS NULL OR discussions.expires_at > now())
+      ORDER BY discussions.created_at DESC, discussions.id DESC
+      LIMIT ${Math.min(Math.max(input.limit, 1), 50)}
+    `;
+    return rows.map(toDiscussion);
+  }
+
   async listDiscussions(input: {
     type: Discussion["type"];
     queryCells?: string[];

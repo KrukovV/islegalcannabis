@@ -7,9 +7,9 @@ STABILITY_TAG_VERSION: annotated Git tag series documented in `docs/VERSIONING.m
 Standard app API responses built with `apps/web/src/lib/api/response.ts` include `meta.requestId`, `meta.appVersion`, `meta.apiVersion`, and `meta.dataSchemaVersion`. Redirect/static/audit-cache endpoints may use their own documented response shape.
 
 ## Runtime surfaces
-- `/` is the product map entry and re-exports `/new-map`.
-- `/new-map` is the canonical MapLibre runtime.
-- `/c/[code]` and `/[lang]/c/[code]` are country-panel routes over the same map runtime.
+- `/` is the canonical public MapLibre runtime: the reconciled 307-GEO colours, complete enriched legal-evidence popup, dotted in-place `/c/[code]` SEO-panel links, Store Truth-gated markers and the established Antarctica animation. Production omits the legacy CannabisLawMap card, AI, Social, DM and audit UI; localhost retains the AI dock only for public-map QA.
+- `/new-map` permanently redirects to `/` in production while remaining a localhost-only compatibility route for legacy map QA.
+- `/c/[code]` and `/[lang]/c/[code]` are indexable country-panel routes. They retain their country content but may not expose public Social, DM or audit controls.
 - `/wiki-truth` is the audit surface for wiki/ISO/SSOT/official-source truth.
 - `/trust-view` must stay a stable localhost route resolving to the `/wiki-truth` audit UI.
 - `/changes` and `/api/ssot/changes` read from the SSOT diff cache/registry; they must not rebuild alternate truth in UI code.
@@ -36,9 +36,11 @@ Google indexing terminology.
   50 U.S. state and 22 localized URLs; the sitemap index contains four entries.
 - Country runtime data is retained with an explicit monorepo trace root and
   route-scoped includes only. Global trace wildcards are forbidden.
-- `/truth-map`, `/wiki-truth`, Social, DM and Store audit surfaces must not enter
-  production trace includes or sitemap output. Public `/truth-map` and
-  `/wiki-truth` remain 404.
+- `/truth-map`, `/wiki-truth`, Social, DM and Store audit surfaces must not
+  enter production trace includes or sitemap output. The explicit public
+  `/api/public-map/*` read adapters are allowed only for the same canonical
+  display and Store-gate data. Public `/truth-map` and `/wiki-truth` remain
+  404.
 - SEO/trace repair cannot mutate Legal Truth, SSOT, Store eligibility, Social,
   map colours or popup conclusions.
 - Crawlability and Google index convergence are different states. Without
@@ -101,28 +103,28 @@ Google indexing terminology.
 - Territory, parent-jurisdiction, root-only, and synthetic fallback cases may stay law/source-only; fake thematic sections are forbidden.
 
 ## Truth Map legal-evidence presentation contract
-- `docs/TRUTH_MAP_LEGAL_EVIDENCE_PRESENTATION_SPEC.md` is the canonical contract for the audit-only `/truth-map` legal-information popup and route-local explanatory text.
+- `docs/TRUTH_MAP_LEGAL_EVIDENCE_PRESENTATION_SPEC.md` is the canonical contract for the public-map and local-audit legal-information popup and explanatory text.
 - For every determined audit legal conclusion, `GREEN→✅`, `YELLOW→⚠️`, and `RED→❌` must agree with the route-local legal display verdict. This is independent of the public map and country SEO contracts.
 - A `❌` on audit legal `UNKNOWN` may communicate an unresolved prohibition direction or absent applicable conclusion only when the popup visibly preserves `UNKNOWN`, `not a final legal conclusion`, and `not a confirmed prohibition finding`.
 - Rich territory-card material may be reused only as labelled supplementary context. The current legal conclusion and its retained official evidence render first and remain authoritative. Each displayed supplementary restriction must provide an applicable action, a retained source link, and an explicit boundary that it is not the current legal conclusion; source-less or action-less items are omitted fail-closed. Historical/enforcement/product/cultivation/market/profile headings must not visually impersonate a current legal verdict. This is one schema-driven rule for all 307 GEO, never a country-specific popup exception.
 - A current lawful patient route and a supplementary penalty for unauthorised conduct are not contradictory. The popup must name the conduct and say that the supplementary restriction does not apply to the verified lawful route where that is the modelled scope boundary. Legacy "why this colour" material must not duplicate or compete with the authoritative current reconciliation rationale.
-- `/truth-map` remains noindex/production-404 and outside public SEO. Its route-local indicator must not be re-used by `/`, `/new-map`, legal APIs, Store Truth, Social, or public country SEO.
+- `/truth-map` remains noindex/production-404 and outside public SEO. Its audit-only controls must not be re-used by `/`, `/new-map`, legal APIs, Store Truth, Social, or public country SEO; the tested legal-evidence popup is shared with the public map.
 
 ## Truth Map Store and Social marker-scale contract
-- The `/truth-map` low-zoom Store presentation is one neutral storefront icon plus a separately legible integer count. It is produced only from records that already pass the exact Store Truth visibility gate used for individual leaves, and uses a single low-precision, half-degree-rounded aggregate anchor computed from all such records in its displayed group. It is never a label-anchor fallback or an individual shop coordinate. The icon and high-contrast count must render together without collision-driven suppression, and contain no individual address, licence, operator or store-popup data.
+- The public map and `/truth-map` low-zoom Store presentation is one neutral storefront icon plus a separately legible integer count. It is produced only from records that already pass the exact Store Truth visibility gate used for individual leaves, and uses a single low-precision, half-degree-rounded aggregate anchor computed from all such records in its displayed group. It is never a label-anchor fallback or an individual shop coordinate. The icon and high-contrast count must render together without collision-driven suppression, and contain no individual address, licence, operator or store-popup data.
 - The fixed Store zoom sequence is: zoom `<4.2` renders country-level storefront aggregates; `4.2 <= zoom < 5.8` renders country/state/territory GEO aggregates; `5.8 <= zoom < 10.2` preserves the existing viewport clusters; `zoom >= 10.2` preserves individual validated cannabis leaves. A medium cluster is positioned at the centroid of its verified members; a one-record cluster must have the exact same coordinate as its local leaf. Clicking an aggregate only zooms into the next existing presentation level. These are presentation layers of the same accepted Store Truth records, not a new Store eligibility or data source.
 - A current municipal toleration-address list may be retained as an `ADULT_USE_RETAIL` location source only when independent official national/legal evidence proves the conditional retail type and the municipality’s current policy explicitly confines toleration to that published address list. Such a row is an address record, not a claimed business: popup text must name it as a municipal toleration address and state that operator, individual permit lifecycle, hours and factual operating state are not published. A province/region may be shown as address context; it must not create a new canonical GEO, legal inference or aggregate layer.
 - A current individual municipal cannabis-retail authorisation notice may add only its named premises, never an inferred municipality directory. It must retain the official publication or case reference, say that its scope is one premises, and resolve to one authoritative civic-coordinate object. A published permission term is not an unreported current licence or operating lifecycle; those fields remain `UNKNOWN_STATUS` unless the same official notice explicitly states their current condition.
 - An official address-list row becomes a leaf only after an exact official coordinate match on the published civic identity. If a parent civic address has multiple distinct official point coordinates, retain the source row with an explicit coordinate boundary but keep it map-blocked; never choose a unit, centroid or commercial-map point. This rule is schema-driven and applies to every municipality.
-- Store summary, cluster and leaf layers, together with Social presentation layers, must be inserted after the final native basemap fill/line geometry and before the complete native label stack. If a native text symbol appears before later road/building geometry in a style, move that text layer above the supplemental layers first. Geographic country/place labels therefore render above Store Truth and Social presentation, while roads or buildings cannot cut through a Store icon, count or chat bubble. The summary symbols do not participate in placement, so their visibility is stable while native labels retain visual priority by layer order. `/truth-map` retains the established continuous horizontal world-wrap interaction and must not clamp a user at one rendered-world edge.
-- Truth Map and `/new-map` share the native place-label policy from `createMap`: every `place_city*` layer uses `5.8–24`, and every `place_town*`, `place_villages*`, `place_hamlet*` or `place_suburb*` layer uses `6.6–24`. Loaded native data and normal symbol placement may determine which labels are shown at a camera stop; a Truth-Map-only rank hand-off, territory exception or empty intermediate band is forbidden.
+- Store summary, cluster and leaf layers, together with local-audit Social presentation layers, must be inserted after the final native basemap fill/line geometry and before the complete native label stack. If a native text symbol appears before later road/building geometry in a style, move that text layer above the supplemental layers first. Geographic country/place labels therefore render above Store Truth and Social presentation, while roads or buildings cannot cut through a Store icon, count or chat bubble. The summary symbols do not participate in placement, so their visibility is stable while native labels retain visual priority by layer order. The public map and `/truth-map` retain continuous horizontal world-wrap interaction.
+- The public map, `/truth-map` and localhost `/new-map` compatibility route share the native place-label policy from `createMap`: every `place_city*` layer uses `5.8–24`, and every `place_town*`, `place_villages*`, `place_hamlet*` or `place_suburb*` layer uses `6.6–24`. Loaded native data and normal symbol placement may determine which labels are shown at a camera stop; a route-specific rank hand-off, territory exception or empty intermediate band is forbidden.
 - Each completed Store viewport move reloads the existing visible-record query. MapLibre may report the continuous wrapped camera outside `[-180, 180]`; only the API request bounds are normalized to canonical WGS84, preserving antimeridian-crossing `west > east` bounds. The camera, exact Store coordinates, Store Truth gate and rendered world-wrap remain untouched. A valid local viewport must therefore never clear its leaves merely because the same place is viewed through another world copy.
-- The `/truth-map` local z15 presentation uses `icon-size=1.35` for the validated-store leaf. This is a rendering-only `1.5×` increase from the former `0.90`; it must not change Store eligibility, markers' source data, or the public map.
+- The public map and local `/truth-map` z15 presentation use `icon-size=1.35` for the validated-store leaf. This is a rendering-only `1.5×` increase from the former `0.90`; it must not change Store eligibility or markers' source data.
 - An individual Store leaf is a static clean green non-SDF image without a surrounding badge or outline; it must not use MapLibre `icon-color` or `icon-halo-*` paint properties. A validated local leaf must not be suppressed by a native-label collision: labels retain priority by layer order while the leaf remains at its exact validated coordinate. A transparent hit target may be bound only to the identical Store source/filter/visibility gate so a user can click the rendered leaf reliably; it is not a second marker, a count, a location expansion, or a Store Truth fact.
 - The distinct Social chat-bubble marker is a static full-colour non-SDF sprite with viewport alignment. It is `1.45` for a one-discussion aggregate at z15 and may increase with the aggregate active-discussion count up to `1.65`. It must never be smaller than the leaf; its count text is `14px` at z15.
 - The Social map API supports a maximum query zoom of `14`. A visual z15 map therefore queries `min(mapZoom, 14)` and preserves z15 symbol rendering. The clamp is transport compatibility only: it cannot alter the H3 privacy boundary, create/persist discussion data, or infer a user location.
 - The storefront aggregate, leaf and bubble remain separate image IDs, assets, source layers, click semantics and colours. Relative size neither changes their meaning nor supplies legal, Store or Social Truth.
-- This contract is route-local to `/truth-map`; despite shared implementation modules, it may not alter `/`, `/new-map`, legal colours, legal APIs, SSOT, country SEO, production or deployment.
+- Store display is shared by public `/` and local `/truth-map`; Social is local `/truth-map` only. Shared implementation modules may not alter legal colours, legal APIs, SSOT, country SEO, production or deployment.
 
 ## Unified geo-sync contract
 - Popup/wiki screenshot parity is not enough when canonical resolver, normalized legal model, map color, or SEO rendering changes.
@@ -279,6 +281,6 @@ legitimate `GREEN`, `YELLOW`, and `RED` conclusions while preserving
   final negative conclusion.
 - A claimant, parent/metropolitan state, neighbouring country, or component
   cannot supply a color without a direct territorial applicability bridge.
-- Product changes remain `/truth-map`-only. `/` and `/new-map` remain free
-  of the Store and Social layers, and store leaves and Social chat markers
-  remain semantically exclusive.
+- Public `/` includes the Store Truth-gated display through its dedicated
+  read-only adapter, while Social and DM remain local `/truth-map` only.
+  Store leaves and Social chat markers remain semantically exclusive.

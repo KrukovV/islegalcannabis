@@ -11,6 +11,8 @@ describe("private truth audit routes", () => {
     "https://www.islegal.info/wiki-truth",
     "https://islegal.info/wiki-truth",
     "https://www.islegal.info/wiki-truth/row/BF",
+    "https://www.islegal.info/truth-map",
+    "https://www.islegal.info/truth-map/qa",
     "https://www.islegal.info/trust-view"
   ])("returns 404 outside localhost for %s", (url) => {
     expect(proxy(request(url)).status).toBe(404);
@@ -19,6 +21,7 @@ describe("private truth audit routes", () => {
   it.each([
     "http://127.0.0.1:3000/wiki-truth",
     "http://localhost:3000/wiki-truth",
+    "http://127.0.0.1:3000/truth-map",
     "http://127.0.0.1:3000/trust-view"
   ])("allows the local audit route for %s", (url) => {
     expect(proxy(request(url)).status).toBe(200);

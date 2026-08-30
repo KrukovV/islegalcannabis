@@ -1027,6 +1027,32 @@
       "normalized_records": 1,
       "retained_missing_from_source": 0,
       "local_only": true
+    },
+    {
+      "snapshot_id": "official-us-oh-dcc-current-existing-medical-dispensaries-2026-08-26:53a45cfb340a633a",
+      "source_id": "official-us-oh-dcc-current-existing-medical-dispensaries-2026-08-26",
+      "observed_at": "2026-08-26T15:31:25.944Z",
+      "input_path": "data/store_truth/source_snapshots/oh-dcc-current-existing-medical-dispensaries-2026-08-26.json",
+      "input_sha256": "53a45cfb340a633a399a4b60157cbba9b6203f1788ea41d750771ea1568f1b3f",
+      "extraction_state": "EXTRACTED",
+      "format": "JSON",
+      "extracted_records": 134,
+      "normalized_records": 134,
+      "retained_missing_from_source": 0,
+      "local_only": true
+    },
+    {
+      "snapshot_id": "official-us-hi-doh-current-addressed-medical-dispensary-locations-2026-08-26:b065a37444e91fe7",
+      "source_id": "official-us-hi-doh-current-addressed-medical-dispensary-locations-2026-08-26",
+      "observed_at": "2026-08-26T15:47:19.877Z",
+      "input_path": "data/store_truth/source_snapshots/hi-doh-current-addressed-licensed-medical-dispensary-locations-2026-08-26.json",
+      "input_sha256": "b065a37444e91fe7e089f39c8f7fdcc7f257525fcd523380889f2de9fdcd1164",
+      "extraction_state": "EXTRACTED",
+      "format": "JSON",
+      "extracted_records": 24,
+      "normalized_records": 24,
+      "retained_missing_from_source": 0,
+      "local_only": true
     }
   ]
 }

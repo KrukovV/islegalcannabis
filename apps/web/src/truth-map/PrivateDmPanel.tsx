@@ -66,6 +66,37 @@ const RECEIPT_STATE_RANK: Partial<Record<PrivateMessageState, number>> = {
   READ: 3,
 };
 
+function friendlyStatus(status: string) {
+  if (status === "DM_DEVICE_INITIALIZING") return "Подготавливаем личные сообщения…";
+  if (status === "DM_DEVICE_READY") return "Можно отправить личное сообщение.";
+  if (status.startsWith("DM_RECIPIENT_READY:")) return "Получатель найден. Можно писать сообщение.";
+  if (status === "DM_RECIPIENT_NOT_FOUND") return "Получатель не найден.";
+  if (status === "DM_CIPHERTEXT_TRANSPORT_ACCEPTED") return "Личное сообщение отправлено.";
+  if (status === "DM_MESSAGE_DECRYPTED_AND_READ") return "Новое личное сообщение прочитано.";
+  if (status === "DM_CONVERSATION_DELETED_LOCALLY") return "Переписка удалена с этого устройства.";
+  if (status === "DM_LOCAL_HISTORY_CLEARED") return "История личных сообщений очищена на этом устройстве.";
+  if (status === "DM_DEVICE_REVOKED_RELOAD_TO_ROTATE") return "Это устройство отозвано. Перезагрузите страницу, чтобы создать новое.";
+  if (status === "DM_DISABLED") return "Личные сообщения сейчас недоступны.";
+  return status.startsWith("DM_") ? "Личным сообщениям требуется внимание." : status;
+}
+
+function activeDeviceLabel(count: number) {
+  if (count === 1) return "1 активное устройство";
+  if (count % 10 >= 2 && count % 10 <= 4 && (count % 100 < 12 || count % 100 > 14)) return `${count} активных устройства`;
+  return `${count} активных устройств`;
+}
+
+function messageStateLabel(state: PrivateMessageState) {
+  if (state === "READ") return "ПРОЧИТАНО";
+  if (state === "DELIVERED") return "ДОСТАВЛЕНО";
+  if (state === "TRANSPORT_ACCEPTED") return "ОТПРАВЛЕНО";
+  if (state === "QUEUED") return "В ОЧЕРЕДИ";
+  if (state === "FAILED_RETRYABLE") return "ТРЕБУЕТ ПОВТОРА";
+  if (state === "FAILED_PERMANENT") return "НЕ ОТПРАВЛЕНО";
+  if (state === "EXPIRED") return "СРОК ИСТЁК";
+  return "СОЗДАНО";
+}
+
 async function serverDevices() {
   return responsePayload<{ ok: true; devices: Device[] }>(await fetch("/api/social/dm/devices", {
     cache: "no-store",
@@ -87,7 +118,7 @@ async function registerDevice(identity: Identity) {
     cache: "no-store",
     credentials: "same-origin",
   }));
-  const label = `Browser device · ${new Date().toISOString().slice(0, 10)}`;
+  const label = `Устройство браузера · ${new Date().toISOString().slice(0, 10)}`;
   const registered = await responsePayload<{ ok: true; device: Device }>(await fetch("/api/social/dm/devices", {
     method: "POST",
     credentials: "same-origin",
@@ -164,7 +195,7 @@ export default function PrivateDmPanel({ config, identity }: { config: SocialRun
         await saveLocalDmMessage({
           messageId: unwrapped.messageId,
           peerPublicKey: unwrapped.senderPublicKey,
-          peerDisplayName: senderPayload.sender?.displayName || `member-${unwrapped.senderPublicKey.slice(0, 8)}`,
+          peerDisplayName: senderPayload.sender?.displayName || `Участник-${unwrapped.senderPublicKey.slice(0, 8)}`,
           direction: "RECEIVED",
           content: unwrapped.content,
           createdAt: unwrapped.createdAt,
@@ -373,61 +404,80 @@ export default function PrivateDmPanel({ config, identity }: { config: SocialRun
   };
 
   if (!config.dmEnabled) {
-    return <p className={styles.status} data-testid="truth-map-dm-status">DM_DISABLED</p>;
+    return <p className={styles.status}>Личные сообщения отключены.<span className={styles.srOnly} data-testid="truth-map-dm-status">DM_DISABLED</span></p>;
   }
 
   return (
     <section className={styles.dmPanel} data-testid="truth-map-dm" data-dm-status={device ? "ACTIVE" : "INITIALIZING"}>
-      <div className={styles.threadHeader}>
+      <div className={styles.dmHeader}>
         <div>
-          <div className={styles.eyebrow}>Private · Internet E2E candidate</div>
-          <strong>Direct messages</strong>
+          <div className={styles.eyebrow}>Личные сообщения · эксперимент</div>
+          <strong>Напишите личное сообщение</strong>
         </div>
-        <button type="button" disabled={!device || busy} onClick={() => void revokeCurrentDevice()}>Revoke device</button>
+        <span className={styles.dmSecurityBadge}>Шифруется здесь</span>
       </div>
-      <div className={styles.actions}>
-        <button type="button" disabled={busy || recipients.length === 0} onClick={() => void removeLocalConversation()}>Delete conversation locally</button>
-        <button type="button" disabled={busy || messages.length === 0} onClick={() => void clearLocalHistory()}>Clear local history</button>
+      <p className={styles.dmIntro}>Сообщение шифруется в этом браузере. Контекст карты или GEO не прикладывается.</p>
+      <div className={styles.dmComposerBox}>
+        <div className={styles.dmComposerHeading}>Новое сообщение</div>
+        <label className={styles.dmField}>
+          <span>Псевдоним получателя</span>
+          <div className={styles.dmRecipientRow}>
+            <input
+              value={recipientName}
+              onChange={(event) => { setRecipientName(event.target.value); setRecipients([]); }}
+              placeholder="Введите точный псевдоним"
+              maxLength={40}
+              data-testid="truth-map-dm-recipient"
+            />
+            <button type="button" disabled={busy || !device || recipientName.trim().length < 2} onClick={() => void lookupRecipient()} data-testid="truth-map-dm-lookup">Найти</button>
+          </div>
+        </label>
+        {recipients.length ? <p className={styles.dmRecipientReady} data-testid="truth-map-dm-recipient-ready">Кому: {recipients[0].displayName} · {activeDeviceLabel(recipients.length)}</p> : null}
+        <label className={styles.dmField}>
+          <span>Сообщение</span>
+          <textarea
+            rows={2}
+            maxLength={8_000}
+            value={draft}
+            onChange={(event) => setDraft(event.target.value)}
+            placeholder="Напишите личное сообщение"
+            data-testid="truth-map-dm-composer"
+          />
+        </label>
+        <button className={styles.send} type="button" disabled={busy || !device || recipients.length === 0 || !draft.trim()} onClick={() => void sendMessage()} data-testid="truth-map-dm-send">Отправить лично</button>
       </div>
-      <p>Message text is encrypted and decrypted in this browser. The relay stores only a NIP-59 gift wrap and bounded delivery metadata.</p>
-      <p className={styles.deviceLine} data-testid="truth-map-dm-device">
-        {device ? `${device.label} · ${device.publicKey.slice(0, 12)}…` : "Registering a separate messaging key…"}
-      </p>
-      <div className={styles.inlineRow}>
-        <input
-          value={recipientName}
-          onChange={(event) => { setRecipientName(event.target.value); setRecipients([]); }}
-          placeholder="Exact recipient pseudonym"
-          maxLength={40}
-          data-testid="truth-map-dm-recipient"
-        />
-        <button type="button" disabled={busy || !device || recipientName.trim().length < 2} onClick={() => void lookupRecipient()} data-testid="truth-map-dm-lookup">Find</button>
-      </div>
-      {recipients.length ? <p data-testid="truth-map-dm-recipient-ready">{recipients[0].displayName} · {recipients.length} active device(s)</p> : null}
-      <textarea
-        rows={2}
-        maxLength={8_000}
-        value={draft}
-        onChange={(event) => setDraft(event.target.value)}
-        placeholder="Private message — no GEO or map context is attached"
-        data-testid="truth-map-dm-composer"
-      />
-      <button className={styles.send} type="button" disabled={busy || !device || recipients.length === 0 || !draft.trim()} onClick={() => void sendMessage()} data-testid="truth-map-dm-send">Encrypt & send</button>
+      <details className={styles.dmManagement}>
+        <summary>Приватность и устройство</summary>
+        <div className={styles.dmManagementContent}>
+          <p>Это экспериментальный локальный вариант, не утверждённый как production-защищённый мессенджер. Реле хранит только зашифрованный конверт доставки и ограниченные данные о доставке — не текст сообщения.</p>
+          <p className={styles.deviceLine} data-testid="truth-map-dm-device">
+            {device ? `${device.label} · ${device.publicKey.slice(0, 12)}…` : "Подготавливаем отдельный ключ сообщений…"}
+          </p>
+          <div className={styles.dmManagementActions}>
+            <button type="button" disabled={!device || busy} onClick={() => void revokeCurrentDevice()}>Отозвать это устройство</button>
+            <button type="button" disabled={busy || recipients.length === 0} onClick={() => void removeLocalConversation()}>Удалить эту переписку с устройства</button>
+            <button type="button" disabled={busy || messages.length === 0} onClick={() => void clearLocalHistory()}>Очистить историю личных сообщений на устройстве</button>
+          </div>
+        </div>
+      </details>
       <div className={styles.dmMessages} data-testid="truth-map-dm-messages">
         {messages.map((message) => (
           <article key={message.messageId} className={message.direction === "SENT" ? styles.dmSent : styles.dmReceived} data-message-state={message.state}>
-            <strong>{message.direction === "SENT" ? `To ${message.peerDisplayName}` : `From ${message.peerDisplayName}`}</strong>
+            <strong>{message.direction === "SENT" ? `Кому: ${message.peerDisplayName}` : `От: ${message.peerDisplayName}`}</strong>
             <p>{message.content}</p>
-            <span>{message.state} · {new Date(message.createdAt).toLocaleTimeString()}</span>
-            <button type="button" disabled={busy} onClick={() => void removeLocalMessage(message.messageId)}>Delete locally</button>
+            <span>{messageStateLabel(message.state)} · {new Date(message.createdAt).toLocaleTimeString("ru-RU")}</span>
+            <button type="button" disabled={busy} onClick={() => void removeLocalMessage(message.messageId)}>Удалить с устройства</button>
             {message.state === "FAILED_RETRYABLE"
-              ? <button type="button" disabled={busy} onClick={() => void retryMessage(message)}>Retry encrypted envelope</button>
+              ? <button type="button" disabled={busy} onClick={() => void retryMessage(message)}>Повторить отправку</button>
               : null}
           </article>
         ))}
-        {messages.length === 0 ? <p>No private messages in this encrypted local history.</p> : null}
+        {messages.length === 0 ? <p>На этом устройстве пока нет личных сообщений.</p> : null}
       </div>
-      <p className={styles.status} data-testid="truth-map-dm-status">{status}</p>
+      <p className={styles.dmStatus} aria-live="polite">
+        {friendlyStatus(status)}
+        <span className={styles.srOnly} data-testid="truth-map-dm-status">{status}</span>
+      </p>
     </section>
   );
 }

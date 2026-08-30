@@ -124,7 +124,7 @@ test("truth-map keeps the AI assistant primary and Social compact by default", a
 
   await page.getByTestId("truth-map-social-toggle").click();
   await expect(social).toHaveAttribute("data-social-panel-state", "expanded");
-  await expect(page.getByText("Choose a pseudonym", { exact: true })).toBeVisible();
+  await expect(page.getByText("Выберите псевдоним", { exact: true })).toBeVisible();
   const [aiBox, socialBox] = await Promise.all([aiDock.boundingBox(), social.boundingBox()]);
   expect(aiBox).not.toBeNull();
   expect(socialBox).not.toBeNull();
