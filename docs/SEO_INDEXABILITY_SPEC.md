@@ -46,6 +46,23 @@ The accepted repair is commit `c79eaae5`. It restores the monorepo tracing root
 and adds explicit route-scoped trace inputs in `apps/web/next.config.ts` without
 a global wildcard.
 
+### 2.1 Accepted public-map static delivery
+
+The 2026-08-31 public-map regression proved a separate delivery boundary: a
+Vercel serverless route could be marked Ready while reading the ignored local
+final-reconciliation input at request time. The accepted public runtime instead
+uses two committed, content-addressed Brotli assets (country and U.S.-state
+geometry) behind immutable `/static/truth-map/<file>` routes. The public
+compatibility adapters redirect to those assets with HTTP 308.
+
+The local reconciliation is permitted to generate the assets before release;
+it is not a production runtime input. Static delivery is a transport
+optimization only: it may compact geometry and normalize volatile collection
+metadata, but must retain the full 307-GEO projection, colours, Store Truth
+gate and every schema-derived rich-popup property. In particular, it must not
+abbreviate popup legal evidence, supplementary context, profile material or the
+dotted in-place SEO interaction.
+
 ## 3. Public route contract
 
 The following surfaces are public product/indexability routes:
@@ -82,6 +99,11 @@ Local audit routes have a different contract:
 
 Country pages and sitemap handlers read monorepo data at request time. Vercel
 must package only the required data for the routes that use it.
+
+The public map geometry is an explicit exception to request-time monorepo data:
+it is served from the committed immutable static payload described in §2.1. The
+static route and public adapters must not trace the ignored final-reconciliation
+file, audit routes, Social, DM or Store-audit runtime.
 
 Required trace root:
 

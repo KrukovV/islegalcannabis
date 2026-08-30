@@ -105,5 +105,6 @@
 - Storage hygiene is enforced: `QUARANTINE` exactly one PASS snapshot, `Reports` operational only, historical archives outside the repo.
 - Public sitemap and country runtime are one indexability boundary: every advertised URL must be 200/title/canonical/index-follow in production, and a route-data trace regression must fail before release.
 - Accepted sitemap baseline is 311 unique URLs with `238/50/22` country/state/i18n partitions and four sitemap-index entries; silent shrink is forbidden.
+- The public-map geometry uses committed content-addressed Brotli payloads via immutable static routes and 308 public adapters. Local reconciliation may generate those payloads before release but is never a production runtime dependency; compaction preserves complete popup properties, GEO colours and Store-gate output.
 - `/truth-map` and `/wiki-truth` remain production 404 and absent from every sitemap. Route-scoped SEO tracing must never expose audit, Social, DM or Store runtime.
 - `CRAWLABILITY_PASS` is not `GOOGLE_INDEX_CONFIRMED`; Google recrawl remains external until current Search Console evidence exists.

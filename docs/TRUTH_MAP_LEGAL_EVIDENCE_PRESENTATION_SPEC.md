@@ -88,6 +88,11 @@ rich popup record. This navigation must never remove, abbreviate or replace the
 legal-evidence, supplementary-context, historical or profile sections that the
 schema projects for the GEO.
 
+Whether the shared map collection arrives through a local audit source or the
+public committed static Brotli payload is not a popup-content branch. Geometry
+transport may be compacted, but the selected GEO must project the same complete
+schema-derived card, dotted SEO CTA and retained evidence fields on both routes.
+
 ## 6. Required verification
 
 The unit dataset test covers all determined GEO:
