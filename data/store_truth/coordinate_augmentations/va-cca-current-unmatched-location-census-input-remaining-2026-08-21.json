@@ -1,0 +1,15 @@
+{
+  "source_snapshot_path": "data/store_truth/source_snapshots/va-cca-current-licensed-medical-dispensaries-2026-08-14.json",
+  "source_snapshot_sha256": "fc3962adad308cf7b82bf9ef71c8b66fccbddbc9f6090981c5ae8eccf8555fc6",
+  "selection": "OFFICIAL_CCA_CURRENT_CARD_WITHOUT_OFFICIAL_MATCHED_PAGE_MARKER_COORDINATE_AND_NOT_PREVIOUSLY_CENSUS_ACCEPTED",
+  "records": [
+    {
+      "source_record_id": "squarespace-location:39079629cf3e53ce12f44f15",
+      "physical_address": "1919 Valley View Blvd NW, Ste B Roanoke, VA 24012"
+    },
+    {
+      "source_record_id": "squarespace-location:de253f62f7379b92286ed3a3",
+      "physical_address": "2400 Cunningham Dr, Suite 600 Hampton, VA 23666"
+    }
+  ]
+}

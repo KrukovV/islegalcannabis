@@ -1,0 +1,21 @@
+{
+  "authority_headers": {
+    "legal_name": "Name",
+    "authorization_status": "Authorization Status",
+    "license_number": "License Number"
+  },
+  "location_headers": {
+    "legal_name": "Company",
+    "address": "Address",
+    "city": "City",
+    "postal_code": "ZIP Code"
+  },
+  "accepted_authorization_statuses": [
+    "Dispensing Authorization"
+  ],
+  "store_type": "MEDICAL_DISPENSARY",
+  "region": "FL",
+  "country": "US",
+  "license_status": "ACTIVE",
+  "operational_status": "UNKNOWN_STATUS"
+}

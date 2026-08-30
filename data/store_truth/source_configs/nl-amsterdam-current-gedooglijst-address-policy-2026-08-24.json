@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "source_id": "official-nl-amsterdam-current-gedooglijst-addresses-2026-08-24",
+  "source_url": "https://lokaleregelgeving.overheid.nl/CVDR756282",
+  "geo_id": "NL",
+  "country": "NL",
+  "city": "Amsterdam",
+  "region": "Noord-Holland",
+  "policy_name": "Gedooglijst Amsterdam",
+  "expected_row_count": 167,
+  "table": {
+    "column_count": 5,
+    "columns": {
+      "street": 0,
+      "house_number": 1,
+      "house_number_suffix": 2,
+      "postal_prefix": 3,
+      "postal_suffix": 4
+    }
+  },
+  "pdok_url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free",
+  "pdok_bounds": {
+    "west": 3.2,
+    "east": 7.3,
+    "south": 50.7,
+    "north": 53.7
+  },
+  "pdok_max_concurrency": 4,
+  "output_path": "data/store_truth/source_snapshots/nl-amsterdam-current-gedooglijst-addresses-2026-08-24.json"
+}

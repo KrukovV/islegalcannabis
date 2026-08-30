@@ -10,6 +10,7 @@ import { findRepoRoot } from "@/lib/ssotDiff/ssotSnapshotStore";
 import { buildWikiTruthAudit } from "@/lib/wikiTruthAudit";
 import { buildExpectedWikiPageByIso } from "@/lib/wikiTruthNormalization";
 import { getStatusSnapshotMeta } from "@/lib/mapData";
+import { buildTruthMapDataset } from "@/truth-map/truthMapSource";
 import {
   buildCountrySourceSnapshot,
   buildUsStateSourceSnapshot,
@@ -32,6 +33,14 @@ import { normalizeWikiTruthColorReviewDossier } from "@/lib/wikiTruthColorReview
 import { normalizeWikiTruthLegalKnowledgeAxisMatrix } from "@/lib/wikiTruthLegalKnowledgeAxisMatrix";
 import { normalizeWikiTruthPrimaryLawBlockers } from "@/lib/wikiTruthPrimaryLawBlockers";
 import { normalizeWikiTruthRuntimeApplyPipeline } from "@/lib/wikiTruthRuntimeApplyPipeline";
+import {
+  emptyWikiTruthStoreAudit,
+  normalizeWikiTruthStoreAudit,
+} from "@/lib/wikiTruthStoreAudit";
+import {
+  emptyWikiTruthGoalAcceptance,
+  normalizeWikiTruthGoalAcceptance,
+} from "@/lib/wikiTruthGoalAcceptance";
 
 const ROOT = findRepoRoot(process.cwd());
 
@@ -137,6 +146,27 @@ export function buildWikiTruthPageModel() {
         ),
       ) || emptyWikiTruthFinalReconciliation,
     );
+  const truthMapDisplay = buildTruthMapDataset().meta;
+  const cannabisStoreAudit = normalizeWikiTruthStoreAudit(
+    readJson(
+      path.join(
+        ROOT,
+        "data",
+        "reviews",
+        "wiki-truth-307-store-audit.json",
+      ),
+    ) || emptyWikiTruthStoreAudit,
+  );
+  const cannabisGoalAcceptance = normalizeWikiTruthGoalAcceptance(
+    readJson(
+      path.join(
+        ROOT,
+        "data",
+        "reviews",
+        "wiki-truth-307-goal-acceptance.json",
+      ),
+    ) || emptyWikiTruthGoalAcceptance,
+  );
   const secondPassProgress = (
     cannabisLawFinalReconciliation.progress ||
     emptyWikiTruthFinalReconciliation.progress
@@ -312,6 +342,9 @@ export function buildWikiTruthPageModel() {
     cannabisLawRuntimeApplyPipeline,
     cannabisLawLegalKnowledgeAxisMatrix,
     cannabisLawFinalReconciliation,
+    truthMapDisplay,
+    cannabisStoreAudit,
+    cannabisGoalAcceptance,
     audit,
   };
 }

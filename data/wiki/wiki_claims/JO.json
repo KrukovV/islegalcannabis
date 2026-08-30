@@ -24,28 +24,29 @@
       "url": "https://en.wikipedia.org/wiki/Cannabis_in_Jordan"
     }
   ],
-  "notes_text": "Main article: Cannabis in Jordan",
-  "notes_text_len": 32,
-  "notes": "Main article: Cannabis in Jordan",
+  "notes_text": "Main article: Cannabis in Jordan.\n\n'''Cannabis in Jordan''' is illegal. In 2018, Anwar Tarawneh, Director of the Anti-Narcotics Department (AND), reported that \"marijuana is the most consumed drug in Jordan\", with the AND seizing 1.5 tonnes of cannabis that year. As Jordan is a signatory to the 1961 United Nations Single Convention on Narcotic Drugs.",
+  "notes_text_len": 352,
+  "notes": "Main article: Cannabis in Jordan.\n\n'''Cannabis in Jordan''' is illegal. In 2018, Anwar Tarawneh, Director of the Anti-Narcotics Department (AND), reported that \"marijuana is the most consumed drug in Jordan\", with the AND seizing 1.5 tonnes of cannabis that year. As Jordan is a signatory to the 1961 United Nations Single Convention on Narcotic Drugs.",
   "notes_raw": "{{main|Cannabis in Jordan}}",
   "notes_sections_used": [
-    "main_article"
+    "main_article",
+    "lead"
   ],
   "notes_main_article": "Cannabis in Jordan",
   "notes_rev": "",
-  "notes_kind": "MIN_ONLY",
-  "notes_reason_code": "NO_EXTRA_TEXT",
+  "notes_kind": "RICH",
+  "notes_reason_code": "NOTES_WEAKEN_BLOCKED_SAME_STATUS",
   "recreational_status": "Illegal",
   "medical_status": "Illegal",
   "source_type": "WIKI_COUNTRIES",
   "primary_source": "WIKI_COUNTRIES",
   "source_page": "Legality of cannabis",
   "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-  "source_revision": "1360109215",
+  "source_revision": "1369217124",
   "source_table": "countries",
-  "wiki_revision_id": "1360109215",
-  "fetched_at": "2026-06-21T17:29:39.863Z",
+  "wiki_revision_id": "1369217124",
+  "fetched_at": "2026-08-21T15:32:41.930Z",
   "sources_reason_code": "",
   "source": "countries",
-  "revision_id": "1360109215"
+  "revision_id": "1369217124"
 }

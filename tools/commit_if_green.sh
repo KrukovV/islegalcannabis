@@ -3,6 +3,7 @@ set -euo pipefail
 
 DRY_RUN=0
 TAG_NAME=""
+TAG_TARGET=""
 PROD_TAG_NAME=""
 PROD_TAG_REQUESTED=0
 SKIP_GIT=0
@@ -21,6 +22,10 @@ while [ "$#" -gt 0 ]; do
       ;;
     --tag)
       TAG_NAME="${2:-}"
+      shift 2
+      ;;
+    --tag-target)
+      TAG_TARGET="${2:-}"
       shift 2
       ;;
     --prod-tag)
@@ -259,7 +264,7 @@ write_git_bundle() {
 set -euo pipefail
 cd "$(pwd)"
 git apply --binary "${patch_path}"
-stage_paths=(.gitignore .vercelignore README.md CONTINUITY.md apps docs packages tools Tools data/wiki data/reviews data/ssot_snapshots data/ssot_diffs.json data/official cache/ssot_diff_cache.json package.json package-lock.json)
+stage_paths=(.gitignore .vercelignore README.md CONTINUITY.md apps docs packages tools Tools data/wiki data/reviews data/store_truth data/ssot_snapshots data/ssot_diffs.json data/official cache/ssot_diff_cache.json package.json package-lock.json)
 existing_paths=()
 for path in "\${stage_paths[@]}"; do
   [ -e "\${path}" ] && existing_paths+=("\${path}")
@@ -492,6 +497,7 @@ stage_paths=(
   Tools
   data/wiki
   data/reviews
+  data/store_truth
   data/ssot_snapshots
   data/ssot_diffs.json
   data/official
@@ -525,12 +531,30 @@ fi
 
 timestamp="$(date -u +%Y%m%d-%H%M%S)"
 tag="${TAG_NAME:-good/${timestamp}}"
-if ! git tag -a -f "${tag}" -m "green: $(date -u +%FT%TZ)"; then
-  echo "TAG_FAIL=1 Not committing."
+tag_target="${TAG_TARGET:-HEAD}"
+if ! tag_target_commit="$(git rev-parse --verify "${tag_target}^{commit}" 2>/dev/null)"; then
+  echo "TAG_FAIL=1 reason=TAG_TARGET_INVALID target=${tag_target}"
+  append_ci_final "TAG_FAIL=1 reason=TAG_TARGET_INVALID target=${tag_target}"
   exit 1
 fi
-append_ci_final "TAG_CREATED name=${tag}"
-echo "TAG_CREATED=1 name=${tag}"
+if [ -n "${TAG_TARGET}" ]; then
+  if git show-ref --verify --quiet "refs/tags/${tag}"; then
+    echo "TAG_FAIL=1 reason=TAG_TARGET_REF_EXISTS name=${tag}"
+    append_ci_final "TAG_FAIL=1 reason=TAG_TARGET_REF_EXISTS name=${tag}"
+    exit 1
+  fi
+  if ! git tag -a "${tag}" "${tag_target_commit}" -m "green: $(date -u +%FT%TZ) target=${tag_target_commit}"; then
+    echo "TAG_FAIL=1 Not committing."
+    exit 1
+  fi
+else
+  if ! git tag -a -f "${tag}" "${tag_target_commit}" -m "green: $(date -u +%FT%TZ) target=${tag_target_commit}"; then
+    echo "TAG_FAIL=1 Not committing."
+    exit 1
+  fi
+fi
+append_ci_final "TAG_CREATED name=${tag} target=${tag_target_commit}"
+echo "TAG_CREATED=1 name=${tag} target=${tag_target_commit}"
 if ! git show-ref --verify --quiet "refs/tags/${tag}"; then
   echo "TAG_FAIL=1 Not committing."
   append_ci_final "TAG_FAIL=1"
@@ -540,12 +564,24 @@ fi
 
 if [ "${PROD_TAG_REQUESTED}" = "1" ] || [ "${ENABLE_PROD_TAG:-0}" = "1" ]; then
   prod_tag="${PROD_TAG_NAME:-prod/${timestamp}}"
-  if ! git tag -a -f "${prod_tag}" -m "prod: $(date -u +%FT%TZ)"; then
-    echo "TAG_FAIL=1 Not committing."
+  if [ -n "${TAG_TARGET}" ] && git show-ref --verify --quiet "refs/tags/${prod_tag}"; then
+    echo "TAG_FAIL=1 reason=TAG_TARGET_REF_EXISTS name=${prod_tag}"
+    append_ci_final "TAG_FAIL=1 reason=TAG_TARGET_REF_EXISTS name=${prod_tag}"
     exit 1
   fi
-  append_ci_final "TAG_CREATED name=${prod_tag}"
-  echo "TAG_CREATED=1 name=${prod_tag}"
+  if [ -n "${TAG_TARGET}" ]; then
+    if ! git tag -a "${prod_tag}" "${tag_target_commit}" -m "prod: $(date -u +%FT%TZ) target=${tag_target_commit}"; then
+      echo "TAG_FAIL=1 Not committing."
+      exit 1
+    fi
+  else
+    if ! git tag -a -f "${prod_tag}" "${tag_target_commit}" -m "prod: $(date -u +%FT%TZ) target=${tag_target_commit}"; then
+      echo "TAG_FAIL=1 Not committing."
+      exit 1
+    fi
+  fi
+  append_ci_final "TAG_CREATED name=${prod_tag} target=${tag_target_commit}"
+  echo "TAG_CREATED=1 name=${prod_tag} target=${tag_target_commit}"
   if ! git show-ref --verify --quiet "refs/tags/${prod_tag}"; then
     echo "TAG_FAIL=1 Not committing."
     append_ci_final "TAG_FAIL=1"

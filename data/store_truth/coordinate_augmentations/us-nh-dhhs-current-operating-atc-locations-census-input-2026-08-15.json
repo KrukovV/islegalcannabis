@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-14T22:56:19.286Z",
+  "source_id": "official-us-nh-dhhs-current-operating-atc-locations-2026-08-15",
+  "source_snapshot_path": "data/store_truth/source_snapshots/us-nh-dhhs-current-operating-atc-locations-2026-08-15.json",
+  "source_snapshot_sha256": "415f7bcc8efe40346cb881fece7ca98f5d79dc86cca67315a549c13eded754e3",
+  "source_url": "https://www.dhhs.nh.gov/programs-services/population-health/therapeutic-cannabis/alternative-treatment-centers",
+  "records": [
+    {
+      "source_record_id": "NH-DHHS-ATC-GRANITELEAF-CHICHESTER-349-DOVER-ROAD",
+      "address": "349 Dover Road (Route 4)",
+      "city": "Chichester",
+      "region": "NH",
+      "postal_code": "03258"
+    },
+    {
+      "source_record_id": "NH-DHHS-ATC-GRANITELEAF-MERRIMACK-380-DANIEL-WEBSTER-HIGHWAY",
+      "address": "380 Daniel Webster Highway, Units A and C",
+      "city": "Merrimack",
+      "region": "NH",
+      "postal_code": "03054"
+    },
+    {
+      "source_record_id": "NH-DHHS-ATC-SANCTUARY-CONWAY-234-WHITE-MOUNTAIN-HIGHWAY",
+      "address": "234 White Mountain Highway",
+      "city": "Conway",
+      "region": "NH",
+      "postal_code": "03818"
+    },
+    {
+      "source_record_id": "NH-DHHS-ATC-SANCTUARY-PLYMOUTH-568-TENNEY-MOUNTAIN-HIGHWAY",
+      "address": "568 Tenney Mountain Highway",
+      "city": "Plymouth",
+      "region": "NH",
+      "postal_code": "03264"
+    },
+    {
+      "source_record_id": "NH-DHHS-ATC-TEMESCAL-DOVER-26-CROSBY-ROAD",
+      "address": "26 Crosby Road, Units 11-12",
+      "city": "Dover",
+      "region": "NH",
+      "postal_code": "03820"
+    },
+    {
+      "source_record_id": "NH-DHHS-ATC-TEMESCAL-KEENE-69-ISLAND-STREET",
+      "address": "69 Island Street, Suite 1",
+      "city": "Keene",
+      "region": "NH",
+      "postal_code": "03431"
+    },
+    {
+      "source_record_id": "NH-DHHS-ATC-TEMESCAL-LEBANON-367-ROUTE-120",
+      "address": "367 Route 120, Unit E-2",
+      "city": "Lebanon",
+      "region": "NH",
+      "postal_code": "03766"
+    }
+  ]
+}

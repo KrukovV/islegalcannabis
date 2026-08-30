@@ -1,0 +1,778 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Southern Nevada Dispensaries</name>
+    <description/>
+    <Style id="icon-1899-0288D1-nodesc-normal">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-0288D1-nodesc-highlight">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-0288D1-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-0288D1-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-0288D1-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Folder>
+      <name>Las Vegas</name>
+      <Placemark>
+        <name>Deep Roots Harvest Parkson</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.0219926,36.0631023,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Green Cannabis Co. Dispensary Henderson</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1064133,36.0021169,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Beyond Hello Cannabis Dispensary</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.2622586,36.1427679,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>NuLeaf Dispensary Las Vegas Strip</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.152534,36.151808,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>NuLeaf</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.153907,36.121493,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cookies On The Strip Las Vegas Dispensary</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1564965,36.1446891,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cookies Flamingo Las Vegas Dispensary</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.196742,36.116026,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cultivate Las Vegas Dispensary</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.188698,36.1261258,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cultivate Las Vegas Dispensary</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.2882498,36.2901739,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Curaleaf NV Las Vegas</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1535639,36.150291,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Curaleaf Las Vegas - Western Ave</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1669388,36.1461179,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Deep Roots Harvest</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.2250074,36.2162895,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Deep Roots Harvest Blue Diamond</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1935342,36.0384607,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Euphoria Wellness Weed Dispensary</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.2244335,36.0479613,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Green Cannabis Co. Dispensary Rainbow</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.2427307,36.1732663,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Green Cannabis Co. Dispensary Hualapai</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.3147335,36.1074159,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Greenlight Dispensary Downtown Las Vegas</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1486079,36.1610791,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Health For Life Weed Dispensary Las Vegas</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1520176,36.158587,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Inyo Fine Cannabis Dispensary</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1348907,36.1438367,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>JADE Cannabis Co.</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.260038,36.2716345,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Jade</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1395108,36.1303587,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Jardín Premium Cannabis Dispensary</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1109058,36.1305243,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ReLeaf Dispensary Las Vegas</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.155346,36.1442034,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The Dispensary Eastern</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1189235,36.0331165,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Medizin - Cannabis Dispensary Las Vegas</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.206709,36.072467,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mint Cannabis Dispensary - SPRING VALLEY, NV</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.2420964,36.0737053,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Nevada Made Marijuana</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.2615743,36.1595773,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Nevada Made Marijuana</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1281522,35.9980781,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Nevada Made Marijuana</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.0898696,36.1585396,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Nevada Wellness Center</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1895585,36.1318704,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Nevada Wellness Center West</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.2889971,36.1155897,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Oasis Cannabis Dispensary - Las Vegas</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1612216,36.1505552,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pisos</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1369195,36.1143045,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Planet 13 Las Vegas</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1759933,36.1302168,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Reef Dispensary - Las Vegas Strip</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1771484,36.1279651,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>RISE Cannabis Dispensary Las Vegas on West Tropicana</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.2199783,36.0998688,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>RISE Recreational Cannabis Dispensary Las Vegas on South Rainbow</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.2422221,36.0566561,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>RISE Recreational Cannabis Dispensary Las Vegas on South Durango</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.2789667,36.0717633,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>RISE Dispensary Las Vegas on Nellis</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.06253,36.180473,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>420 Sahara</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.151511,36.144018,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Shango Marijuana Dispensary Las Vegas</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.0791478,36.1247044,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ShowGrow</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.2969638,36.1012304,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Silver Sage Wellness</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.2038313,36.1593885,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The Dispensary</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.208507,36.092545,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The Grove Dispensary Las Vegas</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1502419,36.1053523,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The Sanctuary - #1 Cannabis Dispensary In Las Vegas</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1515865,36.1549841,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The Source Dispensary Las Vegas</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.2419367,36.1431014,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The Spot</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1981647,36.115938,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Vegas Treehouse</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.2074698,36.1053185,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Thrive Cannabis Marketplace - Las Vegas Strip Dispensary</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1700768,36.1370411,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Thrive Cannabis Marketplace - West Sahara Las Vegas Dispensary</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1884065,36.1446957,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Thrive Cannabis Marketplace - Southern Highlands Las Vegas Dispensary</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1883538,35.9997157,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Thrive Cannabis Marketplace</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1536413,36.1553919,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Nevada Made Marijuana</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.165872,36.056453,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Top Notch The Health Center</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.0456178,36.087217,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tree of Life Weed Dispensary Las Vegas</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.2254841,36.1872393,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Wallflower Cannabis House Weed Dispensary Las Vegas</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.2363578,36.0243085,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Zen Leaf Las Vegas</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.2910839,36.0745682,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Zen Leaf Flamingo</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.2224939,36.1149455,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Las Vegas Cannabis Dispensary CannaStarz</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1447395,36.1622197,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>North Las Vegas</name>
+      <Placemark>
+        <name>Curaleaf Dispensary - North Las Vegas (Formerly Reef)</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1598873,36.2194349,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Deep Roots Harvest North Las Vegas</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1597502,36.2408528,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>RISE Recreational Dispensary on Craig</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1925286,36.2397373,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The Sanctuary - #1 Cannabis Dispensary In Las Vegas</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1262431,36.1985987,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The Source Dispensary North Las Vegas</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1354944,36.2840103,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Thrive Cannabis Marketplace - North Las Vegas Dispensary</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1779141,36.2170552,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tree Of Life Weed Dispensary North Las Vegas</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1385464,36.2770393,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Zen Leaf North Las Vegas</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.2021007,36.239441,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Henderson</name>
+      <Placemark>
+        <name>Deep Roots Harvest Parkson</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.0219926,36.0631023,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Green Cannabis Co. Dispensary Henderson</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1064133,36.0021169,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>RISE Recreational Dispensary Henderson</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.0809386,36.0723682,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The Dispensary</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.028069,36.034467,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The Source Dispensary Henderson</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1172145,36.0169957,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The Source Dispensary Water St</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -114.9885854,36.0442149,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Wallflower Cannabis House</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.1404489,35.9593883,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Mesquite</name>
+      <Placemark>
+        <name>Deep Roots Harvest Mesquite</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -114.122116,36.8052978,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Pahrump</name>
+      <Placemark>
+        <name>The Grove Cannabis Dispensary Pahrump</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.988327,36.2193603,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The Source Dispensary Pahrump</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -115.9599117,36.185026,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Tonopah</name>
+      <Placemark>
+        <name>Stash Fine Cannabis</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -117.256262,38.0794363,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

@@ -1361,6 +1361,12 @@ if [ -n "${JSON_SKIP_WORKTREE_FILES}" ]; then
 fi
 echo "JSON_SKIP_WORKTREE_GUARD=PASS"
 
+echo "RUN_TRUTH_FIRST_MATRIX_REFRESH=1"
+SUMMARY_LINES+=("RUN_TRUTH_FIRST_MATRIX_REFRESH=1")
+run_step "wiki_truth_307_build_wiki_truth_cannabis_law_matrix" 120 "${NODE_BIN} tools/wiki/build_wiki_truth_cannabis_law_matrix.mjs"
+SUMMARY_LINES+=("TRUTH_FIRST_MATRIX_REFRESH_OK=1")
+echo "TRUTH_FIRST_MATRIX_REFRESH_OK=1"
+
 source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/pass_cycle.net_health.sh"
 # PASS_CYCLE_EGRESS_TRUTH_FALLBACK: retain the mandatory network-truth proof without changing its axes or policy.
 if [[ "${EGRESS_TRUTH_LINE:-}" != EGRESS_TRUTH\ * ]]; then
@@ -2677,11 +2683,19 @@ if [ ! -f "${SMOKE_REPORT_JSON}" ]; then
   FAIL_RC=1
   fail_with_reason "SMOKE_NO_REPORT"
 fi
-SMOKE_PARSED=$(${NODE_BIN} -e 'const fs=require("fs");const data=JSON.parse(fs.readFileSync(process.argv[1],"utf8"));const total=Number(data.total||0)||0;const passed=Number(data.passed||0)||0;const failed=Number(data.failed||0)||0;process.stdout.write(`${total};${passed};${failed}`);' "${SMOKE_REPORT_JSON}")
-SMOKE_TOTAL="${SMOKE_PARSED%%;*}"
-SMOKE_REST="${SMOKE_PARSED#*;}"
-SMOKE_OK="${SMOKE_REST%%;*}"
-SMOKE_FAIL="${SMOKE_REST##*;}"
+if ! SMOKE_METRICS=$(${NODE_BIN} tools/playwright-smoke/verify_smoke_report.mjs "${SMOKE_REPORT_JSON}"); then
+  FAIL_STEP="smoke_report"
+  FAIL_CMD="${NODE_BIN} tools/playwright-smoke/verify_smoke_report.mjs ${SMOKE_REPORT_JSON}"
+  FAIL_RC=1
+  fail_with_reason "SMOKE_ACCOUNTING_INVALID"
+fi
+smoke_metric() {
+  printf "%s\n" "${SMOKE_METRICS}" | sed -nE "s/^$1=([0-9]+)$/\\1/p" | tail -n 1
+}
+SMOKE_TOTAL=$(smoke_metric "SMOKE_TOTAL")
+SMOKE_OK=$(smoke_metric "SMOKE_PASSED")
+SMOKE_FAIL=$(smoke_metric "SMOKE_FAILED")
+SMOKE_SKIPPED=$(smoke_metric "SMOKE_SKIPPED")
 if [ "${SMOKE_TOTAL}" -eq 0 ]; then
   FAIL_STEP="smoke_report"
   FAIL_CMD="Reports/smoke-report.json"
@@ -2704,13 +2718,15 @@ append_ci_line "SMOKE_STATUS=PASS"
 append_ci_line "SMOKE_TOTAL=${SMOKE_TOTAL}"
 append_ci_line "SMOKE_PASSED=${SMOKE_OK}"
 append_ci_line "SMOKE_FAILED=${SMOKE_FAIL}"
-SMOKE_LABEL="Smoke ${SMOKE_OK}/${SMOKE_FAIL} (total ${SMOKE_TOTAL})"
+append_ci_line "SMOKE_SKIPPED=${SMOKE_SKIPPED}"
+SMOKE_LABEL="Smoke ${SMOKE_OK}/${SMOKE_FAIL} (total ${SMOKE_TOTAL}; skipped ${SMOKE_SKIPPED})"
 SUMMARY_LINES[0]="${PASS_LINE1}"
 SUMMARY_LINES+=("${SMOKE_LABEL}")
 SUMMARY_LINES+=("SMOKE_STATUS=PASS")
 SUMMARY_LINES+=("SMOKE_TOTAL=${SMOKE_TOTAL}")
 SUMMARY_LINES+=("SMOKE_PASSED=${SMOKE_OK}")
 SUMMARY_LINES+=("SMOKE_FAILED=${SMOKE_FAIL}")
+SUMMARY_LINES+=("SMOKE_SKIPPED=${SMOKE_SKIPPED}")
 SUMMARY_LINES+=("QUARANTINE_SIZE_MB=${QUARANTINE_SIZE_MB}")
 SUMMARY_LINES+=("REPORTS_SIZE_MB=${REPORTS_SIZE_MB}")
 CI_STATUS_LINE="CI_STATUS=${CI_STATUS}"
@@ -2769,12 +2785,6 @@ SUMMARY_LINES+=(
   "Checkpoint: ${LATEST_CHECKPOINT}"
 )
 SMOKE_LABEL_LATEST="${SMOKE_LABEL}"
-if [ -f "${REPORTS_FINAL}" ]; then
-  SMOKE_TOTAL_LATEST="$(grep -E '^SMOKE_TOTAL=' "${REPORTS_FINAL}" | head -n1 | cut -d= -f2 || true)"
-  SMOKE_OK_LATEST="$(grep -E '^SMOKE_PASSED=' "${REPORTS_FINAL}" | head -n1 | cut -d= -f2 || true)"
-  SMOKE_FAIL_LATEST="$(grep -E '^SMOKE_FAILED=' "${REPORTS_FINAL}" | head -n1 | cut -d= -f2 || true)"
-  SMOKE_LABEL_LATEST="Smoke ${SMOKE_OK_LATEST:-?}/${SMOKE_FAIL_LATEST:-?} (total ${SMOKE_TOTAL_LATEST:-?})"
-fi
 for idx in "${!SUMMARY_LINES[@]}"; do
   if [[ "${SUMMARY_LINES[$idx]}" == Smoke\ * ]]; then
     SUMMARY_LINES[$idx]="${SMOKE_LABEL_LATEST}"
@@ -3055,7 +3065,6 @@ fi
 SUMMARY_LINES+=("OFFICIAL_EVIDENCE_REVALIDATION_TESTS_OK=1")
 echo "OFFICIAL_EVIDENCE_REVALIDATION_TESTS_OK=1"
 TRUTH_FIRST_DERIVED_BUILDERS=(
-  "build_wiki_truth_cannabis_law_matrix.mjs"
   "build_wiki_truth_307_truth_audit_report.mjs"
   "build_wiki_truth_307_primary_law_blockers.mjs"
   "build_wiki_truth_307_three_color_overlay.mjs"
@@ -3086,6 +3095,14 @@ TRUTH_FIRST_DERIVED_BUILDERS=(
 for truth_first_builder in "${TRUTH_FIRST_DERIVED_BUILDERS[@]}"; do
   run_step "wiki_truth_307_${truth_first_builder%.mjs}" 120 "${NODE_BIN} tools/wiki/${truth_first_builder}"
 done
+run_step "store_truth_verify_discovery_review_packets" 120 "${NODE_BIN} tools/stores/verify_store_discovery_review_packets.mjs"
+run_step "store_truth_build_eligibility_model" 120 "${NODE_BIN} tools/stores/build_store_eligibility_model.mjs"
+run_step "store_truth_build_source_candidates" 120 "${NODE_BIN} tools/stores/build_store_source_candidates.mjs"
+run_step "store_truth_build_audit" 120 "${NODE_BIN} tools/stores/build_store_truth_audit.mjs"
+run_step "store_truth_verify_audit" 120 "${NODE_BIN} tools/stores/verify_store_truth_audit.mjs"
+run_step "store_truth_build_goal_acceptance" 120 "${NODE_BIN} tools/stores/build_store_goal_acceptance.mjs"
+run_step "store_truth_verify_goal_acceptance" 120 "${NODE_BIN} tools/stores/verify_store_goal_acceptance.mjs"
+run_step "store_truth_adapter_tests" 120 "${NODE_BIN} --test tools/stores/build_store_eligibility_model.test.mjs tools/stores/build_store_source_candidates.test.mjs tools/stores/store_source_validation.test.mjs tools/stores/store_source_adapters.test.mjs tools/stores/store_record_normalizer.test.mjs tools/stores/store_legal_gate_revalidation.test.mjs tools/stores/fetch_lcb_current_cannabis_retailers.test.mjs tools/stores/build_store_goal_acceptance.test.mjs"
 echo "RUN_TRUTH_TESTS=1"
 SUMMARY_LINES+=("RUN_TRUTH_TESTS=1")
 CURRENT_STEP="truth_tests"
@@ -3258,46 +3275,38 @@ else
   fail_with_reason "STAGE2_OFFLINE_NOT_PROVEN"
   exit 1
 fi
-MAP_REMOVAL_AUDIT_OUTPUT=""
-MAP_REMOVAL_AUDIT_RC=0
-CURRENT_STEP="no_map_imports_audit"
+MAP_ROUTE_AUDIT_OUTPUT=""
+MAP_ROUTE_AUDIT_RC=0
+CURRENT_STEP="map_route_audit"
 CURRENT_CMD="${NODE_BIN} tools/audit/no_map_imports.mjs"
 set +e
-MAP_REMOVAL_AUDIT_OUTPUT=$(${NODE_BIN} tools/audit/no_map_imports.mjs 2>&1)
-MAP_REMOVAL_AUDIT_RC=$?
+MAP_ROUTE_AUDIT_OUTPUT=$(${NODE_BIN} tools/audit/no_map_imports.mjs 2>&1)
+MAP_ROUTE_AUDIT_RC=$?
 set -e
-printf "%s\n" "${MAP_REMOVAL_AUDIT_OUTPUT}" >> "${REPORTS_FINAL}"
-printf "%s\n" "${MAP_REMOVAL_AUDIT_OUTPUT}" >> "${RUN_REPORT_FILE}"
+printf "%s\n" "${MAP_ROUTE_AUDIT_OUTPUT}" >> "${REPORTS_FINAL}"
+printf "%s\n" "${MAP_ROUTE_AUDIT_OUTPUT}" >> "${RUN_REPORT_FILE}"
 if [ "${CI_WRITE_ROOT}" = "1" ]; then
-  printf "%s\n" "${MAP_REMOVAL_AUDIT_OUTPUT}" >> "${ROOT}/ci-final.txt"
+  printf "%s\n" "${MAP_ROUTE_AUDIT_OUTPUT}" >> "${ROOT}/ci-final.txt"
 fi
 while IFS= read -r line; do
   [ -n "${line}" ] && SUMMARY_LINES+=("${line}")
-done <<< "${MAP_REMOVAL_AUDIT_OUTPUT}"
-if [ "${MAP_REMOVAL_AUDIT_RC}" -ne 0 ] \
-  || ! printf "%s\n" "${MAP_REMOVAL_AUDIT_OUTPUT}" | grep -q "^MAP_RUNTIME_REMOVED=1" \
-  || ! printf "%s\n" "${MAP_REMOVAL_AUDIT_OUTPUT}" | grep -q "^MAP_IMPORTS_FOUND=0" \
-  || ! printf "%s\n" "${MAP_REMOVAL_AUDIT_OUTPUT}" | grep -q "^MAP_ROUTES_REMOVED=1" \
+done <<< "${MAP_ROUTE_AUDIT_OUTPUT}"
+if [ "${MAP_ROUTE_AUDIT_RC}" -ne 0 ] \
+  || ! printf "%s\n" "${MAP_ROUTE_AUDIT_OUTPUT}" | grep -q "^MAP_RUNTIME_REMOVED=1" \
+  || ! printf "%s\n" "${MAP_ROUTE_AUDIT_OUTPUT}" | grep -q "^MAP_IMPORTS_FOUND=0" \
+  || ! printf "%s\n" "${MAP_ROUTE_AUDIT_OUTPUT}" | grep -q "^LEGACY_MAP_ROUTES_REMOVED=1" \
+  || ! printf "%s\n" "${MAP_ROUTE_AUDIT_OUTPUT}" | grep -q "^ACTIVE_MAP_ROUTES=.*apps/web/src/app/new-map/page.tsx" \
+  || ! printf "%s\n" "${MAP_ROUTE_AUDIT_OUTPUT}" | grep -q "^ACTIVE_MAP_ROUTES=.*apps/web/src/app/truth-map/page.tsx" \
   ; then
-  FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${MAP_REMOVAL_AUDIT_OUTPUT}"
-  FAIL_STEP="no_map_imports_audit"
+  FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${MAP_ROUTE_AUDIT_OUTPUT}"
+  FAIL_STEP="map_route_audit"
   FAIL_CMD="${CURRENT_CMD}"
-  FAIL_RC="${MAP_REMOVAL_AUDIT_RC}"
-  fail_with_reason "STAGE3_MAP_REMOVAL_NOT_PROVEN"
+  FAIL_RC="${MAP_ROUTE_AUDIT_RC}"
+  fail_with_reason "STAGE3_MAP_ROUTE_CONTRACT_NOT_PROVEN"
   exit 1
 fi
-LEGACY_MAP_STAGE_COUNT=$(PASS_CYCLE_PATH="${ROOT}/tools/pass_cycle.sh" ${NODE_BIN} -e 'const fs=require("fs");const file=process.env.PASS_CYCLE_PATH;const patterns=["ui_smoke","generate_perf_report","perf_regression_guard","home_fullscreen_contract_guard","playwright_runtime_diag","NEXT_PUBLIC_MAP_ENABLED","MAP_ENABLED","/api/map","hover_","seam_"];const lines=fs.readFileSync(file,"utf8").split(/\r?\n/).filter((line)=>!line.includes("LEGACY_MAP_STAGE_COUNT=$("));const count=lines.filter((line)=>patterns.some((pattern)=>line.includes(pattern))).length;process.stdout.write(String(count));')
-SUMMARY_LINES+=("LEGACY_MAP_STAGE_COUNT=${LEGACY_MAP_STAGE_COUNT}")
-if [ "${LEGACY_MAP_STAGE_COUNT}" != "0" ]; then
-  SUMMARY_LINES+=("PASS_CYCLE_MAPLESS_ASSERT=FAIL")
-  echo "LEGACY_MAP_STAGE_COUNT=${LEGACY_MAP_STAGE_COUNT}"
-  echo "PASS_CYCLE_MAPLESS_ASSERT=FAIL"
-  fail_with_reason "PASS_CYCLE_MAPLESS_ASSERT_FAIL"
-  exit 1
-fi
-SUMMARY_LINES+=("PASS_CYCLE_MAPLESS_ASSERT=PASS")
-echo "LEGACY_MAP_STAGE_COUNT=0"
-echo "PASS_CYCLE_MAPLESS_ASSERT=PASS"
+SUMMARY_LINES+=("PASS_CYCLE_MAP_ROUTE_ASSERT=PASS")
+echo "PASS_CYCLE_MAP_ROUTE_ASSERT=PASS"
 STAGE_OK_3="1"
 NEARBY_OUTPUT=""
 NEARBY_RC=0
@@ -3438,14 +3447,17 @@ fi
 
 WIKI_TRUTH_LIVE_CHROMIUM_OUTPUT=""
 CURRENT_STEP="wiki_truth_live_probe_chromium"
-CURRENT_CMD="NODE_PATH=${ROOT}/tools/playwright-smoke/node_modules BROWSER=chromium ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
-capture_timeout_output 180 "cd \"${ROOT}\" && NODE_PATH=\"${ROOT}/tools/playwright-smoke/node_modules\" BROWSER=chromium HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
+CURRENT_CMD="BROWSER=chromium ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
+capture_timeout_output 180 "cd \"${ROOT}\" && BROWSER=chromium HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
 WIKI_TRUTH_LIVE_CHROMIUM_OUTPUT="WIKI_TRUTH_LIVE_CHROMIUM_ATTEMPT=1 rc=${CAPTURE_TIMEOUT_RC}
 ${CAPTURE_TIMEOUT_OUTPUT}"
 WIKI_TRUTH_LIVE_CHROMIUM_RC="${CAPTURE_TIMEOUT_RC}"
 if [ "${WIKI_TRUTH_LIVE_CHROMIUM_RC}" -ne 0 ]; then
-  sleep 5
-  capture_timeout_output 180 "cd \"${ROOT}\" && NODE_PATH=\"${ROOT}/tools/playwright-smoke/node_modules\" BROWSER=chromium HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
+  # `next build` may briefly recycle the one permitted dev server before the
+  # browser probe. Keep the probe fail-closed, but allow the cold listener to
+  # become HTTP-ready before its single retry.
+  sleep 15
+  capture_timeout_output 180 "cd \"${ROOT}\" && BROWSER=chromium HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
   WIKI_TRUTH_LIVE_CHROMIUM_OUTPUT="${WIKI_TRUTH_LIVE_CHROMIUM_OUTPUT}
 WIKI_TRUTH_LIVE_CHROMIUM_ATTEMPT=2 rc=${CAPTURE_TIMEOUT_RC}
 ${CAPTURE_TIMEOUT_OUTPUT}"
@@ -3466,14 +3478,15 @@ fi
 
 WIKI_TRUTH_LIVE_WEBKIT_OUTPUT=""
 CURRENT_STEP="wiki_truth_live_probe_webkit"
-CURRENT_CMD="NODE_PATH=${ROOT}/tools/playwright-smoke/node_modules BROWSER=webkit ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
-capture_timeout_output 180 "cd \"${ROOT}\" && NODE_PATH=\"${ROOT}/tools/playwright-smoke/node_modules\" BROWSER=webkit HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
+CURRENT_CMD="BROWSER=webkit ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
+capture_timeout_output 180 "cd \"${ROOT}\" && BROWSER=webkit HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
 WIKI_TRUTH_LIVE_WEBKIT_OUTPUT="WIKI_TRUTH_LIVE_WEBKIT_ATTEMPT=1 rc=${CAPTURE_TIMEOUT_RC}
 ${CAPTURE_TIMEOUT_OUTPUT}"
 WIKI_TRUTH_LIVE_WEBKIT_RC="${CAPTURE_TIMEOUT_RC}"
 if [ "${WIKI_TRUTH_LIVE_WEBKIT_RC}" -ne 0 ]; then
-  sleep 5
-  capture_timeout_output 180 "cd \"${ROOT}\" && NODE_PATH=\"${ROOT}/tools/playwright-smoke/node_modules\" BROWSER=webkit HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
+  # Match Chromium's bounded cold-server recovery window.
+  sleep 15
+  capture_timeout_output 180 "cd \"${ROOT}\" && BROWSER=webkit HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
   WIKI_TRUTH_LIVE_WEBKIT_OUTPUT="${WIKI_TRUTH_LIVE_WEBKIT_OUTPUT}
 WIKI_TRUTH_LIVE_WEBKIT_ATTEMPT=2 rc=${CAPTURE_TIMEOUT_RC}
 ${CAPTURE_TIMEOUT_OUTPUT}"
@@ -3532,7 +3545,28 @@ if [ "${LOG_SIZE_GUARD_RC}" -ne 0 ] || printf "%s\n" "${LOG_SIZE_GUARD_OUTPUT}" 
   fail_with_reason "LOG_SIZE_GUARD_FAIL"
 fi
 
-if [ -f "${ROOT}/Artifacts/popup-visual-audit/full-manifest.json" ]; then
+if [ -f "${ROOT}/Artifacts/truth-map-visual-audit/manifest.json" ]; then
+  POPUP_VISUAL_AUDIT_GUARD_OUTPUT=""
+  CURRENT_STEP="truth_map_visual_audit_guard"
+  CURRENT_CMD="${NODE_BIN} tools/gates/truth_map_visual_audit_guard.mjs"
+  if POPUP_VISUAL_AUDIT_GUARD_OUTPUT=$(trap - ERR; ${NODE_BIN} tools/gates/truth_map_visual_audit_guard.mjs 2>&1); then
+    POPUP_VISUAL_AUDIT_GUARD_RC=0
+  else
+    POPUP_VISUAL_AUDIT_GUARD_RC=$?
+  fi
+  printf "%s\n" "${POPUP_VISUAL_AUDIT_GUARD_OUTPUT}" >> "${REPORTS_FINAL}"
+  printf "%s\n" "${POPUP_VISUAL_AUDIT_GUARD_OUTPUT}" >> "${RUN_REPORT_FILE}"
+  if [ "${CI_WRITE_ROOT}" = "1" ]; then
+    printf "%s\n" "${POPUP_VISUAL_AUDIT_GUARD_OUTPUT}" >> "${ROOT}/ci-final.txt"
+  fi
+  if [ "${POPUP_VISUAL_AUDIT_GUARD_RC}" -ne 0 ]; then
+    FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${POPUP_VISUAL_AUDIT_GUARD_OUTPUT}"
+    FAIL_STEP="popup_visual_audit_guard"
+    FAIL_CMD="${CURRENT_CMD}"
+    FAIL_RC="${POPUP_VISUAL_AUDIT_GUARD_RC}"
+    fail_with_reason "TRUTH_MAP_VISUAL_AUDIT_GUARD_FAIL"
+  fi
+elif [ -f "${ROOT}/Artifacts/popup-visual-audit/full-manifest.json" ]; then
   POPUP_VISUAL_AUDIT_GUARD_OUTPUT=""
   CURRENT_STEP="popup_visual_audit_guard"
   CURRENT_CMD="${NODE_BIN} tools/gates/popup_visual_audit_guard.mjs"
@@ -3706,6 +3740,7 @@ append_ci_line "SMOKE_STATUS=PASS"
 append_ci_line "SMOKE_TOTAL=${SMOKE_TOTAL}"
 append_ci_line "SMOKE_PASSED=${SMOKE_OK}"
 append_ci_line "SMOKE_FAILED=${SMOKE_FAIL}"
+append_ci_line "SMOKE_SKIPPED=${SMOKE_SKIPPED}"
 if [ "${SUMMARY_MODE}" = "MVP" ]; then
   ${NODE_BIN} tools/guards/compact_ci_summary.mjs --file "${STDOUT_FILE}" --max-lines 60
 fi

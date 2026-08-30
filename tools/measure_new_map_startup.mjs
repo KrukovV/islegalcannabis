@@ -1,16 +1,12 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { createRequire } from "node:module";
 import {
   buildVercelBypassSeedRequest,
   redactVercelBypassSecret
 } from "./vercel_bypass.mjs";
+import { playwright } from "./playwright_runtime.mjs";
 
 const repoRoot = process.cwd();
-const require = createRequire(import.meta.url);
-const playwright = require(require.resolve("playwright", {
-  paths: [path.join(repoRoot, "apps/web")]
-}));
 
 const reportsDir = path.join(repoRoot, "Reports");
 const localUrl = process.env.NEW_MAP_LOCAL_URL || "http://127.0.0.1:4010/new-map";

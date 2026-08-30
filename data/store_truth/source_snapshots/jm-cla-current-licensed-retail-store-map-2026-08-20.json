@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-20T16:45:57.000Z",
+  "local_only": true,
+  "source_url": "https://cla.gov.jm/cla-store-locations",
+  "input_sha256": "6750a89678428689e2b2986957fe3609095c25b04a3e01a0e7524af667fc8da6",
+  "source_scope": "The current official Cannabis Licensing Authority Find a Store map publishes three named cannabis retail-store features with regulator-published WGS84 coordinates. The public map does not display an individual licence number, expiry or current operational field; those facts remain unknown. This minimized local snapshot retains only the official map entity id, visible store name and exact published point.",
+  "records": [
+    {
+      "source_record_id": "CLA-MAP-61",
+      "legal_name": "Jacana Manor Park",
+      "trade_name": "",
+      "license_number": "",
+      "license_type": "Cannabis Licensing Authority official licensed cannabis retail store map",
+      "store_type": "ADULT_USE_RETAIL",
+      "country": "JM",
+      "latitude": 18.0504552,
+      "longitude": -76.7960007,
+      "license_status": "UNKNOWN_STATUS",
+      "operational_status": "UNKNOWN_STATUS",
+      "adult_use": true,
+      "confidence": "PROVEN",
+      "coordinates_source": "OFFICIAL_CLA_CURRENT_STORE_LOCATION_MAP",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "public_source_fields": {
+        "cla_entity_id": "61"
+      }
+    },
+    {
+      "source_record_id": "CLA-MAP-62",
+      "legal_name": "Jacana New Kingston",
+      "trade_name": "",
+      "license_number": "",
+      "license_type": "Cannabis Licensing Authority official licensed cannabis retail store map",
+      "store_type": "ADULT_USE_RETAIL",
+      "country": "JM",
+      "latitude": 18.0107559,
+      "longitude": -76.7999533,
+      "license_status": "UNKNOWN_STATUS",
+      "operational_status": "UNKNOWN_STATUS",
+      "adult_use": true,
+      "confidence": "PROVEN",
+      "coordinates_source": "OFFICIAL_CLA_CURRENT_STORE_LOCATION_MAP",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "public_source_fields": {
+        "cla_entity_id": "62"
+      }
+    },
+    {
+      "source_record_id": "CLA-MAP-63",
+      "legal_name": "Jacana Ocho Rios",
+      "trade_name": "",
+      "license_number": "",
+      "license_type": "Cannabis Licensing Authority official licensed cannabis retail store map",
+      "store_type": "ADULT_USE_RETAIL",
+      "country": "JM",
+      "latitude": 18.4065107,
+      "longitude": -77.1134362,
+      "license_status": "UNKNOWN_STATUS",
+      "operational_status": "UNKNOWN_STATUS",
+      "adult_use": true,
+      "confidence": "PROVEN",
+      "coordinates_source": "OFFICIAL_CLA_CURRENT_STORE_LOCATION_MAP",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "public_source_fields": {
+        "cla_entity_id": "63"
+      }
+    }
+  ]
+}

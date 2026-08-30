@@ -1,0 +1,1501 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-14T21:02:52.605Z",
+  "source_id": "official-mn-ocm-current-licensed-retail-sites-2026-08-13",
+  "source_snapshot_path": "data/store_truth/source_snapshots/mn-ocm-current-retail-sites-2026-08-13.json",
+  "source_snapshot_sha256": "e76c39abdc10d4e36a65731b8139330b9f25e327c482dbb9db3833f6ff81fbe8",
+  "source_url": "https://mn.gov/ocm/assets/MN_OCM_licensed_businesses_081026_tcm1202-714418.xlsx",
+  "records": [
+    {
+      "source_record_id": "DIS-L24-000039:ecb6c8a7badfbbcf3c0b1ad3",
+      "address": "3496 Shoreline Drive",
+      "city": "Wayzata",
+      "region": "MN",
+      "postal_code": "55391"
+    },
+    {
+      "source_record_id": "DIS-L24-000062:ef6c6e0168d562cae5c8d6a5",
+      "address": "1570 61 US-14",
+      "city": "La Crescent",
+      "region": "MN",
+      "postal_code": "55947"
+    },
+    {
+      "source_record_id": "DIS-L24-000083:d85d098a056b5e9e5c0de5bc",
+      "address": "550 Vandalia Street, Suite# 175",
+      "city": "Saint Paul",
+      "region": "MN",
+      "postal_code": "55114"
+    },
+    {
+      "source_record_id": "DIS-L24-000274:a73f7587666e144f55a14932",
+      "address": "3920 Old Shakopee Road W",
+      "city": "Bloomington",
+      "region": "MN",
+      "postal_code": "55437"
+    },
+    {
+      "source_record_id": "DIS-L24-000396:3209af452ae4b201b619a1d4",
+      "address": "396 Schilling Drive, Suite# 300",
+      "city": "Dundas",
+      "region": "MN",
+      "postal_code": "55019"
+    },
+    {
+      "source_record_id": "DIS-L24-000396:879f701f9629c6cbc913408c",
+      "address": "16085 Buck Hill Road",
+      "city": "Lakeville",
+      "region": "MN",
+      "postal_code": "55019"
+    },
+    {
+      "source_record_id": "DIS-L24-000408:88a636e293d91e637c45ca58",
+      "address": "520 N Broadway",
+      "city": "Pelican Rapids",
+      "region": "MN",
+      "postal_code": "56572"
+    },
+    {
+      "source_record_id": "DIS-L25-000004:05b977eea9fdf124da57a37d",
+      "address": "205 Central Avenue N",
+      "city": "Milaca",
+      "region": "MN",
+      "postal_code": "56353"
+    },
+    {
+      "source_record_id": "DIS-L25-000016:efd945cec8d8a5fecc095493",
+      "address": "104 E 4th Street",
+      "city": "Winona",
+      "region": "MN",
+      "postal_code": "55987"
+    },
+    {
+      "source_record_id": "DIS-L25-000045:150d374ee13233dabeec4f4b",
+      "address": "1155 Centre Pointe Drive, Suite# 6",
+      "city": "Mendota Heights",
+      "region": "MN",
+      "postal_code": "55120"
+    },
+    {
+      "source_record_id": "DIS-L25-000045:1cfbb3f1f73559ecba81a491",
+      "address": "6445 Lake Road Terrace, Unit 100",
+      "city": "Woodbury",
+      "region": "MN",
+      "postal_code": "55125"
+    },
+    {
+      "source_record_id": "DIS-L25-000045:39da59f935ee93c9ab09d1f8",
+      "address": "4528 S France Avenue",
+      "city": "Edina",
+      "region": "MN",
+      "postal_code": "55410"
+    },
+    {
+      "source_record_id": "DIS-L25-000046:561a770aa306a11603505b36",
+      "address": "839 East River Road",
+      "city": "Anoka",
+      "region": "MN",
+      "postal_code": "55303"
+    },
+    {
+      "source_record_id": "DIS-L25-000070:f3404c6ae1bafecf210ef85c",
+      "address": "446 W University Avenue",
+      "city": "Saint Paul",
+      "region": "MN",
+      "postal_code": "55103"
+    },
+    {
+      "source_record_id": "DIS-L25-000106:36efeb43f9f09f8f7c51f2dc",
+      "address": "124 N Minnesota Avenue",
+      "city": "Aitkin",
+      "region": "MN",
+      "postal_code": "56431"
+    },
+    {
+      "source_record_id": "DIS-L25-000120:ef2a801a61a365f6c8f2ec22",
+      "address": "1778 Greeley Street S",
+      "city": "Stillwater",
+      "region": "MN",
+      "postal_code": "55082"
+    },
+    {
+      "source_record_id": "DIS-L25-000258:fb66d7f813a79d828a79ce23",
+      "address": "8045 County Line Road SE, Suite B",
+      "city": "Delano",
+      "region": "MN",
+      "postal_code": "55328"
+    },
+    {
+      "source_record_id": "MDCMB-L25-000001:319328b89bad1ba8b0079df5",
+      "address": "7700 N 42nd Avenue, Suite# A",
+      "city": "New Hope",
+      "region": "MN",
+      "postal_code": "55427"
+    },
+    {
+      "source_record_id": "MDCMB-L25-000001:3701cbe9e39dfff6063daad6",
+      "address": "2239 Ford Parkway",
+      "city": "Saint Paul",
+      "region": "MN",
+      "postal_code": "55116"
+    },
+    {
+      "source_record_id": "MDCMB-L25-000001:481ce3b28ad37394578bb537",
+      "address": "3800 N 3rd Street",
+      "city": "Saint Cloud",
+      "region": "MN",
+      "postal_code": "56303"
+    },
+    {
+      "source_record_id": "MDCMB-L25-000001:754f8ab7e290be27539a6ff1",
+      "address": "1340 Town Centre Drive",
+      "city": "Eagan",
+      "region": "MN",
+      "postal_code": "55123"
+    },
+    {
+      "source_record_id": "MDCMB-L25-000001:a35c52106f81936dffc98e37",
+      "address": "201 Sioux Road, Suite# 100",
+      "city": "Mankato",
+      "region": "MN",
+      "postal_code": "56001"
+    },
+    {
+      "source_record_id": "MDCMB-L25-000001:b7600aeeaeb292e5d9f66817",
+      "address": "1413 S 1st Street",
+      "city": "Wilmar",
+      "region": "MN",
+      "postal_code": "56201"
+    },
+    {
+      "source_record_id": "MDCMB-L25-000001:d5a1c8ec6946dcbdee086db5",
+      "address": "14091 Baxter Drive, Suite# 108",
+      "city": "Baxter",
+      "region": "MN",
+      "postal_code": "56425"
+    },
+    {
+      "source_record_id": "MDCMB-L25-000001:d6658b3a9a17e5e303fd3e81",
+      "address": "8016 Brooklyn Boulevard",
+      "city": "Brooklyn Park",
+      "region": "MN",
+      "postal_code": "55445"
+    },
+    {
+      "source_record_id": "MDCMB-L25-000002:07158152a7a407ecf69ccbd8",
+      "address": "104 S 7th Street",
+      "city": "Moorhead",
+      "region": "MN",
+      "postal_code": "56560"
+    },
+    {
+      "source_record_id": "MDCMB-L25-000002:18345969bd5376d47d3b1c91",
+      "address": "3456 E Circle Drive NE",
+      "city": "Rochester",
+      "region": "MN",
+      "postal_code": "55906"
+    },
+    {
+      "source_record_id": "MDCMB-L25-000002:49f6cd1c9be86e58abecfd6c",
+      "address": "207 S 9th Street",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55402"
+    },
+    {
+      "source_record_id": "MDCMB-L25-000002:518fdaf7c81394fb7a8c7782",
+      "address": "14334 Burnhaven Drive, Suite# 14334",
+      "city": "Burnsville",
+      "region": "MN",
+      "postal_code": "55306"
+    },
+    {
+      "source_record_id": "MDCMB-L25-000002:60deb9a9b1396d55cbac3121",
+      "address": "5232 W 84th Street",
+      "city": "Bloomington",
+      "region": "MN",
+      "postal_code": "55437"
+    },
+    {
+      "source_record_id": "MDCMB-L25-000002:704eafdb26e8ad019852b107",
+      "address": "4960 Miller Trunk Highway, Suite# 300",
+      "city": "Hermantown",
+      "region": "MN",
+      "postal_code": "55811"
+    },
+    {
+      "source_record_id": "MDCMB-L25-000002:9bd862f53e9f51b215d1bc76",
+      "address": "800 S 30th Avenue",
+      "city": "Moorhead",
+      "region": "MN",
+      "postal_code": "56550"
+    },
+    {
+      "source_record_id": "MDCMB-L25-000002:d5375fe1743c94c70a7b4f55",
+      "address": "803 Bielenberg Drive, Unit# F5",
+      "city": "Woodbury",
+      "region": "MN",
+      "postal_code": "55125"
+    },
+    {
+      "source_record_id": "MDCMB-L25-000002:dc20819384da9bf14d829413",
+      "address": "672 County Highway 10",
+      "city": "Blaine",
+      "region": "MN",
+      "postal_code": "55434"
+    },
+    {
+      "source_record_id": "MEZZO-L24-000055:4c51cba04ad9cc29b6f2b768",
+      "address": "1982 Rainbow Street",
+      "city": "Mora",
+      "region": "MN",
+      "postal_code": "55051"
+    },
+    {
+      "source_record_id": "MEZZO-L24-000072:9dc30bbcc76f9558765f89cc",
+      "address": "603 Esch Dr.",
+      "city": "Caledonia",
+      "region": "MN",
+      "postal_code": "55921"
+    },
+    {
+      "source_record_id": "MEZZO-L24-000140:81fe34f6cfbf87941712cf40",
+      "address": "911 W 50th Street",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55419"
+    },
+    {
+      "source_record_id": "MEZZO-L24-000170:98248b34b707859dcf5fe56d",
+      "address": "3094 White Bear Avenue",
+      "city": "Maplewood",
+      "region": "MN",
+      "postal_code": "55109"
+    },
+    {
+      "source_record_id": "MEZZO-L24-000173:08c4685512e2a4f25f94f77a",
+      "address": "16000 S Cedar Avenue",
+      "city": "Rosemount",
+      "region": "MN",
+      "postal_code": "55068"
+    },
+    {
+      "source_record_id": "MEZZO-L24-000173:c03ba7de2515ecd9247204c0",
+      "address": "120 W Superior Street",
+      "city": "Duluth",
+      "region": "MN",
+      "postal_code": "55802"
+    },
+    {
+      "source_record_id": "MEZZO-L24-000174:f4dc292c15516e2840960891",
+      "address": "18157 Carson Course NW, Suite# B",
+      "city": "Elk River",
+      "region": "MN",
+      "postal_code": "55330"
+    },
+    {
+      "source_record_id": "MEZZO-L24-000185:775351e614a2650610978598",
+      "address": "209 Nokomis Street",
+      "city": "Alexandria",
+      "region": "MN",
+      "postal_code": "56308"
+    },
+    {
+      "source_record_id": "MEZZO-L24-000185:f793902994bc6be6e9972c1e",
+      "address": "48 Main Street S",
+      "city": "Hutchinson",
+      "region": "MN",
+      "postal_code": "55350"
+    },
+    {
+      "source_record_id": "MEZZO-L24-000260:175089b6de13dc37f501f717",
+      "address": "501 1st Avenue NE",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55413"
+    },
+    {
+      "source_record_id": "MEZZO-L24-000296:3d7ee31c5e4687d63b779207",
+      "address": "6111 NW Highway 10, Unit# 500",
+      "city": "Ramsey",
+      "region": "MN",
+      "postal_code": "55303"
+    },
+    {
+      "source_record_id": "MEZZO-L24-000300:2b710b11caba67f660629e91",
+      "address": "8337 210th Street W",
+      "city": "Lakeville",
+      "region": "MN",
+      "postal_code": "55044"
+    },
+    {
+      "source_record_id": "MEZZO-L24-000300:60d10ca1431f0204bca40a00",
+      "address": "608 S Snelling Avenue",
+      "city": "Saint Paul",
+      "region": "MN",
+      "postal_code": "55116"
+    },
+    {
+      "source_record_id": "MEZZO-L24-000306:59d81511429d070ab41bea1b",
+      "address": "9891 Hudson Place",
+      "city": "Woodbury",
+      "region": "MN",
+      "postal_code": "55125"
+    },
+    {
+      "source_record_id": "MEZZO-L24-000306:9bd5f4b8e94b1af948b5a6f6",
+      "address": "2930 S Lyndale Avenue",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55408"
+    },
+    {
+      "source_record_id": "MEZZO-L24-000306:ada35692ec68598be245b40b",
+      "address": "1201 DuPont Avenue N",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55411"
+    },
+    {
+      "source_record_id": "MEZZO-L25-000014:3e88553bb3195f22d8b26c33",
+      "address": "4024 Peavey Road",
+      "city": "Chaska",
+      "region": "MN",
+      "postal_code": "55318"
+    },
+    {
+      "source_record_id": "MICRO-L24-000001:7cb16af20ad961670f8fd8d7",
+      "address": "201 NW 4th Street, Suite# 109",
+      "city": "Grand Rapids",
+      "region": "MN",
+      "postal_code": "55744"
+    },
+    {
+      "source_record_id": "MICRO-L24-000018:2f8e2bafdfd60a3287645e55",
+      "address": "499 N Arrowhead Lane",
+      "city": "Moose Lake",
+      "region": "MN",
+      "postal_code": "55767"
+    },
+    {
+      "source_record_id": "MICRO-L24-000019:bc7b6964b8c1d8ea84b94a02",
+      "address": "208 S Sewell Street",
+      "city": "Welcome",
+      "region": "MN",
+      "postal_code": "56181"
+    },
+    {
+      "source_record_id": "MICRO-L24-000028:2ba81f83c04228679c2bcd44",
+      "address": "25246 Rice Road",
+      "city": "Hinckley",
+      "region": "MN",
+      "postal_code": "55037"
+    },
+    {
+      "source_record_id": "MICRO-L24-000031:d7df94caba012f65735d85dc",
+      "address": "12246 NE 42nd Street",
+      "city": "Saint Michael",
+      "region": "MN",
+      "postal_code": "55376"
+    },
+    {
+      "source_record_id": "MICRO-L24-000036:edbc9c4486829036fe35bf8d",
+      "address": "2718 Bridge Avenue",
+      "city": "Albert Lea",
+      "region": "MN",
+      "postal_code": "56007"
+    },
+    {
+      "source_record_id": "MICRO-L24-000063:b6e5c2e6548f2b561051ccb3",
+      "address": "3400 University Avenue SE",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55414"
+    },
+    {
+      "source_record_id": "MICRO-L24-000066:e1789063e0b720cba0e4cfb0",
+      "address": "193 N Snelling Avenue",
+      "city": "Saint Paul",
+      "region": "MN",
+      "postal_code": "55104"
+    },
+    {
+      "source_record_id": "MICRO-L24-000177:152a3db48193fd00e905ddf0",
+      "address": "1039 S Broadway Avenue",
+      "city": "Albert Lea",
+      "region": "MN",
+      "postal_code": "56007"
+    },
+    {
+      "source_record_id": "MICRO-L24-000181:3681ba9905566262fa23b00c",
+      "address": "24000 US Highway 218",
+      "city": "Austin",
+      "region": "MN",
+      "postal_code": "55912"
+    },
+    {
+      "source_record_id": "MICRO-L24-000211:c3b5443ff57d4f5fdeb6bcbe",
+      "address": "5152 Hiawatha Avenue",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55417"
+    },
+    {
+      "source_record_id": "MICRO-L24-000216:5a6f66914c298a696e869576",
+      "address": "2313 W 50th Street",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55410"
+    },
+    {
+      "source_record_id": "MICRO-L24-000232:928dbf751f4c215e9e961f94",
+      "address": "1123 S Minnesota Avenue, Suite# B",
+      "city": "Saint Peter",
+      "region": "MN",
+      "postal_code": "56082"
+    },
+    {
+      "source_record_id": "MICRO-L24-000236:756dd3ca6fccad9c4d95041d",
+      "address": "162 E 3rd Street",
+      "city": "Winona",
+      "region": "MN",
+      "postal_code": "55987"
+    },
+    {
+      "source_record_id": "MICRO-L24-000244:e121e3dbdd5eee1c07bc367b",
+      "address": "73 Minnesota Avenue",
+      "city": "Breckenridge",
+      "region": "MN",
+      "postal_code": "56520"
+    },
+    {
+      "source_record_id": "MICRO-L24-000248:94b025831f54440e94f854dc",
+      "address": "26 W 1st Street",
+      "city": "Duluth",
+      "region": "MN",
+      "postal_code": "55802"
+    },
+    {
+      "source_record_id": "MICRO-L24-000257:b277d332b9f09c68e9e3383a",
+      "address": "905 N Washington Avenue",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55401"
+    },
+    {
+      "source_record_id": "MICRO-L24-000290:3462552c0709a5b734c0b03d",
+      "address": "1559 Randolph Avenue",
+      "city": "Saint Paul",
+      "region": "MN",
+      "postal_code": "55105"
+    },
+    {
+      "source_record_id": "MICRO-L24-000293:6ee5c5d66a799b2987bc08d8",
+      "address": "16350 Kenrick Loop, Suite# D",
+      "city": "Lakeville",
+      "region": "MN",
+      "postal_code": "55044"
+    },
+    {
+      "source_record_id": "MICRO-L24-000333:e0d70b6c2144a3fc6ccac8e9",
+      "address": "1112 Jackson Avenue",
+      "city": "Detroit lakes",
+      "region": "MN",
+      "postal_code": "56501"
+    },
+    {
+      "source_record_id": "MICRO-L24-000346:1236914eb5c20936b3b93a16",
+      "address": "79 W 3rd Street, Unit# 79",
+      "city": "Winona",
+      "region": "MN",
+      "postal_code": "55987"
+    },
+    {
+      "source_record_id": "MICRO-L24-000347:b28a857fba47b643f8fc8956",
+      "address": "513 Central Avenue NE",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55413"
+    },
+    {
+      "source_record_id": "MICRO-L24-000350:945016102d07a41c30595b6d",
+      "address": "1202 S Kniss Avenue",
+      "city": "Luverne",
+      "region": "MN",
+      "postal_code": "56156"
+    },
+    {
+      "source_record_id": "MICRO-L24-000353:20ab288a131a65ae55bc8326",
+      "address": "776 E 7th Street, Suite# 1",
+      "city": "Saint Paul",
+      "region": "MN",
+      "postal_code": "55106"
+    },
+    {
+      "source_record_id": "MICRO-L24-000358:14b9169d3e9619f1a839db5e",
+      "address": "1439 W Lake Street",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55408"
+    },
+    {
+      "source_record_id": "MICRO-L24-000395:306ae07b709cfe9489197985",
+      "address": "45 N Main Street",
+      "city": "Hutchinson",
+      "region": "MN",
+      "postal_code": "55350"
+    },
+    {
+      "source_record_id": "MICRO-L24-000422:1643dc45e12d4fc51c548998",
+      "address": "2835 S Hennepin Avenue, Suite# C",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55408"
+    },
+    {
+      "source_record_id": "MICRO-L24-000426:639a76049250aece114bd65c",
+      "address": "215 S Chestnut Street",
+      "city": "La Crescent",
+      "region": "MN",
+      "postal_code": "55947"
+    },
+    {
+      "source_record_id": "MICRO-L24-000435:01319f17b429467f63977e85",
+      "address": "14029 Round Lake Boulevard",
+      "city": "Andover",
+      "region": "MN",
+      "postal_code": "55304"
+    },
+    {
+      "source_record_id": "MICRO-L24-000439:59b755367f5e26ad93cf1115",
+      "address": "1425 S 1st Street",
+      "city": "Willmar",
+      "region": "MN",
+      "postal_code": "56201"
+    },
+    {
+      "source_record_id": "MICRO-L24-000481:8087877d5b6c5e8af67996d9",
+      "address": "5005 University Avenue NE",
+      "city": "Columbia Heights",
+      "region": "MN",
+      "postal_code": "55421"
+    },
+    {
+      "source_record_id": "MICRO-L24-000538:4e8a0f167118cbd18bbc151d",
+      "address": "1330 Grand Avenue",
+      "city": "Saint Paul",
+      "region": "MN",
+      "postal_code": "55105"
+    },
+    {
+      "source_record_id": "MICRO-L24-000547:a8fcba99b802cfd44d1664fb",
+      "address": "1607 W University Avenue",
+      "city": "Saint Paul",
+      "region": "MN",
+      "postal_code": "55104"
+    },
+    {
+      "source_record_id": "MICRO-L24-000575:409d64f1c5fdab3841c1d768",
+      "address": "151 NW Silver Lake Road, Suite# 114",
+      "city": "New Brighton",
+      "region": "MN",
+      "postal_code": "55112"
+    },
+    {
+      "source_record_id": "MICRO-L25-000333:571ae2a44f677643e6709678",
+      "address": "102 E Grove Street",
+      "city": "Caledonia",
+      "region": "MN",
+      "postal_code": "55921"
+    },
+    {
+      "source_record_id": "MICRO-L25-000345:02c26de0583a6896dc0d7bb4",
+      "address": "2 SE 1st Street",
+      "city": "Cook",
+      "region": "MN",
+      "postal_code": "55723"
+    },
+    {
+      "source_record_id": "MICRO-L25-000350:3b8376c56934b190ed1892a8",
+      "address": "1100 Riverwood Drive",
+      "city": "Burnsville",
+      "region": "MN",
+      "postal_code": "55337"
+    },
+    {
+      "source_record_id": "MICRO-L25-000351:5fe86dc6fe5bcaaaa9487ba3",
+      "address": "8101 34th Avenue S, Suite# 100",
+      "city": "Bloomington",
+      "region": "MN",
+      "postal_code": "55425"
+    },
+    {
+      "source_record_id": "MICRO-L25-000358:5c68b6637880b695a8eec28f",
+      "address": "4323 State Highway 23",
+      "city": "Brook Park",
+      "region": "MN",
+      "postal_code": "55007"
+    },
+    {
+      "source_record_id": "MICRO-L25-000364:2595dedc8a0d96f5e15dcd70",
+      "address": "6625 S Penn Avenue, Suite# 6625",
+      "city": "Richfield",
+      "region": "MN",
+      "postal_code": "55423"
+    },
+    {
+      "source_record_id": "MICRO-L25-000394:d34cd8212d869631caef6da1",
+      "address": "11135 61st Street NE",
+      "city": "Albertville",
+      "region": "MN",
+      "postal_code": "55301"
+    },
+    {
+      "source_record_id": "MICRO-L25-000395:112bd8ca422c08703821d9d1",
+      "address": "2218 County Road D W, Suite# 200",
+      "city": "Roseville",
+      "region": "MN",
+      "postal_code": "55112"
+    },
+    {
+      "source_record_id": "MICRO-L25-000396:495f6d9f5f35c6fa8c4d9089",
+      "address": "2316 Hendrickson Road",
+      "city": "Albert Lea",
+      "region": "MN",
+      "postal_code": "56007"
+    },
+    {
+      "source_record_id": "MICRO-L25-000398:dbf59484237e62d53b0b7751",
+      "address": "4126 Egan Drive",
+      "city": "Savage",
+      "region": "MN",
+      "postal_code": "55378"
+    },
+    {
+      "source_record_id": "MICRO-L25-000399:6a331c2bff1b3abd140e8f4a",
+      "address": "103 W Main Street, Unit# 103",
+      "city": "Belle Plaine",
+      "region": "MN",
+      "postal_code": "56011"
+    },
+    {
+      "source_record_id": "MICRO-L25-000411:48b2692c99fea3070a213bdf",
+      "address": "514 E 60th Street",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55419"
+    },
+    {
+      "source_record_id": "MICRO-L25-000412:65be9548732cd050387dad10",
+      "address": "1220 W 4th Street",
+      "city": "Rush City",
+      "region": "MN",
+      "postal_code": "55069"
+    },
+    {
+      "source_record_id": "MICRO-L25-000414:6a8d2ccd10e82e92ca5b9671",
+      "address": "1331 NW 105th Street",
+      "city": "Rice",
+      "region": "MN",
+      "postal_code": "56367"
+    },
+    {
+      "source_record_id": "MICRO-L25-000427:4818b135522e43ee1525ac27",
+      "address": "2021 S Broadway Street, Suite# 2021",
+      "city": "New Ulm",
+      "region": "MN",
+      "postal_code": "56087"
+    },
+    {
+      "source_record_id": "MICRO-L25-000436:769bba1c23e215c6bc4fe9c7",
+      "address": "103 W 2nd Street",
+      "city": "Chaska",
+      "region": "MN",
+      "postal_code": "55318"
+    },
+    {
+      "source_record_id": "MICRO-L25-000439:a7fa843c4896d905e3ab802f",
+      "address": "250 S 2nd Avenue, Suite# 245A",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55401"
+    },
+    {
+      "source_record_id": "MICRO-L25-000444:d4bc3fef5e69ddacce1c25ea",
+      "address": "4 N Minnesota Street",
+      "city": "New Ulm",
+      "region": "MN",
+      "postal_code": "56073"
+    },
+    {
+      "source_record_id": "MICRO-L25-000469:b8f055bbd24cad5dca8cd8e0",
+      "address": "675 Randolph Avenue",
+      "city": "Saint Paul",
+      "region": "MN",
+      "postal_code": "55102"
+    },
+    {
+      "source_record_id": "MICRO-L25-000473:1d8336f136da87aa62f62b8e",
+      "address": "14203 Edgewood Drive",
+      "city": "Baxter",
+      "region": "MN",
+      "postal_code": "56425"
+    },
+    {
+      "source_record_id": "MICRO-L25-000490:69b68c6d227fb5a38e1b6fb8",
+      "address": "2945 Hennepin Avenue",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55408"
+    },
+    {
+      "source_record_id": "MICRO-L25-000498:805a7c634de292fbc868eae3",
+      "address": "7114 Otter Lake Road",
+      "city": "Lino Lakes",
+      "region": "MN",
+      "postal_code": "55038"
+    },
+    {
+      "source_record_id": "MICRO-L25-000500:96ca78b9a08e3802ac1b0413",
+      "address": "2033 W Superior Street",
+      "city": "Duluth",
+      "region": "MN",
+      "postal_code": "55806"
+    },
+    {
+      "source_record_id": "MICRO-L25-000505:7fe677ad3ed4b3e9df9fe580",
+      "address": "206 W Main Street",
+      "city": "Luverne",
+      "region": "MN",
+      "postal_code": "56156"
+    },
+    {
+      "source_record_id": "MICRO-L25-000519:5d69297dac15e10e68e3d68f",
+      "address": "7145 S France Avenue",
+      "city": "Edina",
+      "region": "MN",
+      "postal_code": "55435"
+    },
+    {
+      "source_record_id": "MICRO-L25-000522:93b1ccf668d3b82af551821b",
+      "address": "8700 NE University Avenue",
+      "city": "Blaine",
+      "region": "MN",
+      "postal_code": "55434"
+    },
+    {
+      "source_record_id": "MICRO-L25-000523:488a60db0a59ad5b27b44271",
+      "address": "5 E 38th Street",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55409"
+    },
+    {
+      "source_record_id": "MICRO-L25-000533:d53539951824d1b61b68d549",
+      "address": "1080 W County Road E",
+      "city": "Shoreview",
+      "region": "MN",
+      "postal_code": "55126"
+    },
+    {
+      "source_record_id": "MICRO-L25-000543:9f0752a145ca71f864b4115f",
+      "address": "34443 County Road 3",
+      "city": "Crosslake",
+      "region": "MN",
+      "postal_code": "56442"
+    },
+    {
+      "source_record_id": "MICRO-L25-000544:1797dae746a8b5a11ebc1c55",
+      "address": "34212 Highway 371, Suite# 2",
+      "city": "Jenkins",
+      "region": "MN",
+      "postal_code": "56472"
+    },
+    {
+      "source_record_id": "MICRO-L25-000555:0b2c3caa344c3ee798619e56",
+      "address": "1464 Saint Clair Avenue, Suite# 102",
+      "city": "Saint Paul",
+      "region": "MN",
+      "postal_code": "55105"
+    },
+    {
+      "source_record_id": "MICRO-L25-000558:9422f6d9319d80fd6b9960f6",
+      "address": "629 7th Avenue, Suite# 11",
+      "city": "Two Harbors",
+      "region": "MN",
+      "postal_code": "55616"
+    },
+    {
+      "source_record_id": "MICRO-L25-000559:fec283eb6fc364b39edbd98d",
+      "address": "706 S Kniss Avenue",
+      "city": "Luverne",
+      "region": "MN",
+      "postal_code": "56156"
+    },
+    {
+      "source_record_id": "MICRO-L25-000565:ffcfd83c48a02e322061e975",
+      "address": "2518 Central Avenue NE",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55418"
+    },
+    {
+      "source_record_id": "MICRO-L25-000567:2b4253d147d18fd90dab471b",
+      "address": "317 Central Avenue N",
+      "city": "Faribault",
+      "region": "MN",
+      "postal_code": "55021"
+    },
+    {
+      "source_record_id": "MICRO-L25-000569:7c49bb01509f90463d0b1aa1",
+      "address": "901 W 36th Street",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55408"
+    },
+    {
+      "source_record_id": "MICRO-L25-000572:fc794a67b46204aec4301279",
+      "address": "108 E Main Street, Suite# 400",
+      "city": "Isanti",
+      "region": "MN",
+      "postal_code": "55040"
+    },
+    {
+      "source_record_id": "MICRO-L25-000574:f48b7257eae128509f0ef91c",
+      "address": "112 W Main Street",
+      "city": "Pipestone",
+      "region": "MN",
+      "postal_code": "56164"
+    },
+    {
+      "source_record_id": "MICRO-L25-000584:f653503899fb398eee037156",
+      "address": "18447 NE Highway 65, Suite# B",
+      "city": "Cedar",
+      "region": "MN",
+      "postal_code": "55011"
+    },
+    {
+      "source_record_id": "MICRO-L25-000592:c4e84fd21293e49545533723",
+      "address": "1506 11th Street N",
+      "city": "Moorhead",
+      "region": "MN",
+      "postal_code": "56560"
+    },
+    {
+      "source_record_id": "MICRO-L25-000608:3015049991f238eed3916dc7",
+      "address": "3505 S 8th Street",
+      "city": "Moorhead",
+      "region": "MN",
+      "postal_code": "56560"
+    },
+    {
+      "source_record_id": "MICRO-L25-000611:0671d6e83468292ba194c1e0",
+      "address": "4110 Main Street",
+      "city": "Saint Bonifacius",
+      "region": "MN",
+      "postal_code": "55375"
+    },
+    {
+      "source_record_id": "MICRO-L25-000612:2a86a33be285e6286540bed2",
+      "address": "326 SE Central",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55414"
+    },
+    {
+      "source_record_id": "MICRO-L25-000615:4a53452b1677808457db1def",
+      "address": "9326 N Zane Avenue",
+      "city": "Brooklyn Park",
+      "region": "MN",
+      "postal_code": "55443"
+    },
+    {
+      "source_record_id": "MICRO-L25-000627:3f88ea11bcf40a0217f89a15",
+      "address": "212 N 2nd Street, Suite# 103",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55401"
+    },
+    {
+      "source_record_id": "MICRO-L25-000630:7b21bcb95d1cd395bb80ed82",
+      "address": "899 Randolph Avenue",
+      "city": "Saint Paul",
+      "region": "MN",
+      "postal_code": "55102"
+    },
+    {
+      "source_record_id": "MICRO-L25-000638:0f4be00a87890984bcb06189",
+      "address": "3135 NW Superior Drive, Suite# B",
+      "city": "Rochester",
+      "region": "MN",
+      "postal_code": "55901"
+    },
+    {
+      "source_record_id": "MICRO-L25-000648:1689dfaf3638d9433562f176",
+      "address": "415 S Broadway Street",
+      "city": "Jordan",
+      "region": "MN",
+      "postal_code": "55352"
+    },
+    {
+      "source_record_id": "MICRO-L25-000656:73dd4e2f7470e6d9065766bc",
+      "address": "250 N Medina Street",
+      "city": "Loretto",
+      "region": "MN",
+      "postal_code": "55357"
+    },
+    {
+      "source_record_id": "MICRO-L25-000658:a8dd92cba52aca0bfa8143d1",
+      "address": "1319 SE 4th Street",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55414"
+    },
+    {
+      "source_record_id": "MICRO-L25-000659:4bcedcffad904f57dd6f438a",
+      "address": "13371 NW Irvine Avenue, Suite# 1",
+      "city": "Bemidji",
+      "region": "MN",
+      "postal_code": "56601"
+    },
+    {
+      "source_record_id": "MICRO-L25-000673:8464f6634f5b40449760ac08",
+      "address": "2075 Cliff Road",
+      "city": "Eagan",
+      "region": "MN",
+      "postal_code": "55122"
+    },
+    {
+      "source_record_id": "MICRO-L25-000679:bd2311db46e9fc2cef5ff909",
+      "address": "502 Mainstreet",
+      "city": "Hopkins",
+      "region": "MN",
+      "postal_code": "55343"
+    },
+    {
+      "source_record_id": "MICRO-L25-000684:2b6cecd9d84dbfc9a5a2db83",
+      "address": "7424 Lyndale Avenue S",
+      "city": "Richfield",
+      "region": "MN",
+      "postal_code": "55423"
+    },
+    {
+      "source_record_id": "MICRO-L25-000702:1e60189128fda85290d9e998",
+      "address": "8300 University Avenue NE, Suite# 200",
+      "city": "Fridley",
+      "region": "MN",
+      "postal_code": "55432"
+    },
+    {
+      "source_record_id": "MICRO-L25-000733:e63021a55418c868c751fda2",
+      "address": "121 Sioux Road",
+      "city": "Mankato",
+      "region": "MN",
+      "postal_code": "56001"
+    },
+    {
+      "source_record_id": "MICRO-L25-000747:b46d6f490f104d07d965e783",
+      "address": "415 17th Avenue",
+      "city": "Hopkins",
+      "region": "MN",
+      "postal_code": "55343"
+    },
+    {
+      "source_record_id": "MICRO-L25-000752:28a5272df997e28fd90f4389",
+      "address": "700 E Norway Drive, Suite# 105",
+      "city": "Annandale",
+      "region": "MN",
+      "postal_code": "55302"
+    },
+    {
+      "source_record_id": "MICRO-L25-000761:a15fef2b14050d4f1920f9ca",
+      "address": "110 W Main Street, Unit# B",
+      "city": "Le Roy",
+      "region": "MN",
+      "postal_code": "55951"
+    },
+    {
+      "source_record_id": "MICRO-L25-000775:43c4323d29082304cb134b32",
+      "address": "13495 S Elder Drive, Suite# 150",
+      "city": "Baxter",
+      "region": "MN",
+      "postal_code": "56425"
+    },
+    {
+      "source_record_id": "MICRO-L25-000793:e0372c0164c9c842e482f5e4",
+      "address": "4221 Clearwater Road, Suite# 105",
+      "city": "Saint Cloud",
+      "region": "MN",
+      "postal_code": "56301"
+    },
+    {
+      "source_record_id": "MICRO-L25-000800:8cdfe613b87b9cab3400b980",
+      "address": "1549 W University Avenue, Suite# East",
+      "city": "Saint Paul",
+      "region": "MN",
+      "postal_code": "55104"
+    },
+    {
+      "source_record_id": "MICRO-L25-000815:838a6049addf932ab2241ed6",
+      "address": "7610 University Avenue NE",
+      "city": "Fridley",
+      "region": "MN",
+      "postal_code": "55432"
+    },
+    {
+      "source_record_id": "MICRO-L25-000821:8dbd9a02cb511d59d6a637e9",
+      "address": "177 S Saint Croix Trail",
+      "city": "Lakeland Shores",
+      "region": "MN",
+      "postal_code": "55043"
+    },
+    {
+      "source_record_id": "MICRO-L25-000831:552e508b15f25e134eccf01f",
+      "address": "2740 NW Main Street",
+      "city": "Coon Rapids",
+      "region": "MN",
+      "postal_code": "55448"
+    },
+    {
+      "source_record_id": "MICRO-L25-000836:b92604143ffa8f830353fc79",
+      "address": "1889 Madison Avenue",
+      "city": "Mankato",
+      "region": "MN",
+      "postal_code": "56001"
+    },
+    {
+      "source_record_id": "MICRO-L25-000846:4992897d0eca0bf3be5a53d6",
+      "address": "5125 Edina Industrial Boulevard",
+      "city": "Edina",
+      "region": "MN",
+      "postal_code": "55439"
+    },
+    {
+      "source_record_id": "MICRO-L25-000860:bd5aaf21c1bb7d6ea2c30bdf",
+      "address": "249 7th Street E",
+      "city": "Saint Paul",
+      "region": "MN",
+      "postal_code": "55101"
+    },
+    {
+      "source_record_id": "MICRO-L25-000883:26658ad1a9ee867cb4dc0f1f",
+      "address": "1900 80th Street",
+      "city": "Victoria",
+      "region": "MN",
+      "postal_code": "55386"
+    },
+    {
+      "source_record_id": "MICRO-L25-000902:d93783b4c9061b98bcf0cf52",
+      "address": "1915 Suburban Avenue",
+      "city": "Saint Paul",
+      "region": "MN",
+      "postal_code": "55119"
+    },
+    {
+      "source_record_id": "MICRO-L25-000908:b44f9c8ef0fa324be8a20157",
+      "address": "850 Menard Road",
+      "city": "Winona",
+      "region": "MN",
+      "postal_code": "55987"
+    },
+    {
+      "source_record_id": "MICRO-L25-000912:f2a156840f33ddac1d962937",
+      "address": "12990 1st Street",
+      "city": "Becker",
+      "region": "MN",
+      "postal_code": "55308"
+    },
+    {
+      "source_record_id": "MICRO-L25-000913:73532972fe9f2b8505fe8d0b",
+      "address": "4145 Hiawatha Avenue",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55406"
+    },
+    {
+      "source_record_id": "MICRO-L25-000917:8cb3c139af71cb58f311f2bd",
+      "address": "17951 State Highway 371",
+      "city": "Brainerd",
+      "region": "MN",
+      "postal_code": "56401"
+    },
+    {
+      "source_record_id": "MICRO-L25-000923:75e949fc781bafc0e6e46527",
+      "address": "2706 Ekko Avenue",
+      "city": "Albert Lea",
+      "region": "MN",
+      "postal_code": "56007"
+    },
+    {
+      "source_record_id": "MICRO-L25-000931:5adcb2ef01a9623338ddc40d",
+      "address": "134 Sheridan Street W",
+      "city": "Ely",
+      "region": "MN",
+      "postal_code": "55731"
+    },
+    {
+      "source_record_id": "MICRO-L25-000938:5beb9624f36e0df4fe953be1",
+      "address": "221 28th Street SE, Suite# 400-500",
+      "city": "Rochester",
+      "region": "MN",
+      "postal_code": "55904"
+    },
+    {
+      "source_record_id": "MICRO-L25-000945:6d647916aca75ddb7863c621",
+      "address": "16535 SE Anna Trail",
+      "city": "Prior Lake",
+      "region": "MN",
+      "postal_code": "55372"
+    },
+    {
+      "source_record_id": "MICRO-L25-000977:24e96371afa27b545de8f37f",
+      "address": "1670 White Bear Avenue N",
+      "city": "Saint Paul",
+      "region": "MN",
+      "postal_code": "55106"
+    },
+    {
+      "source_record_id": "MICRO-L25-000998:4360a1de245618fa1d9060c0",
+      "address": "22321 Highway 10",
+      "city": "Hawley",
+      "region": "MN",
+      "postal_code": "56549"
+    },
+    {
+      "source_record_id": "MICRO-L25-001007:d555b500dca78afa4a3372ff",
+      "address": "321 N Main Avenue",
+      "city": "Thief River Falls",
+      "region": "MN",
+      "postal_code": "56702"
+    },
+    {
+      "source_record_id": "MICRO-L25-001038:8676299525bb5d151ec5f4ef",
+      "address": "3263 NW Fishery Road",
+      "city": "Baudette",
+      "region": "MN",
+      "postal_code": "56623"
+    },
+    {
+      "source_record_id": "MICRO-L25-001055:d4f36b02b0cec815fcde4cfa",
+      "address": "410 Main Street W, Suite# 100",
+      "city": "New Prague",
+      "region": "MN",
+      "postal_code": "56071"
+    },
+    {
+      "source_record_id": "MICRO-L25-001058:8c63b2aacfd94fdc9a154032",
+      "address": "722 N Chestnut Street",
+      "city": "Chaska",
+      "region": "MN",
+      "postal_code": "55318"
+    },
+    {
+      "source_record_id": "MICRO-L25-001064:95cafc3fbbb8285147d0855f",
+      "address": "2801 S Lyndale Avenue",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55408"
+    },
+    {
+      "source_record_id": "MICRO-L25-001080:b0ab6588466c8819f945dc74",
+      "address": "72 E 3rd Street",
+      "city": "Winona",
+      "region": "MN",
+      "postal_code": "55987"
+    },
+    {
+      "source_record_id": "MICRO-L25-001116:638f254dd161e2e2f4a9a396",
+      "address": "418 State Avenue, Suite# B",
+      "city": "Warroad",
+      "region": "MN",
+      "postal_code": "56763"
+    },
+    {
+      "source_record_id": "MICRO-L25-001117:d2be18a3b8036e37c7866cfc",
+      "address": "173 E 2nd Street",
+      "city": "Winona",
+      "region": "MN",
+      "postal_code": "55987"
+    },
+    {
+      "source_record_id": "MICRO-L25-001154:50eb15b545b316140f922f9d",
+      "address": "2006 E Main Street",
+      "city": "Albert Lea",
+      "region": "MN",
+      "postal_code": "56007"
+    },
+    {
+      "source_record_id": "MICRO-L25-001163:9892019268caa58352f9e5d9",
+      "address": "11991 Business Park Boulevard",
+      "city": "Champlin",
+      "region": "MN",
+      "postal_code": "55316"
+    },
+    {
+      "source_record_id": "MICRO-L25-001203:fd3ba8168211d65c928023b3",
+      "address": "3390 Coachman Road, Suite# 210",
+      "city": "Eagan",
+      "region": "MN",
+      "postal_code": "55121"
+    },
+    {
+      "source_record_id": "MICRO-L25-001206:5ea3bbe21e4e2ba82edb0b89",
+      "address": "13777 N Grove Drive",
+      "city": "Maple Grove",
+      "region": "MN",
+      "postal_code": "55311"
+    },
+    {
+      "source_record_id": "MICRO-L25-001208:933758952c9d81802da5c2c3",
+      "address": "2223 E Highway 10, Unit# A",
+      "city": "Moorhead",
+      "region": "MN",
+      "postal_code": "56560"
+    },
+    {
+      "source_record_id": "MICRO-L25-001211:6746b94720f458a205ea699d",
+      "address": "2 E Main Street",
+      "city": "Crosby",
+      "region": "MN",
+      "postal_code": "56441"
+    },
+    {
+      "source_record_id": "MICRO-L25-001224:d4139b47a6497e2cf0e5a5a2",
+      "address": "1142 County Road E",
+      "city": "Vadnais Heights",
+      "region": "MN",
+      "postal_code": "55110"
+    },
+    {
+      "source_record_id": "MICRO-L25-001246:e702252d2fec8730e7369b77",
+      "address": "16484 SE 149th Street",
+      "city": "Big Lake",
+      "region": "MN",
+      "postal_code": "55309"
+    },
+    {
+      "source_record_id": "MICRO-L25-001251:125072d1cbcf99a336f69277",
+      "address": "1124 E 3rd Avenue",
+      "city": "Alexandria",
+      "region": "MN",
+      "postal_code": "56308"
+    },
+    {
+      "source_record_id": "MICRO-L25-001266:8eedc8625f5186c6ccc6ff9f",
+      "address": "30581 Patriot Avenue Suite 1",
+      "city": "Pequot Lakes",
+      "region": "MN",
+      "postal_code": "56472"
+    },
+    {
+      "source_record_id": "MICRO-L25-001269:11d37c66a81667165715dda4",
+      "address": "7702 Olson Memorial Highway",
+      "city": "Golden Valley",
+      "region": "MN",
+      "postal_code": "55427"
+    },
+    {
+      "source_record_id": "MICRO-L25-001271:ffb26c43bf2fda8b4bbf3791",
+      "address": "1400 Madison Avenue, Suite# 730",
+      "city": "Mankato",
+      "region": "MN",
+      "postal_code": "56001"
+    },
+    {
+      "source_record_id": "MICRO-L25-001282:280e12c8988add4a2e152cb7",
+      "address": "202 S Minnesota Avenue",
+      "city": "Saint Peter",
+      "region": "MN",
+      "postal_code": "56082"
+    },
+    {
+      "source_record_id": "MICRO-L25-001284:effb18940c2da99a00db1bb5",
+      "address": "4753 Chicago Avenue S",
+      "city": "Minneapolis",
+      "region": "MN",
+      "postal_code": "55407"
+    },
+    {
+      "source_record_id": "MICRO-L25-001288:eb1292ea1ca1bc1a46b5b5f0",
+      "address": "162 Dale Street N",
+      "city": "Saint Paul",
+      "region": "MN",
+      "postal_code": "55102"
+    },
+    {
+      "source_record_id": "MICRO-L25-001289:72868e7fc6110b94e361d58e",
+      "address": "1906 W Superior Street",
+      "city": "Duluth",
+      "region": "MN",
+      "postal_code": "55806"
+    },
+    {
+      "source_record_id": "MICRO-L25-001290:04fc2b9cc234eaf6af28c544",
+      "address": "7315 Highway 65 NE",
+      "city": "Fridley",
+      "region": "MN",
+      "postal_code": "55432"
+    },
+    {
+      "source_record_id": "MICRO-L25-001293:34e034b9aae9e10b7c57e0f6",
+      "address": "5491 Adams Street, Suite# 100",
+      "city": "Mounds View",
+      "region": "MN",
+      "postal_code": "55112"
+    },
+    {
+      "source_record_id": "MICRO-L25-001295:846d523453c0f85aa7da6adc",
+      "address": "220 Sandberg Road",
+      "city": "Monticello",
+      "region": "MN",
+      "postal_code": "55362"
+    },
+    {
+      "source_record_id": "MICRO-L25-001298:00d9afa9cfe598a476fe81a1",
+      "address": "8478 Central Avenue NE",
+      "city": "Spring Lake Park",
+      "region": "MN",
+      "postal_code": "55432"
+    },
+    {
+      "source_record_id": "MICRO-L25-001309:7063a7335c6beffb52306d58",
+      "address": "1321 Center Avenue",
+      "city": "Moorhead",
+      "region": "MN",
+      "postal_code": "56560"
+    },
+    {
+      "source_record_id": "MICRO-L25-001342:0318d798d35feb1a56899f89",
+      "address": "14275 Bank Street",
+      "city": "Becker",
+      "region": "MN",
+      "postal_code": "55308"
+    },
+    {
+      "source_record_id": "MICRO-L25-001351:5da689b4bf141fc38cce6710",
+      "address": "121 Union Street S",
+      "city": "Mora",
+      "region": "MN",
+      "postal_code": "55051"
+    },
+    {
+      "source_record_id": "MICRO-L25-001360:9de8f6ada7b6f784e7e20343",
+      "address": "38812 State Highway 48",
+      "city": "Hinckley",
+      "region": "MN",
+      "postal_code": "55037"
+    },
+    {
+      "source_record_id": "MICRO-L25-001374:5502806dd024fdf4367f08c7",
+      "address": "2103 Vermillion Street",
+      "city": "Hastings",
+      "region": "MN",
+      "postal_code": "55033"
+    },
+    {
+      "source_record_id": "MICRO-L25-001401:b824af3041c4466c601a13c7",
+      "address": "235 E Frazee Avenue",
+      "city": "Vergas",
+      "region": "MN",
+      "postal_code": "56587"
+    },
+    {
+      "source_record_id": "MICRO-L25-001411:2dbe222e620008fc12504021",
+      "address": "75 W Little Canada Road",
+      "city": "Little Canada",
+      "region": "MN",
+      "postal_code": "55117"
+    },
+    {
+      "source_record_id": "MICRO-L25-001453:6686859dbd808544f3d85cf4",
+      "address": "21564 MN-78",
+      "city": "Battle Lake",
+      "region": "MN",
+      "postal_code": "56515"
+    },
+    {
+      "source_record_id": "MICRO-L25-001459:27e12956dfa42ed1bd6ad5fd",
+      "address": "8711 E Point Douglas Road S, Unit# 108",
+      "city": "Cottage Grove",
+      "region": "MN",
+      "postal_code": "55016"
+    },
+    {
+      "source_record_id": "MICRO-L25-001470:033325c7d929dffeed0a3b07",
+      "address": "517 Minnesota Avenue W",
+      "city": "Walker",
+      "region": "MN",
+      "postal_code": "56484"
+    },
+    {
+      "source_record_id": "MICRO-L25-001475:8a5685d8b68faf43b7910632",
+      "address": "403 Highway 55 NE, Suite A",
+      "city": "Buffalo",
+      "region": "MN",
+      "postal_code": "55313"
+    },
+    {
+      "source_record_id": "MICRO-L25-001511:57d97700d0f01bc86a203ce2",
+      "address": "12019 N Business Park Boulevard",
+      "city": "Champlin",
+      "region": "MN",
+      "postal_code": "55316"
+    },
+    {
+      "source_record_id": "MICRO-L25-001513:fe299fe266b6cfd16f03a3fc",
+      "address": "300 Belgrade Avenue",
+      "city": "North Mankato",
+      "region": "MN",
+      "postal_code": "56003"
+    },
+    {
+      "source_record_id": "MICRO-L25-001531:71b707b403236bf1e926f9cb",
+      "address": "1599 E County Road E",
+      "city": "White Bear Lake",
+      "region": "MN",
+      "postal_code": "55110"
+    },
+    {
+      "source_record_id": "MICRO-L25-001549:5086f06dade8166063ae49a2",
+      "address": "455 Old Highway 8 NW",
+      "city": "New Brighton",
+      "region": "MN",
+      "postal_code": "55112"
+    },
+    {
+      "source_record_id": "MICRO-L25-001577:56661b4e1941a55af8fd8dd1",
+      "address": "1536 NE 125th Avenue",
+      "city": "Blaine",
+      "region": "MN",
+      "postal_code": "55449"
+    },
+    {
+      "source_record_id": "MICRO-L25-001581:f47d2918353c2d7e034d4bdd",
+      "address": "423 S Main Avenue",
+      "city": "Moorhead",
+      "region": "MN",
+      "postal_code": "56560"
+    },
+    {
+      "source_record_id": "MICRO-L25-001583:80ae3aec239cc7f64ad59990",
+      "address": "3324 Hwy 10 E",
+      "city": "Moorhead",
+      "region": "MN",
+      "postal_code": "56560"
+    },
+    {
+      "source_record_id": "MICRO-L25-001594:da17d5c9f83a39c738de0909",
+      "address": "508 Lake Street S",
+      "city": "Forest Lake",
+      "region": "MN",
+      "postal_code": "55025"
+    },
+    {
+      "source_record_id": "MICRO-L25-001612:e50f6db257dc88f87527f970",
+      "address": "1019 W Central Entrance Road, Suite# D",
+      "city": "Duluth",
+      "region": "MN",
+      "postal_code": "55811"
+    }
+  ]
+}

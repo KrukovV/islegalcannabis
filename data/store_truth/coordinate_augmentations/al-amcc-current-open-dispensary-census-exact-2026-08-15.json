@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-15T04:38:20.228Z",
+  "input_path": "data/store_truth/coordinate_augmentations/al-amcc-current-open-dispensary-census-input-2026-08-15.json",
+  "input_sha256": "07464d1cd5f5ae3b4d3b1ad15dc91399b20526013c627be9cbafcfd3a244d02d",
+  "census_geocoder_url": "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+  "census_benchmark": "Public_AR_Current",
+  "census_response_sha256": "36e2d80793f8ebebd8dc53fc62e2e3ba892c3b108a0c8f3745a058031d0f688a",
+  "records": [
+    {
+      "source_record_id": "al-amcc-callies-apothecary-open-2026-06-04",
+      "address": "5232 Atlanta Highway",
+      "city": "Montgomery",
+      "region": "AL",
+      "postal_code": "36109",
+      "latitude": 32.381700148242,
+      "longitude": -86.219684008098,
+      "census_matched_postal_code": "36109",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "5232 ATLANTA HWY, MONTGOMERY, AL, 36109"
+      }
+    }
+  ],
+  "counts": {
+    "input_records": 1,
+    "census_response_rows": 1,
+    "one_to_one_exact_census_geocodes": 1,
+    "blocked_census_no_exact_in_jurisdiction_match": 0
+  }
+}

@@ -1,4 +1,4 @@
-import { expect, test } from "playwright/test";
+import { expect, test } from "@playwright/test";
 
 const QA_ROUTE = "/new-map?qa=1";
 

@@ -1,0 +1,70 @@
+{
+  "source_snapshot_path": "data/store_truth/source_snapshots/va-cca-current-licensed-medical-dispensaries-2026-08-14.json",
+  "source_snapshot_sha256": "fc3962adad308cf7b82bf9ef71c8b66fccbddbc9f6090981c5ae8eccf8555fc6",
+  "selection": "OFFICIAL_CCA_CURRENT_CARD_WITHOUT_OFFICIAL_MATCHED_PAGE_MARKER_COORDINATE",
+  "records": [
+    {
+      "source_record_id": "squarespace-location:440e8abd4330b4bb32126fc3",
+      "address": "780 Gate City Hwy",
+      "city": "Bristol",
+      "region": "VA",
+      "postal_code": "24201"
+    },
+    {
+      "source_record_id": "squarespace-location:39079629cf3e53ce12f44f15",
+      "address": "1919 Valley View Blvd NW, Ste B",
+      "city": "Roanoke",
+      "region": "VA",
+      "postal_code": "24012"
+    },
+    {
+      "source_record_id": "squarespace-location:eeb4064e9fba7e921265ceb4",
+      "address": "11190 West Broad Street",
+      "city": "Glen Allen",
+      "region": "VA",
+      "postal_code": "23060"
+    },
+    {
+      "source_record_id": "squarespace-location:de253f62f7379b92286ed3a3",
+      "address": "2400 Cunningham Dr, Suite 600",
+      "city": "Hampton",
+      "region": "VA",
+      "postal_code": "23666"
+    },
+    {
+      "source_record_id": "squarespace-location:44fc680f53a407bc2f3b6906",
+      "address": "7635 Granby Street",
+      "city": "Norfolk",
+      "region": "VA",
+      "postal_code": "23505"
+    },
+    {
+      "source_record_id": "squarespace-location:4a0a76b13ff86952a7e7ae27",
+      "address": "4012 Seaboard Court",
+      "city": "Portsmouth",
+      "region": "VA",
+      "postal_code": "23701"
+    },
+    {
+      "source_record_id": "squarespace-location:dcb9f1407ee30a05b228ee16",
+      "address": "1238 Holland Road",
+      "city": "Suffolk",
+      "region": "VA",
+      "postal_code": "23434"
+    },
+    {
+      "source_record_id": "squarespace-location:3f29bd5183490a080db9d5ca",
+      "address": "535 North Birdneck Road",
+      "city": "Virginia Beach",
+      "region": "VA",
+      "postal_code": "23451"
+    },
+    {
+      "source_record_id": "squarespace-location:093b315a1c482227f85f712c",
+      "address": "409 Bypass Rd",
+      "city": "Williamsburg",
+      "region": "VA",
+      "postal_code": "23185"
+    }
+  ]
+}

@@ -1,0 +1,2772 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-14T20:54:09.291Z",
+  "input_path": "data/store_truth/source_snapshots/me-ocp-current-retailers-census-input-2026-08-14.json",
+  "input_sha256": "ec85b188114cf6e1f1c147d048995f9fcdbf77bf22ad0dc99a8363d3ccdb37af",
+  "census_geocoder_url": "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+  "census_benchmark": "Public_AR_Current",
+  "census_response_sha256": "a882667682958d3fddda4fdf6aa838e5337586a1abc9d43e8fae7f080c4591fe",
+  "records": [
+    {
+      "source_record_id": "AMS102",
+      "address": "884 Western Ave",
+      "city": "Manchester",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.325665000927,
+      "longitude": -69.856255796651,
+      "census_matched_postal_code": "04351",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "884 WESTERN AVE, MANCHESTER, ME, 04351"
+      }
+    },
+    {
+      "source_record_id": "AMS110",
+      "address": "23 Marginal Way",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.660616164574,
+      "longitude": -70.267170945147,
+      "census_matched_postal_code": "04101",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "23 MARGINAL WAY, PORTLAND, ME, 04101"
+      }
+    },
+    {
+      "source_record_id": "AMS1162",
+      "address": "115 W Broadway Unit 2b",
+      "city": "Lincoln",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 45.362406074109,
+      "longitude": -68.516057763496,
+      "census_matched_postal_code": "04457",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "115 W BROADWAY, LINCOLN, ME, 04457"
+      }
+    },
+    {
+      "source_record_id": "AMS117",
+      "address": "745 Forest Ave",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.67376516347,
+      "longitude": -70.285667419571,
+      "census_matched_postal_code": "04103",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "745 FOREST AVE, PORTLAND, ME, 04103"
+      }
+    },
+    {
+      "source_record_id": "AMS1180",
+      "address": "8 Main St",
+      "city": "Lisbon",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.996404582735,
+      "longitude": -70.06084094095,
+      "census_matched_postal_code": "04252",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "8 MAIN ST, LISBON, ME, 04252"
+      }
+    },
+    {
+      "source_record_id": "AMS1183",
+      "address": "1 Wiggin St",
+      "city": "Lebanon",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.338436215714,
+      "longitude": -70.939283696563,
+      "census_matched_postal_code": "04027",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1 WIGGIN ST, LEBANON, ME, 04027"
+      }
+    },
+    {
+      "source_record_id": "AMS1193",
+      "address": "28 Levesque Dr Ste 3",
+      "city": "Eliot",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.129409300121,
+      "longitude": -70.771744173652,
+      "census_matched_postal_code": "03903",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "28 LEVESQUE DR, ELIOT, ME, 03903"
+      }
+    },
+    {
+      "source_record_id": "AMS1194",
+      "address": "312 Mayville Rd Unit 4",
+      "city": "Bethel",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.432025201231,
+      "longitude": -70.801325790029,
+      "census_matched_postal_code": "04217",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "312 MAYVILLE RD, BETHEL, ME, 04217"
+      }
+    },
+    {
+      "source_record_id": "AMS1195",
+      "address": "115 Leeman Hwy",
+      "city": "Bath",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.909530855576,
+      "longitude": -69.824758059338,
+      "census_matched_postal_code": "04530",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "115 LEEMAN HWY, BATH, ME, 04530"
+      }
+    },
+    {
+      "source_record_id": "AMS124",
+      "address": "152 Main Street",
+      "city": "Stratton",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 45.140928616958,
+      "longitude": -70.443019337337,
+      "census_matched_postal_code": "04982",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "152 MAIN ST, STRATTON, ME, 04982"
+      }
+    },
+    {
+      "source_record_id": "AMS1241",
+      "address": "228 Norridgewock Rd",
+      "city": "Fairfield",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.611905180013,
+      "longitude": -69.665810083096,
+      "census_matched_postal_code": "04937",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "228 NORRIDGEWOCK RD, FAIRFIELD, ME, 04937"
+      }
+    },
+    {
+      "source_record_id": "AMS1244",
+      "address": "739 Main Street",
+      "city": "Lewiston",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.122891248451,
+      "longitude": -70.201791615597,
+      "census_matched_postal_code": "04240",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "739 MAIN ST, LEWISTON, ME, 04240"
+      }
+    },
+    {
+      "source_record_id": "AMS1246",
+      "address": "35 Bridge St",
+      "city": "Gardiner",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.230747936105,
+      "longitude": -69.774226990704,
+      "census_matched_postal_code": "04345",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "35 BRIDGE ST, GARDINER, ME, 04345"
+      }
+    },
+    {
+      "source_record_id": "AMS1253",
+      "address": "532 Pigeon Hill Rd Bldg 2",
+      "city": "Mechanic Falls",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.10542731213,
+      "longitude": -70.435998558693,
+      "census_matched_postal_code": "04256",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "532 PIGEON HILL RD, MECHANIC FALLS, ME, 04256"
+      }
+    },
+    {
+      "source_record_id": "AMS1264",
+      "address": "188 Unit 2 , Us 1",
+      "city": "Columbia",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.634092072549,
+      "longitude": -67.774837587001,
+      "census_matched_postal_code": "04623",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "188 US HWY 1, COLUMBIA, ME, 04623"
+      }
+    },
+    {
+      "source_record_id": "AMS1266",
+      "address": "35 North Rd",
+      "city": "Detroit",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.801498746659,
+      "longitude": -69.31696689397,
+      "census_matched_postal_code": "04929",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "35 NORTH RD, DETROIT, ME, 04929"
+      }
+    },
+    {
+      "source_record_id": "AMS1303",
+      "address": "2742 Auburn Rd",
+      "city": "Turner",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.358828091948,
+      "longitude": -70.25543845572,
+      "census_matched_postal_code": "04282",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2742 AUBURN RD, TURNER, ME, 04282"
+      }
+    },
+    {
+      "source_record_id": "AMS1307",
+      "address": "465 Kennedy Memorial Dr",
+      "city": "Waterville",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.544968394746,
+      "longitude": -69.677020138908,
+      "census_matched_postal_code": "04901",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "465 KENNEDY MEMORIAL DR, WATERVILLE, ME, 04901"
+      }
+    },
+    {
+      "source_record_id": "AMS1315",
+      "address": "36 Moosehead Trl Ste 1",
+      "city": "Newport",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.842276611849,
+      "longitude": -69.280879995219,
+      "census_matched_postal_code": "04953",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "36 MOOSEHEAD TRL, NEWPORT, ME, 04953"
+      }
+    },
+    {
+      "source_record_id": "AMS1328",
+      "address": "470 Auburn Rd",
+      "city": "Turner",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.215220967828,
+      "longitude": -70.246177876885,
+      "census_matched_postal_code": "04282",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "470 AUBURN RD, TURNER, ME, 04282"
+      }
+    },
+    {
+      "source_record_id": "AMS1356",
+      "address": "19 Moosehead Trl Ste 2b",
+      "city": "Newport",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.839010039997,
+      "longitude": -69.282604611644,
+      "census_matched_postal_code": "04953",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "19 MOOSEHEAD TRL, NEWPORT, ME, 04953"
+      }
+    },
+    {
+      "source_record_id": "AMS1370",
+      "address": "268 Hammond St",
+      "city": "Bangor",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.801174979328,
+      "longitude": -68.777078952749,
+      "census_matched_postal_code": "04401",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "268 HAMMOND ST, BANGOR, ME, 04401"
+      }
+    },
+    {
+      "source_record_id": "AMS1376",
+      "address": "210 New County Rd",
+      "city": "Thomaston",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.095907583502,
+      "longitude": -69.134216684511,
+      "census_matched_postal_code": "04861",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "210 NEW COUNTY RD, THOMASTON, ME, 04861"
+      }
+    },
+    {
+      "source_record_id": "AMS1382",
+      "address": "85 Western Ave",
+      "city": "South Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.635442551124,
+      "longitude": -70.320378855072,
+      "census_matched_postal_code": "04106",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "85 WESTERN AVE, SOUTH PORTLAND, ME, 04106"
+      }
+    },
+    {
+      "source_record_id": "AMS1444",
+      "address": "325 Bath Rd",
+      "city": "Brunswick",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.912317587524,
+      "longitude": -69.895132613133,
+      "census_matched_postal_code": "04011",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "325 BATH RD, BRUNSWICK, ME, 04011"
+      }
+    },
+    {
+      "source_record_id": "AMS1445",
+      "address": "73 Main St",
+      "city": "Woolwich",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.918527401315,
+      "longitude": -69.800812622106,
+      "census_matched_postal_code": "04579",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "73 MAIN ST, WOOLWICH, ME, 04579"
+      }
+    },
+    {
+      "source_record_id": "AMS1456",
+      "address": "72 Emery St Unit 105",
+      "city": "Sanford",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.438283069111,
+      "longitude": -70.768241554943,
+      "census_matched_postal_code": "04073",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "72 EMERY ST, SANFORD, ME, 04073"
+      }
+    },
+    {
+      "source_record_id": "AMS1459",
+      "address": "964 Auburn Rd",
+      "city": "Turner",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.24823567207,
+      "longitude": -70.259786624817,
+      "census_matched_postal_code": "04282",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "964 AUBURN RD, TURNER, ME, 04282"
+      }
+    },
+    {
+      "source_record_id": "AMS1469",
+      "address": "225 First Flight Dr",
+      "city": "Auburn",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.03963672624,
+      "longitude": -70.273377020691,
+      "census_matched_postal_code": "04210",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "225 FIRST FLIGHT DR, AUBURN, ME, 04210"
+      }
+    },
+    {
+      "source_record_id": "AMS1486",
+      "address": "1048 Atlantic Hwy",
+      "city": "Warren",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.098722781659,
+      "longitude": -69.246207796176,
+      "census_matched_postal_code": "04864",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1048 ATLANTIC HWY, WARREN, ME, 04864"
+      }
+    },
+    {
+      "source_record_id": "AMS1495",
+      "address": "419 Hill St",
+      "city": "Biddeford",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.466298131195,
+      "longitude": -70.478389810967,
+      "census_matched_postal_code": "04005",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "419 HILL ST, BIDDEFORD, ME, 04005"
+      }
+    },
+    {
+      "source_record_id": "AMS1496",
+      "address": "8 Business Pkwy",
+      "city": "Brunswick",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.905459300812,
+      "longitude": -69.999891772992,
+      "census_matched_postal_code": "04011",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "8 BUSINESS PKWY, BRUNSWICK, ME, 04011"
+      }
+    },
+    {
+      "source_record_id": "AMS1502",
+      "address": "154 Mount Auburn Ave",
+      "city": "Auburn",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.122050266407,
+      "longitude": -70.24062651972,
+      "census_matched_postal_code": "04210",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "154 MOUNT AUBURN AVE, AUBURN, ME, 04210"
+      }
+    },
+    {
+      "source_record_id": "AMS1510",
+      "address": "155 Maine Mall Rd",
+      "city": "South Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.640949454281,
+      "longitude": -70.334122236955,
+      "census_matched_postal_code": "04106",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "155 MAINE MALL RD, SOUTH PORTLAND, ME, 04106"
+      }
+    },
+    {
+      "source_record_id": "AMS1516",
+      "address": "343 Gorham Rd",
+      "city": "South Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.635973373709,
+      "longitude": -70.329781226836,
+      "census_matched_postal_code": "04106",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "343 GORHAM RD, SOUTH PORTLAND, ME, 04106"
+      }
+    },
+    {
+      "source_record_id": "AMS1526",
+      "address": "911 Lisbon St",
+      "city": "Lewiston",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.082964937603,
+      "longitude": -70.20060515975,
+      "census_matched_postal_code": "04240",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "911 LISBON ST, LEWISTON, ME, 04240"
+      }
+    },
+    {
+      "source_record_id": "AMS1530",
+      "address": "230 Warren Ave",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.687945625656,
+      "longitude": -70.305414365225,
+      "census_matched_postal_code": "04103",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "230 WARREN AVE, PORTLAND, ME, 04103"
+      }
+    },
+    {
+      "source_record_id": "AMS1538",
+      "address": "1674 Carl Broggi Hwy",
+      "city": "Lebanon",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.339228784403,
+      "longitude": -70.938390440036,
+      "census_matched_postal_code": "04027",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1674 CARL BROGGI HWY, LEBANON, ME, 04027"
+      }
+    },
+    {
+      "source_record_id": "AMS1542",
+      "address": "84 College Ave Unit 2",
+      "city": "Waterville",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.561107832787,
+      "longitude": -69.626779727534,
+      "census_matched_postal_code": "04901",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "84 COLLEGE AVE, WATERVILLE, ME, 04901"
+      }
+    },
+    {
+      "source_record_id": "AMS1546",
+      "address": "22 Smada Dr",
+      "city": "Sanford",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.398817850205,
+      "longitude": -70.698515324093,
+      "census_matched_postal_code": "04073",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "22 SMADA DR, SANFORD, ME, 04073"
+      }
+    },
+    {
+      "source_record_id": "AMS155",
+      "address": "198 Maine Mall Rd # 1",
+      "city": "South Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.639958797961,
+      "longitude": -70.334280412447,
+      "census_matched_postal_code": "04106",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "198 MAINE MALL RD, SOUTH PORTLAND, ME, 04106"
+      }
+    },
+    {
+      "source_record_id": "AMS1553",
+      "address": "10 China Rd Unit 2",
+      "city": "Winslow",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.537351369301,
+      "longitude": -69.626527267245,
+      "census_matched_postal_code": "04901",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "10 CHINA RD, WINSLOW, ME, 04901"
+      }
+    },
+    {
+      "source_record_id": "AMS1558",
+      "address": "6 Hudson Ave",
+      "city": "Guilford",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 45.166584837489,
+      "longitude": -69.384485448062,
+      "census_matched_postal_code": "04443",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "6 HUDSON AVE, GUILFORD, ME, 04443"
+      }
+    },
+    {
+      "source_record_id": "AMS1559",
+      "address": "7 Dana St",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.656115549672,
+      "longitude": -70.253650676586,
+      "census_matched_postal_code": "04101",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "7 DANA ST, PORTLAND, ME, 04101"
+      }
+    },
+    {
+      "source_record_id": "AMS1562",
+      "address": "27 Hancock Ln Bldg 1",
+      "city": "Sanford",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.410634344244,
+      "longitude": -70.744501703462,
+      "census_matched_postal_code": "04073",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "27 HANCOCK LN, SANFORD, ME, 04073"
+      }
+    },
+    {
+      "source_record_id": "AMS1585",
+      "address": "89 Route 236",
+      "city": "Kittery",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.093658580946,
+      "longitude": -70.737916527581,
+      "census_matched_postal_code": "03904",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "89 STATE RTE 236, KITTERY, ME, 03904"
+      }
+    },
+    {
+      "source_record_id": "AMS1587",
+      "address": "1 Beaver Creek Farm Rd",
+      "city": "Bridgton",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.01780989452,
+      "longitude": -70.684377422679,
+      "census_matched_postal_code": "04009",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1 BEAVER CREEK FARM RD, BRIDGTON, ME, 04009"
+      }
+    },
+    {
+      "source_record_id": "AMS1588",
+      "address": "791 Kittyhawk Ave Ste 6",
+      "city": "Auburn",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.032326426803,
+      "longitude": -70.268914334324,
+      "census_matched_postal_code": "04210",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "791 KITTYHAWK AVE, AUBURN, ME, 04210"
+      }
+    },
+    {
+      "source_record_id": "AMS1596",
+      "address": "588 Elm St",
+      "city": "Biddeford",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.466742556589,
+      "longitude": -70.487561554225,
+      "census_matched_postal_code": "04005",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "588 ELM ST, BIDDEFORD, ME, 04005"
+      }
+    },
+    {
+      "source_record_id": "AMS1610",
+      "address": "790 Sabattus St",
+      "city": "Lewiston",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.103279776515,
+      "longitude": -70.174565844558,
+      "census_matched_postal_code": "04240",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "790 SABATTUS ST, LEWISTON, ME, 04240"
+      }
+    },
+    {
+      "source_record_id": "AMS1626",
+      "address": "1364 Congress St Unit 4",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.658888447419,
+      "longitude": -70.295799006567,
+      "census_matched_postal_code": "04102",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1364 CONGRESS ST, PORTLAND, ME, 04102"
+      }
+    },
+    {
+      "source_record_id": "AMS1630",
+      "address": "15 Maclellen Dr",
+      "city": "Eliot",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.138020856144,
+      "longitude": -70.780261652561,
+      "census_matched_postal_code": "03903",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "15 MACLELLEN DR, ELIOT, ME, 03903"
+      }
+    },
+    {
+      "source_record_id": "AMS1631",
+      "address": "140 Park St",
+      "city": "Rockland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.101616646809,
+      "longitude": -69.118236301361,
+      "census_matched_postal_code": "04841",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "140 PARK ST, ROCKLAND, ME, 04841"
+      }
+    },
+    {
+      "source_record_id": "AMS1641",
+      "address": "159 Us Route 1",
+      "city": "Bucksport",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.560620109648,
+      "longitude": -68.792649896791,
+      "census_matched_postal_code": "04416",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "159 US HWY 1, BUCKSPORT, ME, 04416"
+      }
+    },
+    {
+      "source_record_id": "AMS1642",
+      "address": "468 Portland St",
+      "city": "Berwick",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.265612439029,
+      "longitude": -70.779560105285,
+      "census_matched_postal_code": "03901",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "468 PORTLAND ST, BERWICK, ME, 03901"
+      }
+    },
+    {
+      "source_record_id": "AMS1643",
+      "address": "806 Sabattus St Ste 2",
+      "city": "Lewiston",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.103231993097,
+      "longitude": -70.17341916263,
+      "census_matched_postal_code": "04240",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "806 SABATTUS ST, LEWISTON, ME, 04240"
+      }
+    },
+    {
+      "source_record_id": "AMS1644",
+      "address": "325 Water St",
+      "city": "Gardiner",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.22978837951,
+      "longitude": -69.773418398648,
+      "census_matched_postal_code": "04345",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "325 WATER ST, GARDINER, ME, 04345"
+      }
+    },
+    {
+      "source_record_id": "AMS165",
+      "address": "137 Leeman Highway",
+      "city": "Bath",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.909272081778,
+      "longitude": -69.825357008894,
+      "census_matched_postal_code": "04530",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "137 LEEMAN HWY, BATH, ME, 04530"
+      }
+    },
+    {
+      "source_record_id": "AMS1651",
+      "address": "45 Wharf St",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.655947399009,
+      "longitude": -70.254008380454,
+      "census_matched_postal_code": "04101",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "45 WHARF ST, PORTLAND, ME, 04101"
+      }
+    },
+    {
+      "source_record_id": "AMS1657",
+      "address": "685 Wilson St",
+      "city": "Brewer",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.775624532413,
+      "longitude": -68.731804365137,
+      "census_matched_postal_code": "04412",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "685 WILSON ST, BREWER, ME, 04412"
+      }
+    },
+    {
+      "source_record_id": "AMS166",
+      "address": "696 Main Street",
+      "city": "Rockland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.111214338665,
+      "longitude": -69.108631059323,
+      "census_matched_postal_code": "04841",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "696 MAIN ST, ROCKLAND, ME, 04841"
+      }
+    },
+    {
+      "source_record_id": "AMS1660",
+      "address": "265 Western Ave",
+      "city": "Augusta",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.315539105955,
+      "longitude": -69.804765996601,
+      "census_matched_postal_code": "04330",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "265 WESTERN AVE, AUGUSTA, ME, 04330"
+      }
+    },
+    {
+      "source_record_id": "AMS1662",
+      "address": "9 Renaissance Way Ste 3",
+      "city": "Sanford",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.413501833859,
+      "longitude": -70.746903694389,
+      "census_matched_postal_code": "04073",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "9 RENAISSANCE WAY, SANFORD, ME, 04073"
+      }
+    },
+    {
+      "source_record_id": "AMS1664",
+      "address": "152 Western Ave Ste 7",
+      "city": "Augusta",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.31232516668,
+      "longitude": -69.790850528592,
+      "census_matched_postal_code": "04330",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "152 WESTERN AVE, AUGUSTA, ME, 04330"
+      }
+    },
+    {
+      "source_record_id": "AMS1669",
+      "address": "292 State St",
+      "city": "Augusta",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.300159297068,
+      "longitude": -69.782799277178,
+      "census_matched_postal_code": "04330",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "292 STATE ST, AUGUSTA, ME, 04330"
+      }
+    },
+    {
+      "source_record_id": "AMS1671",
+      "address": "393 Western Ave Ste 1",
+      "city": "Augusta",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.318074391832,
+      "longitude": -69.816136073997,
+      "census_matched_postal_code": "04330",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "393 WESTERN AVE, AUGUSTA, ME, 04330"
+      }
+    },
+    {
+      "source_record_id": "AMS1672",
+      "address": "1258 Main St",
+      "city": "Oxford",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.173670456986,
+      "longitude": -70.511506136122,
+      "census_matched_postal_code": "04270",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1258 MAIN ST, OXFORD, ME, 04270"
+      }
+    },
+    {
+      "source_record_id": "AMS1684",
+      "address": "29 Western Ave",
+      "city": "South Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.635150069596,
+      "longitude": -70.319960281411,
+      "census_matched_postal_code": "04106",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "29 WESTERN AVE, SOUTH PORTLAND, ME, 04106"
+      }
+    },
+    {
+      "source_record_id": "AMS1685",
+      "address": "685 Congress St",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.653141233232,
+      "longitude": -70.267564875728,
+      "census_matched_postal_code": "04102",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "685 CONGRESS ST, PORTLAND, ME, 04102"
+      }
+    },
+    {
+      "source_record_id": "AMS1686",
+      "address": "31 Main Ave",
+      "city": "Gardiner",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.229493524399,
+      "longitude": -69.771344745879,
+      "census_matched_postal_code": "04345",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "31 MAIN AVE, GARDINER, ME, 04345"
+      }
+    },
+    {
+      "source_record_id": "AMS1687",
+      "address": "221 Dirigo Dr",
+      "city": "Brewer",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.774383118145,
+      "longitude": -68.73728855167,
+      "census_matched_postal_code": "04412",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "221 DIRIGO DR, BREWER, ME, 04412"
+      }
+    },
+    {
+      "source_record_id": "AMS1693",
+      "address": "945 Forest Ave",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.680251750631,
+      "longitude": -70.289138189009,
+      "census_matched_postal_code": "04103",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "945 FOREST AVE, PORTLAND, ME, 04103"
+      }
+    },
+    {
+      "source_record_id": "AMS1694",
+      "address": "285 Main St",
+      "city": "Fryeburg",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.008403692757,
+      "longitude": -70.988611998787,
+      "census_matched_postal_code": "04037",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "285 MAIN ST, FRYEBURG, ME, 04037"
+      }
+    },
+    {
+      "source_record_id": "AMS1699",
+      "address": "564 Bath Rd",
+      "city": "Wiscasset",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.977643758107,
+      "longitude": -69.706840041857,
+      "census_matched_postal_code": "04578",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "564 BATH RD, WISCASSET, ME, 04578"
+      }
+    },
+    {
+      "source_record_id": "AMS1706",
+      "address": "1217 Congress St",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.657332363571,
+      "longitude": -70.289771246479,
+      "census_matched_postal_code": "04102",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1217 CONGRESS ST, PORTLAND, ME, 04102"
+      }
+    },
+    {
+      "source_record_id": "AMS1718",
+      "address": "27 Ocean St Ste 1",
+      "city": "South Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.640766371462,
+      "longitude": -70.254646296332,
+      "census_matched_postal_code": "04106",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "27 OCEAN ST, SOUTH PORTLAND, ME, 04106"
+      }
+    },
+    {
+      "source_record_id": "AMS1726",
+      "address": "20 Industrial St",
+      "city": "Waterville",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.570742766819,
+      "longitude": -69.636251168427,
+      "census_matched_postal_code": "04901",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "20 INDUSTRIAL ST, WATERVILLE, ME, 04901"
+      }
+    },
+    {
+      "source_record_id": "AMS1727",
+      "address": "8 Dexter Ln Unit 8",
+      "city": "Kittery",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.115900778353,
+      "longitude": -70.728727030989,
+      "census_matched_postal_code": "03904",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "8 DEXTER LN, KITTERY, ME, 03904"
+      }
+    },
+    {
+      "source_record_id": "AMS1739",
+      "address": "460 Warren Ave",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.687027324119,
+      "longitude": -70.316964464621,
+      "census_matched_postal_code": "04103",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "460 WARREN AVE, PORTLAND, ME, 04103"
+      }
+    },
+    {
+      "source_record_id": "AMS1743",
+      "address": "602 West Bethel Rd",
+      "city": "Bethel",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.408593189324,
+      "longitude": -70.851273329337,
+      "census_matched_postal_code": "04217",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "602 W BETHEL RD, BETHEL, ME, 04217"
+      }
+    },
+    {
+      "source_record_id": "AMS1748",
+      "address": "1240 Lisbon St",
+      "city": "Lewiston",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.076892457861,
+      "longitude": -70.186811360465,
+      "census_matched_postal_code": "04240",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1240 LISBON ST, LEWISTON, ME, 04240"
+      }
+    },
+    {
+      "source_record_id": "AMS1755",
+      "address": "495 Harold L Dow Hwy Bldg 1",
+      "city": "Eliot",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.128789458135,
+      "longitude": -70.769683102257,
+      "census_matched_postal_code": "03903",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "495 HAROLD L DOW HWY, ELIOT, ME, 03903"
+      }
+    },
+    {
+      "source_record_id": "AMS1765",
+      "address": "1027 Sabattus St",
+      "city": "Lewiston",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.101274892458,
+      "longitude": -70.159956180697,
+      "census_matched_postal_code": "04240",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1027 SABATTUS ST, LEWISTON, ME, 04240"
+      }
+    },
+    {
+      "source_record_id": "AMS1769",
+      "address": "1236 Congress St",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.657520826128,
+      "longitude": -70.290727493672,
+      "census_matched_postal_code": "04102",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1236 CONGRESS ST, PORTLAND, ME, 04102"
+      }
+    },
+    {
+      "source_record_id": "AMS1771",
+      "address": "634 Main St Unit 2",
+      "city": "Oxford",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.141329800752,
+      "longitude": -70.474420619439,
+      "census_matched_postal_code": "04270",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "634 MAIN ST, OXFORD, ME, 04270"
+      }
+    },
+    {
+      "source_record_id": "AMS1774",
+      "address": "363 Fore St",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.656700016948,
+      "longitude": -70.252733531106,
+      "census_matched_postal_code": "04101",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "363 FORE ST, PORTLAND, ME, 04101"
+      }
+    },
+    {
+      "source_record_id": "AMS1775",
+      "address": "1022 Stillwater Ave",
+      "city": "Bangor",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.842120984146,
+      "longitude": -68.743428052517,
+      "census_matched_postal_code": "04401",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1022 STILLWATER AVE, BANGOR, ME, 04401"
+      }
+    },
+    {
+      "source_record_id": "AMS1776",
+      "address": "140 Federal Rd",
+      "city": "Parsonsfield",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.806137843432,
+      "longitude": -70.875423464738,
+      "census_matched_postal_code": "04047",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "140 FEDERAL RD, PARSONSFIELD, ME, 04047"
+      }
+    },
+    {
+      "source_record_id": "AMS1778",
+      "address": "378 Western Ave",
+      "city": "Augusta",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.317645991435,
+      "longitude": -69.815738901281,
+      "census_matched_postal_code": "04330",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "378 WESTERN AVE, AUGUSTA, ME, 04330"
+      }
+    },
+    {
+      "source_record_id": "AMS1785",
+      "address": "18 Federal Rd",
+      "city": "Parsonsfield",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.806552676589,
+      "longitude": -70.886943171445,
+      "census_matched_postal_code": "04047",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "18 FEDERAL RD, PARSONSFIELD, ME, 04047"
+      }
+    },
+    {
+      "source_record_id": "AMS1786",
+      "address": "52 River Rd",
+      "city": "Chelsea",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.291842314502,
+      "longitude": -69.770613391191,
+      "census_matched_postal_code": "04330",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "52 RIVER RD, CHELSEA, ME, 04330"
+      }
+    },
+    {
+      "source_record_id": "AMS1791",
+      "address": "210 College Ave",
+      "city": "Waterville",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.573327736005,
+      "longitude": -69.615817006071,
+      "census_matched_postal_code": "04901",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "210 COLLEGE AVE, WATERVILLE, ME, 04901"
+      }
+    },
+    {
+      "source_record_id": "AMS1802",
+      "address": "216 Wilton Rd",
+      "city": "Farmington",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.655612627578,
+      "longitude": -70.151326409779,
+      "census_matched_postal_code": "04938",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "216 WILTON RD, FARMINGTON, ME, 04938"
+      }
+    },
+    {
+      "source_record_id": "AMS1806",
+      "address": "434 Main St",
+      "city": "Damariscotta",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.033626491084,
+      "longitude": -69.516135215061,
+      "census_matched_postal_code": "04543",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "434 MAIN ST, DAMARISCOTTA, ME, 04543"
+      }
+    },
+    {
+      "source_record_id": "AMS1807",
+      "address": "1085 Main St",
+      "city": "Lewiston",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.139608044938,
+      "longitude": -70.192696277118,
+      "census_matched_postal_code": "04240",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1085 MAIN ST, LEWISTON, ME, 04240"
+      }
+    },
+    {
+      "source_record_id": "AMS1817",
+      "address": "181 State Rd",
+      "city": "Kittery",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.101387890231,
+      "longitude": -70.743648438589,
+      "census_matched_postal_code": "03904",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "181 STATE RD, KITTERY, ME, 03904"
+      }
+    },
+    {
+      "source_record_id": "AMS1818",
+      "address": "482 Congress St",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.656577596775,
+      "longitude": -70.260164112802,
+      "census_matched_postal_code": "04101",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "482 CONGRESS ST, PORTLAND, ME, 04101"
+      }
+    },
+    {
+      "source_record_id": "AMS1822",
+      "address": "152 Portland Rd",
+      "city": "Bridgton",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.042870686759,
+      "longitude": -70.700232050635,
+      "census_matched_postal_code": "04009",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "152 PORTLAND RD, BRIDGTON, ME, 04009"
+      }
+    },
+    {
+      "source_record_id": "AMS183",
+      "address": "60 Route 236",
+      "city": "Berwick",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.262493290156,
+      "longitude": -70.847284744724,
+      "census_matched_postal_code": "03901",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "60 STATE RTE 236, BERWICK, ME, 03901"
+      }
+    },
+    {
+      "source_record_id": "AMS1844",
+      "address": "818 Main St Unit 2b",
+      "city": "South Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.615366465311,
+      "longitude": -70.310953876543,
+      "census_matched_postal_code": "04106",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "818 MAIN ST, SOUTH PORTLAND, ME, 04106"
+      }
+    },
+    {
+      "source_record_id": "AMS188",
+      "address": "601 Western Ave Bldg 1",
+      "city": "Manchester",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.321298390465,
+      "longitude": -69.831435094559,
+      "census_matched_postal_code": "04351",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "601 WESTERN AVE, MANCHESTER, ME, 04351"
+      }
+    },
+    {
+      "source_record_id": "AMS206",
+      "address": "1 Priest Rd",
+      "city": "Northport",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.346414590166,
+      "longitude": -68.96951042784,
+      "census_matched_postal_code": "04849",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1 PRIEST RD, NORTHPORT, ME, 04849"
+      }
+    },
+    {
+      "source_record_id": "AMS208",
+      "address": "469 Stillwater Ave",
+      "city": "Bangor",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.826506553805,
+      "longitude": -68.756765563111,
+      "census_matched_postal_code": "04401",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "469 STILLWATER AVE, BANGOR, ME, 04401"
+      }
+    },
+    {
+      "source_record_id": "AMS212",
+      "address": "435 Maine Street",
+      "city": "Poland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.01741186219,
+      "longitude": -70.363393351735,
+      "census_matched_postal_code": "04274",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "435 MAINE ST, POLAND, ME, 04274"
+      }
+    },
+    {
+      "source_record_id": "AMS216",
+      "address": "119 Skiway Road",
+      "city": "Newry",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.470993562908,
+      "longitude": -70.842977228496,
+      "census_matched_postal_code": "04261",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "119 SKIWAY RD, NEWRY, ME, 04261"
+      }
+    },
+    {
+      "source_record_id": "AMS228",
+      "address": "1172 Hammond St",
+      "city": "Bangor",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.789650309915,
+      "longitude": -68.821754212493,
+      "census_matched_postal_code": "04401",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1172 HAMMOND ST, BANGOR, ME, 04401"
+      }
+    },
+    {
+      "source_record_id": "AMS236",
+      "address": "145 Commercial St",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.65641182993,
+      "longitude": -70.251694862745,
+      "census_matched_postal_code": "04101",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "145 COMMERCIAL ST, PORTLAND, ME, 04101"
+      }
+    },
+    {
+      "source_record_id": "AMS242",
+      "address": "377 Saint John St",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.65667016669,
+      "longitude": -70.280820588405,
+      "census_matched_postal_code": "04102",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "377 SAINT JOHN ST, PORTLAND, ME, 04102"
+      }
+    },
+    {
+      "source_record_id": "AMS252",
+      "address": "442 Fore St",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.655857709287,
+      "longitude": -70.254506089215,
+      "census_matched_postal_code": "04101",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "442 FORE ST, PORTLAND, ME, 04101"
+      }
+    },
+    {
+      "source_record_id": "AMS258",
+      "address": "50 Mechanic Falls Rd",
+      "city": "Poland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.08866568843,
+      "longitude": -70.338286653115,
+      "census_matched_postal_code": "04274",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "50 MECHANIC FALLS RD, POLAND, ME, 04274"
+      }
+    },
+    {
+      "source_record_id": "AMS276",
+      "address": "290 Harold L Dow Highway",
+      "city": "Eliot",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.136578403156,
+      "longitude": -70.778934334674,
+      "census_matched_postal_code": "03903",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "290 HAROLD L DOW HWY, ELIOT, ME, 03903"
+      }
+    },
+    {
+      "source_record_id": "AMS297",
+      "address": "55 Rome Rd Unit 2",
+      "city": "Rome",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.574960220931,
+      "longitude": -69.900534072616,
+      "census_matched_postal_code": "04963",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "55 ROME RD, ROME, ME, 04963"
+      }
+    },
+    {
+      "source_record_id": "AMS304",
+      "address": "415 Hollis Rd",
+      "city": "Hollis Center",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.602073232626,
+      "longitude": -70.591004846575,
+      "census_matched_postal_code": "04042",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "415 HOLLIS RD, HOLLIS CENTER, ME, 04042"
+      }
+    },
+    {
+      "source_record_id": "AMS311",
+      "address": "409 Main St",
+      "city": "Rockland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.10444894689,
+      "longitude": -69.109091122208,
+      "census_matched_postal_code": "04841",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "409 MAIN ST, ROCKLAND, ME, 04841"
+      }
+    },
+    {
+      "source_record_id": "AMS324",
+      "address": "373 Forest Ave",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.663730802948,
+      "longitude": -70.272768836758,
+      "census_matched_postal_code": "04101",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "373 FOREST AVE, PORTLAND, ME, 04101"
+      }
+    },
+    {
+      "source_record_id": "AMS331",
+      "address": "684 Congress St",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.653026803426,
+      "longitude": -70.267556468568,
+      "census_matched_postal_code": "04102",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "684 CONGRESS ST, PORTLAND, ME, 04102"
+      }
+    },
+    {
+      "source_record_id": "AMS343",
+      "address": "648 Turner St",
+      "city": "Auburn",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.118330670215,
+      "longitude": -70.232341660992,
+      "census_matched_postal_code": "04210",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "648 TURNER ST, AUBURN, ME, 04210"
+      }
+    },
+    {
+      "source_record_id": "AMS386",
+      "address": "446 Western Ave",
+      "city": "South Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.641876535692,
+      "longitude": -70.328639461554,
+      "census_matched_postal_code": "04106",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "446 WESTERN AVE, SOUTH PORTLAND, ME, 04106"
+      }
+    },
+    {
+      "source_record_id": "AMS416",
+      "address": "415 Main St",
+      "city": "Presque Isle",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 46.68033604196,
+      "longitude": -68.015667383685,
+      "census_matched_postal_code": "04769",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "415 MAIN ST, PRESQUE ISLE, ME, 04769"
+      }
+    },
+    {
+      "source_record_id": "AMS428",
+      "address": "327 Saint John St",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.654390589278,
+      "longitude": -70.279779876936,
+      "census_matched_postal_code": "04102",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "327 SAINT JOHN ST, PORTLAND, ME, 04102"
+      }
+    },
+    {
+      "source_record_id": "AMS476",
+      "address": "16 North Main Street",
+      "city": "Peru",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.527373902419,
+      "longitude": -70.463824691005,
+      "census_matched_postal_code": "04290",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "16 N MAIN ST, PERU, ME, 04290"
+      }
+    },
+    {
+      "source_record_id": "AMS511",
+      "address": "1716 Carl Broggi Hwy",
+      "city": "Lebanon",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.337978489974,
+      "longitude": -70.939481667628,
+      "census_matched_postal_code": "04027",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1716 CARL BROGGI HWY, LEBANON, ME, 04027"
+      }
+    },
+    {
+      "source_record_id": "AMS564",
+      "address": "49 Bangor Mall Blvd",
+      "city": "Bangor",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.834916864873,
+      "longitude": -68.745616086449,
+      "census_matched_postal_code": "04401",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "49 BANGOR MALL BLVD, BANGOR, ME, 04401"
+      }
+    },
+    {
+      "source_record_id": "AMS565",
+      "address": "155 New County Rd",
+      "city": "Thomaston",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.092434428921,
+      "longitude": -69.142901802354,
+      "census_matched_postal_code": "04861",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "155 NEW COUNTY RD, THOMASTON, ME, 04861"
+      }
+    },
+    {
+      "source_record_id": "AMS571",
+      "address": "132 Church Rd",
+      "city": "Brunswick",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.905082524874,
+      "longitude": -69.994989275536,
+      "census_matched_postal_code": "04011",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "132 CHURCH RD, BRUNSWICK, ME, 04011"
+      }
+    },
+    {
+      "source_record_id": "AMS590",
+      "address": "510 Portland Rd",
+      "city": "Bridgton",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.0210374043,
+      "longitude": -70.687135095665,
+      "census_matched_postal_code": "04009",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "510 PORTLAND RD, BRIDGTON, ME, 04009"
+      }
+    },
+    {
+      "source_record_id": "AMS593",
+      "address": "475 Kennedy Memorial Dr",
+      "city": "Waterville",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.545020368521,
+      "longitude": -69.677442536857,
+      "census_matched_postal_code": "04901",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "475 KENNEDY MEMORIAL DR, WATERVILLE, ME, 04901"
+      }
+    },
+    {
+      "source_record_id": "AMS600",
+      "address": "11 Seal Cove Rd",
+      "city": "Southwest Harbor",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.288629615607,
+      "longitude": -68.330462166525,
+      "census_matched_postal_code": "04679",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "11 SEAL COVE RD, SOUTHWEST HARBOR, ME, 04679"
+      }
+    },
+    {
+      "source_record_id": "AMS639",
+      "address": "1114 Hammond St Ste 2",
+      "city": "Bangor",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.787880808939,
+      "longitude": -68.817036426038,
+      "census_matched_postal_code": "04401",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1114 HAMMOND ST, BANGOR, ME, 04401"
+      }
+    },
+    {
+      "source_record_id": "AMS718",
+      "address": "6 Stillwater Ave Ste 600",
+      "city": "Orono",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.9048324219,
+      "longitude": -68.689812161803,
+      "census_matched_postal_code": "04473",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "6 STILLWATER AVE, ORONO, ME, 04473"
+      }
+    },
+    {
+      "source_record_id": "AMS719",
+      "address": "483 Main St",
+      "city": "Oxford",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.135404079087,
+      "longitude": -70.46615599204,
+      "census_matched_postal_code": "04270",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "483 MAIN ST, OXFORD, ME, 04270"
+      }
+    },
+    {
+      "source_record_id": "AMS753",
+      "address": "953 Congress St",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.653575879886,
+      "longitude": -70.279418372872,
+      "census_matched_postal_code": "04102",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "953 CONGRESS ST, PORTLAND, ME, 04102"
+      }
+    },
+    {
+      "source_record_id": "AMS763",
+      "address": "767 Western Ave",
+      "city": "Manchester",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.322948773419,
+      "longitude": -69.846886700486,
+      "census_matched_postal_code": "04351",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "767 WESTERN AVE, MANCHESTER, ME, 04351"
+      }
+    },
+    {
+      "source_record_id": "AMS764",
+      "address": "19 Park St",
+      "city": "Milo",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 45.255028254295,
+      "longitude": -68.986617993406,
+      "census_matched_postal_code": "04463",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "19 PARK ST, MILO, ME, 04463"
+      }
+    },
+    {
+      "source_record_id": "AMS780",
+      "address": "375 Center St",
+      "city": "Auburn",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.11582714996,
+      "longitude": -70.224434507872,
+      "census_matched_postal_code": "04210",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "375 CENTER ST, AUBURN, ME, 04210"
+      }
+    },
+    {
+      "source_record_id": "AMS800",
+      "address": "740 Broadway Ste 700",
+      "city": "South Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.633198171916,
+      "longitude": -70.261101019475,
+      "census_matched_postal_code": "04106",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "740 BROADWAY, SOUTH PORTLAND, ME, 04106"
+      }
+    },
+    {
+      "source_record_id": "AMS809",
+      "address": "1215 Carrabassett Dr",
+      "city": "Carrabassett Valley",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 45.084763063028,
+      "longitude": -70.217830422277,
+      "census_matched_postal_code": "04947",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1215 CARRABASSETT DR, CARRABASSETT VALLEY, ME, 04947"
+      }
+    },
+    {
+      "source_record_id": "AMS811",
+      "address": "638 Wiscasset Rd",
+      "city": "Boothbay",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.899896883235,
+      "longitude": -69.626393425508,
+      "census_matched_postal_code": "04537",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "638 WISCASSET RD, BOOTHBAY, ME, 04537"
+      }
+    },
+    {
+      "source_record_id": "AMS828",
+      "address": "109 Water St",
+      "city": "Hallowell",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.286568022031,
+      "longitude": -69.790125812835,
+      "census_matched_postal_code": "04347",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "109 WATER ST, HALLOWELL, ME, 04347"
+      }
+    },
+    {
+      "source_record_id": "AMS831",
+      "address": "7 Oxford Homes Ln Unit 1",
+      "city": "Oxford",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.150991800784,
+      "longitude": -70.481765216049,
+      "census_matched_postal_code": "04270",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "7 OXFORD HOMES LN, OXFORD, ME, 04270"
+      }
+    },
+    {
+      "source_record_id": "AMS839",
+      "address": "429 Warren Ave Unit 7",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.687227879945,
+      "longitude": -70.315896421665,
+      "census_matched_postal_code": "04103",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "429 WARREN AVE, PORTLAND, ME, 04103"
+      }
+    },
+    {
+      "source_record_id": "AMS843",
+      "address": "1369 Atlantic Hwy",
+      "city": "Northport",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.386486716888,
+      "longitude": -68.988437099398,
+      "census_matched_postal_code": "04849",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1369 ATLANTIC HWY, NORTHPORT, ME, 04849"
+      }
+    },
+    {
+      "source_record_id": "AMS852",
+      "address": "9 Exchange St",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 43.656670184909,
+      "longitude": -70.253441899404,
+      "census_matched_postal_code": "04101",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "9 EXCHANGE ST, PORTLAND, ME, 04101"
+      }
+    },
+    {
+      "source_record_id": "AMS883",
+      "address": "104 Fairbanks Rd",
+      "city": "Farmington",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.673686756627,
+      "longitude": -70.155047795966,
+      "census_matched_postal_code": "04938",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "104 FAIRBANKS RD, FARMINGTON, ME, 04938"
+      }
+    },
+    {
+      "source_record_id": "AMS911",
+      "address": "657 Broadway",
+      "city": "Bangor",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 44.823407816214,
+      "longitude": -68.779206032068,
+      "census_matched_postal_code": "04401",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "657 BROADWAY, BANGOR, ME, 04401"
+      }
+    }
+  ],
+  "counts": {
+    "input_records": 189,
+    "census_response_rows": 189,
+    "one_to_one_exact_census_geocodes": 145,
+    "blocked_census_no_exact_in_jurisdiction_match": 44
+  }
+}

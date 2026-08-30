@@ -36,6 +36,12 @@ type SelectedGeoCallback = (_geo: { iso2: string; country: string; lng: number; 
 type CreateMapOptions = {
   style?: StyleSpecification | string | null;
   onSelectGeo?: (_geo: string | null, _anchor?: { x: number; y: number } | null, _seed?: CountryCardSeed | null) => void;
+  shouldSelectFeature?: (_point: { x: number; y: number }, _lngLat: { lng: number; lat: number }) => boolean;
+  onSelectFeature?: (
+    _feature: maplibregl.MapGeoJSONFeature,
+    _lngLat: { lng: number; lat: number }
+  ) => void;
+  usStatesUrl?: string;
 };
 type SymbolLayerSpecification = Extract<NonNullable<StyleSpecification["layers"]>[number], { type: "symbol" }>;
 type SymbolTextFieldSpecification = NonNullable<SymbolLayerSpecification["layout"]>["text-field"];
@@ -47,7 +53,14 @@ export function getCountryFeatureAtPoint(map: maplibregl.Map, point: { x: number
     NEW_MAP_POINT_LAYER_ID,
     NEW_MAP_FILL_LAYER_ID
   ]) {
-    const feature = map.queryRenderedFeatures([point.x, point.y], { layers: [layerId] })[0] ?? null;
+    if (!map.getLayer(layerId)) continue;
+    let feature: maplibregl.MapGeoJSONFeature | null = null;
+    try {
+      feature = map.queryRenderedFeatures([point.x, point.y], { layers: [layerId] })[0] ?? null;
+    } catch {
+      // Style reloads can remove a layer between getLayer and the rendered-feature query.
+      continue;
+    }
     if (feature) return feature;
   }
   return null;
@@ -60,7 +73,13 @@ function configureMapLibreWorkerUrl() {
 }
 
 function getUsStateFeatureAtPoint(map: maplibregl.Map, point: { x: number; y: number }) {
-  return map.queryRenderedFeatures([point.x, point.y], { layers: [NEW_MAP_US_STATES_FILL_LAYER_ID] })[0] ?? null;
+  if (!map.getLayer(NEW_MAP_US_STATES_FILL_LAYER_ID)) return null;
+  try {
+    return map.queryRenderedFeatures([point.x, point.y], { layers: [NEW_MAP_US_STATES_FILL_LAYER_ID] })[0] ?? null;
+  } catch {
+    // Keep country selection usable while a style reload replaces the US-state layer.
+    return null;
+  }
 }
 
 function buildNativeTextField() {
@@ -803,7 +822,7 @@ export function createMap(
     if (!source) return;
     usStatesRequested = true;
     markNewMapTrace("NM_US_STATES_REQUESTED");
-    source.setData(US_STATES_DATA_URL);
+    source.setData(options?.usStatesUrl || US_STATES_DATA_URL);
   };
   const loadUsStatesWhenZoomed = () => {
     if (map.getZoom() >= US_STATES_LOAD_ZOOM) {
@@ -843,10 +862,12 @@ export function createMap(
       mapCategory: (String(feature.properties?.mapCategory || "UNKNOWN").trim() || "UNKNOWN") as CountryCardSeed["mapCategory"]
     };
     markNewMapTrace("NM_POPUP_CLICK_RECEIVED");
+    options?.onSelectFeature?.(feature, lngLat);
     options?.onSelectGeo?.(iso2, popupAnchor, seed);
     host.__MAP_SELECTED_GEO__?.({ iso2, country, lng: lngLat.lng, lat: lngLat.lat });
   };
   map.on("click", (event) => {
+    if (options?.shouldSelectFeature?.(event.point, event.lngLat) === false) return;
     selectFeatureAtPoint(event.point, event.lngLat);
   });
 
@@ -927,14 +948,6 @@ export function createMap(
       map.off("style.load", onStyleReady);
       map.off("moveend", ensureFlatCamera);
       map.off("zoomend", loadUsStatesWhenZoomed);
-      if (map.getLayer(NEW_MAP_US_STATES_LINE_LAYER_ID)) map.removeLayer(NEW_MAP_US_STATES_LINE_LAYER_ID);
-      if (map.getLayer(NEW_MAP_US_STATES_FILL_LAYER_ID)) map.removeLayer(NEW_MAP_US_STATES_FILL_LAYER_ID);
-      if (map.getLayer(NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID)) map.removeLayer(NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID);
-      if (map.getLayer(NEW_MAP_ADMIN_LAYER_ID)) map.removeLayer(NEW_MAP_ADMIN_LAYER_ID);
-      if (map.getLayer(NEW_MAP_FILL_LAYER_ID)) map.removeLayer(NEW_MAP_FILL_LAYER_ID);
-      if (map.getSource(NEW_MAP_US_STATES_SOURCE_ID)) map.removeSource(NEW_MAP_US_STATES_SOURCE_ID);
-      if (map.getSource(NEW_MAP_SUPPLEMENTAL_SEA_SOURCE_ID)) map.removeSource(NEW_MAP_SUPPLEMENTAL_SEA_SOURCE_ID);
-      if (map.getSource(NEW_MAP_SOURCE_ID)) map.removeSource(NEW_MAP_SOURCE_ID);
       map.remove();
     }
   };

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-15T01:23:27.818Z",
+  "source_id": "official-al-amcc-current-open-dispensary-2026-08-13",
+  "source_snapshot_path": "data/store_truth/source_snapshots/al-amcc-current-open-dispensary-2026-08-13.json",
+  "source_snapshot_sha256": "4c480dc9ea627e94117a7ee459a57a30cacb3bfaba93eeb40345292724f81578",
+  "source_url": "https://amcc.alabama.gov/patients/",
+  "records": [
+    {
+      "source_record_id": "al-amcc-callies-apothecary-open-2026-06-04",
+      "address": "5232 Atlanta Highway",
+      "city": "Montgomery",
+      "region": "AL",
+      "postal_code": "36109"
+    }
+  ]
+}

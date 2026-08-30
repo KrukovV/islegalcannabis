@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-15T05:15:12.000Z",
+  "coordinate_augmentation_provider": "PUBLIC_GEOJSON_EXACT_CIVIC_ADDRESS_V1",
+  "public_geocoder_authority": "Government of British Columbia Address Geocoder",
+  "public_geocoder_url": "https://geocoder.api.gov.bc.ca/addresses.json?addressString=245%20Birch%20Ave%2C%20100%20Mile%20House%2C%20BC%20V0K%202E0",
+  "response_sha256": "15bf0539c3549fd0bc83e922fa4a587b8bbf006551049b5ceba5b4472e450bf9",
+  "source_response": {
+    "type": "FeatureCollection",
+    "queryAddress": "245 Birch Ave, 100 Mile House, BC V0K 2E0",
+    "searchTimestamp": "2026-08-14T22:15:23",
+    "version": "4.5.4",
+    "baseDataDate": "2026-07-07T20:10:43Z",
+    "features": [
+      {
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -121.2950617,
+            51.6447284
+          ]
+        },
+        "properties": {
+          "fullAddress": "245 Birch Ave, 100 Mile House, BC",
+          "score": 99,
+          "matchPrecision": "CIVIC_NUMBER",
+          "precisionPoints": 100,
+          "civicNumber": 245,
+          "streetName": "Birch",
+          "streetType": "Ave",
+          "localityName": "100 Mile House",
+          "provinceCode": "BC",
+          "locationPositionalAccuracy": "high",
+          "locationDescriptor": "parcelPoint",
+          "siteStatus": "active",
+          "isOfficial": "true"
+        }
+      }
+    ]
+  },
+  "records": [
+    {
+      "source_record_id": "450279",
+      "address": "245 Birch Ave",
+      "city": "100 Mile House",
+      "region": "BC",
+      "postal_code": "V0K2E0",
+      "latitude": 51.6447284,
+      "longitude": -121.2950617,
+      "public_source_fields": {
+        "full_address": "245 Birch Ave, 100 Mile House, BC",
+        "match_precision": "CIVIC_NUMBER",
+        "location_positional_accuracy": "HIGH",
+        "location_descriptor": "PARCELPOINT",
+        "is_official": true,
+        "site_status": "ACTIVE",
+        "base_data_date": "2026-07-07T20:10:43Z",
+        "search_timestamp": "2026-08-14T22:15:23.000Z"
+      }
+    }
+  ],
+  "counts": {
+    "source_records_considered": 1,
+    "official_exact_civic_matches": 1,
+    "blocked_nonexact_or_outside_scope": 0
+  }
+}

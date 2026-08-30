@@ -1,0 +1,3385 @@
+{
+  "schema_version": 1,
+  "fetched_at": "2026-08-21T11:27:19.667Z",
+  "local_only": true,
+  "input_snapshot_path": "data/store_truth/source_snapshots/co-med-current-stores-census-input-2026-08-14.json",
+  "input_snapshot_sha256": "eddcc20dd4d3d78532dfa8451e3de3d32b8afa16433c349533894e404833c5cc",
+  "census_benchmark": "Public_AR_Current",
+  "match_policy": "ONE_MATCH_OPTIONAL_MATCH_TYPE_MATCH_OR_EXACT_SAME_CANONICAL_ONELINE_ADDRESS_AND_IN_DECLARED_BOUNDS",
+  "requested_candidates": 323,
+  "accepted_records": 187,
+  "blocked_records": 136,
+  "merged_from": [
+    {
+      "path": "data/store_truth/coordinate_augmentations/co-med-current-stores-census-exact-2026-08-14.json",
+      "sha256": "13ff0a3692c23435767afe1f80117e9c3b1eb9fa9ba0e4df9dea2790fff5e013"
+    },
+    {
+      "path": "data/store_truth/coordinate_augmentations/co-med-current-stores-census-append-2026-08-21.json",
+      "sha256": "7ccffa21af1db58a2bec3af0cc75ecef11dae1580ed2dc562ad1e27daec1060e"
+    }
+  ],
+  "records": [
+    {
+      "source_record_id": "402-00041",
+      "address": "3111 West 38th Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80211",
+      "latitude": 39.769416402079,
+      "longitude": -105.027793616412,
+      "census_matched_postal_code": "80211",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3111 W 38TH AVE, DENVER, CO, 80211"
+      }
+    },
+    {
+      "source_record_id": "402-00049",
+      "address": "1233 West Alameda Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80223",
+      "latitude": 39.711234355284,
+      "longitude": -105.002237825017,
+      "census_matched_postal_code": "80223",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1233 W ALAMEDA AVE, DENVER, CO, 80223"
+      }
+    },
+    {
+      "source_record_id": "402-00051",
+      "address": "1538 Wazee Street, Suite 100",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80202",
+      "latitude": 39.750616326144,
+      "longitude": -105.000704271296,
+      "census_matched_postal_code": "80202",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1538 WAZEE ST, DENVER, CO, 80202"
+      }
+    },
+    {
+      "source_record_id": "402-00053",
+      "address": "5875 Lehman Drive Unit 100",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80918",
+      "latitude": 38.917194646861,
+      "longitude": -104.788171149414,
+      "census_matched_postal_code": "80918",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "5875 LEHMAN DR, COLORADO SPRINGS, CO, 80918"
+      }
+    },
+    {
+      "source_record_id": "402-00062",
+      "address": "540 27th Street",
+      "city": "Garden City",
+      "region": "CO",
+      "postal_code": "80631",
+      "latitude": 40.39451017435,
+      "longitude": -104.686719799397,
+      "census_matched_postal_code": "80631",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "540 27TH ST, GARDEN CITY, CO, 80631"
+      }
+    },
+    {
+      "source_record_id": "402-00069",
+      "address": "222 East Moreno Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80903",
+      "latitude": 38.825434745238,
+      "longitude": -104.820922200886,
+      "census_matched_postal_code": "80903",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "222 E MORENO AVE, COLORADO SPRINGS, CO, 80903"
+      }
+    },
+    {
+      "source_record_id": "402-00087",
+      "address": "3400 South Oneida Way, Suite 101",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80224",
+      "latitude": 39.654017291481,
+      "longitude": -104.908789001548,
+      "census_matched_postal_code": "80224",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3400 S ONEIDA WAY, DENVER, CO, 80224"
+      }
+    },
+    {
+      "source_record_id": "402-00090",
+      "address": "5024 North Academy Boulevard",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80918",
+      "latitude": 38.903573284787,
+      "longitude": -104.773658806602,
+      "census_matched_postal_code": "80918",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "5024 N ACADEMY BLVD, COLORADO SPRINGS, CO, 80918"
+      }
+    },
+    {
+      "source_record_id": "402-00103",
+      "address": "22 South Chestnut Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80905",
+      "latitude": 38.833868522831,
+      "longitude": -104.836082318103,
+      "census_matched_postal_code": "80905",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "22 S CHESTNUT ST, COLORADO SPRINGS, CO, 80905"
+      }
+    },
+    {
+      "source_record_id": "402-00110",
+      "address": "1466 Woolsey Heights",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80915",
+      "latitude": 38.850314194835,
+      "longitude": -104.685754364774,
+      "census_matched_postal_code": "80915",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1466 WOOLSEY HTS, COLORADO SPRINGS, CO, 80915"
+      }
+    },
+    {
+      "source_record_id": "402-00116",
+      "address": "1022 South Royer Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80903",
+      "latitude": 38.819556128352,
+      "longitude": -104.815451733609,
+      "census_matched_postal_code": "80903",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1022 S ROYER ST, COLORADO SPRINGS, CO, 80903"
+      }
+    },
+    {
+      "source_record_id": "402-00170",
+      "address": "1640 East Evans Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80210",
+      "latitude": 39.678425292216,
+      "longitude": -104.968254675074,
+      "census_matched_postal_code": "80210",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1640 E EVANS AVE, DENVER, CO, 80210"
+      }
+    },
+    {
+      "source_record_id": "402-00193",
+      "address": "2707 West 38th Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80211",
+      "latitude": 39.769322874728,
+      "longitude": -105.020745351094,
+      "census_matched_postal_code": "80211",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2707 W 38TH AVE, DENVER, CO, 80211"
+      }
+    },
+    {
+      "source_record_id": "402-00194",
+      "address": "1146 Pearl Street",
+      "city": "Boulder",
+      "region": "CO",
+      "postal_code": "80302",
+      "latitude": 40.017701627772,
+      "longitude": -105.280664027926,
+      "census_matched_postal_code": "80302",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1146 PEARL ST, BOULDER, CO, 80302"
+      }
+    },
+    {
+      "source_record_id": "402-00209",
+      "address": "265 South Wadsworth Boulevard",
+      "city": "Lakewood",
+      "region": "CO",
+      "postal_code": "80226",
+      "latitude": 39.711591297649,
+      "longitude": -105.081535022214,
+      "census_matched_postal_code": "80226",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "265 S WADSWORTH BLVD, LAKEWOOD, CO, 80226"
+      }
+    },
+    {
+      "source_record_id": "402-00216",
+      "address": "1131 West Colorado Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80904",
+      "latitude": 38.835917072087,
+      "longitude": -104.843396994193,
+      "census_matched_postal_code": "80904",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1131 W COLORADO AVE, COLORADO SPRINGS, CO, 80904"
+      }
+    },
+    {
+      "source_record_id": "402-00232",
+      "address": "2117 West Colorado Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80904",
+      "latitude": 38.843670233601,
+      "longitude": -104.857006495713,
+      "census_matched_postal_code": "80904",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2117 W COLORADO AVE, COLORADO SPRINGS, CO, 80904"
+      }
+    },
+    {
+      "source_record_id": "402-00237",
+      "address": "818 East Fillmore Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80907",
+      "latitude": 38.874121250614,
+      "longitude": -104.809359463572,
+      "census_matched_postal_code": "80907",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "818 E FILLMORE ST, COLORADO SPRINGS, CO, 80907"
+      }
+    },
+    {
+      "source_record_id": "402-00240",
+      "address": "5885 East Evans Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80222",
+      "latitude": 39.678512880198,
+      "longitude": -104.919009286762,
+      "census_matched_postal_code": "80222",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "5885 E EVANS AVE, DENVER, CO, 80222"
+      }
+    },
+    {
+      "source_record_id": "402-00242",
+      "address": "426 West Fillmore Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80907",
+      "latitude": 38.876044852948,
+      "longitude": -104.829537701497,
+      "census_matched_postal_code": "80907",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "426 W FILLMORE ST, COLORADO SPRINGS, CO, 80907"
+      }
+    },
+    {
+      "source_record_id": "402-00247",
+      "address": "1420 Harrison Road",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80905",
+      "latitude": 38.79606299579,
+      "longitude": -104.800508593828,
+      "census_matched_postal_code": "80905",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1420 HARRISON RD, COLORADO SPRINGS, CO, 80905"
+      }
+    },
+    {
+      "source_record_id": "402-00251",
+      "address": "511 Orchard Street 2nd Floor",
+      "city": "Golden",
+      "region": "CO",
+      "postal_code": "80401",
+      "latitude": 39.723372567182,
+      "longitude": -105.179655169425,
+      "census_matched_postal_code": "80401",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "511 ORCHARD ST, GOLDEN, CO, 80401"
+      }
+    },
+    {
+      "source_record_id": "402-00281",
+      "address": "7739 East Colfax Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80220",
+      "latitude": 39.740207870245,
+      "longitude": -104.898279198735,
+      "census_matched_postal_code": "80220",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "7739 E COLFAX AVE, DENVER, CO, 80220"
+      }
+    },
+    {
+      "source_record_id": "402-00288",
+      "address": "2042 Arapahoe Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80205",
+      "latitude": 39.751955492005,
+      "longitude": -104.990254641633,
+      "census_matched_postal_code": "80205",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2042 ARAPAHOE ST, DENVER, CO, 80205"
+      }
+    },
+    {
+      "source_record_id": "402-00292",
+      "address": "318 South 8th Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80905",
+      "latitude": 38.830328860871,
+      "longitude": -104.840764049976,
+      "census_matched_postal_code": "80905",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "318 S 8TH ST, COLORADO SPRINGS, CO, 80905"
+      }
+    },
+    {
+      "source_record_id": "402-00294",
+      "address": "1995 South Broadway",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80210",
+      "latitude": 39.680454957537,
+      "longitude": -104.987645757425,
+      "census_matched_postal_code": "80210",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1995 S BROADWAY, DENVER, CO, 80210"
+      }
+    },
+    {
+      "source_record_id": "402-00313",
+      "address": "10712 West Alameda Avenue",
+      "city": "Lakewood",
+      "region": "CO",
+      "postal_code": "80226",
+      "latitude": 39.710681298151,
+      "longitude": -105.118126625382,
+      "census_matched_postal_code": "80226",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "10712 W ALAMEDA AVE, LAKEWOOD, CO, 80226"
+      }
+    },
+    {
+      "source_record_id": "402-00326",
+      "address": "10590 West Colfax Avenue",
+      "city": "Lakewood",
+      "region": "CO",
+      "postal_code": "80215",
+      "latitude": 39.740075293992,
+      "longitude": -105.116384871908,
+      "census_matched_postal_code": "80215",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "10590 W COLFAX AVE, LAKEWOOD, CO, 80215"
+      }
+    },
+    {
+      "source_record_id": "402-00330",
+      "address": "3702 West Quincy Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80236",
+      "latitude": 39.638471079725,
+      "longitude": -105.036010435872,
+      "census_matched_postal_code": "80236",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3702 W QUINCY AVE, DENVER, CO, 80236"
+      }
+    },
+    {
+      "source_record_id": "402-00346",
+      "address": "8025 North Academy Boulevard",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80920",
+      "latitude": 38.947538047805,
+      "longitude": -104.80229374653,
+      "census_matched_postal_code": "80920",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "8025 N ACADEMY BLVD, COLORADO SPRINGS, CO, 80920"
+      }
+    },
+    {
+      "source_record_id": "402-00352",
+      "address": "1150 East Fillmore Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80907",
+      "latitude": 38.874014368268,
+      "longitude": -104.805889999788,
+      "census_matched_postal_code": "80907",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1150 E FILLMORE ST, COLORADO SPRINGS, CO, 80907"
+      }
+    },
+    {
+      "source_record_id": "402-00374",
+      "address": "6900 West Colfax Avenue",
+      "city": "Lakewood",
+      "region": "CO",
+      "postal_code": "80214",
+      "latitude": 39.740196749045,
+      "longitude": -105.07314229933,
+      "census_matched_postal_code": "80214",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "6900 W COLFAX AVE, LAKEWOOD, CO, 80214"
+      }
+    },
+    {
+      "source_record_id": "402-00375",
+      "address": "2251 South Broadway",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80210",
+      "latitude": 39.675778799737,
+      "longitude": -104.987647341943,
+      "census_matched_postal_code": "80210",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2251 S BROADWAY, DENVER, CO, 80210"
+      }
+    },
+    {
+      "source_record_id": "402-00383",
+      "address": "3636 Jeannine Drive",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80917",
+      "latitude": 38.885738980386,
+      "longitude": -104.760122376287,
+      "census_matched_postal_code": "80917",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3636 JEANNINE DR, COLORADO SPRINGS, CO, 80917"
+      }
+    },
+    {
+      "source_record_id": "402-00385",
+      "address": "4800 Lamar Street",
+      "city": "Wheat Ridge",
+      "region": "CO",
+      "postal_code": "80033",
+      "latitude": 39.784360282443,
+      "longitude": -105.067263291695,
+      "census_matched_postal_code": "80033",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "4800 LAMAR ST, WHEAT RIDGE, CO, 80033"
+      }
+    },
+    {
+      "source_record_id": "402-00386",
+      "address": "4845 Van Gordon Street",
+      "city": "Wheat Ridge",
+      "region": "CO",
+      "postal_code": "80033",
+      "latitude": 39.784586573396,
+      "longitude": -105.135585093919,
+      "census_matched_postal_code": "80033",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "4845 VAN GORDON ST, WHEAT RIDGE, CO, 80033"
+      }
+    },
+    {
+      "source_record_id": "402-00389",
+      "address": "2304 East Platte Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909",
+      "latitude": 38.837093989079,
+      "longitude": -104.787124702851,
+      "census_matched_postal_code": "80909",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2304 E PLATTE AVE, COLORADO SPRINGS, CO, 80909"
+      }
+    },
+    {
+      "source_record_id": "402-00399",
+      "address": "1842 South Parker Road, Unit 18",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80231",
+      "latitude": 39.682934017698,
+      "longitude": -104.880926450509,
+      "census_matched_postal_code": "80231",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1842 S PARKER RD, DENVER, CO, 80231"
+      }
+    },
+    {
+      "source_record_id": "402-00401",
+      "address": "3729 Austin Bluffs Parkway",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80918",
+      "latitude": 38.89065289828,
+      "longitude": -104.758031383317,
+      "census_matched_postal_code": "80918",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3729 AUSTIN BLUFFS PKWY, COLORADO SPRINGS, CO, 80918"
+      }
+    },
+    {
+      "source_record_id": "402-00403",
+      "address": "10555 East 45th Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80239",
+      "latitude": 39.778915561002,
+      "longitude": -104.865042708535,
+      "census_matched_postal_code": "80239",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "10555 E 45TH AVE, DENVER, CO, 80239"
+      }
+    },
+    {
+      "source_record_id": "402-00405",
+      "address": "330 South Dayton Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80247",
+      "latitude": 39.708632960504,
+      "longitude": -104.875299943881,
+      "census_matched_postal_code": "80247",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "330 S DAYTON ST, DENVER, CO, 80247"
+      }
+    },
+    {
+      "source_record_id": "402-00419",
+      "address": "2502 8th Avenue",
+      "city": "Garden City",
+      "region": "CO",
+      "postal_code": "80631",
+      "latitude": 40.397141469998,
+      "longitude": -104.691046649012,
+      "census_matched_postal_code": "80631",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2502 8TH AVE, GARDEN CITY, CO, 80631"
+      }
+    },
+    {
+      "source_record_id": "402-00424",
+      "address": "4332 South Broadway",
+      "city": "Englewood",
+      "region": "CO",
+      "postal_code": "80113",
+      "latitude": 39.637941631068,
+      "longitude": -104.98775506035,
+      "census_matched_postal_code": "80113",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "4332 S BROADWAY, ENGLEWOOD, CO, 80113"
+      }
+    },
+    {
+      "source_record_id": "402-00428",
+      "address": "502 West Colorado Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80905",
+      "latitude": 38.83280099283,
+      "longitude": -104.834443748778,
+      "census_matched_postal_code": "80905",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "502 W COLORADO AVE, COLORADO SPRINGS, CO, 80905"
+      }
+    },
+    {
+      "source_record_id": "402-00439",
+      "address": "555 North Circle Drive",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909",
+      "latitude": 38.840461255684,
+      "longitude": -104.775795812183,
+      "census_matched_postal_code": "80909",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "555 N CIRCLE DR, COLORADO SPRINGS, CO, 80909"
+      }
+    },
+    {
+      "source_record_id": "402-00443",
+      "address": "1000 West Fillmore Street Suite 105",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80907",
+      "latitude": 38.876423986955,
+      "longitude": -104.839024224844,
+      "census_matched_postal_code": "80907",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1000 W FILLMORE ST, COLORADO SPRINGS, CO, 80907"
+      }
+    },
+    {
+      "source_record_id": "402-00444",
+      "address": "855 Highway 105",
+      "city": "Palmer Lake",
+      "region": "CO",
+      "postal_code": "80133",
+      "latitude": 39.099621839931,
+      "longitude": -104.878378196839,
+      "census_matched_postal_code": "80133",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "855 STATE HWY 105, PALMER LAKE, CO, 80133"
+      }
+    },
+    {
+      "source_record_id": "402-00452",
+      "address": "1086 West Littleton Boulevard",
+      "city": "Littleton",
+      "region": "CO",
+      "postal_code": "80120",
+      "latitude": 39.613149804771,
+      "longitude": -105.000243624598,
+      "census_matched_postal_code": "80120",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1086 W LITTLETON BLVD, LITTLETON, CO, 80120"
+      }
+    },
+    {
+      "source_record_id": "402-00455",
+      "address": "1911 South Broadway",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80210",
+      "latitude": 39.681914474171,
+      "longitude": -104.987642847491,
+      "census_matched_postal_code": "80210",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1911 S BROADWAY, DENVER, CO, 80210"
+      }
+    },
+    {
+      "source_record_id": "402-00481",
+      "address": "1755 Lincoln Avenue",
+      "city": "Steamboat Springs",
+      "region": "CO",
+      "postal_code": "80487",
+      "latitude": 40.49682345503,
+      "longitude": -106.85338048816,
+      "census_matched_postal_code": "80487",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1755 LINCOLN AVE, STEAMBOAT SPRINGS, CO, 80487"
+      }
+    },
+    {
+      "source_record_id": "402-00486",
+      "address": "1013 East Main Street",
+      "city": "Cortez",
+      "region": "CO",
+      "postal_code": "81321",
+      "latitude": 37.348766997599,
+      "longitude": -108.572501219416,
+      "census_matched_postal_code": "81321",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1013 E MAIN ST, CORTEZ, CO, 81321"
+      }
+    },
+    {
+      "source_record_id": "402-00498",
+      "address": "1881 South Broadway",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80210",
+      "latitude": 39.682516300792,
+      "longitude": -104.987638331158,
+      "census_matched_postal_code": "80210",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1881 S BROADWAY, DENVER, CO, 80210"
+      }
+    },
+    {
+      "source_record_id": "402-00507",
+      "address": "985 South Logan Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80209",
+      "latitude": 39.698465341749,
+      "longitude": -104.982846560038,
+      "census_matched_postal_code": "80209",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "985 S LOGAN ST, DENVER, CO, 80209"
+      }
+    },
+    {
+      "source_record_id": "402-00539",
+      "address": "1004 South Tejon Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80903",
+      "latitude": 38.819739324899,
+      "longitude": -104.824333319651,
+      "census_matched_postal_code": "80903",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1004 S TEJON ST, COLORADO SPRINGS, CO, 80903"
+      }
+    },
+    {
+      "source_record_id": "402-00545",
+      "address": "2615 Welton Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80205",
+      "latitude": 39.754058939227,
+      "longitude": -104.979097653484,
+      "census_matched_postal_code": "80205",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2615 WELTON ST, DENVER, CO, 80205"
+      }
+    },
+    {
+      "source_record_id": "402-00551",
+      "address": "1030 Grand Avenue",
+      "city": "Glenwood Springs",
+      "region": "CO",
+      "postal_code": "81601",
+      "latitude": 39.543658990962,
+      "longitude": -107.324763029247,
+      "census_matched_postal_code": "81601",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1030 GRAND AVE, GLENWOOD SPRINGS, CO, 81601"
+      }
+    },
+    {
+      "source_record_id": "402-00573",
+      "address": "1075 South Fox Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80223",
+      "latitude": 39.696933723314,
+      "longitude": -104.994517640362,
+      "census_matched_postal_code": "80223",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1075 S FOX ST, DENVER, CO, 80223"
+      }
+    },
+    {
+      "source_record_id": "402-00576",
+      "address": "43 Main Street",
+      "city": "Bailey",
+      "region": "CO",
+      "postal_code": "80421",
+      "latitude": 39.406466058136,
+      "longitude": -105.477014134588,
+      "census_matched_postal_code": "80421",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "43 MAIN ST, BAILEY, CO, 80421"
+      }
+    },
+    {
+      "source_record_id": "402-00581",
+      "address": "1330 West Garden of the Gods Road",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80907",
+      "latitude": 38.896673984935,
+      "longitude": -104.851712217281,
+      "census_matched_postal_code": "80907",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1330 W GARDEN OF THE GODS RD, COLORADO SPRINGS, CO, 80907"
+      }
+    },
+    {
+      "source_record_id": "402-00584",
+      "address": "3692 East Bijou Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909",
+      "latitude": 38.835809692863,
+      "longitude": -104.761387135786,
+      "census_matched_postal_code": "80909",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3692 E BIJOU ST, COLORADO SPRINGS, CO, 80909"
+      }
+    },
+    {
+      "source_record_id": "402-00613",
+      "address": "4966 Leetsdale Drive",
+      "city": "Glendale",
+      "region": "CO",
+      "postal_code": "80246",
+      "latitude": 39.708581149364,
+      "longitude": -104.929823878178,
+      "census_matched_postal_code": "80246",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "4966 LEETSDALE DR, GLENDALE, CO, 80246"
+      }
+    },
+    {
+      "source_record_id": "402-00614",
+      "address": "825A CHAMBERS AVE",
+      "city": "EAGLE",
+      "region": "CO",
+      "postal_code": "81631",
+      "latitude": 39.662958235531,
+      "longitude": -106.818788249516,
+      "source_combined_address": "825A Chambers Avenue, Eagle, CO, 81631",
+      "public_source_fields": {
+        "census_matched_address": "825A CHAMBERS AVE, EAGLE, CO, 81631"
+      }
+    },
+    {
+      "source_record_id": "402-00618",
+      "address": "195 North Academy Boulevard",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909",
+      "latitude": 38.835582880805,
+      "longitude": -104.757198491436,
+      "census_matched_postal_code": "80909",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "195 N ACADEMY BLVD, COLORADO SPRINGS, CO, 80909"
+      }
+    },
+    {
+      "source_record_id": "402-00633",
+      "address": "2100 East 112th Avenue, Unit 5",
+      "city": "Northglenn",
+      "region": "CO",
+      "postal_code": "80233",
+      "latitude": 39.899427184106,
+      "longitude": -104.962566107626,
+      "census_matched_postal_code": "80233",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2100 E 112TH AVE, NORTHGLENN, CO, 80233"
+      }
+    },
+    {
+      "source_record_id": "402-00637",
+      "address": "2209 West 32nd Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80211",
+      "latitude": 39.762077875208,
+      "longitude": -105.013305086271,
+      "census_matched_postal_code": "80211",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2209 W 32ND AVE, DENVER, CO, 80211"
+      }
+    },
+    {
+      "source_record_id": "402-00645",
+      "address": "2106 East Boulder Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909",
+      "latitude": 38.838544663223,
+      "longitude": -104.789909690734,
+      "census_matched_postal_code": "80909",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2106 E BOULDER ST, COLORADO SPRINGS, CO, 80909"
+      }
+    },
+    {
+      "source_record_id": "402-00655",
+      "address": "1810 South Broadway",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80210",
+      "latitude": 39.683731926743,
+      "longitude": -104.987474340051,
+      "census_matched_postal_code": "80210",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1810 S BROADWAY, DENVER, CO, 80210"
+      }
+    },
+    {
+      "source_record_id": "402-00656",
+      "address": "543 Bryant Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80204",
+      "latitude": 39.724306861616,
+      "longitude": -105.018739626426,
+      "census_matched_postal_code": "80204",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "543 BRYANT ST, DENVER, CO, 80204"
+      }
+    },
+    {
+      "source_record_id": "402-00664",
+      "address": "3900 West Colfax Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80204",
+      "latitude": 39.740282288538,
+      "longitude": -105.038218391863,
+      "census_matched_postal_code": "80204",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3900 W COLFAX AVE, DENVER, CO, 80204"
+      }
+    },
+    {
+      "source_record_id": "402-00666",
+      "address": "1941 West Evans Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80223",
+      "latitude": 39.678696375147,
+      "longitude": -105.010296915721,
+      "census_matched_postal_code": "80223",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1941 W EVANS AVE, DENVER, CO, 80223"
+      }
+    },
+    {
+      "source_record_id": "402-00667",
+      "address": "616 Arrawanna Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909",
+      "latitude": 38.84178289998,
+      "longitude": -104.771978537741,
+      "census_matched_postal_code": "80909",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "616 ARRAWANNA ST, COLORADO SPRINGS, CO, 80909"
+      }
+    },
+    {
+      "source_record_id": "402-00670",
+      "address": "80 South Pennsylvania Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80209",
+      "latitude": 39.715100028382,
+      "longitude": -104.981409726738,
+      "census_matched_postal_code": "80209",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "80 S PENNSYLVANIA ST, DENVER, CO, 80209"
+      }
+    },
+    {
+      "source_record_id": "402-00687",
+      "address": "2568 South Broadway",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80210",
+      "latitude": 39.670055827508,
+      "longitude": -104.987507463355,
+      "census_matched_postal_code": "80210",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2568 S BROADWAY, DENVER, CO, 80210"
+      }
+    },
+    {
+      "source_record_id": "402-00690",
+      "address": "2426 South Federal Boulevard",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80219",
+      "latitude": 39.672450691284,
+      "longitude": -105.024999684266,
+      "census_matched_postal_code": "80219",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2426 S FEDERAL BLVD, DENVER, CO, 80219"
+      }
+    },
+    {
+      "source_record_id": "402-00693",
+      "address": "4 South Santa Fe Drive",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80223",
+      "latitude": 39.716505175916,
+      "longitude": -104.998500906161,
+      "census_matched_postal_code": "80223",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "4 S SANTA FE DR, DENVER, CO, 80223"
+      }
+    },
+    {
+      "source_record_id": "402-00698",
+      "address": "400 West South Boulder Road, Suite 2700",
+      "city": "Lafayette",
+      "region": "CO",
+      "postal_code": "80026",
+      "latitude": 39.986837258681,
+      "longitude": -105.094392118153,
+      "census_matched_postal_code": "80026",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "400 W SOUTH BOULDER RD, LAFAYETTE, CO, 80026"
+      }
+    },
+    {
+      "source_record_id": "402-00699",
+      "address": "399 South Harrison Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80209",
+      "latitude": 39.709365344459,
+      "longitude": -104.941431772745,
+      "census_matched_postal_code": "80209",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "399 S HARRISON ST, DENVER, CO, 80209"
+      }
+    },
+    {
+      "source_record_id": "402-00714",
+      "address": "1406 West 38th Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80211",
+      "latitude": 39.76921728212,
+      "longitude": -105.003104438828,
+      "census_matched_postal_code": "80211",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1406 W 38TH AVE, DENVER, CO, 80211"
+      }
+    },
+    {
+      "source_record_id": "402-00738",
+      "address": "3360 South Wadsworth Boulevard",
+      "city": "Lakewood",
+      "region": "CO",
+      "postal_code": "80227",
+      "latitude": 39.654929898676,
+      "longitude": -105.081263411844,
+      "census_matched_postal_code": "80227",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3360 S WADSWORTH BLVD, LAKEWOOD, CO, 80227"
+      }
+    },
+    {
+      "source_record_id": "402-00745",
+      "address": "120 South Kalamath Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80223",
+      "latitude": 39.714532670905,
+      "longitude": -104.999955693653,
+      "census_matched_postal_code": "80223",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "120 S KALAMATH ST, DENVER, CO, 80223"
+      }
+    },
+    {
+      "source_record_id": "402-00766",
+      "address": "621 West Colorado Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80905",
+      "latitude": 38.832716190078,
+      "longitude": -104.83708142717,
+      "census_matched_postal_code": "80905",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "621 W COLORADO AVE, COLORADO SPRINGS, CO, 80905"
+      }
+    },
+    {
+      "source_record_id": "402-00768",
+      "address": "2057 South Broadway",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80210",
+      "latitude": 39.679302067088,
+      "longitude": -104.987642845446,
+      "census_matched_postal_code": "80210",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2057 S BROADWAY, DENVER, CO, 80210"
+      }
+    },
+    {
+      "source_record_id": "402-00773",
+      "address": "3150 Ingles Lane",
+      "city": "Steamboat Springs",
+      "region": "CO",
+      "postal_code": "80487",
+      "latitude": 40.447693520437,
+      "longitude": -106.814044413713,
+      "census_matched_postal_code": "80487",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3150 INGLES LN, STEAMBOAT SPRINGS, CO, 80487"
+      }
+    },
+    {
+      "source_record_id": "402-00789",
+      "address": "2755 Ore Mill Road, Unit 13",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80904",
+      "latitude": 38.847867456318,
+      "longitude": -104.869691076759,
+      "census_matched_postal_code": "80904",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2755 ORE MILL RD, COLORADO SPRINGS, CO, 80904"
+      }
+    },
+    {
+      "source_record_id": "402-00793",
+      "address": "3100 Blake Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80205",
+      "latitude": 39.764576310265,
+      "longitude": -104.980942478651,
+      "census_matched_postal_code": "80205",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3100 BLAKE ST, DENVER, CO, 80205"
+      }
+    },
+    {
+      "source_record_id": "402-00800",
+      "address": "1591 East Cheyenne Mountain Boulevard",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80906",
+      "latitude": 38.792317509089,
+      "longitude": -104.799442994763,
+      "census_matched_postal_code": "80906",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1591 E CHEYENNE MOUNTAIN BLVD, COLORADO SPRINGS, CO, 80906"
+      }
+    },
+    {
+      "source_record_id": "402-00811",
+      "address": "1795 Airport Road, Unit A2,",
+      "city": "Breckenridge",
+      "region": "CO",
+      "postal_code": "80424",
+      "latitude": 39.507365036274,
+      "longitude": -106.051838480995,
+      "census_matched_postal_code": "80424",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1795 AIRPORT RD, BRECKENRIDGE, CO, 80424"
+      }
+    },
+    {
+      "source_record_id": "402-00815",
+      "address": "329 East Pikes Peak Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80903",
+      "latitude": 38.833681071812,
+      "longitude": -104.819314657932,
+      "census_matched_postal_code": "80903",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "329 E PIKES PEAK AVE, COLORADO SPRINGS, CO, 80903"
+      }
+    },
+    {
+      "source_record_id": "402-00823",
+      "address": "204 East Main Street",
+      "city": "Buena Vista",
+      "region": "CO",
+      "postal_code": "81211",
+      "latitude": 38.842125368874,
+      "longitude": -106.131661826943,
+      "census_matched_postal_code": "81211",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "204 E MAIN ST, BUENA VISTA, CO, 81211"
+      }
+    },
+    {
+      "source_record_id": "402-00829",
+      "address": "6359 East Evans Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80222",
+      "latitude": 39.678521879871,
+      "longitude": -104.91429427846,
+      "census_matched_postal_code": "80222",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "6359 E EVANS AVE, DENVER, CO, 80222"
+      }
+    },
+    {
+      "source_record_id": "402-00830",
+      "address": "4842 Morrison Road Unit 420",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80219",
+      "latitude": 39.699650163663,
+      "longitude": -105.049097412494,
+      "census_matched_postal_code": "80219",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "4842 MORRISON RD, DENVER, CO, 80219"
+      }
+    },
+    {
+      "source_record_id": "402-00837",
+      "address": "900 North College Avenue",
+      "city": "Fort Collins",
+      "region": "CO",
+      "postal_code": "80524",
+      "latitude": 40.598809529047,
+      "longitude": -105.076589169334,
+      "census_matched_postal_code": "80524",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "900 N COLLEGE AVE, FORT COLLINS, CO, 80524"
+      }
+    },
+    {
+      "source_record_id": "402-00839",
+      "address": "810 North College Avenue",
+      "city": "Fort Collins",
+      "region": "CO",
+      "postal_code": "80524",
+      "latitude": 40.598251418688,
+      "longitude": -105.076597499407,
+      "census_matched_postal_code": "80524",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "810 N COLLEGE AVE, FORT COLLINS, CO, 80524"
+      }
+    },
+    {
+      "source_record_id": "402-00844",
+      "address": "346 East Mountain Avenue",
+      "city": "Fort Collins",
+      "region": "CO",
+      "postal_code": "80524",
+      "latitude": 40.587067522763,
+      "longitude": -105.073066359837,
+      "census_matched_postal_code": "80524",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "346 E MOUNTAIN AVE, FORT COLLINS, CO, 80524"
+      }
+    },
+    {
+      "source_record_id": "402-00849",
+      "address": "4012 West 38th Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80212",
+      "latitude": 39.769377982638,
+      "longitude": -105.039538388741,
+      "census_matched_postal_code": "80212",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "4012 W 38TH AVE, DENVER, CO, 80212"
+      }
+    },
+    {
+      "source_record_id": "402-00854",
+      "address": "1798 West Mississippi Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80223",
+      "latitude": 39.696668292493,
+      "longitude": -105.008634927572,
+      "census_matched_postal_code": "80223",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1798 W MISSISSIPPI AVE, DENVER, CO, 80223"
+      }
+    },
+    {
+      "source_record_id": "402-00859",
+      "address": "1090 North 2nd Street",
+      "city": "Berthoud",
+      "region": "CO",
+      "postal_code": "80513",
+      "latitude": 40.312443006548,
+      "longitude": -105.076034425137,
+      "census_matched_postal_code": "80513",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1090 N 2ND ST, BERTHOUD, CO, 80513"
+      }
+    },
+    {
+      "source_record_id": "402-00861",
+      "address": "804 South College Avenue",
+      "city": "Fort Collins",
+      "region": "CO",
+      "postal_code": "80524",
+      "latitude": 40.576607875748,
+      "longitude": -105.076904113464,
+      "census_matched_postal_code": "80524",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "804 S COLLEGE AVE, FORT COLLINS, CO, 80524"
+      }
+    },
+    {
+      "source_record_id": "402-00864",
+      "address": "1675 Jet Wing Drive",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80916",
+      "latitude": 38.80903584825,
+      "longitude": -104.740941697712,
+      "census_matched_postal_code": "80916",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1675 JET WING DR, COLORADO SPRINGS, CO, 80916"
+      }
+    },
+    {
+      "source_record_id": "402-00866",
+      "address": "74 North McCulloch Boulevard, Suite 120",
+      "city": "Pueblo West",
+      "region": "CO",
+      "postal_code": "81007",
+      "latitude": 38.338740478627,
+      "longitude": -104.742293434237,
+      "census_matched_postal_code": "81007",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "74 N MCCULLOCH BLVD, PUEBLO WEST, CO, 81007"
+      }
+    },
+    {
+      "source_record_id": "402-00868",
+      "address": "2103 East Platte Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909",
+      "latitude": 38.836948942069,
+      "longitude": -104.790112683126,
+      "census_matched_postal_code": "80909",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2103 E PLATTE AVE, COLORADO SPRINGS, CO, 80909"
+      }
+    },
+    {
+      "source_record_id": "402-00870",
+      "address": "5155 East 46th Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80216",
+      "latitude": 39.780185866814,
+      "longitude": -104.92828648819,
+      "census_matched_postal_code": "80216",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "5155 E 46TH AVE, DENVER, CO, 80216"
+      }
+    },
+    {
+      "source_record_id": "402-00874",
+      "address": "10575 Melody Drive Suite 101",
+      "city": "Northglenn",
+      "region": "CO",
+      "postal_code": "80234",
+      "latitude": 39.888114694641,
+      "longitude": -104.993339069718,
+      "census_matched_postal_code": "80234",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "10575 MELODY DR, NORTHGLENN, CO, 80234"
+      }
+    },
+    {
+      "source_record_id": "402-00877",
+      "address": "11101 East 51st Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80239",
+      "latitude": 39.790382860598,
+      "longitude": -104.858955850077,
+      "census_matched_postal_code": "80239",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "11101 E 51ST AVE, DENVER, CO, 80239"
+      }
+    },
+    {
+      "source_record_id": "402-00880",
+      "address": "1602 West Colorado Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80904",
+      "latitude": 38.839633006527,
+      "longitude": -104.849837916305,
+      "census_matched_postal_code": "80904",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1602 W COLORADO AVE, COLORADO SPRINGS, CO, 80904"
+      }
+    },
+    {
+      "source_record_id": "402-00883",
+      "address": "1750 30th Street, Unit 84B",
+      "city": "Boulder",
+      "region": "CO",
+      "postal_code": "80301",
+      "latitude": 40.0175855481,
+      "longitude": -105.253533485374,
+      "census_matched_postal_code": "80301",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1750 30TH ST, BOULDER, CO, 80301"
+      }
+    },
+    {
+      "source_record_id": "402-00887",
+      "address": "6712 South College Avenue Unit 5",
+      "city": "Fort Collins",
+      "region": "CO",
+      "postal_code": "80525",
+      "latitude": 40.493248159249,
+      "longitude": -105.077317441316,
+      "census_matched_postal_code": "80525",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "6712 S COLLEGE AVE, FORT COLLINS, CO, 80525"
+      }
+    },
+    {
+      "source_record_id": "402-00891",
+      "address": "2777 South Colorado Boulevard",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80222",
+      "latitude": 39.665989997293,
+      "longitude": -104.940761550827,
+      "census_matched_postal_code": "80222",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2777 S COLORADO BLVD, DENVER, CO, 80222"
+      }
+    },
+    {
+      "source_record_id": "402-00893",
+      "address": "41290 Highway 6, Unit B2",
+      "city": "Avon",
+      "region": "CO",
+      "postal_code": "81620",
+      "latitude": 39.621088701604,
+      "longitude": -106.46989430503,
+      "census_matched_postal_code": "81620",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "41290 US HWY 6, AVON, CO, 81620"
+      }
+    },
+    {
+      "source_record_id": "402-00898",
+      "address": "3435 South Yosemite Street, Suite 200",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80231",
+      "latitude": 39.655006447956,
+      "longitude": -104.884883633893,
+      "census_matched_postal_code": "80231",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3435 S YOSEMITE ST, DENVER, CO, 80231"
+      }
+    },
+    {
+      "source_record_id": "402-00918",
+      "address": "4335 East Platte Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80915",
+      "latitude": 38.839292394696,
+      "longitude": -104.746845855394,
+      "census_matched_postal_code": "80915",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "4335 E PLATTE AVE, COLORADO SPRINGS, CO, 80915"
+      }
+    },
+    {
+      "source_record_id": "402-00923",
+      "address": "5370 Manhattan Circle, Suite 104",
+      "city": "Boulder",
+      "region": "CO",
+      "postal_code": "80303",
+      "latitude": 39.985282916058,
+      "longitude": -105.227521395995,
+      "census_matched_postal_code": "80303",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "5370 MANHATTAN CIR, BOULDER, CO, 80303"
+      }
+    },
+    {
+      "source_record_id": "402-00925",
+      "address": "4380 East Alameda Avenue",
+      "city": "Glendale",
+      "region": "CO",
+      "postal_code": "80246",
+      "latitude": 39.711375553638,
+      "longitude": -104.936905969746,
+      "census_matched_postal_code": "80246",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "4380 E ALAMEDA AVE, GLENDALE, CO, 80246"
+      }
+    },
+    {
+      "source_record_id": "402-00929",
+      "address": "1101 Academy Court, Unit 4",
+      "city": "Fort Collins",
+      "region": "CO",
+      "postal_code": "80524",
+      "latitude": 40.572426047229,
+      "longitude": -105.043984279369,
+      "census_matched_postal_code": "80524",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1101 ACADEMY CT, FORT COLLINS, CO, 80524"
+      }
+    },
+    {
+      "source_record_id": "402-00930",
+      "address": "2909 North El Paso Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80907",
+      "latitude": 38.873649151035,
+      "longitude": -104.813005174781,
+      "census_matched_postal_code": "80907",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2909 N EL PASO ST, COLORADO SPRINGS, CO, 80907"
+      }
+    },
+    {
+      "source_record_id": "402-00934",
+      "address": "4801 West Colfax Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80204",
+      "latitude": 39.740414880647,
+      "longitude": -105.048739389439,
+      "census_matched_postal_code": "80204",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "4801 W COLFAX AVE, DENVER, CO, 80204"
+      }
+    },
+    {
+      "source_record_id": "402-00935",
+      "address": "211 East Costilla Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80903",
+      "latitude": 38.828100798871,
+      "longitude": -104.821724655853,
+      "census_matched_postal_code": "80903",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "211 E COSTILLA ST, COLORADO SPRINGS, CO, 80903"
+      }
+    },
+    {
+      "source_record_id": "402-00939",
+      "address": "3555 South Yosemite Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80237",
+      "latitude": 39.651579637114,
+      "longitude": -104.884827851208,
+      "census_matched_postal_code": "80237",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3555 S YOSEMITE ST, DENVER, CO, 80237"
+      }
+    },
+    {
+      "source_record_id": "402-00941",
+      "address": "12005 East 37th Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80239",
+      "latitude": 39.768143407891,
+      "longitude": -104.848480034118,
+      "census_matched_postal_code": "80239",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "12005 E 37TH AVE, DENVER, CO, 80239"
+      }
+    },
+    {
+      "source_record_id": "402-00942",
+      "address": "4550 South Kipling Street, Unit 4",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80127",
+      "latitude": 39.633972338687,
+      "longitude": -105.109824905126,
+      "census_matched_postal_code": "80127",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "4550 S KIPLING ST, DENVER, CO, 80127"
+      }
+    },
+    {
+      "source_record_id": "402-00947",
+      "address": "975 West Fillmore Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80907",
+      "latitude": 38.876309395592,
+      "longitude": -104.839293601354,
+      "census_matched_postal_code": "80907",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "975 W FILLMORE ST, COLORADO SPRINGS, CO, 80907"
+      }
+    },
+    {
+      "source_record_id": "402-00956",
+      "address": "600 South Broadway",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80209",
+      "latitude": 39.705669924501,
+      "longitude": -104.98748285583,
+      "census_matched_postal_code": "80209",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "600 S BROADWAY, DENVER, CO, 80209"
+      }
+    },
+    {
+      "source_record_id": "402-00958",
+      "address": "3516 South Mason Street",
+      "city": "Fort Collins",
+      "region": "CO",
+      "postal_code": "80525",
+      "latitude": 40.538920020199,
+      "longitude": -105.078909224186,
+      "census_matched_postal_code": "80525",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3516 S MASON ST, FORT COLLINS, CO, 80525"
+      }
+    },
+    {
+      "source_record_id": "402-00959",
+      "address": "3044 West Colorado Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80904",
+      "latitude": 38.852865520164,
+      "longitude": -104.871613097531,
+      "census_matched_postal_code": "80904",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3044 W COLORADO AVE, COLORADO SPRINGS, CO, 80904"
+      }
+    },
+    {
+      "source_record_id": "402-00961",
+      "address": "19 South Sunset Street",
+      "city": "Longmont",
+      "region": "CO",
+      "postal_code": "80501",
+      "latitude": 40.158444174532,
+      "longitude": -105.12140982804,
+      "census_matched_postal_code": "80501",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "19 S SUNSET ST, LONGMONT, CO, 80501"
+      }
+    },
+    {
+      "source_record_id": "402-00967",
+      "address": "10185 West 49th Avenue",
+      "city": "Wheat Ridge",
+      "region": "CO",
+      "postal_code": "80033",
+      "latitude": 39.785683960005,
+      "longitude": -105.112001673074,
+      "census_matched_postal_code": "80033",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "10185 W 49TH AVE, WHEAT RIDGE, CO, 80033"
+      }
+    },
+    {
+      "source_record_id": "402-00969",
+      "address": "4344 Montebello Drive",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80918",
+      "latitude": 38.894531978962,
+      "longitude": -104.757453947834,
+      "census_matched_postal_code": "80918",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "4344 MONTEBELLO DR, COLORADO SPRINGS, CO, 80918"
+      }
+    },
+    {
+      "source_record_id": "402-00971",
+      "address": "2160 South Lipan Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80223",
+      "latitude": 39.677411210756,
+      "longitude": -105.001703373713,
+      "census_matched_postal_code": "80223",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2160 S LIPAN ST, DENVER, CO, 80223"
+      }
+    },
+    {
+      "source_record_id": "402-00972",
+      "address": "5610 West 20th Avenue",
+      "city": "Edgewater",
+      "region": "CO",
+      "postal_code": "80214",
+      "latitude": 39.747575038746,
+      "longitude": -105.058080413755,
+      "census_matched_postal_code": "80214",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "5610 W 20TH AVE, EDGEWATER, CO, 80214"
+      }
+    },
+    {
+      "source_record_id": "402-00975",
+      "address": "893 East Enterprise Drive",
+      "city": "Pueblo West",
+      "region": "CO",
+      "postal_code": "81007",
+      "latitude": 38.325497912222,
+      "longitude": -104.705130721519,
+      "census_matched_postal_code": "81007",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "893 E ENTERPRISE DR, PUEBLO WEST, CO, 81007"
+      }
+    },
+    {
+      "source_record_id": "402-00977",
+      "address": "7870 West Quincy Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80123",
+      "latitude": 39.638636305761,
+      "longitude": -105.084824744005,
+      "census_matched_postal_code": "80123",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "7870 W QUINCY AVE, DENVER, CO, 80123"
+      }
+    },
+    {
+      "source_record_id": "402-00978",
+      "address": "5231 South Santa Fe Drive",
+      "city": "Littleton",
+      "region": "CO",
+      "postal_code": "80120",
+      "latitude": 39.621153940127,
+      "longitude": -105.016044329606,
+      "census_matched_postal_code": "80120",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "5231 S SANTA FE DR, LITTLETON, CO, 80120"
+      }
+    },
+    {
+      "source_record_id": "402-00980",
+      "address": "1917 Santa Fe Drive",
+      "city": "Pueblo",
+      "region": "CO",
+      "postal_code": "81006",
+      "latitude": 38.245663081504,
+      "longitude": -104.575699180606,
+      "census_matched_postal_code": "81006",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1917 SANTA FE DR, PUEBLO, CO, 81006"
+      }
+    },
+    {
+      "source_record_id": "402-00983",
+      "address": "2301 Rand Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80905",
+      "latitude": 38.799161404008,
+      "longitude": -104.80133452297,
+      "census_matched_postal_code": "80905",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2301 RAND AVE, COLORADO SPRINGS, CO, 80905"
+      }
+    },
+    {
+      "source_record_id": "402-00992",
+      "address": "1000 Independence Road",
+      "city": "Trinidad",
+      "region": "CO",
+      "postal_code": "81082",
+      "latitude": 37.191002549076,
+      "longitude": -104.49709542279,
+      "census_matched_postal_code": "81082",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1000 INDEPENDENCE RD, TRINIDAD, CO, 81082"
+      }
+    },
+    {
+      "source_record_id": "402-00998",
+      "address": "2863 Larimer Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80205",
+      "latitude": 39.761041417443,
+      "longitude": -104.982235577881,
+      "census_matched_postal_code": "80205",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2863 LARIMER ST, DENVER, CO, 80205"
+      }
+    },
+    {
+      "source_record_id": "402-01005",
+      "address": "1714 Santa Fe Drive",
+      "city": "Pueblo",
+      "region": "CO",
+      "postal_code": "81006",
+      "latitude": 38.245577297872,
+      "longitude": -104.579357982999,
+      "census_matched_postal_code": "81006",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1714 SANTA FE DR, PUEBLO, CO, 81006"
+      }
+    },
+    {
+      "source_record_id": "402-01023",
+      "address": "6755 North Academy Boulevard",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80918",
+      "latitude": 38.928412567065,
+      "longitude": -104.793208875777,
+      "census_matched_postal_code": "80918",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "6755 N ACADEMY BLVD, COLORADO SPRINGS, CO, 80918"
+      }
+    },
+    {
+      "source_record_id": "402-01031",
+      "address": "4335 North Academy Boulevard, Suite 100",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80918",
+      "latitude": 38.895122522326,
+      "longitude": -104.758857930829,
+      "census_matched_postal_code": "80918",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "4335 N ACADEMY BLVD, COLORADO SPRINGS, CO, 80918"
+      }
+    },
+    {
+      "source_record_id": "402-01042",
+      "address": "3660 Austin Bluffs Parkway",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80918",
+      "latitude": 38.890909619414,
+      "longitude": -104.75937804676,
+      "census_matched_postal_code": "80918",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3660 AUSTIN BLUFFS PKWY, COLORADO SPRINGS, CO, 80918"
+      }
+    },
+    {
+      "source_record_id": "402-01044",
+      "address": "403 North Circle Drive",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909",
+      "latitude": 38.837969125327,
+      "longitude": -104.775833335468,
+      "census_matched_postal_code": "80909",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "403 N CIRCLE DR, COLORADO SPRINGS, CO, 80909"
+      }
+    },
+    {
+      "source_record_id": "402-01057",
+      "address": "1426 North Academy Boulevard",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909",
+      "latitude": 38.853393276654,
+      "longitude": -104.757485118151,
+      "census_matched_postal_code": "80909",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1426 N ACADEMY BLVD, COLORADO SPRINGS, CO, 80909"
+      }
+    },
+    {
+      "source_record_id": "402-01062",
+      "address": "4740 Dillon Drive",
+      "city": "Pueblo",
+      "region": "CO",
+      "postal_code": "81008",
+      "latitude": 38.320665155623,
+      "longitude": -104.61246235491,
+      "census_matched_postal_code": "81008",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "4740 DILLON DR, PUEBLO, CO, 81008"
+      }
+    },
+    {
+      "source_record_id": "402-01066",
+      "address": "8270 Razorback Road",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80920",
+      "latitude": 38.951877766387,
+      "longitude": -104.80040642862,
+      "census_matched_postal_code": "80920",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "8270 RAZORBACK RD, COLORADO SPRINGS, CO, 80920"
+      }
+    },
+    {
+      "source_record_id": "402-01071",
+      "address": "3178 West Colorado Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80904",
+      "latitude": 38.854907499194,
+      "longitude": -104.874983690082,
+      "census_matched_postal_code": "80904",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3178 W COLORADO AVE, COLORADO SPRINGS, CO, 80904"
+      }
+    },
+    {
+      "source_record_id": "402-01072",
+      "address": "2354 East Platte Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909",
+      "latitude": 38.837469829357,
+      "longitude": -104.784551259248,
+      "census_matched_postal_code": "80909",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2354 E PLATTE AVE, COLORADO SPRINGS, CO, 80909"
+      }
+    },
+    {
+      "source_record_id": "402-01075",
+      "address": "2222 West Colorado Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80904",
+      "latitude": 38.844730938472,
+      "longitude": -104.858497109668,
+      "census_matched_postal_code": "80904",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2222 W COLORADO AVE, COLORADO SPRINGS, CO, 80904"
+      }
+    },
+    {
+      "source_record_id": "402-01077",
+      "address": "5201 West 48th Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80212",
+      "latitude": 39.783858405058,
+      "longitude": -105.053256734146,
+      "census_matched_postal_code": "80212",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "5201 W 48TH AVE, DENVER, CO, 80212"
+      }
+    },
+    {
+      "source_record_id": "402-01080",
+      "address": "2038 South Navajo Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80223",
+      "latitude": 39.679747543437,
+      "longitude": -105.004019073981,
+      "census_matched_postal_code": "80223",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2038 S NAVAJO ST, DENVER, CO, 80223"
+      }
+    },
+    {
+      "source_record_id": "402-01083",
+      "address": "1705 West Uintah Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80904",
+      "latitude": 38.847914400072,
+      "longitude": -104.846193191404,
+      "census_matched_postal_code": "80904",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1705 W UINTAH ST, COLORADO SPRINGS, CO, 80904"
+      }
+    },
+    {
+      "source_record_id": "402-01084",
+      "address": "1003 North Academy Boulevard",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909",
+      "latitude": 38.847119798306,
+      "longitude": -104.75717929919,
+      "census_matched_postal_code": "80909",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1003 N ACADEMY BLVD, COLORADO SPRINGS, CO, 80909"
+      }
+    },
+    {
+      "source_record_id": "402-01085",
+      "address": "12626 North 107 Street",
+      "city": "Longmont",
+      "region": "CO",
+      "postal_code": "80504",
+      "latitude": 40.203649329328,
+      "longitude": -105.102427792321,
+      "census_matched_postal_code": "80504",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "12626 N 107TH ST, LONGMONT, CO, 80504"
+      }
+    },
+    {
+      "source_record_id": "402-01089",
+      "address": "1155 South Cherokee Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80223",
+      "latitude": 39.695638803871,
+      "longitude": -104.991373038799,
+      "census_matched_postal_code": "80223",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1155 S CHEROKEE ST, DENVER, CO, 80223"
+      }
+    },
+    {
+      "source_record_id": "402-01092",
+      "address": "3995 North Academy Boulevard",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80917",
+      "latitude": 38.890129670449,
+      "longitude": -104.756775984561,
+      "census_matched_postal_code": "80917",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3995 N ACADEMY BLVD, COLORADO SPRINGS, CO, 80917"
+      }
+    },
+    {
+      "source_record_id": "402-01097",
+      "address": "3640 West Colorado Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80904",
+      "latitude": 38.856615126381,
+      "longitude": -104.883675670739,
+      "census_matched_postal_code": "80904",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3640 W COLORADO AVE, COLORADO SPRINGS, CO, 80904"
+      }
+    },
+    {
+      "source_record_id": "402-01111",
+      "address": "2712 East Fountain Boulevard",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80910",
+      "latitude": 38.817460360607,
+      "longitude": -104.781970884441,
+      "census_matched_postal_code": "80910",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2712 E FOUNTAIN BLVD, COLORADO SPRINGS, CO, 80910"
+      }
+    },
+    {
+      "source_record_id": "402-01119",
+      "address": "3049 Delta Drive",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80910",
+      "latitude": 38.795400182079,
+      "longitude": -104.777043942103,
+      "census_matched_postal_code": "80910",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3049 DELTA DR, COLORADO SPRINGS, CO, 80910"
+      }
+    },
+    {
+      "source_record_id": "402-01120",
+      "address": "2949 West Alameda Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80219",
+      "latitude": 39.71121864043,
+      "longitude": -105.024466261404,
+      "census_matched_postal_code": "80219",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2949 W ALAMEDA AVE, DENVER, CO, 80219"
+      }
+    },
+    {
+      "source_record_id": "402-01130",
+      "address": "3840 North Nevada Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80907",
+      "latitude": 38.888656783825,
+      "longitude": -104.819095098917,
+      "census_matched_postal_code": "80907",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3840 N NEVADA AVE, COLORADO SPRINGS, CO, 80907"
+      }
+    },
+    {
+      "source_record_id": "402-01140",
+      "address": "1433 South Tejon Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80905",
+      "latitude": 38.813438820333,
+      "longitude": -104.824531240582,
+      "census_matched_postal_code": "80905",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1433 S TEJON ST, COLORADO SPRINGS, CO, 80905"
+      }
+    },
+    {
+      "source_record_id": "402-01153",
+      "address": "320 Prairie Road",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909",
+      "latitude": 38.837353580263,
+      "longitude": -104.787443809402,
+      "census_matched_postal_code": "80909",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "320 PRAIRIE RD, COLORADO SPRINGS, CO, 80909"
+      }
+    },
+    {
+      "source_record_id": "402-01154",
+      "address": "1105 South Chelton Road",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80910",
+      "latitude": 38.816070880711,
+      "longitude": -104.766209756523,
+      "census_matched_postal_code": "80910",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1105 S CHELTON RD, COLORADO SPRINGS, CO, 80910"
+      }
+    },
+    {
+      "source_record_id": "402-01157",
+      "address": "510 East Pikes Peak Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80903",
+      "latitude": 38.833467744037,
+      "longitude": -104.815345352548,
+      "census_matched_postal_code": "80903",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "510 E PIKES PEAK AVE, COLORADO SPRINGS, CO, 80903"
+      }
+    },
+    {
+      "source_record_id": "402-01162",
+      "address": "408 East Fillmore Street, Suite 110",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80907",
+      "latitude": 38.874284384123,
+      "longitude": -104.814793908902,
+      "census_matched_postal_code": "80907",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "408 E FILLMORE ST, COLORADO SPRINGS, CO, 80907"
+      }
+    },
+    {
+      "source_record_id": "402-01167",
+      "address": "1428 North Circle Drive, Unit 2",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909",
+      "latitude": 38.853356986024,
+      "longitude": -104.775867614025,
+      "census_matched_postal_code": "80909",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1428 N CIRCLE DR, COLORADO SPRINGS, CO, 80909"
+      }
+    },
+    {
+      "source_record_id": "402-01168",
+      "address": "2489 South Academy Boulevard",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80916",
+      "latitude": 38.796562444506,
+      "longitude": -104.757431225315,
+      "census_matched_postal_code": "80916",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2489 S ACADEMY BLVD, COLORADO SPRINGS, CO, 80916"
+      }
+    },
+    {
+      "source_record_id": "402-01170",
+      "address": "3615 East Platte Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909",
+      "latitude": 38.839355395664,
+      "longitude": -104.76156371292,
+      "census_matched_postal_code": "80909",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3615 E PLATTE AVE, COLORADO SPRINGS, CO, 80909"
+      }
+    },
+    {
+      "source_record_id": "402-01171",
+      "address": "3850 North Nevada Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80907",
+      "latitude": 38.888718720431,
+      "longitude": -104.819097034429,
+      "census_matched_postal_code": "80907",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3850 N NEVADA AVE, COLORADO SPRINGS, CO, 80907"
+      }
+    },
+    {
+      "source_record_id": "402-01173",
+      "address": "3629 Galley Road",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909",
+      "latitude": 38.847021793662,
+      "longitude": -104.760943525807,
+      "census_matched_postal_code": "80909",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3629 GALLEY RD, COLORADO SPRINGS, CO, 80909"
+      }
+    },
+    {
+      "source_record_id": "402-01174",
+      "address": "319 Bonfoy Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909",
+      "latitude": 38.837448925201,
+      "longitude": -104.792909639504,
+      "census_matched_postal_code": "80909",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "319 BONFOY AVE, COLORADO SPRINGS, CO, 80909"
+      }
+    },
+    {
+      "source_record_id": "402-01176",
+      "address": "3079 South Academy Boulevard",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80916",
+      "latitude": 38.788050046169,
+      "longitude": -104.7573943821,
+      "census_matched_postal_code": "80916",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3079 S ACADEMY BLVD, COLORADO SPRINGS, CO, 80916"
+      }
+    },
+    {
+      "source_record_id": "402-01193",
+      "address": "3480 South Galena Street, Unit B-4",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80231",
+      "latitude": 39.654055138626,
+      "longitude": -104.868853063839,
+      "census_matched_postal_code": "80231",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3480 S GALENA ST, DENVER, CO, 80231"
+      }
+    },
+    {
+      "source_record_id": "402-01194",
+      "address": "3715 Drennan Road",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80910",
+      "latitude": 38.78164740366,
+      "longitude": -104.758523317088,
+      "census_matched_postal_code": "80910",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3715 DRENNAN RD, COLORADO SPRINGS, CO, 80910"
+      }
+    },
+    {
+      "source_record_id": "402-01211",
+      "address": "1709 Swink Avenue",
+      "city": "Rocky Ford",
+      "region": "CO",
+      "postal_code": "81067",
+      "latitude": 38.050398659517,
+      "longitude": -103.709496362153,
+      "census_matched_postal_code": "81067",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1709 SWINK AVE, ROCKY FORD, CO, 81067"
+      }
+    },
+    {
+      "source_record_id": "402-01225",
+      "address": "1001 South Royer Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80903",
+      "latitude": 38.819770494636,
+      "longitude": -104.815393016001,
+      "census_matched_postal_code": "80903",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1001 S ROYER ST, COLORADO SPRINGS, CO, 80903"
+      }
+    },
+    {
+      "source_record_id": "402-01243",
+      "address": "286 South Purcell Boulevard",
+      "city": "Pueblo West",
+      "region": "CO",
+      "postal_code": "81007",
+      "latitude": 38.319165244998,
+      "longitude": -104.705349236052,
+      "census_matched_postal_code": "81007",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "286 S PURCELL BLVD, PUEBLO WEST, CO, 81007"
+      }
+    },
+    {
+      "source_record_id": "402-01255",
+      "address": "9364 Federal Boulevard",
+      "city": "Federal Heights",
+      "region": "CO",
+      "postal_code": "80260",
+      "latitude": 39.866401194055,
+      "longitude": -105.024945478062,
+      "census_matched_postal_code": "80260",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "9364 FEDERAL BLVD, FEDERAL HEIGHTS, CO, 80260"
+      }
+    },
+    {
+      "source_record_id": "402-01300",
+      "address": "5385 Quebec Street",
+      "city": "Commerce City",
+      "region": "CO",
+      "postal_code": "80022",
+      "latitude": 39.793310078144,
+      "longitude": -104.903612795067,
+      "census_matched_postal_code": "80022",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "5385 QUEBEC ST, COMMERCE CITY, CO, 80022"
+      }
+    },
+    {
+      "source_record_id": "402-01304",
+      "address": "701 East Valley Road Unit 102",
+      "city": "Basalt",
+      "region": "CO",
+      "postal_code": "81621",
+      "latitude": 39.388018666039,
+      "longitude": -107.08374406829,
+      "census_matched_postal_code": "81621",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "701 E VALLEY RD, BASALT, CO, 81621"
+      }
+    },
+    {
+      "source_record_id": "402-01313",
+      "address": "25 Stafford Lane, Unit 3",
+      "city": "Delta",
+      "region": "CO",
+      "postal_code": "81416",
+      "latitude": 38.749164508477,
+      "longitude": -108.050704134251,
+      "census_matched_postal_code": "81416",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "25 STAFFORD LN, DELTA, CO, 81416"
+      }
+    },
+    {
+      "source_record_id": "402-01319",
+      "address": "27 Manitou Avenue",
+      "city": "Manitou Springs",
+      "region": "CO",
+      "postal_code": "80829",
+      "latitude": 38.857277305275,
+      "longitude": -104.890145963473,
+      "census_matched_postal_code": "80829",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "27 MANITOU AVE, MANITOU SPRINGS, CO, 80829"
+      }
+    },
+    {
+      "source_record_id": "402-01371",
+      "address": "117 Greydene Avenue",
+      "city": "Canon City",
+      "region": "CO",
+      "postal_code": "81212",
+      "latitude": 38.446904081568,
+      "longitude": -105.210945141696,
+      "census_matched_postal_code": "81212",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "117 GREYDENE AVE, CANON CITY, CO, 81212"
+      }
+    },
+    {
+      "source_record_id": "402-01525",
+      "address": "206 South Main Street",
+      "city": "Longmont",
+      "region": "CO",
+      "postal_code": "80501",
+      "latitude": 40.154497455162,
+      "longitude": -105.102474269878,
+      "census_matched_postal_code": "80501",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "206 S MAIN ST, LONGMONT, CO, 80501"
+      }
+    },
+    {
+      "source_record_id": "402-01563",
+      "address": "683 Horizon Drive, Unit 110",
+      "city": "Grand Junction",
+      "region": "CO",
+      "postal_code": "81506",
+      "latitude": 39.098832499792,
+      "longitude": -108.556848812601,
+      "census_matched_postal_code": "81506",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "683 HORIZON DR, GRAND JUNCTION, CO, 81506"
+      }
+    },
+    {
+      "source_record_id": "402-01722",
+      "address": "3141 Walnut Street",
+      "city": "Boulder",
+      "region": "CO",
+      "postal_code": "80301",
+      "latitude": 40.020138104381,
+      "longitude": -105.251612873084,
+      "census_matched_postal_code": "80301",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "3141 WALNUT ST, BOULDER, CO, 80301"
+      }
+    },
+    {
+      "source_record_id": "402-01723",
+      "address": "560 North 7th Avenue",
+      "city": "Brighton",
+      "region": "CO",
+      "postal_code": "80601",
+      "latitude": 39.99716894221,
+      "longitude": -104.813745091465,
+      "census_matched_postal_code": "80601",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "560 N 7TH AVE, BRIGHTON, CO, 80601"
+      }
+    },
+    {
+      "source_record_id": "402-01725",
+      "address": "141 Manitou Avenue",
+      "city": "Manitou Springs",
+      "region": "CO",
+      "postal_code": "80829",
+      "latitude": 38.857917886626,
+      "longitude": -104.892793572752,
+      "census_matched_postal_code": "80829",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "141 MANITOU AVE, MANITOU SPRINGS, CO, 80829"
+      }
+    }
+  ]
+}

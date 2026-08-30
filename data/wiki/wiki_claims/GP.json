@@ -21,17 +21,22 @@
       "title": "Legality_of_cannabis"
     }
   ],
-  "notes_text": "",
-  "notes_text_len": 0,
-  "notes": "",
+  "notes_text": "Main article: Legality_of_cannabis.\n\n'''Adult legal status of cannabis possession for recreational use''' 1 ----\n\n----]]\n\n'''Adult legal status of cannabis for medical use''' 1 ----",
+  "notes_text_len": 181,
+  "notes": "Main article: Legality_of_cannabis.\n\n'''Adult legal status of cannabis possession for recreational use''' 1 ----\n\n----]]\n\n'''Adult legal status of cannabis for medical use''' 1 ----",
   "notes_raw": "",
   "recreational_status": "Unknown",
   "medical_status": "Unknown",
-  "wiki_revision_id": "1360109215",
-  "fetched_at": "2026-06-21T17:29:39.863Z",
-  "notes_kind": "NONE",
-  "notes_reason_code": "PARSED_SECTIONS",
-  "sources_reason_code": "",
+  "wiki_revision_id": "1369217124",
+  "fetched_at": "2026-08-21T15:32:41.930Z",
+  "sources_reason_code": "SOURCES_EMPTY_BLOCKED",
+  "notes_kind": "RICH",
+  "notes_reason_code": "NOTES_WEAKEN_BLOCKED_SAME_STATUS",
+  "notes_sections_used": [
+    "main_article",
+    "lead"
+  ],
+  "notes_main_article": "Legality_of_cannabis",
   "source": "unknown",
-  "revision_id": "1360109215"
+  "revision_id": "1369217124"
 }

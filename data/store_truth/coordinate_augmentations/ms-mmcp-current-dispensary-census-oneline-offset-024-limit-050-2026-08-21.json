@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "fetched_at": "2026-08-21T01:07:03.720Z",
+  "local_only": true,
+  "input_snapshot_path": "data/store_truth/source_snapshots/ms-mmcp-current-dispensary-registry-2026-08-14.json",
+  "input_snapshot_sha256": "1ab246ff2b000ff7d618786cd539b634d965d74acff30f8f3e6b9fc2ad5df690",
+  "census_benchmark": "Public_AR_Current",
+  "match_policy": "ONE_MATCH_OPTIONAL_MATCH_TYPE_MATCH_OR_EXACT_SAME_CANONICAL_ONELINE_ADDRESS_AND_IN_DECLARED_BOUNDS",
+  "requested_candidates": 50,
+  "accepted_records": 17,
+  "blocked_records": 33,
+  "records": [
+    {
+      "source_record_id": "1317",
+      "address": "2009 MILITARY RD",
+      "city": "COLUMBUS",
+      "region": "MS",
+      "postal_code": "39701",
+      "latitude": 33.516619554159,
+      "longitude": -88.415937437817,
+      "source_combined_address": "2009 MILITARY RD COLUMBUS, MS 39701",
+      "public_source_fields": {
+        "census_matched_address": "2009 MILITARY RD, COLUMBUS, MS, 39701"
+      }
+    },
+    {
+      "source_record_id": "1326",
+      "address": "2570 JACKSON AVE W",
+      "city": "OXFORD",
+      "region": "MS",
+      "postal_code": "38655",
+      "latitude": 34.362003883308,
+      "longitude": -89.565370030681,
+      "source_combined_address": "2570 JACKSON AVE W OXFORD, MS 38655",
+      "public_source_fields": {
+        "census_matched_address": "2570 JACKSON AVE W, OXFORD, MS, 38655"
+      }
+    },
+    {
+      "source_record_id": "132840",
+      "address": "39 BASS RD",
+      "city": "WIGGINS",
+      "region": "MS",
+      "postal_code": "39577",
+      "latitude": 30.894290143304,
+      "longitude": -89.16765184144,
+      "source_combined_address": "39 BASS RD WIGGINS, MS 39577",
+      "public_source_fields": {
+        "census_matched_address": "39 BASS RD, WIGGINS, MS, 39577"
+      }
+    },
+    {
+      "source_record_id": "1333",
+      "address": "3702 HARDY ST",
+      "city": "HATTIESBURG",
+      "region": "MS",
+      "postal_code": "39402",
+      "latitude": 31.324706969367,
+      "longitude": -89.334394599212,
+      "source_combined_address": "3702 HARDY ST HATTIESBURG, MS 39402",
+      "public_source_fields": {
+        "census_matched_address": "3702 HARDY ST, HATTIESBURG, MS, 39402"
+      }
+    },
+    {
+      "source_record_id": "1339",
+      "address": "1223 SUNSET DR",
+      "city": "GRENADA",
+      "region": "MS",
+      "postal_code": "38901",
+      "latitude": 33.773711892843,
+      "longitude": -89.822262370317,
+      "source_combined_address": "1223 SUNSET DR GRENADA, MS 38901",
+      "public_source_fields": {
+        "census_matched_address": "1223 SUNSET DR, GRENADA, MS, 38901"
+      }
+    },
+    {
+      "source_record_id": "1341",
+      "address": "241 OLD HWY 98 E",
+      "city": "TYLERTOWN",
+      "region": "MS",
+      "postal_code": "39667",
+      "latitude": 31.124924438715,
+      "longitude": -90.106076515915,
+      "source_combined_address": "241 OLD HIGHWAY 98 E TYLERTOWN, MS 39667",
+      "public_source_fields": {
+        "census_matched_address": "241 OLD HWY 98 E, TYLERTOWN, MS, 39667"
+      }
+    },
+    {
+      "source_record_id": "1346",
+      "address": "232 DEBUYS RD",
+      "city": "BILOXI",
+      "region": "MS",
+      "postal_code": "39531",
+      "latitude": 30.395661976484,
+      "longitude": -89.001245102669,
+      "source_combined_address": "232 DEBUYS RD BILOXI, MS 39531",
+      "public_source_fields": {
+        "census_matched_address": "232 DEBUYS RD, BILOXI, MS, 39531"
+      }
+    },
+    {
+      "source_record_id": "1350",
+      "address": "1800 6TH ST",
+      "city": "MERIDIAN",
+      "region": "MS",
+      "postal_code": "39301",
+      "latitude": 32.366786997172,
+      "longitude": -88.696786029257,
+      "source_combined_address": "1800 6TH ST MERIDIAN, MS 39301",
+      "public_source_fields": {
+        "census_matched_address": "1800 6TH ST, MERIDIAN, MS, 39301"
+      }
+    },
+    {
+      "source_record_id": "1352",
+      "address": "1051 E COUNTY LINE RD",
+      "city": "JACKSON",
+      "region": "MS",
+      "postal_code": "39211",
+      "latitude": 32.399507903924,
+      "longitude": -90.141759945562,
+      "source_combined_address": "1051 E COUNTY LINE RD JACKSON, MS 39211",
+      "public_source_fields": {
+        "census_matched_address": "1051 E COUNTY LINE RD, JACKSON, MS, 39211"
+      }
+    },
+    {
+      "source_record_id": "1357",
+      "address": "2348 MOUNT PLEASANT RD",
+      "city": "HERNANDO",
+      "region": "MS",
+      "postal_code": "38632",
+      "latitude": 34.826278190901,
+      "longitude": -89.985136248707,
+      "source_combined_address": "2348 MOUNT PLEASANT RD HERNANDO, MS 38632",
+      "public_source_fields": {
+        "census_matched_address": "2348 MOUNT PLEASANT RD, HERNANDO, MS, 38632"
+      }
+    },
+    {
+      "source_record_id": "1361",
+      "address": "3023 GOODMAN RD W",
+      "city": "HORN LAKE",
+      "region": "MS",
+      "postal_code": "38637",
+      "latitude": 34.962571383021,
+      "longitude": -90.044510349956,
+      "source_combined_address": "3023 GOODMAN RD W HORN LAKE, MS 38637",
+      "public_source_fields": {
+        "census_matched_address": "3023 GOODMAN RD W, HORN LAKE, MS, 38637"
+      }
+    },
+    {
+      "source_record_id": "1365",
+      "address": "111 S INDUSTRIAL RD",
+      "city": "TUPELO",
+      "region": "MS",
+      "postal_code": "38801",
+      "latitude": 34.257137339939,
+      "longitude": -88.720647327019,
+      "source_combined_address": "111 S INDUSTRIAL RD TUPELO, MS 38801",
+      "public_source_fields": {
+        "census_matched_address": "111 S INDUSTRIAL RD, TUPELO, MS, 38801"
+      }
+    },
+    {
+      "source_record_id": "1368",
+      "address": "2572 PASS RD",
+      "city": "BILOXI",
+      "region": "MS",
+      "postal_code": "39531",
+      "latitude": 30.400916965858,
+      "longitude": -88.986862113037,
+      "source_combined_address": "2572 PASS RD BILOXI, MS 39531",
+      "public_source_fields": {
+        "census_matched_address": "2572 PASS RD, BILOXI, MS, 39531"
+      }
+    },
+    {
+      "source_record_id": "1370",
+      "address": "1201 N GLOSTER ST",
+      "city": "TUPELO",
+      "region": "MS",
+      "postal_code": "38804",
+      "latitude": 34.279817098475,
+      "longitude": -88.71562085937,
+      "source_combined_address": "1201 N GLOSTER ST TUPELO, MS 38804",
+      "public_source_fields": {
+        "census_matched_address": "1201 N GLOSTER ST, TUPELO, MS, 38804"
+      }
+    },
+    {
+      "source_record_id": "1379",
+      "address": "717 N DAVIS AVE",
+      "city": "CLEVELAND",
+      "region": "MS",
+      "postal_code": "38732",
+      "latitude": 33.755289231715,
+      "longitude": -90.715893265912,
+      "source_combined_address": "717 N DAVIS AVE CLEVELAND, MS 38732",
+      "public_source_fields": {
+        "census_matched_address": "717 N DAVIS AVE, CLEVELAND, MS, 38732"
+      }
+    },
+    {
+      "source_record_id": "1404",
+      "address": "300 N FRONTAGE RD",
+      "city": "MERIDIAN",
+      "region": "MS",
+      "postal_code": "39301",
+      "latitude": 32.363413498188,
+      "longitude": -88.676867794786,
+      "source_combined_address": "300 N FRONTAGE RD MERIDIAN, MS 39301",
+      "public_source_fields": {
+        "census_matched_address": "300 N FRONTAGE RD, MERIDIAN, MS, 39301"
+      }
+    },
+    {
+      "source_record_id": "1408",
+      "address": "939 BROOKWAY BLVD",
+      "city": "BROOKHAVEN",
+      "region": "MS",
+      "postal_code": "39601",
+      "latitude": 31.578911956,
+      "longitude": -90.465026716827,
+      "source_combined_address": "939 Brookway Blvd Brookhaven, MS 39601",
+      "public_source_fields": {
+        "census_matched_address": "939 BROOKWAY BLVD, BROOKHAVEN, MS, 39601"
+      }
+    }
+  ]
+}

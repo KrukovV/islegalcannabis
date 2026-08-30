@@ -9,6 +9,7 @@ import {
   assertCanonicalGeoUniverse,
   assertLedgerSourceApplicability,
 } from "./canonical_geo_universe.mjs";
+import { reconcileDeclaredIndependentTruth } from "./independent_truth_consistency.mjs";
 
 const ROOT = process.cwd();
 const readJson = (relativePath) => JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8"));
@@ -166,14 +167,18 @@ const isLikelyLeadershipDecreeNonCannabisScope = (link) => {
   return isLikelyLeadershipContextSource && hasLeadershipDecreeOverbroadMarker && hasNonCannabisAnchor && !hasCannabisPolicySignal && hasCannabisScopeSignal;
 };
 const isCannabisScopeSpecificLink = (link, geo, visualConclusions) => {
-  const sourceText = `${link.url || ""} ${link.title || ""} ${link.sourceKind || ""} ${link.note || ""} ${link.visualReview || ""} ${visualConclusions?.conclusion || ""}`;
+  // Source relevance is a property of the source itself.  A territory-level
+  // conclusion can mention cannabis because another source in the same packet
+  // does, but it must never turn a geographic/classification context page into
+  // direct cannabis-law evidence.
+  const sourceText = `${link.url || ""} ${link.title || ""} ${link.sourceKind || ""} ${link.note || ""} ${link.visualReview || ""}`;
   const relevance = classifySourceRelevance({
     geo,
     ...link,
-    surrounding_context: `${link.note || ""} ${link.visualReview || ""} ${visualConclusions?.conclusion || ""}`,
+    surrounding_context: `${link.note || ""} ${link.visualReview || ""}`,
   });
   if (relevance.acceptedAsDirect || isDirectCannabisEvidenceCandidate(link)) return true;
-  if (/LEADERSHIP_OR_GENERAL_NARCOTICS_PAGE_WITHOUT_CANNABIS_SPECIFIC_NORM|CONTEXT_SENSITIVE_TERM_WITHOUT_CANNABIS_CONTEXT/i.test(String(relevance.exclusion_reason || ""))) {
+  if (/LEADERSHIP_OR_GENERAL_NARCOTICS_PAGE_WITHOUT_CANNABIS_SPECIFIC_NORM|CONTEXT_SENSITIVE_TERM_WITHOUT_CANNABIS_CONTEXT|EXPLICIT_NON_CANNABIS_CONTEXT_PROVENANCE/i.test(String(relevance.exclusion_reason || ""))) {
     return false;
   }
   const hasNonCannabis = hasNonCannabisScopeSignals(sourceText);
@@ -196,6 +201,47 @@ const normalizedUrlKey = (value) => {
   if (parsed.pathname !== "/") parsed.pathname = parsed.pathname.replace(/\/+$/, "");
   return parsed.toString();
 };
+const mergeSameUrlContextLinks = (links) => [...links.reduce((byUrl, candidate) => {
+  const key = normalizedUrlKey(candidate.url);
+  const current = byUrl.get(key);
+  if (!current) {
+    byUrl.set(key, candidate);
+    return byUrl;
+  }
+  // The revalidation ledger can add fresher provenance for a URL that is
+  // already represented by a complete visual context record. Preserve that
+  // readable capture instead of silently downgrading it to a null screenshot.
+  const contextLinkScore = (link) =>
+    Number(Boolean(link.screenshotPath)) +
+    Number(link.officialOwnerVisible === true) +
+    Number(link.effectiveRuleVisible === true) +
+    Number(link.screenshotValid === true) +
+    Number(link.current === true);
+  const preferred = contextLinkScore(candidate) > contextLinkScore(current) ? candidate : current;
+  const secondary = preferred === candidate ? current : candidate;
+  const combinedNotes = [preferred.note, secondary.note]
+    .filter(Boolean)
+    .filter((value, index, values) => values.indexOf(value) === index)
+    .join(" ");
+  const combinedReviews = [preferred.visualReview, secondary.visualReview]
+    .filter(Boolean)
+    .filter((value, index, values) => values.indexOf(value) === index)
+    .join(" ");
+  byUrl.set(key, {
+    ...secondary,
+    ...preferred,
+    note: combinedNotes || null,
+    visualReview: combinedReviews || null,
+    // A current revalidation annotation remains authoritative even when the
+    // earlier record supplies the stronger visual capture for that same URL.
+    sourceAnnotation: secondary.sourceAnnotation || preferred.sourceAnnotation,
+    screenshotPath: preferred.screenshotPath || secondary.screenshotPath || null,
+    officialOwnerVisible: preferred.officialOwnerVisible ?? secondary.officialOwnerVisible,
+    effectiveRuleVisible: preferred.effectiveRuleVisible ?? secondary.effectiveRuleVisible,
+    screenshotValid: preferred.screenshotValid ?? secondary.screenshotValid,
+  });
+  return byUrl;
+}, new Map()).values()];
 const sourceProvenance = (source) => {
   const appliesToGeos = Array.from(new Set([
     ...(Array.isArray(source?.appliesToGeos) ? source.appliesToGeos : []),
@@ -208,6 +254,7 @@ const sourceProvenance = (source) => {
     appliesToGeos: appliesToGeos.length ? appliesToGeos : undefined,
     legalBasisForExtension: source?.legalBasisForExtension || source?.legal_basis_for_extension,
     officialPublisher: source?.officialPublisher || source?.owner || source?.sourceAuthority || source?.source_authority,
+    exactFragment: source?.exactFragment || source?.exact_fragment || source?.directFragment || source?.direct_fragment,
     sourceAnnotation: source?.sourceAnnotation || source?.source_annotation || source?.annotation,
     sourceType: source?.sourceType || source?.source_type,
     primaryOrContext: source?.primaryOrContext || source?.primary_or_context,
@@ -216,6 +263,7 @@ const sourceProvenance = (source) => {
     current: source?.current,
     directFragmentAvailable: source?.directFragmentAvailable ?? source?.direct_fragment_available,
     screenshotAvailable: source?.screenshotAvailable ?? source?.screenshot_available,
+    freshScreenshotPaths: source?.freshScreenshotPaths ?? source?.fresh_screenshot_paths,
     visualOpened: source?.visualOpened ?? source?.visual_opened,
     officialOwnerVisible: source?.officialOwnerVisible ?? source?.official_owner_visible,
     officialDomainVisible: source?.officialDomainVisible ?? source?.official_domain_visible,
@@ -224,22 +272,23 @@ const sourceProvenance = (source) => {
     screenshotValid: source?.screenshotValid ?? source?.screenshot_valid,
     historicalScreenshotValid: source?.historicalScreenshotValid ?? source?.historical_screenshot_valid,
     historicalScreenshotPath: source?.historicalScreenshotPath ?? source?.historical_screenshot_path,
+    freshVisualAnalysisRu: source?.freshVisualAnalysisRu ?? source?.fresh_visual_analysis_ru,
     visualReviewerTimestamp: source?.visualReviewerTimestamp ?? source?.visual_reviewer_timestamp,
     officialHostVerified: source?.officialHostVerified ?? source?.official_host_verified,
     revalidation: source?.revalidation && typeof source.revalidation === "object"
       ? {
-          checked_at: source.revalidation.checked_at ?? null,
-          final_url: source.revalidation.final_url ?? null,
+          checked_at: source.revalidation.checked_at ?? source.reviewed_at ?? null,
+          final_url: source.revalidation.final_url ?? source.url ?? null,
           http_status: source.revalidation.http_status ?? null,
           etag: source.revalidation.etag ?? null,
           last_modified: source.revalidation.last_modified ?? null,
           content_type: source.revalidation.content_type ?? null,
           content_length: source.revalidation.content_length ?? null,
-          document_sha256: source.revalidation.document_sha256 ?? null,
+          document_sha256: source.revalidation.document_sha256 ?? source.revalidation.response_sha256 ?? null,
           relevant_fragment_sha256: source.revalidation.relevant_fragment_sha256 ?? null,
-          revalidation_state: source.revalidation.revalidation_state,
-          access_state: source.revalidation.access_state,
-          change_reason: source.revalidation.change_reason,
+          revalidation_state: source.revalidation.revalidation_state || "ANNOTATED_CONTEXT_ONLY",
+          access_state: source.revalidation.access_state || "ANNOTATED_CONTEXT_ONLY",
+          change_reason: source.revalidation.change_reason || "ANNOTATED_SOURCE_PACKET",
           queue: Array.isArray(source.revalidation.queue) ? source.revalidation.queue : [],
           dependent_geos: Array.isArray(source.revalidation.dependent_geos)
             ? source.revalidation.dependent_geos
@@ -342,9 +391,12 @@ function deriveTruthLayerSource(sourceCoverage, officialStatus, derivedStatus) {
   return "NONE";
 }
 
-function deriveLegalLayerSource(officialStatus, derivedStatus) {
+function deriveLegalLayerSource(officialStatus, derivedStatus, independentLegalInterpretation) {
   if (officialStatus) {
     return "OFFICIAL_TEXT_DERIVED";
+  }
+  if (independentLegalInterpretation) {
+    return "MANUAL_LEGAL_INTERPRETATION";
   }
   if (derivedStatus) {
     return "PENDING_REVIEW";
@@ -376,9 +428,14 @@ function buildTruthLayers({
   parserSignals,
   differenceStatus,
   differenceDescription,
+  independentLegalInterpretation,
 }) {
   const primarySource = deriveTruthLayerSource(sourceCoverage, officialStatus, derivedStatus);
-  const legalInterpretationSource = deriveLegalLayerSource(officialStatus, derivedStatus);
+  const legalInterpretationSource = deriveLegalLayerSource(
+    officialStatus,
+    derivedStatus,
+    independentLegalInterpretation,
+  );
   const primarySourceStatus = officialStatus || derivedStatus || null;
   const primaryAxis = buildTruthLayerAxis(primarySourceStatus);
   const legalAxis = buildTruthLayerAxis(legalInterpretationSource === "OFFICIAL_TEXT_DERIVED" ? officialStatus || derivedStatus : derivedStatus);
@@ -393,7 +450,7 @@ function buildTruthLayers({
     legalInterpretation: {
       source: legalInterpretationSource,
       axis: legalAxis,
-      notes: differenceDescription || "Legal interpretation is produced only from official-law evidence and parser-derived fallback when official has not been confirmed visually.",
+      notes: independentLegalInterpretation?.conclusion || differenceDescription || "Legal interpretation is produced only from official-law evidence and parser-derived fallback when official has not been confirmed visually.",
     },
     wikipedia: {
       source: "UNAVAILABLE",
@@ -449,10 +506,27 @@ const historicalVisualReviewStatusFor = (row) =>
 const INDEPENDENT_TRUTH_COLORS = new Set(["GREEN", "YELLOW", "RED", "UNKNOWN"]);
 const firstNonEmptyString = (...values) =>
   values.find((value) => typeof value === "string" && value.trim())?.trim() || null;
+const strictVisualAcceptanceText = (value) => {
+  if (typeof value === "string") return value.trim();
+  if (!value || typeof value !== "object") return "";
+  // The audit ledger accepts a compact string and a structured visual-review
+  // packet. Keep both forms human-readable; never interpolate an object into
+  // the final legal explanation.
+  const status = firstNonEmptyString(value.status, value.value);
+  const explanation = firstNonEmptyString(
+    value.reason,
+    value.visual_summary,
+    value.summary,
+  );
+  return [status, explanation]
+    .filter(Boolean)
+    .join(": ")
+    .replace(/[.。]+$/, "");
+};
 const independentTruthProposalFor = (row) => {
   const independentReview = row?.independent_review || {};
   const independentTruthReaudit = row?.independent_truth_reaudit || {};
-  const color = firstNonEmptyString(
+  const declaredColor = firstNonEmptyString(
     row?.independent_truth_color,
     row?.independentTruthColor,
     independentReview.official_truth_color,
@@ -463,27 +537,43 @@ const independentTruthProposalFor = (row) => {
     independentTruthReaudit.official_truth_color,
     independentTruthReaudit.truth_color,
   )?.toUpperCase();
-  if (!INDEPENDENT_TRUTH_COLORS.has(color)) return null;
-
+  if (!INDEPENDENT_TRUTH_COLORS.has(declaredColor)) return null;
+  const declaredRule = firstNonEmptyString(
+    row?.independent_truth_rule,
+    row?.independent_truth_status,
+    row?.independentTruthStatus,
+    row?.truth_status,
+    independentTruthReaudit.official_truth_rule,
+    independentTruthReaudit.truth_rule,
+    independentTruthReaudit.legal_status,
+    row?.truth_rule,
+    independentReview.official_truth_status,
+    independentReview.independent_truth_rule,
+    independentReview.independent_truth_status,
+    independentReview.independentTruthStatus,
+    independentReview.truth_rule,
+    independentReview.truth_status,
+    independentReview.color_rule,
+  );
+  const conclusions = [
+    row?.independent_conclusion,
+    independentReview.legal_interpretation,
+    independentReview.legal_conclusion,
+    independentReview.conclusion,
+    independentTruthReaudit.legal_interpretation,
+    independentTruthReaudit.conclusion,
+    independentTruthReaudit.legal_status,
+  ];
+  const consistency = reconcileDeclaredIndependentTruth({
+    declaredColor,
+    declaredRule,
+    conclusions,
+  });
   return {
-    color,
-    rule: firstNonEmptyString(
-      row?.independent_truth_rule,
-      row?.independent_truth_status,
-      row?.independentTruthStatus,
-      row?.truth_status,
-      independentTruthReaudit.official_truth_rule,
-      independentTruthReaudit.truth_rule,
-      independentTruthReaudit.legal_status,
-      row?.truth_rule,
-      independentReview.official_truth_status,
-      independentReview.independent_truth_rule,
-      independentReview.independent_truth_status,
-      independentReview.independentTruthStatus,
-      independentReview.truth_rule,
-      independentReview.truth_status,
-      independentReview.color_rule,
-    ),
+    color: consistency.color,
+    rule: consistency.rule || declaredRule,
+    consistencyCorrected: consistency.corrected,
+    declaredColor: consistency.previousColor,
     reviewedAt: firstNonEmptyString(
       row?.independent_truth_reviewed_at,
       row?.independentTruthReviewedAt,
@@ -492,15 +582,50 @@ const independentTruthProposalFor = (row) => {
       independentTruthReaudit.reviewed_at,
       independentTruthReaudit.reviewedAt,
     ),
-    conclusion: firstNonEmptyString(
-      row?.independent_conclusion,
-      independentReview.legal_interpretation,
-      independentReview.legal_conclusion,
-      independentReview.conclusion,
-      independentTruthReaudit.legal_interpretation,
-      independentTruthReaudit.conclusion,
-      independentTruthReaudit.legal_status,
-    ),
+    conclusion: firstNonEmptyString(...conclusions),
+  };
+};
+
+const sourceAppliesToGeo = (source, geo) =>
+  Array.isArray(source?.applies_to_geo) && source.applies_to_geo.includes(geo);
+const sourceHasHumanVisualProof = (source) =>
+  source?.reviewed_by_human_visual === true &&
+  (Boolean(source?.screenshot_path) || (Array.isArray(source?.screenshot_paths) && source.screenshot_paths.length > 0));
+const sourceIsCurrent = (source) => source?.current === true;
+const sourceIsPrimaryLaw = (source) =>
+  /PRIMARY/.test(String(source?.primary_or_context || "")) ||
+  /PRIMARY_(?:STATUTE|LAW)|STATUTE_REPRODUCED/.test(String(source?.source_type || ""));
+
+// A manual conclusion is projected only when the ledger contains a current,
+// applicable and human-visually reviewed primary-law packet plus a separately
+// reviewed cannabis bridge. This keeps scope-only conclusions and generic
+// controlled-drug context out of the legal-interpretation layer.
+const independentLegalInterpretationFor = (row, geo, independentTruth) => {
+  const review = row?.independent_review || {};
+  const conclusion = independentTruth?.conclusion || "";
+  if (!conclusion || /^UNKNOWN$/i.test(conclusion)) return null;
+
+  const primaryLaws = Array.isArray(review.primary_laws) ? review.primary_laws : [];
+  const otherSources = [
+    ...(Array.isArray(review.context_sources) ? review.context_sources : []),
+    ...(Array.isArray(review.operational_sources) ? review.operational_sources : []),
+  ];
+  const acceptedSource = (source) =>
+    sourceIsCurrent(source) && sourceAppliesToGeo(source, geo) && sourceHasHumanVisualProof(source);
+  const applicablePrimaryLawCount = primaryLaws.filter(
+    (source) => acceptedSource(source) && sourceIsPrimaryLaw(source),
+  ).length;
+  const cannabisBridgeSourceCount = [...primaryLaws, ...otherSources].filter(
+    (source) => acceptedSource(source) && source?.cannabis_specific === true,
+  ).length;
+  if (!applicablePrimaryLawCount || !cannabisBridgeSourceCount) return null;
+
+  return {
+    source: "STRUCTURED_INDEPENDENT_CURRENT_APPLICABLE_PRIMARY_LAW_PACKET",
+    reviewedAt: independentTruth.reviewedAt || null,
+    conclusion,
+    applicablePrimaryLawCount,
+    cannabisBridgeSourceCount,
   };
 };
 
@@ -511,6 +636,11 @@ const rows = geoList.map((geo) => {
   const visualRow = visualByGeo.get(geo);
   const historicalVisualReviewStatus = historicalVisualReviewStatusFor(visualRow);
   const independentTruth = independentTruthProposalFor(visualRow);
+  const independentLegalInterpretation = independentLegalInterpretationFor(
+    visualRow,
+    geo,
+    independentTruth,
+  );
   const greyReauditRow = greyColorReauditByGeo.get(geo);
   const collectedCandidateLinks = [...new Map((collected.candidate_pages || [])
     .filter((candidate) => candidate?.candidate_kind === "official" && candidate?.fetched?.ok && candidate?.derived?.hasCannabis)
@@ -683,15 +813,27 @@ const rows = geoList.map((geo) => {
     screenshotPath: source.screenshot_path || null,
     visualReview: "CONTEXT_ONLY"
   }));
-  const explicitVisualContextLinks = (visualRow?.verified_context_sources || []).map((source) => ({
+  // Fresh access-ladder packets may carry fully annotated official links that
+  // are deliberately provenance/context only.  Publish them in the audit
+  // model without allowing a generic registry, product query, or incomplete
+  // law branch to become an evidence axis or Truth Color input.
+  const currentEvidenceContextSources = Array.isArray(
+    visualRow?.current_evidence_enrichment?.new_official_source_annotations,
+  )
+    ? visualRow.current_evidence_enrichment.new_official_source_annotations
+    : [];
+  const explicitVisualContextLinks = [
+    ...(visualRow?.verified_context_sources || []),
+    ...currentEvidenceContextSources,
+  ].map((source) => ({
     title: source.title,
     url: source.url,
-    sourceKind: source.source_kind || "official_visual_context_review",
+    sourceKind: source.source_kind || source.source_type || "official_visual_context_review",
     ...sourceProvenance(source),
     evidenceScope: source.evidence_scope || "OFFICIAL_CONTEXT_ONLY",
     verification: "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
     confidence: "high",
-    note: source.note || visualRow.conclusion,
+    note: source.note || source.annotation || visualRow.conclusion,
     screenshotPath: source.screenshot_path || null,
     visualReview: "CONTEXT_ONLY"
   }));
@@ -820,14 +962,14 @@ const rows = geoList.map((geo) => {
       visualReview: source.visual_review_result || "RETAINED_CONTEXT_ONLY"
     }));
   const directUrlKeys = new Set(directLinks.map((link) => normalizedUrlKey(link.url)));
-  const officialContextLinks = [...new Map([
+  const officialContextLinks = mergeSameUrlContextLinks([
     ...legacyContextLinks,
     ...standaloneVisualContextLinks,
     ...standaloneSemanticLegalLinks,
     ...explicitVisualContextLinks,
     ...nonCannabisContextLinks,
     ...retainedReviewedSourceContextLinks
-  ].map((link) => [normalizedUrlKey(link.url), link])).values()]
+  ])
     .filter((link) => !directUrlKeys.has(normalizedUrlKey(link.url)));
   const basePublishedUrlKeys = new Set([
     ...directLinks.map((link) => normalizedUrlKey(link.url)),
@@ -875,8 +1017,11 @@ const rows = geoList.map((geo) => {
       ...(source.freshScreenshotPaths || [])
     ])
   ].filter(Boolean)));
+  const strictVisualAcceptance = strictVisualAcceptanceText(
+    visualRow?.strict_visual_acceptance,
+  );
   const reviewNotes = visualRow
-    ? `${historicalVisualReviewStatus || "VISUAL_REVIEW_PENDING"}: ${visualRow.conclusion || "Screenshot review has not been completed."}${visualRow.strict_visual_acceptance ? ` Strict-current acceptance: ${visualRow.strict_visual_acceptance}.` : ""}`
+    ? `${historicalVisualReviewStatus || "VISUAL_REVIEW_PENDING"}: ${visualRow.conclusion || "Screenshot review has not been completed."}${strictVisualAcceptance ? ` Strict-current acceptance: ${strictVisualAcceptance}.` : ""}`
     : curatedRow
       ? "VISUAL_REVIEW_PENDING: Screenshot review has not been completed."
     : contextRow?.notes || "No territory-specific manual note recorded in the source corpus.";
@@ -913,6 +1058,7 @@ const rows = geoList.map((geo) => {
     } : null,
     officialStatus,
     independentTruth,
+    independentLegalInterpretation,
     directOfficialCannabisLawLinks: directLinks,
     candidateLinksAwaitingVisualReview,
     officialContextLinks,
@@ -951,6 +1097,7 @@ const rows = geoList.map((geo) => {
       parserSignals,
       differenceStatus,
       differenceDescription,
+      independentLegalInterpretation,
     }),
     latestColorReaudit: greyReauditRow ? {
       reviewedAt: greyColorReaudit.reviewedAt,

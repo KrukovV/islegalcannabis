@@ -162,6 +162,24 @@ describe("ViewportCountryPopup render contract", () => {
     expect(html).toContain("Wikipedia: Cannabis in Albania");
   });
 
+  it("supports route-local profile labels without changing the default profile content", () => {
+    const entry = deriveCountryCardEntryFromCountryPageData(getCountryPageData("esp")!);
+    const html = renderToStaticMarkup(
+      createElement(ViewportCountryPopup, {
+        entry,
+        locale: "en",
+        anchor: { x: 100, y: 100 },
+        onClose: () => {},
+        profileSectionLabels: {
+          "Enforcement Reality": "Supplementary enforcement context — not the current legal conclusion"
+        }
+      })
+    );
+
+    expect(html).toContain("Supplementary enforcement context — not the current legal conclusion");
+    expect(html).toContain("Sale and importation of any quantity of cannabis is a criminal offence");
+  });
+
   it("renders status context even without a dedicated cannabis profile article", () => {
     const entry = deriveCountryCardEntryFromCountryPageData(getCountryPageData("ai")!);
     const html = renderToStaticMarkup(

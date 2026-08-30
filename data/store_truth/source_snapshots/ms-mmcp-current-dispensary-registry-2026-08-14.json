@@ -1,0 +1,1730 @@
+{
+  "schema_version": 1,
+  "fetched_at": "2026-08-14T19:20:43.239Z",
+  "local_only": true,
+  "source_url": "https://www.mmcp.ms.gov/search_business",
+  "source_html_sha256": "9a7461b6b235c78ae6e8ad087ea5e6fb1c5b27896a82bf541e48be9f72278e85",
+  "source_payload": {
+    "total_records": 360,
+    "filtered_records": 360,
+    "total_pages": 1,
+    "page_size": 360
+  },
+  "selection": {
+    "field": "businessType",
+    "equals": "Dispensary",
+    "current_license_window": "ISSUED_ON_OR_BEFORE_FETCH_AND_EXPIRING_ON_OR_AFTER_FETCH"
+  },
+  "records": [
+    {
+      "source_record_id": "103133",
+      "business_name": "Mississippi Provisions 4, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY021730",
+      "license_issue_date": "2026-02-09T00:00:00",
+      "license_expiration_date": "2027-02-20T00:00:00",
+      "physical_address": "3600 GAUTIER VANCLEAVE RD GAUTIER, MS 39553"
+    },
+    {
+      "source_record_id": "103907",
+      "business_name": "Mississippi Green Spa LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY022124",
+      "license_issue_date": "2026-03-18T00:00:00",
+      "license_expiration_date": "2027-03-20T00:00:00",
+      "physical_address": "771 WATER ST BILOXI, MS 39530"
+    },
+    {
+      "source_record_id": "10790",
+      "business_name": "The Green Life Wellness, LLC.",
+      "business_type": "Dispensary",
+      "license_number": "DSPY017512",
+      "license_issue_date": "2026-03-18T00:00:00",
+      "license_expiration_date": "2027-03-20T00:00:00",
+      "physical_address": "2289 HIGHWAY 145 S QUITMAN, MS 39355"
+    },
+    {
+      "source_record_id": "109361",
+      "business_name": "Kudzu Cannabis Company, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY021938",
+      "license_issue_date": "2026-03-10T00:00:00",
+      "license_expiration_date": "2027-02-28T00:00:00",
+      "physical_address": "93 S FRONTAGE RD MERIDIAN, MS 39301"
+    },
+    {
+      "source_record_id": "110294",
+      "business_name": "Mississippi Magnolia Canna West Point",
+      "business_type": "Dispensary",
+      "license_number": "DSPY022013",
+      "license_issue_date": "2026-02-23T00:00:00",
+      "license_expiration_date": "2027-02-28T00:00:00",
+      "physical_address": "17 AIRPORT RD WEST POINT, MS 39773"
+    },
+    {
+      "source_record_id": "117896",
+      "business_name": "Firefly Cannabis No. 2, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY022220",
+      "license_issue_date": "2026-03-24T00:00:00",
+      "license_expiration_date": "2027-03-29T00:00:00",
+      "physical_address": "11246 Old Highway 63 Lucedale, MS 39452"
+    },
+    {
+      "source_record_id": "12263",
+      "business_name": "420 Holiday LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY017130",
+      "license_issue_date": "2026-02-11T00:00:00",
+      "license_expiration_date": "2027-03-02T00:00:00",
+      "physical_address": "4001 DENNY AVE STE D APT 8 PASCAGOULA, MS 39581"
+    },
+    {
+      "source_record_id": "124024",
+      "business_name": "Blunt Buds LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY023230",
+      "license_issue_date": "2026-07-29T00:00:00",
+      "license_expiration_date": "2027-07-24T00:00:00",
+      "physical_address": "10576 OLD STAGE RD MOSS POINT, MS 39562"
+    },
+    {
+      "source_record_id": "1261",
+      "business_name": "NUURR INC.",
+      "business_type": "Dispensary",
+      "license_number": "DSPY003145",
+      "license_issue_date": "2026-07-07T00:00:00",
+      "license_expiration_date": "2027-07-26T00:00:00",
+      "physical_address": "1536 W PEACE ST CANTON, MS 39046"
+    },
+    {
+      "source_record_id": "1262",
+      "business_name": "CannaMiss LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY006336",
+      "license_issue_date": "2026-07-28T00:00:00",
+      "license_expiration_date": "2027-07-28T00:00:00",
+      "physical_address": "1130 N LAMAR BLVD OXFORD, MS 38655"
+    },
+    {
+      "source_record_id": "1263",
+      "business_name": "Happy Leaf LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY002461",
+      "license_issue_date": "2026-07-14T00:00:00",
+      "license_expiration_date": "2027-07-26T00:00:00",
+      "physical_address": "736 HIGHWAY 49 S RICHLAND, MS 39218"
+    },
+    {
+      "source_record_id": "1267",
+      "business_name": "Mississippi Provisions 5, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY006623",
+      "license_issue_date": "2026-07-30T00:00:00",
+      "license_expiration_date": "2027-08-01T00:00:00",
+      "physical_address": "624 HWY 90 Apt B5 BAY ST LOUIS, MS 39520"
+    },
+    {
+      "source_record_id": "1269",
+      "business_name": "MS Mudd 2, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY004630",
+      "license_issue_date": "2026-07-22T00:00:00",
+      "license_expiration_date": "2027-07-26T00:00:00",
+      "physical_address": "1809 DENNY AVE APT B5 PASCAGOULA, MS 39567"
+    },
+    {
+      "source_record_id": "1270",
+      "business_name": "High Cotton Wellness, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY003661",
+      "license_issue_date": "2026-07-14T00:00:00",
+      "license_expiration_date": "2027-07-26T00:00:00",
+      "physical_address": "422 RIVERWIND DR PEARL, MS 39208"
+    },
+    {
+      "source_record_id": "1274",
+      "business_name": "Mississippi Provisions 1, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY005630",
+      "license_issue_date": "2026-07-30T00:00:00",
+      "license_expiration_date": "2027-08-03T00:00:00",
+      "physical_address": "1223 BIENVILLE BLVD APT B5 OCEAN SPRINGS, MS 39564"
+    },
+    {
+      "source_record_id": "127482",
+      "business_name": "OPEN MIND 1",
+      "business_type": "Dispensary",
+      "license_number": "DSPY022325",
+      "license_issue_date": "2026-05-15T00:00:00",
+      "license_expiration_date": "2027-05-06T00:00:00",
+      "physical_address": "6248 OLD CANTON RD JACKSON, MS 39211"
+    },
+    {
+      "source_record_id": "1276",
+      "business_name": "MS Mudd 4, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY006961",
+      "license_issue_date": "2026-07-30T00:00:00",
+      "license_expiration_date": "2027-08-01T00:00:00",
+      "physical_address": "1401 HIGHWAY 49 S APT B5 RICHLAND, MS 39218"
+    },
+    {
+      "source_record_id": "1277",
+      "business_name": "Green Magnolia of Meridian LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY004338",
+      "license_issue_date": "2026-07-17T00:00:00",
+      "license_expiration_date": "2027-07-26T00:00:00",
+      "physical_address": "4818 N PARK DR MERIDIAN, MS 39305"
+    },
+    {
+      "source_record_id": "1279",
+      "business_name": "Green Magnolia of Canton, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY001345",
+      "license_issue_date": "2026-07-20T00:00:00",
+      "license_expiration_date": "2027-07-25T00:00:00",
+      "physical_address": "3142 S LIBERTY ST CANTON, MS 39046"
+    },
+    {
+      "source_record_id": "1281",
+      "business_name": "MS Mudd 3, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY003745",
+      "license_issue_date": "2026-07-22T00:00:00",
+      "license_expiration_date": "2027-07-26T00:00:00",
+      "physical_address": "117 SIDNEY RUNNELS DR Ste 311 CANTON, MS 39046"
+    },
+    {
+      "source_record_id": "1284",
+      "business_name": "Rootdown 4, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY003825",
+      "license_issue_date": "2026-07-22T00:00:00",
+      "license_expiration_date": "2027-07-26T00:00:00",
+      "physical_address": "4775 OLD CANTON RD APT B5 JACKSON, MS 39211"
+    },
+    {
+      "source_record_id": "1292",
+      "business_name": "Wildflower LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY003344",
+      "license_issue_date": "2026-07-15T00:00:00",
+      "license_expiration_date": "2027-07-26T00:00:00",
+      "physical_address": "41314 Crane Dr Aberdeen, MS 39730"
+    },
+    {
+      "source_record_id": "1299",
+      "business_name": "Apothecarium Green, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY018844",
+      "license_issue_date": "2026-07-22T00:00:00",
+      "license_expiration_date": "2027-08-10T00:00:00",
+      "physical_address": "1920 HIGHWAY 45 N COLUMBUS, MS 39705"
+    },
+    {
+      "source_record_id": "1303",
+      "business_name": "The Green Standard Starkville LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY004753",
+      "license_issue_date": "2026-07-14T00:00:00",
+      "license_expiration_date": "2027-07-26T00:00:00",
+      "physical_address": "612 HIGHWAY 12 E STARKVILLE, MS 39759"
+    },
+    {
+      "source_record_id": "1306",
+      "business_name": "Cox-Blythe Dispensary Inc",
+      "business_type": "Dispensary",
+      "license_number": "DSPY000359",
+      "license_issue_date": "2026-07-08T00:00:00",
+      "license_expiration_date": "2027-07-22T00:00:00",
+      "physical_address": "106 Ridgemont Villa BOONEVILLE, MS 38829"
+    },
+    {
+      "source_record_id": "1317",
+      "business_name": "Holistika LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY013744",
+      "license_issue_date": "2025-10-16T00:00:00",
+      "license_expiration_date": "2026-10-21T00:00:00",
+      "physical_address": "2009 MILITARY RD COLUMBUS, MS 39701"
+    },
+    {
+      "source_record_id": "1319",
+      "business_name": "Spillway Dispensary, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY001561",
+      "license_issue_date": "2026-07-20T00:00:00",
+      "license_expiration_date": "2027-07-25T00:00:00",
+      "physical_address": "1220 N SHORE PKWY BRANDON, MS 39047"
+    },
+    {
+      "source_record_id": "1326",
+      "business_name": "Magnolia Medical Cannabis Company, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY007536",
+      "license_issue_date": "2026-07-15T00:00:00",
+      "license_expiration_date": "2027-08-01T00:00:00",
+      "physical_address": "2570 JACKSON AVE W OXFORD, MS 38655"
+    },
+    {
+      "source_record_id": "132840",
+      "business_name": "Bee's Buds Dispensary Wiggins",
+      "business_type": "Dispensary",
+      "license_number": "DSPY022566",
+      "license_issue_date": "2026-05-06T00:00:00",
+      "license_expiration_date": "2027-05-15T00:00:00",
+      "physical_address": "39 BASS RD WIGGINS, MS 39577"
+    },
+    {
+      "source_record_id": "1333",
+      "business_name": "PINE BELT MEDICINAL",
+      "business_type": "Dispensary",
+      "license_number": "DSPY003418",
+      "license_issue_date": "2026-07-15T00:00:00",
+      "license_expiration_date": "2027-07-26T00:00:00",
+      "physical_address": "3702 HARDY ST HATTIESBURG, MS 39402"
+    },
+    {
+      "source_record_id": "1336",
+      "business_name": "Cleveland Cannabis Company LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY006406",
+      "license_issue_date": "2026-07-20T00:00:00",
+      "license_expiration_date": "2027-07-28T00:00:00",
+      "physical_address": "3620 U.S. Hwy 61N CLEVELAND, MS 38732"
+    },
+    {
+      "source_record_id": "1339",
+      "business_name": "The Green Standard Grenada LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY005522",
+      "license_issue_date": "2026-07-14T00:00:00",
+      "license_expiration_date": "2027-07-28T00:00:00",
+      "physical_address": "1223 SUNSET DR GRENADA, MS 38901"
+    },
+    {
+      "source_record_id": "1341",
+      "business_name": "BioSciences of Mississippi, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY008974",
+      "license_issue_date": "2026-07-24T00:00:00",
+      "license_expiration_date": "2027-08-02T00:00:00",
+      "physical_address": "241 OLD HIGHWAY 98 E TYLERTOWN, MS 39667"
+    },
+    {
+      "source_record_id": "1343",
+      "business_name": "SB Pearl, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY004961",
+      "license_issue_date": "2026-07-23T00:00:00",
+      "license_expiration_date": "2027-07-26T00:00:00",
+      "physical_address": "190 RIVERWIND DR PEARL, MS 39208"
+    },
+    {
+      "source_record_id": "1345",
+      "business_name": "The Green Standard LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY005175",
+      "license_issue_date": "2026-07-14T00:00:00",
+      "license_expiration_date": "2027-07-27T00:00:00",
+      "physical_address": "310 HIGHWAY 16 W CARTHAGE, MS 39051"
+    },
+    {
+      "source_record_id": "1346",
+      "business_name": "Sunflower Holdings LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY002824",
+      "license_issue_date": "2026-07-29T00:00:00",
+      "license_expiration_date": "2027-07-26T00:00:00",
+      "physical_address": "232 DEBUYS RD BILOXI, MS 39531"
+    },
+    {
+      "source_record_id": "1347",
+      "business_name": "Magnolia Greens LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY007643",
+      "license_issue_date": "2026-07-31T00:00:00",
+      "license_expiration_date": "2027-08-01T00:00:00",
+      "physical_address": "101 WHITEBROOK DR BROOKHAVEN, MS 39601"
+    },
+    {
+      "source_record_id": "1350",
+      "business_name": "Legally Rooted Cannabis Dispensary, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY000738",
+      "license_issue_date": "2026-07-15T00:00:00",
+      "license_expiration_date": "2027-07-22T00:00:00",
+      "physical_address": "1800 6TH ST MERIDIAN, MS 39301"
+    },
+    {
+      "source_record_id": "1351",
+      "business_name": "Five Star Medical",
+      "business_type": "Dispensary",
+      "license_number": "DSPY008669",
+      "license_issue_date": "2026-07-31T00:00:00",
+      "license_expiration_date": "2027-08-02T00:00:00",
+      "physical_address": "409 Norfleet Dr Senatobia, MS 38668"
+    },
+    {
+      "source_record_id": "1352",
+      "business_name": "BWD County Line LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY005725",
+      "license_issue_date": "2026-07-28T00:00:00",
+      "license_expiration_date": "2027-07-28T00:00:00",
+      "physical_address": "1051 E COUNTY LINE RD JACKSON, MS 39211"
+    },
+    {
+      "source_record_id": "1354",
+      "business_name": "Mary Jane & Herb's LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY001837",
+      "license_issue_date": "2026-07-16T00:00:00",
+      "license_expiration_date": "2027-07-25T00:00:00",
+      "physical_address": "135 THORNHILL DR HATTIESBURG, MS 39402"
+    },
+    {
+      "source_record_id": "1357",
+      "business_name": "WYZE 1 llc",
+      "business_type": "Dispensary",
+      "license_number": "DSPY008717",
+      "license_issue_date": "2026-07-31T00:00:00",
+      "license_expiration_date": "2027-08-02T00:00:00",
+      "physical_address": "2348 MOUNT PLEASANT RD HERNANDO, MS 38632"
+    },
+    {
+      "source_record_id": "1361",
+      "business_name": "Zack Hemp LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY002054",
+      "license_issue_date": "2026-07-08T00:00:00",
+      "license_expiration_date": "2027-07-25T00:00:00",
+      "physical_address": "3023 GOODMAN RD W HORN LAKE, MS 38637"
+    },
+    {
+      "source_record_id": "1365",
+      "business_name": "Cannacare LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY002141",
+      "license_issue_date": "2026-07-17T00:00:00",
+      "license_expiration_date": "2027-07-25T00:00:00",
+      "physical_address": "111 S INDUSTRIAL RD TUPELO, MS 38801"
+    },
+    {
+      "source_record_id": "1368",
+      "business_name": "Culture Biloxi Shop, Inc.",
+      "business_type": "Dispensary",
+      "license_number": "DSPY009224",
+      "license_issue_date": "2026-07-21T00:00:00",
+      "license_expiration_date": "2027-08-03T00:00:00",
+      "physical_address": "2572 PASS RD BILOXI, MS 39531"
+    },
+    {
+      "source_record_id": "1370",
+      "business_name": "High Hopes Cannabis LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY000941",
+      "license_issue_date": "2026-07-21T00:00:00",
+      "license_expiration_date": "2027-07-22T00:00:00",
+      "physical_address": "1201 N GLOSTER ST TUPELO, MS 38804"
+    },
+    {
+      "source_record_id": "1379",
+      "business_name": "Medical Cannabis of MS, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY002206",
+      "license_issue_date": "2026-07-27T00:00:00",
+      "license_expiration_date": "2027-07-25T00:00:00",
+      "physical_address": "717 N DAVIS AVE CLEVELAND, MS 38732"
+    },
+    {
+      "source_record_id": "137919",
+      "business_name": "Local Remedy, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY022769",
+      "license_issue_date": "2026-05-11T00:00:00",
+      "license_expiration_date": "2027-05-20T00:00:00",
+      "physical_address": "5078 HIGHWAY 51 N SENATOBIA, MS 38668"
+    },
+    {
+      "source_record_id": "1404",
+      "business_name": "BWD Meridian LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY005438",
+      "license_issue_date": "2026-07-29T00:00:00",
+      "license_expiration_date": "2027-07-28T00:00:00",
+      "physical_address": "300 N FRONTAGE RD MERIDIAN, MS 39301"
+    },
+    {
+      "source_record_id": "1408",
+      "business_name": "The Cannabis Company, Inc.",
+      "business_type": "Dispensary",
+      "license_number": "DSPY002343",
+      "license_issue_date": "2026-07-07T00:00:00",
+      "license_expiration_date": "2027-07-25T00:00:00",
+      "physical_address": "939 Brookway Blvd Brookhaven, MS 39601"
+    },
+    {
+      "source_record_id": "1409",
+      "business_name": "Interstellar",
+      "business_type": "Dispensary",
+      "license_number": "DSPY004025",
+      "license_issue_date": "2026-07-31T00:00:00",
+      "license_expiration_date": "2027-07-26T00:00:00",
+      "physical_address": "5440 I 55 FRONTAGE RD N JACKSON, MS 39211"
+    },
+    {
+      "source_record_id": "1410",
+      "business_name": "The Highest Care L.L.C",
+      "business_type": "Dispensary",
+      "license_number": "DSPY003501",
+      "license_issue_date": "2026-07-02T00:00:00",
+      "license_expiration_date": "2027-07-26T00:00:00",
+      "physical_address": "2 SERGEANT PRENTISS DR NATCHEZ, MS 39120"
+    },
+    {
+      "source_record_id": "1446",
+      "business_name": "Coast Dispensary Inc",
+      "business_type": "Dispensary",
+      "license_number": "DSPY009724",
+      "license_issue_date": "2026-08-04T00:00:00",
+      "license_expiration_date": "2027-08-09T00:00:00",
+      "physical_address": "913 DIVISION ST BILOXI, MS 39530"
+    },
+    {
+      "source_record_id": "1471",
+      "business_name": "Green Therapy LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY005037",
+      "license_issue_date": "2026-07-14T00:00:00",
+      "license_expiration_date": "2027-07-27T00:00:00",
+      "physical_address": "5004 LINCOLN ROAD EXT HATTIESBURG, MS 39402"
+    },
+    {
+      "source_record_id": "153085",
+      "business_name": "Strong River Disp LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY023017",
+      "license_issue_date": "2026-06-08T00:00:00",
+      "license_expiration_date": "2027-06-24T00:00:00",
+      "physical_address": "11201 GOODMAN RD OLIVE BRANCH, MS 38654"
+    },
+    {
+      "source_record_id": "155222",
+      "business_name": "Dabbs Cannabis Dispensary LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY022924",
+      "license_issue_date": "2026-06-01T00:00:00",
+      "license_expiration_date": "2027-06-13T00:00:00",
+      "physical_address": "900 E RAILROAD ST APT 8 LONG BEACH, MS 39560"
+    },
+    {
+      "source_record_id": "16439",
+      "business_name": "Cream Cannabis Company",
+      "business_type": "Dispensary",
+      "license_number": "DSPY017761",
+      "license_issue_date": "2026-04-07T00:00:00",
+      "license_expiration_date": "2027-04-11T00:00:00",
+      "physical_address": "4205 HIGHWAY 80 E PEARL, MS 39208"
+    },
+    {
+      "source_record_id": "1650",
+      "business_name": "Uptown Funk LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY009925",
+      "license_issue_date": "2026-07-27T00:00:00",
+      "license_expiration_date": "2027-08-17T00:00:00",
+      "physical_address": "1625 E County Line Rd Jackson, MS 39211"
+    },
+    {
+      "source_record_id": "1683",
+      "business_name": "Local Remedy, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY010024",
+      "license_issue_date": "2025-07-22T00:00:00",
+      "license_expiration_date": "2026-08-17T00:00:00",
+      "physical_address": "1887 PASS RD STE 311 BILOXI, MS 39531"
+    },
+    {
+      "source_record_id": "168774",
+      "business_name": "Merit Creek LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY023324",
+      "license_issue_date": "2026-07-14T00:00:00",
+      "license_expiration_date": "2027-07-24T00:00:00",
+      "physical_address": "2709 25TH AVE GULFPORT, MS 39501"
+    },
+    {
+      "source_record_id": "16911",
+      "business_name": "LunaSol LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY018017",
+      "license_issue_date": "2026-04-07T00:00:00",
+      "license_expiration_date": "2027-05-03T00:00:00",
+      "physical_address": "8101 Hacks Cross Rd STE 600 Olive Branch, MS 38654"
+    },
+    {
+      "source_record_id": "16995",
+      "business_name": "Firefly Cannabis, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY017630",
+      "license_issue_date": "2026-03-24T00:00:00",
+      "license_expiration_date": "2027-04-10T00:00:00",
+      "physical_address": "6911 WASHINGTON AVE OCEAN SPRINGS, MS 39564"
+    },
+    {
+      "source_record_id": "1738",
+      "business_name": "Kudzu Cannabis Company, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY010425",
+      "license_issue_date": "2025-08-27T00:00:00",
+      "license_expiration_date": "2026-08-24T00:00:00",
+      "physical_address": "4678 I 55 FRONTAGE RD N JACKSON, MS 39211"
+    },
+    {
+      "source_record_id": "1767",
+      "business_name": "SweetGrass MS, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY010224",
+      "license_issue_date": "2025-08-28T00:00:00",
+      "license_expiration_date": "2026-08-23T00:00:00",
+      "physical_address": "2650 BEACH BLVD BILOXI, MS 39531"
+    },
+    {
+      "source_record_id": "176947",
+      "business_name": "VooDoo Buds 2",
+      "business_type": "Dispensary",
+      "license_number": "DSPY023445",
+      "license_issue_date": "2026-07-31T00:00:00",
+      "license_expiration_date": "2027-08-01T00:00:00",
+      "physical_address": "1150 E PEACE ST # 208 CANTON, MS 39046"
+    },
+    {
+      "source_record_id": "1774",
+      "business_name": "River Remedy Byram Dispensary, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY010125",
+      "license_issue_date": "2026-07-29T00:00:00",
+      "license_expiration_date": "2027-08-19T00:00:00",
+      "physical_address": "5925 I 55 S BYRAM, MS 39272"
+    },
+    {
+      "source_record_id": "185052",
+      "business_name": "Blessed Goat",
+      "business_type": "Dispensary",
+      "license_number": "DSPY023524",
+      "license_issue_date": "2025-08-29T00:00:00",
+      "license_expiration_date": "2026-09-05T00:00:00",
+      "physical_address": "8288 FIRETOWER RD PASS CHRIS, MS 39571"
+    },
+    {
+      "source_record_id": "1853",
+      "business_name": "Cultivated Wellness Dispensary NO.3",
+      "business_type": "Dispensary",
+      "license_number": "DSPY010624",
+      "license_issue_date": "2025-08-20T00:00:00",
+      "license_expiration_date": "2026-09-13T00:00:00",
+      "physical_address": "12407 HIGHWAY 49 GULFPORT, MS 39503"
+    },
+    {
+      "source_record_id": "1989",
+      "business_name": "Tru Source Medical Cannabis, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY011017",
+      "license_issue_date": "2025-09-10T00:00:00",
+      "license_expiration_date": "2026-09-13T00:00:00",
+      "physical_address": "4714 North Central Way Olive Branch, MS 38654"
+    },
+    {
+      "source_record_id": "2001",
+      "business_name": "The Magg Dispensary, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY010744",
+      "license_issue_date": "2025-09-11T00:00:00",
+      "license_expiration_date": "2026-09-13T00:00:00",
+      "physical_address": "901 HIGHWAY 45 N COLUMBUS, MS 39701"
+    },
+    {
+      "source_record_id": "2011",
+      "business_name": "420 Bay St. Louis Dispensary, Inc.",
+      "business_type": "Dispensary",
+      "license_number": "DSPY011223",
+      "license_issue_date": "2025-08-25T00:00:00",
+      "license_expiration_date": "2026-09-13T00:00:00",
+      "physical_address": "200 HIGHWAY 90 APT 8 BAY ST. LOUIS, MS 39576"
+    },
+    {
+      "source_record_id": "20231",
+      "business_name": "Green Spark, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY018281",
+      "license_issue_date": "2026-05-11T00:00:00",
+      "license_expiration_date": "2027-05-18T00:00:00",
+      "physical_address": "111 Main Street Water Valley, MS 38965"
+    },
+    {
+      "source_record_id": "20308",
+      "business_name": "Youngs Farm Medical Dispensary",
+      "business_type": "Dispensary",
+      "license_number": "DSPY017838",
+      "license_issue_date": "2026-04-28T00:00:00",
+      "license_expiration_date": "2027-04-28T00:00:00",
+      "physical_address": "8487 HIGHWAY 19 N COLLINSVILLE, MS 39325"
+    },
+    {
+      "source_record_id": "205110",
+      "business_name": "Green Dayz LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY023861",
+      "license_issue_date": "2025-10-30T00:00:00",
+      "license_expiration_date": "2026-11-15T00:00:00",
+      "physical_address": "102 METROPLEX BLVD PEARL, MS 39208"
+    },
+    {
+      "source_record_id": "208272",
+      "business_name": "Diamondleaf",
+      "business_type": "Dispensary",
+      "license_number": "DSPY024124",
+      "license_issue_date": "2026-01-14T00:00:00",
+      "license_expiration_date": "2027-01-15T00:00:00",
+      "physical_address": "4321 LEISURE TIME DR DIAMONDHEAD, MS 39525"
+    },
+    {
+      "source_record_id": "213767",
+      "business_name": "Strong River Disp LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY024002",
+      "license_issue_date": "2025-11-25T00:00:00",
+      "license_expiration_date": "2026-12-06T00:00:00",
+      "physical_address": "2007 HIGHWAY 72 E CORINTH, MS 38834"
+    },
+    {
+      "source_record_id": "214420",
+      "business_name": "Diamondleaf",
+      "business_type": "Dispensary",
+      "license_number": "DSPY023623",
+      "license_issue_date": "2025-10-29T00:00:00",
+      "license_expiration_date": "2026-10-28T00:00:00",
+      "physical_address": "16329 MS-603 Kiln, MS 39556"
+    },
+    {
+      "source_record_id": "2158",
+      "business_name": "Arcane Enterprises",
+      "business_type": "Dispensary",
+      "license_number": "DSPY010867",
+      "license_issue_date": "2025-08-18T00:00:00",
+      "license_expiration_date": "2026-09-13T00:00:00",
+      "physical_address": "4241 HIGHWAY 49 DREW, MS 38737"
+    },
+    {
+      "source_record_id": "216366",
+      "business_name": "Canablume, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY023717",
+      "license_issue_date": "2025-10-20T00:00:00",
+      "license_expiration_date": "2026-11-08T00:00:00",
+      "physical_address": "7590 HIGHWAY 178 OLIVE BRANCH, MS 38654"
+    },
+    {
+      "source_record_id": "217533",
+      "business_name": "Merit Creek LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY023925",
+      "license_issue_date": "2025-11-25T00:00:00",
+      "license_expiration_date": "2026-12-06T00:00:00",
+      "physical_address": "7215 S SIWELL RD BYRAM, MS 39272"
+    },
+    {
+      "source_record_id": "22528",
+      "business_name": "WYZE 1 LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY018117",
+      "license_issue_date": "2026-04-30T00:00:00",
+      "license_expiration_date": "2027-05-03T00:00:00",
+      "physical_address": "1415 Goodman Rd W Horn Lake, MS 38637"
+    },
+    {
+      "source_record_id": "2292",
+      "business_name": "SB Oxford",
+      "business_type": "Dispensary",
+      "license_number": "DSPY011836",
+      "license_issue_date": "2025-09-18T00:00:00",
+      "license_expiration_date": "2026-09-21T00:00:00",
+      "physical_address": "1319 N LAMAR BLVD OXFORD, MS 38655"
+    },
+    {
+      "source_record_id": "2332",
+      "business_name": "Toke and Tell Dispensary, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY013801",
+      "license_issue_date": "2025-10-30T00:00:00",
+      "license_expiration_date": "2026-10-24T00:00:00",
+      "physical_address": "55 S SERGEANT PRENTISS DR NATCHEZ, MS 39120"
+    },
+    {
+      "source_record_id": "2420",
+      "business_name": "Strong River Disp LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY011664",
+      "license_issue_date": "2025-09-11T00:00:00",
+      "license_expiration_date": "2026-09-20T00:00:00",
+      "physical_address": "1282 Beaver Dam Rd Lucedale, MS 39452"
+    },
+    {
+      "source_record_id": "2444",
+      "business_name": "James B. Abraham LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY012806",
+      "license_issue_date": "2025-10-10T00:00:00",
+      "license_expiration_date": "2026-10-12T00:00:00",
+      "physical_address": "618 GAINES HWY BOYLE, MS 38730"
+    },
+    {
+      "source_record_id": "2449",
+      "business_name": "Good Day Dispensary",
+      "business_type": "Dispensary",
+      "license_number": "DSPY014554",
+      "license_issue_date": "2025-10-23T00:00:00",
+      "license_expiration_date": "2026-11-15T00:00:00",
+      "physical_address": "450/450A Hwy 51 Batesville, MS 38606"
+    },
+    {
+      "source_record_id": "247024",
+      "business_name": "Merit Creek LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY024218",
+      "license_issue_date": "2026-01-13T00:00:00",
+      "license_expiration_date": "2027-01-30T00:00:00",
+      "physical_address": "35 BYRD BLVD PETAL, MS 39465"
+    },
+    {
+      "source_record_id": "250054",
+      "business_name": "Mary Jane & Herbs LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY024530",
+      "license_issue_date": "2026-03-16T00:00:00",
+      "license_expiration_date": "2027-03-27T00:00:00",
+      "physical_address": "5875 WASHINGTON AVE OCEAN SPRINGS, MS 39564"
+    },
+    {
+      "source_record_id": "255356",
+      "business_name": "Simpson Legion LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY004853",
+      "license_issue_date": "2026-07-14T00:00:00",
+      "license_expiration_date": "2027-07-26T00:00:00",
+      "physical_address": "823 HIGHWAY 12 W STARKVILLE, MS 39759"
+    },
+    {
+      "source_record_id": "2564",
+      "business_name": "Long Beach Dispensary LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY010924",
+      "license_issue_date": "2025-09-16T00:00:00",
+      "license_expiration_date": "2026-09-13T00:00:00",
+      "physical_address": "520 E RAILROAD ST STE A LONG BEACH, MS 39560"
+    },
+    {
+      "source_record_id": "2593",
+      "business_name": "Toke and Tell Dispensary 2 LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY011534",
+      "license_issue_date": "2025-09-22T00:00:00",
+      "license_expiration_date": "2026-09-16T00:00:00",
+      "physical_address": "Ellisville Blvd Laurel, MS 39440"
+    },
+    {
+      "source_record_id": "262352",
+      "business_name": "SARBJOT LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY024441",
+      "license_issue_date": "2026-02-24T00:00:00",
+      "license_expiration_date": "2027-03-18T00:00:00",
+      "physical_address": "1295 N EASON BLVD TUPELO, MS 38804"
+    },
+    {
+      "source_record_id": "2696",
+      "business_name": "Yazoodp, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY012682",
+      "license_issue_date": "2025-10-09T00:00:00",
+      "license_expiration_date": "2026-10-10T00:00:00",
+      "physical_address": "1212 JERRY CLOWER BLVD YAZOO CITY, MS 39194"
+    },
+    {
+      "source_record_id": "2722",
+      "business_name": "Jamal Saeed",
+      "business_type": "Dispensary",
+      "license_number": "DSPY011341",
+      "license_issue_date": "2025-09-12T00:00:00",
+      "license_expiration_date": "2026-09-15T00:00:00",
+      "physical_address": "608 N GLOSTER ST TUPELO, MS 38804"
+    },
+    {
+      "source_record_id": "276857",
+      "business_name": "Backwood Express, Inc.",
+      "business_type": "Dispensary",
+      "license_number": "DSPY024723",
+      "license_issue_date": "2026-05-07T00:00:00",
+      "license_expiration_date": "2027-05-16T00:00:00",
+      "physical_address": "16598 HIGHWAY 603 KILN, MS 39556"
+    },
+    {
+      "source_record_id": "278969",
+      "business_name": "420 Columbus LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY024644",
+      "license_issue_date": "2026-03-19T00:00:00",
+      "license_expiration_date": "2027-04-07T00:00:00",
+      "physical_address": "2118 HIGHWAY 45 N COLUMBUS, MS 39705"
+    },
+    {
+      "source_record_id": "2796",
+      "business_name": "Magnolia Dispensaries, LLC.",
+      "business_type": "Dispensary",
+      "license_number": "DSPY012475",
+      "license_issue_date": "2025-10-02T00:00:00",
+      "license_expiration_date": "2026-10-06T00:00:00",
+      "physical_address": "3046 INDIANA AVE VICKSBURG, MS 39180"
+    },
+    {
+      "source_record_id": "28091",
+      "business_name": "Tortuga Cannabis Company inc",
+      "business_type": "Dispensary",
+      "license_number": "DSPY018318",
+      "license_issue_date": "2026-05-11T00:00:00",
+      "license_expiration_date": "2027-05-30T00:00:00",
+      "physical_address": "867 HIGHWAY 11 B PETAL, MS 39465"
+    },
+    {
+      "source_record_id": "2825",
+      "business_name": "Blaze Dispensary LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY012229",
+      "license_issue_date": "2025-09-22T00:00:00",
+      "license_expiration_date": "2026-09-28T00:00:00",
+      "physical_address": "101 WHEELER DR FULTON, MS 38843"
+    },
+    {
+      "source_record_id": "2842",
+      "business_name": "Corinth Cannabis LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY012002",
+      "license_issue_date": "2025-08-26T00:00:00",
+      "license_expiration_date": "2026-09-13T00:00:00",
+      "physical_address": "1507 HIGHWAY 72 E CORINTH, MS 38834"
+    },
+    {
+      "source_record_id": "2853",
+      "business_name": "Bee's Buds",
+      "business_type": "Dispensary",
+      "license_number": "DSPY013030",
+      "license_issue_date": "2025-10-02T00:00:00",
+      "license_expiration_date": "2026-10-17T00:00:00",
+      "physical_address": "14313 STENUM ST BILOXI, MS 39532"
+    },
+    {
+      "source_record_id": "287917",
+      "business_name": "Country Boys Investments LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY022424",
+      "license_issue_date": "2026-04-30T00:00:00",
+      "license_expiration_date": "2027-05-06T00:00:00",
+      "physical_address": "921 Cedar Lake Rd Biloxi, MS 39532"
+    },
+    {
+      "source_record_id": "288727",
+      "business_name": "Simpson Legion",
+      "business_type": "Dispensary",
+      "license_number": "DSPY016137",
+      "license_issue_date": "2026-01-08T00:00:00",
+      "license_expiration_date": "2027-01-19T00:00:00",
+      "physical_address": "6152 U S HIGHWAY 98 HATTIESBURG, MS 39402"
+    },
+    {
+      "source_record_id": "288728",
+      "business_name": "Simpson Legion",
+      "business_type": "Dispensary",
+      "license_number": "DSPY019825",
+      "license_issue_date": "2025-11-18T00:00:00",
+      "license_expiration_date": "2026-11-30T00:00:00",
+      "physical_address": "2685 CRANE RIDGE DR JACKSON, MS 39216"
+    },
+    {
+      "source_record_id": "292142",
+      "business_name": "DABBS 1",
+      "business_type": "Dispensary",
+      "license_number": "DSPY007875",
+      "license_issue_date": "2026-07-15T00:00:00",
+      "license_expiration_date": "2027-08-01T00:00:00",
+      "physical_address": "2080 S FRONTAGE RD STE 106 VICKSBURG, MS 39180"
+    },
+    {
+      "source_record_id": "295072",
+      "business_name": "Backwood Express #2 Inc",
+      "business_type": "Dispensary",
+      "license_number": "DSPY024923",
+      "license_issue_date": "2026-05-28T00:00:00",
+      "license_expiration_date": "2027-05-29T00:00:00",
+      "physical_address": "454 HIGHWAY 90 STE K WAVELAND, MS 39576"
+    },
+    {
+      "source_record_id": "300418",
+      "business_name": "Lighthouse Gulfport LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY004524",
+      "license_issue_date": "2026-07-14T00:00:00",
+      "license_expiration_date": "2027-07-26T00:00:00",
+      "physical_address": "9113 HIGHWAY 49 GULFPORT, MS 39503"
+    },
+    {
+      "source_record_id": "300469",
+      "business_name": "Dabbs 1 LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY013261",
+      "license_issue_date": "2025-10-09T00:00:00",
+      "license_expiration_date": "2026-10-21T00:00:00",
+      "physical_address": "1170 OLD FANNIN RD BRANDON, MS 39047"
+    },
+    {
+      "source_record_id": "301152",
+      "business_name": "Simpson Legion LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY001441",
+      "license_issue_date": "2026-07-14T00:00:00",
+      "license_expiration_date": "2027-07-25T00:00:00",
+      "physical_address": "715 GARFIELD ST TUPELO, MS 38801"
+    },
+    {
+      "source_record_id": "302338",
+      "business_name": "420 Holiday #3 LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY024824",
+      "license_issue_date": "2026-04-30T00:00:00",
+      "license_expiration_date": "2027-05-29T00:00:00",
+      "physical_address": "9354 HIGHWAY 49 APT 8 GULFPORT, MS 39503"
+    },
+    {
+      "source_record_id": "3030",
+      "business_name": "Local Remedy, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY012757",
+      "license_issue_date": "2025-09-17T00:00:00",
+      "license_expiration_date": "2026-10-10T00:00:00",
+      "physical_address": "1117 HIGHWAY 51 AND 98 STE 311 SUMMIT, MS 39666"
+    },
+    {
+      "source_record_id": "311785",
+      "business_name": "Simpson Legion LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY025045",
+      "license_issue_date": "2026-05-12T00:00:00",
+      "license_expiration_date": "2027-05-29T00:00:00",
+      "physical_address": "1038 OLD JACKSON RD CANTON, MS 39046"
+    },
+    {
+      "source_record_id": "313260",
+      "business_name": "Merit Creek",
+      "business_type": "Dispensary",
+      "license_number": "DSPY002941",
+      "license_issue_date": "2026-07-14T00:00:00",
+      "license_expiration_date": "2027-07-26T00:00:00",
+      "physical_address": "2505 HIGHWAY 15 N LAUREL, MS 39440"
+    },
+    {
+      "source_record_id": "313261",
+      "business_name": "Merit Creek",
+      "business_type": "Dispensary",
+      "license_number": "DSPY007423",
+      "license_issue_date": "2026-07-15T00:00:00",
+      "license_expiration_date": "2027-08-01T00:00:00",
+      "physical_address": "22 STONEWALL RD BYHALIA, MS 38611"
+    },
+    {
+      "source_record_id": "3144",
+      "business_name": "Cultivated Wellness Dispensary NO.2",
+      "business_type": "Dispensary",
+      "license_number": "DSPY012337",
+      "license_issue_date": "2025-09-15T00:00:00",
+      "license_expiration_date": "2026-09-29T00:00:00",
+      "physical_address": "6690 U S HIGHWAY 98 HATTIESBURG, MS 39402"
+    },
+    {
+      "source_record_id": "315698",
+      "business_name": "Hernando Dispensary LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY015017",
+      "license_issue_date": "2025-11-19T00:00:00",
+      "license_expiration_date": "2026-12-01T00:00:00",
+      "physical_address": "3016 HIGHWAY 51 S HERNANDO, MS 38632"
+    },
+    {
+      "source_record_id": "334847",
+      "business_name": "Interstellar Meridian",
+      "business_type": "Dispensary",
+      "license_number": "DSPY002738",
+      "license_issue_date": "2026-07-29T00:00:00",
+      "license_expiration_date": "2027-07-26T00:00:00",
+      "physical_address": "2172 A ST MERIDIAN, MS 39301"
+    },
+    {
+      "source_record_id": "336019",
+      "business_name": "BILOXI CANNABIS DISPENSARY",
+      "business_type": "Dispensary",
+      "license_number": "DSPY025124",
+      "license_issue_date": "2026-07-31T00:00:00",
+      "license_expiration_date": "2027-08-12T00:00:00",
+      "physical_address": "282 EISENHOWER DR BILOXI, MS 39531"
+    },
+    {
+      "source_record_id": "33607",
+      "business_name": "The Herbalist",
+      "business_type": "Dispensary",
+      "license_number": "DSPY018530",
+      "license_issue_date": "2026-07-14T00:00:00",
+      "license_expiration_date": "2027-07-19T00:00:00",
+      "physical_address": "2520 DENNY AVE PASCAGOULA, MS 39567"
+    },
+    {
+      "source_record_id": "337178",
+      "business_name": "River City Cannabis",
+      "business_type": "Dispensary",
+      "license_number": "DSPY025230",
+      "license_issue_date": "2026-08-12T00:00:00",
+      "license_expiration_date": "2027-08-12T00:00:00",
+      "physical_address": "4043 JEFFERSON AVE MOSS POINT, MS 39563"
+    },
+    {
+      "source_record_id": "346329",
+      "business_name": "Rootdown 3, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY025436",
+      "license_issue_date": "2025-09-09T14:04:31",
+      "license_expiration_date": "2026-09-09T00:00:00",
+      "physical_address": "821 N LAMAR BLVD STE 311 OXFORD, MS 38655"
+    },
+    {
+      "source_record_id": "350792",
+      "business_name": "Coast Cannabis Bay St Louis LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY001123",
+      "license_issue_date": "2026-07-17T00:00:00",
+      "license_expiration_date": "2027-07-22T00:00:00",
+      "physical_address": "833 US-90 Bay St Louis, MS 39520"
+    },
+    {
+      "source_record_id": "3530",
+      "business_name": "The Islands Dispensary, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY014730",
+      "license_issue_date": "2025-11-14T00:00:00",
+      "license_expiration_date": "2026-11-15T00:00:00",
+      "physical_address": "3920 BIENVILLE BLVD OCEAN SPRINGS, MS 39564"
+    },
+    {
+      "source_record_id": "353121",
+      "business_name": "The Forest Cannabis Dispensary",
+      "business_type": "Dispensary",
+      "license_number": "DSPY025362",
+      "license_issue_date": "2026-08-14T00:00:00",
+      "license_expiration_date": "2027-08-19T00:00:00",
+      "physical_address": "1910 HIGHWAY 35 S FOREST, MS 39074"
+    },
+    {
+      "source_record_id": "35411",
+      "business_name": "Mageedp, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY018704",
+      "license_issue_date": "2026-07-16T00:00:00",
+      "license_expiration_date": "2027-07-21T00:00:00",
+      "physical_address": "125 VETERANS MEMORIAL DR KOSCIUSKO, MS 39090"
+    },
+    {
+      "source_record_id": "3641",
+      "business_name": "Bud Barn, LLC.",
+      "business_type": "Dispensary",
+      "license_number": "DSPY014124",
+      "license_issue_date": "2025-11-06T00:00:00",
+      "license_expiration_date": "2026-11-07T00:00:00",
+      "physical_address": "15160 MS-67 STE A BILOXI, MS 39532"
+    },
+    {
+      "source_record_id": "375788",
+      "business_name": "Apollo Medical Dispensary LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY025617",
+      "license_issue_date": "2025-12-16T18:45:52",
+      "license_expiration_date": "2026-12-16T00:00:00",
+      "physical_address": "2662 HIGHWAY 51 S HERNANDO, MS 38632"
+    },
+    {
+      "source_record_id": "381012",
+      "business_name": "MS MUDD 1, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY008217",
+      "license_issue_date": "2026-07-31T00:00:00",
+      "license_expiration_date": "2027-08-02T00:00:00",
+      "physical_address": "6518 GOODMAN RD STE 106 STE 311 OLIVE BRANCH, MS 38654"
+    },
+    {
+      "source_record_id": "384093",
+      "business_name": "Blessed Holdings LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY010525",
+      "license_issue_date": "2025-09-10T00:00:00",
+      "license_expiration_date": "2026-09-01T00:00:00",
+      "physical_address": "1072 HIGH ST JACKSON, MS 39202"
+    },
+    {
+      "source_record_id": "38523",
+      "business_name": "Dabbs Cannabis Dispensary LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY018462",
+      "license_issue_date": "2026-07-01T00:00:00",
+      "license_expiration_date": "2027-07-07T00:00:00",
+      "physical_address": "228 N WOODLAND DR / (228 MS-35) FOREST, MS 39074"
+    },
+    {
+      "source_record_id": "385719",
+      "business_name": "DABBS 1 LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY023138",
+      "license_issue_date": "2026-06-19T00:00:00",
+      "license_expiration_date": "2027-07-01T00:00:00",
+      "physical_address": "1217 S FRONTAGE RD MERIDIAN, MS 39301"
+    },
+    {
+      "source_record_id": "386275",
+      "business_name": "Biosciences of MS LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY025736",
+      "license_issue_date": "2025-12-16T18:51:42",
+      "license_expiration_date": "2026-12-16T00:00:00",
+      "physical_address": "101 RICKY D BRITT SR BLVD OXFORD, MS 38655"
+    },
+    {
+      "source_record_id": "389044",
+      "business_name": "MS Moss, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY007137",
+      "license_issue_date": "2026-07-30T00:00:00",
+      "license_expiration_date": "2027-08-01T00:00:00",
+      "physical_address": "6083 U S HIGHWAY 98 STE 311 HATTIESBURG, MS 39402"
+    },
+    {
+      "source_record_id": "389045",
+      "business_name": "MS Moss, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY009534",
+      "license_issue_date": "2026-07-30T00:00:00",
+      "license_expiration_date": "2027-08-05T00:00:00",
+      "physical_address": "310 S 16TH AVE STE 311 LAUREL, MS 39440"
+    },
+    {
+      "source_record_id": "389047",
+      "business_name": "MS Moss, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY004141",
+      "license_issue_date": "2026-07-22T00:00:00",
+      "license_expiration_date": "2027-07-25T00:00:00",
+      "physical_address": "3836 N GLOSTER ST STE 311 TUPELO, MS 38804"
+    },
+    {
+      "source_record_id": "389048",
+      "business_name": "MS Moss, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY009124",
+      "license_issue_date": "2026-07-30T00:00:00",
+      "license_expiration_date": "2027-08-03T00:00:00",
+      "physical_address": "2389 PASS RD STE 311 BILOXI, MS 39531"
+    },
+    {
+      "source_record_id": "389298",
+      "business_name": "MS Moss, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY003902",
+      "license_issue_date": "2026-07-22T00:00:00",
+      "license_expiration_date": "2027-07-26T00:00:00",
+      "physical_address": "2609 HIGHWAY 72 W STE 311 CORINTH, MS 38834"
+    },
+    {
+      "source_record_id": "391029",
+      "business_name": "Rootdown 2, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY013522",
+      "license_issue_date": "2025-10-20T00:00:00",
+      "license_expiration_date": "2026-10-21T00:00:00",
+      "physical_address": "1329 SUNSET DR STE 311 GRENADA, MS 38901"
+    },
+    {
+      "source_record_id": "3922",
+      "business_name": "DELTA DISPENSARY MAGNOLIA",
+      "business_type": "Dispensary",
+      "license_number": "DSPY013957",
+      "license_issue_date": "2025-10-24T00:00:00",
+      "license_expiration_date": "2026-10-27T00:00:00",
+      "physical_address": "319 E BAY ST MAGNOLIA, MS 39652"
+    },
+    {
+      "source_record_id": "393325",
+      "business_name": "Hare Dispensary LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY025518",
+      "license_issue_date": "2025-11-21T19:36:08",
+      "license_expiration_date": "2026-11-21T00:00:00",
+      "physical_address": "7314 U S HIGHWAY 49 HATTIESBURG, MS 39402"
+    },
+    {
+      "source_record_id": "40488",
+      "business_name": "SB O Springs, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY018630",
+      "license_issue_date": "2026-07-17T00:00:00",
+      "license_expiration_date": "2027-07-19T00:00:00",
+      "physical_address": "718 BIENVILLE BLVD OCEAN SPRINGS, MS 39564"
+    },
+    {
+      "source_record_id": "405272",
+      "business_name": "Five Star-2 LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY025947",
+      "license_issue_date": "2026-01-21T16:54:18",
+      "license_expiration_date": "2027-01-21T00:00:00",
+      "physical_address": "515 CRAFT ST HOLLY SPRINGS, MS 38635"
+    },
+    {
+      "source_record_id": "420871",
+      "business_name": "DABBS 2 LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY025817",
+      "license_issue_date": "2026-01-14T19:50:29",
+      "license_expiration_date": "2027-01-14T00:00:00",
+      "physical_address": "1041 HOLLY SPRINGS RD UNIT 2 HERNANDO, MS 38632"
+    },
+    {
+      "source_record_id": "422064",
+      "business_name": "Rootdown 3, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY006853",
+      "license_issue_date": "2026-07-30T00:00:00",
+      "license_expiration_date": "2027-08-01T00:00:00",
+      "physical_address": "605 S JACKSON ST STE 311 STARKVILLE, MS 39759"
+    },
+    {
+      "source_record_id": "435786",
+      "business_name": "DABBS 1 LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY001975",
+      "license_issue_date": "2026-07-14T00:00:00",
+      "license_expiration_date": "2027-07-25T00:00:00",
+      "physical_address": "6616 WASHINGTON AVE OCEAN SPRINGS, MS 39564"
+    },
+    {
+      "source_record_id": "436915",
+      "business_name": "420 Holiday #4, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY010318",
+      "license_issue_date": "2026-08-05T00:00:00",
+      "license_expiration_date": "2027-08-23T00:00:00",
+      "physical_address": "6401 U S HIGHWAY 49 HATTIESBURG, MS 39401"
+    },
+    {
+      "source_record_id": "436947",
+      "business_name": "420 Holiday #6, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY019130",
+      "license_issue_date": "2026-07-21T00:00:00",
+      "license_expiration_date": "2027-08-10T00:00:00",
+      "physical_address": "1608 Bienville Blvd Ocean Springs, MS 39564"
+    },
+    {
+      "source_record_id": "441404",
+      "business_name": "DABBS 1",
+      "business_type": "Dispensary",
+      "license_number": "DSPY020315",
+      "license_issue_date": "2025-12-17T00:00:00",
+      "license_expiration_date": "2026-12-22T00:00:00",
+      "physical_address": "28059 HIGHWAY 28 HAZLEHURST, MS 39083"
+    },
+    {
+      "source_record_id": "455185",
+      "business_name": "Bees Buds LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY026124",
+      "license_issue_date": "2026-04-16T20:58:21",
+      "license_expiration_date": "2027-04-16T00:00:00",
+      "physical_address": "20467 Highway 49 Saucier, MS 39574"
+    },
+    {
+      "source_record_id": "456919",
+      "business_name": "Kaldem Holdings LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY026024",
+      "license_issue_date": "2026-04-16T20:50:59",
+      "license_expiration_date": "2027-04-16T00:00:00",
+      "physical_address": "12242 SHRINERS BLVD BILOXI, MS 39532"
+    },
+    {
+      "source_record_id": "468336",
+      "business_name": "Danzoo Med Inc",
+      "business_type": "Dispensary",
+      "license_number": "DSPY026317",
+      "license_issue_date": "2026-06-09T19:46:06",
+      "license_expiration_date": "2027-06-09T00:00:00",
+      "physical_address": "55 Highway 51 S, Hernando, MS 38632"
+    },
+    {
+      "source_record_id": "4716",
+      "business_name": "Mississippi Magnolia Canna",
+      "business_type": "Dispensary",
+      "license_number": "DSPY014644",
+      "license_issue_date": "2025-11-10T00:00:00",
+      "license_expiration_date": "2026-11-15T00:00:00",
+      "physical_address": "1223 HIGHWAY 45 N COLUMBUS, MS 39705"
+    },
+    {
+      "source_record_id": "47246",
+      "business_name": "Dabbs Cannabis Dispensary LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY018964",
+      "license_issue_date": "2026-08-04T00:00:00",
+      "license_expiration_date": "2027-08-10T00:00:00",
+      "physical_address": "2132 Jackson Ave W Oxford, MS 38655"
+    },
+    {
+      "source_record_id": "475873",
+      "business_name": "OddFellow Pearl",
+      "business_type": "Dispensary",
+      "license_number": "DSPY026461",
+      "license_issue_date": "2026-06-17T18:56:43",
+      "license_expiration_date": "2027-06-17T00:00:00",
+      "physical_address": "3021 US-80 EAST Pearl, MS 39208"
+    },
+    {
+      "source_record_id": "477421",
+      "business_name": "DABBS 2",
+      "business_type": "Dispensary",
+      "license_number": "DSPY000244",
+      "license_issue_date": "2026-07-14T00:00:00",
+      "license_expiration_date": "2027-07-22T00:00:00",
+      "physical_address": "1708 Simpson Highway 49 Magee, MS 39111"
+    },
+    {
+      "source_record_id": "47941",
+      "business_name": "RymedyRx, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY019224",
+      "license_issue_date": "2026-08-05T00:00:00",
+      "license_expiration_date": "2027-08-19T00:00:00",
+      "physical_address": "15223 CREOSOTE RD GULFPORT, MS 39503"
+    },
+    {
+      "source_record_id": "483377",
+      "business_name": "MF Group, Inc.",
+      "business_type": "Dispensary",
+      "license_number": "DSPY026218",
+      "license_issue_date": "2026-05-08T21:00:55",
+      "license_expiration_date": "2027-05-08T00:00:00",
+      "physical_address": "5891 U S Highway 49 Hattiesburg, MS 39402"
+    },
+    {
+      "source_record_id": "49646",
+      "business_name": "City Dispensary LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY019070",
+      "license_issue_date": "2026-08-05T00:00:00",
+      "license_expiration_date": "2027-08-10T00:00:00",
+      "physical_address": "830 CITY AVE S RIPLEY, MS 38663"
+    },
+    {
+      "source_record_id": "5266",
+      "business_name": "BWD Columbus LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY014844",
+      "license_issue_date": "2025-12-01T00:00:00",
+      "license_expiration_date": "2026-12-01T00:00:00",
+      "physical_address": "4072 HIGHWAY 45 N COLUMBUS, MS 39705"
+    },
+    {
+      "source_record_id": "5411",
+      "business_name": "The Magnolia Healing, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY015230",
+      "license_issue_date": "2025-11-25T00:00:00",
+      "license_expiration_date": "2026-12-02T00:00:00",
+      "physical_address": "20 MARKS RD OCEAN SPRINGS, MS 39564"
+    },
+    {
+      "source_record_id": "5682",
+      "business_name": "Aeroma Dispensary Company LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY014937",
+      "license_issue_date": "2025-11-25T00:00:00",
+      "license_expiration_date": "2026-12-01T00:00:00",
+      "physical_address": "6610 US-98 Hattiesburg, MS 39402"
+    },
+    {
+      "source_record_id": "5686",
+      "business_name": "Diamond Leaf",
+      "business_type": "Dispensary",
+      "license_number": "DSPY015123",
+      "license_issue_date": "2025-11-25T00:00:00",
+      "license_expiration_date": "2026-12-02T00:00:00",
+      "physical_address": "445 YACHT CLUB DR DIAMONDHEAD, MS 39525"
+    },
+    {
+      "source_record_id": "5691",
+      "business_name": "Zack Hemp LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY015817",
+      "license_issue_date": "2025-12-19T00:00:00",
+      "license_expiration_date": "2026-12-29T00:00:00",
+      "physical_address": "4860 BETHEL RD OLIVE BRANCH, MS 38654"
+    },
+    {
+      "source_record_id": "58493",
+      "business_name": "Dabbs Cannabis Dispensary LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY019450",
+      "license_issue_date": "2025-09-09T00:00:00",
+      "license_expiration_date": "2026-09-13T00:00:00",
+      "physical_address": "1024 W BEACON ST PHILADELPHIA, MS 39350"
+    },
+    {
+      "source_record_id": "5857",
+      "business_name": "Evergreen Dispensary LLC.",
+      "business_type": "Dispensary",
+      "license_number": "DSPY015454",
+      "license_issue_date": "2025-12-08T00:00:00",
+      "license_expiration_date": "2026-12-09T00:00:00",
+      "physical_address": "13170 HIGHWAY 6 W BATESVILLE, MS 38606"
+    },
+    {
+      "source_record_id": "59823",
+      "business_name": "SB Greenwood, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY019642",
+      "license_issue_date": "2025-10-16T00:00:00",
+      "license_expiration_date": "2026-10-17T00:00:00",
+      "physical_address": "2218 HIGHWAY 82 W STE A GREENWOOD, MS 38930"
+    },
+    {
+      "source_record_id": "6010",
+      "business_name": "SB Natchez, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY015501",
+      "license_issue_date": "2025-12-17T00:00:00",
+      "license_expiration_date": "2026-12-19T00:00:00",
+      "physical_address": "135 HIGHWAY 61 S NATCHEZ, MS 39120"
+    },
+    {
+      "source_record_id": "6362",
+      "business_name": "AllsWell Brands, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY015334",
+      "license_issue_date": "2025-12-05T00:00:00",
+      "license_expiration_date": "2026-12-09T00:00:00",
+      "physical_address": "110 S MAGNOLIA ST LAUREL, MS 39440"
+    },
+    {
+      "source_record_id": "6373",
+      "business_name": "VooDoo Buds LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY015661",
+      "license_issue_date": "2025-12-19T00:00:00",
+      "license_expiration_date": "2026-12-29T00:00:00",
+      "physical_address": "3214 SERVICE DR PEARL, MS 39208"
+    },
+    {
+      "source_record_id": "64990",
+      "business_name": "SB Tupelo, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY019741",
+      "license_issue_date": "2025-10-23T00:00:00",
+      "license_expiration_date": "2026-10-24T00:00:00",
+      "physical_address": "2546 MS 145 Saltillo, MS 38866"
+    },
+    {
+      "source_record_id": "7083",
+      "business_name": "Bloom Medical Cannabis, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY015982",
+      "license_issue_date": "2026-01-06T00:00:00",
+      "license_expiration_date": "2027-01-06T00:00:00",
+      "physical_address": "110 N JERRY CLOWER BLVD YAZOO CITY, MS 39194"
+    },
+    {
+      "source_record_id": "71112",
+      "business_name": "HEMPNOTIZE MISSISSIPPI LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY021024",
+      "license_issue_date": "2026-01-13T00:00:00",
+      "license_expiration_date": "2027-01-12T00:00:00",
+      "physical_address": "2159 E PASS RD GULFPORT, MS 39507"
+    },
+    {
+      "source_record_id": "7933",
+      "business_name": "Dixon Dispensary LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY016324",
+      "license_issue_date": "2026-01-20T00:00:00",
+      "license_expiration_date": "2027-01-23T00:00:00",
+      "physical_address": "11370 HIGHWAY 49 GULFPORT, MS 39503"
+    },
+    {
+      "source_record_id": "81288",
+      "business_name": "Oddfellow Dispensary",
+      "business_type": "Dispensary",
+      "license_number": "DSPY019961",
+      "license_issue_date": "2025-11-25T00:00:00",
+      "license_expiration_date": "2026-12-05T00:00:00",
+      "physical_address": "890 HIGHWAY 49 S RICHLAND, MS 39218"
+    },
+    {
+      "source_record_id": "8181",
+      "business_name": "House of Buds",
+      "business_type": "Dispensary",
+      "license_number": "DSPY016464",
+      "license_issue_date": "2026-01-20T00:00:00",
+      "license_expiration_date": "2027-01-26T00:00:00",
+      "physical_address": "521 5TH ST SW MAGEE, MS 39111"
+    },
+    {
+      "source_record_id": "8182",
+      "business_name": "SRT-MS JAN, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY016525",
+      "license_issue_date": "2026-01-28T00:00:00",
+      "license_expiration_date": "2027-02-03T00:00:00",
+      "physical_address": "4300 N STATE ST JACKSON, MS 39206"
+    },
+    {
+      "source_record_id": "82822",
+      "business_name": "WYZE 3 LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY020902",
+      "license_issue_date": "2026-01-05T00:00:00",
+      "license_expiration_date": "2027-01-09T00:00:00",
+      "physical_address": "2300 S HARPER RD CORINTH, MS 38834"
+    },
+    {
+      "source_record_id": "83113",
+      "business_name": "The Green Standard Vicksburg LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY020075",
+      "license_issue_date": "2025-11-20T00:00:00",
+      "license_expiration_date": "2026-12-11T00:00:00",
+      "physical_address": "3128 OLD BELDEN CIRCLE TUPELO, MS 38801"
+    },
+    {
+      "source_record_id": "84386",
+      "business_name": "Green Akers Cannabis Inc",
+      "business_type": "Dispensary",
+      "license_number": "DSPY020171",
+      "license_issue_date": "2025-12-03T00:00:00",
+      "license_expiration_date": "2026-12-11T00:00:00",
+      "physical_address": "1409 BATTLEGROUND DR IUKA, MS 38852"
+    },
+    {
+      "source_record_id": "86506",
+      "business_name": "relief med inc",
+      "business_type": "Dispensary",
+      "license_number": "DSPY020847",
+      "license_issue_date": "2026-01-05T00:00:00",
+      "license_expiration_date": "2027-01-09T00:00:00",
+      "physical_address": "975, Highway 7 Holly Springs, MS 38635"
+    },
+    {
+      "source_record_id": "8739",
+      "business_name": "Local Remedy, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY016725",
+      "license_issue_date": "2026-01-28T00:00:00",
+      "license_expiration_date": "2027-02-03T00:00:00",
+      "physical_address": "110 BYRAM DR BYRAM, MS 39272"
+    },
+    {
+      "source_record_id": "87799",
+      "business_name": "Strong River Disp LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY020525",
+      "license_issue_date": "2025-12-05T00:00:00",
+      "license_expiration_date": "2026-12-28T00:00:00",
+      "physical_address": "4952 OLD CANTON RD JACKSON, MS 39211"
+    },
+    {
+      "source_record_id": "88902",
+      "business_name": "HT Moss Point LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY020730",
+      "license_issue_date": "2026-01-06T00:00:00",
+      "license_expiration_date": "2027-01-04T00:00:00",
+      "physical_address": "17015 MS-63 STE B Moss Point, MS 39562"
+    },
+    {
+      "source_record_id": "89935",
+      "business_name": "Strong River Disp LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY020655",
+      "license_issue_date": "2025-12-05T00:00:00",
+      "license_expiration_date": "2026-12-28T00:00:00",
+      "physical_address": "1624 S MAIN ST POPLARVILLE, MS 39470"
+    },
+    {
+      "source_record_id": "9401",
+      "business_name": "Collinsville Wellness Dispensary, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY016238",
+      "license_issue_date": "2026-01-21T00:00:00",
+      "license_expiration_date": "2027-01-20T00:00:00",
+      "physical_address": "8990 HIGHWAY 19 N COLLINSVILLE, MS 39325"
+    },
+    {
+      "source_record_id": "94277",
+      "business_name": "420 Holiday #2, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY021124",
+      "license_issue_date": "2026-01-15T00:00:00",
+      "license_expiration_date": "2027-01-24T00:00:00",
+      "physical_address": "19099 PINEVILLE RD STE F APT 8 LONG BEACH, MS 39560"
+    },
+    {
+      "source_record_id": "95024",
+      "business_name": "Fabpharm",
+      "business_type": "Dispensary",
+      "license_number": "DSPY021823",
+      "license_issue_date": "2026-02-27T00:00:00",
+      "license_expiration_date": "2027-02-28T00:00:00",
+      "physical_address": "295 HIGHWAY 90 BAY ST LOUIS, MS 39520"
+    },
+    {
+      "source_record_id": "9521",
+      "business_name": "Local Remedy, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY016825",
+      "license_issue_date": "2026-01-15T00:00:00",
+      "license_expiration_date": "2027-02-06T00:00:00",
+      "physical_address": "1667 LAKELAND DR JACKSON, MS 39216"
+    },
+    {
+      "source_record_id": "96612",
+      "business_name": "Rootdown 1, LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY021424",
+      "license_issue_date": "2026-02-04T00:00:00",
+      "license_expiration_date": "2027-02-06T00:00:00",
+      "physical_address": "1703 HIGHWAY 1 S STE 311 GREENVILLE, MS 38701"
+    },
+    {
+      "source_record_id": "9917",
+      "business_name": "Dolphin Dayz LLC",
+      "business_type": "Dispensary",
+      "license_number": "DSPY017030",
+      "license_issue_date": "2026-02-23T00:00:00",
+      "license_expiration_date": "2027-03-02T00:00:00",
+      "physical_address": "3300 LADNIER RD GAUTIER, MS 39553"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "fetched_at": "2026-08-14T19:37:38.356Z",
+  "local_only": true,
+  "input_snapshot_path": "data/store_truth/source_snapshots/ri-ccc-current-licensed-compassion-centers-2026-08-14.json",
+  "input_snapshot_sha256": "94ab89120599d90a7f576ce2a6c3b8bee8efdc2af5a990afee1cb54b1450e16d",
+  "census_benchmark": "Public_AR_Current",
+  "match_policy": "ONE_MATCH_OPTIONAL_MATCH_TYPE_MATCH_OR_EXACT_SAME_CANONICAL_ONELINE_ADDRESS_AND_IN_DECLARED_BOUNDS",
+  "requested_candidates": 9,
+  "accepted_records": 5,
+  "blocked_records": 4,
+  "records": [
+    {
+      "source_record_id": "MMP CC 001",
+      "address": "1 CORLISS ST",
+      "city": "PROVIDENCE",
+      "region": "RI",
+      "postal_code": "02904",
+      "latitude": 41.838067732489,
+      "longitude": -71.414404578734,
+      "source_combined_address": "1 Corliss Street Providence, RI 02904",
+      "public_source_fields": {
+        "census_matched_address": "1 CORLISS ST, PROVIDENCE, RI, 02904"
+      }
+    },
+    {
+      "source_record_id": "MMP CC 003",
+      "address": "444 QUAKER LN",
+      "city": "WARWICK",
+      "region": "RI",
+      "postal_code": "02886",
+      "latitude": 41.682762635092,
+      "longitude": -71.500367896434,
+      "source_combined_address": "444 Quaker Lane, Warwick, RI 02886",
+      "public_source_fields": {
+        "census_matched_address": "444 QUAKER LN, WARWICK, RI, 02886"
+      }
+    },
+    {
+      "source_record_id": "MMP CC 006",
+      "address": "125 ESTEN AVE",
+      "city": "PAWTUCKET",
+      "region": "RI",
+      "postal_code": "02860",
+      "latitude": 41.864744890341,
+      "longitude": -71.402383707015,
+      "source_combined_address": "125 Esten Avenue Pawtucket, RI 02860",
+      "public_source_fields": {
+        "census_matched_address": "125 ESTEN AVE, PAWTUCKET, RI, 02860"
+      }
+    },
+    {
+      "source_record_id": "MMP CC 008",
+      "address": "187 DANIELSON PIKE",
+      "city": "FOSTER",
+      "region": "RI",
+      "postal_code": "02825",
+      "latitude": 41.795060194795,
+      "longitude": -71.791973983156,
+      "source_combined_address": "187 Danielson Pike, Foster RI 02825",
+      "public_source_fields": {
+        "census_matched_address": "187 DANIELSON PIKE, FOSTER, RI, 02825"
+      }
+    },
+    {
+      "source_record_id": "MMP CC 009",
+      "address": "2000 DIAMOND HILL RD",
+      "city": "WOONSOCKET",
+      "region": "RI",
+      "postal_code": "02895",
+      "latitude": 42.015101987811,
+      "longitude": -71.470863380283,
+      "source_combined_address": "2000 Diamond Hill Road Woonsocket, RI 02895",
+      "public_source_fields": {
+        "census_matched_address": "2000 DIAMOND HILL RD, WOONSOCKET, RI, 02895"
+      }
+    }
+  ]
+}

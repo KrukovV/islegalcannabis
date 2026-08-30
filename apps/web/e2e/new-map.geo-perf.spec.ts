@@ -1,4 +1,4 @@
-import { expect, test } from "playwright/test";
+import { expect, test } from "@playwright/test";
 
 test("new-map map loads fast without geo blocking", async ({ page }) => {
   const start = Date.now();

@@ -1,0 +1,1522 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-14T20:54:06.322Z",
+  "source_id": "official-me-ocp-current-active-adult-use-retailers-2026-08-13",
+  "source_snapshot_path": "data/store_truth/source_snapshots/me-ocp-current-active-adult-use-retailers-2026-08-13.csv",
+  "source_snapshot_sha256": "592de3819fb87812a445c61789d114eed43a00658815edd4a01314857bc4d020",
+  "source_url": "https://www.maine.gov/dafs/ocp/sites/maine.gov.dafs.ocp/files/inline-files/Adult_Use_Establishments_And_Contacts_2026_07_01.csv",
+  "records": [
+    {
+      "source_record_id": "AMS102",
+      "address": "884 Western Ave",
+      "city": "Manchester",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1027",
+      "address": "1139 Stillwater Ave Unit A",
+      "city": "Bangor",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS110",
+      "address": "23 Marginal Way",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1133",
+      "address": "484b Wilson St",
+      "city": "Brewer",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1162",
+      "address": "115 W Broadway Unit 2b",
+      "city": "Lincoln",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS117",
+      "address": "745 Forest Ave",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1180",
+      "address": "8 Main St",
+      "city": "Lisbon",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1182",
+      "address": "1140 Brighton Ave Ste C",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1183",
+      "address": "1 Wiggin St",
+      "city": "Lebanon",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1184",
+      "address": "97 Main St",
+      "city": "Woolwich",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1193",
+      "address": "28 Levesque Dr Ste 3",
+      "city": "Eliot",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1194",
+      "address": "312 Mayville Rd Unit 4",
+      "city": "Bethel",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1195",
+      "address": "115 Leeman Hwy",
+      "city": "Bath",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1229",
+      "address": "8 Crimson Dr Unit 3",
+      "city": "Windham",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS124",
+      "address": "152 Main Street",
+      "city": "Stratton",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1241",
+      "address": "228 Norridgewock Rd",
+      "city": "Fairfield",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1243",
+      "address": "265 Us-1",
+      "city": "Columbia",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1244",
+      "address": "739 Main Street",
+      "city": "Lewiston",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1246",
+      "address": "35 Bridge St",
+      "city": "Gardiner",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1253",
+      "address": "532 Pigeon Hill Rd Bldg 2",
+      "city": "Mechanic Falls",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1264",
+      "address": "188 Unit 2 , Us 1",
+      "city": "Columbia",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1266",
+      "address": "35 North Rd",
+      "city": "Detroit",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1302",
+      "address": "20 Union St Unit C",
+      "city": "Auburn",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1303",
+      "address": "2742 Auburn Rd",
+      "city": "Turner",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1307",
+      "address": "465 Kennedy Memorial Dr",
+      "city": "Waterville",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1315",
+      "address": "36 Moosehead Trl Ste 1",
+      "city": "Newport",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1317",
+      "address": "1104 Carl Broggi Hwy Unit A",
+      "city": "Lebanon",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1328",
+      "address": "470 Auburn Rd",
+      "city": "Turner",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1329",
+      "address": "1150 Center St Bldg 1 Unit B",
+      "city": "Auburn",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS135",
+      "address": "185 Running Hill Road",
+      "city": "South Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1356",
+      "address": "19 Moosehead Trl Ste 2b",
+      "city": "Newport",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1363",
+      "address": "684 Forest Ave",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1370",
+      "address": "268 Hammond St",
+      "city": "Bangor",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1376",
+      "address": "210 New County Rd",
+      "city": "Thomaston",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1382",
+      "address": "85 Western Ave",
+      "city": "South Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1387",
+      "address": "1221 Carrabassett Dr Unit B",
+      "city": "Carrabassett Valley",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1399",
+      "address": "53a Chapman St",
+      "city": "Damariscotta",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1430",
+      "address": "64 Washington Ave",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1439",
+      "address": "18 American Way",
+      "city": "Eliot",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1444",
+      "address": "325 Bath Rd",
+      "city": "Brunswick",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1445",
+      "address": "73 Main St",
+      "city": "Woolwich",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1456",
+      "address": "72 Emery St Unit 105",
+      "city": "Sanford",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1459",
+      "address": "964 Auburn Rd",
+      "city": "Turner",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1469",
+      "address": "225 First Flight Dr",
+      "city": "Auburn",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1484",
+      "address": "200 Roosevelt Trl",
+      "city": "Casco",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1486",
+      "address": "1048 Atlantic Hwy",
+      "city": "Warren",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1489",
+      "address": "325 Roosevelt Trl",
+      "city": "Casco",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1495",
+      "address": "419 Hill St",
+      "city": "Biddeford",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1496",
+      "address": "8 Business Pkwy",
+      "city": "Brunswick",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1502",
+      "address": "154 Mount Auburn Ave",
+      "city": "Auburn",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1507",
+      "address": "1384 Carl Broggi Hwy Bldg B",
+      "city": "Lebanon",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1508",
+      "address": "341 Main St",
+      "city": "Waterville",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1510",
+      "address": "155 Maine Mall Rd",
+      "city": "South Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1516",
+      "address": "343 Gorham Rd",
+      "city": "South Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1526",
+      "address": "911 Lisbon St",
+      "city": "Lewiston",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1530",
+      "address": "230 Warren Ave",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1538",
+      "address": "1674 Carl Broggi Hwy",
+      "city": "Lebanon",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1542",
+      "address": "84 College Ave Unit 2",
+      "city": "Waterville",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1546",
+      "address": "22 Smada Dr",
+      "city": "Sanford",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS155",
+      "address": "198 Maine Mall Rd # 1",
+      "city": "South Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1553",
+      "address": "10 China Rd Unit 2",
+      "city": "Winslow",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1558",
+      "address": "6 Hudson Ave",
+      "city": "Guilford",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1559",
+      "address": "7 Dana St",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1562",
+      "address": "27 Hancock Ln Bldg 1",
+      "city": "Sanford",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1585",
+      "address": "89 Route 236",
+      "city": "Kittery",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1587",
+      "address": "1 Beaver Creek Farm Rd",
+      "city": "Bridgton",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1588",
+      "address": "791 Kittyhawk Ave Ste 6",
+      "city": "Auburn",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1592",
+      "address": "640 Rockland Road",
+      "city": "Somerville",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1596",
+      "address": "588 Elm St",
+      "city": "Biddeford",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1610",
+      "address": "790 Sabattus St",
+      "city": "Lewiston",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1621",
+      "address": "31 Main St",
+      "city": "Milo",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1626",
+      "address": "1364 Congress St Unit 4",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1630",
+      "address": "15 Maclellen Dr",
+      "city": "Eliot",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1631",
+      "address": "140 Park St",
+      "city": "Rockland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1641",
+      "address": "159 Us Route 1",
+      "city": "Bucksport",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1642",
+      "address": "468 Portland St",
+      "city": "Berwick",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1643",
+      "address": "806 Sabattus St Ste 2",
+      "city": "Lewiston",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1644",
+      "address": "325 Water St",
+      "city": "Gardiner",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS165",
+      "address": "137 Leeman Highway",
+      "city": "Bath",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1651",
+      "address": "45 Wharf St",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1657",
+      "address": "685 Wilson St",
+      "city": "Brewer",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS166",
+      "address": "696 Main Street",
+      "city": "Rockland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1660",
+      "address": "265 Western Ave",
+      "city": "Augusta",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1662",
+      "address": "9 Renaissance Way Ste 3",
+      "city": "Sanford",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1664",
+      "address": "152 Western Ave Ste 7",
+      "city": "Augusta",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1669",
+      "address": "292 State St",
+      "city": "Augusta",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1671",
+      "address": "393 Western Ave Ste 1",
+      "city": "Augusta",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1672",
+      "address": "1258 Main St",
+      "city": "Oxford",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1684",
+      "address": "29 Western Ave",
+      "city": "South Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1685",
+      "address": "685 Congress St",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1686",
+      "address": "31 Main Ave",
+      "city": "Gardiner",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1687",
+      "address": "221 Dirigo Dr",
+      "city": "Brewer",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1691",
+      "address": "222 W Broadway Unit 2",
+      "city": "Lincoln",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1692",
+      "address": "253 Bethel Rd Unit A",
+      "city": "West Paris",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1693",
+      "address": "945 Forest Ave",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1694",
+      "address": "285 Main St",
+      "city": "Fryeburg",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1699",
+      "address": "564 Bath Rd",
+      "city": "Wiscasset",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1706",
+      "address": "1217 Congress St",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1718",
+      "address": "27 Ocean St Ste 1",
+      "city": "South Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1724",
+      "address": "569 Stillwater Ave Ste C",
+      "city": "Bangor",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1726",
+      "address": "20 Industrial St",
+      "city": "Waterville",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1727",
+      "address": "8 Dexter Ln Unit 8",
+      "city": "Kittery",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1739",
+      "address": "460 Warren Ave",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1742",
+      "address": "32 Brook Rd Bldg 1 Unit B",
+      "city": "Eliot",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1743",
+      "address": "602 West Bethel Rd",
+      "city": "Bethel",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1744",
+      "address": "11 Ocean Park Road",
+      "city": "Old Orchard Beach",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1745",
+      "address": "829 Hogan Rd Unit 46",
+      "city": "Bangor",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1748",
+      "address": "1240 Lisbon St",
+      "city": "Lewiston",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1755",
+      "address": "495 Harold L Dow Hwy Bldg 1",
+      "city": "Eliot",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1765",
+      "address": "1027 Sabattus St",
+      "city": "Lewiston",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1769",
+      "address": "1236 Congress St",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1770",
+      "address": "461 Old Rte 1",
+      "city": "Baring Plt",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1771",
+      "address": "634 Main St Unit 2",
+      "city": "Oxford",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1774",
+      "address": "363 Fore St",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1775",
+      "address": "1022 Stillwater Ave",
+      "city": "Bangor",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1776",
+      "address": "140 Federal Rd",
+      "city": "Parsonsfield",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1778",
+      "address": "378 Western Ave",
+      "city": "Augusta",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1783",
+      "address": "202 Us Hwy 1",
+      "city": "Baring Plantation",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1785",
+      "address": "18 Federal Rd",
+      "city": "Parsonsfield",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1786",
+      "address": "52 River Rd",
+      "city": "Chelsea",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1791",
+      "address": "210 College Ave",
+      "city": "Waterville",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1802",
+      "address": "216 Wilton Rd",
+      "city": "Farmington",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1806",
+      "address": "434 Main St",
+      "city": "Damariscotta",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1807",
+      "address": "1085 Main St",
+      "city": "Lewiston",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1817",
+      "address": "181 State Rd",
+      "city": "Kittery",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1818",
+      "address": "482 Congress St",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1821",
+      "address": "4 Wellspring Rd",
+      "city": "Biddeford",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1822",
+      "address": "152 Portland Rd",
+      "city": "Bridgton",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS183",
+      "address": "60 Route 236",
+      "city": "Berwick",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS1844",
+      "address": "818 Main St Unit 2b",
+      "city": "South Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS188",
+      "address": "601 Western Ave Bldg 1",
+      "city": "Manchester",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS206",
+      "address": "1 Priest Rd",
+      "city": "Northport",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS208",
+      "address": "469 Stillwater Ave",
+      "city": "Bangor",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS212",
+      "address": "435 Maine Street",
+      "city": "Poland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS216",
+      "address": "119 Skiway Road",
+      "city": "Newry",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS228",
+      "address": "1172 Hammond St",
+      "city": "Bangor",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS233",
+      "address": "3 Kind Farms Way",
+      "city": "Berwick",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS236",
+      "address": "145 Commercial St",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS242",
+      "address": "377 Saint John St",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS252",
+      "address": "442 Fore St",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS258",
+      "address": "50 Mechanic Falls Rd",
+      "city": "Poland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS276",
+      "address": "290 Harold L Dow Highway",
+      "city": "Eliot",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS297",
+      "address": "55 Rome Rd Unit 2",
+      "city": "Rome",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS304",
+      "address": "415 Hollis Rd",
+      "city": "Hollis Center",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS306",
+      "address": "22 Sunday River Rd Unit A",
+      "city": "Bethel",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS311",
+      "address": "409 Main St",
+      "city": "Rockland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS324",
+      "address": "373 Forest Ave",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS331",
+      "address": "684 Congress St",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS343",
+      "address": "648 Turner St",
+      "city": "Auburn",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS386",
+      "address": "446 Western Ave",
+      "city": "South Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS400",
+      "address": "47 India St Ste C",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS416",
+      "address": "415 Main St",
+      "city": "Presque Isle",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS428",
+      "address": "327 Saint John St",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS476",
+      "address": "16 North Main Street",
+      "city": "Peru",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS488",
+      "address": "415 Sabattus St Ste A",
+      "city": "Lewiston",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS511",
+      "address": "1716 Carl Broggi Hwy",
+      "city": "Lebanon",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS559",
+      "address": "223 S Main St Unit A",
+      "city": "Solon",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS564",
+      "address": "49 Bangor Mall Blvd",
+      "city": "Bangor",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS565",
+      "address": "155 New County Rd",
+      "city": "Thomaston",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS571",
+      "address": "132 Church Rd",
+      "city": "Brunswick",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS590",
+      "address": "510 Portland Rd",
+      "city": "Bridgton",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS593",
+      "address": "475 Kennedy Memorial Dr",
+      "city": "Waterville",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS600",
+      "address": "11 Seal Cove Rd",
+      "city": "Southwest Harbor",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS625",
+      "address": "22 Rockwood Rd",
+      "city": "Greenville Junction",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS639",
+      "address": "1114 Hammond St Ste 2",
+      "city": "Bangor",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS652",
+      "address": "682 Main St Unit A",
+      "city": "South Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS718",
+      "address": "6 Stillwater Ave Ste 600",
+      "city": "Orono",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS719",
+      "address": "483 Main St",
+      "city": "Oxford",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS753",
+      "address": "953 Congress St",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS763",
+      "address": "767 Western Ave",
+      "city": "Manchester",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS764",
+      "address": "19 Park St",
+      "city": "Milo",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS780",
+      "address": "375 Center St",
+      "city": "Auburn",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS794",
+      "address": "Recreational Building 185 Pleasant St",
+      "city": "Rockland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS800",
+      "address": "740 Broadway Ste 700",
+      "city": "South Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS801",
+      "address": "11 Storm Dr Unit 4",
+      "city": "Windham",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS802",
+      "address": "2 Post Office Mall",
+      "city": "Newry",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS809",
+      "address": "1215 Carrabassett Dr",
+      "city": "Carrabassett Valley",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS811",
+      "address": "638 Wiscasset Rd",
+      "city": "Boothbay",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS812",
+      "address": "200 Gorham Rd",
+      "city": "South Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS813",
+      "address": "1995 Medway Rd",
+      "city": "Medway",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS827",
+      "address": "605 Congress St Unit C",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS828",
+      "address": "109 Water St",
+      "city": "Hallowell",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS831",
+      "address": "7 Oxford Homes Ln Unit 1",
+      "city": "Oxford",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS832",
+      "address": "321 Hollis Rd",
+      "city": "Hollis Center",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS839",
+      "address": "429 Warren Ave Unit 7",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS843",
+      "address": "1369 Atlantic Hwy",
+      "city": "Northport",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS852",
+      "address": "9 Exchange St",
+      "city": "Portland",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS883",
+      "address": "104 Fairbanks Rd",
+      "city": "Farmington",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "AMS911",
+      "address": "657 Broadway",
+      "city": "Bangor",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    }
+  ]
+}

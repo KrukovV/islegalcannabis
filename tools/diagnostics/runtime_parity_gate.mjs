@@ -2,7 +2,7 @@
 import fs from "node:fs/promises";
 import fsSync from "node:fs";
 import path from "node:path";
-import { chromium, webkit } from "@playwright/test";
+import { chromium, webkit } from "../playwright_runtime.mjs";
 import { acquireProjectProcessSlot } from "../runtime/processSlots.mjs";
 
 const root = process.cwd();

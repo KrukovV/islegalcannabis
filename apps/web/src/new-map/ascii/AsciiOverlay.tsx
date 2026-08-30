@@ -8,7 +8,11 @@ import { getGeoContext } from "./geo-store";
 
 const ASCII_START_DELAY_MS = process.env.NODE_ENV === "production" ? 60_000 : 5_000;
 
-export default function AsciiOverlay() {
+type AsciiOverlayProps = {
+  surfaceTestId?: string;
+};
+
+export default function AsciiOverlay({ surfaceTestId = "new-map-surface" }: AsciiOverlayProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -32,7 +36,7 @@ export default function AsciiOverlay() {
     };
 
     const pollUntilReady = () => {
-      const surface = document.querySelector('[data-testid="new-map-surface"]');
+      const surface = document.querySelector(`[data-testid="${surfaceTestId}"]`);
       if (surface?.getAttribute("data-map-ready") === "1") {
         window.clearInterval(readyPoll);
         readyPoll = 0;
@@ -51,7 +55,7 @@ export default function AsciiOverlay() {
       engine.stop();
       canvas.dataset.asciiState = "stopped";
     };
-  }, []);
+  }, [surfaceTestId]);
 
-  return <canvas ref={canvasRef} className={styles.asciiCanvas} aria-hidden="true" />;
+  return <canvas ref={canvasRef} className={styles.asciiCanvas} data-testid="antarctic-ascii-overlay" aria-hidden="true" />;
 }

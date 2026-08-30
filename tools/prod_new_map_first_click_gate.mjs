@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import fsSync from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { chromium } from "playwright";
+import { chromium } from "./playwright_runtime.mjs";
 import { buildVercelBypassHeaders, redactVercelBypassSecret } from "./vercel_bypass.mjs";
 import { acquireProjectProcessSlot } from "./runtime/processSlots.mjs";
 

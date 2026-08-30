@@ -1,0 +1,1921 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-14T20:24:23.538Z",
+  "source_id": "official-co-med-current-medical-marijuana-stores-2026-08-13",
+  "source_snapshot_path": "data/store_truth/source_snapshots/co-med-current-stores-2026-08-13.csv",
+  "source_snapshot_sha256": "20be089624b3a8f0ad3da5cc73b824c85ea085748797eabe5c66ab48bd7eb16d",
+  "source_url": "https://docs.google.com/spreadsheets/d/1PqYThJJwGEsrwWvciu9vXosuC0BzAw4YtD03RvlSKzE/export?format=csv",
+  "records": [
+    {
+      "source_record_id": "402-00002",
+      "address": "1301 N Marion Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80218"
+    },
+    {
+      "source_record_id": "402-00008",
+      "address": "2102 Airport Road, Suite A",
+      "city": "Rifle",
+      "region": "CO",
+      "postal_code": "81650"
+    },
+    {
+      "source_record_id": "402-00011",
+      "address": "3835 North Elm Street, Unit C",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80207"
+    },
+    {
+      "source_record_id": "402-00041",
+      "address": "3111 West 38th Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80211"
+    },
+    {
+      "source_record_id": "402-00049",
+      "address": "1233 West Alameda Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80223"
+    },
+    {
+      "source_record_id": "402-00051",
+      "address": "1538 Wazee Street, Suite 100",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80202"
+    },
+    {
+      "source_record_id": "402-00053",
+      "address": "5875 Lehman Drive Unit 100",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80918"
+    },
+    {
+      "source_record_id": "402-00058",
+      "address": "410 South 8th Street, Unit B",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80905"
+    },
+    {
+      "source_record_id": "402-00059",
+      "address": "2490 West 2nd Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80223"
+    },
+    {
+      "source_record_id": "402-00060",
+      "address": "4995 North Lima Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80239"
+    },
+    {
+      "source_record_id": "402-00062",
+      "address": "540 27th Street",
+      "city": "Garden City",
+      "region": "CO",
+      "postal_code": "80631"
+    },
+    {
+      "source_record_id": "402-00069",
+      "address": "222 East Moreno Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80903"
+    },
+    {
+      "source_record_id": "402-00080",
+      "address": "2093 Curve Plaza Unit C-103",
+      "city": "Steamboat Springs",
+      "region": "CO",
+      "postal_code": "80487"
+    },
+    {
+      "source_record_id": "402-00087",
+      "address": "3400 South Oneida Way, Suite 101",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80224"
+    },
+    {
+      "source_record_id": "402-00088",
+      "address": "4750 North Nome Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80239"
+    },
+    {
+      "source_record_id": "402-00090",
+      "address": "5024 North Academy Boulevard",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80918"
+    },
+    {
+      "source_record_id": "402-00096",
+      "address": "4500 North Washington Street, Unit B",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80216"
+    },
+    {
+      "source_record_id": "402-00097",
+      "address": "125 Peach Avenue, Suite C",
+      "city": "Palisade",
+      "region": "CO",
+      "postal_code": "81526"
+    },
+    {
+      "source_record_id": "402-00103",
+      "address": "22 South Chestnut Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80905"
+    },
+    {
+      "source_record_id": "402-00110",
+      "address": "1466 Woolsey Heights",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80915"
+    },
+    {
+      "source_record_id": "402-00116",
+      "address": "1022 South Royer Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80903"
+    },
+    {
+      "source_record_id": "402-00125",
+      "address": "890 Dublin Boulevard, Suite C",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80918"
+    },
+    {
+      "source_record_id": "402-00140",
+      "address": "115 East Garden of the Gods Road",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80907"
+    },
+    {
+      "source_record_id": "402-00146",
+      "address": "813 Smithfield Drive, Units A & B",
+      "city": "Fort Collins",
+      "region": "CO",
+      "postal_code": "80524"
+    },
+    {
+      "source_record_id": "402-00157",
+      "address": "1505 Elm Avenue",
+      "city": "Canon City",
+      "region": "CO",
+      "postal_code": "81212"
+    },
+    {
+      "source_record_id": "402-00166",
+      "address": "4095 North Jackson Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80216"
+    },
+    {
+      "source_record_id": "402-00170",
+      "address": "1640 East Evans Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80210"
+    },
+    {
+      "source_record_id": "402-00193",
+      "address": "2707 West 38th Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80211"
+    },
+    {
+      "source_record_id": "402-00194",
+      "address": "1146 Pearl Street",
+      "city": "Boulder",
+      "region": "CO",
+      "postal_code": "80302"
+    },
+    {
+      "source_record_id": "402-00209",
+      "address": "265 South Wadsworth Boulevard",
+      "city": "Lakewood",
+      "region": "CO",
+      "postal_code": "80226"
+    },
+    {
+      "source_record_id": "402-00216",
+      "address": "1131 West Colorado Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80904"
+    },
+    {
+      "source_record_id": "402-00232",
+      "address": "2117 West Colorado Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80904"
+    },
+    {
+      "source_record_id": "402-00237",
+      "address": "818 East Fillmore Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80907"
+    },
+    {
+      "source_record_id": "402-00240",
+      "address": "5885 East Evans Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80222"
+    },
+    {
+      "source_record_id": "402-00242",
+      "address": "426 West Fillmore Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80907"
+    },
+    {
+      "source_record_id": "402-00243",
+      "address": "3899 North Quentin Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80239"
+    },
+    {
+      "source_record_id": "402-00247",
+      "address": "1420 Harrison Road",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80905"
+    },
+    {
+      "source_record_id": "402-00248",
+      "address": "2306 North Powers Frontage Road, Suite 100",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80915"
+    },
+    {
+      "source_record_id": "402-00251",
+      "address": "511 Orchard Street 2nd Floor",
+      "city": "Golden",
+      "region": "CO",
+      "postal_code": "80401"
+    },
+    {
+      "source_record_id": "402-00260",
+      "address": "2045 Sheridan Boulevard, Unit B",
+      "city": "Edgewater",
+      "region": "CO",
+      "postal_code": "80214"
+    },
+    {
+      "source_record_id": "402-00281",
+      "address": "7739 East Colfax Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80220"
+    },
+    {
+      "source_record_id": "402-00286",
+      "address": "446 North Sheridan Boulevard",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80226"
+    },
+    {
+      "source_record_id": "402-00288",
+      "address": "2042 Arapahoe Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80205"
+    },
+    {
+      "source_record_id": "402-00292",
+      "address": "318 South 8th Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80905"
+    },
+    {
+      "source_record_id": "402-00294",
+      "address": "1995 South Broadway",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80210"
+    },
+    {
+      "source_record_id": "402-00304",
+      "address": "1350 South Sheridan Boulevard Unit 1 & 2",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80232"
+    },
+    {
+      "source_record_id": "402-00313",
+      "address": "10712 West Alameda Avenue",
+      "city": "Lakewood",
+      "region": "CO",
+      "postal_code": "80226"
+    },
+    {
+      "source_record_id": "402-00323",
+      "address": "12018 West Jewell Avenue, Unit B & C",
+      "city": "Lakewood",
+      "region": "CO",
+      "postal_code": "80228"
+    },
+    {
+      "source_record_id": "402-00325",
+      "address": "1100 West Dillon Road, Unit D-3",
+      "city": "Louisville",
+      "region": "CO",
+      "postal_code": "80027"
+    },
+    {
+      "source_record_id": "402-00326",
+      "address": "10590 West Colfax Avenue",
+      "city": "Lakewood",
+      "region": "CO",
+      "postal_code": "80215"
+    },
+    {
+      "source_record_id": "402-00330",
+      "address": "3702 West Quincy Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80236"
+    },
+    {
+      "source_record_id": "402-00346",
+      "address": "8025 North Academy Boulevard",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80920"
+    },
+    {
+      "source_record_id": "402-00347",
+      "address": "207 West Rockrimmon Boulevard, Unit C",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80919"
+    },
+    {
+      "source_record_id": "402-00352",
+      "address": "1150 East Fillmore Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80907"
+    },
+    {
+      "source_record_id": "402-00374",
+      "address": "6900 West Colfax Avenue",
+      "city": "Lakewood",
+      "region": "CO",
+      "postal_code": "80214"
+    },
+    {
+      "source_record_id": "402-00375",
+      "address": "2251 South Broadway",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80210"
+    },
+    {
+      "source_record_id": "402-00376",
+      "address": "330 North Federal Boulevard",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80219"
+    },
+    {
+      "source_record_id": "402-00383",
+      "address": "3636 Jeannine Drive",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80917"
+    },
+    {
+      "source_record_id": "402-00385",
+      "address": "4800 Lamar Street",
+      "city": "Wheat Ridge",
+      "region": "CO",
+      "postal_code": "80033"
+    },
+    {
+      "source_record_id": "402-00386",
+      "address": "4845 Van Gordon Street",
+      "city": "Wheat Ridge",
+      "region": "CO",
+      "postal_code": "80033"
+    },
+    {
+      "source_record_id": "402-00389",
+      "address": "2304 East Platte Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909"
+    },
+    {
+      "source_record_id": "402-00399",
+      "address": "1842 South Parker Road, Unit 18",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80231"
+    },
+    {
+      "source_record_id": "402-00401",
+      "address": "3729 Austin Bluffs Parkway",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80918"
+    },
+    {
+      "source_record_id": "402-00403",
+      "address": "10555 East 45th Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80239"
+    },
+    {
+      "source_record_id": "402-00405",
+      "address": "330 South Dayton Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80247"
+    },
+    {
+      "source_record_id": "402-00406",
+      "address": "5156 Centennial Boulevard",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80918"
+    },
+    {
+      "source_record_id": "402-00409",
+      "address": "4401 East 46th Avenue, Unit B",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80216"
+    },
+    {
+      "source_record_id": "402-00417",
+      "address": "7050 North Tower Road",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80249"
+    },
+    {
+      "source_record_id": "402-00419",
+      "address": "2502 8th Avenue",
+      "city": "Garden City",
+      "region": "CO",
+      "postal_code": "80631"
+    },
+    {
+      "source_record_id": "402-00424",
+      "address": "4332 South Broadway",
+      "city": "Englewood",
+      "region": "CO",
+      "postal_code": "80113"
+    },
+    {
+      "source_record_id": "402-00428",
+      "address": "502 West Colorado Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80905"
+    },
+    {
+      "source_record_id": "402-00429",
+      "address": "4799 North Colorado Boulevard",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80216"
+    },
+    {
+      "source_record_id": "402-00439",
+      "address": "555 North Circle Drive",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909"
+    },
+    {
+      "source_record_id": "402-00443",
+      "address": "1000 West Fillmore Street Suite 105",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80907"
+    },
+    {
+      "source_record_id": "402-00444",
+      "address": "855 Highway 105",
+      "city": "Palmer Lake",
+      "region": "CO",
+      "postal_code": "80133"
+    },
+    {
+      "source_record_id": "402-00452",
+      "address": "1086 West Littleton Boulevard",
+      "city": "Littleton",
+      "region": "CO",
+      "postal_code": "80120"
+    },
+    {
+      "source_record_id": "402-00453",
+      "address": "6666 East 44th Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80216"
+    },
+    {
+      "source_record_id": "402-00455",
+      "address": "1911 South Broadway",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80210"
+    },
+    {
+      "source_record_id": "402-00481",
+      "address": "1755 Lincoln Avenue",
+      "city": "Steamboat Springs",
+      "region": "CO",
+      "postal_code": "80487"
+    },
+    {
+      "source_record_id": "402-00486",
+      "address": "1013 East Main Street",
+      "city": "Cortez",
+      "region": "CO",
+      "postal_code": "81321"
+    },
+    {
+      "source_record_id": "402-00490",
+      "address": "23360 South Highway 550",
+      "city": "Montrose",
+      "region": "CO",
+      "postal_code": "81403"
+    },
+    {
+      "source_record_id": "402-00498",
+      "address": "1881 South Broadway",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80210"
+    },
+    {
+      "source_record_id": "402-00501",
+      "address": "1630 North Federal Boulevard",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80204"
+    },
+    {
+      "source_record_id": "402-00507",
+      "address": "985 South Logan Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80209"
+    },
+    {
+      "source_record_id": "402-00513",
+      "address": "2918-2920 Wood Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80907"
+    },
+    {
+      "source_record_id": "402-00532",
+      "address": "72 Suttle Street, Unit F",
+      "city": "Durango",
+      "region": "CO",
+      "postal_code": "81303"
+    },
+    {
+      "source_record_id": "402-00539",
+      "address": "1004 South Tejon Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80903"
+    },
+    {
+      "source_record_id": "402-00545",
+      "address": "2615 Welton Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80205"
+    },
+    {
+      "source_record_id": "402-00551",
+      "address": "1030 Grand Avenue",
+      "city": "Glenwood Springs",
+      "region": "CO",
+      "postal_code": "81601"
+    },
+    {
+      "source_record_id": "402-00556",
+      "address": "1308 -1310 Duff Drive",
+      "city": "Fort Collins",
+      "region": "CO",
+      "postal_code": "80524"
+    },
+    {
+      "source_record_id": "402-00566",
+      "address": "734 North Sheridan Boulevard",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80214"
+    },
+    {
+      "source_record_id": "402-00573",
+      "address": "1075 South Fox Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80223"
+    },
+    {
+      "source_record_id": "402-00576",
+      "address": "43 Main Street",
+      "city": "Bailey",
+      "region": "CO",
+      "postal_code": "80421"
+    },
+    {
+      "source_record_id": "402-00579",
+      "address": "305 Jody Court",
+      "city": "Montrose",
+      "region": "CO",
+      "postal_code": "81401"
+    },
+    {
+      "source_record_id": "402-00581",
+      "address": "1330 West Garden of the Gods Road",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80907"
+    },
+    {
+      "source_record_id": "402-00584",
+      "address": "3692 East Bijou Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909"
+    },
+    {
+      "source_record_id": "402-00597",
+      "address": "1905 North Academy Boulevard",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80904"
+    },
+    {
+      "source_record_id": "402-00613",
+      "address": "4966 Leetsdale Drive",
+      "city": "Glendale",
+      "region": "CO",
+      "postal_code": "80246"
+    },
+    {
+      "source_record_id": "402-00614",
+      "address": "825A Chambers Avenue",
+      "city": "Eagle",
+      "region": "CO",
+      "postal_code": "81631"
+    },
+    {
+      "source_record_id": "402-00618",
+      "address": "195 North Academy Boulevard",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909"
+    },
+    {
+      "source_record_id": "402-00633",
+      "address": "2100 East 112th Avenue, Unit 5",
+      "city": "Northglenn",
+      "region": "CO",
+      "postal_code": "80233"
+    },
+    {
+      "source_record_id": "402-00637",
+      "address": "2209 West 32nd Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80211"
+    },
+    {
+      "source_record_id": "402-00642",
+      "address": "5420 Arapahoe Avenue, Suite F",
+      "city": "Boulder",
+      "region": "CO",
+      "postal_code": "80303"
+    },
+    {
+      "source_record_id": "402-00645",
+      "address": "2106 East Boulder Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909"
+    },
+    {
+      "source_record_id": "402-00653",
+      "address": "7200 East Smith Road",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80207"
+    },
+    {
+      "source_record_id": "402-00655",
+      "address": "1810 South Broadway",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80210"
+    },
+    {
+      "source_record_id": "402-00656",
+      "address": "543 Bryant Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80204"
+    },
+    {
+      "source_record_id": "402-00664",
+      "address": "3900 West Colfax Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80204"
+    },
+    {
+      "source_record_id": "402-00666",
+      "address": "1941 West Evans Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80223"
+    },
+    {
+      "source_record_id": "402-00667",
+      "address": "616 Arrawanna Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909"
+    },
+    {
+      "source_record_id": "402-00670",
+      "address": "80 South Pennsylvania Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80209"
+    },
+    {
+      "source_record_id": "402-00687",
+      "address": "2568 South Broadway",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80210"
+    },
+    {
+      "source_record_id": "402-00690",
+      "address": "2426 South Federal Boulevard",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80219"
+    },
+    {
+      "source_record_id": "402-00691",
+      "address": "219 North Vallejo Street, Unit 2",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80223"
+    },
+    {
+      "source_record_id": "402-00693",
+      "address": "4 South Santa Fe Drive",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80223"
+    },
+    {
+      "source_record_id": "402-00696",
+      "address": "3475 Pine Tree Square, Suite E",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909"
+    },
+    {
+      "source_record_id": "402-00698",
+      "address": "400 West South Boulder Road, Suite 2700",
+      "city": "Lafayette",
+      "region": "CO",
+      "postal_code": "80026"
+    },
+    {
+      "source_record_id": "402-00699",
+      "address": "399 South Harrison Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80209"
+    },
+    {
+      "source_record_id": "402-00714",
+      "address": "1406 West 38th Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80211"
+    },
+    {
+      "source_record_id": "402-00729",
+      "address": "3801 North Jason Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80211"
+    },
+    {
+      "source_record_id": "402-00736",
+      "address": "3431 South Federal Boulevard, Unit A",
+      "city": "Englewood",
+      "region": "CO",
+      "postal_code": "80110"
+    },
+    {
+      "source_record_id": "402-00738",
+      "address": "3360 South Wadsworth Boulevard",
+      "city": "Lakewood",
+      "region": "CO",
+      "postal_code": "80227"
+    },
+    {
+      "source_record_id": "402-00744",
+      "address": "3020 West Colorado Avenue, Suite D",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80904"
+    },
+    {
+      "source_record_id": "402-00745",
+      "address": "120 South Kalamath Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80223"
+    },
+    {
+      "source_record_id": "402-00766",
+      "address": "621 West Colorado Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80905"
+    },
+    {
+      "source_record_id": "402-00768",
+      "address": "2057 South Broadway",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80210"
+    },
+    {
+      "source_record_id": "402-00773",
+      "address": "3150 Ingles Lane",
+      "city": "Steamboat Springs",
+      "region": "CO",
+      "postal_code": "80487"
+    },
+    {
+      "source_record_id": "402-00789",
+      "address": "2755 Ore Mill Road, Unit 13",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80904"
+    },
+    {
+      "source_record_id": "402-00793",
+      "address": "3100 Blake Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80205"
+    },
+    {
+      "source_record_id": "402-00798",
+      "address": "520 East Cooper Avenue, Units LL2 & LL3,",
+      "city": "Aspen",
+      "region": "CO",
+      "postal_code": "81611"
+    },
+    {
+      "source_record_id": "402-00800",
+      "address": "1591 East Cheyenne Mountain Boulevard",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80906"
+    },
+    {
+      "source_record_id": "402-00806",
+      "address": "4773 North Fox Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80216"
+    },
+    {
+      "source_record_id": "402-00811",
+      "address": "1795 Airport Road, Unit A2,",
+      "city": "Breckenridge",
+      "region": "CO",
+      "postal_code": "80424"
+    },
+    {
+      "source_record_id": "402-00815",
+      "address": "329 East Pikes Peak Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80903"
+    },
+    {
+      "source_record_id": "402-00823",
+      "address": "204 East Main Street",
+      "city": "Buena Vista",
+      "region": "CO",
+      "postal_code": "81211"
+    },
+    {
+      "source_record_id": "402-00829",
+      "address": "6359 East Evans Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80222"
+    },
+    {
+      "source_record_id": "402-00830",
+      "address": "4842 Morrison Road Unit 420",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80219"
+    },
+    {
+      "source_record_id": "402-00832",
+      "address": "11450 Cherokee Street, Units A6 & A7",
+      "city": "Northglenn",
+      "region": "CO",
+      "postal_code": "80234"
+    },
+    {
+      "source_record_id": "402-00837",
+      "address": "900 North College Avenue",
+      "city": "Fort Collins",
+      "region": "CO",
+      "postal_code": "80524"
+    },
+    {
+      "source_record_id": "402-00839",
+      "address": "810 North College Avenue",
+      "city": "Fort Collins",
+      "region": "CO",
+      "postal_code": "80524"
+    },
+    {
+      "source_record_id": "402-00840",
+      "address": "1240 West Elizabeth Street, Unit A, B, C, and D,",
+      "city": "Fort Collins",
+      "region": "CO",
+      "postal_code": "80521"
+    },
+    {
+      "source_record_id": "402-00841",
+      "address": "6617 South College Avenue, Building A",
+      "city": "Fort Collins",
+      "region": "CO",
+      "postal_code": "80525"
+    },
+    {
+      "source_record_id": "402-00842",
+      "address": "301 Smokey Street, Unit A",
+      "city": "Fort Collins",
+      "region": "CO",
+      "postal_code": "80525"
+    },
+    {
+      "source_record_id": "402-00844",
+      "address": "346 East Mountain Avenue",
+      "city": "Fort Collins",
+      "region": "CO",
+      "postal_code": "80524"
+    },
+    {
+      "source_record_id": "402-00848",
+      "address": "5986 Produce Place",
+      "city": "Alamosa",
+      "region": "CO",
+      "postal_code": "81101"
+    },
+    {
+      "source_record_id": "402-00849",
+      "address": "4012 West 38th Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80212"
+    },
+    {
+      "source_record_id": "402-00854",
+      "address": "1798 West Mississippi Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80223"
+    },
+    {
+      "source_record_id": "402-00857",
+      "address": "3480 Park Avenue West Unit B",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80216"
+    },
+    {
+      "source_record_id": "402-00858",
+      "address": "5740 South College Avenue, Unit A",
+      "city": "Fort Collins",
+      "region": "CO",
+      "postal_code": "80525"
+    },
+    {
+      "source_record_id": "402-00859",
+      "address": "1090 North 2nd Street",
+      "city": "Berthoud",
+      "region": "CO",
+      "postal_code": "80513"
+    },
+    {
+      "source_record_id": "402-00861",
+      "address": "804 South College Avenue",
+      "city": "Fort Collins",
+      "region": "CO",
+      "postal_code": "80524"
+    },
+    {
+      "source_record_id": "402-00864",
+      "address": "1675 Jet Wing Drive",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80916"
+    },
+    {
+      "source_record_id": "402-00866",
+      "address": "74 North McCulloch Boulevard, Suite 120",
+      "city": "Pueblo West",
+      "region": "CO",
+      "postal_code": "81007"
+    },
+    {
+      "source_record_id": "402-00868",
+      "address": "2103 East Platte Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909"
+    },
+    {
+      "source_record_id": "402-00869",
+      "address": "0711 West Highway 160, Suite B",
+      "city": "Alamosa",
+      "region": "CO",
+      "postal_code": "81101"
+    },
+    {
+      "source_record_id": "402-00870",
+      "address": "5155 East 46th Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80216"
+    },
+    {
+      "source_record_id": "402-00874",
+      "address": "10575 Melody Drive Suite 101",
+      "city": "Northglenn",
+      "region": "CO",
+      "postal_code": "80234"
+    },
+    {
+      "source_record_id": "402-00877",
+      "address": "11101 East 51st Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80239"
+    },
+    {
+      "source_record_id": "402-00880",
+      "address": "1602 West Colorado Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80904"
+    },
+    {
+      "source_record_id": "402-00883",
+      "address": "1750 30th Street, Unit 84B",
+      "city": "Boulder",
+      "region": "CO",
+      "postal_code": "80301"
+    },
+    {
+      "source_record_id": "402-00887",
+      "address": "6712 South College Avenue Unit 5",
+      "city": "Fort Collins",
+      "region": "CO",
+      "postal_code": "80525"
+    },
+    {
+      "source_record_id": "402-00891",
+      "address": "2777 South Colorado Boulevard",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80222"
+    },
+    {
+      "source_record_id": "402-00893",
+      "address": "41290 Highway 6, Unit B2",
+      "city": "Avon",
+      "region": "CO",
+      "postal_code": "81620"
+    },
+    {
+      "source_record_id": "402-00898",
+      "address": "3435 South Yosemite Street, Suite 200",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80231"
+    },
+    {
+      "source_record_id": "402-00903",
+      "address": "2647 8th Avenue, Unit B",
+      "city": "Garden City",
+      "region": "CO",
+      "postal_code": "80631"
+    },
+    {
+      "source_record_id": "402-00905",
+      "address": "861 North Summit Boulevard",
+      "city": "Frisco",
+      "region": "CO",
+      "postal_code": "80443"
+    },
+    {
+      "source_record_id": "402-00913",
+      "address": "500 North Grant Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80203"
+    },
+    {
+      "source_record_id": "402-00918",
+      "address": "4335 East Platte Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80915"
+    },
+    {
+      "source_record_id": "402-00923",
+      "address": "5370 Manhattan Circle, Suite 104",
+      "city": "Boulder",
+      "region": "CO",
+      "postal_code": "80303"
+    },
+    {
+      "source_record_id": "402-00924",
+      "address": "7464 Arapahoe Avenue, Unit A9",
+      "city": "Boulder",
+      "region": "CO",
+      "postal_code": "80303"
+    },
+    {
+      "source_record_id": "402-00925",
+      "address": "4380 East Alameda Avenue",
+      "city": "Glendale",
+      "region": "CO",
+      "postal_code": "80246"
+    },
+    {
+      "source_record_id": "402-00929",
+      "address": "1101 Academy Court, Unit 4",
+      "city": "Fort Collins",
+      "region": "CO",
+      "postal_code": "80524"
+    },
+    {
+      "source_record_id": "402-00930",
+      "address": "2909 North El Paso Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80907"
+    },
+    {
+      "source_record_id": "402-00933",
+      "address": "3450 North Brighton Boulevard",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80216"
+    },
+    {
+      "source_record_id": "402-00934",
+      "address": "4801 West Colfax Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80204"
+    },
+    {
+      "source_record_id": "402-00935",
+      "address": "211 East Costilla Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80903"
+    },
+    {
+      "source_record_id": "402-00938",
+      "address": "922 East Kimble Drive",
+      "city": "Pueblo West",
+      "region": "CO",
+      "postal_code": "81007"
+    },
+    {
+      "source_record_id": "402-00939",
+      "address": "3555 South Yosemite Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80237"
+    },
+    {
+      "source_record_id": "402-00940",
+      "address": "3600 South Wadsworth Boulevard, Units C D & E,",
+      "city": "Lakewood",
+      "region": "CO",
+      "postal_code": "80235"
+    },
+    {
+      "source_record_id": "402-00941",
+      "address": "12005 East 37th Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80239"
+    },
+    {
+      "source_record_id": "402-00942",
+      "address": "4550 South Kipling Street, Unit 4",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80127"
+    },
+    {
+      "source_record_id": "402-00945",
+      "address": "260 North Santa Fe Drive",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80223"
+    },
+    {
+      "source_record_id": "402-00947",
+      "address": "975 West Fillmore Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80907"
+    },
+    {
+      "source_record_id": "402-00956",
+      "address": "600 South Broadway",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80209"
+    },
+    {
+      "source_record_id": "402-00958",
+      "address": "3516 South Mason Street",
+      "city": "Fort Collins",
+      "region": "CO",
+      "postal_code": "80525"
+    },
+    {
+      "source_record_id": "402-00959",
+      "address": "3044 West Colorado Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80904"
+    },
+    {
+      "source_record_id": "402-00961",
+      "address": "19 South Sunset Street",
+      "city": "Longmont",
+      "region": "CO",
+      "postal_code": "80501"
+    },
+    {
+      "source_record_id": "402-00966",
+      "address": "1150 Railroad Avenue, Units A and B",
+      "city": "Rifle",
+      "region": "CO",
+      "postal_code": "81650"
+    },
+    {
+      "source_record_id": "402-00967",
+      "address": "10185 West 49th Avenue",
+      "city": "Wheat Ridge",
+      "region": "CO",
+      "postal_code": "80033"
+    },
+    {
+      "source_record_id": "402-00969",
+      "address": "4344 Montebello Drive",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80918"
+    },
+    {
+      "source_record_id": "402-00971",
+      "address": "2160 South Lipan Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80223"
+    },
+    {
+      "source_record_id": "402-00972",
+      "address": "5610 West 20th Avenue",
+      "city": "Edgewater",
+      "region": "CO",
+      "postal_code": "80214"
+    },
+    {
+      "source_record_id": "402-00975",
+      "address": "893 East Enterprise Drive",
+      "city": "Pueblo West",
+      "region": "CO",
+      "postal_code": "81007"
+    },
+    {
+      "source_record_id": "402-00976",
+      "address": "1537 Pearl Street Suite B",
+      "city": "Boulder",
+      "region": "CO",
+      "postal_code": "80302"
+    },
+    {
+      "source_record_id": "402-00977",
+      "address": "7870 West Quincy Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80123"
+    },
+    {
+      "source_record_id": "402-00978",
+      "address": "5231 South Santa Fe Drive",
+      "city": "Littleton",
+      "region": "CO",
+      "postal_code": "80120"
+    },
+    {
+      "source_record_id": "402-00980",
+      "address": "1917 Santa Fe Drive",
+      "city": "Pueblo",
+      "region": "CO",
+      "postal_code": "81006"
+    },
+    {
+      "source_record_id": "402-00983",
+      "address": "2301 Rand Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80905"
+    },
+    {
+      "source_record_id": "402-00992",
+      "address": "1000 Independence Road",
+      "city": "Trinidad",
+      "region": "CO",
+      "postal_code": "81082"
+    },
+    {
+      "source_record_id": "402-00993",
+      "address": "2630 West Pueblo Boulevard, Suite A",
+      "city": "Pueblo",
+      "region": "CO",
+      "postal_code": "81004"
+    },
+    {
+      "source_record_id": "402-00998",
+      "address": "2863 Larimer Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80205"
+    },
+    {
+      "source_record_id": "402-01005",
+      "address": "1714 Santa Fe Drive",
+      "city": "Pueblo",
+      "region": "CO",
+      "postal_code": "81006"
+    },
+    {
+      "source_record_id": "402-01016",
+      "address": "5421 Rio Vista Drive, Suite 200",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80917"
+    },
+    {
+      "source_record_id": "402-01023",
+      "address": "6755 North Academy Boulevard",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80918"
+    },
+    {
+      "source_record_id": "402-01031",
+      "address": "4335 North Academy Boulevard, Suite 100",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80918"
+    },
+    {
+      "source_record_id": "402-01039",
+      "address": "3819 North Quentin Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80239"
+    },
+    {
+      "source_record_id": "402-01042",
+      "address": "3660 Austin Bluffs Parkway",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80918"
+    },
+    {
+      "source_record_id": "402-01044",
+      "address": "403 North Circle Drive",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909"
+    },
+    {
+      "source_record_id": "402-01057",
+      "address": "1426 North Academy Boulevard",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909"
+    },
+    {
+      "source_record_id": "402-01062",
+      "address": "4740 Dillon Drive",
+      "city": "Pueblo",
+      "region": "CO",
+      "postal_code": "81008"
+    },
+    {
+      "source_record_id": "402-01064",
+      "address": "4902 East Smith Road, Unit C",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80216"
+    },
+    {
+      "source_record_id": "402-01066",
+      "address": "8270 Razorback Road",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80920"
+    },
+    {
+      "source_record_id": "402-01070",
+      "address": "2645 South Santa Fe Drive, Units D & E",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80223"
+    },
+    {
+      "source_record_id": "402-01071",
+      "address": "3178 West Colorado Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80904"
+    },
+    {
+      "source_record_id": "402-01072",
+      "address": "2354 East Platte Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909"
+    },
+    {
+      "source_record_id": "402-01075",
+      "address": "2222 West Colorado Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80904"
+    },
+    {
+      "source_record_id": "402-01077",
+      "address": "5201 West 48th Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80212"
+    },
+    {
+      "source_record_id": "402-01080",
+      "address": "2038 South Navajo Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80223"
+    },
+    {
+      "source_record_id": "402-01083",
+      "address": "1705 West Uintah Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80904"
+    },
+    {
+      "source_record_id": "402-01084",
+      "address": "1003 North Academy Boulevard",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909"
+    },
+    {
+      "source_record_id": "402-01085",
+      "address": "12626 North 107 Street",
+      "city": "Longmont",
+      "region": "CO",
+      "postal_code": "80504"
+    },
+    {
+      "source_record_id": "402-01089",
+      "address": "1155 South Cherokee Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80223"
+    },
+    {
+      "source_record_id": "402-01092",
+      "address": "3995 North Academy Boulevard",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80917"
+    },
+    {
+      "source_record_id": "402-01097",
+      "address": "3640 West Colorado Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80904"
+    },
+    {
+      "source_record_id": "402-01111",
+      "address": "2712 East Fountain Boulevard",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80910"
+    },
+    {
+      "source_record_id": "402-01119",
+      "address": "3049 Delta Drive",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80910"
+    },
+    {
+      "source_record_id": "402-01120",
+      "address": "2949 West Alameda Avenue",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80219"
+    },
+    {
+      "source_record_id": "402-01122",
+      "address": "8411 Pecos Street, Unit G & H",
+      "city": "Federal Heights",
+      "region": "CO",
+      "postal_code": "80260"
+    },
+    {
+      "source_record_id": "402-01130",
+      "address": "3840 North Nevada Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80907"
+    },
+    {
+      "source_record_id": "402-01140",
+      "address": "1433 South Tejon Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80905"
+    },
+    {
+      "source_record_id": "402-01144",
+      "address": "325 East Pikes Peak Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80902"
+    },
+    {
+      "source_record_id": "402-01145",
+      "address": "2727 Palmer Park Boulevard Unit A",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909"
+    },
+    {
+      "source_record_id": "402-01153",
+      "address": "320 Prairie Road",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909"
+    },
+    {
+      "source_record_id": "402-01154",
+      "address": "1105 South Chelton Road",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80910"
+    },
+    {
+      "source_record_id": "402-01157",
+      "address": "510 East Pikes Peak Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80903"
+    },
+    {
+      "source_record_id": "402-01158",
+      "address": "135 South Broadway, Unit C,",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80209"
+    },
+    {
+      "source_record_id": "402-01162",
+      "address": "408 East Fillmore Street, Suite 110",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80907"
+    },
+    {
+      "source_record_id": "402-01167",
+      "address": "1428 North Circle Drive, Unit 2",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909"
+    },
+    {
+      "source_record_id": "402-01168",
+      "address": "2489 South Academy Boulevard",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80916"
+    },
+    {
+      "source_record_id": "402-01170",
+      "address": "3615 East Platte Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909"
+    },
+    {
+      "source_record_id": "402-01171",
+      "address": "3850 North Nevada Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80907"
+    },
+    {
+      "source_record_id": "402-01173",
+      "address": "3629 Galley Road",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909"
+    },
+    {
+      "source_record_id": "402-01174",
+      "address": "319 Bonfoy Avenue",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80909"
+    },
+    {
+      "source_record_id": "402-01176",
+      "address": "3079 South Academy Boulevard",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80916"
+    },
+    {
+      "source_record_id": "402-01187",
+      "address": "5070 North Oakland Street",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80239"
+    },
+    {
+      "source_record_id": "402-01193",
+      "address": "3480 South Galena Street, Unit B-4",
+      "city": "Denver",
+      "region": "CO",
+      "postal_code": "80231"
+    },
+    {
+      "source_record_id": "402-01194",
+      "address": "3715 Drennan Road",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80910"
+    },
+    {
+      "source_record_id": "402-01197",
+      "address": "17034 Highway 17",
+      "city": "Moffat",
+      "region": "CO",
+      "postal_code": "81143"
+    },
+    {
+      "source_record_id": "402-01211",
+      "address": "1709 Swink Avenue",
+      "city": "Rocky Ford",
+      "region": "CO",
+      "postal_code": "81067"
+    },
+    {
+      "source_record_id": "402-01225",
+      "address": "1001 South Royer Street",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80903"
+    },
+    {
+      "source_record_id": "402-01243",
+      "address": "286 South Purcell Boulevard",
+      "city": "Pueblo West",
+      "region": "CO",
+      "postal_code": "81007"
+    },
+    {
+      "source_record_id": "402-01255",
+      "address": "9364 Federal Boulevard",
+      "city": "Federal Heights",
+      "region": "CO",
+      "postal_code": "80260"
+    },
+    {
+      "source_record_id": "402-01278",
+      "address": "900 South Hover Street, Unit A",
+      "city": "Longmont",
+      "region": "CO",
+      "postal_code": "80501"
+    },
+    {
+      "source_record_id": "402-01300",
+      "address": "5385 Quebec Street",
+      "city": "Commerce City",
+      "region": "CO",
+      "postal_code": "80022"
+    },
+    {
+      "source_record_id": "402-01304",
+      "address": "701 East Valley Road Unit 102",
+      "city": "Basalt",
+      "region": "CO",
+      "postal_code": "81621"
+    },
+    {
+      "source_record_id": "402-01310",
+      "address": "5238 West 44th Avenue",
+      "city": "Mountain View",
+      "region": "CO",
+      "postal_code": "80212"
+    },
+    {
+      "source_record_id": "402-01313",
+      "address": "25 Stafford Lane, Unit 3",
+      "city": "Delta",
+      "region": "CO",
+      "postal_code": "81416"
+    },
+    {
+      "source_record_id": "402-01319",
+      "address": "27 Manitou Avenue",
+      "city": "Manitou Springs",
+      "region": "CO",
+      "postal_code": "80829"
+    },
+    {
+      "source_record_id": "402-01324",
+      "address": "2235 East Idaho Springs Road",
+      "city": "Idaho Springs",
+      "region": "CO",
+      "postal_code": "80452"
+    },
+    {
+      "source_record_id": "402-01330",
+      "address": "414 West Garden of the Gods Road",
+      "city": "Colorado Springs",
+      "region": "CO",
+      "postal_code": "80918"
+    },
+    {
+      "source_record_id": "402-01335",
+      "address": "1135 South Camino Del Rio Drive, Unit 220",
+      "city": "Durango",
+      "region": "CO",
+      "postal_code": "81303"
+    },
+    {
+      "source_record_id": "402-01337",
+      "address": "850 A & B Commercial Lane",
+      "city": "Palmer Lake",
+      "region": "CO",
+      "postal_code": "80133"
+    },
+    {
+      "source_record_id": "402-01339",
+      "address": "11640 Teller Street, Suite E",
+      "city": "Broomfield",
+      "region": "CO",
+      "postal_code": "80020"
+    },
+    {
+      "source_record_id": "402-01371",
+      "address": "117 Greydene Avenue",
+      "city": "Canon City",
+      "region": "CO",
+      "postal_code": "81212"
+    },
+    {
+      "source_record_id": "402-01525",
+      "address": "206 South Main Street",
+      "city": "Longmont",
+      "region": "CO",
+      "postal_code": "80501"
+    },
+    {
+      "source_record_id": "402-01552",
+      "address": "2517 North Sheridan Boulevard",
+      "city": "Edgewater",
+      "region": "CO",
+      "postal_code": "80214"
+    },
+    {
+      "source_record_id": "402-01563",
+      "address": "683 Horizon Drive, Unit 110",
+      "city": "Grand Junction",
+      "region": "CO",
+      "postal_code": "81506"
+    },
+    {
+      "source_record_id": "402-01656",
+      "address": "324 Highway 67 #D",
+      "city": "Cripple Creek",
+      "region": "CO",
+      "postal_code": "80813"
+    },
+    {
+      "source_record_id": "402-01721",
+      "address": "125 West Bridge Street, Unit D",
+      "city": "Brighton",
+      "region": "CO",
+      "postal_code": "80601"
+    },
+    {
+      "source_record_id": "402-01722",
+      "address": "3141 Walnut Street",
+      "city": "Boulder",
+      "region": "CO",
+      "postal_code": "80301"
+    },
+    {
+      "source_record_id": "402-01723",
+      "address": "560 North 7th Avenue",
+      "city": "Brighton",
+      "region": "CO",
+      "postal_code": "80601"
+    },
+    {
+      "source_record_id": "402-01725",
+      "address": "141 Manitou Avenue",
+      "city": "Manitou Springs",
+      "region": "CO",
+      "postal_code": "80829"
+    },
+    {
+      "source_record_id": "402-01726",
+      "address": "1701 Elm Avenue",
+      "city": "Rocky Ford",
+      "region": "CO",
+      "postal_code": "81067"
+    }
+  ]
+}

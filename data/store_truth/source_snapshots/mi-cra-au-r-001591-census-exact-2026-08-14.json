@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-14T18:33:19.353Z",
+  "input_path": "data/store_truth/source_snapshots/mi-cra-au-r-001591-census-input-2026-08-14.json",
+  "input_sha256": "9e30a0ae2ce18dd323b325806cfda674a2fd831316cbdffce17a89800f25b8de",
+  "census_geocoder_url": "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+  "census_benchmark": "Public_AR_Current",
+  "census_response_sha256": "33c5112bb1d0be01976232a3c7e006506d0cb13fcd0b3b5753a9287d0a48bd6d",
+  "records": [
+    {
+      "source_record_id": "AU-R-001591",
+      "address": "202 S Steer ST",
+      "city": "Addison",
+      "region": "MI",
+      "postal_code": "49220",
+      "latitude": 41.98432628146,
+      "longitude": -84.351221388541,
+      "census_matched_postal_code": "49220",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "202 S STEER ST, ADDISON, MI, 49220"
+      }
+    }
+  ],
+  "counts": {
+    "input_records": 1,
+    "census_response_rows": 1,
+    "one_to_one_exact_census_geocodes": 1,
+    "blocked_census_no_exact_in_jurisdiction_match": 0
+  }
+}

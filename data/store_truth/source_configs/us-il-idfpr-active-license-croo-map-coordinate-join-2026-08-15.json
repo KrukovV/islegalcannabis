@@ -1,0 +1,33 @@
+{
+  "purpose": "Fail-closed exact current-registry to current-regulator-map coordinate join. It joins only one ACTIVE Illinois IDFPR licence record to one current CROO map point when normalized display name, city and declared store type are all identical.",
+  "registry_snapshot_path": "data/store_truth/source_snapshots/il-idfpr-active-cannabis-dispensaries-2026-08-13.json",
+  "registry_snapshot_sha256": "624a993249245ed74ab060cd94b8547c0122b138d44764620aefde19ef7f71d4",
+  "map_snapshot_path": "data/store_truth/source_snapshots/il-croo-current-dispensary-map-2026-08-15.csv",
+  "map_snapshot_sha256": "c8239e21a1f85d7522fc09badcb7f240196cff34d8fe69980b991a6ed5b1f9d3",
+  "registry_name_fields": [
+    "business_name"
+  ],
+  "registry_city_field": "city",
+  "registry_store_type_field": "store_type",
+  "required_registry_values": {
+    "license_status": "ACTIVE"
+  },
+  "map_name_field": "Dispensary Name",
+  "map_city_field": "City",
+  "map_address_field": "Street Address",
+  "map_latitude_field": "Latitude",
+  "map_longitude_field": "Longitude",
+  "map_type_field": "Serves Medical Patients",
+  "map_type_mapping": {
+    "YES": "MEDICAL_DISPENSARY",
+    "NO": "ADULT_USE_RETAIL"
+  },
+  "coordinate_bounds": {
+    "west": -91.7,
+    "east": -87.0,
+    "south": 36.8,
+    "north": 42.7
+  },
+  "expected_map_points": 285,
+  "expected_joined_exact_unique": 198
+}

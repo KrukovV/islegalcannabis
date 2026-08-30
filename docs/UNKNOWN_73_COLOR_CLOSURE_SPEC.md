@@ -152,6 +152,25 @@ source_hash and last_verified_at
 visibility_decision or explicit rejection_reason
 ```
 
+Where an official municipality publishes only a current toleration address
+rather than a business/operator record, the address identity is permitted as
+the source-row identity only after separate official legal-type evidence and
+the municipality's current address-policy rule are both retained. It must be
+presented as a municipal toleration address, never as a named business or an
+individual active licence. If the official civic-address service resolves that
+published parent address to multiple distinct coordinates, retain the row with
+an explicit coordinate rejection reason and do not project a leaf. A
+commercial-map pin, centroid or guessed unit is not a replacement.
+
+The same rule applies to one-premises municipal authorisation notices. Each
+notice may contribute only the explicitly identified civic premises, with its
+official publication or case reference and one authoritative civic-coordinate
+match. It must retain the boundary that it is not a complete municipal
+directory. A published permission term does not manufacture a current licence
+or factual operating state: unless the current official notice states that
+lifecycle explicitly, the corresponding Store Truth fields remain
+`UNKNOWN_STATUS`.
+
 The exclusive `/truth-map` cannabis-leaf marker is permitted only where all
 current Store eligibility gates pass: official regulator source, qualifying
 cannabis retail/dispensing category, valid lifecycle state, exact GEO,

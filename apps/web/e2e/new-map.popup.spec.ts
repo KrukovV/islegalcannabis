@@ -1,4 +1,4 @@
-import { expect, test, type Page } from "playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -742,7 +742,7 @@ test("new-map popup works across mainland and island countries", async ({ page }
   }
 });
 
-test("new-map popup matrix renders all jurisdictions (opt-in, screenshots)", { timeout: 600000 }, async ({ page }) => {
+test("new-map popup matrix renders all jurisdictions (opt-in, screenshots) @opt-in-visual-audit", { timeout: 600000 }, async ({ page }) => {
   test.setTimeout(600000);
   if (process.env.NEW_MAP_POPUP_MATRIX_ALL !== "1") {
     test.skip();
@@ -909,7 +909,7 @@ test("new-map popup matrix renders all jurisdictions (opt-in, screenshots)", { t
   }
 });
 
-test("new-map popup visual/wiki audit emits screenshot pairs and manifest (opt-in)", { timeout: 1200000 }, async ({ page }) => {
+test("new-map popup visual/wiki audit emits screenshot pairs and manifest (opt-in) @opt-in-visual-audit", { timeout: 1200000 }, async ({ page }) => {
   test.setTimeout(1200000);
   if (process.env.NEW_MAP_POPUP_VISUAL_AUDIT !== "1") {
     test.skip();
@@ -1118,7 +1118,7 @@ test("new-map desktop hover updates country feature-state", async ({ page }) => 
   expect(hoverState.cursor).toBe("pointer");
 });
 
-test.skip("new-map usa states appear on zoom and popup works for California", async ({ page }) => {
+test("new-map usa states appear on zoom and popup works for California", async ({ page }) => {
   await page.goto(NEW_MAP_ROUTE, { waitUntil: "domcontentloaded" });
   await ensureRuntimeMapReady(page);
 

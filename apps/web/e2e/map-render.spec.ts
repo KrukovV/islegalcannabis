@@ -1,4 +1,4 @@
-import { expect, test } from "playwright/test";
+import { expect, test } from "@playwright/test";
 
 test("new-map render and restored gps marker are visible", async ({ page }) => {
   await page.addInitScript(() => {

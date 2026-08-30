@@ -23,9 +23,12 @@ the canonical sitemap and receive the same real country experience that a user
 receives: HTTP 200, truthful content, a nonempty title, the exact canonical URL,
 `index, follow` metadata and the normal country popup/map runtime.
 
-The repair must remain narrow. It must not publish local audit products, Social,
-Store Truth, experimental Truth Map state, alternate legal conclusions or a
-second map runtime.
+The public map uses the tested 307-GEO display projection and the canonical
+Store Truth visibility gate. It must not publish local audit controls, Social,
+DM, alternate legal conclusions or a second map runtime. Production also omits
+the legacy `CannabisLawMap` information card while retaining the established
+decorative Antarctica canvas animation; that animation has no legal, Store or
+SEO meaning.
 
 ## 2. Historical cause and accepted repair
 
@@ -49,7 +52,8 @@ The following surfaces are public product/indexability routes:
 
 | Surface | Production requirement |
 | --- | --- |
-| `/` and `/new-map` | Existing public MapLibre product; no Social/Store audit layer |
+| `/` | Canonical public 307-GEO map: legal colours, enriched legal popups, in-place dotted popup-to-SEO links, verified Store Truth markers and the existing Antarctica animation; no legacy CannabisLawMap card, AI, Social, DM or audit UI |
+| `/new-map` | Permanent redirect to `/`, retaining valid map query parameters |
 | `/c/[code]` | HTTP 200 for every canonical country/state code in the sitemap |
 | `/[lang]/c/[code]` | HTTP 200 for every localized URL in the sitemap |
 | `/sitemap.xml` | Canonical full sitemap |
@@ -68,7 +72,11 @@ Local audit routes have a different contract:
   production 404 through the host guard;
 - none of those routes may appear in any sitemap, canonical alternate link or
   production navigation added by SEO work;
-- Social and validated Store layers remain `/truth-map`-only.
+- Social and DM remain local `/truth-map`-only. The production public map has
+  no AI; localhost retains the established AI dock for `/truth-map` and the
+  public-map QA wrapper. The public Store display uses only
+  `/api/public-map/*` read adapters and the unchanged Store Truth visibility
+  gate.
 
 ## 4. Runtime-data trace contract
 
@@ -93,6 +101,11 @@ Allowed route keys for those inputs:
 
 ```text
 /c/*
+/
+/api/public-map/countries
+/api/public-map/us-states
+/api/public-map/stores
+/api/public-map/stores/summary
 /api/nearby
 /api/new-map/country-page
 /api/sitemap
@@ -105,7 +118,9 @@ Allowed route keys for those inputs:
 Hard prohibitions:
 
 - no `/*` or equivalent global `outputFileTracingIncludes` key;
-- no trace include for `/truth-map`, `/wiki-truth`, Social, DM or Store APIs;
+- no trace include for `/truth-map`, `/wiki-truth`, Social, DM or audit Store
+  APIs; the narrowly scoped public-map read adapters above are the sole Store
+  exception;
 - no copying the whole repository/data tree into every server function;
 - no fallback that turns missing country data into a successful empty sitemap;
 - no build-time sitemap generated from a broader universe than the runtime can
@@ -172,7 +187,11 @@ Every advertised HTML URL must return:
 - no conflicting `noindex` directive;
 - the canonical GEO-specific country/state content;
 - the normal product map and country popup for that GEO;
-- the existing editable AI dock when that runtime normally exposes it.
+- no AI assistant, Social, DM or audit control on public routes.
+
+The popup's internal dotted SEO CTA must open the corresponding country panel
+without a document reload and must preserve the complete shared rich-popup
+record when the panel is closed.
 
 The SEO repair must not change Legal Truth, display colour, source ownership,
 Store eligibility, Social visibility, SSOT or popup conclusions. Popup/SEO data
@@ -186,6 +205,14 @@ Before release, localhost must prove at minimum:
 - their title, canonical and robots metadata match the requested GEO/locale;
 - sitemap counts match the protected baseline;
 - `/truth-map` and `/wiki-truth` remain available only on localhost;
+- `/` renders the public display-only map with legal colours, enriched legal
+  evidence popup and only Store Truth-gated markers;
+- production-mode `/` makes no Social, DM or AI request and contains none of
+  those controls or the legacy CannabisLawMap card; localhost separately
+  verifies that its public-map QA wrapper retains the AI dock without Social or
+  DM;
+- `/api/public-map/*` returns the same display data and Store-gate projection
+  as the corresponding local audit read adapter;
 - a fresh `/truth-map` visual audit passes all 307 canonical GEO popups when
   preserved Truth Map work makes its manifest stale;
 - Store leaves, Social Chat and the editable AI dock remain present and
@@ -213,7 +240,8 @@ The trace regression tests must prove:
 
 - the country data/index/graph inputs exist in the relevant server traces;
 - the include keys stay route-scoped;
-- `/truth-map` is absent from trace includes and sitemap output;
+- `/truth-map` is absent from trace includes and sitemap output, while public
+  map adapter traces remain explicitly route-scoped;
 - the sitemap partitions retain their protected counts.
 
 Production release must use `Tools/commit_if_green.sh`. When the canonical
@@ -232,8 +260,9 @@ A push or Vercel deployment is not acceptance. After Vercel promotion, verify:
 5. `robots.txt` allows Googlebot and publishes sitemap locations.
 6. `/truth-map` and `/wiki-truth` return 404 on the public host.
 7. Every sitemap contains zero audit/Social/Store route leaks.
-8. A real production browser renders a representative country popup and normal
-   product controls without Truth Map, Social or Store audit controls.
+8. A real production browser renders the complete public legal-evidence popup,
+   its dotted in-place SEO CTA, Store Truth markers and the existing Antarctica
+   animation, without legacy CannabisLawMap, AI, Social, DM or audit controls.
 9. A post-release canonical-root `pass_cycle` remains green.
 
 If any condition fails, production acceptance is FAIL even when Vercel reports

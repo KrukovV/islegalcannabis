@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Northern Nevada Dispensaries</name>
+    <description/>
+    <Style id="icon-1899-0288D1-nodesc-normal">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-0288D1-nodesc-highlight">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-0288D1-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-0288D1-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-0288D1-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Folder>
+      <name>Carson City/Washoe Valley</name>
+      <Placemark>
+        <name>RISE Recreational Dispensary Carson City</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -119.7694194,39.1279733,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>RISE Carson City - US Hwy 50</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -119.7343243,39.1768575,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Zen Leaf Carson City (FKA Sierra Well)</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -119.7369012,39.1753318,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>SoL Cannabis</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -119.8087663,39.3269279,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Ely</name>
+      <Placemark>
+        <name>Greenlight Marijuana Dispensary Ely</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -114.8690129,39.2546715,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Fallon</name>
+      <Placemark>
+        <name>The Green Cross Farmacy</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -118.783036,39.475165,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Fernley</name>
+      <Placemark>
+        <name>Silver State Relief</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -119.2213175,39.6059669,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Incline Village</name>
+      <Placemark>
+        <name>NuLeaf Lake Tahoe Dispensary</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -119.9550229,39.2494698,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Jackpot</name>
+      <Placemark>
+        <name>Thrive Cannabis Marketplace - Jackpot Dispensary</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -114.6730519,41.9801076,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Mound House</name>
+      <Placemark>
+        <name>Battle Born Dispensary</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -119.6638235,39.2152531,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Reno/Sparks/Sun Valley</name>
+      <Placemark>
+        <name>The Dispensary 2nd St</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -119.8110145,39.5270162,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The Dispensary Lemmon</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -119.8476601,39.6154114,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The Dispensary Plumb</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -119.8052571,39.505399,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>RISE Recreational Cannabis Dispensary Reno</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -119.7826662,39.5551661,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Battle Born Dispensary - Reno (FKA The Source)</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -119.7639233,39.4734105,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Thrive Cannabis Marketplace - Reno Dispensary</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -119.7806479,39.460219,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Zen Leaf Reno (FKA Sierra Well)</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -119.7914787,39.5276246,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Curaleaf Dispensary - Sparks-Reno (Formerly Reef)</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -119.7403622,39.5270126,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Greenleaf Wellness Cannabis Weed Dispensary Reno</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -119.7675308,39.5282104,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pure Tonic Dispensary</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -119.4898783,39.5581938,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>RISE Recreational Cannabis Dispensary Spanish Springs</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -119.709349,39.637501,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Silver State Relief Sparks</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -119.7414106,39.5211385,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Curaleaf Dispensary - Sun Valley (Formerly Reef)</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -119.780656,39.5788811,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kanna</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -119.7802264,39.5888935,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Jade Cannabis Co.</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -119.8070293,39.5132142,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Silver State Relief Reno</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -119.7545107,39.4238542,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>West Wendover</name>
+      <Placemark>
+        <name>Deep Roots Harvest Wendover</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -114.0630645,40.731945,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Winnemucca</name>
+      <Placemark>
+        <name>LUCID - Winnemucca</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -117.749588,40.9533767,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>THE GOLD LEAF - DISPENSARY</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -117.7423385,40.9572618,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

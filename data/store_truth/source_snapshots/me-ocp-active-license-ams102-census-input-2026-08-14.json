@@ -1,0 +1,12 @@
+{
+  "records": [
+    {
+      "source_record_id": "AMS102",
+      "address": "884 Western Ave",
+      "city": "Manchester",
+      "region": "ME",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    }
+  ]
+}

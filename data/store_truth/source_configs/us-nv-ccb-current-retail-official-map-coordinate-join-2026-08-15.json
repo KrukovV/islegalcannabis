@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "purpose": "Fail-closed, regulator-linked KML coordinate join for the current Nevada Cannabis Compliance Board adult-use retail directory. Coordinates attach only to one active official licence whose published trade/legal display name has one exact normalized match in one CCB-linked official retail-map placemark.",
+  "registry_snapshot_path": "data/store_truth/source_snapshots/nv-ccb-current-retail-stores-2026-08-13.json",
+  "registry_snapshot_sha256": "7fc16f25198ce5f00c95a12fdbe90692567a3c2a8a33631ce7e59afbb9fb8045",
+  "registry_name_fields": [
+    "trade_name",
+    "legal_name"
+  ],
+  "required_registry_values": {
+    "store_type": "ADULT_USE_RETAIL",
+    "license_status": "ACTIVE"
+  },
+  "coordinate_bounds": {
+    "west": -120.1,
+    "east": -114.0,
+    "south": 35.0,
+    "north": 42.1
+  },
+  "map_sources": [
+    {
+      "map_id": "ccb-southern-nevada-retail",
+      "source_url": "https://www.google.com/maps/d/edit?mid=1BGgNVyRx-R9zVuAAk3huY6VZl5ouIes&usp=sharing",
+      "download_url": "https://www.google.com/maps/d/kml?mid=1BGgNVyRx-R9zVuAAk3huY6VZl5ouIes&forcekml=1",
+      "snapshot_path": "data/store_truth/source_snapshots/nv-ccb-current-southern-retail-map-2026-08-15.kml",
+      "snapshot_sha256": "35b71e23cc6e667899f40bd49dc902c7d3952506b86e507b2720fb241057a193"
+    },
+    {
+      "map_id": "ccb-northern-nevada-retail",
+      "source_url": "https://www.google.com/maps/d/edit?mid=1IdhJppStt8zMlifqT3LNUkOswg9kMmg&usp=sharing",
+      "download_url": "https://www.google.com/maps/d/kml?mid=1IdhJppStt8zMlifqT3LNUkOswg9kMmg&forcekml=1",
+      "snapshot_path": "data/store_truth/source_snapshots/nv-ccb-current-northern-retail-map-2026-08-15.kml",
+      "snapshot_sha256": "cb79ad2ba16dcae17dd957a5826b9b0605d97137cf0a358fa5b84470366007ba"
+    }
+  ]
+}

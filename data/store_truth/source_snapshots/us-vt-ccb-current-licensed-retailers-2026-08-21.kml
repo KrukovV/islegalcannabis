@@ -1,0 +1,2008 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Vermont CCB: Licensed Retailers</name>
+    <description><![CDATA[A map of current retail licensees in Vermont's adult-use cannabis market. Created and maintained by CCB staff.]]></description>
+    <Style id="icon-1899-0288D1-normal">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1899-0288D1-highlight">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1899-0288D1">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-0288D1-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-0288D1-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Folder>
+      <name>RetailersWithLocationFEB.xlsx</name>
+      <Placemark>
+        <name>Mountain Girl Cannabis, Inc.</name>
+        <description><![CDATA[Latitude: 43.607738<br>Longitude: -72.981224]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.607738</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.981224</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.981224,43.607738,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>FLŌRA Cannabis</name>
+        <description><![CDATA[Latitude: 44.01267<br>Longitude: -73.16977]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.01267</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.16977</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.16977,44.01267,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Vermont Bud Barn, LLC</name>
+        <description><![CDATA[Latitude: 42.866<br>Longitude: -72.6131]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>42.866</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.6131</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.6131,42.866,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Apex Arboretum Inc. dba Green State Dispensary; dba Upstate Elevator Operators</name>
+        <description><![CDATA[Latitude: 44.4604<br>Longitude: -73.215]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.4604</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.215</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.215,44.4604,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>GB LLC dba 9th State Cannabis</name>
+        <description><![CDATA[Latitude: 44.253277<br>Longitude: -73.22717]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.253277</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.22717</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.22717,44.253277,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Gram Central, LLC</name>
+        <description><![CDATA[Latitude: 44.24939<br>Longitude: -72.56242]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.24939</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.56242</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.56242,44.24939,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The Green Man, LLC</name>
+        <description><![CDATA[Latitude: 44.46037<br>Longitude: -72.01389]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.46037</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.01389</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.01389,44.46037,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Native East, LLC DBA Winooski Organics</name>
+        <description><![CDATA[Latitude: 44.49245<br>Longitude: -73.18023]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.49245</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.18023</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.18023,44.49245,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Capital Cannabis Company Inc.</name>
+        <description><![CDATA[Latitude: 44.25941<br>Longitude: -72.5763]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.25941</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.5763</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.5763,44.25941,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kingdom Kind</name>
+        <description><![CDATA[Latitude: 44.744<br>Longitude: -72.182]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.744</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.182</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.182,44.744,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Juniper Lane LLC dba Juniper Lane</name>
+        <description><![CDATA[Latitude: 42.87809<br>Longitude: -73.19572]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>42.87809</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.19572</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.19572,42.87809,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Magic Mann</name>
+        <description><![CDATA[Latitude: 44.507389<br>Longitude: -73.082474]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.507389</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.082474</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.082474,44.507389,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The High Country</name>
+        <description><![CDATA[Latitude: 44.94844<br>Longitude: -72.17007]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.94844</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.17007</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.17007,44.94844,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Higher Elevation, LLC</name>
+        <description><![CDATA[Latitude: 44.57165<br>Longitude: -72.5941]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.57165</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.5941</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.5941,44.57165,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Vermont Hemp Craft LLC, d.b.a. Green Leaf Central</name>
+        <description><![CDATA[Latitude: 44.4767<br>Longitude: -73.2113]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.4767</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.2113</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.2113,44.4767,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Clover VT LLC, DBA Sunday Drive</name>
+        <description><![CDATA[Latitude: 43.632<br>Longitude: -72.501]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.632</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.501</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.501,43.632,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Forbins Reserve Inc.</name>
+        <description><![CDATA[Latitude: 44.1978<br>Longitude: -72.50407]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.1978</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.50407</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.50407,44.1978,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Emeraldrose Retail LLC</name>
+        <description><![CDATA[Latitude: 44.1329<br>Longitude: -73.07783]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.1329</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.07783</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.07783,44.1329,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Somewhere On The Mountain</name>
+        <description><![CDATA[Latitude: 43.619384<br>Longitude: -72.973756]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.619384</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.973756</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.973756,43.619384,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Northeast Kannabis LLC.</name>
+        <description><![CDATA[Latitude: 44.415034<br>Longitude: -72.01652]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.415034</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.01652</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.01652,44.415034,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Ratu's Cannabis Supply, LLC]]></name>
+        <description><![CDATA[Latitude: 42.869736<br>Longitude: -72.87394]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>42.869736</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.87394</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.87394,42.869736,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Valley Meade Dispensary</name>
+        <description><![CDATA[Latitude: 44.18169<br>Longitude: -72.840533]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.18169</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.840533</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.840533,44.18169,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pine Grove Organics LLC</name>
+        <description><![CDATA[Latitude: 43.804053<br>Longitude: -73.097071]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.804053</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.097071</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.097071,43.804053,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cambridge Cannabis Company LLC</name>
+        <description><![CDATA[Latitude: 44.644<br>Longitude: -72.833]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.644</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.833</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.833,44.644,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>T.T.G LLC DBA Vermont Trap House</name>
+        <description><![CDATA[Latitude: 43.592538<br>Longitude: -73.265199]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.592538</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.265199</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.265199,43.592538,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cannabis Caboose DBA De Pot Shop</name>
+        <description><![CDATA[Latitude: 43.48<br>Longitude: -72.38]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.48</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.38</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.38,43.48,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Stone Leaf Cannabis, LLC d/b/a/ Stone Leaf Dispensary</name>
+        <description><![CDATA[Latitude: 43.51318<br>Longitude: -72.40263]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.51318</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.40263</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.40263,43.51318,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Dalen Ltd.,  d.b.a. Blue Sage</name>
+        <description><![CDATA[Latitude: 44.1841<br>Longitude: -72.835225]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.1841</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.835225</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.835225,44.1841,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The Tea House, LLC</name>
+        <description><![CDATA[Latitude: 43.6526<br>Longitude: -72.33089]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.6526</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.33089</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.33089,43.6526,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Theory Wellness of VT Retail LLC</name>
+        <description><![CDATA[Latitude: 42.8744<br>Longitude: -72.56229]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>42.8744</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.56229</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.56229,42.8744,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Green Union LLC d/b/a Green Union Dispensary</name>
+        <description><![CDATA[Latitude: 43.53027<br>Longitude: -72.73784]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.53027</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.73784</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.73784,43.53027,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>VherBio, LLC dba Polestar Cannabis</name>
+        <description><![CDATA[Latitude: 43.923682<br>Longitude: -72.663895]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.923682</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.663895</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.663895,43.923682,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mary Jane Mountain</name>
+        <description><![CDATA[Latitude: 44.87<br>Longitude: -72.6]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.87</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.6</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.6,44.87,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Big Intelligence Group, LLC  dba/ Wild Legacy Cannabis</name>
+        <description><![CDATA[Latitude: 44.56399<br>Longitude: -72.59818]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.56399</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.59818</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.59818,44.56399,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bern Legacy Cannabis</name>
+        <description><![CDATA[Latitude: 44.475673<br>Longitude: -73.213457]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.475673</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.213457</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.213457,44.475673,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cann Maxx, Inc.; Cann Maxx</name>
+        <description><![CDATA[Latitude: 42.87<br>Longitude: -72.56]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>42.87</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.56</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.56,42.87,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Matterhorn Apothecary LLC</name>
+        <description><![CDATA[Latitude: 42.86867<br>Longitude: -72.8704]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>42.86867</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.8704</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.8704,42.86867,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Silver Therapeutics of Bennington, LLC</name>
+        <description><![CDATA[Latitude: 42.89874<br>Longitude: -73.208586]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>42.89874</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.208586</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.208586,42.89874,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Sharp Family Farms d.b.a The Gas Station</name>
+        <description><![CDATA[Latitude: 43.596<br>Longitude: -72.97]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.596</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.97</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.97,43.596,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>New England Cannabis Partners, LLC, d/b/a MothaPlant</name>
+        <description><![CDATA[Latitude: 44.8107<br>Longitude: -73.0836]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.8107</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.0836</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.0836,44.8107,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>BB CANN Inc. DBA Float On</name>
+        <description><![CDATA[Latitude: 44.47655<br>Longitude: -73.2123]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.47655</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.2123</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.2123,44.47655,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The Herb Closet LLC</name>
+        <description><![CDATA[Latitude: 44.480634<br>Longitude: -73.210902]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.480634</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.210902</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.210902,44.480634,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>GoodFire, LLP DBA Vermont GoodFire Cannabis</name>
+        <description><![CDATA[Latitude: 44.376896<br>Longitude: -72.718948]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.376896</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.718948</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.718948,44.376896,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>802Apoth LLC d/b/a TRUE-802 Cannabis</name>
+        <description><![CDATA[Latitude: 44.47684<br>Longitude: -73.21236]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.47684</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.21236</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.21236,44.47684,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cloud9 Cannabis LLC</name>
+        <description><![CDATA[Latitude: 43.59321<br>Longitude: -73.265343]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.59321</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.265343</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.265343,43.59321,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mary Jane Junction VT LLC</name>
+        <description><![CDATA[Latitude: 44.83346<br>Longitude: -73.07853]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.83346</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.07853</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.07853,44.83346,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kingdom Boyz</name>
+        <description><![CDATA[Latitude: 44.95249<br>Longitude: -72.14266]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.95249</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.14266</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.14266,44.95249,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Vermont Alter-Native, LLC</name>
+        <description><![CDATA[Latitude: 44.966<br>Longitude: -73.3]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.966</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.3</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.3,44.966,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>31° North Holdings LLC</name>
+        <description><![CDATA[Latitude: 44.369326<br>Longitude: -72.729878]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.369326</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.729878</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.729878,44.369326,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>TMM Dispensary, LLC</name>
+        <description><![CDATA[Latitude: 43.299<br>Longitude: -72.496]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.299</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.496</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.496,43.299,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Devils Den Cannabis Company</name>
+        <description><![CDATA[Latitude: 43.99025<br>Longitude: -72.12769]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.99025</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.12769</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.12769,43.99025,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The Dank Closet Dispensary, LLC</name>
+        <description><![CDATA[Latitude: 44.788<br>Longitude: -72.214]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.788</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.214</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.214,44.788,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kushies LLC</name>
+        <description><![CDATA[Latitude: 44.95165<br>Longitude: -72.15351]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.95165</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.15351</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.15351,44.95165,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Little City Greens</name>
+        <description><![CDATA[Latitude: 44.16762<br>Longitude: -73.25146]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.16762</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.25146</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.25146,44.16762,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Timeline Products LLC - dbe Rimeline</name>
+        <description><![CDATA[Latitude: 43.14651<br>Longitude: -72.84066]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.14651</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.84066</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.84066,43.14651,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>DP Holdings LLC DBA The Bud Stop</name>
+        <description><![CDATA[Latitude: 44.41067<br>Longitude: -72.16959]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.41067</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.16959</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.16959,44.41067,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Green Mountain Cannabis Works LLC</name>
+        <description><![CDATA[Latitude: 43.173053<br>Longitude: -73.061316]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.173053</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.061316</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.061316,43.173053,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Vermont Terps Cannabis LLC</name>
+        <description><![CDATA[Latitude: 43.710983<br>Longitude: -73.032592]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.710983</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.032592</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.032592,43.710983,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>GoldMill Group Ltd. Co DBA Down to the Roots</name>
+        <description><![CDATA[Latitude: 43.15<br>Longitude: -72.58009]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.15</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.58009</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.58009,43.15,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Gaston Weed Company</name>
+        <description><![CDATA[Latitude: 44.511539<br>Longitude: -73.06446]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.511539</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.06446</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.06446,44.511539,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The Five Seasons Cannabis Company LLC</name>
+        <description><![CDATA[Latitude: 43.65<br>Longitude: -72.319]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.65</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.319</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.319,43.65,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CRAFT CANNABIS CO. RETAIL, LLC</name>
+        <description><![CDATA[Latitude: 44.56366<br>Longitude: -72.58515]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.56366</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.58515</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.58515,44.56366,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Palatino Ronci LLC, DBA Garcia's Cannabis Collective]]></name>
+        <description><![CDATA[Latitude: 44.477689<br>Longitude: -73.212834]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.477689</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.212834</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.212834,44.477689,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Sunset Lake Cannabis LLC D.B.A Lake Effect VT</name>
+        <description><![CDATA[Latitude: 44.64515<br>Longitude: -73.30286]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.64515</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.30286</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.30286,44.64515,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Sawyer Dog Retail, LLC d/b/a Milton Remedies</name>
+        <description><![CDATA[Latitude: 44.622<br>Longitude: -73.128]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.622</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.128</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.128,44.622,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Something Wicked Cannabis Company</name>
+        <description><![CDATA[Latitude: 43.8333<br>Longitude: -72.634]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.8333</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.634</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.634,43.8333,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>802 420 LLC</name>
+        <description><![CDATA[Latitude: 43.158612<br>Longitude: -72.45784]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.158612</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.45784</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.45784,43.158612,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>High Fidelity, LLC DBA Lucky You</name>
+        <description><![CDATA[Latitude: 44.4792<br>Longitude: -73.21]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.4792</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.21</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.21,44.4792,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bwell VT Inc.</name>
+        <description><![CDATA[Latitude: 42.86653<br>Longitude: -73.1967]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>42.86653</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.1967</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.1967,42.86653,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The Hidden Grove LLC</name>
+        <description><![CDATA[Latitude: 43.64556<br>Longitude: -72.31826]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.64556</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.31826</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.31826,43.64556,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Heybud Collective Corp</name>
+        <description><![CDATA[Latitude: 44.47126<br>Longitude: -73.21377]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.47126</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.21377</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.21377,44.47126,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Green Mountain Therapeutics, LLC  d/b/a Green Mountain Therapeutics</name>
+        <description><![CDATA[Latitude: 43.1343<br>Longitude: -72.4846]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.1343</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.4846</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.4846,43.1343,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mill 47 LLC d/b/a/ The Cannabis Shop</name>
+        <description><![CDATA[Latitude: 44.50458<br>Longitude: -72.36626]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.50458</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.36626</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.36626,44.50458,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>One Stop Weed Shop LLC; DBA  Vveeds.</name>
+        <description><![CDATA[Latitude: 44.547386<br>Longitude: -72.459468]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.547386</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.459468</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.459468,44.547386,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Juana's Garden, LLC]]></name>
+        <description><![CDATA[Latitude: 44.250389<br>Longitude: -72.555969]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.250389</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.555969</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.555969,44.250389,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Judy's Holistic Solution LLC]]></name>
+        <description><![CDATA[Latitude: 44.48793<br>Longitude: -73.21148]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.48793</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.21148</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.21148,44.48793,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Satori VT LLC;   The Herbal Collective</name>
+        <description><![CDATA[Latitude: 43.98<br>Longitude: -73.13]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.98</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.13</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.13,43.98,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Simpson Brook Retail LLC DBA Bushy Beard Dispensary</name>
+        <description><![CDATA[Latitude: 44.58793<br>Longitude: -71.94489]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.58793</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-71.94489</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -71.94489,44.58793,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Sweetspot Vermont LLC (Legal Name), Sweetspot Farms (Registered Alternate Name), Sweetspot Dispensary (Registered Alternate Name)</name>
+        <description><![CDATA[Latitude: 44.49725<br>Longitude: -73.12511]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.49725</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.12511</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.12511,44.49725,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Ninny Goat & Co.]]></name>
+        <description><![CDATA[Latitude: 43.90793083<br>Longitude: -72.14110638]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.90793083</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.14110638</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.14110638,43.90793083,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Clean Country Dispensary, LLC</name>
+        <description><![CDATA[Latitude: 44.63602<br>Longitude: -72.68003]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.63602</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.68003</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.68003,44.63602,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>JGMJ, LLC DBA Green Peak Dispensary</name>
+        <description><![CDATA[Latitude: 42.97718<br>Longitude: -72.51208]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>42.97718</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.51208</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.51208,42.97718,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Nonna VT LLC dba West Street Cannabis</name>
+        <description><![CDATA[Latitude: 43.60937<br>Longitude: -72.9732]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.60937</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.9732</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.9732,43.60937,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>VT Green Castle Reserve, LLC DBA: Castle Cannabis</name>
+        <description><![CDATA[Latitude: 44.64278<br>Longitude: -72.70528]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.64278</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.70528</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.70528,44.64278,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Freedom Flower Direct Inc</name>
+        <description><![CDATA[Latitude: 44.5612<br>Longitude: -72.6159]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.5612</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.6159</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.6159,44.5612,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Verdiggity Cannabis Co.</name>
+        <description><![CDATA[Latitude: 43.17404<br>Longitude: -73.05142]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.17404</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.05142</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.05142,43.17404,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Killington Mountain Dispensary, LLC</name>
+        <description><![CDATA[Latitude: 43.63916<br>Longitude: -72.78808]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.63916</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.78808</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.78808,43.63916,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Dames Inc, Dames</name>
+        <description><![CDATA[Latitude: 44.19942<br>Longitude: -72.50431]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.19942</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.50431</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.50431,44.19942,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>MSW LLC, DBA Best Buds Dispensary</name>
+        <description><![CDATA[Latitude: 44.573886<br>Longitude: -72.595598]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.573886</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.595598</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.595598,44.573886,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Sunkissed Farm Inc.</name>
+        <description><![CDATA[Latitude: 43.59831<br>Longitude: -72.59829]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.59831</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.59829</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.59829,43.59831,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Flower First LLC d/b/a/ Sonny's]]></name>
+        <description><![CDATA[Latitude: 44.20978<br>Longitude: -72.19315]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.20978</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.19315</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.19315,44.20978,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Craftsbury Cannabis LLC</name>
+        <description><![CDATA[Latitude: 44.6317<br>Longitude: -72.42923]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.6317</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.42923</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.42923,44.6317,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Winterland Haze LLC</name>
+        <description><![CDATA[Latitude: 44.25993<br>Longitude: -72.57587]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.25993</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.57587</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.57587,44.25993,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Fire On The Mountain, LLC</name>
+        <description><![CDATA[Latitude: 43.58668<br>Longitude: -72.61994]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.58668</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.61994</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.61994,43.58668,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>GREEN HAVEN HERBALS LLC</name>
+        <description><![CDATA[Latitude: 44.475<br>Longitude: -73.212]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.475</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.212</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.212,44.475,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[3 J's Cannabis, LLC]]></name>
+        <description><![CDATA[Latitude: 44.62506<br>Longitude: -73.1461]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.62506</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.1461</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.1461,44.62506,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Vermont Cannabis Cafe LLC</name>
+        <description><![CDATA[Latitude: 43.629068<br>Longitude: -72.945179]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.629068</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.945179</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.945179,43.629068,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The Buddega LLC</name>
+        <description><![CDATA[Latitude: 43.298701<br>Longitude: -72.481974]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.298701</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.481974</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.481974,43.298701,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Little Amsterdam</name>
+        <description><![CDATA[Latitude: 43.60612<br>Longitude: -72.9899]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.60612</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.9899</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.9899,43.60612,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Lovely Cannabis LLC DBA Lovely Cannabis</name>
+        <description><![CDATA[Latitude: 43.799951<br>Longitude: -73.089849]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.799951</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.089849</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.089849,43.799951,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>VT Strong LLC</name>
+        <description><![CDATA[Latitude: 44.19301<br>Longitude: -72.50098]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.19301</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.50098</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.50098,44.19301,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Royal Bud LLC</name>
+        <description><![CDATA[Latitude: 42.805278<br>Longitude: -73.266303]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>42.805278</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.266303</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.266303,42.805278,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The High Bar; Ravendel LLC</name>
+        <description><![CDATA[Latitude: 44.49838<br>Longitude: -73.12768]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.49838</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.12768</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.12768,44.49838,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Lucky 7 Dispensary</name>
+        <description><![CDATA[Latitude: 43.82899<br>Longitude: -73.10524]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.82899</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.10524</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.10524,43.82899,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Happy Trees Co DBA Dome</name>
+        <description><![CDATA[Latitude: 44.492236<br>Longitude: -73.18094]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.492236</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.18094</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.18094,44.492236,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Herbmont Inc., Herbmont</name>
+        <description><![CDATA[Latitude: 44.478205<br>Longitude: -73.211868]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>44.478205</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.211868</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.211868,44.478205,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>MontyVTStore LLC</name>
+        <description><![CDATA[Latitude: 43.70697309924536<br>Longitude: -73.02758028992866]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.70697309924536</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-73.02758028992866</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -73.0275802899287,43.7069730992454,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>AMT Retail LLC d/b/a/ iDeal CannabisEdit Name: Item AMT Retail LLC d/b/a/ iDeal Cannabis</name>
+        <description><![CDATA[Latitude: 43.78089<br>Longitude: -72.468]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>43.78089</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.468</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.468,43.78089,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>OTC VT LLC</name>
+        <description><![CDATA[Latitude: 42.839816<br>Longitude: -72.564365]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Latitude">
+            <value>42.839816</value>
+          </Data>
+          <Data name="Longitude">
+            <value>-72.564365</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -72.564365,42.839816,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

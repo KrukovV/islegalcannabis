@@ -160,6 +160,25 @@ describe("wiki-truth cannabis color comparison", () => {
     expect(summarizeOfficialEvidenceRevalidation(row)).toContain("NOT_MODIFIED=1");
   });
 
+  test("keeps legacy annotated context visible when its revalidation state is absent", () => {
+    const row = asOfficialRow({
+      recreational: "ILLEGAL",
+      medical: "UNKNOWN",
+    });
+    row.officialContextLinks = [{
+      title: "Official context",
+      url: "https://official.example/context",
+      sourceKind: "CONTEXT_ONLY",
+      verification: "C2",
+      confidence: "high",
+      revalidation: { checked_at: "2026-08-22T00:00:00.000Z" } as never,
+    }];
+
+    expect(summarizeOfficialEvidenceRevalidation(row)).toContain(
+      "ANNOTATED_CONTEXT_ONLY=1",
+    );
+  });
+
   test("keeps all seven project-null scope exclusions uncolored", () => {
     const matrix = readMatrix();
     const mapRows = [
@@ -224,6 +243,16 @@ describe("wiki-truth cannabis color comparison", () => {
         asOfficialRow({
           recreational: "LEGAL_ADULT_USE_REGULATED",
           medical: "NONE",
+        }),
+      ),
+    ).toBe("LEGAL_OR_DECRIM");
+
+    expect(
+      deriveOfficialLawMapCategory(
+        asOfficialRow({
+          recreational:
+            "OPERATIONAL_ADULT_USE_21_PLUS_WITH_LICENSED_RETAIL_AND_CURRENT_DISPENSARIES",
+          medical: "NOT_INDEPENDENTLY_ASSESSED_IN_THIS_PACKET",
         }),
       ),
     ).toBe("LEGAL_OR_DECRIM");

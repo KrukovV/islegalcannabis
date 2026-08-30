@@ -9,8 +9,27 @@ export type WikiTruthFinalReconciliationRow = {
   changed: boolean;
   truthRuleId: string;
   truthReason: string;
+  truthConfidence?: string;
+  applyState?: "SAFE_TO_APPLY" | "BLOCKED" | "NEEDS_REVIEW" | string;
   greenProof: boolean;
   layerConflict: boolean;
+  canonicalTruthResult?: {
+    geo_id: string;
+    display_name: string;
+    jurisdiction_level: string;
+    parent_geo_id: string | null;
+    governing_jurisdiction: string;
+    evidence_freshness: string;
+    truth_status: string;
+    truth_color: string;
+    resolver_rule: string;
+    truth_confidence: string;
+    human_explanation: string;
+    apply_state: string;
+    official_sources: string[];
+    effective_date: { status: string; source_urls?: string[] };
+    [axis: string]: unknown;
+  };
   primaryLaw: {
     effectiveSourceCoverage: string;
     primaryLawUrl: string;
@@ -35,8 +54,10 @@ export type WikiTruthFinalReconciliationView = {
   ruleEngineCorrections: string[];
   counts: {
     truthColors: Record<string, number>;
+    truthConfidence?: Record<string, number>;
     falseClasses: Record<string, number>;
     freshSourceRecheck: Record<string, number>;
+    applyStates?: Record<string, number>;
   };
   changes: WikiTruthFinalReconciliationRow[];
   unknownRows: WikiTruthFinalReconciliationRow[];
@@ -67,8 +88,10 @@ export const emptyWikiTruthFinalReconciliation: WikiTruthFinalReconciliationView
   ruleEngineCorrections: [],
   counts: {
     truthColors: {},
+    truthConfidence: {},
     falseClasses: {},
     freshSourceRecheck: {},
+    applyStates: {},
   },
   changes: [],
   unknownRows: [],

@@ -1,0 +1,4830 @@
+{
+  "objectIdFieldName": "ObjectId",
+  "uniqueIdField": {
+    "name": "ObjectId",
+    "isSystemMaintained": true
+  },
+  "globalIdFieldName": "",
+  "geometryType": "esriGeometryPoint",
+  "spatialReference": {
+    "wkid": 4326,
+    "latestWkid": 4326
+  },
+  "fields": [
+    {
+      "name": "Phone_Number",
+      "type": "esriFieldTypeString",
+      "alias": "Phone Number",
+      "sqlType": "sqlTypeNVarchar",
+      "length": 4000,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "Dispensary",
+      "type": "esriFieldTypeString",
+      "alias": "Dispensary",
+      "sqlType": "sqlTypeNVarchar",
+      "length": 4000,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "License",
+      "type": "esriFieldTypeString",
+      "alias": "License",
+      "sqlType": "sqlTypeNVarchar",
+      "length": 4000,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "Address",
+      "type": "esriFieldTypeString",
+      "alias": "Address",
+      "sqlType": "sqlTypeNVarchar",
+      "length": 4000,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "City",
+      "type": "esriFieldTypeString",
+      "alias": "City",
+      "sqlType": "sqlTypeNVarchar",
+      "length": 4000,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "Zip_code",
+      "type": "esriFieldTypeString",
+      "alias": "Zip code",
+      "sqlType": "sqlTypeNVarchar",
+      "length": 4000,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "County",
+      "type": "esriFieldTypeString",
+      "alias": "County",
+      "sqlType": "sqlTypeNVarchar",
+      "length": 4000,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "Website",
+      "type": "esriFieldTypeString",
+      "alias": "Website",
+      "sqlType": "sqlTypeNVarchar",
+      "length": 4000,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "Last_updated",
+      "type": "esriFieldTypeString",
+      "alias": "Last updated",
+      "sqlType": "sqlTypeNVarchar",
+      "length": 4000,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "latitude",
+      "type": "esriFieldTypeDouble",
+      "alias": "latitude",
+      "sqlType": "sqlTypeFloat",
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "longitude",
+      "type": "esriFieldTypeDouble",
+      "alias": "longitude",
+      "sqlType": "sqlTypeFloat",
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "ObjectId",
+      "type": "esriFieldTypeOID",
+      "alias": "ObjectId",
+      "sqlType": "sqlTypeInteger",
+      "domain": null,
+      "defaultValue": null
+    }
+  ],
+  "features": [
+    {
+      "attributes": {
+        "Phone_Number": "248-255-1283",
+        "Dispensary": "High Profile Cannabis Shop; High Profile",
+        "License": "DIS000143",
+        "Address": "772 S Kingshighway Ste A",
+        "City": "CAPE GIRARDEAU",
+        "Zip_code": "63703",
+        "County": "Cape Girardeau",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.2890219,
+        "longitude": -89.5555881,
+        "ObjectId": 1
+      },
+      "geometry": {
+        "x": -89.55558809999998,
+        "y": 37.28902190000001
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-200-6882",
+        "Dispensary": "Good Day Farm Dispensary; Gdf Dispensary; Good Day Farm",
+        "License": "DIS000137",
+        "Address": "1330 Broadway Street, Suite B ",
+        "City": "CAPE GIRARDEAU",
+        "Zip_code": "63701",
+        "County": "Cape Girardeau",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.31037,
+        "longitude": -89.534839,
+        "ObjectId": 2
+      },
+      "geometry": {
+        "x": -89.534839,
+        "y": 37.31036999999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-279-4020",
+        "Dispensary": "C Cannabis Dispensary; Codes Cannabis; Codes Cannabis Dispensary; Codes Supreme Cannabis",
+        "License": "DIS000138",
+        "Address": "350 N Kingshighway St ",
+        "City": "CAPE GIRARDEAU",
+        "Zip_code": "63701",
+        "County": "Cape Girardeau",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.3118001,
+        "longitude": -89.5539234,
+        "ObjectId": 3
+      },
+      "geometry": {
+        "x": -89.5539234,
+        "y": 37.31180009999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-380-3873",
+        "Dispensary": "Greenlight Dispensary",
+        "License": "DIS000139",
+        "Address": "1001 Broadway ",
+        "City": "CAPE GIRARDEAU",
+        "Zip_code": "63701",
+        "County": "Cape Girardeau",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.293156,
+        "longitude": -89.577644,
+        "ObjectId": 4
+      },
+      "geometry": {
+        "x": -89.57764399999999,
+        "y": 37.293156
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-831-3877",
+        "Dispensary": "Key Cannabis Dispensary",
+        "License": "DIS000111",
+        "Address": "25 S Kingshighway ",
+        "City": "CAPE GIRARDEAU",
+        "Zip_code": "63703",
+        "County": "Cape Girardeau",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.304871058,
+        "longitude": -89.552869177,
+        "ObjectId": 5
+      },
+      "geometry": {
+        "x": -89.55286917700002,
+        "y": 37.304871058
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "405-343-0490",
+        "Dispensary": "Grass Roots Dispensary",
+        "License": "MBD000015",
+        "Address": "85 S Plaza Way ",
+        "City": "CAPE GIRARDEAU",
+        "Zip_code": "63703",
+        "County": "Cape Girardeau",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.30502,
+        "longitude": -89.548285,
+        "ObjectId": 6
+      },
+      "geometry": {
+        "x": -89.548285,
+        "y": 37.30502
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-223-7159",
+        "Dispensary": "Kansas City Cannabis Co., Kansas City Cannabis, Kc Cannabis, Kcc",
+        "License": "DIS000012",
+        "Address": "149 Crown Hill Rd ",
+        "City": "EXCELSIOR SPRINGS",
+        "Zip_code": "64024",
+        "County": "Clay",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.3398276,
+        "longitude": -94.2475626,
+        "ObjectId": 7
+      },
+      "geometry": {
+        "x": -94.2475626,
+        "y": 39.3398276
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-606-0834",
+        "Dispensary": "C Cannabis Dispensary; Codes Cannabis; Codes Cannabis Dispensary; Codes Supreme Cannabis",
+        "License": "DIS000218",
+        "Address": "3205 Missouri Blvd ",
+        "City": "Lake St. Louis",
+        "Zip_code": "65109",
+        "County": "Cole",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.580161994,
+        "longitude": -92.237033028,
+        "ObjectId": 8
+      },
+      "geometry": {
+        "x": -92.23703302800001,
+        "y": 38.580161994
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-462-0890",
+        "Dispensary": "Shangri-La, Shangri-La Dispensary",
+        "License": "DIS000162",
+        "Address": "2118 Missouri Blvd ",
+        "City": "Lake St. Louis",
+        "Zip_code": "65109",
+        "County": "Cole",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.581838,
+        "longitude": -92.207142,
+        "ObjectId": 9
+      },
+      "geometry": {
+        "x": -92.20714200000002,
+        "y": 38.581838000000005
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "309-264-3199",
+        "Dispensary": "Missouri Health & Wellness Dispensary",
+        "License": "DIS000147",
+        "Address": "1404 Missouri Blvd Ste A",
+        "City": "Lake St. Louis",
+        "Zip_code": "65109",
+        "County": "Cole",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.578551,
+        "longitude": -92.192981,
+        "ObjectId": 10
+      },
+      "geometry": {
+        "x": -92.192981,
+        "y": 38.578551
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-588-8838",
+        "Dispensary": "Dream Leaf",
+        "License": "DIS000225",
+        "Address": "8500 Ward Parkway ",
+        "City": "KANSAS CITY",
+        "Zip_code": "64114",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.974150922,
+        "longitude": -94.60711396,
+        "ObjectId": 11
+      },
+      "geometry": {
+        "x": -94.60711396,
+        "y": 38.974150922
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-500-2159",
+        "Dispensary": "C Cannabis Dispensary, Codes Cannabis, Codes Cannabis Dispensary, Codes Supreme Cannabis",
+        "License": "DIS000214",
+        "Address": "668 E Red Bridge Road ",
+        "City": "Kansas City",
+        "Zip_code": "64131",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.926206,
+        "longitude": -94.584353,
+        "ObjectId": 12
+      },
+      "geometry": {
+        "x": -94.58435300000001,
+        "y": 38.92620600000001
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "716-400-9526",
+        "Dispensary": "The Forest",
+        "License": "DIS000207",
+        "Address": "706 Westport Rd ",
+        "City": "KANSAS CITY",
+        "Zip_code": "64111",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.051726,
+        "longitude": -94.595097,
+        "ObjectId": 13
+      },
+      "geometry": {
+        "x": -94.595097,
+        "y": 39.051725999999995
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "620-921-5967",
+        "Dispensary": "Key Cannabis Dispensary",
+        "License": "DIS000204",
+        "Address": "4716 Ne Vivion Rd ",
+        "City": "KANSAS CITY",
+        "Zip_code": "64119",
+        "County": "Clay",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.188545,
+        "longitude": -94.523969,
+        "ObjectId": 14
+      },
+      "geometry": {
+        "x": -94.52396899999998,
+        "y": 39.188545
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-674-6195",
+        "Dispensary": "Kansas City Cannabis Co.; Kc Cannabis Co.; Kcc;  Kc Canna",
+        "License": "DIS000199",
+        "Address": "8170 Nw Prairie View Rd ",
+        "City": "KANSAS CITY",
+        "Zip_code": "64151",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.24263,
+        "longitude": -94.65931,
+        "ObjectId": 15
+      },
+      "geometry": {
+        "x": -94.65931,
+        "y": 39.24262999999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "734-395-3658",
+        "Dispensary": "Key Cannabis Dispensary",
+        "License": "DIS000078",
+        "Address": "6820 E Front St ",
+        "City": "KANSAS CITY",
+        "Zip_code": "64120",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.13088,
+        "longitude": -94.50294,
+        "ObjectId": 16
+      },
+      "geometry": {
+        "x": -94.50294,
+        "y": 39.13088
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-287-4455",
+        "Dispensary": "Local; Local Cannabis Co.; Local Cannabis Company; Local Dispensary; Song Wellness",
+        "License": "DIS000074",
+        "Address": "1004 W 45th St ",
+        "City": "KANSAS CITY",
+        "Zip_code": "64111",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.04638,
+        "longitude": -94.59864,
+        "ObjectId": 17
+      },
+      "geometry": {
+        "x": -94.59864,
+        "y": 39.04637999999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-694-9973",
+        "Dispensary": "Fresh Karma Dispensaries, Fresh Karma",
+        "License": "DIS000071",
+        "Address": "240 E Linwood Blvd ",
+        "City": "KANSAS CITY",
+        "Zip_code": "64111",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.068511,
+        "longitude": -94.581537,
+        "ObjectId": 18
+      },
+      "geometry": {
+        "x": -94.581537,
+        "y": 39.068511
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "636-236-9672",
+        "Dispensary": "Natures Med Dispensary",
+        "License": "DIS000072",
+        "Address": "2631 Ne Vivion Rd ",
+        "City": "KANSAS CITY",
+        "Zip_code": "64119",
+        "County": "Clay",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.186932,
+        "longitude": -94.5495317,
+        "ObjectId": 19
+      },
+      "geometry": {
+        "x": -94.5495317,
+        "y": 39.186932
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-512-9741",
+        "Dispensary": "Good Day Farm; Good Day Farm Dispensary; Gdf Dispensary",
+        "License": "DIS000067",
+        "Address": "647 W. 39th Street ",
+        "City": "KANSAS CITY",
+        "Zip_code": "64111",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.056544988,
+        "longitude": -94.595019042,
+        "ObjectId": 20
+      },
+      "geometry": {
+        "x": -94.59501904200002,
+        "y": 39.056544988
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-531-3030",
+        "Dispensary": "Green Light Dispensary",
+        "License": "DIS000069",
+        "Address": "4900 East Bannister Road ",
+        "City": "KANSAS CITY",
+        "Zip_code": "64132",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.9534941,
+        "longitude": -94.5332127,
+        "ObjectId": 21
+      },
+      "geometry": {
+        "x": -94.5332127,
+        "y": 38.9534941
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-531-3030",
+        "Dispensary": "Greenlight Dispensary",
+        "License": "DIS000063",
+        "Address": "13531 Madison Avenue ",
+        "City": "Kansas City",
+        "Zip_code": "64145",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.882038,
+        "longitude": -94.605559,
+        "ObjectId": 22
+      },
+      "geometry": {
+        "x": -94.605559,
+        "y": 38.88203800000001
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "913-426-8644",
+        "Dispensary": "Clovr",
+        "License": "DIS000057",
+        "Address": "7130 Wornall Rd ",
+        "City": "KANSAS CITY",
+        "Zip_code": "64114",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.9990101,
+        "longitude": -94.5939598,
+        "ObjectId": 23
+      },
+      "geometry": {
+        "x": -94.59395980000001,
+        "y": 38.99901009999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-749-2677",
+        "Dispensary": "Proper Brands, Proper Cannabis",
+        "License": "DIS000053",
+        "Address": "10155 And 10157 Wornall Road ",
+        "City": "KANSAS CITY",
+        "Zip_code": "64114",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.94344801,
+        "longitude": -94.595968963,
+        "ObjectId": 24
+      },
+      "geometry": {
+        "x": -94.595968963,
+        "y": 38.94344801
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "310-435-7165",
+        "Dispensary": "Key Cannabis Dispensary",
+        "License": "DIS000050",
+        "Address": "7025 Prospect Ave ",
+        "City": "Kansas City",
+        "Zip_code": "64132",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.99896,
+        "longitude": -94.55665,
+        "ObjectId": 25
+      },
+      "geometry": {
+        "x": -94.55665,
+        "y": 38.998960000000004
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "913-220-0044",
+        "Dispensary": "OXD SWB LLC",
+        "License": "DIS000048",
+        "Address": "2918 Southwest Blvd ",
+        "City": "KANSAS CITY",
+        "Zip_code": "64108",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.0747984,
+        "longitude": -94.6044613,
+        "ObjectId": 26
+      },
+      "geometry": {
+        "x": -94.6044613,
+        "y": 39.0747984
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "913-220-0044",
+        "Dispensary": "From The Earth Dispensary",
+        "License": "DIS000044",
+        "Address": "1221 West 103rd St ",
+        "City": "Kansas City",
+        "Zip_code": "64114",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.941212,
+        "longitude": -94.606149,
+        "ObjectId": 27
+      },
+      "geometry": {
+        "x": -94.60614899999999,
+        "y": 38.941212
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "913-220-0044",
+        "Dispensary": "From The Earth Dispensary",
+        "License": "DIS000045",
+        "Address": "6200 Troost Ave ",
+        "City": "KANSAS CITY",
+        "Zip_code": "64110",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.014841,
+        "longitude": -94.574581,
+        "ObjectId": 28
+      },
+      "geometry": {
+        "x": -94.574581,
+        "y": 39.01484099999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "913-220-0044",
+        "Dispensary": "From The Earth Dispensary",
+        "License": "DIS000046",
+        "Address": "1222 Mcgee Street ",
+        "City": "KANSAS CITY",
+        "Zip_code": "64106",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.099026,
+        "longitude": -94.580115,
+        "ObjectId": 29
+      },
+      "geometry": {
+        "x": -94.580115,
+        "y": 39.09902600000001
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "660-627-8690",
+        "Dispensary": "Codes Cannabis Dispensary - Kirksville",
+        "License": "DIS000040",
+        "Address": "6411 Nw Barry Road ",
+        "City": "Kansas City",
+        "Zip_code": "64154",
+        "County": "Platte",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.246317,
+        "longitude": -94.653313,
+        "ObjectId": 30
+      },
+      "geometry": {
+        "x": -94.653313,
+        "y": 39.24631699999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "858-848-4588",
+        "Dispensary": "Swade Cannabis Dispensary",
+        "License": "DIS000021",
+        "Address": "5901 Nw Barry Rd ",
+        "City": "KANSAS CITY",
+        "Zip_code": "64154",
+        "County": "Platte",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.246231,
+        "longitude": -94.648359,
+        "ObjectId": 31
+      },
+      "geometry": {
+        "x": -94.648359,
+        "y": 39.246231
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "614-296-7521",
+        "Dispensary": "Besame Wellness; Besame Wellness Dispensary; Verts; Verts Dispensary; Verts Neighborhood Dispensary",
+        "License": "DIS000017",
+        "Address": "8606 N Church Rd ",
+        "City": "Kansas City",
+        "Zip_code": "64157",
+        "County": "Clay",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.246486,
+        "longitude": -94.456457,
+        "ObjectId": 32
+      },
+      "geometry": {
+        "x": -94.456457,
+        "y": 39.246486
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-281-5492",
+        "Dispensary": "Sunrise, Sunrise Dispensary, Sunrise Marijuana Dispensary, Dispensary",
+        "License": "DIS000014",
+        "Address": "6510 Nw Pairieview ",
+        "City": "Kansas City",
+        "Zip_code": "64151",
+        "County": "Platte",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.212967,
+        "longitude": -94.64177,
+        "ObjectId": 33
+      },
+      "geometry": {
+        "x": -94.64177,
+        "y": 39.21296699999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "858-848-4588",
+        "Dispensary": "Swade Cannabis Dispensary, Swade Cannabis",
+        "License": "DIS000042",
+        "Address": "1041 Burlington St ",
+        "City": "NORTH KANSAS CITY",
+        "Zip_code": "64116",
+        "County": "Clay",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.12857,
+        "longitude": -94.580329,
+        "ObjectId": 34
+      },
+      "geometry": {
+        "x": -94.580329,
+        "y": 39.128569999999996
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "833-469-9333",
+        "Dispensary": "Green Releaf Dispensary",
+        "License": "DIS000201",
+        "Address": "201 S. Mo 291 ",
+        "City": "Lees Summit",
+        "Zip_code": "64063",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.915688,
+        "longitude": -94.360661,
+        "ObjectId": 35
+      },
+      "geometry": {
+        "x": -94.36066100000001,
+        "y": 38.915688
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-223-7159",
+        "Dispensary": "Kansas City Cannabis Co., Kansas City Cannabis",
+        "License": "DIS000028",
+        "Address": "9324 Rt-7 S ",
+        "City": "Lees Summit",
+        "Zip_code": "64064",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.946235,
+        "longitude": -94.275476,
+        "ObjectId": 36
+      },
+      "geometry": {
+        "x": -94.275476,
+        "y": 38.946235
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "417-850-9999",
+        "Dispensary": "Flora Farms",
+        "License": "DIS000076",
+        "Address": "510 Sw 3rd St ",
+        "City": "Lees Summit",
+        "Zip_code": "64063",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.911487,
+        "longitude": -94.386695,
+        "ObjectId": 37
+      },
+      "geometry": {
+        "x": -94.386695,
+        "y": 38.911487
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "310-435-7165",
+        "Dispensary": "From The Earth Dispensary; From The Earth; Dispensary",
+        "License": "DIS000051",
+        "Address": "1041 Ne Sam Walton Ln ",
+        "City": "Lees Summit",
+        "Zip_code": "64086",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.929111,
+        "longitude": -94.3631297,
+        "ObjectId": 38
+      },
+      "geometry": {
+        "x": -94.36312969999999,
+        "y": 38.929111
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-399-6387",
+        "Dispensary": "The Heights Cannabis",
+        "License": "DIS000209",
+        "Address": "2024 Mckelvey Rd. ",
+        "City": "MARYLAND HEIGHTS",
+        "Zip_code": "63043",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.715644981,
+        "longitude": -90.453380035,
+        "ObjectId": 39
+      },
+      "geometry": {
+        "x": -90.45338003499998,
+        "y": 38.715644981
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-223-6680",
+        "Dispensary": "Kind Goods Cannabis Dispensary, Kind Goods",
+        "License": "DIS000041",
+        "Address": "12300 Dorsett Rd ",
+        "City": "MARYLAND HEIGHTS",
+        "Zip_code": "63043",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.713806578,
+        "longitude": -90.448771077,
+        "ObjectId": 40
+      },
+      "geometry": {
+        "x": -90.448771077,
+        "y": 38.713806578
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "248-255-1283",
+        "Dispensary": "High Profile Cannabis Shop; High Profile",
+        "License": "DIS000183",
+        "Address": "231 Saint Robert Blvd ",
+        "City": "St. Robert",
+        "Zip_code": "65584",
+        "County": "Pulaski",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.8258599,
+        "longitude": -92.160375,
+        "ObjectId": 41
+      },
+      "geometry": {
+        "x": -92.16037500000002,
+        "y": 37.82585989999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-749-2677",
+        "Dispensary": "Proper Brands, Proper Cannabis",
+        "License": "DIS000047",
+        "Address": "7555 Olive Blvd ",
+        "City": "UNIVERSITY CITY",
+        "Zip_code": "63130",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.6720548,
+        "longitude": -90.3343537,
+        "ObjectId": 42
+      },
+      "geometry": {
+        "x": -90.3343537,
+        "y": 38.67205479999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-755-0259",
+        "Dispensary": "C Cannabis Dispensary; Codes Cannabis; Codes Cannabis Dispensary; Codes Supreme Cannabis",
+        "License": "DIS000134",
+        "Address": "2421 E Jackson Boulevard ",
+        "City": "Jackson",
+        "Zip_code": "63755",
+        "County": "Cape Girardeau",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.366523,
+        "longitude": -89.640774,
+        "ObjectId": 43
+      },
+      "geometry": {
+        "x": -89.64077400000001,
+        "y": 37.36652299999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-752-2076",
+        "Dispensary": "C Cannabis Dispensary, Codes Cannabis, Codes Cannabis Dispensary, Codes Supreme Cannabis",
+        "License": "DIS000226",
+        "Address": "321 State Hwy O ",
+        "City": "Steele",
+        "Zip_code": "63877",
+        "County": "Pemiscot",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 36.016108,
+        "longitude": -89.868819,
+        "ObjectId": 44
+      },
+      "geometry": {
+        "x": -89.868819,
+        "y": 36.016107999999996
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "734-412-4600",
+        "Dispensary": "High Profile Cannabis Shop",
+        "License": "DIS000130",
+        "Address": "80 State Hwy O ",
+        "City": "Steele",
+        "Zip_code": "63877",
+        "County": "Pemiscot",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 36.017,
+        "longitude": -89.879,
+        "ObjectId": 45
+      },
+      "geometry": {
+        "x": -89.879,
+        "y": 36.01700000000002
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "636-236-9672",
+        "Dispensary": "Natures Med Dispensary",
+        "License": "DIS000056",
+        "Address": "207 Ne 72nd St Suites A,B,C",
+        "City": "GLADSTONE",
+        "Zip_code": "64118",
+        "County": "Clay",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.2246659,
+        "longitude": -94.5781593,
+        "ObjectId": 46
+      },
+      "geometry": {
+        "x": -94.5781593,
+        "y": 39.2246659
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-393-9286",
+        "Dispensary": "The Forest Dispensary",
+        "License": "DIS000231",
+        "Address": "3016 S Grand Blvd ",
+        "City": "St. LOUIS",
+        "Zip_code": "63118",
+        "County": "St. Louis City",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.603047,
+        "longitude": -90.242069,
+        "ObjectId": 47
+      },
+      "geometry": {
+        "x": -90.242069,
+        "y": 38.60304699999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-393-9748",
+        "Dispensary": "Current Cannabis",
+        "License": "DIS000228",
+        "Address": "4455 Telegraph Rd ",
+        "City": "St. LOUIS",
+        "Zip_code": "63129",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.48269802,
+        "longitude": -90.305088996,
+        "ObjectId": 48
+      },
+      "geometry": {
+        "x": -90.305088996,
+        "y": 38.482698019999994
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-677-1110",
+        "Dispensary": "Hi-Pointe Cannabis",
+        "License": "DIS000210",
+        "Address": "1015 Mccausland Ave ",
+        "City": "St. LOUIS",
+        "Zip_code": "63117",
+        "County": "St. Louis City",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.63246,
+        "longitude": -90.304961,
+        "ObjectId": 49
+      },
+      "geometry": {
+        "x": -90.30496100000002,
+        "y": 38.632459999999995
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-223-6680",
+        "Dispensary": "Kind Goods",
+        "License": "DIS000206",
+        "Address": "1631 S Broadway ",
+        "City": "St. LOUIS",
+        "Zip_code": "63104",
+        "County": "St. Louis City",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.60938,
+        "longitude": -90.199715,
+        "ObjectId": 50
+      },
+      "geometry": {
+        "x": -90.199715,
+        "y": 38.60938
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "636-794-1840",
+        "Dispensary": "FP3-Grand LLC",
+        "License": "DIS000197",
+        "Address": "6497 Chippewa Ave ",
+        "City": "St. LOUIS",
+        "Zip_code": "63109",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.592834,
+        "longitude": -90.301549,
+        "ObjectId": 51
+      },
+      "geometry": {
+        "x": -90.301549,
+        "y": 38.59283400000001
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-279-7009",
+        "Dispensary": "Swade Dispensary",
+        "License": "DIS000195",
+        "Address": "4108 Manchester Ave ",
+        "City": "St. LOUIS",
+        "Zip_code": "63110",
+        "County": "St. Louis City",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.6277472,
+        "longitude": -90.2505749,
+        "ObjectId": 52
+      },
+      "geometry": {
+        "x": -90.2505749,
+        "y": 38.6277472
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-619-7177",
+        "Dispensary": "C Cannabis Dispensary; Codes Cannabis; Codes Cannabis Dispensary; Codes Supreme Cannabis",
+        "License": "DIS000119",
+        "Address": "5600 S. Lindbergh Blvd. ",
+        "City": "St. LOUIS",
+        "Zip_code": "63123",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.523999,
+        "longitude": -90.353731,
+        "ObjectId": 53
+      },
+      "geometry": {
+        "x": -90.353731,
+        "y": 38.523999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-749-2677",
+        "Dispensary": "Proper Cannabis; Proper Brands",
+        "License": "DIS000112",
+        "Address": "7417 S Lindbergh Blvd ",
+        "City": "St. LOUIS",
+        "Zip_code": "63125",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.5055983,
+        "longitude": -90.3251946,
+        "ObjectId": 54
+      },
+      "geometry": {
+        "x": -90.3251946,
+        "y": 38.50559829999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "636-236-9672",
+        "Dispensary": "Natures Med Dispensary",
+        "License": "DIS000088",
+        "Address": "234 Kingston Dr ",
+        "City": "St. LOUIS",
+        "Zip_code": "63125",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.518024,
+        "longitude": -90.281428,
+        "ObjectId": 55
+      },
+      "geometry": {
+        "x": -90.281428,
+        "y": 38.51802399999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-749-2677",
+        "Dispensary": "Proper Brands, Proper Cannabis",
+        "License": "DIS000086",
+        "Address": "9933 Watson Rd ",
+        "City": "St. LOUIS",
+        "Zip_code": "63126",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.556375,
+        "longitude": -90.395245,
+        "ObjectId": 56
+      },
+      "geometry": {
+        "x": -90.395245,
+        "y": 38.556375
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-220-0043",
+        "Dispensary": "Luxury Leaf",
+        "License": "DIS000060",
+        "Address": "1463 S Vandeventer Ave ",
+        "City": "St. LOUIS",
+        "Zip_code": "63110",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.6240349,
+        "longitude": -90.2537583,
+        "ObjectId": 57
+      },
+      "geometry": {
+        "x": -90.2537583,
+        "y": 38.6240349
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-266-9903",
+        "Dispensary": "C Cannabis Dispensary, Codes Cannabis, Codes Cannabis Dispensary, Codes Supreme Cannabis",
+        "License": "DIS000058",
+        "Address": "1115 Hampton Avenue ",
+        "City": "St. Louis",
+        "Zip_code": "63139",
+        "County": "St. Louis City",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.629078,
+        "longitude": -90.287227,
+        "ObjectId": 58
+      },
+      "geometry": {
+        "x": -90.287227,
+        "y": 38.629078
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-223-6680",
+        "Dispensary": "Kind Goods, Kind Goods Cannabis Dispensary",
+        "License": "DIS000052",
+        "Address": "2652 Hampton Ave ",
+        "City": "St. LOUIS",
+        "Zip_code": "63139",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.610618,
+        "longitude": -90.28775,
+        "ObjectId": 59
+      },
+      "geometry": {
+        "x": -90.28775,
+        "y": 38.610617999999995
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-998-4652",
+        "Dispensary": "Cookies Downtown St.Louis/Cookies Downtown St.Louis Dispensary",
+        "License": "DIS000043",
+        "Address": "2001 Olive St ",
+        "City": "St. LOUIS",
+        "Zip_code": "63103",
+        "County": "St. Louis City",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.632065,
+        "longitude": -90.20855,
+        "ObjectId": 60
+      },
+      "geometry": {
+        "x": -90.20854999999999,
+        "y": 38.632065
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-328-6772",
+        "Dispensary": "Good Day Farm; Good Day Farm Dispensary; Gdf Dispensary",
+        "License": "DIS000038",
+        "Address": "20 S Euclid Ave ",
+        "City": "St. LOUIS",
+        "Zip_code": "63108",
+        "County": "St. Louis City",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.639543,
+        "longitude": -90.26214,
+        "ObjectId": 61
+      },
+      "geometry": {
+        "x": -90.26214,
+        "y": 38.639543
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-517-4296",
+        "Dispensary": "Root 66 Dispensary",
+        "License": "DIS000036",
+        "Address": "6660 Manchester Ave ",
+        "City": "St. LOUIS",
+        "Zip_code": "63139",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.618601,
+        "longitude": -90.302115,
+        "ObjectId": 62
+      },
+      "geometry": {
+        "x": -90.30211499999999,
+        "y": 38.61860099999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-279-7009",
+        "Dispensary": "Swade Dispensary",
+        "License": "DIS000034",
+        "Address": "2316 Cherokee St ",
+        "City": "St. LOUIS",
+        "Zip_code": "63118",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.5922372,
+        "longitude": -90.2165129,
+        "ObjectId": 63
+      },
+      "geometry": {
+        "x": -90.2165129,
+        "y": 38.5922372
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-530-7931",
+        "Dispensary": "Good Day Farms Dispensary; Good Day Farm; Gdf Dispensary",
+        "License": "DIS000031",
+        "Address": "1531 S Broadway ",
+        "City": "St. LOUIS",
+        "Zip_code": "63104",
+        "County": "St. Louis City",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.610529629,
+        "longitude": -90.198576548,
+        "ObjectId": 64
+      },
+      "geometry": {
+        "x": -90.198576548,
+        "y": 38.61052962899999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-529-0312",
+        "Dispensary": "'3fifteen Primo' Or '3fifteen' Or '3fifteen Primo Cannabis'",
+        "License": "DIS000029",
+        "Address": "5501 Chippewa St ",
+        "City": "St. LOUIS",
+        "Zip_code": "63109",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.592624,
+        "longitude": -90.285978,
+        "ObjectId": 65
+      },
+      "geometry": {
+        "x": -90.285978,
+        "y": 38.59262400000001
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-279-7009",
+        "Dispensary": "Swade Cannabis Dispensary",
+        "License": "DIS000001",
+        "Address": "9720 Page Ave ",
+        "City": "St. LOUIS",
+        "Zip_code": "63132",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.68823,
+        "longitude": -90.374555,
+        "ObjectId": 66
+      },
+      "geometry": {
+        "x": -90.374555,
+        "y": 38.68823
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-279-7009",
+        "Dispensary": "Swade Dispensary",
+        "License": "DIS000002",
+        "Address": "6166 Delmar Blvd ",
+        "City": "St. LOUIS",
+        "Zip_code": "63112",
+        "County": "St. Louis City",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.655021,
+        "longitude": -90.298493,
+        "ObjectId": 67
+      },
+      "geometry": {
+        "x": -90.298493,
+        "y": 38.655021000000005
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-517-4296",
+        "Dispensary": "Root 66 Dispensary",
+        "License": "DIS000003",
+        "Address": "3737 S Grand Blvd ",
+        "City": "St. LOUIS",
+        "Zip_code": "63118",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.588979,
+        "longitude": -90.244482,
+        "ObjectId": 68
+      },
+      "geometry": {
+        "x": -90.244482,
+        "y": 38.588978999999995
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-321-2010",
+        "Dispensary": "Riverside Wellness; Riverside Wellness A Cannabis Dispensary",
+        "License": "DIS000019",
+        "Address": "4403 Nw Gateway Ave ",
+        "City": "RIVERSIDE",
+        "Zip_code": "64150",
+        "County": "Platte",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.174691,
+        "longitude": -94.61257,
+        "ObjectId": 69
+      },
+      "geometry": {
+        "x": -94.61257,
+        "y": 39.174690999999996
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "608-931-3998",
+        "Dispensary": "Bug Stinging LLC",
+        "License": "MBD000036",
+        "Address": null,
+        "City": null,
+        "Zip_code": null,
+        "County": null,
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": null,
+        "longitude": null,
+        "ObjectId": 70
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "509-599-0131",
+        "Dispensary": "Euphoria Group LLC",
+        "License": "MBD000039",
+        "Address": null,
+        "City": null,
+        "Zip_code": null,
+        "County": null,
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": null,
+        "longitude": null,
+        "ObjectId": 71
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-775-9798",
+        "Dispensary": "N&M&R Enterprise LLC",
+        "License": "MBD000016",
+        "Address": null,
+        "City": null,
+        "Zip_code": null,
+        "County": null,
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": null,
+        "longitude": null,
+        "ObjectId": 72
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-818-9985",
+        "Dispensary": "High & Tight LLC",
+        "License": "MBD000018",
+        "Address": null,
+        "City": null,
+        "Zip_code": null,
+        "County": null,
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": null,
+        "longitude": null,
+        "ObjectId": 73
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-799-3558",
+        "Dispensary": "FLOWER TO THE PEOPLE, LLC",
+        "License": "MBD000019",
+        "Address": null,
+        "City": null,
+        "Zip_code": null,
+        "County": null,
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": null,
+        "longitude": null,
+        "ObjectId": 74
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-223-3918",
+        "Dispensary": "Good Rabbit, LLC",
+        "License": "MBD000021",
+        "Address": null,
+        "City": null,
+        "Zip_code": null,
+        "County": null,
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": null,
+        "longitude": null,
+        "ObjectId": 75
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-582-4431",
+        "Dispensary": "Four Winds Dispensary",
+        "License": "MBD000025",
+        "Address": null,
+        "City": null,
+        "Zip_code": null,
+        "County": null,
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": null,
+        "longitude": null,
+        "ObjectId": 76
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "636-697-6756",
+        "Dispensary": "SYNERGY DYNAMICS LLC",
+        "License": "MBD000028",
+        "Address": null,
+        "City": null,
+        "Zip_code": null,
+        "County": null,
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": null,
+        "longitude": null,
+        "ObjectId": 77
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "310-699-1469",
+        "Dispensary": "Independence Dispensary LLC",
+        "License": "MBD000009",
+        "Address": null,
+        "City": null,
+        "Zip_code": null,
+        "County": null,
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": null,
+        "longitude": null,
+        "ObjectId": 78
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-580-6916",
+        "Dispensary": "NOAH'S ARC FOUNDATION LLC",
+        "License": "DIS000230",
+        "Address": null,
+        "City": null,
+        "Zip_code": null,
+        "County": null,
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": null,
+        "longitude": null,
+        "ObjectId": 79
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "417-848-8055",
+        "Dispensary": "ROI Wellness Center IV LLC",
+        "License": "DIS000220",
+        "Address": null,
+        "City": null,
+        "Zip_code": null,
+        "County": null,
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": null,
+        "longitude": null,
+        "ObjectId": 80
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-223-6680",
+        "Dispensary": "Kind Goods/ Kinds Goods Cannabis Dispensary",
+        "License": "DIS000083",
+        "Address": null,
+        "City": null,
+        "Zip_code": null,
+        "County": null,
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": null,
+        "longitude": null,
+        "ObjectId": 81
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "620-921-5967",
+        "Dispensary": "Key Cannabis Dispensary",
+        "License": "DIS000075",
+        "Address": null,
+        "City": null,
+        "Zip_code": null,
+        "County": null,
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": null,
+        "longitude": null,
+        "ObjectId": 82
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "636-735-9382",
+        "Dispensary": "Heya Dispensary",
+        "License": "DIS000168",
+        "Address": "4300 N Service Rd ",
+        "City": "St. PETERS",
+        "Zip_code": "63376",
+        "County": "St. Charles",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.798968014,
+        "longitude": -90.583376983,
+        "ObjectId": 83
+      },
+      "geometry": {
+        "x": -90.583376983,
+        "y": 38.798968014
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "623-297-9109",
+        "Dispensary": "The Mint Dispensary",
+        "License": "DIS000161",
+        "Address": "150 Mid Rivers Mall Cir ",
+        "City": "St. PETERS",
+        "Zip_code": "63376",
+        "County": "St. Charles",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.798378,
+        "longitude": -90.61924,
+        "ObjectId": 84
+      },
+      "geometry": {
+        "x": -90.61924,
+        "y": 38.798378000000014
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-223-6680",
+        "Dispensary": "Kind Goods Medical Dispensary; Kind Goods",
+        "License": "DIS000159",
+        "Address": "3899 Veterans Memorial Pkwy ",
+        "City": "St. PETERS",
+        "Zip_code": "63376",
+        "County": "St. Charles",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.791358,
+        "longitude": -90.564841996,
+        "ObjectId": 85
+      },
+      "geometry": {
+        "x": -90.564841996,
+        "y": 38.791358
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-279-7009",
+        "Dispensary": "Swade Dispensary",
+        "License": "DIS000151",
+        "Address": "146 Jungermann Rd ",
+        "City": "St. Peters",
+        "Zip_code": "63376",
+        "County": "St. Charles",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.7940233,
+        "longitude": -90.5770436,
+        "ObjectId": 86
+      },
+      "geometry": {
+        "x": -90.57704359999998,
+        "y": 38.79402329999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-517-4296",
+        "Dispensary": "Root 66 Dispensary",
+        "License": "DIS000098",
+        "Address": "3004 S Saint Peters Pkwy Ste S",
+        "City": "St. PETERS",
+        "Zip_code": "63303",
+        "County": "St. Charles",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.7498301,
+        "longitude": -90.5645648,
+        "ObjectId": 87
+      },
+      "geometry": {
+        "x": -90.5645648,
+        "y": 38.7498301
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-247-4347",
+        "Dispensary": "Trinity",
+        "License": "DIS000125",
+        "Address": "1 Embry Dr ",
+        "City": "Desloge",
+        "Zip_code": "63601",
+        "County": "St. Francois",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.881791712,
+        "longitude": -90.514553595,
+        "ObjectId": 88
+      },
+      "geometry": {
+        "x": -90.514553595,
+        "y": 37.88179171200001
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "614-296-7521",
+        "Dispensary": "Besame Wellness Dispensary, Besame Wellness; Verts; Verts Dispensary; Verts Neighborhood Dispensary",
+        "License": "DIS000181",
+        "Address": "1340 Thorton St ",
+        "City": "Pacific",
+        "Zip_code": "63069",
+        "County": "Franklin",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.486127,
+        "longitude": -90.757368,
+        "ObjectId": 89
+      },
+      "geometry": {
+        "x": -90.757368,
+        "y": 38.486126999999996
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "636-375-1860",
+        "Dispensary": "North",
+        "License": "DIS000136",
+        "Address": "929 Peachtree Plaza Dr ",
+        "City": "HILLSBORO",
+        "Zip_code": "63050",
+        "County": "Jefferson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.220791928,
+        "longitude": -90.575504434,
+        "ObjectId": 90
+      },
+      "geometry": {
+        "x": -90.575504434,
+        "y": 38.22079192799999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "636-375-1860",
+        "Dispensary": "North",
+        "License": "DIS000165",
+        "Address": "1709 State Hwy Z ",
+        "City": "Pevely",
+        "Zip_code": "63070",
+        "County": "Jefferson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.289425377,
+        "longitude": -90.404366618,
+        "ObjectId": 91
+      },
+      "geometry": {
+        "x": -90.404366618,
+        "y": 38.289425376999986
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-960-4913",
+        "Dispensary": "Dank House; Dank House Dispensary; The Dank House",
+        "License": "MBD000004",
+        "Address": "310 Main Street ",
+        "City": "St Peters",
+        "Zip_code": "63376",
+        "County": "St. Charles",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.800869,
+        "longitude": -90.623925,
+        "ObjectId": 92
+      },
+      "geometry": {
+        "x": -90.623925,
+        "y": 38.80086899999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-279-7009",
+        "Dispensary": "Swade Cannabis - Rolla; Swade Cannabis Dispensary",
+        "License": "DIS000196",
+        "Address": "1031 Kingshighway ",
+        "City": "ROLLA",
+        "Zip_code": "65401",
+        "County": "Phelps",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.944923,
+        "longitude": -91.782803,
+        "ObjectId": 93
+      },
+      "geometry": {
+        "x": -91.78280300000002,
+        "y": 37.944923
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-247-4347",
+        "Dispensary": "Trinity",
+        "License": "DIS000127",
+        "Address": "1421 Forum Dr A1 And B1",
+        "City": "ROLLA",
+        "Zip_code": "65401",
+        "County": "Phelps",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.954397,
+        "longitude": -91.7525558,
+        "ObjectId": 94
+      },
+      "geometry": {
+        "x": -91.75255580000001,
+        "y": 37.95439699999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "636-794-1840",
+        "Dispensary": "Greenlight",
+        "License": "DIS000049",
+        "Address": "517 S Florissant Rd ",
+        "City": "FERGUSON",
+        "Zip_code": "63135",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.737000981,
+        "longitude": -90.302479961,
+        "ObjectId": 95
+      },
+      "geometry": {
+        "x": -90.302479961,
+        "y": 38.73700098100001
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "734-412-4600",
+        "Dispensary": "High Profile Cannabis Shop",
+        "License": "DIS000215",
+        "Address": "42 Arnage Road ",
+        "City": "CHESTERFIELD",
+        "Zip_code": "63005",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.668881,
+        "longitude": -90.613855,
+        "ObjectId": 96
+      },
+      "geometry": {
+        "x": -90.613855,
+        "y": 38.668881000000006
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "312-925-1217",
+        "Dispensary": "Hippos Marijuana Dispensary",
+        "License": "DIS000129",
+        "Address": "17409 Chesterfield Airport Rd G",
+        "City": "CHESTERFIELD",
+        "Zip_code": "63005",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.66894,
+        "longitude": -90.608083,
+        "ObjectId": 97
+      },
+      "geometry": {
+        "x": -90.608083,
+        "y": 38.66894
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "913-704-7742",
+        "Dispensary": "Rooster'S Stateline Dispensary; Stateline Dispensary",
+        "License": "MBD000035",
+        "Address": "25617 92 Hwy ",
+        "City": "PLATTE CITY",
+        "Zip_code": "64079",
+        "County": "Platte",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.3634,
+        "longitude": -94.875504,
+        "ObjectId": 98
+      },
+      "geometry": {
+        "x": -94.875504,
+        "y": 39.363400000000006
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-500-0939",
+        "Dispensary": "816 Dispensary",
+        "License": "MBD000008",
+        "Address": "2701 Running Horse Rd Ste G And H",
+        "City": "PLATTE CITY",
+        "Zip_code": "64079",
+        "County": "Platte",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.349526,
+        "longitude": -94.7626062,
+        "ObjectId": 99
+      },
+      "geometry": {
+        "x": -94.76260620000001,
+        "y": 39.349526
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-223-6680",
+        "Dispensary": "Kind Goods Medical Dispensary; Kind Goods",
+        "License": "DIS000193",
+        "Address": "14173 Manchester Rd Ste M",
+        "City": "MANCHESTER",
+        "Zip_code": "63011",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.59429602,
+        "longitude": -90.49742702,
+        "ObjectId": 100
+      },
+      "geometry": {
+        "x": -90.49742702,
+        "y": 38.594296019999994
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-440-0967",
+        "Dispensary": "C Cannabis Dispensary; Codes Cannabis; Codes Cannabis Dispensary; Codes Supreme Cannabis",
+        "License": "DIS000222",
+        "Address": "1201 Vincent Drive ",
+        "City": "Perryville",
+        "Zip_code": "63775",
+        "County": "Perry",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.707019,
+        "longitude": -89.892314,
+        "ObjectId": 101
+      },
+      "geometry": {
+        "x": -89.892314,
+        "y": 37.707018999999995
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "417-895-8733",
+        "Dispensary": "Flora Farms",
+        "License": "DIS000090",
+        "Address": "1421 West Highway J ",
+        "City": "Ozark",
+        "Zip_code": "65721",
+        "County": "Christian",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.070182,
+        "longitude": -93.221157,
+        "ObjectId": 102
+      },
+      "geometry": {
+        "x": -93.221157,
+        "y": 37.070182
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "660-372-1560",
+        "Dispensary": "Green Releaf Dispensary",
+        "License": "DIS000188",
+        "Address": "412 W Coates St # 101",
+        "City": "MOBERLY",
+        "Zip_code": "65270",
+        "County": "Randolph",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.420663,
+        "longitude": -92.441092,
+        "ObjectId": 103
+      },
+      "geometry": {
+        "x": -92.441092,
+        "y": 39.42066299999998
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "660-240-1131",
+        "Dispensary": "C Cannabis Dispensary; Codes Cannabis; Codes Cannabis Dispensary; Codes Supreme Cannabis",
+        "License": "DIS000030",
+        "Address": "941 Washington St ",
+        "City": "CHILLICOTHE",
+        "Zip_code": "64601",
+        "County": "Livingston",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.776821,
+        "longitude": -93.552287,
+        "ObjectId": 104
+      },
+      "geometry": {
+        "x": -93.552287,
+        "y": 39.77682099999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "660-492-5952",
+        "Dispensary": "Good Day Farm, Good Day Farm Dispensary, Gdf Dispensary",
+        "License": "DIS000156",
+        "Address": "1730 U.S. Hwy 160 ",
+        "City": "Mindenmines",
+        "Zip_code": "64769",
+        "County": "Barton",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.470484,
+        "longitude": -94.615945,
+        "ObjectId": 105
+      },
+      "geometry": {
+        "x": -94.61594499999998,
+        "y": 37.47048399999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "417-272-1105",
+        "Dispensary": "Fresh Karma Dispensaries; Fresh+Karma Dispensaries",
+        "License": "DIS000105",
+        "Address": "18490 Business 13 ",
+        "City": "BRANSON WEST",
+        "Zip_code": "65737",
+        "County": "Stone",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 36.701522,
+        "longitude": -93.369104,
+        "ObjectId": 106
+      },
+      "geometry": {
+        "x": -93.369104,
+        "y": 36.701522
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-529-0312",
+        "Dispensary": "'3fifteen Primo' Or '3fifteen' Or '3fifteen Primo Cannabis'",
+        "License": "DIS000085",
+        "Address": "18031 Business 13 ",
+        "City": "BRANSON WEST",
+        "Zip_code": "65737",
+        "County": "Stone",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 36.697634,
+        "longitude": -93.369309,
+        "ObjectId": 107
+      },
+      "geometry": {
+        "x": -93.369309,
+        "y": 36.697634
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-560-2414",
+        "Dispensary": "Heya Dispensary",
+        "License": "DIS000020",
+        "Address": "10417a Saint Charles Rock Rd ",
+        "City": "St. ANN",
+        "Zip_code": "63074",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.728569,
+        "longitude": -90.3831382,
+        "ObjectId": 108
+      },
+      "geometry": {
+        "x": -90.3831382,
+        "y": 38.72856899999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-745-0772",
+        "Dispensary": "C Cannabis Dispensary, Codes Cannabis, Codes Cannabis Dispensary, Codes Supreme Cannabis",
+        "License": "DIS000170",
+        "Address": "1905 W Foxwood Dr ",
+        "City": "RAYMORE",
+        "Zip_code": "64083",
+        "County": "Cass",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.8126177,
+        "longitude": -94.490946,
+        "ObjectId": 109
+      },
+      "geometry": {
+        "x": -94.490946,
+        "y": 38.81261769999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "620-921-5967",
+        "Dispensary": "Key Cannabis Dispensary; Key Dispensary",
+        "License": "DIS000024",
+        "Address": "400 N Baltimore St ",
+        "City": "KIRKSVILLE",
+        "Zip_code": "63501",
+        "County": "Adair",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 40.19736,
+        "longitude": -92.571683,
+        "ObjectId": 110
+      },
+      "geometry": {
+        "x": -92.57168300000001,
+        "y": 40.197359999999996
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "309-264-3199",
+        "Dispensary": "Missouri Health & Wellness Dispensary",
+        "License": "DIS000006",
+        "Address": "215 E Charles St ",
+        "City": "KIRKSVILLE",
+        "Zip_code": "63501",
+        "County": "Adair",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 40.2208785,
+        "longitude": -92.5820324,
+        "ObjectId": 111
+      },
+      "geometry": {
+        "x": -92.5820324,
+        "y": 40.2208785
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "706-908-9074",
+        "Dispensary": "Kush21",
+        "License": "MBD000011",
+        "Address": "1980 State St ",
+        "City": "POPLAR BLUFF",
+        "Zip_code": "63901",
+        "County": "Butler",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 36.776043,
+        "longitude": -90.420933,
+        "ObjectId": 112
+      },
+      "geometry": {
+        "x": -90.420933,
+        "y": 36.776042999999994
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-380-3873",
+        "Dispensary": "Greenlight Dispensary",
+        "License": "DIS000122",
+        "Address": "1435 N. Westwood Blvd ",
+        "City": "POPLAR BLUFF",
+        "Zip_code": "63901",
+        "County": "Butler",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 36.737856,
+        "longitude": -90.421255,
+        "ObjectId": 113
+      },
+      "geometry": {
+        "x": -90.42125500000002,
+        "y": 36.73785600000001
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-749-2677",
+        "Dispensary": "Proper Brands, Proper Cannabis",
+        "License": "DIS000208",
+        "Address": "12430 St. Charles Rock Road ",
+        "City": "Bridgeton",
+        "Zip_code": "63044",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.755396,
+        "longitude": -90.431346,
+        "ObjectId": 114
+      },
+      "geometry": {
+        "x": -90.431346,
+        "y": 38.755396
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-749-2677",
+        "Dispensary": "Proper Cannabis",
+        "License": "DIS000073",
+        "Address": "10855 Manchester Rd ",
+        "City": "Kirkwood",
+        "Zip_code": "63122",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.600105,
+        "longitude": -90.408641,
+        "ObjectId": 115
+      },
+      "geometry": {
+        "x": -90.40864099999999,
+        "y": 38.60010499999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "310-435-7165",
+        "Dispensary": "From The Earth Dispensary; From The Earth; Dispensary",
+        "License": "DIS000023",
+        "Address": "4225 Commonwealth Court ",
+        "City": "St. Joseph",
+        "Zip_code": "64503",
+        "County": "Buchanan",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.7235266,
+        "longitude": -94.7925297,
+        "ObjectId": 116
+      },
+      "geometry": {
+        "x": -94.79252969999999,
+        "y": 39.72352659999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-719-3252",
+        "Dispensary": "C Cannabis Dispensary, Codes Cannabis, Codes Cannabis Dispensary, Codes Supreme Cannabis",
+        "License": "DIS000022",
+        "Address": "2000 Highway 61 S ",
+        "City": "HANNIBAL",
+        "Zip_code": "63401",
+        "County": "Ralls",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.68481,
+        "longitude": -91.407061,
+        "ObjectId": 117
+      },
+      "geometry": {
+        "x": -91.407061,
+        "y": 39.68480999999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-531-3030",
+        "Dispensary": "Greenlight Dispensary",
+        "License": "DIS000175",
+        "Address": "1408 N State Route 291 ",
+        "City": "HARRISONVILLE",
+        "Zip_code": "64701",
+        "County": "Cass",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.664033,
+        "longitude": -94.367664,
+        "ObjectId": 118
+      },
+      "geometry": {
+        "x": -94.36766399999999,
+        "y": 38.664033
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "636-775-2708",
+        "Dispensary": "Green Releaf Dispensary",
+        "License": "DIS000154",
+        "Address": "109 N Lincoln Dr E",
+        "City": "TROY",
+        "Zip_code": "63379",
+        "County": "Lincoln",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.985302,
+        "longitude": -90.970752,
+        "ObjectId": 119
+      },
+      "geometry": {
+        "x": -90.970752,
+        "y": 38.985302000000004
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "660-249-2034",
+        "Dispensary": "Sunrise, Dispensary, Sunrise Dispensary, Sunrise Marijuana Dispensary",
+        "License": "DIS000186",
+        "Address": "2750 Nw 7 Highway ",
+        "City": "Clinton",
+        "Zip_code": "64735",
+        "County": "Henry",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.389079,
+        "longitude": -93.807519,
+        "ObjectId": 120
+      },
+      "geometry": {
+        "x": -93.807519,
+        "y": 38.389079
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "319-521-1850",
+        "Dispensary": "Square Grouper; Square Grouper Dispensary",
+        "License": "DIS000194",
+        "Address": "28744 Highway 5 ",
+        "City": "GRAVOIS MILLS",
+        "Zip_code": "65037",
+        "County": "Morgan",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.27124,
+        "longitude": -92.823149,
+        "ObjectId": 121
+      },
+      "geometry": {
+        "x": -92.823149,
+        "y": 38.27123999999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "872-302-0293",
+        "Dispensary": "Greenlight Dispensary",
+        "License": "DIS000107",
+        "Address": "218 N. National Avenue ",
+        "City": "SPRINGFIELD",
+        "Zip_code": "65802",
+        "County": "Greene",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.210264,
+        "longitude": -93.27558,
+        "ObjectId": 122
+      },
+      "geometry": {
+        "x": -93.27557999999999,
+        "y": 37.21026400000001
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-369-8905",
+        "Dispensary": "Terrabis",
+        "License": "DIS000104",
+        "Address": "850 E Kearney St ",
+        "City": "SPRINGFIELD",
+        "Zip_code": "65803",
+        "County": "Greene",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.240429,
+        "longitude": -93.281141,
+        "ObjectId": 123
+      },
+      "geometry": {
+        "x": -93.28114100000002,
+        "y": 37.240429
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-831-3877",
+        "Dispensary": "Key Cannabis Dispensary",
+        "License": "DIS000102",
+        "Address": "751 S Glenstone Ave ",
+        "City": "SPRINGFIELD",
+        "Zip_code": "65802",
+        "County": "Greene",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.200607,
+        "longitude": -93.262562,
+        "ObjectId": 124
+      },
+      "geometry": {
+        "x": -93.26256199999999,
+        "y": 37.20060699999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "417-708-7751",
+        "Dispensary": "Good Day Farm Dispensary; Good Day Farm; Gdf Dispensary",
+        "License": "DIS000094",
+        "Address": "1510 E Sunshine St ",
+        "City": "SPRINGFIELD",
+        "Zip_code": "65804",
+        "County": "Greene",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.181337,
+        "longitude": -93.268179,
+        "ObjectId": 125
+      },
+      "geometry": {
+        "x": -93.26817900000002,
+        "y": 37.181337
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-556-3101",
+        "Dispensary": "Revival 98",
+        "License": "DIS000095",
+        "Address": "2782 W Republic Rd ",
+        "City": "SPRINGFIELD",
+        "Zip_code": "65807",
+        "County": "Greene",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.13785,
+        "longitude": -93.335867,
+        "ObjectId": 126
+      },
+      "geometry": {
+        "x": -93.335867,
+        "y": 37.137850000000014
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "417-708-7796",
+        "Dispensary": "Good Day Farm Dispensary; Good Day Farm; Gdf Dispensary",
+        "License": "DIS000096",
+        "Address": "3800 W Sunshine St A",
+        "City": "SPRINGFIELD",
+        "Zip_code": "65807",
+        "County": "Greene",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.18222407,
+        "longitude": -93.35613335,
+        "ObjectId": 127
+      },
+      "geometry": {
+        "x": -93.35613335,
+        "y": 37.182224070000004
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "417-895-8733",
+        "Dispensary": "Old Route 66 Dispensary; Drive Thru, Old Route 66 Releaf; Old Route 66 Wellness Dispensary; Delivery",
+        "License": "DIS000089",
+        "Address": "2823 N Glenstone Ave ",
+        "City": "SPRINGFIELD",
+        "Zip_code": "65803",
+        "County": "Greene",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.248099,
+        "longitude": -93.262172,
+        "ObjectId": 128
+      },
+      "geometry": {
+        "x": -93.262172,
+        "y": 37.248099
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "312-925-1217",
+        "Dispensary": "Hippos Marijuana Dispensary",
+        "License": "DIS000087",
+        "Address": "2868 S Glenstone Ave ",
+        "City": "SPRINGFIELD",
+        "Zip_code": "65804",
+        "County": "Greene",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.161136,
+        "longitude": -93.261736,
+        "ObjectId": 129
+      },
+      "geometry": {
+        "x": -93.261736,
+        "y": 37.16113599999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "417-708-7756",
+        "Dispensary": "Good Day Farm Dispensary; Good Day Farm; Gdf Dispensary",
+        "License": "DIS000082",
+        "Address": "3903 S Campbell Ave ",
+        "City": "SPRINGFIELD",
+        "Zip_code": "65807",
+        "County": "Greene",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.1432412,
+        "longitude": -93.2961978,
+        "ObjectId": 130
+      },
+      "geometry": {
+        "x": -93.2961978,
+        "y": 37.1432412
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-568-8421",
+        "Dispensary": "Codes Cannabis, Codes Cannabis Dispensary, Codes Supreme Cannabis, C Cannabis Dispensary",
+        "License": "DIS000217",
+        "Address": "4805 Osage Beach Parkway ",
+        "City": "Osage Beach",
+        "Zip_code": "65065",
+        "County": "Camden",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.139220913,
+        "longitude": -92.635624536,
+        "ObjectId": 131
+      },
+      "geometry": {
+        "x": -92.635624536,
+        "y": 38.13922091299999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "602-327-3858",
+        "Dispensary": "Latitude Dispensary",
+        "License": "DIS000164",
+        "Address": "6396 Osage Beach Pkwy ",
+        "City": "Osage Beach",
+        "Zip_code": "65079",
+        "County": "Camden",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.100316,
+        "longitude": -92.684625,
+        "ObjectId": 132
+      },
+      "geometry": {
+        "x": -92.684625,
+        "y": 38.100316
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-749-2677",
+        "Dispensary": "Proper Brands, Proper Cannabis",
+        "License": "DIS000131",
+        "Address": "1168 W Gannon Dr ",
+        "City": "FESTUS",
+        "Zip_code": "63028",
+        "County": "Jefferson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.212649,
+        "longitude": -90.403404,
+        "ObjectId": 133
+      },
+      "geometry": {
+        "x": -90.403404,
+        "y": 38.21264899999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-749-2677",
+        "Dispensary": "Proper Cannabis",
+        "License": "DIS000116",
+        "Address": "2285 Us Highway 67 Ste A",
+        "City": "FESTUS",
+        "Zip_code": "63028",
+        "County": "Jefferson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.1825658,
+        "longitude": -90.4432171,
+        "ObjectId": 134
+      },
+      "geometry": {
+        "x": -90.4432171,
+        "y": 38.182565800000006
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-462-0890",
+        "Dispensary": "Green Releaf Dispensary",
+        "License": "DIS000163",
+        "Address": "2220 E Austin Blvd ",
+        "City": "NEVADA",
+        "Zip_code": "64772",
+        "County": "Vernon",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.835743,
+        "longitude": -94.325848,
+        "ObjectId": 135
+      },
+      "geometry": {
+        "x": -94.32584799999998,
+        "y": 37.83574300000001
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "636-669-8177",
+        "Dispensary": "Good Day Farm; Good Day Farm Dispensary; Gdf Dispensary",
+        "License": "DIS000123",
+        "Address": "2008 Richardson Rd ",
+        "City": "ARNOLD",
+        "Zip_code": "63010",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.418102297,
+        "longitude": -90.391580042,
+        "ObjectId": 136
+      },
+      "geometry": {
+        "x": -90.39158004200002,
+        "y": 38.41810229699999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-517-4296",
+        "Dispensary": "Root 66 Wellness",
+        "License": "DIS000202",
+        "Address": "12095 Manchester Rd ",
+        "City": "DES PERES",
+        "Zip_code": "63131",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.602588,
+        "longitude": -90.437101,
+        "ObjectId": 137
+      },
+      "geometry": {
+        "x": -90.43710099999998,
+        "y": 38.60258799999998
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-694-9973",
+        "Dispensary": "Fresh Karma Dispensaries, Fresh Karma",
+        "License": "DIS000016",
+        "Address": "2221 N Belt Hwy ",
+        "City": "St. JOSEPH",
+        "Zip_code": "64506",
+        "County": "Buchanan",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.786546,
+        "longitude": -94.80389,
+        "ObjectId": 138
+      },
+      "geometry": {
+        "x": -94.80389,
+        "y": 39.786546
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-582-3459",
+        "Dispensary": "Vertical",
+        "License": "DIS000011",
+        "Address": "908 North Belt Highway ",
+        "City": "St. JOSEPH",
+        "Zip_code": "64506",
+        "County": "Buchanan",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.774832013,
+        "longitude": -94.803979972,
+        "ObjectId": 139
+      },
+      "geometry": {
+        "x": -94.803979972,
+        "y": 39.774832013
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "620-921-5967",
+        "Dispensary": "Elevate; Elevate Dispensary; Key Cannabis Dispensary",
+        "License": "DIS000099",
+        "Address": "202 West St Ste 1",
+        "City": "NIXA",
+        "Zip_code": "65714",
+        "County": "Christian",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.0424569,
+        "longitude": -93.3037769,
+        "ObjectId": 140
+      },
+      "geometry": {
+        "x": -93.3037769,
+        "y": 37.04245689999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "636-322-4054",
+        "Dispensary": "Good Day Farm Dispensary; Good Day Farm; Gdf Dispensary",
+        "License": "DIS000179",
+        "Address": "1400 N Main Street ",
+        "City": "St. CLAIR",
+        "Zip_code": "63077",
+        "County": "Franklin",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.359972,
+        "longitude": -90.976763,
+        "ObjectId": 141
+      },
+      "geometry": {
+        "x": -90.976763,
+        "y": 38.35997199999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "614-296-7521",
+        "Dispensary": "Besame Wellness Dispensary; Verts; Verts Dispensary;  Verts Neighborhood Dispensary",
+        "License": "DIS000128",
+        "Address": "1803 W Business Us 60 ",
+        "City": "Dexter",
+        "Zip_code": "63841",
+        "County": "Stoddard",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 36.803291,
+        "longitude": -89.988856,
+        "ObjectId": 142
+      },
+      "geometry": {
+        "x": -89.988856,
+        "y": 36.803291
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "417-988-1523",
+        "Dispensary": "Ozark Mountain Healing",
+        "License": "DIS000227",
+        "Address": "4713 W State Highway 90 ",
+        "City": "NOEL",
+        "Zip_code": "64854",
+        "County": "McDonald",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 36.536264,
+        "longitude": -94.47471,
+        "ObjectId": 143
+      },
+      "geometry": {
+        "x": -94.47471,
+        "y": 36.53626399999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "636-323-3907",
+        "Dispensary": "Good Day Farm; Good Day Farm Dispensary; Gdf Dispensary",
+        "License": "DIS000126",
+        "Address": "118 South Hanley Rd ",
+        "City": "Clayton",
+        "Zip_code": "63105",
+        "County": "St. Charles",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.64799361,
+        "longitude": -90.334228658,
+        "ObjectId": 144
+      },
+      "geometry": {
+        "x": -90.33422865800001,
+        "y": 38.64799361
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "620-921-5967",
+        "Dispensary": "Key Cannabis Dispensary",
+        "License": "DIS000200",
+        "Address": "4730 Mid Rivers Mall Drive ",
+        "City": "Cottleville",
+        "Zip_code": "63376",
+        "County": "St. Charles",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.757699,
+        "longitude": -90.636424,
+        "ObjectId": 145
+      },
+      "geometry": {
+        "x": -90.636424,
+        "y": 38.757698999999995
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "620-921-5967",
+        "Dispensary": "Key Cannabis Dispensary; Key Dispensary",
+        "License": "DIS000114",
+        "Address": "1026 Brentwood Blvd ",
+        "City": "Richmond Heights",
+        "Zip_code": "63117",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.636922,
+        "longitude": -90.345261,
+        "ObjectId": 146
+      },
+      "geometry": {
+        "x": -90.345261,
+        "y": 38.636922000000006
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-749-2677",
+        "Dispensary": "Proper Cannabis; Proper Brands",
+        "License": "DIS000158",
+        "Address": "711 N State Highway 47 ",
+        "City": "WARRENTON",
+        "Zip_code": "63383",
+        "County": "Warren",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.81982,
+        "longitude": -91.14088,
+        "ObjectId": 147
+      },
+      "geometry": {
+        "x": -91.14087999999998,
+        "y": 38.819820000000014
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-462-0890",
+        "Dispensary": "Green Releaf Dispensary",
+        "License": "DIS000039",
+        "Address": "824 S 291 Highway ",
+        "City": "Liberty",
+        "Zip_code": "64068",
+        "County": "Clay",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.23825,
+        "longitude": -94.434313,
+        "ObjectId": 148
+      },
+      "geometry": {
+        "x": -94.434313,
+        "y": 39.238249999999994
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "858-848-4588",
+        "Dispensary": "Swade Cannabis",
+        "License": "DIS000010",
+        "Address": "5918 Southview Dr ",
+        "City": "LIBERTY",
+        "Zip_code": "64068",
+        "County": "Clay",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.200718836,
+        "longitude": -94.403960013,
+        "ObjectId": 149
+      },
+      "geometry": {
+        "x": -94.403960013,
+        "y": 39.20071883599999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "417-850-9999",
+        "Dispensary": "Flora Farms",
+        "License": "DIS000148",
+        "Address": "68 E 300th Road ",
+        "City": "Humansville",
+        "Zip_code": "65674",
+        "County": "Polk",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.828531,
+        "longitude": -93.616829,
+        "ObjectId": 150
+      },
+      "geometry": {
+        "x": -93.616829,
+        "y": 37.82853099999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-213-4852",
+        "Dispensary": "Releaf Resources Dispensary",
+        "License": "DIS000077",
+        "Address": "13836 S Us Highway 71 ",
+        "City": "GRANDVIEW",
+        "Zip_code": "64030",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.873415026,
+        "longitude": -94.528710807,
+        "ObjectId": 151
+      },
+      "geometry": {
+        "x": -94.528710807,
+        "y": 38.873415025999996
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "248-255-1283",
+        "Dispensary": "High Profile Cannabis Shop; High Profile",
+        "License": "DIS000100",
+        "Address": "1416 Harvestowne Industrial Dr ",
+        "City": "St. CHARLES",
+        "Zip_code": "63304",
+        "County": "St. Charles",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.7415171,
+        "longitude": -90.60726,
+        "ObjectId": 152
+      },
+      "geometry": {
+        "x": -90.60726,
+        "y": 38.7415171
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "417-988-6842",
+        "Dispensary": "Codes Cannabis; Codes Cannabis Dispensary; C Cannabis Dispensary; Codes Supreme Cannabis",
+        "License": "DIS000216",
+        "Address": "3646 State Highway Ac ",
+        "City": "CARDWELL",
+        "Zip_code": "63829",
+        "County": "Dunklin",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 36.03928051,
+        "longitude": -90.337518894,
+        "ObjectId": 153
+      },
+      "geometry": {
+        "x": -90.337518894,
+        "y": 36.03928051000001
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "636-794-1840",
+        "Dispensary": "Greenlight Dispensary",
+        "License": "DIS000005",
+        "Address": "9800 Manchester Road Suite C ",
+        "City": "Rock Hill",
+        "Zip_code": "63119",
+        "County": "St. Charles",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.606634,
+        "longitude": -90.372565,
+        "ObjectId": 154
+      },
+      "geometry": {
+        "x": -90.372565,
+        "y": 38.60663400000001
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-298-6984",
+        "Dispensary": "Good Day Farm Dispensary; Gdf Dispensary; Good Day Farm",
+        "License": "DIS000189",
+        "Address": "812 Vandiver Dr ",
+        "City": "COLUMBIA",
+        "Zip_code": "65202",
+        "County": "Boone",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.970580147,
+        "longitude": -92.326638835,
+        "ObjectId": 155
+      },
+      "geometry": {
+        "x": -92.326638835,
+        "y": 38.97058014700001
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "312-925-1217",
+        "Dispensary": "Hippos Marijuana Dispensary",
+        "License": "DIS000190",
+        "Address": "2500 Broadway Bluffs Dr # 102 Suite 102",
+        "City": "COLUMBIA",
+        "Zip_code": "65201",
+        "County": "Boone",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.9475,
+        "longitude": -92.301122,
+        "ObjectId": 156
+      },
+      "geometry": {
+        "x": -92.301122,
+        "y": 38.9475
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-777-9077",
+        "Dispensary": "Fresh Karma Dispensaries; Fresh Karma",
+        "License": "DIS000191",
+        "Address": "1407 Cinnamon Hill Lane ",
+        "City": "Columbia",
+        "Zip_code": "65201",
+        "County": "Boone",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.933659,
+        "longitude": -92.292547,
+        "ObjectId": 157
+      },
+      "geometry": {
+        "x": -92.292547,
+        "y": 38.933659
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "248-255-1283",
+        "Dispensary": "High Profile Cannabis Shop; High Profile",
+        "License": "DIS000182",
+        "Address": "1500 Interstate 70 Dr Sw Suite 1, 2, And 3",
+        "City": "COLUMBIA",
+        "Zip_code": "65203",
+        "County": "Boone",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.9640907,
+        "longitude": -92.3630765,
+        "ObjectId": 158
+      },
+      "geometry": {
+        "x": -92.3630765,
+        "y": 38.96409069999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-529-0312",
+        "Dispensary": "Greenlight Dispensary",
+        "License": "DIS000177",
+        "Address": "4003 Ponderosa St ",
+        "City": "COLUMBIA",
+        "Zip_code": "65201",
+        "County": "Boone",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.905627,
+        "longitude": -92.291698,
+        "ObjectId": 159
+      },
+      "geometry": {
+        "x": -92.291698,
+        "y": 38.905627
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-462-0890",
+        "Dispensary": "Shangri-La, Shangri-La Dispensary",
+        "License": "DIS000172",
+        "Address": "3919 Peachtree Dr ",
+        "City": "COLUMBIA",
+        "Zip_code": "65203",
+        "County": "Boone",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.906161,
+        "longitude": -92.335885,
+        "ObjectId": 160
+      },
+      "geometry": {
+        "x": -92.335885,
+        "y": 38.90616099999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-462-0890",
+        "Dispensary": "Shangri-La, Shangri-La Dispensary",
+        "License": "DIS000167",
+        "Address": "1401 Creekwood Pkwy Suite # 102 And 103",
+        "City": "COLUMBIA",
+        "Zip_code": "65202",
+        "County": "Boone",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.965055,
+        "longitude": -92.287841,
+        "ObjectId": 161
+      },
+      "geometry": {
+        "x": -92.287841,
+        "y": 38.965055
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-507-6723",
+        "Dispensary": "Green Releaf Dispensary",
+        "License": "DIS000160",
+        "Address": "204 E Broadway ",
+        "City": "COLUMBIA",
+        "Zip_code": "65203",
+        "County": "Boone",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.951368,
+        "longitude": -92.33494,
+        "ObjectId": 162
+      },
+      "geometry": {
+        "x": -92.33494,
+        "y": 38.95136800000001
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "660-722-0420",
+        "Dispensary": "C Cannabis Dispensary; Codes Cannabis; Codes Cannabis Dispensary; Codes Supreme Cannabis",
+        "License": "DIS000192",
+        "Address": "2004 West Broadway Blvd. ",
+        "City": "Sedalia",
+        "Zip_code": "65301",
+        "County": "Pettis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.705681,
+        "longitude": -93.253472,
+        "ObjectId": 163
+      },
+      "geometry": {
+        "x": -93.253472,
+        "y": 38.705681000000006
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-318-9966",
+        "Dispensary": "Missouri Health & Wellness Dispensary",
+        "License": "DIS000146",
+        "Address": "1801 S Limit Ave ",
+        "City": "SEDALIA",
+        "Zip_code": "65301",
+        "County": "Pettis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.696133,
+        "longitude": -93.250642,
+        "ObjectId": 164
+      },
+      "geometry": {
+        "x": -93.250642,
+        "y": 38.69613300000001
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "417-733-8086",
+        "Dispensary": "Good Day Farm Dispensary; Gdf Dispensary; Good Day Farm",
+        "License": "DIS000198",
+        "Address": "513 S Ash St ",
+        "City": "BUFFALO",
+        "Zip_code": "65622",
+        "County": "Dallas",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.636196136,
+        "longitude": -93.104385376,
+        "ObjectId": 165
+      },
+      "geometry": {
+        "x": -93.10438537599998,
+        "y": 37.636196135999995
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-559-0508",
+        "Dispensary": "Good Day Farm; Good Day Farm Dispensary; Gdf Dispensary",
+        "License": "DIS000135",
+        "Address": "812 Lester St ",
+        "City": "KENNETT",
+        "Zip_code": "63857",
+        "County": "Dunklin",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 36.2446034,
+        "longitude": -90.0697708,
+        "ObjectId": 166
+      },
+      "geometry": {
+        "x": -90.06977079999999,
+        "y": 36.2446034
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-588-8838",
+        "Dispensary": "Greenlight Dispensary",
+        "License": "DIS000224",
+        "Address": "105 Speedys Dr ",
+        "City": "ROCK PORT",
+        "Zip_code": "64482",
+        "County": "Atchison",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 40.40659,
+        "longitude": -95.552823,
+        "ObjectId": 167
+      },
+      "geometry": {
+        "x": -95.552823,
+        "y": 40.406589999999994
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "660-210-2921",
+        "Dispensary": "C Cannabis Dispensary; Codes Cannabis; Codes Cannabis Dispensary; Codes Supreme Cannabis",
+        "License": "DIS000033",
+        "Address": "8760 Champions Drive ",
+        "City": "Taylor",
+        "Zip_code": "63471",
+        "County": "Marion",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.930266,
+        "longitude": -91.433285,
+        "ObjectId": 168
+      },
+      "geometry": {
+        "x": -91.433285,
+        "y": 39.930266
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-888-8660",
+        "Dispensary": "Blue Sage Cannabis Deli",
+        "License": "DIS000221",
+        "Address": "17015-17017 Bel Ray Blvd ",
+        "City": "BELTON",
+        "Zip_code": "64012",
+        "County": "Cass",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.814999,
+        "longitude": -94.49643,
+        "ObjectId": 169
+      },
+      "geometry": {
+        "x": -94.49643,
+        "y": 38.814999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-865-1815",
+        "Dispensary": "Blue Sage Cannabis Deli",
+        "License": "DIS000180",
+        "Address": "225 N Cedar Dr ",
+        "City": "BELTON",
+        "Zip_code": "64012",
+        "County": "Cass",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.816729,
+        "longitude": -94.523747,
+        "ObjectId": 170
+      },
+      "geometry": {
+        "x": -94.523747,
+        "y": 38.816728999999995
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-529-0312",
+        "Dispensary": "'3fifteen Primo' Or '3fifteen' Or '3fifteen Primo Cannabis'",
+        "License": "DIS000121",
+        "Address": "839 Meramec Station Rd ",
+        "City": "VALLEY PARK",
+        "Zip_code": "63088",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.5602509,
+        "longitude": -90.4931456,
+        "ObjectId": 171
+      },
+      "geometry": {
+        "x": -90.4931456,
+        "y": 38.5602509
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "223-488-7346",
+        "Dispensary": "Blue Sage Cannabis Deli; Blue Sage Cannabis Co.",
+        "License": "DIS000080",
+        "Address": "2093 Smizer Station Rd ",
+        "City": "VALLEY PARK",
+        "Zip_code": "63088",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.5371004,
+        "longitude": -90.4950661,
+        "ObjectId": 172
+      },
+      "geometry": {
+        "x": -90.49506610000002,
+        "y": 38.53710040000001
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "615-881-0708",
+        "Dispensary": "Stairway Cannabis Dispensary Blue Springs",
+        "License": "DIS000062",
+        "Address": "490 Sw Mo-7 Hwy ",
+        "City": "blue springs",
+        "Zip_code": "64015",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.01417,
+        "longitude": -94.27217,
+        "ObjectId": 173
+      },
+      "geometry": {
+        "x": -94.27217,
+        "y": 39.01417
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-223-7159",
+        "Dispensary": "Kansas City Cannabis Co., Kansas City Cannabis, Kc Cannabis, Kcc",
+        "License": "DIS000013",
+        "Address": "1117 Nw State Route 7 ",
+        "City": "BLUE SPRINGS",
+        "Zip_code": "64015",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.031486,
+        "longitude": -94.273161,
+        "ObjectId": 174
+      },
+      "geometry": {
+        "x": -94.273161,
+        "y": 39.031486
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-380-3873",
+        "Dispensary": "Greenlight Dispensary",
+        "License": "DIS000115",
+        "Address": "903 E. Washington St. ",
+        "City": "Hayti",
+        "Zip_code": "63851",
+        "County": "Pemiscot",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 36.233718,
+        "longitude": -89.739809,
+        "ObjectId": 175
+      },
+      "geometry": {
+        "x": -89.73980900000001,
+        "y": 36.23371799999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-709-1745",
+        "Dispensary": "Missouri Wild Alchemy",
+        "License": "DIS000176",
+        "Address": "2173 W Terra Ln ",
+        "City": "O FALLON",
+        "Zip_code": "63366",
+        "County": "St. Charles",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.806149,
+        "longitude": -90.76926,
+        "ObjectId": 176
+      },
+      "geometry": {
+        "x": -90.76926000000002,
+        "y": 38.80614899999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-369-8905",
+        "Dispensary": "Terrabis",
+        "License": "DIS000155",
+        "Address": "1172 W Terra Ln ",
+        "City": "O FALLON",
+        "Zip_code": "63366",
+        "County": "St. Charles",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.804304,
+        "longitude": -90.732656,
+        "ObjectId": 177
+      },
+      "geometry": {
+        "x": -90.732656,
+        "y": 38.804304
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "636-236-9672",
+        "Dispensary": "Nature Med Dispensary",
+        "License": "DIS000152",
+        "Address": "1193 Bryan Road ",
+        "City": "O FALLON",
+        "Zip_code": "63366",
+        "County": "St. Charles",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.790336,
+        "longitude": -90.737258,
+        "ObjectId": 178
+      },
+      "geometry": {
+        "x": -90.73725799999998,
+        "y": 38.790335999999996
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-369-8905",
+        "Dispensary": "Terrabis",
+        "License": "DIS000117",
+        "Address": "11062 Olive Blvd ",
+        "City": "CREVE COEUR",
+        "Zip_code": "63141",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.673293,
+        "longitude": -90.423911,
+        "ObjectId": 179
+      },
+      "geometry": {
+        "x": -90.423911,
+        "y": 38.673292999999994
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "248-255-1283",
+        "Dispensary": "High Profile Cannabis Shop; High Profile",
+        "License": "DIS000103",
+        "Address": "10425 Watson Rd ",
+        "City": "St. Louis",
+        "Zip_code": "63127",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.5561128,
+        "longitude": -90.4040387,
+        "ObjectId": 180
+      },
+      "geometry": {
+        "x": -90.4040387,
+        "y": 38.556112799999994
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-831-3877",
+        "Dispensary": "Key Cannabis Dispensary",
+        "License": "DIS000064",
+        "Address": "6700-6704 Highway N ",
+        "City": "O FALLON",
+        "Zip_code": "63304",
+        "County": "St. Charles",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.755104592,
+        "longitude": -90.697910744,
+        "ObjectId": 181
+      },
+      "geometry": {
+        "x": -90.69791074400001,
+        "y": 38.755104592
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "660-249-2006",
+        "Dispensary": "Sunrise, Dispensary, Sunrise Dispensary, Sunrise Marijuana Dispensary",
+        "License": "DIS000032",
+        "Address": "2316 S. Main St ",
+        "City": "Maryville",
+        "Zip_code": "64468",
+        "County": "Nodaway",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 40.32321,
+        "longitude": -94.874671,
+        "ObjectId": 182
+      },
+      "geometry": {
+        "x": -94.874671,
+        "y": 40.32321
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "734-412-4600",
+        "Dispensary": "High Profile Cannabis Shop",
+        "License": "DIS000211",
+        "Address": "3125 Green Mountain Drive ",
+        "City": "Branson",
+        "Zip_code": "65616",
+        "County": "Taney",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 36.63254,
+        "longitude": -93.27875,
+        "ObjectId": 183
+      },
+      "geometry": {
+        "x": -93.27875,
+        "y": 36.63254
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "417-839-5467",
+        "Dispensary": "Stairway Cannabis Dispensary Branson",
+        "License": "DIS000203",
+        "Address": "1551 State Hwy 248 ",
+        "City": "Branson",
+        "Zip_code": "65616",
+        "County": "Taney",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 36.664017122,
+        "longitude": -93.246077529,
+        "ObjectId": 184
+      },
+      "geometry": {
+        "x": -93.246077529,
+        "y": 36.66401712199999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "872-302-0293",
+        "Dispensary": "Greenlight Dispensary",
+        "License": "DIS000092",
+        "Address": "201 S Wildwood Dr ",
+        "City": "BRANSON",
+        "Zip_code": "65616",
+        "County": "Taney",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 36.631912,
+        "longitude": -93.262883,
+        "ObjectId": 185
+      },
+      "geometry": {
+        "x": -93.262883,
+        "y": 36.631912
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "734-412-4600",
+        "Dispensary": "High Profile Cannabis Shop",
+        "License": "DIS000144",
+        "Address": "1391 Mitchell Rd ",
+        "City": "WEST PLAINS",
+        "Zip_code": "65775",
+        "County": "Howell",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 36.7128236,
+        "longitude": -91.8791417,
+        "ObjectId": 186
+      },
+      "geometry": {
+        "x": -91.87914170000002,
+        "y": 36.71282359999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "417-419-9333",
+        "Dispensary": "C Cannabis Dispensary, Codes Cannabis, Codes Cannabis Dispensary, Codes Supreme Cannabis",
+        "License": "DIS000124",
+        "Address": "1636 Bruce Smith Pkwy ",
+        "City": "WEST PLAINS",
+        "Zip_code": "65775",
+        "County": "Howell",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 36.7125832,
+        "longitude": -91.8773354,
+        "ObjectId": 187
+      },
+      "geometry": {
+        "x": -91.87733539999999,
+        "y": 36.7125832
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-240-9416",
+        "Dispensary": "Heya Dispensary",
+        "License": "DIS000118",
+        "Address": "100 Strauss Dr ",
+        "City": "PARK HILLS",
+        "Zip_code": "63601",
+        "County": "St. Francois",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.842662,
+        "longitude": -90.497004,
+        "ObjectId": 188
+      },
+      "geometry": {
+        "x": -90.49700400000002,
+        "y": 37.84266199999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "557-223-1872",
+        "Dispensary": "C Cannabis Dispensary; Codes Cannabis; Codes Cannabis Dispensary; Codes Supreme Cannabis",
+        "License": "DIS000184",
+        "Address": "124 Richard Drive ",
+        "City": "West Alton",
+        "Zip_code": "63386",
+        "County": "St. Charles",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.860797793,
+        "longitude": -90.221106433,
+        "ObjectId": 189
+      },
+      "geometry": {
+        "x": -90.221106433,
+        "y": 38.860797793
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-223-6680",
+        "Dispensary": "Kind Goods Medical Dispensary; Kind Goods",
+        "License": "DIS000142",
+        "Address": "180 Gravois Bluffs Cir Ste B",
+        "City": "FENTON",
+        "Zip_code": "63026",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.502602986,
+        "longitude": -90.44498296,
+        "ObjectId": 190
+      },
+      "geometry": {
+        "x": -90.44498296,
+        "y": 38.502602986
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "636-485-5434",
+        "Dispensary": "Good Day Farm Dispensary; Gdf Dispensary; Good Day Farm",
+        "License": "DIS000174",
+        "Address": "301 Little Hills Expressway ",
+        "City": "St. Charles",
+        "Zip_code": "63301",
+        "County": "St. Charles",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.805547011,
+        "longitude": -90.47569199,
+        "ObjectId": 191
+      },
+      "geometry": {
+        "x": -90.47569198999999,
+        "y": 38.805547011
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "310-435-7165",
+        "Dispensary": "From The Earth",
+        "License": "DIS000065",
+        "Address": "9010 E State Rte 350 ",
+        "City": "Raytown",
+        "Zip_code": "64133",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.997263014,
+        "longitude": -94.476969994,
+        "ObjectId": 192
+      },
+      "geometry": {
+        "x": -94.476969994,
+        "y": 38.99726301399999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "872-302-0293",
+        "Dispensary": "Greenlight Dispensary",
+        "License": "DIS000061",
+        "Address": "3721 S. Noland Road ",
+        "City": "Independence",
+        "Zip_code": "64055",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.051987,
+        "longitude": -94.414464,
+        "ObjectId": 193
+      },
+      "geometry": {
+        "x": -94.414464,
+        "y": 39.05198699999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "636-236-9672",
+        "Dispensary": "Natures Med Dispensary",
+        "License": "DIS000059",
+        "Address": "15823 E Us Highway 24 ",
+        "City": "INDEPENDENCE",
+        "Zip_code": "64050",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.1157,
+        "longitude": -94.3861399,
+        "ObjectId": 194
+      },
+      "geometry": {
+        "x": -94.3861399,
+        "y": 39.1157
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-272-1661",
+        "Dispensary": "Gdf Dispensary; Good Day Farm; Good Day Farm Dispensary",
+        "License": "DIS000054",
+        "Address": "16820 E Us Highway 24 ",
+        "City": "INDEPENDENCE",
+        "Zip_code": "64056",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.118612,
+        "longitude": -94.379533,
+        "ObjectId": 195
+      },
+      "geometry": {
+        "x": -94.379533,
+        "y": 39.11861199999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "913-220-0044",
+        "Dispensary": "From The Earth Dispensary",
+        "License": "DIS000035",
+        "Address": "19341 E Us Highway 40 ",
+        "City": "INDEPENDENCE",
+        "Zip_code": "64055",
+        "County": "Jackson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.029603,
+        "longitude": -94.354314,
+        "ObjectId": 196
+      },
+      "geometry": {
+        "x": -94.354314,
+        "y": 39.029602999999994
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "660-596-0623",
+        "Dispensary": "Good Day Farm Dispensary, Gdf Dispensary, Good Day Farm",
+        "License": "DIS000212",
+        "Address": "319 E Ashley Rd ",
+        "City": "BOONVILLE",
+        "Zip_code": "65233",
+        "County": "Cooper",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.967643,
+        "longitude": -92.744108,
+        "ObjectId": 197
+      },
+      "geometry": {
+        "x": -92.74410799999998,
+        "y": 38.967642999999995
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "417-850-9999",
+        "Dispensary": "Flora Farms",
+        "License": "DIS000223",
+        "Address": "165 Hollister Parkway ",
+        "City": "Hollister",
+        "Zip_code": "65672",
+        "County": "Taney",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 36.60619,
+        "longitude": -93.231651306,
+        "ObjectId": 198
+      },
+      "geometry": {
+        "x": -93.23165130599999,
+        "y": 36.606190000000005
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-369-8905",
+        "Dispensary": "Terrabis",
+        "License": "DIS000027",
+        "Address": "7766 N Lindbergh Blvd ",
+        "City": "HAZELWOOD",
+        "Zip_code": "63042",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.78705,
+        "longitude": -90.35019,
+        "ObjectId": 199
+      },
+      "geometry": {
+        "x": -90.35019000000001,
+        "y": 38.787049999999994
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "417-830-8997",
+        "Dispensary": "The Dispensary",
+        "License": "DIS000093",
+        "Address": "15335 State Hwy 76 ",
+        "City": "CASSVILLE",
+        "Zip_code": "65625",
+        "County": "Barry",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 36.671625,
+        "longitude": -93.864577,
+        "ObjectId": 200
+      },
+      "geometry": {
+        "x": -93.86457699999998,
+        "y": 36.67162499999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-749-2677",
+        "Dispensary": "Proper Cannabis",
+        "License": "DIS000149",
+        "Address": "3 Walters Pl ",
+        "City": "HOUSE SPRINGS",
+        "Zip_code": "63051",
+        "County": "Jefferson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.412662,
+        "longitude": -90.579482,
+        "ObjectId": 201
+      },
+      "geometry": {
+        "x": -90.579482,
+        "y": 38.412662
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-694-9973",
+        "Dispensary": "Fresh Karma Dispensaries, Fresh Karma",
+        "License": "DIS000037",
+        "Address": "16209 Nw 45 Hwy ",
+        "City": "PARKVILLE",
+        "Zip_code": "64152",
+        "County": "Platte",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.22434,
+        "longitude": -94.768178,
+        "ObjectId": 202
+      },
+      "geometry": {
+        "x": -94.768178,
+        "y": 39.224340000000005
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-567-5508",
+        "Dispensary": "Green Releaf Dispensary",
+        "License": "DIS000157",
+        "Address": "3848 S Clark St ",
+        "City": "MEXICO",
+        "Zip_code": "65265",
+        "County": "Audrain",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.133744,
+        "longitude": -91.892546,
+        "ObjectId": 203
+      },
+      "geometry": {
+        "x": -91.892546,
+        "y": 39.133744
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "417-991-3491",
+        "Dispensary": "Blue Sage Cannabis Deli, Dispensary Outlet, Come See Your Buds",
+        "License": "DIS000187",
+        "Address": "1210 Deadra Dr ",
+        "City": "LEBANON",
+        "Zip_code": "65536",
+        "County": "Laclede",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.6685271,
+        "longitude": -92.6366297,
+        "ObjectId": 204
+      },
+      "geometry": {
+        "x": -92.6366297,
+        "y": 37.66852709999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "309-264-3199",
+        "Dispensary": "Missouri Health & Wellness Dispensary",
+        "License": "DIS000145",
+        "Address": "901 E. First Street ",
+        "City": "WASHINGTON",
+        "Zip_code": "63090",
+        "County": "Franklin",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.553206,
+        "longitude": -91.000946,
+        "ObjectId": 205
+      },
+      "geometry": {
+        "x": -91.000946,
+        "y": 38.553205999999996
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "660-596-0625",
+        "Dispensary": "Good Day Farm Dispensary, Good Day Farm, Gdf Dispensary",
+        "License": "DIS000213",
+        "Address": "20021 E State Hwy N ",
+        "City": "EAGLEVILLE",
+        "Zip_code": "64442",
+        "County": "Harrison",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 40.46609,
+        "longitude": -93.974419,
+        "ObjectId": 206
+      },
+      "geometry": {
+        "x": -93.974419,
+        "y": 40.46609
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-223-7159",
+        "Dispensary": "Kansas City Cannabis Co., Kansas City Cannabis",
+        "License": "DIS000026",
+        "Address": "21023 E State Hwy N ",
+        "City": "Eagleville",
+        "Zip_code": "64442",
+        "County": "Harrison",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 40.466207995,
+        "longitude": -93.975564169,
+        "ObjectId": 207
+      },
+      "geometry": {
+        "x": -93.97556416900001,
+        "y": 40.466207995
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "636-218-7121",
+        "Dispensary": "Budd Dispensary - Sunrise Beach",
+        "License": "DIS000171",
+        "Address": "12077 N State Highway 5 ",
+        "City": "SUNRISE BEACH",
+        "Zip_code": "65079",
+        "County": "Camden",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.13253,
+        "longitude": -92.7933,
+        "ObjectId": 208
+      },
+      "geometry": {
+        "x": -92.7933,
+        "y": 38.13253000000002
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-374-0212",
+        "Dispensary": "Sunrise, Dispensary, Sunrise Dispensary, Sunrise Marijuana Dispensary",
+        "License": "DIS000169",
+        "Address": "23 Spring Cove Rd ",
+        "City": "Sunrise Beach",
+        "Zip_code": "65079",
+        "County": "Camden",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.15863,
+        "longitude": -92.77734,
+        "ObjectId": 209
+      },
+      "geometry": {
+        "x": -92.77734,
+        "y": 38.15863
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-712-2980",
+        "Dispensary": "Blue Sage Cannabis Deli",
+        "License": "DIS000132",
+        "Address": "730 Market St ",
+        "City": "FARMINGTON",
+        "Zip_code": "63640",
+        "County": "St. Francois",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.791274,
+        "longitude": -90.436594,
+        "ObjectId": 210
+      },
+      "geometry": {
+        "x": -90.436594,
+        "y": 37.791274
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "636-794-1840",
+        "Dispensary": "Greenlight Dispensary",
+        "License": "DIS000018",
+        "Address": "4451 Brown Rd ",
+        "City": "BERKELEY",
+        "Zip_code": "63134",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.728465,
+        "longitude": -90.344046,
+        "ObjectId": 211
+      },
+      "geometry": {
+        "x": -90.344046,
+        "y": 38.72846499999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-279-7009",
+        "Dispensary": "Swade",
+        "License": "DIS000079",
+        "Address": "108 C Hilltop Village Center Dr ",
+        "City": "EUREKA",
+        "Zip_code": "63025",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.5062573,
+        "longitude": -90.6368038,
+        "ObjectId": 212
+      },
+      "geometry": {
+        "x": -90.6368038,
+        "y": 38.5062573
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-760-0200",
+        "Dispensary": "Flora Farms",
+        "License": "DIS000141",
+        "Address": "605 Brunt Blvd ",
+        "City": "Sikeston",
+        "Zip_code": "63801",
+        "County": "Scott",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 36.858702,
+        "longitude": -89.581619,
+        "ObjectId": 213
+      },
+      "geometry": {
+        "x": -89.581619,
+        "y": 36.858702
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-380-3783",
+        "Dispensary": "Greenlight Dispensary",
+        "License": "DIS000120",
+        "Address": "1817 E Malone ",
+        "City": "SIKESTON",
+        "Zip_code": "63801",
+        "County": "Scott",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 36.882845,
+        "longitude": -89.577325,
+        "ObjectId": 214
+      },
+      "geometry": {
+        "x": -89.577325,
+        "y": 36.882845
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-517-4296",
+        "Dispensary": "Root 66 Dispensary",
+        "License": "DIS000178",
+        "Address": "1163 Wentzville Pkwy # 1171 Building C",
+        "City": "WENTZVILLE",
+        "Zip_code": "63385",
+        "County": "St. Charles",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.825303,
+        "longitude": -90.86269,
+        "ObjectId": 215
+      },
+      "geometry": {
+        "x": -90.86269,
+        "y": 38.82530299999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-752-2952",
+        "Dispensary": "Good Day Farm; Good Day Farm Dispensary, Gdf Dispensary",
+        "License": "DIS000219",
+        "Address": "3910 S. Ward Ave ",
+        "City": "Caruthersville",
+        "Zip_code": "63830",
+        "County": "Pemiscot",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 36.15669,
+        "longitude": -89.663745,
+        "ObjectId": 216
+      },
+      "geometry": {
+        "x": -89.66374500000002,
+        "y": 36.15669
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "417-773-4605",
+        "Dispensary": "Easy Mountain",
+        "License": "DIS000110",
+        "Address": "7827 W. Farm Road 174 ",
+        "City": "REPUBLIC",
+        "Zip_code": "65738",
+        "County": "Greene",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.13302,
+        "longitude": -93.450742,
+        "ObjectId": 217
+      },
+      "geometry": {
+        "x": -93.450742,
+        "y": 37.13302
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-247-4347",
+        "Dispensary": "Trinity",
+        "License": "DIS000133",
+        "Address": "205 State Route B ",
+        "City": "St. JAMES",
+        "Zip_code": "65559",
+        "County": "Phelps",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.007405,
+        "longitude": -91.617371,
+        "ObjectId": 218
+      },
+      "geometry": {
+        "x": -91.617371,
+        "y": 38.00740499999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "636-355-9333",
+        "Dispensary": "C Cannabis Dispensary; Codes Cannabis; Codes Cannabis Dispensary; Codes Supreme Cannabis",
+        "License": "DIS000173",
+        "Address": "859 Robert Raymond Dr ",
+        "City": "Lake St. Louis",
+        "Zip_code": "63367",
+        "County": "St. Charles",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.7709448,
+        "longitude": -90.7821112,
+        "ObjectId": 219
+      },
+      "geometry": {
+        "x": -90.78211120000002,
+        "y": 38.77094480000001
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "417-800-2200",
+        "Dispensary": "Blue Sage Cannabis Deli, Come See Your Buds",
+        "License": "DIS000097",
+        "Address": "2929 The Loop ",
+        "City": "CARTHAGE",
+        "Zip_code": "64836",
+        "County": "Jasper",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.137253,
+        "longitude": -94.314,
+        "ObjectId": 220
+      },
+      "geometry": {
+        "x": -94.314,
+        "y": 37.13725300000001
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "816-831-3877",
+        "Dispensary": "Key Cannabis Dispensary",
+        "License": "DIS000007",
+        "Address": "121 S. Walnut Street ",
+        "City": "Cameron",
+        "Zip_code": "64429",
+        "County": "Clinton",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.73915901,
+        "longitude": -94.235748041,
+        "ObjectId": 221
+      },
+      "geometry": {
+        "x": -94.23574804100001,
+        "y": 39.73915901000001
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "636-299-7781",
+        "Dispensary": "Feel State Dispensary",
+        "License": "DIS000055",
+        "Address": "444 Howdershell Rd ",
+        "City": "FLORISSANT",
+        "Zip_code": "63031",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.8047786,
+        "longitude": -90.3612114,
+        "ObjectId": 222
+      },
+      "geometry": {
+        "x": -90.36121140000002,
+        "y": 38.80477859999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-353-9817",
+        "Dispensary": "Sunrise, Sunrise Marijuana Dispensary, Sunrise Dispensary, Dispensary",
+        "License": "DIS000009",
+        "Address": "8411 N. Lindberg Blvd ",
+        "City": "Florissant",
+        "Zip_code": "63031",
+        "County": "St. Louis City",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.793456,
+        "longitude": -90.343132,
+        "ObjectId": 223
+      },
+      "geometry": {
+        "x": -90.34313200000001,
+        "y": 38.793456
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-529-0312",
+        "Dispensary": "Greenlight Dispensary",
+        "License": "DIS000004",
+        "Address": "11088 New Halls Ferry Rd ",
+        "City": "Florissant",
+        "Zip_code": "63033",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.7734,
+        "longitude": -90.269173,
+        "ObjectId": 224
+      },
+      "geometry": {
+        "x": -90.26917299999998,
+        "y": 38.77340000000001
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "872-302-0293",
+        "Dispensary": "Greenlight Dispensary",
+        "License": "DIS000108",
+        "Address": "1729 E 7th St ",
+        "City": "JOPLIN",
+        "Zip_code": "64801",
+        "County": "Jasper",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.083935,
+        "longitude": -94.495915,
+        "ObjectId": 225
+      },
+      "geometry": {
+        "x": -94.495915,
+        "y": 37.08393499999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "702-496-3051",
+        "Dispensary": "Missouri Made Marijuana, Kabunky, Farm Direct, Low Key",
+        "License": "DIS000109",
+        "Address": "1502 S Range Line Rd ",
+        "City": "JOPLIN",
+        "Zip_code": "64804",
+        "County": "Jasper",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.073727,
+        "longitude": -94.4782423,
+        "ObjectId": 226
+      },
+      "geometry": {
+        "x": -94.4782423,
+        "y": 37.073727
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "614-295-7521",
+        "Dispensary": "Verts; Verts Dispensary; Verts Neighborhood Dispensary",
+        "License": "DIS000091",
+        "Address": "25733 Fir Rd ",
+        "City": "Joplin",
+        "Zip_code": "64801",
+        "County": "Jasper",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.143683,
+        "longitude": -94.521907,
+        "ObjectId": 227
+      },
+      "geometry": {
+        "x": -94.521907,
+        "y": 37.14368300000001
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "417-580-0140",
+        "Dispensary": "Good Day Farm Dispensary; Good Day Farm; Gdf Dispensary",
+        "License": "DIS000084",
+        "Address": "2918 E 20th St ",
+        "City": "JOPLIN",
+        "Zip_code": "64804",
+        "County": "Jasper",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.06892,
+        "longitude": -94.47874,
+        "ObjectId": 228
+      },
+      "geometry": {
+        "x": -94.47874,
+        "y": 37.06892
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "417-850-9999",
+        "Dispensary": "Flora Farms",
+        "License": "DIS000081",
+        "Address": "4027 Richard Joseph Blvd ",
+        "City": "Joplin",
+        "Zip_code": "64804",
+        "County": "Jasper",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.043925983,
+        "longitude": -94.479345006,
+        "ObjectId": 229
+      },
+      "geometry": {
+        "x": -94.47934500599999,
+        "y": 37.04392598299999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-440-1434",
+        "Dispensary": "Good Day Farm Dispensary;Good Day Farm;Gdf Dispensary",
+        "License": "DIS000070",
+        "Address": "16051 Manchester Rd ",
+        "City": "ELLISVILLE",
+        "Zip_code": "63011",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.591458,
+        "longitude": -90.593969,
+        "ObjectId": 230
+      },
+      "geometry": {
+        "x": -90.593969,
+        "y": 38.591457999999996
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-749-2677",
+        "Dispensary": "Proper Cannabis",
+        "License": "DIS000066",
+        "Address": "15396-15398 Manchester Rd ",
+        "City": "ELLISVILLE",
+        "Zip_code": "63011",
+        "County": "St. Louis",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.5928039,
+        "longitude": -90.5619806,
+        "ObjectId": 231
+      },
+      "geometry": {
+        "x": -90.5619806,
+        "y": 38.5928039
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "858-848-4588",
+        "Dispensary": "Swade Cannabis Dispensary; Swade Cannabis",
+        "License": "DIS000008",
+        "Address": "13500 Us-169 ",
+        "City": "Smithville",
+        "Zip_code": "64089",
+        "County": "Clay",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 39.338196,
+        "longitude": -94.584424,
+        "ObjectId": 232
+      },
+      "geometry": {
+        "x": -94.584424,
+        "y": 39.33819599999999
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "417-850-9999",
+        "Dispensary": "Flora Farms",
+        "License": "DIS000106",
+        "Address": "70 Missouri Ln ",
+        "City": "Pineville",
+        "Zip_code": "64856",
+        "County": "McDonald",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 36.503879,
+        "longitude": -94.2755,
+        "ObjectId": 233
+      },
+      "geometry": {
+        "x": -94.27550000000001,
+        "y": 36.503879
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "734-412-4600",
+        "Dispensary": "High Profile Cannabis Shop",
+        "License": "DIS000101",
+        "Address": "35 Macadoodle Lane ",
+        "City": "Pineville",
+        "Zip_code": "64856",
+        "County": "McDonald",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 36.503445,
+        "longitude": -94.278075,
+        "ObjectId": 234
+      },
+      "geometry": {
+        "x": -94.278075,
+        "y": 36.503445
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "573-557-4180",
+        "Dispensary": "Latitude Dispensary",
+        "License": "DIS000166",
+        "Address": "1812 Highway 52 ",
+        "City": "ELDON",
+        "Zip_code": "65026",
+        "County": "Miller",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.33433567,
+        "longitude": -92.58577392,
+        "ObjectId": 235
+      },
+      "geometry": {
+        "x": -92.58577392,
+        "y": 38.334335669999994
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "314-422-3617",
+        "Dispensary": "Fresh Karma Dispensaries; Fresh Karma",
+        "License": "DIS000229",
+        "Address": "208 E Young Ave ",
+        "City": "WARRENSBURG",
+        "Zip_code": "64093",
+        "County": "Johnson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.771125793,
+        "longitude": -93.736740112,
+        "ObjectId": 236
+      },
+      "geometry": {
+        "x": -93.73674011199999,
+        "y": 38.771125793
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "858-848-4588",
+        "Dispensary": "Swade Cannabis Dispensary; Swade Cannabis",
+        "License": "DIS000150",
+        "Address": "219 W Young Ave ",
+        "City": "WARRENSBURG",
+        "Zip_code": "64093",
+        "County": "Johnson",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 38.771593,
+        "longitude": -93.743182,
+        "ObjectId": 237
+      },
+      "geometry": {
+        "x": -93.743182,
+        "y": 38.771593
+      }
+    },
+    {
+      "attributes": {
+        "Phone_Number": "417-630-9424",
+        "Dispensary": "C Cannabis Dispensary, Codes Cannabis, Codes Supreme Cannabis, Codes Cannabis Dispensary",
+        "License": "DIS000153",
+        "Address": "14747 State Highway 38 ",
+        "City": "MARSHFIELD",
+        "Zip_code": "65706",
+        "County": "Webster",
+        "Website": null,
+        "Last_updated": "August 11, 2026",
+        "latitude": 37.340461,
+        "longitude": -92.937945,
+        "ObjectId": 238
+      },
+      "geometry": {
+        "x": -92.937945,
+        "y": 37.34046099999998
+      }
+    }
+  ]
+}

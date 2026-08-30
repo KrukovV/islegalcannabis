@@ -4,7 +4,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
-import { chromium } from "playwright";
+import { chromium } from "../playwright_runtime.mjs";
 import { acquireProjectProcessSlot } from "../runtime/processSlots.mjs";
 
 const ROOT = process.cwd();

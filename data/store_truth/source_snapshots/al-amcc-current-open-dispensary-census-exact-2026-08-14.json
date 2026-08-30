@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-14T16:54:00.756Z",
+  "input_path": "data/store_truth/source_snapshots/al-amcc-current-open-dispensary-2026-08-13.json",
+  "input_sha256": "4c480dc9ea627e94117a7ee459a57a30cacb3bfaba93eeb40345292724f81578",
+  "census_geocoder_url": "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+  "census_benchmark": "Public_AR_Current",
+  "census_response_sha256": "36e2d80793f8ebebd8dc53fc62e2e3ba892c3b108a0c8f3745a058031d0f688a",
+  "records": [
+    {
+      "source_record_id": "al-amcc-callies-apothecary-open-2026-06-04",
+      "name": "Callie's Apothecary",
+      "license_type": "DISPENSARY",
+      "store_type": "MEDICAL_DISPENSARY",
+      "address": "5232 Atlanta Highway",
+      "city": "Montgomery",
+      "region": "AL",
+      "postal_code": "36109",
+      "country": "US",
+      "license_status": "UNKNOWN",
+      "operational_status": "ACTIVE",
+      "official_website": "https://shoppecalliesal.com/",
+      "latitude": 32.381700148242,
+      "longitude": -86.219684008098,
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "5232 ATLANTA HWY, MONTGOMERY, AL, 36109"
+      }
+    }
+  ],
+  "counts": {
+    "input_records": 1,
+    "census_response_rows": 1,
+    "one_to_one_exact_census_geocodes": 1,
+    "blocked_census_no_exact_in_jurisdiction_match": 0
+  }
+}

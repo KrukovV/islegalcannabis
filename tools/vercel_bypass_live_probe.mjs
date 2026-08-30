@@ -1,6 +1,5 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { createRequire } from "node:module";
 import {
   VERCEL_BYPASS_HEADER,
   VERCEL_SET_BYPASS_COOKIE_HEADER,
@@ -9,12 +8,9 @@ import {
   diffVercelBypassCookies,
   redactVercelBypassSecret
 } from "./vercel_bypass.mjs";
+import { playwright } from "./playwright_runtime.mjs";
 
 const repoRoot = process.cwd();
-const require = createRequire(import.meta.url);
-const playwright = require(require.resolve("playwright", {
-  paths: [path.join(repoRoot, "apps/web")]
-}));
 
 const targetUrl = process.env.VERCEL_BYPASS_LIVE_URL || "https://www.islegal.info/new-map";
 const secret = process.env.VERCEL_AUTOMATION_BYPASS_SECRET || "";

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-15T01:22:03.764Z",
+  "source_id": "official-ak-amco-active-retail-license-30838-2026-08-13",
+  "source_snapshot_path": "data/store_truth/source_snapshots/ak-amco-active-retail-license-30838-2026-08-13.json",
+  "source_snapshot_sha256": "0bb2c5b0d3ed6f3a438b24dc0fbe703c229fbf33300c2b1edb5a2e21a03468ad",
+  "source_url": "https://www.commerce.alaska.gov/abc/marijuana/Home/License/ab8a3b85-34f6-49ec-9c49-9d22e9a1af5a",
+  "records": [
+    {
+      "source_record_id": "30838",
+      "address": "12825 W. Big Lake Road, Building #2",
+      "city": "Big Lake",
+      "region": "AK",
+      "postal_code": "99654"
+    }
+  ]
+}

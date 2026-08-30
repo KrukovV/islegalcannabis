@@ -1501,9 +1501,20 @@ if [ "${GEO_GATE_RC}" -ne 0 ] || [ "${GEO_GATE_OK}" -ne 1 ]; then
   fail_with_reason "GEO_GATE_FAIL"
 fi
 
-SMOKE_TOTAL="$(grep -E '^SMOKE_TOTAL=' "${REPORTS_FINAL}" | head -n1 | cut -d= -f2 || true)"
-SMOKE_OK="$(grep -E '^SMOKE_PASSED=' "${REPORTS_FINAL}" | head -n1 | cut -d= -f2 || true)"
-SMOKE_FAIL="$(grep -E '^SMOKE_FAILED=' "${REPORTS_FINAL}" | head -n1 | cut -d= -f2 || true)"
+SMOKE_REPORT_PATH="${ROOT}/Reports/smoke-report.json"
+if ! SMOKE_METRICS=$(${NODE_BIN} tools/playwright-smoke/verify_smoke_report.mjs "${SMOKE_REPORT_PATH}"); then
+  FAIL_STEP="smoke_report"
+  FAIL_CMD="${NODE_BIN} tools/playwright-smoke/verify_smoke_report.mjs ${SMOKE_REPORT_PATH}"
+  FAIL_RC=1
+  fail_with_reason "SMOKE_ACCOUNTING_INVALID"
+fi
+smoke_metric() {
+  printf "%s\n" "${SMOKE_METRICS}" | sed -nE "s/^$1=([0-9]+)$/\\1/p" | tail -n 1
+}
+SMOKE_TOTAL=$(smoke_metric "SMOKE_TOTAL")
+SMOKE_OK=$(smoke_metric "SMOKE_PASSED")
+SMOKE_FAIL=$(smoke_metric "SMOKE_FAILED")
+SMOKE_SKIPPED=$(smoke_metric "SMOKE_SKIPPED")
 extract_smoke_counts() {
   local line="$1"
   local ok_value=""
@@ -1536,7 +1547,7 @@ fi
 if [ -z "${SMOKE_TOTAL}" ] && [ -n "${SMOKE_OK}" ] && [ -n "${SMOKE_FAIL}" ]; then
   SMOKE_TOTAL="$((SMOKE_OK + SMOKE_FAIL))"
 fi
-SMOKE_LABEL="Smoke ${SMOKE_OK:-?}/${SMOKE_FAIL:-?} (total ${SMOKE_TOTAL:-?})"
+SMOKE_LABEL="Smoke ${SMOKE_OK:-?}/${SMOKE_FAIL:-?} (total ${SMOKE_TOTAL:-?}; skipped ${SMOKE_SKIPPED:-?})"
 if [ -f "${REPORTS_FINAL}" ]; then
   if ! grep -E "^PROBE_OK=" "${REPORTS_FINAL}" >/dev/null 2>&1; then
     probe_line=$(grep -E "^ONLINE_BY_TRUTH_PROBES=" "${REPORTS_FINAL}" | tail -n 1 || true)

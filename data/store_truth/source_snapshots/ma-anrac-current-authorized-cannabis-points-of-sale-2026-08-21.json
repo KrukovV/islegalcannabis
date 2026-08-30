@@ -1,0 +1,5672 @@
+[
+  {
+    "id": 2264,
+    "numero": "248",
+    "nom": "ABM PHARMA SARL",
+    "adresse": "N° 40 Galerie",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2141,
+    "numero": "124",
+    "nom": "AGPLUS SARL AU",
+    "adresse": "33 Allée du Cygne,Tontonville",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2045,
+    "numero": "28",
+    "nom": "ANGAD MEDIC",
+    "adresse": "18, Boulevard Allal Aljahid, Oujda",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2052,
+    "numero": "35",
+    "nom": "ATLAS MED",
+    "adresse": "N° 132 Lamhamed, Marrakech",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2083,
+    "numero": "66",
+    "nom": "AWSS PHARMA",
+    "adresse": "35 Avenue des FAR Magasin N° 1, Meknès",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2099,
+    "numero": "82",
+    "nom": "BEAUTY CLUB PARA",
+    "adresse": "Face de l'École Américaine, Secteur Ain Ktiouet, rue Mahatma Gandhi, Tanger",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2058,
+    "numero": "41",
+    "nom": "BIG PARA",
+    "adresse": "Angle Avenue Ghandi et Omar Ibn Lhassan, Kénitra",
+    "ville": "KENITRA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2051,
+    "numero": "34",
+    "nom": "BIO PRODUIT",
+    "adresse": "Hay Bite Ghoulam, Imm. Nada, Taza",
+    "ville": "TAZA",
+    "region": "Fès-Meknès",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2066,
+    "numero": "49",
+    "nom": "BS CENTRALE PHARMA VITAL",
+    "adresse": "Lotissement El Arche N°15 Hay Doukkala Ain Aouda, Témara",
+    "ville": "TEMARA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2540,
+    "numero": "525",
+    "nom": "BUMAGECO",
+    "adresse": "Lot 2 rue d'IFNI, Immeuble BILLAL",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2541,
+    "numero": "526",
+    "nom": "C.P.M",
+    "adresse": "108, Boulevard Abdellah",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2542,
+    "numero": "527",
+    "nom": "C.P.R.E",
+    "adresse": "Quartier Sidi Brahim",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2113,
+    "numero": "646",
+    "nom": "CANNAFLEX",
+    "adresse": "28B RUE OMAR SLAOUI, Casablanca",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Custom Point"
+  },
+  {
+    "id": 2068,
+    "numero": "51",
+    "nom": "CCP",
+    "adresse": "N° 182 Lotissement 369, Fès",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2034,
+    "numero": "17",
+    "nom": "CENTRALE DE PROMOTION PARAPHARMACIE PARAMÉDICALE (C3P)",
+    "adresse": "Lotissement 522, Magasin N° 1, Lotissement Wafae 4, Route Sefrou, Fès",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2055,
+    "numero": "38",
+    "nom": "CMP PARA",
+    "adresse": "Avenue Sakiat Al Hamra, Salé",
+    "ville": "SALE",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2543,
+    "numero": "528",
+    "nom": "COOPER BENISNASSEN S.A",
+    "adresse": "12, rue du Caire , hay el Wahda",
+    "ville": "BERKANE",
+    "region": "L'oriental",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2642,
+    "numero": "629",
+    "nom": "COOPER CHAOUIA",
+    "adresse": "LOT 35 ZONE INDUSTRIELLE AMAL",
+    "ville": "KHOURIBGA",
+    "region": "Beni Mellal- Khénifra",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2544,
+    "numero": "529",
+    "nom": "COOPER CHAOUIA OUARDIGHA",
+    "adresse": "35, Zone Industrielle hay el amal",
+    "ville": "KHOURIBGA",
+    "region": "Beni Mellal- Khénifra",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2545,
+    "numero": "530",
+    "nom": "COOPER DISMEDIC",
+    "adresse": "lotiss. Bachkou, lot n°10",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2546,
+    "numero": "531",
+    "nom": "COOPER GPF",
+    "adresse": "avenue l'arabie saoudite",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2547,
+    "numero": "532",
+    "nom": "COOPER ORIENTAL MEDICA",
+    "adresse": "109 zone industrielle",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2548,
+    "numero": "533",
+    "nom": "COOPER PHARMA",
+    "adresse": "41, Rue Mohamed Diouri",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2549,
+    "numero": "534",
+    "nom": "COOPER PHARMA REPARTITION",
+    "adresse": "Lotissement N°5, Lot Alamia Sidi Moumen",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2550,
+    "numero": "535",
+    "nom": "COOPER SOPHADET",
+    "adresse": "ancienne route de l'aviation km 4",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2551,
+    "numero": "536",
+    "nom": "COOPER TANSIFT",
+    "adresse": "382, Zone Industrielle",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2604,
+    "numero": "589",
+    "nom": "COPHADIS",
+    "adresse": "Avenue Habbouha Ould Laabid Lot El Wahda Imm Jamal",
+    "ville": "LAAYOUNE",
+    "region": "Laâyoune - Saguia al Hamra",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2552,
+    "numero": "537",
+    "nom": "COPHAG",
+    "adresse": "Immeuble SEDDIK, route de Tiznit",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2605,
+    "numero": "590",
+    "nom": "COSPHARMA",
+    "adresse": "Boulevard PANORAMIQUE CALIFORNIE",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2553,
+    "numero": "538",
+    "nom": "DIPHARM",
+    "adresse": "56, rue Socrate, résidence Socrate",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2028,
+    "numero": "11",
+    "nom": "DISAFRIC",
+    "adresse": "Boulevard Panoramique, centre comercial Badr, rue 11, Casablanca",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2554,
+    "numero": "539",
+    "nom": "DISPHANAD",
+    "adresse": "Zone industrielle",
+    "ville": "NADOR",
+    "region": "L'oriental",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2555,
+    "numero": "540",
+    "nom": "DISPHAT SA",
+    "adresse": "quartier zone industrielle 2",
+    "ville": "TAZA",
+    "region": "Fès-Meknès",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2556,
+    "numero": "541",
+    "nom": "DISTRIPHAK",
+    "adresse": "Lotissement 104, zone d'activité",
+    "ville": "KENITRA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2557,
+    "numero": "542",
+    "nom": "DISTRIPHAK SUCCURSALE",
+    "adresse": "Lotissement DCC EL HAOUZIA",
+    "ville": "KENITRA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2079,
+    "numero": "62",
+    "nom": "EASY PARAPHARMACIE",
+    "adresse": "RDC N° 1, Immeuble 4 rue Marrakech Ibn Morajjal, Meknès",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2061,
+    "numero": "44",
+    "nom": "EQUIPE MEDICAL",
+    "adresse": "Avenue des FAR, rue 15 N° 13 Quartier Administratif, Nador",
+    "ville": "NADOR",
+    "region": "L'oriental",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2065,
+    "numero": "48",
+    "nom": "EXPERT PHARMA",
+    "adresse": "Avenue Ahmed Al Mansori Dahbi, Agadir",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2095,
+    "numero": "78",
+    "nom": "FLOURMEDIC",
+    "adresse": "263, Lotissement Ismaila RDC, Kénitra",
+    "ville": "KENITRA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2600,
+    "numero": "585",
+    "nom": "G.DIS",
+    "adresse": "Zone Industrielle TASSILA N°176",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2558,
+    "numero": "543",
+    "nom": "G.P.M",
+    "adresse": "5 rue Ibn Katir, Maarif",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2081,
+    "numero": "64",
+    "nom": "G.SWEET PARA",
+    "adresse": "Lotissement Bled Tazi, Champs de Course, Fès",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2559,
+    "numero": "544",
+    "nom": "GIPHAR MAROC S.A",
+    "adresse": "5, route de la Continentale r.p. 36",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2560,
+    "numero": "545",
+    "nom": "GLOBALDIS",
+    "adresse": "Boulevard Abdelkrim Khattabi rond-point route de Safi",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2114,
+    "numero": "97",
+    "nom": "GRANDE PHARMACIE D’AGADIR",
+    "adresse": "23 Avenue du Prince Moulay Abdallah",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2046,
+    "numero": "29",
+    "nom": "GREEN PARA",
+    "adresse": "168, Boulevard Al Khalil, Lotissement Wafae, route Sefrou, Fès",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2047,
+    "numero": "30",
+    "nom": "HEM PROMO PARA",
+    "adresse": "Lotissement Iriss, Oum Rabie 1, N°28 Oujda",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2041,
+    "numero": "24",
+    "nom": "HYPER MEDIC",
+    "adresse": "Massira 1, C95 Résidence Alakkari N°17, Marrakech",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2040,
+    "numero": "626",
+    "nom": "ITAPHARMA",
+    "adresse": "REZ DE CHAUSSEE RUE IBN HICHAM 108 BRANES 1",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2048,
+    "numero": "31",
+    "nom": "ITAPHARMA TANGER",
+    "adresse": "RDC, rue Ibn Hicham N° 108 Branes, Tanger",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2561,
+    "numero": "546",
+    "nom": "KENIPHARMA",
+    "adresse": "lotissement 41, Quartier Industriel",
+    "ville": "KENITRA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2078,
+    "numero": "61",
+    "nom": "LA CENTRALE DE DISTRIBUTION PHARMACEUTIQUE (CDP)",
+    "adresse": "11, rue Panoramique centre commercial Badr, Californie, Casablanca",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2057,
+    "numero": "40",
+    "nom": "LA CENTRALE PARA ORTHO CPO",
+    "adresse": "N°77, Zone Industrielle, Rabat",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2656,
+    "numero": "645",
+    "nom": "LA GRANDE PHARMACIE AL FARAH",
+    "adresse": "ILOT 11 AV LAGOUIRA C13 CITE AL FARAH BENSERGAO Agadir",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2340,
+    "numero": "324",
+    "nom": "LA GRANDE PHARMACIE ASSIA MED",
+    "adresse": "30 B bd Arabie Saoudite lotissement Laayoune 1",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2314,
+    "numero": "298",
+    "nom": "LA GRANDE PHARMACIE DE TEMARA",
+    "adresse": "Rue Tarik Bnou Ziad",
+    "ville": "TEMARA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2202,
+    "numero": "186",
+    "nom": "LA GRANDE PHARMACIE PLACE PIETRI",
+    "adresse": "17 Rue Abou Faris El Marini",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2172,
+    "numero": "156",
+    "nom": "LA GRANDE PHARMACIE TAMESNA",
+    "adresse": "172, Marina d'Or À Côté De Jouteya",
+    "ville": "TEMARA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2098,
+    "numero": "81",
+    "nom": "LA ROCHE PARA",
+    "adresse": "Magasin N°9, Lotissement Riad Azzaitoun, route Ain Chkef, Fès",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2562,
+    "numero": "547",
+    "nom": "LODIMED",
+    "adresse": "422, Quartier Industriel Sidi Ghanem",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2189,
+    "numero": "173",
+    "nom": "MAPHARMACIE",
+    "adresse": "30 Bis Fath 2 Sidi Maarouf",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2563,
+    "numero": "548",
+    "nom": "MAREPHA",
+    "adresse": "82, Zone Industrielle Sud-Ouest",
+    "ville": "MOHAMMEDIA",
+    "region": "Casablanca- Settat",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2094,
+    "numero": "77",
+    "nom": "MARKET PARA",
+    "adresse": "Lycée Ibn El Khatib, Tanger",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2564,
+    "numero": "549",
+    "nom": "MAROC PHAGRO",
+    "adresse": "69 Quartier Industriel Ttakadom",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2565,
+    "numero": "550",
+    "nom": "MD5",
+    "adresse": "21 Rue des Asphodeles Maarif",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2050,
+    "numero": "33",
+    "nom": "MEDICAL M LA PARA",
+    "adresse": "Quartier Beni Ourriagel El Mizan, Tanger",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2566,
+    "numero": "551",
+    "nom": "MEDICOL",
+    "adresse": "Résidence la COLOMBE",
+    "ville": "TETOUAN",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2567,
+    "numero": "552",
+    "nom": "MEDIREP",
+    "adresse": "Tassila Extension, N°49",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2032,
+    "numero": "15",
+    "nom": "MEGA 7 PHARMA",
+    "adresse": "Boulevard Moukaouama, Résidence Moulay Ismail Imm.9 Mag. N°9, Meknès",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2036,
+    "numero": "19",
+    "nom": "MENARA MEDICAL",
+    "adresse": "Immeuble 6, rue les Vieux Marrakchis, N°1 Boulevard Zerk, Marrakech",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2069,
+    "numero": "52",
+    "nom": "MIRA & FAMILLE",
+    "adresse": "Al Ouafae 4 Route de Sefrou, Meknès",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2067,
+    "numero": "50",
+    "nom": "NEW TIMES MEDICAL PRO",
+    "adresse": "Avenue Mly Abdellah Immb 3 Magasin RDC, Meknès",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2568,
+    "numero": "553",
+    "nom": "O.R.P",
+    "adresse": "Hay Arrahma, Zone d'Activité",
+    "ville": "SALE",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2475,
+    "numero": "460",
+    "nom": "OFFICINE BAKKALI SARL AU",
+    "adresse": "Av Allal Ben Abdellah",
+    "ville": "TEMARA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2165,
+    "numero": "149",
+    "nom": "OFFICINE DE PHARMACIE SARL AU",
+    "adresse": "Av. Ailanthus, Sect 23",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2497,
+    "numero": "482",
+    "nom": "OFSG PHARMA SARL AU",
+    "adresse": "Aliat Almohit",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2637,
+    "numero": "623",
+    "nom": "OKSA GREEN TECH",
+    "adresse": "40D Rue BANI TANZA, SOUISSI RABAT",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Custom Point"
+  },
+  {
+    "id": 2043,
+    "numero": "26",
+    "nom": "PANOHYCO",
+    "adresse": "8, Avenue Allal Ben Abdellah, Oujda",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2029,
+    "numero": "12",
+    "nom": "PARA 2000",
+    "adresse": "3, rue 92 Hay Moulay Abdellah Ain Chock, Casablanca",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2097,
+    "numero": "80",
+    "nom": "PARA ALMARJANAE",
+    "adresse": "N°43 Bis, Nouveaux Logement OCP, Khouribga",
+    "ville": "KHOURIBGA",
+    "region": "Beni Mellal- Khénifra",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2063,
+    "numero": "46",
+    "nom": "PARA ANZI PHARM",
+    "adresse": "138 Bloc C, Tiznit",
+    "ville": "TIZNIT",
+    "region": "Souss-Massa",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2049,
+    "numero": "32",
+    "nom": "PARA ASSADAKA",
+    "adresse": "Avenue Slaoui, rue l'Houssine Lkhader, Fès",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2073,
+    "numero": "56",
+    "nom": "PARA BN PHARMA",
+    "adresse": "Avenue Thami Ouzzani Rue N° 22, Tétouan",
+    "ville": "TETOUAN",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2072,
+    "numero": "55",
+    "nom": "PARA CIEL WILAYA",
+    "adresse": "12, Avenue Al Ouahda, Tétouan",
+    "ville": "TETOUAN",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2096,
+    "numero": "79",
+    "nom": "PARA DAISY",
+    "adresse": "N°4 Avenue Yacoub Al Mansour, Tétouan",
+    "ville": "TETOUAN",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2037,
+    "numero": "20",
+    "nom": "PARA DPN",
+    "adresse": "46 Bis rue Agadir, Tanger",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2091,
+    "numero": "74",
+    "nom": "PARA EL MENZAH MEDICAL",
+    "adresse": "Magasin N°2, Résidence Shahrazade, Avenu des FAR, Meknès",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2060,
+    "numero": "43",
+    "nom": "PARA ELOUIRINI",
+    "adresse": "Lotissement Errahma N° 148, Berkane",
+    "ville": "BERKANE",
+    "region": "L'oriental",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2062,
+    "numero": "45",
+    "nom": "PARA GDP PHARMA",
+    "adresse": "Avenue Al Massira N°57 Hay El Izdihar Ouislane, Meknès",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2059,
+    "numero": "42",
+    "nom": "PARA HABIB",
+    "adresse": "Magasin N°3 Rue Keifa Imm A13, Résidence Abdelouahed, Meknès",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2086,
+    "numero": "69",
+    "nom": "PARA ISLANE",
+    "adresse": "Islane, Hay Mohammadi N° 2, Agadir",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2035,
+    "numero": "448",
+    "nom": "PARA KINGPHAR",
+    "adresse": "Av. Mly Abdellah N° 20 Bloc A Complexe Ibn Tachfine",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2033,
+    "numero": "16",
+    "nom": "PARA LA GLOIRE",
+    "adresse": "369, route de Sefrou, lotissement Wafae, Fès",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2093,
+    "numero": "76",
+    "nom": "PARA LABEL",
+    "adresse": "Arribat Center, Rabat",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2027,
+    "numero": "10",
+    "nom": "PARA LEMDARSI",
+    "adresse": "20, Boulevard Fetiane Sebaghine, Meknès",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2092,
+    "numero": "75",
+    "nom": "PARA MBA",
+    "adresse": "Magasin N°15 et 16, Immeuble 30, Boulevard Abdelkrim Khatabi Gulliz, Marrakech",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2082,
+    "numero": "65",
+    "nom": "PARA MEDICAL TAMOUDA",
+    "adresse": "Qartier Al Quouds, Avenue Oued Dajla N°12, Martil",
+    "ville": "MARTIL",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2026,
+    "numero": "9",
+    "nom": "PARA MEDSHOP",
+    "adresse": "N°301, Avenue Karama Montfleure 1, Fès",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2030,
+    "numero": "13",
+    "nom": "PARA MOUTALIB",
+    "adresse": "25, rue de la Dordogne , Derb El Kabir, Casablanca",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2070,
+    "numero": "53",
+    "nom": "PARA MY CURE",
+    "adresse": "N°37 Lotissement Touria, route Imouzzer (Face Clinique Razi), Fès",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2056,
+    "numero": "39",
+    "nom": "PARA NEW ERA",
+    "adresse": "Magasin N°1, Immeuble Nakhil 3, rue Roda Gueliz, Marrakech",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2044,
+    "numero": "27",
+    "nom": "PARA NORME",
+    "adresse": "107, Avenue Mohamed V, Rue Momahed Hayani, Fès",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2080,
+    "numero": "63",
+    "nom": "PARA NOVAMED",
+    "adresse": "Hay Boughaz, rue 70, N°1Bis, Tanger",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2054,
+    "numero": "37",
+    "nom": "PARA OFFICINAL",
+    "adresse": "Villa 44, Quartier Essada Ain Mezouare, Marrakech",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2084,
+    "numero": "67",
+    "nom": "PARA RIAD AHLEN",
+    "adresse": "Avenue des FAR, N°224 Hay Riad Ahlen, Tanger",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2031,
+    "numero": "14",
+    "nom": "PARA SAYDALI",
+    "adresse": "Résidence Basma, Boulevard Yaacoub Al Mansour, Meknès",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2090,
+    "numero": "73",
+    "nom": "PARA SHORE MEDIC",
+    "adresse": "Complexe Borasol, route de Rabat Km17 Hjar Enal, Tanger",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2053,
+    "numero": "36",
+    "nom": "PARA SMARTS",
+    "adresse": "Résidence Salima, Fès",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2038,
+    "numero": "21",
+    "nom": "PARA SMIR",
+    "adresse": "Rue Kaboul, Zankat Toufaha, Tanger",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2064,
+    "numero": "47",
+    "nom": "PARA STORE PHARMA",
+    "adresse": "Avenue El Ouafae, route Sefrou, Fès",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2076,
+    "numero": "59",
+    "nom": "PARA TAIBA",
+    "adresse": "1 rue des Rossignoles, Hay Saada Garage, Oujda",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2089,
+    "numero": "72",
+    "nom": "PARA VITAL",
+    "adresse": "63 Bis Boulevard Bir Anzarane Dcheira, Agadir",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2074,
+    "numero": "57",
+    "nom": "PARA YANINAS",
+    "adresse": "Résidence Mohamed Marouane 49/51 Lotissement Ratma, Marrakech",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2087,
+    "numero": "70",
+    "nom": "PARALUX CASABLANCA",
+    "adresse": "10 rue Racine Valfleuri-Maarif, Casablanca",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2088,
+    "numero": "71",
+    "nom": "PARALUX TANGER",
+    "adresse": " 3, Avenue El Hariri, Tanger",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2654,
+    "numero": "641",
+    "nom": "Parapharmacie ATLAS TARGA",
+    "adresse": "centre commerial  carrefour tagra",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2646,
+    "numero": "633",
+    "nom": "PARAPHARMACIE BIG PARA",
+    "adresse": "Rue Ghamdi.-Auttre ville ang.rue omar Ben Al As mag.nº3 KENITRA",
+    "ville": "KENITRA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2643,
+    "numero": "630",
+    "nom": "PARAPHARMACIE CMA PARAPRO",
+    "adresse": "Nº81,AV.Hassan ll,Temara",
+    "ville": "TEMARA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2649,
+    "numero": "636",
+    "nom": "PARAPHARMACIE FLOURMEDIC",
+    "adresse": "263 Lotis Ismaila RDC Kenitra",
+    "ville": "KENITRA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2641,
+    "numero": "628",
+    "nom": "Parapharmacie IBERIA",
+    "adresse": "120, AV MED BEN ABDELLAH",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2639,
+    "numero": "625",
+    "nom": "Parapharmacie KINGPHAR",
+    "adresse": "N20 BLOC A COMPLEXE IBN TACHAFINE AV PRINCE MY ABDELLAH",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2644,
+    "numero": "631",
+    "nom": "PARAPHARMACIE LA CDP",
+    "adresse": "11 ,BD PANORAMIQUE CENTRE COMERCIAL BADR CALIFORNIE, 20600 Casablanca, Morocco, Rue 11, Casablanca",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2640,
+    "numero": "627",
+    "nom": "PARAPHARMACIE MEDEXPERT",
+    "adresse": "M131 BD IBN AL HAYTAM ZI TASSILA DCHERA  EL JIHADIA",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2645,
+    "numero": "632",
+    "nom": "PARAPHARMACIE Medical M la para",
+    "adresse": "Quartier beni ouriaghel al mizane bloc A magasin n 3, Tanger",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2647,
+    "numero": "634",
+    "nom": "PARAPHARMACIE Menara medical",
+    "adresse": "local n°17, 6 Rue les vieux marrakechis, Bd Mohamed Zerktouni, MARRAKECH",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2650,
+    "numero": "637",
+    "nom": "PARAPHARMACIE MOSQUEE CHRIFIA",
+    "adresse": "K050 rte d amizmiz km 5 chrifia MARRAKECH",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2651,
+    "numero": "638",
+    "nom": "PARAPHARMACIE RIAD EL ATLAS",
+    "adresse": "45 riad l atlas lot mbarka 3 touristique ,agdal Mechouar Marrakech",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2638,
+    "numero": "624",
+    "nom": "Parapharmacie Trésors d’ATLAS",
+    "adresse": "RDC N°7 ARSAT BEN EL FILALI ZITOUNE Meknes",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2042,
+    "numero": "25",
+    "nom": "PASSO MEDICAL",
+    "adresse": "699, Avenue Hassan Premier, Nador",
+    "ville": "NADOR",
+    "region": "L'oriental",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2569,
+    "numero": "554",
+    "nom": "PHARMA COOP",
+    "adresse": "12, zone industrielle Lotissement ROCHDI, Takadom",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2570,
+    "numero": "555",
+    "nom": "PHARMA EST",
+    "adresse": "112 Bis Zone Industrielle",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2571,
+    "numero": "556",
+    "nom": "PHARMA RIF",
+    "adresse": "Avenue Ait Zeroual",
+    "ville": "NADOR",
+    "region": "L'oriental",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2361,
+    "numero": "345",
+    "nom": "PHARMACE LES JARDINS DE LA MAMOUNIA",
+    "adresse": "6 Rue Bab Jdid",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2238,
+    "numero": "222",
+    "nom": "PHARMACIE  MEHDIA KENITRA",
+    "adresse": "Lot 43 Secteur 3",
+    "ville": "KENITRA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2265,
+    "numero": "249",
+    "nom": "PHARMACIE 2M",
+    "adresse": "128 Allée des Orangers Oukacha",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2412,
+    "numero": "396",
+    "nom": "PHARMACIE 3 MARS",
+    "adresse": "Résidence 3 mars, imm 31,n°2",
+    "ville": "MOHAMMEDIA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2125,
+    "numero": "108",
+    "nom": "PHARMACIE ABA CHOUAIB DOUKALI",
+    "adresse": "834 Bd Aba Chouaïb Doukali",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2476,
+    "numero": "461",
+    "nom": "PHARMACIE ABI INANE LAZARET",
+    "adresse": "Hay Essalam, Lotiss. Hamdi N°11",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2131,
+    "numero": "114",
+    "nom": "PHARMACIE ABOUAB AL WIFAQ",
+    "adresse": "3212 Lot Wifak Erac",
+    "ville": "TEMARA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2239,
+    "numero": "223",
+    "nom": "PHARMACIE ACHAAB",
+    "adresse": "541, Lot. Berradi 2 Mhamid 7",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2357,
+    "numero": "341",
+    "nom": "PHARMACIE ACIMA HARHOURA",
+    "adresse": "Bd Moulay Abdallah",
+    "ville": "TEMARA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2132,
+    "numero": "115",
+    "nom": "PHARMACIE ADDIKR",
+    "adresse": "Laouamra",
+    "ville": "LARACHE",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2386,
+    "numero": "370",
+    "nom": "PHARMACIE ADOHA AGADIR",
+    "adresse": "Hay Mohammadi Complexe Adoha",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2315,
+    "numero": "299",
+    "nom": "PHARMACIE AERIA",
+    "adresse": "Centre Commercial Aeria",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2142,
+    "numero": "125",
+    "nom": "PHARMACIE AFAK",
+    "adresse": "Afak N°1094 Groupe Saada",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2368,
+    "numero": "352",
+    "nom": "PHARMACIE AFRIQUIA EL JADIDA",
+    "adresse": "Route Mly Abdellah, Sidi Bouzid",
+    "ville": "EL JADIDA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2468,
+    "numero": "453",
+    "nom": "PHARMACIE AHL MASSA",
+    "adresse": "N°74, Rue N°10, Hay El Kharij",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2316,
+    "numero": "300",
+    "nom": "PHARMACIE AIN HAYANI",
+    "adresse": "Rue Imam Kastalani Quartier Aïn Hay",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2413,
+    "numero": "397",
+    "nom": "PHARMACIE AIN KHABBAZ",
+    "adresse": "131 Rue Oum Rabie",
+    "ville": "TETOUAN",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2240,
+    "numero": "224",
+    "nom": "PHARMACIE AJIAD TETOUANE",
+    "adresse": "Mallalienne, Kallalienne",
+    "ville": "TETOUAN",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2223,
+    "numero": "207",
+    "nom": "PHARMACIE AJOUAOU",
+    "adresse": "Quartier Ouled Lahcen -Alfed-Nador",
+    "ville": "NADOR",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2164,
+    "numero": "148",
+    "nom": "PHARMACIE AKLIM",
+    "adresse": "Hay l'Habitat Aklim Centre",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2166,
+    "numero": "150",
+    "nom": "PHARMACIE AL ABAWAINE TETOUANE",
+    "adresse": "Av. Chikh Ben Arbi Alaoui",
+    "ville": "TETOUAN",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2167,
+    "numero": "151",
+    "nom": "PHARMACIE AL ABRAJ",
+    "adresse": "Diar Al Aila N°3 Imm 3",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2469,
+    "numero": "454",
+    "nom": "PHARMACIE AL ABRAJ SAFI",
+    "adresse": "Lots .Hicham Rte Dar Si Aissa",
+    "ville": "SAFI",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2380,
+    "numero": "364",
+    "nom": "PHARMACIE AL AHRAR",
+    "adresse": "1505, Lotissement Afaq I",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2317,
+    "numero": "301",
+    "nom": "PHARMACIE AL AMAL AGADIR",
+    "adresse": "Boulevard Cheikh Saadi Immeuble Tighmirt",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2249,
+    "numero": "233",
+    "nom": "PHARMACIE AL AMAL KASBAH TADLA",
+    "adresse": "Hay Nahda N°70 Kasba Tadla",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2250,
+    "numero": "234",
+    "nom": "PHARMACIE AL ANDALOUSS CASA",
+    "adresse": "411 Bd Commandant Driss Al Harti",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2126,
+    "numero": "109",
+    "nom": "PHARMACIE AL ANDALOUSSIA SALA",
+    "adresse": "43A, Bd Mohammed V",
+    "ville": "SALE",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2503,
+    "numero": "488",
+    "nom": "PHARMACIE AL ARAAR",
+    "adresse": "Avenue Alaraar, Hay Riad Secteur 1",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2133,
+    "numero": "116",
+    "nom": "PHARMACIE AL ARZ",
+    "adresse": "Lotissement 1130 Villa Sala al jadida., Av. Lalla Meryem, Sala Al Jadida",
+    "ville": "SALE",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2279,
+    "numero": "263",
+    "nom": "PHARMACIE AL AZHAR KENITRA",
+    "adresse": "515 Hay Bir Rami Est",
+    "ville": "KENITRA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2441,
+    "numero": "425",
+    "nom": "PHARMACIE AL BAHIA",
+    "adresse": "28 Avenue Hassan II Complexe",
+    "ville": "TIZNIT",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2173,
+    "numero": "157",
+    "nom": "PHARMACIE AL BARAKA",
+    "adresse": "2, Place De Koweit",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2387,
+    "numero": "371",
+    "nom": "PHARMACIE AL HADIKA FES",
+    "adresse": "Lotissement Al Hadika",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2203,
+    "numero": "187",
+    "nom": "PHARMACIE AL HARAKAT",
+    "adresse": "Route Ourika Douar",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2174,
+    "numero": "158",
+    "nom": "PHARMACIE AL HILAL HOCEIMA",
+    "adresse": "105 Avenue Sidi Abid",
+    "ville": "AL HOCEIMA",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2369,
+    "numero": "353",
+    "nom": "PHARMACIE AL HOURIA TAOURIRT",
+    "adresse": "72 Rue Midelt Hay",
+    "ville": "TAOURIRT",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2420,
+    "numero": "404",
+    "nom": "PHARMACIE AL IHSSANE KENITRA",
+    "adresse": "Industriel N°12 Souk El Arbaa",
+    "ville": "KENITRA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2224,
+    "numero": "208",
+    "nom": "PHARMACIE AL IKHLASS FES",
+    "adresse": "Bd Koufa 25 Route Sefrou",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2521,
+    "numero": "506",
+    "nom": "PHARMACIE AL IMAM MALIK",
+    "adresse": "36 Bloc Al Douar Haj Kacem",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2225,
+    "numero": "209",
+    "nom": "PHARMACIE AL IMANE",
+    "adresse": "Bd. Abderrahim Bouabid N°5",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2632,
+    "numero": "617",
+    "nom": "PHARMACIE AL KASBA",
+    "adresse": "AVENUE MOULAY RACHID",
+    "ville": "TAROUDANT",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2143,
+    "numero": "126",
+    "nom": "PHARMACIE AL KASR",
+    "adresse": "Hay El Mohammadi Lot15",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2134,
+    "numero": "117",
+    "nom": "PHARMACIE AL KHASSA SARL AU",
+    "adresse": "Rue de Safi Imm 11 Magasin 24",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2405,
+    "numero": "389",
+    "nom": "PHARMACIE AL MADINA KSAR EL KBIR",
+    "adresse": "84 Bis, Hay Lalla Fatima Andaloussi",
+    "ville": "LAKSAR LAKBIR",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2341,
+    "numero": "325",
+    "nom": "PHARMACIE AL MANZAH AGADIR",
+    "adresse": "Bd Cheikh Saadi Ang. Avenue des FAR",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2204,
+    "numero": "188",
+    "nom": "PHARMACIE AL MARJANE",
+    "adresse": "43 Bis, Nouveaux Logements",
+    "ville": "KHOURIBGA",
+    "region": "Beni Mellal- Khénifra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2406,
+    "numero": "390",
+    "nom": "PHARMACIE AL MASJID ESSMARA",
+    "adresse": "Essmara",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2214,
+    "numero": "198",
+    "nom": "PHARMACIE AL MASSIRA RABAT",
+    "adresse": "1081 Avenue Al Massira (C.Y.M)",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2305,
+    "numero": "289",
+    "nom": "PHARMACIE AL MAWLID",
+    "adresse": "Résidence Al Mawlid Ii, Entrée B",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2205,
+    "numero": "189",
+    "nom": "PHARMACIE AL MELIA HAY RIAD",
+    "adresse": "12 Avenue Almelia",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2370,
+    "numero": "354",
+    "nom": "PHARMACIE AL MOSTAAJALAT",
+    "adresse": "89, Lotissement Nahda",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2135,
+    "numero": "118",
+    "nom": "PHARMACIE AL MOUNTAZAH RABAT",
+    "adresse": "Quartier Amal VI, lotissement Bouregreg n°26",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2648,
+    "numero": "635",
+    "nom": "Pharmacie AL NARJIS",
+    "adresse": "N06 lotissement zellaka boulvard annasr khoribga",
+    "ville": "KHOURIBGA",
+    "region": "Beni Mellal- Khénifra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2175,
+    "numero": "159",
+    "nom": "PHARMACIE AL OUKHOUA",
+    "adresse": "88 Lotissement Rakia Ct Route 1100",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2280,
+    "numero": "264",
+    "nom": "PHARMACIE AL OUM",
+    "adresse": "Hay Massira, Lot Erac N°62",
+    "ville": "LAAYOUNE",
+    "region": "Laâyoune - Saguia al Hamra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2241,
+    "numero": "225",
+    "nom": "PHARMACIE AL WAFAE LARACHE",
+    "adresse": "425 Lot. Alwafae",
+    "ville": "LARACHE",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2115,
+    "numero": "98",
+    "nom": "PHARMACIE AL WAHDA",
+    "adresse": "20 Rue Al Wahda Imouzern",
+    "ville": "AL HOCEIMA",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2266,
+    "numero": "250",
+    "nom": "PHARMACIE AL WASSILA",
+    "adresse": "8, Rue Keifa, Avenue Des F.A.R.",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2443,
+    "numero": "427",
+    "nom": "PHARMACIE AL WIFAK LAAYOUNE",
+    "adresse": "Adresse: N°02, Mekka Rue Essmara",
+    "ville": "LAAYOUNE",
+    "region": "Laâyoune - Saguia al Hamra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2479,
+    "numero": "464",
+    "nom": "PHARMACIE AL YOUMNE",
+    "adresse": "N°1, Lotissement Dalila",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2633,
+    "numero": "618",
+    "nom": "PHARMACIE ALLAL FASSI",
+    "adresse": "23, AVENUE ALLAL FASSI. BOUARGANE",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2136,
+    "numero": "119",
+    "nom": "PHARMACIE ALMOGAR",
+    "adresse": "45, Avenue Mokhtar Soussi",
+    "ville": "INEZGANE",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2610,
+    "numero": "595",
+    "nom": "PHARMACIE ALOE VERA",
+    "adresse": "N°443 BIS, QUARTIER AMAL 5,MASSIRA - CITE YACOUB EL MANSOUR",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2298,
+    "numero": "282",
+    "nom": "PHARMACIE AMINE",
+    "adresse": "65, Lotiss. Amine",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2171,
+    "numero": "155",
+    "nom": "PHARMACIE AMMARE",
+    "adresse": "RdC Lotissement Bouchra Lot N°114 Bir Jdid",
+    "ville": "EL JADIDA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2215,
+    "numero": "199",
+    "nom": "PHARMACIE AMTOUN",
+    "adresse": "Centre Commercial Marjane",
+    "ville": "KHOURIBGA",
+    "region": "Beni Mellal- Khénifra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2242,
+    "numero": "226",
+    "nom": "PHARMACIE AMZAR",
+    "adresse": "1 Rue Guezzara Hay Bouchouk",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2116,
+    "numero": "99",
+    "nom": "PHARMACIE ANAJM",
+    "adresse": "Résidence Les Perles de Ben Tria",
+    "ville": "MOHAMMEDIA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2117,
+    "numero": "100",
+    "nom": "PHARMACIE ANASSIHA LARACHE",
+    "adresse": "1, Bd Abdelmoumen Ben Ali",
+    "ville": "LARACHE",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2498,
+    "numero": "483",
+    "nom": "PHARMACIE ANFAPLACE",
+    "adresse": "Centre Commercial Anfaplace, Bd de la Corniche",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2226,
+    "numero": "210",
+    "nom": "PHARMACIE ANNAJM MOHAMMEDIA",
+    "adresse": "Résidence Bentriaa",
+    "ville": "MOHAMMEDIA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2227,
+    "numero": "211",
+    "nom": "PHARMACIE ARAFAT",
+    "adresse": "Hay El Houda",
+    "ville": "BERRECHID",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2407,
+    "numero": "391",
+    "nom": "PHARMACIE ARBAOUA",
+    "adresse": "Route de Moulay Bousselham",
+    "ville": "LAKSAR LAKBIR",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2652,
+    "numero": "639",
+    "nom": "Pharmacie ARIHA",
+    "adresse": "67 lotissement sidi abbad i sakar unite ll, Marrakech",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2243,
+    "numero": "227",
+    "nom": "PHARMACIE ARRAYHANE RABAT",
+    "adresse": "Secteur N°6 D1- Hay Riad",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2127,
+    "numero": "110",
+    "nom": "PHARMACIE ASAFAR",
+    "adresse": "Résidence Dar Saada",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2522,
+    "numero": "507",
+    "nom": "PHARMACIE ASMAA CASABLANCA",
+    "adresse": "Lotissement Nour, N°98",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2535,
+    "numero": "520",
+    "nom": "PHARMACIE ASRIR",
+    "adresse": "80 Avenue Principale Khmiss",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2628,
+    "numero": "613",
+    "nom": "PHARMACIE ASSAFAE",
+    "adresse": "381, SAADA 6, MHAMID",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2358,
+    "numero": "342",
+    "nom": "PHARMACIE ASSAFWA",
+    "adresse": "Hay Bensouda, Lotissement Laalaj N°24",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2492,
+    "numero": "477",
+    "nom": "PHARMACIE ASSALAM MOHAMMEDIA",
+    "adresse": "Aswak Assalam N°4 Av Hassan",
+    "ville": "MOHAMMEDIA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2430,
+    "numero": "414",
+    "nom": "PHARMACIE ASWAK ALJOUMLA",
+    "adresse": "Bd. 10 Mars Lot. Fadi N° 29",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2281,
+    "numero": "265",
+    "nom": "PHARMACIE ASWAK ASSALAM",
+    "adresse": "4,Bd Hassan Ii, C.Com Aswak Assala",
+    "ville": "MOHAMMEDIA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2216,
+    "numero": "200",
+    "nom": "PHARMACIE ASWAK ASSALAM TANGER",
+    "adresse": "Bd Moulay Rachid C",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2137,
+    "numero": "120",
+    "nom": "PHARMACIE ATLANTIC",
+    "adresse": "257, Rue Casablanca El Harhoura",
+    "ville": "TEMARA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2611,
+    "numero": "596",
+    "nom": "PHARMACIE ATLANTIQUE",
+    "adresse": "257 RUE CASABLANCA",
+    "ville": "HARHOURA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2444,
+    "numero": "428",
+    "nom": "PHARMACIE ATTADAMOUNE TEMARA",
+    "adresse": "Imm B1 Mag. N°1 Al Wifak",
+    "ville": "TEMARA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2299,
+    "numero": "283",
+    "nom": "PHARMACIE ATTAIBA",
+    "adresse": "Av My Abbellah .Rue Al Barakat",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2381,
+    "numero": "365",
+    "nom": "PHARMACIE ATTANAOUIA",
+    "adresse": "123, Bd Almoukaouama, Lotissement Ennour",
+    "ville": "BERRECHID",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2282,
+    "numero": "266",
+    "nom": "PHARMACIE AVERROES",
+    "adresse": "Habitat, 9 Rue Ibn Hajar",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2128,
+    "numero": "111",
+    "nom": "PHARMACIE AVICENNE AL HOCEIMA",
+    "adresse": "Avenue Tarik Ibnou Ziad , Imm. Caballo",
+    "ville": "AL HOCEIMA",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2388,
+    "numero": "372",
+    "nom": "PHARMACIE AYOUR ADRAR",
+    "adresse": "Magasin Ayour M-14 Imm B Bloc B",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2456,
+    "numero": "440",
+    "nom": "PHARMACIE AZZAHRAE",
+    "adresse": "Bd Mohammed VI, Hay Lalla Soukaina",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2300,
+    "numero": "284",
+    "nom": "PHARMACIE BAB ATLAS",
+    "adresse": "Douar Ouled Rguig, dar Tounsi Nakhil Chamali",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2619,
+    "numero": "604",
+    "nom": "PHARMACIE BAB DOUKKALA",
+    "adresse": "80, RUE BOUTOUIL BAB DOUKKALA",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2382,
+    "numero": "366",
+    "nom": "PHARMACIE BAB MARRAKECH",
+    "adresse": "N°2 Imm1 Bis Rue Alachaari Agdal",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2462,
+    "numero": "446",
+    "nom": "PHARMACIE BAB TOUT",
+    "adresse": "Avenue Du Prince Héritier",
+    "ville": "TETOUAN",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2431,
+    "numero": "415",
+    "nom": "PHARMACIE BADIA",
+    "adresse": "Route d'Azemmour",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2504,
+    "numero": "489",
+    "nom": "PHARMACIE BADR AOURIR",
+    "adresse": "Hay Znagu, Aourir",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2118,
+    "numero": "101",
+    "nom": "PHARMACIE BADR BENI DRAR",
+    "adresse": "Bd Hassan 2 Lot Badr Beni Drar",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2244,
+    "numero": "228",
+    "nom": "PHARMACIE BADR BERRECHID",
+    "adresse": "161.Bloc H Hay Hassani",
+    "ville": "BERRECHID",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2460,
+    "numero": "444",
+    "nom": "PHARMACIE BASSATINE EL MENZEH",
+    "adresse": "N°6 Bloc 10 Bassatine",
+    "ville": "TEMARA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2499,
+    "numero": "484",
+    "nom": "PHARMACIE BD OULED HADDOU",
+    "adresse": "Piste 1032, N° 39 Bis",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2439,
+    "numero": "423",
+    "nom": "PHARMACIE BELHAJ",
+    "adresse": "N°19 Lotissement Hajia Tabriquet",
+    "ville": "SALE",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2176,
+    "numero": "160",
+    "nom": "PHARMACIE BEN ELMEHDI",
+    "adresse": "Hay Al Massira N°2",
+    "ville": "LAAYOUNE",
+    "region": "Laâyoune - Saguia al Hamra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2349,
+    "numero": "333",
+    "nom": "PHARMACIE BEN MCHICH",
+    "adresse": "Douar Btiwa",
+    "ville": "EL GARA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2612,
+    "numero": "597",
+    "nom": "PHARMACIE BENI KHIRANE",
+    "adresse": "CENTRE SOUK TNINE BENI KHIRANE (CERLE DE OUED ZEM)",
+    "ville": "BENI KHIRANE",
+    "region": "Beni Mellal- Khénifra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2283,
+    "numero": "267",
+    "nom": "PHARMACIE BENJELLOUN",
+    "adresse": "3 Av Zerhoun Souissi",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2350,
+    "numero": "334",
+    "nom": "PHARMACIE BENNOUNA",
+    "adresse": "273 Rue Ibn Derraj Sebti Hay Badr",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2436,
+    "numero": "420",
+    "nom": "PHARMACIE BENSASSI",
+    "adresse": "56 Route Dar Caid Rue 16",
+    "ville": "SAFI",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2284,
+    "numero": "268",
+    "nom": "PHARMACIE BERBICH",
+    "adresse": "12 Bis, rue Al Ghazali (Derb Frej)",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2505,
+    "numero": "490",
+    "nom": "PHARMACIE BERKANE",
+    "adresse": "65 Rue Laayoune Hay Al Moukawama",
+    "ville": "BERKANE",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2506,
+    "numero": "491",
+    "nom": "PHARMACIE BICHARA",
+    "adresse": "Hay Massira Iii Les Portes",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2624,
+    "numero": "609",
+    "nom": "PHARMACIE BINE LAKCHALI",
+    "adresse": "BOULEVARD CHEIKH RABHI N°A-4-2 GUELIZ",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2500,
+    "numero": "485",
+    "nom": "PHARMACIE BIR KACEM",
+    "adresse": "28 Boulevard Bir Kacem",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2408,
+    "numero": "392",
+    "nom": "PHARMACIE BISMI ALLAH",
+    "adresse": "12, Bd Moulay Idriss I",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2177,
+    "numero": "161",
+    "nom": "PHARMACIE BISMILLAH",
+    "adresse": "1, Douar Oulad Hmid ,Groupe H Rue 23",
+    "ville": "LAKSAR LAKBIR",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2622,
+    "numero": "607",
+    "nom": "PHARMACIE BLADNA",
+    "adresse": "COMMUNE TASSOULTANTE DOUAR EL GOUASSEME KM 6",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2389,
+    "numero": "373",
+    "nom": "PHARMACIE BNI BOUAYACHE",
+    "adresse": "132, Avenue Hassan II Beni Bouayach",
+    "ville": "AL HOCEIMA",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2376,
+    "numero": "360",
+    "nom": "PHARMACIE BO VILLAGE",
+    "adresse": "Magasin N°14  Centre Commercial BO VILLAGE",
+    "ville": "BOUSKOURA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2285,
+    "numero": "269",
+    "nom": "PHARMACIE BORJ",
+    "adresse": "Hay Ryad, Imm. A, Résidence Alborj",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2507,
+    "numero": "492",
+    "nom": "PHARMACIE BORJ TARGA",
+    "adresse": "Route de Souihla Targa",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2318,
+    "numero": "302",
+    "nom": "PHARMACIE BOUDLAL",
+    "adresse": "Avenue Mohammed Ben Abdel Khader",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2414,
+    "numero": "398",
+    "nom": "PHARMACIE BOUGHAFER",
+    "adresse": "29 Rue Boughafer Narjiss A",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2445,
+    "numero": "429",
+    "nom": "PHARMACIE C.D.G",
+    "adresse": "Hay Alwahda Larache",
+    "ville": "LARACHE",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2217,
+    "numero": "201",
+    "nom": "PHARMACIE C.I.L CASA",
+    "adresse": "100 Bd Ibn Sina - Ex Avicenne",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2609,
+    "numero": "594",
+    "nom": "PHARMACIE CARREFOUR EL JADIDA",
+    "adresse": "Douar Tikni, Station Greenoil, Route de Marrakech",
+    "ville": "EL JADIDA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2251,
+    "numero": "235",
+    "nom": "PHARMACIE CARREFOUR SELA",
+    "adresse": "SELA Park Centre Commercial Carrefour",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2399,
+    "numero": "383",
+    "nom": "PHARMACIE CENTRAL AIN SERRAK",
+    "adresse": "Lot. Laalej N°209 , rue D, N°57",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2333,
+    "numero": "317",
+    "nom": "PHARMACIE CENTRAL MARRAKECH",
+    "adresse": "66 Rue de la liberté",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2168,
+    "numero": "152",
+    "nom": "PHARMACIE CENTRAL RIF",
+    "adresse": "23, Avenue Hassan II",
+    "ville": "AL HOCEIMA",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2351,
+    "numero": "335",
+    "nom": "PHARMACIE CENTRALE LA PERLE",
+    "adresse": "Lot Al Omrane",
+    "ville": "NADOR",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2653,
+    "numero": "640",
+    "nom": "Pharmacie CENTRALE MOULAY BRAHIM",
+    "adresse": "168 centre moulay brahim tahenaout",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2493,
+    "numero": "478",
+    "nom": "PHARMACIE CENTRE CULTUREL",
+    "adresse": "7. Rue Touat",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2508,
+    "numero": "493",
+    "nom": "PHARMACIE CHAHD ABYAD",
+    "adresse": "Dhar Lmhalla, Lot Chahd",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2252,
+    "numero": "236",
+    "nom": "PHARMACIE CHAMS",
+    "adresse": "6, Lot Kasbat Azahra ,Bloc 3",
+    "ville": "TETOUAN",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2383,
+    "numero": "367",
+    "nom": "PHARMACIE CHAMS MEKNES",
+    "adresse": "Rue Essaadiyine Résidence Mabrouka",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2390,
+    "numero": "374",
+    "nom": "PHARMACIE CHENIER RABAT SARL AU",
+    "adresse": "27, Rue de Tunis, Hassan",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2144,
+    "numero": "127",
+    "nom": "PHARMACIE CHIFAA",
+    "adresse": "11 Av Moulouya Guercif",
+    "ville": "GUERCIF",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2488,
+    "numero": "473",
+    "nom": "PHARMACIE CHORAFA",
+    "adresse": "Avenue Mly Rachid Résdience Al Kheir",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2377,
+    "numero": "361",
+    "nom": "PHARMACIE CITE ADDAMANE",
+    "adresse": "Boulevard Dakhla Hay Inara Résidence",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2375,
+    "numero": "359",
+    "nom": "PHARMACIE CITY CENTER",
+    "adresse": "Hay Ryad, Acima City Center",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2509,
+    "numero": "494",
+    "nom": "PHARMACIE CLUB LES CHENES",
+    "adresse": "Route de Meknès Km 17 Arjat Shoul",
+    "ville": "SALE",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2480,
+    "numero": "465",
+    "nom": "PHARMACIE CMI LAZARET",
+    "adresse": "Bd Allal Al Fassi, Dhar Lamhala Lazaret",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2286,
+    "numero": "270",
+    "nom": "PHARMACIE CONSEIL FES",
+    "adresse": "86 Bd Moulay Rachid",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2178,
+    "numero": "162",
+    "nom": "PHARMACIE COTEF",
+    "adresse": "4 Lot El Fath Erac",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2327,
+    "numero": "311",
+    "nom": "PHARMACIE DALIA",
+    "adresse": "538 lotissement Ismailia Al Mountazah",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2245,
+    "numero": "229",
+    "nom": "PHARMACIE DAR EL BACHA",
+    "adresse": "17,Bd Fatima Zahra,R'Mila",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2190,
+    "numero": "174",
+    "nom": "PHARMACIE DAR EL KENZ",
+    "adresse": "Résidence Dar El Kenz 101-1, Imm E2",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2287,
+    "numero": "271",
+    "nom": "PHARMACIE DAR TALIBA",
+    "adresse": "Bd Oum Rabii , 1 Lot. Iris 760",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2427,
+    "numero": "411",
+    "nom": "PHARMACIE DE L ‘ATLAS",
+    "adresse": "40 Bd Moulay Idriss1er",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2228,
+    "numero": "212",
+    "nom": "PHARMACIE DE L’AVENUE",
+    "adresse": "Bd Mohammed V Ang. Rue Du Rif",
+    "ville": "MOHAMMEDIA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2421,
+    "numero": "405",
+    "nom": "PHARMACIE DE L’HOPITAL MEKNES",
+    "adresse": "Sebaa Ayoune En Face Du Centre",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2246,
+    "numero": "230",
+    "nom": "PHARMACIE DE L’ORANGERALE SOUISSI",
+    "adresse": "Résidence Filda 1",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2301,
+    "numero": "285",
+    "nom": "PHARMACIE DE LA COLLINE CASA",
+    "adresse": "Route 1029 C. Com Crrefour Sidi",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2100,
+    "numero": "83",
+    "nom": "PHARMACIE DE LA GARE",
+    "adresse": "162, Avenue Mohamed Diouri, Kénitra",
+    "ville": "KENITRA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2267,
+    "numero": "251",
+    "nom": "PHARMACIE DE LA MARNE",
+    "adresse": "42 Rue Patrice Lumumba",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2449,
+    "numero": "433",
+    "nom": "PHARMACIE DE LA MEDINA MARRAKECH",
+    "adresse": "Bd Houmane El Fetouaki",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2119,
+    "numero": "102",
+    "nom": "PHARMACIE DE LA PISCINE",
+    "adresse": "Bd Abderrahman Serghini",
+    "ville": "MOHAMMEDIA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2206,
+    "numero": "190",
+    "nom": "PHARMACIE DE LA PLAGE MOHAMMEDIA",
+    "adresse": "Bd Fes, Imm. Du Parc",
+    "ville": "MOHAMMEDIA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2148,
+    "numero": "132",
+    "nom": "PHARMACIE DE LA SECURITE",
+    "adresse": "150 Bd Moulay Idriss I",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2446,
+    "numero": "430",
+    "nom": "PHARMACIE DE LA VICTOIRE",
+    "adresse": "Place Zerktouni",
+    "ville": "TAZA",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2655,
+    "numero": "644",
+    "nom": "Pharmacie des champions",
+    "adresse": "140 Rue Brahim Nkhai- maarif Casablanca",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2158,
+    "numero": "142",
+    "nom": "PHARMACIE DES CYGNES",
+    "adresse": "256, Route de l' Oasis",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2218,
+    "numero": "202",
+    "nom": "PHARMACIE DES ECOLES RABAT",
+    "adresse": "Hay Ryad, Rue Al Joutane Sect. 22",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2191,
+    "numero": "175",
+    "nom": "PHARMACIE DES JARDINS",
+    "adresse": "V44V+2F9, Centre Commune El Menzeh",
+    "ville": "TEMARA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2179,
+    "numero": "163",
+    "nom": "PHARMACIE DES NATIONS UNIES",
+    "adresse": "19 Bis Jabal Al Ayachi",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2523,
+    "numero": "508",
+    "nom": "PHARMACIE DES ZEMMOURS",
+    "adresse": "274, Boulevard Mohammed V",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2409,
+    "numero": "393",
+    "nom": "PHARMACIE DRIEF",
+    "adresse": "Bd.Abderrahim Bouabid",
+    "ville": "DCHEIRA",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2207,
+    "numero": "191",
+    "nom": "PHARMACIE DU 16 NOVEMBRE AGDAL",
+    "adresse": "16 Avenue de Seize Novembre",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2352,
+    "numero": "336",
+    "nom": "PHARMACIE DU COIN",
+    "adresse": "Bd Zoulikha Nasri",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2180,
+    "numero": "164",
+    "nom": "PHARMACIE DU CONSEIL TEMARA",
+    "adresse": "Lot 33 Masrour I",
+    "ville": "TEMARA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2208,
+    "numero": "192",
+    "nom": "PHARMACIE DU JASMIN",
+    "adresse": "61 Avenue du Deux Mars Quartier",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2268,
+    "numero": "252",
+    "nom": "PHARMACIE DU LOUVRE",
+    "adresse": "36, Bd Du 9 Avril -Ex Cl. Perrault",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2536,
+    "numero": "521",
+    "nom": "PHARMACIE DU MARCHE TAMASMANE",
+    "adresse": "Khemise Tamasmane",
+    "ville": "AL HOCEIMA",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2601,
+    "numero": "586",
+    "nom": "PHARMACIE DU MAROC",
+    "adresse": "Salé 11016, Maroc",
+    "ville": "SALE",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2159,
+    "numero": "143",
+    "nom": "PHARMACIE DU NORD",
+    "adresse": "148, Bd. Mohamed V Beni Bouayach",
+    "ville": "AL HOCEIMA",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2229,
+    "numero": "213",
+    "nom": "PHARMACIE DU PHARE",
+    "adresse": "16 Avenue Du Phare Racine",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2477,
+    "numero": "462",
+    "nom": "PHARMACIE DU PROGRES OUJDA",
+    "adresse": "92 Bd. Maghreb Al Arabi",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2371,
+    "numero": "355",
+    "nom": "PHARMACIE DU STADE MUNICIPAL",
+    "adresse": "64, lotissement Al Khadra",
+    "ville": "LARACHE",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2253,
+    "numero": "237",
+    "nom": "PHARMACIE DU THEATRE CASA",
+    "adresse": "38 avenue Akid Allam Salama 3",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2334,
+    "numero": "318",
+    "nom": "PHARMACIE DUBAI MARRAKECH",
+    "adresse": "6 Bd Errazi - Autre Ville",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2353,
+    "numero": "337",
+    "nom": "PHARMACIE DUNE D’ANFA",
+    "adresse": "11, Avenue Driss Slaoui",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2627,
+    "numero": "612",
+    "nom": "PHARMACIE DYOUR AL MASJID TASSELTANT",
+    "adresse": "MAGASIN 1, GH1-1, DYOUR AL MASJID",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2428,
+    "numero": "412",
+    "nom": "PHARMACIE ECHAM",
+    "adresse": "Hay Sayad Coopératif",
+    "ville": "KENITRA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2494,
+    "numero": "479",
+    "nom": "PHARMACIE EL ALAMI",
+    "adresse": "Hay Riad Essalam, Imm. Aferni N°22",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2328,
+    "numero": "312",
+    "nom": "PHARMACIE EL AMRI",
+    "adresse": "1, Rue Anzi, Cité Salam Agadir",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2269,
+    "numero": "253",
+    "nom": "PHARMACIE EL BASSATINE MEKNES",
+    "adresse": "9 Avenue Hadj Ahmed Benchekroun",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2160,
+    "numero": "144",
+    "nom": "PHARMACIE EL GHAZI",
+    "adresse": "236 Route Principale Fès-Meknes",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2481,
+    "numero": "466",
+    "nom": "PHARMACIE EL HACHIMI",
+    "adresse": "Residence Andalousia Imm 34 N°1",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2342,
+    "numero": "326",
+    "nom": "PHARMACIE EL HARIM SARLAU",
+    "adresse": "Bab Chaafa",
+    "ville": "SALE",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2415,
+    "numero": "399",
+    "nom": "PHARMACIE EL KADIRI FES",
+    "adresse": "2 Route D'Imouzzer",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2306,
+    "numero": "290",
+    "nom": "PHARMACIE EL KHAWARIZMI FES",
+    "adresse": "410, Hay Jdid Bensouda",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2450,
+    "numero": "434",
+    "nom": "PHARMACIE EL MAZMOUR",
+    "adresse": "204, Avenue Abderrahman Ibn Abi Bakr",
+    "ville": "LAAYOUNE",
+    "region": "Laâyoune - Saguia al Hamra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2524,
+    "numero": "509",
+    "nom": "PHARMACIE EL MEHDI M’DIQ",
+    "adresse": "9, Avenue Nassr Lotissement El Youmn",
+    "ville": "M'DIQ",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2451,
+    "numero": "435",
+    "nom": "PHARMACIE EL MELLAH",
+    "adresse": "7, Rue El Assouli",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2219,
+    "numero": "203",
+    "nom": "PHARMACIE EL MENZEH AL MANAL",
+    "adresse": "Hay El Manzeh, 964",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2489,
+    "numero": "474",
+    "nom": "PHARMACIE EL MORABET MARTIL",
+    "adresse": "N°83, Lot Tasghiti Av Sanaae,",
+    "ville": "MARTIL",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2288,
+    "numero": "272",
+    "nom": "PHARMACIE EL YAMOUNI",
+    "adresse": "8 ,Rue 3 Hay Chatt Tanja Balia",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2362,
+    "numero": "346",
+    "nom": "PHARMACIE ELIGHATA",
+    "adresse": "Hay El Fath, Imm. 42",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2478,
+    "numero": "463",
+    "nom": "PHARMACIE ERRACHIDIA",
+    "adresse": "38 Lot Errachidia",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2149,
+    "numero": "133",
+    "nom": "PHARMACIE ESPANA",
+    "adresse": "Imzouren 32250",
+    "ville": "AL HOCEIMA",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2307,
+    "numero": "291",
+    "nom": "PHARMACIE ESPOIR SANTE",
+    "adresse": "28, Avenue De Tizi Ousli",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2254,
+    "numero": "238",
+    "nom": "PHARMACIE ESSAFAE TEMARA",
+    "adresse": "route vers Temara 33, Av .Hamza",
+    "ville": "TEMARA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2192,
+    "numero": "176",
+    "nom": "PHARMACIE ETTAOUFIK",
+    "adresse": "371, Lotiss. Iziki",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2329,
+    "numero": "313",
+    "nom": "PHARMACIE EUROPA",
+    "adresse": "Bd Vignt Août Hôtel Kenzi",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2230,
+    "numero": "214",
+    "nom": "PHARMACIE EZZAHERA",
+    "adresse": "34 Bis, Bd Al Mourabitine",
+    "ville": "INEZGANE",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2391,
+    "numero": "375",
+    "nom": "PHARMACIE FADWA",
+    "adresse": "Avenue Jabrane Khalil Jabrane",
+    "ville": "EL JADIDA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2457,
+    "numero": "441",
+    "nom": "PHARMACIE FARABI NADOR",
+    "adresse": "Bd Mohammed V Nador",
+    "ville": "NADOR",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2150,
+    "numero": "134",
+    "nom": "PHARMACIE FATIMA ZAHRA",
+    "adresse": "2, Lot. Tourya, Anas 3",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2510,
+    "numero": "495",
+    "nom": "PHARMACIE FKIH BEN SALAH",
+    "adresse": "N°151, Boulevard Hassan II",
+    "ville": "FKIH BEN SALAH",
+    "region": "Beni Mellal- Khénifra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2319,
+    "numero": "303",
+    "nom": "PHARMACIE FLEMING RABAT",
+    "adresse": "1 lotissement Sahel Souissi",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2400,
+    "numero": "384",
+    "nom": "PHARMACIE FRAYHIYINE",
+    "adresse": "Madchar El Frayhiyeen",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2231,
+    "numero": "215",
+    "nom": "PHARMACIE GALIEN RABAT",
+    "adresse": "Angle  Av Med Belhessan",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2308,
+    "numero": "292",
+    "nom": "PHARMACIE GARDEN CALIFORNIA",
+    "adresse": "Lot la Colline Résid.",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2110,
+    "numero": "93",
+    "nom": "PHARMACIE GARE- AGDAL",
+    "adresse": "Gare O.N.C.F, Agdal Rabat",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2343,
+    "numero": "327",
+    "nom": "PHARMACIE GERANIUM",
+    "adresse": "Bd des Clubs Résidence The Park",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2525,
+    "numero": "510",
+    "nom": "PHARMACIE GOLF CITY",
+    "adresse": "Centre Commercial Bouskoura Golf City, RDC N°9",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2209,
+    "numero": "193",
+    "nom": "PHARMACIE GROTTE D’HERCULE",
+    "adresse": "Hay Jbilat. Achekar",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2330,
+    "numero": "314",
+    "nom": "PHARMACIE GUENFOUDA",
+    "adresse": "Centre Guenfouda",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2363,
+    "numero": "347",
+    "nom": "PHARMACIE HACIENDA",
+    "adresse": "Sidi Bouzid",
+    "ville": "EL JADIDA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2482,
+    "numero": "467",
+    "nom": "PHARMACIE HADJI",
+    "adresse": "1070 Bd Ba Hnini Hay Assalam",
+    "ville": "DAKHLA",
+    "region": "Dakhla - Oued Ed-Dahab",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2464,
+    "numero": "449",
+    "nom": "PHARMACIE HAIDAR SARL AU",
+    "adresse": "350 Lotissement Ramadane",
+    "ville": "FKIH BEN SALAH",
+    "region": "Beni Mellal- Khénifra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2320,
+    "numero": "304",
+    "nom": "PHARMACIE HAJ KAMAL",
+    "adresse": "203 Lotissement Khalouta Secteur",
+    "ville": "TEMARA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2458,
+    "numero": "442",
+    "nom": "PHARMACIE HAY AL IHESSANE",
+    "adresse": "Dechira Agadir",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2289,
+    "numero": "273",
+    "nom": "PHARMACIE HAY AL INARA",
+    "adresse": "Rue Aviation",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2145,
+    "numero": "128",
+    "nom": "PHARMACIE HAY EL JADID",
+    "adresse": "207 Bd Mehdi Ben Toumert",
+    "ville": "LARACHE",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2255,
+    "numero": "239",
+    "nom": "PHARMACIE HAY ERRABIE",
+    "adresse": "105.Bd Hanae Hay Errabie",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2232,
+    "numero": "216",
+    "nom": "PHARMACIE HAY RAJA",
+    "adresse": "125. Avenue Des Pleiades ,Hay Raja",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2335,
+    "numero": "319",
+    "nom": "PHARMACIE HAY RIAD SAHEL",
+    "adresse": "Hay Riad Lot N° 701-702",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2526,
+    "numero": "511",
+    "nom": "PHARMACIE HILALI",
+    "adresse": "28, Quartier Al Massira Tissa",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2483,
+    "numero": "468",
+    "nom": "PHARMACIE HIND",
+    "adresse": "79, Rue Bab Ahmar",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2442,
+    "numero": "426",
+    "nom": "PHARMACIE IBN AL HASSAN",
+    "adresse": "Hay Ain Kadouss",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2447,
+    "numero": "431",
+    "nom": "PHARMACIE IBN HAJAR",
+    "adresse": "4 Rue Ibn Hajjar Agdal",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2210,
+    "numero": "194",
+    "nom": "PHARMACIE IBN NAFIS MOHAMMADIA",
+    "adresse": "33, Av Monastir, Derb Chabab Bloc B",
+    "ville": "MOHAMMEDIA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2384,
+    "numero": "368",
+    "nom": "PHARMACIE IBN TAIMIA",
+    "adresse": "119 Lotissement Aladarissa",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2321,
+    "numero": "305",
+    "nom": "PHARMACIE IBN TOUFAIL",
+    "adresse": "Rue Ibn Zaïdoun",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2344,
+    "numero": "328",
+    "nom": "PHARMACIE IBORK",
+    "adresse": "1 Rue des Salins",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2120,
+    "numero": "103",
+    "nom": "PHARMACIE IBRAHIM AL KHALIL",
+    "adresse": "Complexe Ibrahim Al Khalil Imm A7",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2270,
+    "numero": "254",
+    "nom": "PHARMACIE IBTISSAM",
+    "adresse": "Bd Lalla Amina",
+    "ville": "SALE",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2186,
+    "numero": "170",
+    "nom": "PHARMACIE IFRAN",
+    "adresse": "12,Lot.Al Qods,Bloc 11,N°12",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2354,
+    "numero": "338",
+    "nom": "PHARMACIE IKLIL RYAD",
+    "adresse": "7, Rue Al Kharoub Sect.16, Ryad,",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2138,
+    "numero": "121",
+    "nom": "PHARMACIE INASS LAAYOUNE",
+    "adresse": "Cité Al Wahda",
+    "ville": "LAAYOUNE",
+    "region": "Laâyoune - Saguia al Hamra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2501,
+    "numero": "486",
+    "nom": "PHARMACIE INTERNATIONALE TEMARA",
+    "adresse": "N°31, Hay Wafaq 2",
+    "ville": "TEMARA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2463,
+    "numero": "447",
+    "nom": "PHARMACIE ISKAN CHAABI",
+    "adresse": "Lotiss. Dar Salama, Bloc H N°32",
+    "ville": "KENITRA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2411,
+    "numero": "395",
+    "nom": "PHARMACIE ISLANE",
+    "adresse": "Islan, Hay Mohammdi N°2 Imm T6",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2104,
+    "numero": "87",
+    "nom": "PHARMACIE JALILA K",
+    "adresse": "Km 14, Route Azemmour-Dar Bouazza, Casablanca",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2161,
+    "numero": "145",
+    "nom": "PHARMACIE JAMAA AFAILAL",
+    "adresse": "107, Av Sidi Mohamed Elkharraz",
+    "ville": "TETOUAN",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2121,
+    "numero": "104",
+    "nom": "PHARMACIE JARDIN DE TGHAT",
+    "adresse": "Lot Tghat 2, Complexe Al Andalous",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2271,
+    "numero": "255",
+    "nom": "PHARMACIE JARDINS DE MAJORELLE",
+    "adresse": "Lot Zahia Imm.39 Magasin N°4",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2311,
+    "numero": "295",
+    "nom": "PHARMACIE JAWHARA",
+    "adresse": "Hay Mohammadi Résidence Islane",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2392,
+    "numero": "376",
+    "nom": "PHARMACIE JNAN FES",
+    "adresse": "15, Rue Ibn Batouta",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2181,
+    "numero": "165",
+    "nom": "PHARMACIE JNANE DRADER",
+    "adresse": "34, Rue Jnane Drader, N°3,",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2630,
+    "numero": "615",
+    "nom": "PHARMACIE JOUR ET NUIT",
+    "adresse": "STATION AFRIQUIA LA GARE, AVENUE ANGLE",
+    "ville": "EL JADIDA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2345,
+    "numero": "329",
+    "nom": "PHARMACIE KADRI",
+    "adresse": "Douar Laamamra, Bouskoura",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2290,
+    "numero": "274",
+    "nom": "PHARMACIE KAMAR",
+    "adresse": "96 av. Mokhtar B.Ahmed Guernaoui Hay Saada",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2511,
+    "numero": "496",
+    "nom": "PHARMACIE KASBAH BOUZNIKA",
+    "adresse": "Du Golf Appartement N°7. A4",
+    "ville": "MOHAMMEDIA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2106,
+    "numero": "89",
+    "nom": "PHARMACIE KCEIBYA",
+    "adresse": "2, Centre Ouled Hanoune, Kceibya",
+    "ville": "KCEIBEA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2151,
+    "numero": "135",
+    "nom": "PHARMACIE KENZY TEMARA",
+    "adresse": "Lot. Elwifak Erac N°4420",
+    "ville": "TEMARA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2625,
+    "numero": "610",
+    "nom": "PHARMACIE KHNINICH MHAMID",
+    "adresse": "RÉSIDENCE DARRAZ, IMMEUBLE 6, MHAMID 9",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2256,
+    "numero": "240",
+    "nom": "PHARMACIE KOUNOUZ",
+    "adresse": "Residence Al Arz",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2437,
+    "numero": "421",
+    "nom": "PHARMACIE KSAR ELKEBIR",
+    "adresse": "7, Avenue de la Station Laksar Lakbir",
+    "ville": "LAKSAR LAKBIR",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2152,
+    "numero": "136",
+    "nom": "PHARMACIE L’HOPITAL",
+    "adresse": "6, Av Mly. Abdellah Targuist",
+    "ville": "TARGUIST",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2233,
+    "numero": "217",
+    "nom": "PHARMACIE L’IRIS",
+    "adresse": "19, Rue Benzert",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2322,
+    "numero": "306",
+    "nom": "PHARMACIE L’OLIVIER",
+    "adresse": "Lotissement Ouled Mtaa Sec 3",
+    "ville": "TEMARA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2484,
+    "numero": "469",
+    "nom": "PHARMACIE LA CLINIQUE OUJDA",
+    "adresse": "Moha Ou Hammou",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2459,
+    "numero": "443",
+    "nom": "PHARMACIE LA FAMILLE",
+    "adresse": "Lotissement Bir Anzarane",
+    "ville": "SEFROU",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2385,
+    "numero": "369",
+    "nom": "PHARMACIE LA FOIRE",
+    "adresse": "Hay Mir Ali, rue 23/103",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2272,
+    "numero": "256",
+    "nom": "PHARMACIE LA FONTAINE KENITRA",
+    "adresse": "401, Bd Mohammed V",
+    "ville": "KENITRA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2527,
+    "numero": "512",
+    "nom": "PHARMACIE LA GRANDE FARAH",
+    "adresse": "Hay El Farah 1 N°218",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2512,
+    "numero": "497",
+    "nom": "PHARMACIE LA GRANDE PHARMACIE",
+    "adresse": "Boulevard Hassan Ii Imm. Warda",
+    "ville": "MOHAMMEDIA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2257,
+    "numero": "241",
+    "nom": "PHARMACIE LA MARINA SALE",
+    "adresse": "3 Marina Bouregreg",
+    "ville": "SALE",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2108,
+    "numero": "91",
+    "nom": "PHARMACIE LA MOSQUEE",
+    "adresse": "76, rue de l'Atlas, Maarif, Casablanca",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2634,
+    "numero": "619",
+    "nom": "PHARMACIE LA MOSQUEE DU LIBAN",
+    "adresse": "BOULEVARD DES F.A.R. IMM BARUTEL",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2102,
+    "numero": "85",
+    "nom": "PHARMACIE LA PAIX",
+    "adresse": "20, Avenue Tarek Ibn Ziad N°7 Lot Kora 2, Témara",
+    "ville": "TEMARA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2193,
+    "numero": "177",
+    "nom": "PHARMACIE LA PAIX TEMARA",
+    "adresse": "20 Route El Fouarate Projet",
+    "ville": "TEMARA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2613,
+    "numero": "598",
+    "nom": "PHARMACIE LA PERLE DE BOUZNIKA",
+    "adresse": "CITE DE LA PERLE DE BOUZNIKA, GH 10, M5",
+    "ville": "BOUZNIKA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2323,
+    "numero": "307",
+    "nom": "PHARMACIE LA SUITE",
+    "adresse": "85, lotissement Riad Nakhil, route Immouzer",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2364,
+    "numero": "348",
+    "nom": "PHARMACIE LA VICTOIRE OUJDA",
+    "adresse": "24 Bd Fayçal Ben Abdelaziz",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2355,
+    "numero": "339",
+    "nom": "PHARMACIE LA VILLETTE",
+    "adresse": "23, Rue Abou Bakr El Wahrani",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2346,
+    "numero": "330",
+    "nom": "PHARMACIE LAAYOUNE MOHAMMEDIA",
+    "adresse": "35 Lotiss. de la Gare El Alia",
+    "ville": "MOHAMMEDIA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2194,
+    "numero": "178",
+    "nom": "PHARMACIE LAHBABI",
+    "adresse": "78, Avenue N (Jamila V) , Quartier Sbata",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2365,
+    "numero": "349",
+    "nom": "PHARMACIE LAHJAJMA",
+    "adresse": "Avenue du Phar Résidence",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2452,
+    "numero": "436",
+    "nom": "PHARMACIE LAHRACH",
+    "adresse": "Hay Massira I Lahrach Ii N° 556",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2513,
+    "numero": "498",
+    "nom": "PHARMACIE LALA HABIBA",
+    "adresse": "N°534, Lotissement Afaq 1",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2129,
+    "numero": "112",
+    "nom": "PHARMACIE LALLA CHAFIA",
+    "adresse": "Rue Gutenberg Ang. Rue Faraj",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2631,
+    "numero": "616",
+    "nom": "PHARMACIE LAMHAYA",
+    "adresse": "LAMHAYA OUJDA",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2195,
+    "numero": "179",
+    "nom": "PHARMACIE LAMORICIERE",
+    "adresse": "33 Rue de Tarablous",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2273,
+    "numero": "257",
+    "nom": "PHARMACIE LAVENIR RABAT",
+    "adresse": "23, M3 Av El Majd Hay El Fath",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2234,
+    "numero": "218",
+    "nom": "PHARMACIE LAYACHI",
+    "adresse": "Avenue Essalam (C.Y.M.) 2",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2247,
+    "numero": "231",
+    "nom": "PHARMACIE LAYALI",
+    "adresse": "Lot Layali2 N°99",
+    "ville": "BERRECHID",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2309,
+    "numero": "293",
+    "nom": "PHARMACIE LE REPERE",
+    "adresse": "395, Bd Moulay Ismaïl, Rte.De Rabat",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2401,
+    "numero": "385",
+    "nom": "PHARMACIE LE VIZIR",
+    "adresse": "Douar Oulad Benrahmoun",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2626,
+    "numero": "611",
+    "nom": "PHARMACIE LEMKHOUDEM",
+    "adresse": "RUE WIFAK - AUTRE VILLE, QUARTIER FKIH HASKOURI MIFTAH EL KHEIR",
+    "ville": "SAFI",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2331,
+    "numero": "315",
+    "nom": "PHARMACIE LES 3 FONTAINES SARL",
+    "adresse": "15 Bd Ferrane Ouled Aissa",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2146,
+    "numero": "129",
+    "nom": "PHARMACIE LES ALMOHADES",
+    "adresse": "Rue Zagora Hassan",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2332,
+    "numero": "316",
+    "nom": "PHARMACIE LES JARDINS DES OLIVERS",
+    "adresse": "N° 41 Al Anouar Mejjat",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2537,
+    "numero": "522",
+    "nom": "PHARMACIE LES JARDINS DU POLO",
+    "adresse": "102 Bis, Avenue d'Atlantide",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2169,
+    "numero": "153",
+    "nom": "PHARMACIE LES JOYAUX DE BOUSKOURA",
+    "adresse": "Résidence Les Joyaux De Bouskoura",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2111,
+    "numero": "94",
+    "nom": "PHARMACIE LES JOYEUX DE BOUSKOURA",
+    "adresse": "Résidence les Joyeux de Bouskoura, Immeuble C  Magasin 1, Ville Verte Bouskoura, Casablanca",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2336,
+    "numero": "320",
+    "nom": "PHARMACIE LES PARENTS",
+    "adresse": "28, Bd Mehdi Ben Barka, Riad Salam",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2438,
+    "numero": "422",
+    "nom": "PHARMACIE LES PARENTS LAOUAMRA",
+    "adresse": "Laouamra",
+    "ville": "LARACHE",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2258,
+    "numero": "242",
+    "nom": "PHARMACIE LES PARENTS TANGER",
+    "adresse": "Hay Mesnana, Lot 8",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2528,
+    "numero": "513",
+    "nom": "PHARMACIE LES TERRASSES DAR ESSALAM",
+    "adresse": " Rue Bani Meskine , Résidence Les Terrasses Dar Essalam Magasin A1C3, Souissi",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2453,
+    "numero": "437",
+    "nom": "PHARMACIE LISBONNE NADIA SARL AU",
+    "adresse": "18 Rue Abdeslam Khattabi",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2220,
+    "numero": "204",
+    "nom": "PHARMACIE LOJAIN",
+    "adresse": "N°10 Avenue Ibn Badis Rue N°7 Lotissement Koudia",
+    "ville": "EL JADIDA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2291,
+    "numero": "275",
+    "nom": "PHARMACIE LOTFI AMAR",
+    "adresse": "25, lotissement Boubker Nejar",
+    "ville": "SALE",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2147,
+    "numero": "130",
+    "nom": "PHARMACIE LOUBNA SANTE",
+    "adresse": "Hay Arrahma, Sect. A N°83",
+    "ville": "SALE",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2629,
+    "numero": "614",
+    "nom": "PHARMACIE LUXEMBOURG",
+    "adresse": "LES CRÊTES LOT. YASMINA LOT. N°24 BACHKOU POLO",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2196,
+    "numero": "180",
+    "nom": "PHARMACIE M AVENUE",
+    "adresse": "2 Av. de la Ménara",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2490,
+    "numero": "475",
+    "nom": "PHARMACIE MAKRO",
+    "adresse": "3, Lotissement Fadoua, N°15, Bensouda",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2410,
+    "numero": "394",
+    "nom": "PHARMACIE MALAK",
+    "adresse": "Carrefour Market Hay El Wifak",
+    "ville": "TEMARA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2347,
+    "numero": "331",
+    "nom": "PHARMACIE MALKIA SALE",
+    "adresse": "Malkia, Douar Labrahma, Route",
+    "ville": "SALE",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2422,
+    "numero": "406",
+    "nom": "PHARMACIE MANDARONA",
+    "adresse": "Route de Bouskoura (C.T.1029)",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2623,
+    "numero": "608",
+    "nom": "PHARMACIE MANYASS",
+    "adresse": "446 LOT MOULAY ISMAIL TR 6, TAMANSOURT",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2538,
+    "numero": "523",
+    "nom": "PHARMACIE MARINA",
+    "adresse": "54, rue Ibno Jahir",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2221,
+    "numero": "205",
+    "nom": "PHARMACIE MARJANE BOUREGREG",
+    "adresse": "Marjane Bouregreg, Rue Azilal",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2312,
+    "numero": "296",
+    "nom": "PHARMACIE MARJANE MENARA",
+    "adresse": "Centre Commercial Marjane Menara",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2378,
+    "numero": "362",
+    "nom": "PHARMACIE MARJANE TANGER",
+    "adresse": "Route de Rabat, Km 5,6, Marjane",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2473,
+    "numero": "458",
+    "nom": "PHARMACIE MARJOLAINE RABAT",
+    "adresse": "Rue La Méditerranée, N°62",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2514,
+    "numero": "499",
+    "nom": "PHARMACIE MARYAM",
+    "adresse": "Lotissement Beni Yakhlef F/B N°68",
+    "ville": "MOHAMMEDIA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2170,
+    "numero": "154",
+    "nom": "PHARMACIE MASJID PALESTINE",
+    "adresse": "1, Lot El Menzeh, Bir Rami Est",
+    "ville": "KENITRA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2162,
+    "numero": "146",
+    "nom": "PHARMACIE MEDINA ANCIENNE SARL",
+    "adresse": "6 Bis, Rue Bab Chellah",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2418,
+    "numero": "402",
+    "nom": "PHARMACIE MEDIOUNA",
+    "adresse": "Bd Mohammed 6 N° 866",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2107,
+    "numero": "131",
+    "nom": "PHARMACIE MEGA MALL",
+    "adresse": "K042 Avenue Imam Malik",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2461,
+    "numero": "445",
+    "nom": "PHARMACIE MEJJANE",
+    "adresse": "32 Secteur L Cité Elhouda",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2485,
+    "numero": "470",
+    "nom": "PHARMACIE MEKNES",
+    "adresse": "194 Sahara II",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2197,
+    "numero": "181",
+    "nom": "PHARMACIE MENARA CASA",
+    "adresse": "Derb El Miter N° 9 Rue 1",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2292,
+    "numero": "276",
+    "nom": "PHARMACIE MIMOSAS",
+    "adresse": "460, Boulevard Mohamed V",
+    "ville": "KENITRA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2105,
+    "numero": "88",
+    "nom": "PHARMACIE MIRABEL",
+    "adresse": "5, rue des Fauvettes, Oasis Casablanca",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2515,
+    "numero": "500",
+    "nom": "PHARMACIE MISK",
+    "adresse": "Hay Riad Sect 21 B 12",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2274,
+    "numero": "258",
+    "nom": "PHARMACIE MOHSSINE",
+    "adresse": "107, Hay El Maghreb El Arabi",
+    "ville": "KENITRA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2235,
+    "numero": "219",
+    "nom": "PHARMACIE MOKHTAR SOUSSI",
+    "adresse": "Hay Mabrouka",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2198,
+    "numero": "182",
+    "nom": "PHARMACIE MOSQUEE HAY RYAD",
+    "adresse": "N° 5 Sect 17 Allee Safsaf Résidence",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2423,
+    "numero": "407",
+    "nom": "PHARMACIE MOUADAFINE",
+    "adresse": "Quartier Boughaz Rue 70 N° 1 A",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2470,
+    "numero": "455",
+    "nom": "PHARMACIE MOUATAMID IBN ABBAD",
+    "adresse": "96, Lotiss. Al Mountazah 1",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2402,
+    "numero": "386",
+    "nom": "PHARMACIE MOUENE FES",
+    "adresse": "Hay Msallah Lotiss. Andalous",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2337,
+    "numero": "321",
+    "nom": "PHARMACIE MOUKAWAMA",
+    "adresse": "36, Av. Moukawama, Résid. Oukaimdne",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2432,
+    "numero": "416",
+    "nom": "PHARMACIE MOULAY ABDELAZIZE",
+    "adresse": "Avenue Mly Youssef",
+    "ville": "LAAYOUNE",
+    "region": "Laâyoune - Saguia al Hamra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2259,
+    "numero": "243",
+    "nom": "PHARMACIE MOULAY BAGHDAD",
+    "adresse": "Route Principale de Beni Ensar",
+    "ville": "NADOR",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2211,
+    "numero": "195",
+    "nom": "PHARMACIE MOULAY DRISS",
+    "adresse": "Hay El Farah, Rue 50 N°25",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2372,
+    "numero": "356",
+    "nom": "PHARMACIE MOULAY MELIANA",
+    "adresse": "93 Bis,Rue Moulay Meliana",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2122,
+    "numero": "105",
+    "nom": "PHARMACIE MOULAY YOUSSEF",
+    "adresse": "10 Avenue Moulay Youssef",
+    "ville": "BEN SLIMANE",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2471,
+    "numero": "456",
+    "nom": "PHARMACIE MOULAY YOUSSEF CASA",
+    "adresse": "139 Bd Moulay Youssef Bourgogne",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2275,
+    "numero": "259",
+    "nom": "PHARMACIE MOULAY YOUSSEF TANGER",
+    "adresse": "50A, Avenue Moulay Youssef",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2366,
+    "numero": "350",
+    "nom": "PHARMACIE MOULAY YOUSSEF TAZA",
+    "adresse": "Bd. My Youssef Résidence",
+    "ville": "TAZA",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2433,
+    "numero": "417",
+    "nom": "PHARMACIE MOURCHID FES",
+    "adresse": "2, Rue Tadhia, Narjiss C",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2424,
+    "numero": "408",
+    "nom": "PHARMACIE NABIL",
+    "adresse": "Lotissement Mansour 3, N°5",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2163,
+    "numero": "147",
+    "nom": "PHARMACIE NADIR",
+    "adresse": "Rue N°3, Hay Arraha",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2454,
+    "numero": "438",
+    "nom": "PHARMACIE NAKHIL",
+    "adresse": "168, Avenue Hassan II",
+    "ville": "TETOUAN",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2324,
+    "numero": "308",
+    "nom": "PHARMACIE NASRI CASA",
+    "adresse": "Hay Hassani Bloc 2 N°75 Bis",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2199,
+    "numero": "183",
+    "nom": "PHARMACIE NASSIM RIAD",
+    "adresse": "47, Av. Essanaoubar, Sect. 21",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2222,
+    "numero": "622",
+    "nom": "PHARMACIE NOUR AL HOUDA",
+    "adresse": "AVENUE AL ISRAE HAY EL AMAL NARJISS N 146 NARJISS",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2403,
+    "numero": "387",
+    "nom": "PHARMACIE NOUVELE GARE",
+    "adresse": "Mojamaa Hassani N°93",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2465,
+    "numero": "450",
+    "nom": "PHARMACIE NOUVELLE EL GUICH",
+    "adresse": "Centre Commercial El Guich",
+    "ville": "TEMARA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2325,
+    "numero": "309",
+    "nom": "PHARMACIE NYA",
+    "adresse": "Bd Med 5 Imm Al Atlassiya",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2153,
+    "numero": "137",
+    "nom": "PHARMACIE OASIS",
+    "adresse": "64 Boulevard Abderrahim",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2516,
+    "numero": "501",
+    "nom": "PHARMACIE OCEAN BAY",
+    "adresse": "N°127, Ocean Bay, Dar Bouazza",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2200,
+    "numero": "184",
+    "nom": "PHARMACIE OCEAN PALM",
+    "adresse": "Tamaris",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2348,
+    "numero": "332",
+    "nom": "PHARMACIE OLINO SARLAU",
+    "adresse": "Centre Commercial Olino",
+    "ville": "BOUSKOURA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2393,
+    "numero": "377",
+    "nom": "PHARMACIE ORGANICA",
+    "adresse": "Wahat Sidi Brahim Wlad",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2293,
+    "numero": "277",
+    "nom": "PHARMACIE OUAHID",
+    "adresse": "Ancienne Route de l'Aéroport",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2614,
+    "numero": "599",
+    "nom": "PHARMACIE OUED DAHAB",
+    "adresse": "266 BOULEVARD IBN EL HAYTEM",
+    "ville": "SALE",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2517,
+    "numero": "502",
+    "nom": "PHARMACIE OULED JERRAR",
+    "adresse": "Village Pilote Passage Al Yamane",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2404,
+    "numero": "388",
+    "nom": "PHARMACIE OUM ADAM",
+    "adresse": "Douar Oled Zahra, centre commercial Sidi Aissa Ben Ali",
+    "ville": "BENIMELLAL",
+    "region": "Beni Mellal- Khénifra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2260,
+    "numero": "244",
+    "nom": "PHARMACIE OUM EL KHEIR",
+    "adresse": "Derb El Amal Rue N° 6",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2373,
+    "numero": "357",
+    "nom": "PHARMACIE OUM EL KORA",
+    "adresse": "30, lotissement Oumel Qora",
+    "ville": "KHOURIBGA",
+    "region": "Beni Mellal- Khénifra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2518,
+    "numero": "503",
+    "nom": "PHARMACIE OUM YAHIA",
+    "adresse": "Lotissement Harbi N°9",
+    "ville": "FKIH BEN SALAH",
+    "region": "Beni Mellal- Khénifra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2394,
+    "numero": "378",
+    "nom": "PHARMACIE OUMAIMA",
+    "adresse": "Avenue Ibn Rochd",
+    "ville": "GUELMIM",
+    "region": "Guelmim - Oued Noun",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2201,
+    "numero": "185",
+    "nom": "PHARMACIE PALACIO",
+    "adresse": "Résidence Palacio",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2302,
+    "numero": "286",
+    "nom": "PHARMACIE PALAIS DES CONGRES",
+    "adresse": "Lot. Aspen , Imm. F N°59 Skhirate",
+    "ville": "SKHIRATE",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2529,
+    "numero": "514",
+    "nom": "PHARMACIE PALMIERS OASIS",
+    "adresse": "Residence Espoir, Oasis",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2338,
+    "numero": "322",
+    "nom": "PHARMACIE PARANFA AIN DIAB",
+    "adresse": "Centre Commercial Paranfa - Ain Dia",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2182,
+    "numero": "166",
+    "nom": "PHARMACIE PASTEUR",
+    "adresse": "3, Pl. France",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2486,
+    "numero": "471",
+    "nom": "PHARMACIE PLACE DES NATIONS",
+    "adresse": "Bd Mehdi Ben Toumert, Résid. Rokaia",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2487,
+    "numero": "472",
+    "nom": "PHARMACIE PLACE DU MAROC",
+    "adresse": "Avenue Moulay Abdelaziz",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2474,
+    "numero": "459",
+    "nom": "PHARMACIE PONT BLONDIN",
+    "adresse": "Plage Tilal, El Mansouria Bensliman",
+    "ville": "MOHAMMEDIA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2310,
+    "numero": "294",
+    "nom": "PHARMACIE PORTE CALIFORNIE",
+    "adresse": "Route 109, Avenue Mekka",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2395,
+    "numero": "379",
+    "nom": "PHARMACIE PORTE D’ANFA",
+    "adresse": "197, Bd de Bourgogne, Q. Racine",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2359,
+    "numero": "343",
+    "nom": "PHARMACIE PREMIUM",
+    "adresse": "115 Targa Jawhar II",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2440,
+    "numero": "424",
+    "nom": "PHARMACIE PRESTIGIA",
+    "adresse": "Avenue Abderrahim Bouabid",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2425,
+    "numero": "409",
+    "nom": "PHARMACIE RABII AL MOUSTAKBAL",
+    "adresse": "Lotiss. Al Moustakbal,Gh34 Imm. T30",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2502,
+    "numero": "487",
+    "nom": "PHARMACIE RANIA",
+    "adresse": "Hay Ryad, N°9 Iot 6 Résidence Rahma",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2621,
+    "numero": "606",
+    "nom": "PHARMACIE RAYYANE",
+    "adresse": "522, LOT EL MASSAR",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2101,
+    "numero": "84",
+    "nom": "PHARMACIE REDOUANE SANTE",
+    "adresse": "1, rue Midelt, Sidi Daoui,Oued Edahab, Salé",
+    "ville": "SALE",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2154,
+    "numero": "138",
+    "nom": "PHARMACIE RELAIS DES MEDECINS",
+    "adresse": "Hay Ryad, Résid. Ryad Al Andalous",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2294,
+    "numero": "278",
+    "nom": "PHARMACIE RHAOUTI",
+    "adresse": "Hay Ryad, Hopital Cheikh Zaid",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2530,
+    "numero": "515",
+    "nom": "PHARMACIE RIAD ANASSI",
+    "adresse": "520 Bd Zitoune Lot. Riad",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2236,
+    "numero": "220",
+    "nom": "PHARMACIE RIAD ASSALAM",
+    "adresse": "Avenue Alaraar, Hay Riad Sect",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2183,
+    "numero": "167",
+    "nom": "PHARMACIE RIFAI",
+    "adresse": "Gharssat Essaghyr Hay Chriouer",
+    "ville": "ASSILAH",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2539,
+    "numero": "524",
+    "nom": "PHARMACIE RIHAB",
+    "adresse": "Route Nationale N°9, Pachalik",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2261,
+    "numero": "245",
+    "nom": "PHARMACIE RIM",
+    "adresse": "853 Avenue Moulay Ismail",
+    "ville": "TEMARA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2112,
+    "numero": "95",
+    "nom": "PHARMACIE ROMANDIE",
+    "adresse": "Immeuble Romandi 1, angle Boulevard Ibn Sina et Boulevard Bir Anzarane, Casablanca",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2339,
+    "numero": "323",
+    "nom": "PHARMACIE ROUTE LKHMIS",
+    "adresse": "Rue Med V Bloc 1 Bis",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2495,
+    "numero": "480",
+    "nom": "PHARMACIE SAADI CASABLANCA",
+    "adresse": "derb Hassania III rue 37 n°46",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2356,
+    "numero": "340",
+    "nom": "PHARMACIE SAADIA",
+    "adresse": "88, Avenue Des Forces Auxiliaires",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2237,
+    "numero": "221",
+    "nom": "PHARMACIE SABAH EL KHEIR",
+    "adresse": "20 Lotiss. Sabrine Sidi Maârouf",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2295,
+    "numero": "279",
+    "nom": "PHARMACIE SAFIYA",
+    "adresse": "Avenue Annakhil",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2123,
+    "numero": "106",
+    "nom": "PHARMACIE SAKANI CASABLANCA",
+    "adresse": "Bloc Immeuble N°801",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2124,
+    "numero": "107",
+    "nom": "PHARMACIE SALAM",
+    "adresse": "240, Targa Sidi M'Barek",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2416,
+    "numero": "400",
+    "nom": "PHARMACIE SANTE CITY CENTER",
+    "adresse": "10 Rue Moghogha Tour Offshore",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2374,
+    "numero": "358",
+    "nom": "PHARMACIE SAT FILAGE",
+    "adresse": "2, Lotissement Al Amana Tanger",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2615,
+    "numero": "600",
+    "nom": "PHARMACIE SAYARH",
+    "adresse": "3 AVENUE KIFAH (C.Y.M.) RÉSID. ESSABAH IMM. HAJAR",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2379,
+    "numero": "363",
+    "nom": "PHARMACIE SBAI",
+    "adresse": "Lotissement Mansour 2A, Immeuble B1 N°3",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2212,
+    "numero": "196",
+    "nom": "PHARMACIE SBIHI",
+    "adresse": "Résid. Alkhouzama, Av. Sidi Bel Abbes",
+    "ville": "SALE",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2426,
+    "numero": "410",
+    "nom": "PHARMACIE SECTEUR 15",
+    "adresse": "10 Bd Mohamed Lyazidi",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2472,
+    "numero": "457",
+    "nom": "PHARMACIE SEDRATI",
+    "adresse": "5 Hay Ibn Khaldoun Résid.",
+    "ville": "TEMARA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2434,
+    "numero": "418",
+    "nom": "PHARMACIE SHERATON",
+    "adresse": "9 Bd Mohammed VI",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2326,
+    "numero": "310",
+    "nom": "PHARMACIE SIDI BIBI",
+    "adresse": "Route de Tiznit",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2429,
+    "numero": "413",
+    "nom": "PHARMACIE SIDI EL MANDRI",
+    "adresse": "N°6, Avenue Mohamed Daoued",
+    "ville": "TETOUAN",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2155,
+    "numero": "139",
+    "nom": "PHARMACIE SIDI HSSAIN",
+    "adresse": "Quartier Assaka, Bloc C N° 87",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2620,
+    "numero": "605",
+    "nom": "PHARMACIE SIDI MOUSSA",
+    "adresse": "K090 DOUAR SIDI MOUSSA KM 9 TASELTANET",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2313,
+    "numero": "297",
+    "nom": "PHARMACIE SIF EDDINE",
+    "adresse": "Lot El Wafa 2, Bab Bettioui",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2187,
+    "numero": "171",
+    "nom": "PHARMACIE SOCCO ALTO",
+    "adresse": "Route de Rmilat , Centre Commercial SOCCO ALTO",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2156,
+    "numero": "140",
+    "nom": "PHARMACIE SOCRAT",
+    "adresse": "93 Bis, Rue Ibn Majat, Lotiss",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2635,
+    "numero": "620",
+    "nom": "PHARMACIE SONABA",
+    "adresse": "QUARTIER FOUNTY SONABA IMM. MIMOSAS",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2466,
+    "numero": "451",
+    "nom": "PHARMACIE SOUK LAKHMISS",
+    "adresse": "ANGLE BD.MOHAMED V ET BD.DOUAR EL GHAZOUANI-HAY AIT HAJJOU",
+    "ville": "M'RIRT",
+    "region": "Beni Mellal- Khénifra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2616,
+    "numero": "601",
+    "nom": "PHARMACIE STE AIN HAYAT",
+    "adresse": "N°366, LOTISSEMENT AIN EL HAYAT",
+    "ville": "SKHIRATE",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2140,
+    "numero": "123",
+    "nom": "PHARMACIE SUN SQUARE ALMAZ SARL",
+    "adresse": "218 Rocade Sud-Ouest",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2157,
+    "numero": "141",
+    "nom": "PHARMACIE TAHIRI KENITRA",
+    "adresse": "279, Hay Bir Rami Ouest",
+    "ville": "KENITRA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2396,
+    "numero": "380",
+    "nom": "PHARMACIE TAIBA",
+    "adresse": "20, Lotissement Fadila, Rte Ain Chkef",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2519,
+    "numero": "504",
+    "nom": "PHARMACIE TAJEDDINE",
+    "adresse": "Quartier Laayayda, Salé",
+    "ville": "SALE",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2397,
+    "numero": "381",
+    "nom": "PHARMACIE TALHA",
+    "adresse": "4 Rue Beni Meskine Souissi",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2531,
+    "numero": "516",
+    "nom": "PHARMACIE TANSIFT",
+    "adresse": "80 rue Tansift",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2184,
+    "numero": "168",
+    "nom": "PHARMACIE TARGA PLACE",
+    "adresse": "N°4 Ript Targa Nour, RDC n°4",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2417,
+    "numero": "401",
+    "nom": "PHARMACIE TARIK ALGHARB",
+    "adresse": "Route Taza, Hay Si Lakhdar",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2276,
+    "numero": "260",
+    "nom": "PHARMACIE THEATRE RABAT",
+    "adresse": "11 Rue Haj Abdeslam",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2109,
+    "numero": "92",
+    "nom": "PHARMACIE TIDDAS",
+    "adresse": "11, N°30, Bloc G, Kénitra",
+    "ville": "KENITRA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2636,
+    "numero": "621",
+    "nom": "PHARMACIE TILDI",
+    "adresse": "LOTISS. TILDI RUE OUED ZIZ BLOC 4 N°8 QUARTIER INDUSTRIEL",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2277,
+    "numero": "261",
+    "nom": "PHARMACIE TISSIR 2",
+    "adresse": "N°58 Lot Tissir",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2532,
+    "numero": "517",
+    "nom": "PHARMACIE TOUAMA",
+    "adresse": "Biougra",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2360,
+    "numero": "344",
+    "nom": "PHARMACIE TRIK EL FELLAH",
+    "adresse": "Km 4 Route El Fellah",
+    "ville": "TEMARA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2213,
+    "numero": "197",
+    "nom": "PHARMACIE UNIVERSELLE",
+    "adresse": "1 Avenue Allal Ben Abdellah",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2185,
+    "numero": "169",
+    "nom": "PHARMACIE VAL FLEURI",
+    "adresse": "Cité Plateau Extension, 89 Av. Stendhal",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2262,
+    "numero": "246",
+    "nom": "PHARMACIE VICTOR HUGO",
+    "adresse": "9 Bd Mohammed V",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2467,
+    "numero": "452",
+    "nom": "PHARMACIE VILLE NOUVELLE",
+    "adresse": "29, Boulevard des F.A.R, Place Al Massira",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2263,
+    "numero": "247",
+    "nom": "PHARMACIE VITA",
+    "adresse": "463 Bd Brahim Roudani, Casablanca",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2296,
+    "numero": "280",
+    "nom": "PHARMACIE VITAL TEMARA",
+    "adresse": "Résidence As-Shams Im B",
+    "ville": "TEMARA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2130,
+    "numero": "113",
+    "nom": "PHARMACIE VOLUBILIS SALE",
+    "adresse": "607 Bis Sect 11",
+    "ville": "SALE",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2520,
+    "numero": "505",
+    "nom": "PHARMACIE YASSI",
+    "adresse": "N° 3640 Lotissement Atlas 1",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2533,
+    "numero": "518",
+    "nom": "PHARMACIE YASSINE CASA",
+    "adresse": "19 Rue de Lille Belvedere",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2617,
+    "numero": "602",
+    "nom": "PHARMACIE ZAERS",
+    "adresse": "BOULEVARD MOHAMMED VI (EX IMAM MALIK)",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2496,
+    "numero": "481",
+    "nom": "PHARMACIE ZAIDI EL AROUIT SARL",
+    "adresse": "Av. Hassan Ii Hay Elfarah",
+    "ville": "NADOR",
+    "region": "L'oriental",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2103,
+    "numero": "86",
+    "nom": "PHARMACIE ZEHOUR",
+    "adresse": "Hay Ouled Oujih Lot 447 Bloc D, Kénitra",
+    "ville": "KENITRA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2297,
+    "numero": "281",
+    "nom": "PHARMACIE ZEMMAMA",
+    "adresse": "Km 16 Route Secondaire 109 Douar Fo",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2448,
+    "numero": "432",
+    "nom": "PHARMACIE ZEMMOURI",
+    "adresse": "2, Lotissement Nakhla,Rte Ain Smen",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2278,
+    "numero": "262",
+    "nom": "PHARMACIE ZENITH",
+    "adresse": "3 Rue Chefchaouen",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2304,
+    "numero": "288",
+    "nom": "PHARMACIE ZIRAOUI",
+    "adresse": "236, Bd Ziraoui, Bourgogne",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2618,
+    "numero": "603",
+    "nom": "PHARMACIE ZITOUNE",
+    "adresse": "RUE AL KARM SECTEUR 3, HAY RIAD",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2303,
+    "numero": "287",
+    "nom": "PHARMACIE ZOHOUR",
+    "adresse": "58, Rue Albania, Bd Soussa",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2435,
+    "numero": "419",
+    "nom": "PHARMACIE ZOUAGHA",
+    "adresse": "Route Ras El Ma, Km 3 Zouagha",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2248,
+    "numero": "232",
+    "nom": "PHARMACIE ZOUHAIR AZROU",
+    "adresse": "Rte De Midelt , Ajellab Azrou",
+    "ville": "AZROU",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2572,
+    "numero": "557",
+    "nom": "PHARMAMEK",
+    "adresse": "Zone Industrielle Bassatine",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2573,
+    "numero": "558",
+    "nom": "PHARMANORD",
+    "adresse": "43, Bis Chariaa Ahmed Chawki",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2574,
+    "numero": "559",
+    "nom": "PHARMASMIR",
+    "adresse": "Rue Sebbou Ain Khabaz",
+    "ville": "TETOUAN",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2077,
+    "numero": "60",
+    "nom": "PROFOND PARAPHARMACIE",
+    "adresse": "Mezanine 1er étage, N°24, rue Al Andalousse, Al Hoceima",
+    "ville": "AL HOCEIMA",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2039,
+    "numero": "22",
+    "nom": "R&H MEDICAL",
+    "adresse": "Boulevard Imam Ech-chafii N°66, Nador",
+    "ville": "NADOR",
+    "region": "L'oriental",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2575,
+    "numero": "560",
+    "nom": "RECAMED",
+    "adresse": "lotissement 1, Alamia",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2085,
+    "numero": "68",
+    "nom": "REGIONAL HEALTH CARE",
+    "adresse": "Hay Erramla, Angle Boulevard Amesquir et Chiadma, Laayoune",
+    "ville": "LAAYOUNE",
+    "region": "Laâyoune - Saguia al Hamra",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2606,
+    "numero": "591",
+    "nom": "REPHAK",
+    "adresse": "Lotissement N°73 Zone Industrielle",
+    "ville": "KENITRA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2576,
+    "numero": "561",
+    "nom": "REPHAL",
+    "adresse": "N° 34, Zone D'activité Hostal",
+    "ville": "LARACHE",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2577,
+    "numero": "562",
+    "nom": "REPHAR",
+    "adresse": "1 Bis Rue Ribat El Kheir",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2534,
+    "numero": "519",
+    "nom": "REVEAL PHARMACIE CHIFAE",
+    "adresse": "10 Avenue Afghanistan Hay Hassani",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2578,
+    "numero": "563",
+    "nom": "SARP",
+    "adresse": "Résidence Charf N°80",
+    "ville": "TANGER",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2367,
+    "numero": "351",
+    "nom": "SDI PHARMA SARL AU",
+    "adresse": "Bd Riad Lotissement Massira N°24",
+    "ville": "MOHAMMEDIA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2599,
+    "numero": "584",
+    "nom": "SDM PHARMA",
+    "adresse": "CC7 Avenue Abderrahim Bouabid",
+    "ville": "SALE",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2579,
+    "numero": "564",
+    "nom": "SERP S.A",
+    "adresse": "151, Zone d'activité Al Massar",
+    "ville": "MARRAKECH",
+    "region": "Marrakech- Safi",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2455,
+    "numero": "439",
+    "nom": "SOCIETE PHARMACIE BLANCO",
+    "adresse": "A Coté du Café Blanco",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2580,
+    "numero": "565",
+    "nom": "SOPHACA",
+    "adresse": "lotissement Civim, lot n°14",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2603,
+    "numero": "588",
+    "nom": "SOPHACENTRE BENIMELLAL",
+    "adresse": "Lotissement n°5, Quartier industriel",
+    "ville": "BENIMELLAL",
+    "region": "Beni Mellal- Khénifra",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2581,
+    "numero": "566",
+    "nom": "SOPHACENTRE RABAT",
+    "adresse": "Avenue Al Majd ang.",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2607,
+    "numero": "592",
+    "nom": "SOPHACENTRE SUCCURSALE",
+    "adresse": "Avenue Med Baraka Résidence Essalam",
+    "ville": "TETOUAN",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2582,
+    "numero": "567",
+    "nom": "SOPHACENTRE TEMARA",
+    "adresse": "Zone industrielle Ouled Ougba",
+    "ville": "TEMARA",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2583,
+    "numero": "568",
+    "nom": "SOPHACHARK",
+    "adresse": "Route de Maghnia-quatier industriel",
+    "ville": "OUJDA",
+    "region": "L'oriental",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2584,
+    "numero": "569",
+    "nom": "SOPHADIM",
+    "adresse": "8 rue Ammar Bnou Yasser-ex Antoine",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2585,
+    "numero": "570",
+    "nom": "SOPHAFAS",
+    "adresse": "2, Rue Khouribgua",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2586,
+    "numero": "571",
+    "nom": "SOPHAGHARB",
+    "adresse": "30 Lotissement Sidi Bouzerkri",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2587,
+    "numero": "572",
+    "nom": "SOPHANAD SA",
+    "adresse": "306, avenue Prince Héritier",
+    "ville": "NADOR",
+    "region": "L'oriental",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2588,
+    "numero": "573",
+    "nom": "SOPHANORD",
+    "adresse": "KM 7 route d'EL HAJEB",
+    "ville": "MEKNES",
+    "region": "Fès-Meknès",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2589,
+    "numero": "574",
+    "nom": "SOPHASAIS",
+    "adresse": "36 Rue Jabir Ibn Hayane",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2590,
+    "numero": "575",
+    "nom": "SOPHASALE",
+    "adresse": "Ain Hwala Hay Mly Isamail",
+    "ville": "SALE",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2591,
+    "numero": "576",
+    "nom": "SOPHATLANTIC",
+    "adresse": "Route Dar Caïd Si Aissa",
+    "ville": "SAFI",
+    "region": "Marrakech- Safi",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2592,
+    "numero": "577",
+    "nom": "SOREMED",
+    "adresse": "Zone Industrielle Tassila n°176",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2593,
+    "numero": "578",
+    "nom": "SOREPHA",
+    "adresse": "lotissement 52 Tassila",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2608,
+    "numero": "593",
+    "nom": "SRM S.A.R.L",
+    "adresse": "N°237 Avenue de la Mecque Bureau 10",
+    "ville": "LAAYOUNE",
+    "region": "Laâyoune - Saguia al Hamra",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2602,
+    "numero": "587",
+    "nom": "STE MEDEXPERT EPRG SA",
+    "adresse": "N°131 Boulevard IBN AL HAYTAM",
+    "ville": "AGADIR",
+    "region": "Souss-Massa",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2419,
+    "numero": "403",
+    "nom": "STE PHARMA MER SARLAU",
+    "adresse": "Lot Madinat Al Wahda",
+    "ville": "DAKHLA",
+    "region": "Dakhla - Oued Ed-Dahab",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2188,
+    "numero": "172",
+    "nom": "STE PHARMACIE AL GHOFRANE",
+    "adresse": "1205, Lot Maghrib El Jadid",
+    "ville": "LARACHE",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2398,
+    "numero": "382",
+    "nom": "STE PHARMACIE PRINCIPALE",
+    "adresse": "364 Avenue 20 Août",
+    "ville": "TAROUDANT",
+    "region": "Souss-Massa",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2491,
+    "numero": "476",
+    "nom": "STE PHARMACIE VICTORIA PARC",
+    "adresse": "N°3, Immeuble C, lotissement Annasser",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Pharmacy"
+  },
+  {
+    "id": 2594,
+    "numero": "579",
+    "nom": "TADLA PHARM",
+    "adresse": "130 Boulevard MOHAMED V",
+    "ville": "BENIMELLAL",
+    "region": "Beni Mellal- Khénifra",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2075,
+    "numero": "58",
+    "nom": "THE GREAT SHOWROOM PARA",
+    "adresse": "Magasin N°4 RDC, Lotissement 351 et 352 route de Sefrou, Fès",
+    "ville": "FES",
+    "region": "Fès-Meknès",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2071,
+    "numero": "54",
+    "nom": "TS PARA",
+    "adresse": "Avenue Oum Kelthoum Raghoun Ziana, Tétouan",
+    "ville": "TETOUAN",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Parapharmacy"
+  },
+  {
+    "id": 2595,
+    "numero": "580",
+    "nom": "U.G.P",
+    "adresse": "100, rue Bachir El Ibrahimi-ex",
+    "ville": "CASABLANCA",
+    "region": "Casablanca- Settat",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2596,
+    "numero": "581",
+    "nom": "U.P.M",
+    "adresse": "17, rue Aguelmane Sidi Ali",
+    "ville": "RABAT",
+    "region": "Rabat-Salè- Kénitra",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2597,
+    "numero": "582",
+    "nom": "UNIFARMA",
+    "adresse": "avenue Mohamed Baraka, Résidence Salam",
+    "ville": "TETOUAN",
+    "region": "Tanger- Tétouan-Al Hoceima",
+    "type": "Wholesaler"
+  },
+  {
+    "id": 2598,
+    "numero": "583",
+    "nom": "UPHAR S.A",
+    "adresse": "zone industrielle",
+    "ville": "NADOR",
+    "region": "L'oriental",
+    "type": "Wholesaler"
+  }
+]

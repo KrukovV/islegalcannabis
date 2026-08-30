@@ -1,0 +1,395 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-15T04:40:22.337Z",
+  "input_path": "data/store_truth/coordinate_augmentations/us-la-ldh-current-medical-marijuana-retailers-census-input-2026-08-15.json",
+  "input_sha256": "ade10411d303b2b1e81fd6d729f5775d0b34b114666ae5ac73a25477f9fef6ec",
+  "census_geocoder_url": "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+  "census_benchmark": "Public_AR_Current",
+  "census_response_sha256": "e8ffe56957616047eac7a3a46fb09fe53e9026bc701b47fd89b1085d4d358ae4",
+  "records": [
+    {
+      "source_record_id": "US-LA:BASE:02:07bf485482e8bbc27685e3ba",
+      "address": "100 W. Airline Hwy",
+      "city": "Kenner",
+      "region": "LA",
+      "postal_code": "70062",
+      "latitude": 29.980254293856,
+      "longitude": -90.277089154284,
+      "census_matched_postal_code": "70062",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "100 W AIRLINE HWY, KENNER, LA, 70062"
+      }
+    },
+    {
+      "source_record_id": "US-LA:BASE:03:a024753fd01c7350de2bba1c",
+      "address": "8037 Picardy Avenue",
+      "city": "Baton Rouge",
+      "region": "LA",
+      "postal_code": "70809",
+      "latitude": 30.397344156687,
+      "longitude": -91.105726263528,
+      "census_matched_postal_code": "70809",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "8037 PICARDY AVE, BATON ROUGE, LA, 70809"
+      }
+    },
+    {
+      "source_record_id": "US-LA:BASE:05:e4a2244d69df5ed78e613517",
+      "address": "2104 Ambassador Caffery Parkway",
+      "city": "Lafayette",
+      "region": "LA",
+      "postal_code": "70506",
+      "latitude": 30.213855533451,
+      "longitude": -92.075753898477,
+      "census_matched_postal_code": "70506",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "2104 AMBASSADOR CAFFERY PKWY, LAFAYETTE, LA, 70506"
+      }
+    },
+    {
+      "source_record_id": "US-LA:BASE:07:87bce7b40771b5a144772fa1",
+      "address": "40 Pinecrest Drive",
+      "city": "Pineville",
+      "region": "LA",
+      "postal_code": "71360",
+      "latitude": 31.363059087812,
+      "longitude": -92.410374843661,
+      "census_matched_postal_code": "71360",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "40 PINECREST DR, PINEVILLE, LA, 71360"
+      }
+    },
+    {
+      "source_record_id": "US-LA:BASE:08:7aa86cf8778a886fb791019c",
+      "address": "4590 E. Texas Street",
+      "city": "Bossier City",
+      "region": "LA",
+      "postal_code": "71111",
+      "latitude": 32.533373066007,
+      "longitude": -93.672304765327,
+      "census_matched_postal_code": "71111",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "4590 E TEXAS ST, BOSSIER CITY, LA, 71111"
+      }
+    },
+    {
+      "source_record_id": "US-LA:BASE:09:58044e59ada16030b2e811d5",
+      "address": "1707 McKeen Place",
+      "city": "Monroe",
+      "region": "LA",
+      "postal_code": "71201",
+      "latitude": 32.524820798114,
+      "longitude": -92.116652273443,
+      "census_matched_postal_code": "71201",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1707 MCKEEN PL, MONROE, LA, 71201"
+      }
+    },
+    {
+      "source_record_id": "US-LA:BASE:10:05f0d5203c80bcfc3508ebb8",
+      "address": "69090 Highway 190 Service Road",
+      "city": "Covington",
+      "region": "LA",
+      "postal_code": "70433",
+      "latitude": 30.430937776511,
+      "longitude": -90.083488136395,
+      "census_matched_postal_code": "70433",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "69090 US HWY 190 SVC RD, COVINGTON, LA, 70433"
+      }
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:01:ec15f7f98fe08c2158c4e4f3",
+      "address": "5055 Veterans Memorial Blvd.",
+      "city": "Metairie",
+      "region": "LA",
+      "postal_code": "70006",
+      "latitude": 30.006126563834,
+      "longitude": -90.196010900244,
+      "census_matched_postal_code": "70006",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "5055 VETERANS MEMORIAL BLVD, METAIRIE, LA, 70006"
+      }
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:02:1626fcc838eacc46f65cbd7f",
+      "address": "1544 Manhattan Blvd.",
+      "city": "Harvey",
+      "region": "LA",
+      "postal_code": "70058",
+      "latitude": 29.892332317329,
+      "longitude": -90.05914684275,
+      "census_matched_postal_code": "70058",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1544 MANHATTAN BLVD, HARVEY, LA, 70058"
+      }
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:03:3116874e8ca4782cbde83d49",
+      "address": "1407 S. Carrollton Avenue",
+      "city": "New Orleans",
+      "region": "LA",
+      "postal_code": "70118",
+      "latitude": 29.948672230136,
+      "longitude": -90.127982750779,
+      "census_matched_postal_code": "70118",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1407 S CARROLLTON AVE, NEW ORLEANS, LA, 70118"
+      }
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:04:1a6a68253fd2efe290054546",
+      "address": "1940 O'Neal Lane",
+      "city": "Baton Rouge",
+      "region": "LA",
+      "postal_code": "70816",
+      "latitude": 30.440700806098,
+      "longitude": -91.007646538779,
+      "census_matched_postal_code": "70816",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1940 O'NEAL LN, BATON ROUGE, LA, 70816"
+      }
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:05:8aebc69aa28c5c5b702f4a7a",
+      "address": "17097 Airline Hwy",
+      "city": "Prairieville",
+      "region": "LA",
+      "postal_code": "70769",
+      "latitude": 30.316275870673,
+      "longitude": -90.97742727466,
+      "census_matched_postal_code": "70769",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "17097 AIRLINE HWY, PRAIRIEVILLE, LA, 70769"
+      }
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:06:2a08eaed162c42197e682161",
+      "address": "6048 W. Park Avenue",
+      "city": "Houma",
+      "region": "LA",
+      "postal_code": "70364",
+      "latitude": 29.630970082876,
+      "longitude": -90.756197318305,
+      "census_matched_postal_code": "70364",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "6048 W PARK AVE, HOUMA, LA, 70364"
+      }
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:08:35ee6c0dc16997c449fa67ef",
+      "address": "1700 Center Street",
+      "city": "New Iberia",
+      "region": "LA",
+      "postal_code": "70560",
+      "latitude": 29.988389684101,
+      "longitude": -91.836568211647,
+      "census_matched_postal_code": "70560",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1700 CENTER ST, NEW IBERIA, LA, 70560"
+      }
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:09:f7dd894f46f67c837f80a71b",
+      "address": "1920 Evangeline Road",
+      "city": "Jennings",
+      "region": "LA",
+      "postal_code": "70546",
+      "latitude": 30.239725247931,
+      "longitude": -92.635893474592,
+      "census_matched_postal_code": "70546",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1920 EVANGELINE RD, JENNINGS, LA, 70546"
+      }
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:10:3205a6100daa61de5b309008",
+      "address": "303 South Cities Service Hwy.",
+      "city": "Sulphur",
+      "region": "LA",
+      "postal_code": "70663",
+      "latitude": 30.220164234368,
+      "longitude": -93.325385392552,
+      "census_matched_postal_code": "70663",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "303 S CITIES SERVICE HWY, SULPHUR, LA, 70663"
+      }
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:11:b2e366765d3c1024b142c270",
+      "address": "101 Cocoville Road",
+      "city": "Mansura",
+      "region": "LA",
+      "postal_code": "71350",
+      "latitude": 31.097266356845,
+      "longitude": -92.059438834922,
+      "census_matched_postal_code": "71350",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "101 COCOVILLE RD, MANSURA, LA, 71350"
+      }
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:12:167e34ab1d5ff4f612a4c967",
+      "address": "111 W. Harriet Street",
+      "city": "Leesville",
+      "region": "LA",
+      "postal_code": "71446",
+      "latitude": 31.140477149702,
+      "longitude": -93.263863501101,
+      "census_matched_postal_code": "71446",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "111 W HARRIET ST, LEESVILLE, LA, 71446"
+      }
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:14:30a98bce2dec1858ef8f5f87",
+      "address": "9352 Mansfield Road",
+      "city": "Shreveport",
+      "region": "LA",
+      "postal_code": "71118",
+      "latitude": 32.398041399264,
+      "longitude": -93.808419704173,
+      "census_matched_postal_code": "71118",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "9352 MANSFIELD RD, SHREVEPORT, LA, 71118"
+      }
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:16:0dc033f224cbf3f83c14052b",
+      "address": "746 Celebrity Drive",
+      "city": "Ruston",
+      "region": "LA",
+      "postal_code": "71270",
+      "latitude": 32.543443014393,
+      "longitude": -92.629697798537,
+      "census_matched_postal_code": "71270",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "746 CELEBRITY DR, RUSTON, LA, 71270"
+      }
+    },
+    {
+      "source_record_id": "US-LA:SATELLITE:18:6ad53c3e89f15e4c7cbec057",
+      "address": "1410 SW Railroad Avenue",
+      "city": "Hammond",
+      "region": "LA",
+      "postal_code": "70403",
+      "latitude": 30.488926725708,
+      "longitude": -90.456880732419,
+      "census_matched_postal_code": "70403",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1410 SW RAILROAD AVE, HAMMOND, LA, 70403"
+      }
+    }
+  ],
+  "counts": {
+    "input_records": 28,
+    "census_response_rows": 28,
+    "one_to_one_exact_census_geocodes": 21,
+    "blocked_census_no_exact_in_jurisdiction_match": 7
+  }
+}

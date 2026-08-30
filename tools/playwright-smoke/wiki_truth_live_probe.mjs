@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import fs from "node:fs/promises";
 import path from "node:path";
-import { chromium, webkit } from "@playwright/test";
+import { chromium, playwrightRuntime, webkit } from "../playwright_runtime.mjs";
 import { acquireProjectProcessSlot } from "../runtime/processSlots.mjs";
 
 const ROOT = process.cwd();
@@ -289,8 +289,8 @@ const expectedColorReviewDossierLegalBasisCounts =
     return counts;
   }, {});
 const expectedColorReviewDossierPrimaryLawBlockers = (
-  Array.isArray(colorReviewDossierArtifact.primaryLawBlockers?.geos)
-    ? colorReviewDossierArtifact.primaryLawBlockers.geos
+  Array.isArray(colorReviewDossierArtifact.primaryLawBlockerGeos)
+    ? colorReviewDossierArtifact.primaryLawBlockerGeos
     : []
 )
   .map((geo) => String(geo || ""))
@@ -2355,6 +2355,7 @@ try {
     generatedAt: new Date().toISOString(),
     browserName,
     headless,
+    playwrightRuntime,
     pass,
     screenshotBeforeError,
     screenshotAfterError,
@@ -2371,6 +2372,10 @@ try {
   await fs.writeFile(jsonPath, JSON.stringify(payload, null, 2));
 
   console.log(`WIKI_TRUTH_LIVE_OK=${pass ? 1 : 0}`);
+  console.log(`PLAYWRIGHT_RUNTIME_SOURCE=${playwrightRuntime.source}`);
+  console.log(`PLAYWRIGHT_RUNTIME_VERSION=${playwrightRuntime.version}`);
+  console.log(`PLAYWRIGHT_RUNTIME_CHROMIUM_REVISION=${playwrightRuntime.chromiumRevision}`);
+  console.log(`PLAYWRIGHT_RUNTIME_WEBKIT_REVISION=${playwrightRuntime.webkitRevision}`);
   console.log(`WIKI_TRUTH_ROW_COUNT=${details.rowCount}`);
   console.log(
     `WIKI_TRUTH_CANNABIS_MATRIX_ROW_COUNT=${details.cannabisMatrixRowCount}`,

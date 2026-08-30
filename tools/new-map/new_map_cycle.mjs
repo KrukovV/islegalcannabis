@@ -3,7 +3,7 @@ import fs from "node:fs/promises";
 import { spawnSync } from "node:child_process";
 import path from "node:path";
 import sharp from "sharp";
-import { chromium, webkit } from "@playwright/test";
+import { chromium, webkit } from "../playwright_runtime.mjs";
 
 const ROOT = process.cwd();
 const ARTIFACTS = path.join(ROOT, "Artifacts");

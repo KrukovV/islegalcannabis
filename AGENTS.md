@@ -11,6 +11,7 @@ Hard Rule:
 - No auto-plan lines: do not store or print "Next: ..." in CONTINUITY.md or stdout; only user-provided tasks may define future steps.
 - `CONTINUITY.md` has exactly one active `Goal:`, `State:`, `Done:`, and `Now:` header. Historical evidence remains as dated bullets or in the canonical audit ledger; duplicate state headers and `Next:` lines are invalid continuity state.
 - Lint is mandatory before Smoke/UI in CI; any lint error must fail the run (no pseudo-pass). Artifacts/Reports/QUARANTINE are never linted.
+- Matrix freshness is mandatory: `data/reviews/wiki-truth-cannabis-law-matrix-307.json` is regenerated exactly once from the canonical visual-review ledger before any `ci-local` or other reconciliation/projection test reads it. A stale generated matrix is CI FAIL; rebuilding it does not mutate Legal Truth, SSOT, Store Truth or production data.
 - Network Truth Policy: DNS is diagnostic only; ONLINE truth derives solely from HTTP/API/CONNECT/FALLBACK probes; cache may allow DEGRADED_CACHE but never sets ONLINE=1; single-probe-per-run uses `Artifacts/net_probe/<RUN_ID>.json` and must keep pass_cycle/quality_gate/hub_stage_report consistent; do not reintroduce dns_fail -> offline/online flip without explicit requirement change.
 - DNS — только диагностика; `online` вычисляется только по truth-probes (HTTP/health/API и подобное), DNS не влияет на ветвления/stop_reason/работу проекта.
 - DNS is diagnostic only; online is computed only from truth-probes (HTTP/health/API), DNS never affects branching/stop_reason/работу.
@@ -35,9 +36,9 @@ Hard Rule:
 - Every URL advertised by the canonical production sitemap must return HTTP 200 with a nonempty GEO-correct title, exact canonical URL and `index, follow`; a sitemap 200 with advertised page 404 is release FAIL.
 - The rendered `/` head must contain exactly one `link[rel="canonical"]` with the literal href `https://www.islegal.info/`. A layout-level canonical fallback must never compete with this root-specific value; `apps/web/e2e/favicon.spec.ts` is the focused rendered regression proof and must also assert the sitemap root URL.
 - Protected accepted sitemap baseline is `311` unique full URLs with split counts `238` countries, `50` U.S. states and `22` localized URLs, plus `4` entries in the sitemap index. Silent shrink or partition drift is forbidden without an explicit spec/test update and user-authorized release.
-- Monorepo runtime data must be retained through route-scoped Next.js output tracing only. A global `/*` include, whole-repository trace, or trace include for `/truth-map`, `/wiki-truth`, Social, DM or Store APIs is forbidden.
+- Monorepo runtime data must be retained through route-scoped Next.js output tracing only. A global `/*` include, whole-repository trace, or trace include for `/truth-map`, `/wiki-truth`, Social, DM or audit Store APIs is forbidden. The canonical public `/` and its explicit `/api/public-map/*` read adapters may trace only the bounded 307-GEO display and Store-gate inputs they require.
 - `/truth-map` and `/wiki-truth` must remain production 404 and absent from every sitemap; localhost audit availability must not be used as evidence that those routes are safe to expose publicly.
-- SEO/trace work must not change Legal Truth, SSOT, GEO colours, Store eligibility, Social state, popup conclusions or `/new-map` product semantics.
+- SEO/trace work must not change Legal Truth, SSOT, Store eligibility, Social state, popup conclusions or the production `/new-map` redirect semantics.
 - Production release requires a green canonical-root `bash tools/pass_cycle.sh`, the repository green release path, a complete live crawl of every advertised URL, populated split sitemaps, representative real-browser popup/metadata proof, and a green post-release root cycle.
 - Report `CRAWLABILITY_PASS` separately from Google state. A push, Vercel READY, sitemap 200 or live HTTP crawl never proves `GOOGLE_INDEX_CONFIRMED`; until current Search Console evidence exists, use `GOOGLE_RECRAWL_UNCONFIRMED`.
 
@@ -47,17 +48,36 @@ Hard Rule:
 - `/truth-map` must retain the canonical editable AI-assistant input dock as the primary persistent map control. Social may be added beside/above it, but must never replace, hide, disable, or overlap the AI dock.
 - Social is compact by default and expands independently. Closing/collapsing Social must not change AI-assistant availability.
 - Marker semantics are exclusive and must never be reused across domains:
-  - validated cannabis stores use only the cannabis-leaf marker (`validated-cannabis-store-leaf`, `/cannabis-store-leaf.svg`);
+  - individual validated cannabis stores use only the cannabis-leaf marker (`validated-cannabis-store-leaf`, `/cannabis-store-leaf.svg`);
+  - an individual leaf is a clean static full-colour green non-SDF image without a surrounding badge or outline, never a runtime-tinted `icon-color`/`icon-halo-*` sprite. A validated leaf remains at its exact coordinate; native labels retain visual priority through layer order. An invisible hit target is allowed only when it shares the identical source/filter/Store Truth visibility gate and has no independent visual or factual meaning;
+  - at global zoom `<4.2`, the same validated Store Truth gate may render one neutral storefront aggregate (`validated-cannabis-store-geo-summary-shop`, `/cannabis-store-summary-shop.svg`) and a legible country-level count; from `4.2` to `5.8`, it renders the corresponding country/state/territory count. Both use a low-precision, half-degree-rounded aggregate anchor derived from all visible records in the displayed group; they are not individual store markers and carry no individual location data;
+  - Store aggregates use fixed zoom bands and must ignore symbol-placement collisions, so their count cannot blink during a pan or basemap-label update. Store and Social layers must be inserted after the final native fill/line geometry and before the complete native label stack; an early native text layer is moved above them. This keeps roads/buildings from cutting through supplemental markers while country/place labels always render above them. Both the canonical public map and local `/truth-map` retain continuous horizontal world-wrap interaction;
   - Social MAP activity uses only the chat-bubble marker (`social-map-activity-chat-bubble`, `/social-discussion-chat.svg`) with the active-discussion count.
+- The public and audit Store zoom sequence is fixed: below `5.8` only one Store Truth-gated storefront aggregate per GEO; `5.8–10.2` the existing viewport clusters; from `10.2` individual cannabis leaves. Aggregate counts and leaf records use the same visibility gate. This must not alter Store data, Store eligibility, Legal Truth or Social.
+- A current individual municipal cannabis-retail authorisation notice may publish exactly one Store record only when the notice identifies one civic premises, retains its official publication or case reference, and has a one-to-one match in an authoritative civic-coordinate registry. It must be labelled as an individual notice, never as a complete municipal directory; multi-match addresses remain map-blocked and an unreported current licence or operating lifecycle remains `UNKNOWN_STATUS`.
+- The public map and `/truth-map` inherit the same shared `createMap` native place-label policy: each `place_city*` layer is visible at `5.8–24`, while `place_town*`, `place_villages*`, `place_hamlet*` and `place_suburb*` layers are visible at `6.6–24`. MapLibre may choose label density from the loaded style/tiles, but route-local rank hand-offs, GEO-specific label rules and viewport-driven label suppression are forbidden.
+- At local zoom `15`, the Store leaf is `icon-size=1.35`. On local `/truth-map`, the Social chat bubble is at least `1.45` (`1.65` only for denser aggregate activity), so the bubble is never smaller. Visual z15 Social requests use the API-safe `min(mapZoom, 14)` without changing H3 privacy scope, Store data, Social truth or the public map.
 - A Social marker selects an already-public privacy-safe H3 discussion area; it is not a store, user pin, exact location, distance indicator, or legal-truth signal.
-- Public Social and its map layer remain `/truth-map`-only. `/` and `/new-map` must remain free of Social UI/layers unless the user explicitly changes the route contract.
+- Social and its map layer remain local `/truth-map`-only. Production `/` and production `/new-map` must contain no Social, DM or AI UI/layers/requests. On localhost, the public-map QA wrapper may retain the canonical AI dock; it must not add Social or DM outside `/truth-map`.
 - Social UI must not change Legal Truth, GEO colours, stores, SSOT, SEO, production, or deployment state.
+- Production `/` must not render the legacy `CannabisLawMap` information card. It preserves the existing Antarctica canvas animation by reusing the established `AsciiOverlay`, scenario registry and MapLibre trigger binding; the animation is decorative only and cannot alter Legal Truth, Store Truth, popup content or map interaction.
+
+## Truth Map Rich Popup Context Contract (Hard Rule)
+
+- `docs/TRUTH_MAP_LEGAL_EVIDENCE_PRESENTATION_SPEC.md` is the canonical contract for legal evidence and supplementary territory context on the public map and local `/truth-map`.
+- Current Legal Truth, its colour/indicator and retained current official legal evidence are authoritative and render before any reused rich territory material.
+- A displayed supplementary restriction must state the applicable action, provide one retained source link and visibly say it is supplementary/not the current legal conclusion. Otherwise omit it fail-closed.
+- The shared rich-popup SEO CTA is an internal dotted-underlined link. It opens the matching `/c/[code]` SEO panel in place without a document reload; this interaction must not remove or reduce any legal-evidence, supplementary or profile section from the underlying popup record.
+- Historic, enforcement, product, cultivation, market and profile material must use a supplementary/historical heading whenever ordinary wording could be read as the current legal verdict. A legacy `why this colour` block must not duplicate the current reconciliation rationale.
+- This is one schema-driven rule for all 307 GEO. GEO-specific content, legal, colour or wording branches are forbidden. A current lawful route and an explicitly scoped penalty for unauthorised conduct must never be rendered as a contradiction.
+- The canonical full visual audit waits for the selected GEO identity and verifies supplementary action/source/boundary presentation for all 307 public-map and audit-map popups. It must not alter legal APIs, SSOT, Store Truth, SEO, production or deployment.
 
 ## Storage Hygiene (Hard Rule)
 
 - QUARANTINE must contain exactly 1 PASS snapshot; all other snapshots live خارج репозитория.
 - Reports is operational logs only; history archives must be outside the repo.
 - Archives belong in `~/islegalcannabis_archive/` (or an explicit external path).
+- Raw popup/wiki full-page screenshots must not accumulate in repository `Artifacts/`. Keep only the guard-required manifests, reports and metadata locally; archive raw image evidence under `~/islegalcannabis_archive/<run-id>/` after confirming the governing manifest already resolves its evidence from an external archive.
 - CI must fail on disk bloat (see size guards in `tools/pass_cycle.sh`).
 - `.codex/**` is a disposable derived layer, never a product SSOT. It may be backed up, rebuilt, or ignored locally; project agents and repo workflows must not depend on unique `.codex` contents or stale resume metadata.
 
@@ -78,6 +98,7 @@ Sandbox/Approval Workflow:
 
 Tools usage:
 - Prefer rg, fallback to grep -R when rg is unavailable.
+- Mandatory UI smoke accounting is fail-closed: `Reports/smoke-report.json` must account for every required test as `passed`, `failed` or `skipped`, with `total = passed + failed + skipped`. A mandatory smoke run may pass only when `failed=0` and `skipped=0`; opt-in visual audits must be tagged and excluded from the mandatory command, never silently accepted as skips.
 
 Network Truth Policy:
 - DNS is diagnostic only; it must never flip ONLINE/OFFLINE.

@@ -304,6 +304,10 @@ function buildMapRenderFallbackEntry(params: {
   });
   const recWiki = normalizedWiki.effective_pair.recreational;
   const medWiki = normalizedWiki.effective_pair.medical;
+  // A geometry-only fallback is deliberately unpainted.  Wiki claims remain
+  // audit metadata, but cannot become a legal conclusion for a territory that
+  // has no applicable map/legal projection.
+  const forceUnknownMapStatus = params.truthLevel === "UNKNOWN";
   const displayName =
     String(params.fallbackName || "").trim() ||
     getDisplayName(geo) ||
@@ -315,8 +319,8 @@ function buildMapRenderFallbackEntry(params: {
   const contract = buildStatusContract({
     wikiRecStatus: recWiki,
     wikiMedStatus: medWiki,
-    finalRecStatus: recWiki,
-    finalMedStatus: medWiki
+    finalRecStatus: forceUnknownMapStatus ? "Unknown" : recWiki,
+    finalMedStatus: forceUnknownMapStatus ? "Unknown" : medWiki
   });
   const statusEngine = deriveStatusEngineFromNormalizedPair({
     recStatus: contract.finalRecStatus,
@@ -1161,8 +1165,25 @@ export function buildGeoJson(type: string) {
       const resolvedGeo = !isState ? resolveCountryGeoFromProps(props) : null;
       const geo = isState ? geoFromStateProps(props) : resolvedGeo?.geo || "";
       if (!geo) return [];
+      const forceMapFallback = !isState && Boolean(resolvedGeo?.forceFallback || MAP_RENDER_FALLBACK_GEOS.has(geo));
       const entry =
-        lookup.get(geo) ||
+        (forceMapFallback
+          ? buildMapRenderFallbackEntry({
+              geo,
+              wiki: {
+                ...wikiClaims[geo],
+                wiki_rec: wikiLegalityTableByIso[geo]?.rec_status ?? wikiClaims[geo]?.wiki_rec ?? wikiClaims[geo]?.recreational_status,
+                wiki_med: wikiLegalityTableByIso[geo]?.med_status ?? wikiClaims[geo]?.wiki_med ?? wikiClaims[geo]?.medical_status,
+                notes: wikiLegalityTableByIso[geo]?.wiki_notes_hint ?? wikiClaims[geo]?.notes ?? wikiClaims[geo]?.notes_text
+              },
+              centroid: centroids[geo],
+              sourceProps: props,
+              forceFallback: true,
+              fallbackName: resolveMapFallbackName(props, geo, forceMapFallback),
+              reasonCode: "MAP_RENDER_TERRITORY_FALLBACK",
+              truthLevel: "UNKNOWN"
+            })
+          : lookup.get(geo)) ||
         (!isState
           ? buildMapRenderFallbackEntry({
               geo,
@@ -1174,14 +1195,14 @@ export function buildGeoJson(type: string) {
               },
               centroid: centroids[geo],
               sourceProps: props,
-              forceFallback: resolvedGeo?.forceFallback,
-              fallbackName: resolveMapFallbackName(props, geo, resolvedGeo?.forceFallback),
-              reasonCode: resolvedGeo?.forceFallback ? "MAP_RENDER_TERRITORY_FALLBACK" : undefined,
-              truthLevel: resolvedGeo?.forceFallback ? "UNKNOWN" : undefined
+              forceFallback: forceMapFallback,
+              fallbackName: resolveMapFallbackName(props, geo, forceMapFallback),
+              reasonCode: forceMapFallback ? "MAP_RENDER_TERRITORY_FALLBACK" : undefined,
+              truthLevel: forceMapFallback ? "UNKNOWN" : undefined
             })
           : null);
       if (!entry) return [];
-      if (!isState && resolvedGeo?.forceFallback && shouldRenderSyntheticFallbackAsPoint(feature.geometry)) {
+      if (forceMapFallback && shouldRenderSyntheticFallbackAsPoint(feature.geometry)) {
         const fallbackName = String(props?.NAME || props?.name || entry.geo);
         const polygonFeature = {
           type: "Feature",

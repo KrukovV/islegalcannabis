@@ -1,6 +1,7 @@
 "use client";
 
 import type { WikiTruthFinalReconciliationView } from "@/lib/wikiTruthFinalReconciliation";
+import type { TruthMapDatasetMeta } from "@/truth-map/truthMapSource";
 
 function entries(counts: Record<string, number>) {
   return Object.entries(counts).sort(([a], [b]) => a.localeCompare(b));
@@ -8,8 +9,10 @@ function entries(counts: Record<string, number>) {
 
 export default function CannabisLawFinalReconciliation({
   reconciliation,
+  truthMapDisplay,
 }: {
   reconciliation: WikiTruthFinalReconciliationView;
+  truthMapDisplay: TruthMapDatasetMeta;
 }) {
   return (
     <section
@@ -24,25 +27,34 @@ export default function CannabisLawFinalReconciliation({
       data-unproven-green={
         reconciliation.acceptance.unprovenGreenRows.length
       }
+      data-canonical-truth-schema={
+        reconciliation.acceptance.flags.canonicalTruthResultSchemaComplete
+          ? "1"
+          : "0"
+      }
       data-no-mutation={reconciliation.noMutationProof.unchanged ? "1" : "0"}
+      data-human-summary-ready="1"
       data-truth-red={reconciliation.counts.truthColors.RED || 0}
       data-truth-yellow={reconciliation.counts.truthColors.YELLOW || 0}
       data-truth-green={reconciliation.counts.truthColors.GREEN || 0}
       data-truth-unknown={reconciliation.counts.truthColors.UNKNOWN || 0}
+      data-display-uncolored={truthMapDisplay.displayUncoloredGeos.length}
+      data-display-grey-geos={truthMapDisplay.displayGreyGeos.join(",")}
+      data-display-nonpolar-grey={truthMapDisplay.displayNonPolarGreyGeos.length}
     >
       <h2>
         {reconciliation.acceptance.complete
-          ? "Финальная Truth-First сверка"
-          : "Текущая Truth-First proposal сверка"}
+          ? "Итоговая сверка Truth-First"
+          : "Текущая сверка Truth-First"}
         : {reconciliation.rowsTotal}/
         {reconciliation.rowsExpected} GEO
       </h2>
       <p className="sectionHint">
-        Текущий proposal вывод строится функцией{" "}
+        Текущий вывод является локальным предложением, построенным функцией{" "}
         <code>{reconciliation.deterministicColorFunction}</code>. Wikipedia и
         SSOT показаны только как независимые объекты сравнения. Исторические
-        screenshots, `PROJECT_PAIR`, `MAP=NONE` и `RUNTIME=REMOVED` не являются
-        live proof карты или полной независимой юридической проверкой.
+        снимки и производные статусы не заменяют live-proof карты или полную
+        независимую юридическую проверку.
       </p>
       <div
         className={
@@ -53,6 +65,11 @@ export default function CannabisLawFinalReconciliation({
           ? "FINAL_RECONCILIATION_COMPLETE"
           : "FINAL_RECONCILIATION_HAS_OPEN_TRUTH_BLOCKERS"}
       </div>
+      <p className="sectionHint">
+        {reconciliation.acceptance.complete
+          ? "Все обязательные юридические условия закрыты."
+          : "Применение заблокировано: итоговая сверка ещё не заменяет текущие SSOT, карту, popup или SEO."}
+      </p>
       <div className="boundaryGrid finalCounters">
         {entries(reconciliation.counts.truthColors).map(([key, value]) => (
           <div key={key}>
@@ -60,37 +77,90 @@ export default function CannabisLawFinalReconciliation({
             <div>{value}</div>
           </div>
         ))}
+        {entries(reconciliation.counts.truthConfidence || {}).map(([key, value]) => (
+          <div key={`confidence-${key}`}>
+            <strong>Доказательность: {key}</strong>
+            <div>{value}</div>
+          </div>
+        ))}
         <div>
-          <strong>Изменили Truth Color</strong>
+          <strong>Изменили цвет</strong>
           <div>{reconciliation.changes.length}</div>
         </div>
         <div>
-          <strong>UNKNOWN / без цвета</strong>
+          <strong>Юридический UNKNOWN</strong>
           <div>{reconciliation.unknownRows.length}</div>
         </div>
         <div>
-          <strong>Cross-layer conflicts</strong>
+          <strong>Расхождения слоёв (только proposal)</strong>
           <div>{reconciliation.acceptance.crossLayerConflictRows.length}</div>
         </div>
         <div>
-          <strong>Unproven GREEN</strong>
+          <strong>Зелёных без operational proof</strong>
           <div>{reconciliation.acceptance.unprovenGreenRows.length}</div>
         </div>
         <div>
-          <strong>Protected files unchanged</strong>
-          <div>{reconciliation.noMutationProof.unchanged ? "YES" : "NO"}</div>
+          <strong>Защищённые файлы не изменены</strong>
+          <div>{reconciliation.noMutationProof.unchanged ? "ДА" : "НЕТ"}</div>
         </div>
+        <div>
+          <strong>Схема canonical truth</strong>
+          <div>
+            {reconciliation.acceptance.flags.canonicalTruthResultSchemaComplete
+              ? "307/307 явная"
+              : "НЕПОЛНАЯ"}
+          </div>
+        </div>
+        {Object.entries(reconciliation.counts.applyStates || {}).map(([state, value]) => (
+          <div key={state}>
+            <strong>{state}</strong>
+            <div>{value}</div>
+          </div>
+        ))}
       </div>
-      <details open>
-        <summary>Исправления общей юридической модели</summary>
+      <aside className="mapDisplayProjection" data-testid="wiki-truth-map-display">
+        <h3>Карта /truth-map: отдельный display-слой</h3>
+        <p>
+          Юридический вывод остаётся в счётчиках выше. Display-цвет не меняет
+          legal truth: неполярный <code>UNKNOWN</code> показан как направление
+          исследования, а <code>GRAY</code> разрешён только для полярного GEO
+          из policy.
+        </p>
+        <div className="boundaryGrid finalCounters">
+          {entries(truthMapDisplay.displayColors).map(([key, value]) => (
+            <div key={`display-${key}`}>
+              <strong>Display {key}</strong>
+              <div>{value}</div>
+            </div>
+          ))}
+          <div>
+            <strong>Незакрашенные GEO</strong>
+            <div>{truthMapDisplay.displayUncoloredGeos.length}</div>
+          </div>
+          <div>
+            <strong>Серые GEO</strong>
+            <div>{truthMapDisplay.displayGreyGeos.join(", ") || "—"}</div>
+          </div>
+          <div>
+            <strong>Серые неполярные GEO</strong>
+            <div>{truthMapDisplay.displayNonPolarGreyGeos.length}</div>
+          </div>
+          <div>
+            <strong>Геометрия display-слоя</strong>
+            <div>{truthMapDisplay.rowsWithGeometry}/{truthMapDisplay.rowsTotal}</div>
+          </div>
+        </div>
+      </aside>
+      <details>
+        <summary>Технические правила общей юридической модели</summary>
         <ul>
           {reconciliation.ruleEngineCorrections.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
       </details>
-      <details open>
-        <summary>FALSE GREEN / YELLOW / RED / UNKNOWN</summary>
+      <details>
+        <summary>Технические счётчики ложных цветовых классов</summary>
         <div className="falseCounts">
           {["FALSE_GREEN", "FALSE_YELLOW", "FALSE_RED", "FALSE_UNKNOWN"].map(
             (key) => (
@@ -101,19 +171,21 @@ export default function CannabisLawFinalReconciliation({
           )}
         </div>
       </details>
-      <details open>
-        <summary>Изменения цвета и Primary Law</summary>
+      <details>
+        <summary>Изменения цвета и исходный закон — audit trail</summary>
         <div className="tableWrap finalTableWrap">
           <table className="truthTable">
             <thead>
               <tr>
                 <th>GEO</th>
                 <th>Было</th>
-                <th>Truth</th>
-                <th>FALSE class</th>
-                <th>Rule</th>
+                <th>Итог</th>
+                <th>Технический класс</th>
+                <th>Правило</th>
+                <th>Уверенность</th>
+                <th>Состояние применения</th>
                 <th>Причина</th>
-                <th>Primary Law</th>
+                <th>Исходный закон</th>
               </tr>
             </thead>
             <tbody>
@@ -124,6 +196,8 @@ export default function CannabisLawFinalReconciliation({
                   <td>{row.truthColor}</td>
                   <td>{row.falseClass || "-"}</td>
                   <td>{row.truthRuleId}</td>
+                  <td>{row.truthConfidence || "НЕ ПОДТВЕРЖДЕНО"}</td>
+                  <td>{row.applyState || "ЗАБЛОКИРОВАНО"}</td>
                   <td className="colNotes">{row.truthReason}</td>
                   <td className="colUrl">
                     {row.primaryLaw?.primaryLawUrl ? (
@@ -142,7 +216,7 @@ export default function CannabisLawFinalReconciliation({
               ))}
               {!reconciliation.changes.length ? (
                 <tr>
-                  <td colSpan={7}>Изменений Truth Color нет.</td>
+                  <td colSpan={9}>Изменений цвета нет.</td>
                 </tr>
               ) : null}
             </tbody>
@@ -151,7 +225,7 @@ export default function CannabisLawFinalReconciliation({
       </details>
       <details>
         <summary>
-          Полный reconciled manifest: {reconciliation.rows.length} GEO
+          Полный технический manifest: {reconciliation.rows.length} GEO
         </summary>
         <div className="tableWrap finalTableWrap">
           <table className="truthTable">
@@ -159,11 +233,13 @@ export default function CannabisLawFinalReconciliation({
               <tr>
                 <th>GEO</th>
                 <th>Территория</th>
-                <th>Truth Color</th>
-                <th>Rule</th>
-                <th>Wiki Audit</th>
-                <th>SSOT Audit</th>
-                <th>Layer conflict</th>
+                <th>Итоговый цвет</th>
+                <th>Правило</th>
+                <th>Уверенность</th>
+                <th>Состояние применения</th>
+                <th>Wiki-аудит</th>
+                <th>SSOT-аудит</th>
+                <th>Расхождение слоёв</th>
               </tr>
             </thead>
             <tbody>
@@ -178,9 +254,11 @@ export default function CannabisLawFinalReconciliation({
                   <td>{row.territory}</td>
                   <td>{row.truthColor}</td>
                   <td>{row.truthRuleId}</td>
-                  <td>{row.wikipedia?.status || "UNKNOWN"}</td>
-                  <td>{row.ssot?.status || "UNKNOWN"}</td>
-                  <td>{row.layerConflict ? "YES" : "NO"}</td>
+                  <td>{row.truthConfidence || "НЕ ПОДТВЕРЖДЕНО"}</td>
+                  <td>{row.applyState || "ЗАБЛОКИРОВАНО"}</td>
+                  <td>{row.wikipedia?.status || "НЕ ПОДТВЕРЖДЕНО"}</td>
+                  <td>{row.ssot?.status || "НЕ ПОДТВЕРЖДЕНО"}</td>
+                  <td>{row.layerConflict ? "ДА" : "НЕТ"}</td>
                 </tr>
               ))}
             </tbody>
@@ -214,6 +292,21 @@ export default function CannabisLawFinalReconciliation({
         }
         .finalCounters {
           grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        }
+        .mapDisplayProjection {
+          margin: 16px 0;
+          border: 1px solid #64748b;
+          border-radius: 10px;
+          background: #f8fafc;
+          padding: 14px;
+        }
+        .mapDisplayProjection h3 {
+          margin: 0 0 8px;
+          font-size: 16px;
+        }
+        .mapDisplayProjection p {
+          margin: 0 0 12px;
+          color: #334155;
         }
         .falseCounts {
           display: flex;

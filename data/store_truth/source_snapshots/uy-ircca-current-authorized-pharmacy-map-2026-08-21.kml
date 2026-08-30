@@ -1,0 +1,1103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Mapa de Farmacias Adheridas</name>
+    <description/>
+    <Style id="icon-1868-DB4436-normal">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1868-DB4436-highlight">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1868-DB4436">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1868-DB4436-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1868-DB4436-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Folder>
+      <name>direcciones de farmacias</name>
+      <Placemark>
+        <name>Carlos María Ramírez </name>
+        <address>Flores Trinidad Carlos María Ramírez </address>
+        <description><![CDATA[Farmacia: <br>Departamento: Flores<br>Localidad: Trinidad]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value/>
+          </Data>
+          <Data name="Departamento">
+            <value>Flores</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Trinidad</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>José Belloni</name>
+        <address>Montevideo Manga-Toledo Chico José Belloni</address>
+        <description><![CDATA[Farmacia: <br>Departamento: Montevideo<br>Localidad: Manga-Toledo Chico]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value/>
+          </Data>
+          <Data name="Departamento">
+            <value>Montevideo</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Manga-Toledo Chico</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Colonia y Barrios Amorin</name>
+        <address>Montevideo Centro Colonia y Barrios Amorin</address>
+        <description><![CDATA[Farmacia: <br>Departamento: Montevideo<br>Localidad: Centro]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value/>
+          </Data>
+          <Data name="Departamento">
+            <value>Montevideo</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Centro</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Bvar. España </name>
+        <address>Montevideo Parque Rodo Bvar. España </address>
+        <description><![CDATA[Farmacia: <br>Departamento: Montevideo<br>Localidad: Parque Rodo]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value/>
+          </Data>
+          <Data name="Departamento">
+            <value>Montevideo</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Parque Rodo</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Bvar. España 2941</name>
+        <address>Montevideo Punta Carretas Bvar. España 2941</address>
+        <description><![CDATA[Farmacia: Cáceres<br>Departamento: Montevideo<br>Localidad: Punta Carretas]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>Cáceres</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Montevideo</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Punta Carretas</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Gral. Brito del Pino 1314</name>
+        <description><![CDATA[Farmacia: Camaño<br>Departamento: Montevideo<br>Localidad: Pocitos]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>Camaño</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Montevideo</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Pocitos</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.1578598,-34.9047368,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Avda. Brasil y Antonio Fossati</name>
+        <description><![CDATA[Farmacia: Chiquitin II<br>Departamento: Rocha<br>Localidad: Chuy]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>Chiquitin II</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Rocha</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Chuy</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -53.4514918,-33.693066,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Calle 1 y 8 </name>
+        <address>Maldonado Barrio Hipódromo Calle 1 y 8 </address>
+        <description><![CDATA[Farmacia: <br>Departamento: Maldonado<br>Localidad: Barrio Hipódromo]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value/>
+          </Data>
+          <Data name="Departamento">
+            <value>Maldonado</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Barrio Hipódromo</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Avda. José Gervasio Artigas</name>
+        <address>Canelones La Paz Avda. José Gervasio Artigas</address>
+        <description><![CDATA[Farmacia: <br>Departamento: Canelones<br>Localidad: La Paz]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value/>
+          </Data>
+          <Data name="Departamento">
+            <value>Canelones</value>
+          </Data>
+          <Data name="Localidad">
+            <value>La Paz</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Avda. Pedragosa Sierra y Bvar. Artigas</name>
+        <description><![CDATA[Farmacia: <br>Departamento: Maldonado<br>Localidad: Punta del Este]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value/>
+          </Data>
+          <Data name="Departamento">
+            <value>Maldonado</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Punta del Este</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -54.9363603,-34.9454703,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cno. Maldonado 5516</name>
+        <address>Montevideo Flor de Maroñas Cno. Maldonado 5516</address>
+        <description><![CDATA[Farmacia: Constitución Sur<br>Departamento: Montevideo<br>Localidad: Flor de Maroñas]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>Constitución Sur</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Montevideo</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Flor de Maroñas</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Bvar. José Batlle y Ordóñez 1735</name>
+        <address>Montevideo Buceo Bvar. José Batlle y Ordóñez 1735</address>
+        <description><![CDATA[Farmacia: Coral<br>Departamento: Montevideo<br>Localidad: Buceo]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>Coral</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Montevideo</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Buceo</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Dr. Luis A. de Herrera </name>
+        <address>Cerro Largo Melo Dr. Luis A. de Herrera </address>
+        <description><![CDATA[Farmacia: <br>Departamento: Cerro Largo<br>Localidad: Melo]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value/>
+          </Data>
+          <Data name="Departamento">
+            <value>Cerro Largo</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Melo</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Uruguayana</name>
+        <address>Montevideo Capurro Uruguayana</address>
+        <description><![CDATA[Farmacia: <br>Departamento: Montevideo<br>Localidad: Capurro]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value/>
+          </Data>
+          <Data name="Departamento">
+            <value>Montevideo</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Capurro</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Av. Gral. Rivera 3258</name>
+        <address>Montevideo Pocitos Av. Gral. Rivera 3258</address>
+        <description><![CDATA[Farmacia: Del Zoo<br>Departamento: Montevideo<br>Localidad: Pocitos]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>Del Zoo</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Montevideo</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Pocitos</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Avda. Enrique Amorín 1201</name>
+        <description><![CDATA[Farmacia: Dos Naciones<br>Departamento: Salto<br>Localidad: Salto]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>Dos Naciones</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Salto</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Salto</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -57.957908,-31.3773517,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Domingo Pérez</name>
+        <address>Lavalleja Minas Domingo Pérez</address>
+        <description><![CDATA[Farmacia: <br>Departamento: Lavalleja<br>Localidad: Minas]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value/>
+          </Data>
+          <Data name="Departamento">
+            <value>Lavalleja</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Minas</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>18 de Julio</name>
+        <address>Paysandú Paysandú 18 de Julio</address>
+        <description><![CDATA[Farmacia: <br>Departamento: Paysandú<br>Localidad: Paysandú]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value/>
+          </Data>
+          <Data name="Departamento">
+            <value>Paysandú</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Paysandú</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Ruta 10 Km. 89.500</name>
+        <description><![CDATA[Farmacia: La Cabina<br>Departamento: Maldonado<br>Localidad: Las Flores]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>La Cabina</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Maldonado</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Las Flores</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -55.3317375,-34.8130199,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pitanga S/N, Manzana 16</name>
+        <address>Rocha La Pedrera Pitanga S/N, Manzana 16</address>
+        <description><![CDATA[Farmacia: La Pedrera<br>Departamento: Rocha<br>Localidad: La Pedrera]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>La Pedrera</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Rocha</value>
+          </Data>
+          <Data name="Localidad">
+            <value>La Pedrera</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Garibaldi</name>
+        <address>Canelones Paso Carrasco Garibaldi</address>
+        <description><![CDATA[Farmacia: <br>Departamento: Canelones<br>Localidad: Paso Carrasco]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value/>
+          </Data>
+          <Data name="Departamento">
+            <value>Canelones</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Paso Carrasco</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Margarita Muniz</name>
+        <address>Maldonado Aigua Margarita Muniz</address>
+        <description><![CDATA[Farmacia: <br>Departamento: Maldonado<br>Localidad: Aigua]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value/>
+          </Data>
+          <Data name="Departamento">
+            <value>Maldonado</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Aigua</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Bvar. José Batlle y Ordóñez</name>
+        <address>Montevideo Sayago Bvar. José Batlle y Ordóñez</address>
+        <description><![CDATA[Farmacia: <br>Departamento: Montevideo<br>Localidad: Sayago]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value/>
+          </Data>
+          <Data name="Departamento">
+            <value>Montevideo</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Sayago</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>18 de Julio 2135</name>
+        <description><![CDATA[Farmacia: Octava<br>Departamento: Río Negro<br>Localidad: Fray Bentos]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>Octava</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Río Negro</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Fray Bentos</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -58.2975244,-33.1284363,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Avda. Eduardo Marquez Castro y Avda. Giannattasio</name>
+        <description><![CDATA[Farmacia: <br>Departamento: Canelones<br>Localidad: Solymar]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value/>
+          </Data>
+          <Data name="Departamento">
+            <value>Canelones</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Solymar</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -55.9581542,-34.8224077,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Avda. Luis Batlle Berres</name>
+        <address>Montevideo Paso de la Arena Avda. Luis Batlle Berres</address>
+        <description><![CDATA[Farmacia: <br>Departamento: Montevideo<br>Localidad: Paso de la Arena]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value/>
+          </Data>
+          <Data name="Departamento">
+            <value>Montevideo</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Paso de la Arena</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Daniel Fernandez Crespo 1991</name>
+        <address>Montevideo La Comercial Daniel Fernandez Crespo 1991</address>
+        <description><![CDATA[Farmacia: Popular<br>Departamento: Montevideo<br>Localidad: La Comercial]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>Popular</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Montevideo</value>
+          </Data>
+          <Data name="Localidad">
+            <value>La Comercial</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Maria Espinola</name>
+        <address>Montevideo Punta Gorda Maria Espinola</address>
+        <description><![CDATA[Farmacia: <br>Departamento: Montevideo<br>Localidad: Punta Gorda]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value/>
+          </Data>
+          <Data name="Departamento">
+            <value>Montevideo</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Punta Gorda</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>San José 649</name>
+        <description><![CDATA[Farmacia: Rapetti<br>Departamento: San José<br>Localidad: Rafael Perazza]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>Rapetti</value>
+          </Data>
+          <Data name="Departamento">
+            <value>San José</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Rafael Perazza</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.7989447,-34.5251384,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Dr. Roman Bergalli</name>
+        <address>Maldonado Maldonado Dr. Roman Bergalli</address>
+        <description><![CDATA[Farmacia: <br>Departamento: Maldonado<br>Localidad: Maldonado]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value/>
+          </Data>
+          <Data name="Departamento">
+            <value>Maldonado</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Maldonado</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Gral. Manuel Oribe 476</name>
+        <description><![CDATA[Farmacia: Saga<br>Departamento: Artigas<br>Localidad: Artigas]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>Saga</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Artigas</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Artigas</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.4651748,-30.4045575,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ñandú y Avda. Julieta</name>
+        <description><![CDATA[Farmacia: <br>Departamento: Canelones<br>Localidad: Salinas]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value/>
+          </Data>
+          <Data name="Departamento">
+            <value>Canelones</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Salinas</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -55.8390351,-34.7809339,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>25 de Mayo 457</name>
+        <description><![CDATA[Farmacia: Santa Cruz<br>Departamento: Tacuarembó<br>Localidad: Tacuarembó]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>Santa Cruz</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Tacuarembó</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Tacuarembó</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -55.9877496,-31.7185568,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Maldonado</name>
+        <address>Maldonado San Carlos Maldonado</address>
+        <description><![CDATA[Farmacia: <br>Departamento: Maldonado<br>Localidad: San Carlos]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value/>
+          </Data>
+          <Data name="Departamento">
+            <value>Maldonado</value>
+          </Data>
+          <Data name="Localidad">
+            <value>San Carlos</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Avda. General Flores 3401</name>
+        <address>Montevideo Brazo Oriental Avda. General Flores 3401</address>
+        <description><![CDATA[Farmacia: Silleda<br>Departamento: Montevideo<br>Localidad: Brazo Oriental]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>Silleda</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Montevideo</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Brazo Oriental</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Calle 11 entre 26 y Circunvalación s/n</name>
+        <address>Canelones Atlántida Calle 11 entre 26 y Circunvalación s/n</address>
+        <description><![CDATA[Farmacia: <br>Departamento: Canelones<br>Localidad: Atlántida]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value/>
+          </Data>
+          <Data name="Departamento">
+            <value>Canelones</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Atlántida</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Cno. De los Gauchos s/n</name>
+        <description><![CDATA[Farmacia: <br>Departamento: Maldonado<br>Localidad: Maldonado]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value/>
+          </Data>
+          <Data name="Departamento">
+            <value>Maldonado</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Maldonado</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -54.9438189,-34.8934973,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Avda. Luis Batlle Berres</name>
+        <address>Montevideo Santiago Vázquez Avda. Luis Batlle Berres</address>
+        <description><![CDATA[Farmacia: <br>Departamento: Montevideo<br>Localidad: Santiago Vázquez]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value/>
+          </Data>
+          <Data name="Departamento">
+            <value>Montevideo</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Santiago Vázquez</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>25 de Mayo 315</name>
+        <address>Montevideo Ciudad Vieja 25 de Mayo 315</address>
+        <description><![CDATA[Farmacia: Tapie<br>Departamento: Montevideo<br>Localidad: Ciudad Vieja]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>Tapie</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Montevideo</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Ciudad Vieja</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Centro Termal Guaviyú</name>
+        <description><![CDATA[Farmacia: Termal Guaviyú<br>Departamento: Paysandú<br>Localidad: Quebracho]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>Termal Guaviyú</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Paysandú</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Quebracho</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -57.8837241,-31.8416271,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Paseo del Pasaje</name>
+        <address>Salto Termas Daymán Paseo del Pasaje</address>
+        <description><![CDATA[Farmacia: <br>Departamento: Salto<br>Localidad: Termas Daymán]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value/>
+          </Data>
+          <Data name="Departamento">
+            <value>Salto</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Termas Daymán</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Constelación</name>
+        <address>Canelones Villa Aeroparque Constelación</address>
+        <description><![CDATA[Farmacia: <br>Departamento: Canelones<br>Localidad: Villa Aeroparque]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value/>
+          </Data>
+          <Data name="Departamento">
+            <value>Canelones</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Villa Aeroparque</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Av. Carlos Maria Ramirez</name>
+        <address>Montevideo Paso Molino Av. Carlos Maria Ramirez</address>
+        <description><![CDATA[Farmacia: <br>Departamento: Montevideo<br>Localidad: Paso Molino]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value/>
+          </Data>
+          <Data name="Departamento">
+            <value>Montevideo</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Paso Molino</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Av. Gral. Flores 2547</name>
+        <address>Montevideo Goes Av. Gral. Flores 2547</address>
+        <description><![CDATA[Farmacia: Farma Uy Goes<br>Departamento: Montevideo<br>Localidad: Goes]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>Farma Uy Goes</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Montevideo</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Goes</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Av. Gral. Flores 5027</name>
+        <address>Montevideo Jardines del Hipódromo Av. Gral. Flores 5027</address>
+        <description><![CDATA[Farmacia: <br>Departamento: Montevideo<br>Localidad: Jardines del Hipódromo]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value/>
+          </Data>
+          <Data name="Departamento">
+            <value>Montevideo</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Jardines del Hipódromo</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Av. Gobernador José Joaquín de Viana 584</name>
+        <description><![CDATA[Farmacia: Viana<br>Departamento: Salto<br>Localidad: Salto]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>Viana</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Salto</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Salto</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -57.9470884,-31.3960913,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Almería 4600</name>
+        <address>Montevideo Malvín Almería 4600</address>
+        <description><![CDATA[Farmacia: Lang<br>Departamento: Montevideo<br>Localidad: Malvín]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>Lang</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Montevideo</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Malvín</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Dr. Javier Barrios Amorín 1100</name>
+        <address>Montevideo Palermo Dr. Javier Barrios Amorín 1100</address>
+        <description><![CDATA[Farmacia: Panizzolo<br>Departamento: Montevideo<br>Localidad: Palermo]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>Panizzolo</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Montevideo</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Palermo</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Garibaldi 2144 BIS</name>
+        <address>Montevideo Goes Garibaldi 2144 BIS</address>
+        <description><![CDATA[Farmacia: Cuña<br>Departamento: Montevideo<br>Localidad: Goes]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>Cuña</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Montevideo</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Goes</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>18 de Julio 129</name>
+        <address>Rocha Rocha 18 de Julio 129</address>
+        <description><![CDATA[Farmacia: Uruguay<br>Departamento: Rocha<br>Localidad: Rocha]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>Uruguay</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Rocha</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Rocha</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Ruta Interbalnearia km 40 esq. Las Esponjas</name>
+        <address>Canelones Marindia Ruta Interbalnearia km 40 esq. Las Esponjas</address>
+        <description><![CDATA[Farmacia: Marindia Farma<br>Departamento: Canelones<br>Localidad: Marindia]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>Marindia Farma</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Canelones</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Marindia</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Ciganda 750</name>
+        <address>San José San José de Mayo Ciganda 750</address>
+        <description><![CDATA[Farmacia: Senaqué<br>Departamento: San José<br>Localidad: San José de Mayo]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>Senaqué</value>
+          </Data>
+          <Data name="Departamento">
+            <value>San José</value>
+          </Data>
+          <Data name="Localidad">
+            <value>San José de Mayo</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Patria 649</name>
+        <address>Montevideo Montevideo Patria 649</address>
+        <description><![CDATA[Farmacia: City<br>Departamento: Montevideo<br>Localidad: Montevideo]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>City</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Montevideo</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Montevideo</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>San Martín 2151</name>
+        <address>Montevideo Montevideo San Martín 2151</address>
+        <description><![CDATA[Farmacia: Farmaguada<br>Departamento: Montevideo<br>Localidad: Montevideo]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>Farmaguada</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Montevideo</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Montevideo</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Avenida Julio 2176</name>
+        <address>Montevideo Montevideo Avenida Julio 2176</address>
+        <description><![CDATA[Farmacia: Luján<br>Departamento: Montevideo<br>Localidad: Montevideo]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>Luján</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Montevideo</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Montevideo</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Luis Alberto de Herrera 1252</name>
+        <address>Rivera Rivera Luis Alberto de Herrera 1252</address>
+        <description><![CDATA[Farmacia: La Proa<br>Departamento: Rivera<br>Localidad: Rivera]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>La Proa</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Rivera</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Rivera</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Carlos María Ramírez 900</name>
+        <address>Montevideo La Teja Carlos María Ramírez 900</address>
+        <description><![CDATA[Farmacia: Maresca<br>Departamento: Montevideo<br>Localidad: La Teja]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>Maresca</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Montevideo</value>
+          </Data>
+          <Data name="Localidad">
+            <value>La Teja</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Ruta 6 Km 23.100</name>
+        <address>Canelones Toledo Ruta 6 Km 23.100</address>
+        <description><![CDATA[Farmacia: Galet<br>Departamento: Canelones<br>Localidad: Toledo]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>Galet</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Canelones</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Toledo</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Iturria 804</name>
+        <address>Canelones Pando Iturria 804</address>
+        <description><![CDATA[Farmacia: Los Correa<br>Departamento: Canelones<br>Localidad: Pando]]></description>
+        <styleUrl>#icon-1868-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="Farmacia">
+            <value>Los Correa</value>
+          </Data>
+          <Data name="Departamento">
+            <value>Canelones</value>
+          </Data>
+          <Data name="Localidad">
+            <value>Pando</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

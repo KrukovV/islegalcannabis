@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-14T17:30:45.899Z",
+  "input_path": "data/store_truth/source_snapshots/nd-hhs-dispensary-html-heading-e8b0289135005023b9f143cf-census-input-2026-08-14.json",
+  "input_sha256": "6ed5f36baca3cdd1be465aa535f6c663742d45fcd7eb57418c525dc6fd96ffce",
+  "census_geocoder_url": "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+  "census_benchmark": "Public_AR_Current",
+  "census_response_sha256": "c97e56258491ffde94953d12b19416c70db6d09ca6278be7430562e60b886a39",
+  "records": [
+    {
+      "source_record_id": "html-heading:e8b0289135005023b9f143cf",
+      "address": "1809 13th Ave. North",
+      "city": "Grand Forks",
+      "region": "ND",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true,
+      "latitude": 47.932112387343,
+      "longitude": -97.052051666009,
+      "census_matched_postal_code": "58203",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "1809 13TH AVE N, GRAND FORKS, ND, 58203"
+      }
+    }
+  ],
+  "counts": {
+    "input_records": 1,
+    "census_response_rows": 1,
+    "one_to_one_exact_census_geocodes": 1,
+    "blocked_census_no_exact_in_jurisdiction_match": 0
+  }
+}

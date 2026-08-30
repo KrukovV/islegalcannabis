@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-14T16:57:34.267Z",
+  "input_path": "data/store_truth/source_snapshots/ca-dcc-active-retail-license-c10-0001592-census-input-2026-08-14.json",
+  "input_sha256": "54eb69a94e957e207a91f6569fdf831e9649eeea1490fcf3e6df6526128348c1",
+  "census_geocoder_url": "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+  "census_benchmark": "Public_AR_Current",
+  "census_response_sha256": "fdc0b51ffdb15115647d7b755343b17fcad168e16461807352bbf6f9fcf3d302",
+  "records": [
+    {
+      "source_record_id": "17163",
+      "address": "69501 Highway 101",
+      "city": "Leggett",
+      "region": "CA",
+      "postal_code": "95585",
+      "latitude": 39.878107291903,
+      "longitude": -123.729241935404,
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "69501 US HWY 101, LEGGETT, CA, 95585"
+      }
+    }
+  ],
+  "counts": {
+    "input_records": 1,
+    "census_response_rows": 1,
+    "one_to_one_exact_census_geocodes": 1,
+    "blocked_census_no_exact_in_jurisdiction_match": 0
+  }
+}

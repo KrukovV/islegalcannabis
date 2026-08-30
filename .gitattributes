@@ -1,0 +1,2 @@
+# Official Store CSV snapshots retain regulator-provided bytes, including CRLF.
+data/store_truth/source_snapshots/*.csv -text whitespace=cr-at-eol

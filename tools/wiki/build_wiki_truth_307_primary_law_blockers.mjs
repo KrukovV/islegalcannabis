@@ -23,6 +23,17 @@ const MATRIX_307_PATH = path.join(
   ROOT,
   "data/reviews/wiki-truth-cannabis-law-matrix-307.json",
 );
+const TRUTH_REPORT_PATH = path.join(
+  ROOT,
+  "data/reviews/wiki-truth-307-truth-audit-report.json",
+);
+
+const { evaluatePrimaryLaw } = await import(path.join(
+  ROOT,
+  "tools",
+  "wiki",
+  "build_wiki_truth_307_acceptance_audit.mjs",
+));
 
 const CLD_DATA_URL =
   "https://www.unodc.org/cld/pt/v3/drugcontrolrepository/enl/data.json";
@@ -315,34 +326,46 @@ function cldUrl(criteria) {
 
 async function fetchCld(criteria) {
   const url = cldUrl(criteria);
-  const response = await fetch(url, {
-    headers: {
-      accept: "application/json",
-      "user-agent": "isLegal-local-truth-audit/1.0",
-    },
-  });
-  if (!response.ok) {
-    throw new Error(`UNODC_CLD_HTTP_${response.status} ${url}`);
+  try {
+    const response = await fetch(url, {
+      headers: {
+        accept: "application/json",
+        "user-agent": "isLegal-local-truth-audit/1.0",
+      },
+    });
+    if (!response.ok) {
+      throw new Error(`UNODC_CLD_HTTP_${response.status}`);
+    }
+    const json = await response.json();
+    return {
+      url,
+      found: Number(json.found || 0),
+      results: (Array.isArray(json.results) ? json.results : []).map((result) => ({
+        uri: result.uri || "",
+        country: result.values?.["en#legislation.legislationDocument@country_label_s1"] || "",
+        title:
+          result.values?.["legislation.legislationDocument.nationalLawArticle@title_s1"] ||
+          "",
+        chapter:
+          result.values?.[
+            "legislation.legislationDocument.nationalLawArticle@chapterDescription_s1"
+          ] || "",
+        article:
+          result.values?.["legislation.legislationDocument.nationalLawArticle@article_s1"] ||
+          "",
+      })),
+      networkStatus: "HTTP_OK",
+      networkDiagnostic: "",
+    };
+  } catch (error) {
+    return {
+      url,
+      found: null,
+      results: [],
+      networkStatus: "SOURCE_ACCESS_BLOCKED",
+      networkDiagnostic: error instanceof Error ? error.message : String(error),
+    };
   }
-  const json = await response.json();
-  return {
-    url,
-    found: Number(json.found || 0),
-    results: (Array.isArray(json.results) ? json.results : []).map((result) => ({
-      uri: result.uri || "",
-      country: result.values?.["en#legislation.legislationDocument@country_label_s1"] || "",
-      title:
-        result.values?.["legislation.legislationDocument.nationalLawArticle@title_s1"] ||
-        "",
-      chapter:
-        result.values?.[
-          "legislation.legislationDocument.nationalLawArticle@chapterDescription_s1"
-        ] || "",
-      article:
-        result.values?.["legislation.legislationDocument.nationalLawArticle@article_s1"] ||
-        "",
-    })),
-  };
 }
 
 function mdCell(value, limit = 260) {
@@ -426,7 +449,7 @@ function buildVisualReviewEvidence(geo) {
         }))
       : [],
     conclusion:
-      "The saved matrix row is visually reviewed official context only: screenshots prove Penal Code Book V controlled-drug/plant context, while cannabis-specific law text remains missing.",
+      "The saved matrix row supplies retained official-link and visual-review metadata only. Its acceptance status is evaluated from the current canonical Truth report and matrix without creating a legal conclusion.",
   };
 }
 
@@ -472,17 +495,21 @@ function buildMarkdown(output) {
       : []),
   ].find((blocker) => blocker.geo === "ER");
   if (er) {
-    lines.push(`Country-filtered documents: ${er.officialContextSearch.found}`);
+    lines.push(
+      `Country-filtered documents: ${er.officialContextSearch.found ?? "UNCONFIRMED"} (${er.officialContextSearch.networkStatus || "UNCONFIRMED"})`,
+    );
     for (const result of er.officialContextSearch.results) {
       lines.push(
         `- ${result.title || result.uri}; chapter=${result.chapter || "-"}; article=${result.article || "-"}; uri=${result.uri}`,
       );
     }
     lines.push("");
-    lines.push("| Term | Country-filtered CLD results |");
-    lines.push("| --- | --- |");
+    lines.push("| Term | Country-filtered CLD results | Retrieval state |");
+    lines.push("| --- | --- | --- |");
     for (const search of er.negativeSearches) {
-      lines.push(`| ${mdCell(search.term)} | ${search.found} |`);
+      lines.push(
+        `| ${mdCell(search.term)} | ${search.found ?? "UNCONFIRMED"} | ${search.networkStatus || "UNCONFIRMED"} |`,
+      );
     }
     lines.push("");
     lines.push("## Eritrea Local Collector / Visual Evidence");
@@ -572,110 +599,114 @@ function buildMarkdown(output) {
   return `${lines.join("\n")}\n`;
 }
 
-async function main() {
-  const officialContextSearch = await fetchCld({
-    match: "Eritrea",
-    startAt: 0,
-    filters: [],
-  });
-  const negativeSearches = [];
-  for (const term of CANNABIS_TERMS) {
-    const search = await fetchCld({
-      match: term,
-      startAt: 0,
-      filters: [ERITREA_COUNTRY_FILTER],
-    });
-    negativeSearches.push({
-      term,
-      found: search.found,
-      url: search.url,
-      results: search.results,
-    });
-  }
+function linksFor(row) {
+  return [
+    ...(Array.isArray(row?.directOfficialCannabisLawLinks) ? row.directOfficialCannabisLawLinks : []),
+    ...(Array.isArray(row?.officialContextLinks) ? row.officialContextLinks : []),
+    ...(Array.isArray(row?.supplementalOfficialLinks) ? row.supplementalOfficialLinks : []),
+  ];
+}
 
+function genericNextEvidence(coverage) {
+  if (coverage === "OFFICIAL_SOURCE_ACCESS_BLOCKED") {
+    return "A normally trusted direct official source retrieval and browser-domain visual review; do not bypass certificate, WAF or access controls.";
+  }
+  if (coverage === "OFFICIAL_LEGAL_AXIS_PENDING_VISUAL_ACCEPTANCE") {
+    return "A complete current official visual proof package that shows owner, domain, applicable legal text and effective rule.";
+  }
+  if (coverage === "NO_CANDIDATE_PAGE_FOUND") {
+    return "An official Act, Gazette, Parliament, Ministry, regulator, court or primary-law repository source with an applicable cannabis-law fragment.";
+  }
+  return "Direct applicable primary-law evidence with readable cannabis/legal text and complete official visual proof, or a documented scope-exception proof where no unitary territorial regime can honestly be selected.";
+}
+
+function genericBlocker(reportRow, matrixRow, evaluation, generatedAt) {
+  const coverage = String(
+    reportRow.effectiveSourceCoverage || reportRow.diagnostics?.evidence?.effectiveSourceCoverage || matrixRow.sourceCoverage || "UNKNOWN",
+  );
+  const links = linksFor(matrixRow);
+  const currentTruth = matrixRow.independentTruth || {};
+  const erAudit = matrixRow.geo === "ER" ? ER_FRESH_TARGETED_SEARCH_AUDIT : null;
+  return {
+    geo: String(matrixRow.geo || reportRow.geo || ""),
+    territory: String(matrixRow.territory || reportRow.territory || ""),
+    status: `PRIMARY_LAW_${coverage}`,
+    blockerType: `CANONICAL_PRIMARY_LAW_ACCEPTANCE_${coverage}`,
+    currentTruthRule: String(currentTruth.rule || reportRow.truth?.ruleId || "UNKNOWN"),
+    proposedTruthColor: String(currentTruth.color || reportRow.truth?.color || "UNKNOWN"),
+    requiredNextEvidence: genericNextEvidence(coverage),
+    evidenceSummary: String(evaluation.reason || "Canonical primary-law acceptance remains incomplete."),
+    knownPrimaryLawBoundary: {
+      status: coverage,
+      proven: `Retained official links=${links.length}; direct links=${Array.isArray(matrixRow.directOfficialCannabisLawLinks) ? matrixRow.directOfficialCannabisLawLinks.length : 0}.`,
+      missing: genericNextEvidence(coverage),
+      legalConclusion: "This blocker is reporting metadata only and cannot alter any legal axis, Truth Color, SSOT, map, runtime or production state.",
+    },
+    freshPrimaryLawSearchAudit: erAudit || {
+      source: "CANONICAL_MATRIX_AND_TRUTH_AUDIT",
+      executedAt: generatedAt,
+      result: "NO_NEW_EXTERNAL_SEARCH_RUN",
+      officialSourceStandard: "Act, Statute, Gazette, Parliament, Ministry, Regulator, Court, or official primary-law repository copy.",
+      queries: [],
+      officialSourcesReviewed: [],
+      conclusion: "This artifact derives the open acceptance gap from current local canonical evidence; it does not create a legal conclusion or perform network collection.",
+    },
+    localCollectorAudit: {
+      source: "CANONICAL_MATRIX",
+      path: path.relative(ROOT, MATRIX_307_PATH),
+      selectedCandidates: links.length,
+      fetchedCandidates: 0,
+      hasCannabisPages: Array.isArray(matrixRow.directOfficialCannabisLawLinks) && matrixRow.directOfficialCannabisLawLinks.length > 0,
+      candidateSample: [],
+      conclusion: "Derived from retained matrix link provenance only; no external collection is run by this blocker report.",
+    },
+    visualReviewEvidence: buildVisualReviewEvidence(matrixRow.geo),
+    officialContextSearch: {
+      source: "NOT_RUN_BY_LOCAL_BLOCKER_REPORT",
+      countryFilter: String(matrixRow.geo || ""),
+      term: "",
+      query: "",
+      found: 0,
+      url: "",
+      results: [],
+    },
+    negativeSearches: [],
+    supportingPrimaryLawContext: links.slice(0, 20).map((link) => ({
+      title: String(link.title || ""),
+      url: String(link.url || ""),
+      sourceKind: String(link.sourceKind || link.source_type || "UNKNOWN"),
+      legalUse: String(link.note || link.sourceAnnotation || link.evidenceScope || "Retained official provenance."),
+    })),
+    nonMutationDecision: "SOURCE_METADATA_AND_ACCEPTANCE_REPORT_ONLY; SSOT, map, runtime, production and deployment remain untouched.",
+  };
+}
+
+export function derivePrimaryLawBlockers(report, matrix, generatedAt = new Date().toISOString()) {
+  const matrixByGeo = new Map((Array.isArray(matrix?.rows) ? matrix.rows : []).map((row) => [row.geo, row]));
+  return (Array.isArray(report?.rows) ? report.rows : [])
+    .map((reportRow) => {
+      const matrixRow = matrixByGeo.get(reportRow.geo);
+      if (!matrixRow) throw new Error(`PRIMARY_LAW_BLOCKER_MATRIX_ROW_MISSING:${reportRow.geo}`);
+      const evaluation = evaluatePrimaryLaw(reportRow, matrixRow, null);
+      return evaluation.status === "PROVEN" ? null : genericBlocker(reportRow, matrixRow, evaluation, generatedAt);
+    })
+    .filter(Boolean)
+    .sort((left, right) => left.geo.localeCompare(right.geo));
+}
+
+async function main() {
+  const generatedAt = new Date().toISOString();
+  const report = JSON.parse(fs.readFileSync(TRUTH_REPORT_PATH, "utf8"));
+  const matrix = JSON.parse(fs.readFileSync(MATRIX_307_PATH, "utf8"));
+  const blockers = derivePrimaryLawBlockers(report, matrix, generatedAt);
   const output = {
-    generatedAt: new Date().toISOString(),
-    reportVersion: "1.7.0",
+    generatedAt,
+    reportVersion: "2.0.0",
     nonMutating: true,
-    purpose:
-      "Document primary-law blockers that remain after the local Truth-First 307-GEO audit, without applying SSOT/status/map/prod mutations.",
-    blockersTotal: 0,
-    blockers: [],
-    resolvedPrimaryLawEvidence: [
-      {
-        geo: "ER",
-        territory: "Eritrea",
-        status: "PRIMARY_CANNABIS_FAMILY_LAW_PROVEN_SCOPE_LIMITED",
-        blockerType: "RESOLVED_BY_LOC_GAZETTE_CUSTOMS_PROHIBITED_GOODS",
-        currentTruthRule:
-          "OFFICIAL_STATUS_PATIENT_ACCESS_NEGATIVE",
-        proposedTruthColor: "RED",
-        requiredNextEvidence:
-          "For stronger criminal-law specificity, the Drug Offences Regulations referenced by Penal Code Article 376 or another official controlled-drug/plant schedule could still be added. It is no longer required to prove that an official Eritrea primary-law source names cannabis-family substances.",
-        freshPrimaryLawSearchAudit: ER_FRESH_TARGETED_SEARCH_AUDIT,
-        locCustomTariffAudit: {
-          artifactPath:
-            "data/reviews/wiki-truth-307-er-loc-custom-tariff-cannabis-audit.json",
-          sourceUrl:
-            "https://tile.loc.gov/storage-services/service/ll/lleritrea/eritrean-notice-18-1994/eritrean-notice-18-1994.pdf",
-          pdfPage: 30,
-          screenshotPath:
-            "data/reviews/screenshots/wiki-truth-er-loc-custom-tariff/page-30.png",
-          directCannabisFamilyPrimaryLawFound: true,
-          cannabisFamilyTermsFound: ["Marihuana", "hashish"],
-          legalAxis: "customs_import_prohibited_goods_narcotics",
-        },
-        evidenceSummary:
-          "LOC Gazette of Eritrean Laws primary-law copy of Custom Tariff Regulations 18/1994 was downloaded, text-extracted, rendered, and visually reviewed. Page 30, Third Schedule - Prohibited Goods, item 6 visibly lists Marihuana and hashish with cocaine, opium, heroin, morphine, LSD, chat, and all other narcotics. FAOLEX/UNODC Penal Code copies independently prove Eritrea has a primary drug-offence framework, but the Penal Code Article 376 Drug Offences Regulations schedule remains unlocated. WHO Proclamation No. 36/1993 OCR produced no cannabis-family matches. The legal conclusion is scope-limited: direct cannabis-family primary law is proven for customs/import prohibited-goods/narcotics context; no operational patient access or adult-use legalization source is proven.",
-        scopeLimit:
-          "Do not treat customs/import prohibited-goods evidence as patient access, medical cannabis programme, adult-use legalization, or as the missing Article 376 Drug Offences Regulations schedule.",
-        knownPrimaryLawBoundary: {
-          status:
-            "DIRECT_CANNABIS_FAMILY_CUSTOMS_PROHIBITED_GOODS_PROVEN_DRUG_OFFENCES_SCHEDULE_NOT_LOCATED",
-          proven:
-            "LOC Custom Tariff Regulations 18/1994 directly names Marihuana and hashish as prohibited goods/narcotics; Penal Code Book V Articles 376-396 establishes controlled-drug and controlled-plant offences and delegates the detailed list to Drug Offences Regulations.",
-          missing:
-            "The Article 376 Drug Offences Regulations list remains unlocated, so the customs source is used only for the customs/import prohibited-goods cannabis-family axis.",
-          legalConclusion:
-            "ER no longer has a primary-law blocker for cannabis-family evidence. The Truth-first color proposal may be RED because direct primary law proves marihuana/hashish prohibited-goods/narcotics context and no operational patient access/adult-use source is proven; this does not mutate SSOT/map/prod.",
-        },
-        localCollectorAudit: buildLocalCollectorAudit("ER"),
-        visualReviewEvidence: buildVisualReviewEvidence("ER"),
-        officialContextSearch: {
-          source: "UNODC_CLD_API",
-          query: "Eritrea",
-          url: officialContextSearch.url,
-          found: officialContextSearch.found,
-          results: officialContextSearch.results,
-        },
-        negativeSearches: negativeSearches.map((search) => ({
-          source: "UNODC_CLD_API",
-          countryFilter: "Eritrea",
-          term: search.term,
-          found: search.found,
-          url: search.url,
-          results: search.results,
-        })),
-        supportingPrimaryLawContext: [
-          {
-            title: "Penal Code of the State of Eritrea",
-            url: "https://faolex.fao.org/docs/pdf/eri210565.pdf",
-            sourceKind: "FAOLEX_PRIMARY_LAW_COPY_ERITREA_PENAL_CODE",
-            legalUse:
-              "Context only: Articles 376-396 prove controlled-drug and controlled-plant offences; Article 376 delegates the controlled list to Drug Offences Regulations; the visible text does not name cannabis/hashish/hemp.",
-          },
-          {
-            title: "Penal Code of the State of Eritrea, Book V - Offences Involving Drugs",
-            url: "https://www.unodc.org/cld/uploads/res/document/penal-code_html/PENAL_CODE_ERITREA.pdf",
-            sourceKind: "UNODC_CLD_PRIMARY_LAW_COPY_ERITREA_PENAL_CODE",
-            legalUse:
-              "Context only: Articles 376-396 prove controlled-drug and controlled-plant offences; Article 376 delegates the controlled list to Drug Offences Regulations; the visible text does not name cannabis/hashish/hemp.",
-          },
-        ],
-        nonMutationDecision:
-          "Treat ER as review-ready for a RED Truth-first color proposal, pending explicit authorization through the non-mutating apply plan/gate; do not auto-apply SSOT, map, or production changes.",
-      },
-    ],
+    purpose: "Derive every unresolved primary-law acceptance blocker from the current canonical Truth report and matrix without applying SSOT/status/map/prod mutations.",
+    blockersTotal: blockers.length,
+    blockers,
+    resolvedPrimaryLawEvidence: [],
   };
 
   fs.mkdirSync(path.dirname(OUT_JSON_PATH), { recursive: true });
@@ -690,11 +721,6 @@ async function main() {
       `PRIMARY_LAW_BLOCKER_${blocker.geo}=${blocker.status} negative_terms=${blocker.negativeSearches
         .map((search) => `${search.term}:${search.found}`)
         .join(",")}`,
-    );
-  }
-  for (const resolved of output.resolvedPrimaryLawEvidence || []) {
-    console.log(
-      `PRIMARY_LAW_RESOLVED_${resolved.geo}=${resolved.status} truth_color=${resolved.proposedTruthColor}`,
     );
   }
 }

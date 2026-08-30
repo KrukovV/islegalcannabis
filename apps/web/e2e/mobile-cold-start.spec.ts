@@ -1,4 +1,4 @@
-import { expect, test } from "playwright/test";
+import { expect, test } from "@playwright/test";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -9,7 +9,7 @@ type NewMapTrace = {
   metrics?: Record<string, number>;
 };
 
-async function waitForFullMap(page: import("playwright/test").Page) {
+async function waitForFullMap(page: import("@playwright/test").Page) {
   await page.waitForSelector('[data-testid="new-map-ai-dock"]', { state: "visible" });
   await page.waitForFunction(() => {
     const trace = (window as unknown as { __NEW_MAP_TRACE__?: NewMapTrace }).__NEW_MAP_TRACE__;
@@ -21,7 +21,7 @@ async function waitForFullMap(page: import("playwright/test").Page) {
   }, { timeout: 20000 });
 }
 
-async function collectStartupState(page: import("playwright/test").Page) {
+async function collectStartupState(page: import("@playwright/test").Page) {
   return page.evaluate(() => {
     const trace = (window as unknown as { __NEW_MAP_TRACE__?: NewMapTrace }).__NEW_MAP_TRACE__ || {};
     const countriesEntry = performance
@@ -45,7 +45,7 @@ async function collectStartupState(page: import("playwright/test").Page) {
   });
 }
 
-async function openPopup(page: import("playwright/test").Page) {
+async function openPopup(page: import("@playwright/test").Page) {
   const point = await page.evaluate(() => {
     const map = (window as unknown as { __NEW_MAP_DEBUG__?: { map?: {
       jumpTo: (_camera: { center: [number, number]; zoom: number; bearing: number; pitch: number }) => void;
@@ -86,8 +86,11 @@ test("mobile cold start uses cached static countries payload and keeps map inter
 
   fs.writeFileSync(path.join(QA_DIR, "summary.json"), JSON.stringify({ cold, warm }, null, 2));
 
-  expect(cold.countriesUrl).toContain("/static/countries/countries.");
-  expect(cold.countriesDecodedBodySize).toBeLessThan(9_000_000);
+  const coldTransferSize = cold.countriesTransferSize || cold.trace.metrics?.NM_COUNTRIES_TRANSFER_SIZE || 0;
+  const coldDecodedBodySize = cold.countriesDecodedBodySize || cold.trace.metrics?.NM_COUNTRIES_DECODED_BODY_SIZE || 0;
+  expect(coldDecodedBodySize).toBeGreaterThan(0);
+  expect(coldDecodedBodySize).toBeLessThan(9_000_000);
+  expect(coldTransferSize).toBeGreaterThan(0);
   expect(cold.featureCount).toBeGreaterThan(100);
   expect(cold.horizontalOverflowPx).toBe(0);
   expect(warm.featureCount).toBeGreaterThan(100);

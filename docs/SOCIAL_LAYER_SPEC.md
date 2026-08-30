@@ -36,17 +36,43 @@ Marker meaning is exclusive and visually unambiguous:
 
 | Domain | Meaning | MapLibre image ID | Asset | Required presentation |
 | --- | --- | --- | --- | --- |
-| Validated stores | Independently validated regulated cannabis location | `validated-cannabis-store-leaf` | `/cannabis-store-leaf.svg` | Cannabis leaf; colour may encode validated store type |
+| Store aggregate at global zoom | Count of individually map-eligible regulated cannabis locations grouped by canonical country | `validated-cannabis-store-geo-summary-shop` | `/cannabis-store-summary-shop.svg` | Neutral storefront plus a separately legible count at a low-precision, half-degree-rounded country aggregate anchor; no individual location data |
+| Validated stores | Independently validated regulated cannabis location | `validated-cannabis-store-leaf` | `/cannabis-store-leaf.svg` | Static clean green cannabis leaf without a surrounding badge or outline; it remains visible at its validated coordinate while native labels retain visual priority by layer order |
 | Social activity | One or more active public MAP discussions in a privacy-safe area | `social-map-activity-chat-bubble` | `/social-discussion-chat.svg` | Magenta chat bubble with active-discussion count |
 
 Hard requirements:
 
 - Social must never reuse the cannabis-leaf asset, store icon ID or store layer.
 - Stores must never use the Social chat-bubble asset or Social activity layer.
+- The Store aggregate and the leaf are two presentations of the same visible Store Truth records. Below z4.2 there is one stable aggregate per canonical country; from z4.2 to z5.8 there is one stable aggregate per country/state/territory GEO; from z5.8 to z10.2 existing viewport clusters apply; at z10.2 and above individual leaves apply. Each aggregate uses a low-precision, half-degree-rounded anchor computed from all currently visible records in its displayed group. A viewport cluster is at the centroid of its verified members, so a one-record cluster and its local leaf have exactly the same coordinate. The storefront and count are rendered together, visually separate and retain a high-contrast halo; neither participates in symbol placement, so unrelated label/tile updates cannot make a total blink. The aggregate carries only `geo_id`, count and its rounded aggregate anchor, cannot open a location popup, and must never add an unvalidated Store record.
+- Store and Social presentation layers are inserted after the final native basemap fill/line geometry and before the complete native label stack. If a style places a native text symbol before later road or building geometry, that text layer is moved above the supplemental layers first. This prevents the basemap from cutting through a leaf, storefront/count or chat bubble while country and place labels remain readable above them. `/truth-map` retains the established continuous horizontal world-wrap interaction; it must not clamp a user at the edge of one rendered world.
+- After every completed camera move, the Store layer re-queries its existing viewport data. When a continuous MapLibre world copy yields longitudes outside `[-180, 180]`, only that Store request is canonicalized to WGS84 (including a preserved antimeridian crossing); no camera, Store coordinate, Store Truth gate, leaf or Social location is rewritten. Thus leaves reload in the newly viewed area instead of disappearing at a wrapped-world boundary.
+- A Store leaf is a clean full-colour green non-SDF sprite without a surrounding badge or outline; runtime `icon-color`/`icon-halo-*` paint is forbidden. The distinct Social chat bubble is likewise a static full-colour non-SDF sprite with its own contrast outline. Both use viewport alignment so pitch or bearing cannot make their shapes fragment. An invisible Store interaction circle may share exactly its source, filter and Store Truth gate to make the visible leaf reliably hoverable/clickable; it creates neither another marker nor any additional Store record or location precision.
+- Truth Map uses the same `createMap` native place-label ranges as `/new-map`: `place_city*` is visible at `5.8–24`, and `place_town*`, `place_villages*`, `place_hamlet*` and `place_suburb*` at `6.6–24`. Tile/data density can change the individual labels selected by MapLibre, but a Truth-Map-only range, territory exception or intermediate no-label band is forbidden.
 - A Social marker is not a user pin, store, exact post coordinate, distance-to-user indicator, popularity claim or Legal Truth signal.
 - Clicking a Social marker opens/focuses discussions for the already-returned safe H3 query cell and must not open a store or country popup.
 - The safe-area focus clears when the current viewport no longer contains that area.
 - Realtime invalidation refreshes Social activity without requiring a manual pan or reload.
+
+### Full-zoom presentation contract
+
+This is a route-local `/truth-map` presentation rule, not a change to a
+store record, a Social discussion, Legal Truth or the public `/new-map`.
+
+- At local map zoom `15`, the validated-store leaf has MapLibre
+  `icon-size=1.35` (the approved `1.5×` increase from `0.90`).
+- At the same zoom, a Social chat bubble is never smaller than a leaf: its
+  `icon-size` is `1.45` for one active discussion and may grow only with the
+  aggregate active-discussion count, up to `1.65`.
+- The discussion count remains legible at local zoom `15` with a `14px` text
+  presentation. Size communicates neither legal status nor store validation.
+- The Social API accepts viewport zoom through `14`. When the visual map is at
+  zoom `15`, the client requests `min(mapZoom, 14)` while retaining the local
+  z15 rendering. The query remains bounded to the existing privacy-safe H3
+  viewport contract and must not add raw location fields, persistence or a new
+  discussion.
+- The cannabis leaf and the chat bubble remain different image IDs, assets,
+  layers and click outcomes regardless of their relative sizes.
 
 ## 4. Public message visibility
 

@@ -15,8 +15,8 @@ export function getNewMapRuntimeIdentity() {
     nearbyMode: checkNearLegalEnabled() ? "RUN" : "SKIP",
     mapTiles: "NETWORK",
     dataSource: "SSOT",
-    mapRenderer: "none",
-    mapRuntime: "removed"
+    mapRenderer: "maplibre",
+    mapRuntime: "active"
   });
 }
 

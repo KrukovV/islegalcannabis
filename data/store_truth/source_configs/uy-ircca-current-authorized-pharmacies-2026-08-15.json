@@ -1,0 +1,30 @@
+{
+  "public_location_headers": {
+    "legal_name": "FARMACIA",
+    "address": "DIRECCIÓN",
+    "region": "DEPARTAMENTO",
+    "city": "LOCALIDAD"
+  },
+  "required_fields": [
+    "legal_name",
+    "address",
+    "region",
+    "city"
+  ],
+  "identity_fields": [
+    "legal_name",
+    "address",
+    "city",
+    "region"
+  ],
+  "store_type": "AUTHORIZED_PHARMACY",
+  "license_type": "CURRENT_IRCCA_AUTHORIZED_PHARMACY_DIRECTORY",
+  "country": "UY",
+  "adult_use": true,
+  "license_status": "UNKNOWN_STATUS",
+  "operational_status": "UNKNOWN_STATUS",
+  "confidence": "PROVEN",
+  "location_evidence": "STRONG",
+  "coordinates_source": "OFFICIAL_DIRECTORY_NO_COORDINATE_FIELD",
+  "coordinates_confidence": "UNKNOWN"
+}

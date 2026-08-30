@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "fetched_at": "2026-08-14T19:22:26.664Z",
+  "local_only": true,
+  "input_snapshot_path": "data/store_truth/source_snapshots/ms-mmcp-current-dispensary-registry-2026-08-14.json",
+  "input_snapshot_sha256": "1ab246ff2b000ff7d618786cd539b634d965d74acff30f8f3e6b9fc2ad5df690",
+  "census_benchmark": "Public_AR_Current",
+  "match_policy": "ONE_MATCH_OPTIONAL_MATCH_TYPE_MATCH_OR_EXACT_SAME_CANONICAL_ONELINE_ADDRESS_AND_IN_DECLARED_BOUNDS",
+  "requested_candidates": 24,
+  "accepted_records": 11,
+  "blocked_records": 13,
+  "records": [
+    {
+      "source_record_id": "103133",
+      "address": "3600 GAUTIER VANCLEAVE RD",
+      "city": "GAUTIER",
+      "region": "MS",
+      "postal_code": "39553",
+      "latitude": 30.393670307346,
+      "longitude": -88.651590628213,
+      "source_combined_address": "3600 GAUTIER VANCLEAVE RD GAUTIER, MS 39553",
+      "public_source_fields": {
+        "census_matched_address": "3600 GAUTIER VANCLEAVE RD, GAUTIER, MS, 39553"
+      }
+    },
+    {
+      "source_record_id": "103907",
+      "address": "771 WATER ST",
+      "city": "BILOXI",
+      "region": "MS",
+      "postal_code": "39530",
+      "latitude": 30.39463151043,
+      "longitude": -88.887195739747,
+      "source_combined_address": "771 WATER ST BILOXI, MS 39530",
+      "public_source_fields": {
+        "census_matched_address": "771 WATER ST, BILOXI, MS, 39530"
+      }
+    },
+    {
+      "source_record_id": "109361",
+      "address": "93 S FRONTAGE RD",
+      "city": "MERIDIAN",
+      "region": "MS",
+      "postal_code": "39301",
+      "latitude": 32.366345872549,
+      "longitude": -88.67205534059,
+      "source_combined_address": "93 S FRONTAGE RD MERIDIAN, MS 39301",
+      "public_source_fields": {
+        "census_matched_address": "93 S FRONTAGE RD, MERIDIAN, MS, 39301"
+      }
+    },
+    {
+      "source_record_id": "110294",
+      "address": "17 AIRPORT RD",
+      "city": "WEST POINT",
+      "region": "MS",
+      "postal_code": "39773",
+      "latitude": 33.585065468999,
+      "longitude": -88.659697295382,
+      "source_combined_address": "17 AIRPORT RD WEST POINT, MS 39773",
+      "public_source_fields": {
+        "census_matched_address": "17 AIRPORT RD, WEST POINT, MS, 39773"
+      }
+    },
+    {
+      "source_record_id": "124024",
+      "address": "10576 OLD STAGE RD",
+      "city": "MOSS POINT",
+      "region": "MS",
+      "postal_code": "39562",
+      "latitude": 30.457229293477,
+      "longitude": -88.433056668106,
+      "source_combined_address": "10576 OLD STAGE RD MOSS POINT, MS 39562",
+      "public_source_fields": {
+        "census_matched_address": "10576 OLD STAGE RD, MOSS POINT, MS, 39562"
+      }
+    },
+    {
+      "source_record_id": "1262",
+      "address": "1130 N LAMAR BLVD",
+      "city": "OXFORD",
+      "region": "MS",
+      "postal_code": "38655",
+      "latitude": 34.377081670975,
+      "longitude": -89.5115973109,
+      "source_combined_address": "1130 N LAMAR BLVD OXFORD, MS 38655",
+      "public_source_fields": {
+        "census_matched_address": "1130 N LAMAR BLVD, OXFORD, MS, 38655"
+      }
+    },
+    {
+      "source_record_id": "1270",
+      "address": "422 RIVERWIND DR",
+      "city": "PEARL",
+      "region": "MS",
+      "postal_code": "39208",
+      "latitude": 32.267379549787,
+      "longitude": -90.138212020882,
+      "source_combined_address": "422 RIVERWIND DR PEARL, MS 39208",
+      "public_source_fields": {
+        "census_matched_address": "422 RIVERWIND DR, PEARL, MS, 39208"
+      }
+    },
+    {
+      "source_record_id": "127482",
+      "address": "6248 OLD CANTON RD",
+      "city": "JACKSON",
+      "region": "MS",
+      "postal_code": "39211",
+      "latitude": 32.39107109299,
+      "longitude": -90.112697565643,
+      "source_combined_address": "6248 OLD CANTON RD JACKSON, MS 39211",
+      "public_source_fields": {
+        "census_matched_address": "6248 OLD CANTON RD, JACKSON, MS, 39211"
+      }
+    },
+    {
+      "source_record_id": "1279",
+      "address": "3142 S LIBERTY ST",
+      "city": "CANTON",
+      "region": "MS",
+      "postal_code": "39046",
+      "latitude": 32.590487284763,
+      "longitude": -90.041509269334,
+      "source_combined_address": "3142 S LIBERTY ST CANTON, MS 39046",
+      "public_source_fields": {
+        "census_matched_address": "3142 S LIBERTY ST, CANTON, MS, 39046"
+      }
+    },
+    {
+      "source_record_id": "1299",
+      "address": "1920 HWY 45 N",
+      "city": "COLUMBUS",
+      "region": "MS",
+      "postal_code": "39705",
+      "latitude": 33.531734965039,
+      "longitude": -88.437260707461,
+      "source_combined_address": "1920 HIGHWAY 45 N COLUMBUS, MS 39705",
+      "public_source_fields": {
+        "census_matched_address": "1920 HWY 45 N, COLUMBUS, MS, 39705"
+      }
+    },
+    {
+      "source_record_id": "1303",
+      "address": "612 HWY 12 E",
+      "city": "STARKVILLE",
+      "region": "MS",
+      "postal_code": "39759",
+      "latitude": 33.457898687346,
+      "longitude": -88.798994933534,
+      "source_combined_address": "612 HIGHWAY 12 E STARKVILLE, MS 39759",
+      "public_source_fields": {
+        "census_matched_address": "612 HWY 12 E, STARKVILLE, MS, 39759"
+      }
+    }
+  ]
+}

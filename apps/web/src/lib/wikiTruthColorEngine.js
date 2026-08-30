@@ -265,9 +265,13 @@ function normalizeOfficialRecreational(statusValue) {
     !hasOfficialTokenMatch(parsed, "RESEARCH") &&
     !hasOfficialTokenMatch(parsed, "INDUSTRIAL");
   const isDecriminalized = hasDecriminalizedRecreationalSignal(parsed);
+  const operationalAdultUse =
+    hasOfficialPhrase(parsed, "OPERATIONAL_ADULT_USE") &&
+    !hasEnactedNotOperationalSignal(parsed);
   const explicitAdultUse = (
     hasOfficialPhrase(parsed, "LEGAL_ADULT_USE") ||
     hasOfficialPhrase(parsed, "LEGAL_RECREATIONAL") ||
+    operationalAdultUse ||
     hasOfficialPhrase(parsed, "LEGAL_AND_REGULATED") ||
     hasOfficialPhrase(parsed, "LEGAL_WITH_LIMITS") ||
     hasOfficialPhrase(parsed, "LEGAL_AT_HOME_WITH_LIMITS") ||

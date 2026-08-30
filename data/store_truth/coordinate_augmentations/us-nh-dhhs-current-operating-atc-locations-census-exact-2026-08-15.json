@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-15T04:41:22.267Z",
+  "input_path": "data/store_truth/coordinate_augmentations/us-nh-dhhs-current-operating-atc-locations-census-input-2026-08-15.json",
+  "input_sha256": "eed57432d49c44ea776ef179a953711aea4e0895bc061f841b8830998192eaee",
+  "census_geocoder_url": "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+  "census_benchmark": "Public_AR_Current",
+  "census_response_sha256": "a2dc12c5274f221d5e5738fb708dd3efa5a59f6e4a3b2a8bf27222248a4cdd45",
+  "records": [
+    {
+      "source_record_id": "NH-DHHS-ATC-SANCTUARY-CONWAY-234-WHITE-MOUNTAIN-HIGHWAY",
+      "address": "234 White Mountain Highway",
+      "city": "Conway",
+      "region": "NH",
+      "postal_code": "03818",
+      "latitude": 43.985083787135,
+      "longitude": -71.112278832889,
+      "census_matched_postal_code": "03818",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "234 WHITE MOUNTAIN HWY, CONWAY, NH, 03818"
+      }
+    },
+    {
+      "source_record_id": "NH-DHHS-ATC-TEMESCAL-KEENE-69-ISLAND-STREET",
+      "address": "69 Island Street, Suite 1",
+      "city": "Keene",
+      "region": "NH",
+      "postal_code": "03431",
+      "latitude": 42.930218344836,
+      "longitude": -72.288119343518,
+      "census_matched_postal_code": "03431",
+      "coordinates_source": "OFFICIAL_ADDRESS_GEOCODED",
+      "coordinates_confidence": "STRONG",
+      "location_evidence": "STRONG",
+      "confidence": "STRONG",
+      "public_source_fields": {
+        "census_benchmark": "Public_AR_Current",
+        "census_matched_address": "69 ISLAND ST, KEENE, NH, 03431"
+      }
+    }
+  ],
+  "counts": {
+    "input_records": 7,
+    "census_response_rows": 7,
+    "one_to_one_exact_census_geocodes": 2,
+    "blocked_census_no_exact_in_jurisdiction_match": 5
+  }
+}

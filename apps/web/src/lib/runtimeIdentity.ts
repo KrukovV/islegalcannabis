@@ -23,8 +23,8 @@ export type RuntimeIdentity = {
   nearbyMode: "RUN" | "SKIP";
   mapTiles: "OFFLINE" | "NETWORK";
   dataSource: string;
-  mapRenderer: "none";
-  mapRuntime: "removed";
+  mapRenderer: "none" | "maplibre";
+  mapRuntime: "removed" | "active";
 };
 
 type BuildRuntimeIdentityInput = {
@@ -38,8 +38,8 @@ type BuildRuntimeIdentityInput = {
   nearbyMode: "RUN" | "SKIP";
   mapTiles: "OFFLINE" | "NETWORK";
   dataSource: string;
-  mapRenderer: "none";
-  mapRuntime: "removed";
+  mapRenderer: "none" | "maplibre";
+  mapRuntime: "removed" | "active";
 };
 
 export function buildRuntimeIdentity(input: BuildRuntimeIdentityInput): RuntimeIdentity {

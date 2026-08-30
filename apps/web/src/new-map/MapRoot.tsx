@@ -24,6 +24,7 @@ type Props = {
   visibleStamp: string;
   runtimeIdentity: RuntimeIdentity;
   initialGeoCode?: string | null;
+  initialMapView?: { lat: number; lng: number; zoom: number } | null;
   seoCountryData?: CountryPageData | null;
   seoCountryIndex?: Record<string, CountryPageData>;
   locale?: SeoLocale;
@@ -302,6 +303,7 @@ export default function MapRoot({
   visibleStamp,
   runtimeIdentity,
   initialGeoCode = null,
+  initialMapView = null,
   seoCountryData = null,
   seoCountryIndex = EMPTY_SEO_COUNTRY_INDEX,
   locale = "en"
@@ -848,14 +850,14 @@ export default function MapRoot({
       setSeoPanelOpen(true);
     });
     const map = mapRef.current;
-    const lat = target.coordinates?.lat;
-    const lng = target.coordinates?.lng;
+    const lat = initialMapView?.lat ?? target.coordinates?.lat;
+    const lng = initialMapView?.lng ?? target.coordinates?.lng;
     if (!map || typeof lat !== "number" || typeof lng !== "number") {
       return () => {
         cancelled = true;
       };
     }
-    const targetZoom = String(target.iso2 || "").toUpperCase().startsWith("US-") ? 4.8 : 3.2;
+    const targetZoom = initialMapView?.zoom ?? (String(target.iso2 || "").toUpperCase().startsWith("US-") ? 4.8 : 3.2);
     map.jumpTo({
       center: [lng, lat],
       zoom: Math.max(map.getZoom(), targetZoom)
@@ -863,7 +865,7 @@ export default function MapRoot({
     return () => {
       cancelled = true;
     };
-  }, [activeSeoData, cardIndex, initialGeoCode, mapReady]);
+  }, [activeSeoData, cardIndex, initialGeoCode, initialMapView, mapReady]);
 
   useEffect(() => {
     let cancelled = false;
@@ -1097,7 +1099,7 @@ export default function MapRoot({
           <div className={styles.card}>
             <div className={styles.cardHeader}>
               <strong>Runtime</strong>
-              <RuntimeParityBadge runtimeIdentity={runtimeIdentity} />
+              <RuntimeParityBadge runtimeIdentity={runtimeIdentity} runtimeMetaPath="/api/new-map/build-meta" />
             </div>
             <div className={styles.runtime} data-testid="visible-runtime-stamp">{visibleStamp}</div>
             <div className={styles.meta}>ROUTE=/new-map · OWNER=feature-state · WORLDCOPIES=ON</div>

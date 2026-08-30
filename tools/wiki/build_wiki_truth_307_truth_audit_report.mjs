@@ -785,16 +785,28 @@ function buildFreshAxisEvidenceByGeo(seed, visualReviewLedger = {}) {
 function independentReviewPacketsAgree(packets) {
   const colors = new Set(
     packets
-      .flatMap((packet) => [
-        packet?.truthFirstColorConclusion?.color,
-        packet?.colorConclusion?.color,
-        packet?.independentTruthColor,
-        packet?.independent_truth_color,
-      ])
-      .map((color) => String(color || "").trim().toUpperCase())
-      .filter((color) => THREE_TRUTH_COLORS.has(color)),
+      .flatMap(freshAxisDeclaredColors),
   );
   return colors.size <= 1;
+}
+
+function freshAxisDeclaredColors(packet) {
+  const conclusions = [
+    packet?.truthFirstColorConclusion,
+    packet?.colorConclusion,
+  ];
+  return [
+    ...conclusions.flatMap((conclusion) => {
+      if (typeof conclusion === "string") return [conclusion];
+      return [conclusion?.freshTruthColor, conclusion?.color];
+    }),
+    packet?.freshTruthColor,
+    packet?.fresh_truth_color,
+    packet?.independentTruthColor,
+    packet?.independent_truth_color,
+  ]
+    .map((color) => String(color || "").trim().toUpperCase())
+    .filter((color) => THREE_TRUTH_COLORS.has(color));
 }
 
 function isIndependentReviewPacket(value) {
@@ -907,10 +919,17 @@ function freshAxisOfficialSources(evidence) {
       const visualEvidencePath = typeof visualEvidence === "string"
         ? visualEvidence
         : (visualEvidence?.screenshotPath || visualEvidence?.screenshot || "");
+      const sourceReview =
+        source?.visualReview ||
+        source?.visual_review ||
+        source?.visual_review_result ||
+        source?.revalidation?.c2_c3_review ||
+        {};
       const sourceVisualReview =
         source?.visualReviewed === true ||
         source?.visual_reviewed === true ||
-        source?.checkedVisually === true;
+        source?.checkedVisually === true ||
+        source?.reviewed_by_human_visual === true;
       return {
         title: String(source?.title || source?.sourceOwner || source?.officialOwner || source?.officialPublisher || source?.source_authority || "Official source"),
         url: String(source?.url || ""),
@@ -934,26 +953,43 @@ function freshAxisOfficialSources(evidence) {
           null,
         officialOwnerVisible:
           visualEvidence?.officialOwnerVisible === true ||
+          visualEvidence?.official_owner_visible === true ||
           source?.officialOwnerVisible === true ||
+          source?.official_owner_visible === true ||
           source?.sourceOwnerVisible === true ||
+          source?.source_owner_visible === true ||
+          sourceReview?.officialOwnerVisible === true ||
+          sourceReview?.official_owner_visible === true ||
           (sourceVisualReview && validation.officialOwnerVisible === true) ||
+          (sourceVisualReview && validation.official_owner_visible === true) ||
           validation.officialOwnerVisible === true ||
+          validation.official_owner_visible === true ||
           validation.sourceOwnershipVerified === true,
         officialDomainVisible:
           visualEvidence?.officialDomainVisible === true ||
+          visualEvidence?.official_domain_visible === true ||
           source?.officialDomainVisible === true ||
+          source?.official_domain_visible === true ||
+          sourceReview?.officialDomainVisible === true ||
+          sourceReview?.official_domain_visible === true ||
           (sourceVisualReview && (
             validation.officialDomainVisible === true ||
             validation.official_domain_visible === true
           )),
         screenshotValid:
           visualEvidence?.screenshotValid === true ||
+          visualEvidence?.screenshot_valid === true ||
           source?.screenshotValid === true ||
+          source?.screenshot_valid === true ||
           Boolean(source?.screenshot) ||
           Boolean(visualEvidencePath) ||
           (Array.isArray(source?.screenshots) && source.screenshots.length > 0) ||
+          sourceReview?.screenshotValid === true ||
+          sourceReview?.screenshot_valid === true ||
           (sourceVisualReview && validation.screenshotValid === true) ||
+          (sourceVisualReview && validation.screenshot_valid === true) ||
           validation.screenshotValid === true ||
+          validation.screenshot_valid === true ||
           validation.visualReviewComplete === true,
         screenshotPaths: [
           visualEvidencePath,
@@ -1095,10 +1131,9 @@ function freshAxisEvidenceText(evidence) {
     .toUpperCase();
 }
 
-function freshAxisEvidenceHasOnlyOfficialSources(evidence) {
-  const sources = freshAxisOfficialSources(evidence);
-  if (sources.length < 1) return false;
-  return sources.every((source) => {
+function freshAxisSourceIsOfficial(source) {
+  if (!source) return false;
+  {
     const text = `${source.url} ${source.sourceKind} ${source.evidenceRole} ${source.officialPublisher}`.toUpperCase();
     if (/WIKIPEDIA|WIKIDATA|OPENSTREETMAP/.test(text)) return false;
     const authorityClaimed = /OFFICIAL|GOV|GOVERNMENT|MINISTRY|PARLIAMENT|LEGIS|GAZETTE|REGULATOR|COMMISSION|DEPARTMENT|COURT|HEALTH|STATUTE|LAW|ACT|RULE/.test(text);
@@ -1114,7 +1149,38 @@ function freshAxisEvidenceHasOnlyOfficialSources(evidence) {
       visualOwnershipProof ||
       declaredOwnerApplicabilityProof
     );
-  });
+  }
+}
+
+function freshAxisSourcesAreOfficial(sources) {
+  return sources.length >= 1 && sources.every(freshAxisSourceIsOfficial);
+}
+
+function freshAxisEvidenceHasOnlyOfficialSources(evidence) {
+  return freshAxisSourcesAreOfficial(freshAxisOfficialSources(evidence));
+}
+
+function freshAxisQualifiedSourceEvidence(evidence, color) {
+  return freshAxisEvidencePackets(evidence)
+    .filter((packet) => freshAxisDeclaredColors(packet).includes(color))
+    .map((packet) => {
+      // Retain every source in the canonical packet for provenance, but do
+      // not let an explicitly incomplete contextual lead veto a separate,
+      // qualifying official evidence set.  The returned source list is the
+      // precise basis for the legal conclusion and is still independently
+      // validated below.
+      const sources = freshAxisOfficialSources(packet)
+        .filter(freshAxisSourceIsOfficial);
+      return {
+        packet,
+        sources,
+        factCount: freshAxisOfficialFactCount(packet, sources),
+      };
+    })
+    .find(({ packet, sources }) => (
+      freshAxisSourcesAreOfficial(sources) &&
+      freshAxisEvidenceSupportsColor(packet, color)
+    )) || null;
 }
 
 function freshAxisHasAdultUseLegal(evidence) {
@@ -1310,8 +1376,9 @@ function freshAxisFindingsSummary(evidence) {
 function buildFreshAxisTruthOverride(evidence) {
   const conclusion = freshAxisColorConclusion(evidence);
   const color = freshAxisDerivedColor(evidence);
-  const sources = freshAxisOfficialSources(evidence);
-  const factCount = freshAxisOfficialFactCount(evidence, sources);
+  const qualifiedSourceEvidence = freshAxisQualifiedSourceEvidence(evidence, color);
+  const sources = qualifiedSourceEvidence?.sources || freshAxisOfficialSources(evidence);
+  const factCount = qualifiedSourceEvidence?.factCount || freshAxisOfficialFactCount(evidence, sources);
   const adultUseLegal = freshAxisHasAdultUseLegal(evidence);
   const minimumFactCount = color === "GREEN" && adultUseLegal
     ? 2
@@ -1329,7 +1396,7 @@ function buildFreshAxisTruthOverride(evidence) {
   if (/CONFLICT/.test(status)) return null;
   if (status && !/FRESH_AXIS_RECONCILED|RECONCILED|INDEPENDENT_OFFICIAL_(?:VISUAL|LEGAL)_REVIEW_COMPLETED/.test(status)) return null;
   if (!status && !completeVisualReview) return null;
-  if (!freshAxisEvidenceHasOnlyOfficialSources(evidence)) return null;
+  if (!qualifiedSourceEvidence) return null;
   if (factCount < minimumFactCount) return null;
   if (!freshAxisEvidenceSupportsColor(evidence, color)) return null;
 

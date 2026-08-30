@@ -10,6 +10,7 @@ type Props = {
   visibleStamp: string;
   runtimeIdentity: RuntimeIdentity;
   initialGeoCode?: string | null;
+  initialMapView?: { lat: number; lng: number; zoom: number } | null;
   seoCountryData?: CountryPageData | null;
   seoCountryIndex?: Record<string, CountryPageData>;
   locale?: SeoLocale;

@@ -1,0 +1,71 @@
+{
+  "source_snapshot_path": "data/store_truth/source_snapshots/nd-hhs-current-dispensary-locations-2026-08-14.json",
+  "source_snapshot_sha256": "f37cc76a25e1dd848e048d9cf46aba766b0dc222e2f1428e4ab6e7c276ffbce2",
+  "selection": "ALL_CURRENT_OFFICIAL_HHS_PUBLIC_LOCATION_ROWS_WITH_EXPLICIT_NO_SOURCE_ZIP_POLICY",
+  "records": [
+    {
+      "source_record_id": "html-heading:040cacf09bbc3d37bde7bb0a",
+      "address": "1207 Memorial Highway",
+      "city": "Bismarck",
+      "region": "ND",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "html-heading:e8b0289135005023b9f143cf",
+      "address": "1809 13th Ave. North",
+      "city": "Grand Forks",
+      "region": "ND",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "html-heading:739af987550ea48d113f31af",
+      "address": "310 Highway 2 East",
+      "city": "Devils Lake",
+      "region": "ND",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "html-heading:283a010b6a49e2311ff36f6b",
+      "address": "1513 Business Loop East",
+      "city": "Jamestown",
+      "region": "ND",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "html-heading:834b855f34605643d6f3c233",
+      "address": "318 24th Street East",
+      "city": "Dickinson",
+      "region": "ND",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "html-heading:252b889fd65912002fa68a49",
+      "address": "2301 16th St. SW",
+      "city": "Minot",
+      "region": "ND",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "html-heading:708dfabe7c82011e444fcf2e",
+      "address": "4302 13th Ave. S. #19",
+      "city": "Fargo",
+      "region": "ND",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    },
+    {
+      "source_record_id": "html-heading:c7aba311fbe35016d0130a1c",
+      "address": "120 26th Street East, Suite 500",
+      "city": "Williston",
+      "region": "ND",
+      "postal_code": "",
+      "allow_missing_source_postal_code": true
+    }
+  ]
+}

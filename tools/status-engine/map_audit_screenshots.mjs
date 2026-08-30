@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import fs from "node:fs";
 import path from "node:path";
-import { chromium } from "playwright";
+import { chromium } from "../playwright_runtime.mjs";
 import sharp from "sharp";
 import { acquireProjectProcessSlot } from "../runtime/processSlots.mjs";
 
