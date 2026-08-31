@@ -7,12 +7,20 @@ import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntr
 import { buildCardIndexSnapshot } from "@/new-map/countrySource";
 import { buildTruthMapDataset } from "@/truth-map/truthMapSource";
 import { projectTruthMapRichCard } from "@/truth-map/truthMapRichCard";
+import { parseTruthMapLegalEvidenceCitations } from "@/truth-map/TruthMapLegalEvidence";
 
 vi.mock("next/navigation", () => ({
   usePathname: () => "/"
 }));
 
 describe("UnifiedSeoStatusPanel", () => {
+  const markupText = (value: string) => value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#x27;");
+
   function renderPanel(code: string) {
     const data = getCountryPageData(code);
     expect(data).toBeTruthy();
@@ -123,12 +131,33 @@ describe("UnifiedSeoStatusPanel", () => {
           entry: projected,
           locale: "en",
           onClose: () => {},
-          truthMapPresentation: true
+          truthMapPresentation: true,
+          truthMapEvidence: properties
         })
       );
 
       expect(html).toContain(`data-category="${projected.mapCategory}"`);
       expect(html).toContain(projected.panel.summary);
+      expect(html).toContain('data-testid="truth-map-seo-authoritative-evidence"');
+      expect(html).toContain('data-testid="truth-map-seo-legal-evidence"');
+      expect(html).toContain(`Current legal conclusion: ${properties.legalTruthColor}`);
+      expect(html).toContain(`Rule: ${properties.truthRuleId}`);
+      expect(html).toContain(`Apply state: ${properties.applyState}`);
+      expect(html).toContain(markupText(properties.truthReason));
+      for (const citation of parseTruthMapLegalEvidenceCitations(properties.legalEvidenceCitationsJson)) {
+        expect(html).toContain(`href="${markupText(citation.url)}"`);
+        expect(html).toContain(markupText(citation.title));
+        if (citation.publisher) expect(html).toContain(markupText(citation.publisher));
+        if (citation.annotation) expect(html).toContain(markupText(citation.annotation));
+        if (citation.quote) expect(html).toContain(markupText(citation.quote));
+      }
+      for (const context of [projected.parentLawSummary, ...(projected.jurisdictionContextNotes || [])].filter(Boolean)) {
+        expect(html).toContain(markupText(String(context)));
+      }
+      for (const source of projected.sources) {
+        expect(html).toContain(`href="${markupText(source.url)}"`);
+        expect(html).toContain(markupText(source.title));
+      }
     }
   });
 
@@ -146,13 +175,21 @@ describe("UnifiedSeoStatusPanel", () => {
         entry: projected,
         locale: "en",
         onClose: () => {},
-        truthMapPresentation: true
+        truthMapPresentation: true,
+        truthMapEvidence: mongoliaProperties!
       })
     );
 
     expect(html).toContain('data-category="LEGAL_OR_DECRIM"');
     expect(html).toContain("GREEN in Mongolia");
     expect(html).toContain(projected.panel.summary);
+    expect(html).toContain('Authoritative legal evidence, citations and annotations');
+    expect(html).toContain('Current reconciliation rationale');
+    for (const citation of parseTruthMapLegalEvidenceCitations(mongoliaProperties!.legalEvidenceCitationsJson)) {
+      expect(html).toContain(markupText(citation.title));
+      expect(html).toContain(markupText(citation.annotation));
+      expect(html).toContain(markupText(citation.quote));
+    }
     expect(html).not.toContain("RED in Mongolia");
     expect(html).not.toContain("Access remains prohibited.");
     expect(html).not.toContain("Medical cannabis is illegal.");

@@ -10,6 +10,9 @@ import type { SeoLocale } from "@/lib/seo/i18n";
 import { getSeoText } from "@/lib/seo/i18n";
 import { localizePanel, localizePanelFromEntry } from "@/lib/seo/panelLocale";
 import { getLinkScope, isSameLink } from "@/lib/linkDisplayPolicy";
+import { sanitizeEvidenceQuoteText } from "@/lib/text/sanitizeEvidenceQuoteText";
+import TruthMapLegalEvidence from "@/truth-map/TruthMapLegalEvidence";
+import type { TruthMapFeatureProperties } from "@/truth-map/truthMapSource";
 import type { CountryCardEntry } from "../map.types";
 import styles from "../MapRoot.module.css";
 
@@ -18,7 +21,8 @@ export default function UnifiedSeoStatusPanel({
   entry,
   locale,
   onClose,
-  truthMapPresentation = false
+  truthMapPresentation = false,
+  truthMapEvidence = null
 }: {
   data?: CountryPageData | null;
   entry?: CountryCardEntry | null;
@@ -26,6 +30,8 @@ export default function UnifiedSeoStatusPanel({
   onClose: () => void;
   /** The Truth Map supplies the authoritative current legal projection. */
   truthMapPresentation?: boolean;
+  /** The selected feature owns its citations, annotations and reconciliation rationale. */
+  truthMapEvidence?: TruthMapFeatureProperties | null;
 }) {
   const currentPath = usePathname() || "/";
   const card = entry || (data ? deriveCountryCardEntryFromCountryPageData(data) : null);
@@ -53,6 +59,14 @@ export default function UnifiedSeoStatusPanel({
         moreContext: "Supplementary scope notes — not the current legal conclusion"
       }
     : panel.labels;
+  const jurisdictionContext = truthMapPresentation
+    ? Array.from(new Set([
+      card.parentLawSummary,
+      ...(card.jurisdictionContextNotes || [])
+    ]
+      .map((item) => sanitizeEvidenceQuoteText(String(item || "")).trim())
+      .filter(Boolean)))
+    : [];
   const cannabisProfileSections = getCannabisProfileCardSections(card.cannabisProfile)
     .map((section) => ({
       ...section,
@@ -142,6 +156,26 @@ export default function UnifiedSeoStatusPanel({
           ×
         </button>
       </div>
+
+      {truthMapPresentation && truthMapEvidence ? (
+        <section className={styles.seoPanelSection} data-testid="truth-map-seo-authoritative-evidence">
+          <h3 className={styles.seoPanelSubheading}>Authoritative legal evidence, citations and annotations</h3>
+          <TruthMapLegalEvidence
+            properties={truthMapEvidence}
+            auditOnly={false}
+            testId="truth-map-seo-legal-evidence"
+          />
+        </section>
+      ) : null}
+
+      {jurisdictionContext.length > 0 ? (
+        <section className={styles.seoPanelSection} data-testid="truth-map-seo-jurisdiction">
+          <h3 className={styles.seoPanelSubheading}>Jurisdiction and regulatory context — supplementary to current legal evidence</h3>
+          <ul className={styles.seoPanelList}>
+            {jurisdictionContext.map((item) => <li key={item}>{item}</li>)}
+          </ul>
+        </section>
+      ) : null}
 
       <section className={styles.seoPanelSection}>
         {renderReasonSection(panel.critical, panelLabels.hardRestrictions)}

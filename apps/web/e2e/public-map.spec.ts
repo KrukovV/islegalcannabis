@@ -55,6 +55,10 @@ test("public Truth Map keeps Mongolia's SEO panel on the same current GREEN reco
   await expect(panel).toBeVisible({ timeout: 30_000 });
   await expect(panel.locator("[data-category]")).toHaveAttribute("data-category", "LEGAL_OR_DECRIM");
   await expect(panel).toContainText("GREEN in Mongolia");
+  const authoritativeEvidence = panel.getByTestId("truth-map-seo-legal-evidence");
+  await expect(authoritativeEvidence).toContainText("Current legal conclusion: GREEN");
+  await expect(authoritativeEvidence).toContainText("Current reconciliation rationale");
+  await expect(authoritativeEvidence.getByRole("link", { name: /Legalinfo Mongolia/i })).toHaveCount(2);
   await expect(panel).not.toContainText("RED in Mongolia");
   await expect(panel).not.toContainText("Medical cannabis is illegal.");
   await expect(panel).not.toContainText("Cannabis is illegal in Mongolia.");
