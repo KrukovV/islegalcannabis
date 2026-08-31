@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 import {
   canonicalLegalTruthFingerprint,
+  canonicalLegalTruthFromStoreEligibility,
+  resolveCanonicalLegalTruthByGeo,
   buildStoreSpatialIndex,
   getStoreVisibilityLevel,
   queryVisibleStores,
@@ -114,6 +116,39 @@ const expectedGreenTruth = {
 };
 
 describe("canonical store truth", () => {
+  it("accepts the production-safe eligibility fallback only when its truth fingerprint is exact", () => {
+    const fallback = canonicalLegalTruthFromStoreEligibility([
+      provenEligibility,
+      {
+        ...provenEligibility,
+        geo_id: "US-BAD",
+        canonical_truth_fingerprint: "stale-or-tampered",
+      },
+    ]);
+
+    expect(fallback.get("US-CO")).toEqual(expectedGreenTruth);
+    expect(fallback.has("US-BAD")).toBe(false);
+  });
+
+  it("uses the committed eligibility fallback only when audit reconciliation is unavailable", () => {
+    expect(resolveCanonicalLegalTruthByGeo([], [provenEligibility])).toEqual(new Map([["US-CO", expectedGreenTruth]]));
+    expect(resolveCanonicalLegalTruthByGeo([
+      {
+        geo: "US-CO",
+        truthColor: "YELLOW",
+        truthRuleId: "CURRENT_OFFICIAL_LIMITED_ROUTE",
+      },
+    ], [provenEligibility])).toEqual(new Map([[
+      "US-CO",
+      {
+        geo_id: "US-CO",
+        color: "YELLOW",
+        rule: "CURRENT_OFFICIAL_LIMITED_ROUTE",
+        fingerprint: canonicalLegalTruthFingerprint("US-CO", "YELLOW", "CURRENT_OFFICIAL_LIMITED_ROUTE"),
+      },
+    ]]));
+  });
+
   it("keeps individual markers absent below the medium threshold", () => {
     expect(getStoreVisibilityLevel(STORE_ZOOM_POLICY.mediumMinZoom - 0.01)).toBe("LOW");
     expect(getStoreVisibilityLevel(STORE_ZOOM_POLICY.mediumMinZoom)).toBe("MEDIUM");

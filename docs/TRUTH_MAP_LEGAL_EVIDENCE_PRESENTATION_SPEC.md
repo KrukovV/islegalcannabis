@@ -112,6 +112,13 @@ restriction with the current conclusion, verify the sticky close control after
 popup scroll, and preserve the route-local popup identity before collecting a
 row.
 
+A representative production browser receipt is a separate deployment check:
+it must select an actual map feature rather than rely only on a URL parameter,
+then verify the complete selected GEO card, open the dotted SEO CTA and close
+the SEO panel back to that same GEO popup. The receipt also binds the loaded
+page to the accepted build identity; it cannot replace the canonical 307-GEO
+local visual-manifest audit.
+
 A random live sample is supplemental evidence, never a replacement for the separate canonical 307-GEO visual-manifest refresh. Guard freshness must not be faked, weakened, or repaired by timestamp changes.
 
 ## 7. Route boundary

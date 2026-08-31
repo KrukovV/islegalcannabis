@@ -275,17 +275,26 @@ push the full dirty worktree merely to ship this trace fix.
 
 A push or Vercel deployment is not acceptance. After Vercel promotion, verify:
 
-1. `origin/main` identifies the authorized commit.
+1. `origin/main` identifies the authorized commit and `/api/build-meta` exposes
+   that exact SHA through `commit` or `buildSha`.
 2. All 311 canonical sitemap URLs return HTTP 200.
 3. Every advertised HTML page has title, canonical and `index, follow`.
 4. Split sitemap counts are `238/50/22`; the sitemap index contains 4 entries.
 5. `robots.txt` allows Googlebot and publishes sitemap locations.
 6. `/truth-map` and `/wiki-truth` return 404 on the public host.
-7. Every sitemap contains zero audit/Social/Store route leaks.
-8. A real production browser renders the complete public legal-evidence popup,
-   its dotted in-place SEO CTA, Store Truth markers and the existing Antarctica
-   animation, without legacy CannabisLawMap, AI, Social, DM or audit controls.
-9. A post-release canonical-root `pass_cycle` remains green.
+7. Public country/state adapters return HTTP 308 to immutable
+   content-addressed `/static/truth-map/<file>` payloads.
+8. Every sitemap contains zero audit/Social/Store route leaks.
+9. The public Store summary and a retained, known bounded Store viewport both
+   return `visibleStores > 0` through the same public adapter. HTTP `200` with
+   an empty Store payload is a release failure, not a successful adapter check.
+10. A real production browser waits for the public map canvas, clicks an actual
+   GEO feature and verifies the complete rich legal-evidence popup. Its dotted
+   SEO CTA must open the country panel without a document reload; closing that
+   panel must restore the same popup record. The same browser proof verifies
+   Antarctica animation, without legacy CannabisLawMap, AI, Social, DM or audit
+   controls.
+11. A post-release canonical-root `pass_cycle` remains green.
 
 If any condition fails, production acceptance is FAIL even when Vercel reports
 the deployment as ready.

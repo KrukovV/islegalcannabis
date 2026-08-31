@@ -167,8 +167,13 @@ export type StoreSummaryLevels = {
 
 type StoreDataEnvelope<T> = { sources?: T[]; records?: T[] };
 type StoreEligibilityModelEnvelope = { rows?: StoreEligibilityModelRow[] };
+export type CanonicalLegalTruthSourceRow = {
+  geo?: string;
+  truthColor?: string;
+  truthRuleId?: string;
+};
 type FinalReconciliationEnvelope = {
-  rows?: Array<{ geo?: string; truthColor?: string; truthRuleId?: string }>;
+  rows?: CanonicalLegalTruthSourceRow[];
 };
 export type StoreSpatialIndex = Map<string, CanonicalStoreRecord[]>;
 
@@ -220,12 +225,40 @@ export function canonicalLegalTruthFingerprint(geoId: string, color: string, rul
   return [normalizeGeo(geoId), readText(color).toUpperCase(), readText(rule)].join(":");
 }
 
-export function loadCanonicalLegalTruthByGeo(): Map<string, CanonicalLegalTruth> {
-  const payload = readJson<FinalReconciliationEnvelope>(
-    reviewDataPath("wiki-truth-307-final-reconciliation.json"),
-  );
+/**
+ * The final reconciliation is intentionally local/audit-only and therefore is
+ * not traced into public serverless functions. Store eligibility is a
+ * committed, independently generated projection of that reconciliation. It
+ * can supply a production-safe canonical-truth gate only when its persisted
+ * fingerprint still exactly matches the values it declares.
+ */
+export function canonicalLegalTruthFromStoreEligibility(
+  rows: Iterable<StoreEligibilityModelRow>,
+): Map<string, CanonicalLegalTruth> {
   const result = new Map<string, CanonicalLegalTruth>();
-  for (const row of payload?.rows || []) {
+  for (const row of rows) {
+    const geoId = normalizeGeo(row.geo_id);
+    const color = readText(row.canonical_truth_color).toUpperCase();
+    const rule = readText(row.canonical_truth_rule);
+    const fingerprint = readText(row.canonical_truth_fingerprint);
+    if (!geoId || !["GREEN", "YELLOW", "RED", "UNKNOWN"].includes(color) || !rule) continue;
+    if (fingerprint !== canonicalLegalTruthFingerprint(geoId, color, rule)) continue;
+    result.set(geoId, {
+      geo_id: geoId,
+      color: color as CanonicalLegalTruth["color"],
+      rule,
+      fingerprint,
+    });
+  }
+  return result;
+}
+
+export function resolveCanonicalLegalTruthByGeo(
+  reconciliationRows: Iterable<CanonicalLegalTruthSourceRow>,
+  eligibilityRows: Iterable<StoreEligibilityModelRow>,
+): Map<string, CanonicalLegalTruth> {
+  const result = new Map<string, CanonicalLegalTruth>();
+  for (const row of reconciliationRows) {
     const geoId = normalizeGeo(row.geo);
     const color = readText(row.truthColor).toUpperCase();
     const rule = readText(row.truthRuleId);
@@ -237,7 +270,22 @@ export function loadCanonicalLegalTruthByGeo(): Map<string, CanonicalLegalTruth>
       fingerprint: canonicalLegalTruthFingerprint(geoId, color, rule),
     });
   }
-  return result;
+  // Public deployments do not receive the ignored audit reconciliation. Do
+  // not loosen the Store gate: fall back only to self-consistent, committed
+  // eligibility rows that carry the same canonical truth fingerprint.
+  return result.size > 0
+    ? result
+    : canonicalLegalTruthFromStoreEligibility(eligibilityRows);
+}
+
+export function loadCanonicalLegalTruthByGeo(): Map<string, CanonicalLegalTruth> {
+  const payload = readJson<FinalReconciliationEnvelope>(
+    reviewDataPath("wiki-truth-307-final-reconciliation.json"),
+  );
+  return resolveCanonicalLegalTruthByGeo(
+    payload?.rows || [],
+    loadStoreEligibilityByGeo().values(),
+  );
 }
 
 export function loadStoreEligibilityByGeo(): Map<string, StoreEligibilityModelRow> {
