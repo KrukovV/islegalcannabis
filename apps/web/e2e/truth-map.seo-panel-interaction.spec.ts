@@ -112,7 +112,10 @@ test("a supplementary action opens the same GEO's richer under-map evidence with
   ]);
   const publicRoot = page.getByTestId("public-map-root");
   await expect(publicRoot).toHaveAttribute("data-truth-map-source", "FINAL_307_RECONCILIATION");
+  await expect(publicRoot).toHaveAttribute("data-overlay-scope", "map-only");
   await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 30_000 });
+  await expect(page.locator('[data-popup-variant="truth-map"]')).toHaveCount(0);
+  await expect(page.getByTestId("new-map-seo-overlay")).toHaveCount(0);
   await expect(page.getByTestId("country-page-current-legal-evidence")).toContainText("Current legal conclusion: GREEN");
   await expect(page.locator("#law-recreational")).toContainText("Supplementary action-specific context — not the current legal conclusion");
   await expect(page.locator("body")).not.toContainText("Cannabis is illegal in Mongolia");

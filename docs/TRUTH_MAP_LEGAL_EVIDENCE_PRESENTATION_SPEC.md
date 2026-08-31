@@ -117,6 +117,14 @@ internal route. A map-only GEO with no sitemap country page may use its
 noindex detail fallback, but this must not add, replace or change a sitemap
 entry.
 
+Rich popups and in-place SEO panels are map-viewport controls. A scrollable
+`/c/[code]` under-map document may centre its matching GEO, but it must not
+auto-open either overlay from its route or anchor. After an Action transition
+to `#law-recreational`, the expanded article is the only surface above that
+content; no fixed popup or SEO panel may cover it. Map routes retain the
+existing popup → in-place panel → same-popup-close interaction while the map is
+in view.
+
 The anchor target is headed `Supplementary action-specific context — not the
 current legal conclusion`. A present-tense profile statement that itself
 asserts a whole-territory legal status (for example, “Cannabis is illegal in
@@ -165,7 +173,9 @@ whose card has a public `/c/[code]` page uses that exact sitemap path, and that
 no projected profile item is a present-tense current legal assertion. A browser
 regression follows Mongolia's Action link through `/c/mng#law-recreational`,
 then verifies the final-projection GREEN record, scrollable expanded content
-and no revived legacy RED statement.
+and no revived legacy RED statement. It also verifies that the destination
+has map-only overlay scope and contains neither a rich popup nor an in-place
+SEO panel above the under-map article.
 
 The opt-in WebKit audit must open every requested popup on the existing singleton, wait for the selected GEO identity, verify the same rule from rendered text, and save an external screenshot. Its manifest records `geo`, `legalTruthColor`, `mapDisplayText`, and `legalEvidenceIcon` for every captured row. The audit resolves the canonical repository root from the test file location, never from the caller's working directory, so a full run can update only `Artifacts/truth-map-visual-audit/manifest.json` at the Git root; a manifest written under `apps/web/Artifacts/` is invalid evidence and must be preserved externally rather than accepted by the guard.
 

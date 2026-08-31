@@ -161,6 +161,7 @@ export default function CountrySeoPage({
         visibleStamp={visibleStamp}
         runtimeIdentity={runtimeIdentity}
         initialGeoCode={properties.geo}
+        initialGeoOpensPopup={false}
         presentation="public"
         showPublicMapNotice={false}
         bodyScroll="allow"

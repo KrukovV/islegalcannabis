@@ -53,6 +53,7 @@ export default function TruthMapTerritorySeoPage({
         visibleStamp={visibleStamp}
         runtimeIdentity={runtimeIdentity}
         initialGeoCode={properties.geo}
+        initialGeoOpensPopup={false}
         presentation="public"
         showPublicMapNotice={false}
         bodyScroll="allow"

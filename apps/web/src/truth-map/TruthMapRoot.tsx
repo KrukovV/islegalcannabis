@@ -38,6 +38,8 @@ type Props = {
   runtimeIdentity: RuntimeIdentity;
   initialMapView?: { lat: number; lng: number; zoom: number } | null;
   initialGeoCode?: string | null;
+  /** Detail documents centre their GEO without carrying a map overlay into article content. */
+  initialGeoOpensPopup?: boolean;
   presentation?: "audit" | "public";
   showPublicMapNotice?: boolean;
   interactiveOverlayLayerIds?: readonly string[];
@@ -135,7 +137,7 @@ function resolveEntryDetailsCode(entry: CountryCardEntry) {
   return entry.parentCountry?.code ? String(entry.parentCountry.code).trim().toLowerCase() : null;
 }
 
-export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, runtimeIdentity, initialMapView = null, initialGeoCode = null, presentation = "audit", showPublicMapNotice = false, interactiveOverlayLayerIds = NO_INTERACTIVE_OVERLAY_LAYERS, auditMapLayer, auditDock, auditPanel, publicLocalDock, bodyScroll = "lock" }: Props) {
+export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, runtimeIdentity, initialMapView = null, initialGeoCode = null, initialGeoOpensPopup = true, presentation = "audit", showPublicMapNotice = false, interactiveOverlayLayerIds = NO_INTERACTIVE_OVERLAY_LAYERS, auditMapLayer, auditDock, auditPanel, publicLocalDock, bodyScroll = "lock" }: Props) {
   const publicPresentation = presentation === "public";
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
@@ -160,6 +162,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
   const [storesEnabled, setStoresEnabled] = useState(true);
   const initialMapViewRef = useRef(initialMapView);
   const initialGeoCodeRef = useRef(initialGeoCode);
+  const initialGeoOpensPopupRef = useRef(initialGeoOpensPopup);
 
   useStoreMapLayer(mapInstance, mapReady, storesEnabled, publicPresentation ? PUBLIC_STORE_MAP_LAYER_ENDPOINTS : undefined);
 
@@ -220,6 +223,36 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
     setPopupAnchor(null);
     setSelectedGeo(null);
   }, []);
+
+  const clearSeoPanel = useCallback(() => {
+    setSeoPanelOpen(false);
+    setActiveSeoData(null);
+    setActiveSeoSelection(null);
+  }, []);
+
+  const clearMapOnlyOverlays = useCallback(() => {
+    clearSelectedGeo();
+    clearSeoPanel();
+  }, [clearSelectedGeo, clearSeoPanel]);
+
+  useEffect(() => {
+    if (bodyScroll !== "allow" || typeof window === "undefined") return;
+    let frameId = 0;
+    const closeOutsideMapViewport = () => {
+      window.cancelAnimationFrame(frameId);
+      frameId = window.requestAnimationFrame(() => {
+        // A country document may use the same map core at its top, but its
+        // fixed map controls must never follow the reader into the article.
+        if (window.scrollY > 0) clearMapOnlyOverlays();
+      });
+    };
+    window.addEventListener("scroll", closeOutsideMapViewport, { passive: true });
+    closeOutsideMapViewport();
+    return () => {
+      window.removeEventListener("scroll", closeOutsideMapViewport);
+      window.cancelAnimationFrame(frameId);
+    };
+  }, [bodyScroll, clearMapOnlyOverlays]);
 
   const openTruthPopup = useCallback((properties: TruthMapFeatureProperties, lngLat: { lng: number; lat: number }) => {
     const map = mapRef.current;
@@ -337,11 +370,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
     if (data) setActiveSeoData(data);
   }, [loadSeoCountryData, selectedPopup]);
 
-  const handleSeoPanelClose = useCallback(() => {
-    setSeoPanelOpen(false);
-    setActiveSeoData(null);
-    setActiveSeoSelection(null);
-  }, []);
+  const handleSeoPanelClose = clearSeoPanel;
 
   const handleSeoMarkerToggle = useCallback(() => {
     if (!activeSeoSelection) return;
@@ -526,7 +555,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
           const lat = Number(initialProperties?.labelAnchorLat);
           if (initialProperties?.truthDataset === "FINAL_307_RECONCILIATION" && Number.isFinite(lng) && Number.isFinite(lat)) {
             runtime.map.jumpTo({ center: [lng, lat], zoom: 3.2, pitch: 0, bearing: 0 });
-            openTruthPopup(initialProperties, { lng, lat });
+            if (initialGeoOpensPopupRef.current) openTruthPopup(initialProperties, { lng, lat });
           }
         }
         setMapReady(true);
@@ -628,6 +657,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
       className={`${styles.root} ${truthStyles.root}`}
       data-testid={publicPresentation ? "public-map-root" : "truth-map-root"}
       data-truth-map-source="FINAL_307_RECONCILIATION"
+      data-overlay-scope={bodyScroll === "allow" ? "map-only" : "route"}
       data-store-layer-enabled={String(storesEnabled)}
       data-keyboard-open={keyboardOffset > 24 ? "1" : "0"}
       data-keyboard-offset={keyboardOffset}
