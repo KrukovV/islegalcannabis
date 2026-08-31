@@ -88,6 +88,17 @@ rich popup record. This navigation must never remove, abbreviate or replace the
 legal-evidence, supplementary-context, historical or profile sections that the
 schema projects for the GEO.
 
+The in-place SEO panel is a presentation of the selected Truth Map record, not
+a second legal resolver. For all 307 GEO, its status badge, colour, title,
+summary and law snapshot must derive from that same final-reconciliation
+projection as the polygon and rich popup. Legacy country SEO material may
+provide only non-legal supporting navigation such as related links; it must not
+override or add a competing current legal verdict, legal intent, or unqualified
+profile note. When the panel is open, the selected GEO has one visible `i`
+marker in the unobscured map area. Selecting another map GEO leaves the panel
+available and opens that GEO's rich popup; it must not disable country selection
+or hide its popup.
+
 Whether the shared map collection arrives through a local audit source or the
 public committed static Brotli payload is not a popup-content branch. Geometry
 transport may be compacted, but the selected GEO must project the same complete
@@ -102,6 +113,11 @@ GREEN  -> ✅ + legal verdict GREEN
 YELLOW -> ⚠️ + legal verdict YELLOW
 RED    -> ❌ + legal verdict RED
 ```
+
+A 307-GEO SEO-panel parity test must render every unique Truth Map GEO against
+its canonical projected card, including a fixture where legacy SEO data
+disagrees. A browser regression must prove Details → panel → visible `i` and a
+real map click on a different GEO while the panel remains open.
 
 The opt-in WebKit audit must open every requested popup on the existing singleton, wait for the selected GEO identity, verify the same rule from rendered text, and save an external screenshot. Its manifest records `geo`, `legalTruthColor`, `mapDisplayText`, and `legalEvidenceIcon` for every captured row. The audit resolves the canonical repository root from the test file location, never from the caller's working directory, so a full run can update only `Artifacts/truth-map-visual-audit/manifest.json` at the Git root; a manifest written under `apps/web/Artifacts/` is invalid evidence and must be preserved externally rather than accepted by the guard.
 

@@ -5,6 +5,8 @@ import UnifiedSeoStatusPanel from "./UnifiedSeoStatusPanel";
 import { getCountryPageData } from "@/lib/countryPageStorage";
 import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntry";
 import { buildCardIndexSnapshot } from "@/new-map/countrySource";
+import { buildTruthMapDataset } from "@/truth-map/truthMapSource";
+import { projectTruthMapRichCard } from "@/truth-map/truthMapRichCard";
 
 vi.mock("next/navigation", () => ({
   usePathname: () => "/"
@@ -102,5 +104,59 @@ describe("UnifiedSeoStatusPanel", () => {
     expect(html).toContain("Cannabis profile");
     expect(html).toContain("Wikipedia: Cannabis in Kosovo");
     expect(html).toContain("No dedicated Cannabis_in_* source.");
+  });
+
+  it("uses the current Truth Map projection for every GEO even when supporting SEO data is older", () => {
+    const cards = buildCardIndexSnapshot({ fresh: true });
+    const dataset = buildTruthMapDataset();
+    const features = [...dataset.countries.features, ...dataset.usStates.features]
+      .filter((feature, index, all) => all.findIndex((candidate) => candidate.properties?.geo === feature.properties?.geo) === index);
+
+    expect(features).toHaveLength(307);
+    for (const feature of features) {
+      const properties = feature.properties!;
+      const baseEntry = cards[properties.geo];
+      expect(baseEntry).toBeTruthy();
+      const projected = projectTruthMapRichCard(baseEntry, properties);
+      const html = renderToStaticMarkup(
+        createElement(UnifiedSeoStatusPanel, {
+          entry: projected,
+          locale: "en",
+          onClose: () => {},
+          truthMapPresentation: true
+        })
+      );
+
+      expect(html).toContain(`data-category="${projected.mapCategory}"`);
+      expect(html).toContain(projected.panel.summary);
+    }
+  });
+
+  it("does not leak Mongolia's legacy RED statements into its current GREEN Truth Map panel", () => {
+    const cards = buildCardIndexSnapshot({ fresh: true });
+    const mongoliaProperties = buildTruthMapDataset().countries.features.find((feature) => feature.properties?.geo === "MN")?.properties;
+    const legacyMongolia = getCountryPageData("mng");
+
+    expect(mongoliaProperties).toMatchObject({ legalTruthColor: "GREEN" });
+    expect(legacyMongolia?.legal_model.recreational.status).toBe("ILLEGAL");
+    const projected = projectTruthMapRichCard(cards.MN, mongoliaProperties!);
+    const html = renderToStaticMarkup(
+      createElement(UnifiedSeoStatusPanel, {
+        data: legacyMongolia,
+        entry: projected,
+        locale: "en",
+        onClose: () => {},
+        truthMapPresentation: true
+      })
+    );
+
+    expect(html).toContain('data-category="LEGAL_OR_DECRIM"');
+    expect(html).toContain("GREEN in Mongolia");
+    expect(html).toContain(projected.panel.summary);
+    expect(html).not.toContain("RED in Mongolia");
+    expect(html).not.toContain("Access remains prohibited.");
+    expect(html).not.toContain("Medical cannabis is illegal.");
+    expect(html).not.toContain("Cannabis is illegal in Mongolia.");
+    expect(html).not.toContain(">Intent</h3>");
   });
 });

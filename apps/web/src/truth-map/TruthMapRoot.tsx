@@ -196,6 +196,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
   const mapRef = useRef<maplibregl.Map | null>(null);
   const runtimeRef = useRef<NewMapBootResult | null>(null);
   const locationMarkerRef = useRef<maplibregl.Marker | null>(null);
+  const seoInfoMarkerRef = useRef<maplibregl.Marker | null>(null);
   const cardEntryRequestsRef = useRef<Record<string, Promise<CountryCardEntry | null>>>({});
   const [mapInstance, setMapInstance] = useState<maplibregl.Map | null>(null);
   const [mapReady, setMapReady] = useState(false);
@@ -209,6 +210,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
   const [popupAnchor, setPopupAnchor] = useState<{ x: number; y: number } | null>(null);
   const [cardIndex, setCardIndex] = useState<Record<string, CountryCardEntry>>({});
   const [activeSeoData, setActiveSeoData] = useState<CountryPageData | null>(null);
+  const [activeSeoSelection, setActiveSeoSelection] = useState<TruthMapPopupSelection | null>(null);
   const [seoPanelOpen, setSeoPanelOpen] = useState(false);
   const [storesEnabled, setStoresEnabled] = useState(true);
   const initialMapViewRef = useRef(initialMapView);
@@ -336,12 +338,14 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
   }, [cardIndex, selectedPopup]);
 
   const activeSeoEntry = useMemo(() => {
-    if (!activeSeoData) return null;
-    const seoGeo = String(activeSeoData.geo_code || "").trim().toUpperCase();
-    return cardIndex[seoGeo] || selectedRichEntry || null;
-  }, [activeSeoData, cardIndex, selectedRichEntry]);
+    if (!activeSeoSelection) return null;
+    const seoGeo = activeSeoSelection.properties.geo;
+    const sourceEntry = cardIndex[seoGeo]
+      || (selectedRichEntry?.geo === seoGeo ? selectedRichEntry : null);
+    return sourceEntry ? projectTruthMapRichCard(sourceEntry, activeSeoSelection.properties) : null;
+  }, [activeSeoSelection, cardIndex, selectedRichEntry]);
 
-  const showSeoOverlay = Boolean(seoPanelOpen && activeSeoData && activeSeoEntry);
+  const showSeoOverlay = Boolean(seoPanelOpen && activeSeoSelection && activeSeoEntry);
 
   const loadSeoCountryData = useCallback(async (code: string) => {
     const normalizedCode = String(code || "").trim().toLowerCase();
@@ -354,22 +358,59 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
   }, []);
 
   const handleOpenDetails = useCallback(async (entry: CountryCardEntry) => {
+    const selection = selectedPopup;
+    if (!selection) return;
     const code = resolveEntryDetailsCode(entry);
     if (!code) return;
-    const data = await loadSeoCountryData(code);
-    if (!data) return;
-    const targetHref = `/c/${data.code}`;
+    const targetHref = `/c/${code}`;
     if (typeof window !== "undefined" && window.location.pathname !== targetHref) {
-      window.history.pushState({ seoCode: data.code }, "", targetHref);
+      window.history.pushState({ seoCode: code }, "", targetHref);
     }
-    setActiveSeoData(data);
+    // The map feature is the canonical current legal record.  country-page is
+    // deliberately loaded only as supporting SEO navigation data below, never
+    // as the source of a legal category, colour or conclusion.
+    setActiveSeoData(null);
+    setActiveSeoSelection(selection);
     setSeoPanelOpen(true);
-  }, [loadSeoCountryData]);
+    const map = mapRef.current;
+    if (map) {
+      map.easeTo({
+        center: [selection.lngLat.lng, selection.lngLat.lat],
+        // The selected country is centred in the shared unobscured map column:
+        // it sits between the optional local notice on the left and SEO panel
+        // on the right, so the persistent info marker remains usable on both
+        // public shells.
+        duration: 420,
+        essential: true
+      });
+    }
+    const data = await loadSeoCountryData(code);
+    if (data) setActiveSeoData(data);
+  }, [loadSeoCountryData, selectedPopup]);
 
   const handleSeoPanelClose = useCallback(() => {
     setSeoPanelOpen(false);
     setActiveSeoData(null);
+    setActiveSeoSelection(null);
   }, []);
+
+  const handleSeoMarkerToggle = useCallback(() => {
+    if (!activeSeoSelection) return;
+    if (seoPanelOpen) {
+      handleSeoPanelClose();
+      return;
+    }
+    setSelectedGeo({
+      country: activeSeoSelection.properties.displayName || activeSeoSelection.properties.geo,
+      iso2: activeSeoSelection.properties.geo,
+      lat: activeSeoSelection.lngLat.lat,
+      lng: activeSeoSelection.lngLat.lng,
+    });
+    setSelectedPopup(activeSeoSelection);
+    const map = mapRef.current;
+    if (map) setPopupAnchor(popupAnchorFor(map, activeSeoSelection.lngLat));
+    setSeoPanelOpen(true);
+  }, [activeSeoSelection, handleSeoPanelClose, seoPanelOpen]);
 
   const applyGeoToMap = useCallback((geo: ActiveGeo, options?: { recenter?: boolean }) => {
     const map = mapRef.current;
@@ -404,6 +445,42 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
       });
     }
   }, []);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    const selection = activeSeoSelection;
+    if (!mapReady || !map || !selection) {
+      seoInfoMarkerRef.current?.remove();
+      seoInfoMarkerRef.current = null;
+      return;
+    }
+
+    const button = (seoInfoMarkerRef.current?.getElement() as HTMLButtonElement | null) || document.createElement("button");
+    button.type = "button";
+    button.className = styles.infoMarker;
+    button.textContent = "i";
+    button.setAttribute("aria-label", `Open info for ${selection.properties.displayName || selection.properties.geo}`);
+    button.setAttribute("data-seo-marker", "1");
+    button.setAttribute("data-seo-marker-geo", selection.properties.geo);
+    button.dataset.active = String(seoPanelOpen);
+    button.onclick = (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      handleSeoMarkerToggle();
+    };
+
+    if (!seoInfoMarkerRef.current) {
+      seoInfoMarkerRef.current = new maplibregl.Marker({ element: button, anchor: "bottom" })
+        .setLngLat([selection.lngLat.lng, selection.lngLat.lat])
+        .addTo(map);
+    } else {
+      seoInfoMarkerRef.current.setLngLat([selection.lngLat.lng, selection.lngLat.lat]);
+    }
+
+    return () => {
+      button.onclick = null;
+    };
+  }, [activeSeoSelection, handleSeoMarkerToggle, mapReady, seoPanelOpen]);
 
   const auditContext = useMemo<TruthMapAuditState>(() => ({
     map: mapInstance,
@@ -584,6 +661,8 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
       if (!hoverCleanup) asciiCleanup?.();
       locationMarkerRef.current?.remove();
       locationMarkerRef.current = null;
+      seoInfoMarkerRef.current?.remove();
+      seoInfoMarkerRef.current = null;
       if (!publicPresentation && host.__TRUTH_MAP_DEBUG__?.map === runtime.map) delete host.__TRUTH_MAP_DEBUG__;
       if (!publicPresentation && host.__TRUTH_MAP_QA__) delete host.__TRUTH_MAP_QA__;
       setMapReady(false);
@@ -659,9 +738,17 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
         </div>
       ) : null}
       {showSeoOverlay && activeSeoEntry ? (
-        <UnifiedSeoStatusPanel data={activeSeoData} entry={activeSeoEntry} locale="en" onClose={handleSeoPanelClose} />
+        <UnifiedSeoStatusPanel
+          data={activeSeoData}
+          entry={activeSeoEntry}
+          locale="en"
+          onClose={handleSeoPanelClose}
+          truthMapPresentation
+        />
       ) : null}
-      {selectedPopup && selectedRichEntry && popupAnchor && !showSeoOverlay ? (
+      {selectedPopup && selectedRichEntry && popupAnchor && (
+        !showSeoOverlay || selectedPopup.properties.geo !== activeSeoSelection?.properties.geo
+      ) ? (
         <ViewportCountryPopup
           entry={selectedRichEntry}
           locale="en"

@@ -40,3 +40,36 @@ test("public GEO popup keeps its rich legal content and opens the SEO panel with
   await expect(page).toHaveURL(/\/c\/us-ca$/);
   expect(await page.evaluate(() => performance.getEntriesByType("navigation").length)).toBe(navigationCount);
 });
+
+test("public Truth Map keeps Mongolia's SEO panel on the same current GREEN record and exposes its country info marker", async ({ page }) => {
+  await page.goto("/?geo=MN", { waitUntil: "domcontentloaded" });
+  await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 30_000 });
+
+  const popup = page.getByTestId("new-map-country-popup");
+  await expect(popup).toBeVisible({ timeout: 30_000 });
+  await expect(popup.getByTestId("truth-map-legal-evidence")).toContainText("Current legal conclusion: GREEN");
+  const seoLink = popup.getByTestId("country-popup-seo-link");
+  await seoLink.click();
+
+  const panel = page.getByTestId("new-map-seo-overlay");
+  await expect(panel).toBeVisible({ timeout: 30_000 });
+  await expect(panel.locator("[data-category]")).toHaveAttribute("data-category", "LEGAL_OR_DECRIM");
+  await expect(panel).toContainText("GREEN in Mongolia");
+  await expect(panel).not.toContainText("RED in Mongolia");
+  await expect(panel).not.toContainText("Medical cannabis is illegal.");
+  await expect(panel).not.toContainText("Cannabis is illegal in Mongolia.");
+
+  const marker = page.locator('[data-seo-marker="1"][data-seo-marker-geo="MN"]');
+  await expect(marker).toBeVisible({ timeout: 10_000 });
+  await expect.poll(() => page.evaluate(() => {
+    const getBox = (selector: string) => document.querySelector(selector)?.getBoundingClientRect() || null;
+    const overlaps = (first: DOMRect | null, second: DOMRect | null) => Boolean(
+      first && second && first.left < second.right && first.right > second.left && first.top < second.bottom && first.bottom > second.top
+    );
+    const markerBox = getBox('[data-seo-marker="1"][data-seo-marker-geo="MN"]');
+    return markerBox
+      ? !overlaps(markerBox, getBox('[data-testid="new-map-seo-overlay"]'))
+        && !overlaps(markerBox, getBox('[data-testid="public-map-notice"]'))
+      : false;
+  }), { timeout: 10_000 }).toBe(true);
+});

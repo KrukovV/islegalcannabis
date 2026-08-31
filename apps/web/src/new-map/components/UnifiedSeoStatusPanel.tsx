@@ -17,19 +17,28 @@ export default function UnifiedSeoStatusPanel({
   data,
   entry,
   locale,
-  onClose
+  onClose,
+  truthMapPresentation = false
 }: {
   data?: CountryPageData | null;
   entry?: CountryCardEntry | null;
   locale: SeoLocale;
   onClose: () => void;
+  /** The Truth Map supplies the authoritative current legal projection. */
+  truthMapPresentation?: boolean;
 }) {
   const currentPath = usePathname() || "/";
   const card = entry || (data ? deriveCountryCardEntryFromCountryPageData(data) : null);
   if (!card) return null;
-  const intents = data ? buildCountryIntentSections(data, { locale }) : [];
+  // An explicit card is the owner of the current status.  In particular, a
+  // Truth Map card is already projected from the final 307-GEO reconciliation;
+  // never let a legacy country-page model overwrite its colour or conclusion.
+  const entryOwnsCurrentLegalPresentation = Boolean(entry);
+  const intents = entryOwnsCurrentLegalPresentation ? [] : data ? buildCountryIntentSections(data, { locale }) : [];
   const seo = getSeoText(locale);
-  const localizedPanel = data ? localizePanel(card, data, locale) : localizePanelFromEntry(card, locale);
+  const localizedPanel = entryOwnsCurrentLegalPresentation
+    ? localizePanelFromEntry(card, locale)
+    : data ? localizePanel(card, data, locale) : localizePanelFromEntry(card, locale);
   const panelTitle = "title" in localizedPanel && typeof localizedPanel.title === "string" && localizedPanel.title
     ? localizedPanel.title
     : localizedPanel.labels.titleIn(localizedPanel.levelTitle, card.displayName.split(" / ")[0] || card.displayName);
@@ -37,10 +46,31 @@ export default function UnifiedSeoStatusPanel({
     ...localizedPanel,
     title: panelTitle
   };
-  const cannabisProfileSections = getCannabisProfileCardSections(card.cannabisProfile);
-  const lawSnapshotParagraphs = data
-    ? [panel.summary, seo.intro(data)]
-    : Array.from(new Set([panel.summary, card.normalizedStatusSummary, card.notes].map((item) => String(item || "").trim()).filter(Boolean)));
+  const panelLabels = truthMapPresentation
+    ? {
+        ...panel.labels,
+        hardRestrictions: "Supplementary action-specific context — not the current legal conclusion",
+        moreContext: "Supplementary scope notes — not the current legal conclusion"
+      }
+    : panel.labels;
+  const cannabisProfileSections = getCannabisProfileCardSections(card.cannabisProfile)
+    .map((section) => ({
+      ...section,
+      // A profile is retained background, not a current legal verdict.  A
+      // stale "legal/illegal" sentence can only be interpreted as a current
+      // conclusion, so exclude it when Truth Map owns the status.
+      items: truthMapPresentation
+        ? section.items.filter((item) => !/\b(?:medical\s+)?cannabis\s+(?:is\s+)?(?:illegal|legal)|access\s+remains\s+prohibited|recreational\s+use\s+is\s+banned\b/i.test(item))
+        : section.items
+    }))
+    .filter((section) => section.items.length > 0);
+  const lawSnapshotParagraphs = truthMapPresentation
+    ? Array.from(new Set([panel.summary, card.normalizedStatusSummary].map((item) => String(item || "").trim()).filter(Boolean)))
+    : entryOwnsCurrentLegalPresentation
+      ? Array.from(new Set([panel.summary, card.normalizedStatusSummary, card.notes].map((item) => String(item || "").trim()).filter(Boolean)))
+    : data
+      ? [panel.summary, seo.intro(data)]
+      : Array.from(new Set([panel.summary, card.normalizedStatusSummary, card.notes].map((item) => String(item || "").trim()).filter(Boolean)));
   const reasonLinkClass = (href: string) =>
     getLinkScope(href) === "project" ? styles.viewportPopupReasonLink : styles.viewportPopupSourceInlineLink;
   const isSelfLink = (href: string) => isSameLink(href, currentPath, currentPath);
@@ -99,7 +129,7 @@ export default function UnifiedSeoStatusPanel({
     <aside className={styles.seoOverlayPanel} data-testid="new-map-seo-overlay">
       <div className={styles.seoPanelHeader}>
         <div>
-          <div className={styles.eyebrow}>{(data?.node_type || card.type) === "state" ? panel.labels.eyebrowState : panel.labels.eyebrowCountry}</div>
+          <div className={styles.eyebrow}>{(data?.node_type || card.type) === "state" ? panelLabels.eyebrowState : panelLabels.eyebrowCountry}</div>
           <div className={styles.unifiedPanelStatusRow}>
             <span className={styles.unifiedPanelStatusBadge} data-category={card.mapCategory}>
               {panel.levelTitle}
@@ -114,10 +144,10 @@ export default function UnifiedSeoStatusPanel({
       </div>
 
       <section className={styles.seoPanelSection}>
-        {renderReasonSection(panel.critical, panel.labels.hardRestrictions)}
-        {renderReasonSection(panel.info, panel.labels.moreContext)}
-        {renderReasonSection(panel.why, panel.labels.whyThisColor)}
-        <h3 className={styles.seoPanelSubheading}>{panel.labels.lawSnapshot}</h3>
+        {renderReasonSection(panel.critical, panelLabels.hardRestrictions)}
+        {renderReasonSection(panel.info, panelLabels.moreContext)}
+        {renderReasonSection(panel.why, panelLabels.whyThisColor)}
+        <h3 className={styles.seoPanelSubheading}>{panelLabels.lawSnapshot}</h3>
         {lawSnapshotParagraphs.map((paragraph, index) => (
           <p key={`${index}-${paragraph}`} className={styles.seoPanelIntro}>
             {paragraph}
@@ -127,7 +157,7 @@ export default function UnifiedSeoStatusPanel({
 
       {intents.length > 0 ? (
         <section className={styles.seoPanelSection}>
-          <h3 className={styles.seoPanelSubheading}>{panel.labels.intent}</h3>
+          <h3 className={styles.seoPanelSubheading}>{panelLabels.intent}</h3>
           {intents.map((intent) => (
             <div key={intent.id} className={styles.unifiedPanelIntentBlock}>
               <p className={styles.unifiedPanelIntentTitle}>{intent.heading}</p>
@@ -139,7 +169,7 @@ export default function UnifiedSeoStatusPanel({
 
       {cannabisProfileSections.length > 0 ? (
         <section className={styles.seoPanelSection}>
-          <h3 className={styles.seoPanelSubheading}>Cannabis profile</h3>
+          <h3 className={styles.seoPanelSubheading}>{truthMapPresentation ? "Supplementary profile context — not the current legal conclusion" : "Cannabis profile"}</h3>
           {card.cannabisProfile?.sourceUrl && !isSelfLink(card.cannabisProfile.sourceUrl) ? (
             <p className={styles.seoPanelIntro}>
               {renderLink(
@@ -162,7 +192,7 @@ export default function UnifiedSeoStatusPanel({
       ) : null}
 
       <section className={styles.seoPanelSection}>
-        <h3 className={styles.seoPanelSubheading}>{panel.labels.related}</h3>
+        <h3 className={styles.seoPanelSubheading}>{panelLabels.related}</h3>
         <ul className={styles.seoPanelList}>
           {(data?.related_names || []).map((item) => (
             (isSelfLink(`/c/${item.code}`) ? null : (
@@ -176,7 +206,7 @@ export default function UnifiedSeoStatusPanel({
 
       {card.sources.length > 0 ? (
         <section className={styles.seoPanelSection}>
-          <h3 className={styles.seoPanelSubheading}>{panel.labels.sources}</h3>
+          <h3 className={styles.seoPanelSubheading}>{panelLabels.sources}</h3>
           <ul className={styles.seoPanelList}>
             {card.sources.map((source) => (
               <li key={source.id}>
@@ -187,7 +217,7 @@ export default function UnifiedSeoStatusPanel({
         </section>
       ) : data && data.sources.citations.length > 0 ? (
         <section className={styles.seoPanelSection}>
-          <h3 className={styles.seoPanelSubheading}>{panel.labels.sources}</h3>
+          <h3 className={styles.seoPanelSubheading}>{panelLabels.sources}</h3>
           <ul className={styles.seoPanelList}>
             {data.sources.citations.map((source) => (
               <li key={source.id}>
@@ -200,9 +230,9 @@ export default function UnifiedSeoStatusPanel({
 
       <section className={styles.seoPanelSection}>
         {card.detailsHref && !isSelfLink(card.detailsHref) ? (
-          renderSourceLink(card.detailsHref, panel.labels.legalSource)
+          renderSourceLink(card.detailsHref, panelLabels.legalSource)
         ) : (
-          <span className={styles.seoPanelMuted}>{panel.labels.noDedicatedSource}</span>
+          <span className={styles.seoPanelMuted}>{panelLabels.noDedicatedSource}</span>
         )}
       </section>
     </aside>
