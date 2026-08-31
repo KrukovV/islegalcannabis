@@ -106,6 +106,13 @@ unobscured map area. Selecting another map GEO leaves the panel available and
 opens that GEO's rich popup; it must not disable country selection or hide its
 popup.
 
+The expanded panel is a single vertically scrolling, border-box surface. Its
+outer edge and every retained citation, publisher annotation, source-owner
+identifier and legal fragment must remain inside the visual viewport; it must
+never create a horizontal document or panel scroll. Long unspaced official
+identifiers wrap inside the panel rather than being clipped or widening the map.
+This remains true while another GEO's rich popup is open.
+
 Whether the shared map collection arrives through a local audit source or the
 public committed static Brotli payload is not a popup-content branch. Geometry
 transport may be compacted, but the selected GEO must project the same complete
@@ -128,6 +135,9 @@ publisher, annotation, bounded fragment, rule, reason, apply state and
 jurisdiction context in the SEO panel. A browser regression must prove Details
 → expanded panel → visible `i` and a real map click on a different GEO while the
 panel remains open.
+A desktop browser regression must additionally open the long-annotation
+Kazakhstan record, keep its SEO panel open while selecting Texas, and prove the
+document, panel and every panel descendant remain horizontally contained.
 
 The opt-in WebKit audit must open every requested popup on the existing singleton, wait for the selected GEO identity, verify the same rule from rendered text, and save an external screenshot. Its manifest records `geo`, `legalTruthColor`, `mapDisplayText`, and `legalEvidenceIcon` for every captured row. The audit resolves the canonical repository root from the test file location, never from the caller's working directory, so a full run can update only `Artifacts/truth-map-visual-audit/manifest.json` at the Git root; a manifest written under `apps/web/Artifacts/` is invalid evidence and must be preserved externally rather than accepted by the guard.
 

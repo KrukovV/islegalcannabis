@@ -168,11 +168,14 @@
   top: calc(var(--new-map-panel-top-margin) + var(--new-map-safe-top));
   right: max(20px, var(--new-map-safe-right));
   bottom: var(--new-map-bottom-safe);
-  width: min(420px, calc(100vw - max(20px, var(--new-map-safe-left)) - max(20px, var(--new-map-safe-right))));
+  width: min(520px, calc(100% - max(20px, var(--new-map-safe-left)) - max(20px, var(--new-map-safe-right))));
   max-height: calc(var(--new-map-visible-height) - var(--new-map-bottom-safe) - var(--new-map-panel-top-margin) - var(--new-map-safe-top));
   overflow-y: auto;
+  overflow-x: hidden;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+  min-width: 0;
   background: rgba(255, 255, 255, 0.94);
   border: 1px solid rgba(103, 120, 133, 0.2);
   border-radius: 18px;
@@ -180,6 +183,14 @@
   padding: 18px 18px 18px;
   color: #283746;
   backdrop-filter: blur(18px);
+}
+
+/* Official owner identifiers and retained legal fragments may be long,
+ * unspaced tokens. Keep the full text readable inside the scrolling panel;
+ * never widen the map root or make a second horizontal viewport. */
+.seoOverlayPanel * {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .seoPanelHeader {
@@ -1113,5 +1124,11 @@
 
   .root :global(.new-map-country-popup-shell) :global(.maplibregl-popup-content) {
     max-width: calc(100vw - max(12px, var(--new-map-safe-left)) - max(12px, var(--new-map-safe-right)));
+  }
+}
+
+@media (min-width: 721px) and (max-width: 960px) {
+  .seoOverlayPanel {
+    width: min(420px, calc(100% - max(20px, var(--new-map-safe-left)) - max(20px, var(--new-map-safe-right))));
   }
 }

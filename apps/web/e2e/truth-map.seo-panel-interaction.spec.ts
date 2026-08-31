@@ -52,3 +52,43 @@ test("an open SEO panel retains its country marker and does not block selecting 
   await expect(panel).toBeVisible();
   await expect(marker).toBeVisible();
 });
+
+test("the richer SEO panel stays inside a desktop viewport and wraps retained legal annotations", async ({ page }) => {
+  test.setTimeout(75_000);
+  await page.setViewportSize({ width: 1710, height: 1107 });
+  await page.goto(QA_ROUTE, { waitUntil: "domcontentloaded" });
+  await waitForTruthMapReady(page);
+
+  await page.evaluate(async () => {
+    await window.__TRUTH_MAP_QA__?.openGeo("KZ");
+  });
+  const kazakhstanPopup = page.locator('[data-popup-variant="truth-map"]');
+  await expect(kazakhstanPopup).toContainText("ISO2: KZ", { timeout: 20_000 });
+  await kazakhstanPopup.getByTestId("country-popup-seo-link").click();
+
+  const panel = page.getByTestId("new-map-seo-overlay");
+  await expect(panel).toBeVisible({ timeout: 20_000 });
+  await expect(panel).toContainText("RED in Kazakhstan");
+  await expect(panel).toContainText("OFFICIAL_LEGAL_INFORMATION_SYSTEM_REPUBLIC_OF_KAZAKHSTAN");
+
+  await page.evaluate(async () => {
+    await window.__TRUTH_MAP_QA__?.openGeo("US-TX");
+  });
+  await expect(page.locator('[data-popup-variant="truth-map"]')).toContainText("ISO2: US-TX", { timeout: 15_000 });
+  await expect(panel).toBeVisible();
+
+  await expect.poll(() => page.evaluate(() => {
+    const panel = document.querySelector('[data-testid="new-map-seo-overlay"]') as HTMLElement | null;
+    if (!panel) return false;
+    const panelRect = panel.getBoundingClientRect();
+    const descendantsFit = Array.from(panel.querySelectorAll<HTMLElement>("*")).every((node) => {
+      const rect = node.getBoundingClientRect();
+      return rect.left >= panelRect.left - 1 && rect.right <= panelRect.right + 1;
+    });
+    return document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1
+      && panel.scrollWidth <= panel.clientWidth + 1
+      && panelRect.left >= 0
+      && panelRect.right <= window.innerWidth
+      && descendantsFit;
+  }), { timeout: 10_000 }).toBe(true);
+});
