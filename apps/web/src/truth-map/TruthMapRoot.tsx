@@ -45,6 +45,8 @@ type Props = {
   auditDock?: ReactNode;
   auditPanel?: ReactNode;
   publicLocalDock?: ReactNode;
+  /** Country SEO pages retain normal document scrolling below the map. */
+  bodyScroll?: "lock" | "allow";
 };
 
 const NO_INTERACTIVE_OVERLAY_LAYERS: readonly string[] = [];
@@ -129,10 +131,11 @@ function resolveEntryDetailsCode(entry: CountryCardEntry) {
     const code = parseSeoCodeFromHref(href);
     if (code) return code;
   }
+  if (entry.code) return String(entry.code).trim().toLowerCase() || null;
   return entry.parentCountry?.code ? String(entry.parentCountry.code).trim().toLowerCase() : null;
 }
 
-export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, runtimeIdentity, initialMapView = null, initialGeoCode = null, presentation = "audit", showPublicMapNotice = false, interactiveOverlayLayerIds = NO_INTERACTIVE_OVERLAY_LAYERS, auditMapLayer, auditDock, auditPanel, publicLocalDock }: Props) {
+export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, runtimeIdentity, initialMapView = null, initialGeoCode = null, presentation = "audit", showPublicMapNotice = false, interactiveOverlayLayerIds = NO_INTERACTIVE_OVERLAY_LAYERS, auditMapLayer, auditDock, auditPanel, publicLocalDock, bodyScroll = "lock" }: Props) {
   const publicPresentation = presentation === "public";
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
@@ -162,11 +165,15 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
 
   useEffect(() => {
     if (typeof document === "undefined") return;
-    document.body.dataset.newMapRoute = "1";
+    if (bodyScroll === "lock") {
+      document.body.dataset.newMapRoute = "1";
+    } else {
+      delete document.body.dataset.newMapRoute;
+    }
     return () => {
-      if (document.body.dataset.newMapRoute === "1") delete document.body.dataset.newMapRoute;
+      if (bodyScroll === "lock" && document.body.dataset.newMapRoute === "1") delete document.body.dataset.newMapRoute;
     };
-  }, []);
+  }, [bodyScroll]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;

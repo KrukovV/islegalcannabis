@@ -215,6 +215,17 @@ The popup's internal dotted SEO CTA must open the corresponding country panel
 without a document reload and must preserve the complete shared rich-popup
 record when the panel is closed.
 
+Current-status content on every sitemap `/c/[code]` document is owned by the
+same committed final 307-GEO projection as the public map, rich popup and
+in-place panel. Supplementary Action links retain the exact sitemap canonical
+path and may append an in-document anchor; they must not create ISO aliases,
+point an internal Action at an external legal source or recover a legacy legal
+status. The full under-map document is the expanded evidence surface and keeps
+the authoritative evidence plus explicitly labelled supplementary action,
+profile/history, source-register and related-territory context. Map-only
+noindex fallback documents are not sitemap entries and cannot change the
+protected 311-URL baseline.
+
 The SEO repair must not change Legal Truth, display colour, source ownership,
 Store eligibility, Social visibility, SSOT or popup conclusions. Popup/SEO data
 alignment continues to follow `docs/GEO_SYNC_AUDIT.md` and `docs/CONTRACT.md`.

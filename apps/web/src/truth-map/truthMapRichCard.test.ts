@@ -1,13 +1,23 @@
 import { describe, expect, it } from "vitest";
 import { buildCardIndexSnapshot } from "@/new-map/countrySource";
+import { buildCountrySitemapEntries, buildStateSitemapEntries } from "@/lib/seo/sitemaps";
 import { buildTruthMapDataset } from "./truthMapSource";
-import { projectTruthMapRichCard, TRUTH_MAP_CONTEXT_LABELS, TRUTH_MAP_PROFILE_SECTION_LABELS } from "./truthMapRichCard";
+import {
+  isTruthMapCurrentStatusAssertion,
+  projectTruthMapRichCard,
+  TRUTH_MAP_CONTEXT_LABELS,
+  TRUTH_MAP_PROFILE_SECTION_LABELS
+} from "./truthMapRichCard";
 
 describe("Truth Map rich card projection", () => {
   it("retains a rich card for every final-reconciliation GEO", () => {
     const cards = buildCardIndexSnapshot({ fresh: true });
     const dataset = buildTruthMapDataset();
     const features = [...dataset.countries.features, ...dataset.usStates.features];
+    const sitemapPaths = new Set(
+      [...buildCountrySitemapEntries(), ...buildStateSitemapEntries()]
+        .map((entry) => new URL(entry.url).pathname)
+    );
 
     expect(Object.keys(cards)).toHaveLength(307);
     for (const feature of features) {
@@ -18,12 +28,22 @@ describe("Truth Map rich card projection", () => {
       expect(projected.panel.summary).toBe(feature.properties?.legalEvidenceSummary);
       expect(projected.panel.levelTitle).toBe(`${feature.properties?.legalEvidenceIcon} ${feature.properties?.legalTruthColor}`);
       expect(projected.panel.why).toEqual([]);
+      const expectedDetailPath = /^\/c\/[a-z0-9-]+$/i.test(String(cards[geo].pageHref || ""))
+        ? String(cards[geo].pageHref).toLowerCase()
+        : `/c/${geo.toLowerCase()}`;
+      if (/^\/c\/[a-z0-9-]+$/i.test(String(cards[geo].pageHref || ""))) {
+        expect(sitemapPaths.has(expectedDetailPath), `sitemap-detail:${geo}`).toBe(true);
+      }
       for (const item of [...projected.panel.critical, ...projected.panel.info]) {
         expect(item.text).toMatch(/^Action: /);
+        expect(item.href).toBe(`${expectedDetailPath}#law-recreational`);
         expect(item.sourceUrl).toMatch(/^https?:\/\//);
         expect(item.sourceLabel).toBe("Supplementary source");
-        expect(item.plainText).toBe(true);
+        expect(item.plainText).toBe(false);
       }
+      const profileValues = Object.values(projected.cannabisProfile || {})
+        .flatMap((value) => Array.isArray(value) ? value : []);
+      expect(profileValues.filter((value) => isTruthMapCurrentStatusAssertion(value)), `profile-status:${geo}`).toEqual([]);
     }
   });
 
@@ -65,5 +85,11 @@ describe("Truth Map rich card projection", () => {
     expect(prisonContext?.text).toContain("does not apply to the verified lawful route");
     expect(distributionContext?.text).toContain("Action:");
     expect(distributionContext?.sourceUrl).toMatch(/^https?:\/\//);
+  });
+
+  it("removes only present-tense profile verdicts while retaining historical source context", () => {
+    expect(isTruthMapCurrentStatusAssertion("Cannabis is illegal in Mongolia.")).toBe(true);
+    expect(isTruthMapCurrentStatusAssertion("Medical cannabis is illegal.")).toBe(true);
+    expect(isTruthMapCurrentStatusAssertion("Cannabis has been illegal in Mongolia since 1956.")).toBe(false);
   });
 });

@@ -12,6 +12,7 @@ import { localizePanel, localizePanelFromEntry } from "@/lib/seo/panelLocale";
 import { getLinkScope, isSameLink } from "@/lib/linkDisplayPolicy";
 import { sanitizeEvidenceQuoteText } from "@/lib/text/sanitizeEvidenceQuoteText";
 import TruthMapLegalEvidence from "@/truth-map/TruthMapLegalEvidence";
+import { isTruthMapCurrentStatusAssertion } from "@/truth-map/truthMapRichCard";
 import type { TruthMapFeatureProperties } from "@/truth-map/truthMapSource";
 import type { CountryCardEntry } from "../map.types";
 import styles from "../MapRoot.module.css";
@@ -74,7 +75,7 @@ export default function UnifiedSeoStatusPanel({
       // stale "legal/illegal" sentence can only be interpreted as a current
       // conclusion, so exclude it when Truth Map owns the status.
       items: truthMapPresentation
-        ? section.items.filter((item) => !/\b(?:medical\s+)?cannabis\s+(?:is\s+)?(?:illegal|legal)|access\s+remains\s+prohibited|recreational\s+use\s+is\s+banned\b/i.test(item))
+        ? section.items.filter((item) => !isTruthMapCurrentStatusAssertion(item))
         : section.items
     }))
     .filter((section) => section.items.length > 0);

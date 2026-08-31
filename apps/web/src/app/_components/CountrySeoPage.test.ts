@@ -3,9 +3,9 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import CountrySeoPage, { getSafeSeoCountryData, sanitizeEvidenceQuoteText } from "./CountrySeoPage";
-import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntry";
 import { getCountryPageData, listCountryPageCodes } from "@/lib/countryPageStorage";
-import { collectPopupComparableText } from "@/lib/popupComparableText";
+import { getTruthMapCountryPageProjection } from "@/truth-map/truthMapCountryPage";
+import { parseTruthMapLegalEvidenceCitations } from "@/truth-map/TruthMapLegalEvidence";
 
 function decodeHtmlEntities(value: string) {
   return value
@@ -105,18 +105,48 @@ describe("CountrySeoPage quote sanitizer", () => {
     expect(safe.notes_normalized).toBe("Cannabis is strictly illegal in Wyoming.");
   });
 
-  it("renders every popup cannabis-profile line in /c/[code] SSR for all geo pages", () => {
+  it("renders every /c/[code] current legal surface from the final-reconciliation projection", () => {
     const failures: string[] = [];
 
     for (const code of listCountryPageCodes()) {
       const data = getCountryPageData(code);
       expect(data, `country page ${code}`).toBeTruthy();
       if (!data) continue;
-      const popupItems = collectPopupComparableText(deriveCountryCardEntryFromCountryPageData(data));
-      if (popupItems.length === 0) continue;
-      const html = normalizeHtmlText(renderToStaticMarkup(CountrySeoPage({ data, locale: "en", query: null })));
-      const missing = popupItems.filter((item) => !html.includes(item));
-      if (missing.length > 0) failures.push(`${code}:${missing[0]}`);
+      const projection = getTruthMapCountryPageProjection(data);
+      expect(projection, `Truth Map projection for ${code}`).toBeTruthy();
+      if (!projection) continue;
+      const html = normalizeHtmlText(renderToStaticMarkup(CountrySeoPage({
+        data,
+        locale: "en",
+        query: null,
+        truthMapProjection: projection
+      })));
+      const legacyCurrentModel = `${data.legal_model.recreational.status} · ${data.legal_model.recreational.enforcement} · ${data.legal_model.recreational.scope}`;
+
+      if (!html.includes(`Current legal conclusion: ${projection.properties.legalTruthColor}`)) {
+        failures.push(`${code}:missing-current-colour`);
+      } else if (!html.includes(projection.properties.legalEvidenceSummary)) {
+        failures.push(`${code}:missing-current-summary`);
+      } else if (!html.includes(`Rule: ${projection.properties.truthRuleId}`)) {
+        failures.push(`${code}:missing-reconciliation-rule`);
+      } else if (html.includes(legacyCurrentModel)) {
+        failures.push(`${code}:legacy-current-model-visible`);
+      } else if (projection.card.sources.length > 0 && !html.includes("Retained supplementary source register")) {
+        failures.push(`${code}:missing-expanded-source-register`);
+      }
+
+      for (const citation of parseTruthMapLegalEvidenceCitations(projection.properties.legalEvidenceCitationsJson)) {
+        if (!html.includes(citation.title) || !html.includes(citation.annotation)) {
+          failures.push(`${code}:missing-official-citation`);
+          break;
+        }
+      }
+      for (const source of projection.card.sources) {
+        if (!html.includes(source.title)) {
+          failures.push(`${code}:missing-retained-source-register-item`);
+          break;
+        }
+      }
     }
 
     expect(failures).toEqual([]);

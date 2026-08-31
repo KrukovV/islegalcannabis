@@ -10,6 +10,7 @@ const DISPLAY_POLICY_PATH = path.resolve(ROOT, "data/reviews/truth-map-display-p
 const ARCHIVE_ROOT = path.resolve(process.env.TRUTH_MAP_VISUAL_AUDIT_ARCHIVE_ROOT || path.join(process.env.HOME || "", "islegalcannabis_archive", "truth-map-visual-audit"));
 const FRESHNESS_TARGETS = [
   "apps/web/src/truth-map/TruthMapRoot.tsx",
+  "apps/web/src/truth-map/truthMapRichCard.ts",
   "apps/web/src/truth-map/truthMapSource.ts",
   "apps/web/src/app/truth-map/page.tsx",
   "apps/web/e2e/truth-map.visual-audit.spec.ts",

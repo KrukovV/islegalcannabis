@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import CountrySeoPage, { ensureCountryPageHash, getCountrySeoTitle } from "@/app/_components/CountrySeoPage";
 import { getCountryPageData, listCountryPageCodes } from "@/lib/countryPageStorage";
 import { buildSeoLanguageAlternates, isSeoAltLocale, type SeoAltLocale } from "@/lib/seo/i18n";
-import { getEffectiveSeoLocale, getSeoTranslation, listSeoTranslationEntries, type SeoLocale } from "@/lib/seo/wikiLocaleContent";
+import { getEffectiveSeoLocale, listSeoTranslationEntries, type SeoLocale } from "@/lib/seo/wikiLocaleContent";
+import { getTruthMapCountryPageProjection } from "@/truth-map/truthMapCountryPage";
 
 export const revalidate = 604800;
 
@@ -35,8 +36,10 @@ export async function generateMetadata({
   }
   const requestedLocale = lang as SeoAltLocale;
   const locale = getEffectiveSeoLocale(data.code, requestedLocale);
+  const truthMapProjection = getTruthMapCountryPageProjection(data);
+  if (!truthMapProjection) return { title: "Country not found", robots: { index: false, follow: false } };
   const heading = getCountrySeoTitle(data, locale);
-  const localizedSummary = locale === "en" ? data.notes_normalized : getSeoTranslation(data.code, requestedLocale)?.summary || data.notes_normalized;
+  const localizedSummary = truthMapProjection.properties.legalEvidenceSummary;
   return {
     title: heading,
     description: localizedSummary,
@@ -69,7 +72,9 @@ export default async function LocalizedCountryCodePage({
   const query = typeof resolvedSearchParams?.q === "string" ? resolvedSearchParams.q : null;
   const data = getCountryPageData(code);
   if (!data) notFound();
+  const truthMapProjection = getTruthMapCountryPageProjection(data);
+  if (!truthMapProjection) notFound();
   ensureCountryPageHash(data);
   const locale = getEffectiveSeoLocale(data.code, lang as SeoAltLocale) as SeoLocale;
-  return <CountrySeoPage data={data} locale={locale} query={query} />;
+  return <CountrySeoPage data={data} locale={locale} query={query} truthMapProjection={truthMapProjection} />;
 }

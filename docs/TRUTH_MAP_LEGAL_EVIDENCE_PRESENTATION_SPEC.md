@@ -106,6 +106,27 @@ unobscured map area. Selecting another map GEO leaves the panel available and
 opens that GEO's rich popup; it must not disable country selection or hide its
 popup.
 
+The full `/c/[code]` document is the same GEO's expanded evidence record, not
+a legacy status model. Its current conclusion, title, summary, indicator,
+official citations, annotations, bounded fragments, reconciliation rule and
+rationale must come from the selected committed final-reconciliation feature.
+Every supplementary Action link uses the existing canonical `/c/[code]` path
+from the public country/state sitemap and appends `#law-recreational`; it must
+never derive an ISO replacement slug or use an external legal-source URL as an
+internal route. A map-only GEO with no sitemap country page may use its
+noindex detail fallback, but this must not add, replace or change a sitemap
+entry.
+
+The anchor target is headed `Supplementary action-specific context — not the
+current legal conclusion`. A present-tense profile statement that itself
+asserts a whole-territory legal status (for example, “Cannabis is illegal in
+Mongolia”) is omitted from every Truth Map card surface. Historical material
+remains only under its explicit historical/supplementary heading. The full
+under-map document must be richer than both map surfaces: in addition to the
+authoritative legal evidence it renders the supplementary action boundary,
+jurisdiction context, retained profile/history, supporting facts, source
+register and related-territory navigation where present.
+
 The expanded panel is a single vertically scrolling, border-box surface. Its
 outer edge and every retained citation, publisher annotation, source-owner
 identifier and legal fragment must remain inside the visual viewport; it must
@@ -138,6 +159,13 @@ panel remains open.
 A desktop browser regression must additionally open the long-annotation
 Kazakhstan record, keep its SEO panel open while selecting Texas, and prove the
 document, panel and every panel descendant remain horizontally contained.
+
+A 307-GEO projection regression must assert that every supplementary Action
+whose card has a public `/c/[code]` page uses that exact sitemap path, and that
+no projected profile item is a present-tense current legal assertion. A browser
+regression follows Mongolia's Action link through `/c/mng#law-recreational`,
+then verifies the final-projection GREEN record, scrollable expanded content
+and no revived legacy RED statement.
 
 The opt-in WebKit audit must open every requested popup on the existing singleton, wait for the selected GEO identity, verify the same rule from rendered text, and save an external screenshot. Its manifest records `geo`, `legalTruthColor`, `mapDisplayText`, and `legalEvidenceIcon` for every captured row. The audit resolves the canonical repository root from the test file location, never from the caller's working directory, so a full run can update only `Artifacts/truth-map-visual-audit/manifest.json` at the Git root; a manifest written under `apps/web/Artifacts/` is invalid evidence and must be preserved externally rather than accepted by the guard.
 

@@ -27,6 +27,35 @@ export const TRUTH_MAP_PROFILE_SECTION_LABELS = {
   "Cannabis Profile": "Supplementary profile context — not the current legal conclusion"
 } as const;
 
+/**
+ * The profile dataset is retained background material, not a second legal
+ * resolver.  A present-tense legal assertion there would compete with the
+ * final-reconciliation result shown by the map.  Historical statements (for
+ * example "has been illegal since 1956") remain available under their
+ * explicit historical heading.
+ */
+export function isTruthMapCurrentStatusAssertion(value: string) {
+  return /\b(?:(?:medical\s+)?cannabis\s+(?:is|remains|stays)\s+(?:illegal|legal|prohibited|allowed|banned|restricted)|(?:recreational\s+)?(?:use|access|possession|sale|distribution)\s+(?:is|remains|stays)\s+(?:illegal|legal|prohibited|allowed|banned|restricted)|access\s+remains\s+prohibited)\b/i.test(String(value || ""));
+}
+
+function projectSupplementaryProfile(profile: CountryCardEntry["cannabisProfile"]) {
+  if (!profile) return profile;
+  return {
+    ...profile,
+    history: profile.history.filter((item) => !isTruthMapCurrentStatusAssertion(item)),
+    localNames: profile.localNames.filter((item) => !isTruthMapCurrentStatusAssertion(item)),
+    culture: profile.culture.filter((item) => !isTruthMapCurrentStatusAssertion(item)),
+    enforcementReality: profile.enforcementReality.filter((item) => !isTruthMapCurrentStatusAssertion(item)),
+    products: profile.products.filter((item) => !isTruthMapCurrentStatusAssertion(item)),
+    traditionalUse: profile.traditionalUse.filter((item) => !isTruthMapCurrentStatusAssertion(item)),
+    notes: profile.notes.filter((item) => !isTruthMapCurrentStatusAssertion(item)),
+    cannabisFoods: profile.cannabisFoods.filter((item) => !isTruthMapCurrentStatusAssertion(item)),
+    slang: profile.slang.filter((item) => !isTruthMapCurrentStatusAssertion(item)),
+    cultivation: profile.cultivation.filter((item) => !isTruthMapCurrentStatusAssertion(item)),
+    market: profile.market.filter((item) => !isTruthMapCurrentStatusAssertion(item))
+  };
+}
+
 function hasHttpSource(value: string | undefined): value is string {
   return /^https?:\/\//i.test(String(value || "").trim());
 }
@@ -90,6 +119,15 @@ function contextualActionText(item: ContextItem, entry: CountryCardEntry, proper
   }
 }
 
+function canonicalDetailPath(entry: CountryCardEntry, properties: TruthMapFeatureProperties) {
+  // `detailsHref` is deliberately an external retained legal source.  The
+  // only internal document authority is `pageHref`, built from the same
+  // CountryPageData entries that construct the public sitemap.
+  const candidate = String(entry.pageHref || "").trim();
+  if (/^\/c\/[a-z0-9-]+$/i.test(candidate)) return candidate.toLowerCase();
+  return `/c/${properties.geo.toLowerCase()}`;
+}
+
 function projectSupplementaryContext(
   items: ContextItem[],
   entry: CountryCardEntry,
@@ -101,11 +139,14 @@ function projectSupplementaryContext(
     if (!sourceUrl || !text) return [];
     return [{
       ...item,
+      // A supplementary action may lead to the fuller under-map context, but
+      // it must never retain a stale country-page slug or legal-status owner.
+      href: `${canonicalDetailPath(entry, properties)}#law-recreational`,
       text,
       sourceUrl,
       sourceLabel: SUPPLEMENTARY_SOURCE_LABEL,
       contextKind: "supplementary-map-context" as const,
-      plainText: true
+      plainText: false
     }];
   });
 }
@@ -121,7 +162,7 @@ export function projectTruthMapRichCard(
   return {
     ...entry,
     geo: properties.geo,
-    code: properties.geo.toLowerCase(),
+    code: entry.code || properties.geo.toLowerCase(),
     displayName: properties.displayName,
     iso2: properties.geo,
     result: {
@@ -136,6 +177,7 @@ export function projectTruthMapRichCard(
     distributionSummary: properties.displayIsResearchDirection
       ? "Map display is a labelled research direction, not a final legal conclusion."
       : entry.distributionSummary,
+    cannabisProfile: projectSupplementaryProfile(entry.cannabisProfile),
     panel: {
       ...entry.panel,
       levelTitle: `${properties.legalEvidenceIcon} ${properties.legalTruthColor}`,

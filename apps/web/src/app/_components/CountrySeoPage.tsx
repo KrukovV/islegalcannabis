@@ -1,29 +1,33 @@
 import Script from "next/script";
 import Link from "next/link";
-import NewMapClientEntry from "@/app/new-map/NewMapClientEntry";
-import { getNewMapRuntimeIdentity } from "@/app/new-map/runtimeConfig";
 import {
-  buildSeoCountryIndex,
   computeCountryHashes,
   stripCountryPageHashes,
   type CountryPageData,
 } from "@/lib/countryPageStorage";
-import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntry";
 import { getCannabisProfileCardSections } from "@/lib/cannabisProfile";
 import { formatVisibleRuntimeStamp } from "@/lib/runtimeIdentity";
-import { buildCountryIntentSections } from "@/lib/seo/countryIntentContent";
 import { getLocalizedCountryName, getSeoText, type SeoLocale } from "@/lib/seo/i18n";
-import { localizePanel } from "@/lib/seo/panelLocale";
-import { INLINE_COUNTRIES_URL } from "@/new-map/staticCountries";
 import { sanitizeEvidenceQuoteText } from "@/lib/text/sanitizeEvidenceQuoteText";
 import { getLinkScope, isSameLink } from "@/lib/linkDisplayPolicy";
+import TruthMapRoot from "@/truth-map/TruthMapRoot";
+import TruthMapLegalEvidence from "@/truth-map/TruthMapLegalEvidence";
+import { getTruthMapRuntimeIdentity } from "@/app/truth-map/runtimeConfig";
+import {
+  getTruthMapCountryPageProjection,
+  type TruthMapCountryPageProjection
+} from "@/truth-map/truthMapCountryPage";
+import { isTruthMapCurrentStatusAssertion } from "@/truth-map/truthMapRichCard";
 import styles from "@/app/c/[code]/page.module.css";
 export { sanitizeEvidenceQuoteText };
 
-export function getCountrySeoTitle(data: CountryPageData, locale: SeoLocale) {
+export function getCountrySeoTitle(
+  data: CountryPageData,
+  locale: SeoLocale
+) {
   const seo = getSeoText(locale);
   const name = data.node_type === "country" ? getLocalizedCountryName(data, locale) : data.name;
-  return seo.title(name).replace(/\s{2,}/g, " ").trim();
+  return seo.title(name);
 }
 
 export function ensureCountryPageHash(data: CountryPageData) {
@@ -48,24 +52,25 @@ export function getSafeSeoCountryData(data: CountryPageData): CountryPageData {
 export default function CountrySeoPage({
   data,
   locale,
-  query
+  query: _query,
+  truthMapProjection = getTruthMapCountryPageProjection(data)
 }: {
   data: CountryPageData;
   locale: SeoLocale;
   query: string | null;
+  truthMapProjection?: TruthMapCountryPageProjection | null;
 }) {
+  void _query;
+  if (!truthMapProjection) {
+    throw new Error(`TRUTH_MAP_COUNTRY_PAGE_PROJECTION_MISSING:${data.geo_code}`);
+  }
   const seo = getSeoText(locale);
-  const runtimeIdentity = getNewMapRuntimeIdentity();
+  const runtimeIdentity = getTruthMapRuntimeIdentity();
   const visibleStamp = formatVisibleRuntimeStamp(runtimeIdentity);
-  const countriesUrl = INLINE_COUNTRIES_URL;
-  const seoCountryIndex = buildSeoCountryIndex(data.code);
-  const intentSections = buildCountryIntentSections(data, { query, locale });
   const heading = getCountrySeoTitle(data, locale);
-  const intro = seo.intro(data);
-  const card = deriveCountryCardEntryFromCountryPageData(data);
-  const localizedPanel = localizePanel(card, data, locale);
+  const { properties, card } = truthMapProjection;
+  const intro = properties.legalEvidenceSummary;
   const cannabisProfileSections = getCannabisProfileCardSections(card.cannabisProfile);
-  const safeSeoCountryData = getSafeSeoCountryData(data);
   const selfPath = `/c/${data.code}`;
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -83,67 +88,13 @@ export default function CountrySeoPage({
   };
 
   const humanFallback = {
-    missingFact:
-      locale === "de"
-        ? "Im aktuellen Quellensnapshot nicht klar angegeben."
-        : locale === "es"
-          ? "No está claramente indicado en la fuente actual."
-          : locale === "fr"
-            ? "Ce point n'est pas clairement indiqué dans la source actuelle."
-            : locale === "pt"
-              ? "Não está claramente indicado na fonte atual."
-              : locale === "nl"
-                ? "Niet duidelijk vermeld in de huidige bron."
-                : "Not clearly stated in the current source.",
-    statusExplain:
-      locale === "de"
-        ? "Warum dieser Status"
-        : locale === "es"
-          ? "Por qué este estado"
-          : locale === "fr"
-            ? "Pourquoi ce statut"
-            : locale === "pt"
-              ? "Por que este status"
-              : locale === "nl"
-                ? "Waarom deze status"
-                : "Why this status",
-    quotedEvidence:
-      locale === "de"
-        ? "Quellenbelege"
-        : locale === "es"
-          ? "Citas de la fuente"
-          : locale === "fr"
-            ? "Citations de la source"
-            : locale === "pt"
-              ? "Trechos da fonte"
-              : locale === "nl"
-                ? "Broncitaten"
-                : "Source quotes"
+    currentEvidence: "Current legal conclusion, citations and annotations",
+    supplementaryAction: "Supplementary action-specific context — not the current legal conclusion",
+    jurisdictionContext: "Jurisdiction and regulatory context — supplementary to current legal evidence",
+    retainedContext: "Retained historical and profile context — not the current legal conclusion",
+    supportingFacts: "Supporting operational facts — not a substitute for the current legal conclusion",
+    retainedSourceRegister: "Retained supplementary source register"
   };
-
-  const cleanQuoteText = sanitizeEvidenceQuoteText(
-    String(
-    [
-      data.notes_raw || "",
-      data.notes_normalized || "",
-      data.facts.possession_limit ? `Possession: ${data.facts.possession_limit}` : "",
-      data.facts.cultivation ? `Cultivation: ${data.facts.cultivation}` : "",
-      data.facts.penalty ? `Penalty: ${data.facts.penalty}` : ""
-    ]
-      .filter(Boolean)
-      .join(" ")
-    )
-  );
-
-  const evidenceQuotes = cleanQuoteText
-    .split(/(?<=[.!?])\s+/)
-    .map((line) => line.trim())
-    .filter(Boolean)
-    .filter((line) => line.length >= 24)
-    .filter((line) =>
-      /(decriminal|fine|medical|license|tolerat|illegal|prison|sale|distribution|allowed|personal use|possession|cultivation)/i.test(line)
-    )
-    .slice(0, 3);
 
   const articleLinkClass = (href: string) => {
     return getLinkScope(href) === "project" ? styles.internalLink : styles.externalLink;
@@ -178,8 +129,24 @@ export default function CountrySeoPage({
   };
 
   const isSelfLink = (href: string) => isSameLink(href, selfPath, selfPath);
-  const isSameReasonSourceLink = (sourceUrl: string, reasonHref: string) =>
-    isSelfLink(sourceUrl) || isSameLink(sourceUrl, reasonHref, selfPath);
+  const supplementaryActions = [...card.panel.critical, ...card.panel.info];
+  const jurisdictionContext = Array.from(new Set([
+    card.parentLawSummary,
+    ...(card.jurisdictionContextNotes || [])
+  ]
+    .map((item) => sanitizeEvidenceQuoteText(String(item || "")).trim())
+    .filter(Boolean)));
+  const safeProfileSections = cannabisProfileSections
+    .map((section) => ({
+      ...section,
+      items: section.items.filter((item) => !isTruthMapCurrentStatusAssertion(item))
+    }))
+    .filter((section) => section.items.length > 0);
+  const supportingFacts = [
+    data.facts.possession_limit ? `${seo.possession}: ${data.facts.possession_limit}` : null,
+    data.facts.cultivation ? `${seo.cultivation}: ${data.facts.cultivation}` : null,
+    data.facts.penalty ? `${seo.penalty}: ${data.facts.penalty}` : null
+  ].filter((item): item is string => Boolean(item));
 
   return (
     <main className={styles.page}>
@@ -188,14 +155,15 @@ export default function CountrySeoPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <NewMapClientEntry
-        countriesUrl={countriesUrl}
+      <TruthMapRoot
+        countriesUrl="/api/public-map/countries"
+        usStatesUrl="/api/public-map/us-states"
         visibleStamp={visibleStamp}
         runtimeIdentity={runtimeIdentity}
-        initialGeoCode={data.geo_code}
-        seoCountryData={safeSeoCountryData}
-        seoCountryIndex={seoCountryIndex}
-        locale={locale}
+        initialGeoCode={properties.geo}
+        presentation="public"
+        showPublicMapNotice={false}
+        bodyScroll="allow"
       />
       <article className={styles.article}>
         <section id="seo-content" className={styles.section}>
@@ -203,109 +171,54 @@ export default function CountrySeoPage({
           <h1 className={styles.title}>{heading}</h1>
           <p className={styles.intro}>{intro}</p>
           <div id="law-summary" className={styles.metaGrid}>
-            <div id="law-recreational" className={styles.metaBlock}>
-              <p className={styles.metaLabel}>{seo.recreational}</p>
-              <p className={styles.metaText}>
-                {data.legal_model.recreational.status} · {data.legal_model.recreational.enforcement} · {data.legal_model.recreational.scope}
-              </p>
+            <div className={styles.metaBlock}>
+              <p className={styles.metaLabel}>Current legal conclusion</p>
+              <p className={styles.metaText}>{properties.legalEvidenceIcon} {properties.legalTruthColor} · {properties.truthConfidence}</p>
             </div>
-            <div id="law-medical" className={styles.metaBlock}>
-              <p className={styles.metaLabel}>{seo.medical}</p>
-              <p className={styles.metaText}>
-                {data.legal_model.medical.status} · {data.legal_model.medical.scope}
-              </p>
+            <div className={styles.metaBlock}>
+              <p className={styles.metaLabel}>Evidence status</p>
+              <p className={styles.metaText}>{properties.legalEvidenceLabel}</p>
             </div>
-            <div id="law-distribution" className={styles.metaBlock}>
-              <p className={styles.metaLabel}>{seo.distribution}</p>
-              <p className={styles.metaText}>{data.legal_model.distribution.status}</p>
+            <div className={styles.metaBlock}>
+              <p className={styles.metaLabel}>Map display</p>
+              <p className={styles.metaText}>{properties.displayIsResearchDirection ? `Research direction ${properties.truthMapDisplayColor}` : `Legal verdict ${properties.truthMapDisplayColor}`}</p>
             </div>
-            <div id="law-risk" className={styles.metaBlock}>
-              <p className={styles.metaLabel}>{seo.risk}</p>
-              <p className={styles.metaText}>
-                {data.legal_model.signals?.final_risk || "UNKNOWN"} · prison {data.legal_model.signals?.penalties?.prison ? "yes" : "no"}
-              </p>
+            <div className={styles.metaBlock}>
+              <p className={styles.metaLabel}>Final-reconciliation rule</p>
+              <p className={styles.metaText}>{properties.truthRuleId}</p>
             </div>
           </div>
         </section>
         <section id="law-status-explanation" className={styles.section}>
-          <h2>{humanFallback.statusExplain}</h2>
-          {localizedPanel.why.length > 0 ? (
+          <h2>{humanFallback.currentEvidence}</h2>
+          <TruthMapLegalEvidence properties={properties} auditOnly={false} testId="country-page-current-legal-evidence" />
+        </section>
+        {supplementaryActions.length > 0 ? (
+          <section id="law-recreational" className={styles.section}>
+            <h2>{humanFallback.supplementaryAction}</h2>
             <ul className={styles.factsList}>
-              {localizedPanel.why.map((reason) => (
-                <li key={reason.id}>
-                  {!isSelfLink(reason.href) ? renderArticleLink(reason.href, reason.text) : null}
-                  {reason.sourceUrl && !isSameReasonSourceLink(reason.sourceUrl, reason.href) ? (
-                    <>
-                      {" "}
-                      {renderArticleLink(reason.sourceUrl, "Source")}
-                    </>
-                  ) : null}
+              {supplementaryActions.map((item) => (
+                <li key={item.id}>
+                  {item.text}
+                  {item.sourceUrl ? <>{" "}{renderArticleLink(item.sourceUrl, "Source")}</> : null}
                 </li>
               ))}
             </ul>
-          ) : null}
-          {localizedPanel.critical.length > 0 ? (
-            <>
-              <h3 className={styles.subheading}>{localizedPanel.labels.hardRestrictions}</h3>
-              <ul className={styles.factsList}>
-                {localizedPanel.critical.map((reason) => (
-                  <li key={reason.id}>
-                    {!isSelfLink(reason.href) ? <strong>{renderArticleLink(reason.href, reason.text)}</strong> : null}
-                    {reason.sourceUrl && !isSameReasonSourceLink(reason.sourceUrl, reason.href) ? (
-                      <>
-                        {" "}
-                        {renderArticleLink(reason.sourceUrl, "Source")}
-                      </>
-                    ) : null}
-                  </li>
-                ))}
-              </ul>
-            </>
-          ) : null}
-          {localizedPanel.info.length > 0 ? (
-            <>
-              <h3 className={styles.subheading}>{localizedPanel.labels.moreContext}</h3>
-              <ul className={styles.factsList}>
-                {localizedPanel.info.map((reason) => (
-                  <li key={reason.id}>
-                    {!isSelfLink(reason.href) ? renderArticleLink(reason.href, reason.text) : null}
-                    {reason.sourceUrl && !isSameReasonSourceLink(reason.sourceUrl, reason.href) ? (
-                      <>
-                        {" "}
-                        {renderArticleLink(reason.sourceUrl, "Source")}
-                      </>
-                    ) : null}
-                  </li>
-                ))}
-              </ul>
-            </>
-          ) : null}
-          {evidenceQuotes.length > 0 ? (
-            <>
-              <h3 id="law-status-quotes" className={styles.subheading}>{humanFallback.quotedEvidence}</h3>
-              <ul className={styles.factsList}>
-                {evidenceQuotes.map((quote) => (
-                  <li key={quote}>
-                    <blockquote style={{ margin: "0 0 6px", fontStyle: "italic" }}>{quote}</blockquote>
-                    {data.sources.legal && !isSelfLink(data.sources.legal) ? (
-                      renderArticleLink(data.sources.legal, "Source")
-                    ) : null}
-                  </li>
-                ))}
-              </ul>
-            </>
-          ) : null}
-        </section>
-        {intentSections.map((section) => (
-          <section key={section.id} className={styles.section}>
-            <h2>{section.heading}</h2>
-            <p>{section.body}</p>
           </section>
-        ))}
-        {cannabisProfileSections.length > 0 ? (
+        ) : null}
+        {jurisdictionContext.length > 0 ? (
+          <section className={styles.section}>
+            <h2>{humanFallback.jurisdictionContext}</h2>
+            <ul className={styles.factsList}>
+              {jurisdictionContext.map((item) => <li key={item}>{item}</li>)}
+            </ul>
+          </section>
+        ) : null}
+        {safeProfileSections.length > 0 ? (
           <section id="cannabis-profile" className={styles.section}>
-            <h2>Cannabis profile</h2>
-            {cannabisProfileSections.map((section) => (
+            <h2>{humanFallback.retainedContext}</h2>
+            {card.cannabisProfile?.sourceUrl ? <p className={styles.intro}>{renderArticleLink(card.cannabisProfile.sourceUrl, card.cannabisProfile.sourceTitle || "Profile source")}</p> : null}
+            {safeProfileSections.map((section) => (
               <div key={section.id} id={`cannabis-profile-${section.id}`}>
                 <h3 className={styles.subheading}>{section.heading}</h3>
                 <ul className={styles.factsList}>
@@ -317,14 +230,22 @@ export default function CountrySeoPage({
             ))}
           </section>
         ) : null}
-        <section id="law-facts" className={styles.section}>
-          <h2>{seo.keyFacts}</h2>
-          <ul className={styles.factsList}>
-            <li>{seo.possession}: {data.facts.possession_limit || humanFallback.missingFact}</li>
-            <li>{seo.cultivation}: {data.facts.cultivation || humanFallback.missingFact}</li>
-            <li>{seo.penalty}: {data.facts.penalty || humanFallback.missingFact}</li>
-          </ul>
-        </section>
+        {supportingFacts.length > 0 ? (
+          <section id="law-facts" className={styles.section}>
+            <h2>{humanFallback.supportingFacts}</h2>
+            <ul className={styles.factsList}>{supportingFacts.map((item) => <li key={item}>{item}</li>)}</ul>
+          </section>
+        ) : null}
+        {card.sources.length > 0 ? (
+          <section id="law-source-register" className={styles.section}>
+            <h2>{humanFallback.retainedSourceRegister}</h2>
+            <ul className={styles.factsList}>
+              {card.sources.map((source) => (
+                <li key={source.id}>{renderArticleLink(source.url, source.title)}</li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
         <div id="law-border" />
         <section className={styles.section}>
           <h2>{seo.relatedPlaces}</h2>

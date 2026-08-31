@@ -92,3 +92,32 @@ test("the richer SEO panel stays inside a desktop viewport and wraps retained le
       && descendantsFit;
   }), { timeout: 10_000 }).toBe(true);
 });
+
+test("a supplementary action opens the same GEO's richer under-map evidence without reviving a legacy verdict", async ({ page }) => {
+  test.setTimeout(75_000);
+  await page.goto(QA_ROUTE, { waitUntil: "domcontentloaded" });
+  await waitForTruthMapReady(page);
+
+  await page.evaluate(async () => {
+    await window.__TRUTH_MAP_QA__?.openGeo("MN");
+  });
+  const mongoliaPopup = page.locator('[data-popup-variant="truth-map"]');
+  await expect(mongoliaPopup).toBeVisible({ timeout: 20_000 });
+  await expect(mongoliaPopup).toContainText("Current legal conclusion: GREEN");
+  const action = mongoliaPopup.getByRole("link", { name: /Action: recreational possession or use/i });
+  await expect(action).toHaveAttribute("href", "/c/mng#law-recreational");
+  await Promise.all([
+    page.waitForURL(/\/c\/mng#law-recreational$/, { timeout: 20_000 }),
+    action.click()
+  ]);
+  const publicRoot = page.getByTestId("public-map-root");
+  await expect(publicRoot).toHaveAttribute("data-truth-map-source", "FINAL_307_RECONCILIATION");
+  await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 30_000 });
+  await expect(page.getByTestId("country-page-current-legal-evidence")).toContainText("Current legal conclusion: GREEN");
+  await expect(page.locator("#law-recreational")).toContainText("Supplementary action-specific context — not the current legal conclusion");
+  await expect(page.locator("body")).not.toContainText("Cannabis is illegal in Mongolia");
+  await expect.poll(() => page.evaluate(() => ({
+    locked: document.body.dataset.newMapRoute || null,
+    scrollable: document.documentElement.scrollHeight > window.innerHeight
+  }))).toEqual({ locked: null, scrollable: true });
+});

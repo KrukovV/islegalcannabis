@@ -96,6 +96,74 @@
   color: #344b5d;
 }
 
+/* The full /c page is intentionally richer than the bounded map panel, but
+ * its shared final-reconciliation evidence keeps the same visual status cue. */
+.section :global(.truth-map-legal-evidence) {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid #dce5e9;
+  border-radius: 14px;
+  background: #f8fafb;
+}
+
+.section :global(.truth-map-legal-evidence[data-legal-evidence-status="VERIFIED_ACCESS"]) {
+  border-color: #b9dcc8;
+  background: #f3fbf5;
+}
+
+.section :global(.truth-map-legal-evidence[data-legal-evidence-status="LIMITED_OR_QUALIFIED"]) {
+  border-color: #ead7a3;
+  background: #fffbed;
+}
+
+.section :global(.truth-map-legal-evidence[data-legal-evidence-status="PROHIBITION_EVIDENCED"]) {
+  border-color: #f1c3c3;
+  background: #fff7f7;
+}
+
+.section :global(.truth-map-current-legal-title),
+.section :global(.truth-map-legal-evidence-heading strong) {
+  color: #334d5e;
+  font-weight: 700;
+}
+
+.section :global(.truth-map-legal-evidence-heading) {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.section :global(.truth-map-legal-evidence-summary),
+.section :global(.truth-map-legal-annotation),
+.section :global(.truth-map-display-direction),
+.section :global(.truth-map-popup-details) {
+  color: #506574;
+  line-height: 1.5;
+}
+
+.section :global(.truth-map-legal-citations) {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.section :global(.truth-map-legal-citations a) {
+  color: #174a67;
+  font-weight: 700;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.section :global(.truth-map-legal-citations blockquote) {
+  margin: 7px 0 0;
+  padding-left: 10px;
+  border-left: 3px solid #b7c9d3;
+  color: #415768;
+}
+
 .factsList,
 .relatedList {
   margin: 0;
