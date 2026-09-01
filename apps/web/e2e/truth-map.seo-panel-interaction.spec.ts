@@ -93,7 +93,7 @@ test("the richer SEO panel stays inside a desktop viewport and wraps retained le
   }), { timeout: 10_000 }).toBe(true);
 });
 
-test("a supplementary action opens the same GEO's richer under-map evidence without reviving a legacy verdict", async ({ page }) => {
+test("a canonical popup Action preserves camera and exposes the selected GEO marker on its richer under-map evidence", async ({ page }) => {
   test.setTimeout(75_000);
   await page.goto(QA_ROUTE, { waitUntil: "domcontentloaded" });
   await waitForTruthMapReady(page);
@@ -104,6 +104,10 @@ test("a supplementary action opens the same GEO's richer under-map evidence with
   const mongoliaPopup = page.locator('[data-popup-variant="truth-map"]');
   await expect(mongoliaPopup).toBeVisible({ timeout: 20_000 });
   await expect(mongoliaPopup).toContainText("Current legal conclusion: GREEN");
+  const expectedCamera = { lng: 107.4, lat: 46.7, zoom: 5.6 };
+  await page.evaluate(async (camera) => {
+    await window.__TRUTH_MAP_QA__?.jumpTo(camera.lng, camera.lat, camera.zoom);
+  }, expectedCamera);
   const action = mongoliaPopup.getByRole("link", { name: /Action: recreational possession or use/i });
   await expect(action).toHaveAttribute("href", "/c/mng#law-recreational");
   await Promise.all([
@@ -116,6 +120,16 @@ test("a supplementary action opens the same GEO's richer under-map evidence with
   await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 30_000 });
   await expect(page.locator('[data-popup-variant="truth-map"]')).toHaveCount(0);
   await expect(page.getByTestId("new-map-seo-overlay")).toHaveCount(0);
+  await expect(page.locator('[data-seo-marker="1"][data-seo-marker-geo="MN"]')).toBeVisible();
+  const publicMapCanvas = page.locator("canvas.maplibregl-canvas");
+  await expect.poll(() => publicMapCanvas.getAttribute("data-truth-map-initial-camera"), { timeout: 10_000 })
+    .not.toBeNull();
+  const restoredCamera = await publicMapCanvas.evaluate((canvas) =>
+    JSON.parse((canvas as HTMLElement).dataset.truthMapInitialCamera || "{}") as { lng: number; lat: number; zoom: number }
+  );
+  expect(restoredCamera.lng).toBeCloseTo(expectedCamera.lng, 3);
+  expect(restoredCamera.lat).toBeCloseTo(expectedCamera.lat, 3);
+  expect(restoredCamera.zoom).toBeCloseTo(expectedCamera.zoom, 3);
   await expect(page.getByTestId("country-page-current-legal-evidence")).toContainText("Current legal conclusion: GREEN");
   await expect(page.locator("#law-recreational")).toContainText("Supplementary action-specific context — not the current legal conclusion");
   await expect(page.locator("body")).not.toContainText("Cannabis is illegal in Mongolia");
@@ -123,4 +137,37 @@ test("a supplementary action opens the same GEO's richer under-map evidence with
     locked: document.body.dataset.newMapRoute || null,
     scrollable: document.documentElement.scrollHeight > window.innerHeight
   }))).toEqual({ locked: null, scrollable: true });
+});
+
+test("the in-place SEO panel uses the same canonical Action hand-off as the rich popup", async ({ page }) => {
+  test.setTimeout(75_000);
+  await page.goto(QA_ROUTE, { waitUntil: "domcontentloaded" });
+  await waitForTruthMapReady(page);
+
+  await page.evaluate(async () => {
+    await window.__TRUTH_MAP_QA__?.openGeo("MN");
+    await window.__TRUTH_MAP_QA__?.jumpTo(107.1, 46.3, 5.3);
+  });
+  const popup = page.locator('[data-popup-variant="truth-map"]');
+  await expect(popup).toBeVisible({ timeout: 20_000 });
+  await popup.getByTestId("country-popup-seo-link").click();
+  const panel = page.getByTestId("new-map-seo-overlay");
+  await expect(panel).toBeVisible({ timeout: 20_000 });
+  const action = panel.getByRole("link", { name: /Action: recreational possession or use/i });
+  await expect(action).toHaveAttribute("href", "/c/mng#law-recreational");
+  await Promise.all([
+    page.waitForURL(/\/c\/mng#law-recreational$/, { timeout: 20_000 }),
+    action.click()
+  ]);
+
+  await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 30_000 });
+  await expect(page.locator('[data-seo-marker="1"][data-seo-marker-geo="MN"]')).toBeVisible();
+  const restoredCamera = await page.locator("canvas.maplibregl-canvas").evaluate((canvas) =>
+    JSON.parse((canvas as HTMLElement).dataset.truthMapInitialCamera || "{}") as { lng: number; lat: number; zoom: number }
+  );
+  expect(restoredCamera.lng).toBeCloseTo(107.1, 3);
+  expect(restoredCamera.lat).toBeCloseTo(46.3, 3);
+  expect(restoredCamera.zoom).toBeCloseTo(5.3, 3);
+  await expect(page.locator('[data-popup-variant="truth-map"]')).toHaveCount(0);
+  await expect(page.getByTestId("new-map-seo-overlay")).toHaveCount(0);
 });

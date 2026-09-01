@@ -39,6 +39,7 @@ describe("Truth Map rich card projection", () => {
         expect(item.href).toBe(`${expectedDetailPath}#law-recreational`);
         expect(item.sourceUrl).toMatch(/^https?:\/\//);
         expect(item.sourceLabel).toBe("Supplementary source");
+        expect(item.contextKind).toBe("supplementary-map-context");
         expect(item.plainText).toBe(false);
       }
       const profileValues = Object.values(projected.cannabisProfile || {})

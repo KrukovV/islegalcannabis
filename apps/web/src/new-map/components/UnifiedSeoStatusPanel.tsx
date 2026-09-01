@@ -22,6 +22,7 @@ export default function UnifiedSeoStatusPanel({
   entry,
   locale,
   onClose,
+  onOpenContextDocument,
   truthMapPresentation = false,
   truthMapEvidence = null
 }: {
@@ -29,6 +30,8 @@ export default function UnifiedSeoStatusPanel({
   entry?: CountryCardEntry | null;
   locale: SeoLocale;
   onClose: () => void;
+  /** Opens a canonical under-map document while retaining the current map context. */
+  onOpenContextDocument?: (_href: string) => void;
   /** The Truth Map supplies the authoritative current legal projection. */
   truthMapPresentation?: boolean;
   /** The selected feature owns its citations, annotations and reconciliation rationale. */
@@ -91,7 +94,7 @@ export default function UnifiedSeoStatusPanel({
   const isSelfLink = (href: string) => isSameLink(href, currentPath, currentPath);
   const isSameReasonSourceLink = (sourceUrl: string, reasonHref: string) =>
     isSelfLink(sourceUrl) || isSameLink(sourceUrl, reasonHref, currentPath);
-  const renderLink = (href: string, label: string) => {
+  const renderLink = (href: string, label: string, contextKind?: CountryCardEntry["panel"]["critical"][number]["contextKind"]) => {
     if (!href) return null;
     const className = reasonLinkClass(href);
     const isProject = getLinkScope(href) === "project";
@@ -103,7 +106,15 @@ export default function UnifiedSeoStatusPanel({
         };
     if (isProject && !href.startsWith("#")) {
       return (
-        <Link href={href} className={className}>
+        <Link
+          href={href}
+          className={className}
+          onClick={(event) => {
+            if (contextKind !== "supplementary-map-context" || !onOpenContextDocument) return;
+            event.preventDefault();
+            onOpenContextDocument(href);
+          }}
+        >
           {label}
         </Link>
       );
@@ -115,7 +126,7 @@ export default function UnifiedSeoStatusPanel({
     );
   };
   const renderReasonSection = (
-    reasonItems: Array<{ id: string; text: string; href: string; sourceUrl?: string }>,
+    reasonItems: CountryCardEntry["panel"]["critical"],
     title: string
   ) =>
     reasonItems.length > 0 ? (
@@ -125,7 +136,7 @@ export default function UnifiedSeoStatusPanel({
           {reasonItems.map((reason) => (
             <li key={reason.id}>
               {!isSelfLink(reason.href) ? (
-                renderLink(reason.href, reason.text)
+                renderLink(reason.href, reason.text, reason.contextKind)
               ) : null}
               {reason.sourceUrl && !isSameReasonSourceLink(reason.sourceUrl, reason.href) ? (
                 <>

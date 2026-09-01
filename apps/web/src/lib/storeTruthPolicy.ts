@@ -11,7 +11,6 @@ export type StoreVisibilityLevel = (typeof STORE_VISIBILITY_LEVELS)[keyof typeof
 export const STORE_ZOOM_POLICY = {
   mediumMinZoom: 5.8,
   localMinZoom: 10.2,
-  maxResults: 1000,
 } as const;
 
 export const STORE_TYPES = [

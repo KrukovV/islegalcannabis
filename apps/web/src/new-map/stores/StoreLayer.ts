@@ -40,6 +40,7 @@ const STORE_GEO_SUMMARY_ICON_PATH = "/cannabis-store-summary-shop.svg";
 // thin, broken-looking strokes on some WebKit canvases.
 const STORE_ICON_RASTER_SIZE = 48;
 const STORE_ICON_PIXEL_RATIO = 2;
+const STORE_VIEWPORT_OVERSCAN_RATIO = 0.35;
 const EMPTY_DATA: GeoJSON.FeatureCollection = { type: "FeatureCollection", features: [] };
 
 type StoreFeatureCollection = GeoJSON.FeatureCollection<GeoJSON.Point, Record<string, unknown>>;
@@ -72,6 +73,36 @@ export function canonicalizeStoreViewportBounds(bounds: StoreViewportBounds): St
     east: normalizeStoreLongitude(bounds.east),
     north: bounds.north,
   };
+}
+
+/**
+ * Query a modest ring beyond the visible camera. MapLibre clips off-screen
+ * features itself, while the retained ring prevents an empty strip during a
+ * normal north/south pan while the next bounded Store Truth response arrives.
+ * It changes neither the camera nor the Store Truth visibility decision.
+ */
+export function expandStoreViewportBounds(
+  bounds: StoreViewportBounds,
+  ratio = STORE_VIEWPORT_OVERSCAN_RATIO,
+): StoreViewportBounds {
+  const normalized = canonicalizeStoreViewportBounds(bounds);
+  const longitudeSpan = normalized.west <= normalized.east
+    ? normalized.east - normalized.west
+    : normalized.east + 360 - normalized.west;
+  if (longitudeSpan >= 360) return normalized;
+  const latitudeSpan = normalized.north - normalized.south;
+  const safeRatio = Number.isFinite(ratio) ? Math.max(0, ratio) : 0;
+  const longitudePadding = longitudeSpan * safeRatio;
+  const latitudePadding = latitudeSpan * safeRatio;
+  const east = normalized.west <= normalized.east
+    ? normalized.east + longitudePadding
+    : normalized.east + 360 + longitudePadding;
+  return canonicalizeStoreViewportBounds({
+    west: normalized.west - longitudePadding,
+    south: Math.max(-90, normalized.south - latitudePadding),
+    east,
+    north: Math.min(90, normalized.north + latitudePadding),
+  });
 }
 
 function escapeHtml(value: unknown) {
@@ -199,7 +230,11 @@ async function ensureStoreLayers(map: maplibregl.Map, isDisposed: () => boolean)
       type: "symbol",
       source: GEO_SUMMARY_SOURCE_ID,
       minzoom: WORLD_SUMMARY_MAX_ZOOM,
-      maxzoom: 5.8,
+      // The summary remains available as a short bridge exactly while the
+      // first full viewport response is loading after z=5.8. Its visibility
+      // is switched off as soon as that response is installed, so it never
+      // duplicates a cluster or a leaf.
+      maxzoom: 24,
       layout: {
         "icon-image": STORE_GEO_SUMMARY_ICON_ID,
         "icon-size": ["interpolate", ["linear"], ["zoom"], 4.2, 0.82, 5.79, 0.98],
@@ -237,6 +272,7 @@ async function ensureStoreLayers(map: maplibregl.Map, isDisposed: () => boolean)
       // labels still draw above this supplemental presentation.
       type: "symbol",
       source: SOURCE_ID,
+      minzoom: 5.8,
       filter: ["==", ["get", "kind"], "cluster"],
       layout: {
         "icon-image": STORE_GEO_SUMMARY_ICON_ID,
@@ -277,6 +313,7 @@ async function ensureStoreLayers(map: maplibregl.Map, isDisposed: () => boolean)
       id: STORE_MARKER_LAYER_ID,
       type: "symbol",
       source: SOURCE_ID,
+      minzoom: 10.2,
       filter: ["==", ["get", "kind"], "store"],
       layout: {
         "icon-image": STORE_MARKER_ICON_ID,
@@ -300,6 +337,7 @@ async function ensureStoreLayers(map: maplibregl.Map, isDisposed: () => boolean)
       id: STORE_MARKER_HITBOX_LAYER_ID,
       type: "circle",
       source: SOURCE_ID,
+      minzoom: 10.2,
       filter: ["==", ["get", "kind"], "store"],
       // A leaf silhouette contains transparent gaps. This identical-source,
       // non-visual target keeps a visible leaf reliably clickable without
@@ -328,6 +366,11 @@ function setGeoSummaryData(map: maplibregl.Map, data: StoreFeatureCollection | G
 function setCountrySummaryData(map: maplibregl.Map, data: StoreFeatureCollection | GeoJSON.FeatureCollection) {
   const source = map.getSource(COUNTRY_SUMMARY_SOURCE_ID) as maplibregl.GeoJSONSource | undefined;
   source?.setData(data);
+}
+
+function setGeoSummaryFallbackVisible(map: maplibregl.Map, visible: boolean) {
+  if (!map.getLayer(STORE_GEO_SUMMARY_LAYER_ID)) return;
+  map.setLayoutProperty(STORE_GEO_SUMMARY_LAYER_ID, "visibility", visible ? "visible" : "none");
 }
 
 export function buildStoreGeoSummaryFeatures(rows: StoreGeoSummaryRow[]): StoreFeatureCollection {
@@ -393,6 +436,7 @@ export function useStoreMapLayer(
     let debounceTimer = 0;
     let activePopup: maplibregl.Popup | null = null;
     let interactionsBound = false;
+    let hasViewportPayload = false;
 
     const empty = () => setData(map, EMPTY_DATA);
     const emptyGeoSummary = () => setGeoSummaryData(map, EMPTY_DATA);
@@ -426,6 +470,8 @@ export function useStoreMapLayer(
         requestIdRef.current += 1;
         abortRef.current?.abort();
         empty();
+        hasViewportPayload = false;
+        setGeoSummaryFallbackVisible(map, true);
         map.getCanvas().dataset.storeVisibilityLevel = "LOW";
         map.getCanvas().dataset.storeSpatialCandidates = "0";
         map.getCanvas().dataset.storeQueryDurationMs = "0";
@@ -444,18 +490,22 @@ export function useStoreMapLayer(
         east: bounds.getEast(),
         north: bounds.getNorth(),
       });
+      const requestViewport = expandStoreViewportBounds(viewport);
       const url = new URL(viewportApiPath, window.location.origin);
-      url.searchParams.set("west", String(viewport.west));
-      url.searchParams.set("south", String(viewport.south));
-      url.searchParams.set("east", String(viewport.east));
-      url.searchParams.set("north", String(viewport.north));
+      url.searchParams.set("west", String(requestViewport.west));
+      url.searchParams.set("south", String(requestViewport.south));
+      url.searchParams.set("east", String(requestViewport.east));
+      url.searchParams.set("north", String(requestViewport.north));
       url.searchParams.set("zoom", String(map.getZoom()));
+      if (!hasViewportPayload) setGeoSummaryFallbackVisible(map, true);
       try {
         const response = await fetch(url, { cache: "no-store", credentials: "same-origin", signal: controller.signal });
         if (!response.ok) throw new Error(`store_viewport_fetch:${response.status}`);
         const payload = await response.json() as StoreFeatureCollection & { meta?: { level?: string; spatialCandidateStores?: number; queryDurationMs?: number; estimatedPayloadBytes?: number } };
         if (disposed || currentRequestId !== requestIdRef.current) return;
         setData(map, payload);
+        hasViewportPayload = true;
+        setGeoSummaryFallbackVisible(map, false);
         map.getCanvas().dataset.storeVisibilityLevel = String(payload.meta?.level || level);
         map.getCanvas().dataset.storeQueryId = String(currentRequestId);
         map.getCanvas().dataset.storeSpatialCandidates = String(payload.meta?.spatialCandidateStores ?? 0);
@@ -464,6 +514,8 @@ export function useStoreMapLayer(
       } catch {
         if (controller.signal.aborted || disposed || currentRequestId !== requestIdRef.current) return;
         empty();
+        hasViewportPayload = false;
+        setGeoSummaryFallbackVisible(map, true);
         map.getCanvas().dataset.storeVisibilityLevel = "ERROR";
         map.getCanvas().dataset.storeSpatialCandidates = "0";
         map.getCanvas().dataset.storeQueryDurationMs = "0";
@@ -472,7 +524,9 @@ export function useStoreMapLayer(
     };
     const scheduleSync = () => {
       window.clearTimeout(debounceTimer);
-      debounceTimer = window.setTimeout(() => void sync(), 160);
+      // `moveend` has already coalesced an interaction. Starting its bounded
+      // request immediately avoids the former 160ms empty viewport interval.
+      debounceTimer = window.setTimeout(() => void sync(), 0);
     };
     const onMarkerClick = (event: maplibregl.MapMouseEvent & { features?: maplibregl.MapGeoJSONFeature[] }) => {
       const feature = event.features?.[0];
@@ -504,8 +558,10 @@ export function useStoreMapLayer(
         interactionsBound = true;
         void loadGeoSummary();
         scheduleSync();
+        // MapLibre emits `moveend` for both a pan and a zoom. Registering the
+        // same request on `zoomend` starts a second identical Store fetch for
+        // one zoom and needlessly aborts the first response.
         map.on("moveend", scheduleSync);
-        map.on("zoomend", scheduleSync);
         map.on("click", STORE_MARKER_LAYER_ID, onMarkerClick);
         map.on("click", STORE_MARKER_HITBOX_LAYER_ID, onMarkerClick);
         map.on("click", STORE_CLUSTER_LAYER_ID, onClusterClick);
@@ -535,7 +591,6 @@ export function useStoreMapLayer(
       activePopup?.remove();
       if (interactionsBound) {
         map.off("moveend", scheduleSync);
-        map.off("zoomend", scheduleSync);
         map.off("click", STORE_MARKER_LAYER_ID, onMarkerClick);
         map.off("click", STORE_MARKER_HITBOX_LAYER_ID, onMarkerClick);
         map.off("click", STORE_CLUSTER_LAYER_ID, onClusterClick);

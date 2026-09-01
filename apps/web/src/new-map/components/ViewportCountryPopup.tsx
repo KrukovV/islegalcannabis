@@ -17,6 +17,7 @@ export default function ViewportCountryPopup({
   anchor,
   onClose,
   onOpenDetails,
+  onOpenContextDocument,
   className,
   rootTestId = "new-map-root",
   popupVariant = "new-map",
@@ -29,6 +30,8 @@ export default function ViewportCountryPopup({
   anchor: { x: number; y: number } | null;
   onClose: () => void;
   onOpenDetails?: (_entry: CountryCardEntry) => void;
+  /** Opens a canonical under-map document while retaining the current map context. */
+  onOpenContextDocument?: (_href: string) => void;
   className?: string;
   rootTestId?: string;
   popupVariant?: string;
@@ -139,7 +142,15 @@ export default function ViewportCountryPopup({
               {isSelfLink(item.href) ? null : item.plainText ? (
                 <strong>{item.text}</strong>
               ) : (
-                <Link href={item.href} className={reasonLinkClass(item.href)}>
+                <Link
+                  href={item.href}
+                  className={reasonLinkClass(item.href)}
+                  onClick={(event) => {
+                    if (item.contextKind !== "supplementary-map-context" || !onOpenContextDocument) return;
+                    event.preventDefault();
+                    onOpenContextDocument(item.href);
+                  }}
+                >
                   <strong>{item.text}</strong>
                 </Link>
               )}

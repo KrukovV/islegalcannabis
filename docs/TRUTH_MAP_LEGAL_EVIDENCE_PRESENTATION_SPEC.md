@@ -117,6 +117,16 @@ internal route. A map-only GEO with no sitemap country page may use its
 noindex detail fallback, but this must not add, replace or change a sitemap
 entry.
 
+Selecting a supplementary Action from either the rich popup or the in-place
+SEO panel uses one GEO-neutral hand-off for all 307 country/state/territory
+records. The visible link remains that exact canonical sitemap URL, with no
+camera parameters or substituted slug. A bounded, short-lived browser-session
+context retains the current map camera and selected GEO only for the matching
+`/c/[code]` document. The document restores that camera rather than resetting
+or zooming out, and retains its selected GEO as the map-only `i` marker. This
+context never changes Legal Truth, Store Truth, SEO content, canonical URL,
+map colour or the browser's destination anchor.
+
 Rich popups and in-place SEO panels are map-viewport controls. A scrollable
 `/c/[code]` under-map document may centre its matching GEO, but it must not
 auto-open either overlay from its route or anchor. After an Action transition
@@ -147,7 +157,47 @@ public committed static Brotli payload is not a popup-content branch. Geometry
 transport may be compacted, but the selected GEO must project the same complete
 schema-derived card, dotted SEO CTA and retained evidence fields on both routes.
 
-## 6. Required verification
+## 6. Store aggregate continuity
+
+Store presentation is an exact projection of records that already pass the
+canonical Store Truth visibility gate. It is presentation-only: it cannot
+promote a record, loosen its licence/source/coordinate gate, or change Legal
+Truth, SSOT, a source, a coordinate or the map camera.
+
+At global zoom below `4.2`, one country aggregate is shown; at `4.2–5.8`, one
+country/state/territory aggregate is shown; at `5.8–10.2`, the matching
+viewport records are shown as clusters; and at `10.2+`, they are shown as
+individual leaves. A viewport response must retain every Store Truth-gated
+record in its bounded query before clustering. An arbitrary response cap is
+forbidden: its cluster counts could otherwise fail to account for the preceding
+aggregate.
+
+The GEO aggregate stays visible only as a bridge while the first cluster/leaf
+payload for a new viewport is in flight, and is hidden when that payload is
+installed. The bounded request begins from the single `moveend` emitted after a
+completed pan or zoom; a parallel equivalent `zoomend` request is forbidden.
+It uses a small WGS84 overscan ring, while MapLibre still clips off-screen
+records. This prevents a normal pan from producing an empty strip while a
+replacement payload arrives, without changing the actual camera or Store Truth
+decision.
+
+The resolved Store dataset may be cached only as a performance layer. Its cache
+key must include the source, record, eligibility and final-reconciliation input
+signatures, so every changed gate input reloads before the next bounded query.
+Caching removes repeat file I/O only; it cannot change visibility, counts,
+coordinates, Legal Truth, SSOT or any popup property.
+
+Verification must include every GEO with at least one visible record, not a
+single dense example: its aggregate count equals its full-world local-leaf
+count, the total of all GEO aggregates equals the local visible total, and the
+sum of all medium-cluster counts equals that same total.
+
+A browser regression must also cross a dense aggregate boundary with three
+actual ZoomIn/ZoomOut repetitions. It records responsive camera completion and
+one bounded Store replacement per completed camera, then requires no page or
+console error and no blank hand-off between the aggregate and first clusters.
+
+## 7. Required verification
 
 The unit dataset test covers all determined GEO:
 
@@ -175,7 +225,11 @@ regression follows Mongolia's Action link through `/c/mng#law-recreational`,
 then verifies the final-projection GREEN record, scrollable expanded content
 and no revived legacy RED statement. It also verifies that the destination
 has map-only overlay scope and contains neither a rich popup nor an in-place
-SEO panel above the under-map article.
+SEO panel above the under-map article. The same regression must prove that
+both the rich-popup Action and the in-place-panel Action retain the exact
+pre-click camera and selected GEO `i` marker. The dataset contract covers the
+same canonical Action/interception metadata for all 307 GEO, including country
+and U.S.-state codes; no region-specific interaction branch is allowed.
 
 The opt-in WebKit audit must open every requested popup on the existing singleton, wait for the selected GEO identity, verify the same rule from rendered text, and save an external screenshot. Its manifest records `geo`, `legalTruthColor`, `mapDisplayText`, and `legalEvidenceIcon` for every captured row. The audit resolves the canonical repository root from the test file location, never from the caller's working directory, so a full run can update only `Artifacts/truth-map-visual-audit/manifest.json` at the Git root; a manifest written under `apps/web/Artifacts/` is invalid evidence and must be preserved externally rather than accepted by the guard.
 
@@ -195,7 +249,7 @@ local visual-manifest audit.
 
 A random live sample is supplemental evidence, never a replacement for the separate canonical 307-GEO visual-manifest refresh. Guard freshness must not be faked, weakened, or repaired by timestamp changes.
 
-## 7. Route boundary
+## 8. Route boundary
 
 This shared popup contract must not make `/truth-map` indexable. The public
 sitemap, legal APIs, SSOT, Store Truth, Social semantics, map colours,

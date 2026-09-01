@@ -141,6 +141,154 @@ test("truth-map reloads local Store leaves after an in-place viewport move, incl
   expect(runtimeErrors).toEqual([]);
 });
 
+test("truth-map keeps the Canada aggregate through the medium hand-off and preserves clusters during a bounded north pan", async ({ page }) => {
+  test.setTimeout(120_000);
+  const runtimeErrors: string[] = [];
+  page.on("pageerror", (error) => runtimeErrors.push(error.message));
+  page.on("console", (message) => {
+    if (message.type() === "error") runtimeErrors.push(message.text());
+  });
+
+  await gotoReadyTruthMap(page, "/truth-map?qa=1&lat=44&lng=-80&zoom=5.7");
+  await page.waitForFunction(() => {
+    const map = window.__TRUTH_MAP_DEBUG__?.map;
+    if (!map?.getLayer("validated-cannabis-store-geo-summaries")) return false;
+    return (map?.queryRenderedFeatures({ layers: ["validated-cannabis-store-geo-summaries"] }) || [])
+      .some((feature) => feature.properties?.geo_id === "CA" && Number(feature.properties?.count) === 1825);
+  }, undefined, { timeout: 20_000 });
+
+  const canadaMediumResponse = page.waitForResponse((response) => {
+    if (!response.url().includes("/api/truth-map/stores?")) return false;
+    const url = new URL(response.url());
+    return response.status() === 200 && Number(url.searchParams.get("zoom")) >= 5.8;
+  }, { timeout: 20_000 });
+  const bridgeState = await page.evaluate(() => {
+    const map = window.__TRUTH_MAP_DEBUG__?.map;
+    if (!map) throw new Error("truth_map_missing_for_canada_store_bridge");
+    map.jumpTo({ center: [-80, 44], zoom: 5.8 });
+    return {
+      fallbackVisible: map.getLayoutProperty("validated-cannabis-store-geo-summaries", "visibility"),
+      canadaAggregateStillRendered: (map.queryRenderedFeatures({ layers: ["validated-cannabis-store-geo-summaries"] }) || [])
+        .some((feature) => feature.properties?.geo_id === "CA" && Number(feature.properties?.count) === 1825),
+    };
+  });
+  expect(bridgeState.fallbackVisible).toBe("visible");
+  expect(bridgeState.canadaAggregateStillRendered).toBe(true);
+  await canadaMediumResponse;
+  await page.waitForFunction(() => {
+    const map = window.__TRUTH_MAP_DEBUG__?.map;
+    if (!map) return false;
+    return map.getCanvas().dataset.storeVisibilityLevel === "MEDIUM"
+      && Number(map.getCanvas().dataset.storeSpatialCandidates || "0") > 0
+      && (map.queryRenderedFeatures({ layers: ["validated-cannabis-store-clusters"] }) || []).length > 0
+      && map.getLayoutProperty("validated-cannabis-store-geo-summaries", "visibility") === "none";
+  }, undefined, { timeout: 20_000 });
+
+  const beforePanQueryId = await page.evaluate(() => window.__TRUTH_MAP_DEBUG__?.map?.getCanvas().dataset.storeQueryId || "");
+  const panResponse = page.waitForResponse((response) => (
+    response.url().includes("/api/truth-map/stores?") && response.status() === 200
+  ), { timeout: 20_000 });
+  const immediatePanClusterCount = await page.evaluate(() => {
+    const map = window.__TRUTH_MAP_DEBUG__?.map;
+    if (!map) throw new Error("truth_map_missing_for_canada_store_pan");
+    map.jumpTo({ center: [-80, 46], zoom: 5.8 });
+    return (map.queryRenderedFeatures({ layers: ["validated-cannabis-store-clusters"] }) || []).length;
+  });
+  expect(immediatePanClusterCount).toBeGreaterThan(0);
+  await panResponse;
+  await page.waitForFunction((previousQueryId) => {
+    const map = window.__TRUTH_MAP_DEBUG__?.map;
+    return Boolean(map
+      && map.getCanvas().dataset.storeQueryId !== previousQueryId
+      && (map.queryRenderedFeatures({ layers: ["validated-cannabis-store-clusters"] }) || []).length > 0);
+  }, beforePanQueryId, { timeout: 20_000 });
+  expect(runtimeErrors).toEqual([]);
+});
+
+test("truth-map ZoomIn and ZoomOut stay responsive across the Store aggregate boundary", async ({ page }) => {
+  test.setTimeout(120_000);
+  const runtimeErrors: string[] = [];
+  page.on("pageerror", (error) => runtimeErrors.push(error.message));
+  page.on("console", (message) => {
+    if (message.type() === "error") runtimeErrors.push(message.text());
+  });
+
+  // Canada provides a dense, deterministic hand-off: at z=5.7 it has one
+  // aggregate, then at z=6.7 it has viewport clusters. This exercises the
+  // same MapLibre ZoomIn/ZoomOut path as the existing controls/gestures while
+  // keeping the test focused on response and presentation continuity.
+  await gotoReadyTruthMap(page, "/truth-map?qa=1&lat=44&lng=-80&zoom=5.7");
+  await page.waitForFunction(() => {
+    const map = window.__TRUTH_MAP_DEBUG__?.map;
+    return Boolean(map
+      && map.getCanvas().dataset.storeVisibilityLevel === "LOW"
+      && map.getLayoutProperty("validated-cannabis-store-geo-summaries", "visibility") === "visible"
+      && (map.queryRenderedFeatures({ layers: ["validated-cannabis-store-geo-summaries"] }) || [])
+        .some((feature) => feature.properties?.geo_id === "CA" && Number(feature.properties?.count) === 1825));
+  }, undefined, { timeout: 20_000 });
+
+  const step = async (direction: "in" | "out", expectedLevel: "LOW" | "MEDIUM") => {
+    const startedAt = Date.now();
+    const cameraMs = await page.evaluate(async (requestedDirection) => {
+      const map = window.__TRUTH_MAP_DEBUG__?.map;
+      if (!map) throw new Error("truth_map_missing_for_zoom_response");
+      const cameraStartedAt = Date.now();
+      await new Promise<void>((resolve) => {
+        map.once("zoomend", resolve);
+        if (requestedDirection === "in") map.zoomIn({ duration: 0 });
+        else map.zoomOut({ duration: 0 });
+      });
+      return Date.now() - cameraStartedAt;
+    }, direction);
+    await page.waitForFunction((level) => {
+      const map = window.__TRUTH_MAP_DEBUG__?.map;
+      if (!map || map.getCanvas().dataset.storeVisibilityLevel !== level) return false;
+      if (level === "LOW") {
+        return map.getLayoutProperty("validated-cannabis-store-geo-summaries", "visibility") === "visible"
+          && (map.queryRenderedFeatures({ layers: ["validated-cannabis-store-geo-summaries"] }) || [])
+            .some((feature) => feature.properties?.geo_id === "CA" && Number(feature.properties?.count) === 1825);
+      }
+      return map.getLayoutProperty("validated-cannabis-store-geo-summaries", "visibility") === "none"
+        && (map.queryRenderedFeatures({ layers: ["validated-cannabis-store-clusters"] }) || []).length > 0;
+    }, expectedLevel, { timeout: 20_000 });
+    return {
+      cameraMs,
+      endToEndMs: Date.now() - startedAt,
+      serverQueryMs: Number(await page.evaluate(() => (
+        window.__TRUTH_MAP_DEBUG__?.map?.getCanvas().dataset.storeQueryDurationMs || "0"
+      ))),
+    };
+  };
+
+  const zoomIn = await step("in", "MEDIUM");
+  const zoomOut = await step("out", "LOW");
+  // Repeat the exact user-visible crossing rather than adding a separate
+  // scheduler or geometry rule.  The response bound includes source update
+  // and a rendered feature, not just the synchronous camera call.
+  const repeated = [
+    await step("in", "MEDIUM"),
+    await step("out", "LOW"),
+    await step("in", "MEDIUM"),
+    await step("out", "LOW"),
+  ];
+  const allSteps = [zoomIn, zoomOut, ...repeated];
+  const worstMs = Math.max(...allSteps.map((stepResult) => stepResult.endToEndMs));
+  console.warn(`MAP_ZOOM_METRICS ${JSON.stringify({ zoomIn, zoomOut, repeated, worstMs })}`);
+  // Camera movement must complete immediately; the first medium response is
+  // allowed to render asynchronously, but never leaves a blank map because
+  // the existing GEO aggregate bridge stays visible until clusters install.
+  expect(allSteps.every((stepResult) => stepResult.cameraMs < 250), JSON.stringify({ zoomIn, zoomOut, repeated })).toBe(true);
+  // The dev test server can compile basemap tiles in the same event loop, so
+  // the browser end-to-end number is not a Store-query benchmark. It must
+  // still settle well inside the interaction readiness window, while the
+  // cache-backed Store handler itself remains bounded independently.
+  expect(allSteps
+    .filter((stepResult) => stepResult.serverQueryMs > 0)
+    .every((stepResult) => stepResult.serverQueryMs < 2_500), JSON.stringify({ zoomIn, zoomOut, repeated })).toBe(true);
+  expect(worstMs, JSON.stringify({ zoomIn, zoomOut, repeated })).toBeLessThan(8_000);
+  expect(runtimeErrors).toEqual([]);
+});
+
 test("truth-map declutters global store counts and reaches full local zoom without changing the existing map route", async ({ page }) => {
   // This is one serial visual route contract spanning the audited local
   // jurisdictions. Each camera stop has its own 20-second readiness bound;
@@ -254,7 +402,16 @@ test("truth-map declutters global store counts and reaches full local zoom witho
   if (!greeceCountrySummary || !unitedStatesCountrySummary || !netherlandsCountrySummary) {
     throw new Error("truth_map_country_summary_fixture_missing");
   }
-  expect(netherlandsCountrySummary.count).toBe(135);
+  // The Store Truth registry currently contains 140 visible Netherlands
+  // records. Keep this precise audit fixture in sync with the current
+  // immutable Store Truth projection; it is unrelated to cluster placement.
+  expect(netherlandsCountrySummary.count).toBe(140);
+
+  const canadaGeoSummary = summaryPayload.rows.find((row) => row.geo_id === "CA");
+  if (!canadaGeoSummary) throw new Error("truth_map_canada_geo_summary_missing");
+  // This is the public count a user sees before z=5.8. The transition below
+  // must never make the underlying records disappear through a response cap.
+  expect(canadaGeoSummary.count).toBe(1825);
 
   // The exact affected examples remain present after separate camera changes.
   // Their stable symbol layout must not depend on unrelated country-label
@@ -315,7 +472,15 @@ test("truth-map declutters global store counts and reaches full local zoom witho
   expect(lowZoomStoreState.summaryCountAnchor).toBe("left");
   expect(lowZoomStoreState.summaryCountOffset).toEqual([0.45, 0]);
   expect(lowZoomStoreState.summaryCountHalo).toBe(2);
-  expect(lowZoomStoreState.summaryMaxZoom).toBe(5.8);
+  expect(lowZoomStoreState.summaryMaxZoom).toBe(24);
+
+  await gotoReadyTruthMap(page, "/truth-map?qa=1&lat=44&lng=-80&zoom=5.7");
+  await page.waitForFunction(({ geo, count }) => {
+    const map = window.__TRUTH_MAP_DEBUG__?.map;
+    if (!map?.getLayer("validated-cannabis-store-geo-summaries")) return false;
+    return (map.queryRenderedFeatures({ layers: ["validated-cannabis-store-geo-summaries"] }) || [])
+      .some((feature) => feature.properties?.geo_id === geo && Number(feature.properties?.count) === count);
+  }, { geo: canadaGeoSummary.geo_id, count: canadaGeoSummary.count }, { timeout: 20_000 });
 
   await gotoReadyTruthMap(page, "/truth-map?qa=1&lat=40.7033862&lng=-73.9893613&zoom=8");
   await page.waitForFunction(() => window.__TRUTH_MAP_QA__?.getStoreVisibilityLevel() === "MEDIUM", { timeout: 20_000 });

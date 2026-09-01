@@ -4,7 +4,6 @@ import { findRepoRoot } from "@/lib/ssotDiff/ssotSnapshotStore";
 import {
   getStoreVisibilityLevel,
   STORE_TYPES,
-  STORE_ZOOM_POLICY,
 } from "./storeTruthPolicy";
 import type { StoreType } from "./storeTruthPolicy";
 
@@ -182,6 +181,7 @@ type StoreDatasetCache = {
   sourceById: Map<string, StoreSource>;
   spatialIndex: StoreSpatialIndex;
   eligibilityByGeo: Map<string, StoreEligibilityModelRow>;
+  canonicalTruthByGeo: Map<string, CanonicalLegalTruth>;
 };
 
 const SPATIAL_CELL_DEGREES = 2;
@@ -517,16 +517,28 @@ function loadStoreDataset() {
   const sourcesPath = storeDataPath("store_source_registry.json");
   const recordsPath = storeDataPath("canonical_store_records.json");
   const eligibilityPath = storeDataPath("store_eligibility_model.json");
-  const signature = `${fileSignature(sourcesPath)}|${fileSignature(recordsPath)}|${fileSignature(eligibilityPath)}`;
+  const reconciliationPath = reviewDataPath("wiki-truth-307-final-reconciliation.json");
+  const signature = [
+    fileSignature(sourcesPath),
+    fileSignature(recordsPath),
+    fileSignature(eligibilityPath),
+    fileSignature(reconciliationPath),
+  ].join("|");
   if (storeDatasetCache?.signature === signature) return storeDatasetCache;
   const sources = readJson<StoreDataEnvelope<StoreSource>>(sourcesPath)?.sources || [];
   const records = readJson<StoreDataEnvelope<CanonicalStoreRecord>>(recordsPath)?.records || [];
   const eligibilityRows = readJson<StoreEligibilityModelEnvelope>(eligibilityPath)?.rows || [];
+  const reconciliationRows = readJson<FinalReconciliationEnvelope>(reconciliationPath)?.rows || [];
   storeDatasetCache = {
     signature,
     sourceById: new Map(sources.map((source) => [source.source_id, source])),
     spatialIndex: buildStoreSpatialIndex(records),
     eligibilityByGeo: new Map(eligibilityRows.map((row) => [normalizeGeo(row.geo_id), row])),
+    // The Store gate is unchanged: this is the same canonical projection that
+    // was previously re-read for every viewport request. Keeping it with the
+    // file-signature-bound Store dataset removes repeated disk JSON parsing
+    // during ZoomIn/ZoomOut without retaining stale legal truth.
+    canonicalTruthByGeo: resolveCanonicalLegalTruthByGeo(reconciliationRows, eligibilityRows),
   };
   return storeDatasetCache;
 }
@@ -599,7 +611,6 @@ function selectValidatedStoreRecords(
   dataset: ReturnType<typeof loadStoreDataset>,
   selectedTypes: Set<StoreType>,
 ) {
-  const canonicalTruthByGeo = loadCanonicalLegalTruthByGeo();
   let blockedStores = 0;
   let circularTruthDependencies = 0;
   const visible = records.filter((record) => {
@@ -607,7 +618,7 @@ function selectValidatedStoreRecords(
     const decision = validateStoreVisibility(
       record,
       dataset.sourceById.get(record.source_id),
-      canonicalTruthByGeo.get(normalizeGeo(record.geo_id)),
+      dataset.canonicalTruthByGeo.get(normalizeGeo(record.geo_id)),
       dataset.eligibilityByGeo.get(normalizeGeo(record.geo_id)),
     );
     if (!decision.visible) {
@@ -694,7 +705,13 @@ export function queryVisibleStores(query: StoreQuery) {
     dataset,
     selectedTypes,
   );
-  const visible = validated.slice(0, STORE_ZOOM_POLICY.maxResults);
+  // A country aggregate is the exact count of records that pass the Store
+  // Truth gate.  A viewport response must therefore retain every matching
+  // record before clustering: a response cap could make (for example) a
+  // Canadian aggregate of 1,825 impossible to account for after zooming in.
+  // At medium zoom the records are compacted to clusters, while at local zoom
+  // the viewport is naturally bounded by the map camera.
+  const visible = validated;
   return {
     level,
     features: level === "MEDIUM" ? toClusterFeatures(visible, Number(query.zoom)) : visible.map(toStoreFeature),

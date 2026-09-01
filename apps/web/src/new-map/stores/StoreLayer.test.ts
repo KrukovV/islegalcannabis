@@ -1,5 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { buildStoreGeoSummaryFeatures, canonicalizeStoreViewportBounds, renderStorePopup } from "./StoreLayer";
+import {
+  buildStoreGeoSummaryFeatures,
+  canonicalizeStoreViewportBounds,
+  expandStoreViewportBounds,
+  renderStorePopup,
+} from "./StoreLayer";
 
 describe("canonicalizeStoreViewportBounds", () => {
   it("keeps continuous world-copy cameras queryable against canonical Store Truth coordinates", () => {
@@ -21,6 +26,13 @@ describe("canonicalizeStoreViewportBounds", () => {
       .toEqual({ west: 179, south: -10, east: -179, north: 10 });
     expect(canonicalizeStoreViewportBounds({ west: 180, south: -10, east: 540, north: 10 }))
       .toEqual({ west: -180, south: -10, east: 180, north: 10 });
+  });
+
+  it("adds a bounded prefetch ring without changing canonical world-copy semantics", () => {
+    expect(expandStoreViewportBounds({ west: -100, south: 50, east: -80, north: 60 }, 0.25))
+      .toEqual({ west: -105, south: 47.5, east: -75, north: 62.5 });
+    expect(expandStoreViewportBounds({ west: 170, south: -10, east: -170, north: 10 }, 0.25))
+      .toEqual({ west: 165, south: -15, east: -165, north: 15 });
   });
 });
 

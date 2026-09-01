@@ -5,6 +5,7 @@ import {
   resolveCanonicalLegalTruthByGeo,
   buildStoreSpatialIndex,
   getStoreVisibilityLevel,
+  queryStoreSummaryLevels,
   queryVisibleStores,
   resolveCurrentStoreLegalGate,
   selectStoreSpatialCandidates,
@@ -153,6 +154,38 @@ describe("canonical store truth", () => {
     expect(getStoreVisibilityLevel(STORE_ZOOM_POLICY.mediumMinZoom - 0.01)).toBe("LOW");
     expect(getStoreVisibilityLevel(STORE_ZOOM_POLICY.mediumMinZoom)).toBe("MEDIUM");
     expect(getStoreVisibilityLevel(STORE_ZOOM_POLICY.localMinZoom)).toBe("LOCAL");
+  });
+
+  it("does not silently truncate a dense bounded viewport before clustering", () => {
+    const result = queryVisibleStores({ west: -141, south: 41, east: -52, north: 84, zoom: 5.8 });
+    const clusteredCount = result.features.reduce((count, feature) => (
+      count + Number(feature.properties.count || 0)
+    ), 0);
+    expect(result.level).toBe("MEDIUM");
+    expect(result.visibleStores + result.blockedStores).toBe(result.spatialCandidateStores);
+    expect(clusteredCount).toBe(result.visibleStores);
+  });
+
+  it("keeps every GEO with a visible Store Truth record exactly accountable at aggregate, cluster, and leaf levels", () => {
+    const summaries = queryStoreSummaryLevels();
+    const local = queryVisibleStores({ west: -180, south: -90, east: 180, north: 90, zoom: STORE_ZOOM_POLICY.localMinZoom });
+    const medium = queryVisibleStores({ west: -180, south: -90, east: 180, north: 90, zoom: STORE_ZOOM_POLICY.mediumMinZoom });
+    const leavesByGeo = new Map<string, number>();
+    for (const feature of local.features) {
+      const geo = String(feature.properties.geo_id || "");
+      leavesByGeo.set(geo, (leavesByGeo.get(geo) || 0) + 1);
+    }
+    const aggregateByGeo = new Map(summaries.geoRows.map((row) => [row.geo_id, row.count]));
+    const clusteredCount = medium.features.reduce((count, feature) => count + Number(feature.properties.count || 0), 0);
+
+    expect(local.level).toBe("LOCAL");
+    expect(medium.level).toBe("MEDIUM");
+    expect(local.visibleStores).toBeGreaterThan(0);
+    expect([...aggregateByGeo.keys()].sort()).toEqual([...leavesByGeo.keys()].sort());
+    expect([...aggregateByGeo.entries()].sort(([left], [right]) => left.localeCompare(right)))
+      .toEqual([...leavesByGeo.entries()].sort(([left], [right]) => left.localeCompare(right)));
+    expect(clusteredCount).toBe(local.visibleStores);
+    expect(summaries.geoRows.reduce((total, row) => total + row.count, 0)).toBe(local.visibleStores);
   });
 
   it("requires independent legal, source, license, and coordinate gates", () => {

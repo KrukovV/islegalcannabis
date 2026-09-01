@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { createContext, useCallback, useContext, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import maplibregl from "maplibre-gl";
 import type { RuntimeIdentity } from "@/lib/runtimeIdentity";
 import { createMap, NEW_MAP_SOURCE_ID, NEW_MAP_US_STATES_SOURCE_ID } from "@/new-map/createMap";
@@ -30,6 +30,7 @@ import {
 import type { TruthMapCollection, TruthMapDatasetMeta, TruthMapFeatureProperties } from "./truthMapSource";
 import { projectTruthMapRichCard, TRUTH_MAP_CONTEXT_LABELS, TRUTH_MAP_PROFILE_SECTION_LABELS } from "./truthMapRichCard";
 import TruthMapLegalEvidence from "./TruthMapLegalEvidence";
+import { storeTruthMapDocumentNavigation, takeTruthMapDocumentNavigation, type TruthMapDocumentNavigationContext } from "./documentNavigationContext";
 
 type Props = {
   countriesUrl: string;
@@ -160,9 +161,17 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
   const [activeSeoSelection, setActiveSeoSelection] = useState<TruthMapPopupSelection | null>(null);
   const [seoPanelOpen, setSeoPanelOpen] = useState(false);
   const [storesEnabled, setStoresEnabled] = useState(true);
+  // A session hand-off exists only in the browser. Reading it in a state
+  // initializer would run as `null` during SSR and retain that value through
+  // hydration, so capture it in the browser layout phase before map creation.
+  const documentNavigationRef = useRef<TruthMapDocumentNavigationContext | null>(null);
   const initialMapViewRef = useRef(initialMapView);
   const initialGeoCodeRef = useRef(initialGeoCode);
   const initialGeoOpensPopupRef = useRef(initialGeoOpensPopup);
+
+  useLayoutEffect(() => {
+    documentNavigationRef.current = takeTruthMapDocumentNavigation();
+  }, []);
 
   useStoreMapLayer(mapInstance, mapReady, storesEnabled, publicPresentation ? PUBLIC_STORE_MAP_LAYER_ENDPOINTS : undefined);
 
@@ -232,8 +241,12 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
 
   const clearMapOnlyOverlays = useCallback(() => {
     clearSelectedGeo();
-    clearSeoPanel();
-  }, [clearSelectedGeo, clearSeoPanel]);
+    // The fixed popup/panel must not follow a reader into the article. The
+    // selected GEO remains as the map-only `i` marker so scrolling back never
+    // loses the clicked country or state.
+    setSeoPanelOpen(false);
+    setActiveSeoData(null);
+  }, [clearSelectedGeo]);
 
   useEffect(() => {
     if (bodyScroll !== "allow" || typeof window === "undefined") return;
@@ -370,6 +383,23 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
     if (data) setActiveSeoData(data);
   }, [loadSeoCountryData, selectedPopup]);
 
+  const handleOpenContextDocument = useCallback((href: string) => {
+    if (typeof window === "undefined") return;
+    const map = mapRef.current;
+    const selection = selectedPopup || activeSeoSelection;
+    if (map && selection) {
+      const center = map.getCenter();
+      storeTruthMapDocumentNavigation(href, selection.properties.geo, {
+        lat: center.lat,
+        lng: center.lng,
+        zoom: map.getZoom()
+      });
+    }
+    // This is deliberately the existing canonical link, without camera query
+    // parameters. The bounded hand-off above is consumed once by `/c/[code]`.
+    window.location.assign(href);
+  }, [activeSeoSelection, selectedPopup]);
+
   const handleSeoPanelClose = clearSeoPanel;
 
   const handleSeoMarkerToggle = useCallback(() => {
@@ -470,6 +500,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
   }), [applyGeoToMap, cardIndex, clearSelectedGeo, mapInstance, mapReady, selectedGeo]);
 
   useEffect(() => {
+    const documentNavigation = documentNavigationRef.current;
     const container = containerRef.current;
     if (!container) return;
     let disposed = false;
@@ -542,22 +573,35 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
         setMeta(countries.meta || null);
         await runtime.ready;
         if (disposed) return;
-        const initialView = initialMapViewRef.current;
+        const initialView = documentNavigation?.camera || initialMapViewRef.current;
+        const normalizedGeo = String(documentNavigation?.geo || initialGeoCodeRef.current || "").trim().toUpperCase();
+        const initialFeature = normalizedGeo
+          ? [...countries.features, ...usStates.features].find((feature) => String(feature.properties?.geo || "").toUpperCase() === normalizedGeo)
+          : null;
+        const initialProperties = initialFeature?.properties as TruthMapFeatureProperties | undefined;
+        const lng = Number(initialProperties?.labelAnchorLng);
+        const lat = Number(initialProperties?.labelAnchorLat);
         if (initialView) {
           runtime.map.jumpTo({ center: [initialView.lng, initialView.lat], zoom: initialView.zoom, pitch: 0, bearing: 0 });
-        } else {
-          const normalizedGeo = String(initialGeoCodeRef.current || "").trim().toUpperCase();
-          const initialFeature = normalizedGeo
-            ? [...countries.features, ...usStates.features].find((feature) => String(feature.properties?.geo || "").toUpperCase() === normalizedGeo)
-            : null;
-          const initialProperties = initialFeature?.properties as TruthMapFeatureProperties | undefined;
-          const lng = Number(initialProperties?.labelAnchorLng);
-          const lat = Number(initialProperties?.labelAnchorLat);
-          if (initialProperties?.truthDataset === "FINAL_307_RECONCILIATION" && Number.isFinite(lng) && Number.isFinite(lat)) {
-            runtime.map.jumpTo({ center: [lng, lat], zoom: 3.2, pitch: 0, bearing: 0 });
-            if (initialGeoOpensPopupRef.current) openTruthPopup(initialProperties, { lng, lat });
+        } else if (initialProperties?.truthDataset === "FINAL_307_RECONCILIATION" && Number.isFinite(lng) && Number.isFinite(lat)) {
+          runtime.map.jumpTo({ center: [lng, lat], zoom: 3.2, pitch: 0, bearing: 0 });
+        }
+        if (initialProperties?.truthDataset === "FINAL_307_RECONCILIATION" && Number.isFinite(lng) && Number.isFinite(lat)) {
+          const selection = { properties: initialProperties, lngLat: { lng, lat } };
+          if (documentNavigation) {
+            // A document owns the screen after its hash scroll, but the map
+            // keeps the same non-panel marker the user selected before it.
+            setActiveSeoSelection(selection);
+          } else if (initialGeoOpensPopupRef.current) {
+            openTruthPopup(initialProperties, { lng, lat });
           }
         }
+        const initialCenter = runtime.map.getCenter();
+        runtime.map.getCanvas().dataset.truthMapInitialCamera = JSON.stringify({
+          lat: Number(initialCenter.lat.toFixed(6)),
+          lng: Number(initialCenter.lng.toFixed(6)),
+          zoom: Number(runtime.map.getZoom().toFixed(6))
+        });
         setMapReady(true);
         if (!publicPresentation && new URLSearchParams(window.location.search).get("qa") === "1") host.__TRUTH_MAP_QA__ = {
           jumpTo: (lng, lat, zoom) => new Promise<void>((resolve) => {
@@ -722,6 +766,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
           entry={activeSeoEntry}
           locale="en"
           onClose={handleSeoPanelClose}
+          onOpenContextDocument={handleOpenContextDocument}
           truthMapPresentation
           truthMapEvidence={activeSeoSelection?.properties}
         />
@@ -741,6 +786,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
           sectionLabels={TRUTH_MAP_CONTEXT_LABELS}
           profileSectionLabels={TRUTH_MAP_PROFILE_SECTION_LABELS}
           onOpenDetails={handleOpenDetails}
+          onOpenContextDocument={handleOpenContextDocument}
         />
       ) : null}
       {!publicPresentation ? auditPanel : null}
