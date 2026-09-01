@@ -33,7 +33,7 @@ test("an open SEO panel retains its country marker and does not block selecting 
   await page.evaluate(async () => {
     await window.__TRUTH_MAP_QA__?.jumpTo(2.35, 46.5, 5);
   });
-  const francePoint = await page.evaluate(() => {
+  const getFrancePoint = () => page.evaluate(() => {
     const map = window.__TRUTH_MAP_DEBUG__?.map;
     const feature = map?.querySourceFeatures("legal-countries")
       .find((candidate) => candidate.properties?.geo === "FR");
@@ -43,6 +43,10 @@ test("an open SEO panel retains its country marker and does not block selecting 
       Number(feature.properties?.labelAnchorLat)
     ]);
   });
+  // A jump may settle before its new vector tile exposes France through the
+  // source query. Wait for the actual feature instead of racing its tile load.
+  await expect.poll(getFrancePoint, { timeout: 20_000 }).not.toBeNull();
+  const francePoint = await getFrancePoint();
   if (!francePoint) throw new Error("truth_map_france_point_missing_with_seo_panel_open");
   await page.mouse.click(francePoint.x, francePoint.y);
 
@@ -51,6 +55,29 @@ test("an open SEO panel retains its country marker and does not block selecting 
   await expect(francePopup).toContainText("ISO2: FR");
   await expect(panel).toBeVisible();
   await expect(marker).toBeVisible();
+});
+
+test("closing an in-place SEO panel clears its underlying rich popup", async ({ page }) => {
+  test.setTimeout(75_000);
+  await page.goto(QA_ROUTE, { waitUntil: "domcontentloaded" });
+  await waitForTruthMapReady(page);
+
+  await page.evaluate(async () => {
+    await window.__TRUTH_MAP_QA__?.openGeo("AU");
+  });
+  const popup = page.locator('[data-popup-variant="truth-map"]');
+  await expect(popup).toContainText("ISO2: AU", { timeout: 20_000 });
+  await popup.getByTestId("country-popup-seo-link").click();
+
+  const panel = page.getByTestId("new-map-seo-overlay");
+  await expect(panel).toBeVisible({ timeout: 20_000 });
+  await expect(popup).toHaveCount(0);
+  await expect(page.locator('[data-seo-marker="1"][data-seo-marker-geo="AU"]')).toBeVisible();
+
+  await panel.getByRole("button", { name: "Close country info" }).click();
+  await expect(panel).toHaveCount(0);
+  await expect(popup).toHaveCount(0);
+  await expect(page.locator('[data-seo-marker="1"][data-seo-marker-geo="AU"]')).toHaveCount(0);
 });
 
 test("the richer SEO panel stays inside a desktop viewport and wraps retained legal annotations", async ({ page }) => {

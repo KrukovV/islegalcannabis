@@ -3448,10 +3448,27 @@ if [ "${PROCESS_SLOT_LAUNCH_GUARD_RC}" -ne 0 ] || printf "%s\n" "${PROCESS_SLOT_
   fail_with_reason "PROCESS_SLOT_LAUNCH_GUARD_FAIL"
 fi
 
+WIKI_TRUTH_LIVE_ARCHIVE_ROOT="${ISLEGAL_ARCHIVE_ROOT:-${HOME}/islegalcannabis_archive}"
+WIKI_TRUTH_LIVE_ARCHIVE_DIR="${WIKI_TRUTH_LIVE_ARCHIVE_ROOT}/wiki-truth-live-probe/${RUN_ID}"
+mkdir -p "${WIKI_TRUTH_LIVE_ARCHIVE_DIR}"
+
+# The live browser receipts must not touch the workspace while Next dev is
+# serving it: a root-level screenshot write can invalidate Turbopack's current
+# dynamic chunk between Chromium and WebKit. Keep the receipts durable and
+# external, then run both engines against the identical, stable server output.
+WIKI_TRUTH_LIVE_CHROMIUM_BEFORE="${WIKI_TRUTH_LIVE_ARCHIVE_DIR}/chromium-before.jpg"
+WIKI_TRUTH_LIVE_CHROMIUM_AFTER="${WIKI_TRUTH_LIVE_ARCHIVE_DIR}/chromium-after.jpg"
+WIKI_TRUTH_LIVE_CHROMIUM_JSON="${WIKI_TRUTH_LIVE_ARCHIVE_DIR}/chromium.json"
+WIKI_TRUTH_LIVE_WEBKIT_BEFORE="${WIKI_TRUTH_LIVE_ARCHIVE_DIR}/webkit-before.jpg"
+WIKI_TRUTH_LIVE_WEBKIT_AFTER="${WIKI_TRUTH_LIVE_ARCHIVE_DIR}/webkit-after.jpg"
+WIKI_TRUTH_LIVE_WEBKIT_JSON="${WIKI_TRUTH_LIVE_ARCHIVE_DIR}/webkit.json"
+printf "WIKI_TRUTH_LIVE_ARCHIVE=%s\n" "${WIKI_TRUTH_LIVE_ARCHIVE_DIR}" >> "${REPORTS_FINAL}"
+printf "WIKI_TRUTH_LIVE_ARCHIVE=%s\n" "${WIKI_TRUTH_LIVE_ARCHIVE_DIR}" >> "${RUN_REPORT_FILE}"
+
 WIKI_TRUTH_LIVE_CHROMIUM_OUTPUT=""
 CURRENT_STEP="wiki_truth_live_probe_chromium"
 CURRENT_CMD="BROWSER=chromium ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
-capture_timeout_output 180 "cd \"${ROOT}\" && BROWSER=chromium HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
+capture_timeout_output 180 "cd \"${ROOT}\" && BROWSER=chromium HEADLESS=1 SCREENSHOT_BEFORE_PATH=\"${WIKI_TRUTH_LIVE_CHROMIUM_BEFORE}\" SCREENSHOT_AFTER_PATH=\"${WIKI_TRUTH_LIVE_CHROMIUM_AFTER}\" JSON_PATH=\"${WIKI_TRUTH_LIVE_CHROMIUM_JSON}\" ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
 WIKI_TRUTH_LIVE_CHROMIUM_OUTPUT="WIKI_TRUTH_LIVE_CHROMIUM_ATTEMPT=1 rc=${CAPTURE_TIMEOUT_RC}
 ${CAPTURE_TIMEOUT_OUTPUT}"
 WIKI_TRUTH_LIVE_CHROMIUM_RC="${CAPTURE_TIMEOUT_RC}"
@@ -3460,7 +3477,7 @@ if [ "${WIKI_TRUTH_LIVE_CHROMIUM_RC}" -ne 0 ]; then
   # browser probe. Keep the probe fail-closed, but allow the cold listener to
   # become HTTP-ready before its single retry.
   sleep 15
-  capture_timeout_output 180 "cd \"${ROOT}\" && BROWSER=chromium HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
+  capture_timeout_output 180 "cd \"${ROOT}\" && BROWSER=chromium HEADLESS=1 SCREENSHOT_BEFORE_PATH=\"${WIKI_TRUTH_LIVE_CHROMIUM_BEFORE}\" SCREENSHOT_AFTER_PATH=\"${WIKI_TRUTH_LIVE_CHROMIUM_AFTER}\" JSON_PATH=\"${WIKI_TRUTH_LIVE_CHROMIUM_JSON}\" ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
   WIKI_TRUTH_LIVE_CHROMIUM_OUTPUT="${WIKI_TRUTH_LIVE_CHROMIUM_OUTPUT}
 WIKI_TRUTH_LIVE_CHROMIUM_ATTEMPT=2 rc=${CAPTURE_TIMEOUT_RC}
 ${CAPTURE_TIMEOUT_OUTPUT}"
@@ -3482,14 +3499,14 @@ fi
 WIKI_TRUTH_LIVE_WEBKIT_OUTPUT=""
 CURRENT_STEP="wiki_truth_live_probe_webkit"
 CURRENT_CMD="BROWSER=webkit ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
-capture_timeout_output 180 "cd \"${ROOT}\" && BROWSER=webkit HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
+capture_timeout_output 180 "cd \"${ROOT}\" && BROWSER=webkit HEADLESS=1 SCREENSHOT_BEFORE_PATH=\"${WIKI_TRUTH_LIVE_WEBKIT_BEFORE}\" SCREENSHOT_AFTER_PATH=\"${WIKI_TRUTH_LIVE_WEBKIT_AFTER}\" JSON_PATH=\"${WIKI_TRUTH_LIVE_WEBKIT_JSON}\" ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
 WIKI_TRUTH_LIVE_WEBKIT_OUTPUT="WIKI_TRUTH_LIVE_WEBKIT_ATTEMPT=1 rc=${CAPTURE_TIMEOUT_RC}
 ${CAPTURE_TIMEOUT_OUTPUT}"
 WIKI_TRUTH_LIVE_WEBKIT_RC="${CAPTURE_TIMEOUT_RC}"
 if [ "${WIKI_TRUTH_LIVE_WEBKIT_RC}" -ne 0 ]; then
   # Match Chromium's bounded cold-server recovery window.
   sleep 15
-  capture_timeout_output 180 "cd \"${ROOT}\" && BROWSER=webkit HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
+  capture_timeout_output 180 "cd \"${ROOT}\" && BROWSER=webkit HEADLESS=1 SCREENSHOT_BEFORE_PATH=\"${WIKI_TRUTH_LIVE_WEBKIT_BEFORE}\" SCREENSHOT_AFTER_PATH=\"${WIKI_TRUTH_LIVE_WEBKIT_AFTER}\" JSON_PATH=\"${WIKI_TRUTH_LIVE_WEBKIT_JSON}\" ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
   WIKI_TRUTH_LIVE_WEBKIT_OUTPUT="${WIKI_TRUTH_LIVE_WEBKIT_OUTPUT}
 WIKI_TRUTH_LIVE_WEBKIT_ATTEMPT=2 rc=${CAPTURE_TIMEOUT_RC}
 ${CAPTURE_TIMEOUT_OUTPUT}"

@@ -145,6 +145,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
   const runtimeRef = useRef<NewMapBootResult | null>(null);
   const locationMarkerRef = useRef<maplibregl.Marker | null>(null);
   const seoInfoMarkerRef = useRef<maplibregl.Marker | null>(null);
+  const seoPanelOriginCameraRef = useRef<{ lat: number; lng: number; zoom: number } | null>(null);
   const cardEntryRequestsRef = useRef<Record<string, Promise<CountryCardEntry | null>>>({});
   const [mapInstance, setMapInstance] = useState<maplibregl.Map | null>(null);
   const [mapReady, setMapReady] = useState(false);
@@ -234,16 +235,21 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
   }, []);
 
   const clearSeoPanel = useCallback(() => {
+    // An in-place SEO panel replaces the map popup for one selected GEO. Its
+    // close control must finish that shared overlay interaction, rather than
+    // exposing the now-stale popup underneath.
+    clearSelectedGeo();
+    seoPanelOriginCameraRef.current = null;
     setSeoPanelOpen(false);
     setActiveSeoData(null);
     setActiveSeoSelection(null);
-  }, []);
-
+  }, [clearSelectedGeo]);
   const clearMapOnlyOverlays = useCallback(() => {
     clearSelectedGeo();
     // The fixed popup/panel must not follow a reader into the article. The
     // selected GEO remains as the map-only `i` marker so scrolling back never
     // loses the clicked country or state.
+    seoPanelOriginCameraRef.current = null;
     setSeoPanelOpen(false);
     setActiveSeoData(null);
   }, [clearSelectedGeo]);
@@ -369,6 +375,15 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
     setSeoPanelOpen(true);
     const map = mapRef.current;
     if (map) {
+      const center = map.getCenter();
+      // The panel may briefly centre its selected GEO for legibility, but an
+      // Action must restore the reader's camera from before that presentation
+      // adjustment.
+      seoPanelOriginCameraRef.current = {
+        lat: center.lat,
+        lng: center.lng,
+        zoom: map.getZoom()
+      };
       map.easeTo({
         center: [selection.lngLat.lng, selection.lngLat.lat],
         // The selected country is centred in the shared unobscured map column:
@@ -389,16 +404,30 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
     const selection = selectedPopup || activeSeoSelection;
     if (map && selection) {
       const center = map.getCenter();
+      const originCamera = seoPanelOpen ? seoPanelOriginCameraRef.current : null;
       storeTruthMapDocumentNavigation(href, selection.properties.geo, {
-        lat: center.lat,
-        lng: center.lng,
-        zoom: map.getZoom()
+        lat: originCamera?.lat ?? center.lat,
+        lng: originCamera?.lng ?? center.lng,
+        zoom: originCamera?.zoom ?? map.getZoom()
       });
+    }
+    // Opening the in-place panel deliberately mirrors its canonical `/c/[code]`
+    // path with pushState while keeping the map mounted. An Action to that same
+    // path would otherwise be a hash-only navigation and leave the map shell in
+    // place. Turn only that synthetic route state into a real document load.
+    const target = new URL(href, window.location.origin);
+    const mapRouteIsMirroringTarget = target.origin === window.location.origin
+      && window.location.pathname === target.pathname
+      && Boolean(document.querySelector('[data-overlay-scope="route"]'));
+    if (mapRouteIsMirroringTarget) {
+      window.history.replaceState(window.history.state, "", `${target.pathname}${target.search}${target.hash}`);
+      window.location.reload();
+      return;
     }
     // This is deliberately the existing canonical link, without camera query
     // parameters. The bounded hand-off above is consumed once by `/c/[code]`.
     window.location.assign(href);
-  }, [activeSeoSelection, selectedPopup]);
+  }, [activeSeoSelection, selectedPopup, seoPanelOpen]);
 
   const handleSeoPanelClose = clearSeoPanel;
 

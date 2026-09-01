@@ -131,9 +131,9 @@ Rich popups and in-place SEO panels are map-viewport controls. A scrollable
 `/c/[code]` under-map document may centre its matching GEO, but it must not
 auto-open either overlay from its route or anchor. After an Action transition
 to `#law-recreational`, the expanded article is the only surface above that
-content; no fixed popup or SEO panel may cover it. Map routes retain the
-existing popup → in-place panel → same-popup-close interaction while the map is
-in view.
+content; no fixed popup or SEO panel may cover it. On a map route, a rich popup
+hands off to its in-place panel. Closing that panel clears the complete
+map-only overlay interaction: neither the panel nor the rich popup is restored.
 
 The anchor target is headed `Supplementary action-specific context — not the
 current legal conclusion`. A present-tense profile statement that itself
@@ -243,9 +243,9 @@ row.
 A representative production browser receipt is a separate deployment check:
 it must select an actual map feature rather than rely only on a URL parameter,
 then verify the complete selected GEO card, open the dotted SEO CTA and close
-the SEO panel back to that same GEO popup. The receipt also binds the loaded
-page to the accepted build identity; it cannot replace the canonical 307-GEO
-local visual-manifest audit.
+the SEO panel to a clear map overlay with neither panel nor rich popup. The
+receipt also binds the loaded page to the accepted build identity; it cannot
+replace the canonical 307-GEO local visual-manifest audit.
 
 A random live sample is supplemental evidence, never a replacement for the separate canonical 307-GEO visual-manifest refresh. Guard freshness must not be faked, weakened, or repaired by timestamp changes.
 
