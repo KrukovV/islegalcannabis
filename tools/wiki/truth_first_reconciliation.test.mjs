@@ -236,6 +236,36 @@ test("matrix publishes every annotated current-ledger source with revalidation a
   }
 });
 
+test("current official source metadata never reuses a jurisdiction-specific quote and annotation across distinct owners", () => {
+  const ledger = JSON.parse(fs.readFileSync(
+    path.join(ROOT, "data", "official", "cannabis_law_visual_reviews.audit.json"),
+    "utf8",
+  ));
+  const normalize = (value) => String(value || "").replace(/\s+/g, " ").trim().toLocaleLowerCase();
+  const byFingerprint = new Map();
+
+  for (const row of ledger.rows || []) {
+    for (const source of row.current_official_sources || []) {
+      const fragment = normalize(source.exact_fragment || source.direct_fragment);
+      const annotation = normalize(source.source_annotation || source.annotation || source.note);
+      if (fragment.length < 80 || annotation.length < 60) continue;
+      const fingerprint = `${fragment}\n${annotation}`;
+      const entries = byFingerprint.get(fingerprint) || [];
+      entries.push({
+        geo: row.geo,
+        owner: String(source.source_owner_geo || row.geo || "").trim(),
+        url: String(source.url || "").trim(),
+      });
+      byFingerprint.set(fingerprint, entries);
+    }
+  }
+
+  const collisions = [...byFingerprint.values()]
+    .filter((entries) => new Set(entries.map((entry) => entry.url)).size > 1)
+    .filter((entries) => new Set(entries.map((entry) => entry.owner)).size > 1);
+  assert.deepEqual(collisions, [], "cross-jurisdiction source metadata collision");
+});
+
 test("matrix-builder published-link reporting includes supplemental official links", () => {
   const builder = fs.readFileSync(path.join(ROOT, "tools", "wiki", "build_wiki_truth_cannabis_law_matrix.mjs"), "utf8");
   assert.match(
