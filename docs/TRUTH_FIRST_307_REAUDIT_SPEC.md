@@ -390,7 +390,7 @@ Repeated source checks use `tools/review/revalidate_official_evidence.mjs` and s
 - a changed document or relevant-fragment hash becomes `CONTENT_CHANGED` and queues dependent GEO only;
 - a redirect or host/owner boundary change becomes `REDIRECT_OR_OWNER_CHANGED`; applicability is never inherited from the old owner. A transport redirect that normalizes to the same canonical URL (for example, a trailing slash only) is not an owner/location change and must retain its normal conditional-content result;
 - timeout, WAF, Cloudflare, `403`, challenge pages and blank viewers become `ACCESS_BLOCKED`. They are access diagnostics and cannot derive `RED`, `UNKNOWN`, or any other legal conclusion;
-- `--all --network --batch-size N` runs serial URL batches and never launches `pass_cycle`.
+- `--all --network --batch-size N` runs bounded URL batches and never launches `pass_cycle`. Only the HTTP waits overlap; retained-source mutation and PDF/OCR/semantic processing remain deterministic and serial. The default is the conservative batch size `4`.
 
 ### C2 semantic routing
 
@@ -409,7 +409,7 @@ Cultivation, production, processing, export, research, industrial hemp, CBD, pre
 ```bash
 node tools/review/revalidate_official_evidence.mjs --dry-run
 node tools/review/revalidate_official_evidence.mjs --geo PK,PS --network
-node tools/review/revalidate_official_evidence.mjs --all --network --batch-size 25
+node tools/review/revalidate_official_evidence.mjs --all --network --batch-size 4
 node tools/review/revalidate_official_evidence.mjs --geo LK --url https://official.example/current.pdf --network
 ```
 

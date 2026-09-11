@@ -1,7 +1,7 @@
 # Codex Agent Rules
 
 Hard Rule:
-- At the start of every response, read CONTINUITY.md and update Goal/State/Done/Now/Next if changes occurred.
+- At the start of every response, read CONTINUITY.md and update Goal/State/Done/Now if changes occurred.
 - Update the ledger after important outcomes (CI PASS/FAIL, smoke results, new invariants, generated artifacts).
 - Use `bash tools/pass_cycle.sh` as the single command for CI + checkpoint + ledger updates.
 - Before final response, run `bash tools/pass_cycle.sh` and verify `Reports/ci-final.txt` has `POST_CHECKS_OK=1` and `HUB_STAGE_REPORT_OK=1`, except for the explicit documentation-only exception below.

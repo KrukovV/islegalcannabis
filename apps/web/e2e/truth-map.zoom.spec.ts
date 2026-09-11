@@ -21,9 +21,11 @@ test("local Evidence Passport demonstrates one exact canonical GEO watchlist", a
     if (message.type() === "error") runtimeErrors.push(message.text());
   });
 
-  await page.goto("/truth-map/evidence-passport?geo=MN&watch=AD,MN,US-CA", { waitUntil: "domcontentloaded" });
+  await page.goto("/truth-map/evidence-passport?geo=MN&geo=US-CA&watch=AD,MN&watch=US-CA", { waitUntil: "domcontentloaded" });
   await expect(page.getByTestId("evidence-passport-page")).toBeVisible();
   await expect(page.getByTestId("evidence-passport-detail")).toHaveAttribute("data-geo", "MN");
+  await expect(page.getByTestId("evidence-passport-detail")).toContainText("Publication / reconciliation gate");
+  await expect(page.getByTestId("evidence-passport-detail")).toContainText("not a finding that the law itself is inapplicable");
   const monitor = page.getByTestId("change-monitor-summary");
   await expect(monitor.getByText("Change Monitor", { exact: true })).toBeVisible();
   await expect(monitor).toContainText("3 watched GEO");
@@ -33,8 +35,11 @@ test("local Evidence Passport demonstrates one exact canonical GEO watchlist", a
 
   const monitorResponse = await page.request.get("/api/truth-map/b2b/change-monitor?geo=AD&geo=MN&geo=US-CA");
   expect(monitorResponse.ok()).toBe(true);
-  const monitorPayload = await monitorResponse.json() as { summary: { geosWatched: number }; watchlist: { geos: string[] } };
+  const monitorPayload = await monitorResponse.json() as { schemaVersion: number; summary: { geosWatched: number; unclassifiedReviewEvents: number; reviewOperations: number }; watchlist: { geos: string[] } };
+  expect(monitorPayload.schemaVersion).toBe(2);
   expect(monitorPayload.summary.geosWatched).toBe(3);
+  expect(monitorPayload.summary.unclassifiedReviewEvents).toBe(0);
+  expect(monitorPayload.summary.reviewOperations).toBeGreaterThan(0);
   expect(monitorPayload.watchlist.geos).toEqual(["AD", "MN", "US-CA"]);
   expect(runtimeErrors).toEqual([]);
 });
@@ -47,6 +52,11 @@ test("local Evidence Passport rejects an invalid Watchlist without widening to a
   await expect(monitor.getByTestId("watchlist-rejected")).toContainText("CHANGE_MONITOR_UNKNOWN_WATCHLIST_GEOS=NOT-A-GEO");
   await expect(monitor).not.toContainText("Watchlist: all canonical jurisdictions");
   await expect(monitor.getByRole("link", { name: "Open read-only monitor JSON" })).toHaveCount(0);
+
+  await page.goto("/truth-map/evidence-passport?watch=", { waitUntil: "domcontentloaded" });
+  await expect(page.getByTestId("change-monitor-summary").getByTestId("watchlist-rejected"))
+    .toContainText("CHANGE_MONITOR_EMPTY_EXPLICIT_WATCHLIST");
+  await expect(page.getByTestId("change-monitor-summary")).not.toContainText("Watchlist: all canonical jurisdictions");
 });
 
 test("local Why no leaf page exposes only aggregate Store-gate reasons", async ({ page }) => {
@@ -69,6 +79,17 @@ test("local correction page states the non-promoting evidence boundary", async (
   await expect(page.locator("#correction-geo")).toHaveValue("US-AK");
 });
 
+test("local correction review queue exposes assignment, decision and no-automatic-change boundary", async ({ page }) => {
+  test.setTimeout(60_000);
+  await page.goto("/truth-map/evidence-passport/correction/review", { waitUntil: "domcontentloaded" });
+  await expect(page.getByTestId("correction-review-page")).toBeVisible();
+  await expect(page.getByTestId("correction-review-queue")).toBeVisible();
+  await expect(page.getByTestId("correction-review-page")).toContainText("Assignment, evidence decision and outcome are append-only");
+  await expect(page.getByTestId("correction-review-page")).toContainText("awaiting a separate manual canonical handoff");
+  await expect(page.getByTestId("correction-review-page")).toContainText("creates no canonical review operation");
+  await expect(page.getByTestId("correction-review-page")).toContainText("never applies a legal, Store, coordinate, leaf, position or ranking change");
+});
+
 test("local professional changelog keeps event classes separate", async ({ page }) => {
   test.setTimeout(60_000);
   await page.goto("/truth-map/evidence-passport/changelog?watch=AD,MN,US-CA", { waitUntil: "domcontentloaded" });
@@ -76,7 +97,10 @@ test("local professional changelog keeps event classes separate", async ({ page 
   await expect(page.getByTestId("professional-changelog-summary")).toContainText("3 GEO monitored");
   await expect(page.getByTestId("professional-changelog-page")).toContainText("Source changes");
   await expect(page.getByTestId("professional-changelog-page")).toContainText("Pending reviews");
+  await expect(page.getByTestId("professional-changelog-summary")).toContainText("Unclassified review events");
+  await expect(page.getByTestId("professional-changelog-summary")).toContainText("0");
   await expect(page.getByTestId("professional-changelog-page")).toContainText("Canonical legal-conclusion changes");
+  await expect(page.getByTestId("professional-changelog-page")).toContainText("Append-only review operation history");
 });
 
 test("truth-map shares the stable city-label visibility ranges used by new-map", async ({ page }) => {

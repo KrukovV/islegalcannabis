@@ -31,16 +31,20 @@ describe("local Evidence Passport delivery APIs", () => {
     expect(embed.headers.get("content-type")).toContain("text/html");
     expect(await embed.text()).not.toContain("<script");
 
-    const monitor = await getMonitor(localRequest("/api/truth-map/b2b/change-monitor?geo=mn&geo=us-ca"));
+    const monitor = await getMonitor(localRequest("/api/truth-map/b2b/change-monitor?geo=mn&geo=us-ca&watch=AD,MN&watch=US-CA"));
     expect(monitor.status).toBe(200);
     const payload = await monitor.json();
-    expect(payload.summary.geosWatched).toBe(2);
-    expect(payload.watchlist).toEqual({ mode: "EXPLICIT_GEOS", geos: ["MN", "US-CA"] });
+    expect(payload.summary.geosWatched).toBe(3);
+    expect(payload.watchlist).toEqual({ mode: "EXPLICIT_GEOS", geos: ["AD", "MN", "US-CA"] });
     expect(payload.canonicalComparison.status).toBe("BASELINE_ONLY_NO_PRIOR_CANONICAL_COMPARISON");
 
     const invalidWatchlist = await getMonitor(localRequest("/api/truth-map/b2b/change-monitor?watch=mn,not-a-geo"));
     expect(invalidWatchlist.status).toBe(400);
     expect((await invalidWatchlist.json()).error).toBe("CHANGE_MONITOR_UNKNOWN_WATCHLIST_GEOS=NOT-A-GEO");
+
+    const emptyWatchlist = await getMonitor(localRequest("/api/truth-map/b2b/change-monitor?watch="));
+    expect(emptyWatchlist.status).toBe(400);
+    expect((await emptyWatchlist.json()).error).toBe("CHANGE_MONITOR_EMPTY_EXPLICIT_WATCHLIST");
 
     const productionEmbed = await getEmbed(productionRequest("/api/truth-map/b2b/embed/mn"), { params: Promise.resolve({ geo: "mn" }) });
     const productionMonitor = await getMonitor(productionRequest("/api/truth-map/b2b/change-monitor"));

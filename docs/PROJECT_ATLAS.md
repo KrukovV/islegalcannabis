@@ -4,7 +4,7 @@
 
 This repository powers an educational cannabis legality product with a MapLibre web map, country routes, legality APIs, audit views, and SSOT refresh tooling.
 
-The current product entrypoint is `/new-map`; `/` re-exports it, and `/c/[code]` plus `/[lang]/c/[code]` use the same map runtime. The countries map payload is content-addressed under `/static/countries/countries.<hash>.json.br`; `/api/new-map/countries` is only a compatibility redirect.
+The current public product entrypoint is `/`; production `/new-map` is a parameter-preserving permanent redirect to it, while localhost `/new-map` remains a legacy QA compatibility route. `/c/[code]` plus `/[lang]/c/[code]` use the same map runtime. The countries map payload is content-addressed under `/static/countries/countries.<hash>.json.br`; `/api/new-map/countries` is only a compatibility redirect.
 
 Truth/audit work is centered on `/wiki-truth`, `/trust-view`, `/changes`, `/api/ssot/changes`, SSOT snapshots, and official link ownership. CI and checkpointing are standardized through `bash tools/pass_cycle.sh`.
 
@@ -14,8 +14,8 @@ Status Engine Audit v3 is present as a review-only evaluator. The current rerun 
 
 | Surface | Purpose | Main code |
 | --- | --- | --- |
-| `/` | Product entry, re-export of `/new-map` | `apps/web/src/app/page.tsx` |
-| `/new-map` | Canonical MapLibre runtime | `apps/web/src/app/new-map/page.tsx`, `apps/web/src/new-map/*` |
+| `/` | Canonical public MapLibre product entry | `apps/web/src/app/page.tsx`, `apps/web/src/new-map/*` |
+| `/new-map` | Permanent production redirect to `/`; localhost legacy QA compatibility route | `apps/web/src/app/new-map/page.tsx`, `apps/web/src/new-map/*` |
 | `/c/[code]` | Country panel route over map runtime | `apps/web/src/app/c/[code]/page.tsx` |
 | `/[lang]/c/[code]` | Localized country route | `apps/web/src/app/[lang]/c/[code]/page.tsx` |
 | `/wiki-truth` | Prebuilt wiki/ISO/SSOT/official audit UI | `apps/web/src/app/wiki-truth/page.tsx`, `apps/web/src/lib/wikiTruth*.ts` |
@@ -58,7 +58,7 @@ Status Engine Audit v3 is present as a review-only evaluator. The current rerun 
 
 ## Core Contracts
 
-- Map runtime: one MapLibre runtime and one countries payload across `/`, `/new-map`, and country routes.
+- Map runtime: one implementation and one countries payload across canonical `/`, country routes and localhost `/new-map` QA; production `/new-map` redirects to `/`.
 - Static countries asset: content-hash URL, immutable cache, deterministic hash.
 - Wiki truth: explicit audit universes; no parser leftovers or pseudo wiki URLs in main rows.
 - Official truth: raw registry and geo ownership are different universes.

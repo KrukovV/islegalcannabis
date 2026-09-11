@@ -8,7 +8,7 @@ Run one command for CI, checkpoint, and final report generation:
 bash tools/pass_cycle.sh
 ```
 
-`pass_cycle` includes mandatory live production `/new-map` gates for access/render and payload/long-task quality. Set `VERCEL_AUTOMATION_BYPASS_SECRET` in the shell before final handoff; missing secret, Vercel access-block pages, missing screenshots, missing map readiness, excessive payload, or degraded live timings fail the run.
+`pass_cycle` includes mandatory live production root `/` gates for access/render and payload/long-task quality plus a separate parameter-preserving permanent-redirect check for `/new-map`. Set `VERCEL_AUTOMATION_BYPASS_SECRET` in the shell before final handoff; missing secret, Vercel access-block pages, missing screenshots, missing map readiness, excessive payload, redirect drift, or degraded live timings fail the run.
 
 Before handoff, verify `Reports/ci-final.txt` contains:
 
@@ -177,18 +177,18 @@ launchctl load ~/Library/LaunchAgents/com.islegalcannabis.wiki-claims.plist
 - Add a scheduled workflow to run `npm run wiki:ingest` and `npm run wiki:official_eval` every 4 hours.
 
 ## Handling needs_review
-- Open the official sources from the law JSON.
-- Manually update the law JSON fields and `updated_at` if the law changed.
-- Set `status` back to `known` and refresh `verified_at`.
+- Treat the law JSON as a candidate input, not sufficient proof for a current conclusion. Resolve the review through `docs/TRUTH_FIRST_307_REAUDIT_SPEC.md` using applicable current official evidence, source owner, exact fragment, territorial scope, effective state and completed human visual review.
+- Record the review and provenance in the canonical review ledger. C1 availability, HTTP 304, byte equality, redirect state or a newer fetch never closes semantic, effective-date, visual, applicability or source-change review.
+- Change Legal Truth, SSOT or map colour only through the separately authorised 307-GEO review/apply path. Do not manually set `status=known`, `updated_at` or `verified_at` as a substitute for that path.
 
 ## Map cold-start perf checks
-- Local payload run: build, start production-local on a free port, then run `NEW_MAP_PERF_URL=http://127.0.0.1:<port>/new-map NEW_MAP_PERF_LABEL=local-prod-after node tools/measure_new_map_payload.mjs`.
+- Local payload run: build, start production-local on a free port, then run `NEW_MAP_PERF_URL=http://127.0.0.1:<port>/ NEW_MAP_PERF_LABEL=local-prod-after node tools/measure_new_map_payload.mjs`. The localhost `/new-map` compatibility route may be measured only when explicitly testing legacy QA parity.
 - Prod payload run: set `VERCEL_AUTOMATION_BYPASS_SECRET` in the shell and run `node tools/prod_new_map_payload_gate.mjs`.
 - Required evidence: JSON timing report, screenshot, countries transfer/decoded size, optional `card-index`/`us-states` transfer, long-task count/total/max, `NM_T7_FIRST_FILL_RENDERED`, and rendered country feature count.
 - Interpret `data-map-ready="1"` as early basemap interactivity, not as full countries-payload completion. The canonical full country-paint timing remains `NM_T7_FIRST_FILL_RENDERED`.
 - Official optimization references for this gate are Chrome Lighthouse total byte weight and web.dev long-task guidance: `https://developer.chrome.com/docs/lighthouse/performance/total-byte-weight` and `https://web.dev/articles/optimize-long-tasks`.
 - Treat `/api/new-map/countries` as compatibility only; the runtime URL should be the exact-byte Brotli resource `/static/countries/countries.<hash>.json.br`.
-- Root `/new-map` cold start must not eagerly request `/api/new-map/card-index` or `/api/new-map/us-states`; the local e2e guard is `e2e/new-map.preload.spec.ts`.
+- Canonical root `/` cold start must not eagerly request `/api/new-map/card-index` or `/api/new-map/us-states`; the local e2e guard is `e2e/new-map.preload.spec.ts`. Production `/new-map` is tested as a redirect, not as another rendered root.
 - Cleanup policy: `QA/`, `Reports/`, `Artifacts/`, `QUARANTINE/`, Playwright traces, and `~/islegalcannabis_archive/` are rebuildable operational artifacts and must not be deployed or committed.
 
 ## Vercel automation bypass for production QA
@@ -224,7 +224,7 @@ await context.request.get("https://www.islegal.info/", {
 });
 
 const page = await context.newPage();
-await page.goto("https://www.islegal.info/new-map", { waitUntil: "domcontentloaded" });
+await page.goto("https://www.islegal.info/", { waitUntil: "domcontentloaded" });
 ```
 
 - Direct same-site production audits use `x-vercel-set-bypass-cookie=true`. Use `samesitenone` only for an explicitly documented embedded/non-direct context such as an iframe.
@@ -233,7 +233,7 @@ await page.goto("https://www.islegal.info/new-map", { waitUntil: "domcontentload
 - Do not put either `x-vercel-protection-bypass` or `x-vercel-set-bypass-cookie` in the URL for Playwright runs. Query params can leak into traces/screenshots and have produced Vercel Security Checkpoint failures for this project.
 - Use the Method 2 first-party cookie seed for production audit runs because it avoids attaching the bypass header to page, map, font, tile, or analytics requests; cookie absence alone does not invalidate a repeatable screenshot run.
 - If a specific first-party subrequest still returns the Vercel checkpoint after the cookie has been seeded, scope the bypass header to that exact first-party route. Do not attach it to third-party map/font/tile/Yandex resources.
-- After base 3/3 succeeds, continue country click, popup, and AI screenshots in the third successful context. Do not create a fourth context solely for full-UI capture.
+- After base 3/3 succeeds, continue country click and complete rich-popup/SEO-panel screenshots in the third successful context, and prove that production contains no AI, Social or DM UI/requests. Verify the editable AI dock separately on the permitted localhost audit route. Do not create a fourth production context solely for full-UI capture.
 
 ### Interpreting bypass evidence
 
@@ -275,7 +275,7 @@ The access error is gone only when the relevant method reports `ok=1`, `access_b
 
 ### Mandatory pass_cycle prod gates
 
-Final `bash tools/pass_cycle.sh` runs `tools/prod_live_quality_gate.mjs`, `tools/prod_new_map_payload_gate.mjs`, `tools/prod_new_map_js_city_gate.mjs`, and `tools/measure_new_map_gps_flow.mjs` as mandatory tail gates. The access/render gate executes the one-request root diagnostic seed first, then enforces `data/baselines/prod_live_quality_baseline.json`; the payload gate enforces `data/baselines/new_map_payload_quality_baseline.json`; the JS label gate enforces country/city ZoomIn label latency and JS/legacy budgets from `data/baselines/new_map_js_city_quality_baseline.json`; the GPS gate seeds a stale saved GPS point, then requires fresh GPS marker/center/persistence, desktop hover, ZoomIn city/village labels, ZoomOut country rendering, screenshots, and zero page errors.
+Final `bash tools/pass_cycle.sh` runs `tools/prod_live_quality_gate.mjs`, `tools/prod_new_map_payload_gate.mjs`, `tools/prod_new_map_js_city_gate.mjs`, and `tools/measure_new_map_gps_flow.mjs` as mandatory tail gates against canonical production `/`, regardless of the retained historical `new_map` tool names. It separately verifies that `/new-map` permanently redirects to `/` while preserving bounded parameters. The access/render gate executes the one-request root diagnostic seed first, then enforces `data/baselines/prod_live_quality_baseline.json`; the payload gate enforces `data/baselines/new_map_payload_quality_baseline.json`; the JS label gate enforces country/city ZoomIn label latency and JS/legacy budgets from `data/baselines/new_map_js_city_quality_baseline.json`; the GPS gate seeds a stale saved GPS point, then requires fresh GPS marker/center/persistence, desktop hover, ZoomIn city/village labels, ZoomOut country rendering, screenshots, and zero page errors.
 
 Required evidence:
 
@@ -299,7 +299,7 @@ Required evidence:
 - `Reports/new-map-gps/prod-gps-gate-*.zoom-out.chromium.png`
 - `PROD_GPS_METRIC` line in `Reports/ci-final.txt` with stale-GPS refresh, GPS marker/center/recenter/persistence timings, hover result, ZoomIn city/village labels, ZoomOut rendered countries, and screenshot paths.
 
-The gate fails on `missing_secret`, access-block text, wrong title, missing `/new-map` root/surface/readiness/canvas, missing or undersized screenshots, Method 2 seed status outside 2xx/3xx, `elapsed_ms > 90000`, or `map_ready_ms > 60000`.
+The gate fails on `missing_secret`, access-block text, wrong title, missing canonical `/` root/surface/readiness/canvas, a missing or parameter-losing permanent `/new-map` redirect, missing or undersized screenshots, Method 2 seed status outside 2xx/3xx, `elapsed_ms > 90000`, or `map_ready_ms > 60000`.
 
 The payload gate fails on missing secret, access-block text, rendered countries below baseline, screenshot below baseline, missing `br`/`gzip` countries encoding, total transfer above `2500 KiB`, countries transfer above `1600 KiB`, first-screen US-state payload above `1 KiB`, long-task count/total/max above baseline, or first-fill above baseline.
 
@@ -323,7 +323,7 @@ await context.route("https://www.islegal.info/api/build-meta", async (route) => 
 ```bash
 VERCEL_AUTOMATION_BYPASS_SECRET="$VERCEL_AUTOMATION_BYPASS_SECRET" \
 VERCEL_BYPASS_COOKIE_MODE="samesitenone" \
-NEW_MAP_PROD_URL="https://www.islegal.info/new-map" \
+NEW_MAP_PROD_URL="https://www.islegal.info/" \
 node tools/measure_new_map_startup.mjs
 ```
 

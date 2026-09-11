@@ -110,6 +110,8 @@ node tools/vercel_bypass_live_probe.mjs
 - Проверить `Reports/ci-final.txt`: `PROD_LIVE_OK=1`, `PROD_PAYLOAD_OK=1`, `PROD_JS_CITY_OK=1`, `PROD_GPS_OK=1`, `POST_CHECKS_OK=1` и `HUB_STAGE_REPORT_OK=1`.
 
 ## Как добавить новую юрисдикцию и SEO-страницу
+Эта процедура добавляет schema/route record, но не является разрешением менять canonical Legal Truth. Любой новый или изменённый правовой вывод проходит `docs/TRUTH_FIRST_307_REAUDIT_SPEC.md` с доказанной source ownership, applicability, exact fragment, effective state, human visual review и отдельным apply authorization.
+
 1) Добавьте JSON в `data/laws/**` по текущей схеме (смотрите существующие файлы).
 2) Проверьте валидатор: `npm run validate:laws`.
 3) Подключите новый JSON в `apps/web/src/laws/registry.ts` явным импортом и добавьте ключ в `lawRegistry`.
@@ -121,8 +123,8 @@ node tools/vercel_bypass_live_probe.mjs
 Причина: предыдущая команда git завершилась некорректно или остался зависший процесс.
 
 Решение:
-1) Убедитесь, что нет активных git-процессов.
-2) Удалите лок: `rm -f .git/index.lock`.
+1) Разрешите exact owner: проверьте активные Git-процессы, PID/command/cwd и повторно подтвердите, что lock действительно stale.
+2) Удаление `.git/index.lock` является отдельным destructive-действием и требует явного разрешения. Без доказанного stale owner или разрешения остановитесь; не удаляйте lock по имени/возрасту.
 
 ### Очистка и восстановление
 Если dev-сервер или сборка ведут себя нестабильно:

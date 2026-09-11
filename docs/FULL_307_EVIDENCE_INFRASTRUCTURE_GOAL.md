@@ -32,7 +32,7 @@
 - когда опубликован текущий canonical legal conclusion;
 - когда предыдущего canonical baseline ещё нет.
 
-Отсутствующая дата остаётся `NOT_RECORDED`. Её нельзя выдумывать из mtime файла, legacy map/SEO/SSOT, попытки fetch или иной косвенной метадаты.
+Отсутствующая дата остаётся `NOT_RECORDED`. Её нельзя выдумывать из mtime файла, legacy map/SEO/SSOT, попытки fetch, runtime `/api/build-meta` fallback без immutable deployment receipt или иной косвенной метадаты.
 
 ### 3. Immutable Snapshot Ledger, Change Monitor и Watchlist
 
@@ -47,6 +47,8 @@ Change Monitor и Watchlist показывают три взаимоисключ
 | `CANONICAL_LEGAL_CONCLUSION_CHANGE` | Две реальные canonical versions различаются по current legal colour или rule. |
 
 Professional changelog для каждого события хранит время, GEO, old/new evidence identity и класс. Только `CANONICAL_LEGAL_CONCLUSION_CHANGE` содержит отдельно датированную публикацию вывода и prior/current rule или colour. До реального сравнения двух versions не создаётся ни один выдуманный legal-change event.
+
+Каждый source/pending event открывает отдельную immutable review operation. C1-доступность, HTTP 304, совпадение байтов, redirect или новый fetch-state не закрывают semantic, effective-date, visual, applicability или source-change review. Resolution добавляется только после явной человеческой evidence-review с reviewer identity, проверенной ссылкой, заметкой и реальной датой закрытия. `CONFIRMED_CURRENT` и `SUPERSEDED` остаются только исходами source-review, не подтверждают автоматически актуальность закона и не меняют Legal Truth.
 
 Watchlist принимает только канонические GEO. Неизвестный идентификатор одинаково отклоняется UI и API, остаётся видимым пользователю для исправления и никогда не расширяет результат до всех 307 GEO.
 
@@ -81,7 +83,7 @@ Machine translation может помочь подготовить draft, но �
 ## Измеримая приёмка
 
 - `307/307` Passports совпадают с canonical static projection по current status, summary, scope, citations и version identity.
-- Для `307/307` GEO созданы проверяемые JSON, print/PDF и embed представления; manifest содержит их content hashes и canonical projection version. Bulk PDF остаются вне репозитория или в disposable build output.
+- Для `307/307` GEO созданы проверяемые JSON, print/PDF и embed представления; committed deterministic manifest содержит их content hashes и canonical projection version. Bulk PDF остаются вне репозитория или в disposable build output.
 - Между distinct official URLs и owner GEO нет cross-jurisdiction collision пары «цитата + аннотация».
 - Freshness и changelog не смешивают source events, pending reviews и canonical legal changes; один baseline даёт `0` legal-change events.
 - Controlled two-version fixture доказывает, что all-GEO comparator показывает только реально изменённый GEO и верный event class.
@@ -90,11 +92,11 @@ Machine translation может помочь подготовить draft, но �
 - Correction request проходит сквозной local proof как untrusted candidate и доказывает отсутствие автоматической мутации любого truth, store или map слоя.
 - Каждый локализованный legal assertion имеет editor-review provenance и полный оригинальный citation/scope/disclaimer набор.
 - После реализации обязательный local regression проходит lint до smoke; smoke не имеет failed/skipped, а receipt содержит `POST_CHECKS_OK=1` и `HUB_STAGE_REPORT_OK=1`.
-- Каждый зарегистрированный `SOURCE_CHANGE` и effective-date review имеет датированный исход, ссылку на проверенное официальное доказательство и итог `CONFIRMED_CURRENT`, `SUPERSEDED`, `ACCESS_BLOCKED`, `APPLICABILITY_UNRESOLVED` или `CANONICAL_REVIEW_REQUIRED`; ни одно событие не остаётся неучтённым.
+- Каждый зарегистрированный `SOURCE_CHANGE` и effective-date review имеет датированное учётное состояние и ссылку на проверенное официальное доказательство. `ACCESS_BLOCKED`, `APPLICABILITY_UNRESOLVED` и `CANONICAL_REVIEW_REQUIRED` — открытые fail-closed классификации, а не resolution. Только отдельно выполненное human evidence review с обязательной provenance может добавить source-review outcome `CONFIRMED_CURRENT` или `SUPERSEDED`; ни одно событие не остаётся неучтённым.
 - Каждый оставшийся pending review по всем 307 GEO имеет явную категорию, дату открытия, последнюю попытку проверки, причину незавершённости и безопасное влияние на публикацию. Число неописанных pending review равно `0`.
 - `Apply state` не используется как пользовательское обозначение применимости закона: интерфейс явно называет этот факт publication/reconciliation gate и отдельно показывает Legal Truth.
-- Реальные source-check/change/review/publication dates имеют provenance; `NOT_RECORDED` остаётся там, где доказуемой даты нет.
-- Correction queue имеет сквозной audited lifecycle без автоматической мутации truth/store/map слоёв; опубликованные локализации имеют editor provenance. Нулевая публикация честнее неподтверждённого перевода.
+- Реальные source-check/change/review/publication dates имеют provenance; `NOT_RECORDED` остаётся там, где доказуемой даты нет. Каждая вторая и последующая immutable canonical version требует явной реальной publication date и становится полноценной Passport history entry.
+- Correction queue имеет сквозной audited lifecycle без автоматической мутации truth/store/map слоёв; одобрение означает только ожидание ручной canonical-передачи и не создаёт фиктивную review operation. Опубликованные локализации имеют editor provenance. Нулевая публикация честнее неподтверждённого перевода.
 - Доставка воспроизводима из чистой ветки на базе актуального `origin/main`; смешанные исторические изменения не подменяют уже опубликованный production hotfix.
 
 ## Неподвижные инварианты

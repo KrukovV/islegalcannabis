@@ -83,10 +83,11 @@ evidence block. A duplicated legacy "why this colour" block is forbidden.
 
 The rich-popup CTA for its matching `/c/[code]` SEO content is a dotted-underlined
 internal link. Selecting it opens the existing SEO panel in place and changes
-browser history without a document reload. Closing that panel restores the same
-rich popup record. This navigation must never remove, abbreviate or replace the
-legal-evidence, supplementary-context, historical or profile sections that the
-schema projects for the GEO.
+browser history without a document reload. The hand-off hides the rich popup;
+closing the SEO panel clears the complete map-only overlay and must not revive
+that popup. This navigation must never remove, abbreviate or replace the
+legal-evidence, supplementary-context, historical or profile sections retained
+in the selected projected record.
 
 The in-place SEO panel is a presentation of the selected Truth Map record, not
 a second legal resolver. For all 307 GEO, its status badge, colour, title,
@@ -94,8 +95,8 @@ summary and law snapshot must derive from that same final-reconciliation
 projection as the polygon and rich popup. It must be a content superset of the
 popup's authoritative legal layer: the same current conclusion and indicator,
 every retained official citation, publisher, annotation, bounded fragment,
-display direction, rule, reconciliation rationale and apply state must render
-from the selected feature. The panel additionally renders the card's retained
+display direction, rule, reconciliation rationale and publication/reconciliation
+gate must render from the selected feature. The panel additionally renders the card's retained
 jurisdiction/regulatory context, supplementary action context, full safe profile
 context and source list; these sections are explicitly labelled where they are
 not the current legal conclusion. Legacy country SEO material may provide only
@@ -210,8 +211,10 @@ RED    -> ❌ + legal verdict RED
 A 307-GEO SEO-panel parity test must render every unique Truth Map GEO against
 its canonical projected card, including a fixture where legacy SEO data
 disagrees. For every GEO, it verifies the full retained citation URL/title,
-publisher, annotation, bounded fragment, rule, reason, apply state and
-jurisdiction context in the SEO panel. A browser regression must prove Details
+publisher, annotation, bounded fragment, rule, reason,
+publication/reconciliation gate and jurisdiction context in the SEO panel.
+The underlying technical apply-state field is never presented as legal
+applicability. A browser regression must prove Details
 → expanded panel → visible `i` and a real map click on a different GEO while the
 panel remains open.
 A desktop browser regression must additionally open the long-annotation

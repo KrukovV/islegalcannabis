@@ -1,7 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import { findRepoRoot } from "@/lib/ssotDiff/ssotSnapshotStore";
-import { sha256EvidencePayload, type EvidencePassport } from "./evidencePassport";
+import type { EvidencePassport } from "./evidencePassport";
+import { sha256EvidencePayload } from "./evidenceHash";
 
 export type CanonicalProjectionSnapshot = {
   versionId: string;
@@ -21,12 +22,15 @@ export type CanonicalProjectionLedger = {
   snapshots: CanonicalProjectionSnapshot[];
 };
 
-export function createCanonicalProjectionSnapshot(passports: EvidencePassport[]): CanonicalProjectionSnapshot {
+export function createCanonicalProjectionSnapshot(
+  passports: EvidencePassport[],
+  publishedAt?: string
+): CanonicalProjectionSnapshot {
   const first = passports[0];
   if (!first) throw new Error("CANONICAL_PROJECTION_SNAPSHOT_EMPTY");
   const unsigned = {
     versionId: first.version.id,
-    generatedAt: first.version.generatedAt,
+    generatedAt: publishedAt || first.version.generatedAt,
     entries: passports
       .map((passport) => ({
         geo: passport.geo,
@@ -48,17 +52,43 @@ export function validateCanonicalProjectionLedger(value: unknown): CanonicalProj
     throw new Error("CANONICAL_PROJECTION_LEDGER_INVALID");
   }
   const versionIds = new Set<string>();
-  for (const snapshot of ledger.snapshots) {
+  for (const [index, snapshot] of ledger.snapshots.entries()) {
     if (!snapshot || typeof snapshot.versionId !== "string" || !snapshot.versionId || typeof snapshot.generatedAt !== "string" || !Array.isArray(snapshot.entries) || snapshot.entries.length !== 307) {
       throw new Error(`CANONICAL_PROJECTION_LEDGER_SNAPSHOT_INVALID=${snapshot?.versionId || "UNKNOWN"}`);
     }
     if (versionIds.has(snapshot.versionId)) throw new Error(`CANONICAL_PROJECTION_LEDGER_DUPLICATE_VERSION=${snapshot.versionId}`);
     versionIds.add(snapshot.versionId);
+    if (snapshot.generatedAt !== "NOT_RECORDED" && !Number.isFinite(Date.parse(snapshot.generatedAt))) {
+      throw new Error(`CANONICAL_PROJECTION_LEDGER_PUBLICATION_DATE_INVALID=${snapshot.versionId}`);
+    }
+    if (index > 0 && snapshot.generatedAt === "NOT_RECORDED") {
+      throw new Error(`CANONICAL_PROJECTION_LEDGER_PUBLICATION_DATE_REQUIRED=${snapshot.versionId}`);
+    }
     if (new Set(snapshot.entries.map((entry) => entry.geo)).size !== 307) throw new Error(`CANONICAL_PROJECTION_LEDGER_GEO_DUPLICATE=${snapshot.versionId}`);
     const unsigned = { versionId: snapshot.versionId, generatedAt: snapshot.generatedAt, entries: snapshot.entries };
     if (sha256EvidencePayload(unsigned) !== snapshot.snapshotSha256) throw new Error(`CANONICAL_PROJECTION_LEDGER_HASH_MISMATCH=${snapshot.versionId}`);
   }
   return ledger as CanonicalProjectionLedger;
+}
+
+export function canonicalProjectionHistoryForGeo(
+  ledger: CanonicalProjectionLedger,
+  currentVersionId: string,
+  geo: string
+) {
+  const currentIndex = ledger.snapshots.findIndex((snapshot) => snapshot.versionId === currentVersionId);
+  if (currentIndex < 0) throw new Error(`CANONICAL_PROJECTION_LEDGER_CURRENT_VERSION_MISSING=${currentVersionId}`);
+  return ledger.snapshots.slice(0, currentIndex + 1).map((snapshot) => {
+    const entry = snapshot.entries.find((candidate) => candidate.geo === geo);
+    if (!entry) throw new Error(`CANONICAL_PROJECTION_LEDGER_GEO_MISSING=${snapshot.versionId}|${geo}`);
+    return {
+      kind: "CANONICAL_PROJECTION_VERSION" as const,
+      at: snapshot.generatedAt,
+      versionId: snapshot.versionId,
+      legalTruthColor: entry.legalTruthColor,
+      ruleId: entry.ruleId
+    };
+  });
 }
 
 export function loadCanonicalProjectionLedger(repoRoot?: string) {

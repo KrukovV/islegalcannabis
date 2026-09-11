@@ -1,4 +1,7 @@
 import { describe, expect, it } from "vitest";
+import fs from "node:fs";
+import path from "node:path";
+import { findRepoRoot } from "@/lib/ssotDiff/ssotSnapshotStore";
 import { buildEvidenceDeliveryManifest } from "./evidenceDeliveryManifest";
 
 describe("Evidence delivery manifest", () => {
@@ -17,5 +20,10 @@ describe("Evidence delivery manifest", () => {
     ))).toBe(true);
     expect(new Set(first.entries.map((entry) => entry.geo)).size).toBe(307);
     expect(first.manifestSha256).toMatch(/^[a-f0-9]{64}$/);
+    const committed = JSON.parse(fs.readFileSync(
+      path.join(findRepoRoot(process.cwd()), "data", "b2b_evidence", "evidence_delivery_manifest.json"),
+      "utf8"
+    ));
+    expect(committed).toEqual(first);
   });
 });

@@ -111,6 +111,57 @@ test("304 preserves legal axes and does not create a color decision", async () =
   assert.equal(input.rows[0].independent_truth_color, colorBefore);
 });
 
+test("network revalidation preserves prior C2/C3 review provenance", async () => {
+  const c2C3Review = {
+    reviewed_at: "2026-08-13T07:42:00.000Z",
+    protocol: "C2_SEMANTIC_AND_C3_DIRECT_OFFICIAL_BROWSER_VISUAL_REVIEW",
+    reviewer: "Authorized human review",
+    strict_accepted: true,
+  };
+  const evidence = source("https://official.example/reviewed", {
+    revalidation: {
+      checked_at: "2026-08-13T07:42:00.000Z",
+      document_sha256: sha256("cannabis exact fragment"),
+      relevant_fragment_sha256: sha256("cannabis exact fragment"),
+      revalidation_state: "NOT_MODIFIED",
+      c2_c3_review: c2C3Review,
+    },
+  });
+  const result = await runRevalidation({
+    ledger: ledger([row("AA", [evidence])]),
+    network: true,
+    checkedAt: "2026-09-11T19:00:00.000Z",
+    fetchImpl: async () => new Response("cannabis exact fragment", { headers: { "content-type": "text/html" } }),
+  });
+  assert.deepEqual(result.records[0].source.revalidation.c2_c3_review, c2C3Review);
+  assert.equal(result.records[0].source.revalidation.checked_at, "2026-09-11T19:00:00.000Z");
+});
+
+test("network batches overlap only the bounded fetch wait and retain deterministic result order", async () => {
+  let active = 0;
+  let maxActive = 0;
+  const urls = ["a", "b", "c", "d"].map((name) => `https://official.example/${name}`);
+  const result = await runRevalidation({
+    ledger: ledger(urls.map((url, index) => row(`A${index}`, [source(url, {
+      source_owner_geo: `A${index}`,
+      applies_to_geo: [`A${index}`],
+    })]))),
+    network: true,
+    batchSize: 2,
+    fetchImpl: async (url) => {
+      active += 1;
+      maxActive = Math.max(maxActive, active);
+      await new Promise((resolve) => setTimeout(resolve, url.endsWith("/a") || url.endsWith("/c") ? 8 : 2));
+      active -= 1;
+      return new Response("cannabis exact fragment", { headers: { "content-type": "text/html" } });
+    },
+  });
+  assert.equal(maxActive, 2);
+  assert.deepEqual(result.fetchedUrls, urls);
+  assert.deepEqual(result.records.map((record) => record.url), urls);
+  assert.ok(result.records.every((record) => record.source.revalidation.revalidation_state === "NEEDS_SEMANTIC_REVIEW"));
+});
+
 test("changed ETag or content hash queues only dependent GEO for C2", async () => {
   const changed = source("https://official.example/changed", {
     revalidation: {
@@ -360,6 +411,62 @@ test("shared URL is fetched once and queues every linked GEO", async () => {
   assert.equal(result.fetchedUrls.length, 1);
   assert.equal(result.records.length, 2);
   assert.deepEqual(result.c2QueueGeos, ["AA", "BB"]);
+});
+
+test("shared URL with divergent retained validators is fetched once without borrowing a 304 baseline", async () => {
+  const sharedUrl = "https://shared.example/divergent-baselines";
+  const input = ledger([row("AA", [
+    source(sharedUrl, {
+      revalidation: {
+        last_modified: "Mon, 01 Jan 2024 00:00:00 GMT",
+        document_sha256: sha256("older representation"),
+        revalidation_state: "NOT_MODIFIED",
+      },
+    }),
+    source(sharedUrl, {
+      revalidation: {
+        last_modified: null,
+        document_sha256: null,
+        revalidation_state: "NEEDS_SEMANTIC_REVIEW",
+      },
+    }),
+  ])]);
+  let fetchCount = 0;
+  let conditionalHeaderSeen = false;
+  const result = await runRevalidation({
+    ledger: input,
+    network: true,
+    fetchImpl: async (_url, options) => {
+      fetchCount += 1;
+      conditionalHeaderSeen = Boolean(options.headers["If-None-Match"] || options.headers["If-Modified-Since"]);
+      if (conditionalHeaderSeen) return new Response(null, { status: 304 });
+      return new Response("current cannabis exact fragment", {
+        status: 200,
+        headers: { "content-type": "text/html" },
+      });
+    },
+  });
+  assert.equal(fetchCount, 1);
+  assert.equal(conditionalHeaderSeen, false);
+  assert.equal(result.records.length, 2);
+  assert.equal(result.records.every((record) => record.source.revalidation.http_status === 200), true);
+  assert.equal(result.records.every((record) => record.source.revalidation.document_sha256), true);
+  assert.equal(result.records.some((record) => record.source.revalidation.revalidation_state === "NOT_MODIFIED"), false);
+});
+
+test("an unsolicited 304 without a shared retained baseline stays pending", async () => {
+  const input = ledger([row("AA", [source("https://shared.example/unproven-304", {
+    revalidation: { revalidation_state: "NEEDS_SEMANTIC_REVIEW" },
+  })])]);
+  const result = await runRevalidation({
+    ledger: input,
+    network: true,
+    fetchImpl: async () => new Response(null, { status: 304 }),
+  });
+  const revalidation = result.records[0].source.revalidation;
+  assert.equal(revalidation.revalidation_state, "NEEDS_SEMANTIC_REVIEW");
+  assert.equal(revalidation.access_state, "HTTP_304_WITHOUT_SHARED_BASELINE");
+  assert.equal(revalidation.change_reason, "HTTP_304_CANNOT_PROVE_UNSHARED_RECORD_BASELINES");
 });
 
 test("byte-identical PDFs from separate official URLs share one C2 extraction without merging source records", async () => {

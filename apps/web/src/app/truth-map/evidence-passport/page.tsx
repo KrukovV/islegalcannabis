@@ -3,7 +3,7 @@ import { headers } from "next/headers";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { isLocalAuditHost } from "@/lib/privateAuditHost";
-import { buildChangeMonitor } from "@/truth-map/changeMonitor";
+import { buildChangeMonitor, parseChangeMonitorWatchlistValues } from "@/truth-map/changeMonitor";
 import { buildEvidencePassportCollection, type EvidencePassport } from "@/truth-map/evidencePassport";
 import styles from "./EvidencePassport.module.css";
 
@@ -27,10 +27,18 @@ function relativeUrl(url: string, origin: string) {
   return url.startsWith(origin) ? url.slice(origin.length) : url;
 }
 
-function readWatchlist(value: string | string[] | undefined) {
-  return (typeof value === "string" ? value.split(",") : [])
-    .map((geo) => geo.trim())
-    .filter(Boolean);
+function readFirstValue(value: string | string[] | undefined) {
+  return (Array.isArray(value) ? value : value === undefined ? [] : [value])
+    .map((entry) => entry.trim())
+    .find(Boolean) || "";
+}
+
+function readWatchInput(value: string | string[] | undefined) {
+  return (Array.isArray(value) ? value : value === undefined ? [] : [value])
+    .flatMap((entry) => entry.split(","))
+    .map((entry) => entry.trim())
+    .filter(Boolean)
+    .join(", ");
 }
 
 function PassportDetail({ passport, origin }: { passport: EvidencePassport; origin: string }) {
@@ -68,8 +76,9 @@ function PassportDetail({ passport, origin }: { passport: EvidencePassport; orig
         <dl className={styles.definitionGrid}>
           <div><dt>Rule</dt><dd><code>{passport.scope.ruleId}</code></dd></div>
           <div><dt>Source coverage</dt><dd>{passport.scope.sourceCoverage}</dd></div>
-          <div><dt>Apply state</dt><dd>{passport.scope.applyState}</dd></div>
+          <div><dt>Publication / reconciliation gate</dt><dd>{passport.scope.publicationGate.state}</dd></div>
         </dl>
+        <p className={styles.hint}>{passport.scope.publicationGate.meaning}</p>
         <p>{passport.scope.rationale}</p>
       </section>
 
@@ -109,9 +118,14 @@ function PassportDetail({ passport, origin }: { passport: EvidencePassport; orig
           <div><dt>Latest source check</dt><dd>{formatDate(passport.sourceFreshness.latestCheckedAt)}</dd></div>
           <div><dt>Source change detected</dt><dd>{formatDate(passport.sourceFreshness.latestSourceChangeDetectedAt)}</dd></div>
           <div><dt>Review opened</dt><dd>{formatDate(passport.sourceFreshness.latestReviewOpenedAt)}</dd></div>
+          <div><dt>Review closed</dt><dd>{formatDate(passport.sourceFreshness.latestReviewClosedAt)}</dd></div>
           <div><dt>Conclusion published</dt><dd>{formatDate(passport.sourceFreshness.canonicalConclusionPublishedAt)}</dd></div>
           <div><dt>Source events</dt><dd>{passport.sourceFreshness.changedSourceCount}</dd></div>
           <div><dt>Pending reviews</dt><dd>{passport.sourceFreshness.pendingReviewSourceCount}</dd></div>
+          <div><dt>Freshness metadata reviews</dt><dd>{passport.sourceFreshness.freshnessMetadataReviewSourceCount}</dd></div>
+          <div><dt>Classified review events</dt><dd>{passport.sourceFreshness.classifiedReviewEventCount}</dd></div>
+          <div><dt>Open review operations</dt><dd>{passport.sourceFreshness.openReviewOperationCount}</dd></div>
+          <div><dt>Resolved review operations</dt><dd>{passport.sourceFreshness.resolvedReviewOperationCount}</dd></div>
           <div><dt>Metadata integrity reviews</dt><dd>{passport.sourceFreshness.metadataIntegrityReviewCount}</dd></div>
         </dl>
         <p>{passport.history.note}</p>
@@ -127,6 +141,7 @@ function PassportDetail({ passport, origin }: { passport: EvidencePassport; orig
           <div><dt>Print / Save as PDF</dt><dd><a href={passport.delivery.printDocument}>{relativeUrl(passport.delivery.printDocument, origin)}</a></dd></div>
           <div><dt>Why no leaf?</dt><dd><Link href={`/truth-map/evidence-passport/why-no-leaf?geo=${encodeURIComponent(passport.geo)}`}>Open Store Truth gate explanation</Link></dd></div>
           <div><dt>Correction request</dt><dd><Link href={`/truth-map/evidence-passport/correction?geo=${encodeURIComponent(passport.geo)}`}>Submit an untrusted evidence candidate</Link></dd></div>
+          <div><dt>Correction review</dt><dd><Link href="/truth-map/evidence-passport/correction/review">Open fail-closed review queue</Link></dd></div>
           <div><dt>Editorial localisations</dt><dd><Link href={`/api/truth-map/b2b/localisations?geo=${encodeURIComponent(passport.geo)}`}>Open approved-localisation manifest</Link></dd></div>
         </dl>
         <p className={styles.hint}>Passport SHA-256: <code>{passport.integrity.payloadSha256}</code></p>
@@ -146,14 +161,18 @@ export default async function EvidencePassportPage({
   if (!isLocalAuditHost(host)) notFound();
   const origin = `http://${host}`;
   const resolvedSearchParams = searchParams ? await searchParams : {};
-  const requestedGeo = typeof resolvedSearchParams.geo === "string" ? resolvedSearchParams.geo.trim().toUpperCase() : "";
-  const requestedWatchlist = readWatchlist(resolvedSearchParams.watch);
+  const requestedGeo = readFirstValue(resolvedSearchParams.geo).toUpperCase();
+  let requestedWatchlist: string[] = [];
   const { passports, version } = buildEvidencePassportCollection(origin);
   const selected = requestedGeo ? passports.find((passport) => passport.geo === requestedGeo) : passports[0];
   if (!selected) notFound();
   let monitor: ReturnType<typeof buildChangeMonitor> | null = null;
   let watchlistError: string | null = null;
   try {
+    requestedWatchlist = parseChangeMonitorWatchlistValues({
+      geo: resolvedSearchParams.geo,
+      watch: resolvedSearchParams.watch
+    });
     monitor = buildChangeMonitor({ origin, geos: requestedWatchlist });
   } catch (error) {
     watchlistError = error instanceof Error ? error.message : "CHANGE_MONITOR_INVALID_WATCHLIST";
@@ -192,7 +211,7 @@ export default async function EvidencePassportPage({
           </select>
           <button type="submit">Open Evidence Passport</button>
           <label htmlFor="watchlist">Change Monitor watchlist (optional canonical GEO codes)</label>
-          <input id="watchlist" name="watch" defaultValue={requestedWatchlist.join(", ")} placeholder="AD, MN, US-CA" spellCheck={false} />
+          <input id="watchlist" name="watch" defaultValue={readWatchInput(resolvedSearchParams.watch)} placeholder="AD, MN, US-CA" spellCheck={false} />
         </form>
         <div className={styles.monitor} data-testid="change-monitor-summary">
           <strong>Change Monitor</strong>
@@ -201,6 +220,8 @@ export default async function EvidencePassportPage({
             {monitor.watchlist.mode === "EXPLICIT_GEOS" ? <span>Watchlist: {monitor.watchlist.geos.join(", ")}</span> : <span>Watchlist: all canonical jurisdictions</span>}
             <span>{monitor.summary.sourceChanges} source events</span>
             <span>{monitor.summary.pendingReviews} pending reviews</span>
+            <span>{monitor.summary.openReviewOperations} open review operations</span>
+            <span>{monitor.summary.resolvedReviewOperations} resolved review operations</span>
             <span>{monitor.summary.canonicalLegalConclusionChanges} canonical legal-conclusion changes</span>
             <small>{monitor.canonicalComparison.note}</small>
             <a href={`/api/truth-map/b2b/change-monitor${monitorQuery}`}>Open read-only monitor JSON</a>

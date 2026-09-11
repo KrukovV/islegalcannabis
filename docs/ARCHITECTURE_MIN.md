@@ -78,14 +78,15 @@
   - Read at runtime only by the existing country-page/API/sitemap route family.
   - Retained in Vercel through route-scoped tracing from the monorepo root.
   - Must never be promoted into a global trace or reused to package local audit,
-    Social, DM or Store routes.
+    Social, DM or Store-audit routes. Explicit bounded `/api/public-map/*` Store
+    adapters remain permitted under the public-map contract.
 
 ## Mandatory Invariants
 
 - `docs/SEO_INDEXABILITY_SPEC.md` is the canonical authority for public country routes, sitemaps, route-scoped runtime tracing, production crawlability and Google indexing terminology.
 - DNS is diagnostic-only. Online status derives only from truth probes.
 - SSOT is read-mostly. UI/API never write SSOT.
-- CI is read-only (no writes to `data/**`). UPDATE mode is the only writer.
+- CI is read-only except for the mandatory deterministic exact-once regeneration of the explicitly named generated 307-GEO projection before any reconciliation/projection reader runs. That regeneration must stabilize the tracked outputs; a second mutation, any non-generated `data/**` write, or a final worktree delta remains CI FAIL. UPDATE mode is the only writer for source/SSOT truth.
 - UI uses SSOT-only data models; no secondary “truth”.
 - Metrics must be honest (no masking, no pseudo-pass).
 - No destructive operations (e.g., `rm -rf`, `rsync --delete`, `git clean -fd`).
@@ -106,5 +107,5 @@
 - Public sitemap and country runtime are one indexability boundary: every advertised URL must be 200/title/canonical/index-follow in production, and a route-data trace regression must fail before release.
 - Accepted sitemap baseline is 311 unique URLs with `238/50/22` country/state/i18n partitions and four sitemap-index entries; silent shrink is forbidden.
 - The public-map geometry uses committed content-addressed Brotli payloads via immutable static routes and 308 public adapters. Local reconciliation may generate those payloads before release but is never a production runtime dependency; compaction preserves complete popup properties, GEO colours and Store-gate output.
-- `/truth-map` and `/wiki-truth` remain production 404 and absent from every sitemap. Route-scoped SEO tracing must never expose audit, Social, DM or Store runtime.
+- `/truth-map` and `/wiki-truth` remain production 404 and absent from every sitemap. Route-scoped SEO tracing must never expose audit, Social, DM or Store-audit runtime; only the bounded canonical `/api/public-map/*` display and Store-gate adapters may be traced for public `/`.
 - `CRAWLABILITY_PASS` is not `GOOGLE_INDEX_CONFIRMED`; Google recrawl remains external until current Search Console evidence exists.

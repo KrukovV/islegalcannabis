@@ -142,7 +142,8 @@ describe("UnifiedSeoStatusPanel", () => {
       expect(html).toContain('data-testid="truth-map-seo-legal-evidence"');
       expect(html).toContain(`Current legal conclusion: ${properties.legalTruthColor}`);
       expect(html).toContain(`Rule: ${properties.truthRuleId}`);
-      expect(html).toContain(`Apply state: ${properties.applyState}`);
+      expect(html).toContain(`Publication / reconciliation gate: ${properties.applyState}`);
+      expect(html).not.toContain(`Apply state: ${properties.applyState}`);
       expect(html).toContain(markupText(properties.truthReason));
       for (const citation of parseTruthMapLegalEvidenceCitations(properties.legalEvidenceCitationsJson)) {
         expect(html).toContain(`href="${markupText(citation.url)}"`);

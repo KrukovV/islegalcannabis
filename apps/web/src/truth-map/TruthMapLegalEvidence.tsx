@@ -74,7 +74,8 @@ export default function TruthMapLegalEvidence({
         <summary>Current reconciliation rationale</summary>
         <div>Rule: {properties.truthRuleId}</div>
         <div>{properties.truthReason}</div>
-        <div>Apply state: {properties.applyState}</div>
+        <div>Publication / reconciliation gate: {properties.applyState}</div>
+        <div>This gate controls publication of the reconciliation proposal; it is not a finding that the law itself is inapplicable.</div>
       </details>
       <small>{auditOnly ? "Audit preview only — not applied to SSOT, production map, SEO, or deployment." : "Legal conclusion and the retained official evidence are shown above."}</small>
     </section>

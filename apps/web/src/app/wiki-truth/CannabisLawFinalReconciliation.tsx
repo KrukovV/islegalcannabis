@@ -68,7 +68,7 @@ export default function CannabisLawFinalReconciliation({
       <p className="sectionHint">
         {reconciliation.acceptance.complete
           ? "Все обязательные юридические условия закрыты."
-          : "Применение заблокировано: итоговая сверка ещё не заменяет текущие SSOT, карту, popup или SEO."}
+          : "Публикация proposal заблокирована: это гейт сверки, а не вывод о неприменимости закона; итоговая сверка ещё не заменяет текущие SSOT, карту, popup или SEO."}
       </p>
       <div className="boundaryGrid finalCounters">
         {entries(reconciliation.counts.truthColors).map(([key, value]) => (
@@ -113,7 +113,7 @@ export default function CannabisLawFinalReconciliation({
         </div>
         {Object.entries(reconciliation.counts.applyStates || {}).map(([state, value]) => (
           <div key={state}>
-            <strong>{state}</strong>
+            <strong>Гейт публикации: {state}</strong>
             <div>{value}</div>
           </div>
         ))}
@@ -183,7 +183,7 @@ export default function CannabisLawFinalReconciliation({
                 <th>Технический класс</th>
                 <th>Правило</th>
                 <th>Уверенность</th>
-                <th>Состояние применения</th>
+                <th>Гейт публикации/сверки</th>
                 <th>Причина</th>
                 <th>Исходный закон</th>
               </tr>
@@ -236,7 +236,7 @@ export default function CannabisLawFinalReconciliation({
                 <th>Итоговый цвет</th>
                 <th>Правило</th>
                 <th>Уверенность</th>
-                <th>Состояние применения</th>
+                <th>Гейт публикации/сверки</th>
                 <th>Wiki-аудит</th>
                 <th>SSOT-аудит</th>
                 <th>Расхождение слоёв</th>

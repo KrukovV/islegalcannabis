@@ -380,6 +380,7 @@ function baseRevalidation(record, checkedAt) {
   }
   const queue = deriveQueue(record, state, issues);
   return {
+    ...previous,
     checked_at: previous.checked_at || checkedAt,
     final_url: previous.final_url || record.url,
     http_status: previous.http_status ?? null,
@@ -560,6 +561,23 @@ async function conditionalFetch(url, previous, { fetchImpl, timeoutMs }) {
   }
 }
 
+function sharedConditionalBaseline(urlRecords) {
+  const baselines = urlRecords.map((record) => {
+    const revalidation = record.source.revalidation || {};
+    return {
+      etag: revalidation.etag || null,
+      last_modified: revalidation.last_modified || null,
+      document_sha256: revalidation.document_sha256 || null,
+    };
+  });
+  const first = baselines[0];
+  if (!first || (!first.etag && !first.last_modified)) return null;
+  const signature = JSON.stringify(first);
+  return baselines.every((baseline) => JSON.stringify(baseline) === signature)
+    ? first
+    : null;
+}
+
 function accessStateForError(error) {
   const text = `${error?.name || ""} ${error?.message || ""}`;
   if (/abort|timeout/i.test(text)) return "TIMEOUT";
@@ -588,7 +606,15 @@ function selectRecordsForGeos(records, geos) {
   return records.filter((record) => sharedUrls.has(record.url));
 }
 
-function applyNetworkResult(record, result, checkedAt, terms, pdfTools, semanticProbeCache) {
+function applyNetworkResult(
+  record,
+  result,
+  checkedAt,
+  terms,
+  pdfTools,
+  semanticProbeCache,
+  conditional304Proven,
+) {
   const previous = baseRevalidation(record, checkedAt);
   const { response, bytes } = result;
   const metadata = contentMetadata(response, bytes);
@@ -603,9 +629,13 @@ function applyNetworkResult(record, result, checkedAt, terms, pdfTools, semantic
   let relevantHash = previous.relevant_fragment_sha256;
   let semanticProbe = previous.semantic_probe;
 
-  if (response.status === 304) {
+  if (response.status === 304 && conditional304Proven) {
     state = "NOT_MODIFIED";
     reason = "HTTP_304_CONDITIONAL_GET";
+  } else if (response.status === 304) {
+    state = "NEEDS_SEMANTIC_REVIEW";
+    accessState = "HTTP_304_WITHOUT_SHARED_BASELINE";
+    reason = "HTTP_304_CANNOT_PROVE_UNSHARED_RECORD_BASELINES";
   } else if (BLOCKED_HTTP_STATUSES.has(response.status)) {
     state = "ACCESS_BLOCKED";
     accessState = `HTTP_STATUS_${response.status}`;
@@ -696,6 +726,7 @@ function applyNetworkResult(record, result, checkedAt, terms, pdfTools, semantic
   const issues = schemaIssuesFor(record);
   const queue = deriveQueue(record, state, issues);
   record.source.revalidation = {
+    ...previous,
     checked_at: checkedAt,
     final_url: finalUrl,
     http_status: response.status,
@@ -781,11 +812,12 @@ export async function runRevalidation({
   urls = null,
   network = false,
   checkedAt = new Date().toISOString(),
-  batchSize = 25,
+  batchSize = 4,
   fetchImpl = globalThis.fetch,
   timeoutMs = 20_000,
   terms = null,
   pdfTools = null,
+  onProgress = null,
 } = {}) {
   assert(ledger && typeof ledger === "object", "ledger is required");
   assert(Number.isInteger(batchSize) && batchSize > 0, "batchSize must be a positive integer");
@@ -816,16 +848,29 @@ export async function runRevalidation({
     const semanticProbeCache = new Map();
     for (let offset = 0; offset < groups.length; offset += batchSize) {
       const batch = groups.slice(offset, offset + batchSize);
-      for (const [url, urlRecords] of batch) {
+      const fetchedBatch = await Promise.all(batch.map(async ([url, urlRecords]) => {
         fetchedUrls.push(url);
         try {
-          const validatorRecord = urlRecords.find((record) =>
-            record.source.revalidation.etag || record.source.revalidation.last_modified,
-          ) || urlRecords[0];
-          const result = await conditionalFetch(url, validatorRecord.source.revalidation, {
+          const conditionalBaseline = sharedConditionalBaseline(urlRecords);
+          const result = await conditionalFetch(url, conditionalBaseline, {
             fetchImpl,
             timeoutMs,
           });
+          return {
+            urlRecords,
+            result,
+            error: null,
+            conditional304Proven: Boolean(conditionalBaseline),
+          };
+        } catch (error) {
+          return { urlRecords, result: null, error, conditional304Proven: false };
+        }
+      }));
+      // Keep mutation and PDF/OCR work deterministic and serial. Only the
+      // bounded HTTP waits above overlap; every retained source still uses the
+      // same conditional-fetch, timeout and fail-closed classification path.
+      for (const { urlRecords, result, error, conditional304Proven } of fetchedBatch) {
+        if (result) {
           for (const record of urlRecords) {
             applyNetworkResult(
               record,
@@ -834,11 +879,15 @@ export async function runRevalidation({
               effectiveTerms,
               effectivePdfTools,
               semanticProbeCache,
+              conditional304Proven,
             );
           }
-        } catch (error) {
+        } else {
           for (const record of urlRecords) applyNetworkError(record, error, checkedAt);
         }
+      }
+      if (typeof onProgress === "function") {
+        onProgress({ processed: Math.min(offset + batch.length, groups.length), total: groups.length });
       }
     }
   }
@@ -888,7 +937,7 @@ function parseArgs(argv) {
     network: false,
     explicitDryRun: false,
     applyLocal: false,
-    batchSize: 25,
+    batchSize: 4,
     ledgerPath: DEFAULT_LEDGER_PATH,
     matrixPath: DEFAULT_MATRIX_PATH,
   };
@@ -932,6 +981,9 @@ async function main() {
     urls: options.urls.length ? new Set(options.urls) : null,
     network: options.network,
     batchSize: options.batchSize,
+    onProgress: options.network
+      ? ({ processed, total }) => console.log(`REVALIDATION_PROGRESS=${processed}/${total}`)
+      : null,
   });
   if (!options.dryRun) writeJson(options.ledgerPath, result.ledger);
   const ledgerAfter = sha256(fs.readFileSync(options.ledgerPath));

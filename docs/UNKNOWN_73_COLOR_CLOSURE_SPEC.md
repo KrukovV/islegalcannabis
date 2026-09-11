@@ -379,8 +379,8 @@ duplicate_credit=false
 
 ## Product and route protection
 
-- Public Truth/store changes are `/truth-map`-only.
-- `/` and `/new-map` remain free of new Social and Store layers.
+- This historical closure task could prototype Store changes on `/truth-map` only; it is not the current route-ownership contract.
+- The accepted current product shares only canonical Store Truth-gated aggregates, clusters and leaves between public `/` and local `/truth-map`. Production `/new-map` redirects to `/`. Social and DM remain local `/truth-map`-only.
 - The editable AI dock remains continuously available on `/truth-map`.
 - Store markers use only `validated-cannabis-store-leaf`; Social activity uses
   only the chat-bubble marker. Their semantics are exclusive.
@@ -400,12 +400,13 @@ YELLOW from hemp/research/export/generic pharmacy alone
 GREEN from a medical store alone
 Store marker without official source + valid lifecycle + exact location
 duplicate Store records or duplicate GEO credit
-any Store/Social leakage to / or /new-map
+any Social/DM leakage to production / or /new-map, or any Store record that bypasses the shared Store Truth gate
 ```
 
 Live acceptance on the existing singleton verifies `/truth-map`, its AI dock,
-isolated Social layer, legal/store marker semantics, viewport clustering, and
-absence of Store/Social UI on legacy routes. Do not start a second dev server.
+isolated Social layer, shared legal/Store marker semantics and viewport clustering.
+Production acceptance separately verifies Store Truth-gated markers on `/`, the
+`/new-map` redirect, and absence of Social/DM/AI UI. Do not start a second dev server.
 
 The final report includes one row per target:
 

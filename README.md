@@ -1,6 +1,6 @@
 isLegalCannabis is a Next.js App Router product for educational cannabis legality lookup, map exploration, and jurisdiction audit workflows.
 
-The current primary runtime is the MapLibre `/new-map` experience. The root route `/` re-exports `/new-map`, and country routes `/c/[code]` and `/[lang]/c/[code]` use the same map/runtime contract. Audit surfaces are `/wiki-truth`, `/trust-view` (stable alias to the audit UI), `/changes`, and `/api/ssot/changes`.
+The canonical public runtime is the MapLibre root `/`. In production, `/new-map` is a parameter-preserving permanent redirect to `/`; on localhost it remains a compatibility route for legacy QA. Country routes `/c/[code]` and `/[lang]/c/[code]` use the same map/runtime contract. Audit surfaces are `/wiki-truth`, `/trust-view` (stable alias to the audit UI), `/changes`, and `/api/ssot/changes`.
 
 ## Current Project Contracts
 
@@ -11,7 +11,7 @@ The current primary runtime is the MapLibre `/new-map` experience. The root rout
 - For scrollable side panels, geo-sync evidence must include expanded panel screenshots in addition to full-page screenshots; otherwise popup/SEO richness verdicts are not trustworthy.
 - Generic ambiguous cannabis titles such as `Cannabis in Georgia` must resolve through the shared canonical resolver to the proven disambiguated article; popup and SEO content must not cross-contaminate country/state pages.
 - Same-name GEO must never share content just because display names collide. Canonical identity must include geo code, entity type, parent, and jurisdiction kind.
-- Final `pass_cycle` includes the mandatory one-request root cookie-seed production `/new-map` gate, production payload/long-task checks, JS country/city-label zoom checks, and production browser source-map build checks, with PNG screenshots, timing measurements, and degradation thresholds from `data/baselines/prod_live_quality_baseline.json`, `data/baselines/new_map_payload_quality_baseline.json`, and `data/baselines/new_map_js_city_quality_baseline.json`.
+- Final `pass_cycle` includes the mandatory one-request production root `/` gate plus a separate `/new-map` redirect check, production payload/long-task checks, JS country/city-label zoom checks, and production browser source-map build checks, with PNG screenshots, timing measurements, and degradation thresholds from `data/baselines/prod_live_quality_baseline.json`, `data/baselines/new_map_payload_quality_baseline.json`, and `data/baselines/new_map_js_city_quality_baseline.json`.
 - Lint is mandatory before smoke/UI checks; lint failures fail the run.
 - DNS is diagnostic only. Online state comes only from HTTP/API/CONNECT/FALLBACK truth probes.
 - `/wiki-truth` renders a prebuilt audit model. Counters, universe classification, alias resolution, and garbage filtering stay outside `page.tsx`.
@@ -30,7 +30,7 @@ First, run the guarded development server:
 npm run web:dev
 ```
 
-Open [http://127.0.0.1:3000/new-map](http://127.0.0.1:3000/new-map) or [http://127.0.0.1:3000/wiki-truth](http://127.0.0.1:3000/wiki-truth).
+Open [http://127.0.0.1:3000/](http://127.0.0.1:3000/), the localhost-only compatibility route [http://127.0.0.1:3000/new-map](http://127.0.0.1:3000/new-map), or [http://127.0.0.1:3000/wiki-truth](http://127.0.0.1:3000/wiki-truth).
 
 ## Local UI (Important)
 
@@ -43,7 +43,7 @@ This project enforces a single dev server policy (UI_SINGLETON_RULE):
   UI_ALREADY_RUNNING url=http://127.0.0.1:3000/wiki-truth
 - This is expected behavior and treated as OK (not an error).
 
-To restart the UI intentionally, stop it manually (Ctrl+C in the terminal running it) and start again.
+To restart the UI, reuse a healthy singleton by default. Stop only a process whose PID, command and working directory prove that it is this repository's server. If HTTP is down, every recorded owner is absent and port `3000` has no listener, remove only the exact stale `.next/dev/lock` and `Reports/web_dev_3000.pid` markers, then restart through `npm run web:dev`. Never kill a foreign/ambiguous process, recursively remove `.next/dev`, or switch ports automatically.
 
 ## Storage Hygiene (Required)
 
@@ -56,7 +56,8 @@ CI will fail on disk bloat (QUARANTINE > 500MB or Reports > 1GB).
 
 ## Main Routes
 
-- `/` and `/new-map`: canonical MapLibre map runtime.
+- `/`: canonical public MapLibre map runtime.
+- `/new-map`: permanent parameter-preserving production redirect to `/`; localhost compatibility route for legacy QA.
 - `/c/[code]`: country panel route backed by the same map runtime.
 - `/wiki-truth`: audit view over wiki, ISO, SSOT, official registry, and official ownership universes.
 - `/trust-view`: stable localhost alias for `/wiki-truth`.
@@ -81,7 +82,7 @@ PLAYWRIGHT_BASE_URL=http://127.0.0.1:3000 npm -w apps/web run popup:visual:audit
 
 Popup/wiki evidence alone does not prove map/popup/SEO/color sync. When resolver/color/model work is in scope, the additional `307` GEO geo-sync release contract from [docs/GEO_SYNC_AUDIT.md](docs/GEO_SYNC_AUDIT.md) applies, including screenshot-based color and text comparison.
 
-For final handoff, `VERCEL_AUTOMATION_BYPASS_SECRET` must be present in the shell so the production live gate can run against `https://www.islegal.info/new-map`.
+For final handoff, `VERCEL_AUTOMATION_BYPASS_SECRET` must be present in the shell so the production live gate can run against `https://www.islegal.info/` and separately verify the `/new-map` redirect contract.
 
 The final report must contain:
 
@@ -104,7 +105,7 @@ npm run validate:laws
 
 ## SEO pages
 
-SEO pages under `/is-cannabis-legal-in-[slug]` are statically generated from a fixed registry.
+Canonical SEO pages use sitemap-owned `/c/[code]` and `/[lang]/c/[code]` routes. Internal Action links preserve those exact canonical slugs and may append an in-document anchor.
 
 ## Lint
 

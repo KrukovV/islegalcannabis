@@ -212,8 +212,9 @@ Every advertised HTML URL must return:
 - no AI assistant, Social, DM or audit control on public routes.
 
 The popup's internal dotted SEO CTA must open the corresponding country panel
-without a document reload and must preserve the complete shared rich-popup
-record when the panel is closed.
+without a document reload. The complete shared rich-popup record remains retained
+as data, but closing the panel clears the complete map-only overlay and must not
+render or restore the former popup.
 
 Current-status content on every sitemap `/c/[code]` document is owned by the
 same committed final 307-GEO projection as the public map, rich popup and
@@ -302,7 +303,8 @@ A push or Vercel deployment is not acceptance. After Vercel promotion, verify:
 10. A real production browser waits for the public map canvas, clicks an actual
    GEO feature and verifies the complete rich legal-evidence popup. Its dotted
    SEO CTA must open the country panel without a document reload; closing that
-   panel must restore the same popup record. The same browser proof verifies
+   panel must clear the complete map-only overlay, with neither the SEO panel nor
+   the former rich popup restored. The same browser proof verifies
    Antarctica animation, without legacy CannabisLawMap, AI, Social, DM or audit
    controls.
 11. A post-release canonical-root `pass_cycle` remains green.

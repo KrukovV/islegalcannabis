@@ -6,6 +6,16 @@ import {
   type CanonicalProjectionSnapshot
 } from "./canonicalProjectionLedger";
 import { listTruthMapCanonicalProjectionRecords, type TruthMapCanonicalProjectionSource } from "./truthMapSource";
+import {
+  loadSourceReviewOperationsRegistry,
+  sourceReviewOperationKey,
+  sourceReviewOperationsIndex,
+  sourceReviewResolutionsIndex,
+  type SourceReviewEventKind,
+  type SourceReviewAttempt,
+  type SourceReviewOperation,
+  type SourceReviewResolution
+} from "./sourceReviewOperations";
 
 export type ChangeMonitorEvent = {
   kind: "SOURCE_CHANGE" | "PENDING_REVIEW" | "CANONICAL_LEGAL_CONCLUSION_CHANGE";
@@ -19,10 +29,13 @@ export type ChangeMonitorEvent = {
   currentEvidenceIdentity: string;
   detail: string;
   boundary: string;
+  reviewOperationId: string | null;
+  reviewCategory: string | null;
+  reviewOutcome: string | null;
 };
 
 export type ChangeMonitor = {
-  schemaVersion: 1;
+  schemaVersion: 2;
   localOnly: true;
   watchlist: {
     mode: "ALL_CANONICAL_GEOS" | "EXPLICIT_GEOS";
@@ -39,11 +52,39 @@ export type ChangeMonitor = {
     sourceChanges: number;
     pendingReviews: number;
     canonicalLegalConclusionChanges: number;
+    classifiedReviewEvents: number;
+    unclassifiedReviewEvents: 0;
+    reviewOperations: number;
+    openReviewOperations: number;
+    resolvedReviewOperations: number;
   };
   sourceChanges: ChangeMonitorEvent[];
   pendingReviews: ChangeMonitorEvent[];
   canonicalLegalConclusionChanges: ChangeMonitorEvent[];
+  reviewHistory: SourceReviewHistoryEvent[];
 };
+
+export type SourceReviewHistoryEvent = {
+  operationId: string;
+  geo: string;
+  territory: string;
+  sourceUrl: string;
+  eventKind: SourceReviewEventKind;
+  category: string;
+  openedAt: string;
+  lastAttemptAt: string;
+  initialOutcome: string;
+  resolvedAt: string | null;
+  resolutionOutcome: string | null;
+  resolutionReviewerId: string | null;
+  resolutionEvidenceUrl: string | null;
+  resolutionNote: string | null;
+  resolutionBasis: string | null;
+  resultingRevalidationState: string | null;
+  boundary: string;
+};
+
+type WatchlistSearchParamValue = string | string[] | undefined;
 
 function normalizeGeo(value: unknown) {
   return String(value || "").trim().toUpperCase();
@@ -69,11 +110,33 @@ function resolveWatchlist(requestedGeos: readonly string[] | undefined, passport
   };
 }
 
+function searchParamValues(value: WatchlistSearchParamValue) {
+  return value === undefined ? [] : Array.isArray(value) ? value : [value];
+}
+
+export function parseChangeMonitorWatchlistValues({
+  geo,
+  watch
+}: {
+  geo?: WatchlistSearchParamValue;
+  watch?: WatchlistSearchParamValue;
+}) {
+  const geoValues = searchParamValues(geo);
+  const watchValues = searchParamValues(watch);
+  const explicit = geoValues.length > 0 || watchValues.length > 0;
+  const requested = [
+    ...geoValues,
+    ...watchValues.flatMap((value) => value.split(","))
+  ].map((value) => value.trim()).filter(Boolean);
+  if (explicit && requested.length === 0) throw new Error("CHANGE_MONITOR_EMPTY_EXPLICIT_WATCHLIST");
+  return requested;
+}
+
 export function parseChangeMonitorWatchlistQuery(searchParams: URLSearchParams) {
-  return [
-    ...searchParams.getAll("geo"),
-    ...searchParams.getAll("watch").flatMap((value) => value.split(","))
-  ];
+  return parseChangeMonitorWatchlistValues({
+    geo: searchParams.has("geo") ? searchParams.getAll("geo") : undefined,
+    watch: searchParams.has("watch") ? searchParams.getAll("watch") : undefined
+  });
 }
 
 function detailForSource(source: TruthMapCanonicalProjectionSource) {
@@ -85,23 +148,39 @@ function detailForSource(source: TruthMapCanonicalProjectionSource) {
 function sourceEvent(
   kind: ChangeMonitorEvent["kind"],
   passport: EvidencePassport,
-  source: TruthMapCanonicalProjectionSource
+  source: TruthMapCanonicalProjectionSource,
+  operation: SourceReviewOperation
 ): ChangeMonitorEvent {
+  const occurredAt = kind === "SOURCE_CHANGE" ? operation.sourceChangeDetectedAt : operation.openedAt;
   return {
     kind,
     geo: passport.geo,
     territory: passport.territory,
     sourceUrl: source.url,
     sourceTitle: source.title,
-    occurredAt: null,
+    occurredAt: occurredAt === "NOT_RECORDED" ? null : occurredAt,
     sourceCheckedAt: source.revalidation.checkedAt,
     previousEvidenceIdentity: null,
     currentEvidenceIdentity: `${source.sourceOwnerGeo || passport.geo}|${source.revalidation.finalUrl || source.url}`,
     detail: detailForSource(source),
     boundary: kind === "SOURCE_CHANGE"
       ? "A source event never changes the current legal conclusion without a separate canonical projection update."
-      : "Pending review is a review queue signal, not a legal conclusion or map-colour change."
+      : "Pending review is a review queue signal, not a legal conclusion or map-colour change.",
+    reviewOperationId: operation.operationId,
+    reviewCategory: operation.category,
+    reviewOutcome: operation.outcome.state
   };
+}
+
+function operationForSource(
+  operations: Map<string, SourceReviewOperation>,
+  passport: EvidencePassport,
+  source: TruthMapCanonicalProjectionSource,
+  eventKind: SourceReviewEventKind
+) {
+  const operation = operations.get(sourceReviewOperationKey(passport.geo, source, eventKind));
+  if (!operation) throw new Error(`CHANGE_MONITOR_UNCLASSIFIED_SOURCE_REVIEW=${passport.geo}|${eventKind}|${source.url}`);
+  return operation;
 }
 
 export function compareCanonicalProjectionSnapshots(
@@ -120,14 +199,21 @@ export function compareCanonicalProjectionSnapshots(
       territory: passport.territory,
       sourceUrl: null,
       sourceTitle: null,
-      occurredAt: null,
+      occurredAt: entrySnapshotPublishedAt(current),
       sourceCheckedAt: null,
       previousEvidenceIdentity: previous.versionId,
       currentEvidenceIdentity: current.versionId,
       detail: `Canonical projection changed from ${prior.legalTruthColor} / ${prior.ruleId} to ${entry.legalTruthColor} / ${entry.ruleId}.`,
-      boundary: "Only two canonical projection versions can produce this event; source, SSOT and legacy display records cannot."
+      boundary: "Only two canonical projection versions can produce this event; source, SSOT and legacy display records cannot.",
+      reviewOperationId: null,
+      reviewCategory: null,
+      reviewOutcome: null
     }];
   });
+}
+
+function entrySnapshotPublishedAt(snapshot: CanonicalProjectionSnapshot) {
+  return snapshot.generatedAt === "NOT_RECORDED" ? null : snapshot.generatedAt;
 }
 
 export function buildChangeMonitor({
@@ -146,6 +232,20 @@ export function buildChangeMonitor({
   const passportsByGeo = new Map(watchedPassports.map((passport) => [passport.geo, passport]));
   const recordsByGeo = new Map(listTruthMapCanonicalProjectionRecords().map((record) => [record.geo, record]));
   const currentSnapshot = createCanonicalProjectionSnapshot(passports);
+  const reviewRegistry = loadSourceReviewOperationsRegistry();
+  const operations = sourceReviewOperationsIndex(reviewRegistry);
+  const resolutions = sourceReviewResolutionsIndex(reviewRegistry);
+  const latestAttemptByOperation = new Map<string, SourceReviewAttempt>();
+  for (const attempt of reviewRegistry.attempts) {
+    const previous = latestAttemptByOperation.get(attempt.operationId);
+    const attemptAt = Date.parse(attempt.sourceCheckedAt === "NOT_RECORDED" ? attempt.attemptedAt : attempt.sourceCheckedAt);
+    const previousAt = previous
+      ? Date.parse(previous.sourceCheckedAt === "NOT_RECORDED" ? previous.attemptedAt : previous.sourceCheckedAt)
+      : Number.NEGATIVE_INFINITY;
+    if (!previous || attemptAt > previousAt || (attemptAt === previousAt && attempt.attemptId.localeCompare(previous.attemptId) > 0)) {
+      latestAttemptByOperation.set(attempt.operationId, attempt);
+    }
+  }
   const sourceChanges: ChangeMonitorEvent[] = [];
   const pendingReviews: ChangeMonitorEvent[] = [];
 
@@ -153,8 +253,13 @@ export function buildChangeMonitor({
     const record = recordsByGeo.get(passport.geo);
     if (!record) throw new Error(`CHANGE_MONITOR_SOURCE_RECORD_MISSING=${passport.geo}`);
     for (const source of record.sources) {
-      if (isEvidencePassportSourceChange(source)) sourceChanges.push(sourceEvent("SOURCE_CHANGE", passport, source));
-      if (isEvidencePassportPendingReview(source)) pendingReviews.push(sourceEvent("PENDING_REVIEW", passport, source));
+      if (isEvidencePassportSourceChange(source)) {
+        sourceChanges.push(sourceEvent("SOURCE_CHANGE", passport, source, operationForSource(operations, passport, source, "SOURCE_CHANGE")));
+      }
+      if (isEvidencePassportPendingReview(source)) {
+        const eventKind = source.revalidation.state === "NOT_RECORDED" ? "FRESHNESS_METADATA_GAP" : "PENDING_REVIEW";
+        pendingReviews.push(sourceEvent("PENDING_REVIEW", passport, source, operationForSource(operations, passport, source, eventKind)));
+      }
     }
   }
 
@@ -166,8 +271,36 @@ export function buildChangeMonitor({
       .filter((event) => watchedGeos.has(event.geo))
     : [];
   const comparisonAvailable = Boolean(ledgerPreviousSnapshot);
+  const reviewHistory = reviewRegistry.operations
+    .filter((operation) => watchedGeos.has(operation.geo))
+    .map((operation): SourceReviewHistoryEvent => {
+      const resolution: SourceReviewResolution | undefined = resolutions.get(operation.operationId);
+      const latestAttempt = latestAttemptByOperation.get(operation.operationId);
+      if (!latestAttempt) throw new Error(`CHANGE_MONITOR_REVIEW_ATTEMPT_MISSING=${operation.operationId}`);
+      return {
+        operationId: operation.operationId,
+        geo: operation.geo,
+        territory: passportsByGeo.get(operation.geo)?.territory || operation.geo,
+        sourceUrl: operation.sourceUrl,
+        eventKind: operation.eventKind,
+        category: operation.category,
+        openedAt: operation.openedAt,
+        lastAttemptAt: latestAttempt.sourceCheckedAt === "NOT_RECORDED" ? latestAttempt.attemptedAt : latestAttempt.sourceCheckedAt,
+        initialOutcome: operation.outcome.state,
+        resolvedAt: resolution?.resolvedAt || null,
+        resolutionOutcome: resolution?.outcome || null,
+        resolutionReviewerId: resolution?.reviewerId || null,
+        resolutionEvidenceUrl: resolution?.evidenceUrl || null,
+        resolutionNote: resolution?.note || null,
+        resolutionBasis: resolution?.resolutionBasis || null,
+        resultingRevalidationState: resolution?.resultingRevalidationState || null,
+        boundary: resolution?.boundary || operation.boundary
+      };
+    })
+    .sort((left, right) => `${left.openedAt}:${left.operationId}`.localeCompare(`${right.openedAt}:${right.operationId}`));
+  const resolvedReviewOperations = reviewHistory.filter((event) => event.resolvedAt).length;
   return {
-    schemaVersion: 1,
+    schemaVersion: 2,
     localOnly: true,
     watchlist,
     canonicalComparison: {
@@ -182,10 +315,16 @@ export function buildChangeMonitor({
       geosWatched: watchedPassports.length,
       sourceChanges: sourceChanges.length,
       pendingReviews: pendingReviews.length,
-      canonicalLegalConclusionChanges: canonicalLegalConclusionChanges.length
+      canonicalLegalConclusionChanges: canonicalLegalConclusionChanges.length,
+      classifiedReviewEvents: sourceChanges.length + pendingReviews.length,
+      unclassifiedReviewEvents: 0,
+      reviewOperations: reviewHistory.length,
+      openReviewOperations: reviewHistory.length - resolvedReviewOperations,
+      resolvedReviewOperations
     },
     sourceChanges: sourceChanges.sort((left, right) => `${left.geo}:${left.sourceUrl}`.localeCompare(`${right.geo}:${right.sourceUrl}`)),
     pendingReviews: pendingReviews.sort((left, right) => `${left.geo}:${left.sourceUrl}`.localeCompare(`${right.geo}:${right.sourceUrl}`)),
-    canonicalLegalConclusionChanges: canonicalLegalConclusionChanges.sort((left, right) => left.geo.localeCompare(right.geo))
+    canonicalLegalConclusionChanges: canonicalLegalConclusionChanges.sort((left, right) => left.geo.localeCompare(right.geo)),
+    reviewHistory
   };
 }

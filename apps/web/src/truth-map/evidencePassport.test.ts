@@ -74,7 +74,8 @@ describe("Evidence Passport", () => {
       expect(passport.currentConclusion.summary).toBe(mapFeature?.legalEvidenceSummary);
       expect(passport.scope.ruleId).toBe(mapFeature?.truthRuleId);
       expect(passport.scope.rationale).toBe(mapFeature?.truthReason);
-      expect(passport.scope.applyState).toBe(mapFeature?.applyState);
+      expect(passport.scope.publicationGate.state).toBe(mapFeature?.applyState);
+      expect(passport.scope.publicationGate.meaning).toContain("not a finding that the law itself is inapplicable");
       const selectedCitations = passport.citations
         .filter((citation) => citation.relation === "MAP_POPUP_SEO_EXACT")
         .map((citation) => ({
@@ -127,9 +128,16 @@ describe("Evidence Passport", () => {
     expect(passport?.delivery.printDocument).toMatch(/\/api\/truth-map\/b2b\/print\/mn$/);
     expect(passport?.integrity.canonicalProjectionVersion).toBe(passport?.version.id);
     expect(passport?.integrity.payloadSha256).toMatch(/^[a-f0-9]{64}$/);
-    expect(passport?.sourceFreshness.latestSourceChangeDetectedAt).toBeNull();
-    expect(passport?.sourceFreshness.latestReviewOpenedAt).toBeNull();
+    expect(passport?.sourceFreshness.classifiedReviewEventCount).toBeGreaterThanOrEqual(passport?.sourceFreshness.pendingReviewSourceCount || 0);
     expect(passport?.sourceFreshness.canonicalConclusionPublishedAt).toBeNull();
+  });
+
+  it("retains the review-open date from append-only history after the current C1 signal clears", () => {
+    const passport = getEvidencePassport("NR", "http://127.0.0.1:3000");
+    expect(passport).toBeTruthy();
+    expect(passport?.sourceFreshness.classifiedReviewEventCount).toBe(0);
+    expect(passport?.sourceFreshness.openReviewOperationCount).toBeGreaterThan(0);
+    expect(passport?.sourceFreshness.latestReviewOpenedAt).toMatch(/^\d{4}-\d{2}-\d{2}T/);
   });
 
   it("renders a script-free embed card from the same current Passport", () => {
@@ -148,6 +156,8 @@ describe("Evidence Passport", () => {
     const html = renderEvidencePassportPrintHtml(passport!);
     expect(html).toContain('data-islegal-print-passport="MN"');
     expect(html).toContain("Source Freshness Passport");
+    expect(html).toContain("Publication / reconciliation gate");
+    expect(html).not.toContain("<dt>Applicability</dt>");
     expect(html).toContain("NOT_RECORDED");
     expect(html).toContain(passport!.integrity.payloadSha256);
     expect(html).not.toContain("<script");

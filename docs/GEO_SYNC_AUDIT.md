@@ -149,10 +149,10 @@ The comparison matrix is mandatory in both directions:
    - `project-map ↔ project-popup`
    - `project-popup ↔ project-seo`
    - `project-map ↔ project-seo`
-2. project against Wiki:
+2. project against Wiki, diagnostic-only:
    - `project-popup ↔ wiki`
    - `project-seo ↔ wiki`
-   - `project-map/legal-color outcome ↔ wiki-derived legal/color evidence`
+   - `project-map/legal-color outcome ↔ wiki-derived legal/color evidence` records divergence for review but never lets Wiki determine Official Truth
 
 Minimum visual checks per GEO:
 
@@ -165,12 +165,12 @@ Minimum visual checks per GEO:
   - visible badge color/category matches the normalized bucket
   - visible text blocks correspond to the extracted popup text
   - rendered popup is not visually truncated or materially shorter than the extracted popup payload without an explicit sparse reason
-  - rendered popup sections do not contradict the wiki article surface for the same GEO
+  - any divergence from the wiki article surface for the same GEO is explicitly recorded and identity-checked; it is not a Legal Truth failure when applicable current official evidence supports the project conclusion
 - SEO full-page screenshot:
   - visible badge color/category matches the normalized bucket
   - visible SEO body is richer than popup for substantive wiki articles
   - section order and rendered text volume correspond to the extracted SEO payload
-  - visible SEO sections do not contradict the wiki article surface for the same GEO
+  - any divergence from the wiki article surface for the same GEO is explicitly recorded and identity-checked; Wiki remains diagnostic and cannot override applicable official evidence
 - scrollable popup/SEO panels:
   - full-page evidence alone is not sufficient when the panel itself uses internal scrolling
   - the audit must also capture an expanded panel screenshot with internal scroll fully revealed
