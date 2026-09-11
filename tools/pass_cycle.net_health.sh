@@ -1445,6 +1445,10 @@ fi
 if [ -f "${CI_LOG}" ] && grep -q "operation was aborted" "${CI_LOG}"; then
   ABORTED_LINE=1
 fi
+# The snapshot payload is intentionally ignored, but a clean checkout still needs
+# its empty runtime root so the completeness guard can distinguish "no snapshots
+# collected" from an incomplete filesystem setup.
+mkdir -p "${ROOT}/data/source_snapshots"
 INCOMPLETE=0
 if [ "${AUTO_LEARN:-0}" = "1" ] || [ "${AUTO_VERIFY:-0}" = "1" ]; then
   if [ ! -f "${ROOT}/Reports/auto_learn/last_run.json" ]; then

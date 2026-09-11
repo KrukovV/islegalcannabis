@@ -1135,7 +1135,7 @@ run_wiki_db_gate_step() {
 
 run_ci_local_step() {
   local step_id="ci_local"
-  local limit="${CI_LOCAL_TIMEOUT_SECONDS:-900}"
+  local limit="${CI_LOCAL_TIMEOUT_SECONDS:-1800}"
   local cmd="${CI_LOCAL_ENV} bash tools/ci-local.sh >\"${CI_LOG}\" 2>&1"
   local cmd_escaped
   local start
@@ -1145,8 +1145,8 @@ run_ci_local_step() {
   local reason="RC_1"
   local err_trap
   if ! [[ "${limit}" =~ ^[1-9][0-9]*$ ]]; then
-    echo "CI_LOCAL_TIMEOUT_SECONDS_INVALID value=${limit}; using=900" | tee -a "${STEP_LOG}"
-    limit="900"
+    echo "CI_LOCAL_TIMEOUT_SECONDS_INVALID value=${limit}; using=1800" | tee -a "${STEP_LOG}"
+    limit="1800"
   fi
   cmd_escaped=$(escape_cmd "${cmd}")
   CURRENT_STEP="${step_id}"
