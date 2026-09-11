@@ -63,6 +63,19 @@ type FinalTruthEvidenceSource = {
   fragment?: string;
   note?: string;
   sourceAnnotation?: string;
+  sourceOwnerGeo?: string;
+  appliesToGeos?: string[];
+  sourceType?: string;
+  current?: string;
+  effective?: string;
+  revalidation?: {
+    checked_at?: string;
+    final_url?: string;
+    http_status?: number | null;
+    revalidation_state?: string;
+    access_state?: string;
+    change_reason?: string;
+  };
 };
 
 type FinalTruthRow = {
@@ -145,6 +158,46 @@ export type TruthMapRuntimeMeta = Pick<
   TruthMapDatasetMeta,
   "generatedAt" | "datasetHash" | "finalSnapshotId"
 >;
+
+/**
+ * This deliberately exposes source provenance, not another legal resolver.
+ * Local audit products can enrich a final-map projection with the retained
+ * source record, but current status and colour remain owned by the feature
+ * properties built below.
+ */
+export type TruthMapCanonicalProjectionSource = {
+  title: string;
+  url: string;
+  publisher: string;
+  role: string;
+  verification: string;
+  visualReview: string;
+  sourceType: string;
+  currentness: string;
+  effectiveState: string;
+  cannabisSpecific: boolean;
+  directFragmentAvailable: boolean;
+  fragment: string;
+  note: string;
+  annotation: string;
+  sourceOwnerGeo: string;
+  appliesToGeos: string[];
+  revalidation: {
+    checkedAt: string | null;
+    finalUrl: string | null;
+    httpStatus: number | null;
+    state: string;
+    accessState: string;
+    changeReason: string;
+  };
+};
+
+export type TruthMapCanonicalProjectionRecord = {
+  geo: string;
+  territory: string;
+  sourceCoverage: string;
+  sources: TruthMapCanonicalProjectionSource[];
+};
 
 type TruthMapDatasetCache = { signature: string; dataset: TruthMapDataset };
 
@@ -290,6 +343,70 @@ function evidenceSourcesForRow(row: FinalTruthRow) {
         + (candidate.cannabisSpecific ? 1 : 0);
       return score(right) - score(left);
     });
+}
+
+function projectCanonicalSource(source: FinalTruthEvidenceSource): TruthMapCanonicalProjectionSource | null {
+  const url = String(source.url || "").trim();
+  if (!url) return null;
+  const revalidation = source.revalidation || {};
+  return {
+    title: cleanEvidenceText(source.title, 280) || "Official legal source",
+    url,
+    publisher: cleanEvidenceText(source.officialPublisher, 180) || "Official publisher recorded in the audit",
+    role: String(source.primaryOrContext || "UNSPECIFIED").trim() || "UNSPECIFIED",
+    verification: String(source.verification || "NOT_RECORDED").trim() || "NOT_RECORDED",
+    visualReview: cleanEvidenceText(source.visualReview, 1_200),
+    sourceType: String(source.sourceType || "NOT_RECORDED").trim() || "NOT_RECORDED",
+    currentness: String(source.current || "NOT_RECORDED").trim() || "NOT_RECORDED",
+    effectiveState: String(source.effective || "NOT_RECORDED").trim() || "NOT_RECORDED",
+    cannabisSpecific: source.cannabisSpecific === true,
+    directFragmentAvailable: source.directFragmentAvailable === true,
+    fragment: cleanEvidenceText(source.fragment, 1_200),
+    note: cleanEvidenceText(source.note, 1_200),
+    annotation: cleanEvidenceText(source.sourceAnnotation, 500),
+    sourceOwnerGeo: normalizeGeo(source.sourceOwnerGeo),
+    appliesToGeos: Array.isArray(source.appliesToGeos)
+      ? source.appliesToGeos.map(normalizeGeo).filter(Boolean)
+      : [],
+    revalidation: {
+      checkedAt: typeof revalidation.checked_at === "string" && revalidation.checked_at.trim() ? revalidation.checked_at : null,
+      finalUrl: typeof revalidation.final_url === "string" && revalidation.final_url.trim() ? revalidation.final_url : null,
+      httpStatus: typeof revalidation.http_status === "number" ? revalidation.http_status : null,
+      state: String(revalidation.revalidation_state || "NOT_RECORDED").trim() || "NOT_RECORDED",
+      accessState: String(revalidation.access_state || "NOT_RECORDED").trim() || "NOT_RECORDED",
+      changeReason: String(revalidation.change_reason || "NOT_RECORDED").trim() || "NOT_RECORDED"
+    }
+  };
+}
+
+/**
+ * Retained source ledger for local audit tooling. The function neither derives
+ * a status nor updates any truth layer; callers must use the public feature
+ * properties for the canonical current conclusion.
+ */
+export function listTruthMapCanonicalProjectionRecords(): TruthMapCanonicalProjectionRecord[] {
+  const { source } = readFinalTruthFile();
+  return (source.rows || [])
+    .map((row) => {
+      const geo = normalizeGeo(row.geo);
+      if (!geo) return null;
+      const seen = new Set<string>();
+      const sources = [
+        ...(row.primaryLaw?.officialSources || []),
+        ...(row.primaryLaw?.freshAxisOfficialSources || [])
+      ]
+        .map(projectCanonicalSource)
+        .filter((item): item is TruthMapCanonicalProjectionSource => Boolean(item))
+        .filter((item) => !seen.has(item.url) && Boolean(seen.add(item.url)));
+      return {
+        geo,
+        territory: String(row.territory || geo).trim() || geo,
+        sourceCoverage: String(row.primaryLaw?.sourceCoverage || "NOT_RECORDED").trim() || "NOT_RECORDED",
+        sources
+      };
+    })
+    .filter((item): item is TruthMapCanonicalProjectionRecord => Boolean(item))
+    .sort((left, right) => left.geo.localeCompare(right.geo));
 }
 
 export function resolveTruthMapLegalEvidence(

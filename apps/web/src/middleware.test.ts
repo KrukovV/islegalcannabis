@@ -13,6 +13,8 @@ describe("private truth audit routes", () => {
     "https://www.islegal.info/wiki-truth/row/BF",
     "https://www.islegal.info/truth-map",
     "https://www.islegal.info/truth-map/qa",
+    "https://www.islegal.info/truth-map/evidence-passport",
+    "https://www.islegal.info/truth-map/evidence-passport?geo=MN",
     "https://www.islegal.info/trust-view"
   ])("returns 404 outside localhost for %s", (url) => {
     expect(proxy(request(url)).status).toBe(404);
@@ -22,6 +24,7 @@ describe("private truth audit routes", () => {
     "http://127.0.0.1:3000/wiki-truth",
     "http://localhost:3000/wiki-truth",
     "http://127.0.0.1:3000/truth-map",
+    "http://127.0.0.1:3000/truth-map/evidence-passport?geo=MN",
     "http://127.0.0.1:3000/trust-view"
   ])("allows the local audit route for %s", (url) => {
     expect(proxy(request(url)).status).toBe(200);

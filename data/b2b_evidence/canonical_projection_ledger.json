@@ -1,0 +1,1549 @@
+{
+  "schemaVersion": 1,
+  "localOnly": true,
+  "appendOnly": true,
+  "snapshots": [
+    {
+      "versionId": "FINAL_307_RECONCILIATION:6e4d50dee3bd:e144a4f9e90b",
+      "generatedAt": "NOT_RECORDED",
+      "entries": [
+        {
+          "geo": "AD",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "CURRENT_CRIMINALIZED_ADULT_CANNABIS_WITH_CURRENTLY_PUBLISHED_NARROW_SATIVEX_PRODUCT_ROUTE"
+        },
+        {
+          "geo": "AE",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_CURRENT_INDUSTRIAL_HEMP_PRIMARY_LAW_WITHOUT_CANNABIS_PATIENT_ROUTE"
+        },
+        {
+          "geo": "AF",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_CURRENT_RECREATIONAL_PROHIBITION_WITH_MEDICAL_CANNABIS_AXIS_UNRESOLVED"
+        },
+        {
+          "geo": "AG",
+          "legalTruthColor": "GREEN",
+          "ruleId": "CURRENT_LIMITED_ADULT_POSSESSION_AND_HOME_CULTIVATION_LAWFUL_WITH_OPERATIONAL_MEDICAL_PATIENT_ROUTE"
+        },
+        {
+          "geo": "AI",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "CURRENT_REVISED_LAWS_IN_FORCE_BUT_CANNABIS_SPECIFIC_D045_SUBSTANTIVE_TEXT_AND_CURRENT_CANNABIS_PATIENT_ROUTE_NOT_VERIFIABLE; 2023_NAMED_EXEMPTION_REGULATION_SCOPE_CLOSED_AS_NON_CANNABIS"
+        },
+        {
+          "geo": "AL",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_AFFIRMATIVE_PERSONAL_USE_SMALL_DOSE_CRIMINAL_EXCLUSION_WITH_DOMESTIC_MEDICAL_CANNABIS_PROHIBITION"
+        },
+        {
+          "geo": "AM",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "OFFICIAL_STATUS_LIMITED_LAWFUL_INDUSTRIAL_HEMP_ONLY_NO_PATIENT_ACCESS"
+        },
+        {
+          "geo": "AO",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "NO_VERIFIABLE_CURRENT_CANNABIS_SPECIFIC_PRIMARY_LAW_AND_MEDICAL_ACCESS_AXES"
+        },
+        {
+          "geo": "AQ",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "NO_UNITARY_APPLICABLE_REGIME"
+        },
+        {
+          "geo": "AR",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_REPROCANN_MEDICAL_PRESCRIBER_REGISTRATION_AND_AUTHORIZED_PHARMACY_OR_CONTROLLED_CULTIVATION_AXES"
+        },
+        {
+          "geo": "AS",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "NO_VERIFIABLE_CURRENT_TERRITORIAL_PRIMARY_LAW_AFTER_EXHAUSTIVE_SEARCH"
+        },
+        {
+          "geo": "AT",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CANNABIS_SPECIFIC_PRESCRIPTION_PHARMACY_FRAMEWORK_WITHOUT_OPERATIONAL_PATIENT_PROGRAMME"
+        },
+        {
+          "geo": "AU",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_PATIENT_PRESCRIBER_REGISTRATION_LAWFUL_SUPPLY_AND_PHARMACY_OR_IMPORT_AXES"
+        },
+        {
+          "geo": "AW",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "LIMITED_CANNABIDIOL_MEDICINE_AND_NARCOTICS_EXCEPTION_WITH_NO_PROVEN_GENERAL_CANNABIS_PATIENT_PROGRAMME"
+        },
+        {
+          "geo": "AX",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_LIMITED_CANNABIS_DERIVED_PHARMACEUTICAL_PRODUCT_ACCESS_APPLICABLE_TO_AX"
+        },
+        {
+          "geo": "AZ",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_PRIMARY_LAW_CURRENTNESS_UNRESOLVED_FAIL_CLOSED"
+        },
+        {
+          "geo": "BA",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_STRICT_CONTROL_CANNABIS_RECLASSIFICATION_WITH_OPERATIONAL_PATIENT_ACCESS_CURRENTNESS_UNRESOLVED"
+        },
+        {
+          "geo": "BB",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_MULTI_AXIS"
+        },
+        {
+          "geo": "BD",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CANNABIS_SPECIFIC_STATUTORY_LICENSE_PERMIT_MEDICINAL_AND_TREATMENT_EXCEPTION_WITH_NO_OPERATIONAL_PATIENT_ACCESS_PROOF"
+        },
+        {
+          "geo": "BE",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_LIMITED_NAMED_CANNABIS_PHARMACEUTICAL_PRODUCT_ROUTE"
+        },
+        {
+          "geo": "BF",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CANNABIS_SPECIFIC_STATUTORY_MEDICAL_PRESCRIPTION_EXCEPTION_WITHOUT_PRODUCT_OR_OPERATIONAL_PATIENT_ACCESS_PROOF"
+        },
+        {
+          "geo": "BG",
+          "legalTruthColor": "RED",
+          "ruleId": "GENERAL_CURRENT_UNAUTHORISED_CANNABIS_PROHIBITION_PLUS_LIST_I_MEDICAL_APPLICATION_PROHIBITED"
+        },
+        {
+          "geo": "BH",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "OFFICIAL_STATUS_LIMITED_LAWFUL_MODE"
+        },
+        {
+          "geo": "BI",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "CURRENT_CANNABIS_CLASSIFICATION_WITH_MINISTRY_MEDICAL_SCIENTIFIC_AUTHORITY_AND_UNVERIFIABLE_DECISIVE_PENAL_CODE_CHAIN"
+        },
+        {
+          "geo": "BJ",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "CURRENT_PARTIAL_RECREATIONAL_NEGATIVE_AXES_WITH_CANNABIS_MEDICAL_TABLE_AND_OPERATIONAL_PATIENT_ACCESS_UNRESOLVED"
+        },
+        {
+          "geo": "BJN",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_DISPUTED_GEO_NO_UNITARY_APPLICABLE_REGIME"
+        },
+        {
+          "geo": "BL",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_APPLICABLE_CANNABIS_SPECIFIC_MEDICINAL_PRODUCT_EXCEPTION_WITHOUT_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "BM",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_RECREATIONAL_DECRIMINALIZATION"
+        },
+        {
+          "geo": "BN",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_CURRENT_RECREATIONAL_PROHIBITION_WITH_MEDICAL_PATIENT_ACCESS_UNRESOLVED_FAIL_CLOSED"
+        },
+        {
+          "geo": "BO",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_MEDICINAL_SPECIAL_PERMIT_WITHOUT_OPERATIONAL_PATIENT_PROGRAM"
+        },
+        {
+          "geo": "BQ",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_LIMITED_CANNABIS_PRESCRIPTION_AND_PROFESSIONAL_MEDICAL_EXCEPTION_WITHOUT_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "BR",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_REGULATION_PRESCRIBER_AND_PHARMACY_AXES"
+        },
+        {
+          "geo": "BRT",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "NO_UNITARY_APPLICABLE_REGIME"
+        },
+        {
+          "geo": "BS",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_ENACTED_MEDICAL_CANNABIS_FRAMEWORK_NOT_COMMENCED_OR_OPERATIONAL"
+        },
+        {
+          "geo": "BT",
+          "legalTruthColor": "RED",
+          "ruleId": "GENERAL_CURRENT_RECREATIONAL_PROHIBITION_AND_EXPRESS_NON_MEDICAL_CANNABIS_LIST"
+        },
+        {
+          "geo": "BV",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_SPECIAL_LAW_EXTENSION_UNPROVEN_FOR_DEPENDENT_TERRITORY"
+        },
+        {
+          "geo": "BW",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_INDUSTRY_ONLY_AND_PATIENT_AXIS_UNRESOLVED"
+        },
+        {
+          "geo": "BY",
+          "legalTruthColor": "RED",
+          "ruleId": "GENERAL_CURRENT_RECREATIONAL_PROHIBITION_AND_EXPRESS_NON_MEDICAL_CANNABIS_LIST"
+        },
+        {
+          "geo": "BZ",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_RECREATIONAL_DECRIMINALIZATION"
+        },
+        {
+          "geo": "CA",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_CURRENT_FEDERAL_ADULT_LAWFUL_POSSESSION_CONFIRMED"
+        },
+        {
+          "geo": "CC",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_CURRENT_APPLIED_TERRITORIAL_OPERATIONAL_PATIENT_ACCESS_MULTI_AXIS"
+        },
+        {
+          "geo": "CD",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "ENACTED_AND_COMMENCED_LIMITED_MEDICAL_SCIENTIFIC_CANNABIS_REGULATORY_FRAMEWORK_WITHOUT_PROVEN_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "CF",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_HISTORICAL_RECREATIONAL_PROHIBITION_WITH_UNRESOLVED_CURRENT_CANNABIS_SCHEDULE_AND_MEDICAL_AXIS"
+        },
+        {
+          "geo": "CG",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "CURRENT_RECREATIONAL_PROHIBITION_MEDICAL_CANNABIS_APPLICABILITY_UNRESOLVED"
+        },
+        {
+          "geo": "CH",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_FOPH_PRESCRIPTION_AND_PHARMACY_MAGISTRAL_ROUTE"
+        },
+        {
+          "geo": "CI",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_PRIMARY_TEXT_AND_MEDICAL_EXCEPTION_UNVERIFIED_FAIL_CLOSED"
+        },
+        {
+          "geo": "CK",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_MULTI_AXIS"
+        },
+        {
+          "geo": "CL",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_OFFICIAL_IMPORT_AND_PHARMACY_AXES"
+        },
+        {
+          "geo": "CM",
+          "legalTruthColor": "RED",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_TABLE_I_NO_MEDICAL_INTEREST_WITH_RESEARCH_ONLY_EXCEPTION"
+        },
+        {
+          "geo": "CN",
+          "legalTruthColor": "RED",
+          "ruleId": "CURRENT_NATIONAL_CANNABIS_RECREATIONAL_PROHIBITION_AND_NON_MEDICINAL_CLASSIFICATION_WITH_NO_LAWFUL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "CO",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_REGULATED_PRESCRIPTION_AND_DISPENSING_AXES"
+        },
+        {
+          "geo": "CR",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_MEDICINAL_CANNABIS_REGULATORY_REGIME_WITHOUT_PROVEN_PATIENT_DISPENSING"
+        },
+        {
+          "geo": "CU",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "CURRENT_RECREATIONAL_CANNABIS_PROHIBITION_MEDICAL_PATIENT_ACCESS_UNRESOLVED"
+        },
+        {
+          "geo": "CV",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_RECREATIONAL_PROHIBITION_WITH_UNRESOLVED_CANNABIS_MEDICAL_EXCEPTION"
+        },
+        {
+          "geo": "CW",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "CURRENT_CANNABIS_SPECIFIC_MINISTERIAL_LICENSING_WITHOUT_PROVEN_PATIENT_DISPENSING"
+        },
+        {
+          "geo": "CX",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_MULTI_AXIS"
+        },
+        {
+          "geo": "CY",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "CURRENT_PHARMACEUTICAL_CANNABIS_REGULATORY_FRAMEWORK_WITHOUT_PROVEN_OPERATIONAL_PATIENT_DISPENSING"
+        },
+        {
+          "geo": "CZ",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_LAWFUL_ADULT_POSSESSION_AND_PERSONAL_CULTIVATION_GREEN_PLUS_GENERAL_OPERATIONAL_PATIENT_ACCESS_GREEN"
+        },
+        {
+          "geo": "DE",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_LAWFUL_ADULT_POSSESSION_AND_PERSONAL_CULTIVATION"
+        },
+        {
+          "geo": "DJ",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "CURRENT_LIMITED_PRESCRIPTION_CANNABIS_EXCEPTION_WITHOUT_OPERATIONAL_PATIENT_PROGRAMME"
+        },
+        {
+          "geo": "DK",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_MULTI_AXIS"
+        },
+        {
+          "geo": "DM",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_RECREATIONAL_DECRIMINALIZATION_OR_LIMITED_ADULT_HOME_CULTIVATION"
+        },
+        {
+          "geo": "DO",
+          "legalTruthColor": "RED",
+          "ruleId": "CURRENT_FULL_CANNABIS_PROHIBITION_WITH_RESEARCH_ONLY_EXCEPTION_AND_NO_LAWFUL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "DZ",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_LIMITED_LAWFUL_MEDICAL_OR_SCIENTIFIC_CANNABIS_MINISTERIAL_AUTHORISATION_WITHOUT_PROVEN_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "EC",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_AGGREGATED_CURRENT_OFFICIAL_AXES"
+        },
+        {
+          "geo": "EE",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_CURRENT_PRESCRIBER_AND_UNLICENSED_MEDICINE_SUPPLY_ROUTE"
+        },
+        {
+          "geo": "EG",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "CURRENT_CONTROLLED_CANNABIS_WITH_LIMITED_PRESCRIPTION_MAXIMA_AND_CULTIVATION_PROHIBITION_WITHOUT_PROVEN_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "EH",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_DISPUTED_GEO_NO_OWN_REGIME"
+        },
+        {
+          "geo": "ER",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "LEGAL_APPLICABILITY_UNRESOLVED_CURRENT_CONTROLLED_PLANT_SCHEDULE_AND_CANNABIS_SPECIFIC_MEDICAL_EXCEPTION_NOT_VERIFIED"
+        },
+        {
+          "geo": "ES",
+          "legalTruthColor": "GREEN",
+          "ruleId": "CURRENT_OPERATIONAL_HOSPITAL_SPECIALIST_CANNABIS_PATIENT_ACCESS"
+        },
+        {
+          "geo": "ET",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "CURRENT_GENERIC_NARCOTIC_MEDICINE_ROUTE_NOT_CANNABIS_SPECIFIC_HISTORIC_CANNABIS_LAW_CURRENT_FORCE_UNCONFIRMED"
+        },
+        {
+          "geo": "FI",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_NAMED_CANNABIS_DERIVED_PHARMACEUTICAL_PRODUCT_ONLY"
+        },
+        {
+          "geo": "FJ",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CANNABIS_SPECIFIC_PROHIBITION_WITH_CURRENT_LIMITED_MEDICAL_PRESCRIPTION_EXCEPTION_AND_MINISTERIAL_LICENCE"
+        },
+        {
+          "geo": "FK",
+          "legalTruthColor": "RED",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_SCHEDULE_1_NOT_COVERED_BY_MEDICINAL_PRODUCT_EXCEPTION_NO_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "FM",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "NO_VERIFIABLE_PRIMARY_LAW_AFTER_EXHAUSTIVE_SEARCH"
+        },
+        {
+          "geo": "FO",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "CONCLUSION_EXPLICIT_COLOR_CONSISTENCY_GUARD_YELLOW"
+        },
+        {
+          "geo": "FR",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "OFFICIAL_CURRENT_PRESCRIPTION_ONLY_CANNABIDIOL_ACCESS_WITH_GENERAL_MEDICAL_CANNABIS_PROGRAMME_UNCONFIRMED"
+        },
+        {
+          "geo": "GA",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CANNABIS_CLASSIFIED_NARCOTIC_LINKED_SPECIAL_MEDICAL_AUTHORISATION_AND_SPECIAL_PRESCRIPTION_WITHOUT_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "GB",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_OFFICIAL_ELIGIBILITY_PRESCRIBER_AND_PHARMACIST_DISPENSING_EVIDENCE"
+        },
+        {
+          "geo": "GD",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_LIMITED_MEDICINAL_LICENSE_AND_PRESCRIPTION_FRAMEWORK_WITHOUT_OPERATIONAL_PATIENT_PROGRAMME"
+        },
+        {
+          "geo": "GE",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_NARROW_PRIVATE_CONSUMPTION_DECRIMINALIZATION_WITH_SMALL_QUANTITY_ACQUISITION_POSSESSION_AND_TRANSPORT_STILL_PENALISED_MEDICAL_AXIS_UNRESOLVED"
+        },
+        {
+          "geo": "GF",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_APPLICABLE_NATIONAL_LIMITED_MEDICAL_TRANSITION_WITHOUT_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "GG",
+          "legalTruthColor": "GREEN",
+          "ruleId": "OPERATIONAL_PATIENT_ACCESS_WITH_RECREATIONAL_PROHIBITION"
+        },
+        {
+          "geo": "GH",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CANNABIS_SPECIFIC_LOW_THC_MEDICINAL_INDUSTRIAL_LICENSING_FRAMEWORK_WITHOUT_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "GI",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_SPECIFIC_LIMITED_PATIENT_ROUTE_WITHOUT_PROVEN_OPERATIONAL_PROGRAMME"
+        },
+        {
+          "geo": "GL",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_CANNABIS_CLASSIFICATION_PRESCRIPTION_AND_PUBLIC_SUPPLY_AXES"
+        },
+        {
+          "geo": "GM",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_FAIL_CLOSED_RECREATIONAL_PROHIBITION_WITH_GENERIC_OPERATOR_LICENCE_RESEARCH_PHARMACY_CONTEXT_AND_MEDICAL_AXIS_UNRESOLVED"
+        },
+        {
+          "geo": "GN",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "CANNABIS_LINKED_MEDICAL_PRESCRIPTION_EXCEPTION_WITHOUT_OPERATIONAL_PATIENT_PROGRAMME"
+        },
+        {
+          "geo": "GP",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_ENACTED_NOT_OPERATIONAL_CANNABIS_MEDICINE_FRAMEWORK"
+        },
+        {
+          "geo": "GQ",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "LEGAL_APPLICABILITY_UNRESOLVED_CURRENTNESS_OF_GENERAL_DRUG_DECREE_AND_CANNABIS_SPECIFIC_MEDICAL_REGIME_NOT_VERIFIED"
+        },
+        {
+          "geo": "GR",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_PATIENT_PRESCRIBER_PHARMACY_SUPPLY_AND_OPERATIONAL_AXES"
+        },
+        {
+          "geo": "GS",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_SCHEDULE_PLUS_AUTHORISATION_EVIDENCE_RULE_NO_PATIENT_OPERATION_INFERENCE"
+        },
+        {
+          "geo": "GT",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "NO_CANNABIS_SPECIFIC_APPLICABLE_DOMESTIC_RULE_PROVEN"
+        },
+        {
+          "geo": "GU",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_ADULT_USE_FROM_CURRENT_LAWFUL_ADULT_POSSESSION_AND_CULTIVATION_AXES"
+        },
+        {
+          "geo": "GW",
+          "legalTruthColor": "RED",
+          "ruleId": "CURRENT_CANNABIS_TABLE_I_PROHIBITION_WITHOUT_LAWFUL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "GY",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "CURRENT_LOW_QUANTITY_CANNABIS_DECRIMINALIZED_PENALTY_REGIME_WITHOUT_PATIENT_PROGRAMME"
+        },
+        {
+          "geo": "HK",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_UNRESOLVED_MEDICAL_EXCEPTION_APPLICABILITY_NO_COLOUR"
+        },
+        {
+          "geo": "HM",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "LEGAL_APPLICABILITY_UNRESOLVED"
+        },
+        {
+          "geo": "HN",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CANNABIS_NAMED_CONTROLLED_MEDICINE_PRESCRIPTION_PHARMACY_ROUTE_NO_OPERATIONAL_PROGRAMME"
+        },
+        {
+          "geo": "HR",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_BY_PRESCRIPTION_AND_PHARMACY_DISPENSING"
+        },
+        {
+          "geo": "HT",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "NO_VERIFIABLE_PRIMARY_LAW_AFTER_EXHAUSTIVE_SEARCH"
+        },
+        {
+          "geo": "HU",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_SCHEDULE_PLUS_LIMITED_LICENSED_MEDICAL_ACTIVITY_ROUTE"
+        },
+        {
+          "geo": "ID",
+          "legalTruthColor": "RED",
+          "ruleId": "GENERAL_CURRENT_GROUP_I_CANNABIS_HEALTH_SERVICE_PROHIBITION_AND_STRICT_UNAUTHORISED_OFFENCES"
+        },
+        {
+          "geo": "IE",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_PROGRAMME_PRESCRIBER_AND_SUPPLY_AXES"
+        },
+        {
+          "geo": "IL",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_PERMIT_SPECIALIST_AND_PHARMACIST_DISPENSING_EVIDENCE"
+        },
+        {
+          "geo": "IM",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_TERRITORIAL_PRESCRIPTION_IMPORT_AND_LICENSED_PHARMACY_DISPENSING_EVIDENCE"
+        },
+        {
+          "geo": "IN",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CANNABIS_SPECIFIC_STATUTORY_MEDICAL_OR_SCIENTIFIC_EXCEPTION_WITHOUT_OPERATIONAL_PATIENT_PROGRAMME"
+        },
+        {
+          "geo": "IO",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_DEPENDENT_TERRITORY_LOCAL_APPLICABILITY_UNRESOLVED_NO_COLOR"
+        },
+        {
+          "geo": "IQ",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_SCHEDULED_PRODUCT_WITH_PRIMARY_LAW_PRESCRIPTION_PHARMACY_ROUTE_BUT_NO_PROVEN_CANNABIS_PROGRAMME_OPERATION"
+        },
+        {
+          "geo": "IR",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "NO_VERIFIABLE_PRIMARY_LAW_AFTER_EXHAUSTIVE_SEARCH"
+        },
+        {
+          "geo": "IS",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_REGULATOR_AVAILABILITY_MARKET_RECORD_AND_PRESCRIPTION_SUPPLY"
+        },
+        {
+          "geo": "IT",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_ITALIAN_PRESCRIBING_PHARMACY_PREPARATION_DISPENSING_AND_DISTRIBUTION_AXES"
+        },
+        {
+          "geo": "JE",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_MULTISOURCE_PATIENT_ELIGIBILITY_PRESCRIBER_PHARMACY_DISPENSING_AND_SUPPLY_AXES"
+        },
+        {
+          "geo": "JM",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_RECREATIONAL_DECRIMINALISATION_AND_LIMITED_CANNABIS_LICENSING_WITHOUT_ADULT_USE_OR_PATIENT_PROGRAMME"
+        },
+        {
+          "geo": "JO",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_LIMITED_CURRENT_MEDICAL_OR_SCIENTIFIC_LICENSED_SCOPE_WITHOUT_PATIENT_ACCESS"
+        },
+        {
+          "geo": "JP",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_ENACTED_LIMITED_MEDICINAL_CANNABIS_FRAMEWORK_WITHOUT_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "KAS",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "DISPUTED_GEO_NO_OWN_REGIME"
+        },
+        {
+          "geo": "KE",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CANNABIS_SPECIFIC_STATUTORY_MEDICAL_PRESCRIPTION_EXCEPTION_WITHOUT_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "KG",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "LEGAL_APPLICABILITY_UNRESOLVED"
+        },
+        {
+          "geo": "KH",
+          "legalTruthColor": "RED",
+          "ruleId": "GENERAL_CURRENT_TABLE_I_NO_MEDICAL_USE_WITH_POSITIVE_RECREATIONAL_PROHIBITION_AND_NO_PATIENT_ACCESS"
+        },
+        {
+          "geo": "KI",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "LIMITED_CANNABIS_EXTRACT_OR_TINCTURE_PRESCRIPTION_AND_PHARMACIST_ROUTE"
+        },
+        {
+          "geo": "KM",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "NO_VERIFIABLE_PRIMARY_LAW_AFTER_EXHAUSTIVE_SEARCH"
+        },
+        {
+          "geo": "KN",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_RECREATIONAL_DECRIMINALIZATION_FROM_EFFECTIVE_PRIMARY_LAW"
+        },
+        {
+          "geo": "KP",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CANNABIS_SPECIFIC_CLASSIFICATION_PLUS_LIMITED_STATUTORY_PATIENT_PRESCRIPTION_AND_SUPPLY_ROUTE_WITHOUT_OPERATIONAL_PROGRAMME"
+        },
+        {
+          "geo": "KR",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_SPECIAL_PERMIT_MEDICINAL_PRODUCT_ONLY"
+        },
+        {
+          "geo": "KW",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "NO_VERIFIABLE_PRIMARY_LAW_AFTER_EXHAUSTIVE_SEARCH"
+        },
+        {
+          "geo": "KY",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_PRESCRIBED_CANNABIS_EXCEPTION_WITH_LEGAL_PROFESSIONAL_ROUTE_BUT_NO_OPERATIONAL_SUPPLY_PROOF"
+        },
+        {
+          "geo": "KZ",
+          "legalTruthColor": "RED",
+          "ruleId": "GENERAL_CURRENT_EXPRESS_MEDICAL_USE_PROHIBITION_PLUS_PRIMARY_CRIMINAL_RECREATIONAL_PROHIBITION"
+        },
+        {
+          "geo": "LA",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "NO_VERIFIABLE_PRIMARY_LAW_AFTER_EXHAUSTIVE_SEARCH_FOR_CURRENT_CANNABIS_SPECIFIC_DOMESTIC_AND_MEDICAL_AXES"
+        },
+        {
+          "geo": "LB",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "CURRENT_LIMITED_MEDICAL_SCIENTIFIC_INDUSTRIAL_CANNABIS_CULTIVATION_REGULATORY_MODE_WITHOUT_PROVEN_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "LC",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_RECREATIONAL_DECRIMINALIZATION_FROM_EFFECTIVE_PRIMARY_LAW"
+        },
+        {
+          "geo": "LI",
+          "legalTruthColor": "GREEN",
+          "ruleId": "OPERATIONAL_EXCEPTION_BASED_CANNABIS_PATIENT_ACCESS_WITH_CURRENT_PRESCRIPTION_AND_PHARMACY_ROUTE"
+        },
+        {
+          "geo": "LK",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CANNABIS_SCHEDULE_PLUS_REGULATED_PRESCRIPTION_OR_NARROW_LAWFUL_MODE_RULE_NO_PATIENT_OPERATION_INFERENCE"
+        },
+        {
+          "geo": "LR",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "CURRENT_CANNABIS_SPECIFIC_STATUTE_AND_MEDICAL_PATIENT_AXIS_UNVERIFIED_WITH_HISTORICAL_OFFICIAL_MARIJUANA_ENFORCEMENT_CONTEXT"
+        },
+        {
+          "geo": "LS",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "CURRENT_LICENSED_MEDICINAL_CANNABIS_CULTIVATION_PROCESSING_EXPORT_AND_GENERIC_CONTROLLED_DRUG_PRESCRIPTION_FRAMEWORK_WITHOUT_PROVEN_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "LT",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_PHARMACEUTICAL_ONLY_CANNABIS_EXCEPTION_WITHOUT_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "LU",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_LAWFUL_ADULT_HOME_CULTIVATION_AND_PRIVATE_CONSUMPTION"
+        },
+        {
+          "geo": "LV",
+          "legalTruthColor": "RED",
+          "ruleId": "GENERAL_CURRENT_SCHEDULE_I_CANNABIS_PROHIBITION_WITH_HUMAN_PATIENT_DISPENSING_LIMITED_TO_SCHEDULES_II_III_AND_RESEARCH_VETERINARY_SCOPE_ONLY"
+        },
+        {
+          "geo": "LY",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "CURRENT_LIMITED_TABLE5_MEDICAL_OR_SCIENTIFIC_CANNABIS_EXCEPTION_WITHOUT_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "MA",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_LIMITED_LAWFUL_CANNABIS_AUTHORIZATION_AND_CONSUMER_PRODUCT_ROUTE_NO_OPERATIONAL_PATIENT_PROGRAMME"
+        },
+        {
+          "geo": "MC",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "CURRENT_RECREATIONAL_PROHIBITION_WITH_CONDITIONAL_CANNABIS_PHARMACEUTICAL_EXCEPTION_AND_UNVERIFIED_PATIENT_ACCESS"
+        },
+        {
+          "geo": "MD",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "LEGAL_APPLICABILITY_UNRESOLVED_CURRENT_LAW_201_2025_ARTICLE_80_AMENDMENT_TEXT_NOT_PUBLICLY_AVAILABLE"
+        },
+        {
+          "geo": "ME",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_SCHEDULE_PLUS_LIMITED_MEDICAL_PHARMACEUTICAL_ROUTE"
+        },
+        {
+          "geo": "MF",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_FAMILY_PHARMACEUTICAL_PRODUCT_WITH_PRESCRIPTION_AND_PHARMACY_SUPPLY_BUT_NO_OPERATIONAL_MEDICAL_CANNABIS_PROGRAM"
+        },
+        {
+          "geo": "MG",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_PROVEN_RECREATIONAL_PROHIBITION_WITH_UNRESOLVED_MEDICAL_AXIS_REQUIRES_UNKNOWN"
+        },
+        {
+          "geo": "MH",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_SPECIFIC_STATUTORY_PRESCRIPTION_EXCEPTION_WITHOUT_OPERATIONAL_PATIENT_PROGRAMME_OR_SUPPLY_PROOF"
+        },
+        {
+          "geo": "MK",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "CURRENT_AFFIRMATIVE_NON_PUNISHMENT_OF_PERSONAL_CONTROLLED_SUBSTANCE_POSSESSION_WITHOUT_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "ML",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "CURRENT_CANNABIS_CULTIVATION_AND_DERIVATIVE_SANCTIONS_WITH_UNRESOLVED_CANNABIS_TABLE_ASSIGNMENT_AND_MEDICAL_AXIS"
+        },
+        {
+          "geo": "MM",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "CURRENT_RECREATIONAL_PROHIBITION_PROVEN_BUT_CANNABIS_SPECIFIC_MEDICAL_NEGATIVE_AXIS_UNPROVEN_AND_GENERAL_MEDICAL_EXCEPTION_UNRESOLVED"
+        },
+        {
+          "geo": "MN",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_MULTI_AXIS"
+        },
+        {
+          "geo": "MO",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_SPECIFIC_ENTITY_THERAPEUTIC_AUTHORIZATION_WITHOUT_PATIENT_PRESCRIBER_SUPPLY_OR_PROGRAMME_PROOF"
+        },
+        {
+          "geo": "MP",
+          "legalTruthColor": "GREEN",
+          "ruleId": "CURRENT_OPERATIONAL_ADULT_USE_FROM_PRIMARY_LAW_FINAL_RULES_AND_CURRENT_LICENSED_RETAIL_EVIDENCE"
+        },
+        {
+          "geo": "MQ",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_AGGREGATED_CURRENT_OFFICIAL_AXES"
+        },
+        {
+          "geo": "MR",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_FAIL_CLOSED_WHEN_CURRENT_CANNABIS_SPECIFIC_APPLICABILITY_AND_MEDICAL_AXES_REMAIN_UNVERIFIED"
+        },
+        {
+          "geo": "MS",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "CURRENT_CANNABIS_SPECIFIC_LIMITED_PRESCRIPTION_AND_DISPENSING_MODE_NOT_PROVEN_OPERATIONAL"
+        },
+        {
+          "geo": "MT",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_CURRENT_OPERATIONAL_ADULT_USE_WITH_AFFIRMATIVE_POSSESSION_CULTIVATION_AND_LICENSED_ASSOCIATION_SUPPLY"
+        },
+        {
+          "geo": "MU",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_ENACTED_REGULATED_MEDICINAL_CANNABIS_FRAMEWORK_WITHOUT_OPERATIONAL_PATIENT_ACCESS_PROOF"
+        },
+        {
+          "geo": "MV",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "CURRENT_CANNABIS_SCHEDULE_I_TRAFFICKING_CONTEXT_WITH_NO_VERIFIABLE_CURRENT_CONSOLIDATED_OPERATIVE_PRIMARY_TEXT"
+        },
+        {
+          "geo": "MW",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_ENACTED_PATIENT_CARD_AND_LICENSED_CANNABIS_FRAMEWORK_WITHOUT_OPERATIONAL_PROOF"
+        },
+        {
+          "geo": "MX",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_SPECIAL_PERSONAL_AUTOCONSUMPTION_PERMIT_AND_REGULATED_MEDICAL_FRAMEWORK_WITHOUT_GENERAL_ACCESS"
+        },
+        {
+          "geo": "MY",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_CURRENT_RECREATIONAL_PROHIBITION_WITH_UNCLOSED_MEDICAL_AXIS"
+        },
+        {
+          "geo": "MZ",
+          "legalTruthColor": "RED",
+          "ruleId": "CURRENT_CANNABIS_TABLE_I_C_RECREATIONAL_AND_PATIENT_CONSUMPTION_PROHIBITED_WITH_NO_SUPERSEDING_MEDICAL_EXCEPTION_PROVEN"
+        },
+        {
+          "geo": "NA",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CANNABIS_SPECIFIC_THERAPEUTIC_PRODUCT_CLASSIFICATION_PLUS_CURRENT_CONDITIONAL_PATIENT_PERMIT_NOT_OPERATIONAL_PROGRAMME"
+        },
+        {
+          "geo": "NC",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_CURRENT_RECREATIONAL_PROHIBITION_PROVEN_BUT_CANNABIS_SPECIFIC_MEDICAL_ACCESS_AND_PROHIBITION_AXES_UNRESOLVED"
+        },
+        {
+          "geo": "NE",
+          "legalTruthColor": "RED",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_TABLE_I_NO_MEDICAL_INTEREST_AND_ARTICLE_9_PROHIBITION_WITH_POST_CODE_CURRENTNESS_BRIDGE"
+        },
+        {
+          "geo": "NF",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CANNABIS_SPECIFIC_PRESCRIPTION_IMPORT_AND_SUPPLY_EXCEPTION_WITHOUT_PROVEN_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "NG",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CANNABIS_SPECIFIC_STATUTORY_MEDICAL_PREPARATION_EXCEPTION_WITH_CURRENT_RECREATIONAL_ENFORCEMENT_BUT_NO_PROVEN_OPERATIONAL_PROGRAMME"
+        },
+        {
+          "geo": "NI",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_SPECIFIC_SPECIAL_AUTHORISATION_WITHOUT_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "NL",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_CURRENT_OPERATIONAL_PATIENT_ACCESS_WITH_PROVEN_PATIENT_PRESCRIBER_GOVERNMENT_DISTRIBUTION_AND_PHARMACY_SUPPLY"
+        },
+        {
+          "geo": "NO",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "CURRENT_CANNABIS_SPECIFIC_PROHIBITION_PLUS_OPERATIONAL_LIMITED_NAMED_PATIENT_SPECIAL_PERMIT_ROUTE"
+        },
+        {
+          "geo": "NP",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CANNABIS_APPLICABLE_PRESCRIPTION_EXCEPTION_NON_OPERATIONAL"
+        },
+        {
+          "geo": "NR",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_SPECIFIC_SCHEDULE_PLUS_LAWFUL_PRESCRIBED_OR_PROVIDED_TREATMENT_EXEMPTION_NOT_OPERATIONAL_PROGRAMME"
+        },
+        {
+          "geo": "NU",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CANNABIS_SCHEDULED_CONTROLLED_DRUG_WITH_AUTHORISED_PRACTICE_AND_PATIENT_TREATMENT_EXCEPTION_BUT_NO_PROVEN_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "NZ",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_SCHEME_PRESCRIBER_PRODUCT_LIST_AND_CONTROLLED_DRUG_DISPENSING_AXES"
+        },
+        {
+          "geo": "OM",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "FAIL_CLOSED_CURRENT_CANNABIS_PROHIBITION_WITH_UNRESOLVED_CANNABIS_SPECIFIC_MEDICAL_EXCEPTION_AND_AMENDMENT_CHAIN"
+        },
+        {
+          "geo": "PA",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "CURRENT_CANNABIS_SPECIFIC_PATIENT_REGISTRATION_AND_CONTROLLED_MEDICAL_FRAMEWORK_WITHOUT_PROVEN_OPERATIONAL_PATIENT_SUPPLY"
+        },
+        {
+          "geo": "PE",
+          "legalTruthColor": "GREEN",
+          "ruleId": "CURRENT_OPERATIONAL_MEDICAL_CANNABIS_PATIENT_ACCESS_WITH_RENPUC_AND_LICENSED_PHARMACY_DISPENSING"
+        },
+        {
+          "geo": "PF",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CANNABIS_SPECIFIC_LIMITED_PRODUCT_REGULATION_WITHOUT_PATIENT_PROGRAMME"
+        },
+        {
+          "geo": "PG",
+          "legalTruthColor": "RED",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_SCHEDULE_I_NO_MEDICAL_VALUE_AND_STRICT_PROHIBITION_WITH_CURRENT_OFFICIAL_ACT_RECORD"
+        },
+        {
+          "geo": "PGA",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "LEGAL_APPLICABILITY_UNRESOLVED"
+        },
+        {
+          "geo": "PH",
+          "legalTruthColor": "RED",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_SPECIFIC_RECREATIONAL_PROHIBITION_WITH_NO_PATIENT_ACCESS_EXCEPTION"
+        },
+        {
+          "geo": "PK",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CANNABIS_SPECIFIC_LICENSED_MEDICAL_AND_PHARMACEUTICAL_REGIME_WITHOUT_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "PL",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_CURRENT_OPERATIONAL_PATIENT_ACCESS_FROM_PRESCRIBER_STATUTE_AND_PRACTICAL_PHARMACY_EVIDENCE"
+        },
+        {
+          "geo": "PM",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_FAMILY_PHARMACEUTICAL_PRODUCT_WITH_PRESCRIPTION_AND_PHARMACY_SUPPLY_BUT_NO_OPERATIONAL_MEDICAL_CANNABIS_PROGRAM"
+        },
+        {
+          "geo": "PN",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_DEPENDENT_TERRITORY_CONDITIONAL_METROPOLITAN_LAW_WITHOUT_CANNABIS_EXTENSION_OR_LOCAL_REGIME"
+        },
+        {
+          "geo": "PR",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_PATIENT_ELIGIBILITY_PRESCRIBER_REGISTRATION_LAWFUL_SUPPLY_AND_LICENSED_DISPENSARY_AXES"
+        },
+        {
+          "geo": "PS",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CANNABIS_SCHEDULED_WITH_CURRENT_MEDICAL_SCIENTIFIC_MINISTERIAL_AUTHORISATION_WITHOUT_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "PT",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_PRESCRIBER_PHARMACY_AND_MARKET_AUTHORIZATION_AXES"
+        },
+        {
+          "geo": "PW",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_FINE_ONLY_PERSONAL_POSSESSION_DECRIMINALIZATION_WITHOUT_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "PY",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_REGISTERED_PATIENT_PRESCRIBER_PROGRAMME_WITH_LAWFUL_PROGRAMME_DISPENSING"
+        },
+        {
+          "geo": "QA",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_CANNABIS_SPECIFIC_NARROW_TRANSIT_RULE_AND_GENERIC_CONTROLLED_MEDICINE_REGIME_WITHOUT_SCHEDULE_LINK"
+        },
+        {
+          "geo": "RE",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_AGGREGATED_CURRENT_OFFICIAL_AXES"
+        },
+        {
+          "geo": "RO",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_FAMILY_PHARMACEUTICAL_PRODUCT_ONLY_WITHOUT_PROVEN_PATIENT_ACCESS_OR_OPERATIONAL_PROGRAMME"
+        },
+        {
+          "geo": "RS",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_LIMITED_STATUTORY_THERAPEUTIC_CANNABIS_ACCESS_WITHOUT_OPERATIONAL_PATIENT_ACCESS_PROOF"
+        },
+        {
+          "geo": "RU",
+          "legalTruthColor": "RED",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_LIST_I_PROHIBITION_WITH_CLOSED_NONPATIENT_STATUTORY_EXCEPTIONS"
+        },
+        {
+          "geo": "RW",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CANNABIS_SPECIFIC_PRESCRIPTION_LAW_WITHOUT_OPERATIONAL_SUPPLY"
+        },
+        {
+          "geo": "SA",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_SPECIFIC_PRESCRIPTION_AND_LAWFUL_PHARMACY_ROUTE_WITHOUT_OPERATIONAL_PROGRAMME_PROOF"
+        },
+        {
+          "geo": "SB",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_CURRENT_PRIMARY_CANNABIS_PROHIBITION_WITH_GENERIC_CONTROLLED_DRUG_MEDICAL_RULES_REQUIRES_CURRENT_CANNABIS_SPECIFIC_IMPLEMENTING_CHAIN"
+        },
+        {
+          "geo": "SC",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "CURRENT_CBD_ONLY_MEDICINAL_PRODUCT_STATUTORY_ROUTE_WITHOUT_FULL_CANNABIS_PROGRAMME_OPERATIONAL_PROOF"
+        },
+        {
+          "geo": "SCR",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "DISPUTED_GEO_NO_OWN_REGIME"
+        },
+        {
+          "geo": "SD",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CANNABIS_SCHEDULED_WITH_CURRENT_MEDICAL_SCIENTIFIC_MINISTERIAL_AUTHORISATION_WITHOUT_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "SE",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_NAMED_CANNABINOID_PRESCRIPTION_MEDICINE_WITHOUT_COMPREHENSIVE_OPERATIONAL_PATIENT_PROGRAM"
+        },
+        {
+          "geo": "SER",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_DISPUTED_GEO_NO_OWN_REGIME"
+        },
+        {
+          "geo": "SG",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_LIMITED_NAMED_CANNABIS_PHARMACEUTICAL_PRODUCT_ROUTE"
+        },
+        {
+          "geo": "SH",
+          "legalTruthColor": "RED",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_SPECIFIC_RECREATIONAL_PROHIBITION_WITH_NONPATIENT_IMPLEMENTING_RULE_BOUNDARY"
+        },
+        {
+          "geo": "SI",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "LIMITED_MEDICAL_CANNABIS_STATUTORY_AND_REGULATORY_FRAMEWORK_NO_ROUTINE_BROAD_CANNABIS_PATIENT_DISPENSING_PROOF"
+        },
+        {
+          "geo": "SJ",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_COMPOSITE_COMPONENTS_HAVE_DIFFERENT_REGIMES_NO_UNITARY_APPLICABLE_COLOUR"
+        },
+        {
+          "geo": "SK",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "CURRENT_REGISTERED_CANNABIS_DERIVED_PRESCRIPTION_MEDICINE_WITHOUT_OPERATIONAL_MEDICAL_CANNABIS_PROGRAMME_PROOF"
+        },
+        {
+          "geo": "SL",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CANNABIS_SPECIFIC_REGULATED_CULTIVATION_PROCESSING_FOR_MEDICINAL_PRODUCTS_WITHOUT_PROVEN_PATIENT_ACCESS"
+        },
+        {
+          "geo": "SM",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_SPECIFIC_PRESCRIPTION_AND_LAWFUL_STATE_PHARMACY_ROUTE_WITHOUT_OPERATIONAL_PROGRAMME_PROOF"
+        },
+        {
+          "geo": "SN",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_PROHIBITION_WITH_SCHEDULE_CLASSIFICATION_AND_MEDICAL_APPLICABILITY_UNRESOLVED"
+        },
+        {
+          "geo": "SO",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_CURRENT_NARCOTIC_ACT_WITH_UNPROVEN_CANNABIS_TO_DOMESTIC_LIST_BRIDGE_AND_GENERIC_MEDICAL_CONTROLS"
+        },
+        {
+          "geo": "SPI",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "LEGAL_APPLICABILITY_UNRESOLVED"
+        },
+        {
+          "geo": "SR",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_SCHEDULE_PLUS_AUTHORISATION_EVIDENCE_RULE"
+        },
+        {
+          "geo": "SS",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CANNABIS_SPECIFIC_PROFESSIONAL_AUTHORISATION_RULE_NO_PATIENT_OPERATION_INFERENCE"
+        },
+        {
+          "geo": "ST",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "NO_VERIFIABLE_CURRENT_PRIMARY_LAW_AFTER_OFFICIAL_HTTP_API_AND_ARCHIVE_ACCESS_CHECK"
+        },
+        {
+          "geo": "SV",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "CURRENT_LIMITED_CANNABIS_SPECIFIC_AUTHORISED_MEDICAL_TREATMENT_EXCEPTION_WITH_CONTROLLED_PRESCRIPTION_AND_DISPENSING_FRAMEWORK_WITHOUT_PROVEN_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "SX",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_SPECIFIC_AUTHORISED_PRESCRIPTION_IMPORT_AND_PHARMACY_ROUTE_WITHOUT_OPERATIONAL_PROGRAMME_PROOF"
+        },
+        {
+          "geo": "SY",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_CURRENT_NARCOTIC_LAW_WITH_CANNABIS_ENFORCEMENT_CONTEXT_AND_NO_CURRENT_CANNABIS_SCHEDULE_BRIDGE"
+        },
+        {
+          "geo": "SZ",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "CURRENT_ENACTED_CANNABIS_MEDICINAL_SCIENTIFIC_PRODUCTION_AND_AUTHORISED_PROFESSIONAL_HANDLER_FRAMEWORK_WITHOUT_PROVEN_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "TC",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "CURRENT_AVAILABLE_CANNABIS_CLASS_B_CONTROL_WITH_LIMITED_STATUTORY_PRESCRIBED_TRAVELLER_ROUTE_NO_DOMESTIC_OPERATIONAL_PATIENT_PROGRAMME_PROVEN"
+        },
+        {
+          "geo": "TD",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "NO_VERIFIABLE_PRIMARY_LAW_AFTER_EXHAUSTIVE_SEARCH"
+        },
+        {
+          "geo": "TF",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "LEGAL_APPLICABILITY_UNRESOLVED"
+        },
+        {
+          "geo": "TG",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_UNKNOWN_WHEN_CURRENT_CANNABIS_RECREATIONAL_PROHIBITION_IS_PROVEN_BUT_CURRENT_CANNABIS_PATIENT_ACCESS_PROHIBITION_OR_ROUTE_IS_UNRESOLVED"
+        },
+        {
+          "geo": "TH",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_SPECIFIC_LIMITED_LAWFUL_REGIME_WITHOUT_OPERATIONAL_ADULT_USE_OR_COMPLETE_PATIENT_ACCESS_THRESHOLD"
+        },
+        {
+          "geo": "TJ",
+          "legalTruthColor": "RED",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_SPECIFIC_RECREATIONAL_PROHIBITION_WITH_GENERIC_ENTITY_LICENSING_NON_PROMOTION_BOUNDARY"
+        },
+        {
+          "geo": "TK",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_SPECIFIC_WRITTEN_PRESCRIPTION_DEFENCE_LIMITED_LAWFUL_MODE"
+        },
+        {
+          "geo": "TL",
+          "legalTruthColor": "RED",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_SPECIFIC_RECREATIONAL_PROHIBITION_WITH_GENERIC_TABLE_I_IV_LICENSING_AND_PHARMACEUTICAL_NON_PROMOTION_BOUNDARIES"
+        },
+        {
+          "geo": "TM",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_PROHIBITION_PROVEN_BUT_UNPROVED_MEDICAL_PATIENT_EXCEPTION_ABSENCE_CANNOT_CREATE_RED"
+        },
+        {
+          "geo": "TN",
+          "legalTruthColor": "RED",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_SCHEDULE_PROHIBITION_WITH_COMPLETE_NON_PATIENT_EXCEPTION_AND_AMENDMENT_SCOPE_REVIEW"
+        },
+        {
+          "geo": "TO",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "CURRENT_AVAILABLE_CANNABIS_SCHEDULE_WITH_LIMITED_STATUTORY_TRAVELLER_PRESCRIPTION_POSSESSION_EXCEPTION_NO_DOMESTIC_OPERATIONAL_PATIENT_PROGRAMME_PROVEN"
+        },
+        {
+          "geo": "TR",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_ENACTED_CANNABIS_DERIVED_MEDICAL_PRODUCT_PHARMACY_ONLY_NOT_OPERATIONAL"
+        },
+        {
+          "geo": "TT",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_RECREATIONAL_DECRIMINALIZATION_FROM_EFFECTIVE_PRIMARY_LAW_AND_PROCLAMATION"
+        },
+        {
+          "geo": "TV",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "CURRENT_CANNABIS_LINKED_MEDICAL_SCIENTIFIC_LICENCE_REGIME_WITH_UNLICENSED_INDIAN_HEMP_PROHIBITION_NO_OPERATIONAL_PATIENT_PROGRAMME_PROVEN"
+        },
+        {
+          "geo": "TW",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_CURRENT_OPERATIONAL_PATIENT_ACCESS_VIA_SCHEDULE_2_PRESCRIPTION_DISPENSING_AND_TFDA_IMPORT_PROCESS"
+        },
+        {
+          "geo": "TZ",
+          "legalTruthColor": "RED",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_SPECIFIC_RECREATIONAL_PROHIBITION_WITH_GENERIC_TREATMENT_AND_REGULATION_NON_PROMOTION_BOUNDARY"
+        },
+        {
+          "geo": "UA",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_SPECIFIC_STATUTORY_MEDICAL_E_PRESCRIPTION_AND_PHARMACY_ROUTE"
+        },
+        {
+          "geo": "UG",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_SPECIFIC_SCHEDULE_PLUS_APPLICABLE_STATUTORY_PRESCRIPTION_AND_PHARMACIST_SUPPLY_ROUTE"
+        },
+        {
+          "geo": "UM",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "NO_UNITARY_APPLICABLE_REGIME"
+        },
+        {
+          "geo": "US",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "CURRENT_FEDERAL_LIMITED_NAMED_CANNABIS_DERIVED_PRESCRIPTION_PRODUCT_ROUTE_WITH_SEPARATE_STATE_REGIMES"
+        },
+        {
+          "geo": "US-AK",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_CURRENT_OFFICIAL_ADULT_USE_LEGALITY_CONFIRMED"
+        },
+        {
+          "geo": "US-AL",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_MULTI_AXIS"
+        },
+        {
+          "geo": "US-AR",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_PATIENT_PRESCRIBER_REGISTRATION_LAWFUL_SUPPLY_AND_LICENSED_DISPENSARY_AXES"
+        },
+        {
+          "geo": "US-AZ",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_CURRENT_OPERATIONAL_ADULT_USE"
+        },
+        {
+          "geo": "US-CA",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_ADULT_USE_FROM_CURRENT_PRIMARY_LAW_AND_LICENSED_MARKET"
+        },
+        {
+          "geo": "US-CO",
+          "legalTruthColor": "GREEN",
+          "ruleId": "OFFICIAL_OPERATIONAL_ADULT_USE_AND_REGULATED_PATIENT_ACCESS"
+        },
+        {
+          "geo": "US-CT",
+          "legalTruthColor": "GREEN",
+          "ruleId": "OFFICIAL_OPERATIONAL_ADULT_USE_AND_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "US-DE",
+          "legalTruthColor": "GREEN",
+          "ruleId": "OFFICIAL_OPERATIONAL_ADULT_USE_WITH_CURRENT_LICENSED_DISPENSARY_MARKET"
+        },
+        {
+          "geo": "US-FL",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_PATIENT_PRESCRIBER_REGISTRY_LAWFUL_SUPPLY_AND_LICENSED_DISPENSING"
+        },
+        {
+          "geo": "US-GA",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_GA_LICENSED_PHYSICIAN_DPH_CARD_AND_ACTIVE_GMCC_DISPENSING_AXES"
+        },
+        {
+          "geo": "US-HI",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_PATIENT_PRESCRIBER_REGISTRATION_LAWFUL_SUPPLY_AND_CURRENT_DISPENSARY_AXES"
+        },
+        {
+          "geo": "US-IA",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_MULTI_SOURCE"
+        },
+        {
+          "geo": "US-ID",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_LIMITED_NAMED_CANNABIS_PHARMACEUTICAL_PRODUCT_ROUTE"
+        },
+        {
+          "geo": "US-IL",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_MULTI_AXIS"
+        },
+        {
+          "geo": "US-IN",
+          "legalTruthColor": "RED",
+          "ruleId": "GENERAL_CURRENT_RECREATIONAL_PROHIBITION_AND_SCHEDULE_I_RESEARCH_ONLY_NO_PATIENT_ACCESS"
+        },
+        {
+          "geo": "US-KS",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "LIMITED_CANNABIDIOL_TREATMENT_PREPARATION_AFFIRMATIVE_DEFENSE"
+        },
+        {
+          "geo": "US-KY",
+          "legalTruthColor": "GREEN",
+          "ruleId": "MULTI_SOURCE_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "US-LA",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_MULTISOURCE_PATIENT_ELIGIBILITY_PRESCRIBER_TRACKING_LAWFUL_SUPPLY_AND_RETAIL_DISPENSING_AXES"
+        },
+        {
+          "geo": "US-MA",
+          "legalTruthColor": "GREEN",
+          "ruleId": "OPERATIONAL_ADULT_USE"
+        },
+        {
+          "geo": "US-MD",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_LAWFUL_ADULT_POSSESSION_PLUS_OPERATIONAL_LICENSED_SUPPLY"
+        },
+        {
+          "geo": "US-ME",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_LAWFUL_ADULT_POSSESSION_PLUS_OPERATIONAL_LICENSED_SUPPLY"
+        },
+        {
+          "geo": "US-MI",
+          "legalTruthColor": "GREEN",
+          "ruleId": "OPERATIONAL_ADULT_USE"
+        },
+        {
+          "geo": "US-MN",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_LAWFUL_ADULT_POSSESSION_USE_AND_HOME_CULTIVATION"
+        },
+        {
+          "geo": "US-MO",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_LAWFUL_ADULT_POSSESSION_PLUS_OPERATIONAL_LICENSED_SUPPLY"
+        },
+        {
+          "geo": "US-MS",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_PATIENT_PRESCRIBER_REGISTRATION_LAWFUL_SUPPLY_AND_LICENSED_DISPENSING"
+        },
+        {
+          "geo": "US-MT",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_LAWFUL_ADULT_POSSESSION_PLUS_OPERATIONAL_LICENSED_SUPPLY"
+        },
+        {
+          "geo": "US-NC",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "CURRENT_LIMITED_LAWFUL_HEMP_EXTRACT_EPILEPSY_EXCEPTION_WITHOUT_OPERATIONAL_CANNABIS_PATIENT_PROGRAM"
+        },
+        {
+          "geo": "US-ND",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_PRIMARY_PROGRAMME_AND_CURRENT_HHS_PATIENT_DISPENSARY_AXES"
+        },
+        {
+          "geo": "US-NE",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_LAWFUL_PATIENT_EXCEPTION_WITHOUT_OPERATIONAL_PATIENT_ACCESS_BECAUSE_DISPENSARY_AND_TRANSPORTER_CHANNELS_ARE_NOT_OPEN"
+        },
+        {
+          "geo": "US-NH",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_DHHS_REGISTRY_CARD_LICENSED_ATC_AND_CURRENT_RULE_AXES"
+        },
+        {
+          "geo": "US-NJ",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_LAWFUL_ADULT_POSSESSION_PLUS_OPERATIONAL_LICENSED_SUPPLY"
+        },
+        {
+          "geo": "US-NM",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_ADULT_USE_MULTI_AXIS"
+        },
+        {
+          "geo": "US-NV",
+          "legalTruthColor": "GREEN",
+          "ruleId": "OPERATIONAL_ADULT_USE"
+        },
+        {
+          "geo": "US-NY",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_LAWFUL_ADULT_POSSESSION_PLUS_OPERATIONAL_LICENSED_SUPPLY"
+        },
+        {
+          "geo": "US-OH",
+          "legalTruthColor": "GREEN",
+          "ruleId": "CURRENT_OPERATIONAL_MEDICAL_PATIENT_ACCESS_FROM_REGISTERED_PATIENT_STATUTE_AND_CURRENT_PHARMACY_BOARD_SALES_REPORTING"
+        },
+        {
+          "geo": "US-OK",
+          "legalTruthColor": "GREEN",
+          "ruleId": "CURRENT_OPERATIONAL_PATIENT_ACCESS_FROM_PHYSICIAN_RECOMMENDATION_PATIENT_APPROVAL_AND_LICENSED_DISPENSARY_SALE"
+        },
+        {
+          "geo": "US-OR",
+          "legalTruthColor": "GREEN",
+          "ruleId": "CURRENT_OPERATIONAL_ADULT_USE_FROM_OLCC_LEGAL_POSSESSION_LAWFUL_RETAIL_PURCHASE_AND_CURRENT_LICENSEE_EVIDENCE"
+        },
+        {
+          "geo": "US-PA",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "US-RI",
+          "legalTruthColor": "GREEN",
+          "ruleId": "CURRENT_OPERATIONAL_ADULT_USE_FROM_ENACTED_ADULT_POSSESSION_PURCHASE_RIGHTS_AND_CCC_LICENSED_RETAIL_EVIDENCE"
+        },
+        {
+          "geo": "US-SC",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "CURRENT_CANNABIS_SPECIFIC_PHYSICIAN_CERTIFIED_LOW_THC_CANNABIDIOL_EXCEPTION_AND_RESEARCH_ONLY_ACCESS_WITHOUT_OPERATIONAL_PATIENT_PROGRAMME"
+        },
+        {
+          "geo": "US-SD",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_SOUTH_DAKOTA_REGISTRY_CERTIFICATION_AND_REGULATED_DISPENSARY_AXES"
+        },
+        {
+          "geo": "US-TN",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "CURRENT_NARROW_PHYSICIAN_DOCUMENTED_SUBPOINT_NINE_PERCENT_THC_CANNABIDIOL_EXCEPTION_WITH_COMMISSION_ONLY_NO_OPERATIONAL_PATIENT_PROGRAMME"
+        },
+        {
+          "geo": "US-TX",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_MULTI_SOURCE"
+        },
+        {
+          "geo": "US-UT",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_UTAH_EVS_PROVIDER_CARD_PHARMACY_AND_DELIVERY_AXES"
+        },
+        {
+          "geo": "US-VA",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_LAWFUL_ADULT_POSSESSION_AND_PERSONAL_CULTIVATION"
+        },
+        {
+          "geo": "US-VT",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_LAWFUL_ADULT_POSSESSION_CURRENT_PRIMARY_LAW"
+        },
+        {
+          "geo": "US-WA",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_RECREATIONAL_ADULT_POSSESSION_LEGALITY"
+        },
+        {
+          "geo": "US-WI",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_LIMITED_NAMED_CANNABIS_PHARMACEUTICAL_PRODUCT_ROUTE"
+        },
+        {
+          "geo": "US-WV",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_OFFICIAL_PATIENT_REGISTRATION_CARD_DISPENSARY_AND_IMPLEMENTED_PROGRAM_AXES"
+        },
+        {
+          "geo": "US-WY",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_LIMITED_NAMED_CANNABIS_PHARMACEUTICAL_PRODUCT_ROUTE"
+        },
+        {
+          "geo": "UY",
+          "legalTruthColor": "GREEN",
+          "ruleId": "OPERATIONAL_ADULT_USE"
+        },
+        {
+          "geo": "UZ",
+          "legalTruthColor": "RED",
+          "ruleId": "GENERAL_CURRENT_LIST_I_CANNABIS_PROHIBITION_WITH_CURRENT_CRIMINAL_CODE_AND_NO_LAWFUL_PATIENT_ROUTE"
+        },
+        {
+          "geo": "VA",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_RECREATIONAL_NARCOTICS_PROHIBITION_WITH_MEDICAL_CANNABIS_AXIS_UNRESOLVED"
+        },
+        {
+          "geo": "VC",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_AUTHORIZED_PRESCRIBER_AND_LICENSED_PHARMACY_AXES"
+        },
+        {
+          "geo": "VE",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "NO_VERIFIABLE_PRIMARY_LAW_AFTER_EXHAUSTIVE_OFFICIAL_SEARCH"
+        },
+        {
+          "geo": "VG",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_CURRENT_PRIMARY_PROHIBITION_WITH_UNRESOLVED_CANNABIS_SPECIFIC_REGULATORY_EXCEPTION"
+        },
+        {
+          "geo": "VI",
+          "legalTruthColor": "GREEN",
+          "ruleId": "GENERAL_OPERATIONAL_PATIENT_ACCESS_FROM_CURRENT_REGISTERED_PATIENT_CERTIFIED_PRACTITIONER_AND_STATUTORY_PERSONAL_MEDICINAL_CULTIVATION_AXES"
+        },
+        {
+          "geo": "VN",
+          "legalTruthColor": "RED",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_LIST_I_MEDICAL_AND_SOCIAL_USE_PROHIBITION_WITH_NO_PATIENT_ACCESS_EXCEPTION_PROVEN"
+        },
+        {
+          "geo": "VU",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "CURRENT_LIMITED_LICENSED_INDUSTRIAL_HEMP_AND_MEDICAL_CANNABIS_MODE_WITHOUT_OPERATIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "WF",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_RECREATIONAL_NARCOTICS_PROHIBITION_WITH_MEDICAL_CANNABIS_AXIS_UNRESOLVED"
+        },
+        {
+          "geo": "WS",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_LIMITED_APPROVED_LICENSEE_MEDICINAL_MARIJUANA_IMPORT_SCOPE_NOT_OPERATIONAL_PATIENT_PROGRAMME"
+        },
+        {
+          "geo": "XK",
+          "legalTruthColor": "RED",
+          "ruleId": "GENERAL_CURRENT_TABLE_I_CANNABIS_PROHIBITED_WITH_EXPRESS_NO_MEDICAL_USE"
+        },
+        {
+          "geo": "YE",
+          "legalTruthColor": "UNKNOWN",
+          "ruleId": "GENERAL_GENERIC_PRESCRIPTION_IS_NOT_CANNABIS_LIMITED_MODE"
+        },
+        {
+          "geo": "YT",
+          "legalTruthColor": "GREEN",
+          "ruleId": "OPERATIONAL_TRANSITIONAL_PATIENT_ACCESS"
+        },
+        {
+          "geo": "ZA",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_PRIVATE_PERSONAL_USE_DECRIMINALIZATION_CURRENT_CONSTITUTIONAL_JUDGMENT"
+        },
+        {
+          "geo": "ZM",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "GENERAL_CURRENT_CANNABIS_SCHEDULE_PLUS_LIMITED_MEDICAL_CONTROLLED_SUBSTANCES_ROUTE"
+        },
+        {
+          "geo": "ZW",
+          "legalTruthColor": "YELLOW",
+          "ruleId": "CURRENT_LIMITED_CANNABIS_INDUSTRY_AND_CBD_PRODUCT_EXCEPTION_WITHOUT_OPERATIONAL_PATIENT_ACCESS"
+        }
+      ],
+      "snapshotSha256": "6e3df710708cb89e082390e155cbfccc1cc596bd10f32e024f531f26547e7b73"
+    }
+  ]
+}
