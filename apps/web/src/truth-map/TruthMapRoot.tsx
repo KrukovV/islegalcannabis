@@ -623,6 +623,11 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
             setActiveSeoSelection(selection);
           } else if (initialGeoOpensPopupRef.current) {
             openTruthPopup(initialProperties, { lng, lat });
+          } else {
+            // A canonical /c/[code] document owns its legal article and must
+            // not open a map overlay. It still keeps one map-only `i` marker
+            // for the route GEO, matching an Action hand-off from the map.
+            setActiveSeoSelection(selection);
           }
         }
         const initialCenter = runtime.map.getCenter();

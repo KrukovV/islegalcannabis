@@ -6,7 +6,16 @@ import { AsciiEngine } from "./ascii-engine";
 import { ASCII_SCENARIOS } from "./ascii-scenarios/registry";
 import { getGeoContext } from "./geo-store";
 
-const ASCII_START_DELAY_MS = process.env.NODE_ENV === "production" ? 60_000 : 5_000;
+const LOCAL_ASCII_START_DELAY_MS = 5_000;
+const PRODUCTION_ASCII_START_DELAY_MS = 60_000;
+
+function asciiStartDelay() {
+  const host = window.location.hostname;
+  const isLocalHost = host === "127.0.0.1" || host === "localhost" || host === "::1" || host.endsWith(".local");
+  return process.env.NODE_ENV === "production" && !isLocalHost
+    ? PRODUCTION_ASCII_START_DELAY_MS
+    : LOCAL_ASCII_START_DELAY_MS;
+}
 
 type AsciiOverlayProps = {
   surfaceTestId?: string;
@@ -32,7 +41,7 @@ export default function AsciiOverlay({ surfaceTestId = "new-map-surface" }: Asci
         engine.start();
         engine.trigger("auto");
         canvas.dataset.asciiState = "running";
-      }, ASCII_START_DELAY_MS);
+      }, asciiStartDelay());
     };
 
     const pollUntilReady = () => {

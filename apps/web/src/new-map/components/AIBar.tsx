@@ -72,15 +72,18 @@ const MODEL_OVERRIDE_STORAGE_KEY = "ai_model_override";
 
 function shouldLockAiInputByDefault() {
   if (typeof window === "undefined") return true;
-  if (process.env.NODE_ENV === "production" && process.env.NEXT_PUBLIC_AI_ENABLE_PROD !== "1") {
-    return true;
-  }
   const host = window.location.hostname;
   const isLocalHost =
     host === "127.0.0.1" ||
     host === "localhost" ||
     host === "::1" ||
     host.endsWith(".local");
+  // A localhost production build is still a local audit runtime. Keep its
+  // canonical editor available without enabling AI on a deployed host.
+  if (isLocalHost) return false;
+  if (process.env.NODE_ENV === "production" && process.env.NEXT_PUBLIC_AI_ENABLE_PROD !== "1") {
+    return true;
+  }
   return !isLocalHost && process.env.NODE_ENV === "production";
 }
 
