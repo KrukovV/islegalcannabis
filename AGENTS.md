@@ -21,14 +21,13 @@ Hard Rule:
 
 - UI_SINGLETON_RULE: only one Next.js dev server instance is allowed.
 - Codex MUST NOT start a second Next.js dev server if one is already running.
-- If an existing dev server is detected (HTTP on http://127.0.0.1:3000/wiki-truth OR .next/dev/lock exists):
+- If an existing dev server is healthy on `http://127.0.0.1:3000/wiki-truth`:
   - print: UI_ALREADY_RUNNING url=http://127.0.0.1:3000/wiki-truth
   - exit 0
-- Codex MUST NOT:
-  - kill user processes
-  - delete .next/dev/lock while a dev process may be alive
-  - auto-switch ports (3001/3010/etc.)
-- A running user-started UI is ground truth and must not be disturbed.
+- A lock or PID file without HTTP is an ownership signal, not proof of a live server. Before recovery, resolve the exact lock PID, recorded PID and port-3000 listener.
+- When every recorded owner is absent and port `3000` has no listener, Codex may remove only the exact stale `.next/dev/lock` file and stale `Reports/web_dev_3000.pid`, then restart the canonical isLegal server on `3000`.
+- When restart is necessary, Codex may stop only a process whose PID, command and working directory prove it is this repository's isLegal Next.js server. Healthy servers are reused by default; foreign or ambiguous processes remain fail-closed and are never killed.
+- Codex MUST NOT recursively delete `.next/dev`, kill unrelated/user processes, or auto-switch ports (`3001`/`3010`/etc.).
 
 ## SEO / Production Indexability Contract (Hard Rule)
 

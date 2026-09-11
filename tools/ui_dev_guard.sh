@@ -45,6 +45,15 @@ if [ -f "${LOCK_PATH}" ]; then
   lock_exists=1
 fi
 
+lock_pid=""
+lock_pid_alive=0
+if [ -s "${LOCK_PATH}" ] && command -v jq >/dev/null 2>&1; then
+  lock_pid="$(jq -r '.pid // empty' "${LOCK_PATH}" 2>/dev/null || true)"
+  if [[ "${lock_pid}" =~ ^[0-9]+$ ]] && ps -p "${lock_pid}" >/dev/null 2>&1; then
+    lock_pid_alive=1
+  fi
+fi
+
 has_lsof=0
 if command -v lsof >/dev/null 2>&1; then
   has_lsof=1
@@ -70,20 +79,17 @@ if [ "${lock_exists}" -eq 1 ] || [ "${port_busy}" -eq 1 ] || [ "${proc_busy}" -e
 fi
 
 # A lock is not permission to start a second server. When no server answers,
-# release only the verified empty marker; a nonempty or process-owned lock is
-# ambiguous and must remain fail-closed for manual recovery.
-if [ "${port_busy}" -eq 1 ] || [ "${proc_busy}" -eq 1 ]; then
-  echo "UI_LOCK_OWNER_UNRESOLVED path=${LOCK_PATH} port_busy=${port_busy} proc_busy=${proc_busy}"
+# release only the exact marker after its recorded PID, the listener and the
+# matching Next process are all proven absent. Any possible live owner remains
+# fail-closed.
+if [ "${port_busy}" -eq 1 ] || [ "${proc_busy}" -eq 1 ] || [ "${lock_pid_alive}" -eq 1 ]; then
+  echo "UI_LOCK_OWNER_UNRESOLVED path=${LOCK_PATH} lock_pid=${lock_pid:-none} port_busy=${port_busy} proc_busy=${proc_busy}"
   exit 1
 fi
 
 if [ "${lock_exists}" -eq 1 ]; then
-  if [ -s "${LOCK_PATH}" ]; then
-    echo "UI_LOCK_NONEMPTY_NO_HTTP path=${LOCK_PATH}"
-    exit 1
-  fi
   rm -f -- "${LOCK_PATH}"
-  echo "UI_STALE_EMPTY_LOCK_REMOVED path=${LOCK_PATH}"
+  echo "UI_STALE_LOCK_REMOVED path=${LOCK_PATH} owner_pid=${lock_pid:-unknown}"
 fi
 
 cd "${ROOT}"

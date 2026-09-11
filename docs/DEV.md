@@ -100,9 +100,10 @@ node tools/vercel_bypass_live_probe.mjs
 
 ## Dev Server Singleton
 - Start UI through `npm run web:dev`.
-- If a server is already reachable at `http://127.0.0.1:3000/wiki-truth`, or `.next/dev/lock` exists while a dev process may be alive, do not start another Next.js server.
+- If a server is already reachable at `http://127.0.0.1:3000/wiki-truth`, reuse it and do not start another Next.js server.
 - Expected guarded output when UI is already running: `UI_ALREADY_RUNNING url=http://127.0.0.1:3000/wiki-truth`.
-- Do not kill user-started UI processes, delete `.next/dev/lock`, or auto-switch to another port.
+- A lock/PID file without HTTP must be resolved against the exact recorded PIDs and port-3000 listener. If every owner is absent and the port is free, remove only the exact stale lock and PID marker, then restart isLegal on `3000`.
+- A necessary live restart is allowed only for a PID whose command and working directory prove it is this repository's server. Never kill a foreign or ambiguous process, recursively delete `.next/dev`, or auto-switch ports.
 
 ## Перед каждым коммитом
 - Запускать: `bash tools/pass_cycle.sh`.
