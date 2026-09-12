@@ -2,6 +2,23 @@
 
 Statuses: pending | in_progress | done
 
+## Antarctica geographic anchoring and map-interaction isolation
+
+- [done] Reproduce the screenshot symptom and inspect history from Canvas commit `5d66ad7f` through SVG migration `d258cbbf`: retain `map.project([0, -77])`; identify safe-zone clamping as the cause of actors remaining visible over Africa when Antarctica is offscreen.
+- [done] Make the shared SVG use the unbounded projected Antarctica anchor, hide/pause only when the composition is geographically offscreen, and retain `pointer-events: none` plus the existing shared `AsciiOverlay` API.
+- [done] Add focused unit/WebKit coverage for zoom/pan geographic tracking, offscreen disappearance, loaded native labels/terrain canvas, hover/click/popup passthrough, AI dock visibility and all 34 story IDs.
+- [done] Complete canonical root run `20260912T182634Z-11611`: CI `20/20`, mandatory smoke `35/35/0`, visual guard, `POST_CHECKS_OK=1`, `HUB_STAGE_REPORT_OK=1`, process-slot guard and zero Truth/Store/SEO/production drift.
+- [in_progress] Commit the completed ledger and push the isolated `codex/antarctica-smoking-local` branch through the green gate; do not deploy and do not update `origin/main`.
+
+## Antarctica inline-SVG smoking behaviour
+
+- [done] Preserve the established shared `AsciiOverlay`, all 34 scenario IDs, all 18 Antarctic mascots, MapLibre trigger/anchor, local AI/Social controls, public-route isolation and decorative-only semantics.
+- [done] Replace the detached smoking-stick pose in every smoking story with a reusable SVG inhale/lower/exhale gesture: hand and joint at the mouth during inhale, hand lowered outside the torso before exhale, ember farther outward in both orientations, continuous tip smoke/leaf and a separate mouth exhale.
+- [done] Render and visually inspect all 34 scenarios as 9 smoking, 14 other-human and 11 wildlife stories; verify all 35 smokers at inhale/exhale/recovery and reduced motion. External WebKit receipt: `/Users/james/islegalcannabis_archive/antarctica-svg-smoking-audit/20260912T114759Z/capture-receipt.json`.
+- [done] Pass focused ESLint, TypeScript, 12 unit tests, independent visual/geometry review and the existing live `/truth-map` WebKit transition test while retaining the editable AI dock.
+- [done] Fresh real WebKit popup evidence is `307/307`, zero missing, at `/Users/james/islegalcannabis_archive/truth-map-visual-audit/2026-09-12T15-26-09-720Z/`. Canonical run `20260912T153058Z-2227` passes CI `20/20`, mandatory smoke `35/35/0`, the formal visual guard, `POST_CHECKS_OK=1`, `HUB_STAGE_REPORT_OK=1` and process-slot guard; its report SHA-256 is `c6baa866e183ef347614c82647542a206cade6e320c657a79527c56be4d80fb5`. The final existing-server WebKit Antarctica transition passes `1/1`; production and `origin/main` remain untouched.
+- [done] Revalidate the user's residual-crossing checkpoint from current `da4b66ec`: repeat WebKit capture is GREEN for all 35 smokers with `0/35` torso crossings and exact tip-smoke/ember anchoring. Canonical run `20260912T173745Z-26165` passes CI `20/20`, mandatory smoke `35/35/0`, visual guard `307/307`, `POST_CHECKS_OK=1`, `HUB_STAGE_REPORT_OK=1` and process-slot guard; report SHA-256 is `39df68d780fb22308cf10d00e2b380dbe0e4f8c3a04883999dc08d8938a67487`.
+
 ## 307-GEO evidence operationalization and reproducible delivery
 
 - [done] Preserve the mixed local tree with exact hashes, then split the accepted 307-GEO evidence infrastructure, independent UI/runtime fixes and verified restart-policy changes onto a clean `origin/main`-based branch without copying the already-released Andorra hotfix back over itself.
