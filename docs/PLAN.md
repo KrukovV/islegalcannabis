@@ -8,7 +8,7 @@ Statuses: pending | in_progress | done
 - [done] Make the shared SVG use the unbounded projected Antarctica anchor, hide/pause only when the composition is geographically offscreen, and retain `pointer-events: none` plus the existing shared `AsciiOverlay` API.
 - [done] Add focused unit/WebKit coverage for zoom/pan geographic tracking, offscreen disappearance, loaded native labels/terrain canvas, hover/click/popup passthrough, AI dock visibility and all 34 story IDs.
 - [done] Complete canonical root run `20260912T182634Z-11611`: CI `20/20`, mandatory smoke `35/35/0`, visual guard, `POST_CHECKS_OK=1`, `HUB_STAGE_REPORT_OK=1`, process-slot guard and zero Truth/Store/SEO/production drift.
-- [in_progress] Commit the completed ledger and push the isolated `codex/antarctica-smoking-local` branch through the green gate; do not deploy and do not update `origin/main`.
+- [done] Commit the completed ledger and push the isolated `codex/antarctica-smoking-local` branch through the green gate (`7189ec85`, `good/20260912-185031`, `HEAD_PUSHED=1`, `TAG_PUSHED=1`); no deployment or `origin/main` update.
 
 ## Antarctica inline-SVG smoking behaviour
 
