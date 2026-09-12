@@ -131,6 +131,40 @@ export function canonicalProjectionLedgerBytesSha256(bytes: string | Buffer) {
   return sha256EvidencePayload(bytes.toString());
 }
 
+function canonicalProjectionLedgerBytes(
+  ledger: Pick<CanonicalProjectionLedger, "snapshots">
+) {
+  return `${JSON.stringify({
+    schemaVersion: 1,
+    localOnly: true,
+    appendOnly: true,
+    snapshots: ledger.snapshots.map((snapshot) => ({
+      versionId: snapshot.versionId,
+      generatedAt: snapshot.generatedAt,
+      entries: snapshot.entries.map((entry) => ({
+        geo: entry.geo,
+        legalTruthColor: entry.legalTruthColor,
+        ruleId: entry.ruleId
+      })),
+      ...(snapshot.publicationReceipt
+        ? {
+          publicationReceipt: {
+            receiptId: snapshot.publicationReceipt.receiptId,
+            versionId: snapshot.publicationReceipt.versionId,
+            publishedAt: snapshot.publicationReceipt.publishedAt,
+            commitSha: snapshot.publicationReceipt.commitSha,
+            buildId: snapshot.publicationReceipt.buildId,
+            actor: snapshot.publicationReceipt.actor,
+            ledgerPreimageSha256: snapshot.publicationReceipt.ledgerPreimageSha256,
+            receiptSha256: snapshot.publicationReceipt.receiptSha256
+          }
+        }
+        : {}),
+      snapshotSha256: snapshot.snapshotSha256
+    }))
+  }, null, 2)}\n`;
+}
+
 export function appendCanonicalProjectionSnapshot({
   ledgerBytes,
   expectedLedgerSha256,
@@ -158,7 +192,7 @@ export function appendCanonicalProjectionSnapshot({
   const next = validateCanonicalProjectionLedger({ ...ledger, snapshots: [...ledger.snapshots, snapshot] });
   return {
     ledger: next,
-    ledgerBytes: `${JSON.stringify(next, null, 2)}\n`,
+    ledgerBytes: canonicalProjectionLedgerBytes(next),
     preimageSha256: actualLedgerSha256
   };
 }
@@ -214,7 +248,18 @@ export function validateCanonicalProjectionLedger(value: unknown): CanonicalProj
     if (index > 0 && !snapshot.publicationReceipt) {
       throw new Error(`CANONICAL_PROJECTION_PUBLICATION_RECEIPT_REQUIRED=${snapshot.versionId}`);
     }
-    if (snapshot.publicationReceipt) validatePublicationReceipt(snapshot.publicationReceipt, snapshot);
+    if (snapshot.publicationReceipt) {
+      validatePublicationReceipt(snapshot.publicationReceipt, snapshot);
+      if (index > 0) {
+        const canonicalPrefixBytes = canonicalProjectionLedgerBytes({
+          snapshots: (ledger.snapshots as CanonicalProjectionSnapshot[]).slice(0, index)
+        });
+        const expectedPreimageSha256 = canonicalProjectionLedgerBytesSha256(canonicalPrefixBytes);
+        if (snapshot.publicationReceipt.ledgerPreimageSha256 !== expectedPreimageSha256) {
+          throw new Error(`CANONICAL_PROJECTION_PUBLICATION_PREIMAGE_CHAIN_MISMATCH=${snapshot.versionId}`);
+        }
+      }
+    }
     const unsigned = snapshotUnsigned(snapshot);
     if (sha256EvidencePayload(unsigned) !== snapshot.snapshotSha256) throw new Error(`CANONICAL_PROJECTION_LEDGER_HASH_MISMATCH=${snapshot.versionId}`);
   }

@@ -147,6 +147,69 @@ describe("canonical projection ledger", () => {
     })).toThrow("CANONICAL_PROJECTION_PUBLICATION_RECEIPT_TAMPERED");
   });
 
+  it("rejects a resealed persisted receipt bound to a false ledger preimage", () => {
+    const bytes = baselineBytes();
+    const passports = laterPassports();
+    const receipt = createCanonicalProjectionPublicationReceipt({
+      versionId: passports[0].version.id,
+      publishedAt: "2026-09-12T01:00:00.000Z",
+      commitSha: "c".repeat(40),
+      buildId: "build-fixture-false-preimage",
+      actor: "fixture-editor",
+      ledgerPreimageSha256: "f".repeat(64)
+    });
+    const later = createCanonicalProjectionSnapshot(passports, receipt);
+
+    expect(() => validateCanonicalProjectionLedger({
+      schemaVersion: 1,
+      localOnly: true,
+      appendOnly: true,
+      snapshots: [JSON.parse(bytes).snapshots[0], later]
+    })).toThrow("CANONICAL_PROJECTION_PUBLICATION_PREIMAGE_CHAIN_MISMATCH");
+  });
+
+  it("validates every publication preimage in a canonical multi-snapshot chain", () => {
+    const bytes = baselineBytes();
+    const baselineSha256 = canonicalProjectionLedgerBytesSha256(bytes);
+    const secondPassports = laterPassports();
+    const secondReceipt = createCanonicalProjectionPublicationReceipt({
+      versionId: secondPassports[0].version.id,
+      publishedAt: "2026-09-12T02:00:00.000Z",
+      commitSha: "d".repeat(40),
+      buildId: "build-fixture-second-valid",
+      actor: "fixture-editor",
+      ledgerPreimageSha256: baselineSha256
+    });
+    const withSecond = appendCanonicalProjectionSnapshot({
+      ledgerBytes: bytes,
+      expectedLedgerSha256: baselineSha256,
+      snapshot: createCanonicalProjectionSnapshot(secondPassports, secondReceipt)
+    });
+    const thirdPassports = secondPassports.map((passport) => ({
+      ...passport,
+      version: { ...passport.version, id: `${passport.version.id}:THIRD` }
+    }));
+    const secondLedgerSha256 = canonicalProjectionLedgerBytesSha256(withSecond.ledgerBytes);
+    const thirdReceipt = createCanonicalProjectionPublicationReceipt({
+      versionId: thirdPassports[0].version.id,
+      publishedAt: "2026-09-12T03:00:00.000Z",
+      commitSha: "e".repeat(40),
+      buildId: "build-fixture-third-valid",
+      actor: "fixture-editor",
+      ledgerPreimageSha256: secondLedgerSha256
+    });
+    const withThird = appendCanonicalProjectionSnapshot({
+      ledgerBytes: withSecond.ledgerBytes,
+      expectedLedgerSha256: secondLedgerSha256,
+      snapshot: createCanonicalProjectionSnapshot(thirdPassports, thirdReceipt)
+    });
+    const reloaded = JSON.parse(withThird.ledgerBytes);
+
+    expect(() => validateCanonicalProjectionLedger(reloaded)).not.toThrow();
+    expect(reloaded.snapshots).toHaveLength(3);
+    expect(reloaded.snapshots[2].publicationReceipt.ledgerPreimageSha256).toBe(secondLedgerSha256);
+  });
+
   it("requires an exact 40-hex commit SHA and strictly increasing recorded publication times", () => {
     const bytes = baselineBytes();
     const expectedLedgerSha256 = canonicalProjectionLedgerBytesSha256(bytes);

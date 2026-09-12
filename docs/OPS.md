@@ -340,7 +340,7 @@ The evidence-operations queue is inspected only on localhost:
 - JSON: `http://127.0.0.1:3000/api/truth-map/b2b/source-review`
 - filters: `geo=<canonical-GEO>`, `category=<review-category>`, `state=current|historical|resolved|open`, `operationId=<exact-SRCREV-id>`
 
-The UI/API is read-only, limits broad results to 100 exact dossiers and returns `404` for a non-local host. Every dossier contains the complete ordered attempt history, the current attempt payload/preimage and copy-ready close tokens. `registrySha256` is computed from the same exact registry bytes as those dossiers. A current attempt must use `SOURCE_REVIEW_SIGNAL_V1`; a legacy attempt can use `LEGACY_SIGNAL_DETAILS_NOT_RECORDED_V1` only when unrecorded fields remain explicitly `NOT_RECORDED`.
+The schema-v3 UI/API is read-only, limits broad results to 100 exact dossiers and returns `404` for a non-local host. Every dossier contains the complete ordered attempt history, the current attempt payload/preimage and copy-ready close tokens. A dossier for a current source also shows the retained owner/applicability, exact fragment, current/effective state, visual/screenshot state and paths, evidence scope and confidence. Missing fields remain `NOT_RECORDED`; the Workbench never fills them from another source or GEO. `registrySha256` is computed from the same exact registry bytes as those dossiers. A current attempt must use `SOURCE_REVIEW_SIGNAL_V1`; a legacy attempt can use `LEGACY_SIGNAL_DETAILS_NOT_RECORDED_V1` only when unrecorded fields remain explicitly `NOT_RECORDED`.
 
 For an independent shell receipt, compute the same registry identity immediately before review:
 
@@ -366,7 +366,7 @@ node tools/review/resolve_source_review_operation.mjs \
   --resulting-reason=<reviewed-reason>
 ```
 
-Before close, the resolver validates the complete schema-v5 registry and recomputes every current signal payload, exact identity preimage and hash. Any stale, tampered, concurrent, non-latest or cross-operation state fails before the registry is replaced. The writer holds an exclusive owned lock, writes and syncs a staged file, rechecks exact source bytes and atomically renames; it never removes a foreign lock or overwrites concurrent bytes. Reopen the Workbench and repeat the evidence review rather than weakening the identity guard. A successful resolution removes that exact signal from active Passport/Change Monitor queues and preserves it in append-only history; it does not change Legal Truth, Store Truth or the canonical projection. Finish a batch with the canonical `bash tools/pass_cycle.sh`; never treat focused Workbench tests as release acceptance.
+Before close, the resolver validates the complete schema-v5 registry and recomputes every current signal payload, exact identity preimage and hash. `resolved-at` must parse as a real instant and cannot be more than the bounded clock-skew allowance in the future. Any future-dated, stale, tampered, concurrent, non-latest or cross-operation state fails before the registry is replaced. The writer holds an exclusive owned lock, writes and syncs a staged file, rechecks exact source bytes and atomically renames; it never removes a foreign lock or overwrites concurrent bytes. Reopen the Workbench and repeat the evidence review rather than weakening the identity guard. A successful resolution removes that exact signal from active Passport/Change Monitor queues and preserves it in append-only history; it does not change Legal Truth, Store Truth or the canonical projection. Finish a batch with the canonical `bash tools/pass_cycle.sh`; never treat focused Workbench tests as release acceptance.
 
 ## Canonical projection publication
 
@@ -387,7 +387,7 @@ npm -w apps/web run evidence:snapshot -- \
   --expected-ledger-sha256=<exact-current-ledger-sha256>
 ```
 
-The writer binds the receipt to the new projection version and all 307 GEO, requires a canonical UTC publication time strictly newer than the previous recorded publication, acquires an exclusive owned lock, stages the next ledger, rechecks the exact prior bytes and atomically renames it. Equal-version, date-only, stale-ledger, cross-version, concurrent or tampered receipt/snapshot input fails without replacing the ledger. A foreign lock is never removed. This command records an already-real canonical publication; it does not create or authorise one.
+The writer binds the receipt to the new projection version and all 307 GEO, requires a canonical UTC publication time strictly newer than the previous recorded publication, acquires an exclusive owned lock, stages the next ledger, rechecks the exact prior bytes and atomically renames it. The loader also recomputes the canonical byte serialization of every preceding snapshot prefix and verifies each later receipt's `ledgerPreimageSha256`; a newly re-sealed receipt cannot legitimize a false or reordered history prefix. Equal-version, date-only, stale-ledger, cross-version, concurrent or tampered receipt/snapshot input fails without replacing the ledger. A foreign lock is never removed. This command records an already-real canonical publication; it does not create or authorise one.
 
 ## Correction review and canonical handoff
 

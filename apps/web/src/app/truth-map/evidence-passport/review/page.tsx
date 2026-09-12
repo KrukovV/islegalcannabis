@@ -32,6 +32,10 @@ function linkedValue(value: string) {
     : value;
 }
 
+function recordedBoolean(value: boolean | null) {
+  return value === null ? "NOT_RECORDED" : value ? "YES" : "NO";
+}
+
 function Dossier({ dossier }: { dossier: SourceReviewWorkbenchDossier }) {
   return <li data-testid={`source-review-dossier-${dossier.operation.operationId}`}>
     <strong>{dossier.operation.geo} · {dossier.operation.category} · {dossier.lifecycle}</strong>
@@ -55,6 +59,32 @@ function Dossier({ dossier }: { dossier: SourceReviewWorkbenchDossier }) {
       <div><dt>Resolution evidence</dt><dd>{dossier.resolution ? linkedValue(dossier.resolution.evidenceUrl) : "NOT_RECORDED"}</dd></div>
       <div><dt>Reviewed attempt</dt><dd>{dossier.resolution?.reviewedAttemptId || "NOT_RECORDED"}</dd></div>
     </dl>
+    {dossier.currentSource ? <section data-testid={`source-review-current-source-${dossier.operation.operationId}`}>
+      <h3>Current retained source evidence</h3>
+      <dl className={styles.definitionGrid}>
+        <div><dt>Title</dt><dd>{dossier.currentSource.title}</dd></div>
+        <div><dt>Official publisher</dt><dd>{dossier.currentSource.publisher}</dd></div>
+        <div><dt>Source owner GEO</dt><dd>{dossier.currentSource.sourceOwnerGeo || "NOT_RECORDED"}</dd></div>
+        <div><dt>Applies to GEO</dt><dd>{dossier.currentSource.appliesToGeos.join(", ") || "NOT_RECORDED"}</dd></div>
+        <div><dt>Applicability basis</dt><dd>{dossier.currentSource.legalBasisForExtension}</dd></div>
+        <div><dt>Source role</dt><dd>{dossier.currentSource.role}</dd></div>
+        <div><dt>Source type</dt><dd>{dossier.currentSource.sourceType}</dd></div>
+        <div><dt>Current state</dt><dd>{dossier.currentSource.currentness}</dd></div>
+        <div><dt>Effective state</dt><dd>{dossier.currentSource.effectiveState}</dd></div>
+        <div><dt>Cannabis specific</dt><dd>{dossier.currentSource.cannabisSpecific ? "YES" : "NO"}</dd></div>
+        <div><dt>Exact retained fragment</dt><dd>{dossier.currentSource.fragment || "NOT_RECORDED"}</dd></div>
+        <div><dt>Verification</dt><dd>{dossier.currentSource.verification}</dd></div>
+        <div><dt>Evidence scope</dt><dd>{dossier.currentSource.evidenceScope}</dd></div>
+        <div><dt>Source confidence</dt><dd>{dossier.currentSource.confidence}</dd></div>
+        <div><dt>Visual review state</dt><dd>{dossier.currentSource.visualReview || "NOT_RECORDED"}</dd></div>
+        <div><dt>Visually opened</dt><dd>{recordedBoolean(dossier.currentSource.visualOpened)}</dd></div>
+        <div><dt>Screenshot valid</dt><dd>{recordedBoolean(dossier.currentSource.screenshotValid)}</dd></div>
+        <div><dt>Screenshot available</dt><dd>{recordedBoolean(dossier.currentSource.screenshotAvailable)}</dd></div>
+        <div><dt>Screenshot path(s)</dt><dd>{dossier.currentSource.screenshotPaths.length
+          ? <ul>{dossier.currentSource.screenshotPaths.map((item) => <li key={item}>{item}</li>)}</ul>
+          : "NOT_RECORDED"}</dd></div>
+      </dl>
+    </section> : <p data-testid={`source-review-current-source-${dossier.operation.operationId}`}>Current canonical source evidence: NOT_AVAILABLE_FOR_HISTORICAL_OPERATION</p>}
     <details>
       <summary>Reproducible attempt history</summary>
       <ol>

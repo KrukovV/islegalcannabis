@@ -1,6 +1,6 @@
 isLegalCannabis is a Next.js App Router product for educational cannabis legality lookup, map exploration, and jurisdiction audit workflows.
 
-The canonical public runtime is the MapLibre root `/`. In production, `/new-map` is a parameter-preserving permanent redirect to `/`; on localhost it remains a compatibility route for legacy QA. Country routes `/c/[code]` and `/[lang]/c/[code]` use the same map/runtime contract. Audit surfaces are `/wiki-truth`, `/trust-view` (stable alias to the audit UI), `/changes`, and `/api/ssot/changes`.
+The canonical public runtime is the MapLibre root `/`. In production, `/new-map` is a parameter-preserving permanent redirect to `/`; on localhost it remains a compatibility route for legacy QA. Country routes `/c/[code]` and `/[lang]/c/[code]` use the same map/runtime contract. Local audit surfaces include `/wiki-truth` and `/truth-map`; both must return production `404` and stay absent from every sitemap. `/trust-view` is the stable localhost alias to the wiki audit UI. `/changes` and `/api/ssot/changes` expose the SSOT diff surface under their separate contract.
 
 ## Current Project Contracts
 
@@ -59,7 +59,7 @@ CI will fail on disk bloat (QUARANTINE > 500MB or Reports > 1GB).
 - `/`: canonical public MapLibre map runtime.
 - `/new-map`: permanent parameter-preserving production redirect to `/`; localhost compatibility route for legacy QA.
 - `/c/[code]`: country panel route backed by the same map runtime.
-- `/wiki-truth`: audit view over wiki, ISO, SSOT, official registry, and official ownership universes.
+- `/wiki-truth`: localhost audit view over wiki, ISO, SSOT, official registry, and official ownership universes; production `404`.
 - `/trust-view`: stable localhost alias for `/wiki-truth`.
 - `/changes`: SSOT diff view.
 - `/api/check`: jurisdiction legality API.

@@ -50585,7 +50585,50 @@
       "boundary": "REVIEW_METADATA_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
     }
   ],
-  "resolutions": [],
+  "resolutions": [
+    {
+      "resolutionId": "SRCRES-e3e4a8a0ef85d0528d7e6e0d",
+      "operationId": "SRCREV-af09b349e3805dd21b3f7485",
+      "geo": "US-HI",
+      "sourceUrl": "https://health.hawaii.gov/medicalcannabisregistry/dispensaries/",
+      "resolvedAt": "2026-09-12T04:09:49.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "CODEX_VISUAL_REVIEW_20260912",
+      "evidenceUrl": "https://health.hawaii.gov/medicalcannabisregistry/dispensaries/",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "US-HI",
+      "reviewedAttemptId": "SRCATT-905ca0bd8532bd77629a2762",
+      "reviewedSignalIdentitySha256": "760c06bcab4bcc47d5e5959b8c1db74eeb27c1151d20c8809c83bf90b552fa29",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "d2073a951a028ac9ba934462e12774b3873f61883c1abd458a2c23ec6b5322ad",
+      "note": "Official Hawaii DOH Medical Cannabis Registry page visibly identifies the owner and eight named dispensary websites across Hawaii, Maui, Oahu and Kauai; current page text retains the exact licensed-dispensary fragment. This closes source-content review only and proves no individual address, coordinate or operating lifecycle.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_CONFIRMED",
+      "resultingChangeReason": "CURRENT_FRAGMENT_SCOPE_AND_OFFICIAL_OWNER_CONFIRMED",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-7bdeb70b8e4d478161515c9d",
+      "operationId": "SRCREV-f5114f00e6e80509788f2748",
+      "geo": "US-OH",
+      "sourceUrl": "https://www.pharmacy.ohio.gov/OARRS/",
+      "resolvedAt": "2026-09-12T04:10:26.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "CODEX_VISUAL_REVIEW_20260912",
+      "evidenceUrl": "https://www.pharmacy.ohio.gov/OARRS/",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "US-OH",
+      "reviewedAttemptId": "SRCATT-6d5e00fd4816e549c1585aae",
+      "reviewedSignalIdentitySha256": "0712742670c020a780d74c5dbfe8a0f3ae727a732a2356b5c67cd7d30b4e6bce",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "dbb27dd03cfba1e6bed96a43ce66bb703b79e8b7856d0d16ea98a6e51589afa3",
+      "note": "Official Ohio Board of Pharmacy OARRS page visibly retains the exact statement that all medical-marijuana sales are reported by Ohio licensed dispensaries within five minutes. This confirms retained evidence only; the recorded timeout remains access state and proves neither endpoint availability nor any individual dispensary lifecycle.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_CONFIRMED",
+      "resultingChangeReason": "RETAINED_FRAGMENT_CONFIRMED_TIMEOUT_REMAINS_ACCESS_ONLY",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    }
+  ],
   "attempts": [
     {
       "attemptId": "SRCATT-d63dc2640d12eda7d2cf7324",

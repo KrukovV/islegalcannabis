@@ -259,6 +259,29 @@ test("resolution evidence must be retained/final official evidence or registry-o
   }
 });
 
+test("resolution rejects a future close time without changing registry bytes", () => {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), "islegal-source-review-future-"));
+  try {
+    const sourcePath = path.join(directory, "projection.json");
+    const outputPath = path.join(directory, "operations.json");
+    fs.writeFileSync(sourcePath, JSON.stringify(ledger(source(
+      "CONTENT_CHANGED",
+      "DOCUMENT_SHA256_CHANGED",
+      "2026-09-11T10:00:00.000Z"
+    ))));
+    buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-11T10:01:00.000Z" });
+    const snapshot = registrySnapshot(outputPath);
+
+    assert.throws(() => resolveSourceReviewOperation({
+      ...resolutionInput(outputPath, snapshot),
+      resolvedAt: "2099-01-01T00:00:00.000Z"
+    }), /SOURCE_REVIEW_RESOLUTION_DATE_IN_FUTURE/);
+    assert.deepEqual(fs.readFileSync(outputPath), snapshot.bytes);
+  } finally {
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
+});
+
 test("resolution may bind to the exact revalidated final URL", () => {
   const directory = fs.mkdtempSync(path.join(os.tmpdir(), "islegal-source-review-final-url-"));
   try {

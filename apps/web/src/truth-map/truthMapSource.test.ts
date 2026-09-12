@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   buildTruthMapDataset,
   getTruthMapRuntimeMeta,
+  listTruthMapCanonicalProjectionRecords,
   resolveTruthMapDisplayColor
 } from "./truthMapSource";
 
@@ -39,6 +40,29 @@ describe("truth-map final reconciliation projection", () => {
     expect(runtime.finalSnapshotId).toBe("FINAL_307_RECONCILIATION");
     expect(runtime.generatedAt).not.toBe("UNCONFIRMED");
     expect(runtime.datasetHash).toMatch(/^[a-f0-9]{64}$/);
+  });
+
+  it("retains only recorded source-review evidence fields and marks missing source metadata explicitly", () => {
+    const records = listTruthMapCanonicalProjectionRecords();
+    const bonaire = records.find((record) => record.geo === "BQ");
+    const regulation = bonaire?.sources.find((source) => source.url === "https://wetten.overheid.nl/BWBR0028709/");
+    expect(regulation).toMatchObject({
+      sourceOwnerGeo: "NL",
+      appliesToGeos: ["BQ"],
+      legalBasisForExtension: expect.stringContaining("Bonaire, Sint Eustatius and Saba"),
+      effectiveState: "Geldend van 2010-10-10 t/m heden",
+      cannabisSpecific: true,
+      directFragmentAvailable: true,
+      fragment: expect.stringContaining("Article 1"),
+      verification: "RETAINED_REVIEWED_SOURCE_PROVENANCE_CONTEXT",
+      visualReview: "RETAINED_CONTEXT_ONLY",
+      visualOpened: false,
+      screenshotValid: false,
+      screenshotAvailable: false,
+      screenshotPaths: [],
+      evidenceScope: "NOT_RECORDED",
+      confidence: "NOT_RECORDED"
+    });
   });
 
   it("does not inherit an old SSOT color for a changed legal proposal", () => {

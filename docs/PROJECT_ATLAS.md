@@ -27,7 +27,7 @@ Status Engine Audit v3 is present as a review-only evaluator. The current rerun 
 | `/truth-map/evidence-passport/correction` | Local-only untrusted correction submission | `apps/web/src/app/truth-map/evidence-passport/correction/page.tsx` |
 | `/truth-map/evidence-passport/review` | Local-only read-only Source Review Workbench | `apps/web/src/app/truth-map/evidence-passport/review/page.tsx` |
 | `/truth-map/evidence-passport/correction/review` | Local-only correction assignment/decision/handoff queue | `apps/web/src/app/truth-map/evidence-passport/correction/review/page.tsx` |
-| `/api/truth-map/b2b/source-review` | Local-only bounded schema-v2 source-review dossiers with exact registry SHA/history/close tokens; no write method | `apps/web/src/app/api/truth-map/b2b/source-review/route.ts` |
+| `/api/truth-map/b2b/source-review` | Local-only bounded schema-v3 source-review dossiers with exact registry SHA/history/close tokens and retained C2/C3 fields; no write method | `apps/web/src/app/api/truth-map/b2b/source-review/route.ts` |
 | `/api/truth-map/b2b/correction-review` | Local-only append-only correction review and same-GEO canonical-handoff audit | `apps/web/src/app/api/truth-map/b2b/correction-review/route.ts` |
 | `/api/truth-map/b2b/localisations` | Local-only read-only current editor-approved localisation projection | `apps/web/src/app/api/truth-map/b2b/localisations/route.ts` |
 | `/api/truth-map/b2b/snapshot-ledger` | Local-only read-only canonical snapshot history | `apps/web/src/app/api/truth-map/b2b/snapshot-ledger/route.ts` |
@@ -93,8 +93,8 @@ Status Engine Audit v3 is present as a review-only evaluator. The current rerun 
 - Network truth: DNS diagnostic only; online state comes from HTTP/API/CONNECT/FALLBACK probes.
 - UI singleton: do not start another Next.js dev server if one is already running or may be locked. The shared guard removes only a verified empty stale lock file after HTTP, listener and process checks; all ambiguous locks remain fail-closed.
 - Storage hygiene: `QUARANTINE` exactly one PASS snapshot; archives outside repo.
-- Canonical publication: a later 307-GEO snapshot requires an immutable receipt bound to exact version, real publication time, full commit SHA, build ID, actor and exact ledger preimage. Tampered receipt/snapshot hashes, equal-version, stale or concurrent appends fail before atomic replacement.
-- Source-review operations: schema v5 keeps all identifiers and complete ordered history; current signal payload/preimage/hashes are recomputable, while legacy missing fields remain explicitly unrecorded.
+- Canonical publication: a later 307-GEO snapshot requires an immutable receipt bound to exact version, real publication time, full commit SHA, build ID, actor and exact ledger preimage. Every reload recomputes each preceding canonical prefix and rejects a receipt re-sealed around false history. Tampered receipt/snapshot hashes, equal-version, stale or concurrent appends fail before atomic replacement.
+- Source-review operations: schema v5 keeps all identifiers and complete ordered history; current signal payload/preimage/hashes are recomputable, while legacy missing fields remain explicitly unrecorded. Workbench schema v3 displays the retained C2/C3 source fields without inference, and future-dated human resolution is rejected before byte replacement.
 - Correction review: every event append is exact-bytes CAS; a handoff binds one approved candidate only to an existing open same-GEO source-review operation and remains non-mutating.
 - Editorial localisation: deterministic event IDs/content hashes plus `previousEventSha256` form an append-only `DRAFT -> APPROVED -> SUPERSEDED` chain with globally unique localisation IDs. Broken, tampered, duplicate or Passport-drifted chains publish nothing.
 

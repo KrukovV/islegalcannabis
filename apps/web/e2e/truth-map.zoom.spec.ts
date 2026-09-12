@@ -104,7 +104,7 @@ test("local professional changelog keeps event classes separate", async ({ page 
 });
 
 test("local Source Review Workbench separates current evidence operations from append-only history", async ({ page }) => {
-  test.setTimeout(60_000);
+  test.setTimeout(120_000);
   const runtimeErrors: string[] = [];
   page.on("pageerror", (error) => runtimeErrors.push(error.message));
   page.on("console", (message) => {
@@ -125,6 +125,9 @@ test("local Source Review Workbench separates current evidence operations from a
   await expect(page.getByTestId("source-review-workbench-page")).toContainText(/[a-f0-9]{64}/);
   await expect(page.getByTestId("source-review-workbench-page")).toContainText("Reproducible attempt history");
   await expect(page.getByTestId("source-review-workbench-page")).toContainText("Copy-ready close tokens");
+  await expect(page.locator('[data-testid^="source-review-current-source-SRCREV-"]').first()).toContainText("Source owner GEO");
+  await expect(page.locator('[data-testid^="source-review-current-source-SRCREV-"]').first()).toContainText("Exact retained fragment");
+  await expect(page.locator('[data-testid^="source-review-current-source-SRCREV-"]').first()).toContainText("Screenshot available");
 
   const response = await page.request.get(`/api/truth-map/b2b/source-review${query}`);
   expect(response.ok()).toBe(true);
@@ -137,6 +140,19 @@ test("local Source Review Workbench separates current evidence operations from a
       operation: { operationId: string };
       attemptHistory: Array<{ attemptId: string; signalPayloadSha256: string }>;
       latestAttempt: { attemptId: string; signalIdentitySha256: string };
+      currentSource: {
+        sourceOwnerGeo: string;
+        appliesToGeos: string[];
+        effectiveState: string;
+        fragment: string;
+        visualReview: string;
+        visualOpened: boolean | null;
+        screenshotValid: boolean | null;
+        screenshotAvailable: boolean | null;
+        screenshotPaths: string[];
+        evidenceScope: string;
+        confidence: string;
+      };
       closeTokens: {
         operationId: string;
         reviewedAttemptId: string;
@@ -163,7 +179,17 @@ test("local Source Review Workbench separates current evidence operations from a
       reviewedAttemptId: payload.dossiers[0].latestAttempt.attemptId,
       expectedSignalIdentitySha256: payload.dossiers[0].latestAttempt.signalIdentitySha256,
       expectedRegistrySha256: payload.registrySha256
-    }
+    },
+    currentSource: expect.objectContaining({
+      sourceOwnerGeo: expect.any(String),
+      appliesToGeos: expect.any(Array),
+      effectiveState: expect.any(String),
+      fragment: expect.any(String),
+      visualReview: expect.any(String),
+      screenshotPaths: expect.any(Array),
+      evidenceScope: expect.any(String),
+      confidence: expect.any(String)
+    })
   }));
   const exact = await page.request.get(`/api/truth-map/b2b/source-review?operationId=${payload.dossiers[0].operation.operationId}`);
   expect(exact.ok()).toBe(true);

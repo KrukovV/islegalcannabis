@@ -85,7 +85,7 @@ function resolvedWorkbenchFixture() {
 describe("source review workbench", () => {
   it("accounts for the complete canonical universe and the current signal projection", () => {
     const workbench = buildSourceReviewWorkbench();
-    expect(workbench.schemaVersion).toBe(2);
+    expect(workbench.schemaVersion).toBe(3);
     expect(workbench.localOnly).toBe(true);
     expect(workbench.readOnly).toBe(true);
     expect(workbench.boundary).toBe("READ_ONLY_SOURCE_REVIEW_VIEW_NO_TRUTH_MUTATION");
@@ -190,6 +190,65 @@ describe("source review workbench", () => {
       || left.attemptId.localeCompare(right.attemptId)
     )));
     expect(exact.dossiers[0].closeTokens?.expectedRegistrySha256).toBe(exact.registrySha256);
+  });
+
+  it("exposes the retained C2/C3 source fields without inferring missing evidence", () => {
+    const current = buildSourceReviewWorkbench({ geo: "BQ", category: "SOURCE_OWNER_OR_FINAL_URL_CHANGE", state: "current" });
+    const candidate = current.dossiers.find((dossier) => dossier.operation.sourceUrl === "https://wetten.overheid.nl/BWBR0028709/");
+    expect(candidate?.currentSource).toMatchObject({
+      sourceOwnerGeo: "NL",
+      appliesToGeos: ["BQ"],
+      legalBasisForExtension: expect.stringContaining("Bonaire, Sint Eustatius and Saba"),
+      effectiveState: "Geldend van 2010-10-10 t/m heden",
+      fragment: expect.stringContaining("Article 1"),
+      visualReview: "RETAINED_CONTEXT_ONLY",
+      visualOpened: false,
+      screenshotValid: false,
+      screenshotAvailable: false,
+      screenshotPaths: [],
+      evidenceScope: "NOT_RECORDED",
+      confidence: "NOT_RECORDED"
+    });
+  });
+
+  it("retains the first two exact human resolutions while excluding them from the active queue", () => {
+    const expected = [
+      {
+        geo: "US-HI",
+        operationId: "SRCREV-af09b349e3805dd21b3f7485",
+        attemptId: "SRCATT-905ca0bd8532bd77629a2762",
+        resolutionId: "SRCRES-e3e4a8a0ef85d0528d7e6e0d"
+      },
+      {
+        geo: "US-OH",
+        operationId: "SRCREV-f5114f00e6e80509788f2748",
+        attemptId: "SRCATT-6d5e00fd4816e549c1585aae",
+        resolutionId: "SRCRES-7bdeb70b8e4d478161515c9d"
+      }
+    ];
+
+    for (const item of expected) {
+      const exact = buildSourceReviewWorkbench({ operationId: item.operationId });
+      expect(exact.summary.matchingOperations).toBe(1);
+      expect(exact.dossiers[0]).toMatchObject({
+        lifecycle: "RESOLVED",
+        currentSignal: true,
+        closeTokens: null,
+        latestAttempt: { attemptId: item.attemptId },
+        resolution: {
+          resolutionId: item.resolutionId,
+          operationId: item.operationId,
+          geo: item.geo,
+          reviewedAttemptId: item.attemptId,
+          resolutionBasis: "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+          boundary: "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+        }
+      });
+      expect(buildSourceReviewWorkbench({ geo: item.geo, state: "open" }).dossiers)
+        .not.toEqual(expect.arrayContaining([
+          expect.objectContaining({ operation: expect.objectContaining({ operationId: item.operationId }) })
+        ]));
+    }
   });
 
   it("keeps a historical dossier reconstructible without the current canonical source", () => {

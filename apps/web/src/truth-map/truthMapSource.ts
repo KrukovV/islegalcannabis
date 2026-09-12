@@ -65,9 +65,16 @@ type FinalTruthEvidenceSource = {
   sourceAnnotation?: string;
   sourceOwnerGeo?: string;
   appliesToGeos?: string[];
+  legalBasisForExtension?: string;
   sourceType?: string;
   current?: string;
   effective?: string;
+  evidenceScope?: string;
+  confidence?: string;
+  visualOpened?: boolean;
+  screenshotValid?: boolean;
+  screenshotAvailable?: boolean;
+  screenshotPaths?: string[];
   revalidation?: {
     checked_at?: string;
     final_url?: string;
@@ -182,6 +189,13 @@ export type TruthMapCanonicalProjectionSource = {
   annotation: string;
   sourceOwnerGeo: string;
   appliesToGeos: string[];
+  legalBasisForExtension: string;
+  evidenceScope: string;
+  confidence: string;
+  visualOpened: boolean | null;
+  screenshotValid: boolean | null;
+  screenshotAvailable: boolean | null;
+  screenshotPaths: string[];
   revalidation: {
     checkedAt: string | null;
     finalUrl: string | null;
@@ -349,6 +363,16 @@ function projectCanonicalSource(source: FinalTruthEvidenceSource): TruthMapCanon
   const url = String(source.url || "").trim();
   if (!url) return null;
   const revalidation = source.revalidation || {};
+  const screenshotPaths = Array.isArray(source.screenshotPaths)
+    ? [...new Set(source.screenshotPaths.map((item) => String(item || "").trim()).filter(Boolean))]
+    : [];
+  const screenshotAvailable = typeof source.screenshotAvailable === "boolean"
+    ? source.screenshotAvailable
+    : screenshotPaths.length > 0
+      ? true
+      : source.screenshotValid === false
+        ? false
+        : null;
   return {
     title: cleanEvidenceText(source.title, 280) || "Official legal source",
     url,
@@ -368,6 +392,13 @@ function projectCanonicalSource(source: FinalTruthEvidenceSource): TruthMapCanon
     appliesToGeos: Array.isArray(source.appliesToGeos)
       ? source.appliesToGeos.map(normalizeGeo).filter(Boolean)
       : [],
+    legalBasisForExtension: cleanEvidenceText(source.legalBasisForExtension, 1_200) || "NOT_RECORDED",
+    evidenceScope: cleanEvidenceText(source.evidenceScope, 500) || "NOT_RECORDED",
+    confidence: cleanEvidenceText(source.confidence, 120) || "NOT_RECORDED",
+    visualOpened: typeof source.visualOpened === "boolean" ? source.visualOpened : null,
+    screenshotValid: typeof source.screenshotValid === "boolean" ? source.screenshotValid : null,
+    screenshotAvailable,
+    screenshotPaths,
     revalidation: {
       checkedAt: typeof revalidation.checked_at === "string" && revalidation.checked_at.trim() ? revalidation.checked_at : null,
       finalUrl: typeof revalidation.final_url === "string" && revalidation.final_url.trim() ? revalidation.final_url : null,

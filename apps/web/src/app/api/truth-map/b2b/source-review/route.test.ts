@@ -35,7 +35,7 @@ describe("local source review workbench API", () => {
     expect(response.headers.get("cache-control")).toBe("no-store");
     const payload = await response.json();
     expect(payload).toEqual(expect.objectContaining({
-      schemaVersion: 2,
+      schemaVersion: 3,
       localOnly: true,
       readOnly: true,
       registrySha256: expect.stringMatching(/^[a-f0-9]{64}$/)
@@ -49,6 +49,20 @@ describe("local source review workbench API", () => {
       signalIdentitySha256: expect.stringMatching(/^[a-f0-9]{64}$/)
     }));
     expect(payload.dossiers[0]).toHaveProperty("resolution");
+    expect(payload.dossiers[0].currentSource).toEqual(expect.objectContaining({
+      sourceOwnerGeo: expect.any(String),
+      appliesToGeos: expect.any(Array),
+      legalBasisForExtension: expect.any(String),
+      effectiveState: expect.any(String),
+      fragment: expect.any(String),
+      visualReview: expect.any(String),
+      screenshotPaths: expect.any(Array),
+      evidenceScope: expect.any(String),
+      confidence: expect.any(String)
+    }));
+    expect([true, false, null]).toContain(payload.dossiers[0].currentSource.visualOpened);
+    expect([true, false, null]).toContain(payload.dossiers[0].currentSource.screenshotValid);
+    expect([true, false, null]).toContain(payload.dossiers[0].currentSource.screenshotAvailable);
     expect(payload.dossiers[0].attemptHistory.length).toBeGreaterThan(0);
     expect(payload.dossiers[0].closeTokens).toEqual({
       operationId: payload.dossiers[0].operation.operationId,
@@ -81,7 +95,7 @@ describe("local source review workbench API", () => {
 
   it("returns a resolved lifecycle dossier with no reusable close tokens", async () => {
     workbenchOverride.value = {
-      schemaVersion: 2,
+      schemaVersion: 3,
       localOnly: true,
       readOnly: true,
       registrySha256: "a".repeat(64),

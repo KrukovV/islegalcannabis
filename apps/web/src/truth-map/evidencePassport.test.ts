@@ -34,6 +34,13 @@ function canonicalSource(overrides: Partial<TruthMapCanonicalProjectionSource>):
     annotation: "Current official source annotation that is deliberately long enough to identify the scope of this jurisdiction-specific evidence.",
     sourceOwnerGeo: "AA",
     appliesToGeos: ["AA"],
+    legalBasisForExtension: "Direct national applicability.",
+    evidenceScope: "CURRENT_PRIMARY_LAW",
+    confidence: "high",
+    visualOpened: true,
+    screenshotValid: true,
+    screenshotAvailable: true,
+    screenshotPaths: ["/retained/official-source.png"],
     revalidation: {
       checkedAt: null,
       finalUrl: null,

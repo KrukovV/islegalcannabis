@@ -65,7 +65,7 @@ export type SourceReviewWorkbenchDossier = {
 };
 
 export type SourceReviewWorkbench = {
-  schemaVersion: 2;
+  schemaVersion: 3;
   localOnly: true;
   readOnly: true;
   registrySha256: string;
@@ -287,7 +287,7 @@ export function buildSourceReviewWorkbench(
   const returned = matching.slice(0, MAX_RETURNED_DOSSIERS);
 
   return {
-    schemaVersion: 2,
+    schemaVersion: 3,
     localOnly: true,
     readOnly: true,
     registrySha256: registrySnapshot.registrySha256,

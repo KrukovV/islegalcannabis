@@ -17,6 +17,7 @@ const CATEGORIES = new Set([
   "SCHEMA_METADATA_REVIEW", "FRESHNESS_METADATA_REVIEW"
 ]);
 const OPERATION_OUTCOMES = new Set(["CANONICAL_REVIEW_REQUIRED", "ACCESS_BLOCKED", "APPLICABILITY_UNRESOLVED"]);
+const MAX_RESOLUTION_CLOCK_SKEW_MS = 60_000;
 
 function sha256(value) {
   return crypto.createHash("sha256").update(value).digest("hex");
@@ -478,6 +479,9 @@ export function resolveSourceReviewOperation({
   const normalizedOutcome = requiredText(outcome, "OUTCOME");
   if (!OUTCOMES.has(normalizedOutcome)) throw new Error(`SOURCE_REVIEW_RESOLUTION_OUTCOME_INVALID=${normalizedOutcome}`);
   const normalizedResolvedAt = new Date(requiredText(resolvedAt, "RESOLVED_AT")).toISOString();
+  if (Date.parse(normalizedResolvedAt) > Date.now() + MAX_RESOLUTION_CLOCK_SKEW_MS) {
+    throw new Error("SOURCE_REVIEW_RESOLUTION_DATE_IN_FUTURE");
+  }
   const normalizedEvidenceUrl = requiredHttpsUrl(evidenceUrl);
   const normalizedReviewerId = requiredText(reviewerId, "REVIEWER_ID");
   const normalizedNote = requiredText(note, "NOTE");
