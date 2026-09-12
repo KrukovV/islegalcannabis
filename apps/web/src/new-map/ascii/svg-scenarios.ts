@@ -9,6 +9,11 @@ export type SvgPerson = {
   smoking?: boolean;
   motion?: SvgMotion;
   handsUp?: boolean;
+  orbit?: {
+    radiusX: number;
+    radiusY: number;
+    phase: number;
+  };
 };
 
 export type SvgAntarcticKind =
@@ -70,6 +75,7 @@ function circle(count: number, radiusX = 150, radiusY = 38, options: Partial<Svg
       scale: 0.92,
       delay: index * 0.12,
       facing: Math.cos(angle) > 0 ? "left" : "right",
+      orbit: { radiusX, radiusY, phase: angle },
       ...options
     };
   });

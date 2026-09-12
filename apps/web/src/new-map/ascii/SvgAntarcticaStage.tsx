@@ -10,8 +10,8 @@ const JOINT = "#c9b78c";
 
 const SVG_ANIMATION_CSS = `
   .ant-svg-scene { opacity: 0; animation: ant-scene-in 560ms ease-out forwards; }
-  .ant-svg-motion, .ant-svg-bob, .ant-svg-arm, .ant-svg-leg, .ant-svg-smoke, .ant-svg-leaf,
-  .ant-svg-animal, .ant-svg-aurora, .ant-svg-spark { transform-box: fill-box; }
+  .ant-svg-motion, .ant-svg-bob, .ant-svg-arm, .ant-svg-leg, .ant-svg-smoke, .ant-svg-exhale,
+  .ant-svg-leaf, .ant-svg-animal, .ant-svg-aurora, .ant-svg-spark { transform-box: fill-box; }
   .ant-svg-bob { transform-origin: center bottom; animation: ant-bob 1.05s ease-in-out infinite; }
   .ant-svg-arm { transform-origin: top center; animation: ant-limb .92s ease-in-out infinite alternate; }
   .ant-svg-leg { transform-origin: top center; animation: ant-limb .92s ease-in-out infinite alternate-reverse; }
@@ -19,11 +19,11 @@ const SVG_ANIMATION_CSS = `
   .ant-svg-motion-gather { animation: ant-gather 6.8s ease-in-out infinite alternate; }
   .ant-svg-motion-dance { animation: ant-dance 1.2s ease-in-out infinite; }
   .ant-svg-motion-wave { animation: ant-wave 1.5s ease-in-out infinite; }
-  .ant-svg-motion-orbit { transform-origin: center; animation: ant-orbit 7.8s linear infinite; }
   .ant-svg-motion-jump { animation: ant-jump 1.45s cubic-bezier(.45,.04,.55,.96) infinite; }
   .ant-svg-motion-glitch { animation: ant-glitch 2.2s steps(2,end) infinite; }
   .ant-svg-motion-drop { animation: ant-drop 5.4s cubic-bezier(.18,.82,.35,1) infinite; }
   .ant-svg-smoke { transform-origin: center; animation: ant-smoke-rise 1.8s ease-out infinite; }
+  .ant-svg-exhale { transform-origin: center; animation: ant-exhale-puff 4.4s ease-out infinite; }
   .ant-svg-leaf { transform-origin: center; animation: ant-leaf-rise 2.15s ease-out infinite; }
   .ant-svg-animal { transform-origin: center bottom; animation: ant-animal-bob 1.65s ease-in-out infinite; }
   .ant-svg-aurora { fill: none; stroke-linecap: round; animation: ant-aurora 4.2s ease-in-out infinite alternate; }
@@ -37,18 +37,22 @@ const SVG_ANIMATION_CSS = `
   @keyframes ant-gather { 0%,100% { transform: translateX(-10px); } 50% { transform: translateX(10px); } }
   @keyframes ant-dance { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-11px) rotate(2deg); } }
   @keyframes ant-wave { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
-  @keyframes ant-orbit { to { transform: rotate(360deg); } }
   @keyframes ant-jump { 0%,100% { transform: translateY(0); } 45% { transform: translateY(-24px); } }
   @keyframes ant-glitch { 0%,100% { transform: translate(0,0); opacity: .98; } 35% { transform: translate(-8px,3px); opacity: .62; } 70% { transform: translate(7px,-2px); opacity: .88; } }
   @keyframes ant-drop { 0% { transform: translateY(-100px); opacity: 0; } 30%,82% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(28px); opacity: 0; } }
   @keyframes ant-smoke-rise { 0% { opacity: .62; transform: translate(0,0) scale(.8); } 100% { opacity: 0; transform: translate(7px,-34px) scale(1.9); } }
+  @keyframes ant-exhale-puff {
+    0%,58% { opacity: 0; transform: translate(0,0) scale(.45); }
+    62% { opacity: .62; transform: translate(2px,-1px) scale(.72); }
+    92%,100% { opacity: 0; transform: translate(38px,-17px) scale(1.8); }
+  }
   @keyframes ant-leaf-rise { 0% { opacity: .92; transform: translate(0,0) rotate(0); } 100% { opacity: 0; transform: translate(9px,-48px) rotate(28deg); } }
   @keyframes ant-animal-bob { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-7px) rotate(1deg); } }
   @keyframes ant-aurora { from { opacity: .2; stroke-width: 10px; } to { opacity: .55; stroke-width: 18px; } }
   @keyframes ant-spark { 0%,100% { opacity: .3; transform: scale(.65); } 50% { opacity: .95; transform: scale(1.2); } }
   @media (prefers-reduced-motion: reduce) {
     .ant-svg-scene, .ant-svg-motion, .ant-svg-bob, .ant-svg-arm, .ant-svg-leg, .ant-svg-smoke,
-    .ant-svg-leaf, .ant-svg-animal, .ant-svg-aurora, .ant-svg-spark { animation: none !important; }
+    .ant-svg-exhale, .ant-svg-leaf, .ant-svg-animal, .ant-svg-aurora, .ant-svg-spark { animation: none !important; }
     .ant-svg-scene { opacity: 1; }
     .ant-svg-smoke, .ant-svg-leaf { opacity: .45; }
   }
@@ -104,20 +108,134 @@ function Smoke({ x, y, delay = 0, motionEnabled }: { x: number; y: number; delay
   );
 }
 
+function Exhale({ delay = 0, motionEnabled }: { delay?: number; motionEnabled: boolean }) {
+  return (
+    <g data-svg-smoking-phase="exhale">
+      {[[0, 3.6], [0.18, 3], [0.36, 2.5]].map(([offset, radius]) => (
+        <circle
+          key={offset}
+          className="ant-svg-exhale"
+          cx="9"
+          cy="-68"
+          r={radius}
+          fill={ACCENT_LIGHT}
+          opacity="0"
+          style={animationStyle(delay + offset, motionEnabled)}
+        />
+      ))}
+    </g>
+  );
+}
+
+function SmokingGesture({ delay = 0, motionEnabled }: { delay?: number; motionEnabled: boolean }) {
+  return (
+    <>
+      <line
+        x1="0"
+        y1="-56"
+        x2="20"
+        y2="-43"
+        stroke={INK}
+        strokeWidth="6"
+        strokeLinecap="round"
+        data-svg-smoking-phase="elbow-bend"
+      />
+      <g transform="translate(20 -43)">
+        <g
+          transform={motionEnabled ? undefined : "rotate(0 0 0)"}
+          data-svg-smoking-phase="hand-to-mouth"
+          style={{ animationPlayState: motionEnabled ? "running" : "paused" }}
+        >
+          {motionEnabled ? (
+            <animateTransform
+              attributeName="transform"
+              type="rotate"
+              values="170 0 0;170 0 0;0 0 0;0 0 0;170 0 0;170 0 0"
+              keyTimes="0;0.12;0.25;0.48;0.56;1"
+              dur="4.4s"
+              begin={`${Number(delay.toFixed(2))}s`}
+              repeatCount="indefinite"
+            />
+          ) : null}
+          <line x1="0" y1="0" x2="-8" y2="-22" stroke={INK} strokeWidth="6" strokeLinecap="round" />
+          <circle cx="-7" cy="-22" r="3.2" fill={INK} data-svg-smoking-hand="joint-grip" />
+          <g transform="translate(-11 -24)">
+            <g transform={motionEnabled ? undefined : "rotate(0 0 0)"}>
+              {/* Counter-rotate the joint so its lit tip stays outside the torso after the forearm lowers. */}
+              {motionEnabled ? (
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  values="-170 0 0;-170 0 0;0 0 0;0 0 0;-170 0 0;-170 0 0"
+                  keyTimes="0;0.12;0.25;0.48;0.56;1"
+                  dur="4.4s"
+                  begin={`${Number(delay.toFixed(2))}s`}
+                  repeatCount="indefinite"
+                />
+              ) : null}
+              <line
+                x1="0"
+                y1="0"
+                x2="18"
+                y2="5"
+                stroke={JOINT}
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                data-svg-joint-contact="mouth"
+              />
+              <circle cx="19" cy="5" r="2.4" fill="#8fbf4d" data-svg-joint-tip="ember" />
+              <Smoke x={19} y={5} delay={delay} motionEnabled={motionEnabled} />
+            </g>
+          </g>
+        </g>
+      </g>
+      <circle cx="8" cy="-68" r="1.7" fill={JOINT} data-svg-smoking-mouth="contact" />
+      <Exhale delay={delay} motionEnabled={motionEnabled} />
+    </>
+  );
+}
+
+function orbitTranslations(person: SvgPerson) {
+  if (!person.orbit) return null;
+
+  return Array.from({ length: 9 }, (_, index) => {
+    const angle = person.orbit!.phase + (Math.PI * 2 * index) / 8;
+    const x = Math.cos(angle) * person.orbit!.radiusX - person.x;
+    const y = Math.sin(angle) * person.orbit!.radiusY - person.y;
+    return `${Number(x.toFixed(2))} ${Number(y.toFixed(2))}`;
+  }).join(";");
+}
+
 function Person({ person, motionEnabled }: { person: SvgPerson; motionEnabled: boolean }) {
   const scale = person.scale ?? 1;
   const delay = person.delay ?? 0;
   const direction = person.facing === "left" ? -1 : 1;
   const leftArm = person.handsUp ? { x: -20, y: -72 } : { x: -21, y: -39 };
-  const rightArm = person.handsUp ? { x: 20, y: -72 } : person.smoking ? { x: 25, y: -54 } : { x: 21, y: -39 };
+  const rightArm = person.handsUp ? { x: 20, y: -72 } : { x: 21, y: -39 };
+  const orbitValues = person.motion === "orbit" ? orbitTranslations(person) : null;
 
   return (
-    <g transform={`translate(${person.x} ${person.y})`} data-svg-role={person.smoking ? "smoker" : "walker"}>
+    <g
+      transform={`translate(${person.x} ${person.y})`}
+      data-svg-role={person.smoking ? "smoker" : "walker"}
+      data-svg-smoking-behavior={person.smoking ? "inhale-exhale" : undefined}
+    >
       <ellipse cx="0" cy="10" rx="30" ry="9" fill={ACCENT} opacity="0.11" />
       <g
         className={`ant-svg-motion ant-svg-motion-${person.motion ?? "walk"}`}
         style={animationStyle(delay, motionEnabled)}
+        data-svg-orbit-path={orbitValues ? "upright-ellipse" : undefined}
       >
+        {motionEnabled && orbitValues ? (
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            values={orbitValues}
+            keyTimes="0;0.125;0.25;0.375;0.5;0.625;0.75;0.875;1"
+            dur="7.8s"
+            repeatCount="indefinite"
+          />
+        ) : null}
         <g transform={`scale(${direction * scale} ${scale})`}>
           <g className="ant-svg-bob" style={animationStyle(delay, motionEnabled)}>
             <circle cx="0" cy="-72" r="10" fill={INK} />
@@ -133,17 +251,21 @@ function Person({ person, motionEnabled }: { person: SvgPerson; motionEnabled: b
               strokeLinecap="round"
               style={animationStyle(delay, motionEnabled)}
             />
-            <line
-              className="ant-svg-arm"
-              x1="0"
-              y1="-56"
-              x2={rightArm.x}
-              y2={rightArm.y}
-              stroke={INK}
-              strokeWidth="6"
-              strokeLinecap="round"
-              style={animationStyle(delay + 0.45, motionEnabled)}
-            />
+            {person.smoking ? (
+              <SmokingGesture delay={delay} motionEnabled={motionEnabled} />
+            ) : (
+              <line
+                className="ant-svg-arm"
+                x1="0"
+                y1="-56"
+                x2={rightArm.x}
+                y2={rightArm.y}
+                stroke={INK}
+                strokeWidth="6"
+                strokeLinecap="round"
+                style={animationStyle(delay + 0.45, motionEnabled)}
+              />
+            )}
             <line
               className="ant-svg-leg"
               x1="0"
@@ -166,13 +288,6 @@ function Person({ person, motionEnabled }: { person: SvgPerson; motionEnabled: b
               strokeLinecap="round"
               style={animationStyle(delay + 0.45, motionEnabled)}
             />
-            {person.smoking ? (
-              <>
-                <line x1="24" y1="-54" x2="40" y2="-59" stroke={JOINT} strokeWidth="2.5" strokeLinecap="round" />
-                <circle cx="41" cy="-59" r="2.4" fill="#8fbf4d" />
-                <Smoke x={42} y={-60} delay={delay} motionEnabled={motionEnabled} />
-              </>
-            ) : null}
           </g>
         </g>
       </g>

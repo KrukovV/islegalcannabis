@@ -57,4 +57,23 @@ describe("svg Antarctica storyboard", () => {
     expect(SVG_STORIES.reduce((total, story) => total + story.durationMs, 0)).toBeLessThanOrEqual(5 * 60_000);
     expect(nextSvgStoryIndex(SVG_STORIES.length - 1)).toBe(0);
   });
+
+  it("keeps every smoking actor inside an explicit inhale/exhale story", () => {
+    const smokingStories = SVG_STORIES
+      .filter((story) => story.people?.some((person) => person.smoking))
+      .map((story) => story.id);
+
+    expect(smokingStories).toEqual([
+      "walking-smoker",
+      "pass-joint",
+      "circle-smoke",
+      "dance-smokers",
+      "smoke-to-4-20",
+      "orbit",
+      "story-4-20",
+      "smoke-circle-legacy",
+      "dance-wave-legacy"
+    ]);
+    expect(SVG_STORIES.flatMap((story) => story.people ?? []).filter((person) => person.smoking)).toHaveLength(35);
+  });
 });
