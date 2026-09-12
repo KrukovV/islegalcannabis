@@ -14,7 +14,8 @@ import {
   sourceReviewOperationsIndex,
   sourceReviewResolutionsIndex,
   type SourceReviewEventKind,
-  type SourceReviewOperation
+  type SourceReviewOperation,
+  type SourceReviewOperationsRegistry
 } from "./sourceReviewOperations";
 
 const EVIDENCE_PASSPORT_SCHEMA_VERSION = 2;
@@ -338,14 +339,19 @@ function ensureCanonicalUniverse(
 
 export function buildEvidencePassportCollection(
   origin = "",
-  { allowUnregisteredCurrentVersion = false }: { allowUnregisteredCurrentVersion?: boolean } = {}
+  {
+    allowUnregisteredCurrentVersion = false,
+    reviewRegistry = loadSourceReviewOperationsRegistry()
+  }: {
+    allowUnregisteredCurrentVersion?: boolean;
+    reviewRegistry?: SourceReviewOperationsRegistry;
+  } = {}
 ) {
   const properties = staticPropertiesByGeo();
   const records = listTruthMapCanonicalProjectionRecords();
   ensureCanonicalUniverse(properties, records);
   const recordsByGeo = new Map(records.map((record) => [record.geo, record]));
   const metadataIntegrityIndex = buildEvidencePassportMetadataIntegrityIndex(records);
-  const reviewRegistry = loadSourceReviewOperationsRegistry();
   const operations = sourceReviewOperationsIndex(reviewRegistry);
   const resolutions = sourceReviewResolutionsIndex(reviewRegistry);
   const unregisteredVersion = buildVersion(properties);
@@ -385,6 +391,7 @@ export function buildEvidencePassportCollection(
           ))
       ];
       const reviewOperations = currentReviewOperations(geo, record.sources, operations);
+      const activeReviewOperations = reviewOperations.filter((operation) => !resolutions.has(operation.operationId));
       const geoOperations = reviewRegistry.operations.filter((operation) => operation.geo === geo);
       const geoSourceChangeOperations = geoOperations.filter((operation) => operation.eventKind === "SOURCE_CHANGE");
       const geoResolutions = geoOperations.flatMap((operation) => {
@@ -435,10 +442,10 @@ export function buildEvidencePassportCollection(
           latestReviewOpenedAt: latestRecordedOperationDate(geoOperations.map((operation) => operation.openedAt)),
           latestReviewClosedAt: latestRecordedOperationDate(geoResolutions.map((resolution) => resolution.resolvedAt)),
           canonicalConclusionPublishedAt: version.generatedAt === "NOT_RECORDED" ? null : version.generatedAt,
-          pendingReviewSourceCount: record.sources.filter(isPendingReview).length,
-          freshnessMetadataReviewSourceCount: record.sources.filter((source) => source.revalidation.state === "NOT_RECORDED").length,
-          changedSourceCount: record.sources.filter(isSourceChange).length,
-          classifiedReviewEventCount: reviewOperations.length,
+          pendingReviewSourceCount: activeReviewOperations.filter((operation) => operation.eventKind !== "SOURCE_CHANGE").length,
+          freshnessMetadataReviewSourceCount: activeReviewOperations.filter((operation) => operation.eventKind === "FRESHNESS_METADATA_GAP").length,
+          changedSourceCount: activeReviewOperations.filter((operation) => operation.eventKind === "SOURCE_CHANGE").length,
+          classifiedReviewEventCount: activeReviewOperations.length,
           openReviewOperationCount: geoOperations.length - geoResolutions.length,
           resolvedReviewOperationCount: geoResolutions.length,
           metadataIntegrityReviewCount: citations.filter(

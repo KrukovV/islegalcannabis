@@ -3100,7 +3100,8 @@ for truth_first_builder in "${TRUTH_FIRST_DERIVED_BUILDERS[@]}"; do
 done
 run_step "b2b_source_review_operations" 120 "${NODE_BIN} tools/review/build_source_review_operations.mjs"
 run_step "b2b_evidence_delivery_manifest" 180 "cd \"${ROOT}/apps/web\" && npm run evidence:manifest"
-run_step "b2b_source_review_post_build_tests" 180 "npm -w apps/web test -- --run src/truth-map/sourceReviewOperations.test.ts src/truth-map/evidencePassport.test.ts src/truth-map/canonicalProjectionLedger.test.ts src/truth-map/evidenceDeliveryManifest.test.ts src/truth-map/changeMonitor.test.ts src/truth-map/correctionRequest.test.ts src/app/api/truth-map/b2b/correction-review/route.test.ts"
+run_step "b2b_source_review_post_build_tests" 180 "npm -w apps/web test -- --run src/truth-map/sourceReviewOperations.test.ts src/truth-map/sourceReviewWorkbench.test.ts src/truth-map/evidencePassport.test.ts src/truth-map/canonicalProjectionLedger.test.ts src/truth-map/evidenceDeliveryManifest.test.ts src/truth-map/changeMonitor.test.ts src/truth-map/correctionRequest.test.ts src/app/api/truth-map/b2b/correction-review/route.test.ts src/app/api/truth-map/b2b/source-review/route.test.ts"
+run_step "b2b_source_review_resolver_tests" 120 "${NODE_BIN} --test tools/review/build_source_review_operations.test.mjs"
 run_step "store_truth_verify_discovery_review_packets" 120 "${NODE_BIN} tools/stores/verify_store_discovery_review_packets.mjs"
 run_step "store_truth_build_eligibility_model" 120 "${NODE_BIN} tools/stores/build_store_eligibility_model.mjs"
 run_step "store_truth_build_source_candidates" 120 "${NODE_BIN} tools/stores/build_store_source_candidates.mjs"

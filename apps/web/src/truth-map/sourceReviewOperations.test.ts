@@ -83,6 +83,7 @@ describe("source review operations", () => {
       reviewedAttemptId: reviewedAttempt!.attemptId,
       reviewedSignalIdentitySha256: reviewedAttempt!.signalIdentitySha256,
       reviewedSourceCheckedAt: reviewedAttempt!.sourceCheckedAt,
+      reviewRegistrySha256: "c".repeat(64),
       note: "Applicable official evidence was reviewed.",
       resolutionBasis: "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
       resultingRevalidationState: "HUMAN_REVIEW_CONFIRMED",
@@ -101,6 +102,10 @@ describe("source review operations", () => {
     expect(() => validateSourceReviewOperationsRegistry({
       ...registry,
       resolutions: [{ ...resolution, reviewerId: "", note: "" }]
+    })).toThrow("SOURCE_REVIEW_RESOLUTION_PROVENANCE_INVALID");
+    expect(() => validateSourceReviewOperationsRegistry({
+      ...registry,
+      resolutions: [{ ...resolution, reviewRegistrySha256: "not-a-sha256" }]
     })).toThrow("SOURCE_REVIEW_RESOLUTION_PROVENANCE_INVALID");
     expect(() => validateSourceReviewOperationsRegistry({
       ...registry,

@@ -21,6 +21,8 @@ Status Engine Audit v3 is present as a review-only evaluator. The current rerun 
 | `/wiki-truth` | Prebuilt wiki/ISO/SSOT/official audit UI | `apps/web/src/app/wiki-truth/page.tsx`, `apps/web/src/lib/wikiTruth*.ts` |
 | `/trust-view` | Stable localhost audit alias | `apps/web/src/app/trust-view/page.tsx` |
 | `/changes` | SSOT diff UI | `apps/web/src/app/changes/page.tsx` |
+| `/truth-map/evidence-passport/review` | Local-only read-only Source Review Workbench | `apps/web/src/app/truth-map/evidence-passport/review/page.tsx` |
+| `/api/truth-map/b2b/source-review` | Local-only bounded source-review dossiers; no write method | `apps/web/src/app/api/truth-map/b2b/source-review/route.ts` |
 | `/api/check` | Jurisdiction legality API | `apps/web/src/app/api/check/route.ts` |
 | `/api/new-map/countries` | Redirect to immutable countries asset | `apps/web/src/app/api/new-map/countries/route.ts` |
 | `/api/ssot/changes` | SSOT diff cache API | `apps/web/src/app/api/ssot/changes/route.ts` |
@@ -51,6 +53,7 @@ Status Engine Audit v3 is present as a review-only evaluator. The current rerun 
 | `cache/ssot_diff_pending.json` | Pending diff confirmation cache | Two-cycle confirmation |
 | `cache/ssot_diff_cache.json` | Offline/UI diff cache | Read by `/changes` |
 | `tools/pass_cycle.sh` | CI/checkpoint/ledger entrypoint | Single command for verification |
+| `tools/review/resolve_source_review_operation.mjs` | Explicit human source-review close | Requires exact registry, latest-attempt and signal identities; no truth mutation |
 | `tools/ui_dev_guard.sh` and `tools/ui/ui_dev_ssot.sh` | Dev-server singleton guards | Do not start a second Next server |
 | `Reports` | Operational reports | No history archives |
 | `QUARANTINE` | One PASS snapshot | Historical archives stay outside repo |

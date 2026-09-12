@@ -27,7 +27,7 @@ The public map uses the tested 307-GEO display projection and the canonical
 Store Truth visibility gate. It must not publish local audit controls, Social,
 DM, alternate legal conclusions or a second map runtime. Production also omits
 the legacy `CannabisLawMap` information card while retaining the established
-decorative Antarctica canvas animation; that animation has no legal, Store or
+decorative Antarctica inline-SVG animation; that animation has no legal, Store or
 SEO meaning.
 
 ## 2. Historical cause and accepted repair

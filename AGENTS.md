@@ -62,8 +62,8 @@ Hard Rule:
 - A Social marker selects an already-public privacy-safe H3 discussion area; it is not a store, user pin, exact location, distance indicator, or legal-truth signal.
 - Social and its map layer remain local `/truth-map`-only. Production `/` and production `/new-map` must contain no Social, DM or AI UI/layers/requests. On localhost, the public-map QA wrapper may retain the canonical AI dock; it must not add Social or DM outside `/truth-map`.
 - Social UI must not change Legal Truth, GEO colours, stores, SSOT, SEO, production, or deployment state.
-- Production `/` must not render the legacy `CannabisLawMap` information card. It preserves the existing Antarctica canvas animation by reusing the established `AsciiOverlay`, scenario registry and MapLibre trigger binding; the animation is decorative only and cannot alter Legal Truth, Store Truth, popup content or map interaction.
-- The same `AsciiOverlay` and map-trigger binding must remain mounted on local `/truth-map` with the audit canvas identity while its editable AI dock remains available. The two routes may differ only in their permitted shell controls; the animation is shared decorative presentation, never a separate map runtime or a truth/data signal.
+- Production `/` must not render the legacy `CannabisLawMap` information card. It preserves the existing Antarctica inline-SVG animation by reusing the established `AsciiOverlay`, SVG story registry and MapLibre trigger binding; the animation is decorative only and cannot alter Legal Truth, Store Truth, popup content or map interaction.
+- The same `AsciiOverlay` and map-trigger binding must remain mounted on local `/truth-map` with the shared inline-SVG overlay identity while its editable AI dock remains available. The two routes may differ only in their permitted shell controls; the animation is shared decorative presentation, never a separate map runtime or a truth/data signal.
 
 ## Truth Map Rich Popup Context Contract (Hard Rule)
 
@@ -73,6 +73,7 @@ Hard Rule:
 - The shared rich-popup SEO CTA is an internal dotted-underlined link. It opens the matching `/c/[code]` SEO panel in place without a document reload; this interaction must not remove or reduce any legal-evidence, supplementary or profile section from the underlying popup record.
 - Historic, enforcement, product, cultivation, market and profile material must use a supplementary/historical heading whenever ordinary wording could be read as the current legal verdict. A legacy `why this colour` block must not duplicate the current reconciliation rationale.
 - This is one schema-driven rule for all 307 GEO. GEO-specific content, legal, colour or wording branches are forbidden. A current lawful route and an explicitly scoped penalty for unauthorised conduct must never be rendered as a contradiction.
+- The local Source Review Workbench is read-only and must remain absent on production. An explicit source-review resolution must bind the exact latest attempt ID, its signal-identity SHA-256 and the SHA-256 of the exact registry bytes; stale or cross-operation state fails before mutation. A resolved current operation leaves active Passport/Monitor queues but remains append-only history. No source-review outcome changes Legal Truth or Store Truth.
 - The canonical full visual audit waits for the selected GEO identity and verifies supplementary action/source/boundary presentation for all 307 public-map and audit-map popups. It must not alter legal APIs, SSOT, Store Truth, SEO, production or deployment.
 
 ## Storage Hygiene (Hard Rule)

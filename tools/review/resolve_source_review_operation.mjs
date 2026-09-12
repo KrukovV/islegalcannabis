@@ -75,9 +75,18 @@ function evidenceRelation({ evidenceUrl, operation, reviewedAttempt, officialReg
   throw new Error("SOURCE_REVIEW_RESOLUTION_EVIDENCE_NOT_LINKED_TO_OFFICIAL_OWNER");
 }
 
-function atomicWrite(filePath, payload) {
+function registrySha256(bytes) {
+  return sha256(bytes);
+}
+
+function atomicWrite(filePath, payload, expectedRegistrySha256) {
   const temporaryPath = `${filePath}.tmp-${process.pid}`;
   fs.writeFileSync(temporaryPath, `${JSON.stringify(payload, null, 2)}\n`);
+  const currentRegistrySha256 = registrySha256(fs.readFileSync(filePath));
+  if (currentRegistrySha256 !== expectedRegistrySha256) {
+    fs.unlinkSync(temporaryPath);
+    throw new Error(`SOURCE_REVIEW_RESOLUTION_REGISTRY_STALE=${currentRegistrySha256}`);
+  }
   fs.renameSync(temporaryPath, filePath);
 }
 
@@ -86,6 +95,9 @@ export function resolveSourceReviewOperation({
   officialRegistryPath = DEFAULT_OFFICIAL_REGISTRY_PATH,
   ownershipPath = DEFAULT_OWNERSHIP_PATH,
   operationId,
+  reviewedAttemptId,
+  expectedSignalIdentitySha256,
+  expectedRegistrySha256,
   reviewerId,
   evidenceUrl,
   note,
@@ -96,7 +108,16 @@ export function resolveSourceReviewOperation({
   humanReviewed = false
 } = {}) {
   if (humanReviewed !== true) throw new Error("SOURCE_REVIEW_RESOLUTION_EXPLICIT_HUMAN_REVIEW_REQUIRED");
-  const registry = JSON.parse(fs.readFileSync(registryPath, "utf8"));
+  const registryBytes = fs.readFileSync(registryPath);
+  const actualRegistrySha256 = registrySha256(registryBytes);
+  const normalizedExpectedRegistrySha256 = requiredText(expectedRegistrySha256, "EXPECTED_REGISTRY_SHA256").toLowerCase();
+  if (!/^[a-f0-9]{64}$/.test(normalizedExpectedRegistrySha256)) {
+    throw new Error("SOURCE_REVIEW_RESOLUTION_EXPECTED_REGISTRY_SHA256_INVALID");
+  }
+  if (actualRegistrySha256 !== normalizedExpectedRegistrySha256) {
+    throw new Error(`SOURCE_REVIEW_RESOLUTION_REGISTRY_STALE=${actualRegistrySha256}`);
+  }
+  const registry = JSON.parse(registryBytes.toString("utf8"));
   if (registry.schemaVersion !== 4 || registry.localOnly !== true || registry.appendOnly !== true || !Array.isArray(registry.attempts)) {
     throw new Error("SOURCE_REVIEW_RESOLUTION_REGISTRY_INVALID");
   }
@@ -113,8 +134,22 @@ export function resolveSourceReviewOperation({
       const rightAt = Date.parse(right.attemptedAt);
       return rightAt - leftAt || right.attemptId.localeCompare(left.attemptId);
     });
-  const reviewedAttempt = attempts[0];
-  if (!reviewedAttempt) throw new Error(`SOURCE_REVIEW_RESOLUTION_ATTEMPT_NOT_FOUND=${normalizedOperationId}`);
+  const normalizedReviewedAttemptId = requiredText(reviewedAttemptId, "REVIEWED_ATTEMPT_ID");
+  const reviewedAttempt = registry.attempts.find((entry) => entry.attemptId === normalizedReviewedAttemptId);
+  if (!reviewedAttempt) throw new Error(`SOURCE_REVIEW_RESOLUTION_ATTEMPT_NOT_FOUND=${normalizedReviewedAttemptId}`);
+  if (reviewedAttempt.operationId !== normalizedOperationId) {
+    throw new Error(`SOURCE_REVIEW_RESOLUTION_ATTEMPT_OPERATION_MISMATCH=${normalizedReviewedAttemptId}`);
+  }
+  if (!attempts[0] || attempts[0].attemptId !== normalizedReviewedAttemptId) {
+    throw new Error(`SOURCE_REVIEW_RESOLUTION_ATTEMPT_STALE=${normalizedReviewedAttemptId}`);
+  }
+  const normalizedExpectedSignalIdentitySha256 = requiredText(expectedSignalIdentitySha256, "EXPECTED_SIGNAL_IDENTITY_SHA256").toLowerCase();
+  if (!/^[a-f0-9]{64}$/.test(normalizedExpectedSignalIdentitySha256)) {
+    throw new Error("SOURCE_REVIEW_RESOLUTION_EXPECTED_SIGNAL_IDENTITY_SHA256_INVALID");
+  }
+  if (reviewedAttempt.signalIdentitySha256 !== normalizedExpectedSignalIdentitySha256) {
+    throw new Error(`SOURCE_REVIEW_RESOLUTION_SIGNAL_IDENTITY_STALE=${reviewedAttempt.signalIdentitySha256}`);
+  }
   const normalizedOutcome = requiredText(outcome, "OUTCOME");
   if (!OUTCOMES.has(normalizedOutcome)) throw new Error(`SOURCE_REVIEW_RESOLUTION_OUTCOME_INVALID=${normalizedOutcome}`);
   const normalizedResolvedAt = new Date(requiredText(resolvedAt, "RESOLVED_AT")).toISOString();
@@ -135,7 +170,10 @@ export function resolveSourceReviewOperation({
       normalizedOutcome,
       normalizedResolvedAt,
       reviewerId,
-      evidenceUrl
+      evidenceUrl,
+      normalizedReviewedAttemptId,
+      normalizedExpectedSignalIdentitySha256,
+      normalizedExpectedRegistrySha256
     ].join("\u0000")).slice(0, 24)}`,
     operationId: normalizedOperationId,
     geo: operation.geo,
@@ -149,13 +187,18 @@ export function resolveSourceReviewOperation({
     reviewedAttemptId: reviewedAttempt.attemptId,
     reviewedSignalIdentitySha256: reviewedAttempt.signalIdentitySha256,
     reviewedSourceCheckedAt: reviewedAttempt.sourceCheckedAt,
+    reviewRegistrySha256: normalizedExpectedRegistrySha256,
     note: requiredText(note, "NOTE"),
     resolutionBasis: "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
     resultingRevalidationState: requiredText(resultingRevalidationState, "RESULTING_STATE"),
     resultingChangeReason: requiredText(resultingChangeReason, "RESULTING_REASON"),
     boundary: "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
   };
-  atomicWrite(registryPath, { ...registry, resolutions: [...registry.resolutions, resolution] });
+  atomicWrite(
+    registryPath,
+    { ...registry, resolutions: [...registry.resolutions, resolution] },
+    normalizedExpectedRegistrySha256
+  );
   return resolution;
 }
 
@@ -167,6 +210,9 @@ function arg(name) {
 function main() {
   const resolution = resolveSourceReviewOperation({
     operationId: arg("operation-id"),
+    reviewedAttemptId: arg("reviewed-attempt-id"),
+    expectedSignalIdentitySha256: arg("expected-signal-identity-sha256"),
+    expectedRegistrySha256: arg("expected-registry-sha256"),
     reviewerId: arg("reviewer-id"),
     evidenceUrl: arg("evidence-url"),
     note: arg("note"),
@@ -178,6 +224,9 @@ function main() {
   });
   console.log(`SOURCE_REVIEW_RESOLUTION_ID=${resolution.resolutionId}`);
   console.log(`SOURCE_REVIEW_OPERATION_ID=${resolution.operationId}`);
+  console.log(`SOURCE_REVIEW_REVIEWED_ATTEMPT_ID=${resolution.reviewedAttemptId}`);
+  console.log(`SOURCE_REVIEW_REVIEWED_SIGNAL_IDENTITY_SHA256=${resolution.reviewedSignalIdentitySha256}`);
+  console.log(`SOURCE_REVIEW_REGISTRY_SHA256=${resolution.reviewRegistrySha256}`);
   console.log("LEGAL_TRUTH_CHANGED=false");
   console.log("STORE_TRUTH_CHANGED=false");
   console.log("PRODUCTION_TOUCHED=false");

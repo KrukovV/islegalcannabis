@@ -332,6 +332,40 @@ node tools/measure_new_map_startup.mjs
 - A successful bypass must load the real app HTML with title `Is cannabis legal?`, not a Vercel Security Checkpoint page. If Lighthouse CLI still lands on `chrome-error://chromewebdata/` or a checkpoint interstitial, mark that Lighthouse run `UNCONFIRMED` and use Playwright/PageSpeed UI evidence instead.
 - Sanitize artifacts after every run: replace the token in JSON/HTML/trace output with `<BYPASS_SECRET>` before committing or sharing.
 
+## Local Source Review Workbench
+
+The evidence-operations queue is inspected only on localhost:
+
+- UI: `http://127.0.0.1:3000/truth-map/evidence-passport/review`
+- JSON: `http://127.0.0.1:3000/api/truth-map/b2b/source-review`
+- filters: `geo=<canonical-GEO>`, `category=<review-category>`, `state=current|historical|resolved|open`
+
+The UI/API is read-only, limits broad results to 100 exact dossiers and returns `404` for a non-local host. Use it to copy the operation ID, exact latest attempt ID and signal identity. Compute the registry identity from the exact file bytes immediately before review:
+
+```bash
+shasum -a 256 data/b2b_evidence/source_review_operations.json
+```
+
+After a human reviews the retained official evidence, close only the exact operation/attempt pair:
+
+```bash
+node tools/review/resolve_source_review_operation.mjs \
+  --human-reviewed \
+  --operation-id=<SRCREV-id> \
+  --reviewed-attempt-id=<SRCATT-id> \
+  --expected-signal-identity-sha256=<signal-sha256> \
+  --expected-registry-sha256=<registry-sha256> \
+  --reviewer-id=<reviewer> \
+  --evidence-url=<https-official-evidence> \
+  --note=<bounded-review-note> \
+  --outcome=<CONFIRMED_CURRENT|SUPERSEDED> \
+  --resolved-at=<real-ISO-8601-time> \
+  --resulting-state=<reviewed-state> \
+  --resulting-reason=<reviewed-reason>
+```
+
+Any stale registry, signal, attempt or cross-operation attempt fails before the registry is replaced. Reopen the Workbench and repeat the evidence review rather than weakening the identity guard. A successful resolution removes that exact signal from active Passport/Change Monitor queues and preserves it in append-only history; it does not change Legal Truth, Store Truth or the canonical projection. Finish a batch with the canonical `bash tools/pass_cycle.sh`; never treat focused Workbench tests as release acceptance.
+
 ## Webvisor and PageSpeed checks
 - Webvisor is production-required. Do not turn it off as a performance workaround.
 - Local proof must show zero Yandex/Metrika/Webvisor network resources before `NM_T7_FIRST_FILL_RENDERED` and through a short passive window, then successful counter loading after user interaction or the late idle fallback.

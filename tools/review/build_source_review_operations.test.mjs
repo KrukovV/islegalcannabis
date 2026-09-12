@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import crypto from "node:crypto";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
@@ -24,6 +25,24 @@ function source(state, reason, checkedAt, extraRevalidation = {}) {
 
 function ledger(entry) {
   return { rows: [{ geo: "AA", primaryLaw: { officialSources: [entry], freshAxisOfficialSources: [] } }] };
+}
+
+function registrySnapshot(outputPath) {
+  const bytes = fs.readFileSync(outputPath);
+  return {
+    bytes,
+    registry: JSON.parse(bytes.toString("utf8")),
+    sha256: crypto.createHash("sha256").update(bytes).digest("hex")
+  };
+}
+
+function latestAttemptForOperation(registry, operationId) {
+  return registry.attempts
+    .filter((attempt) => attempt.operationId === operationId)
+    .sort((left, right) => (
+      Date.parse(right.attemptedAt) - Date.parse(left.attemptedAt)
+      || right.attemptId.localeCompare(left.attemptId)
+    ))[0];
 }
 
 test("C1 source states never auto-close a legal review operation", () => {
@@ -72,9 +91,32 @@ test("C1 source states never auto-close a legal review operation", () => {
       operationId: firstOperation.operationId
     }), /SOURCE_REVIEW_RESOLUTION_EXPLICIT_HUMAN_REVIEW_REQUIRED/);
 
-    resolveSourceReviewOperation({
+    const reviewSnapshot = registrySnapshot(outputPath);
+    const reviewedAttempt = latestAttemptForOperation(reviewSnapshot.registry, firstOperation.operationId);
+    const otherOperation = reviewSnapshot.registry.operations.find((operation) => operation.operationId !== firstOperation.operationId);
+    const otherAttempt = latestAttemptForOperation(reviewSnapshot.registry, otherOperation.operationId);
+    assert.throws(() => resolveSourceReviewOperation({
       registryPath: outputPath,
       operationId: firstOperation.operationId,
+      reviewedAttemptId: otherAttempt.attemptId,
+      expectedSignalIdentitySha256: otherAttempt.signalIdentitySha256,
+      expectedRegistrySha256: reviewSnapshot.sha256,
+      reviewerId: "editor-legal-1",
+      evidenceUrl: "https://example.gov/law",
+      note: "This attempt belongs to a different operation and must not close the requested review.",
+      outcome: "CONFIRMED_CURRENT",
+      resolvedAt: "2026-09-11T14:00:00.000Z",
+      resultingRevalidationState: "HUMAN_REVIEW_CONFIRMED",
+      resultingChangeReason: "EFFECTIVE_DATE_AND_SCOPE_CONFIRMED",
+      humanReviewed: true
+    }), /SOURCE_REVIEW_RESOLUTION_ATTEMPT_OPERATION_MISMATCH=/);
+    assert.deepEqual(fs.readFileSync(outputPath), reviewSnapshot.bytes);
+    const resolution = resolveSourceReviewOperation({
+      registryPath: outputPath,
+      operationId: firstOperation.operationId,
+      reviewedAttemptId: reviewedAttempt.attemptId,
+      expectedSignalIdentitySha256: reviewedAttempt.signalIdentitySha256,
+      expectedRegistrySha256: reviewSnapshot.sha256,
       reviewerId: "editor-legal-1",
       evidenceUrl: "https://example.gov/law",
       note: "The effective provision and territorial scope were reviewed in the retained official source.",
@@ -84,6 +126,7 @@ test("C1 source states never auto-close a legal review operation", () => {
       resultingChangeReason: "EFFECTIVE_DATE_AND_SCOPE_CONFIRMED",
       humanReviewed: true
     });
+    assert.equal(resolution.reviewRegistrySha256, reviewSnapshot.sha256);
 
     fs.writeFileSync(sourcePath, JSON.stringify(ledger(source("EFFECTIVE_DATE_REVIEW_DUE", "EFFECTIVE_OR_LIFECYCLE_DATE_REACHED", "2026-09-12T09:00:00.000Z"))));
     const fourth = buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-12T09:01:00.000Z" });
@@ -136,12 +179,17 @@ test("resolution evidence must be retained/final official evidence or registry-o
     fs.writeFileSync(officialRegistryPath, JSON.stringify({ domains: ["gazette.example"] }));
     fs.writeFileSync(ownershipPath, JSON.stringify({ items: [{ domain: "gazette.example", owner_geos: ["AA"], effective: true }] }));
     buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-11T10:01:00.000Z" });
-    const operation = JSON.parse(fs.readFileSync(outputPath, "utf8")).operations[0];
+    const reviewSnapshot = registrySnapshot(outputPath);
+    const operation = reviewSnapshot.registry.operations[0];
+    const reviewedAttempt = latestAttemptForOperation(reviewSnapshot.registry, operation.operationId);
     const common = {
       registryPath: outputPath,
       officialRegistryPath,
       ownershipPath,
       operationId: operation.operationId,
+      reviewedAttemptId: reviewedAttempt.attemptId,
+      expectedSignalIdentitySha256: reviewedAttempt.signalIdentitySha256,
+      expectedRegistrySha256: reviewSnapshot.sha256,
       reviewerId: "editor-legal-1",
       note: "The retained official evidence and territorial owner were reviewed.",
       outcome: "CONFIRMED_CURRENT",
@@ -156,6 +204,7 @@ test("resolution evidence must be retained/final official evidence or registry-o
     assert.equal(resolution.evidenceOwnerGeo, "AA");
     assert.match(resolution.reviewedAttemptId, /^SRCATT-/);
     assert.match(resolution.reviewedSignalIdentitySha256, /^[a-f0-9]{64}$/);
+    assert.equal(resolution.reviewRegistrySha256, reviewSnapshot.sha256);
   } finally {
     fs.rmSync(directory, { recursive: true, force: true });
   }
@@ -173,10 +222,15 @@ test("resolution may bind to the exact revalidated final URL", () => {
       { final_url: "https://redirected.example.gov/current-law" },
     ))));
     buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-11T10:01:00.000Z" });
-    const operation = JSON.parse(fs.readFileSync(outputPath, "utf8")).operations[0];
+    const reviewSnapshot = registrySnapshot(outputPath);
+    const operation = reviewSnapshot.registry.operations[0];
+    const reviewedAttempt = latestAttemptForOperation(reviewSnapshot.registry, operation.operationId);
     const resolution = resolveSourceReviewOperation({
       registryPath: outputPath,
       operationId: operation.operationId,
+      reviewedAttemptId: reviewedAttempt.attemptId,
+      expectedSignalIdentitySha256: reviewedAttempt.signalIdentitySha256,
+      expectedRegistrySha256: reviewSnapshot.sha256,
       reviewerId: "editor-legal-1",
       evidenceUrl: "https://redirected.example.gov/current-law#article-4",
       note: "The exact revalidated final official URL and territorial scope were reviewed.",
@@ -187,6 +241,102 @@ test("resolution may bind to the exact revalidated final URL", () => {
       humanReviewed: true
     });
     assert.equal(resolution.evidenceUrlRelation, "REVALIDATED_FINAL_URL");
+    assert.equal(resolution.reviewRegistrySha256, reviewSnapshot.sha256);
+  } finally {
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test("resolution fails closed for stale registry, signal, or non-latest attempt identity", () => {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), "islegal-source-review-stale-"));
+  try {
+    const sourcePath = path.join(directory, "projection.json");
+    const outputPath = path.join(directory, "operations.json");
+    fs.writeFileSync(sourcePath, JSON.stringify(ledger(source(
+      "NEEDS_SEMANTIC_REVIEW",
+      "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+      "2026-09-11T10:00:00.000Z"
+    ))));
+    buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-11T10:01:00.000Z" });
+    const firstSnapshot = registrySnapshot(outputPath);
+    const operation = firstSnapshot.registry.operations[0];
+    const firstAttempt = latestAttemptForOperation(firstSnapshot.registry, operation.operationId);
+    const common = {
+      registryPath: outputPath,
+      operationId: operation.operationId,
+      reviewerId: "editor-legal-1",
+      evidenceUrl: operation.sourceUrl,
+      note: "The exact attempt, official evidence, and territorial scope were reviewed.",
+      outcome: "CONFIRMED_CURRENT",
+      resolvedAt: "2026-09-11T12:00:00.000Z",
+      resultingRevalidationState: "HUMAN_REVIEW_CONFIRMED",
+      resultingChangeReason: "SCOPE_AND_EFFECTIVE_STATE_CONFIRMED",
+      humanReviewed: true
+    };
+
+    assert.throws(() => resolveSourceReviewOperation({
+      ...common,
+      reviewedAttemptId: firstAttempt.attemptId,
+      expectedSignalIdentitySha256: firstAttempt.signalIdentitySha256
+    }), /SOURCE_REVIEW_RESOLUTION_EXPECTED_REGISTRY_SHA256_REQUIRED/);
+    assert.deepEqual(fs.readFileSync(outputPath), firstSnapshot.bytes);
+
+    assert.throws(() => resolveSourceReviewOperation({
+      ...common,
+      expectedRegistrySha256: firstSnapshot.sha256,
+      expectedSignalIdentitySha256: firstAttempt.signalIdentitySha256
+    }), /SOURCE_REVIEW_RESOLUTION_REVIEWED_ATTEMPT_ID_REQUIRED/);
+    assert.deepEqual(fs.readFileSync(outputPath), firstSnapshot.bytes);
+
+    assert.throws(() => resolveSourceReviewOperation({
+      ...common,
+      reviewedAttemptId: firstAttempt.attemptId,
+      expectedRegistrySha256: firstSnapshot.sha256
+    }), /SOURCE_REVIEW_RESOLUTION_EXPECTED_SIGNAL_IDENTITY_SHA256_REQUIRED/);
+    assert.deepEqual(fs.readFileSync(outputPath), firstSnapshot.bytes);
+
+    assert.throws(() => resolveSourceReviewOperation({
+      ...common,
+      reviewedAttemptId: firstAttempt.attemptId,
+      expectedSignalIdentitySha256: firstAttempt.signalIdentitySha256,
+      expectedRegistrySha256: "0".repeat(64)
+    }), /SOURCE_REVIEW_RESOLUTION_REGISTRY_STALE=/);
+    assert.deepEqual(fs.readFileSync(outputPath), firstSnapshot.bytes);
+
+    assert.throws(() => resolveSourceReviewOperation({
+      ...common,
+      reviewedAttemptId: firstAttempt.attemptId,
+      expectedSignalIdentitySha256: "0".repeat(64),
+      expectedRegistrySha256: firstSnapshot.sha256
+    }), /SOURCE_REVIEW_RESOLUTION_SIGNAL_IDENTITY_STALE=/);
+    assert.deepEqual(fs.readFileSync(outputPath), firstSnapshot.bytes);
+
+    fs.writeFileSync(sourcePath, JSON.stringify(ledger(source(
+      "NEEDS_SEMANTIC_REVIEW",
+      "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+      "2026-09-11T11:00:00.000Z"
+    ))));
+    buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-11T11:01:00.000Z" });
+    const secondSnapshot = registrySnapshot(outputPath);
+    const latestAttempt = latestAttemptForOperation(secondSnapshot.registry, operation.operationId);
+    assert.notEqual(latestAttempt.attemptId, firstAttempt.attemptId);
+
+    assert.throws(() => resolveSourceReviewOperation({
+      ...common,
+      reviewedAttemptId: firstAttempt.attemptId,
+      expectedSignalIdentitySha256: firstAttempt.signalIdentitySha256,
+      expectedRegistrySha256: secondSnapshot.sha256
+    }), /SOURCE_REVIEW_RESOLUTION_ATTEMPT_STALE=/);
+    assert.deepEqual(fs.readFileSync(outputPath), secondSnapshot.bytes);
+
+    const resolution = resolveSourceReviewOperation({
+      ...common,
+      reviewedAttemptId: latestAttempt.attemptId,
+      expectedSignalIdentitySha256: latestAttempt.signalIdentitySha256,
+      expectedRegistrySha256: secondSnapshot.sha256
+    });
+    assert.equal(resolution.reviewedAttemptId, latestAttempt.attemptId);
+    assert.equal(resolution.reviewRegistrySha256, secondSnapshot.sha256);
   } finally {
     fs.rmSync(directory, { recursive: true, force: true });
   }

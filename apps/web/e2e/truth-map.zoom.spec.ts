@@ -103,6 +103,46 @@ test("local professional changelog keeps event classes separate", async ({ page 
   await expect(page.getByTestId("professional-changelog-page")).toContainText("Append-only review operation history");
 });
 
+test("local Source Review Workbench separates current evidence operations from append-only history", async ({ page }) => {
+  test.setTimeout(60_000);
+  const runtimeErrors: string[] = [];
+  page.on("pageerror", (error) => runtimeErrors.push(error.message));
+  page.on("console", (message) => {
+    if (message.type() === "error") runtimeErrors.push(message.text());
+  });
+
+  const query = "?geo=US-MT&category=SOURCE_OWNER_OR_FINAL_URL_CHANGE&state=current";
+  await page.goto(`/truth-map/evidence-passport/review${query}`, { waitUntil: "domcontentloaded" });
+  await expect(page.getByTestId("source-review-workbench-page")).toBeVisible();
+  const summary = page.getByTestId("source-review-workbench-summary");
+  await expect(summary).toContainText("307/307 canonical GEO");
+  await expect(summary).toContainText("1405 current signals");
+  const dossiers = page.locator('[data-testid^="source-review-dossier-SRCREV-"]');
+  const renderedDossierCount = await dossiers.count();
+  expect(renderedDossierCount).toBeGreaterThan(0);
+  await expect(page.getByTestId("source-review-workbench-page")).toContainText("CURRENT_ACTIVE");
+  await expect(page.getByTestId("source-review-workbench-page")).toContainText(/SRCATT-[a-f0-9]{24}/);
+  await expect(page.getByTestId("source-review-workbench-page")).toContainText(/[a-f0-9]{64}/);
+
+  const response = await page.request.get(`/api/truth-map/b2b/source-review${query}`);
+  expect(response.ok()).toBe(true);
+  const payload = await response.json() as {
+    readOnly: boolean;
+    summary: { canonicalGeos: number; matchingOperations: number };
+    dossiers: Array<{ currentSignal: boolean; latestAttempt: { attemptId: string; signalIdentitySha256: string } }>;
+  };
+  expect(payload.readOnly).toBe(true);
+  expect(payload.summary).toEqual(expect.objectContaining({ canonicalGeos: 307, matchingOperations: renderedDossierCount }));
+  expect(payload.dossiers[0]).toEqual(expect.objectContaining({
+    currentSignal: true,
+    latestAttempt: expect.objectContaining({
+      attemptId: expect.stringMatching(/^SRCATT-[a-f0-9]{24}$/),
+      signalIdentitySha256: expect.stringMatching(/^[a-f0-9]{64}$/)
+    })
+  }));
+  expect(runtimeErrors).toEqual([]);
+});
+
 test("truth-map shares the stable city-label visibility ranges used by new-map", async ({ page }) => {
   test.setTimeout(90_000);
   const runtimeErrors: string[] = [];

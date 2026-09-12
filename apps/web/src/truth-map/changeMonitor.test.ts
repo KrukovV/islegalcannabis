@@ -7,6 +7,7 @@ import {
 } from "./changeMonitor";
 import { createCanonicalProjectionSnapshot } from "./canonicalProjectionLedger";
 import { buildEvidencePassportCollection } from "./evidencePassport";
+import { loadSourceReviewOperationsRegistry, type SourceReviewResolution } from "./sourceReviewOperations";
 
 describe("Change Monitor", () => {
   it("separates source events and pending review from canonical legal-conclusion change across all 307 GEO", () => {
@@ -43,6 +44,51 @@ describe("Change Monitor", () => {
       ...monitor.pendingReviews,
       ...monitor.canonicalLegalConclusionChanges
     ].every((event) => monitor.watchlist.geos.includes(event.geo))).toBe(true);
+  });
+
+  it("removes an explicitly resolved current signal from active Passport and Monitor queues while retaining history", () => {
+    const registry = loadSourceReviewOperationsRegistry();
+    const before = buildChangeMonitor({ geos: ["MN"], reviewRegistry: registry });
+    const event = [...before.sourceChanges, ...before.pendingReviews][0];
+    expect(event?.reviewOperationId).toMatch(/^SRCREV-/);
+    const operation = registry.operations.find((candidate) => candidate.operationId === event.reviewOperationId)!;
+    const attempt = registry.attempts
+      .filter((candidate) => candidate.operationId === operation.operationId)
+      .sort((left, right) => Date.parse(right.attemptedAt) - Date.parse(left.attemptedAt) || right.attemptId.localeCompare(left.attemptId))[0];
+    const resolution: SourceReviewResolution = {
+      resolutionId: "SRCRES-test-current-signal",
+      operationId: operation.operationId,
+      geo: operation.geo,
+      sourceUrl: operation.sourceUrl,
+      resolvedAt: "2026-09-12T00:00:00.000Z",
+      outcome: "CONFIRMED_CURRENT",
+      reviewerId: "test-editor",
+      evidenceUrl: operation.sourceUrl,
+      evidenceUrlRelation: "RETAINED_SOURCE_URL",
+      evidenceOwnerGeo: operation.geo,
+      reviewedAttemptId: attempt.attemptId,
+      reviewedSignalIdentitySha256: attempt.signalIdentitySha256,
+      reviewedSourceCheckedAt: attempt.sourceCheckedAt,
+      reviewRegistrySha256: "a".repeat(64),
+      note: "Fixture-only explicit human resolution.",
+      resolutionBasis: "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      resultingRevalidationState: "HUMAN_REVIEW_CONFIRMED",
+      resultingChangeReason: "FIXTURE_CONFIRMED",
+      boundary: "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    };
+    const resolvedRegistry = { ...registry, resolutions: [...registry.resolutions, resolution] };
+    const after = buildChangeMonitor({ geos: ["MN"], reviewRegistry: resolvedRegistry });
+    const activeAfter = [...after.sourceChanges, ...after.pendingReviews];
+    expect(activeAfter.some((candidate) => candidate.reviewOperationId === operation.operationId)).toBe(false);
+    expect(after.summary.classifiedReviewEvents).toBe(before.summary.classifiedReviewEvents - 1);
+    expect(after.summary.resolvedReviewOperations).toBe(before.summary.resolvedReviewOperations + 1);
+    expect(after.reviewHistory.find((candidate) => candidate.operationId === operation.operationId))
+      .toEqual(expect.objectContaining({ resolutionOutcome: "CONFIRMED_CURRENT" }));
+
+    const beforePassport = buildEvidencePassportCollection("", { reviewRegistry: registry }).passports.find((passport) => passport.geo === "MN")!;
+    const afterPassport = buildEvidencePassportCollection("", { reviewRegistry: resolvedRegistry }).passports.find((passport) => passport.geo === "MN")!;
+    expect(afterPassport.sourceFreshness.classifiedReviewEventCount).toBe(beforePassport.sourceFreshness.classifiedReviewEventCount - 1);
+    expect(afterPassport.sourceFreshness.resolvedReviewOperationCount).toBe(beforePassport.sourceFreshness.resolvedReviewOperationCount + 1);
   });
 
   it("rejects a non-canonical watchlist GEO instead of silently monitoring a different jurisdiction", () => {

@@ -14,6 +14,7 @@ import {
   type SourceReviewEventKind,
   type SourceReviewAttempt,
   type SourceReviewOperation,
+  type SourceReviewOperationsRegistry,
   type SourceReviewResolution
 } from "./sourceReviewOperations";
 
@@ -219,20 +220,21 @@ function entrySnapshotPublishedAt(snapshot: CanonicalProjectionSnapshot) {
 export function buildChangeMonitor({
   origin = "",
   geos,
-  previousCanonicalSnapshot
+  previousCanonicalSnapshot,
+  reviewRegistry = loadSourceReviewOperationsRegistry()
 }: {
   origin?: string;
   geos?: string[];
   previousCanonicalSnapshot?: CanonicalProjectionSnapshot;
+  reviewRegistry?: SourceReviewOperationsRegistry;
 } = {}): ChangeMonitor {
-  const { passports } = buildEvidencePassportCollection(origin);
+  const { passports } = buildEvidencePassportCollection(origin, { reviewRegistry });
   const watchlist = resolveWatchlist(geos, passports);
   const watchedGeos = new Set(watchlist.geos);
   const watchedPassports = passports.filter((passport) => watchedGeos.has(passport.geo));
   const passportsByGeo = new Map(watchedPassports.map((passport) => [passport.geo, passport]));
   const recordsByGeo = new Map(listTruthMapCanonicalProjectionRecords().map((record) => [record.geo, record]));
   const currentSnapshot = createCanonicalProjectionSnapshot(passports);
-  const reviewRegistry = loadSourceReviewOperationsRegistry();
   const operations = sourceReviewOperationsIndex(reviewRegistry);
   const resolutions = sourceReviewResolutionsIndex(reviewRegistry);
   const latestAttemptByOperation = new Map<string, SourceReviewAttempt>();
@@ -254,11 +256,13 @@ export function buildChangeMonitor({
     if (!record) throw new Error(`CHANGE_MONITOR_SOURCE_RECORD_MISSING=${passport.geo}`);
     for (const source of record.sources) {
       if (isEvidencePassportSourceChange(source)) {
-        sourceChanges.push(sourceEvent("SOURCE_CHANGE", passport, source, operationForSource(operations, passport, source, "SOURCE_CHANGE")));
+        const operation = operationForSource(operations, passport, source, "SOURCE_CHANGE");
+        if (!resolutions.has(operation.operationId)) sourceChanges.push(sourceEvent("SOURCE_CHANGE", passport, source, operation));
       }
       if (isEvidencePassportPendingReview(source)) {
         const eventKind = source.revalidation.state === "NOT_RECORDED" ? "FRESHNESS_METADATA_GAP" : "PENDING_REVIEW";
-        pendingReviews.push(sourceEvent("PENDING_REVIEW", passport, source, operationForSource(operations, passport, source, eventKind)));
+        const operation = operationForSource(operations, passport, source, eventKind);
+        if (!resolutions.has(operation.operationId)) pendingReviews.push(sourceEvent("PENDING_REVIEW", passport, source, operation));
       }
     }
   }

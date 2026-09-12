@@ -72,6 +72,7 @@ export type SourceReviewResolution = {
   reviewedAttemptId: string;
   reviewedSignalIdentitySha256: string;
   reviewedSourceCheckedAt: string;
+  reviewRegistrySha256: string;
   note: string;
   resolutionBasis: "EXPLICIT_HUMAN_EVIDENCE_REVIEW";
   resultingRevalidationState: string;
@@ -260,6 +261,7 @@ export function validateSourceReviewOperationsRegistry(value: unknown): SourceRe
       || !/^https:\/\//.test(String(resolution.evidenceUrl || ""))
       || !["RETAINED_SOURCE_URL", "REVALIDATED_FINAL_URL", "OFFICIAL_OWNER_REGISTRY"].includes(resolution.evidenceUrlRelation)
       || resolution.evidenceOwnerGeo !== operation.geo
+      || !/^[a-f0-9]{64}$/.test(String(resolution.reviewRegistrySha256 || ""))
       || resolution.resolutionBasis !== "EXPLICIT_HUMAN_EVIDENCE_REVIEW"
       || !String(resolution.resultingRevalidationState || "").trim()
       || !String(resolution.resultingChangeReason || "").trim()

@@ -120,12 +120,12 @@ function PassportDetail({ passport, origin }: { passport: EvidencePassport; orig
           <div><dt>Review opened</dt><dd>{formatDate(passport.sourceFreshness.latestReviewOpenedAt)}</dd></div>
           <div><dt>Review closed</dt><dd>{formatDate(passport.sourceFreshness.latestReviewClosedAt)}</dd></div>
           <div><dt>Conclusion published</dt><dd>{formatDate(passport.sourceFreshness.canonicalConclusionPublishedAt)}</dd></div>
-          <div><dt>Source events</dt><dd>{passport.sourceFreshness.changedSourceCount}</dd></div>
-          <div><dt>Pending reviews</dt><dd>{passport.sourceFreshness.pendingReviewSourceCount}</dd></div>
-          <div><dt>Freshness metadata reviews</dt><dd>{passport.sourceFreshness.freshnessMetadataReviewSourceCount}</dd></div>
-          <div><dt>Classified review events</dt><dd>{passport.sourceFreshness.classifiedReviewEventCount}</dd></div>
-          <div><dt>Open review operations</dt><dd>{passport.sourceFreshness.openReviewOperationCount}</dd></div>
-          <div><dt>Resolved review operations</dt><dd>{passport.sourceFreshness.resolvedReviewOperationCount}</dd></div>
+          <div><dt>Active source events</dt><dd>{passport.sourceFreshness.changedSourceCount}</dd></div>
+          <div><dt>Active pending reviews</dt><dd>{passport.sourceFreshness.pendingReviewSourceCount}</dd></div>
+          <div><dt>Active freshness metadata reviews</dt><dd>{passport.sourceFreshness.freshnessMetadataReviewSourceCount}</dd></div>
+          <div><dt>Active classified review events</dt><dd>{passport.sourceFreshness.classifiedReviewEventCount}</dd></div>
+          <div><dt>All-time open review operations</dt><dd>{passport.sourceFreshness.openReviewOperationCount}</dd></div>
+          <div><dt>All-time resolved review operations</dt><dd>{passport.sourceFreshness.resolvedReviewOperationCount}</dd></div>
           <div><dt>Metadata integrity reviews</dt><dd>{passport.sourceFreshness.metadataIntegrityReviewCount}</dd></div>
         </dl>
         <p>{passport.history.note}</p>
@@ -142,6 +142,7 @@ function PassportDetail({ passport, origin }: { passport: EvidencePassport; orig
           <div><dt>Why no leaf?</dt><dd><Link href={`/truth-map/evidence-passport/why-no-leaf?geo=${encodeURIComponent(passport.geo)}`}>Open Store Truth gate explanation</Link></dd></div>
           <div><dt>Correction request</dt><dd><Link href={`/truth-map/evidence-passport/correction?geo=${encodeURIComponent(passport.geo)}`}>Submit an untrusted evidence candidate</Link></dd></div>
           <div><dt>Correction review</dt><dd><Link href="/truth-map/evidence-passport/correction/review">Open fail-closed review queue</Link></dd></div>
+          <div><dt>Source review Workbench</dt><dd><Link href="/truth-map/evidence-passport/review">Inspect current, historical and resolved source operations</Link></dd></div>
           <div><dt>Editorial localisations</dt><dd><Link href={`/api/truth-map/b2b/localisations?geo=${encodeURIComponent(passport.geo)}`}>Open approved-localisation manifest</Link></dd></div>
         </dl>
         <p className={styles.hint}>Passport SHA-256: <code>{passport.integrity.payloadSha256}</code></p>
