@@ -58,12 +58,20 @@ function hostMatches(host, registered) {
   return Boolean(normalized) && (host === normalized || host.endsWith(`.${normalized}`));
 }
 
-function officialOwnerRegistryMatch(evidenceUrl, geo, officialRegistryPath, ownershipPath) {
+function parseJsonSnapshot(snapshot, errorCode) {
+  try {
+    const parsed = JSON.parse(snapshot.bytes.toString("utf8"));
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) throw new Error(errorCode);
+    return parsed;
+  } catch {
+    throw new Error(errorCode);
+  }
+}
+
+function officialOwnerRegistryMatch(evidenceUrl, geo, officialRegistry, ownership) {
   const host = normalizedHost(new URL(evidenceUrl).hostname);
-  const registry = JSON.parse(fs.readFileSync(officialRegistryPath, "utf8"));
-  const registered = (registry.domains || []).some((domain) => hostMatches(host, domain));
+  const registered = (officialRegistry.domains || []).some((domain) => hostMatches(host, domain));
   if (!registered) return false;
-  const ownership = JSON.parse(fs.readFileSync(ownershipPath, "utf8"));
   return (ownership.items || []).some((item) => (
     item.effective !== false
     && Array.isArray(item.owner_geos)
@@ -72,13 +80,13 @@ function officialOwnerRegistryMatch(evidenceUrl, geo, officialRegistryPath, owne
   ));
 }
 
-function evidenceRelation({ evidenceUrl, operation, reviewedAttempt, officialRegistryPath, ownershipPath }) {
+function evidenceRelation({ evidenceUrl, operation, reviewedAttempt, officialRegistry, ownership }) {
   const evidenceIdentity = urlIdentity(evidenceUrl);
   if (evidenceIdentity === urlIdentity(operation.sourceUrl)) return "RETAINED_SOURCE_URL";
   if (reviewedAttempt.finalUrl !== "NOT_RECORDED" && evidenceIdentity === urlIdentity(reviewedAttempt.finalUrl)) {
     return "REVALIDATED_FINAL_URL";
   }
-  if (officialOwnerRegistryMatch(evidenceUrl, operation.geo, officialRegistryPath, ownershipPath)) {
+  if (officialOwnerRegistryMatch(evidenceUrl, operation.geo, officialRegistry, ownership)) {
     return "OFFICIAL_OWNER_REGISTRY";
   }
   throw new Error("SOURCE_REVIEW_RESOLUTION_EVIDENCE_NOT_LINKED_TO_OFFICIAL_OWNER");
@@ -86,6 +94,52 @@ function evidenceRelation({ evidenceUrl, operation, reviewedAttempt, officialReg
 
 function registrySha256(bytes) {
   return sha256(bytes);
+}
+
+function ownershipIndependentSignalPayload(payload) {
+  const { sourceOwnerGeo: _sourceOwnerGeo, appliesToGeos: _appliesToGeos, ...base } = payload;
+  return base;
+}
+
+function ownershipUpgradeDirection(left, right) {
+  const candidates = [
+    { prior: left, corrected: right, direction: -1 },
+    { prior: right, corrected: left, direction: 1 }
+  ];
+  for (const { prior, corrected, direction } of candidates) {
+    if (
+      prior.signalIdentityFormat === "SOURCE_REVIEW_SIGNAL_V1"
+      && prior.signalPayload?.sourceOwnerGeo === "NOT_RECORDED"
+      && prior.signalPayload?.appliesToGeos?.length === 0
+      && corrected.signalIdentityFormat === "SOURCE_REVIEW_SIGNAL_V2"
+      && (corrected.signalPayload?.sourceOwnerGeo !== "NOT_RECORDED"
+        || corrected.signalPayload?.appliesToGeos?.length > 0)
+      && JSON.stringify(ownershipIndependentSignalPayload(prior.signalPayload))
+        === JSON.stringify(ownershipIndependentSignalPayload(corrected.signalPayload))
+    ) return direction;
+  }
+  return 0;
+}
+
+export function compareSourceReviewAttempts(left, right) {
+  const leftCheckedAt = Date.parse(left.sourceCheckedAt);
+  const rightCheckedAt = Date.parse(right.sourceCheckedAt);
+  const leftHasCheckedAt = Number.isFinite(leftCheckedAt);
+  const rightHasCheckedAt = Number.isFinite(rightCheckedAt);
+  if (leftHasCheckedAt !== rightHasCheckedAt) return leftHasCheckedAt ? 1 : -1;
+  if (leftHasCheckedAt && rightHasCheckedAt && leftCheckedAt !== rightCheckedAt) {
+    return leftCheckedAt - rightCheckedAt;
+  }
+  if (left.signalIdentitySha256 === right.signalIdentitySha256) {
+    return left.attemptId.localeCompare(right.attemptId);
+  }
+  const migrationDirection = ownershipUpgradeDirection(left, right);
+  if (migrationDirection !== 0) return migrationDirection;
+  throw new Error(`SOURCE_REVIEW_LATEST_ATTEMPT_AMBIGUOUS=${left.operationId}|${left.attemptId}|${right.attemptId}`);
+}
+
+export function latestSourceReviewAttempt(attempts) {
+  return [...attempts].sort((left, right) => compareSourceReviewAttempts(right, left))[0] || null;
 }
 
 function isRecordedDate(value) {
@@ -156,7 +210,7 @@ function validateAttemptSignalPayload(attempt, operation) {
     || sha256(attempt.signalIdentityPreimage) !== attempt.signalIdentitySha256) {
     throw new Error(`SOURCE_REVIEW_ATTEMPT_SIGNAL_PREIMAGE_HASH_INVALID=${attempt.attemptId}`);
   }
-  if (attempt.signalIdentityFormat === "SOURCE_REVIEW_SIGNAL_V1") {
+  if (["SOURCE_REVIEW_SIGNAL_V1", "SOURCE_REVIEW_SIGNAL_V2"].includes(attempt.signalIdentityFormat)) {
     if (attempt.signalIdentityPreimage !== JSON.stringify(canonicalPayload)) {
       throw new Error(`SOURCE_REVIEW_ATTEMPT_SIGNAL_PREIMAGE_PAYLOAD_MISMATCH=${attempt.attemptId}`);
     }
@@ -186,10 +240,22 @@ function validateAttemptSignalPayload(attempt, operation) {
   }
 }
 
-function validateRegistry(registry, { canonicalGeosPath, officialRegistryPath, ownershipPath }) {
+export function validateRegistry(registry, {
+  canonicalGeosPath,
+  officialRegistryPath,
+  ownershipPath,
+  officialRegistry = parseJsonSnapshot(
+    exactFileSnapshot(officialRegistryPath),
+    "SOURCE_REVIEW_OFFICIAL_REGISTRY_INVALID"
+  ),
+  ownership = parseJsonSnapshot(
+    exactFileSnapshot(ownershipPath),
+    "SOURCE_REVIEW_OWNERSHIP_REGISTRY_INVALID"
+  )
+}) {
   if (
     !registry
-    || registry.schemaVersion !== 5
+    || registry.schemaVersion !== 6
     || registry.localOnly !== true
     || registry.appendOnly !== true
     || !Array.isArray(registry.operations)
@@ -274,6 +340,14 @@ function validateRegistry(registry, { canonicalGeosPath, officialRegistryPath, o
       throw new Error(`SOURCE_REVIEW_ATTEMPT_SIGNAL_CLASS_INVALID=${attempt.attemptId}`);
     }
     validateAttemptSignalPayload(attempt, operation);
+    const expectedAttemptId = `SRCATT-${sha256([
+      attempt.operationId,
+      attempt.signalIdentitySha256,
+      attempt.sourceCheckedAt
+    ].join("\u0000")).slice(0, 24)}`;
+    if (attempt.attemptId !== expectedAttemptId) {
+      throw new Error(`SOURCE_REVIEW_ATTEMPT_IDENTITY_INVALID=${attempt.attemptId}`);
+    }
     attemptIds.add(attempt.attemptId);
     attemptsById.set(attempt.attemptId, attempt);
     const attempts = attemptsByOperation.get(attempt.operationId) || [];
@@ -283,9 +357,30 @@ function validateRegistry(registry, { canonicalGeosPath, officialRegistryPath, o
   for (const operation of registry.operations) {
     const attempts = attemptsByOperation.get(operation.operationId) || [];
     if (!attempts.length) throw new Error(`SOURCE_REVIEW_OPERATION_ATTEMPT_MISSING=${operation.operationId}`);
-    if (new Set(attempts.map((attempt) => attempt.signalIdentitySha256)).size !== 1) {
-      throw new Error(`SOURCE_REVIEW_OPERATION_SIGNAL_REWRITE_FORBIDDEN=${operation.operationId}`);
-    }
+    const signals = [...new Map(attempts
+      .sort(compareSourceReviewAttempts)
+      .map((attempt) => [attempt.signalIdentitySha256, attempt])).values()];
+    if (signals.length === 1) continue;
+    const [legacy, corrected, ...unexpected] = signals;
+    const {
+      sourceOwnerGeo: _legacyOwner,
+      appliesToGeos: _legacyApplies,
+      ...legacyBase
+    } = legacy.signalPayload;
+    const {
+      sourceOwnerGeo: _correctedOwner,
+      appliesToGeos: _correctedApplies,
+      ...correctedBase
+    } = corrected.signalPayload;
+    if (
+      unexpected.length
+      || legacy.signalIdentityFormat !== "SOURCE_REVIEW_SIGNAL_V1"
+      || legacy.signalPayload.sourceOwnerGeo !== "NOT_RECORDED"
+      || legacy.signalPayload.appliesToGeos.length !== 0
+      || corrected.signalIdentityFormat !== "SOURCE_REVIEW_SIGNAL_V2"
+      || (corrected.signalPayload.sourceOwnerGeo === "NOT_RECORDED" && corrected.signalPayload.appliesToGeos.length === 0)
+      || JSON.stringify(legacyBase) !== JSON.stringify(correctedBase)
+    ) throw new Error(`SOURCE_REVIEW_OPERATION_SIGNAL_REWRITE_FORBIDDEN=${operation.operationId}`);
   }
 
   const resolutionIds = new Set();
@@ -299,11 +394,13 @@ function validateRegistry(registry, { canonicalGeosPath, officialRegistryPath, o
       throw new Error(`SOURCE_REVIEW_RESOLUTION_OPERATION_INVALID=${resolution.resolutionId}`);
     }
     const reviewedAttempt = attemptsById.get(resolution.reviewedAttemptId);
+    const latestAttempt = latestSourceReviewAttempt(attemptsByOperation.get(operation.operationId) || []);
     if (
       resolution.geo !== operation.geo
       || resolution.sourceUrl !== operation.sourceUrl
       || !reviewedAttempt
       || reviewedAttempt.operationId !== operation.operationId
+      || latestAttempt?.attemptId !== reviewedAttempt.attemptId
       || resolution.reviewedSignalIdentitySha256 !== reviewedAttempt.signalIdentitySha256
       || resolution.reviewedSourceCheckedAt !== reviewedAttempt.sourceCheckedAt
     ) throw new Error(`SOURCE_REVIEW_RESOLUTION_SOURCE_INVALID=${resolution.resolutionId}`);
@@ -335,7 +432,7 @@ function validateRegistry(registry, { canonicalGeosPath, officialRegistryPath, o
       || (resolution.evidenceUrlRelation === "REVALIDATED_FINAL_URL"
         && (!finalIdentity || evidenceIdentity !== finalIdentity))
       || (resolution.evidenceUrlRelation === "OFFICIAL_OWNER_REGISTRY"
-        && !officialOwnerRegistryMatch(resolution.evidenceUrl, operation.geo, officialRegistryPath, ownershipPath))
+        && !officialOwnerRegistryMatch(resolution.evidenceUrl, operation.geo, officialRegistry, ownership))
     ) {
       throw new Error(`SOURCE_REVIEW_RESOLUTION_EVIDENCE_RELATION_INVALID=${resolution.resolutionId}`);
     }
@@ -348,7 +445,8 @@ function validateRegistry(registry, { canonicalGeosPath, officialRegistryPath, o
   for (const [key, operations] of operationKeys) {
     const openBySignal = new Map();
     for (const operation of operations.filter((entry) => !resolvedOperationIds.has(entry.operationId))) {
-      const signal = attemptsByOperation.get(operation.operationId)?.[0]?.signalIdentitySha256 || "";
+      const signal = latestSourceReviewAttempt(attemptsByOperation.get(operation.operationId) || [])
+        ?.signalIdentitySha256 || "";
       const open = openBySignal.get(signal) || [];
       open.push(operation);
       openBySignal.set(signal, open);
@@ -369,12 +467,19 @@ function fsyncDirectory(directory) {
   }
 }
 
-function exactFileSnapshot(filePath) {
-  const bytes = fs.readFileSync(filePath);
-  return { bytes, sha256: registrySha256(bytes) };
+export function exactFileSnapshot(filePath, { allowMissing = false } = {}) {
+  try {
+    const bytes = fs.readFileSync(filePath);
+    return { exists: true, bytes, sha256: registrySha256(bytes) };
+  } catch (error) {
+    if (allowMissing && error?.code === "ENOENT") {
+      return { exists: false, bytes: Buffer.alloc(0), sha256: null };
+    }
+    throw error;
+  }
 }
 
-function withOwnedRegistryLock(registryPath, callback) {
+export function withOwnedRegistryLock(registryPath, callback) {
   const lockPath = `${registryPath}.resolve.lock`;
   const ownerToken = crypto.randomUUID();
   const stagedPath = `${registryPath}.resolve-staged-${process.pid}-${ownerToken}`;
@@ -388,6 +493,8 @@ function withOwnedRegistryLock(registryPath, callback) {
   const lockBytes = Buffer.from(`${JSON.stringify(lockRecord)}\n`, "utf8");
   let lockHandle = null;
   let stagedHandle = null;
+  let intendedStageBytes = null;
+  let intendedStageSha256 = null;
   try {
     try {
       lockHandle = fs.openSync(lockPath, "wx", 0o600);
@@ -399,16 +506,25 @@ function withOwnedRegistryLock(registryPath, callback) {
     }
     return callback({
       stage(nextBytes) {
+        if (!Buffer.isBuffer(nextBytes)) throw new Error("SOURCE_REVIEW_REGISTRY_STAGE_BYTES_INVALID");
+        intendedStageBytes = Buffer.from(nextBytes);
+        intendedStageSha256 = registrySha256(intendedStageBytes);
         stagedHandle = fs.openSync(stagedPath, "wx", 0o600);
-        fs.writeFileSync(stagedHandle, nextBytes);
+        fs.writeFileSync(stagedHandle, intendedStageBytes);
         fs.fsyncSync(stagedHandle);
         fs.closeSync(stagedHandle);
         stagedHandle = null;
       },
-      commit(expectedBytes, expectedRegistrySha256) {
-        const immediatelyBeforeRename = exactFileSnapshot(registryPath);
-        if (!immediatelyBeforeRename.bytes.equals(expectedBytes)
-          || immediatelyBeforeRename.sha256 !== expectedRegistrySha256) {
+      commit(expectedSnapshot, guardSnapshots = []) {
+        if (!intendedStageBytes || !intendedStageSha256) {
+          throw new Error("SOURCE_REVIEW_REGISTRY_STAGE_MISSING");
+        }
+        const immediatelyBeforeRename = exactFileSnapshot(registryPath, { allowMissing: true });
+        if (
+          immediatelyBeforeRename.exists !== expectedSnapshot.exists
+          || !immediatelyBeforeRename.bytes.equals(expectedSnapshot.bytes)
+          || immediatelyBeforeRename.sha256 !== expectedSnapshot.sha256
+        ) {
           throw new Error(`SOURCE_REVIEW_RESOLUTION_REGISTRY_STALE=${immediatelyBeforeRename.sha256}`);
         }
         let currentLockBytes;
@@ -421,6 +537,19 @@ function withOwnedRegistryLock(registryPath, callback) {
         if (!currentLockBytes.equals(lockBytes)) {
           throw new Error("SOURCE_REVIEW_RESOLUTION_LOCK_OWNERSHIP_LOST");
         }
+        for (const guard of guardSnapshots) {
+          const currentGuard = exactFileSnapshot(guard.path, { allowMissing: true });
+          if (
+            currentGuard.exists !== guard.snapshot.exists
+            || !currentGuard.bytes.equals(guard.snapshot.bytes)
+            || currentGuard.sha256 !== guard.snapshot.sha256
+          ) throw new Error(`SOURCE_REVIEW_RESOLUTION_EVIDENCE_REGISTRY_STALE=${guard.path}`);
+        }
+        const immediatelyBeforeRenameStage = exactFileSnapshot(stagedPath);
+        if (
+          !immediatelyBeforeRenameStage.bytes.equals(intendedStageBytes)
+          || immediatelyBeforeRenameStage.sha256 !== intendedStageSha256
+        ) throw new Error("SOURCE_REVIEW_RESOLUTION_STAGED_BYTES_CHANGED");
         fs.renameSync(stagedPath, registryPath);
         fsyncDirectory(path.dirname(registryPath));
       }
@@ -490,6 +619,8 @@ export function resolveSourceReviewOperation({
 
   return withOwnedRegistryLock(registryPath, ({ stage, commit }) => {
     const registrySnapshot = exactFileSnapshot(registryPath);
+    const officialRegistrySnapshot = exactFileSnapshot(officialRegistryPath);
+    const ownershipSnapshot = exactFileSnapshot(ownershipPath);
     if (registrySnapshot.sha256 !== normalizedExpectedRegistrySha256) {
       throw new Error(`SOURCE_REVIEW_RESOLUTION_REGISTRY_STALE=${registrySnapshot.sha256}`);
     }
@@ -499,25 +630,28 @@ export function resolveSourceReviewOperation({
     } catch {
       throw new Error("SOURCE_REVIEW_OPERATIONS_REGISTRY_INVALID");
     }
-    const registry = validateRegistry(parsedRegistry, { canonicalGeosPath, officialRegistryPath, ownershipPath });
+    const officialRegistry = parseJsonSnapshot(
+      officialRegistrySnapshot,
+      "SOURCE_REVIEW_OFFICIAL_REGISTRY_INVALID"
+    );
+    const ownership = parseJsonSnapshot(
+      ownershipSnapshot,
+      "SOURCE_REVIEW_OWNERSHIP_REGISTRY_INVALID"
+    );
+    const validationContext = { canonicalGeosPath, officialRegistry, ownership };
+    const registry = validateRegistry(parsedRegistry, validationContext);
     const operation = registry.operations.find((entry) => entry.operationId === normalizedOperationId);
     if (!operation) throw new Error(`SOURCE_REVIEW_RESOLUTION_OPERATION_NOT_FOUND=${normalizedOperationId}`);
     if (registry.resolutions.some((entry) => entry.operationId === normalizedOperationId)) {
       throw new Error(`SOURCE_REVIEW_RESOLUTION_ALREADY_RECORDED=${normalizedOperationId}`);
     }
-    const attempts = registry.attempts
-      .filter((entry) => entry.operationId === normalizedOperationId)
-      .sort((left, right) => {
-        const leftAt = Date.parse(left.attemptedAt);
-        const rightAt = Date.parse(right.attemptedAt);
-        return rightAt - leftAt || right.attemptId.localeCompare(left.attemptId);
-      });
+    const attempts = registry.attempts.filter((entry) => entry.operationId === normalizedOperationId);
     const reviewedAttempt = registry.attempts.find((entry) => entry.attemptId === normalizedReviewedAttemptId);
     if (!reviewedAttempt) throw new Error(`SOURCE_REVIEW_RESOLUTION_ATTEMPT_NOT_FOUND=${normalizedReviewedAttemptId}`);
     if (reviewedAttempt.operationId !== normalizedOperationId) {
       throw new Error(`SOURCE_REVIEW_RESOLUTION_ATTEMPT_OPERATION_MISMATCH=${normalizedReviewedAttemptId}`);
     }
-    if (!attempts[0] || attempts[0].attemptId !== normalizedReviewedAttemptId) {
+    if (latestSourceReviewAttempt(attempts)?.attemptId !== normalizedReviewedAttemptId) {
       throw new Error(`SOURCE_REVIEW_RESOLUTION_ATTEMPT_STALE=${normalizedReviewedAttemptId}`);
     }
     if (reviewedAttempt.signalIdentitySha256 !== normalizedExpectedSignalIdentitySha256) {
@@ -530,8 +664,8 @@ export function resolveSourceReviewOperation({
       evidenceUrl: normalizedEvidenceUrl,
       operation,
       reviewedAttempt,
-      officialRegistryPath,
-      ownershipPath
+      officialRegistry,
+      ownership
     });
     const resolution = {
       resolutionId: `SRCRES-${sha256([
@@ -564,10 +698,13 @@ export function resolveSourceReviewOperation({
       boundary: "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
     };
     const nextRegistry = { ...registry, resolutions: [...registry.resolutions, resolution] };
-    validateRegistry(nextRegistry, { canonicalGeosPath, officialRegistryPath, ownershipPath });
+    validateRegistry(nextRegistry, validationContext);
     stage(Buffer.from(`${JSON.stringify(nextRegistry, null, 2)}\n`, "utf8"));
     beforeCommit?.();
-    commit(registrySnapshot.bytes, normalizedExpectedRegistrySha256);
+    commit(registrySnapshot, [
+      { path: officialRegistryPath, snapshot: officialRegistrySnapshot },
+      { path: ownershipPath, snapshot: ownershipSnapshot }
+    ]);
     return resolution;
   });
 }

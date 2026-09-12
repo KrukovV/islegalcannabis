@@ -73,6 +73,10 @@ type FinalTruthEvidenceSource = {
   confidence?: string;
   visualOpened?: boolean;
   screenshotValid?: boolean;
+  officialOwnerVisible?: boolean | string;
+  officialDomainVisible?: boolean | string;
+  cannabisFragmentVisible?: boolean | string;
+  effectiveRuleVisible?: boolean | string;
   screenshotAvailable?: boolean;
   screenshotPaths?: string[];
   revalidation?: {
@@ -194,6 +198,10 @@ export type TruthMapCanonicalProjectionSource = {
   confidence: string;
   visualOpened: boolean | null;
   screenshotValid: boolean | null;
+  officialOwnerVisible: boolean | string | null;
+  officialDomainVisible: boolean | string | null;
+  cannabisFragmentVisible: boolean | string | null;
+  effectiveRuleVisible: boolean | string | null;
   screenshotAvailable: boolean | null;
   screenshotPaths: string[];
   revalidation: {
@@ -373,6 +381,11 @@ function projectCanonicalSource(source: FinalTruthEvidenceSource): TruthMapCanon
       : source.screenshotValid === false
         ? false
         : null;
+  const reviewFlag = (value: boolean | string | undefined) => {
+    if (typeof value === "boolean") return value;
+    const retained = String(value || "").trim();
+    return retained || null;
+  };
   return {
     title: cleanEvidenceText(source.title, 280) || "Official legal source",
     url,
@@ -397,6 +410,10 @@ function projectCanonicalSource(source: FinalTruthEvidenceSource): TruthMapCanon
     confidence: cleanEvidenceText(source.confidence, 120) || "NOT_RECORDED",
     visualOpened: typeof source.visualOpened === "boolean" ? source.visualOpened : null,
     screenshotValid: typeof source.screenshotValid === "boolean" ? source.screenshotValid : null,
+    officialOwnerVisible: reviewFlag(source.officialOwnerVisible),
+    officialDomainVisible: reviewFlag(source.officialDomainVisible),
+    cannabisFragmentVisible: reviewFlag(source.cannabisFragmentVisible),
+    effectiveRuleVisible: reviewFlag(source.effectiveRuleVisible),
     screenshotAvailable,
     screenshotPaths,
     revalidation: {

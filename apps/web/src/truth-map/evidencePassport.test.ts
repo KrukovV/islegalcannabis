@@ -39,6 +39,10 @@ function canonicalSource(overrides: Partial<TruthMapCanonicalProjectionSource>):
     confidence: "high",
     visualOpened: true,
     screenshotValid: true,
+    officialOwnerVisible: true,
+    officialDomainVisible: true,
+    cannabisFragmentVisible: true,
+    effectiveRuleVisible: true,
     screenshotAvailable: true,
     screenshotPaths: ["/retained/official-source.png"],
     revalidation: {

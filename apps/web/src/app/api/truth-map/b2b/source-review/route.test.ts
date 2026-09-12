@@ -63,6 +63,9 @@ describe("local source review workbench API", () => {
     expect([true, false, null]).toContain(payload.dossiers[0].currentSource.visualOpened);
     expect([true, false, null]).toContain(payload.dossiers[0].currentSource.screenshotValid);
     expect([true, false, null]).toContain(payload.dossiers[0].currentSource.screenshotAvailable);
+    for (const field of ["officialOwnerVisible", "officialDomainVisible", "cannabisFragmentVisible", "effectiveRuleVisible"]) {
+      expect(["boolean", "string", "object"]).toContain(typeof payload.dossiers[0].currentSource[field]);
+    }
     expect(payload.dossiers[0].attemptHistory.length).toBeGreaterThan(0);
     expect(payload.dossiers[0].closeTokens).toEqual({
       operationId: payload.dossiers[0].operation.operationId,

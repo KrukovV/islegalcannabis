@@ -46,7 +46,7 @@ Every popup renders retained route-local evidence before the collapsible reconci
 - short annotation that distinguishes evidence from a legal conclusion;
 - up to two retained official links with publisher/source annotation;
 - bounded exact fragment when retained;
-- `target="_blank"` and `rel="noreferrer noopener"` for external links.
+- `target="_blank"` and exact `rel="nofollow noopener noreferrer"` for external links.
 
 The popup must remain usable above the persistent local-audit AI dock and without that dock on the production public map. A localhost public-map QA wrapper may retain the same AI dock, without Social or DM. Its semantic styling never changes the map polygon fill.
 

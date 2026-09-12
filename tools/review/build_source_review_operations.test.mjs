@@ -5,7 +5,10 @@ import os from "node:os";
 import path from "node:path";
 import test from "node:test";
 import { buildSourceReviewOperations } from "./build_source_review_operations.mjs";
-import { resolveSourceReviewOperation } from "./resolve_source_review_operation.mjs";
+import {
+  compareSourceReviewAttempts,
+  resolveSourceReviewOperation
+} from "./resolve_source_review_operation.mjs";
 
 function source(state, reason, checkedAt, extraRevalidation = {}) {
   return {
@@ -29,6 +32,43 @@ function source(state, reason, checkedAt, extraRevalidation = {}) {
   };
 }
 
+function canonicalCamelCaseSource(state, reason, checkedAt, extraRevalidation = {}) {
+  const value = source(state, reason, checkedAt, extraRevalidation);
+  delete value.source_owner_geo;
+  delete value.applies_to_geo;
+  value.sourceOwnerGeo = "AD";
+  value.appliesToGeos = ["AD", "ad"];
+  return value;
+}
+
+function downgradeAttemptToMissingOwnership(registry) {
+  const attempt = registry.attempts[0];
+  const operation = registry.operations.find((entry) => entry.operationId === attempt.operationId);
+  attempt.signalPayload.sourceOwnerGeo = "NOT_RECORDED";
+  attempt.signalPayload.appliesToGeos = [];
+  attempt.signalPayloadSha256 = crypto.createHash("sha256")
+    .update(JSON.stringify(attempt.signalPayload)).digest("hex");
+  attempt.signalIdentityPreimage = JSON.stringify(attempt.signalPayload);
+  attempt.signalIdentitySha256 = crypto.createHash("sha256")
+    .update(attempt.signalIdentityPreimage).digest("hex");
+  attempt.signalIdentityFormat = "SOURCE_REVIEW_SIGNAL_V1";
+  const key = [
+    operation.geo,
+    operation.sourceUrl,
+    operation.eventKind,
+    operation.revalidationStateAtOpen,
+    operation.changeReasonAtOpen
+  ].join("\u0000");
+  operation.operationId = `SRCREV-${crypto.createHash("sha256").update(`${key}\u0000${attempt.signalIdentitySha256}`).digest("hex").slice(0, 24)}`;
+  attempt.operationId = operation.operationId;
+  attempt.attemptId = `SRCATT-${crypto.createHash("sha256").update([
+    attempt.operationId,
+    attempt.signalIdentitySha256,
+    attempt.sourceCheckedAt
+  ].join("\u0000")).digest("hex").slice(0, 24)}`;
+  return attempt;
+}
+
 function ledger(entry) {
   return { rows: [{ geo: "AD", primaryLaw: { officialSources: [entry], freshAxisOfficialSources: [] } }] };
 }
@@ -45,10 +85,7 @@ function registrySnapshot(outputPath) {
 function latestAttemptForOperation(registry, operationId) {
   return registry.attempts
     .filter((attempt) => attempt.operationId === operationId)
-    .sort((left, right) => (
-      Date.parse(right.attemptedAt) - Date.parse(left.attemptedAt)
-      || right.attemptId.localeCompare(left.attemptId)
-    ))[0];
+    .sort((left, right) => compareSourceReviewAttempts(right, left))[0];
 }
 
 function resolutionInput(outputPath, snapshot = registrySnapshot(outputPath)) {
@@ -84,7 +121,7 @@ test("C1 source states never auto-close a legal review operation", () => {
     assert.equal(first.currentCounts.PENDING_REVIEW, 1);
     assert.equal(first.resolutionTotal, 0);
     assert.equal(first.attemptTotal, 1);
-    assert.equal(firstRegistry.schemaVersion, 5);
+    assert.equal(firstRegistry.schemaVersion, 6);
     assert.equal(firstRegistry.attempts.length, 1);
     assert.equal(firstRegistry.attempts[0].attemptedAt, "2026-09-11T10:00:00.000Z");
     assert.equal(firstRegistry.attempts[0].sourceCheckedAt, "2026-09-10T10:00:00.000Z");
@@ -108,7 +145,7 @@ test("C1 source states never auto-close a legal review operation", () => {
       .update(JSON.stringify(firstRegistry.attempts[0].signalPayload)).digest("hex"));
     assert.equal(firstRegistry.attempts[0].signalIdentitySha256, crypto.createHash("sha256")
       .update(firstRegistry.attempts[0].signalIdentityPreimage).digest("hex"));
-    assert.equal(firstRegistry.attempts[0].signalIdentityFormat, "SOURCE_REVIEW_SIGNAL_V1");
+    assert.equal(firstRegistry.attempts[0].signalIdentityFormat, "SOURCE_REVIEW_SIGNAL_V2");
     assert.equal(firstRegistry.operations[0].category, "EFFECTIVE_DATE_REVIEW");
     assert.equal(firstRegistry.operations[0].openedAt, "2026-09-10T10:00:00.000Z");
     assert.deepEqual(fs.readFileSync(sourcePath), sourceBefore);
@@ -182,7 +219,7 @@ test("C1 source states never auto-close a legal review operation", () => {
     assert.equal(fourth.appendOnlyTotal, 2);
     assert.equal(fourth.resolutionTotal, 1);
     assert.equal(fourth.openOperationTotal, 1);
-    assert.equal(fourthRegistry.attempts.filter((attempt) => attempt.operationId === firstOperation.operationId).length, 2);
+    assert.equal(fourthRegistry.attempts.filter((attempt) => attempt.operationId === firstOperation.operationId).length, 1);
     assert.equal(fourthRegistry.resolutions[0].reviewerId, "editor-legal-1");
     assert.equal(fourthRegistry.resolutions[0].resolutionBasis, "EXPLICIT_HUMAN_EVIDENCE_REVIEW");
     assert.equal(fourthRegistry.resolutions[0].reviewedSignalIdentitySha256, fourthRegistry.attempts.find((attempt) => attempt.operationId === firstOperation.operationId).signalIdentitySha256);
@@ -207,6 +244,272 @@ test("C1 source states never auto-close a legal review operation", () => {
     assert.equal(sixth.openOperationTotal, 2);
     assert.equal(sixthRegistry.attempts.length, attemptsBeforeRepeat.length + 1);
     assert.deepEqual(sixthRegistry.attempts.slice(0, attemptsBeforeRepeat.length), attemptsBeforeRepeat);
+  } finally {
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test("canonical camelCase owner/applicability appends one migration attempt without duplicating an unresolved operation", () => {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), "islegal-source-review-owner-upgrade-"));
+  try {
+    const sourcePath = path.join(directory, "projection.json");
+    const outputPath = path.join(directory, "operations.json");
+    fs.writeFileSync(sourcePath, JSON.stringify(ledger(canonicalCamelCaseSource(
+      "NEEDS_SEMANTIC_REVIEW",
+      "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+      "2026-09-11T10:00:00.000Z"
+    ))));
+    buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-11T10:01:00.000Z" });
+    const legacy = JSON.parse(fs.readFileSync(outputPath, "utf8"));
+    const legacyAttempt = downgradeAttemptToMissingOwnership(legacy);
+    const operationId = legacy.operations[0].operationId;
+    fs.writeFileSync(outputPath, `${JSON.stringify(legacy, null, 2)}\n`);
+
+    const result = buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-12T10:01:00.000Z" });
+    const upgradedBytes = fs.readFileSync(outputPath);
+    const upgraded = JSON.parse(upgradedBytes.toString("utf8"));
+    const attempts = upgraded.attempts.filter((attempt) => attempt.operationId === operationId);
+    assert.equal(result.appendOnlyTotal, 1);
+    assert.equal(result.attemptTotal, 2);
+    assert.equal(attempts.length, 2);
+    assert.equal(attempts[0].attemptId, legacyAttempt.attemptId);
+    assert.equal(attempts[0].signalIdentityFormat, "SOURCE_REVIEW_SIGNAL_V1");
+    assert.equal(attempts[1].signalIdentityFormat, "SOURCE_REVIEW_SIGNAL_V2");
+    assert.equal(attempts[1].signalPayload.sourceOwnerGeo, "AD");
+    assert.deepEqual(attempts[1].signalPayload.appliesToGeos, ["AD"]);
+
+    buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-13T10:01:00.000Z" });
+    assert.deepEqual(fs.readFileSync(outputPath), upgradedBytes);
+  } finally {
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test("a corrected owner/applicability identity opens a new operation after the incomplete signal was resolved", () => {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), "islegal-source-review-resolved-owner-upgrade-"));
+  try {
+    const sourcePath = path.join(directory, "projection.json");
+    const outputPath = path.join(directory, "operations.json");
+    fs.writeFileSync(sourcePath, JSON.stringify(ledger(canonicalCamelCaseSource(
+      "NEEDS_SEMANTIC_REVIEW",
+      "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+      "2026-09-11T10:00:00.000Z"
+    ))));
+    buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-11T10:01:00.000Z" });
+    const legacy = JSON.parse(fs.readFileSync(outputPath, "utf8"));
+    downgradeAttemptToMissingOwnership(legacy);
+    const legacyOperationId = legacy.operations[0].operationId;
+    fs.writeFileSync(outputPath, `${JSON.stringify(legacy, null, 2)}\n`);
+    const snapshot = registrySnapshot(outputPath);
+    resolveSourceReviewOperation(resolutionInput(outputPath, snapshot));
+
+    const result = buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-12T10:01:00.000Z" });
+    const upgraded = JSON.parse(fs.readFileSync(outputPath, "utf8"));
+    assert.equal(result.appendOnlyTotal, 2);
+    assert.equal(result.resolutionTotal, 1);
+    assert.equal(result.openOperationTotal, 1);
+    assert.equal(upgraded.resolutions[0].operationId, legacyOperationId);
+    const current = upgraded.operations.find((operation) => operation.operationId !== legacyOperationId);
+    assert.ok(current);
+    const currentAttempt = upgraded.attempts.find((attempt) => attempt.operationId === current.operationId);
+    assert.equal(currentAttempt.signalIdentityFormat, "SOURCE_REVIEW_SIGNAL_V2");
+    assert.equal(currentAttempt.signalPayload.sourceOwnerGeo, "AD");
+    assert.deepEqual(currentAttempt.signalPayload.appliesToGeos, ["AD"]);
+  } finally {
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test("a resolved V2 signal does not cover a later return to the older V1 signal", () => {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), "islegal-source-review-v2-to-v1-"));
+  try {
+    const sourcePath = path.join(directory, "projection.json");
+    const outputPath = path.join(directory, "operations.json");
+    const currentSource = canonicalCamelCaseSource(
+      "NEEDS_SEMANTIC_REVIEW",
+      "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+      "2026-09-11T10:00:00.000Z"
+    );
+    fs.writeFileSync(sourcePath, JSON.stringify(ledger(currentSource)));
+    buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-11T10:01:00.000Z" });
+
+    const migrated = JSON.parse(fs.readFileSync(outputPath, "utf8"));
+    const oldV1 = downgradeAttemptToMissingOwnership(migrated);
+    const resolvedOperationId = migrated.operations[0].operationId;
+    fs.writeFileSync(outputPath, `${JSON.stringify(migrated, null, 2)}\n`);
+    buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-11T11:01:00.000Z" });
+
+    const beforeResolution = registrySnapshot(outputPath);
+    const reviewedV2 = latestAttemptForOperation(beforeResolution.registry, resolvedOperationId);
+    assert.equal(reviewedV2.signalIdentityFormat, "SOURCE_REVIEW_SIGNAL_V2");
+    resolveSourceReviewOperation(resolutionInput(outputPath, beforeResolution));
+
+    const regressedSource = source(
+      "NEEDS_SEMANTIC_REVIEW",
+      "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+      "2026-09-12T10:00:00.000Z"
+    );
+    delete regressedSource.source_owner_geo;
+    delete regressedSource.applies_to_geo;
+    fs.writeFileSync(sourcePath, JSON.stringify(ledger(regressedSource)));
+
+    const result = buildSourceReviewOperations({
+      sourcePath,
+      outputPath,
+      classifiedAt: "2026-09-12T10:01:00.000Z"
+    });
+    const rebuiltBytes = fs.readFileSync(outputPath);
+    const rebuilt = JSON.parse(rebuiltBytes.toString("utf8"));
+    assert.equal(result.appendOnlyTotal, 2);
+    assert.equal(result.resolutionTotal, 1);
+    assert.equal(result.openOperationTotal, 1);
+    assert.equal(rebuilt.resolutions[0].operationId, resolvedOperationId);
+    assert.equal(rebuilt.resolutions[0].reviewedSignalIdentitySha256, reviewedV2.signalIdentitySha256);
+    assert.notEqual(rebuilt.resolutions[0].reviewedSignalIdentitySha256, oldV1.signalIdentitySha256);
+
+    const reopened = rebuilt.operations.find((operation) => operation.operationId !== resolvedOperationId);
+    assert.ok(reopened);
+    assert.notEqual(reopened.operationId, resolvedOperationId);
+    const reopenedAttempt = rebuilt.attempts.find((attempt) => attempt.operationId === reopened.operationId);
+    assert.ok(reopenedAttempt);
+    assert.equal(reopenedAttempt.signalIdentitySha256, oldV1.signalIdentitySha256);
+    assert.equal(reopenedAttempt.signalPayload.sourceOwnerGeo, "NOT_RECORDED");
+    assert.deepEqual(reopenedAttempt.signalPayload.appliesToGeos, []);
+
+    buildSourceReviewOperations({
+      sourcePath,
+      outputPath,
+      classifiedAt: "2026-09-13T10:01:00.000Z"
+    });
+    assert.deepEqual(fs.readFileSync(outputPath), rebuiltBytes);
+  } finally {
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test("latest-attempt selection ignores mutable attemptedAt and fails closed on an equal-check non-migration", () => {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), "islegal-source-review-latest-order-"));
+  try {
+    const sourcePath = path.join(directory, "projection.json");
+    const outputPath = path.join(directory, "operations.json");
+    fs.writeFileSync(sourcePath, JSON.stringify(ledger(canonicalCamelCaseSource(
+      "NEEDS_SEMANTIC_REVIEW",
+      "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+      "2026-09-11T10:00:00.000Z"
+    ))));
+    buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-11T10:01:00.000Z" });
+    const legacy = JSON.parse(fs.readFileSync(outputPath, "utf8"));
+    downgradeAttemptToMissingOwnership(legacy);
+    fs.writeFileSync(outputPath, `${JSON.stringify(legacy, null, 2)}\n`);
+    buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-12T10:01:00.000Z" });
+
+    const migrated = JSON.parse(fs.readFileSync(outputPath, "utf8"));
+    const v1 = migrated.attempts.find((attempt) => attempt.signalIdentityFormat === "SOURCE_REVIEW_SIGNAL_V1");
+    const v2 = migrated.attempts.find((attempt) => attempt.signalIdentityFormat === "SOURCE_REVIEW_SIGNAL_V2");
+    assert.equal(v1.sourceCheckedAt, v2.sourceCheckedAt);
+    v1.attemptedAt = "2099-01-01T00:00:00.000Z";
+    fs.writeFileSync(outputPath, `${JSON.stringify(migrated, null, 2)}\n`);
+    const timestampTamperedSnapshot = registrySnapshot(outputPath);
+    const resolution = resolveSourceReviewOperation({
+      ...resolutionInput(outputPath, timestampTamperedSnapshot),
+      resolvedAt: "2026-09-11T12:00:00.000Z"
+    });
+    assert.equal(resolution.reviewedAttemptId, v2.attemptId);
+
+    const ambiguous = structuredClone(migrated);
+    const ambiguousV2 = ambiguous.attempts.find((attempt) => attempt.signalIdentityFormat === "SOURCE_REVIEW_SIGNAL_V2");
+    ambiguousV2.signalPayload.httpStatus = 201;
+    ambiguousV2.signalPayloadSha256 = crypto.createHash("sha256")
+      .update(JSON.stringify(ambiguousV2.signalPayload)).digest("hex");
+    ambiguousV2.signalIdentityPreimage = JSON.stringify(ambiguousV2.signalPayload);
+    ambiguousV2.signalIdentitySha256 = crypto.createHash("sha256")
+      .update(ambiguousV2.signalIdentityPreimage).digest("hex");
+    ambiguousV2.attemptId = `SRCATT-${crypto.createHash("sha256").update([
+      ambiguousV2.operationId,
+      ambiguousV2.signalIdentitySha256,
+      ambiguousV2.sourceCheckedAt
+    ].join("\u0000")).digest("hex").slice(0, 24)}`;
+    ambiguous.resolutions = [];
+    fs.writeFileSync(outputPath, `${JSON.stringify(ambiguous, null, 2)}\n`);
+    const ambiguousSnapshot = registrySnapshot(outputPath);
+    assert.throws(() => resolveSourceReviewOperation({
+      ...resolutionInput(outputPath, timestampTamperedSnapshot),
+      reviewedAttemptId: ambiguousV2.attemptId,
+      expectedSignalIdentitySha256: ambiguousV2.signalIdentitySha256,
+      expectedRegistrySha256: ambiguousSnapshot.sha256,
+      resolvedAt: "2026-09-11T12:00:00.000Z"
+    }), /SOURCE_REVIEW_LATEST_ATTEMPT_AMBIGUOUS=/);
+  } finally {
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test("source owner and applicability aliases normalize only when equivalent and fail closed on conflicts", () => {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), "islegal-source-review-aliases-"));
+  try {
+    const sourcePath = path.join(directory, "projection.json");
+    const outputPath = path.join(directory, "operations.json");
+    const equivalent = canonicalCamelCaseSource(
+      "NEEDS_SEMANTIC_REVIEW",
+      "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+      "2026-09-11T10:00:00.000Z"
+    );
+    equivalent.source_owner_geo = "ad";
+    equivalent.applies_to_geo = ["AD"];
+    fs.writeFileSync(sourcePath, JSON.stringify(ledger(equivalent)));
+    buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-11T10:01:00.000Z" });
+    const normalized = JSON.parse(fs.readFileSync(outputPath, "utf8")).attempts[0].signalPayload;
+    assert.equal(normalized.sourceOwnerGeo, "AD");
+    assert.deepEqual(normalized.appliesToGeos, ["AD"]);
+
+    const before = fs.readFileSync(outputPath);
+    const ownerConflict = canonicalCamelCaseSource(
+      "NEEDS_SEMANTIC_REVIEW",
+      "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+      "2026-09-11T10:00:00.000Z"
+    );
+    ownerConflict.source_owner_geo = "US-AZ";
+    fs.writeFileSync(sourcePath, JSON.stringify(ledger(ownerConflict)));
+    assert.throws(
+      () => buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-12T10:01:00.000Z" }),
+      /SOURCE_REVIEW_SOURCE_OWNER_ALIAS_CONFLICT=AD\|US-AZ/
+    );
+    assert.deepEqual(fs.readFileSync(outputPath), before);
+
+    const appliesConflict = canonicalCamelCaseSource(
+      "NEEDS_SEMANTIC_REVIEW",
+      "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+      "2026-09-11T10:00:00.000Z"
+    );
+    appliesConflict.applies_to_geos = ["US-AZ"];
+    fs.writeFileSync(sourcePath, JSON.stringify(ledger(appliesConflict)));
+    assert.throws(
+      () => buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-12T10:01:00.000Z" }),
+      /SOURCE_REVIEW_APPLICABILITY_ALIAS_CONFLICT=/
+    );
+    assert.deepEqual(fs.readFileSync(outputPath), before);
+  } finally {
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test("builder rejects a backdated classification without changing append-only registry bytes", () => {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), "islegal-source-review-backdated-"));
+  try {
+    const sourcePath = path.join(directory, "projection.json");
+    const outputPath = path.join(directory, "operations.json");
+    fs.writeFileSync(sourcePath, JSON.stringify(ledger(source(
+      "NEEDS_SEMANTIC_REVIEW",
+      "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+      "2026-09-11T10:00:00.000Z"
+    ))));
+    buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-12T10:01:00.000Z" });
+    const before = fs.readFileSync(outputPath);
+    assert.throws(
+      () => buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-12T10:00:59.000Z" }),
+      /SOURCE_REVIEW_CLASSIFIED_AT_BEFORE_EXISTING_HISTORY/
+    );
+    assert.deepEqual(fs.readFileSync(outputPath), before);
   } finally {
     fs.rmSync(directory, { recursive: true, force: true });
   }
@@ -414,7 +717,7 @@ test("resolution fails closed for stale registry, signal, or non-latest attempt 
   }
 });
 
-test("resolver rejects tampered schema-v5 signal payloads and exact preimages before closure", () => {
+test("resolver rejects tampered schema-v6 signal payloads and exact preimages before closure", () => {
   const directory = fs.mkdtempSync(path.join(os.tmpdir(), "islegal-source-review-tamper-"));
   try {
     const sourcePath = path.join(directory, "projection.json");
@@ -489,6 +792,11 @@ test("resolver rejects tampered schema-v5 signal payloads and exact preimages be
     legacyAttempt.signalIdentitySha256 = crypto.createHash("sha256")
       .update(legacyAttempt.signalIdentityPreimage).digest("hex");
     legacyAttempt.signalIdentityFormat = "LEGACY_SIGNAL_DETAILS_NOT_RECORDED_V1";
+    legacyAttempt.attemptId = `SRCATT-${crypto.createHash("sha256").update([
+      legacyAttempt.operationId,
+      legacyAttempt.signalIdentitySha256,
+      legacyAttempt.sourceCheckedAt
+    ].join("\u0000")).digest("hex").slice(0, 24)}`;
 
     const legacyTampered = structuredClone(legacyRegistry);
     legacyTampered.attempts[0].signalPayload.accessState = "HTTP_OK";
@@ -498,7 +806,7 @@ test("resolver rejects tampered schema-v5 signal payloads and exact preimages be
     const legacyTamperedSnapshot = registrySnapshot(outputPath);
     assert.throws(
       () => resolveSourceReviewOperation(resolutionInput(outputPath, legacyTamperedSnapshot)),
-      new RegExp(`SOURCE_REVIEW_ATTEMPT_LEGACY_PREIMAGE_INVALID=${attemptId}`)
+      new RegExp(`SOURCE_REVIEW_ATTEMPT_LEGACY_PREIMAGE_INVALID=${legacyAttempt.attemptId}`)
     );
     assert.deepEqual(fs.readFileSync(outputPath), legacyTamperedSnapshot.bytes);
 
@@ -563,6 +871,194 @@ test("resolver owns an exclusive lock and preserves concurrent registry bytes an
   }
 });
 
+test("builder shares the resolver lock and exact-preimage CAS instead of losing a concurrent close", () => {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), "islegal-source-review-builder-lock-"));
+  try {
+    const sourcePath = path.join(directory, "projection.json");
+    const outputPath = path.join(directory, "operations.json");
+    const lockPath = `${outputPath}.resolve.lock`;
+    fs.writeFileSync(sourcePath, JSON.stringify(ledger(source(
+      "NEEDS_SEMANTIC_REVIEW",
+      "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+      "2026-09-11T10:00:00.000Z"
+    ))));
+    buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-11T10:01:00.000Z" });
+    const initialSnapshot = registrySnapshot(outputPath);
+    const closeInput = resolutionInput(outputPath, initialSnapshot);
+    fs.writeFileSync(sourcePath, JSON.stringify(ledger(source(
+      "NEEDS_SEMANTIC_REVIEW",
+      "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+      "2026-09-11T11:00:00.000Z"
+    ))));
+
+    const foreignLock = Buffer.from("foreign-writer-lock\n", "utf8");
+    fs.writeFileSync(lockPath, foreignLock);
+    assert.throws(
+      () => buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-11T11:01:00.000Z" }),
+      /SOURCE_REVIEW_RESOLUTION_LOCKED/
+    );
+    assert.deepEqual(fs.readFileSync(lockPath), foreignLock);
+    assert.deepEqual(fs.readFileSync(outputPath), initialSnapshot.bytes);
+    fs.unlinkSync(lockPath);
+
+    let nestedError;
+    const concurrentBytes = Buffer.concat([initialSnapshot.bytes, Buffer.from(" ", "utf8")]);
+    assert.throws(() => buildSourceReviewOperations({
+      sourcePath,
+      outputPath,
+      classifiedAt: "2026-09-11T11:01:00.000Z",
+      beforeCommit() {
+        try {
+          resolveSourceReviewOperation(closeInput);
+        } catch (error) {
+          nestedError = error;
+        }
+        fs.writeFileSync(outputPath, concurrentBytes);
+      }
+    }), /SOURCE_REVIEW_RESOLUTION_REGISTRY_STALE=/);
+    assert.match(String(nestedError), /SOURCE_REVIEW_RESOLUTION_LOCKED/);
+    assert.deepEqual(fs.readFileSync(outputPath), concurrentBytes);
+    assert.equal(fs.existsSync(lockPath), false);
+    assert.deepEqual(fs.readdirSync(directory).filter((name) => name.includes(".resolve-staged-")), []);
+
+    fs.writeFileSync(outputPath, initialSnapshot.bytes);
+    const officialRegistryPath = path.join(directory, "official.json");
+    const ownershipPath = path.join(directory, "ownership.json");
+    fs.writeFileSync(officialRegistryPath, JSON.stringify({ domains: ["example.gov"] }));
+    fs.writeFileSync(ownershipPath, JSON.stringify({ items: [{ domain: "example.gov", owner_geos: ["AD"], effective: true }] }));
+    assert.throws(() => buildSourceReviewOperations({
+      sourcePath,
+      outputPath,
+      officialRegistryPath,
+      ownershipPath,
+      classifiedAt: "2026-09-11T11:01:00.000Z",
+      beforeCommit() {
+        fs.writeFileSync(ownershipPath, JSON.stringify({ items: [] }));
+      }
+    }), /SOURCE_REVIEW_RESOLUTION_EVIDENCE_REGISTRY_STALE=/);
+    assert.deepEqual(fs.readFileSync(outputPath), initialSnapshot.bytes);
+
+    const result = buildSourceReviewOperations({
+      sourcePath,
+      outputPath,
+      classifiedAt: "2026-09-11T11:01:00.000Z"
+    });
+    assert.equal(result.attemptTotal, 2);
+    assert.equal(registrySnapshot(outputPath).registry.resolutions.length, 0);
+  } finally {
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test("builder rejects canonical source and GEO snapshot changes between read and commit", () => {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), "islegal-source-review-input-cas-"));
+  try {
+    const sourcePath = path.join(directory, "projection.json");
+    const outputPath = path.join(directory, "operations.json");
+    const canonicalGeosPath = path.join(directory, "geo-list-307.json");
+    const canonicalGeosBytes = fs.readFileSync(path.join(process.cwd(), "data/reviews/geo-list-307.json"));
+    fs.writeFileSync(canonicalGeosPath, canonicalGeosBytes);
+    fs.writeFileSync(sourcePath, JSON.stringify(ledger(source(
+      "NEEDS_SEMANTIC_REVIEW",
+      "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+      "2026-09-11T10:00:00.000Z"
+    ))));
+    buildSourceReviewOperations({
+      sourcePath,
+      outputPath,
+      canonicalGeosPath,
+      classifiedAt: "2026-09-11T10:01:00.000Z"
+    });
+    const initialBytes = fs.readFileSync(outputPath);
+
+    const laterSourceBytes = Buffer.from(JSON.stringify(ledger(source(
+      "NEEDS_SEMANTIC_REVIEW",
+      "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+      "2026-09-11T11:00:00.000Z"
+    ))));
+    fs.writeFileSync(sourcePath, laterSourceBytes);
+    assert.throws(() => buildSourceReviewOperations({
+      sourcePath,
+      outputPath,
+      canonicalGeosPath,
+      classifiedAt: "2026-09-11T11:01:00.000Z",
+      beforeCommit() {
+        fs.appendFileSync(sourcePath, " ");
+      }
+    }), /SOURCE_REVIEW_RESOLUTION_EVIDENCE_REGISTRY_STALE=.*projection\.json/);
+    assert.deepEqual(fs.readFileSync(outputPath), initialBytes);
+
+    fs.writeFileSync(sourcePath, laterSourceBytes);
+    fs.writeFileSync(canonicalGeosPath, canonicalGeosBytes);
+    assert.throws(() => buildSourceReviewOperations({
+      sourcePath,
+      outputPath,
+      canonicalGeosPath,
+      classifiedAt: "2026-09-11T11:01:00.000Z",
+      beforeCommit() {
+        fs.appendFileSync(canonicalGeosPath, " ");
+      }
+    }), /SOURCE_REVIEW_RESOLUTION_EVIDENCE_REGISTRY_STALE=.*geo-list-307\.json/);
+    assert.deepEqual(fs.readFileSync(outputPath), initialBytes);
+
+    fs.writeFileSync(canonicalGeosPath, canonicalGeosBytes);
+    const result = buildSourceReviewOperations({
+      sourcePath,
+      outputPath,
+      canonicalGeosPath,
+      classifiedAt: "2026-09-11T11:01:00.000Z"
+    });
+    assert.equal(result.attemptTotal, 2);
+  } finally {
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test("resolver rejects staged-byte replacement and official-owner registry TOCTOU", () => {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), "islegal-source-review-toctou-"));
+  try {
+    const sourcePath = path.join(directory, "projection.json");
+    const outputPath = path.join(directory, "operations.json");
+    const officialRegistryPath = path.join(directory, "official.json");
+    const ownershipPath = path.join(directory, "ownership.json");
+    fs.writeFileSync(sourcePath, JSON.stringify(ledger(source(
+      "NEEDS_SEMANTIC_REVIEW",
+      "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+      "2026-09-11T10:00:00.000Z"
+    ))));
+    fs.writeFileSync(officialRegistryPath, JSON.stringify({ domains: ["gazette.example"] }));
+    fs.writeFileSync(ownershipPath, JSON.stringify({ items: [{ domain: "gazette.example", owner_geos: ["AD"], effective: true }] }));
+    buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-11T10:01:00.000Z" });
+    const initialSnapshot = registrySnapshot(outputPath);
+    const common = {
+      ...resolutionInput(outputPath, initialSnapshot),
+      officialRegistryPath,
+      ownershipPath,
+      evidenceUrl: "https://gazette.example/act/42"
+    };
+
+    assert.throws(() => resolveSourceReviewOperation({
+      ...common,
+      beforeCommit() {
+        const staged = fs.readdirSync(directory).find((name) => name.includes(".resolve-staged-"));
+        assert.ok(staged);
+        fs.writeFileSync(path.join(directory, staged), "tampered staged bytes\n");
+      }
+    }), /SOURCE_REVIEW_RESOLUTION_STAGED_BYTES_CHANGED/);
+    assert.deepEqual(fs.readFileSync(outputPath), initialSnapshot.bytes);
+
+    assert.throws(() => resolveSourceReviewOperation({
+      ...common,
+      beforeCommit() {
+        fs.writeFileSync(officialRegistryPath, JSON.stringify({ domains: [] }));
+      }
+    }), /SOURCE_REVIEW_RESOLUTION_EVIDENCE_REGISTRY_STALE=/);
+    assert.deepEqual(fs.readFileSync(outputPath), initialSnapshot.bytes);
+  } finally {
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
+});
+
 test("schema-v4 migration preserves every operation and attempt identity while adding reconstructible signal fields", () => {
   const directory = fs.mkdtempSync(path.join(os.tmpdir(), "islegal-source-review-v5-migration-"));
   try {
@@ -599,7 +1095,7 @@ test("schema-v4 migration preserves every operation and attempt identity while a
     buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-12T10:01:00.000Z" });
     const migratedBytes = fs.readFileSync(outputPath);
     const migrated = JSON.parse(migratedBytes.toString("utf8"));
-    assert.equal(migrated.schemaVersion, 5);
+    assert.equal(migrated.schemaVersion, 6);
     assert.deepEqual(migrated.operations, operationBefore);
     assert.deepEqual(migrated.attempts.map((attempt) => ({
       attemptId: attempt.attemptId,

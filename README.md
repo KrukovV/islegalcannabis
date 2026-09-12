@@ -1,6 +1,6 @@
 isLegalCannabis is a Next.js App Router product for educational cannabis legality lookup, map exploration, and jurisdiction audit workflows.
 
-The canonical public runtime is the MapLibre root `/`. In production, `/new-map` is a parameter-preserving permanent redirect to `/`; on localhost it remains a compatibility route for legacy QA. Country routes `/c/[code]` and `/[lang]/c/[code]` use the same map/runtime contract. Local audit surfaces include `/wiki-truth` and `/truth-map`; both must return production `404` and stay absent from every sitemap. `/trust-view` is the stable localhost alias to the wiki audit UI. `/changes` and `/api/ssot/changes` expose the SSOT diff surface under their separate contract.
+The canonical public runtime is the MapLibre root `/`. In production, `/new-map` is a parameter-preserving permanent redirect to `/`; on localhost it remains a compatibility route for legacy QA. Country routes `/c/[code]` and `/[lang]/c/[code]` use the same map/runtime contract. Local audit surfaces include `/wiki-truth` and `/truth-map`; both must return production `404` and stay absent from every sitemap. `/truth-map/evidence-passport` hosts the localhost-only Passport, Freshness, Change Monitor/Watchlist, Source Review Workbench, Why No Leaf, correction-review and editorial-localisation workflows; all `/api/truth-map/b2b/*` adapters are likewise production `404`. `/trust-view` is the stable localhost alias to the wiki audit UI. `/changes` and `/api/ssot/changes` expose the SSOT diff surface under their separate contract.
 
 ## Current Project Contracts
 
@@ -60,11 +60,13 @@ CI will fail on disk bloat (QUARANTINE > 500MB or Reports > 1GB).
 - `/new-map`: permanent parameter-preserving production redirect to `/`; localhost compatibility route for legacy QA.
 - `/c/[code]`: country panel route backed by the same map runtime.
 - `/wiki-truth`: localhost audit view over wiki, ISO, SSOT, official registry, and official ownership universes; production `404`.
+- `/truth-map/evidence-passport`: localhost-only 307-GEO evidence operations hub with review, changelog, why-no-leaf and correction subroutes; production `404`.
 - `/trust-view`: stable localhost alias for `/wiki-truth`.
 - `/changes`: SSOT diff view.
 - `/api/check`: jurisdiction legality API.
 - `/api/new-map/countries`: compatibility redirect to immutable `/static/countries/countries.<hash>.json.br`.
 - `/api/ssot/changes`: cached SSOT diff API.
+- `/api/truth-map/b2b/*`: localhost-only read/write-by-dedicated-guard evidence workflow adapters; every route is production `404`, receives no production `outputFileTracingIncludes` entry and must not trace B2B evidence datasets.
 
 ## Local CI
 

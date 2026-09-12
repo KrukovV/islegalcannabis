@@ -143,6 +143,8 @@ Hard prohibitions:
 - no trace include for `/truth-map`, `/wiki-truth`, Social, DM or audit Store
   APIs; the narrowly scoped public-map read adapters above are the sole Store
   exception;
+- no trace include or production route exposure for `/truth-map/evidence-passport`
+  or any `/api/truth-map/b2b/*` evidence workflow adapter;
 - no copying the whole repository/data tree into every server function;
 - no fallback that turns missing country data into a successful empty sitemap;
 - no build-time sitemap generated from a broader universe than the runtime can

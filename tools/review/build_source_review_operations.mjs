@@ -3,10 +3,18 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import {
+  exactFileSnapshot,
+  validateRegistry,
+  withOwnedRegistryLock
+} from "./resolve_source_review_operation.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const SOURCE_PATH = path.join(ROOT, "data/reviews/wiki-truth-307-final-reconciliation.json");
 const OUTPUT_PATH = path.join(ROOT, "data/b2b_evidence/source_review_operations.json");
+const OFFICIAL_REGISTRY_PATH = path.join(ROOT, "data/official/official_domains.ssot.json");
+const OWNERSHIP_PATH = path.join(ROOT, "data/ssot/official_link_ownership.json");
+const CANONICAL_GEOS_PATH = path.join(ROOT, "data/reviews/geo-list-307.json");
 const PENDING_STATES = new Set(["NEEDS_SEMANTIC_REVIEW", "NEEDS_VISUAL_REVIEW", "EFFECTIVE_DATE_REVIEW_DUE", "ACCESS_BLOCKED"]);
 
 function sha256(value) {
@@ -41,8 +49,8 @@ function outcomeFor(category) {
   return "CANONICAL_REVIEW_REQUIRED";
 }
 
-function readSources(sourcePath) {
-  const ledger = JSON.parse(fs.readFileSync(sourcePath, "utf8"));
+function readSources(sourceBytes) {
+  const ledger = JSON.parse(sourceBytes.toString("utf8"));
   return (ledger.rows || []).flatMap((row) => {
     const seen = new Set();
     return [...(row.primaryLaw?.officialSources || []), ...(row.primaryLaw?.freshAxisOfficialSources || [])]
@@ -61,6 +69,36 @@ function recorded(value) {
   return normalized || "NOT_RECORDED";
 }
 
+function normalizedOwnerAlias(value) {
+  const normalized = String(value ?? "").trim().toUpperCase();
+  return normalized || "NOT_RECORDED";
+}
+
+function sourceOwnerGeo(source) {
+  const aliases = [source.sourceOwnerGeo, source.source_owner_geo, source.source_owner_scope]
+    .filter((value) => value !== undefined && value !== null)
+    .map(normalizedOwnerAlias);
+  const distinct = [...new Set(aliases)];
+  if (distinct.length > 1) {
+    throw new Error(`SOURCE_REVIEW_SOURCE_OWNER_ALIAS_CONFLICT=${distinct.join("|")}`);
+  }
+  return distinct[0] || "NOT_RECORDED";
+}
+
+function appliesToGeos(source) {
+  const aliases = [source.appliesToGeos, source.applies_to_geo, source.applies_to_geos]
+    .filter((value) => value !== undefined && value !== null)
+    .map((values) => {
+      if (!Array.isArray(values)) throw new Error("SOURCE_REVIEW_APPLICABILITY_ALIAS_INVALID");
+      return [...new Set(values.map((value) => String(value).trim().toUpperCase()).filter(Boolean))].sort();
+    });
+  const identities = [...new Set(aliases.map((values) => JSON.stringify(values)))];
+  if (identities.length > 1) {
+    throw new Error(`SOURCE_REVIEW_APPLICABILITY_ALIAS_CONFLICT=${identities.join("|")}`);
+  }
+  return aliases[0] || [];
+}
+
 function signalPayload({ geo, url, kind, source }) {
   const revalidation = source.revalidation || {};
   return {
@@ -76,9 +114,25 @@ function signalPayload({ geo, url, kind, source }) {
     relevantFragmentSha256: recorded(revalidation.relevant_fragment_sha256),
     etag: recorded(revalidation.etag),
     lastModified: recorded(revalidation.last_modified),
-    sourceOwnerGeo: recorded(source.source_owner_geo),
-    appliesToGeos: [...new Set((source.applies_to_geo || []).map((value) => String(value).trim().toUpperCase()).filter(Boolean))].sort()
+    sourceOwnerGeo: sourceOwnerGeo(source),
+    appliesToGeos: appliesToGeos(source)
   };
+}
+
+function withoutOwnerApplicability(payload) {
+  const { sourceOwnerGeo: _sourceOwnerGeo, appliesToGeos: _appliesToGeos, ...rest } = payload;
+  return rest;
+}
+
+function isCanonicalOwnershipUpgrade(attempt, payload) {
+  if (
+    attempt.signalIdentityFormat !== "SOURCE_REVIEW_SIGNAL_V1"
+    || attempt.signalPayload?.sourceOwnerGeo !== "NOT_RECORDED"
+    || attempt.signalPayload?.appliesToGeos?.length !== 0
+    || (payload.sourceOwnerGeo === "NOT_RECORDED" && payload.appliesToGeos.length === 0)
+  ) return false;
+  return JSON.stringify(withoutOwnerApplicability(attempt.signalPayload))
+    === JSON.stringify(withoutOwnerApplicability(payload));
 }
 
 function signalIdentity(payload) {
@@ -133,14 +187,18 @@ function eventKindsForSource(source) {
   return kinds;
 }
 
-function buildOperation({ geo, source, url, kind, classifiedAt, signal }) {
+function buildOperation({ geo, source, url, kind, classifiedAt, signal, reopenAfterResolutionIds = [] }) {
   const state = String(source.revalidation?.revalidation_state || "NOT_RECORDED");
   const reason = String(source.revalidation?.change_reason || "NOT_RECORDED");
   const checkedAt = String(source.revalidation?.checked_at || "");
   const lastAttemptAt = Number.isFinite(Date.parse(checkedAt)) ? new Date(checkedAt).toISOString() : "NOT_RECORDED";
   const category = categoryFor(kind, state, reason);
+  const operationIdentity = [operationKey(geo, url, kind, state, reason), signal];
+  if (reopenAfterResolutionIds.length) {
+    operationIdentity.push("REOPEN_AFTER_DIFFERENT_REVIEWED_SIGNAL", ...reopenAfterResolutionIds);
+  }
   return {
-    operationId: `SRCREV-${sha256(`${operationKey(geo, url, kind, state, reason)}\u0000${signal}`).slice(0, 24)}`,
+    operationId: `SRCREV-${sha256(operationIdentity.join("\u0000")).slice(0, 24)}`,
     sourceIdentitySha256: sha256(`${geo}\u0000${url}`),
     geo,
     sourceUrl: url,
@@ -157,7 +215,7 @@ function buildOperation({ geo, source, url, kind, classifiedAt, signal }) {
   };
 }
 
-function buildAttempt({ operation, source, signal, payload, classifiedAt }) {
+function buildAttempt({ operation, source, signal, payload, classifiedAt, signalFormat = "SOURCE_REVIEW_SIGNAL_V2" }) {
   const revalidation = source.revalidation || {};
   const checkedAt = String(revalidation.checked_at || "");
   const sourceCheckedAt = Number.isFinite(Date.parse(checkedAt)) ? new Date(checkedAt).toISOString() : "NOT_RECORDED";
@@ -175,7 +233,7 @@ function buildAttempt({ operation, source, signal, payload, classifiedAt }) {
     finalUrl: recorded(revalidation.final_url),
     documentSha256: recorded(revalidation.document_sha256),
     relevantFragmentSha256: recorded(revalidation.relevant_fragment_sha256),
-    ...attemptSignalFields(payload, payload, "SOURCE_REVIEW_SIGNAL_V1"),
+    ...attemptSignalFields(payload, payload, signalFormat),
     boundary: "SOURCE_REVIEW_ATTEMPT_ONLY_NO_REVIEW_CLOSURE"
   };
 }
@@ -236,16 +294,22 @@ function migrateAttemptSignalFields(attempt, operation, sourceByIdentity) {
   throw new Error(`SOURCE_REVIEW_ATTEMPT_SIGNAL_PREIMAGE_UNRECONSTRUCTIBLE=${attempt.attemptId}`);
 }
 
-export function buildSourceReviewOperations({
+function buildSourceReviewOperationsLocked({
   sourcePath = SOURCE_PATH,
-  outputPath = OUTPUT_PATH,
-  classifiedAt = new Date().toISOString()
+  classifiedAt = new Date().toISOString(),
+  officialRegistryPath = OFFICIAL_REGISTRY_PATH,
+  ownershipPath = OWNERSHIP_PATH,
+  canonicalGeosPath = CANONICAL_GEOS_PATH,
+  registrySnapshot,
+  stage,
+  commit,
+  beforeCommit
 } = {}) {
   const normalizedClassifiedAt = new Date(classifiedAt).toISOString();
-  const existing = fs.existsSync(outputPath)
-    ? JSON.parse(fs.readFileSync(outputPath, "utf8"))
-    : { schemaVersion: 5, localOnly: true, appendOnly: true, createdAt: normalizedClassifiedAt, operations: [], attempts: [], resolutions: [] };
-  if (![3, 4, 5].includes(existing.schemaVersion) || existing.localOnly !== true || existing.appendOnly !== true) {
+  const existing = registrySnapshot.exists
+    ? JSON.parse(registrySnapshot.bytes.toString("utf8"))
+    : { schemaVersion: 6, localOnly: true, appendOnly: true, createdAt: normalizedClassifiedAt, operations: [], attempts: [], resolutions: [] };
+  if (![3, 4, 5, 6].includes(existing.schemaVersion) || existing.localOnly !== true || existing.appendOnly !== true) {
     throw new Error(`SOURCE_REVIEW_REGISTRY_SCHEMA_INVALID=${existing.schemaVersion || "MISSING"}`);
   }
   const existingOperations = Array.isArray(existing.operations) ? existing.operations : [];
@@ -254,8 +318,18 @@ export function buildSourceReviewOperations({
   if (existing.schemaVersion === 3 && existingResolutions.length) {
     throw new Error("SOURCE_REVIEW_V3_RESOLUTION_SIGNAL_IDENTITY_MISSING");
   }
+  const latestExistingAttemptTime = existingAttempts.reduce((latest, attempt) => {
+    const timestamp = Date.parse(String(attempt.attemptedAt || ""));
+    return Number.isFinite(timestamp) ? Math.max(latest, timestamp) : latest;
+  }, Number.NEGATIVE_INFINITY);
+  if (latestExistingAttemptTime > Date.parse(normalizedClassifiedAt)) {
+    throw new Error("SOURCE_REVIEW_CLASSIFIED_AT_BEFORE_EXISTING_HISTORY");
+  }
   const resolvedBefore = new Set(existingResolutions.map((resolution) => resolution.operationId));
-  const sources = readSources(sourcePath);
+  const resolutionsByOperation = new Map(existingResolutions.map((resolution) => [resolution.operationId, resolution]));
+  const sourceSnapshot = exactFileSnapshot(sourcePath);
+  const canonicalGeosSnapshot = exactFileSnapshot(canonicalGeosPath);
+  const sources = readSources(sourceSnapshot.bytes);
   const sourceByIdentity = new Map();
   for (const item of sources) {
     const identity = `${item.geo}\u0000${item.url}`;
@@ -297,19 +371,45 @@ export function buildSourceReviewOperations({
       currentSignals.add(`${key}\u0000${signal}`);
       currentCounts[kind] += 1;
       const prior = byKey.get(key) || [];
-      let operation = prior.find((candidate) => (
-        attemptsByOperation.get(candidate.operationId) || []
-      ).some((attempt) => attempt.signalIdentitySha256 === signal));
+      let operation = prior.find((candidate) => {
+        const containsCurrentSignal = (attemptsByOperation.get(candidate.operationId) || [])
+          .some((attempt) => attempt.signalIdentitySha256 === signal);
+        if (!containsCurrentSignal) return false;
+        const resolution = resolutionsByOperation.get(candidate.operationId);
+        return !resolution || resolution.reviewedSignalIdentitySha256 === signal;
+      });
       if (!operation) {
+        const mismatchedResolvedSignalIds = prior.flatMap((candidate) => {
+          const resolution = resolutionsByOperation.get(candidate.operationId);
+          if (!resolution || resolution.reviewedSignalIdentitySha256 === signal) return [];
+          const containsCurrentSignal = (attemptsByOperation.get(candidate.operationId) || [])
+            .some((attempt) => attempt.signalIdentitySha256 === signal);
+          return containsCurrentSignal ? [resolution.resolutionId] : [];
+        }).sort();
+        const ownershipUpgradeCandidates = prior.filter((candidate) => {
+          if (resolvedBefore.has(candidate.operationId)) return false;
+          const candidateAttempts = attemptsByOperation.get(candidate.operationId) || [];
+          return candidateAttempts.some((attempt) => isCanonicalOwnershipUpgrade(attempt, payload));
+        });
+        if (ownershipUpgradeCandidates.length > 1) {
+          throw new Error(`SOURCE_REVIEW_OWNERSHIP_UPGRADE_AMBIGUOUS=${key}`);
+        }
         const unresolvedLegacy = prior.find((candidate) => (
           !resolvedBefore.has(candidate.operationId) && !(attemptsByOperation.get(candidate.operationId) || []).length
         ));
-        operation = unresolvedLegacy || buildOperation({ ...item, kind, classifiedAt: normalizedClassifiedAt, signal });
-        if (!unresolvedLegacy) prior.push(operation);
+        operation = unresolvedLegacy || ownershipUpgradeCandidates[0]
+          || buildOperation({
+            ...item,
+            kind,
+            classifiedAt: normalizedClassifiedAt,
+            signal,
+            reopenAfterResolutionIds: mismatchedResolvedSignalIds
+          });
+        if (!unresolvedLegacy && !ownershipUpgradeCandidates.length) prior.push(operation);
         byKey.set(key, prior);
       }
       const attempt = buildAttempt({ operation, source: item.source, signal, payload, classifiedAt: normalizedClassifiedAt });
-      if (!attemptIds.has(attempt.attemptId)) {
+      if (!attemptIds.has(attempt.attemptId) && !resolvedBefore.has(operation.operationId)) {
         attempts.push(attempt);
         attemptIds.add(attempt.attemptId);
         const values = attemptsByOperation.get(operation.operationId) || [];
@@ -329,10 +429,7 @@ export function buildSourceReviewOperations({
   // resolution is appended only by the explicit human-review command, which
   // records reviewer, evidence, note, and real close time.
   const resolutions = [...existingResolutions];
-  const resolvedOperationIds = new Set(resolutions.map((resolution) => resolution.operationId));
-  const output = { ...existing, schemaVersion: 5, localOnly: true, appendOnly: true, operations, attempts, resolutions };
-  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-  fs.writeFileSync(outputPath, `${JSON.stringify(output, null, 2)}\n`);
+  const output = { ...existing, schemaVersion: 6, localOnly: true, appendOnly: true, operations, attempts, resolutions };
   const operationsById = new Map(operations.map((operation) => [operation.operationId, operation]));
   const classifiedSignals = new Set(attempts.flatMap((attempt) => {
     const operation = operationsById.get(attempt.operationId);
@@ -341,6 +438,23 @@ export function buildSourceReviewOperations({
   }));
   const currentClassified = [...currentSignals].filter((signal) => classifiedSignals.has(signal)).length;
   if (currentClassified !== currentSignals.size) throw new Error(`SOURCE_REVIEW_CURRENT_CLASSIFICATION_MISMATCH=${currentClassified}/${currentSignals.size}`);
+  if (attempts.length > existingAttempts.length && latestExistingAttemptTime >= Date.parse(normalizedClassifiedAt)) {
+    throw new Error("SOURCE_REVIEW_CLASSIFIED_AT_NOT_AFTER_EXISTING_HISTORY");
+  }
+  const officialRegistrySnapshot = exactFileSnapshot(officialRegistryPath);
+  const ownershipSnapshot = exactFileSnapshot(ownershipPath);
+  validateRegistry(output, { canonicalGeosPath, officialRegistryPath, ownershipPath });
+  const nextBytes = Buffer.from(`${JSON.stringify(output, null, 2)}\n`, "utf8");
+  if (!registrySnapshot.exists || !nextBytes.equals(registrySnapshot.bytes)) {
+    stage(nextBytes);
+    beforeCommit?.();
+    commit(registrySnapshot, [
+      { path: sourcePath, snapshot: sourceSnapshot },
+      { path: canonicalGeosPath, snapshot: canonicalGeosSnapshot },
+      { path: officialRegistryPath, snapshot: officialRegistrySnapshot },
+      { path: ownershipPath, snapshot: ownershipSnapshot }
+    ]);
+  }
   return {
     sourceCount: sources.length,
     currentEventCount: currentSignals.size,
@@ -350,6 +464,32 @@ export function buildSourceReviewOperations({
     resolutionTotal: resolutions.length,
     openOperationTotal: operations.length - resolutions.length
   };
+}
+
+export function buildSourceReviewOperations({
+  sourcePath = SOURCE_PATH,
+  outputPath = OUTPUT_PATH,
+  classifiedAt = new Date().toISOString(),
+  officialRegistryPath = OFFICIAL_REGISTRY_PATH,
+  ownershipPath = OWNERSHIP_PATH,
+  canonicalGeosPath = CANONICAL_GEOS_PATH,
+  beforeCommit
+} = {}) {
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+  return withOwnedRegistryLock(outputPath, ({ stage, commit }) => {
+    const registrySnapshot = exactFileSnapshot(outputPath, { allowMissing: true });
+    return buildSourceReviewOperationsLocked({
+      sourcePath,
+      classifiedAt,
+      officialRegistryPath,
+      ownershipPath,
+      canonicalGeosPath,
+      registrySnapshot,
+      stage,
+      commit,
+      beforeCommit
+    });
+  });
 }
 
 function main() {

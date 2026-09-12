@@ -3,6 +3,8 @@ import {
   isEvidencePassportSourceChange
 } from "./evidencePassport";
 import {
+  compareSourceReviewAttempts,
+  loadCanonicalSourceReviewV2SignalIdentityIndex,
   loadSourceReviewOperationsRegistrySnapshot,
   sourceReviewOperationKey,
   sourceReviewOperationsIndex,
@@ -152,18 +154,13 @@ function currentEventKinds(source: TruthMapCanonicalProjectionSource) {
   return eventKinds;
 }
 
-function attemptTimestamp(attempt: SourceReviewAttempt) {
-  return Date.parse(attempt.attemptedAt);
-}
-
 function latestAttemptsByOperation(attempts: SourceReviewAttempt[]) {
   const index = new Map<string, SourceReviewAttempt>();
   for (const attempt of attempts) {
     const previous = index.get(attempt.operationId);
-    if (!previous || attemptTimestamp(attempt) > attemptTimestamp(previous) || (
-      attemptTimestamp(attempt) === attemptTimestamp(previous)
-      && attempt.attemptId.localeCompare(previous.attemptId) > 0
-    )) index.set(attempt.operationId, attempt);
+    if (!previous || compareSourceReviewAttempts(attempt, previous) > 0) {
+      index.set(attempt.operationId, attempt);
+    }
   }
   return index;
 }
@@ -177,9 +174,7 @@ function orderedAttemptsByOperation(attempts: SourceReviewAttempt[]) {
   }
   for (const values of index.values()) {
     values.sort((left, right) => (
-      attemptTimestamp(left) - attemptTimestamp(right)
-      || left.attemptedAt.localeCompare(right.attemptedAt)
-      || left.attemptId.localeCompare(right.attemptId)
+      compareSourceReviewAttempts(left, right)
     ));
   }
   return index;
@@ -228,6 +223,7 @@ export function buildSourceReviewWorkbench(
   const resolutions = sourceReviewResolutionsIndex(registry);
   const latestAttempts = latestAttemptsByOperation(registry.attempts);
   const attemptHistories = orderedAttemptsByOperation(registry.attempts);
+  const canonicalV2Signals = loadCanonicalSourceReviewV2SignalIdentityIndex();
   const currentSourcesByOperation = new Map<string, TruthMapCanonicalProjectionSource>();
 
   for (const record of records) {
@@ -236,6 +232,14 @@ export function buildSourceReviewWorkbench(
         const operation = currentOperationIndex.get(sourceReviewOperationKey(record.geo, source, eventKind));
         if (!operation) {
           throw new Error(`SOURCE_REVIEW_WORKBENCH_CURRENT_OPERATION_MISSING=${record.geo}|${eventKind}|${source.url}`);
+        }
+        const latestAttempt = latestAttempts.get(operation.operationId);
+        const expectedSignalIdentitySha256 = canonicalV2Signals.get(sourceReviewOperationKey(record.geo, source, eventKind));
+        if (!latestAttempt || !expectedSignalIdentitySha256) {
+          throw new Error(`SOURCE_REVIEW_WORKBENCH_CURRENT_OPERATION_MISSING=${record.geo}|${eventKind}|${source.url}`);
+        }
+        if (latestAttempt.signalIdentitySha256 !== expectedSignalIdentitySha256) {
+          throw new Error(`SOURCE_REVIEW_WORKBENCH_CURRENT_OPERATION_STALE=${operation.operationId}`);
         }
         currentSourcesByOperation.set(operation.operationId, source);
       }

@@ -9,6 +9,7 @@ The web product is a Next.js App Router app in `apps/web`.
 - `/api/new-map/countries` is compatibility only and redirects to `/static/countries/countries.<hash>.json.br`.
 - `/api/check` remains the legality API for app, SEO, and mobile consumers.
 - `/wiki-truth`, `/trust-view`, `/changes`, and `/api/ssot/changes` are audit/change surfaces over prebuilt SSOT data.
+- `/truth-map/evidence-passport` and its `review`, `changelog`, `why-no-leaf`, `correction` and `correction/review` children form the localhost-only evidence operations UI. `/api/truth-map/b2b/*` exposes only its bounded local adapters. Every one of these UI/API routes is production `404`, absent from sitemap, receives no production `outputFileTracingIncludes` entry and must not trace B2B evidence datasets.
 
 ## Data Flow
 
@@ -60,6 +61,10 @@ Official registry size and official geo coverage are different measurements. Reg
 - Offline UI diff cache: `cache/ssot_diff_cache.json`.
 
 Confirmed diffs are append-only. A pending change becomes confirmed only after it persists across two consecutive refresh cycles.
+
+## Local Evidence Operations
+
+Evidence Passport, Source Freshness, Change Monitor/Watchlist, Source Review Workbench, Why No Leaf, correction review and editorial localisation are projections around the canonical 307-GEO source. They do not create an alternate Legal Truth or Store Truth. Their append-only registries use owned locks, staged durability writes and exact-byte compare-and-swap; read surfaces never mutate them. The source-review registry schema-v6 preserves V1 history and appends only bounded V2 owner/applicability corrections. Production has no B2B evidence UI/API exposure unless a separate authorised release changes the route contract.
 
 ## Status Engine Audit
 

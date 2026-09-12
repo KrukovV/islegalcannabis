@@ -36,6 +36,12 @@ function recordedBoolean(value: boolean | null) {
   return value === null ? "NOT_RECORDED" : value ? "YES" : "NO";
 }
 
+function recordedReviewFlag(value: boolean | string | null) {
+  if (value === null) return "NOT_RECORDED";
+  if (typeof value === "boolean") return value ? "YES" : "NO";
+  return value;
+}
+
 function Dossier({ dossier }: { dossier: SourceReviewWorkbenchDossier }) {
   return <li data-testid={`source-review-dossier-${dossier.operation.operationId}`}>
     <strong>{dossier.operation.geo} · {dossier.operation.category} · {dossier.lifecycle}</strong>
@@ -79,6 +85,10 @@ function Dossier({ dossier }: { dossier: SourceReviewWorkbenchDossier }) {
         <div><dt>Visual review state</dt><dd>{dossier.currentSource.visualReview || "NOT_RECORDED"}</dd></div>
         <div><dt>Visually opened</dt><dd>{recordedBoolean(dossier.currentSource.visualOpened)}</dd></div>
         <div><dt>Screenshot valid</dt><dd>{recordedBoolean(dossier.currentSource.screenshotValid)}</dd></div>
+        <div><dt>Official owner visible</dt><dd>{recordedReviewFlag(dossier.currentSource.officialOwnerVisible)}</dd></div>
+        <div><dt>Official domain visible</dt><dd>{recordedReviewFlag(dossier.currentSource.officialDomainVisible)}</dd></div>
+        <div><dt>Cannabis fragment visible</dt><dd>{recordedReviewFlag(dossier.currentSource.cannabisFragmentVisible)}</dd></div>
+        <div><dt>Effective rule visible</dt><dd>{recordedReviewFlag(dossier.currentSource.effectiveRuleVisible)}</dd></div>
         <div><dt>Screenshot available</dt><dd>{recordedBoolean(dossier.currentSource.screenshotAvailable)}</dd></div>
         <div><dt>Screenshot path(s)</dt><dd>{dossier.currentSource.screenshotPaths.length
           ? <ul>{dossier.currentSource.screenshotPaths.map((item) => <li key={item}>{item}</li>)}</ul>

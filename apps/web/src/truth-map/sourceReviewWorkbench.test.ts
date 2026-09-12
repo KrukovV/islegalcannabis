@@ -4,6 +4,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { findRepoRoot } from "@/lib/ssotDiff/ssotSnapshotStore";
 import {
+  compareSourceReviewAttempts,
   buildSourceReviewWorkbench,
   parseSourceReviewWorkbenchSearchParams
 } from "./sourceReviewWorkbench";
@@ -186,8 +187,7 @@ describe("source review workbench", () => {
     expect(exact.summary.truncated).toBe(false);
     expect(exact.dossiers[0].operation.operationId).toBe(candidate.operation.operationId);
     expect(exact.dossiers[0].attemptHistory).toEqual([...exact.dossiers[0].attemptHistory].sort((left, right) => (
-      Date.parse(left.attemptedAt) - Date.parse(right.attemptedAt)
-      || left.attemptId.localeCompare(right.attemptId)
+      compareSourceReviewAttempts(left, right)
     )));
     expect(exact.dossiers[0].closeTokens?.expectedRegistrySha256).toBe(exact.registrySha256);
   });
@@ -204,6 +204,10 @@ describe("source review workbench", () => {
       visualReview: "RETAINED_CONTEXT_ONLY",
       visualOpened: false,
       screenshotValid: false,
+      officialOwnerVisible: null,
+      officialDomainVisible: null,
+      cannabisFragmentVisible: null,
+      effectiveRuleVisible: null,
       screenshotAvailable: false,
       screenshotPaths: [],
       evidenceScope: "NOT_RECORDED",
@@ -211,7 +215,7 @@ describe("source review workbench", () => {
     });
   });
 
-  it("retains the first two exact human resolutions while excluding them from the active queue", () => {
+  it("retains the first two exact human resolutions while reopening only their corrected V2 signals", () => {
     const expected = [
       {
         geo: "US-HI",
@@ -232,7 +236,7 @@ describe("source review workbench", () => {
       expect(exact.summary.matchingOperations).toBe(1);
       expect(exact.dossiers[0]).toMatchObject({
         lifecycle: "RESOLVED",
-        currentSignal: true,
+        currentSignal: false,
         closeTokens: null,
         latestAttempt: { attemptId: item.attemptId },
         resolution: {
@@ -248,6 +252,28 @@ describe("source review workbench", () => {
         .not.toEqual(expect.arrayContaining([
           expect.objectContaining({ operation: expect.objectContaining({ operationId: item.operationId }) })
         ]));
+      const priorOperation = exact.dossiers[0].operation;
+      const current = buildSourceReviewWorkbench({ geo: item.geo, state: "current" }).dossiers.filter((dossier) => (
+        dossier.operation.sourceUrl === priorOperation.sourceUrl
+        && dossier.operation.eventKind === priorOperation.eventKind
+        && dossier.operation.revalidationStateAtOpen === priorOperation.revalidationStateAtOpen
+        && dossier.operation.changeReasonAtOpen === priorOperation.changeReasonAtOpen
+      ));
+      expect(current).toHaveLength(1);
+      expect(current[0]).toMatchObject({
+        lifecycle: "CURRENT_ACTIVE",
+        currentSignal: true,
+        resolution: null,
+        latestAttempt: {
+          signalIdentityFormat: "SOURCE_REVIEW_SIGNAL_V2",
+          signalPayload: {
+            geo: item.geo
+          }
+        }
+      });
+      expect(current[0].operation.operationId).not.toBe(item.operationId);
+      expect(current[0].closeTokens?.reviewedAttemptId).toBe(current[0].latestAttempt.attemptId);
+      expect(current[0].closeTokens?.expectedSignalIdentitySha256).toBe(current[0].latestAttempt.signalIdentitySha256);
     }
   });
 
@@ -262,6 +288,42 @@ describe("source review workbench", () => {
       && attempt.signalPayload.sourceUrl === historical.operation.sourceUrl
       && crypto.createHash("sha256").update(attempt.signalIdentityPreimage).digest("hex") === attempt.signalIdentitySha256
     ))).toBe(true);
+  });
+
+  it("fails closed when the selected latest attempt does not match the current canonical V2 signal", () => {
+    const records = listTruthMapCanonicalProjectionRecords();
+    const snapshot = loadSourceReviewOperationsRegistrySnapshot();
+    const candidate = buildSourceReviewWorkbench({ state: "current" }, { records, registrySnapshot: snapshot }).dossiers
+      .find((dossier) => dossier.latestAttempt.signalIdentityFormat === "SOURCE_REVIEW_SIGNAL_V2" && dossier.resolution === null);
+    expect(candidate).toBeTruthy();
+    const stalePayload = {
+      ...candidate!.latestAttempt.signalPayload,
+      sourceOwnerGeo: candidate!.latestAttempt.signalPayload.sourceOwnerGeo === "ZZ" ? "YY" : "ZZ"
+    };
+    const stalePreimage = JSON.stringify(stalePayload);
+    const staleSignalIdentitySha256 = crypto.createHash("sha256").update(stalePreimage).digest("hex");
+    const staleAttempt = {
+      ...candidate!.latestAttempt,
+      attemptId: `SRCATT-${crypto.createHash("sha256").update([
+        candidate!.operation.operationId,
+        staleSignalIdentitySha256,
+        candidate!.latestAttempt.sourceCheckedAt
+      ].join("\u0000")).digest("hex").slice(0, 24)}`,
+      signalIdentitySha256: staleSignalIdentitySha256,
+      signalPayload: stalePayload,
+      signalPayloadSha256: staleSignalIdentitySha256,
+      signalIdentityPreimage: stalePreimage
+    };
+    const registry = validateSourceReviewOperationsRegistry({
+      ...snapshot.registry,
+      attempts: snapshot.registry.attempts.map((attempt) => (
+        attempt.attemptId === candidate!.latestAttempt.attemptId ? staleAttempt : attempt
+      ))
+    });
+    expect(() => buildSourceReviewWorkbench({}, {
+      records,
+      registrySnapshot: { registry, registrySha256: snapshot.registrySha256 }
+    })).toThrow(`SOURCE_REVIEW_WORKBENCH_CURRENT_OPERATION_STALE=${candidate!.operation.operationId}`);
   });
 
   it("fails closed for unknown, empty, duplicate or noncanonical filters", () => {
