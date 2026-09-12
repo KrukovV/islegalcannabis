@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import crypto from "node:crypto";
 import path from "node:path";
 import { findRepoRoot } from "@/lib/ssotDiff/ssotSnapshotStore";
 import type { TruthMapCanonicalProjectionSource } from "./truthMapSource";
@@ -19,6 +20,26 @@ export type SourceReviewOutcome =
   | "ACCESS_BLOCKED"
   | "APPLICABILITY_UNRESOLVED";
 export type SourceReviewResolutionOutcome = "CONFIRMED_CURRENT" | "SUPERSEDED";
+export type SourceReviewSignalIdentityFormat =
+  | "SOURCE_REVIEW_SIGNAL_V1"
+  | "LEGACY_SIGNAL_DETAILS_NOT_RECORDED_V1";
+
+export type SourceReviewSignalPayload = {
+  geo: string;
+  sourceUrl: string;
+  eventKind: SourceReviewEventKind;
+  revalidationState: string;
+  changeReason: string;
+  finalUrl: string;
+  httpStatus: number | "NOT_RECORDED";
+  accessState: string;
+  documentSha256: string;
+  relevantFragmentSha256: string;
+  etag: string;
+  lastModified: string;
+  sourceOwnerGeo: string;
+  appliesToGeos: string[];
+};
 
 export type SourceReviewOperation = {
   operationId: string;
@@ -55,6 +76,10 @@ export type SourceReviewAttempt = {
   finalUrl: string;
   documentSha256: string;
   relevantFragmentSha256: string;
+  signalPayload: SourceReviewSignalPayload;
+  signalPayloadSha256: string;
+  signalIdentityPreimage: string;
+  signalIdentityFormat: SourceReviewSignalIdentityFormat;
   boundary: "SOURCE_REVIEW_ATTEMPT_ONLY_NO_REVIEW_CLOSURE";
 };
 
@@ -81,13 +106,18 @@ export type SourceReviewResolution = {
 };
 
 export type SourceReviewOperationsRegistry = {
-  schemaVersion: 4;
+  schemaVersion: 5;
   localOnly: true;
   appendOnly: true;
   createdAt: string;
   operations: SourceReviewOperation[];
   attempts: SourceReviewAttempt[];
   resolutions: SourceReviewResolution[];
+};
+
+export type SourceReviewOperationsRegistrySnapshot = {
+  registry: SourceReviewOperationsRegistry;
+  registrySha256: string;
 };
 
 export function sourceReviewOperationsPath(repoRoot = findRepoRoot(process.cwd())) {
@@ -157,9 +187,99 @@ function attemptTimestamp(attempt: SourceReviewAttempt) {
   return Date.parse(attempt.attemptedAt);
 }
 
+function sha256(value: string | Buffer) {
+  return crypto.createHash("sha256").update(value).digest("hex");
+}
+
+function canonicalSignalPayload(value: SourceReviewSignalPayload) {
+  return {
+    geo: value.geo,
+    sourceUrl: value.sourceUrl,
+    eventKind: value.eventKind,
+    revalidationState: value.revalidationState,
+    changeReason: value.changeReason,
+    finalUrl: value.finalUrl,
+    httpStatus: value.httpStatus,
+    accessState: value.accessState,
+    documentSha256: value.documentSha256,
+    relevantFragmentSha256: value.relevantFragmentSha256,
+    etag: value.etag,
+    lastModified: value.lastModified,
+    sourceOwnerGeo: value.sourceOwnerGeo,
+    appliesToGeos: value.appliesToGeos
+  };
+}
+
+function validateAttemptSignalPayload(attempt: SourceReviewAttempt, operation: SourceReviewOperation) {
+  const payload = attempt.signalPayload;
+  if (!payload || typeof payload !== "object") throw new Error(`SOURCE_REVIEW_ATTEMPT_SIGNAL_PAYLOAD_INVALID=${attempt.attemptId}`);
+  const appliesToGeos = Array.isArray(payload.appliesToGeos) ? payload.appliesToGeos : [];
+  const normalizedAppliesToGeos = [...new Set(appliesToGeos.map((geo) => String(geo).trim().toUpperCase()).filter(Boolean))].sort();
+  if (
+    payload.geo !== operation.geo
+    || payload.sourceUrl !== operation.sourceUrl
+    || payload.eventKind !== operation.eventKind
+    || payload.revalidationState !== attempt.revalidationState
+    || payload.changeReason !== attempt.changeReason
+    || payload.finalUrl !== attempt.finalUrl
+    || payload.documentSha256 !== attempt.documentSha256
+    || payload.relevantFragmentSha256 !== attempt.relevantFragmentSha256
+    || ![payload.accessState, payload.etag, payload.lastModified, payload.sourceOwnerGeo].every((field) => typeof field === "string" && field.length > 0)
+    || !(payload.httpStatus === "NOT_RECORDED" || (Number.isInteger(payload.httpStatus) && payload.httpStatus >= 100 && payload.httpStatus <= 599))
+    || appliesToGeos.some((geo) => typeof geo !== "string")
+    || JSON.stringify(appliesToGeos) !== JSON.stringify(normalizedAppliesToGeos)
+  ) {
+    throw new Error(`SOURCE_REVIEW_ATTEMPT_SIGNAL_PAYLOAD_INVALID=${attempt.attemptId}`);
+  }
+  const canonicalPayload = canonicalSignalPayload(payload);
+  if (!/^[a-f0-9]{64}$/.test(attempt.signalPayloadSha256) || sha256(JSON.stringify(canonicalPayload)) !== attempt.signalPayloadSha256) {
+    throw new Error(`SOURCE_REVIEW_ATTEMPT_SIGNAL_PAYLOAD_HASH_INVALID=${attempt.attemptId}`);
+  }
+  if (!String(attempt.signalIdentityPreimage || "").trim()) {
+    throw new Error(`SOURCE_REVIEW_ATTEMPT_SIGNAL_PREIMAGE_INVALID=${attempt.attemptId}`);
+  }
+  let identityPreimage: unknown;
+  try {
+    identityPreimage = JSON.parse(attempt.signalIdentityPreimage);
+  } catch {
+    throw new Error(`SOURCE_REVIEW_ATTEMPT_SIGNAL_PREIMAGE_INVALID=${attempt.attemptId}`);
+  }
+  if (attempt.signalIdentityPreimage !== JSON.stringify(identityPreimage) || sha256(attempt.signalIdentityPreimage) !== attempt.signalIdentitySha256) {
+    throw new Error(`SOURCE_REVIEW_ATTEMPT_SIGNAL_PREIMAGE_HASH_INVALID=${attempt.attemptId}`);
+  }
+  if (attempt.signalIdentityFormat === "SOURCE_REVIEW_SIGNAL_V1") {
+    if (attempt.signalIdentityPreimage !== JSON.stringify(canonicalPayload)) {
+      throw new Error(`SOURCE_REVIEW_ATTEMPT_SIGNAL_PREIMAGE_PAYLOAD_MISMATCH=${attempt.attemptId}`);
+    }
+    return;
+  }
+  if (attempt.signalIdentityFormat !== "LEGACY_SIGNAL_DETAILS_NOT_RECORDED_V1") {
+    throw new Error(`SOURCE_REVIEW_ATTEMPT_SIGNAL_FORMAT_INVALID=${attempt.attemptId}`);
+  }
+  const expectedLegacyPreimage = {
+    geo: operation.geo,
+    sourceUrl: operation.sourceUrl,
+    eventKind: operation.eventKind,
+    revalidationState: operation.revalidationStateAtOpen,
+    changeReason: operation.changeReasonAtOpen,
+    migrationState: "LEGACY_SIGNAL_DETAILS_NOT_RECORDED"
+  };
+  if (
+    attempt.signalIdentityPreimage !== JSON.stringify(expectedLegacyPreimage)
+    || payload.httpStatus !== "NOT_RECORDED"
+    || payload.accessState !== "NOT_RECORDED"
+    || payload.etag !== "NOT_RECORDED"
+    || payload.lastModified !== "NOT_RECORDED"
+    || payload.sourceOwnerGeo !== "NOT_RECORDED"
+    || payload.appliesToGeos.length !== 0
+  ) {
+    throw new Error(`SOURCE_REVIEW_ATTEMPT_LEGACY_PREIMAGE_INVALID=${attempt.attemptId}`);
+  }
+}
+
 export function validateSourceReviewOperationsRegistry(value: unknown): SourceReviewOperationsRegistry {
   const registry = value as Partial<SourceReviewOperationsRegistry> | null;
-  if (!registry || registry.schemaVersion !== 4 || registry.localOnly !== true || registry.appendOnly !== true || !Array.isArray(registry.operations) || !Array.isArray(registry.attempts) || !Array.isArray(registry.resolutions)) {
+  if (!registry || registry.schemaVersion !== 5 || registry.localOnly !== true || registry.appendOnly !== true || !Array.isArray(registry.operations) || !Array.isArray(registry.attempts) || !Array.isArray(registry.resolutions)) {
     throw new Error("SOURCE_REVIEW_OPERATIONS_REGISTRY_INVALID");
   }
   const canonicalGeos = new Set<string>(JSON.parse(fs.readFileSync(
@@ -221,6 +341,7 @@ export function validateSourceReviewOperationsRegistry(value: unknown): SourceRe
     if (attempt.revalidationState !== operation.revalidationStateAtOpen || attempt.changeReason !== operation.changeReasonAtOpen) {
       throw new Error(`SOURCE_REVIEW_ATTEMPT_SIGNAL_CLASS_INVALID=${attempt.attemptId}`);
     }
+    validateAttemptSignalPayload(attempt, operation);
     attemptIds.add(attempt.attemptId);
     attemptsById.set(attempt.attemptId, attempt);
     const values = attemptsByOperation.get(attempt.operationId) || [];
@@ -300,7 +421,15 @@ export function validateSourceReviewOperationsRegistry(value: unknown): SourceRe
 }
 
 export function loadSourceReviewOperationsRegistry(repoRoot?: string) {
-  return validateSourceReviewOperationsRegistry(JSON.parse(fs.readFileSync(sourceReviewOperationsPath(repoRoot), "utf8")));
+  return loadSourceReviewOperationsRegistrySnapshot(repoRoot).registry;
+}
+
+export function loadSourceReviewOperationsRegistrySnapshot(repoRoot?: string): SourceReviewOperationsRegistrySnapshot {
+  const bytes = fs.readFileSync(sourceReviewOperationsPath(repoRoot));
+  return {
+    registry: validateSourceReviewOperationsRegistry(JSON.parse(bytes.toString("utf8"))),
+    registrySha256: sha256(bytes)
+  };
 }
 
 export function sourceReviewOperationsIndex(registry = loadSourceReviewOperationsRegistry()) {

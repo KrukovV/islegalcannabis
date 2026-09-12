@@ -3,17 +3,19 @@ import {
   isEvidencePassportSourceChange
 } from "./evidencePassport";
 import {
-  loadSourceReviewOperationsRegistry,
+  loadSourceReviewOperationsRegistrySnapshot,
   sourceReviewOperationKey,
   sourceReviewOperationsIndex,
   sourceReviewResolutionsIndex,
   type SourceReviewAttempt,
   type SourceReviewCategory,
   type SourceReviewOperation,
+  type SourceReviewOperationsRegistrySnapshot,
   type SourceReviewResolution
 } from "./sourceReviewOperations";
 import {
   listTruthMapCanonicalProjectionRecords,
+  type TruthMapCanonicalProjectionRecord,
   type TruthMapCanonicalProjectionSource
 } from "./truthMapSource";
 
@@ -35,26 +37,43 @@ export type SourceReviewWorkbenchFilters = {
   geo?: string;
   category?: SourceReviewCategory | string;
   state?: SourceReviewWorkbenchState | string;
+  operationId?: string;
+};
+
+export type SourceReviewWorkbenchInput = {
+  records?: TruthMapCanonicalProjectionRecord[];
+  registrySnapshot?: SourceReviewOperationsRegistrySnapshot;
+};
+
+export type SourceReviewCloseTokens = {
+  operationId: string;
+  reviewedAttemptId: string;
+  expectedSignalIdentitySha256: string;
+  expectedRegistrySha256: string;
 };
 
 export type SourceReviewWorkbenchDossier = {
   lifecycle: "CURRENT_ACTIVE" | "HISTORICAL_OPEN" | "RESOLVED";
   currentSignal: boolean;
   operation: SourceReviewOperation;
+  attemptHistory: SourceReviewAttempt[];
   latestAttempt: SourceReviewAttempt;
   latestAttemptContentSha256: string;
+  closeTokens: SourceReviewCloseTokens | null;
   resolution: SourceReviewResolution | null;
   currentSource: TruthMapCanonicalProjectionSource | null;
 };
 
 export type SourceReviewWorkbench = {
-  schemaVersion: 1;
+  schemaVersion: 2;
   localOnly: true;
   readOnly: true;
+  registrySha256: string;
   filters: {
     geo: string | null;
     category: SourceReviewCategory | null;
     state: SourceReviewWorkbenchState | null;
+    operationId: string | null;
   };
   summary: {
     canonicalGeos: number;
@@ -75,7 +94,7 @@ export type SourceReviewWorkbench = {
 };
 
 const MAX_RETURNED_DOSSIERS = 100;
-const WORKBENCH_QUERY_FILTERS = new Set(["geo", "category", "state"]);
+const WORKBENCH_QUERY_FILTERS = new Set(["geo", "category", "state", "operationId"]);
 const WORKBENCH_STATES = new Set<string>(SOURCE_REVIEW_WORKBENCH_STATES);
 const WORKBENCH_CATEGORIES = new Set<string>(SOURCE_REVIEW_WORKBENCH_CATEGORIES);
 
@@ -95,27 +114,33 @@ export function parseSourceReviewWorkbenchSearchParams(searchParams: URLSearchPa
   return {
     geo: requiredSingleFilter(searchParams, "geo"),
     category: requiredSingleFilter(searchParams, "category"),
-    state: requiredSingleFilter(searchParams, "state")
+    state: requiredSingleFilter(searchParams, "state"),
+    operationId: requiredSingleFilter(searchParams, "operationId")
   };
 }
 
-function normalizeFilters(filters: SourceReviewWorkbenchFilters, canonicalGeos: Set<string>) {
+function normalizeFilters(filters: SourceReviewWorkbenchFilters, canonicalGeos: Set<string>, operationIds: Set<string>) {
   const explicitGeo = filters.geo !== undefined;
   const explicitCategory = filters.category !== undefined;
   const explicitState = filters.state !== undefined;
+  const explicitOperationId = filters.operationId !== undefined;
   const geo = String(filters.geo || "").trim().toUpperCase();
   const category = String(filters.category || "").trim().toUpperCase();
   const state = String(filters.state || "").trim().toLowerCase();
+  const operationId = String(filters.operationId || "").trim();
   if (explicitGeo && !geo) throw new Error("SOURCE_REVIEW_WORKBENCH_EMPTY_FILTER=geo");
   if (explicitCategory && !category) throw new Error("SOURCE_REVIEW_WORKBENCH_EMPTY_FILTER=category");
   if (explicitState && !state) throw new Error("SOURCE_REVIEW_WORKBENCH_EMPTY_FILTER=state");
+  if (explicitOperationId && !operationId) throw new Error("SOURCE_REVIEW_WORKBENCH_EMPTY_FILTER=operationId");
   if (geo && !canonicalGeos.has(geo)) throw new Error(`SOURCE_REVIEW_WORKBENCH_UNKNOWN_GEO=${geo}`);
   if (category && !WORKBENCH_CATEGORIES.has(category)) throw new Error(`SOURCE_REVIEW_WORKBENCH_UNKNOWN_CATEGORY=${category}`);
   if (state && !WORKBENCH_STATES.has(state)) throw new Error(`SOURCE_REVIEW_WORKBENCH_UNKNOWN_STATE=${state}`);
+  if (operationId && !operationIds.has(operationId)) throw new Error(`SOURCE_REVIEW_WORKBENCH_UNKNOWN_OPERATION=${operationId}`);
   return {
     geo: geo || null,
     category: (category || null) as SourceReviewCategory | null,
-    state: (state || null) as SourceReviewWorkbenchState | null
+    state: (state || null) as SourceReviewWorkbenchState | null,
+    operationId: operationId || null
   };
 }
 
@@ -128,8 +153,7 @@ function currentEventKinds(source: TruthMapCanonicalProjectionSource) {
 }
 
 function attemptTimestamp(attempt: SourceReviewAttempt) {
-  const sourceCheckedAt = Date.parse(attempt.sourceCheckedAt);
-  return Number.isFinite(sourceCheckedAt) ? sourceCheckedAt : Date.parse(attempt.attemptedAt);
+  return Date.parse(attempt.attemptedAt);
 }
 
 function latestAttemptsByOperation(attempts: SourceReviewAttempt[]) {
@@ -140,6 +164,23 @@ function latestAttemptsByOperation(attempts: SourceReviewAttempt[]) {
       attemptTimestamp(attempt) === attemptTimestamp(previous)
       && attempt.attemptId.localeCompare(previous.attemptId) > 0
     )) index.set(attempt.operationId, attempt);
+  }
+  return index;
+}
+
+function orderedAttemptsByOperation(attempts: SourceReviewAttempt[]) {
+  const index = new Map<string, SourceReviewAttempt[]>();
+  for (const attempt of attempts) {
+    const values = index.get(attempt.operationId) || [];
+    values.push(attempt);
+    index.set(attempt.operationId, values);
+  }
+  for (const values of index.values()) {
+    values.sort((left, right) => (
+      attemptTimestamp(left) - attemptTimestamp(right)
+      || left.attemptedAt.localeCompare(right.attemptedAt)
+      || left.attemptId.localeCompare(right.attemptId)
+    ));
   }
   return index;
 }
@@ -171,17 +212,22 @@ function dossierRank(dossier: SourceReviewWorkbenchDossier) {
   return { lifecycleRank, categoryRank: categoryRank < 0 ? SOURCE_REVIEW_WORKBENCH_CATEGORIES.length : categoryRank };
 }
 
-export function buildSourceReviewWorkbench(filters: SourceReviewWorkbenchFilters = {}): SourceReviewWorkbench {
-  const records = listTruthMapCanonicalProjectionRecords();
+export function buildSourceReviewWorkbench(
+  filters: SourceReviewWorkbenchFilters = {},
+  input: SourceReviewWorkbenchInput = {}
+): SourceReviewWorkbench {
+  const records = input.records || listTruthMapCanonicalProjectionRecords();
   const canonicalGeos = new Set(records.map((record) => record.geo));
   if (records.length !== 307 || canonicalGeos.size !== 307) {
     throw new Error(`SOURCE_REVIEW_WORKBENCH_CANONICAL_UNIVERSE_INVALID=${records.length}/${canonicalGeos.size}`);
   }
-  const normalized = normalizeFilters(filters, canonicalGeos);
-  const registry = loadSourceReviewOperationsRegistry();
+  const registrySnapshot = input.registrySnapshot || loadSourceReviewOperationsRegistrySnapshot();
+  const registry = registrySnapshot.registry;
+  const normalized = normalizeFilters(filters, canonicalGeos, new Set(registry.operations.map((operation) => operation.operationId)));
   const currentOperationIndex = sourceReviewOperationsIndex(registry);
   const resolutions = sourceReviewResolutionsIndex(registry);
   const latestAttempts = latestAttemptsByOperation(registry.attempts);
+  const attemptHistories = orderedAttemptsByOperation(registry.attempts);
   const currentSourcesByOperation = new Map<string, TruthMapCanonicalProjectionSource>();
 
   for (const record of records) {
@@ -202,12 +248,21 @@ export function buildSourceReviewWorkbench(filters: SourceReviewWorkbenchFilters
     const resolution = resolutions.get(operation.operationId) || null;
     const currentSource = currentSourcesByOperation.get(operation.operationId) || null;
     const currentSignal = currentSource !== null;
+    const attemptHistory = attemptHistories.get(operation.operationId) || [];
+    if (!attemptHistory.length) throw new Error(`SOURCE_REVIEW_WORKBENCH_ATTEMPT_HISTORY_MISSING=${operation.operationId}`);
     return {
       lifecycle: lifecycle(currentSignal, resolution),
       currentSignal,
       operation,
+      attemptHistory,
       latestAttempt,
       latestAttemptContentSha256: latestAttempt.documentSha256,
+      closeTokens: resolution ? null : {
+        operationId: operation.operationId,
+        reviewedAttemptId: latestAttempt.attemptId,
+        expectedSignalIdentitySha256: latestAttempt.signalIdentitySha256,
+        expectedRegistrySha256: registrySnapshot.registrySha256
+      },
       resolution,
       currentSource
     };
@@ -226,14 +281,16 @@ export function buildSourceReviewWorkbench(filters: SourceReviewWorkbenchFilters
     (!normalized.geo || dossier.operation.geo === normalized.geo)
     && (!normalized.category || dossier.operation.category === normalized.category)
     && matchesState(dossier, normalized.state)
+    && (!normalized.operationId || dossier.operation.operationId === normalized.operationId)
   ));
   const matchingPartition = partition(matching);
   const returned = matching.slice(0, MAX_RETURNED_DOSSIERS);
 
   return {
-    schemaVersion: 1,
+    schemaVersion: 2,
     localOnly: true,
     readOnly: true,
+    registrySha256: registrySnapshot.registrySha256,
     filters: normalized,
     summary: {
       canonicalGeos: canonicalGeos.size,

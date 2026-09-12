@@ -116,30 +116,59 @@ test("local Source Review Workbench separates current evidence operations from a
   await expect(page.getByTestId("source-review-workbench-page")).toBeVisible();
   const summary = page.getByTestId("source-review-workbench-summary");
   await expect(summary).toContainText("307/307 canonical GEO");
-  await expect(summary).toContainText("1405 current signals");
+  await expect(summary).toContainText(/\d+ current signals/);
   const dossiers = page.locator('[data-testid^="source-review-dossier-SRCREV-"]');
   const renderedDossierCount = await dossiers.count();
   expect(renderedDossierCount).toBeGreaterThan(0);
   await expect(page.getByTestId("source-review-workbench-page")).toContainText("CURRENT_ACTIVE");
   await expect(page.getByTestId("source-review-workbench-page")).toContainText(/SRCATT-[a-f0-9]{24}/);
   await expect(page.getByTestId("source-review-workbench-page")).toContainText(/[a-f0-9]{64}/);
+  await expect(page.getByTestId("source-review-workbench-page")).toContainText("Reproducible attempt history");
+  await expect(page.getByTestId("source-review-workbench-page")).toContainText("Copy-ready close tokens");
 
   const response = await page.request.get(`/api/truth-map/b2b/source-review${query}`);
   expect(response.ok()).toBe(true);
   const payload = await response.json() as {
     readOnly: boolean;
-    summary: { canonicalGeos: number; matchingOperations: number };
-    dossiers: Array<{ currentSignal: boolean; latestAttempt: { attemptId: string; signalIdentitySha256: string } }>;
+    registrySha256: string;
+    summary: { canonicalGeos: number; currentSignals: number; matchingOperations: number };
+    dossiers: Array<{
+      currentSignal: boolean;
+      operation: { operationId: string };
+      attemptHistory: Array<{ attemptId: string; signalPayloadSha256: string }>;
+      latestAttempt: { attemptId: string; signalIdentitySha256: string };
+      closeTokens: {
+        operationId: string;
+        reviewedAttemptId: string;
+        expectedSignalIdentitySha256: string;
+        expectedRegistrySha256: string;
+      };
+    }>;
   };
   expect(payload.readOnly).toBe(true);
+  expect(payload.summary.currentSignals).toBeGreaterThan(0);
+  await expect(summary).toContainText(`${payload.summary.currentSignals} current signals`);
   expect(payload.summary).toEqual(expect.objectContaining({ canonicalGeos: 307, matchingOperations: renderedDossierCount }));
   expect(payload.dossiers[0]).toEqual(expect.objectContaining({
     currentSignal: true,
     latestAttempt: expect.objectContaining({
       attemptId: expect.stringMatching(/^SRCATT-[a-f0-9]{24}$/),
       signalIdentitySha256: expect.stringMatching(/^[a-f0-9]{64}$/)
-    })
+    }),
+    attemptHistory: expect.arrayContaining([expect.objectContaining({
+      signalPayloadSha256: expect.stringMatching(/^[a-f0-9]{64}$/)
+    })]),
+    closeTokens: {
+      operationId: payload.dossiers[0].operation.operationId,
+      reviewedAttemptId: payload.dossiers[0].latestAttempt.attemptId,
+      expectedSignalIdentitySha256: payload.dossiers[0].latestAttempt.signalIdentitySha256,
+      expectedRegistrySha256: payload.registrySha256
+    }
   }));
+  const exact = await page.request.get(`/api/truth-map/b2b/source-review?operationId=${payload.dossiers[0].operation.operationId}`);
+  expect(exact.ok()).toBe(true);
+  const exactPayload = await exact.json() as { summary: { matchingOperations: number; truncated: boolean } };
+  expect(exactPayload.summary).toEqual(expect.objectContaining({ matchingOperations: 1, truncated: false }));
   expect(runtimeErrors).toEqual([]);
 });
 

@@ -10,9 +10,14 @@ function localHost(request: Request) {
 
 export async function GET(request: Request) {
   if (!localHost(request)) return new NextResponse(null, { status: 404 });
-  const { buildCorrectionReviewQueue } = await import("@/truth-map/correctionRequest");
+  const { buildCorrectionReviewQueueSnapshot, correctionSourceReviewRegistrySha256 } = await import("@/truth-map/correctionRequest");
   try {
-    return NextResponse.json({ schemaVersion: 1, localOnly: true, queue: buildCorrectionReviewQueue() }, { headers: { "Cache-Control": "no-store" } });
+    return NextResponse.json({
+      schemaVersion: 1,
+      localOnly: true,
+      ...buildCorrectionReviewQueueSnapshot(),
+      sourceReviewRegistrySha256: correctionSourceReviewRegistrySha256()
+    }, { headers: { "Cache-Control": "no-store" } });
   } catch (error) {
     return NextResponse.json({ error: error instanceof Error ? error.message : "CORRECTION_REVIEW_QUEUE_INVALID" }, { status: 500, headers: { "Cache-Control": "no-store" } });
   }
@@ -26,16 +31,19 @@ export async function POST(request: Request) {
   } catch {
     return NextResponse.json({ error: "CORRECTION_REVIEW_JSON_INVALID" }, { status: 400, headers: { "Cache-Control": "no-store" } });
   }
-  const { assignCorrectionRequestReview, decideCorrectionRequestReview } = await import("@/truth-map/correctionRequest");
+  const { assignCorrectionRequestReview, decideCorrectionRequestReview, recordCorrectionCanonicalHandoff } = await import("@/truth-map/correctionRequest");
   try {
     const result = input.action === "ASSIGN"
       ? assignCorrectionRequestReview(input as Parameters<typeof assignCorrectionRequestReview>[0])
       : input.action === "DECIDE"
         ? decideCorrectionRequestReview(input as Parameters<typeof decideCorrectionRequestReview>[0])
+        : input.action === "HANDOFF"
+          ? recordCorrectionCanonicalHandoff(input as Parameters<typeof recordCorrectionCanonicalHandoff>[0])
         : (() => { throw new Error("CORRECTION_REVIEW_ACTION_INVALID"); })();
     return NextResponse.json(result, { status: 201, headers: { "Cache-Control": "no-store" } });
   } catch (error) {
-    return NextResponse.json({ error: error instanceof Error ? error.message : "CORRECTION_REVIEW_INVALID" }, { status: 400, headers: { "Cache-Control": "no-store" } });
+    const message = error instanceof Error ? error.message : "CORRECTION_REVIEW_INVALID";
+    const conflict = message.includes("_STALE=") || message === "CORRECTION_REVIEW_EVENTS_LOCKED";
+    return NextResponse.json({ error: message }, { status: conflict ? 409 : 400, headers: { "Cache-Control": "no-store" } });
   }
 }
-

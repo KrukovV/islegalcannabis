@@ -1,7 +1,11 @@
+import crypto from "node:crypto";
+import fs from "node:fs";
 import { describe, expect, it } from "vitest";
 import { isEvidencePassportPendingReview, isEvidencePassportSourceChange } from "./evidencePassport";
 import {
   loadSourceReviewOperationsRegistry,
+  loadSourceReviewOperationsRegistrySnapshot,
+  sourceReviewOperationsPath,
   sourceReviewOperationKey,
   sourceReviewOperationsIndex,
   validateSourceReviewOperationsRegistry
@@ -11,7 +15,7 @@ import { listTruthMapCanonicalProjectionRecords } from "./truthMapSource";
 describe("source review operations", () => {
   it("classifies every current source-change and pending-review event without inventing a legal change", () => {
     const registry = loadSourceReviewOperationsRegistry();
-    expect(registry.schemaVersion).toBe(4);
+    expect(registry.schemaVersion).toBe(5);
     expect(registry.attempts.length).toBeGreaterThanOrEqual(registry.operations.length);
     expect(Array.isArray(registry.resolutions)).toBe(true);
     const index = sourceReviewOperationsIndex(registry);
@@ -47,6 +51,56 @@ describe("source review operations", () => {
     expect(currentOperationIds.size).toBeLessThanOrEqual(sourceChanges + pendingReviews);
     expect(registry.operations.length).toBeGreaterThanOrEqual(currentOperationIds.size);
     expect(registry.operations.every((operation) => Number.isFinite(Date.parse(operation.openedAt)))).toBe(true);
+  });
+
+  it("retains a hash-recomputable signal payload and exact identity preimage for every attempt", () => {
+    const snapshot = loadSourceReviewOperationsRegistrySnapshot();
+    const exactBytes = fs.readFileSync(sourceReviewOperationsPath());
+    expect(snapshot.registrySha256).toBe(crypto.createHash("sha256").update(exactBytes).digest("hex"));
+    expect(snapshot.registry.attempts.length).toBeGreaterThanOrEqual(2529);
+    expect(snapshot.registry.attempts.length).toBeGreaterThanOrEqual(snapshot.registry.operations.length);
+    for (const attempt of snapshot.registry.attempts) {
+      expect(attempt.signalPayload).toEqual(expect.objectContaining({
+        geo: attempt.geo,
+        sourceUrl: attempt.sourceUrl,
+        eventKind: attempt.eventKind,
+        revalidationState: attempt.revalidationState,
+        changeReason: attempt.changeReason,
+        finalUrl: attempt.finalUrl,
+        httpStatus: expect.anything(),
+        accessState: expect.any(String),
+        documentSha256: attempt.documentSha256,
+        relevantFragmentSha256: attempt.relevantFragmentSha256,
+        etag: expect.any(String),
+        lastModified: expect.any(String),
+        sourceOwnerGeo: expect.any(String),
+        appliesToGeos: expect.any(Array)
+      }));
+      expect(attempt.signalPayloadSha256).toBe(
+        crypto.createHash("sha256").update(JSON.stringify(attempt.signalPayload)).digest("hex")
+      );
+      expect(attempt.signalIdentitySha256).toBe(
+        crypto.createHash("sha256").update(attempt.signalIdentityPreimage).digest("hex")
+      );
+    }
+  });
+
+  it("rejects signal payload or exact preimage tampering", () => {
+    const registry = loadSourceReviewOperationsRegistry();
+    const attempt = registry.attempts.find((entry) => entry.signalIdentityFormat === "SOURCE_REVIEW_SIGNAL_V1")!;
+    expect(attempt).toBeTruthy();
+    expect(() => validateSourceReviewOperationsRegistry({
+      ...registry,
+      attempts: registry.attempts.map((entry) => entry.attemptId === attempt.attemptId
+        ? { ...entry, signalPayload: { ...entry.signalPayload, httpStatus: 418 } }
+        : entry)
+    })).toThrow("SOURCE_REVIEW_ATTEMPT_SIGNAL_PAYLOAD_HASH_INVALID");
+    expect(() => validateSourceReviewOperationsRegistry({
+      ...registry,
+      attempts: registry.attempts.map((entry) => entry.attemptId === attempt.attemptId
+        ? { ...entry, signalIdentityPreimage: `${entry.signalIdentityPreimage} ` }
+        : entry)
+    })).toThrow("SOURCE_REVIEW_ATTEMPT_SIGNAL_PREIMAGE_HASH_INVALID");
   });
 
   it("rejects operations outside the canonical 307-GEO universe or without a real opened date", () => {
@@ -113,6 +167,6 @@ describe("source review operations", () => {
         ? { ...attempt, signalIdentitySha256: "0".repeat(64) }
         : attempt),
       resolutions: [resolution]
-    })).toThrow(/SOURCE_REVIEW_(?:OPERATION_SIGNAL_REWRITE_FORBIDDEN|RESOLUTION_SOURCE_INVALID)/);
+    })).toThrow(/SOURCE_REVIEW_(?:ATTEMPT_SIGNAL_PREIMAGE_HASH_INVALID|OPERATION_SIGNAL_REWRITE_FORBIDDEN|RESOLUTION_SOURCE_INVALID)/);
   });
 });

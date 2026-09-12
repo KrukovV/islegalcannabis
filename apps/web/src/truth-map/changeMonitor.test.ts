@@ -5,8 +5,14 @@ import {
   parseChangeMonitorWatchlistQuery,
   parseChangeMonitorWatchlistValues
 } from "./changeMonitor";
-import { createCanonicalProjectionSnapshot } from "./canonicalProjectionLedger";
+import {
+  canonicalProjectionLedgerBytesSha256,
+  createCanonicalProjectionPublicationReceipt,
+  createCanonicalProjectionSnapshot,
+  validateCanonicalProjectionLedger
+} from "./canonicalProjectionLedger";
 import { buildEvidencePassportCollection } from "./evidencePassport";
+import { sha256EvidencePayload } from "./evidenceHash";
 import { loadSourceReviewOperationsRegistry, type SourceReviewResolution } from "./sourceReviewOperations";
 
 describe("Change Monitor", () => {
@@ -116,14 +122,30 @@ describe("Change Monitor", () => {
 
   it("emits a legal-conclusion change only from two canonical projection snapshots", () => {
     const { passports } = buildEvidencePassportCollection();
-    const current = createCanonicalProjectionSnapshot(passports);
-    const previous = structuredClone(current);
-    const target = previous.entries.find((entry) => entry.geo === "MN");
+    const projectedCurrent = createCanonicalProjectionSnapshot(passports);
+    const previousUnsigned = {
+      versionId: "TEST_PREVIOUS_CANONICAL_VERSION",
+      generatedAt: "NOT_RECORDED",
+      entries: structuredClone(projectedCurrent.entries)
+    };
+    const target = previousUnsigned.entries.find((entry) => entry.geo === "MN");
     expect(target).toBeTruthy();
     target!.legalTruthColor = target!.legalTruthColor === "GREEN" ? "RED" : "GREEN";
     target!.ruleId = "TEST_PREVIOUS_CANONICAL_RULE";
-    previous.versionId = "TEST_PREVIOUS_CANONICAL_VERSION";
+    const previous = { ...previousUnsigned, snapshotSha256: sha256EvidencePayload(previousUnsigned) };
+    const preimageBytes = `${JSON.stringify({ schemaVersion: 1, localOnly: true, appendOnly: true, snapshots: [previous] }, null, 2)}\n`;
+    const publicationReceipt = createCanonicalProjectionPublicationReceipt({
+      versionId: projectedCurrent.versionId,
+      publishedAt: "2026-09-12T00:00:00.000Z",
+      commitSha: "d".repeat(40),
+      buildId: "change-monitor-fixture",
+      actor: "fixture-publisher",
+      ledgerPreimageSha256: canonicalProjectionLedgerBytesSha256(preimageBytes)
+    });
+    const current = createCanonicalProjectionSnapshot(passports, publicationReceipt);
+    validateCanonicalProjectionLedger({ schemaVersion: 1, localOnly: true, appendOnly: true, snapshots: [previous, current] });
     const events = compareCanonicalProjectionSnapshots(previous, current, new Map(passports.map((passport) => [passport.geo, passport])));
+    expect(events).toHaveLength(1);
     expect(events).toEqual([expect.objectContaining({
       kind: "CANONICAL_LEGAL_CONCLUSION_CHANGE",
       geo: "MN",
@@ -134,14 +156,6 @@ describe("Change Monitor", () => {
     expect(events[0].boundary).toContain("two canonical projection versions");
     expect(events[0].previousEvidenceIdentity).toBe("TEST_PREVIOUS_CANONICAL_VERSION");
     expect(events[0].currentEvidenceIdentity).toBe(current.versionId);
-    expect(events[0].occurredAt).toBeNull();
-
-    const datedCurrent = { ...current, generatedAt: "2026-09-12T00:00:00.000Z" };
-    const datedEvents = compareCanonicalProjectionSnapshots(
-      previous,
-      datedCurrent,
-      new Map(passports.map((passport) => [passport.geo, passport]))
-    );
-    expect(datedEvents[0].occurredAt).toBe("2026-09-12T00:00:00.000Z");
+    expect(events[0].occurredAt).toBe("2026-09-12T00:00:00.000Z");
   });
 });

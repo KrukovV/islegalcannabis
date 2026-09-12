@@ -48,9 +48,9 @@ Change Monitor и Watchlist показывают три взаимоисключ
 
 Professional changelog для каждого события хранит время, GEO, old/new evidence identity и класс. Только `CANONICAL_LEGAL_CONCLUSION_CHANGE` содержит отдельно датированную публикацию вывода и prior/current rule или colour. До реального сравнения двух versions не создаётся ни один выдуманный legal-change event.
 
-Каждый source/pending event открывает отдельную immutable review operation. C1-доступность, HTTP 304, совпадение байтов, redirect или новый fetch-state не закрывают semantic, effective-date, visual, applicability или source-change review. Resolution добавляется только после явной человеческой evidence-review с reviewer identity, проверенной ссылкой, заметкой и реальной датой закрытия. Закрытие привязано одновременно к exact latest attempt ID, signal-identity SHA-256 и SHA-256 точных байтов registry; stale registry/signal/attempt или attempt другой операции отклоняются до записи. `CONFIRMED_CURRENT` и `SUPERSEDED` остаются только исходами source-review, не подтверждают автоматически актуальность закона и не меняют Legal Truth. Закрытая текущая операция исчезает из active Source/Pending очереди, но навсегда остаётся в append-only history.
+Каждый source/pending event открывает отдельную immutable review operation. C1-доступность, HTTP 304, совпадение байтов, redirect или новый fetch-state не закрывают semantic, effective-date, visual, applicability или source-change review. Resolution добавляется только после явной человеческой evidence-review с reviewer identity, проверенной ссылкой, заметкой и реальной датой закрытия. Перед закрытием sole resolver проверяет весь schema-v5 registry и пересчитывает каждый current payload/preimage/hash. Закрытие привязано одновременно к exact latest attempt ID, signal-identity SHA-256 и SHA-256 точных байтов registry; exclusive owned lock, staged durability write, pre-rename exact-byte CAS и atomic rename отклоняют stale/tampered/concurrent/cross-operation state и сохраняют foreign lock/bytes. Каждый новый attempt хранит полный канонический signal payload, его воспроизводимый hash и exact identity preimage; исторические поля, которых в старом событии не было, остаются явно `NOT_RECORDED`, а не восстанавливаются догадкой. `CONFIRMED_CURRENT` и `SUPERSEDED` остаются только исходами source-review, не подтверждают автоматически актуальность закона и не меняют Legal Truth. Закрытая текущая операция исчезает из active Source/Pending очереди, но навсегда остаётся в append-only history.
 
-Локальный read-only Source Review Workbench показывает current active, historical open и explicitly resolved операции отдельно, раскрывает exact latest-attempt provenance и фильтрует только по canonical GEO, категории и lifecycle. Он не имеет write API и отсутствует на production.
+Локальный read-only Source Review Workbench показывает current active, historical open и explicitly resolved операции отдельно, раскрывает полную ordered attempt history и exact close tokens из тех же байтов registry, а также фильтрует по canonical GEO, категории, lifecycle и exact operation ID. Он не имеет write API и отсутствует на production.
 
 Watchlist принимает только канонические GEO. Неизвестный идентификатор одинаково отклоняется UI и API, остаётся видимым пользователю для исправления и никогда не расширяет результат до всех 307 GEO.
 
@@ -70,7 +70,7 @@ Watchlist принимает только канонические GEO. Неиз
 
 Стандартный локальный correction request позволяет бизнесу прислать лицензию или официальный источник. Заявка — только untrusted candidate с receipt, provenance, review и outcome state.
 
-Она не изменяет source ledger, Legal Truth, Store record, координаты, eligibility, leaf, map position или ranking до независимой проверки по существующим legal и Store Truth gates. Платёж, обещание размещения или приоритет заявителю отсутствуют.
+Она не изменяет source ledger, Legal Truth, Store record, координаты, eligibility, leaf, map position или ranking до независимой проверки по существующим legal и Store Truth gates. После отдельного человеческого решения `APPROVED_FOR_MANUAL_HANDOFF` canonical handoff повторно проверяет receipt/candidate и source registry на commit boundary, затем связывает exact candidate hash только с уже существующей unresolved source-review operation того же GEO и exact registry hash. Handoff и вся review-цепочка используют fixed lock order, exact-bytes compare-and-swap, staged-file/parent-directory durability sync и exact-owner-only recovery; повтор того же handoff идемпотентен, stale/conflicting/resolved-target/cross-GEO запись отклоняется. Платёж, обещание размещения или приоритет заявителю отсутствуют.
 
 ### 6. Editorial legal localisation
 
@@ -80,7 +80,7 @@ Watchlist принимает только канонические GEO. Неиз
 - territorial scope, lifecycle и disclaimer;
 - границу между current conclusion, supplementary context и historical/profile material.
 
-Machine translation может помочь подготовить draft, но не может самостоятельно публиковать правовой вывод, убирать исключение или заменять источник.
+Machine translation может помочь подготовить draft, но не может самостоятельно публиковать правовой вывод, убирать исключение или заменять источник. Registry — append-only цепочка `DRAFT -> APPROVED -> SUPERSEDED`: каждый event имеет deterministic ID/content hash и `previousEventSha256`, localisation ID глобально уникален, broken/duplicate/tampered chain недействителен; draft не публикуется; approval привязан к exact Passport version/payload, citation, original-fragment, scope и disclaimer hashes; superseded или Passport-drifted approval немедленно перестаёт быть текущей публикацией до нового editorial approval.
 
 ## Измеримая приёмка
 
@@ -89,6 +89,7 @@ Machine translation может помочь подготовить draft, но �
 - Между distinct official URLs и owner GEO нет cross-jurisdiction collision пары «цитата + аннотация».
 - Freshness и changelog не смешивают source events, pending reviews и canonical legal changes; один baseline даёт `0` legal-change events.
 - Controlled two-version fixture доказывает, что all-GEO comparator показывает только реально изменённый GEO и верный event class.
+- Вторая canonical version может быть записана только с immutable publication receipt: exact version, canonical UTC published-at строго новее предыдущей записанной публикации, exact 40-hex commit SHA, build ID, actor и exact prior-ledger bytes SHA-256; append использует exclusive lock, staged exact-byte CAS и atomic rename, а tampered receipt/snapshot hash отклоняется до записи.
 - Invalid Watchlist даёт одинаковое fail-closed поведение в UI и API и не расширяет выдачу.
 - «Почему листика нет?» охватывает все GEO с blocked saved Store records, использует только агрегированные reason categories и не раскрывает скрытые координаты.
 - Correction request проходит сквозной local proof как untrusted candidate и доказывает отсутствие автоматической мутации любого truth, store или map слоя.
@@ -98,7 +99,7 @@ Machine translation может помочь подготовить draft, но �
 - Каждый оставшийся pending review по всем 307 GEO имеет явную категорию, дату открытия, последнюю попытку проверки, причину незавершённости и безопасное влияние на публикацию. Число неописанных pending review равно `0`.
 - `Apply state` не используется как пользовательское обозначение применимости закона: интерфейс явно называет этот факт publication/reconciliation gate и отдельно показывает Legal Truth.
 - Реальные source-check/change/review/publication dates имеют provenance; `NOT_RECORDED` остаётся там, где доказуемой даты нет. Каждая вторая и последующая immutable canonical version требует явной реальной publication date и становится полноценной Passport history entry.
-- Correction queue имеет сквозной audited lifecycle без автоматической мутации truth/store/map слоёв; одобрение означает только ожидание ручной canonical-передачи и не создаёт фиктивную review operation. Опубликованные локализации имеют editor provenance. Нулевая публикация честнее неподтверждённого перевода.
+- Correction queue имеет сквозной audited lifecycle без автоматической мутации truth/store/map слоёв; одобрение означает только ожидание ручной canonical-передачи, а записанный handoff ссылается только на существующую same-GEO review operation. Опубликованные локализации имеют editor provenance и exact source/Passport binding. Нулевая публикация честнее неподтверждённого перевода.
 - Доставка воспроизводима из чистой ветки на базе актуального `origin/main`; смешанные исторические изменения не подменяют уже опубликованный production hotfix.
 
 ## Неподвижные инварианты
@@ -113,6 +114,7 @@ Machine translation может помочь подготовить draft, но �
 - Нет Google Ads до письменного policy decision по exact copy, destination и geography.
 - Нет Stripe, другого billing, pricing, account provisioning, commercial data licensing или sales outreach до отдельных письменных разрешений и provider-specific classification.
 - Локальная приёмка public-ready интерфейсов не является разрешением на production deployment.
+- Publication ledger, correction-review и localisation registry изменяются только exclusive-lock + staged exact-byte CAS + atomic rename writers; чужой lock не удаляется, stale bytes не перезаписываются.
 
 ## Граница текущей задачи
 

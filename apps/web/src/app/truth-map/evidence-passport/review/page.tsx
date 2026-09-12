@@ -44,6 +44,7 @@ function Dossier({ dossier }: { dossier: SourceReviewWorkbenchDossier }) {
       <div><dt>Initial source state</dt><dd>{dossier.operation.revalidationStateAtOpen}</dd></div>
       <div><dt>Initial change reason</dt><dd>{dossier.operation.changeReasonAtOpen}</dd></div>
       <div><dt>Latest attempt</dt><dd>{dossier.latestAttempt.attemptId}</dd></div>
+      <div><dt>Attempt history</dt><dd>{dossier.attemptHistory.length} retained attempt(s), oldest to newest</dd></div>
       <div><dt>Attempted</dt><dd>{dossier.latestAttempt.attemptedAt}</dd></div>
       <div><dt>Source checked</dt><dd>{dossier.latestAttempt.sourceCheckedAt}</dd></div>
       <div><dt>Signal identity</dt><dd>{dossier.latestAttempt.signalIdentitySha256}</dd></div>
@@ -54,6 +55,22 @@ function Dossier({ dossier }: { dossier: SourceReviewWorkbenchDossier }) {
       <div><dt>Resolution evidence</dt><dd>{dossier.resolution ? linkedValue(dossier.resolution.evidenceUrl) : "NOT_RECORDED"}</dd></div>
       <div><dt>Reviewed attempt</dt><dd>{dossier.resolution?.reviewedAttemptId || "NOT_RECORDED"}</dd></div>
     </dl>
+    <details>
+      <summary>Reproducible attempt history</summary>
+      <ol>
+        {dossier.attemptHistory.map((attempt) => <li key={attempt.attemptId}>
+          <strong>{attempt.attemptId}</strong>
+          <p>{attempt.sourceCheckedAt} · {attempt.signalIdentityFormat}</p>
+          <p>Signal identity: {attempt.signalIdentitySha256}<br />Payload SHA-256: {attempt.signalPayloadSha256}</p>
+          <pre>{JSON.stringify(attempt.signalPayload, null, 2)}</pre>
+          <details><summary>Exact identity preimage</summary><pre>{attempt.signalIdentityPreimage}</pre></details>
+        </li>)}
+      </ol>
+    </details>
+    {dossier.closeTokens ? <details data-testid={`source-review-close-tokens-${dossier.operation.operationId}`}>
+      <summary>Copy-ready close tokens</summary>
+      <pre>{JSON.stringify(dossier.closeTokens, null, 2)}</pre>
+    </details> : null}
     <small>{dossier.resolution?.boundary || dossier.latestAttempt.boundary}</small>
   </li>;
 }
@@ -82,6 +99,8 @@ export default async function SourceReviewWorkbenchPage({
 
     <section className={styles.controls}>
       <form method="get">
+        <label htmlFor="source-review-operation">Exact operation ID</label>
+        <input id="source-review-operation" name="operationId" defaultValue={workbench.filters.operationId || ""} placeholder="SRCREV-…" spellCheck={false} />
         <label htmlFor="source-review-geo">Canonical GEO</label>
         <input id="source-review-geo" name="geo" defaultValue={workbench.filters.geo || ""} placeholder="US-MT" spellCheck={false} />
         <label htmlFor="source-review-category">Category</label>
@@ -103,6 +122,7 @@ export default async function SourceReviewWorkbenchPage({
         <span>{workbench.summary.openHistorical} historical open operations</span>
         <span>{workbench.summary.resolved} explicitly resolved operations</span>
         <span>{workbench.summary.matchingOperations} matching · {workbench.summary.returnedOperations} shown</span>
+        <span>Exact registry SHA-256: {workbench.registrySha256}</span>
         {workbench.summary.truncated ? <small>Result is bounded. Narrow GEO, category or lifecycle to inspect the exact dossier.</small> : null}
         <Link href={`/api/truth-map/b2b/source-review${toSearchParams(raw).size ? `?${toSearchParams(raw).toString()}` : ""}`}>Open the same read-only JSON</Link>
       </div>

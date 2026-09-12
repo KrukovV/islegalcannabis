@@ -61,9 +61,9 @@ function recorded(value) {
   return normalized || "NOT_RECORDED";
 }
 
-function signalIdentity({ geo, url, kind, source }) {
+function signalPayload({ geo, url, kind, source }) {
   const revalidation = source.revalidation || {};
-  return sha256(JSON.stringify({
+  return {
     geo,
     sourceUrl: url,
     eventKind: kind,
@@ -78,18 +78,50 @@ function signalIdentity({ geo, url, kind, source }) {
     lastModified: recorded(revalidation.last_modified),
     sourceOwnerGeo: recorded(source.source_owner_geo),
     appliesToGeos: [...new Set((source.applies_to_geo || []).map((value) => String(value).trim().toUpperCase()).filter(Boolean))].sort()
-  }));
+  };
 }
 
-function legacySignalIdentity(operation) {
-  return sha256(JSON.stringify({
+function signalIdentity(payload) {
+  return sha256(JSON.stringify(payload));
+}
+
+function legacySignalPreimage(operation) {
+  return {
     geo: operation.geo,
     sourceUrl: operation.sourceUrl,
     eventKind: operation.eventKind,
     revalidationState: operation.revalidationStateAtOpen,
     changeReason: operation.changeReasonAtOpen,
     migrationState: "LEGACY_SIGNAL_DETAILS_NOT_RECORDED"
-  }));
+  };
+}
+
+function legacySignalPayload(operation, attempt = {}) {
+  return {
+    geo: operation.geo,
+    sourceUrl: operation.sourceUrl,
+    eventKind: operation.eventKind,
+    revalidationState: operation.revalidationStateAtOpen,
+    changeReason: operation.changeReasonAtOpen,
+    finalUrl: recorded(attempt.finalUrl),
+    httpStatus: "NOT_RECORDED",
+    accessState: "NOT_RECORDED",
+    documentSha256: recorded(attempt.documentSha256),
+    relevantFragmentSha256: recorded(attempt.relevantFragmentSha256),
+    etag: "NOT_RECORDED",
+    lastModified: "NOT_RECORDED",
+    sourceOwnerGeo: "NOT_RECORDED",
+    appliesToGeos: []
+  };
+}
+
+function attemptSignalFields(payload, preimage, format) {
+  return {
+    signalPayload: payload,
+    signalPayloadSha256: sha256(JSON.stringify(payload)),
+    signalIdentityPreimage: JSON.stringify(preimage),
+    signalIdentityFormat: format
+  };
 }
 
 function eventKindsForSource(source) {
@@ -125,7 +157,7 @@ function buildOperation({ geo, source, url, kind, classifiedAt, signal }) {
   };
 }
 
-function buildAttempt({ operation, source, signal, classifiedAt }) {
+function buildAttempt({ operation, source, signal, payload, classifiedAt }) {
   const revalidation = source.revalidation || {};
   const checkedAt = String(revalidation.checked_at || "");
   const sourceCheckedAt = Number.isFinite(Date.parse(checkedAt)) ? new Date(checkedAt).toISOString() : "NOT_RECORDED";
@@ -143,16 +175,18 @@ function buildAttempt({ operation, source, signal, classifiedAt }) {
     finalUrl: recorded(revalidation.final_url),
     documentSha256: recorded(revalidation.document_sha256),
     relevantFragmentSha256: recorded(revalidation.relevant_fragment_sha256),
+    ...attemptSignalFields(payload, payload, "SOURCE_REVIEW_SIGNAL_V1"),
     boundary: "SOURCE_REVIEW_ATTEMPT_ONLY_NO_REVIEW_CLOSURE"
   };
 }
 
 function buildLegacyAttempt(operation) {
-  const signal = legacySignalIdentity(operation);
+  const preimage = legacySignalPreimage(operation);
+  const signal = signalIdentity(preimage);
   const sourceCheckedAt = Number.isFinite(Date.parse(operation.lastAttemptAt))
     ? new Date(operation.lastAttemptAt).toISOString()
     : "NOT_RECORDED";
-  return {
+  const attempt = {
     attemptId: `SRCATT-${sha256(`${operation.operationId}\u0000${signal}\u0000${sourceCheckedAt}`).slice(0, 24)}`,
     operationId: operation.operationId,
     geo: operation.geo,
@@ -168,6 +202,38 @@ function buildLegacyAttempt(operation) {
     relevantFragmentSha256: "NOT_RECORDED",
     boundary: "SOURCE_REVIEW_ATTEMPT_ONLY_NO_REVIEW_CLOSURE"
   };
+  return {
+    ...attempt,
+    ...attemptSignalFields(legacySignalPayload(operation, attempt), preimage, "LEGACY_SIGNAL_DETAILS_NOT_RECORDED_V1")
+  };
+}
+
+function migrateAttemptSignalFields(attempt, operation, sourceByIdentity) {
+  if (attempt.signalPayload && attempt.signalPayloadSha256 && attempt.signalIdentityPreimage && attempt.signalIdentityFormat) {
+    return structuredClone(attempt);
+  }
+  const candidates = sourceByIdentity.get(`${operation.geo}\u0000${operation.sourceUrl}`) || [];
+  for (const source of candidates) {
+    const payload = signalPayload({ geo: operation.geo, url: operation.sourceUrl, kind: operation.eventKind, source });
+    if (signalIdentity(payload) === attempt.signalIdentitySha256) {
+      return {
+        ...structuredClone(attempt),
+        ...attemptSignalFields(payload, payload, "SOURCE_REVIEW_SIGNAL_V1")
+      };
+    }
+  }
+  const legacyPreimage = legacySignalPreimage(operation);
+  if (signalIdentity(legacyPreimage) === attempt.signalIdentitySha256) {
+    return {
+      ...structuredClone(attempt),
+      ...attemptSignalFields(
+        legacySignalPayload(operation, attempt),
+        legacyPreimage,
+        "LEGACY_SIGNAL_DETAILS_NOT_RECORDED_V1"
+      )
+    };
+  }
+  throw new Error(`SOURCE_REVIEW_ATTEMPT_SIGNAL_PREIMAGE_UNRECONSTRUCTIBLE=${attempt.attemptId}`);
 }
 
 export function buildSourceReviewOperations({
@@ -178,8 +244,8 @@ export function buildSourceReviewOperations({
   const normalizedClassifiedAt = new Date(classifiedAt).toISOString();
   const existing = fs.existsSync(outputPath)
     ? JSON.parse(fs.readFileSync(outputPath, "utf8"))
-    : { schemaVersion: 4, localOnly: true, appendOnly: true, createdAt: normalizedClassifiedAt, operations: [], attempts: [], resolutions: [] };
-  if (![3, 4].includes(existing.schemaVersion) || existing.localOnly !== true || existing.appendOnly !== true) {
+    : { schemaVersion: 5, localOnly: true, appendOnly: true, createdAt: normalizedClassifiedAt, operations: [], attempts: [], resolutions: [] };
+  if (![3, 4, 5].includes(existing.schemaVersion) || existing.localOnly !== true || existing.appendOnly !== true) {
     throw new Error(`SOURCE_REVIEW_REGISTRY_SCHEMA_INVALID=${existing.schemaVersion || "MISSING"}`);
   }
   const existingOperations = Array.isArray(existing.operations) ? existing.operations : [];
@@ -189,7 +255,20 @@ export function buildSourceReviewOperations({
     throw new Error("SOURCE_REVIEW_V3_RESOLUTION_SIGNAL_IDENTITY_MISSING");
   }
   const resolvedBefore = new Set(existingResolutions.map((resolution) => resolution.operationId));
-  const attempts = existingAttempts.map((attempt) => structuredClone(attempt));
+  const sources = readSources(sourcePath);
+  const sourceByIdentity = new Map();
+  for (const item of sources) {
+    const identity = `${item.geo}\u0000${item.url}`;
+    const values = sourceByIdentity.get(identity) || [];
+    values.push(item.source);
+    sourceByIdentity.set(identity, values);
+  }
+  const existingOperationsById = new Map(existingOperations.map((operation) => [operation.operationId, operation]));
+  const attempts = existingAttempts.map((attempt) => {
+    const operation = existingOperationsById.get(attempt.operationId);
+    if (!operation) throw new Error(`SOURCE_REVIEW_ATTEMPT_OPERATION_MISSING=${attempt.attemptId}`);
+    return migrateAttemptSignalFields(attempt, operation, sourceByIdentity);
+  });
   const attemptsByOperation = new Map();
   const attemptIds = new Set();
   for (const attempt of attempts) {
@@ -207,14 +286,14 @@ export function buildSourceReviewOperations({
   }
   const currentSignals = new Set();
   const currentCounts = { SOURCE_CHANGE: 0, PENDING_REVIEW: 0, FRESHNESS_METADATA_GAP: 0 };
-  const sources = readSources(sourcePath);
   for (const item of sources) {
     const state = String(item.source.revalidation?.revalidation_state || "NOT_RECORDED");
     const kinds = eventKindsForSource(item.source);
     for (const kind of kinds) {
       const reason = String(item.source.revalidation?.change_reason || "NOT_RECORDED");
       const key = operationKey(item.geo, item.url, kind, state, reason);
-      const signal = signalIdentity({ ...item, kind });
+      const payload = signalPayload({ ...item, kind });
+      const signal = signalIdentity(payload);
       currentSignals.add(`${key}\u0000${signal}`);
       currentCounts[kind] += 1;
       const prior = byKey.get(key) || [];
@@ -229,7 +308,7 @@ export function buildSourceReviewOperations({
         if (!unresolvedLegacy) prior.push(operation);
         byKey.set(key, prior);
       }
-      const attempt = buildAttempt({ operation, source: item.source, signal, classifiedAt: normalizedClassifiedAt });
+      const attempt = buildAttempt({ operation, source: item.source, signal, payload, classifiedAt: normalizedClassifiedAt });
       if (!attemptIds.has(attempt.attemptId)) {
         attempts.push(attempt);
         attemptIds.add(attempt.attemptId);
@@ -251,7 +330,7 @@ export function buildSourceReviewOperations({
   // records reviewer, evidence, note, and real close time.
   const resolutions = [...existingResolutions];
   const resolvedOperationIds = new Set(resolutions.map((resolution) => resolution.operationId));
-  const output = { ...existing, schemaVersion: 4, localOnly: true, appendOnly: true, operations, attempts, resolutions };
+  const output = { ...existing, schemaVersion: 5, localOnly: true, appendOnly: true, operations, attempts, resolutions };
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
   fs.writeFileSync(outputPath, `${JSON.stringify(output, null, 2)}\n`);
   const operationsById = new Map(operations.map((operation) => [operation.operationId, operation]));

@@ -234,7 +234,17 @@ export function buildChangeMonitor({
   const watchedPassports = passports.filter((passport) => watchedGeos.has(passport.geo));
   const passportsByGeo = new Map(watchedPassports.map((passport) => [passport.geo, passport]));
   const recordsByGeo = new Map(listTruthMapCanonicalProjectionRecords().map((record) => [record.geo, record]));
-  const currentSnapshot = createCanonicalProjectionSnapshot(passports);
+  const canonicalLedger = loadCanonicalProjectionLedger();
+  const registeredCurrentSnapshot = canonicalLedger.snapshots.find(
+    (snapshot) => snapshot.versionId === passports[0]?.version.id
+  );
+  if (!registeredCurrentSnapshot) {
+    throw new Error(`CHANGE_MONITOR_CANONICAL_VERSION_NOT_REGISTERED=${passports[0]?.version.id || "UNKNOWN"}`);
+  }
+  const currentSnapshot = createCanonicalProjectionSnapshot(passports, registeredCurrentSnapshot.publicationReceipt);
+  if (currentSnapshot.snapshotSha256 !== registeredCurrentSnapshot.snapshotSha256) {
+    throw new Error(`CHANGE_MONITOR_CANONICAL_VERSION_REWRITE=${currentSnapshot.versionId}`);
+  }
   const operations = sourceReviewOperationsIndex(reviewRegistry);
   const resolutions = sourceReviewResolutionsIndex(reviewRegistry);
   const latestAttemptByOperation = new Map<string, SourceReviewAttempt>();
@@ -268,7 +278,7 @@ export function buildChangeMonitor({
   }
 
   const ledgerPreviousSnapshot = previousCanonicalSnapshot === undefined
-    ? selectPreviousCanonicalProjectionSnapshot(loadCanonicalProjectionLedger(), currentSnapshot)
+    ? selectPreviousCanonicalProjectionSnapshot(canonicalLedger, currentSnapshot)
     : previousCanonicalSnapshot;
   const canonicalLegalConclusionChanges = ledgerPreviousSnapshot
     ? compareCanonicalProjectionSnapshots(ledgerPreviousSnapshot, currentSnapshot, passportsByGeo)

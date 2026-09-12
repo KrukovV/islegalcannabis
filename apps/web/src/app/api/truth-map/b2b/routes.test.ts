@@ -100,11 +100,36 @@ describe("local Evidence Passport delivery APIs", () => {
     expect(response.status).toBe(200);
     expect(await response.json()).toEqual(expect.objectContaining({
       localOnly: true,
-      publicationGate: "EDITOR_APPROVED_OR_NOT_PUBLISHED",
+      publicationGate: "EDITOR_APPROVED_CURRENT_PASSPORT_OR_NOT_PUBLISHED",
       geo: "MN",
       approvedRecords: 0,
       records: []
     }));
+    const invalid = await getLocalisations(localRequest("/api/truth-map/b2b/localisations?geo=NOT-A-GEO"));
+    expect(invalid.status).toBe(400);
+    expect((await invalid.json()).error).toBe("EDITORIAL_LOCALISATION_UNKNOWN_GEO=NOT-A-GEO");
     expect((await getLocalisations(productionRequest("/api/truth-map/b2b/localisations?geo=MN"))).status).toBe(404);
+  });
+
+  it("returns read-only draft preparation tokens from the current Passport only on localhost", async () => {
+    const response = await getLocalisations(localRequest("/api/truth-map/b2b/localisations?prepare=draft&geo=mn"));
+    expect(response.status).toBe(200);
+    expect(response.headers.get("cache-control")).toBe("no-store");
+    const payload = await response.json();
+    expect(payload).toEqual(expect.objectContaining({
+      schemaVersion: 1,
+      localOnly: true,
+      mode: "DRAFT",
+      geo: "MN"
+    }));
+    expect(payload.expectedRegistrySha256).toMatch(/^[a-f0-9]{64}$/);
+    expect(payload.passportPayloadSha256).toMatch(/^[a-f0-9]{64}$/);
+    expect(payload.citations.length).toBeGreaterThan(0);
+    expect(payload.citations[0].retainedCitationIdentity).toMatch(/^[a-f0-9]{64}$/);
+
+    const invalidMode = await getLocalisations(localRequest("/api/truth-map/b2b/localisations?prepare=write&geo=MN"));
+    expect(invalidMode.status).toBe(400);
+    expect((await invalidMode.json()).error).toBe("EDITORIAL_LOCALISATION_PREPARATION_MODE_INVALID=write");
+    expect((await getLocalisations(productionRequest("/api/truth-map/b2b/localisations?prepare=draft&geo=MN"))).status).toBe(404);
   });
 });

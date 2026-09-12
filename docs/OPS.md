@@ -338,9 +338,11 @@ The evidence-operations queue is inspected only on localhost:
 
 - UI: `http://127.0.0.1:3000/truth-map/evidence-passport/review`
 - JSON: `http://127.0.0.1:3000/api/truth-map/b2b/source-review`
-- filters: `geo=<canonical-GEO>`, `category=<review-category>`, `state=current|historical|resolved|open`
+- filters: `geo=<canonical-GEO>`, `category=<review-category>`, `state=current|historical|resolved|open`, `operationId=<exact-SRCREV-id>`
 
-The UI/API is read-only, limits broad results to 100 exact dossiers and returns `404` for a non-local host. Use it to copy the operation ID, exact latest attempt ID and signal identity. Compute the registry identity from the exact file bytes immediately before review:
+The UI/API is read-only, limits broad results to 100 exact dossiers and returns `404` for a non-local host. Every dossier contains the complete ordered attempt history, the current attempt payload/preimage and copy-ready close tokens. `registrySha256` is computed from the same exact registry bytes as those dossiers. A current attempt must use `SOURCE_REVIEW_SIGNAL_V1`; a legacy attempt can use `LEGACY_SIGNAL_DETAILS_NOT_RECORDED_V1` only when unrecorded fields remain explicitly `NOT_RECORDED`.
+
+For an independent shell receipt, compute the same registry identity immediately before review:
 
 ```bash
 shasum -a 256 data/b2b_evidence/source_review_operations.json
@@ -364,7 +366,102 @@ node tools/review/resolve_source_review_operation.mjs \
   --resulting-reason=<reviewed-reason>
 ```
 
-Any stale registry, signal, attempt or cross-operation attempt fails before the registry is replaced. Reopen the Workbench and repeat the evidence review rather than weakening the identity guard. A successful resolution removes that exact signal from active Passport/Change Monitor queues and preserves it in append-only history; it does not change Legal Truth, Store Truth or the canonical projection. Finish a batch with the canonical `bash tools/pass_cycle.sh`; never treat focused Workbench tests as release acceptance.
+Before close, the resolver validates the complete schema-v5 registry and recomputes every current signal payload, exact identity preimage and hash. Any stale, tampered, concurrent, non-latest or cross-operation state fails before the registry is replaced. The writer holds an exclusive owned lock, writes and syncs a staged file, rechecks exact source bytes and atomically renames; it never removes a foreign lock or overwrites concurrent bytes. Reopen the Workbench and repeat the evidence review rather than weakening the identity guard. A successful resolution removes that exact signal from active Passport/Change Monitor queues and preserves it in append-only history; it does not change Legal Truth, Store Truth or the canonical projection. Finish a batch with the canonical `bash tools/pass_cycle.sh`; never treat focused Workbench tests as release acceptance.
+
+## Canonical projection publication
+
+Do not append a snapshot merely because a date or build changed. First prove that the current canonical projection has a genuinely new version and record the exact current ledger SHA-256:
+
+```bash
+shasum -a 256 data/b2b_evidence/canonical_projection_ledger.json
+```
+
+Append exactly once with the real publication receipt:
+
+```bash
+npm -w apps/web run evidence:snapshot -- \
+  --published-at=<canonical-UTC-ISO-newer-than-previous-recorded-publication> \
+  --commit-sha=<exact-40-hex-published-commit> \
+  --build-id=<immutable-build-id> \
+  --actor=<publisher-id> \
+  --expected-ledger-sha256=<exact-current-ledger-sha256>
+```
+
+The writer binds the receipt to the new projection version and all 307 GEO, requires a canonical UTC publication time strictly newer than the previous recorded publication, acquires an exclusive owned lock, stages the next ledger, rechecks the exact prior bytes and atomically renames it. Equal-version, date-only, stale-ledger, cross-version, concurrent or tampered receipt/snapshot input fails without replacing the ledger. A foreign lock is never removed. This command records an already-real canonical publication; it does not create or authorise one.
+
+## Correction review and canonical handoff
+
+- UI: `http://127.0.0.1:3000/truth-map/evidence-passport/correction/review`
+- API: `http://127.0.0.1:3000/api/truth-map/b2b/correction-review`
+
+Every `ASSIGN`, `DECIDE` and `HANDOFF` POST must use the `reviewEventsSha256` returned by the latest queue snapshot. `HANDOFF` is accepted only after `APPROVED_FOR_MANUAL_HANDOFF`, and additionally requires the latest `sourceReviewRegistrySha256` plus an existing unresolved target source-review operation for the same GEO. At the commit boundary the writer rechecks receipt/candidate integrity, exact review-event bytes and exact source-registry bytes. The persisted event binds the exact candidate hash to that operation and registry snapshot. An identical handoff retry is idempotent; a stale, conflicting, missing, resolved-target, pre-approval or cross-GEO handoff fails before mutation. The append path uses fixed lock ordering, a staged file with durability sync, exact-byte CAS, atomic rename and parent-directory sync. Recovery removes only artifacts carrying the exact current writer ownership token; foreign or ambiguous locks/stages stay fail-closed. API stale/locked responses are `409`; the UI refreshes queue and both CAS hashes without replaying the rejected action. `HANDED_OFF` is audit state only and changes no Legal Truth, Store Truth, source record, coordinate, leaf, map position or ranking.
+
+## Editorial legal localisation
+
+The committed registry is append-only and local-only. Get its exact identity immediately before every event:
+
+```bash
+shasum -a 256 data/b2b_evidence/editorial_localisations.json
+```
+
+Read only currently publishable approvals through `http://127.0.0.1:3000/api/truth-map/b2b/localisations?geo=<canonical-GEO>`. Get copy-ready draft inputs from `?prepare=draft&geo=<canonical-GEO>` and, after the draft append, exact approval tokens from `?prepare=approval&localisationId=<stable-id>`. Both helpers derive their registry SHA and Passport/citation identities from the same read and never write an event. Unknown GEO or invalid preparation input returns `400`, a missing draft returns `404`, a non-local host returns `404`, and every response is `no-store`.
+
+Append a draft with every source and scope field explicit:
+
+```bash
+npm -w apps/web run evidence:localisation -- \
+  --action=draft \
+  --localisation-id=<stable-id> \
+  --geo=<canonical-GEO> \
+  --assertion-kind=<CURRENT_CONCLUSION|MATERIAL_RESTRICTION|SOURCE_ANNOTATION> \
+  --expected-registry-sha256=<exact-current-registry-sha256> \
+  --locale=<locale> \
+  --retained-citation-identity=<exact-citation-identity> \
+  --source-language=<source-language> \
+  --original-fragment=<exact-source-fragment> \
+  --localized-text=<editorial-draft> \
+  --territorial-scope=<exact-scope> \
+  --disclaimer=<retained-disclaimer> \
+  --author=<author-id> \
+  --at=<canonical-UTC-ISO-from-toISOString>
+```
+
+Recompute the registry SHA, then approve only the exact draft and current Passport/citation/scope identities:
+
+```bash
+npm -w apps/web run evidence:localisation -- \
+  --action=approve \
+  --localisation-id=<same-stable-id> \
+  --geo=<same-canonical-GEO> \
+  --assertion-kind=<same-assertion-kind> \
+  --expected-registry-sha256=<fresh-exact-registry-sha256> \
+  --draft-event-id=<exact-draft-event-id> \
+  --retained-citation-identity=<exact-citation-identity> \
+  --original-fragment-sha256=<exact-original-fragment-sha256> \
+  --passport-version-id=<current-passport-version-id> \
+  --passport-payload-sha256=<current-passport-payload-sha256> \
+  --scope-sha256=<exact-scope-sha256> \
+  --disclaimer-sha256=<exact-disclaimer-sha256> \
+  --editor=<editor-id> \
+  --at=<canonical-UTC-ISO-from-toISOString>
+```
+
+Recompute the registry SHA again before superseding an approval:
+
+```bash
+npm -w apps/web run evidence:localisation -- \
+  --action=supersede \
+  --localisation-id=<same-stable-id> \
+  --geo=<same-canonical-GEO> \
+  --assertion-kind=<same-assertion-kind> \
+  --expected-registry-sha256=<fresh-exact-registry-sha256> \
+  --approved-event-id=<exact-approved-event-id> \
+  --editor=<editor-id> \
+  --at=<canonical-UTC-ISO-from-toISOString> \
+  --reason=<bounded-supersession-reason>
+```
+
+Every event has a deterministic ID/content hash and `previousEventSha256`; localisation IDs are globally unique. Only a current `APPROVED` event is publishable. Draft, stale/tampered/cross-GEO, broken/duplicate-chain, superseded or Passport/citation/fragment/scope/disclaimer-drifted content is omitted fail-closed. The writer is disabled for `NODE_ENV=production` and `VERCEL=1`, uses an exclusive owned lock, staged exact-byte CAS and atomic rename, and never changes the source citation or legal conclusion.
 
 ## Webvisor and PageSpeed checks
 - Webvisor is production-required. Do not turn it off as a performance workaround.
