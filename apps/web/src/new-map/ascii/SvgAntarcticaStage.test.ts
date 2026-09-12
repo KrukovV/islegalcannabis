@@ -22,6 +22,9 @@ describe("SvgAntarcticaStage", () => {
     expect(markup).toContain('xmlns="http://www.w3.org/2000/svg"');
     expect(markup).not.toContain("<canvas");
     expect(markup).toContain("data-renderer=\"svg\"");
+    expect(markup).toContain('data-map-interaction="passthrough"');
+    expect(markup).toContain('data-svg-anchor-visible="1"');
+    expect(markup).toContain('pointer-events:none');
     expect(markup).toContain("data-svg-story-count=\"34\"");
     expect(markup.match(/data-svg-role="smoker"/g)).toHaveLength(3);
     expect(markup.match(/data-svg-smoking-behavior="inhale-exhale"/g)).toHaveLength(3);
@@ -37,6 +40,26 @@ describe("SvgAntarcticaStage", () => {
     expect(markup).toContain("@keyframes ant-smoke-rise");
     expect(markup).toContain("@keyframes ant-leaf-rise");
     expect(markup).not.toContain("rotate(360deg)");
+  });
+
+  it("hides an offscreen scene and exposes no interactive surface", () => {
+    const markup = renderToStaticMarkup(createElement(SvgAntarcticaStage, {
+      story: SVG_STORIES[0],
+      width: 1280,
+      height: 720,
+      anchorX: 640,
+      anchorY: 1_980,
+      visible: false,
+      motionEnabled: false,
+      overlayState: "offscreen",
+      storyCount: SVG_STORIES.length
+    }));
+
+    expect(markup).toContain('data-ascii-state="offscreen"');
+    expect(markup).toContain('data-svg-anchor-visible="0"');
+    expect(markup).toContain('visibility:hidden');
+    expect(markup).toContain('pointer-events:none');
+    expect(markup).not.toContain("<animateTransform");
   });
 
   it("keeps a reduced-motion smoker at the mouth without SMIL motion", () => {

@@ -64,6 +64,7 @@ type SvgAntarcticaStageProps = {
   height: number;
   anchorX: number;
   anchorY: number;
+  visible?: boolean;
   motionEnabled: boolean;
   className?: string;
   testId?: string;
@@ -427,6 +428,7 @@ export default function SvgAntarcticaStage({
   height,
   anchorX,
   anchorY,
+  visible = true,
   motionEnabled,
   className,
   testId,
@@ -444,8 +446,13 @@ export default function SvgAntarcticaStage({
       preserveAspectRatio="none"
       focusable="false"
       aria-hidden="true"
+      style={{ visibility: visible ? "visible" : "hidden", pointerEvents: "none" }}
       data-testid={testId}
       data-renderer="svg"
+      data-map-interaction="passthrough"
+      data-svg-anchor-visible={visible ? "1" : "0"}
+      data-svg-anchor-x={Number(anchorX.toFixed(2))}
+      data-svg-anchor-y={Number(anchorY.toFixed(2))}
       data-ascii-state={overlayState}
       data-ascii-scenario={story.id}
       data-svg-story={story.id}

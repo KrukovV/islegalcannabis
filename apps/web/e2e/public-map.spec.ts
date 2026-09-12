@@ -10,8 +10,16 @@ test("local public root retains only the local AI dock beside the public Truth M
   await expect(page.getByTestId("public-map-root")).toBeAttached();
   await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 30_000 });
   await expect(page.getByTestId("public-map-notice")).toBeVisible();
-  await expect(page.getByTestId("antarctic-ascii-overlay")).toBeAttached();
-  await expect(page.getByTestId("antarctic-ascii-overlay")).toHaveAttribute("data-ascii-state", "running", { timeout: 12_000 });
+  const animation = page.getByTestId("antarctic-ascii-overlay");
+  await expect(animation).toBeAttached();
+  await expect(animation).toHaveAttribute("data-svg-story-count", "34");
+  await expect(animation).toHaveAttribute("data-map-interaction", "passthrough");
+  await expect(animation).toHaveCSS("pointer-events", "none");
+  // The public camera does not include Antarctica at this viewport. The shared
+  // geographic overlay remains mounted, but must not clamp onto another GEO.
+  await expect(animation).toHaveAttribute("data-svg-anchor-visible", "0", { timeout: 12_000 });
+  await expect(animation).toHaveAttribute("data-ascii-state", "offscreen", { timeout: 12_000 });
+  await expect(animation).toHaveCSS("visibility", "hidden");
   await expect(page.getByTestId("new-map-ai-dock")).toBeVisible();
   await expect(page.getByTestId("truth-map-social-panel")).toHaveCount(0);
   await expect(page.getByTestId("truth-map-audit-notice")).toHaveCount(0);
