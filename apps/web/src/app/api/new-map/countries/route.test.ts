@@ -1,8 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   STATIC_COUNTRIES_HASH,
-  STATIC_COUNTRIES_URL,
-  getStaticCountriesAsset
+  STATIC_COUNTRIES_URL
 } from "@/new-map/staticCountries";
 import { dynamic, GET, revalidate } from "./route";
 
@@ -18,15 +17,11 @@ describe("countries compatibility route", () => {
     expect(response.headers.get("x-new-map-countries-hash")).toBe(STATIC_COUNTRIES_HASH);
   });
 
-  it("returns inline JSON payload when requested", async () => {
-    const asset = getStaticCountriesAsset();
+  it("keeps query variants on the immutable compatibility redirect", async () => {
     const response = await GET(new Request("https://www.islegal.info/api/new-map/countries?inline=1"));
 
-    expect(response.status).toBe(200);
-    expect(response.headers.get("content-type")).toContain("application/json");
-    expect(response.headers.get("content-encoding")).toBe("identity");
-    expect(response.headers.get("x-new-map-countries-hash")).toBe(asset.hash);
-    expect(response.headers.get("x-new-map-countries-bytes")).toBe(String(asset.byteLength));
-    expect(await response.text()).toBe(asset.json);
+    expect(response.status).toBe(308);
+    expect(response.headers.get("location")).toBe(STATIC_COUNTRIES_URL);
+    expect(response.headers.get("x-new-map-countries-hash")).toBe(STATIC_COUNTRIES_HASH);
   });
 });

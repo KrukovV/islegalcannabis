@@ -4,7 +4,7 @@ import { permanentRedirect } from "next/navigation";
 import { isLocalAuditHost } from "@/lib/privateAuditHost";
 import NewMapClientEntry from "./NewMapClientEntry";
 import { formatVisibleRuntimeStamp } from "@/lib/runtimeIdentity";
-import { INLINE_COUNTRIES_URL } from "@/new-map/staticCountries";
+import { STATIC_COUNTRIES_URL } from "@/new-map/staticCountries";
 import { getNewMapRuntimeIdentity } from "./runtimeConfig";
 
 export const dynamic = "force-dynamic";
@@ -50,7 +50,7 @@ export default async function NewMapPage({
   }
   const runtimeIdentity = getNewMapRuntimeIdentity();
   const visibleStamp = formatVisibleRuntimeStamp(runtimeIdentity);
-  const countriesUrl = INLINE_COUNTRIES_URL;
+  const countriesUrl = STATIC_COUNTRIES_URL;
   const initialGeoCode =
     (typeof resolvedSearchParams?.geo === "string" ? resolvedSearchParams.geo : null) ||
     (typeof resolvedSearchParams?.code === "string" ? resolvedSearchParams.code : null);

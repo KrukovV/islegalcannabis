@@ -14,7 +14,7 @@ describe("static countries route", () => {
     const asset = getStaticCountriesAsset();
 
     expect(dynamic).toBe("force-static");
-    expect(dynamicParams).toBe(true);
+    expect(dynamicParams).toBe(false);
     expect(revalidate).toBe(false);
     expect(generateStaticParams()).toEqual([
       { file: `countries.${STATIC_COUNTRIES_HASH}.json.br` }
@@ -30,5 +30,14 @@ describe("static countries route", () => {
     expect(response.headers.get("content-encoding")).toBe("br");
     const compressed = Buffer.from(await response.arrayBuffer());
     expect(brotliDecompressSync(compressed).toString("utf8")).toBe(asset.json);
+  });
+
+  it("rejects a stale hash instead of serving current bytes under an old identity", async () => {
+    const response = await GET(
+      new Request("https://www.islegal.info/static/countries/countries.000000000000.json.br"),
+      { params: Promise.resolve({ file: "countries.000000000000.json.br" }) }
+    );
+
+    expect(response.status).toBe(404);
   });
 });

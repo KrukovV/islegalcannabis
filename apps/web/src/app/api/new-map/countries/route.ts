@@ -1,26 +1,12 @@
 import {
   STATIC_COUNTRIES_HASH,
-  STATIC_COUNTRIES_URL,
-  getStaticCountriesAsset
+  STATIC_COUNTRIES_URL
 } from "@/new-map/staticCountries";
 
 export const dynamic = "force-static";
 export const revalidate = false;
 
-export async function GET(request: Request) {
-  const url = new URL(request.url);
-  if (url.searchParams.get("inline") === "1") {
-    const asset = getStaticCountriesAsset();
-    return new Response(asset.json, {
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-        "Cache-Control": asset.cacheControl,
-        "Content-Encoding": "identity",
-        "X-New-Map-Countries-Hash": asset.hash,
-        "X-New-Map-Countries-Bytes": String(asset.byteLength)
-      }
-    });
-  }
+export async function GET() {
   return new Response(null, {
     status: 308,
     headers: {

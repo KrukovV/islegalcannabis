@@ -5,6 +5,7 @@ import path from "node:path";
 const QA_DIR = path.resolve(process.cwd(), "..", "..", "QA", "mobile", "cold-start");
 
 type NewMapTrace = {
+  t0?: number;
   marks?: Record<string, number>;
   metrics?: Record<string, number>;
 };
@@ -32,12 +33,16 @@ async function collectStartupState(page: import("@playwright/test").Page) {
       getZoom: () => number;
       queryRenderedFeatures: (_geometry?: unknown, _options?: { layers?: string[] }) => unknown[];
     } } }).__NEW_MAP_DEBUG__?.map;
+    const firstFillMark = trace.marks?.NM_T7_FIRST_FILL_RENDERED;
+    const traceStart = trace.t0;
     return {
       trace,
       countriesUrl: countriesEntry?.name || null,
       countriesTransferSize: Math.round(countriesEntry?.transferSize || 0),
       countriesDecodedBodySize: Math.round(countriesEntry?.decodedBodySize || 0),
-      firstFillMs: Math.round(trace.marks?.NM_T7_FIRST_FILL_RENDERED || -1),
+      firstFillMs: typeof firstFillMark === "number" && typeof traceStart === "number"
+        ? Math.round(firstFillMark - traceStart)
+        : -1,
       featureCount: map?.queryRenderedFeatures(undefined, { layers: ["legal-fill"] }).length || 0,
       zoom: map?.getZoom() || null,
       horizontalOverflowPx: Math.max(0, document.documentElement.scrollWidth - window.innerWidth)
@@ -92,7 +97,9 @@ test("mobile cold start uses cached static countries payload and keeps map inter
   expect(coldDecodedBodySize).toBeLessThan(9_000_000);
   expect(coldTransferSize).toBeGreaterThan(0);
   expect(cold.featureCount).toBeGreaterThan(100);
+  expect(cold.firstFillMs).toBeGreaterThanOrEqual(0);
   expect(cold.horizontalOverflowPx).toBe(0);
   expect(warm.featureCount).toBeGreaterThan(100);
+  expect(warm.firstFillMs).toBeGreaterThanOrEqual(0);
   expect(warm.firstFillMs).toBeLessThan(3_500);
 });

@@ -15,7 +15,6 @@ const COUNTRIES_CACHE_CONTROL = "public, max-age=31536000, s-maxage=31536000, im
 // Brotli-compressing the full GeoJSON just to discover its public URL.
 export const STATIC_COUNTRIES_HASH = "94f4f597f8a5";
 export const STATIC_COUNTRIES_URL = `/static/countries/countries.${STATIC_COUNTRIES_HASH}.json.br`;
-export const INLINE_COUNTRIES_URL = "/api/new-map/countries?inline=1";
 
 export type StaticCountriesAsset = {
   hash: string;

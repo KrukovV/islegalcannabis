@@ -1,5 +1,11 @@
 import { expect, test } from "@playwright/test";
 
+// `waitForMap` retains independent, fail-closed phase bounds below. Give the
+// test runner enough outer lifetime to execute navigation plus the map-ready
+// phase instead of truncating the 30-second readiness contract at 30 seconds
+// total under a loaded serial smoke run.
+test.describe.configure({ timeout: 65_000 });
+
 async function waitForMap(page: Parameters<typeof test>[0]["page"], path: string) {
   await page.goto(path, { waitUntil: "domcontentloaded" });
   await page.waitForSelector('[data-testid="public-map-root"]', { timeout: 20_000, state: "attached" });

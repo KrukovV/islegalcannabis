@@ -62164,25 +62164,25 @@
           "effective_rule_visible": true,
           "screenshot_valid": true,
           "revalidation": {
-            "checked_at": "2026-09-11T19:40:08.913Z",
+            "checked_at": "2026-09-13T08:57:42.818Z",
             "final_url": "https://www.azleg.gov/ars/36/02852.htm",
             "http_status": 200,
-            "etag": "\"0de0379b2adc1:0\"",
-            "last_modified": "Sun, 21 Sep 2025 01:58:26 GMT",
+            "etag": "\"01986d7b940dd1:0\"",
+            "last_modified": "Thu, 10 Sep 2026 00:18:02 GMT",
             "content_type": "text/html",
-            "content_length": 1823,
-            "document_sha256": "2f6ab2c600450264bc2dc8366dfeaa79b5b982a49ff50f2946c12a5657267608",
+            "content_length": 1822,
+            "document_sha256": "7d33ba96c3e02c69004140bb51533d56709eed5f19a2683484a70779558b8804",
             "relevant_fragment_sha256": "ca74d1c098b1cccaf0870908b1c6ffb097e7f2d6cdd152c85f8cdb6738b64b81",
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "revalidation_state": "CONTENT_CHANGED",
             "access_state": "HTTP_OK",
-            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "change_reason": "DOCUMENT_SHA256_CHANGED",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "GREEN_OR_RED_CRITICAL_SOURCE",
-              "NEEDS_SEMANTIC_REVIEW"
+              "CONTENT_CHANGED",
+              "GREEN_OR_RED_CRITICAL_SOURCE"
             ],
             "dependent_geos": [
               "US-AZ"
@@ -62248,25 +62248,25 @@
           "reviewed_by_human_visual": true,
           "visual_review_result": "CANNABIS_SPECIFIC_CURRENT_STATUTE_TEXT_VISIBLE; OFFICIAL_HOST_CONFIRMED_BY_DIRECT_URL; BROWSER_SCREENSHOT_HAS_NO_ADDRESS_BAR",
           "revalidation": {
-            "checked_at": "2026-09-11T19:40:08.913Z",
+            "checked_at": "2026-09-13T08:57:42.818Z",
             "final_url": "https://www.azleg.gov/ars/36/02852.htm",
             "http_status": 200,
-            "etag": "\"0de0379b2adc1:0\"",
-            "last_modified": "Sun, 21 Sep 2025 01:58:26 GMT",
+            "etag": "\"01986d7b940dd1:0\"",
+            "last_modified": "Thu, 10 Sep 2026 00:18:02 GMT",
             "content_type": "text/html",
-            "content_length": 1823,
-            "document_sha256": "2f6ab2c600450264bc2dc8366dfeaa79b5b982a49ff50f2946c12a5657267608",
+            "content_length": 1822,
+            "document_sha256": "7d33ba96c3e02c69004140bb51533d56709eed5f19a2683484a70779558b8804",
             "relevant_fragment_sha256": "ca74d1c098b1cccaf0870908b1c6ffb097e7f2d6cdd152c85f8cdb6738b64b81",
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "revalidation_state": "CONTENT_CHANGED",
             "access_state": "HTTP_OK",
-            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "change_reason": "DOCUMENT_SHA256_CHANGED",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "GREEN_OR_RED_CRITICAL_SOURCE",
-              "NEEDS_SEMANTIC_REVIEW"
+              "CONTENT_CHANGED",
+              "GREEN_OR_RED_CRITICAL_SOURCE"
             ],
             "dependent_geos": [
               "US-AZ"

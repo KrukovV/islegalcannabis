@@ -61,10 +61,21 @@ describe("new-map route config", () => {
   it("keeps early new-map JSON fetches without stale Carto preconnect hints", () => {
     const filePath = path.join(process.cwd(), "src", "app", "layout.tsx");
     const source = fs.readFileSync(filePath, "utf8");
+    expect(source).toContain('import { STATIC_COUNTRIES_URL } from "@/new-map/staticCountries"');
+    expect(source).toContain("const NEW_MAP_COUNTRIES_URL = STATIC_COUNTRIES_URL");
+    expect(source).not.toContain("INLINE_COUNTRIES_URL");
     expect(source).toContain('countries: loadJson("${NEW_MAP_COUNTRIES_URL}")');
     expect(source).not.toContain('style: loadJson("${NEW_MAP_STYLE_URL}")');
     expect(source).not.toContain('rel="preconnect" href="https://tiles.basemaps.cartocdn.com"');
     expect(source).not.toContain('rel="dns-prefetch" href="https://tiles.basemaps.cartocdn.com"');
+  });
+
+  it("gives the local map the same immutable countries URL used by head prefetch", () => {
+    const filePath = path.join(process.cwd(), "src", "app", "new-map", "page.tsx");
+    const source = fs.readFileSync(filePath, "utf8");
+    expect(source).toContain('import { STATIC_COUNTRIES_URL } from "@/new-map/staticCountries"');
+    expect(source).toContain("const countriesUrl = STATIC_COUNTRIES_URL");
+    expect(source).not.toContain("INLINE_COUNTRIES_URL");
   });
 
   it("keeps basemap metadata same-origin and host-specific", () => {

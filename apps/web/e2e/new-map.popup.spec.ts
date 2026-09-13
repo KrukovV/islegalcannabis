@@ -123,8 +123,17 @@ function waitForMapReady(page: Page) {
 async function ensureRuntimeMapReady(page: Page) {
   await waitForMapReady(page);
   await page.waitForFunction(() => {
+    const trace = window.__NEW_MAP_TRACE__;
     const map = window.__NEW_MAP_DEBUG__?.map;
-    return Boolean(map && typeof map.isStyleLoaded === "function" && map.isStyleLoaded());
+    if (
+      typeof trace?.marks?.NM_T7_FIRST_FILL_RENDERED !== "number" ||
+      !map ||
+      typeof map.isStyleLoaded !== "function" ||
+      !map.isStyleLoaded()
+    ) {
+      return false;
+    }
+    return map.queryRenderedFeatures(undefined, { layers: ["legal-fill"] }).length > 100;
   }, { timeout: 20_000 });
 }
 
@@ -179,6 +188,7 @@ async function waitForFeature(
         __NEW_MAP_DEBUG__?: {
           map?: {
             getCanvas: () => HTMLCanvasElement;
+            project: (_lngLat: { lng: number; lat: number }) => { x: number; y: number };
             queryRenderedFeatures: (
               _point: [number, number],
               _options?: { layers?: string[] }
@@ -189,11 +199,23 @@ async function waitForFeature(
       const map = host.__NEW_MAP_DEBUG__?.map;
       if (!map) return false;
 
+      const matchesTarget = (feature: { properties?: Record<string, unknown>; id?: string | number }) => {
+        const props = feature.properties || {};
+        return [props.geo, props.iso2, props.iso_a2, props.ISO_A2, feature.id]
+          .map((value) => String(value || "").toUpperCase())
+          .filter(Boolean)
+          .includes(targetIso);
+      };
+      const hasTargetAt = (x: number, y: number) => map
+        .queryRenderedFeatures([x, y], { layers: targetLayers })
+        .some(matchesTarget);
+
       const rect = map.getCanvas().getBoundingClientRect();
       const searchWindows: Array<{ startX: number; endX: number; startY: number; endY: number; step: number }> = [];
 
       if (preferredView) {
         const projected = map.project({ lng: preferredView.center[0], lat: preferredView.center[1] });
+        if (hasTargetAt(projected.x, projected.y)) return true;
         searchWindows.push({
           startX: Math.max(24, projected.x - 180),
           endX: Math.min(rect.width - 24, projected.x + 180),
@@ -214,25 +236,7 @@ async function waitForFeature(
       for (const window of searchWindows) {
         for (let y = window.startY; y < window.endY; y += window.step) {
           for (let x = window.startX; x < window.endX; x += window.step) {
-            let feature: { properties?: Record<string, unknown>; id?: string | number } | null = null;
-            for (const targetLayer of targetLayers) {
-              feature = map.queryRenderedFeatures([x, y], { layers: [targetLayer] })[0] ?? null;
-              if (feature) break;
-            }
-            if (!feature) continue;
-            const props = feature.properties || {};
-            const candidates = [
-              props.geo,
-              props.iso2,
-              props.iso_a2,
-              props.ISO_A2,
-              feature.id
-            ]
-              .map((value) => String(value || "").toUpperCase())
-              .filter(Boolean);
-            if (candidates.includes(targetIso)) {
-              return true;
-            }
+            if (hasTargetAt(x, y)) return true;
           }
         }
       }
@@ -255,6 +259,7 @@ async function findFeaturePoint(
       __NEW_MAP_DEBUG__?: {
         map?: {
           getCanvas: () => HTMLCanvasElement;
+          project: (_lngLat: { lng: number; lat: number }) => { x: number; y: number };
           queryRenderedFeatures: (
             _point: [number, number],
             _options?: { layers?: string[] }
@@ -264,13 +269,27 @@ async function findFeaturePoint(
     };
     const map = host.__NEW_MAP_DEBUG__?.map;
     if (!map) return null;
+    const targetLayers = targetLayerId === "legal-fill"
+      ? ["legal-territory-label", "legal-territory-hitbox", "legal-point", "legal-fill"]
+      : [targetLayerId];
+
+    const matchesTarget = (feature: { properties?: Record<string, unknown>; id?: string | number }) => {
+      const props = feature.properties || {};
+      return [props.geo, props.iso2, props.iso_a2, props.ISO_A2, feature.id]
+        .map((value) => String(value || "").toUpperCase())
+        .filter(Boolean)
+        .includes(targetIso);
+    };
+    const hasTargetAt = (x: number, y: number) => map
+      .queryRenderedFeatures([x, y], { layers: targetLayers })
+      .some(matchesTarget);
 
     const rect = map.getCanvas().getBoundingClientRect();
     const searchWindows: Array<{ startX: number; endX: number; startY: number; endY: number; step: number }> = [];
-    const targetLayers = targetLayerId === "legal-fill" ? ["legal-territory-label", "legal-territory-hitbox", "legal-point", "legal-fill"] : [targetLayerId];
 
     if (preferredView) {
       const projected = map.project({ lng: preferredView.center[0], lat: preferredView.center[1] });
+      if (hasTargetAt(projected.x, projected.y)) return { x: projected.x, y: projected.y };
       searchWindows.push({
         startX: Math.max(24, projected.x - 180),
         endX: Math.min(rect.width - 24, projected.x + 180),
@@ -291,25 +310,7 @@ async function findFeaturePoint(
     for (const window of searchWindows) {
       for (let y = window.startY; y < window.endY; y += window.step) {
         for (let x = window.startX; x < window.endX; x += window.step) {
-          let feature: { properties?: Record<string, unknown>; id?: string | number } | null = null;
-          for (const layer of targetLayers) {
-            feature = map.queryRenderedFeatures([x, y], { layers: [layer] })[0] ?? null;
-            if (feature) break;
-          }
-          if (!feature) continue;
-          const props = feature.properties || {};
-          const candidates = [
-            props.geo,
-            props.iso2,
-            props.iso_a2,
-            props.ISO_A2,
-            feature.id
-          ]
-            .map((value) => String(value || "").toUpperCase())
-            .filter(Boolean);
-          if (candidates.includes(targetIso)) {
-            return { x, y };
-          }
+          if (hasTargetAt(x, y)) return { x, y };
         }
       }
     }
@@ -598,8 +599,21 @@ function renderVisualAuditCsv(rows: VisualAuditRow[]) {
   return [header.join(","), ...body, ""].join("\n");
 }
 
-async function clickFeature(page: Page, geo: string, layerId: LayerId, preferredView: { center: [number, number]; zoom: number } | null) {
-  const point = await findFeaturePoint(page, geo, layerId, preferredView);
+async function clickFeature(
+  page: Page,
+  geo: string,
+  layerId: LayerId,
+  preferredView: { center: [number, number]; zoom: number } | null,
+  options?: { preferredCenterOnly?: boolean }
+) {
+  const point = options?.preferredCenterOnly && preferredView
+    ? await page.evaluate(({ lng, lat }) => {
+        const projected = window.__NEW_MAP_DEBUG__?.map?.project?.({ lng, lat });
+        return projected && Number.isFinite(projected.x) && Number.isFinite(projected.y)
+          ? { x: projected.x, y: projected.y }
+          : null;
+      }, { lng: preferredView.center[0], lat: preferredView.center[1] })
+    : await findFeaturePoint(page, geo, layerId, preferredView);
   expect(point).not.toBeNull();
   if (!point) return;
 
@@ -719,16 +733,16 @@ test("new-map popup appears on country click", async ({ page }) => {
 test("new-map popup closes from close button", async ({ page }) => {
   await page.goto(NEW_MAP_ROUTE, { waitUntil: "domcontentloaded" });
   await ensureRuntimeMapReady(page);
-  await waitForFeature(page, "FR", "legal-fill", FEATURE_VIEW_BY_GEO.FR);
-
+  // The preceding scenario owns the complete feature-search coverage. This
+  // one isolates the close contract at the already verified France centre.
   await focusJurisdiction(page, "FR");
-  await clickFeature(page, "FR", "legal-fill", FEATURE_VIEW_BY_GEO.FR);
+  await clickFeature(page, "FR", "legal-fill", FEATURE_VIEW_BY_GEO.FR, { preferredCenterOnly: true });
   await expect(getPopupLabel(page)).toContainText("ISO2: FR");
   await page.getByRole("button", { name: "Close France panel" }).click();
   await expect(getPopupLabel(page)).toBeHidden();
 });
 
-test("new-map popup works across mainland and island countries", async ({ page }) => {
+test("new-map popup works across mainland and island countries", { timeout: 60_000 }, async ({ page }) => {
   await page.goto(NEW_MAP_ROUTE, { waitUntil: "domcontentloaded" });
   await ensureRuntimeMapReady(page);
 
@@ -736,11 +750,18 @@ test("new-map popup works across mainland and island countries", async ({ page }
     const preferredView = FEATURE_VIEW_BY_GEO[iso];
     await focusJurisdiction(page, iso);
     await waitForFeature(page, iso, "legal-fill", preferredView);
+    const cardEntryResponse = page.waitForResponse((response) => {
+      const url = new URL(response.url());
+      return url.pathname === "/api/new-map/card-entry" && url.searchParams.get("geo") === iso;
+    }, { timeout: 15_000 });
     await clickFeature(page, iso, "legal-fill", preferredView);
+    await expect(getPopupLabel(page)).toContainText(`ISO2: ${iso}`, { timeout: 2_000 });
+    expect((await cardEntryResponse).status()).toBe(200);
     const richPopup = page.locator('[data-testid="new-map-country-popup"]:not([data-popup-stage="seed"])');
-    await expect(richPopup).toContainText(`ISO2: ${iso}`);
+    await expect(richPopup).toContainText(`ISO2: ${iso}`, { timeout: 5_000 });
     await expect(getPopupLabel(page)).toHaveCount(1);
     await page.locator('[data-testid="new-map-country-popup"] button[aria-label^="Close"]').first().click();
+    await expect(getPopupLabel(page)).toHaveCount(0);
   }
 });
 
