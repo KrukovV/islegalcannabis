@@ -301,6 +301,28 @@ test("pass_cycle refreshes the canonical matrix once before every projection-tes
   );
 });
 
+test("pass_cycle captures a live-probe failure before applying its fail-closed retry", () => {
+  const passCycle = fs.readFileSync(path.join(ROOT, "tools", "pass_cycle.sh"), "utf8");
+  const captureStart = passCycle.indexOf("capture_timeout_output() {");
+  const captureEnd = passCycle.indexOf("\n}\n\nartifact_files_exist()", captureStart);
+  const capture = passCycle.slice(captureStart, captureEnd);
+  const chromiumRetry = passCycle.slice(
+    passCycle.indexOf('CURRENT_STEP="wiki_truth_live_probe_chromium"'),
+    passCycle.indexOf('CURRENT_STEP="wiki_truth_live_probe_webkit"'),
+  );
+
+  assert(captureStart >= 0 && captureEnd > captureStart, "capture_timeout_output must exist");
+  assert.match(capture, /err_trap=\$\(trap -p ERR \|\| true\)/);
+  assert.match(capture, /trap - ERR\s+set \+e\s+run_with_timeout/s);
+  assert.match(capture, /CAPTURE_TIMEOUT_RC=\$\?\s+set -e\s+if \[ -n "\$\{err_trap\}" \]/s);
+  assert.match(chromiumRetry, /if \[ "\$\{WIKI_TRUTH_LIVE_CHROMIUM_RC\}" -ne 0 \]; then/);
+  assert.equal(
+    chromiumRetry.split("capture_timeout_output 180").length - 1,
+    2,
+    "Chromium live proof must retain exactly one fail-closed retry",
+  );
+});
+
 test("matrix keeps structured strict visual acceptance human-readable", () => {
   const matrix = JSON.parse(fs.readFileSync(
     path.join(ROOT, "data", "reviews", "wiki-truth-cannabis-law-matrix-307.json"),

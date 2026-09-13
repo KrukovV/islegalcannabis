@@ -842,11 +842,19 @@ capture_timeout_output() {
   local limit="$1"
   local cmd="$2"
   local tmp
+  local err_trap
   tmp=$(mktemp)
+  err_trap=$(trap -p ERR || true)
+  trap - ERR
   set +e
   run_with_timeout "${limit}" "${cmd}" >"${tmp}" 2>&1
   CAPTURE_TIMEOUT_RC=$?
   set -e
+  if [ -n "${err_trap}" ]; then
+    eval "${err_trap}"
+  else
+    trap - ERR
+  fi
   CAPTURE_TIMEOUT_OUTPUT=$(cat "${tmp}")
   rm -f "${tmp}"
 }
