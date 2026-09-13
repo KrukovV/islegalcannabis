@@ -16,6 +16,7 @@ export default function ViewportCountryPopup({
   locale,
   anchor,
   onClose,
+  onReady,
   onOpenDetails,
   onOpenContextDocument,
   className,
@@ -29,6 +30,8 @@ export default function ViewportCountryPopup({
   locale: SeoLocale;
   anchor: { x: number; y: number } | null;
   onClose: () => void;
+  /** Signals that the rich panel DOM is mounted so any immediate seed can be removed before paint. */
+  onReady?: () => void;
   onOpenDetails?: (_entry: CountryCardEntry) => void;
   /** Opens a canonical under-map document while retaining the current map context. */
   onOpenContextDocument?: (_href: string) => void;
@@ -54,6 +57,7 @@ export default function ViewportCountryPopup({
 
   useLayoutEffect(() => {
     if (!anchor || !panelRef.current || typeof window === "undefined") return;
+    onReady?.();
     const panel = panelRef.current;
     let frameId = 0;
     const GAP = 18;
@@ -110,7 +114,7 @@ export default function ViewportCountryPopup({
       unsubscribeViewport();
       window.cancelAnimationFrame(frameId);
     };
-  }, [anchor, entry.geo, rootTestId]);
+  }, [anchor, entry.geo, onReady, rootTestId]);
 
   const renderList = (
     title: string,

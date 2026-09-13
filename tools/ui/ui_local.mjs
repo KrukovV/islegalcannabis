@@ -266,7 +266,7 @@ async function smokeCheckTruthWithRetry(url) {
 async function checkExistingServer() {
   const baseUrl = "http://127.0.0.1:3000/";
   const truthUrl = `${baseUrl.replace(/\/$/, "")}/wiki-truth`;
-  const deadline = Date.now() + 3000;
+  const deadline = Date.now() + (SMOKE ? SMOKE_TIMEOUT_MS : 3000);
   let rootStatus = 0;
   let truthStatus = 0;
   while (Date.now() < deadline) {

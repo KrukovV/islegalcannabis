@@ -737,7 +737,9 @@ test("new-map popup works across mainland and island countries", async ({ page }
     await focusJurisdiction(page, iso);
     await waitForFeature(page, iso, "legal-fill", preferredView);
     await clickFeature(page, iso, "legal-fill", preferredView);
-    await expect(getPopupLabel(page)).toContainText(`ISO2: ${iso}`);
+    const richPopup = page.locator('[data-testid="new-map-country-popup"]:not([data-popup-stage="seed"])');
+    await expect(richPopup).toContainText(`ISO2: ${iso}`);
+    await expect(getPopupLabel(page)).toHaveCount(1);
     await page.locator('[data-testid="new-map-country-popup"] button[aria-label^="Close"]').first().click();
   }
 });

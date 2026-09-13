@@ -486,6 +486,11 @@ export default function MapRoot({
     };
   }, [popupGeoCode, selectedGeoRichEntry, selectedGeoSeedEntry]);
 
+  const handleRichPopupReady = useCallback(() => {
+    markNewMapTrace("NM_POPUP_RICH_RENDER_READY");
+    document.getElementById("new-map-immediate-seed-popup")?.remove();
+  }, []);
+
   useEffect(() => {
     if (!popupGeoCode) return;
     if (!selectedGeoRichEntry || !popupAnchor) return;
@@ -1115,6 +1120,7 @@ export default function MapRoot({
           locale={locale}
           anchor={popupAnchor}
           onClose={handleCountryPopupClose}
+          onReady={handleRichPopupReady}
           onOpenDetails={handleOpenDetails}
         />
       ) : null}
