@@ -8,8 +8,11 @@ import { fileURLToPath } from "node:url";
 import {
   compareSourceReviewAttempts,
   exactSourceRecordFromSnapshot,
+  hasRequiredSourceAuthorityLegalBasis,
   latestSourceReviewAttempt,
+  matchesSourceAuthorityOwner,
   resolveSourceReviewOperation,
+  validateSourceAuthorityOwners,
   validateRegistry
 } from "./resolve_source_review_operation.mjs";
 
@@ -161,6 +164,13 @@ test("exact source binding rejects note fallback and non-equivalent duplicate UR
     () => exactSourceRecordFromSnapshot(snapshot([canonical, { ...canonical, fragment: "Different exact bytes." }]), "AD", canonical.url),
     /SOURCE_REVIEW_EVIDENCE_SOURCE_RECORD_AMBIGUOUS=/
   );
+  const scopeOnly = { ...canonical, source_owner_scope: "AD" };
+  delete scopeOnly.sourceOwnerGeo;
+  assert.equal(
+    exactSourceRecordFromSnapshot(snapshot([scopeOnly]), "AD", canonical.url).sourceOwnerGeo,
+    "NOT_RECORDED",
+    "source_owner_scope is descriptive scope metadata, never an authority owner identity"
+  );
 });
 
 test("attestation visibility claims cannot exceed retained source metadata", () => {
@@ -187,7 +197,7 @@ test("attestation visibility claims cannot exceed retained source metadata", () 
   }
 });
 
-test("attestation owner and every applicability target must belong to the canonical 307 GEO universe", () => {
+test("attestation rejects unknown owners, noncanonical applicability and missing extension basis", () => {
   const sourceRegistry = JSON.parse(fs.readFileSync(SOURCE_REGISTRY_PATH, "utf8"));
   for (const [mutate, expected] of [
     [
@@ -222,6 +232,54 @@ test("attestation owner and every applicability target must belong to the canoni
       officialRegistryPath: SOURCE_OFFICIAL_REGISTRY_PATH,
       ownershipPath: SOURCE_OWNERSHIP_PATH
     }), expected);
+  }
+});
+
+test("authority owner compatibility aliases are bounded by registry, official host and legal basis", () => {
+  const canonicalGeos = new Set(JSON.parse(fs.readFileSync(CANONICAL_GEOS_PATH, "utf8")));
+  const ownership = JSON.parse(fs.readFileSync(SOURCE_OWNERSHIP_PATH, "utf8"));
+  const official = JSON.parse(fs.readFileSync(SOURCE_OFFICIAL_REGISTRY_PATH, "utf8"));
+  const authorityOwners = validateSourceAuthorityOwners(ownership, canonicalGeos, official.domains);
+
+  assert.equal(matchesSourceAuthorityOwner(
+    "WA", "https://legislation.wa.gov.au/example", canonicalGeos, authorityOwners
+  ), true);
+  assert.equal(matchesSourceAuthorityOwner(
+    "UNODC_GLOBAL", "https://www.unodc.org/example", canonicalGeos, authorityOwners
+  ), true);
+  assert.equal(matchesSourceAuthorityOwner(
+    "WA", "https://legislation.nsw.gov.au/example", canonicalGeos, authorityOwners
+  ), false);
+  assert.equal(matchesSourceAuthorityOwner(
+    "UN", "https://www.unodc.org/example", canonicalGeos, authorityOwners
+  ), false);
+  assert.equal(hasRequiredSourceAuthorityLegalBasis(
+    "WA", "CC", ["CC"], "Direct territorial extension."
+  ), true);
+  assert.equal(hasRequiredSourceAuthorityLegalBasis("WA", "CC", ["CC"], "NOT_RECORDED"), false);
+  assert.equal(hasRequiredSourceAuthorityLegalBasis(
+    "UNODC_GLOBAL", "NG", ["NG"], "Treaty evidence applies to Nigeria."
+  ), true);
+  assert.equal(hasRequiredSourceAuthorityLegalBasis("UNODC_GLOBAL", "NG", ["NG"], "NOT_RECORDED"), false);
+
+  const wa = structuredClone(ownership.source_authority_owners[0]);
+  assert.throws(
+    () => validateSourceAuthorityOwners(
+      { source_authority_owners: [wa] },
+      canonicalGeos,
+      ["legislation.wa.gov.au"]
+    ),
+    /SOURCE_AUTHORITY_OWNER_INVALID=AU-WA/
+  );
+  for (const alias of ["UN", "INTL", "WEB_ARCHIVE", "UNCONFIRMED_OWNER"]) {
+    assert.throws(
+      () => validateSourceAuthorityOwners(
+        { source_authority_owners: [{ ...wa, aliases: [alias] }] },
+        canonicalGeos,
+        official.domains
+      ),
+      /SOURCE_AUTHORITY_OWNER_IDENTITY_INVALID=/
+    );
   }
 });
 

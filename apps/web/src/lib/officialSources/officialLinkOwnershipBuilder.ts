@@ -2,6 +2,7 @@ import {
   GLOBAL_OFFICIAL_DOMAINS,
   inferSourceKind,
   MANUAL_DOMAIN_OWNERS,
+  SOURCE_AUTHORITY_OWNERS,
   US_STATE_DOMAIN_RULES
 } from "./officialLinkOwnershipRules";
 import type {
@@ -358,6 +359,12 @@ export function buildOfficialLinkOwnershipDataset(input: BuilderInput): Official
     generated_at: new Date().toISOString(),
     raw_registry_total: uniqueDomains.length,
     effective_registry_total: items.filter((entry) => entry.effective).length,
+    source_authority_owners: SOURCE_AUTHORITY_OWNERS.map((entry) => ({
+      ...entry,
+      aliases: [...entry.aliases],
+      parent_geos: [...entry.parent_geos],
+      official_domains: [...entry.official_domains]
+    })),
     items,
     diagnostics
   };

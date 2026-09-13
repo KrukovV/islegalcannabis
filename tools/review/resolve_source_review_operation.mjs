@@ -69,7 +69,7 @@ function normalizedOwnerAlias(value) {
 }
 
 function sourceOwnerGeo(source) {
-  const aliases = [source.sourceOwnerGeo, source.source_owner_geo, source.source_owner_scope]
+  const aliases = [source.sourceOwnerGeo, source.source_owner_geo]
     .filter((value) => value !== undefined && value !== null)
     .map(normalizedOwnerAlias);
   const distinct = [...new Set(aliases)];
@@ -397,6 +397,88 @@ function hostMatches(host, registered) {
   return Boolean(normalized) && (host === normalized || host.endsWith(`.${normalized}`));
 }
 
+const SOURCE_AUTHORITY_OWNER_KEYS = ["active", "aliases", "id", "official_domains", "parent_geos", "scope"];
+const SOURCE_AUTHORITY_OWNER_SCOPES = new Set(["subnational", "supranational", "global"]);
+const FORBIDDEN_SOURCE_AUTHORITY_IDENTITIES = new Set(["UN", "INTL", "WEB_ARCHIVE"]);
+
+function isForbiddenSourceAuthorityIdentity(value) {
+  return FORBIDDEN_SOURCE_AUTHORITY_IDENTITIES.has(value) || value.startsWith("UNCONFIRMED");
+}
+
+function exactKeys(value, keys) {
+  return value && typeof value === "object" && !Array.isArray(value)
+    && JSON.stringify(Object.keys(value).sort()) === JSON.stringify(keys);
+}
+
+function isCanonicalSortedUnique(values, normalize) {
+  if (!Array.isArray(values) || values.some((value) => typeof value !== "string")) return false;
+  const canonical = [...new Set(values.map(normalize).filter(Boolean))].sort();
+  return JSON.stringify(values) === JSON.stringify(canonical);
+}
+
+export function validateSourceAuthorityOwners(ownership, canonicalGeos, officialDomains) {
+  const entries = ownership?.source_authority_owners;
+  if (entries === undefined) return new Map();
+  if (!Array.isArray(entries)) throw new Error("SOURCE_AUTHORITY_OWNERS_INVALID");
+  const registeredDomains = officialDomains.map(normalizedHost).filter(Boolean);
+  const identities = new Set();
+  const index = new Map();
+  let priorId = "";
+  for (const entry of entries) {
+    if (!exactKeys(entry, SOURCE_AUTHORITY_OWNER_KEYS)
+      || !/^[A-Z][A-Z0-9-]*$/.test(String(entry.id || ""))
+      || entry.id <= priorId
+      || entry.active !== true
+      || !SOURCE_AUTHORITY_OWNER_SCOPES.has(entry.scope)
+      || !isCanonicalSortedUnique(entry.aliases, (value) => String(value).trim().toUpperCase())
+      || entry.aliases.some((alias) => !/^[A-Z][A-Z0-9_-]*$/.test(alias))
+      || !isCanonicalSortedUnique(entry.parent_geos, (value) => String(value).trim().toUpperCase())
+      || entry.parent_geos.some((geo) => !canonicalGeos.has(geo))
+      || (entry.scope === "subnational" && entry.parent_geos.length !== 1)
+      || (entry.scope === "global" && entry.parent_geos.length !== 0)
+      || !entry.official_domains.length
+      || !isCanonicalSortedUnique(entry.official_domains, normalizedHost)
+      || entry.official_domains.some((domain) => !registeredDomains.some((registered) => (
+        hostMatches(domain, registered)
+      )))) {
+      throw new Error(`SOURCE_AUTHORITY_OWNER_INVALID=${entry?.id || "EMPTY"}`);
+    }
+    priorId = entry.id;
+    for (const identity of [entry.id, ...entry.aliases]) {
+      if (canonicalGeos.has(identity) || identities.has(identity) || isForbiddenSourceAuthorityIdentity(identity)) {
+        throw new Error(`SOURCE_AUTHORITY_OWNER_IDENTITY_INVALID=${identity}`);
+      }
+      identities.add(identity);
+      index.set(identity, entry);
+    }
+  }
+  return index;
+}
+
+export function matchesSourceAuthorityOwner(sourceOwner, sourceUrl, canonicalGeos, authorityOwners) {
+  if (canonicalGeos.has(sourceOwner)) return true;
+  const owner = authorityOwners.get(sourceOwner);
+  if (!owner?.active) return false;
+  let host = "";
+  try {
+    host = normalizedHost(new URL(sourceUrl).hostname);
+  } catch {
+    return false;
+  }
+  return owner.official_domains.some((domain) => hostMatches(host, domain));
+}
+
+export function hasRequiredSourceAuthorityLegalBasis(
+  sourceOwner,
+  operationGeo,
+  appliesToGeos,
+  legalBasisForExtension
+) {
+  const required = sourceOwner !== operationGeo || appliesToGeos.length > 1;
+  return !required || Boolean(String(legalBasisForExtension || "").trim()
+    && legalBasisForExtension !== "NOT_RECORDED");
+}
+
 function parseJsonSnapshot(snapshot, errorCode) {
   try {
     const parsed = JSON.parse(snapshot.bytes.toString("utf8"));
@@ -612,6 +694,11 @@ export function validateRegistry(registry, {
   if (canonicalGeos.size !== 307) {
     throw new Error(`SOURCE_REVIEW_CANONICAL_UNIVERSE_INVALID=${canonicalGeos.size}`);
   }
+  const authorityOwners = validateSourceAuthorityOwners(
+    ownership,
+    canonicalGeos,
+    Array.isArray(officialRegistry.domains) ? officialRegistry.domains : []
+  );
   if (!Number.isFinite(Date.parse(String(registry.createdAt || "")))) {
     throw new Error("SOURCE_REVIEW_OPERATIONS_CREATED_AT_INVALID");
   }
@@ -825,12 +912,20 @@ export function validateRegistry(registry, {
         || JSON.stringify(attestation.sourceRecord) !== JSON.stringify(canonicalSourceRecord)
         || sha256(JSON.stringify(attestation.sourceRecord)) !== attestation.sourceRecordSha256
         || attestation.sourceRecord.sourceOwnerGeo === "NOT_RECORDED"
-        || !canonicalGeos.has(attestation.sourceRecord.sourceOwnerGeo)
+        || !matchesSourceAuthorityOwner(
+          attestation.sourceRecord.sourceOwnerGeo,
+          operation.sourceUrl,
+          canonicalGeos,
+          authorityOwners
+        )
         || !attestation.sourceRecord.appliesToGeos?.includes(operation.geo)
         || attestation.sourceRecord.appliesToGeos.some((geo) => !canonicalGeos.has(geo))
-        || ((attestation.sourceRecord.sourceOwnerGeo !== operation.geo
-          || attestation.sourceRecord.appliesToGeos.length > 1)
-          && attestation.sourceRecord.legalBasisForExtension === "NOT_RECORDED")) {
+        || !hasRequiredSourceAuthorityLegalBasis(
+          attestation.sourceRecord.sourceOwnerGeo,
+          operation.geo,
+          attestation.sourceRecord.appliesToGeos,
+          attestation.sourceRecord.legalBasisForExtension
+        )) {
         throw new Error(`SOURCE_REVIEW_EVIDENCE_SOURCE_RECORD_INVALID=${attestation.attestationId}`);
       }
       sortedUniqueText(attestation.sourceRecord.appliesToGeos, "SOURCE_APPLICABILITY");

@@ -2,8 +2,17 @@ import fs from "node:fs";
 import path from "node:path";
 import type {
   OfficialLinkOwnershipDataset,
-  OfficialLinkOwnershipEntry
+  OfficialLinkOwnershipEntry,
+  SourceAuthorityOwnerEntry
 } from "./officialLinkOwnershipTypes.ts";
+
+const SOURCE_AUTHORITY_OWNER_KEYS = ["id", "aliases", "scope", "parent_geos", "official_domains", "active"].sort();
+const SOURCE_AUTHORITY_OWNER_SCOPES = new Set(["subnational", "supranational", "global"]);
+const FORBIDDEN_SOURCE_AUTHORITY_IDENTITIES = new Set(["UN", "INTL", "WEB_ARCHIVE"]);
+
+function isForbiddenSourceAuthorityIdentity(value: string) {
+  return FORBIDDEN_SOURCE_AUTHORITY_IDENTITIES.has(value) || value.startsWith("UNCONFIRMED");
+}
 
 function normalizeDomain(value: string) {
   return String(value || "").trim().toLowerCase().replace(/^www\./, "").replace(/^\.+|\.+$/g, "");
@@ -24,6 +33,87 @@ function normalizeUrlOrDomain(value: string) {
   }
 }
 
+function isSortedUnique(values: unknown, normalize: (_value: string) => string) {
+  if (!Array.isArray(values) || values.some((value) => typeof value !== "string")) return false;
+  const normalized = [...new Set(values.map((value) => normalize(value)).filter(Boolean))].sort();
+  return JSON.stringify(values) === JSON.stringify(normalized);
+}
+
+function hasExactKeys(value: object, keys: string[]) {
+  return JSON.stringify(Object.keys(value).sort()) === JSON.stringify(keys);
+}
+
+export function validateSourceAuthorityOwners(
+  dataset: Pick<OfficialLinkOwnershipDataset, "source_authority_owners">,
+  canonicalGeos: ReadonlySet<string>,
+  officialDomains: readonly string[]
+) {
+  const entries = dataset.source_authority_owners;
+  if (entries === undefined) return new Map<string, SourceAuthorityOwnerEntry>();
+  if (!Array.isArray(entries)) throw new Error("SOURCE_AUTHORITY_OWNERS_INVALID");
+  const official = officialDomains.map(normalizeDomain).filter(Boolean);
+  const identities = new Set<string>();
+  let priorId = "";
+  const index = new Map<string, SourceAuthorityOwnerEntry>();
+  for (const entry of entries) {
+    if (!entry || typeof entry !== "object" || !hasExactKeys(entry, SOURCE_AUTHORITY_OWNER_KEYS)
+      || !/^[A-Z][A-Z0-9-]*$/.test(entry.id)
+      || entry.id <= priorId
+      || entry.active !== true
+      || !SOURCE_AUTHORITY_OWNER_SCOPES.has(entry.scope)
+      || !isSortedUnique(entry.aliases, (value) => String(value).trim().toUpperCase())
+      || entry.aliases.some((alias) => !/^[A-Z][A-Z0-9_-]*$/.test(alias))
+      || !isSortedUnique(entry.parent_geos, normalizeGeo)
+      || entry.parent_geos.some((geo) => !canonicalGeos.has(geo))
+      || (entry.scope === "subnational" && entry.parent_geos.length !== 1)
+      || (entry.scope === "global" && entry.parent_geos.length !== 0)
+      || !entry.official_domains.length
+      || !isSortedUnique(entry.official_domains, normalizeDomain)
+      || entry.official_domains.some((domain) => !official.some((registered) => (
+        domain === registered || domain.endsWith(`.${registered}`)
+      )))) {
+      throw new Error(`SOURCE_AUTHORITY_OWNER_INVALID=${entry?.id || "EMPTY"}`);
+    }
+    priorId = entry.id;
+    for (const identity of [entry.id, ...entry.aliases]) {
+      if (canonicalGeos.has(identity) || identities.has(identity) || isForbiddenSourceAuthorityIdentity(identity)) {
+        throw new Error(`SOURCE_AUTHORITY_OWNER_IDENTITY_INVALID=${identity}`);
+      }
+      identities.add(identity);
+      index.set(identity, entry);
+    }
+  }
+  return index;
+}
+
+export function matchesSourceAuthorityOwner(
+  sourceOwnerGeo: string,
+  sourceUrl: string,
+  canonicalGeos: ReadonlySet<string>,
+  authorityOwners: ReadonlyMap<string, SourceAuthorityOwnerEntry>
+) {
+  if (canonicalGeos.has(sourceOwnerGeo)) return true;
+  const owner = authorityOwners.get(sourceOwnerGeo);
+  if (!owner?.active) return false;
+  let host = "";
+  try {
+    host = normalizeDomain(new URL(sourceUrl).hostname);
+  } catch {
+    return false;
+  }
+  return owner.official_domains.some((domain) => host === domain || host.endsWith(`.${domain}`));
+}
+
+export function hasRequiredSourceAuthorityLegalBasis(
+  sourceOwnerGeo: string,
+  operationGeo: string,
+  appliesToGeos: readonly string[],
+  legalBasisForExtension: string
+) {
+  const required = sourceOwnerGeo !== operationGeo || appliesToGeos.length > 1;
+  return !required || Boolean(legalBasisForExtension.trim() && legalBasisForExtension !== "NOT_RECORDED");
+}
+
 export function readOfficialLinkOwnership(rootDir: string): OfficialLinkOwnershipDataset {
   const filePath = path.join(rootDir, "data", "ssot", "official_link_ownership.json");
   if (!fs.existsSync(filePath)) {
@@ -31,6 +121,7 @@ export function readOfficialLinkOwnership(rootDir: string): OfficialLinkOwnershi
       generated_at: "",
       raw_registry_total: 0,
       effective_registry_total: 0,
+      source_authority_owners: [],
       items: [],
       diagnostics: {
         registry_total_raw: 0,

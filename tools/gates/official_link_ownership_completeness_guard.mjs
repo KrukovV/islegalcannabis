@@ -5,6 +5,7 @@ import path from "node:path";
 const ROOT = process.cwd();
 const filePath = path.join(ROOT, "data", "ssot", "official_link_ownership.json");
 const registryPath = path.join(ROOT, "data", "official", "official_domains.ssot.json");
+const canonicalGeosPath = path.join(ROOT, "data", "reviews", "geo-list-307.json");
 if (!fs.existsSync(filePath)) {
   console.log("OFFICIAL_LINK_OWNERSHIP_COMPLETENESS_GUARD=FAIL");
   console.log("OFFICIAL_LINK_OWNERSHIP_REASON=MISSING_DATASET");
@@ -15,10 +16,17 @@ if (!fs.existsSync(registryPath)) {
   console.log("OFFICIAL_LINK_OWNERSHIP_REASON=MISSING_REGISTRY");
   process.exit(1);
 }
+if (!fs.existsSync(canonicalGeosPath)) {
+  console.log("OFFICIAL_LINK_OWNERSHIP_COMPLETENESS_GUARD=FAIL");
+  console.log("OFFICIAL_LINK_OWNERSHIP_REASON=MISSING_CANONICAL_GEOS");
+  process.exit(1);
+}
 
 const payload = JSON.parse(fs.readFileSync(filePath, "utf8"));
 const registry = JSON.parse(fs.readFileSync(registryPath, "utf8"));
+const canonicalGeos = new Set(JSON.parse(fs.readFileSync(canonicalGeosPath, "utf8")));
 const items = Array.isArray(payload.items) ? payload.items : [];
+const authorityOwners = Array.isArray(payload.source_authority_owners) ? payload.source_authority_owners : [];
 const rawTotal = Number(payload.raw_registry_total || 0) || 0;
 const missingScope = items.filter((item) => !String(item?.owner_scope || "").trim()).length;
 const missingSourceScope = items.filter((item) => !String(item?.source_scope || "").trim()).length;
@@ -32,6 +40,35 @@ const datasetDomains = new Set(items.map((item) => normalizeDomain(item.domain |
 const registryDomains = new Set((Array.isArray(registry.domains) ? registry.domains : []).map((value) => normalizeDomain(value)).filter(Boolean));
 const missingFromDataset = Array.from(registryDomains).filter((domain) => !datasetDomains.has(domain));
 const extraInDataset = Array.from(datasetDomains).filter((domain) => !registryDomains.has(domain));
+const authorityKeys = ["active", "aliases", "id", "official_domains", "parent_geos", "scope"];
+const authorityScopes = new Set(["subnational", "supranational", "global"]);
+const exactKeys = (value) => value && typeof value === "object" && !Array.isArray(value)
+  && JSON.stringify(Object.keys(value).sort()) === JSON.stringify(authorityKeys);
+const sortedUnique = (values, normalize) => Array.isArray(values)
+  && values.every((value) => typeof value === "string")
+  && JSON.stringify(values) === JSON.stringify([...new Set(values.map(normalize).filter(Boolean))].sort());
+const hostMatches = (host, registered) => host === registered || host.endsWith(`.${registered}`);
+let priorAuthorityId = "";
+const invalidAuthorityOwners = authorityOwners.filter((entry) => {
+  const valid = exactKeys(entry)
+    && /^[A-Z][A-Z0-9-]*$/.test(String(entry.id || ""))
+    && entry.id > priorAuthorityId
+    && entry.active === true
+    && authorityScopes.has(entry.scope)
+    && sortedUnique(entry.aliases, (value) => String(value).trim().toUpperCase())
+    && entry.aliases.every((alias) => /^[A-Z][A-Z0-9_-]*$/.test(alias))
+    && sortedUnique(entry.parent_geos, (value) => String(value).trim().toUpperCase())
+    && entry.parent_geos.every((geo) => canonicalGeos.has(geo))
+    && (entry.scope !== "subnational" || entry.parent_geos.length === 1)
+    && (entry.scope !== "global" || entry.parent_geos.length === 0)
+    && entry.official_domains.length > 0
+    && sortedUnique(entry.official_domains, normalizeDomain)
+    && entry.official_domains.every((domain) => Array.from(registryDomains).some((registered) => (
+      hostMatches(domain, registered)
+    )));
+  priorAuthorityId = String(entry?.id || "");
+  return !valid;
+}).length;
 
 console.log(`OFFICIAL_LINK_OWNERSHIP_RAW_TOTAL=${rawTotal}`);
 console.log(`OFFICIAL_LINK_OWNERSHIP_ITEMS=${items.length}`);
@@ -45,6 +82,8 @@ console.log(`OFFICIAL_LINK_OWNERSHIP_MISSING_EFFECTIVE=${missingEffective}`);
 console.log(`OFFICIAL_LINK_OWNERSHIP_MISSING_OWNER_GEOS=${missingGeoType}`);
 console.log(`OFFICIAL_LINK_OWNERSHIP_MISSING_FROM_DATASET=${missingFromDataset.length}`);
 console.log(`OFFICIAL_LINK_OWNERSHIP_EXTRA_IN_DATASET=${extraInDataset.length}`);
+console.log(`OFFICIAL_LINK_OWNERSHIP_AUTHORITY_OWNERS=${authorityOwners.length}`);
+console.log(`OFFICIAL_LINK_OWNERSHIP_INVALID_AUTHORITY_OWNERS=${invalidAuthorityOwners}`);
 
 if (
   items.length !== rawTotal ||
@@ -57,6 +96,8 @@ if (
   missingGeoType > 0 ||
   missingFromDataset.length > 0 ||
   extraInDataset.length > 0
+  || authorityOwners.length === 0
+  || invalidAuthorityOwners > 0
 ) {
   console.log("OFFICIAL_LINK_OWNERSHIP_COMPLETENESS_GUARD=FAIL");
   process.exit(1);

@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-03-20T09:46:03.801Z",
+  "generated_at": "2026-09-13T14:14:24.144Z",
   "raw_registry_total": 418,
   "effective_registry_total": 403,
+  "source_authority_owners": [
+    {
+      "id": "AU-WA",
+      "aliases": [
+        "WA"
+      ],
+      "scope": "subnational",
+      "parent_geos": [
+        "AU"
+      ],
+      "official_domains": [
+        "wa.gov.au"
+      ],
+      "active": true
+    },
+    {
+      "id": "UNODC-GLOBAL",
+      "aliases": [
+        "UNODC_GLOBAL"
+      ],
+      "scope": "global",
+      "parent_geos": [],
+      "official_domains": [
+        "unodc.org"
+      ],
+      "active": true
+    }
+  ],
   "items": [
     {
       "url": "2010-2014.kormany.hu",

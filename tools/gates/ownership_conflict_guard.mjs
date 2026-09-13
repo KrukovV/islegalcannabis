@@ -4,6 +4,7 @@ import path from "node:path";
 
 const ROOT = process.cwd();
 const filePath = path.join(ROOT, "data", "ssot", "official_link_ownership.json");
+const canonicalGeosPath = path.join(ROOT, "data", "reviews", "geo-list-307.json");
 if (!fs.existsSync(filePath)) {
   console.log("OFFICIAL_LINK_OWNERSHIP_CONFLICT_GUARD=FAIL");
   console.log("OFFICIAL_LINK_OWNERSHIP_CONFLICT_REASON=MISSING_DATASET");
@@ -12,6 +13,8 @@ if (!fs.existsSync(filePath)) {
 
 const payload = JSON.parse(fs.readFileSync(filePath, "utf8"));
 const items = Array.isArray(payload.items) ? payload.items : [];
+const canonicalGeos = new Set(JSON.parse(fs.readFileSync(canonicalGeosPath, "utf8")));
+const authorityOwners = Array.isArray(payload.source_authority_owners) ? payload.source_authority_owners : [];
 const conflicts = [];
 
 for (const item of items) {
@@ -23,6 +26,18 @@ for (const item of items) {
   }
   if ((item.owner_scope === "country" || item.owner_scope === "state" || item.owner_scope === "territory") && uniqueCountries.size > 1) {
     conflicts.push(`${item.domain}:cross_country_conflict`);
+  }
+}
+
+const authorityIdentities = new Set();
+for (const entry of authorityOwners) {
+  for (const identity of [entry.id, ...(Array.isArray(entry.aliases) ? entry.aliases : [])]) {
+    if (canonicalGeos.has(identity)) conflicts.push(`${identity}:authority_collides_with_canonical_geo`);
+    if (authorityIdentities.has(identity)) conflicts.push(`${identity}:duplicate_authority_identity`);
+    if (["UN", "INTL", "WEB_ARCHIVE"].includes(identity) || String(identity).startsWith("UNCONFIRMED")) {
+      conflicts.push(`${identity}:forbidden_authority_identity`);
+    }
+    authorityIdentities.add(identity);
   }
 }
 

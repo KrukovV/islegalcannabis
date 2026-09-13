@@ -1,4 +1,23 @@
-import type { OfficialSourceKind } from "./officialLinkOwnershipTypes.ts";
+import type { OfficialSourceKind, SourceAuthorityOwnerEntry } from "./officialLinkOwnershipTypes.ts";
+
+export const SOURCE_AUTHORITY_OWNERS: SourceAuthorityOwnerEntry[] = [
+  {
+    id: "AU-WA",
+    aliases: ["WA"],
+    scope: "subnational",
+    parent_geos: ["AU"],
+    official_domains: ["wa.gov.au"],
+    active: true
+  },
+  {
+    id: "UNODC-GLOBAL",
+    aliases: ["UNODC_GLOBAL"],
+    scope: "global",
+    parent_geos: [],
+    official_domains: ["unodc.org"],
+    active: true
+  }
+];
 
 export const GLOBAL_OFFICIAL_DOMAINS = new Set([
   "un.org",

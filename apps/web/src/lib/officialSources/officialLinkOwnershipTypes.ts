@@ -36,6 +36,17 @@ export type OfficialMatchingBasis =
 
 export type OfficialConfidence = "high" | "medium" | "low";
 
+export type SourceAuthorityOwnerScope = "subnational" | "supranational" | "global";
+
+export type SourceAuthorityOwnerEntry = {
+  id: string;
+  aliases: string[];
+  scope: SourceAuthorityOwnerScope;
+  parent_geos: string[];
+  official_domains: string[];
+  active: true;
+};
+
 export type OfficialLinkOwnershipEntry = {
   url: string;
   normalized_url: string;
@@ -75,6 +86,7 @@ export type OfficialLinkOwnershipDataset = {
   generated_at: string;
   raw_registry_total: number;
   effective_registry_total: number;
+  source_authority_owners: SourceAuthorityOwnerEntry[];
   items: OfficialLinkOwnershipEntry[];
   diagnostics: OfficialLinkOwnershipDiagnostics;
 };

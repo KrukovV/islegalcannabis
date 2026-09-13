@@ -2,6 +2,12 @@ import fs from "node:fs";
 import crypto from "node:crypto";
 import path from "node:path";
 import { findRepoRoot } from "@/lib/ssotDiff/ssotSnapshotStore";
+import {
+  hasRequiredSourceAuthorityLegalBasis,
+  matchesSourceAuthorityOwner,
+  validateSourceAuthorityOwners
+} from "@/lib/officialSources/officialLinkOwnership";
+import type { SourceAuthorityOwnerEntry } from "@/lib/officialSources/officialLinkOwnershipTypes";
 import type { TruthMapCanonicalProjectionSource } from "./truthMapSource";
 
 export type SourceReviewEventKind = "SOURCE_CHANGE" | "PENDING_REVIEW" | "FRESHNESS_METADATA_GAP";
@@ -229,7 +235,6 @@ type CanonicalSourceReviewSignalSource = {
   officialPublisher?: unknown;
   sourceOwnerGeo?: unknown;
   source_owner_geo?: unknown;
-  source_owner_scope?: unknown;
   appliesToGeos?: unknown;
   applies_to_geo?: unknown;
   applies_to_geos?: unknown;
@@ -276,7 +281,7 @@ function recordedSignalValue(value: unknown) {
 }
 
 function canonicalSourceOwnerGeo(source: CanonicalSourceReviewSignalSource) {
-  const aliases = [source.sourceOwnerGeo, source.source_owner_geo, source.source_owner_scope]
+  const aliases = [source.sourceOwnerGeo, source.source_owner_geo]
     .filter((value) => value !== undefined && value !== null)
     .map((value) => String(value).trim().toUpperCase() || "NOT_RECORDED");
   const distinct = [...new Set(aliases)];
@@ -673,7 +678,8 @@ function validateSourceReviewEvidenceAttestation(
   resolution: SourceReviewResolution,
   operation: SourceReviewOperation,
   attempt: SourceReviewAttempt,
-  canonicalGeos: ReadonlySet<string>
+  canonicalGeos: ReadonlySet<string>,
+  authorityOwners: ReadonlyMap<string, SourceAuthorityOwnerEntry>
 ) {
   if (!hasExactKeys(attestation, [
     "evidenceFormat", "attestationId", "resolutionId", "operationId", "reviewedAttemptId",
@@ -709,10 +715,14 @@ function validateSourceReviewEvidenceAttestation(
   ].every((value) => typeof value === "string" && value.length > 0)
     || !isSortedUniqueStrings(sourceRecord.appliesToGeos)
     || !sourceRecord.appliesToGeos.includes(operation.geo)
-    || !canonicalGeos.has(sourceRecord.sourceOwnerGeo)
+    || !matchesSourceAuthorityOwner(sourceRecord.sourceOwnerGeo, operation.sourceUrl, canonicalGeos, authorityOwners)
     || sourceRecord.appliesToGeos.some((geo) => !canonicalGeos.has(geo))
-    || ((sourceRecord.sourceOwnerGeo !== operation.geo || sourceRecord.appliesToGeos.length > 1)
-      && sourceRecord.legalBasisForExtension === "NOT_RECORDED")
+    || !hasRequiredSourceAuthorityLegalBasis(
+      sourceRecord.sourceOwnerGeo,
+      operation.geo,
+      sourceRecord.appliesToGeos,
+      sourceRecord.legalBasisForExtension
+    )
     || !isSortedUniqueStrings(sourceRecord.evidenceScopes)
     || !isRecordedBoolean(sourceRecord.cannabisSpecific)
     || !isRecordedBoolean(sourceRecord.current)
@@ -831,11 +841,25 @@ export function validateSourceReviewOperationsRegistry(value: unknown): SourceRe
   if (!registry || registry.schemaVersion !== 7 || registry.localOnly !== true || registry.appendOnly !== true || !Array.isArray(registry.operations) || !Array.isArray(registry.attempts) || !Array.isArray(registry.resolutions) || !Array.isArray(registry.evidenceAttestations)) {
     throw new Error("SOURCE_REVIEW_OPERATIONS_REGISTRY_INVALID");
   }
+  const root = findRepoRoot(process.cwd());
   const canonicalGeos = new Set<string>(JSON.parse(fs.readFileSync(
-    path.join(findRepoRoot(process.cwd()), "data", "reviews", "geo-list-307.json"),
+    path.join(root, "data", "reviews", "geo-list-307.json"),
     "utf8"
   )) as string[]);
   if (canonicalGeos.size !== 307) throw new Error(`SOURCE_REVIEW_CANONICAL_UNIVERSE_INVALID=${canonicalGeos.size}`);
+  const officialRegistry = JSON.parse(fs.readFileSync(
+    path.join(root, "data", "official", "official_domains.ssot.json"),
+    "utf8"
+  )) as { domains?: string[] };
+  const ownershipRegistry = JSON.parse(fs.readFileSync(
+    path.join(root, "data", "ssot", "official_link_ownership.json"),
+    "utf8"
+  )) as { source_authority_owners?: SourceAuthorityOwnerEntry[] };
+  const authorityOwners = validateSourceAuthorityOwners(
+    { source_authority_owners: ownershipRegistry.source_authority_owners || [] },
+    canonicalGeos,
+    officialRegistry.domains || []
+  );
   if (!Number.isFinite(Date.parse(String(registry.createdAt || "")))) throw new Error("SOURCE_REVIEW_OPERATIONS_CREATED_AT_INVALID");
   const operationIds = new Set<string>();
   const operationsById = new Map<string, SourceReviewOperation>();
@@ -993,7 +1017,7 @@ export function validateSourceReviewOperationsRegistry(value: unknown): SourceRe
     if (!resolution || !operation || !attempt) {
       throw new Error(`SOURCE_REVIEW_EVIDENCE_RESOLUTION_INVALID=${attestation.attestationId}`);
     }
-    validateSourceReviewEvidenceAttestation(attestation, resolution, operation, attempt, canonicalGeos);
+    validateSourceReviewEvidenceAttestation(attestation, resolution, operation, attempt, canonicalGeos, authorityOwners);
     if (attestationHashes.has(attestation.attestationSha256)
       || attestation.previousAttestationSha256 !== (previousGlobalAttestation?.attestationSha256 || "GENESIS")) {
       throw new Error(`SOURCE_REVIEW_EVIDENCE_CHAIN_INVALID=${attestation.attestationId}`);
