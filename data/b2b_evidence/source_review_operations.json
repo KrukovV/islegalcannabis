@@ -51066,6 +51066,69 @@
       "resultingRevalidationState": "HUMAN_REVIEW_CONFIRMED",
       "resultingChangeReason": "CURRENT_OFFICIAL_CANNABIS_LICENSING_SCOPE_PARTIAL_EXACT_FRAGMENT_C3_NOT_PROVEN",
       "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-da212dc2b4bc34571ee1dda3",
+      "operationId": "SRCREV-a14db0308204ec1152356b72",
+      "geo": "US-MD",
+      "sourceUrl": "https://cannabis.maryland.gov/Pages/licensed-dispensary-locations.aspx",
+      "resolvedAt": "2026-09-13T05:18:24.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "CODEX_VISUAL_REVIEW_20260913",
+      "evidenceUrl": "https://cannabis.maryland.gov/Pages/licensed-dispensary-locations.aspx",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "US-MD",
+      "reviewedAttemptId": "SRCATT-03a7122ab1dda7cff36c80fc",
+      "reviewedSignalIdentitySha256": "2a1ee1c10c52d96c6fe6dae403029a99cea0e338bbdf4e96ea9664392836aa31",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "a7c8dc8690754ad41ecb65b425cc3147d9760d4299e4228b32e0fcdc4ebf7fa3",
+      "note": "The retained Maryland.gov and Maryland Cannabis Administration capture visibly identifies the official publisher, the MCA Licensed Dispensary Locations scope, and the complete exact 200-byte statement that MCA issued Adult-Use and Medical Marketplace licences to the dispensaries shown and links the full listing. A current official read on 2026-09-13 returns the same statement. The semantic-latest V2 attempt records a WAF or challenge access state, so its relevant-fragment hash belongs to that access response rather than the canonical page fragment. The retained artifact contains no challenge or error and visibly carries Maryland.gov ownership, but no browser origin is present. Review is C2 PASS and C3 NOT_PROVEN. This closes only the source review and changes no Legal Truth or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_CONFIRMED",
+      "resultingChangeReason": "CURRENT_EXACT_OFFICIAL_MCA_LICENSED_DISPENSARY_FRAGMENT_CONFIRMED_ACCESS_CHALLENGE_ONLY_C3_NOT_PROVEN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-7a40f6c33402f2192ed60268",
+      "operationId": "SRCREV-977223bcdd3b0be078f63ba1",
+      "geo": "TW",
+      "sourceUrl": "https://www.fda.gov.tw/ENG/siteListContent.aspx?id=27835&sid=10216",
+      "resolvedAt": "2026-09-13T05:21:44.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "CODEX_VISUAL_REVIEW_20260913",
+      "evidenceUrl": "https://www.fda.gov.tw/ENG/siteListContent.aspx?id=27835&sid=10216",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "TW",
+      "reviewedAttemptId": "SRCATT-bde3348e462d63d8c11101ba",
+      "reviewedSignalIdentitySha256": "23a3eb4f75b27f9cfe6b4d535b9d9adc209bc3b682273d16e4f2aa92aa26e7c5",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "cd22728449fd4e24ccf256cc408377e15f51a038d6cabcffcfcede9090d26f2a",
+      "note": "The retained Taiwan Food and Drug Administration capture visibly identifies the official publisher, the 2026-05-20 update date, patient Schedule 1 to 3 controlled-drug scope, diagnostic and prescription requirements, quantity, approximately seven-working-day processing and the official letter. Fresh HTTP and browser reads on 2026-09-13 show the same operative content; dynamic ASP.NET VIEWSTATE and EVENTVALIDATION fields explain raw-response hash variance rather than a substantive source change. The canonical 285-byte fragment is a normalized summary rather than one byte-contiguous visible quotation, so exactFragment is false and review remains C2 PARTIAL. The evidence-layout URL is not browser chrome or browser origin, and canonical domain visibility remains unproven. C3 is NOT_PROVEN. This closes only the source review and changes no Legal Truth or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_CONFIRMED",
+      "resultingChangeReason": "CURRENT_OFFICIAL_TFDA_PATIENT_CONTROLLED_DRUG_ROUTE_PARTIAL_EXACT_FRAGMENT_C3_NOT_PROVEN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-87c3866fd155686db7e22e52",
+      "operationId": "SRCREV-df2f429f1a46cc8b08e39539",
+      "geo": "US-IN",
+      "sourceUrl": "https://public.courts.in.gov/Decisions/api/Document/Opinion?Id=g7eh3Ltvi4bP609xn__vX8govQsfyPE_tphRn8yyN1iifQlXULfMlKqkkpSPN4dS0",
+      "resolvedAt": "2026-09-13T05:23:57.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "CODEX_VISUAL_REVIEW_20260913",
+      "evidenceUrl": "https://public.courts.in.gov/Decisions/api/Document/Opinion?Id=g7eh3Ltvi4bP609xn__vX8govQsfyPE_tphRn8yyN1iifQlXULfMlKqkkpSPN4dS0",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "US-IN",
+      "reviewedAttemptId": "SRCATT-1afd6b07e372f41fbe5afb02",
+      "reviewedSignalIdentitySha256": "d0b92e1dca8328462ada53c9c9fc6710c896130180da655ef38b9b854c51afbe",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "1c472a451f75729d88ce3cd4f58f7be6d72d6eaea8b09f9b214888b6f0ed2c6a",
+      "note": "The retained Court of Appeals of Indiana capture visibly identifies the official statewide court, opinion 25A-CR-1689, the June 22, 2026 opinion date, and the direct sentence that marijuana possession remains illegal in Indiana with Indiana Code section 35-48-4-11. A fresh official PDF read on 2026-09-13 has the identical document SHA-256 as the semantic-latest V2 signal. The canonical 151-byte fragment prepends a normalized citation introduction that is not present byte-contiguously in the PDF, so exactFragment is false and review remains C2 PARTIAL. The capture has no browser origin or literal official-domain text. C3 is NOT_PROVEN. This closes only the source review and changes no Legal Truth or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_CONFIRMED",
+      "resultingChangeReason": "CURRENT_OFFICIAL_INDIANA_COURT_POSSESSION_FRAGMENT_PARTIAL_EXACT_FRAGMENT_C3_NOT_PROVEN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
     }
   ],
   "attempts": [
@@ -182550,6 +182613,252 @@
       "attestationId": "SRCEVT-03afa7727d28755a909f7f06",
       "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-8f53dff1ccac18af1edb76c2\",\"operationId\":\"SRCREV-6832a0024f5d5d45f7cf266b\",\"reviewedAttemptId\":\"SRCATT-ae473aeb4d079b1fdee35776\",\"reviewedSignalIdentitySha256\":\"cc7e497466eaf4009b0685cea7c4ae43eee11942488aba14d89d26ef438b5258\",\"reviewedSignalPayloadSha256\":\"cc7e497466eaf4009b0685cea7c4ae43eee11942488aba14d89d26ef438b5258\",\"resolutionRegistryPreimageSha256\":\"7402f54dc45d4364f3ea810bf4eb58cfb346fe3c0dfce9ceb64e3baa2fab8e7b\",\"geo\":\"US-WA\",\"sourceUrl\":\"https://lcb.wa.gov/cannabis-license/cannabis-licensing\",\"sourceRecordSha256\":\"9941eb57f5084acdf4c62b65b349df6edd99bf271b49bc17008fa89d3ce79bb1\",\"exactFragmentSha256\":\"bc57539a400bc56d45450fb07025640111652412ad182d82f592f01ab7eab835\",\"visualArtifactSha256\":\"ecb01f7b6e7b6ae21ba3efb85c76ad8d8ffc56df2b5d852077af1faec8e19a45\",\"reviewSha256\":\"a33cd4b99e92a45180bca3cf960418d215188896b43b3d35445624a9caea007d\",\"reviewerId\":\"CODEX_VISUAL_REVIEW_20260913\",\"reviewedAt\":\"2026-09-13T05:02:59.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T05:02:59.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"0c57f6db5151e986a333a1cc2c7b3927a51ccf13c9f12fcc0b19159c2fc23e89\",\"sourceLedgerSha256\":\"709222952c44863766be1ea5a03136cf9e996acca8001d69803eaf2bb85e23b3\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f\"}",
       "attestationSha256": "5e58d171a184c7c6150737dbcde75cbd3851474d565d300658c0df1a2218339d"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-da212dc2b4bc34571ee1dda3",
+      "operationId": "SRCREV-a14db0308204ec1152356b72",
+      "reviewedAttemptId": "SRCATT-03a7122ab1dda7cff36c80fc",
+      "reviewedSignalIdentitySha256": "2a1ee1c10c52d96c6fe6dae403029a99cea0e338bbdf4e96ea9664392836aa31",
+      "reviewedSignalPayloadSha256": "2a1ee1c10c52d96c6fe6dae403029a99cea0e338bbdf4e96ea9664392836aa31",
+      "resolutionRegistryPreimageSha256": "a7c8dc8690754ad41ecb65b425cc3147d9760d4299e4228b32e0fcdc4ebf7fa3",
+      "geo": "US-MD",
+      "sourceUrl": "https://cannabis.maryland.gov/Pages/licensed-dispensary-locations.aspx",
+      "sourceRecord": {
+        "officialPublisher": "Maryland Cannabis Administration",
+        "sourceOwnerGeo": "US-MD",
+        "appliesToGeos": [
+          "US-MD"
+        ],
+        "legalBasisForExtension": "Direct Maryland State statute or Maryland Cannabis Administration material applicable to Maryland only.",
+        "sourceType": "REGULATOR_OPERATIONAL_REGISTRY",
+        "primaryOrContext": "OPERATIONAL",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "The Maryland Cannabis Administration has issued licenses for the Adult-Use and Medical Marketplace to the dispensaries shown on this page. A full listing can be found on the MCA Public Data Dashboard.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "a97283fb9540f13e7e7bf5b0b8e0add2771f22fa7d094488f3449399f07c9308",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "31e7e32285c83abdf4e6d56a392ce05ed260e4a31d51f11ab05cce050f9160f9",
+          "byteLength": 200,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "891cca6e9a31e4fd8823a533d9ed16036734132a7e29b74dc5689c5ac10fbcae",
+          "byteLength": 290463,
+          "mediaType": "image/jpeg",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/US-MD-mca-dispensary-locations-current-2026-08-10.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PASS",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "CODEX_VISUAL_REVIEW_20260913",
+        "reviewedAt": "2026-09-13T05:18:24.000Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": true,
+          "officialDomainText": true,
+          "exactFragment": true,
+          "scope": true,
+          "current": true,
+          "effective": true,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-13T05:18:24.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "7f7229da75dba20367573f96d4fc74c8c568b2316dd5edb3e0e1376860799820",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "5e58d171a184c7c6150737dbcde75cbd3851474d565d300658c0df1a2218339d",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-ca52afe9bc0cfc4111dcfe62",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-da212dc2b4bc34571ee1dda3\",\"operationId\":\"SRCREV-a14db0308204ec1152356b72\",\"reviewedAttemptId\":\"SRCATT-03a7122ab1dda7cff36c80fc\",\"reviewedSignalIdentitySha256\":\"2a1ee1c10c52d96c6fe6dae403029a99cea0e338bbdf4e96ea9664392836aa31\",\"reviewedSignalPayloadSha256\":\"2a1ee1c10c52d96c6fe6dae403029a99cea0e338bbdf4e96ea9664392836aa31\",\"resolutionRegistryPreimageSha256\":\"a7c8dc8690754ad41ecb65b425cc3147d9760d4299e4228b32e0fcdc4ebf7fa3\",\"geo\":\"US-MD\",\"sourceUrl\":\"https://cannabis.maryland.gov/Pages/licensed-dispensary-locations.aspx\",\"sourceRecordSha256\":\"a97283fb9540f13e7e7bf5b0b8e0add2771f22fa7d094488f3449399f07c9308\",\"exactFragmentSha256\":\"31e7e32285c83abdf4e6d56a392ce05ed260e4a31d51f11ab05cce050f9160f9\",\"visualArtifactSha256\":\"891cca6e9a31e4fd8823a533d9ed16036734132a7e29b74dc5689c5ac10fbcae\",\"reviewSha256\":\"36c8e78fd98e23faef8dea5466dc380790e151567fa4d31ab77b6c682458d76a\",\"reviewerId\":\"CODEX_VISUAL_REVIEW_20260913\",\"reviewedAt\":\"2026-09-13T05:18:24.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T05:18:24.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"5e58d171a184c7c6150737dbcde75cbd3851474d565d300658c0df1a2218339d\",\"sourceLedgerSha256\":\"7f7229da75dba20367573f96d4fc74c8c568b2316dd5edb3e0e1376860799820\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f\"}",
+      "attestationSha256": "d5fe244951d7df7f9aeee12fecb956ea6beca60928756fc64817234808f0dd91"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-7a40f6c33402f2192ed60268",
+      "operationId": "SRCREV-977223bcdd3b0be078f63ba1",
+      "reviewedAttemptId": "SRCATT-bde3348e462d63d8c11101ba",
+      "reviewedSignalIdentitySha256": "23a3eb4f75b27f9cfe6b4d535b9d9adc209bc3b682273d16e4f2aa92aa26e7c5",
+      "reviewedSignalPayloadSha256": "23a3eb4f75b27f9cfe6b4d535b9d9adc209bc3b682273d16e4f2aa92aa26e7c5",
+      "resolutionRegistryPreimageSha256": "cd22728449fd4e24ccf256cc408377e15f51a038d6cabcffcfcede9090d26f2a",
+      "geo": "TW",
+      "sourceUrl": "https://www.fda.gov.tw/ENG/siteListContent.aspx?id=27835&sid=10216",
+      "sourceRecord": {
+        "officialPublisher": "TAIWAN_FOOD_AND_DRUG_ADMINISTRATION",
+        "sourceOwnerGeo": "TW",
+        "appliesToGeos": [
+          "TW"
+        ],
+        "legalBasisForExtension": "DIRECT_TAIWAN_FDA_OPERATIONAL_CONTROLLED_DRUGS_PATIENT_PROCEDURE",
+        "sourceType": "OFFICIAL_OPERATIONAL_PATIENT_GUIDANCE",
+        "primaryOrContext": "OPERATIONAL_PATIENT_IMPORT_ROUTE",
+        "cannabisSpecific": false,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "Updated 20 May 2026: patients carrying Schedule 1, 2 or 3 controlled drugs for legitimate personal use file a TFDA statement with physician diagnostic certificate, prescription information, quantity and label; TFDA processes it in about seven working days and mails an official letter.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "2b1f9c15604b76cc58639262a617ef788bc7fdf046a4e0544e39a3ac563122be",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "a88d52d94790582603f72b613b7fd1d6b53cddb7de3efca8f7b17fc12a72b852",
+          "byteLength": 285,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "f502ff2081095391f1a8ce91f84d589526e940d585407708f290679e82623fc7",
+          "byteLength": 285553,
+          "mediaType": "image/png",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/TW-fda-patient-schedule-1-3-import-current-2026-08-10.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "CODEX_VISUAL_REVIEW_20260913",
+        "reviewedAt": "2026-09-13T05:21:44.000Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": true,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": true,
+          "effective": true,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-13T05:21:44.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "7f7229da75dba20367573f96d4fc74c8c568b2316dd5edb3e0e1376860799820",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "d5fe244951d7df7f9aeee12fecb956ea6beca60928756fc64817234808f0dd91",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-4a35602faeb84c822a79a28e",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-7a40f6c33402f2192ed60268\",\"operationId\":\"SRCREV-977223bcdd3b0be078f63ba1\",\"reviewedAttemptId\":\"SRCATT-bde3348e462d63d8c11101ba\",\"reviewedSignalIdentitySha256\":\"23a3eb4f75b27f9cfe6b4d535b9d9adc209bc3b682273d16e4f2aa92aa26e7c5\",\"reviewedSignalPayloadSha256\":\"23a3eb4f75b27f9cfe6b4d535b9d9adc209bc3b682273d16e4f2aa92aa26e7c5\",\"resolutionRegistryPreimageSha256\":\"cd22728449fd4e24ccf256cc408377e15f51a038d6cabcffcfcede9090d26f2a\",\"geo\":\"TW\",\"sourceUrl\":\"https://www.fda.gov.tw/ENG/siteListContent.aspx?id=27835&sid=10216\",\"sourceRecordSha256\":\"2b1f9c15604b76cc58639262a617ef788bc7fdf046a4e0544e39a3ac563122be\",\"exactFragmentSha256\":\"a88d52d94790582603f72b613b7fd1d6b53cddb7de3efca8f7b17fc12a72b852\",\"visualArtifactSha256\":\"f502ff2081095391f1a8ce91f84d589526e940d585407708f290679e82623fc7\",\"reviewSha256\":\"b1ec0bff0bf0062ad848ecadb92c0cb4420adf7a6449b34071519193249ba2a1\",\"reviewerId\":\"CODEX_VISUAL_REVIEW_20260913\",\"reviewedAt\":\"2026-09-13T05:21:44.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T05:21:44.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"d5fe244951d7df7f9aeee12fecb956ea6beca60928756fc64817234808f0dd91\",\"sourceLedgerSha256\":\"7f7229da75dba20367573f96d4fc74c8c568b2316dd5edb3e0e1376860799820\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f\"}",
+      "attestationSha256": "20e8413c12ca4d48bb54ada2540a33187249d7bbdb470535dc651dcfb4f6ba19"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-87c3866fd155686db7e22e52",
+      "operationId": "SRCREV-df2f429f1a46cc8b08e39539",
+      "reviewedAttemptId": "SRCATT-1afd6b07e372f41fbe5afb02",
+      "reviewedSignalIdentitySha256": "d0b92e1dca8328462ada53c9c9fc6710c896130180da655ef38b9b854c51afbe",
+      "reviewedSignalPayloadSha256": "d0b92e1dca8328462ada53c9c9fc6710c896130180da655ef38b9b854c51afbe",
+      "resolutionRegistryPreimageSha256": "1c472a451f75729d88ce3cd4f58f7be6d72d6eaea8b09f9b214888b6f0ed2c6a",
+      "geo": "US-IN",
+      "sourceUrl": "https://public.courts.in.gov/Decisions/api/Document/Opinion?Id=g7eh3Ltvi4bP609xn__vX8govQsfyPE_tphRn8yyN1iifQlXULfMlKqkkpSPN4dS0",
+      "sourceRecord": {
+        "officialPublisher": "COURT_OF_APPEALS_OF_INDIANA",
+        "sourceOwnerGeo": "US-IN",
+        "appliesToGeos": [
+          "US-IN"
+        ],
+        "legalBasisForExtension": "DIRECT_STATEWIDE_COURT_INTERPRETATION_OF_INDIANA_CODE",
+        "sourceType": "COURT_DECISION",
+        "primaryOrContext": "PRIMARY_JUDICIAL_INTERPRETATION",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "Opinion 25A-CR-1689 states: “marijuana possession remains illegal in Indiana. See Ind. Code § 35-48-4-11 (outlawing the possession of marijuana).”",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "94cfa5af457d98d4828154d31fdb421f26fc03a514986c8dcec7017c3442c3a8",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "1c776894e08ef2702879d45f64c8a8ba38a8149878b47d1815decd856a0b4c23",
+          "byteLength": 151,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "25eaed323e2bd81610e2bf3fbfcf03bb84e33ed0fe81f8009b0b857c41a93008",
+          "byteLength": 331537,
+          "mediaType": "image/png",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/US-IN-court-minney-possession-illegal-current-2026-08-10.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "CODEX_VISUAL_REVIEW_20260913",
+        "reviewedAt": "2026-09-13T05:23:57.000Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": true,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": true,
+          "effective": true,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-13T05:23:57.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "7f7229da75dba20367573f96d4fc74c8c568b2316dd5edb3e0e1376860799820",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "20e8413c12ca4d48bb54ada2540a33187249d7bbdb470535dc651dcfb4f6ba19",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-1ac453c0f54cf0cc1b9069a1",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-87c3866fd155686db7e22e52\",\"operationId\":\"SRCREV-df2f429f1a46cc8b08e39539\",\"reviewedAttemptId\":\"SRCATT-1afd6b07e372f41fbe5afb02\",\"reviewedSignalIdentitySha256\":\"d0b92e1dca8328462ada53c9c9fc6710c896130180da655ef38b9b854c51afbe\",\"reviewedSignalPayloadSha256\":\"d0b92e1dca8328462ada53c9c9fc6710c896130180da655ef38b9b854c51afbe\",\"resolutionRegistryPreimageSha256\":\"1c472a451f75729d88ce3cd4f58f7be6d72d6eaea8b09f9b214888b6f0ed2c6a\",\"geo\":\"US-IN\",\"sourceUrl\":\"https://public.courts.in.gov/Decisions/api/Document/Opinion?Id=g7eh3Ltvi4bP609xn__vX8govQsfyPE_tphRn8yyN1iifQlXULfMlKqkkpSPN4dS0\",\"sourceRecordSha256\":\"94cfa5af457d98d4828154d31fdb421f26fc03a514986c8dcec7017c3442c3a8\",\"exactFragmentSha256\":\"1c776894e08ef2702879d45f64c8a8ba38a8149878b47d1815decd856a0b4c23\",\"visualArtifactSha256\":\"25eaed323e2bd81610e2bf3fbfcf03bb84e33ed0fe81f8009b0b857c41a93008\",\"reviewSha256\":\"89f1ee1afcaef77339e45c6e4ecdfa633d7ed7ca1b5c30188856f921dece07f3\",\"reviewerId\":\"CODEX_VISUAL_REVIEW_20260913\",\"reviewedAt\":\"2026-09-13T05:23:57.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T05:23:57.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"20e8413c12ca4d48bb54ada2540a33187249d7bbdb470535dc651dcfb4f6ba19\",\"sourceLedgerSha256\":\"7f7229da75dba20367573f96d4fc74c8c568b2316dd5edb3e0e1376860799820\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f\"}",
+      "attestationSha256": "9f78b7f6d883445e74e1d646912620119e521568d9443db3436c5b62726d2f1c"
     }
   ]
 }
