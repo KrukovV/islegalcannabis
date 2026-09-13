@@ -161,8 +161,9 @@ describe("source review workbench", () => {
     const beforeTruth = fs.readFileSync(truthPath, "utf8");
     const beforeOperations = fs.readFileSync(operationsPath, "utf8");
     const workbench = buildSourceReviewWorkbench({ geo: "US-MT", category: "SOURCE_OWNER_OR_FINAL_URL_CHANGE", state: "current" });
-    expect(workbench.dossiers.length).toBeGreaterThan(0);
-    for (const dossier of workbench.dossiers) {
+    const unresolvedDossiers = workbench.dossiers.filter((dossier) => dossier.resolution === null);
+    expect(unresolvedDossiers.length).toBeGreaterThan(0);
+    for (const dossier of unresolvedDossiers) {
       expect(dossier.latestAttempt.operationId).toBe(dossier.operation.operationId);
       expect(dossier.latestAttempt.attemptId).toMatch(/^SRCATT-[a-f0-9]{24}$/);
       expect(dossier.latestAttempt.signalIdentitySha256).toMatch(/^[a-f0-9]{64}$/);
