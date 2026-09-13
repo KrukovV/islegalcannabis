@@ -292,15 +292,22 @@ describe("source review workbench", () => {
     }
   });
 
-  it("projects every retained resolution attestation as a machine-bound post-hoc review", () => {
+  it("projects every retained resolution attestation with its honest pre-close or post-hoc state", () => {
+    const registry = loadSourceReviewOperationsRegistrySnapshot().registry;
+    const postHoc = registry.evidenceAttestations.filter((entry) => entry.attestationMode === "POST_RESOLUTION_REATTESTATION").length;
+    const preClose = registry.evidenceAttestations.filter((entry) => entry.attestationMode === "PRE_CLOSE_ATOMIC").length;
     const resolved = buildSourceReviewWorkbench({ state: "resolved" });
-    expect(resolved.summary.matchingResolved).toBe(5);
-    expect(resolved.summary.matchingEvidenceAttested).toBe(5);
-    expect(resolved.summary.matchingEvidenceBoundPreClose).toBe(0);
-    expect(resolved.summary.matchingEvidenceBoundPostHoc).toBe(5);
+    expect(resolved.summary.matchingResolved).toBe(registry.resolutions.length);
+    expect(resolved.summary.matchingEvidenceAttested).toBe(registry.evidenceAttestations.length);
+    expect(resolved.summary.matchingEvidenceBoundPreClose).toBe(preClose);
+    expect(resolved.summary.matchingEvidenceBoundPostHoc).toBe(postHoc);
     expect(resolved.summary.matchingEvidenceUnboundLegacy).toBe(0);
     for (const dossier of resolved.dossiers) {
-      expect(dossier.evidenceAttestationState).toBe("BOUND_POST_HOC");
+      expect(dossier.evidenceAttestationState).toBe(
+        dossier.evidenceAttestation?.attestationMode === "PRE_CLOSE_ATOMIC"
+          ? "BOUND_PRE_CLOSE"
+          : "BOUND_POST_HOC"
+      );
       expect(dossier.evidenceAttestation).toMatchObject({
         evidenceFormat: "SOURCE_REVIEW_EVIDENCE_V1",
         resolutionId: dossier.resolution?.resolutionId,

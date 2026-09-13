@@ -318,7 +318,8 @@ describe("source review operations", () => {
   it("validates every schema-v7 human evidence attestation against its exact resolution and attempt", () => {
     const registry = loadSourceReviewOperationsRegistry();
     expect(registry.evidenceAttestations).toHaveLength(registry.resolutions.length);
-    expect(registry.evidenceAttestations).toHaveLength(5);
+    expect(registry.evidenceAttestations.filter((entry) => entry.attestationMode === "POST_RESOLUTION_REATTESTATION")).toHaveLength(5);
+    expect(registry.evidenceAttestations.some((entry) => entry.attestationMode === "PRE_CLOSE_ATOMIC")).toBe(true);
     const resolutions = new Map(registry.resolutions.map((resolution) => [resolution.resolutionId, resolution]));
     const attempts = new Map(registry.attempts.map((attempt) => [attempt.attemptId, attempt]));
     for (const [index, attestation] of registry.evidenceAttestations.entries()) {
@@ -331,7 +332,7 @@ describe("source review operations", () => {
         reviewedSignalIdentitySha256: attempt.signalIdentitySha256,
         reviewedSignalPayloadSha256: attempt.signalPayloadSha256,
         resolutionRegistryPreimageSha256: resolution.reviewRegistrySha256,
-        attestationMode: "POST_RESOLUTION_REATTESTATION",
+        attestationMode: expect.stringMatching(/^(?:POST_RESOLUTION_REATTESTATION|PRE_CLOSE_ATOMIC)$/),
         previousAttestationSha256: index === 0
           ? "GENESIS"
           : registry.evidenceAttestations[index - 1].attestationSha256,

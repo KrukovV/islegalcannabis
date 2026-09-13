@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import type { SourceReviewWorkbench } from "@/truth-map/sourceReviewWorkbench";
+import { loadSourceReviewOperationsRegistrySnapshot } from "@/truth-map/sourceReviewOperations";
 
 const workbenchOverride = vi.hoisted(() => ({ value: null as SourceReviewWorkbench | null }));
 
@@ -97,18 +98,26 @@ describe("local source review workbench API", () => {
   });
 
   it("returns committed machine-bound evidence without treating the artifact locator as identity", async () => {
+    const registry = loadSourceReviewOperationsRegistrySnapshot().registry;
+    const preClose = registry.evidenceAttestations.filter((entry) => entry.attestationMode === "PRE_CLOSE_ATOMIC").length;
+    const postHoc = registry.evidenceAttestations.filter((entry) => entry.attestationMode === "POST_RESOLUTION_REATTESTATION").length;
     const response = await route.GET(localRequest("?state=resolved"));
     expect(response.status).toBe(200);
     const payload = await response.json();
     expect(payload.summary).toEqual(expect.objectContaining({
-      matchingResolved: 5,
-      matchingEvidenceAttested: 5,
-      matchingEvidenceBoundPostHoc: 5,
+      matchingResolved: registry.resolutions.length,
+      matchingEvidenceAttested: registry.evidenceAttestations.length,
+      matchingEvidenceBoundPreClose: preClose,
+      matchingEvidenceBoundPostHoc: postHoc,
       matchingEvidenceUnboundLegacy: 0
     }));
-    expect(payload.dossiers).toHaveLength(5);
+    expect(payload.dossiers).toHaveLength(payload.summary.matchingResolved);
     for (const dossier of payload.dossiers) {
-      expect(dossier.evidenceAttestationState).toBe("BOUND_POST_HOC");
+      expect(dossier.evidenceAttestationState).toBe(
+        dossier.evidenceAttestation?.attestationMode === "PRE_CLOSE_ATOMIC"
+          ? "BOUND_PRE_CLOSE"
+          : "BOUND_POST_HOC"
+      );
       expect(dossier.evidenceAttestation).toEqual(expect.objectContaining({
         evidenceFormat: "SOURCE_REVIEW_EVIDENCE_V1",
         attestationSha256: expect.stringMatching(/^[a-f0-9]{64}$/),

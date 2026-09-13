@@ -17,6 +17,7 @@ const OFFICIAL_REGISTRY_PATH = path.join(ROOT, "data/official/official_domains.s
 const OWNERSHIP_PATH = path.join(ROOT, "data/ssot/official_link_ownership.json");
 const CANONICAL_GEOS_PATH = path.join(ROOT, "data/reviews/geo-list-307.json");
 const ATTESTED_AT = "2026-09-12T18:00:31.300Z";
+const ACCEPTED_SCHEMA_V6_SHA256 = "9da239d48aa88a706bf43b813f6937e2feca13ff2e164916dfaee3d178775386";
 
 function sha256(bytes) {
   return crypto.createHash("sha256").update(bytes).digest("hex");
@@ -24,9 +25,22 @@ function sha256(bytes) {
 
 function writeLegacyV6Registry(registryPath) {
   const source = JSON.parse(fs.readFileSync(SOURCE_REGISTRY_PATH, "utf8"));
-  const legacy = { ...source, schemaVersion: 6 };
+  const migrationResolutionIds = new Set(
+    SOURCE_REVIEW_EVIDENCE_V7_MIGRATION_ITEMS.map((item) => item.resolutionId)
+  );
+  const legacy = {
+    ...source,
+    schemaVersion: 6,
+    resolutions: source.resolutions.filter((resolution) => migrationResolutionIds.has(resolution.resolutionId))
+  };
   delete legacy.evidenceAttestations;
-  fs.writeFileSync(registryPath, `${JSON.stringify(legacy, null, 2)}\n`);
+  const legacyBytes = Buffer.from(`${JSON.stringify(legacy, null, 2)}\n`, "utf8");
+  assert.equal(
+    sha256(legacyBytes),
+    ACCEPTED_SCHEMA_V6_SHA256,
+    "migration tests must use the accepted schema-v6 preimage, not later append-only resolutions"
+  );
+  fs.writeFileSync(registryPath, legacyBytes);
   return legacy;
 }
 
