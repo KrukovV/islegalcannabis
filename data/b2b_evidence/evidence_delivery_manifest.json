@@ -1472,7 +1472,7 @@
       "artifacts": {
         "json": {
           "path": "/api/truth-map/b2b/evidence-passport/fk",
-          "sha256": "8fdd2cd4ce9fbd4fe925eca25227401bddd006396efee406de633510fe500210"
+          "sha256": "ffd7877fad49096e6e061c92daa838c780d2b431090582877f37caef44b8544d"
         },
         "embed": {
           "path": "/api/truth-map/b2b/embed/fk",
@@ -1480,7 +1480,7 @@
         },
         "printPdf": {
           "path": "/api/truth-map/b2b/print/fk",
-          "sha256": "4e8410fdcc20ac461d89453b2d6c225a43ae9a2c518141d25c0ac2094ff63ff2",
+          "sha256": "73164a73d751e2fa8017aca88040efb344aa5d277cd85c6e8688c289528bbc64",
           "delivery": "PRINT_HTML_SAVE_AS_PDF"
         }
       }
@@ -6146,5 +6146,5 @@
       }
     }
   ],
-  "manifestSha256": "a3c1518aa4e8107c9e01285d09040b180ddfdc18f2904b00066c832cb9a6439a"
+  "manifestSha256": "95f4422614572394fce4cb9b5ace9869525226b87040cd3cf2a423fb098dae66"
 }
