@@ -52301,6 +52301,69 @@
       "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
       "resultingChangeReason": "KH_NACD_LAW_BYTE_STABLE_PARTIAL_TABLE_I_HEADING_C3_NOT_PROVEN",
       "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-dc92ef8add52dcc42adac9f9",
+      "operationId": "SRCREV-399fb181d5e13ae4abb56bf0",
+      "geo": "ID",
+      "sourceUrl": "https://jdih.bnn.go.id/internal/assets/assets/produk/UU/2009/10/UU_Nomor_35_tahun_2009.pdf",
+      "resolvedAt": "2026-09-13T20:11:20.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-current-source-review",
+      "evidenceUrl": "https://jdih.bnn.go.id/internal/assets/assets/produk/UU/2009/10/UU_Nomor_35_tahun_2009.pdf",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "ID",
+      "reviewedAttemptId": "SRCATT-0484d700b486d2d85f722cb3",
+      "reviewedSignalIdentitySha256": "479182019ffda5bace0b0b0ff9a704e3e2da06632499a94e9f87414e109b4fae",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "c2f58e68a9178bcb937e772edec03d911aacc42f954a86b0ad3278fda328252f",
+      "note": "Two fresh exact URL reads on 2026-09-13 returned HTTP 200 with the retained raw final URL, exact 383981 bytes and SHA-256 94cccf53d6a8a1e6446281a9b15121ca359aa2b1158fa333e35aac93eb81b232. The retained primary crop visibly shows Article 4 naming Indonesia, Article 7 medical or scientific scope and Article 8(1) Group-I health-service prohibition. It does not show the official publisher or domain, browser origin, current or effective state, cannabis classification, offence provisions or the complete multi-article English canonical fragment. Supporting retained crops were reviewed but are not substituted for this bound artifact. This closes only the exact semantic review signal.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
+      "resultingChangeReason": "ID_BNN_LAW35_BYTE_STABLE_PARTIAL_MULTI_ARTICLE_C3_NOT_PROVEN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-1d4755639c24160a65c5114b",
+      "operationId": "SRCREV-5f53212af4ff33ee998d68f9",
+      "geo": "SI",
+      "sourceUrl": "https://pisrs.si/api/datoteke/integracije/358453404",
+      "resolvedAt": "2026-09-13T20:13:49.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-current-source-review",
+      "evidenceUrl": "https://pisrs.si/api/datoteke/integracije/358453404",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "SI",
+      "reviewedAttemptId": "SRCATT-623010f7089b30a6db380301",
+      "reviewedSignalIdentitySha256": "13b1df6c6736f7ff9d7cce3cda14fd7a3fec11f6bc3ab8dfca50b0cd09c2795f",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "0037aed483f1f17e6e5f007c3be05b4dc22d65fc180230d29fc76885fdbacacd",
+      "note": "Two fresh exact URL reads on 2026-09-13 returned HTTP 200 with the retained raw final URL, exact 107728 bytes and SHA-256 121926e28533d10fb12642f24ede1b78eb7b1eaf5936c2594e0a46bf096aed42. The retained artifact visibly shows Article 4 medical-cannabis purpose, Article 5 continuous supply duty and Article 6 JAZMP permit and oversight functions, including the Republic of Slovenia agency identity. It does not show the PISRS publisher or domain, browser origin, title or effective date, present current-state statement, Articles 8(2)-(3), or the exact English canonical fragment. This closes only the exact semantic review signal.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
+      "resultingChangeReason": "SI_MEDICAL_ACT_BYTE_STABLE_PARTIAL_ARTICLES_4_TO_6_C3_NOT_PROVEN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-6651338a4b5f27d5cc5ee658",
+      "operationId": "SRCREV-2d3d2ea10b3ce9ace3ade06a",
+      "geo": "SI",
+      "sourceUrl": "https://www.jazmp.si/fileadmin/datoteke/seznami/SRD/Promet%20KMN.pdf",
+      "resolvedAt": "2026-09-13T20:14:42.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-current-source-review",
+      "evidenceUrl": "https://www.jazmp.si/fileadmin/datoteke/seznami/SRD/Promet%20KMN.pdf",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "SI",
+      "reviewedAttemptId": "SRCATT-02f0b8fcfa19246be52ba0b9",
+      "reviewedSignalIdentitySha256": "87678a26cc754a45bf8b21e1ed68123b62430e5f38787167faec740082de9353",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "1a2e3c955ae1edff7c2be19abf19ee938b456250407026af908e655aedd04594",
+      "note": "Two fresh exact URL reads on 2026-09-13 returned HTTP 200 with the retained raw final URL, exact 17619 bytes and SHA-256 ee199d296ea2c2576aa7e3223dcefe3ddaee8f5d75eee3f19a33352ce2862176. The retained artifact visibly shows the medical-cannabis trade-permit list heading, its 31 July 2026 as-of date and four named permit holders. It does not show JAZMP publisher or official domain, browser origin, an explicit Republic of Slovenia applicability label, or the exact English canonical fragment. This closes only the exact semantic review signal.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
+      "resultingChangeReason": "SI_JAZMP_PERMIT_LIST_BYTE_STABLE_PARTIAL_CURRENT_HOLDERS_C3_NOT_PROVEN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
     }
   ],
   "attempts": [
@@ -188441,6 +188504,252 @@
       "attestationId": "SRCEVT-677b5c486a088665c4fca94a",
       "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-a409306d5a35e3116a589f63\",\"operationId\":\"SRCREV-5352f5a9176d976684b06e47\",\"reviewedAttemptId\":\"SRCATT-16b31278ddd7ea8785067adf\",\"reviewedSignalIdentitySha256\":\"6e08999767bc2e97299f9dd84e15fceb8bbbc05852eba8cb36be6a90e155a934\",\"reviewedSignalPayloadSha256\":\"6e08999767bc2e97299f9dd84e15fceb8bbbc05852eba8cb36be6a90e155a934\",\"resolutionRegistryPreimageSha256\":\"72bd9012aff7f95d565dfd0c36e88f4f06ef4f4be63c180de9b80b47e4c40012\",\"geo\":\"KH\",\"sourceUrl\":\"https://nacd.gov.kh/upload/legaldocs/1/1778341557legal.pdf\",\"sourceRecordSha256\":\"f5f5e9f7831ae52fd2dd69e93351155c6735ce74a8c40c84343e1463461e9f15\",\"exactFragmentSha256\":\"e4ce1d6955bb83f273b96f1f9bdba9de578ba2bcb8168e9079f894b8043efcf8\",\"visualArtifactSha256\":\"348e909586516080ff077db6a3f62398b7b67cf088c21713b3b81c4b34488540\",\"reviewSha256\":\"5a271e6bed937e4f4510ff1e644f8567c20fc1714d7840c2fc62760f4027f1a8\",\"reviewerId\":\"codex-current-source-review\",\"reviewedAt\":\"2026-09-13T19:38:26.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T19:38:26.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"0bb8879bd4ba7cb33ced73f0f5cfe9daa01b075bf56cb93a2d81653ac3699b49\",\"sourceLedgerSha256\":\"d1f96a61b4aa798c59639e7abbcdd73357d58efc0ccc1c19eefc0d0587875bad\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
       "attestationSha256": "b9d31c3a17d5f408723a2b80098762a7f187009d720a6fa7a2cda0d8ffaabb40"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-dc92ef8add52dcc42adac9f9",
+      "operationId": "SRCREV-399fb181d5e13ae4abb56bf0",
+      "reviewedAttemptId": "SRCATT-0484d700b486d2d85f722cb3",
+      "reviewedSignalIdentitySha256": "479182019ffda5bace0b0b0ff9a704e3e2da06632499a94e9f87414e109b4fae",
+      "reviewedSignalPayloadSha256": "479182019ffda5bace0b0b0ff9a704e3e2da06632499a94e9f87414e109b4fae",
+      "resolutionRegistryPreimageSha256": "c2f58e68a9178bcb937e772edec03d911aacc42f954a86b0ad3278fda328252f",
+      "geo": "ID",
+      "sourceUrl": "https://jdih.bnn.go.id/internal/assets/assets/produk/UU/2009/10/UU_Nomor_35_tahun_2009.pdf",
+      "sourceRecord": {
+        "officialPublisher": "Badan Narkotika Nasional Republik Indonesia (BNN) JDIH",
+        "sourceOwnerGeo": "ID",
+        "appliesToGeos": [
+          "ID"
+        ],
+        "legalBasisForExtension": "National legislation and national regulator material of the Republic of Indonesia applies to Indonesia (ID); no dependency, claimant, country/state or alias bridge used.",
+        "sourceType": "primary_statute_pdf",
+        "primaryOrContext": "primary",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "Pasal 8(1): Narkotika Golongan I dilarang digunakan untuk kepentingan pelayanan kesehatan. Pasal 8(2): only limited science/technology and diagnostic/laboratory reagent use after Minister approval on BPOM recommendation. Pasal 111, 113, 114 and 127 criminalise unauthorised Group I conduct, including plant possession/cultivation, production/import/export/distribution, sale/transfer, and self-use.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "50a36f0f244afb31b98a323a48a5f695616ca50bd8b98c336083c56f88ac79c8",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "7eca65aca8e0fa1d16dad75d5743e36b50ed26dcd0b33a6e1b9fd12a4d6d84a9",
+          "byteLength": 398,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "cc8e74b250cb41cd904cca787f047c7814ff084fc9e3b92a6cb53e85a0edc597",
+          "byteLength": 387263,
+          "mediaType": "image/jpeg",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/ID-bnn-law35-p06-health-service-prohibition-current-2026-08-10.jpg",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-current-source-review",
+        "reviewedAt": "2026-09-13T20:11:20.000Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": false,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": false,
+          "effective": false,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-13T20:11:20.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "769c823b68b0da588e9f742d007eae599eced735999b102380ce739fcd697b7b",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "b9d31c3a17d5f408723a2b80098762a7f187009d720a6fa7a2cda0d8ffaabb40",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-a01ac31de8b78e00f518c5cc",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-dc92ef8add52dcc42adac9f9\",\"operationId\":\"SRCREV-399fb181d5e13ae4abb56bf0\",\"reviewedAttemptId\":\"SRCATT-0484d700b486d2d85f722cb3\",\"reviewedSignalIdentitySha256\":\"479182019ffda5bace0b0b0ff9a704e3e2da06632499a94e9f87414e109b4fae\",\"reviewedSignalPayloadSha256\":\"479182019ffda5bace0b0b0ff9a704e3e2da06632499a94e9f87414e109b4fae\",\"resolutionRegistryPreimageSha256\":\"c2f58e68a9178bcb937e772edec03d911aacc42f954a86b0ad3278fda328252f\",\"geo\":\"ID\",\"sourceUrl\":\"https://jdih.bnn.go.id/internal/assets/assets/produk/UU/2009/10/UU_Nomor_35_tahun_2009.pdf\",\"sourceRecordSha256\":\"50a36f0f244afb31b98a323a48a5f695616ca50bd8b98c336083c56f88ac79c8\",\"exactFragmentSha256\":\"7eca65aca8e0fa1d16dad75d5743e36b50ed26dcd0b33a6e1b9fd12a4d6d84a9\",\"visualArtifactSha256\":\"cc8e74b250cb41cd904cca787f047c7814ff084fc9e3b92a6cb53e85a0edc597\",\"reviewSha256\":\"2dc0108ad5bd04414e6c50369757e08d3120840239f9ff2977b478412994fefa\",\"reviewerId\":\"codex-current-source-review\",\"reviewedAt\":\"2026-09-13T20:11:20.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T20:11:20.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"b9d31c3a17d5f408723a2b80098762a7f187009d720a6fa7a2cda0d8ffaabb40\",\"sourceLedgerSha256\":\"769c823b68b0da588e9f742d007eae599eced735999b102380ce739fcd697b7b\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "0ccab6bb4f5e85b0d0a547f5baf34a31dd28ab7ffb5b07e971b65c4e287327c9"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-1d4755639c24160a65c5114b",
+      "operationId": "SRCREV-5f53212af4ff33ee998d68f9",
+      "reviewedAttemptId": "SRCATT-623010f7089b30a6db380301",
+      "reviewedSignalIdentitySha256": "13b1df6c6736f7ff9d7cce3cda14fd7a3fec11f6bc3ab8dfca50b0cd09c2795f",
+      "reviewedSignalPayloadSha256": "13b1df6c6736f7ff9d7cce3cda14fd7a3fec11f6bc3ab8dfca50b0cd09c2795f",
+      "resolutionRegistryPreimageSha256": "0037aed483f1f17e6e5f007c3be05b4dc22d65fc180230d29fc76885fdbacacd",
+      "geo": "SI",
+      "sourceUrl": "https://pisrs.si/api/datoteke/integracije/358453404",
+      "sourceRecord": {
+        "officialPublisher": "Pravno-informacijski sistem Republike Slovenije (PISRS)",
+        "sourceOwnerGeo": "SI",
+        "appliesToGeos": [
+          "SI"
+        ],
+        "legalBasisForExtension": "NATIONAL_LAW_OR_REGULATOR_APPLIES_TO_REPUBLIC_OF_SLOVENIA",
+        "sourceType": "CURRENT_PRIMARY_STATUTE_OFFICIAL_PDF",
+        "primaryOrContext": "PRIMARY",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "Article 5 requires JAZMP, wholesalers and pharmacy providers to ensure permanent uninterrupted supply of medical cannabis. Article 8(2) exempts pharmacy and health-care providers acting within their statutory roles from a separate permit; Article 8(3) permits medical-cannabis possession for persons who obtain it on a physician or veterinary prescription.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "d28f393e0df3c9517fa920997b5a0787c7fa3952b0c53d3d5cb93cb5a3018e8e",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "d1881e4857a85bf574a27efa3fb3295e194bf2c12031e56e3046f16d1c8c44a2",
+          "byteLength": 356,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "8a5aa071016037a96d99c16b144d2413cfb7960cd50e626e3afb60306fc1a558",
+          "byteLength": 239247,
+          "mediaType": "image/png",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/SI-medical-act-patient-prescription-current-2025-09-27.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-current-source-review",
+        "reviewedAt": "2026-09-13T20:13:49.000Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": false,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": false,
+          "effective": false,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-13T20:13:49.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "769c823b68b0da588e9f742d007eae599eced735999b102380ce739fcd697b7b",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "0ccab6bb4f5e85b0d0a547f5baf34a31dd28ab7ffb5b07e971b65c4e287327c9",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-79356748c63a6388a3d0c987",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-1d4755639c24160a65c5114b\",\"operationId\":\"SRCREV-5f53212af4ff33ee998d68f9\",\"reviewedAttemptId\":\"SRCATT-623010f7089b30a6db380301\",\"reviewedSignalIdentitySha256\":\"13b1df6c6736f7ff9d7cce3cda14fd7a3fec11f6bc3ab8dfca50b0cd09c2795f\",\"reviewedSignalPayloadSha256\":\"13b1df6c6736f7ff9d7cce3cda14fd7a3fec11f6bc3ab8dfca50b0cd09c2795f\",\"resolutionRegistryPreimageSha256\":\"0037aed483f1f17e6e5f007c3be05b4dc22d65fc180230d29fc76885fdbacacd\",\"geo\":\"SI\",\"sourceUrl\":\"https://pisrs.si/api/datoteke/integracije/358453404\",\"sourceRecordSha256\":\"d28f393e0df3c9517fa920997b5a0787c7fa3952b0c53d3d5cb93cb5a3018e8e\",\"exactFragmentSha256\":\"d1881e4857a85bf574a27efa3fb3295e194bf2c12031e56e3046f16d1c8c44a2\",\"visualArtifactSha256\":\"8a5aa071016037a96d99c16b144d2413cfb7960cd50e626e3afb60306fc1a558\",\"reviewSha256\":\"ba6cdce02556871ce80cd9f3b892288349726d9d42c15bfac792e9b90b9c958e\",\"reviewerId\":\"codex-current-source-review\",\"reviewedAt\":\"2026-09-13T20:13:49.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T20:13:49.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"0ccab6bb4f5e85b0d0a547f5baf34a31dd28ab7ffb5b07e971b65c4e287327c9\",\"sourceLedgerSha256\":\"769c823b68b0da588e9f742d007eae599eced735999b102380ce739fcd697b7b\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "b7b65dbd28521f49ce6dca103883f6c30f8a4901c67b66e79a96dc73799de7d1"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-6651338a4b5f27d5cc5ee658",
+      "operationId": "SRCREV-2d3d2ea10b3ce9ace3ade06a",
+      "reviewedAttemptId": "SRCATT-02f0b8fcfa19246be52ba0b9",
+      "reviewedSignalIdentitySha256": "87678a26cc754a45bf8b21e1ed68123b62430e5f38787167faec740082de9353",
+      "reviewedSignalPayloadSha256": "87678a26cc754a45bf8b21e1ed68123b62430e5f38787167faec740082de9353",
+      "resolutionRegistryPreimageSha256": "1a2e3c955ae1edff7c2be19abf19ee938b456250407026af908e655aedd04594",
+      "geo": "SI",
+      "sourceUrl": "https://www.jazmp.si/fileadmin/datoteke/seznami/SRD/Promet%20KMN.pdf",
+      "sourceRecord": {
+        "officialPublisher": "Javna agencija Republike Slovenije za zdravila in medicinske pripomočke (JAZMP)",
+        "sourceOwnerGeo": "SI",
+        "appliesToGeos": [
+          "SI"
+        ],
+        "legalBasisForExtension": "NATIONAL_LAW_OR_REGULATOR_APPLIES_TO_REPUBLIC_OF_SLOVENIA",
+        "sourceType": "CURRENT_REGULATOR_PERMIT_HOLDER_LIST_OFFICIAL_PDF",
+        "primaryOrContext": "OPERATIONAL",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "The current list names four holders of permits for trade in medical cannabis: VERSA Pharmaceuticals, LENIS farmacevtika, Farmakem and Kemofarmacija.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "183b6b1009553e2c037a97e546b37cda824bae10dfb1446d39e3f96436195d88",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "21b48ef826d541490b9082fbdfd1c0dd2f95fe722d90bd74a777f6beeb41639b",
+          "byteLength": 148,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "63f17f93216c6fae23ed01d9c2866b3d55c625c9982b513d1bc75afaa1a35887",
+          "byteLength": 81973,
+          "mediaType": "image/png",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/SI-medical-cannabis-trade-permit-holders-current-2026-08-06.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-current-source-review",
+        "reviewedAt": "2026-09-13T20:14:42.000Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": false,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": true,
+          "effective": true,
+          "geoApplicability": false,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-13T20:14:42.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "769c823b68b0da588e9f742d007eae599eced735999b102380ce739fcd697b7b",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "b7b65dbd28521f49ce6dca103883f6c30f8a4901c67b66e79a96dc73799de7d1",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-64eced5660ef5814b1192c46",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-6651338a4b5f27d5cc5ee658\",\"operationId\":\"SRCREV-2d3d2ea10b3ce9ace3ade06a\",\"reviewedAttemptId\":\"SRCATT-02f0b8fcfa19246be52ba0b9\",\"reviewedSignalIdentitySha256\":\"87678a26cc754a45bf8b21e1ed68123b62430e5f38787167faec740082de9353\",\"reviewedSignalPayloadSha256\":\"87678a26cc754a45bf8b21e1ed68123b62430e5f38787167faec740082de9353\",\"resolutionRegistryPreimageSha256\":\"1a2e3c955ae1edff7c2be19abf19ee938b456250407026af908e655aedd04594\",\"geo\":\"SI\",\"sourceUrl\":\"https://www.jazmp.si/fileadmin/datoteke/seznami/SRD/Promet%20KMN.pdf\",\"sourceRecordSha256\":\"183b6b1009553e2c037a97e546b37cda824bae10dfb1446d39e3f96436195d88\",\"exactFragmentSha256\":\"21b48ef826d541490b9082fbdfd1c0dd2f95fe722d90bd74a777f6beeb41639b\",\"visualArtifactSha256\":\"63f17f93216c6fae23ed01d9c2866b3d55c625c9982b513d1bc75afaa1a35887\",\"reviewSha256\":\"a046e98e7c92b9bcd844cb0c662c9ddc7f1a9714ecc43a9f7a5568bd06c08054\",\"reviewerId\":\"codex-current-source-review\",\"reviewedAt\":\"2026-09-13T20:14:42.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T20:14:42.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"b7b65dbd28521f49ce6dca103883f6c30f8a4901c67b66e79a96dc73799de7d1\",\"sourceLedgerSha256\":\"769c823b68b0da588e9f742d007eae599eced735999b102380ce739fcd697b7b\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "66f56803a251bcaa3859e3b9e59cc1e87fbef774125f58bce7f763de10819787"
     }
   ]
 }
