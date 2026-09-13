@@ -196,6 +196,11 @@ test("C1 source states never auto-close a legal review operation", () => {
     assert.equal(second.currentCounts.SOURCE_CHANGE, 1);
     assert.equal(second.resolutionTotal, 0);
     assert.equal(secondRegistry.operations.length, 2);
+    assert.deepEqual(
+      secondRegistry.operations.slice(0, firstRegistry.operations.length),
+      firstRegistry.operations,
+      "new operations must append without reordering the retained registry prefix",
+    );
     assert.deepEqual(secondRegistry.operations.find((operation) => operation.operationId === firstOperation.operationId), firstOperation);
     assert.ok(secondRegistry.operations.some((operation) => operation.category === "EFFECTIVE_DATE_REVIEW"));
     assert.ok(secondRegistry.operations.some((operation) => operation.category === "SOURCE_CONTENT_CHANGE"));

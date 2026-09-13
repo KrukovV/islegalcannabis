@@ -424,7 +424,14 @@ function buildSourceReviewOperationsLocked({
       }
     }
   }
-  const operations = [...byKey.values()].flat().sort((left, right) => left.operationId.localeCompare(right.operationId));
+  const newOperations = [...byKey.values()]
+    .flat()
+    .filter((operation) => !existingOperationsById.has(operation.operationId))
+    .sort((left, right) => left.operationId.localeCompare(right.operationId));
+  // The schema-v7 registry is append-only. Existing operation order is part of
+  // the migration receipt preimage, so a newly discovered operation must never
+  // be inserted into or reorder the retained prefix.
+  const operations = [...existingOperations, ...newOperations];
   for (const operation of operations) {
     if ((attemptsByOperation.get(operation.operationId) || []).length) continue;
     const attempt = buildLegacyAttempt(operation);

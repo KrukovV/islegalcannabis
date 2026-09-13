@@ -12,6 +12,7 @@ import {
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const SOURCE_REGISTRY_PATH = path.join(ROOT, "data/b2b_evidence/source_review_operations.json");
+const SOURCE_MIGRATION_RECEIPT_PATH = path.join(ROOT, "data/b2b_evidence/source_review_evidence_v7_migration.json");
 const SOURCE_LEDGER_PATH = path.join(ROOT, "data/reviews/wiki-truth-307-final-reconciliation.json");
 const OFFICIAL_REGISTRY_PATH = path.join(ROOT, "data/official/official_domains.ssot.json");
 const OWNERSHIP_PATH = path.join(ROOT, "data/ssot/official_link_ownership.json");
@@ -25,13 +26,18 @@ function sha256(bytes) {
 
 function writeLegacyV6Registry(registryPath) {
   const source = JSON.parse(fs.readFileSync(SOURCE_REGISTRY_PATH, "utf8"));
+  const receipt = JSON.parse(fs.readFileSync(SOURCE_MIGRATION_RECEIPT_PATH, "utf8"));
   const migrationResolutionIds = new Set(
     SOURCE_REVIEW_EVIDENCE_V7_MIGRATION_ITEMS.map((item) => item.resolutionId)
   );
   const legacy = {
     ...source,
     schemaVersion: 6,
-    resolutions: source.resolutions.filter((resolution) => migrationResolutionIds.has(resolution.resolutionId))
+    operations: source.operations.slice(0, receipt.counts.operations),
+    attempts: source.attempts.slice(0, receipt.counts.attempts),
+    resolutions: source.resolutions
+      .slice(0, receipt.counts.resolutions)
+      .filter((resolution) => migrationResolutionIds.has(resolution.resolutionId))
   };
   delete legacy.evidenceAttestations;
   const legacyBytes = Buffer.from(`${JSON.stringify(legacy, null, 2)}\n`, "utf8");

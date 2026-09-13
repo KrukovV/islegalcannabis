@@ -68790,14 +68790,14 @@
           "screenshot_path": "data/reviews/wiki-truth-307-visual-evidence/US-IA-hhs-current-five-dispensaries-2026-08-09.png",
           "visual_summary": "Official State of Iowa HHS page visibly says medical cannabis is currently available at five dispensaries and lists five current dispensary locations.",
           "revalidation": {
-            "checked_at": "2026-09-11T19:40:08.913Z",
+            "checked_at": "2026-09-13T05:40:35.191Z",
             "final_url": "https://hhs.iowa.gov/health-prevention/medical-cannabis/dispensary-locations",
             "http_status": 200,
             "etag": null,
-            "last_modified": "Fri, 11 Sep 2026 19:41:14 GMT",
+            "last_modified": "Sun, 13 Sep 2026 05:19:05 GMT",
             "content_type": "text/html; charset=UTF-8",
-            "content_length": 209322,
-            "document_sha256": "0a73e720b1f4d981444ca0e8e9d66c479fbe7cd2c16c49d1074a7bb2f5f239f6",
+            "content_length": 209422,
+            "document_sha256": "5b9263e45a6a778b5ed311757ab4c6e5540c9584cf69b3b431138cb2833cce43",
             "relevant_fragment_sha256": "e14894a937ad8fc1600d49fd8e772f54d7ea7ec086f5640d1e58ecf48d988c58",
             "revalidation_state": "CONTENT_CHANGED",
             "access_state": "HTTP_OK",
@@ -68818,7 +68818,7 @@
             ],
             "semantic_probe": {
               "extractor": "html_to_text",
-              "text_layer_length": 4952,
+              "text_layer_length": 5021,
               "ocr_used": false,
               "relevant_pages": [],
               "rendered_pages": [],
@@ -79273,7 +79273,7 @@
           "visual_reviewer_timestamp": "2026-08-10T04:14:00.000Z",
           "annotation": "Currentness and jurisdiction source. The iframe exposes the current compilation context; it is not used alone for the exact personal-use clause.",
           "revalidation": {
-            "checked_at": "2026-09-11T19:40:08.913Z",
+            "checked_at": "2026-09-13T05:46:11.753Z",
             "final_url": "https://nmonesource.com/nmos/nmsa-unanno/en/item/18526/index.do",
             "http_status": 200,
             "etag": null,
@@ -79282,16 +79282,15 @@
             "content_length": 13486,
             "document_sha256": "1d7a67a7174fc8e311a9fabaa0252c9c5a9bc53ed536f13a4a71161fd7d9714f",
             "relevant_fragment_sha256": "5772afe746f70cf2dc52e7296a351bf62433e2c8f6c6286cb4d3d8c9933b1a32",
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "revalidation_state": "NOT_MODIFIED",
             "access_state": "HTTP_OK",
-            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "change_reason": "HTTP_200_DOCUMENT_SHA256_UNCHANGED",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "GREEN_OR_RED_CRITICAL_SOURCE",
-              "NEEDS_SEMANTIC_REVIEW"
+              "GREEN_OR_RED_CRITICAL_SOURCE"
             ],
             "dependent_geos": [
               "US-NM"
