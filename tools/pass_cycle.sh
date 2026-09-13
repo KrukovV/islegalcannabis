@@ -3052,10 +3052,10 @@ echo "LINT_OK=1"
 echo "RUN_OFFICIAL_EVIDENCE_REVALIDATION_TESTS=1"
 SUMMARY_LINES+=("RUN_OFFICIAL_EVIDENCE_REVALIDATION_TESTS=1")
 CURRENT_STEP="official_evidence_revalidation_tests"
-CURRENT_CMD="node --test tools/review/official_evidence_revalidation.test.mjs tools/review/build_source_review_operations.test.mjs tools/wiki/truth_first_reconciliation.test.mjs"
+CURRENT_CMD="node --test tools/review/official_evidence_revalidation.test.mjs tools/review/build_source_review_operations.test.mjs tools/review/resolve_source_review_operation.test.mjs tools/review/migrate_source_review_evidence_v7.test.mjs tools/wiki/truth_first_reconciliation.test.mjs"
 REVALIDATION_TEST_LOG="${ROOT}/Reports/official-evidence-revalidation-tests.log"
 rm -f "${REVALIDATION_TEST_LOG}" 2>/dev/null || true
-if ! (cd "${ROOT}" && "${NODE_BIN}" --test tools/review/official_evidence_revalidation.test.mjs tools/review/build_source_review_operations.test.mjs tools/wiki/truth_first_reconciliation.test.mjs) 2>&1 | tee -a "${REVALIDATION_TEST_LOG}"; then
+if ! (cd "${ROOT}" && "${NODE_BIN}" --test tools/review/official_evidence_revalidation.test.mjs tools/review/build_source_review_operations.test.mjs tools/review/resolve_source_review_operation.test.mjs tools/review/migrate_source_review_evidence_v7.test.mjs tools/wiki/truth_first_reconciliation.test.mjs) 2>&1 | tee -a "${REVALIDATION_TEST_LOG}"; then
   SUMMARY_LINES+=("OFFICIAL_EVIDENCE_REVALIDATION_TESTS_OK=0")
   echo "OFFICIAL_EVIDENCE_REVALIDATION_TESTS_OK=0 reason=TESTS_FAILED"
   {
@@ -3098,10 +3098,11 @@ TRUTH_FIRST_DERIVED_BUILDERS=(
 for truth_first_builder in "${TRUTH_FIRST_DERIVED_BUILDERS[@]}"; do
   run_step "wiki_truth_307_${truth_first_builder%.mjs}" 120 "${NODE_BIN} tools/wiki/${truth_first_builder}"
 done
+run_step "b2b_source_review_evidence_migration" 120 "${NODE_BIN} tools/review/migrate_source_review_evidence_v7.mjs"
 run_step "b2b_source_review_operations" 120 "${NODE_BIN} tools/review/build_source_review_operations.mjs"
 run_step "b2b_evidence_delivery_manifest" 180 "cd \"${ROOT}/apps/web\" && npm run evidence:manifest"
 run_step "b2b_source_review_post_build_tests" 180 "npm -w apps/web test -- --run src/truth-map/sourceReviewOperations.test.ts src/truth-map/sourceReviewWorkbench.test.ts src/truth-map/evidencePassport.test.ts src/truth-map/canonicalProjectionLedger.test.ts src/truth-map/appendCanonicalProjectionSnapshotScript.test.ts src/truth-map/evidenceDeliveryManifest.test.ts src/truth-map/changeMonitor.test.ts src/truth-map/correctionRequest.test.ts src/truth-map/editorialLocalisation.test.ts src/truth-map/editorialLocalisationWriter.test.ts src/app/api/truth-map/b2b/correction-review/route.test.ts src/app/api/truth-map/b2b/source-review/route.test.ts src/app/api/truth-map/b2b/routes.test.ts"
-run_step "b2b_source_review_resolver_tests" 120 "${NODE_BIN} --test tools/review/build_source_review_operations.test.mjs"
+run_step "b2b_source_review_resolver_tests" 120 "${NODE_BIN} --test tools/review/build_source_review_operations.test.mjs tools/review/resolve_source_review_operation.test.mjs tools/review/migrate_source_review_evidence_v7.test.mjs"
 run_step "store_truth_verify_discovery_review_packets" 120 "${NODE_BIN} tools/stores/verify_store_discovery_review_packets.mjs"
 run_step "store_truth_build_eligibility_model" 120 "${NODE_BIN} tools/stores/build_store_eligibility_model.mjs"
 run_step "store_truth_build_source_candidates" 120 "${NODE_BIN} tools/stores/build_store_source_candidates.mjs"

@@ -32,11 +32,15 @@
   - Writing SSOT or Reports files.
   - Accessing UI or route-specific concerns.
 
-4) `tools/pipelines` (Generation)
+4) `tools/pipelines` and guarded local writers (Generation/append)
 - Allowed:
   - Ingest/refresh/sync pipelines.
   - SSOT writes and Reports/ artifacts.
   - Verification/guard generation.
+  - Explicit localhost-only append writers for canonical publication receipts,
+    source-review operations/evidence attestations, correction review and
+    editorial localisation, each under its documented owned-lock and exact-byte
+    compare-and-swap protocol.
 - Forbidden:
   - UI rendering.
   - API routing.
@@ -68,9 +72,12 @@
   - Confirmed diffs are append-only.
   - Pending changes are promoted only after two consecutive refresh cycles.
 
-- `Reports/ci-final.txt` (run SSOT)
-  - Canonical pipeline run facts and decisions.
-  - Quality/commit decisions must read this file only.
+- `Artifacts/runs/<RUN_ID>/ci-final.txt` and `Reports/ci-final.txt` (run receipts)
+  - The run-local file identifies the exact invocation.
+  - Finalization refreshes `Reports/ci-final.txt` from it for every value of
+    `CI_WRITE_ROOT`; `Tools/commit_if_green.sh` consumes that Reports copy.
+  - `CI_WRITE_ROOT=1` additionally refreshes legacy `./ci-final.txt` only.
+  - An incomplete run or mismatched RUN_ID must never be presented as current.
   - Writers only in `tools/*` pipeline/guards.
 
 - `data/index.json`, `data/countries/**/*.json`, `data/graph/country-graph.json`
@@ -100,7 +107,9 @@
 - Audit universes are separate: wiki rows, ISO countries, SSOT geo, protected official registry, official geo coverage, US states, and territory diagnostics.
 - `/trust-view` must resolve to `/wiki-truth`.
 - `/changes` and `/api/ssot/changes` must read the SSOT diff cache/registry, not compute alternate truth in UI.
-- Status Engine Audit v3 is review-only, emits only `GREEN`/`YELLOW`/`RED`, keeps Cannabis Profile data separate from color, and must not mutate SSOT, API status, map payloads, or map colors.
+- Status Engine Audit v3 is a historical, noncanonical 31-row diagnostic. It keeps Cannabis Profile data separate from colour and must not seed or mutate current Legal Truth, the 307-GEO projection, SSOT, API status, map/popup/SEO/Passport content or map colours; its legacy `mapCategory` mapping is compatibility-only.
+- Local evidence read surfaces are GET/read-only and production-404; correction intake/review are the only documented browser-facing append exceptions and remain non-promoting. Source-review schema v7 keeps append-only operations, attempts, resolutions and machine-bound `evidenceAttestations[]`; builder, migrator and resolver are the only source-review writers and share one owned-lock/staged exact-byte CAS boundary. The migrator's committed deterministic receipt binds the exact schema-v6/schema-v7 transition and is provenance only, never another truth registry.
+- `SOURCE_REVIEW_EVIDENCE_V1` binds exact fragment and magic-MIME-verified artifact bytes. New resolutions require atomic `PRE_CLOSE_ATOMIC` evidence; legacy resolutions stay explicitly post-hoc or unbound. Paths are locators only, and ordinary runtime/CI must not depend on external raw captures.
 - Location precedence is fixed: `manual > gps > ip`.
   - GPS provider `UNAVAILABLE`/timeout is downgraded to IP recovery; map/location features remain usable with approximate-status messaging.
 - Storage hygiene is enforced: `QUARANTINE` exactly one PASS snapshot, `Reports` operational only, historical archives outside the repo.

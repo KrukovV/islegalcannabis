@@ -106,14 +106,93 @@ export type SourceReviewResolution = {
   boundary: "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE";
 };
 
+export type SourceReviewEvidenceSourceRecord = {
+  officialPublisher: string;
+  sourceOwnerGeo: string;
+  appliesToGeos: string[];
+  legalBasisForExtension: string;
+  sourceType: string;
+  primaryOrContext: string;
+  cannabisSpecific: boolean | "NOT_RECORDED";
+  current: boolean | "NOT_RECORDED";
+  effective: boolean | "NOT_RECORDED";
+  effectiveDate: string;
+  confidence: string;
+  fragment: string;
+  evidenceScopes: string[];
+};
+
+export type SourceReviewEvidenceAttestation = {
+  evidenceFormat: "SOURCE_REVIEW_EVIDENCE_V1";
+  attestationId: string;
+  resolutionId: string;
+  operationId: string;
+  reviewedAttemptId: string;
+  reviewedSignalIdentitySha256: string;
+  reviewedSignalPayloadSha256: string;
+  resolutionRegistryPreimageSha256: string;
+  geo: string;
+  sourceUrl: string;
+  sourceRecord: SourceReviewEvidenceSourceRecord;
+  sourceRecordSha256: string;
+  bindings: {
+    exactFragmentUtf8: {
+      format: "EXACT_FRAGMENT_UTF8";
+      sha256: string;
+      byteLength: number;
+      normalization: "NONE";
+    };
+    visualArtifactBytes: {
+      format: "VISUAL_ARTIFACT_BYTES";
+      sha256: string;
+      byteLength: number;
+      mediaType: "image/png" | "image/jpeg";
+      locator: string;
+      capturedAt: string;
+    };
+  };
+  review: {
+    c2: "PASS" | "PARTIAL";
+    c3: "NOT_PROVEN" | "PASS";
+    reviewerId: string;
+    reviewedAt: string;
+    visibleEvidenceScopes: string[];
+    visibility: {
+      publisher: boolean;
+      officialDomainText: boolean;
+      exactFragment: boolean;
+      scope: boolean;
+      current: boolean;
+      effective: boolean;
+      geoApplicability: boolean;
+      browserOrigin: boolean;
+      challengeOrErrorAbsent: boolean;
+    };
+  };
+  attestationMode: "PRE_CLOSE_ATOMIC" | "POST_RESOLUTION_REATTESTATION";
+  attestedAt: string;
+  inputs: {
+    sourceLedgerSha256: string;
+    canonicalGeosSha256: string;
+    officialRegistrySha256: string;
+    ownershipRegistrySha256: string;
+  };
+  supersedesAttestationId: string | null;
+  previousAttestationSha256: "GENESIS" | string;
+  identityPreimage: string;
+  attestationSha256: string;
+  boundary: "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE";
+};
+
 export type SourceReviewOperationsRegistry = {
-  schemaVersion: 6;
+  schemaVersion: 7;
   localOnly: true;
   appendOnly: true;
   createdAt: string;
   operations: SourceReviewOperation[];
   attempts: SourceReviewAttempt[];
   resolutions: SourceReviewResolution[];
+  evidenceAttestations: SourceReviewEvidenceAttestation[];
 };
 
 export type SourceReviewOperationsRegistrySnapshot = {
@@ -147,12 +226,26 @@ export function sourceReviewOperationKey(
 
 type CanonicalSourceReviewSignalSource = {
   url?: unknown;
+  officialPublisher?: unknown;
   sourceOwnerGeo?: unknown;
   source_owner_geo?: unknown;
   source_owner_scope?: unknown;
   appliesToGeos?: unknown;
   applies_to_geo?: unknown;
   applies_to_geos?: unknown;
+  legalBasisForExtension?: unknown;
+  sourceType?: unknown;
+  sourceKind?: unknown;
+  primaryOrContext?: unknown;
+  evidenceRole?: unknown;
+  cannabisSpecific?: unknown;
+  current?: unknown;
+  effective?: unknown;
+  effectiveDate?: unknown;
+  effective_date?: unknown;
+  confidence?: unknown;
+  fragment?: unknown;
+  note?: unknown;
   revalidation?: {
     revalidation_state?: unknown;
     change_reason?: unknown;
@@ -163,6 +256,7 @@ type CanonicalSourceReviewSignalSource = {
     relevant_fragment_sha256?: unknown;
     etag?: unknown;
     last_modified?: unknown;
+    queue?: unknown;
   };
 };
 
@@ -226,6 +320,70 @@ function canonicalV2SignalPayload(
     sourceOwnerGeo: canonicalSourceOwnerGeo(source),
     appliesToGeos: canonicalAppliesToGeos(source)
   });
+}
+
+function recordedEvidenceBoolean(value: unknown): boolean | "NOT_RECORDED" {
+  return typeof value === "boolean" ? value : "NOT_RECORDED";
+}
+
+function canonicalEvidenceSourceRecord(source: CanonicalSourceReviewSignalSource): SourceReviewEvidenceSourceRecord {
+  const fragment = source.fragment === undefined ? "" : String(source.fragment);
+  if (!fragment.length) throw new Error("SOURCE_REVIEW_EVIDENCE_FRAGMENT_REQUIRED");
+  const evidenceScopes = Array.isArray(source.revalidation?.queue)
+    ? [...new Set(source.revalidation.queue.map((value) => String(value).trim()).filter(Boolean))].sort()
+    : [];
+  return {
+    officialPublisher: recordedSignalValue(source.officialPublisher),
+    sourceOwnerGeo: canonicalSourceOwnerGeo(source),
+    appliesToGeos: canonicalAppliesToGeos(source),
+    legalBasisForExtension: recordedSignalValue(source.legalBasisForExtension),
+    sourceType: recordedSignalValue(source.sourceType ?? source.sourceKind),
+    primaryOrContext: recordedSignalValue(source.primaryOrContext ?? source.evidenceRole),
+    cannabisSpecific: recordedEvidenceBoolean(source.cannabisSpecific),
+    current: recordedEvidenceBoolean(source.current),
+    effective: recordedEvidenceBoolean(source.effective),
+    effectiveDate: recordedSignalValue(source.effectiveDate ?? source.effective_date),
+    confidence: recordedSignalValue(source.confidence),
+    fragment,
+    evidenceScopes
+  };
+}
+
+export function sourceReviewEvidenceSourceKey(geo: string, sourceUrl: string) {
+  return [geo, sourceUrl].join("\u0000");
+}
+
+/**
+ * Rebuilds exact source records directly from the current canonical ledger.
+ * Workbench consumers use this to reject an attestation whose bound record no
+ * longer matches a still-current source, without reading the external visual
+ * artifact named only by its non-identity locator.
+ */
+export function loadCanonicalSourceReviewEvidenceRecordIndex(repoRoot = findRepoRoot(process.cwd())) {
+  const ledger = JSON.parse(fs.readFileSync(
+    path.join(repoRoot, "data", "reviews", "wiki-truth-307-final-reconciliation.json"),
+    "utf8"
+  )) as CanonicalSourceReviewSignalLedger;
+  const index = new Map<string, SourceReviewEvidenceSourceRecord>();
+  for (const row of ledger.rows || []) {
+    const geo = String(row.geo || "").trim().toUpperCase();
+    const sources = [
+      ...(row.primaryLaw?.officialSources || []),
+      ...(row.primaryLaw?.freshAxisOfficialSources || [])
+    ];
+    for (const source of sources) {
+      const sourceUrl = String(source.url || "").trim();
+      if (!geo || !/^https?:\/\//.test(sourceUrl) || !String(source.fragment ?? "").length) continue;
+      const key = sourceReviewEvidenceSourceKey(geo, sourceUrl);
+      const record = canonicalEvidenceSourceRecord(source);
+      const previous = index.get(key);
+      if (previous && JSON.stringify(previous) !== JSON.stringify(record)) {
+        throw new Error(`SOURCE_REVIEW_EVIDENCE_SOURCE_RECORD_AMBIGUOUS=${geo}|${sourceUrl}`);
+      }
+      index.set(key, record);
+    }
+  }
+  return index;
 }
 
 /**
@@ -449,9 +607,228 @@ function validateAttemptSignalPayload(attempt: SourceReviewAttempt, operation: S
   }
 }
 
+const SHA256_PATTERN = /^[a-f0-9]{64}$/;
+const ATTESTATION_ID_PATTERN = /^SRCEVT-[a-f0-9]{24}$/;
+const MAX_REVIEW_CLOCK_SKEW_MS = 5 * 60 * 1000;
+
+function hasExactKeys(value: unknown, expectedKeys: readonly string[]) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+  return JSON.stringify(Object.keys(value).sort()) === JSON.stringify([...expectedKeys].sort());
+}
+
+function isSortedUniqueStrings(values: unknown): values is string[] {
+  return Array.isArray(values)
+    && values.every((value) => typeof value === "string" && value.trim() === value && value.length > 0)
+    && JSON.stringify(values) === JSON.stringify([...new Set(values)].sort());
+}
+
+function isRecordedBoolean(value: unknown): value is boolean | "NOT_RECORDED" {
+  return typeof value === "boolean" || value === "NOT_RECORDED";
+}
+
+function isValidReviewInstant(value: unknown) {
+  const input = String(value || "");
+  const timestamp = Date.parse(input);
+  return Number.isFinite(timestamp)
+    && new Date(timestamp).toISOString() === input
+    && timestamp <= Date.now() + MAX_REVIEW_CLOCK_SKEW_MS;
+}
+
+function canonicalEvidenceIdentityPreimage(attestation: SourceReviewEvidenceAttestation) {
+  return JSON.stringify({
+    evidenceFormat: attestation.evidenceFormat,
+    resolutionId: attestation.resolutionId,
+    operationId: attestation.operationId,
+    reviewedAttemptId: attestation.reviewedAttemptId,
+    reviewedSignalIdentitySha256: attestation.reviewedSignalIdentitySha256,
+    reviewedSignalPayloadSha256: attestation.reviewedSignalPayloadSha256,
+    resolutionRegistryPreimageSha256: attestation.resolutionRegistryPreimageSha256,
+    geo: attestation.geo,
+    sourceUrl: attestation.sourceUrl,
+    sourceRecordSha256: attestation.sourceRecordSha256,
+    exactFragmentSha256: attestation.bindings.exactFragmentUtf8.sha256,
+    visualArtifactSha256: attestation.bindings.visualArtifactBytes.sha256,
+    reviewSha256: sha256(JSON.stringify(attestation.review)),
+    reviewerId: attestation.review.reviewerId,
+    reviewedAt: attestation.review.reviewedAt,
+    attestationMode: attestation.attestationMode,
+    attestedAt: attestation.attestedAt,
+    supersedesAttestationId: attestation.supersedesAttestationId,
+    previousAttestationSha256: attestation.previousAttestationSha256,
+    sourceLedgerSha256: attestation.inputs.sourceLedgerSha256,
+    canonicalGeosSha256: attestation.inputs.canonicalGeosSha256,
+    officialRegistrySha256: attestation.inputs.officialRegistrySha256,
+    ownershipRegistrySha256: attestation.inputs.ownershipRegistrySha256
+  });
+}
+
+function attestationContentSha256(attestation: SourceReviewEvidenceAttestation) {
+  const content: Partial<SourceReviewEvidenceAttestation> = { ...attestation };
+  delete content.attestationSha256;
+  return sha256(JSON.stringify(content));
+}
+
+function validateSourceReviewEvidenceAttestation(
+  attestation: SourceReviewEvidenceAttestation,
+  resolution: SourceReviewResolution,
+  operation: SourceReviewOperation,
+  attempt: SourceReviewAttempt,
+  canonicalGeos: ReadonlySet<string>
+) {
+  if (!hasExactKeys(attestation, [
+    "evidenceFormat", "attestationId", "resolutionId", "operationId", "reviewedAttemptId",
+    "reviewedSignalIdentitySha256", "reviewedSignalPayloadSha256", "resolutionRegistryPreimageSha256",
+    "geo", "sourceUrl", "sourceRecord", "sourceRecordSha256", "bindings", "review", "attestationMode",
+    "attestedAt", "inputs", "supersedesAttestationId", "previousAttestationSha256", "identityPreimage",
+    "attestationSha256", "boundary"
+  ]) || attestation.evidenceFormat !== "SOURCE_REVIEW_EVIDENCE_V1") {
+    throw new Error(`SOURCE_REVIEW_EVIDENCE_SHAPE_INVALID=${attestation.attestationId || "EMPTY"}`);
+  }
+  if (
+    attestation.resolutionId !== resolution.resolutionId
+    || attestation.operationId !== operation.operationId
+    || attestation.reviewedAttemptId !== attempt.attemptId
+    || attestation.reviewedSignalIdentitySha256 !== attempt.signalIdentitySha256
+    || attestation.reviewedSignalPayloadSha256 !== attempt.signalPayloadSha256
+    || attestation.resolutionRegistryPreimageSha256 !== resolution.reviewRegistrySha256
+    || attestation.geo !== operation.geo
+    || attestation.sourceUrl !== operation.sourceUrl
+  ) {
+    throw new Error(`SOURCE_REVIEW_EVIDENCE_BINDING_INVALID=${attestation.attestationId}`);
+  }
+
+  const sourceRecord = attestation.sourceRecord;
+  if (!hasExactKeys(sourceRecord, [
+    "officialPublisher", "sourceOwnerGeo", "appliesToGeos", "legalBasisForExtension", "sourceType",
+    "primaryOrContext", "cannabisSpecific", "current", "effective", "effectiveDate", "confidence",
+    "fragment", "evidenceScopes"
+  ]) || ![
+    sourceRecord.officialPublisher, sourceRecord.sourceOwnerGeo, sourceRecord.legalBasisForExtension,
+    sourceRecord.sourceType, sourceRecord.primaryOrContext, sourceRecord.effectiveDate,
+    sourceRecord.confidence, sourceRecord.fragment
+  ].every((value) => typeof value === "string" && value.length > 0)
+    || !isSortedUniqueStrings(sourceRecord.appliesToGeos)
+    || !sourceRecord.appliesToGeos.includes(operation.geo)
+    || !canonicalGeos.has(sourceRecord.sourceOwnerGeo)
+    || sourceRecord.appliesToGeos.some((geo) => !canonicalGeos.has(geo))
+    || ((sourceRecord.sourceOwnerGeo !== operation.geo || sourceRecord.appliesToGeos.length > 1)
+      && sourceRecord.legalBasisForExtension === "NOT_RECORDED")
+    || !isSortedUniqueStrings(sourceRecord.evidenceScopes)
+    || !isRecordedBoolean(sourceRecord.cannabisSpecific)
+    || !isRecordedBoolean(sourceRecord.current)
+    || !isRecordedBoolean(sourceRecord.effective)
+  ) {
+    throw new Error(`SOURCE_REVIEW_EVIDENCE_SOURCE_RECORD_INVALID=${attestation.attestationId}`);
+  }
+  if (!SHA256_PATTERN.test(attestation.sourceRecordSha256)
+    || sha256(JSON.stringify(sourceRecord)) !== attestation.sourceRecordSha256) {
+    throw new Error(`SOURCE_REVIEW_EVIDENCE_SOURCE_RECORD_HASH_INVALID=${attestation.attestationId}`);
+  }
+
+  const fragmentBinding = attestation.bindings?.exactFragmentUtf8;
+  const artifactBinding = attestation.bindings?.visualArtifactBytes;
+  if (!hasExactKeys(attestation.bindings, ["exactFragmentUtf8", "visualArtifactBytes"])
+    || !hasExactKeys(fragmentBinding, ["format", "sha256", "byteLength", "normalization"])
+    || fragmentBinding.format !== "EXACT_FRAGMENT_UTF8"
+    || fragmentBinding.normalization !== "NONE"
+    || !SHA256_PATTERN.test(fragmentBinding.sha256)
+    || fragmentBinding.sha256 !== sha256(Buffer.from(sourceRecord.fragment, "utf8"))
+    || fragmentBinding.byteLength !== Buffer.byteLength(sourceRecord.fragment, "utf8")
+  ) {
+    throw new Error(`SOURCE_REVIEW_EVIDENCE_FRAGMENT_BINDING_INVALID=${attestation.attestationId}`);
+  }
+  if (!hasExactKeys(artifactBinding, ["format", "sha256", "byteLength", "mediaType", "locator", "capturedAt"])
+    || artifactBinding.format !== "VISUAL_ARTIFACT_BYTES"
+    || !SHA256_PATTERN.test(artifactBinding.sha256)
+    || !Number.isSafeInteger(artifactBinding.byteLength)
+    || artifactBinding.byteLength <= 0
+    || !["image/png", "image/jpeg"].includes(artifactBinding.mediaType)
+    || typeof artifactBinding.locator !== "string"
+    || !artifactBinding.locator.trim()
+    || artifactBinding.locator !== artifactBinding.locator.replaceAll("\\", "/")
+    || path.posix.isAbsolute(artifactBinding.locator)
+    || artifactBinding.locator.split("/").includes("..")
+    || !(artifactBinding.capturedAt === "NOT_RECORDED" || isValidReviewInstant(artifactBinding.capturedAt))
+  ) {
+    throw new Error(`SOURCE_REVIEW_EVIDENCE_ARTIFACT_BINDING_INVALID=${attestation.attestationId}`);
+  }
+
+  const review = attestation.review;
+  const visibility = review?.visibility;
+  if (!hasExactKeys(review, ["c2", "c3", "reviewerId", "reviewedAt", "visibleEvidenceScopes", "visibility"])
+    || !["PASS", "PARTIAL"].includes(review.c2)
+    || !["NOT_PROVEN", "PASS"].includes(review.c3)
+    || typeof review.reviewerId !== "string"
+    || !review.reviewerId.trim()
+    || review.reviewerId !== resolution.reviewerId
+    || !isValidReviewInstant(review.reviewedAt)
+    || !isSortedUniqueStrings(review.visibleEvidenceScopes)
+    || review.visibleEvidenceScopes.some((scope) => !sourceRecord.evidenceScopes.includes(scope))
+    || !hasExactKeys(visibility, [
+      "publisher", "officialDomainText", "exactFragment", "scope", "current", "effective",
+      "geoApplicability", "browserOrigin", "challengeOrErrorAbsent"
+    ])
+    || !Object.values(visibility).every((value) => typeof value === "boolean")
+    || visibility.challengeOrErrorAbsent !== true
+    || (visibility.publisher && sourceRecord.officialPublisher === "NOT_RECORDED")
+    || (visibility.current && sourceRecord.current !== true)
+    || (visibility.effective && sourceRecord.effective !== true)
+    || (review.c2 === "PASS" && [
+      visibility.publisher,
+      visibility.exactFragment,
+      visibility.scope,
+      visibility.effective,
+      visibility.geoApplicability
+    ].some((value) => value !== true))
+    || (review.c3 === "PASS" && (visibility.browserOrigin !== true || visibility.officialDomainText !== true))
+  ) {
+    throw new Error(`SOURCE_REVIEW_EVIDENCE_REVIEW_INVALID=${attestation.attestationId}`);
+  }
+
+  const reviewedAt = Date.parse(review.reviewedAt);
+  const attestedAt = Date.parse(attestation.attestedAt);
+  const resolvedAt = Date.parse(resolution.resolvedAt);
+  const sourceCheckedAt = Date.parse(attempt.sourceCheckedAt);
+  const artifactCapturedAt = attestation.bindings.visualArtifactBytes.capturedAt === "NOT_RECORDED"
+    ? null
+    : Date.parse(attestation.bindings.visualArtifactBytes.capturedAt);
+  if (!isValidReviewInstant(attestation.attestedAt)
+    || reviewedAt > attestedAt
+    || (artifactCapturedAt !== null && (!Number.isFinite(artifactCapturedAt) || artifactCapturedAt > reviewedAt))
+    || (Number.isFinite(sourceCheckedAt) && reviewedAt < sourceCheckedAt)
+    || (attestation.attestationMode === "POST_RESOLUTION_REATTESTATION" && resolvedAt > reviewedAt)
+    || (attestation.attestationMode === "PRE_CLOSE_ATOMIC" && (attestedAt > resolvedAt || reviewedAt > resolvedAt))
+    || !["PRE_CLOSE_ATOMIC", "POST_RESOLUTION_REATTESTATION"].includes(attestation.attestationMode)
+  ) {
+    throw new Error(`SOURCE_REVIEW_EVIDENCE_DATE_INVALID=${attestation.attestationId}`);
+  }
+
+  if (!hasExactKeys(attestation.inputs, [
+    "sourceLedgerSha256", "canonicalGeosSha256", "officialRegistrySha256", "ownershipRegistrySha256"
+  ]) || !Object.values(attestation.inputs).every((value) => typeof value === "string" && SHA256_PATTERN.test(value))) {
+    throw new Error(`SOURCE_REVIEW_EVIDENCE_INPUTS_INVALID=${attestation.attestationId}`);
+  }
+  if (attestation.supersedesAttestationId !== null && !ATTESTATION_ID_PATTERN.test(attestation.supersedesAttestationId)
+    || !(attestation.previousAttestationSha256 === "GENESIS" || SHA256_PATTERN.test(attestation.previousAttestationSha256))) {
+    throw new Error(`SOURCE_REVIEW_EVIDENCE_CHAIN_REFERENCE_INVALID=${attestation.attestationId}`);
+  }
+  const expectedIdentityPreimage = canonicalEvidenceIdentityPreimage(attestation);
+  if (attestation.identityPreimage !== expectedIdentityPreimage
+    || attestation.attestationId !== `SRCEVT-${sha256(expectedIdentityPreimage).slice(0, 24)}`) {
+    throw new Error(`SOURCE_REVIEW_EVIDENCE_IDENTITY_INVALID=${attestation.attestationId}`);
+  }
+  if (!SHA256_PATTERN.test(attestation.attestationSha256)
+    || attestationContentSha256(attestation) !== attestation.attestationSha256) {
+    throw new Error(`SOURCE_REVIEW_EVIDENCE_HASH_INVALID=${attestation.attestationId}`);
+  }
+  if (attestation.boundary !== "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE") {
+    throw new Error(`SOURCE_REVIEW_EVIDENCE_BOUNDARY_INVALID=${attestation.attestationId}`);
+  }
+}
+
 export function validateSourceReviewOperationsRegistry(value: unknown): SourceReviewOperationsRegistry {
   const registry = value as Partial<SourceReviewOperationsRegistry> | null;
-  if (!registry || registry.schemaVersion !== 6 || registry.localOnly !== true || registry.appendOnly !== true || !Array.isArray(registry.operations) || !Array.isArray(registry.attempts) || !Array.isArray(registry.resolutions)) {
+  if (!registry || registry.schemaVersion !== 7 || registry.localOnly !== true || registry.appendOnly !== true || !Array.isArray(registry.operations) || !Array.isArray(registry.attempts) || !Array.isArray(registry.resolutions) || !Array.isArray(registry.evidenceAttestations)) {
     throw new Error("SOURCE_REVIEW_OPERATIONS_REGISTRY_INVALID");
   }
   const canonicalGeos = new Set<string>(JSON.parse(fs.readFileSync(
@@ -488,6 +865,7 @@ export function validateSourceReviewOperationsRegistry(value: unknown): SourceRe
   }
   const resolutionIds = new Set<string>();
   const resolvedOperationIds = new Set<string>();
+  const resolutionsById = new Map<string, SourceReviewResolution>();
   const attemptIds = new Set<string>();
   const attemptsById = new Map<string, SourceReviewAttempt>();
   const attemptsByOperation = new Map<string, SourceReviewAttempt[]>();
@@ -599,6 +977,36 @@ export function validateSourceReviewOperationsRegistry(value: unknown): SourceRe
     }
     resolutionIds.add(resolution.resolutionId);
     resolvedOperationIds.add(resolution.operationId);
+    resolutionsById.set(resolution.resolutionId, resolution);
+  }
+  const attestationIds = new Set<string>();
+  const attestationHashes = new Set<string>();
+  const activeByResolution = new Map<string, SourceReviewEvidenceAttestation>();
+  let previousGlobalAttestation: SourceReviewEvidenceAttestation | null = null;
+  for (const attestation of registry.evidenceAttestations) {
+    if (!attestation.attestationId || attestationIds.has(attestation.attestationId)) {
+      throw new Error(`SOURCE_REVIEW_EVIDENCE_ID_INVALID=${attestation.attestationId || "EMPTY"}`);
+    }
+    const resolution = resolutionsById.get(attestation.resolutionId);
+    const operation = resolution ? operationsById.get(resolution.operationId) : null;
+    const attempt = resolution ? attemptsById.get(resolution.reviewedAttemptId) : null;
+    if (!resolution || !operation || !attempt) {
+      throw new Error(`SOURCE_REVIEW_EVIDENCE_RESOLUTION_INVALID=${attestation.attestationId}`);
+    }
+    validateSourceReviewEvidenceAttestation(attestation, resolution, operation, attempt, canonicalGeos);
+    if (attestationHashes.has(attestation.attestationSha256)
+      || attestation.previousAttestationSha256 !== (previousGlobalAttestation?.attestationSha256 || "GENESIS")) {
+      throw new Error(`SOURCE_REVIEW_EVIDENCE_CHAIN_INVALID=${attestation.attestationId}`);
+    }
+    const superseded = activeByResolution.get(attestation.resolutionId) || null;
+    if (attestation.supersedesAttestationId !== (superseded?.attestationId || null)
+      || (superseded && Date.parse(attestation.attestedAt) <= Date.parse(superseded.attestedAt))) {
+      throw new Error(`SOURCE_REVIEW_EVIDENCE_SUPERSESSION_INVALID=${attestation.attestationId}`);
+    }
+    attestationIds.add(attestation.attestationId);
+    attestationHashes.add(attestation.attestationSha256);
+    activeByResolution.set(attestation.resolutionId, attestation);
+    previousGlobalAttestation = attestation;
   }
   for (const [key, operations] of operationKeys) {
     const openBySignal = new Map<string, SourceReviewOperation[]>();
@@ -652,4 +1060,14 @@ export function sourceReviewOperationsIndex(registry = loadSourceReviewOperation
 
 export function sourceReviewResolutionsIndex(registry = loadSourceReviewOperationsRegistry()) {
   return new Map(registry.resolutions.map((resolution) => [resolution.operationId, resolution]));
+}
+
+export function sourceReviewEvidenceAttestationsIndex(registry = loadSourceReviewOperationsRegistry()) {
+  const resolutionsById = new Map(registry.resolutions.map((resolution) => [resolution.resolutionId, resolution]));
+  const tipsByOperation = new Map<string, SourceReviewEvidenceAttestation>();
+  for (const attestation of registry.evidenceAttestations) {
+    const resolution = resolutionsById.get(attestation.resolutionId);
+    if (resolution) tipsByOperation.set(resolution.operationId, attestation);
+  }
+  return tipsByOperation;
 }

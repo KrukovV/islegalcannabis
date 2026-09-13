@@ -14,6 +14,14 @@ function source(state, reason, checkedAt, extraRevalidation = {}) {
   return {
     title: "Official source",
     url: "https://example.gov/law",
+    officialPublisher: "Example Government",
+    sourceType: "PRIMARY_STATUTE",
+    primaryOrContext: "PRIMARY_LAW",
+    legalBasisForExtension: "Direct law applies to AD.",
+    cannabisSpecific: true,
+    current: true,
+    effective: true,
+    fragment: "Exact cannabis-law fragment retained for human review.",
     source_owner_geo: "AD",
     applies_to_geo: ["AD"],
     revalidation: {
@@ -27,6 +35,7 @@ function source(state, reason, checkedAt, extraRevalidation = {}) {
       last_modified: "Wed, 10 Sep 2026 10:00:00 GMT",
       document_sha256: "a".repeat(64),
       relevant_fragment_sha256: "b".repeat(64),
+      queue: ["C2"],
       ...extraRevalidation
     }
   };
@@ -91,8 +100,17 @@ function latestAttemptForOperation(registry, operationId) {
 function resolutionInput(outputPath, snapshot = registrySnapshot(outputPath)) {
   const operation = snapshot.registry.operations[0];
   const reviewedAttempt = latestAttemptForOperation(snapshot.registry, operation.operationId);
+  const sourceLedgerPath = path.join(path.dirname(outputPath), "projection.json");
+  const artifactPath = path.join(path.dirname(outputPath), "review-artifact.png");
+  if (!fs.existsSync(artifactPath)) {
+    fs.writeFileSync(artifactPath, Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 0x01]));
+  }
+  const fragment = JSON.parse(fs.readFileSync(sourceLedgerPath, "utf8"))
+    .rows[0].primaryLaw.officialSources[0].fragment;
   return {
     registryPath: outputPath,
+    sourceLedgerPath,
+    evidenceRoot: path.dirname(outputPath),
     operationId: operation.operationId,
     reviewedAttemptId: reviewedAttempt.attemptId,
     expectedSignalIdentitySha256: reviewedAttempt.signalIdentitySha256,
@@ -104,6 +122,28 @@ function resolutionInput(outputPath, snapshot = registrySnapshot(outputPath)) {
     resolvedAt: "2026-09-11T12:00:00.000Z",
     resultingRevalidationState: "HUMAN_REVIEW_CONFIRMED",
     resultingChangeReason: "SCOPE_AND_EFFECTIVE_STATE_CONFIRMED",
+    evidenceArtifactPath: artifactPath,
+    expectedArtifactSha256: crypto.createHash("sha256").update(fs.readFileSync(artifactPath)).digest("hex"),
+    expectedFragmentSha256: crypto.createHash("sha256").update(Buffer.from(fragment, "utf8")).digest("hex"),
+    reviewedAt: "2026-09-11T12:00:00.000Z",
+    artifactCapturedAt: "NOT_RECORDED",
+    attestedAt: "2026-09-11T12:00:00.000Z",
+    reviewAssertions: {
+      c2: "PASS",
+      c3: "NOT_PROVEN",
+      visibleEvidenceScopes: ["C2"],
+      visibility: {
+        publisher: true,
+        officialDomainText: false,
+        exactFragment: true,
+        scope: true,
+        current: true,
+        effective: true,
+        geoApplicability: true,
+        browserOrigin: false,
+        challengeOrErrorAbsent: true
+      }
+    },
     humanReviewed: true
   };
 }
@@ -121,7 +161,7 @@ test("C1 source states never auto-close a legal review operation", () => {
     assert.equal(first.currentCounts.PENDING_REVIEW, 1);
     assert.equal(first.resolutionTotal, 0);
     assert.equal(first.attemptTotal, 1);
-    assert.equal(firstRegistry.schemaVersion, 6);
+    assert.equal(firstRegistry.schemaVersion, 7);
     assert.equal(firstRegistry.attempts.length, 1);
     assert.equal(firstRegistry.attempts[0].attemptedAt, "2026-09-11T10:00:00.000Z");
     assert.equal(firstRegistry.attempts[0].sourceCheckedAt, "2026-09-10T10:00:00.000Z");
@@ -196,7 +236,7 @@ test("C1 source states never auto-close a legal review operation", () => {
     }), /SOURCE_REVIEW_RESOLUTION_ATTEMPT_OPERATION_MISMATCH=/);
     assert.deepEqual(fs.readFileSync(outputPath), reviewSnapshot.bytes);
     const resolution = resolveSourceReviewOperation({
-      registryPath: outputPath,
+      ...resolutionInput(outputPath, reviewSnapshot),
       operationId: firstOperation.operationId,
       reviewedAttemptId: reviewedAttempt.attemptId,
       expectedSignalIdentitySha256: reviewedAttempt.signalIdentitySha256,
@@ -207,10 +247,21 @@ test("C1 source states never auto-close a legal review operation", () => {
       outcome: "CONFIRMED_CURRENT",
       resolvedAt: "2026-09-11T14:00:00.000Z",
       resultingRevalidationState: "HUMAN_REVIEW_CONFIRMED",
-      resultingChangeReason: "EFFECTIVE_DATE_AND_SCOPE_CONFIRMED",
-      humanReviewed: true
+      resultingChangeReason: "EFFECTIVE_DATE_AND_SCOPE_CONFIRMED"
     });
     assert.equal(resolution.reviewRegistrySha256, reviewSnapshot.sha256);
+    const atomicallyClosed = JSON.parse(fs.readFileSync(outputPath, "utf8"));
+    assert.equal(atomicallyClosed.resolutions.length, 1);
+    assert.equal(atomicallyClosed.evidenceAttestations.length, 1);
+    assert.equal(atomicallyClosed.evidenceAttestations[0].resolutionId, resolution.resolutionId);
+    assert.equal(atomicallyClosed.evidenceAttestations[0].attestationMode, "PRE_CLOSE_ATOMIC");
+    assert.equal(atomicallyClosed.evidenceAttestations[0].previousAttestationSha256, "GENESIS");
+    assert.equal(atomicallyClosed.evidenceAttestations[0].review.c2, "PASS");
+    assert.equal(atomicallyClosed.evidenceAttestations[0].review.c3, "NOT_PROVEN");
+    assert.equal(
+      atomicallyClosed.evidenceAttestations[0].reviewedSignalIdentitySha256,
+      reviewedAttempt.signalIdentitySha256
+    );
 
     fs.writeFileSync(sourcePath, JSON.stringify(ledger(source("EFFECTIVE_DATE_REVIEW_DUE", "EFFECTIVE_OR_LIFECYCLE_DATE_REACHED", "2026-09-12T09:00:00.000Z"))));
     const fourth = buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-12T09:01:00.000Z" });
@@ -535,7 +586,7 @@ test("resolution evidence must be retained/final official evidence or registry-o
     const operation = reviewSnapshot.registry.operations[0];
     const reviewedAttempt = latestAttemptForOperation(reviewSnapshot.registry, operation.operationId);
     const common = {
-      registryPath: outputPath,
+      ...resolutionInput(outputPath, reviewSnapshot),
       officialRegistryPath,
       ownershipPath,
       operationId: operation.operationId,
@@ -546,9 +597,10 @@ test("resolution evidence must be retained/final official evidence or registry-o
       note: "The retained official evidence and territorial owner were reviewed.",
       outcome: "CONFIRMED_CURRENT",
       resolvedAt: "2026-09-11T11:00:00.000Z",
+      reviewedAt: "2026-09-11T11:00:00.000Z",
+      attestedAt: "2026-09-11T11:00:00.000Z",
       resultingRevalidationState: "HUMAN_REVIEW_CONFIRMED",
-      resultingChangeReason: "SCOPE_AND_EFFECTIVE_STATE_CONFIRMED",
-      humanReviewed: true
+      resultingChangeReason: "SCOPE_AND_EFFECTIVE_STATE_CONFIRMED"
     };
     assert.throws(() => resolveSourceReviewOperation({ ...common, evidenceUrl: "https://unrelated.example/evidence" }), /EVIDENCE_NOT_LINKED_TO_OFFICIAL_OWNER/);
     const resolution = resolveSourceReviewOperation({ ...common, evidenceUrl: "https://gazette.example/act/42" });
@@ -601,7 +653,7 @@ test("resolution may bind to the exact revalidated final URL", () => {
     const operation = reviewSnapshot.registry.operations[0];
     const reviewedAttempt = latestAttemptForOperation(reviewSnapshot.registry, operation.operationId);
     const resolution = resolveSourceReviewOperation({
-      registryPath: outputPath,
+      ...resolutionInput(outputPath, reviewSnapshot),
       operationId: operation.operationId,
       reviewedAttemptId: reviewedAttempt.attemptId,
       expectedSignalIdentitySha256: reviewedAttempt.signalIdentitySha256,
@@ -611,9 +663,10 @@ test("resolution may bind to the exact revalidated final URL", () => {
       note: "The exact revalidated final official URL and territorial scope were reviewed.",
       outcome: "CONFIRMED_CURRENT",
       resolvedAt: "2026-09-11T11:00:00.000Z",
+      reviewedAt: "2026-09-11T11:00:00.000Z",
+      attestedAt: "2026-09-11T11:00:00.000Z",
       resultingRevalidationState: "HUMAN_REVIEW_CONFIRMED",
-      resultingChangeReason: "FINAL_URL_AND_SCOPE_CONFIRMED",
-      humanReviewed: true
+      resultingChangeReason: "FINAL_URL_AND_SCOPE_CONFIRMED"
     });
     assert.equal(resolution.evidenceUrlRelation, "REVALIDATED_FINAL_URL");
     assert.equal(resolution.reviewRegistrySha256, reviewSnapshot.sha256);
@@ -637,7 +690,7 @@ test("resolution fails closed for stale registry, signal, or non-latest attempt 
     const operation = firstSnapshot.registry.operations[0];
     const firstAttempt = latestAttemptForOperation(firstSnapshot.registry, operation.operationId);
     const common = {
-      registryPath: outputPath,
+      ...resolutionInput(outputPath, firstSnapshot),
       operationId: operation.operationId,
       reviewerId: "editor-legal-1",
       evidenceUrl: operation.sourceUrl,
@@ -645,19 +698,20 @@ test("resolution fails closed for stale registry, signal, or non-latest attempt 
       outcome: "CONFIRMED_CURRENT",
       resolvedAt: "2026-09-11T12:00:00.000Z",
       resultingRevalidationState: "HUMAN_REVIEW_CONFIRMED",
-      resultingChangeReason: "SCOPE_AND_EFFECTIVE_STATE_CONFIRMED",
-      humanReviewed: true
+      resultingChangeReason: "SCOPE_AND_EFFECTIVE_STATE_CONFIRMED"
     };
 
     assert.throws(() => resolveSourceReviewOperation({
       ...common,
       reviewedAttemptId: firstAttempt.attemptId,
-      expectedSignalIdentitySha256: firstAttempt.signalIdentitySha256
+      expectedSignalIdentitySha256: firstAttempt.signalIdentitySha256,
+      expectedRegistrySha256: undefined
     }), /SOURCE_REVIEW_RESOLUTION_EXPECTED_REGISTRY_SHA256_REQUIRED/);
     assert.deepEqual(fs.readFileSync(outputPath), firstSnapshot.bytes);
 
     assert.throws(() => resolveSourceReviewOperation({
       ...common,
+      reviewedAttemptId: undefined,
       expectedRegistrySha256: firstSnapshot.sha256,
       expectedSignalIdentitySha256: firstAttempt.signalIdentitySha256
     }), /SOURCE_REVIEW_RESOLUTION_REVIEWED_ATTEMPT_ID_REQUIRED/);
@@ -666,7 +720,8 @@ test("resolution fails closed for stale registry, signal, or non-latest attempt 
     assert.throws(() => resolveSourceReviewOperation({
       ...common,
       reviewedAttemptId: firstAttempt.attemptId,
-      expectedRegistrySha256: firstSnapshot.sha256
+      expectedRegistrySha256: firstSnapshot.sha256,
+      expectedSignalIdentitySha256: undefined
     }), /SOURCE_REVIEW_RESOLUTION_EXPECTED_SIGNAL_IDENTITY_SHA256_REQUIRED/);
     assert.deepEqual(fs.readFileSync(outputPath), firstSnapshot.bytes);
 
@@ -1095,7 +1150,7 @@ test("schema-v4 migration preserves every operation and attempt identity while a
     buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-12T10:01:00.000Z" });
     const migratedBytes = fs.readFileSync(outputPath);
     const migrated = JSON.parse(migratedBytes.toString("utf8"));
-    assert.equal(migrated.schemaVersion, 6);
+    assert.equal(migrated.schemaVersion, 7);
     assert.deepEqual(migrated.operations, operationBefore);
     assert.deepEqual(migrated.attempts.map((attempt) => ({
       attemptId: attempt.attemptId,

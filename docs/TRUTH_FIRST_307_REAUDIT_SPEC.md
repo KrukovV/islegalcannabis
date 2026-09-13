@@ -18,8 +18,11 @@ The canonical matrix contains `307/307` proposal-only rows. The canonical
 ledger is non-shrinking and retains `307` GEO rows, `295` explicit independent
 colour packets, and `12` rows whose proposal colour is normalized by the matrix
 builder: every GEO therefore has a normalized independent Truth Color. The
-matrix records `307/307` completed manual reviews and every row has a published
-official URL/PDF. This is the completed canonical audit-coverage checkpoint.
+matrix records `307/307` dated manual row-review entries and every row has a
+published official URL/PDF. This is a completed historical matrix-coverage
+checkpoint only. It does not prove current legal currency, complete C2 semantic
+review, strict C3 browser-origin acceptance, a machine-bound evidence
+attestation, or a resolved source-review operation.
 
 At that checkpoint, the report schema bridge exposed `147` independently reconciled
 primary-law packets containing `557` retained official source links. This is a
@@ -29,8 +32,10 @@ relied-on source had a persisted capture with visible official domain; `305`
 remained in that narrow browser-domain acceptance queue. Neither secondary metric
 may be reported as the number of GEO passed or remaining, and neither may alter
 Legal Truth derivation. The C3 browser-domain queue is an operational
-evidence-acceptance backlog, not a legal-colour or canonical audit-completion
-backlog. `GOAL_ACHIEVED=false`, `APPLY_ALLOWED=false`,
+evidence-acceptance backlog, not a legal-colour backlog. The separate current
+source-review queue remains authoritative for semantic/effective-date/
+applicability work; this historical checkpoint cannot close it.
+`GOAL_ACHIEVED=false`, `APPLY_ALLOWED=false`,
 `SSOT_CHANGED=false`, `MAP_COLORS_CHANGED=false`, `PRODUCTION_TOUCHED=false`,
 and `RUNTIME_TOUCHED=false` remain mandatory.
 
@@ -43,17 +48,20 @@ final-acceptance check and is never a legal-truth input.
 
 ### Completion-reporting contract
 
-- Report the canonical audit as `307/307 complete` only when the matrix retains
-  all 307 canonical rows, a normalized independent Truth Color for each row,
-  a published official URL/PDF for each row, and completed manual review for
-  each row.
+- Report this dated checkpoint only as `historical matrix audit coverage
+  307/307` when the matrix retains all 307 canonical rows, a normalized
+  independent Truth Color for each row, a published official URL/PDF for each
+  row, and one dated manual row-review entry for each row. Never shorten that
+  label to `307/307 legally current`, `C2 complete`, `C3 complete`,
+  `attested`, `resolved`, or an unqualified `307/307 complete`.
 - Report the report-schema bridge (`147/307` at this checkpoint) only as
   `structured primary-law reconciliation`; it must never be substituted for the
-  canonical audit-completion count.
+  historical matrix-coverage count.
 - Report the C3 figure (`2/307` at this checkpoint) only as `strict
-  browser-domain acceptance`. It is a visual UI-acceptance refinement, does not
-  create a legal backlog, and cannot change a color, `UNKNOWN` reason, SSOT,
-  map, runtime or production layer.
+  browser-domain acceptance`. It is independent evidence-acceptance work and
+  cannot change a color, `UNKNOWN` reason, SSOT, map, runtime or production
+  layer. It must not be described as legal-currentness or inferred from C2,
+  resolution, attestation or historical row coverage.
 
 ## Independent inputs and layer separation
 
@@ -699,7 +707,7 @@ C0 made no request and retained the two source records. C1 made one serial reque
 
 The Schedule 4 maximum-prescription context and Article 4 institutional import exception are preserved, but are generic controlled-drug/institutional wording—not a current cannabis-specific patient class, prescriber, lawful supply, pharmacy, dispensing, limited lawful activity or operational programme. The retained source chain also does not prove the decisive 1993 clauses or a later cannabis-specific exception remain current after amendment/repeal review. It therefore cannot derive `YELLOW`, and it cannot derive `RED` without a complete current medical-exception chain. This general generic-prescription boundary prevents a false color while retaining all actual direct source facts. Focused revalidation/reconciliation tests passed `71/71`; global C0 preserved `1,571` current source records with `FETCHED_URLS=0`; the rebuilt matrix retains all `307` GEO and publishes `776` direct and `1,432` total official URL/PDF links. `APPLY_ALLOWED=false`, `PRODUCTION_TOUCHED=false`, `MAP_COLORS_CHANGED=false` and `SSOT_CHANGED=false` remain mandatory.
 
-YE CI checkpoint: the required serial `HEADLESS=1 CI_WRITE_ROOT=1 bash tools/pass_cycle.sh` completed after its process exited and the pass-cycle lock was absent. Fresh [Reports/ci-final.txt](../Reports/ci-final.txt) records `CI_STATUS=PASS`, `CI_QUALITY=OK`, `SMOKE_STATUS=PASS`, `POST_CHECKS_OK=1`, `HUB_STAGE_REPORT_OK=1`, `PROCESS_SLOT_RUNTIME_GUARD=PASS` and `PASS_CYCLE_EXIT rc=0 status=PASS guard_status=0`; final SHA-256 is `4d09052d76396aa7b79d83c6bd7bc8d811dd13391696763b191a7c01c7990973`. This gate is proposal-audit verification only and did not change SSOT, map, runtime, production or any applied color.
+YE CI checkpoint: the required serial `HEADLESS=1 CI_WRITE_ROOT=1 bash tools/pass_cycle.sh` completed after its process exited and the pass-cycle lock was absent. The then-current `Reports/ci-final.txt` recorded `CI_STATUS=PASS`, `CI_QUALITY=OK`, `SMOKE_STATUS=PASS`, `POST_CHECKS_OK=1`, `HUB_STAGE_REPORT_OK=1`, `PROCESS_SLOT_RUNTIME_GUARD=PASS` and `PASS_CYCLE_EXIT rc=0 status=PASS guard_status=0`; final SHA-256 was `4d09052d76396aa7b79d83c6bd7bc8d811dd13391696763b191a7c01c7990973`. This historical gate is proposal-audit verification only and did not change SSOT, map, runtime, production or any applied color.
 
 ### Historical progress receipt: 2026-08-12 TM CI checkpoint
 

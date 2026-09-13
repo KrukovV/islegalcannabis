@@ -183,21 +183,32 @@ Google indexing terminology.
 - review_status/review_confidence/review_sources are canonical for the review pipeline.
 - status/confidence/sources are legacy and only used as fallback when review_status is missing and status is provisional.
 
-## Status Engine Audit contract
-- Status Engine Audit v3 is review-only and cannot mutate SSOT, `/api/check`, map payloads, or map colors automatically.
-- The current wave reuses the same rows from `Reports/status-engine/status_engine_audit_v1.json`: first 30 alphabetic `WIKI_COUNTRIES` plus the previously recorded Iran control row (`31` rows total).
+## Historical Status Engine Audit contract
+- Status Engine Audit v3 is a retained, noncanonical 31-row diagnostic. It cannot seed or mutate current Legal Truth, the 307-GEO projection, SSOT, `/api/check`, map/popup/SEO/Passport payloads or map colours.
+- The retained historical wave reuses the same rows from `Reports/status-engine/status_engine_audit_v1.json`: first 30 alphabetic `WIKI_COUNTRIES` plus the previously recorded Iran control row (`31` rows total).
 - Source pages are `Cannabis in <Country>` articles, not generic country pages.
 - Output colors are exactly `GREEN`, `YELLOW`, and `RED`.
 - Layer A `STATUS_ENGINE` affects color and may use only medical legal, recreational legal, decriminalization, tolerated possession, weak enforcement, rarely enforced, legal industrial cannabis, and active prison/criminal exposure.
 - Layer B `CANNABIS_PROFILE` never affects color and stores history, culture, local names, slang, products, traditional use, cannabis foods, cultivation, market notes, and enforcement notes.
 - The shared canonical MapLibre popup on `/`, `/c/[code]`, local `/truth-map` and the localhost-only `/new-map` QA route must render all available profile sections (History, Culture, Enforcement Reality, profile buckets) as concise previews for every jurisdiction, and use note-derived history/culture fallbacks when structured profile buckets are missing so all map countries/states stay informative; full details stay on country SEO pages (`/c/...`) via the complete profile payload. Production `/new-map` redirects and never owns a popup surface.
-- Country snapshot features must not carry an independent color/status truth from SSOT map rows when a country page exists. For countries, `buildCountrySourceSnapshot()` must derive `feature.properties.mapCategory` from the same country-page storage/view path used by popup cards and `deriveMapCategoryFromCountryPageData()`, so runtime cards, snapshot features, and tests stay aligned even when canonical SSOT result-status remains more conservative.
+- The legacy `buildCountrySourceSnapshot().feature.properties.mapCategory` / country-page storage mapping is compatibility-only inside this historical diagnostic. It must not override the current canonical 307-GEO record or appear as a second colour/status truth. Current map, popup, SEO and Passport alignment is governed by the canonical 307-GEO projection and `docs/GEO_SYNC_AUDIT.md`.
 - `RED` requires all hard criteria: medical illegal, recreational illegal, no decriminalization, no weak-enforcement signal, and active prison/criminal exposure.
 - `YELLOW` is triggered by medical legal, weak enforcement, rarely enforced, tolerated possession, or decriminalization, even when recreational use is illegal.
 - `GREEN` requires recreational legal or medical legal + industrial legal + stable cannabis ecosystem.
 - Enforcement override phrases such as `often not strictly enforced`, `enforced opportunistically`, and `police do not harass users` prohibit `RED`.
-- Current v3 first-wave result: 31 reviewed, `GREEN=2`, `YELLOW=13`, `RED=16`, 10 color changes vs `OLD_COLOR`, and 5 review rows.
+- Retained historical v3 first-wave result: 31 reviewed, `GREEN=2`, `YELLOW=13`, `RED=16`, 10 color changes vs `OLD_COLOR`, and 5 review rows. These are fixture/report counts, not current-law metrics.
 - Cannabis Profile artifacts live in `data/cannabis_profiles/first_wave_profiles.json` and `data/cannabis_profiles/local_names.dictionary.json`.
+
+## Source-review evidence contract
+- `data/b2b_evidence/source_review_operations.json` is an append-only schema-v7 registry of operations, attempts, resolutions and machine-bound `evidenceAttestations[]`.
+- A `SOURCE_REVIEW_EVIDENCE_V1` attestation binds one exact registry preimage, operation, semantic-latest attempt, signal identity and canonical official-source record to exact unnormalised UTF-8 fragment bytes and reviewed visual-artifact bytes. SHA-256 and byte length are mandatory for both; artifact MIME comes from file magic rather than extension.
+- `data/b2b_evidence/source_review_evidence_v7_migration.json` is the deterministic schema-v1 provenance receipt for the bounded schema-v6-to-v7 migration. It binds the exact pre/post registry hashes, hashes of all preserved legacy arrays, migration-prefix counts, ordered attestation/input identities and `MIGRATION_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE`; it is not an alternate registry or Truth SSOT. Existing receipt bytes must validate exactly. A missing receipt may be reconstructed only from the unchanged migration-sized schema-v7 state; absence after later registry appends fails closed.
+- C2 (`PASS|PARTIAL`) and C3 (`NOT_PROVEN|PASS`) are independent explicit review assertions. The exact visibility fields are publisher, official-domain text, exact fragment, scope, current, effective, GEO applicability, browser origin and absence of challenge/error. A resolution alone never implies either level.
+- Every future close atomically appends its resolution and `PRE_CLOSE_ATOMIC` attestation. A resolution created before schema v7 may only gain a later append-only `POST_RESOLUTION_REATTESTATION`; history is not rewritten and the evidence is not described as pre-close proof.
+- The builder, evidence migrator and resolver share one exclusive owned lock, staged durability write, intended-stage hash recheck, exact-preimage CAS and atomic rename. Stale, tampered, MIME-spoofed, TOCTOU, future-dated, ambiguous, concurrent or cross-operation state fails before replacement; foreign locks/bytes are preserved.
+- Workbench schema v4 independently validates current signal and attestation identity, reports operation lifecycle separately from `BOUND_PRE_CLOSE|BOUND_POST_HOC|UNBOUND_LEGACY`, and never infers missing fields across sources or GEOs.
+- Raw artifacts may live under the external archive. Their exact bytes are mandatory at write/migration time; after commit, their locator is only a hint and ordinary runtime/CI validates committed fragment/artifact hashes and chain state without requiring the external file.
+- Historical matrix/visual coverage, C2, C3, machine-attested operations, resolved operations and current-law currency are separate metrics. `307/307` in one layer never proves the others and no attestation changes Legal Truth or Store Truth.
 
 ## Location precedence contract
 - Manual, GPS, and IP location signals resolve in fixed order: `manual > gps > ip`.
@@ -210,6 +221,7 @@ Google indexing terminology.
 
 ## Network truth and CI contract
 - `bash tools/pass_cycle.sh` is the single command for CI, checkpoint, and ledger verification.
+- The exact result of an individual run is `Artifacts/runs/<RUN_ID>/ci-final.txt`. When a cycle finalizes, it refreshes `Reports/ci-final.txt` from that run-local receipt regardless of `CI_WRITE_ROOT`; `Tools/commit_if_green.sh` reads the Reports copy. `CI_WRITE_ROOT=1` additionally refreshes legacy repository-root `./ci-final.txt` only. An incomplete run or mismatched RUN_ID cannot be cited as current acceptance.
 - Lint runs before Smoke/UI and any lint error fails the run.
 - The generated `data/reviews/wiki-truth-cannabis-law-matrix-307.json` is refreshed exactly once from the canonical visual-review ledger before `pass_cycle` enters any sourced `ci-local`, reconciliation, or projection-test path. A stale matrix is a CI failure; the deterministic refresh is not a Legal Truth, SSOT, Store Truth, route, or production mutation.
 - Final `pass_cycle` must run the one-request Vercel root diagnostic access/render check for canonical production `/`, separately verify the parameter-preserving permanent `/new-map` redirect, write a PNG screenshot and timing measurements, and compare them against `data/baselines/prod_live_quality_baseline.json`.
@@ -230,7 +242,7 @@ Google indexing terminology.
 
 ## Storage hygiene contract
 - `QUARANTINE` contains exactly one PASS snapshot; historical archives live outside the repo.
-- Raw popup/wiki visual screenshots are external evidence, not repository runtime inputs. `Artifacts/` retains only the guard-required manifest, report and metadata files; raw image copies are archived under `~/islegalcannabis_archive/<run-id>/` after verifying that the governing manifest resolves its evidence externally.
+- Raw popup/wiki/GEO-sync/source-review visual screenshots are external evidence, not repository runtime inputs. `Artifacts/` retains only guard-required manifest, report and metadata files; raw image copies are archived under `~/islegalcannabis_archive/<run-id>/` after verifying that the governing manifest or attestation resolves the exact external evidence bytes. A source-review artifact path is only a retrieval hint; committed hash, byte length and magic-verified MIME are its identity.
 - `Reports` contains operational logs only.
 - Archives live under `~/islegalcannabis_archive/` unless an explicit external path is provided.
 - `.codex/**` is a disposable derived layer and must not be treated as product SSOT.

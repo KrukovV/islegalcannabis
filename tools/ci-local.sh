@@ -4,15 +4,9 @@ set -euo pipefail
 export MAP_ENABLED="${MAP_ENABLED:-0}"
 export READONLY_CI="${READONLY_CI:-1}"
 export UPDATE_MODE="${UPDATE_MODE:-0}"
-if [ -z "${SMOKE_MODE:-}" ] && [ "${MAP_ENABLED}" = "0" ]; then
-  export SMOKE_MODE="skip"
-  export ALLOW_SMOKE_SKIP="${ALLOW_SMOKE_SKIP:-1}"
-  echo "SMOKE_MODE=skip (MAP_ENABLED=0)"
-fi
+export SMOKE_MODE="${SMOKE_MODE:-local}"
 if [ "${CI_LOCAL_OFFLINE_OK:-0}" = "1" ]; then
-  echo "CI_LOCAL_SKIP reason=OFFLINE_CACHE_OK mode=wiki_db"
-  echo "CI_LOCAL_RESULT rc=0 skipped=1 reason=OFFLINE_CACHE_OK"
-  exit 0
+  echo "CI_LOCAL_OFFLINE reason=OFFLINE_CACHE_OK network_audit=skip local_gates=required"
 fi
 
 last_cmd=""

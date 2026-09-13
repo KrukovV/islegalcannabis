@@ -35,7 +35,7 @@ describe("local source review workbench API", () => {
     expect(response.headers.get("cache-control")).toBe("no-store");
     const payload = await response.json();
     expect(payload).toEqual(expect.objectContaining({
-      schemaVersion: 3,
+      schemaVersion: 4,
       localOnly: true,
       readOnly: true,
       registrySha256: expect.stringMatching(/^[a-f0-9]{64}$/)
@@ -96,9 +96,48 @@ describe("local source review workbench API", () => {
     }
   });
 
+  it("returns committed machine-bound evidence without treating the artifact locator as identity", async () => {
+    const response = await route.GET(localRequest("?state=resolved"));
+    expect(response.status).toBe(200);
+    const payload = await response.json();
+    expect(payload.summary).toEqual(expect.objectContaining({
+      matchingResolved: 5,
+      matchingEvidenceAttested: 5,
+      matchingEvidenceBoundPostHoc: 5,
+      matchingEvidenceUnboundLegacy: 0
+    }));
+    expect(payload.dossiers).toHaveLength(5);
+    for (const dossier of payload.dossiers) {
+      expect(dossier.evidenceAttestationState).toBe("BOUND_POST_HOC");
+      expect(dossier.evidenceAttestation).toEqual(expect.objectContaining({
+        evidenceFormat: "SOURCE_REVIEW_EVIDENCE_V1",
+        attestationSha256: expect.stringMatching(/^[a-f0-9]{64}$/),
+        bindings: {
+          exactFragmentUtf8: expect.objectContaining({
+            format: "EXACT_FRAGMENT_UTF8",
+            sha256: expect.stringMatching(/^[a-f0-9]{64}$/),
+            byteLength: expect.any(Number),
+            normalization: "NONE"
+          }),
+          visualArtifactBytes: expect.objectContaining({
+            format: "VISUAL_ARTIFACT_BYTES",
+            sha256: expect.stringMatching(/^[a-f0-9]{64}$/),
+            byteLength: expect.any(Number),
+            mediaType: expect.stringMatching(/^image\/(?:png|jpeg)$/),
+            locator: expect.any(String)
+          })
+        },
+        review: expect.objectContaining({
+          c3: "NOT_PROVEN",
+          visibility: expect.objectContaining({ browserOrigin: false })
+        })
+      }));
+    }
+  });
+
   it("returns a resolved lifecycle dossier with no reusable close tokens", async () => {
     workbenchOverride.value = {
-      schemaVersion: 3,
+      schemaVersion: 4,
       localOnly: true,
       readOnly: true,
       registrySha256: "a".repeat(64),
@@ -110,10 +149,18 @@ describe("local source review workbench API", () => {
         currentActive: 0,
         openHistorical: 0,
         resolved: 1,
+        evidenceAttested: 1,
+        evidenceBoundPreClose: 0,
+        evidenceBoundPostHoc: 1,
+        evidenceUnboundLegacy: 0,
         matchingOperations: 1,
         matchingCurrentActive: 0,
         matchingOpenHistorical: 0,
         matchingResolved: 1,
+        matchingEvidenceAttested: 1,
+        matchingEvidenceBoundPreClose: 0,
+        matchingEvidenceBoundPostHoc: 1,
+        matchingEvidenceUnboundLegacy: 0,
         returnedOperations: 1,
         truncated: false
       },
@@ -130,6 +177,11 @@ describe("local source review workbench API", () => {
           reviewedAttemptId: "SRCATT-fixture",
           resolutionBasis: "EXPLICIT_HUMAN_EVIDENCE_REVIEW"
         },
+        evidenceAttestationState: "BOUND_POST_HOC",
+        evidenceAttestation: {
+          evidenceFormat: "SOURCE_REVIEW_EVIDENCE_V1",
+          attestationMode: "POST_RESOLUTION_REATTESTATION"
+        },
         currentSource: null
       }],
       boundary: "READ_ONLY_SOURCE_REVIEW_VIEW_NO_TRUTH_MUTATION"
@@ -142,6 +194,11 @@ describe("local source review workbench API", () => {
       lifecycle: "RESOLVED",
       currentSignal: true,
       closeTokens: null,
+      evidenceAttestationState: "BOUND_POST_HOC",
+      evidenceAttestation: expect.objectContaining({
+        evidenceFormat: "SOURCE_REVIEW_EVIDENCE_V1",
+        attestationMode: "POST_RESOLUTION_REATTESTATION"
+      }),
       resolution: expect.objectContaining({
         operationId: "SRCREV-fixture",
         reviewedAttemptId: "SRCATT-fixture",

@@ -64,13 +64,17 @@ Confirmed diffs are append-only. A pending change becomes confirmed only after i
 
 ## Local Evidence Operations
 
-Evidence Passport, Source Freshness, Change Monitor/Watchlist, Source Review Workbench, Why No Leaf, correction review and editorial localisation are projections around the canonical 307-GEO source. They do not create an alternate Legal Truth or Store Truth. Their append-only registries use owned locks, staged durability writes and exact-byte compare-and-swap; read surfaces never mutate them. The source-review registry schema-v6 preserves V1 history and appends only bounded V2 owner/applicability corrections. Production has no B2B evidence UI/API exposure unless a separate authorised release changes the route contract.
+Evidence Passport, Source Freshness, Change Monitor/Watchlist, Source Review Workbench, Why No Leaf, correction review and editorial localisation are projections around the canonical 307-GEO source. They do not create an alternate Legal Truth or Store Truth. Browser-facing evidence APIs are localhost-only and `no-store`. Passport, manifest, monitor, source-review, localisation, snapshot, embed, print and Why No Leaf are GET/read-only. Only the explicitly documented correction intake/review endpoints append untrusted workflow events; source-review resolution/attestation, canonical publication and editorial-localisation mutation remain guarded CLI-only operations.
 
-## Status Engine Audit
+The source-review registry is schema v7. It preserves the complete schema-v6 operation/attempt/resolution history and adds append-only `evidenceAttestations[]`. Each `SOURCE_REVIEW_EVIDENCE_V1` entry binds the exact registry preimage, operation, semantic-latest attempt, signal identity and canonical official-source record to the exact unnormalised UTF-8 fragment bytes and visual-artifact bytes, including SHA-256, byte length and magic-verified MIME. C2 and C3 are separate review claims. A new close atomically appends its resolution and `PRE_CLOSE_ATOMIC` attestation; an older close may gain only a `POST_RESOLUTION_REATTESTATION`. Workbench schema v4 validates the chain and labels dossiers `BOUND_PRE_CLOSE`, `BOUND_POST_HOC` or `UNBOUND_LEGACY` without changing Legal Truth.
 
-Status Engine Audit v3 is a review-only evaluator over existing country truth. It emits only `GREEN`, `YELLOW`, and `RED`, keeps color logic in Layer A `STATUS_ENGINE`, and keeps history/culture/local names/products in Layer B `CANNABIS_PROFILE`.
+The builder, evidence migrator and resolver are concurrent writers to this one registry and share one owned-lock, staged-durability, intended-stage-hash, exact-preimage-CAS and atomic-rename protocol. The schema-v6-to-v7 migrator additionally writes `data/b2b_evidence/source_review_evidence_v7_migration.json`, a deterministic provenance receipt binding exact pre/post registry hashes, preserved-array hashes, migration-prefix counts, attestation/input hashes and an explicit no-Truth-change boundary. The receipt is not an alternate registry or truth source. Registry and receipt are individually staged and atomically renamed under the registry lock; because the registry commit precedes receipt publication, bounded schema-v7 recovery may reconstruct a missing receipt only before later registry growth, while a missing receipt after later appends fails closed. Raw visual files are mandatory while an attestation is initially written or migrated, but the committed byte identity—not a locator—is the evidence identity; ordinary runtime, CI and accepted schema-v7 receipt validation do not depend on the external raw file remaining mounted. Production has no B2B evidence UI/API exposure unless a separate authorised release changes the route contract.
 
-Current first-wave evidence is in `Reports/status-engine/` and documented in `docs/STATUS_ENGINE_AUDIT.md`: 31 rows reviewed, `GREEN=2`, `YELLOW=13`, `RED=16`, and 5 review rows. Cannabis Profile JSON is generated under `data/cannabis_profiles/`.
+## Historical Status Engine Audit
+
+Status Engine Audit v3 is retained as a historical, noncanonical 31-row diagnostic. It emits only `GREEN`, `YELLOW`, and `RED`, keeps color logic in Layer A `STATUS_ENGINE`, and keeps history/culture/local names/products in Layer B `CANNABIS_PROFILE`, but neither that output nor its legacy `mapCategory` compatibility mapping can determine or override current Legal Truth, the canonical 307-GEO projection, map colour, popup, SEO or Evidence Passport.
+
+Retained historical first-wave evidence is in `Reports/status-engine/` and documented in `docs/STATUS_ENGINE_AUDIT.md`: 31 rows reviewed, `GREEN=2`, `YELLOW=13`, `RED=16`, and 5 review rows. These counts do not describe current legal currency or the 307-GEO source-review queue. Cannabis Profile JSON is generated under `data/cannabis_profiles/`.
 
 ## Network Truth
 
@@ -86,6 +90,6 @@ Artifacts/net_probe/<RUN_ID>.json
 
 ## CI and Operational Artifacts
 
-`bash tools/pass_cycle.sh` is the single project verification command. It owns lint, CI/smoke gates, checkpoint generation, and final report checks.
+`bash tools/pass_cycle.sh` is the single project verification command. It owns lint, CI/smoke gates, checkpoint generation, and final report checks. The exact-run receipt is `Artifacts/runs/<RUN_ID>/ci-final.txt`; finalization always refreshes `Reports/ci-final.txt` from it, and the green commit helper reads that Reports copy. `CI_WRITE_ROOT=1` additionally writes the legacy repository-root `./ci-final.txt`; it does not control whether `Reports/ci-final.txt` is refreshed.
 
 `Reports/` is operational output, not history. `QUARANTINE/` contains exactly one PASS snapshot. Historical archives live outside the repo under `~/islegalcannabis_archive/` unless an explicit external path is provided.

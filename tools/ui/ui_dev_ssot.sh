@@ -78,7 +78,7 @@ if [ -f "${PID_FILE}" ]; then
 fi
 
 cd "${ROOT}/apps/web"
-nohup env NEXT_DISABLE_TURBOPACK=1 npm run web:dev > "${LOG_FILE}" 2>&1 & echo $! | tee "${PID_FILE}" >/dev/null
+nohup npm run web:dev -- --webpack > "${LOG_FILE}" 2>&1 & echo $! | tee "${PID_FILE}" >/dev/null
 disown || true
 echo "UI_STARTED pid=$(cat "${PID_FILE}") url=${URL}"
 if check_http; then

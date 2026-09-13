@@ -33,7 +33,8 @@ function resolvedWorkbenchFixture() {
     ...snapshot.registry,
     operations: snapshot.registry.operations.filter((operation) => operationIds.has(operation.operationId)),
     attempts: snapshot.registry.attempts.filter((attempt) => operationIds.has(attempt.operationId)),
-    resolutions: []
+    resolutions: [],
+    evidenceAttestations: []
   });
   const baselineBytes = Buffer.from(JSON.stringify(baselineRegistry), "utf8");
   const baselineSnapshot = {
@@ -65,7 +66,7 @@ function resolvedWorkbenchFixture() {
     resultingChangeReason: "FIXTURE_SCOPE_AND_EFFECTIVE_STATE_CONFIRMED",
     boundary: "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
   };
-  const registry = validateSourceReviewOperationsRegistry({ ...baselineRegistry, resolutions: [resolution] });
+  const registry = validateSourceReviewOperationsRegistry({ ...baselineRegistry, resolutions: [resolution], evidenceAttestations: [] });
   const bytes = Buffer.from(JSON.stringify(registry), "utf8");
   return {
     candidate,
@@ -86,7 +87,7 @@ function resolvedWorkbenchFixture() {
 describe("source review workbench", () => {
   it("accounts for the complete canonical universe and the current signal projection", () => {
     const workbench = buildSourceReviewWorkbench();
-    expect(workbench.schemaVersion).toBe(3);
+    expect(workbench.schemaVersion).toBe(4);
     expect(workbench.localOnly).toBe(true);
     expect(workbench.readOnly).toBe(true);
     expect(workbench.boundary).toBe("READ_ONLY_SOURCE_REVIEW_VIEW_NO_TRUTH_MUTATION");
@@ -94,6 +95,8 @@ describe("source review workbench", () => {
     expect(workbench.summary.currentSignals).toBeGreaterThan(0);
     expect(workbench.summary.currentActive + workbench.summary.openHistorical + workbench.summary.resolved)
       .toBe(workbench.summary.totalOperations);
+    expect(workbench.summary.evidenceAttested + workbench.summary.evidenceUnboundLegacy).toBe(workbench.summary.resolved);
+    expect(workbench.summary.evidenceBoundPreClose + workbench.summary.evidenceBoundPostHoc).toBe(workbench.summary.evidenceAttested);
     expect(workbench.summary.returnedOperations).toBe(100);
     expect(workbench.summary.truncated).toBe(true);
     expect(workbench.registrySha256).toBe(
@@ -120,6 +123,8 @@ describe("source review workbench", () => {
     expect(resolvedDossier.resolution?.reviewedAttemptId).toBe(fixture.candidate.latestAttempt.attemptId);
     expect(resolvedDossier.resolution?.reviewedSignalIdentitySha256).toBe(fixture.candidate.latestAttempt.signalIdentitySha256);
     expect(resolvedDossier.resolution?.resolutionBasis).toBe("EXPLICIT_HUMAN_EVIDENCE_REVIEW");
+    expect(resolvedDossier.evidenceAttestation).toBeNull();
+    expect(resolvedDossier.evidenceAttestationState).toBe("UNBOUND_LEGACY");
     expect(resolvedDossier.attemptHistory.map((attempt) => attempt.attemptId))
       .toEqual(fixture.candidate.attemptHistory.map((attempt) => attempt.attemptId));
     expect(Buffer.compare(fs.readFileSync(truthPath), beforeTruth)).toBe(0);
@@ -136,6 +141,7 @@ describe("source review workbench", () => {
     expect(current.dossiers.every((dossier) => dossier.currentSignal)).toBe(true);
     expect(historical.dossiers.every((dossier) => !dossier.currentSignal)).toBe(true);
     expect(open.dossiers.every((dossier) => dossier.resolution === null)).toBe(true);
+    expect(open.dossiers.every((dossier) => dossier.evidenceAttestation === null && dossier.evidenceAttestationState === null)).toBe(true);
     expect(open.summary.matchingOperations).toBe(current.summary.matchingOperations + historical.summary.matchingOperations);
     expect(resolved.summary.matchingOperations).toBe(0);
     expect(resolved.dossiers).toEqual([]);
@@ -246,6 +252,15 @@ describe("source review workbench", () => {
           reviewedAttemptId: item.attemptId,
           resolutionBasis: "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
           boundary: "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+        },
+        evidenceAttestationState: "BOUND_POST_HOC",
+        evidenceAttestation: {
+          evidenceFormat: "SOURCE_REVIEW_EVIDENCE_V1",
+          resolutionId: item.resolutionId,
+          operationId: item.operationId,
+          reviewedAttemptId: item.attemptId,
+          attestationMode: "POST_RESOLUTION_REATTESTATION",
+          review: { c3: "NOT_PROVEN" }
         }
       });
       expect(buildSourceReviewWorkbench({ geo: item.geo, state: "open" }).dossiers)
@@ -275,6 +290,58 @@ describe("source review workbench", () => {
       expect(current[0].closeTokens?.reviewedAttemptId).toBe(current[0].latestAttempt.attemptId);
       expect(current[0].closeTokens?.expectedSignalIdentitySha256).toBe(current[0].latestAttempt.signalIdentitySha256);
     }
+  });
+
+  it("projects every retained resolution attestation as a machine-bound post-hoc review", () => {
+    const resolved = buildSourceReviewWorkbench({ state: "resolved" });
+    expect(resolved.summary.matchingResolved).toBe(5);
+    expect(resolved.summary.matchingEvidenceAttested).toBe(5);
+    expect(resolved.summary.matchingEvidenceBoundPreClose).toBe(0);
+    expect(resolved.summary.matchingEvidenceBoundPostHoc).toBe(5);
+    expect(resolved.summary.matchingEvidenceUnboundLegacy).toBe(0);
+    for (const dossier of resolved.dossiers) {
+      expect(dossier.evidenceAttestationState).toBe("BOUND_POST_HOC");
+      expect(dossier.evidenceAttestation).toMatchObject({
+        evidenceFormat: "SOURCE_REVIEW_EVIDENCE_V1",
+        resolutionId: dossier.resolution?.resolutionId,
+        operationId: dossier.operation.operationId,
+        reviewedAttemptId: dossier.latestAttempt.attemptId,
+        review: { c3: "NOT_PROVEN", visibility: { browserOrigin: false } }
+      });
+      expect(dossier.evidenceAttestation?.bindings.exactFragmentUtf8.sha256).toMatch(/^[a-f0-9]{64}$/);
+      expect(dossier.evidenceAttestation?.bindings.visualArtifactBytes).toEqual(expect.objectContaining({
+        sha256: expect.stringMatching(/^[a-f0-9]{64}$/),
+        byteLength: expect.any(Number),
+        mediaType: expect.stringMatching(/^image\/(?:png|jpeg)$/),
+        locator: expect.any(String)
+      }));
+    }
+  });
+
+  it("fails closed when a current resolved operation carries a stale bound source record", () => {
+    const records = listTruthMapCanonicalProjectionRecords();
+    const snapshot = loadSourceReviewOperationsRegistrySnapshot();
+    const candidate = buildSourceReviewWorkbench({ state: "resolved" }, { records, registrySnapshot: snapshot }).dossiers
+      .find((dossier) => dossier.currentSignal && dossier.evidenceAttestation !== null);
+    expect(candidate?.evidenceAttestation).toBeTruthy();
+    const staleAttestation = {
+      ...candidate!.evidenceAttestation!,
+      sourceRecord: {
+        ...candidate!.evidenceAttestation!.sourceRecord,
+        officialPublisher: `${candidate!.evidenceAttestation!.sourceRecord.officialPublisher} stale`
+      }
+    };
+    const staleSnapshot = {
+      ...snapshot,
+      registry: {
+        ...snapshot.registry,
+        evidenceAttestations: snapshot.registry.evidenceAttestations.map((attestation) => (
+          attestation.attestationId === staleAttestation.attestationId ? staleAttestation : attestation
+        ))
+      }
+    };
+    expect(() => buildSourceReviewWorkbench({}, { records, registrySnapshot: staleSnapshot }))
+      .toThrow(`SOURCE_REVIEW_WORKBENCH_ACTIVE_ATTESTATION_STALE=${candidate!.operation.operationId}`);
   });
 
   it("keeps a historical dossier reconstructible without the current canonical source", () => {

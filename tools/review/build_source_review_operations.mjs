@@ -308,13 +308,19 @@ function buildSourceReviewOperationsLocked({
   const normalizedClassifiedAt = new Date(classifiedAt).toISOString();
   const existing = registrySnapshot.exists
     ? JSON.parse(registrySnapshot.bytes.toString("utf8"))
-    : { schemaVersion: 6, localOnly: true, appendOnly: true, createdAt: normalizedClassifiedAt, operations: [], attempts: [], resolutions: [] };
-  if (![3, 4, 5, 6].includes(existing.schemaVersion) || existing.localOnly !== true || existing.appendOnly !== true) {
+    : { schemaVersion: 7, localOnly: true, appendOnly: true, createdAt: normalizedClassifiedAt, operations: [], attempts: [], resolutions: [], evidenceAttestations: [] };
+  if (existing.schemaVersion === 6) {
+    throw new Error("SOURCE_REVIEW_EVIDENCE_MIGRATION_REQUIRED");
+  }
+  if (![3, 4, 5, 7].includes(existing.schemaVersion) || existing.localOnly !== true || existing.appendOnly !== true) {
     throw new Error(`SOURCE_REVIEW_REGISTRY_SCHEMA_INVALID=${existing.schemaVersion || "MISSING"}`);
   }
   const existingOperations = Array.isArray(existing.operations) ? existing.operations : [];
   const existingAttempts = Array.isArray(existing.attempts) ? existing.attempts : [];
   const existingResolutions = Array.isArray(existing.resolutions) ? existing.resolutions : [];
+  const existingEvidenceAttestations = Array.isArray(existing.evidenceAttestations)
+    ? existing.evidenceAttestations
+    : [];
   if (existing.schemaVersion === 3 && existingResolutions.length) {
     throw new Error("SOURCE_REVIEW_V3_RESOLUTION_SIGNAL_IDENTITY_MISSING");
   }
@@ -429,7 +435,16 @@ function buildSourceReviewOperationsLocked({
   // resolution is appended only by the explicit human-review command, which
   // records reviewer, evidence, note, and real close time.
   const resolutions = [...existingResolutions];
-  const output = { ...existing, schemaVersion: 6, localOnly: true, appendOnly: true, operations, attempts, resolutions };
+  const output = {
+    ...existing,
+    schemaVersion: 7,
+    localOnly: true,
+    appendOnly: true,
+    operations,
+    attempts,
+    resolutions,
+    evidenceAttestations: existingEvidenceAttestations
+  };
   const operationsById = new Map(operations.map((operation) => [operation.operationId, operation]));
   const classifiedSignals = new Set(attempts.flatMap((attempt) => {
     const operation = operationsById.get(attempt.operationId);

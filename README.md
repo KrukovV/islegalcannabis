@@ -17,7 +17,7 @@ The canonical public runtime is the MapLibre root `/`. In production, `/new-map`
 - `/wiki-truth` renders a prebuilt audit model. Counters, universe classification, alias resolution, and garbage filtering stay outside `page.tsx`.
 - Official registry and official geo coverage are separate universes.
 - SSOT snapshots stay at `row_count=300`; confirmed diffs are append-only and require two consecutive refresh cycles.
-- Status Engine Audit v3 is review-only, emits only `GREEN`/`YELLOW`/`RED`, and stores Cannabis Profile data separately from color decisions.
+- The 31-row Status Engine Audit v3 is a historical, noncanonical diagnostic snapshot. Its three-colour output and legacy country-page `mapCategory` compatibility mapping cannot determine current Legal Truth, the 307-GEO projection, map colour, popup, SEO or Passport content.
 - The independent, proposal-only 307-GEO Official Truth re-audit has a separate source-first contract in [docs/TRUTH_FIRST_307_REAUDIT_SPEC.md](docs/TRUTH_FIRST_307_REAUDIT_SPEC.md). It does not treat prior `/wiki-truth` proposals as legal truth and cannot modify SSOT, map, or production without explicit user authorization.
 
 See [docs/CONTRACT.md](docs/CONTRACT.md), [docs/GEO_SYNC_AUDIT.md](docs/GEO_SYNC_AUDIT.md), [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), [docs/STATUS_ENGINE_AUDIT.md](docs/STATUS_ENGINE_AUDIT.md), and [docs/TRUTH_FIRST_307_REAUDIT_SPEC.md](docs/TRUTH_FIRST_307_REAUDIT_SPEC.md).
@@ -43,7 +43,7 @@ This project enforces a single dev server policy (UI_SINGLETON_RULE):
   UI_ALREADY_RUNNING url=http://127.0.0.1:3000/wiki-truth
 - This is expected behavior and treated as OK (not an error).
 
-To restart the UI, reuse a healthy singleton by default. Stop only a process whose PID, command and working directory prove that it is this repository's server. If HTTP is down, every recorded owner is absent and port `3000` has no listener, remove only the exact stale `.next/dev/lock` and `Reports/web_dev_3000.pid` markers, then restart through `npm run web:dev`. Never kill a foreign/ambiguous process, recursively remove `.next/dev`, or switch ports automatically.
+To restart the UI, reuse a healthy singleton by default. Stop only a process whose PID, command and working directory prove that it is this repository's server. If HTTP is down, every recorded owner is absent and port `3000` has no listener, remove only the exact stale `.next/dev/lock` and `Reports/web_dev_3000.pid` markers, then restart through `bash tools/ui/ui_dev_ssot.sh`; the canonical dev launcher pins webpack so linked worktrees can reuse an installed dependency tree without starting an incompatible Turbopack runtime. Never kill a foreign/ambiguous process, recursively remove `.next/dev`, or switch ports automatically.
 
 ## Storage Hygiene (Required)
 
@@ -66,7 +66,7 @@ CI will fail on disk bloat (QUARANTINE > 500MB or Reports > 1GB).
 - `/api/check`: jurisdiction legality API.
 - `/api/new-map/countries`: compatibility redirect to immutable `/static/countries/countries.<hash>.json.br`.
 - `/api/ssot/changes`: cached SSOT diff API.
-- `/api/truth-map/b2b/*`: localhost-only read/write-by-dedicated-guard evidence workflow adapters; every route is production `404`, receives no production `outputFileTracingIncludes` entry and must not trace B2B evidence datasets.
+- `/api/truth-map/b2b/*`: localhost-only evidence workflow adapters; every route is non-local/production `404`, receives no production `outputFileTracingIncludes` entry and must not trace B2B evidence datasets. Passport, manifest, monitor, source-review, localisation, snapshot, embed, print and Why No Leaf reads are GET/read-only and `no-store`. The explicitly documented correction intake/review routes are the only browser-facing append writers; source-review resolution/attestation, canonical publication and editorial-localisation mutation remain guarded CLI-only operations.
 
 ## Local CI
 
@@ -141,9 +141,9 @@ Cron example (every 4 hours):
 0 */4 * * * cd /path/to/islegalcannabis && bash tools/wiki/cron_sync_all.sh >> Reports/wiki_sync.log 2>&1
 ```
 
-## Status Engine Audit
+## Historical Status Engine Audit
 
-Status Engine Audit v3 is a review layer over existing country truth. The current wave reuses the previous first-wave rows: 31 countries, 3 colors only (`GREEN`, `YELLOW`, `RED`), 10 color changes vs `OLD_COLOR`, and 5 review rows versus the previous 27-row review baseline. Cannabis Profile data is stored separately and does not affect color.
+Status Engine Audit v3 is retained only as a historical review artifact over 31 country rows. Its three-colour decisions, old/new deltas and legacy `buildCountrySourceSnapshot().mapCategory` mapping are noncanonical and must not seed or override current Legal Truth, the 307-GEO canonical projection, map/popup/SEO rendering or Evidence Passport. Cannabis Profile data remains separate and does not affect colour.
 
 ```bash
 npm -w apps/web run status:engine:audit
@@ -151,6 +151,16 @@ npm -w apps/web exec -- vitest run src/lib/statusEngineV1.test.ts src/lib/status
 ```
 
 Reports are written to `Reports/status-engine/`. Cannabis Profile data is written to `data/cannabis_profiles/`.
+
+## Local evidence operations
+
+`/truth-map/evidence-passport` is the localhost-only operations hub around the canonical 307-GEO projection. It supplies deterministic Passport JSON, a script-free embed and a print/Save-as-PDF HTML representation; it does not claim to generate or retain standalone PDF bytes. Source Freshness, Watchlist, Change Monitor, Why No Leaf, correction review and editorial localisation remain separate append-only workflows and cannot create an alternate Legal Truth or Store Truth.
+
+The Source Review registry is schema v7. Its top-level `evidenceAttestations[]` entries use `SOURCE_REVIEW_EVIDENCE_V1` to bind the exact official source record, owner/applicability, UTF-8 fragment bytes and visual-artifact bytes (SHA-256, byte length and magic-verified MIME) to one exact review operation and attempt. C2 and C3 are separate explicit review claims. Future resolutions require an atomic `PRE_CLOSE_ATOMIC` attestation; earlier closures may only receive an append-only `POST_RESOLUTION_REATTESTATION`. The Workbench schema v4 labels each dossier `BOUND_PRE_CLOSE`, `BOUND_POST_HOC` or `UNBOUND_LEGACY`; none of those labels changes Legal Truth.
+
+The bounded schema-v6-to-v7 migration is bound by the committed deterministic receipt `data/b2b_evidence/source_review_evidence_v7_migration.json`. It records exact pre/post registry hashes, preserved-array and migration-attestation identities, exact input hashes and an explicit no-Legal/Store-Truth-change boundary. It is migration provenance rather than a second truth registry; normal schema-v7 reruns validate it byte-for-byte against the recorded migration prefix.
+
+Raw captures may be stored in the external evidence archive. Their exact bytes are required while an attestation is written or migrated; after commit, runtime and CI validate the attestation chain and committed hashes without treating an external path as identity or requiring the raw file for ordinary reads.
 
 ## Adding a New Jurisdiction
 

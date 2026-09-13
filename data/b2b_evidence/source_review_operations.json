@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 6,
+  "schemaVersion": 7,
   "localOnly": true,
   "appendOnly": true,
   "createdAt": "2026-09-11T17:37:25.160Z",
@@ -180491,6 +180491,417 @@
       "signalIdentityPreimage": "{\"geo\":\"ZW\",\"sourceUrl\":\"https://www.mcaz.co.zw/wp-content/uploads/2024/12/MCAZ-LED-GL-20-Rev-0_November-2024-Production-of-Cannabis-Guidelines.pdf\",\"eventKind\":\"PENDING_REVIEW\",\"revalidationState\":\"NEEDS_SEMANTIC_REVIEW\",\"changeReason\":\"NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED\",\"finalUrl\":\"https://www.mcaz.co.zw/wp-content/uploads/2024/12/MCAZ-LED-GL-20-Rev-0_November-2024-Production-of-Cannabis-Guidelines.pdf\",\"httpStatus\":200,\"accessState\":\"HTTP_OK\",\"documentSha256\":\"e133ed07a8bb13f46aaf1347dd29d73e27f4c94b3f12ff86b88227b4c8295862\",\"relevantFragmentSha256\":\"bac10d6186588d789c1b07d14654eb10ece8b4f2c95dfb0125305a31e0ec6f98\",\"etag\":\"\\\"6757ebbc-7c72f\\\"\",\"lastModified\":\"Tue, 10 Dec 2024 07:20:28 GMT\",\"sourceOwnerGeo\":\"ZW\",\"appliesToGeos\":[\"ZW\"]}",
       "signalIdentityFormat": "SOURCE_REVIEW_SIGNAL_V2",
       "boundary": "SOURCE_REVIEW_ATTEMPT_ONLY_NO_REVIEW_CLOSURE"
+    }
+  ],
+  "evidenceAttestations": [
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-e3e4a8a0ef85d0528d7e6e0d",
+      "operationId": "SRCREV-af09b349e3805dd21b3f7485",
+      "reviewedAttemptId": "SRCATT-905ca0bd8532bd77629a2762",
+      "reviewedSignalIdentitySha256": "760c06bcab4bcc47d5e5959b8c1db74eeb27c1151d20c8809c83bf90b552fa29",
+      "reviewedSignalPayloadSha256": "760c06bcab4bcc47d5e5959b8c1db74eeb27c1151d20c8809c83bf90b552fa29",
+      "resolutionRegistryPreimageSha256": "d2073a951a028ac9ba934462e12774b3873f61883c1abd458a2c23ec6b5322ad",
+      "geo": "US-HI",
+      "sourceUrl": "https://health.hawaii.gov/medicalcannabisregistry/dispensaries/",
+      "sourceRecord": {
+        "officialPublisher": "State of Hawaii, Department of Health, Medical Cannabis Registry Program",
+        "sourceOwnerGeo": "US-HI",
+        "appliesToGeos": [
+          "US-HI"
+        ],
+        "legalBasisForExtension": "DIRECT_STATE_OF_HAWAII_DEPARTMENT_OF_HEALTH_MEDICAL_CANNABIS_REGISTRY_PROGRAMME",
+        "sourceType": "CURRENT_STATE_REGULATOR_DISPENSARY_DIRECTORY",
+        "primaryOrContext": "OPERATIONAL_SUPPLY_PROOF",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "There are currently licensed medical cannabis dispensaries on the islands of Hawaii, Maui, Oahu, and Kauai.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "17c92750c05c27fa54fff170aea6a5953527b0f97e52ef8966ce0b90e95ea1e5",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "2fe13795765113c7c83577aaec44bed98eaa21b31f09d611cd8f3dc97a359435",
+          "byteLength": 107,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "c6b833a5d39a533d6eb9fd5763fa9d05fe41775494baa8d7a7db855807d732c2",
+          "byteLength": 1426023,
+          "mediaType": "image/png",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/US-HI-doh-current-dispensary-directory-2026-08-09.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "CODEX_VISUAL_REVIEW_20260912",
+        "reviewedAt": "2026-09-12T04:09:49.000Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": true,
+          "officialDomainText": true,
+          "exactFragment": false,
+          "scope": true,
+          "current": false,
+          "effective": false,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "POST_RESOLUTION_REATTESTATION",
+      "attestedAt": "2026-09-12T18:00:31.300Z",
+      "inputs": {
+        "sourceLedgerSha256": "d2d652b03eb4e5f77dafd378c1c9465be1d2ac31fed037568649a2ce2512d111",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "GENESIS",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-2f19c6ec2abbfdc9edf16f55",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-e3e4a8a0ef85d0528d7e6e0d\",\"operationId\":\"SRCREV-af09b349e3805dd21b3f7485\",\"reviewedAttemptId\":\"SRCATT-905ca0bd8532bd77629a2762\",\"reviewedSignalIdentitySha256\":\"760c06bcab4bcc47d5e5959b8c1db74eeb27c1151d20c8809c83bf90b552fa29\",\"reviewedSignalPayloadSha256\":\"760c06bcab4bcc47d5e5959b8c1db74eeb27c1151d20c8809c83bf90b552fa29\",\"resolutionRegistryPreimageSha256\":\"d2073a951a028ac9ba934462e12774b3873f61883c1abd458a2c23ec6b5322ad\",\"geo\":\"US-HI\",\"sourceUrl\":\"https://health.hawaii.gov/medicalcannabisregistry/dispensaries/\",\"sourceRecordSha256\":\"17c92750c05c27fa54fff170aea6a5953527b0f97e52ef8966ce0b90e95ea1e5\",\"exactFragmentSha256\":\"2fe13795765113c7c83577aaec44bed98eaa21b31f09d611cd8f3dc97a359435\",\"visualArtifactSha256\":\"c6b833a5d39a533d6eb9fd5763fa9d05fe41775494baa8d7a7db855807d732c2\",\"reviewSha256\":\"668e7045ee71dda27ee223288f605f2f60fdb1ac992bda3c962ef4c9a3ee4fd6\",\"reviewerId\":\"CODEX_VISUAL_REVIEW_20260912\",\"reviewedAt\":\"2026-09-12T04:09:49.000Z\",\"attestationMode\":\"POST_RESOLUTION_REATTESTATION\",\"attestedAt\":\"2026-09-12T18:00:31.300Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"GENESIS\",\"sourceLedgerSha256\":\"d2d652b03eb4e5f77dafd378c1c9465be1d2ac31fed037568649a2ce2512d111\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f\"}",
+      "attestationSha256": "8af997c7c08fd7717936bc8489836e493905d287e321dbef4d25a6356cb60bee"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-7bdeb70b8e4d478161515c9d",
+      "operationId": "SRCREV-f5114f00e6e80509788f2748",
+      "reviewedAttemptId": "SRCATT-6d5e00fd4816e549c1585aae",
+      "reviewedSignalIdentitySha256": "0712742670c020a780d74c5dbfe8a0f3ae727a732a2356b5c67cd7d30b4e6bce",
+      "reviewedSignalPayloadSha256": "0712742670c020a780d74c5dbfe8a0f3ae727a732a2356b5c67cd7d30b4e6bce",
+      "resolutionRegistryPreimageSha256": "dbb27dd03cfba1e6bed96a43ce66bb703b79e8b7856d0d16ea98a6e51589afa3",
+      "geo": "US-OH",
+      "sourceUrl": "https://www.pharmacy.ohio.gov/OARRS/",
+      "sourceRecord": {
+        "officialPublisher": "Ohio Board of Pharmacy",
+        "sourceOwnerGeo": "US-OH",
+        "appliesToGeos": [
+          "US-OH"
+        ],
+        "legalBasisForExtension": "Direct statewide Ohio Board of Pharmacy operational reporting statement; no territorial extension inference.",
+        "sourceType": "OFFICIAL_STATE_PHARMACY_PROGRAMME_CURRENT_MEDICAL_CANNABIS_SALES_REPORTING",
+        "primaryOrContext": "OPERATIONAL_PROGRAMME",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "Additionally, all medical marijuana sales are reported to OARRS by Ohio licensed dispensaries within 5 minutes of sale.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "1f781eacf09ffa2afaff7210ec02d5c1576c4f7b65b3aa02ae475c6fca8d7601",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "a1409e6aca5ec3fd9967084f835579904797d34d4c6969574f96d54b91b94f63",
+          "byteLength": 119,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "cebe012ab7100db407853982d6988198036442915be13c670a9511529f1d3057",
+          "byteLength": 154728,
+          "mediaType": "image/jpeg",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/US-OH-oarrs-current-medical-dispensary-sales-2026-08-13.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PASS",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "CODEX_VISUAL_REVIEW_20260912",
+        "reviewedAt": "2026-09-12T04:10:26.000Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": true,
+          "officialDomainText": true,
+          "exactFragment": true,
+          "scope": true,
+          "current": true,
+          "effective": true,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "POST_RESOLUTION_REATTESTATION",
+      "attestedAt": "2026-09-12T18:00:31.300Z",
+      "inputs": {
+        "sourceLedgerSha256": "d2d652b03eb4e5f77dafd378c1c9465be1d2ac31fed037568649a2ce2512d111",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "8af997c7c08fd7717936bc8489836e493905d287e321dbef4d25a6356cb60bee",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-35c8580eb8e18b1db023c1a8",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-7bdeb70b8e4d478161515c9d\",\"operationId\":\"SRCREV-f5114f00e6e80509788f2748\",\"reviewedAttemptId\":\"SRCATT-6d5e00fd4816e549c1585aae\",\"reviewedSignalIdentitySha256\":\"0712742670c020a780d74c5dbfe8a0f3ae727a732a2356b5c67cd7d30b4e6bce\",\"reviewedSignalPayloadSha256\":\"0712742670c020a780d74c5dbfe8a0f3ae727a732a2356b5c67cd7d30b4e6bce\",\"resolutionRegistryPreimageSha256\":\"dbb27dd03cfba1e6bed96a43ce66bb703b79e8b7856d0d16ea98a6e51589afa3\",\"geo\":\"US-OH\",\"sourceUrl\":\"https://www.pharmacy.ohio.gov/OARRS/\",\"sourceRecordSha256\":\"1f781eacf09ffa2afaff7210ec02d5c1576c4f7b65b3aa02ae475c6fca8d7601\",\"exactFragmentSha256\":\"a1409e6aca5ec3fd9967084f835579904797d34d4c6969574f96d54b91b94f63\",\"visualArtifactSha256\":\"cebe012ab7100db407853982d6988198036442915be13c670a9511529f1d3057\",\"reviewSha256\":\"1725e998abd2d9fa2131d5f52c89f2c2b867e1eb82035beb61f3a309360a542c\",\"reviewerId\":\"CODEX_VISUAL_REVIEW_20260912\",\"reviewedAt\":\"2026-09-12T04:10:26.000Z\",\"attestationMode\":\"POST_RESOLUTION_REATTESTATION\",\"attestedAt\":\"2026-09-12T18:00:31.300Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"8af997c7c08fd7717936bc8489836e493905d287e321dbef4d25a6356cb60bee\",\"sourceLedgerSha256\":\"d2d652b03eb4e5f77dafd378c1c9465be1d2ac31fed037568649a2ce2512d111\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f\"}",
+      "attestationSha256": "e5e733ab039c523646b9f00c74cc594460b02e93d8bdd1ad690b1b9e0f7de443"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-58d849975af9cb004f0c7723",
+      "operationId": "SRCREV-3164c0cb13dd2b7657bf7264",
+      "reviewedAttemptId": "SRCATT-4a9850591669bf8b3311de31",
+      "reviewedSignalIdentitySha256": "488d049a2ecfe5d728f8d1802e866e6a91186539131318b984a0fb3997038717",
+      "reviewedSignalPayloadSha256": "488d049a2ecfe5d728f8d1802e866e6a91186539131318b984a0fb3997038717",
+      "resolutionRegistryPreimageSha256": "a9f7296b11bd6f4c4e0621705a3f1e924f72bfbbf4acb46373c1b76d51baf89c",
+      "geo": "US-WI",
+      "sourceUrl": "https://docs.legis.wisconsin.gov/document/statutes/961.14(4)(t)",
+      "sourceRecord": {
+        "officialPublisher": "WISCONSIN_STATE_LEGISLATURE",
+        "sourceOwnerGeo": "US-WI",
+        "appliesToGeos": [
+          "US-WI"
+        ],
+        "legalBasisForExtension": "DIRECT_STATE_OF_WISCONSIN_STATUTE_APPLIES_STATEWIDE",
+        "sourceType": "PRIMARY_STATUTE",
+        "primaryOrContext": "PRIMARY_LAW",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "THC in any form, including THC contained in or obtained from marijuana, is scheduled; the statute expressly excludes a finished-dose FDA-approved drug product containing cannabis-derived cannabidiol and no more than 0.1 percent residual THC.",
+        "evidenceScopes": [
+          "C2"
+        ]
+      },
+      "sourceRecordSha256": "76716892162380787fc68641e2dd6597557c6c5c6352b9d16dfa0d71140feb1d",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "045a66e7a8dd0bd5f8a2166751cb8661d7bb560cc9818b09684e3ebdb3cd8779",
+          "byteLength": 241,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "bdb4fb9379f49f2b3b220da1fa22ea0c9d6ea7d5685422193448b6b22b26e67f",
+          "byteLength": 194502,
+          "mediaType": "image/jpeg",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/US-WI-wisleg-current-fda-cannabidiol-exception-2026-08-10.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PASS",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "CODEX_VISUAL_REVIEW_20260912",
+        "reviewedAt": "2026-09-12T06:40:17.370Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": true,
+          "officialDomainText": false,
+          "exactFragment": true,
+          "scope": true,
+          "current": true,
+          "effective": true,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "POST_RESOLUTION_REATTESTATION",
+      "attestedAt": "2026-09-12T18:00:31.300Z",
+      "inputs": {
+        "sourceLedgerSha256": "d2d652b03eb4e5f77dafd378c1c9465be1d2ac31fed037568649a2ce2512d111",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "e5e733ab039c523646b9f00c74cc594460b02e93d8bdd1ad690b1b9e0f7de443",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-e410f1d13f45e13bfceaba44",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-58d849975af9cb004f0c7723\",\"operationId\":\"SRCREV-3164c0cb13dd2b7657bf7264\",\"reviewedAttemptId\":\"SRCATT-4a9850591669bf8b3311de31\",\"reviewedSignalIdentitySha256\":\"488d049a2ecfe5d728f8d1802e866e6a91186539131318b984a0fb3997038717\",\"reviewedSignalPayloadSha256\":\"488d049a2ecfe5d728f8d1802e866e6a91186539131318b984a0fb3997038717\",\"resolutionRegistryPreimageSha256\":\"a9f7296b11bd6f4c4e0621705a3f1e924f72bfbbf4acb46373c1b76d51baf89c\",\"geo\":\"US-WI\",\"sourceUrl\":\"https://docs.legis.wisconsin.gov/document/statutes/961.14(4)(t)\",\"sourceRecordSha256\":\"76716892162380787fc68641e2dd6597557c6c5c6352b9d16dfa0d71140feb1d\",\"exactFragmentSha256\":\"045a66e7a8dd0bd5f8a2166751cb8661d7bb560cc9818b09684e3ebdb3cd8779\",\"visualArtifactSha256\":\"bdb4fb9379f49f2b3b220da1fa22ea0c9d6ea7d5685422193448b6b22b26e67f\",\"reviewSha256\":\"36858b456103a951d3196f48f60c560758d2501d1a4293d7ac73aaede730dd11\",\"reviewerId\":\"CODEX_VISUAL_REVIEW_20260912\",\"reviewedAt\":\"2026-09-12T06:40:17.370Z\",\"attestationMode\":\"POST_RESOLUTION_REATTESTATION\",\"attestedAt\":\"2026-09-12T18:00:31.300Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"e5e733ab039c523646b9f00c74cc594460b02e93d8bdd1ad690b1b9e0f7de443\",\"sourceLedgerSha256\":\"d2d652b03eb4e5f77dafd378c1c9465be1d2ac31fed037568649a2ce2512d111\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f\"}",
+      "attestationSha256": "86b0e69a5ac6d8a85e81d7e7a9057cd51abd74e7014b3967a8011da50c2f8b18"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-8e46b0cdd34656a77aa495c0",
+      "operationId": "SRCREV-8d315aba545e327b5726e583",
+      "reviewedAttemptId": "SRCATT-02b2dc5e559d2f5eb24c8492",
+      "reviewedSignalIdentitySha256": "23152e0d6ddc54c92a4200a203cf2159ffa7e1ca237bdd3420df2242c9a2401c",
+      "reviewedSignalPayloadSha256": "23152e0d6ddc54c92a4200a203cf2159ffa7e1ca237bdd3420df2242c9a2401c",
+      "resolutionRegistryPreimageSha256": "f603422bc5cd459898af8ae6fc45f2f33bac6dd225deef80672b1856672a2953",
+      "geo": "US-ME",
+      "sourceUrl": "https://legislature.maine.gov/statutes/28-B/title28-Bsec1501.html",
+      "sourceRecord": {
+        "officialPublisher": "Maine Legislature / Office of the Revisor of Statutes",
+        "sourceOwnerGeo": "US-ME",
+        "appliesToGeos": [
+          "US-ME"
+        ],
+        "legalBasisForExtension": "Direct Maine Legislature statute or State of Maine Office of Cannabis Policy material applicable only to the U.S. state of Maine.",
+        "sourceType": "CURRENT_STATE_STATUTE",
+        "primaryOrContext": "PRIMARY",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "§1501(1), Authorized conduct: “a person 21 years of age or older may” use/possess/transport up to 2 1/2 ounces; conduct limited home cultivation; and “purchase up to 2 1/2 ounces of adult use cannabis ... from a cannabis store.” Current section history records 2023 amendments to quantities and purchase.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "102a3aac00b847a1a6f638b5607dca2e43ed0eed29ad9030a8afdd5effc320d9",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "86ad12b181558c9b680f03fcafedbe18ebe94ce89938d09f45922279c8c4c465",
+          "byteLength": 313,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "dc613e139fcb65891e5a97f573bb98dcc10f666a65f90c68b3ce1d5b0db60162",
+          "byteLength": 203277,
+          "mediaType": "image/jpeg",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/US-ME-title-28-b-1501-current-2026-08-10.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PASS",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "CODEX_VISUAL_REVIEW_20260912",
+        "reviewedAt": "2026-09-12T06:40:55.018Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": true,
+          "officialDomainText": false,
+          "exactFragment": true,
+          "scope": true,
+          "current": false,
+          "effective": true,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "POST_RESOLUTION_REATTESTATION",
+      "attestedAt": "2026-09-12T18:00:31.300Z",
+      "inputs": {
+        "sourceLedgerSha256": "d2d652b03eb4e5f77dafd378c1c9465be1d2ac31fed037568649a2ce2512d111",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "86b0e69a5ac6d8a85e81d7e7a9057cd51abd74e7014b3967a8011da50c2f8b18",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-651490369916076ff6ce030a",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-8e46b0cdd34656a77aa495c0\",\"operationId\":\"SRCREV-8d315aba545e327b5726e583\",\"reviewedAttemptId\":\"SRCATT-02b2dc5e559d2f5eb24c8492\",\"reviewedSignalIdentitySha256\":\"23152e0d6ddc54c92a4200a203cf2159ffa7e1ca237bdd3420df2242c9a2401c\",\"reviewedSignalPayloadSha256\":\"23152e0d6ddc54c92a4200a203cf2159ffa7e1ca237bdd3420df2242c9a2401c\",\"resolutionRegistryPreimageSha256\":\"f603422bc5cd459898af8ae6fc45f2f33bac6dd225deef80672b1856672a2953\",\"geo\":\"US-ME\",\"sourceUrl\":\"https://legislature.maine.gov/statutes/28-B/title28-Bsec1501.html\",\"sourceRecordSha256\":\"102a3aac00b847a1a6f638b5607dca2e43ed0eed29ad9030a8afdd5effc320d9\",\"exactFragmentSha256\":\"86ad12b181558c9b680f03fcafedbe18ebe94ce89938d09f45922279c8c4c465\",\"visualArtifactSha256\":\"dc613e139fcb65891e5a97f573bb98dcc10f666a65f90c68b3ce1d5b0db60162\",\"reviewSha256\":\"64697edacb1eeead41ae1375abd11ca7557251dd1e3c4b5b4fa2e43965c3443c\",\"reviewerId\":\"CODEX_VISUAL_REVIEW_20260912\",\"reviewedAt\":\"2026-09-12T06:40:55.018Z\",\"attestationMode\":\"POST_RESOLUTION_REATTESTATION\",\"attestedAt\":\"2026-09-12T18:00:31.300Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"86b0e69a5ac6d8a85e81d7e7a9057cd51abd74e7014b3967a8011da50c2f8b18\",\"sourceLedgerSha256\":\"d2d652b03eb4e5f77dafd378c1c9465be1d2ac31fed037568649a2ce2512d111\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f\"}",
+      "attestationSha256": "0bf5259428180eb47c76fb4e3acbcd21ba9f918b99dd0aeac1df51761b59b7ce"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-3fcbac02e0534e56b94fab10",
+      "operationId": "SRCREV-5e4ae2a1f50e018c500d63c6",
+      "reviewedAttemptId": "SRCATT-9bfa60f10e51d534723b3dd5",
+      "reviewedSignalIdentitySha256": "c4c6c4054f956eaacca4d0058b67de2662ba76179f932fb539f47557d1790da6",
+      "reviewedSignalPayloadSha256": "c4c6c4054f956eaacca4d0058b67de2662ba76179f932fb539f47557d1790da6",
+      "resolutionRegistryPreimageSha256": "4693840ab9ea0650d20459b327e1ec838f3db750833b075e2374502d1f1d5ef1",
+      "geo": "US-WA",
+      "sourceUrl": "https://app.leg.wa.gov/RCW/default.aspx?cite=69.50.360",
+      "sourceRecord": {
+        "officialPublisher": "Washington State Legislature",
+        "sourceOwnerGeo": "US-WA",
+        "appliesToGeos": [
+          "US-WA"
+        ],
+        "legalBasisForExtension": "Direct current Washington State Legislature statute applicable to Washington State only.",
+        "sourceType": "CURRENT_STATE_STATUTE_SECTION",
+        "primaryOrContext": "PRIMARY",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "RCW 69.50.360: specified acts by validly licensed cannabis retailers do not constitute criminal or civil offenses; subsection (3) permits delivery, distribution and sale on the retail premises to a person 21 years or older within listed limits.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "5f11a73ec0c3d88f40d08db8445b75303cd83e57827c9c26f4801709346f5bc3",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "776bed1fceb9abaf6e557e7d6739e2b65b1e1eae479a228a6f61949b2e851c27",
+          "byteLength": 244,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "a4d071b43c6acb0266896d49b2ada933f1beb22f363e76f6243a8b1c242a6e68",
+          "byteLength": 301962,
+          "mediaType": "image/jpeg",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/US-WA-rcw-69-50-360-current-2026-08-10.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PASS",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "CODEX_VISUAL_REVIEW_20260912",
+        "reviewedAt": "2026-09-12T06:41:24.313Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": true,
+          "officialDomainText": false,
+          "exactFragment": true,
+          "scope": true,
+          "current": false,
+          "effective": true,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "POST_RESOLUTION_REATTESTATION",
+      "attestedAt": "2026-09-12T18:00:31.300Z",
+      "inputs": {
+        "sourceLedgerSha256": "d2d652b03eb4e5f77dafd378c1c9465be1d2ac31fed037568649a2ce2512d111",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "0bf5259428180eb47c76fb4e3acbcd21ba9f918b99dd0aeac1df51761b59b7ce",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-9e3ff9bb6bfae684a031862b",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-3fcbac02e0534e56b94fab10\",\"operationId\":\"SRCREV-5e4ae2a1f50e018c500d63c6\",\"reviewedAttemptId\":\"SRCATT-9bfa60f10e51d534723b3dd5\",\"reviewedSignalIdentitySha256\":\"c4c6c4054f956eaacca4d0058b67de2662ba76179f932fb539f47557d1790da6\",\"reviewedSignalPayloadSha256\":\"c4c6c4054f956eaacca4d0058b67de2662ba76179f932fb539f47557d1790da6\",\"resolutionRegistryPreimageSha256\":\"4693840ab9ea0650d20459b327e1ec838f3db750833b075e2374502d1f1d5ef1\",\"geo\":\"US-WA\",\"sourceUrl\":\"https://app.leg.wa.gov/RCW/default.aspx?cite=69.50.360\",\"sourceRecordSha256\":\"5f11a73ec0c3d88f40d08db8445b75303cd83e57827c9c26f4801709346f5bc3\",\"exactFragmentSha256\":\"776bed1fceb9abaf6e557e7d6739e2b65b1e1eae479a228a6f61949b2e851c27\",\"visualArtifactSha256\":\"a4d071b43c6acb0266896d49b2ada933f1beb22f363e76f6243a8b1c242a6e68\",\"reviewSha256\":\"27059bd59f645b8f6781bebd66b40e0faaaebcfcf19d2565d67c826e7aa6a5d0\",\"reviewerId\":\"CODEX_VISUAL_REVIEW_20260912\",\"reviewedAt\":\"2026-09-12T06:41:24.313Z\",\"attestationMode\":\"POST_RESOLUTION_REATTESTATION\",\"attestedAt\":\"2026-09-12T18:00:31.300Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"0bf5259428180eb47c76fb4e3acbcd21ba9f918b99dd0aeac1df51761b59b7ce\",\"sourceLedgerSha256\":\"d2d652b03eb4e5f77dafd378c1c9465be1d2ac31fed037568649a2ce2512d111\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f\"}",
+      "attestationSha256": "0507c5d83d2ab7c3c4fb8cc0ff5f0e3f3d468125204e20cd2b5b9ceb1d68a4e9"
     }
   ]
 }

@@ -9,16 +9,61 @@ import {
   sourceReviewOperationsPath,
   sourceReviewOperationKey,
   sourceReviewOperationsIndex,
-  validateSourceReviewOperationsRegistry
+  validateSourceReviewOperationsRegistry,
+  type SourceReviewEvidenceAttestation
 } from "./sourceReviewOperations";
 import { listTruthMapCanonicalProjectionRecords } from "./truthMapSource";
+
+function evidenceIdentityPreimage(attestation: SourceReviewEvidenceAttestation) {
+  return JSON.stringify({
+    evidenceFormat: attestation.evidenceFormat,
+    resolutionId: attestation.resolutionId,
+    operationId: attestation.operationId,
+    reviewedAttemptId: attestation.reviewedAttemptId,
+    reviewedSignalIdentitySha256: attestation.reviewedSignalIdentitySha256,
+    reviewedSignalPayloadSha256: attestation.reviewedSignalPayloadSha256,
+    resolutionRegistryPreimageSha256: attestation.resolutionRegistryPreimageSha256,
+    geo: attestation.geo,
+    sourceUrl: attestation.sourceUrl,
+    sourceRecordSha256: attestation.sourceRecordSha256,
+    exactFragmentSha256: attestation.bindings.exactFragmentUtf8.sha256,
+    visualArtifactSha256: attestation.bindings.visualArtifactBytes.sha256,
+    reviewSha256: crypto.createHash("sha256").update(JSON.stringify(attestation.review)).digest("hex"),
+    reviewerId: attestation.review.reviewerId,
+    reviewedAt: attestation.review.reviewedAt,
+    attestationMode: attestation.attestationMode,
+    attestedAt: attestation.attestedAt,
+    supersedesAttestationId: attestation.supersedesAttestationId,
+    previousAttestationSha256: attestation.previousAttestationSha256,
+    sourceLedgerSha256: attestation.inputs.sourceLedgerSha256,
+    canonicalGeosSha256: attestation.inputs.canonicalGeosSha256,
+    officialRegistrySha256: attestation.inputs.officialRegistrySha256,
+    ownershipRegistrySha256: attestation.inputs.ownershipRegistrySha256
+  });
+}
+
+function rehashEvidenceAttestation(attestation: SourceReviewEvidenceAttestation) {
+  const identityPreimage = evidenceIdentityPreimage(attestation);
+  const withIdentity = {
+    ...attestation,
+    attestationId: `SRCEVT-${crypto.createHash("sha256").update(identityPreimage).digest("hex").slice(0, 24)}`,
+    identityPreimage
+  };
+  const content: Partial<SourceReviewEvidenceAttestation> = { ...withIdentity };
+  delete content.attestationSha256;
+  return {
+    ...withIdentity,
+    attestationSha256: crypto.createHash("sha256").update(JSON.stringify(content)).digest("hex")
+  } as SourceReviewEvidenceAttestation;
+}
 
 describe("source review operations", () => {
   it("classifies every current source-change and pending-review event without inventing a legal change", () => {
     const registry = loadSourceReviewOperationsRegistry();
-    expect(registry.schemaVersion).toBe(6);
+    expect(registry.schemaVersion).toBe(7);
     expect(registry.attempts.length).toBeGreaterThanOrEqual(registry.operations.length);
     expect(Array.isArray(registry.resolutions)).toBe(true);
+    expect(Array.isArray(registry.evidenceAttestations)).toBe(true);
     const index = sourceReviewOperationsIndex(registry);
     const records = listTruthMapCanonicalProjectionRecords();
     let sourceChanges = 0;
@@ -241,7 +286,7 @@ describe("source review operations", () => {
       resultingChangeReason: "SCOPE_AND_EFFECTIVE_STATE_CONFIRMED",
       boundary: "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
     } as const;
-    const resolved = validateSourceReviewOperationsRegistry({ ...registry, resolutions: [resolution] });
+    const resolved = validateSourceReviewOperationsRegistry({ ...registry, resolutions: [resolution], evidenceAttestations: [] });
     expect(resolved.resolutions).toHaveLength(1);
     expect(sourceReviewOperationsIndex(resolved).get([
       operation.geo,
@@ -252,18 +297,266 @@ describe("source review operations", () => {
     ].join("\u0000"))?.operationId).toBe(operation.operationId);
     expect(() => validateSourceReviewOperationsRegistry({
       ...registry,
-      resolutions: [{ ...resolution, reviewerId: "", note: "" }]
+      resolutions: [{ ...resolution, reviewerId: "", note: "" }],
+      evidenceAttestations: []
     })).toThrow("SOURCE_REVIEW_RESOLUTION_PROVENANCE_INVALID");
     expect(() => validateSourceReviewOperationsRegistry({
       ...registry,
-      resolutions: [{ ...resolution, reviewRegistrySha256: "not-a-sha256" }]
+      resolutions: [{ ...resolution, reviewRegistrySha256: "not-a-sha256" }],
+      evidenceAttestations: []
     })).toThrow("SOURCE_REVIEW_RESOLUTION_PROVENANCE_INVALID");
     expect(() => validateSourceReviewOperationsRegistry({
       ...registry,
       attempts: registry.attempts.map((attempt) => attempt.attemptId === reviewedAttempt!.attemptId
         ? { ...attempt, signalIdentitySha256: "0".repeat(64) }
         : attempt),
-      resolutions: [resolution]
+      resolutions: [resolution],
+      evidenceAttestations: []
     })).toThrow(/SOURCE_REVIEW_(?:ATTEMPT_SIGNAL_PREIMAGE_HASH_INVALID|OPERATION_SIGNAL_REWRITE_FORBIDDEN|RESOLUTION_SOURCE_INVALID)/);
+  });
+
+  it("validates every schema-v7 human evidence attestation against its exact resolution and attempt", () => {
+    const registry = loadSourceReviewOperationsRegistry();
+    expect(registry.evidenceAttestations).toHaveLength(registry.resolutions.length);
+    expect(registry.evidenceAttestations).toHaveLength(5);
+    const resolutions = new Map(registry.resolutions.map((resolution) => [resolution.resolutionId, resolution]));
+    const attempts = new Map(registry.attempts.map((attempt) => [attempt.attemptId, attempt]));
+    for (const [index, attestation] of registry.evidenceAttestations.entries()) {
+      const resolution = resolutions.get(attestation.resolutionId)!;
+      const attempt = attempts.get(attestation.reviewedAttemptId)!;
+      expect(attestation).toMatchObject({
+        evidenceFormat: "SOURCE_REVIEW_EVIDENCE_V1",
+        operationId: resolution.operationId,
+        reviewedAttemptId: resolution.reviewedAttemptId,
+        reviewedSignalIdentitySha256: attempt.signalIdentitySha256,
+        reviewedSignalPayloadSha256: attempt.signalPayloadSha256,
+        resolutionRegistryPreimageSha256: resolution.reviewRegistrySha256,
+        attestationMode: "POST_RESOLUTION_REATTESTATION",
+        previousAttestationSha256: index === 0
+          ? "GENESIS"
+          : registry.evidenceAttestations[index - 1].attestationSha256,
+        supersedesAttestationId: null,
+        review: { c3: "NOT_PROVEN", visibility: { browserOrigin: false } },
+        boundary: "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE"
+      });
+      expect(attestation.sourceRecord.appliesToGeos).toContain(attestation.geo);
+      expect(attestation.sourceRecordSha256).toBe(
+        crypto.createHash("sha256").update(JSON.stringify(attestation.sourceRecord)).digest("hex")
+      );
+      expect(attestation.bindings.exactFragmentUtf8.sha256).toBe(
+        crypto.createHash("sha256").update(Buffer.from(attestation.sourceRecord.fragment, "utf8")).digest("hex")
+      );
+      expect(attestation.bindings.exactFragmentUtf8.byteLength).toBe(Buffer.byteLength(attestation.sourceRecord.fragment, "utf8"));
+      expect(attestation.identityPreimage).toBe(evidenceIdentityPreimage(attestation));
+      expect(attestation.attestationId).toBe(
+        `SRCEVT-${crypto.createHash("sha256").update(attestation.identityPreimage).digest("hex").slice(0, 24)}`
+      );
+      expect(rehashEvidenceAttestation(attestation)).toEqual(attestation);
+    }
+  });
+
+  it("rejects cross-resolution, source-record, fragment, artifact and review tampering", () => {
+    const registry = loadSourceReviewOperationsRegistry();
+    const evidence = registry.evidenceAttestations[0];
+    const otherResolution = registry.resolutions.find((resolution) => resolution.resolutionId !== evidence.resolutionId)!;
+    expect(() => validateSourceReviewOperationsRegistry({
+      ...registry,
+      evidenceAttestations: [{ ...evidence, resolutionId: otherResolution.resolutionId }, ...registry.evidenceAttestations.slice(1)]
+    })).toThrow("SOURCE_REVIEW_EVIDENCE_BINDING_INVALID");
+    expect(() => validateSourceReviewOperationsRegistry({
+      ...registry,
+      evidenceAttestations: [{
+        ...evidence,
+        sourceRecord: { ...evidence.sourceRecord, officialPublisher: `${evidence.sourceRecord.officialPublisher} tampered` }
+      }, ...registry.evidenceAttestations.slice(1)]
+    })).toThrow("SOURCE_REVIEW_EVIDENCE_SOURCE_RECORD_HASH_INVALID");
+    expect(() => validateSourceReviewOperationsRegistry({
+      ...registry,
+      evidenceAttestations: [{
+        ...evidence,
+        bindings: {
+          ...evidence.bindings,
+          exactFragmentUtf8: { ...evidence.bindings.exactFragmentUtf8, byteLength: evidence.bindings.exactFragmentUtf8.byteLength + 1 }
+        }
+      }, ...registry.evidenceAttestations.slice(1)]
+    })).toThrow("SOURCE_REVIEW_EVIDENCE_FRAGMENT_BINDING_INVALID");
+    expect(() => validateSourceReviewOperationsRegistry({
+      ...registry,
+      evidenceAttestations: [{
+        ...evidence,
+        bindings: {
+          ...evidence.bindings,
+          visualArtifactBytes: { ...evidence.bindings.visualArtifactBytes, locator: "../escape.png" }
+        }
+      }, ...registry.evidenceAttestations.slice(1)]
+    })).toThrow("SOURCE_REVIEW_EVIDENCE_ARTIFACT_BINDING_INVALID");
+    expect(() => validateSourceReviewOperationsRegistry({
+      ...registry,
+      evidenceAttestations: [{
+        ...evidence,
+        review: { ...evidence.review, c3: "PASS", visibility: { ...evidence.review.visibility, browserOrigin: false } }
+      }, ...registry.evidenceAttestations.slice(1)]
+    })).toThrow("SOURCE_REVIEW_EVIDENCE_REVIEW_INVALID");
+    expect(() => validateSourceReviewOperationsRegistry({
+      ...registry,
+      evidenceAttestations: [{
+        ...evidence,
+        review: {
+          ...evidence.review,
+          c2: "PASS",
+          visibility: { ...evidence.review.visibility, exactFragment: false }
+        }
+      }, ...registry.evidenceAttestations.slice(1)]
+    })).toThrow("SOURCE_REVIEW_EVIDENCE_REVIEW_INVALID");
+    expect(() => validateSourceReviewOperationsRegistry({
+      ...registry,
+      evidenceAttestations: [{
+        ...evidence,
+        review: { ...evidence.review, reviewedAt: evidence.review.reviewedAt.slice(0, 10) }
+      }, ...registry.evidenceAttestations.slice(1)]
+    })).toThrow("SOURCE_REVIEW_EVIDENCE_REVIEW_INVALID");
+    expect(() => validateSourceReviewOperationsRegistry({
+      ...registry,
+      evidenceAttestations: [{
+        ...evidence,
+        bindings: {
+          ...evidence.bindings,
+          visualArtifactBytes: {
+            ...evidence.bindings.visualArtifactBytes,
+            capturedAt: new Date(Date.parse(evidence.review.reviewedAt) + 1_000).toISOString()
+          }
+        }
+      }, ...registry.evidenceAttestations.slice(1)]
+    })).toThrow("SOURCE_REVIEW_EVIDENCE_DATE_INVALID");
+  });
+
+  it("keeps C3 NOT_PROVEN independent from an individually visible browser origin", () => {
+    const registry = loadSourceReviewOperationsRegistry();
+    const evidence = registry.evidenceAttestations.find((entry) => entry.review.c3 === "NOT_PROVEN")!;
+    const browserOriginVisible = rehashEvidenceAttestation({
+      ...evidence,
+      review: {
+        ...evidence.review,
+        visibility: { ...evidence.review.visibility, browserOrigin: true }
+      }
+    });
+    expect(browserOriginVisible.attestationId).not.toBe(evidence.attestationId);
+    expect(() => validateSourceReviewOperationsRegistry({
+      ...registry,
+      evidenceAttestations: [browserOriginVisible]
+    })).not.toThrow();
+  });
+
+  it("rejects visibility claims that contradict the retained source record", () => {
+    const registry = loadSourceReviewOperationsRegistry();
+    const evidence = registry.evidenceAttestations.find((entry) => (
+      entry.review.visibility.publisher
+      && entry.review.visibility.current
+      && entry.review.visibility.effective
+    ))!;
+    expect(evidence).toBeTruthy();
+    for (const sourceRecord of [
+      { ...evidence.sourceRecord, officialPublisher: "NOT_RECORDED" },
+      { ...evidence.sourceRecord, current: false },
+      { ...evidence.sourceRecord, effective: false }
+    ]) {
+      const sourceRecordSha256 = crypto.createHash("sha256").update(JSON.stringify(sourceRecord)).digest("hex");
+      const contradictory = rehashEvidenceAttestation({ ...evidence, sourceRecord, sourceRecordSha256 });
+      expect(() => validateSourceReviewOperationsRegistry({
+        ...registry,
+        evidenceAttestations: [contradictory]
+      })).toThrow("SOURCE_REVIEW_EVIDENCE_REVIEW_INVALID");
+    }
+  });
+
+  it("rejects noncanonical ownership/applicability and missing cross-GEO legal basis", () => {
+    const registry = loadSourceReviewOperationsRegistry();
+    const evidence = registry.evidenceAttestations[0];
+    const foreignGeo = ["US-CA", "US-NY", "US-TX"].find((geo) => (
+      geo !== evidence.geo && !evidence.sourceRecord.appliesToGeos.includes(geo)
+    ))!;
+    const invalidRecords = [
+      { ...evidence.sourceRecord, sourceOwnerGeo: "NOT_RECORDED" },
+      {
+        ...evidence.sourceRecord,
+        appliesToGeos: [...evidence.sourceRecord.appliesToGeos, "NOT-A-CANONICAL-GEO"].sort()
+      },
+      {
+        ...evidence.sourceRecord,
+        sourceOwnerGeo: foreignGeo,
+        legalBasisForExtension: "NOT_RECORDED"
+      },
+      {
+        ...evidence.sourceRecord,
+        appliesToGeos: [...evidence.sourceRecord.appliesToGeos, foreignGeo].sort(),
+        legalBasisForExtension: "NOT_RECORDED"
+      }
+    ];
+
+    for (const sourceRecord of invalidRecords) {
+      const sourceRecordSha256 = crypto.createHash("sha256").update(JSON.stringify(sourceRecord)).digest("hex");
+      const invalid = rehashEvidenceAttestation({ ...evidence, sourceRecord, sourceRecordSha256 });
+      expect(() => validateSourceReviewOperationsRegistry({
+        ...registry,
+        evidenceAttestations: [invalid]
+      })).toThrow("SOURCE_REVIEW_EVIDENCE_SOURCE_RECORD_INVALID");
+    }
+  });
+
+  it("treats the artifact locator as a retrieval hint while retaining byte hash identity", () => {
+    const registry = loadSourceReviewOperationsRegistry();
+    const evidence = registry.evidenceAttestations[0];
+    const relocated = rehashEvidenceAttestation({
+      ...evidence,
+      bindings: {
+        ...evidence.bindings,
+        visualArtifactBytes: {
+          ...evidence.bindings.visualArtifactBytes,
+          locator: "Artifacts/not-present-at-ordinary-runtime.png"
+        }
+      }
+    });
+    expect(relocated.attestationId).toBe(evidence.attestationId);
+    expect(relocated.identityPreimage).toBe(evidence.identityPreimage);
+    expect(relocated.attestationSha256).not.toBe(evidence.attestationSha256);
+    expect(() => validateSourceReviewOperationsRegistry({
+      ...registry,
+      evidenceAttestations: [relocated]
+    })).not.toThrow();
+  });
+
+  it("enforces append-only attestation chronology and one linear active tip per resolution", () => {
+    const registry = loadSourceReviewOperationsRegistry();
+    const first = registry.evidenceAttestations[0];
+    const reviewedAt = new Date(Date.parse(first.review.reviewedAt) + 1_000).toISOString();
+    const attestedAt = new Date(Date.parse(first.attestedAt) + 1_000).toISOString();
+    const second = rehashEvidenceAttestation({
+      ...first,
+      review: { ...first.review, reviewedAt },
+      attestedAt,
+      supersedesAttestationId: first.attestationId,
+      previousAttestationSha256: registry.evidenceAttestations.at(-1)!.attestationSha256
+    });
+    expect(() => validateSourceReviewOperationsRegistry({
+      ...registry,
+      evidenceAttestations: [...registry.evidenceAttestations, second]
+    })).not.toThrow();
+
+    const branch = rehashEvidenceAttestation({
+      ...first,
+      review: { ...first.review, reviewedAt: new Date(Date.parse(reviewedAt) + 1_000).toISOString() },
+      attestedAt: new Date(Date.parse(attestedAt) + 1_000).toISOString(),
+      supersedesAttestationId: first.attestationId,
+      previousAttestationSha256: second.attestationSha256
+    });
+    expect(() => validateSourceReviewOperationsRegistry({
+      ...registry,
+      evidenceAttestations: [...registry.evidenceAttestations, second, branch]
+    })).toThrow("SOURCE_REVIEW_EVIDENCE_SUPERSESSION_INVALID");
+
+    expect(() => validateSourceReviewOperationsRegistry({
+      ...registry,
+      evidenceAttestations: [{ ...first, attestedAt: "2099-01-01T00:00:00.000Z" }, ...registry.evidenceAttestations.slice(1)]
+    })).toThrow("SOURCE_REVIEW_EVIDENCE_DATE_INVALID");
   });
 });

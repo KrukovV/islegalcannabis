@@ -42,7 +42,7 @@
 PLAYWRIGHT_BASE_URL=http://127.0.0.1:3000 npm -w apps/web run popup:visual:audit:full
 ```
 
-- Full-audit manifests, reports and metadata live in `Artifacts/popup-visual-audit/`; raw popup/wiki screenshots are archived under `~/islegalcannabis_archive/<run-id>/` and must not accumulate in the repository. Verify that the full manifest already resolves its evidence from the external archive before moving raw copies.
+- Full-audit manifests, reports and compact metadata live in the governed repository artifact roots; raw popup/wiki, GEO-sync and source-review visual files are archived under `~/islegalcannabis_archive/<run-id>/` and must not accumulate in the repository. Verify that the governing manifest already binds the exact external bytes by SHA-256, byte length and validated MIME before moving a raw copy. A locator is a retrieval hint, never evidence identity; ordinary runtime/CI validation must continue from the committed identity and must not require the raw archive to remain mounted.
 - `pass_cycle` will fail if `Artifacts/popup-visual-audit/full-manifest.json` is older than relevant popup/render/data inputs.
 - Regression example to keep covered: ambiguous cannabis titles such as `Cannabis in Georgia` must not cross-contaminate `GE` and `US-GA` in popup or SEO output.
 

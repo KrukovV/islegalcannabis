@@ -8,6 +8,7 @@ import {
   assignCorrectionRequestReview,
   buildCorrectionReviewQueue,
   buildCorrectionReviewQueueSnapshot,
+  correctionSourceReviewRegistrySha256,
   createCorrectionRequestReceipt,
   decideCorrectionRequestReview,
   readCorrectionRequestReceipts,
@@ -67,7 +68,15 @@ function sourceRegistryFixture(geos: string[], resolvedGeos: string[] = []) {
     };
   });
   return {
-    registry: { ...canonical, operations, attempts, resolutions },
+    registry: {
+      ...canonical,
+      operations,
+      attempts,
+      resolutions,
+      // A narrowed schema-v7 fixture must not retain attestations whose
+      // resolution/operation/attempt records were intentionally removed.
+      evidenceAttestations: []
+    },
     operationIdByGeo: new Map(operations.map((operation) => [operation.geo, operation.operationId]))
   };
 }
@@ -91,6 +100,26 @@ afterEach(() => {
 });
 
 describe("Correction request", () => {
+  it("accepts the complete canonical schema-v7 registry and rejects orphaned attestations", () => {
+    const root = findRepoRoot(process.cwd());
+    const canonicalPath = path.join(root, "data", "b2b_evidence", "source_review_operations.json");
+    expect(correctionSourceReviewRegistrySha256(canonicalPath)).toBe(sha256File(canonicalPath));
+
+    const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "islegal-correction-schema-v7-"));
+    tempDirs.push(tempDir);
+    const invalidPath = path.join(tempDir, "source-review-operations.json");
+    const canonical = JSON.parse(fs.readFileSync(canonicalPath, "utf8")) as SourceReviewOperationsRegistry;
+    expect(canonical.evidenceAttestations.length).toBeGreaterThan(0);
+    fs.writeFileSync(invalidPath, JSON.stringify({
+      ...canonical,
+      operations: [],
+      attempts: [],
+      resolutions: []
+    }));
+    expect(() => correctionSourceReviewRegistrySha256(invalidPath))
+      .toThrow("CORRECTION_REVIEW_SOURCE_REGISTRY_INVALID");
+  });
+
   it("retains a submission only as an untrusted pending candidate without mutating truth or store inputs", () => {
     const root = findRepoRoot(process.cwd());
     const protectedFiles = [

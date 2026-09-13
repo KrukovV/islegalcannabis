@@ -27,7 +27,7 @@ QA/
 # misc
 .DS_Store
 .wip_quarantine/
-Reports/
+/Reports/
 .checkpoints/
 apps/web/test-results/
 apps/web/playwright-report/
@@ -51,7 +51,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-Reports/**
+/Reports/**
 data/source_snapshots/**
 .checkpoints/**
 Artifacts/backups/**

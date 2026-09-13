@@ -1,13 +1,13 @@
-# Status Engine Audit
+# Status Engine Audit (Historical, Noncanonical)
 
-Status Engine Audit v3 is a review layer over the same first-wave country set. It does not mutate country SSOT rows by itself.
+Status Engine Audit v3 is retained as a 31-row first-wave diagnostic and regression fixture. It is not the current legal-review queue and cannot seed or override Legal Truth, the canonical 307-GEO projection, map colour, popup, SEO, Evidence Passport or present legal currency.
 
 ## Scope
 
 - Same existing first-wave rows from `Reports/status-engine/status_engine_audit_v1.json`.
-- That file contains the first 30 alphabetic `WIKI_COUNTRIES` plus the previously recorded Iran control row, so the current rerun reviews `31` rows.
+- That file contains the first 30 alphabetic `WIKI_COUNTRIES` plus the previously recorded Iran control row, so the retained historical rerun covers `31` rows.
 - Source pages are `Cannabis in <Country>` articles, not generic country pages.
-- New countries are not analyzed by v3 until the wave scope is explicitly expanded.
+- This historical wave is not expanded for current legal work; all current work uses the canonical 307-GEO evidence/review contracts.
 
 ## Model Contract
 
@@ -32,7 +32,7 @@ Profile-only data such as trafficking, export, organized crime, market size, his
 - `RED`: medical illegal + recreational illegal + no decriminalization + no weak-enforcement signal + active prison/criminal exposure.
 - Enforcement override phrases such as `often not enforced`, `often not strictly enforced`, `rarely enforced`, `opportunistically enforced`, `enforced opportunistically`, and `police do not harass users` prohibit `RED`.
 
-## v3 Result Snapshot
+## Historical v3 Result Snapshot
 
 - Generated JSON: `Reports/status-engine/status_engine_audit_v3.json`
 - Generated markdown: `Reports/status-engine/status_engine_audit_v3.md`
@@ -44,13 +44,13 @@ Profile-only data such as trafficking, export, organized crime, market size, his
 - Cannabis Profile rows: `31`
 - Local name dictionary entries: `9`
 
-## Current Runtime Alignment
+## Historical Compatibility Notes
 
 - Generic cleanup removed six manual review overrides without per-country hardcode: `AL`, `US-UT`, `US-NE`, `US-KS`, `US-WI`, `US-WY`.
 - Current narrow validation keeps `KS/WI/WY` in `LIMITED` and `UT/NE` in `REGULATED`.
-- Country-page derivation and map snapshot/runtime must agree on map color for the same country page. If a country page carries explainability-only yellow signals such as `rule: medical_limited`, the runtime map snapshot must reuse the same derive path rather than trusting an older SSOT map bucket directly.
+- The legacy country-page snapshot and `mapCategory` path were once required to agree inside this diagnostic. They are compatibility-only now and may not override the canonical 307-GEO projection. Current cross-surface colour/status agreement is governed by `docs/GEO_SYNC_AUDIT.md`.
 
-Required controls:
+Historical fixture controls:
 
 - Albania (`AL`) -> `GREEN`
 - Iran (`IR`) -> `YELLOW`

@@ -4,13 +4,17 @@ import {
 } from "./evidencePassport";
 import {
   compareSourceReviewAttempts,
+  loadCanonicalSourceReviewEvidenceRecordIndex,
   loadCanonicalSourceReviewV2SignalIdentityIndex,
   loadSourceReviewOperationsRegistrySnapshot,
   sourceReviewOperationKey,
+  sourceReviewEvidenceSourceKey,
   sourceReviewOperationsIndex,
+  sourceReviewEvidenceAttestationsIndex,
   sourceReviewResolutionsIndex,
   type SourceReviewAttempt,
   type SourceReviewCategory,
+  type SourceReviewEvidenceAttestation,
   type SourceReviewOperation,
   type SourceReviewOperationsRegistrySnapshot,
   type SourceReviewResolution
@@ -63,11 +67,13 @@ export type SourceReviewWorkbenchDossier = {
   latestAttemptContentSha256: string;
   closeTokens: SourceReviewCloseTokens | null;
   resolution: SourceReviewResolution | null;
+  evidenceAttestation: SourceReviewEvidenceAttestation | null;
+  evidenceAttestationState: "BOUND_PRE_CLOSE" | "BOUND_POST_HOC" | "UNBOUND_LEGACY" | null;
   currentSource: TruthMapCanonicalProjectionSource | null;
 };
 
 export type SourceReviewWorkbench = {
-  schemaVersion: 3;
+  schemaVersion: 4;
   localOnly: true;
   readOnly: true;
   registrySha256: string;
@@ -84,10 +90,18 @@ export type SourceReviewWorkbench = {
     currentActive: number;
     openHistorical: number;
     resolved: number;
+    evidenceAttested: number;
+    evidenceBoundPreClose: number;
+    evidenceBoundPostHoc: number;
+    evidenceUnboundLegacy: number;
     matchingOperations: number;
     matchingCurrentActive: number;
     matchingOpenHistorical: number;
     matchingResolved: number;
+    matchingEvidenceAttested: number;
+    matchingEvidenceBoundPreClose: number;
+    matchingEvidenceBoundPostHoc: number;
+    matchingEvidenceUnboundLegacy: number;
     returnedOperations: number;
     truncated: boolean;
   };
@@ -189,8 +203,21 @@ function partition(dossiers: SourceReviewWorkbenchDossier[]) {
   return {
     currentActive: dossiers.filter((dossier) => dossier.lifecycle === "CURRENT_ACTIVE").length,
     openHistorical: dossiers.filter((dossier) => dossier.lifecycle === "HISTORICAL_OPEN").length,
-    resolved: dossiers.filter((dossier) => dossier.lifecycle === "RESOLVED").length
+    resolved: dossiers.filter((dossier) => dossier.lifecycle === "RESOLVED").length,
+    evidenceAttested: dossiers.filter((dossier) => dossier.evidenceAttestation !== null).length,
+    evidenceBoundPreClose: dossiers.filter((dossier) => dossier.evidenceAttestationState === "BOUND_PRE_CLOSE").length,
+    evidenceBoundPostHoc: dossiers.filter((dossier) => dossier.evidenceAttestationState === "BOUND_POST_HOC").length,
+    evidenceUnboundLegacy: dossiers.filter((dossier) => dossier.evidenceAttestationState === "UNBOUND_LEGACY").length
   };
+}
+
+function evidenceAttestationState(
+  resolution: SourceReviewResolution | null,
+  attestation: SourceReviewEvidenceAttestation | null
+): SourceReviewWorkbenchDossier["evidenceAttestationState"] {
+  if (!resolution) return null;
+  if (!attestation) return "UNBOUND_LEGACY";
+  return attestation.attestationMode === "PRE_CLOSE_ATOMIC" ? "BOUND_PRE_CLOSE" : "BOUND_POST_HOC";
 }
 
 function matchesState(dossier: SourceReviewWorkbenchDossier, state: SourceReviewWorkbenchState | null) {
@@ -221,9 +248,11 @@ export function buildSourceReviewWorkbench(
   const normalized = normalizeFilters(filters, canonicalGeos, new Set(registry.operations.map((operation) => operation.operationId)));
   const currentOperationIndex = sourceReviewOperationsIndex(registry);
   const resolutions = sourceReviewResolutionsIndex(registry);
+  const evidenceAttestations = sourceReviewEvidenceAttestationsIndex(registry);
   const latestAttempts = latestAttemptsByOperation(registry.attempts);
   const attemptHistories = orderedAttemptsByOperation(registry.attempts);
   const canonicalV2Signals = loadCanonicalSourceReviewV2SignalIdentityIndex();
+  const canonicalEvidenceRecords = loadCanonicalSourceReviewEvidenceRecordIndex();
   const currentSourcesByOperation = new Map<string, TruthMapCanonicalProjectionSource>();
 
   for (const record of records) {
@@ -250,8 +279,18 @@ export function buildSourceReviewWorkbench(
     const latestAttempt = latestAttempts.get(operation.operationId);
     if (!latestAttempt) throw new Error(`SOURCE_REVIEW_WORKBENCH_ATTEMPT_MISSING=${operation.operationId}`);
     const resolution = resolutions.get(operation.operationId) || null;
+    const evidenceAttestation = evidenceAttestations.get(operation.operationId) || null;
     const currentSource = currentSourcesByOperation.get(operation.operationId) || null;
     const currentSignal = currentSource !== null;
+    if (currentSignal && evidenceAttestation) {
+      const canonicalEvidenceRecord = canonicalEvidenceRecords.get(
+        sourceReviewEvidenceSourceKey(operation.geo, operation.sourceUrl)
+      );
+      if (!canonicalEvidenceRecord
+        || JSON.stringify(canonicalEvidenceRecord) !== JSON.stringify(evidenceAttestation.sourceRecord)) {
+        throw new Error(`SOURCE_REVIEW_WORKBENCH_ACTIVE_ATTESTATION_STALE=${operation.operationId}`);
+      }
+    }
     const attemptHistory = attemptHistories.get(operation.operationId) || [];
     if (!attemptHistory.length) throw new Error(`SOURCE_REVIEW_WORKBENCH_ATTEMPT_HISTORY_MISSING=${operation.operationId}`);
     return {
@@ -268,6 +307,8 @@ export function buildSourceReviewWorkbench(
         expectedRegistrySha256: registrySnapshot.registrySha256
       },
       resolution,
+      evidenceAttestation,
+      evidenceAttestationState: evidenceAttestationState(resolution, evidenceAttestation),
       currentSource
     };
   }).sort((left, right) => {
@@ -291,7 +332,7 @@ export function buildSourceReviewWorkbench(
   const returned = matching.slice(0, MAX_RETURNED_DOSSIERS);
 
   return {
-    schemaVersion: 3,
+    schemaVersion: 4,
     localOnly: true,
     readOnly: true,
     registrySha256: registrySnapshot.registrySha256,
@@ -305,6 +346,10 @@ export function buildSourceReviewWorkbench(
       matchingCurrentActive: matchingPartition.currentActive,
       matchingOpenHistorical: matchingPartition.openHistorical,
       matchingResolved: matchingPartition.resolved,
+      matchingEvidenceAttested: matchingPartition.evidenceAttested,
+      matchingEvidenceBoundPreClose: matchingPartition.evidenceBoundPreClose,
+      matchingEvidenceBoundPostHoc: matchingPartition.evidenceBoundPostHoc,
+      matchingEvidenceUnboundLegacy: matchingPartition.evidenceUnboundLegacy,
       returnedOperations: returned.length,
       truncated: returned.length < matching.length
     },

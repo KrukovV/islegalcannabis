@@ -128,6 +128,10 @@ test("local Source Review Workbench separates current evidence operations from a
   await expect(page.locator('[data-testid^="source-review-current-source-SRCREV-"]').first()).toContainText("Source owner GEO");
   await expect(page.locator('[data-testid^="source-review-current-source-SRCREV-"]').first()).toContainText("Exact retained fragment");
   await expect(page.locator('[data-testid^="source-review-current-source-SRCREV-"]').first()).toContainText("Screenshot available");
+  await expect(page.getByRole("link", { name: "Open the same read-only JSON" })).toHaveAttribute(
+    "href",
+    `/api/truth-map/b2b/source-review${query}`,
+  );
 
   const response = await page.request.get(`/api/truth-map/b2b/source-review${query}`);
   expect(response.ok()).toBe(true);

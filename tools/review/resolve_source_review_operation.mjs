@@ -9,6 +9,7 @@ const DEFAULT_REGISTRY_PATH = path.join(ROOT, "data/b2b_evidence/source_review_o
 const DEFAULT_OFFICIAL_REGISTRY_PATH = path.join(ROOT, "data/official/official_domains.ssot.json");
 const DEFAULT_OWNERSHIP_PATH = path.join(ROOT, "data/ssot/official_link_ownership.json");
 const DEFAULT_CANONICAL_GEOS_PATH = path.join(ROOT, "data/reviews/geo-list-307.json");
+const DEFAULT_SOURCE_LEDGER_PATH = path.join(ROOT, "data/reviews/wiki-truth-307-final-reconciliation.json");
 const OUTCOMES = new Set(["CONFIRMED_CURRENT", "SUPERSEDED"]);
 const EVENT_KINDS = new Set(["SOURCE_CHANGE", "PENDING_REVIEW", "FRESHNESS_METADATA_GAP"]);
 const CATEGORIES = new Set([
@@ -18,9 +19,347 @@ const CATEGORIES = new Set([
 ]);
 const OPERATION_OUTCOMES = new Set(["CANONICAL_REVIEW_REQUIRED", "ACCESS_BLOCKED", "APPLICABILITY_UNRESOLVED"]);
 const MAX_RESOLUTION_CLOCK_SKEW_MS = 60_000;
+const EVIDENCE_FORMAT = "SOURCE_REVIEW_EVIDENCE_V1";
+const ATTESTATION_MODES = new Set(["PRE_CLOSE_ATOMIC", "POST_RESOLUTION_REATTESTATION"]);
+const C2_STATES = new Set(["PASS", "PARTIAL"]);
+const C3_STATES = new Set(["PASS", "NOT_PROVEN"]);
+const VISIBILITY_KEYS = [
+  "publisher",
+  "officialDomainText",
+  "exactFragment",
+  "scope",
+  "current",
+  "effective",
+  "geoApplicability",
+  "browserOrigin",
+  "challengeOrErrorAbsent"
+];
+const SOURCE_RECORD_KEYS = [
+  "officialPublisher",
+  "sourceOwnerGeo",
+  "appliesToGeos",
+  "legalBasisForExtension",
+  "sourceType",
+  "primaryOrContext",
+  "cannabisSpecific",
+  "current",
+  "effective",
+  "effectiveDate",
+  "confidence",
+  "fragment",
+  "evidenceScopes"
+];
 
 function sha256(value) {
   return crypto.createHash("sha256").update(value).digest("hex");
+}
+
+function recorded(value) {
+  const normalized = String(value ?? "").trim();
+  return normalized || "NOT_RECORDED";
+}
+
+function recordedBoolean(value) {
+  return typeof value === "boolean" ? value : "NOT_RECORDED";
+}
+
+function normalizedOwnerAlias(value) {
+  const normalized = String(value ?? "").trim().toUpperCase();
+  return normalized || "NOT_RECORDED";
+}
+
+function sourceOwnerGeo(source) {
+  const aliases = [source.sourceOwnerGeo, source.source_owner_geo, source.source_owner_scope]
+    .filter((value) => value !== undefined && value !== null)
+    .map(normalizedOwnerAlias);
+  const distinct = [...new Set(aliases)];
+  if (distinct.length > 1) throw new Error(`SOURCE_REVIEW_SOURCE_OWNER_ALIAS_CONFLICT=${distinct.join("|")}`);
+  return distinct[0] || "NOT_RECORDED";
+}
+
+function appliesToGeos(source) {
+  const aliases = [source.appliesToGeos, source.applies_to_geo, source.applies_to_geos]
+    .filter((value) => value !== undefined && value !== null)
+    .map((values) => {
+      if (!Array.isArray(values)) throw new Error("SOURCE_REVIEW_APPLICABILITY_ALIAS_INVALID");
+      return [...new Set(values.map((value) => String(value).trim().toUpperCase()).filter(Boolean))].sort();
+    });
+  const identities = [...new Set(aliases.map((values) => JSON.stringify(values)))];
+  if (identities.length > 1) throw new Error(`SOURCE_REVIEW_APPLICABILITY_ALIAS_CONFLICT=${identities.join("|")}`);
+  return aliases[0] || [];
+}
+
+function sortedUniqueText(values, field) {
+  if (!Array.isArray(values)) throw new Error(`SOURCE_REVIEW_EVIDENCE_${field}_INVALID`);
+  const normalized = [...new Set(values.map((value) => String(value).trim()).filter(Boolean))].sort();
+  if (JSON.stringify(values) !== JSON.stringify(normalized)) {
+    throw new Error(`SOURCE_REVIEW_EVIDENCE_${field}_INVALID`);
+  }
+  return normalized;
+}
+
+export function exactSourceRecordFromSnapshot(sourceLedgerSnapshot, geo, sourceUrl) {
+  const ledger = parseJsonSnapshot(sourceLedgerSnapshot, "SOURCE_REVIEW_SOURCE_LEDGER_INVALID");
+  const row = (ledger.rows || []).find((entry) => String(entry.geo || "").trim().toUpperCase() === geo);
+  if (!row) throw new Error(`SOURCE_REVIEW_EVIDENCE_SOURCE_GEO_MISSING=${geo}`);
+  const sources = [...(row.primaryLaw?.officialSources || []), ...(row.primaryLaw?.freshAxisOfficialSources || [])];
+  const matches = sources.filter((entry) => String(entry.url || "").trim() === sourceUrl);
+  if (!matches.length) throw new Error(`SOURCE_REVIEW_EVIDENCE_SOURCE_RECORD_MISSING=${geo}|${sourceUrl}`);
+  const fragmentMatches = matches.filter((source) => typeof source.fragment === "string" && source.fragment.length > 0);
+  if (!fragmentMatches.length) {
+    throw new Error(`SOURCE_REVIEW_EVIDENCE_FRAGMENT_REQUIRED=${geo}|${sourceUrl}`);
+  }
+  const canonicalMatches = fragmentMatches.map((source) => {
+    return {
+      officialPublisher: recorded(source.officialPublisher),
+      sourceOwnerGeo: sourceOwnerGeo(source),
+      appliesToGeos: appliesToGeos(source),
+      legalBasisForExtension: recorded(source.legalBasisForExtension),
+      sourceType: recorded(source.sourceType ?? source.sourceKind),
+      primaryOrContext: recorded(source.primaryOrContext ?? source.evidenceRole),
+      cannabisSpecific: recordedBoolean(source.cannabisSpecific),
+      current: recordedBoolean(source.current),
+      effective: recordedBoolean(source.effective),
+      effectiveDate: recorded(source.effectiveDate ?? source.effective_date),
+      confidence: recorded(source.confidence),
+      fragment: source.fragment,
+      evidenceScopes: [...new Set((source.revalidation?.queue || []).map((value) => String(value).trim()).filter(Boolean))].sort()
+    };
+  });
+  const uniqueCanonicalMatches = [...new Map(canonicalMatches.map((source) => [JSON.stringify(source), source])).values()];
+  if (uniqueCanonicalMatches.length !== 1) {
+    throw new Error(`SOURCE_REVIEW_EVIDENCE_SOURCE_RECORD_AMBIGUOUS=${geo}|${sourceUrl}`);
+  }
+  return uniqueCanonicalMatches[0];
+}
+
+function detectEvidenceMediaType(bytes) {
+  if (bytes.length >= 8 && bytes.subarray(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]))) {
+    return "image/png";
+  }
+  if (bytes.length >= 3 && bytes[0] === 0xff && bytes[1] === 0xd8 && bytes[2] === 0xff) {
+    return "image/jpeg";
+  }
+  throw new Error("SOURCE_REVIEW_EVIDENCE_ARTIFACT_MIME_UNSUPPORTED");
+}
+
+function normalizedArtifactLocator(artifactPath, evidenceRoot) {
+  let absoluteRoot;
+  let absoluteArtifact;
+  try {
+    absoluteRoot = fs.realpathSync(path.resolve(evidenceRoot));
+    absoluteArtifact = fs.realpathSync(path.resolve(artifactPath));
+  } catch {
+    throw new Error("SOURCE_REVIEW_EVIDENCE_ARTIFACT_REALPATH_INVALID");
+  }
+  const relative = path.relative(absoluteRoot, absoluteArtifact);
+  if (!relative || relative === ".." || relative.startsWith(`..${path.sep}`) || path.isAbsolute(relative)) {
+    throw new Error("SOURCE_REVIEW_EVIDENCE_ARTIFACT_OUTSIDE_ROOT");
+  }
+  return relative.split(path.sep).join("/");
+}
+
+function attestationIdentityPreimage(value) {
+  return JSON.stringify({
+    evidenceFormat: value.evidenceFormat,
+    resolutionId: value.resolutionId,
+    operationId: value.operationId,
+    reviewedAttemptId: value.reviewedAttemptId,
+    reviewedSignalIdentitySha256: value.reviewedSignalIdentitySha256,
+    reviewedSignalPayloadSha256: value.reviewedSignalPayloadSha256,
+    resolutionRegistryPreimageSha256: value.resolutionRegistryPreimageSha256,
+    geo: value.geo,
+    sourceUrl: value.sourceUrl,
+    sourceRecordSha256: value.sourceRecordSha256,
+    exactFragmentSha256: value.bindings.exactFragmentUtf8.sha256,
+    visualArtifactSha256: value.bindings.visualArtifactBytes.sha256,
+    reviewSha256: sha256(JSON.stringify(value.review)),
+    reviewerId: value.review.reviewerId,
+    reviewedAt: value.review.reviewedAt,
+    attestationMode: value.attestationMode,
+    attestedAt: value.attestedAt,
+    supersedesAttestationId: value.supersedesAttestationId,
+    previousAttestationSha256: value.previousAttestationSha256,
+    sourceLedgerSha256: value.inputs.sourceLedgerSha256,
+    canonicalGeosSha256: value.inputs.canonicalGeosSha256,
+    officialRegistrySha256: value.inputs.officialRegistrySha256,
+    ownershipRegistrySha256: value.inputs.ownershipRegistrySha256
+  });
+}
+
+function validateReviewAssertions(review) {
+  if (!review || typeof review !== "object" || Array.isArray(review)) {
+    throw new Error("SOURCE_REVIEW_EVIDENCE_REVIEW_ASSERTIONS_REQUIRED");
+  }
+  const reviewKeys = ["c2", "c3", "reviewerId", "reviewedAt", "visibleEvidenceScopes", "visibility"];
+  if (Object.keys(review).sort().join("|") !== reviewKeys.sort().join("|")) {
+    throw new Error("SOURCE_REVIEW_EVIDENCE_REVIEW_ASSERTIONS_INVALID");
+  }
+  if (!C2_STATES.has(review.c2) || !C3_STATES.has(review.c3)) {
+    throw new Error("SOURCE_REVIEW_EVIDENCE_REVIEW_LEVEL_INVALID");
+  }
+  requiredText(review.reviewerId, "EVIDENCE_REVIEWER_ID");
+  const reviewedAt = String(review.reviewedAt || "");
+  if (!Number.isFinite(Date.parse(reviewedAt))
+    || new Date(reviewedAt).toISOString() !== reviewedAt
+    || Date.parse(reviewedAt) > Date.now() + MAX_RESOLUTION_CLOCK_SKEW_MS) {
+    throw new Error("SOURCE_REVIEW_EVIDENCE_REVIEWED_AT_INVALID");
+  }
+  sortedUniqueText(review.visibleEvidenceScopes, "VISIBLE_SCOPES");
+  const visibility = review.visibility;
+  if (!visibility || Object.keys(visibility).sort().join("|") !== [...VISIBILITY_KEYS].sort().join("|")
+    || VISIBILITY_KEYS.some((key) => typeof visibility[key] !== "boolean")) {
+    throw new Error("SOURCE_REVIEW_EVIDENCE_VISIBILITY_INVALID");
+  }
+  if (!visibility.challengeOrErrorAbsent) {
+    throw new Error("SOURCE_REVIEW_EVIDENCE_CHALLENGE_OR_ERROR_PRESENT");
+  }
+  if (review.c2 === "PASS" && ["publisher", "exactFragment", "scope", "effective", "geoApplicability"]
+    .some((key) => visibility[key] !== true)) {
+    throw new Error("SOURCE_REVIEW_EVIDENCE_C2_PASS_UNSUPPORTED");
+  }
+  if (review.c3 === "PASS" && (!visibility.browserOrigin || !visibility.officialDomainText)) {
+    throw new Error("SOURCE_REVIEW_EVIDENCE_C3_PASS_UNSUPPORTED");
+  }
+}
+
+function validateVisibilityAgainstSourceRecord(review, sourceRecord) {
+  if (review.visibility.publisher && sourceRecord.officialPublisher === "NOT_RECORDED") {
+    throw new Error("SOURCE_REVIEW_EVIDENCE_VISIBLE_PUBLISHER_NOT_RETAINED");
+  }
+  if (review.visibility.current && sourceRecord.current !== true) {
+    throw new Error("SOURCE_REVIEW_EVIDENCE_VISIBLE_CURRENT_NOT_RETAINED");
+  }
+  if (review.visibility.effective && sourceRecord.effective !== true) {
+    throw new Error("SOURCE_REVIEW_EVIDENCE_VISIBLE_EFFECTIVE_NOT_RETAINED");
+  }
+}
+
+export function createSourceReviewEvidenceAttestation({
+  resolution,
+  operation,
+  reviewedAttempt,
+  sourceRecord,
+  sourceLedgerSnapshot,
+  canonicalGeosSnapshot,
+  officialRegistrySnapshot,
+  ownershipSnapshot,
+  artifactSnapshot,
+  artifactPath,
+  evidenceRoot = ROOT,
+  expectedArtifactSha256,
+  artifactCapturedAt = "NOT_RECORDED",
+  review,
+  attestationMode,
+  attestedAt,
+  supersedesAttestationId = null,
+  previousAttestationSha256 = "GENESIS"
+}) {
+  if (!ATTESTATION_MODES.has(attestationMode)) throw new Error("SOURCE_REVIEW_EVIDENCE_MODE_INVALID");
+  validateReviewAssertions(review);
+  if (!artifactSnapshot?.exists) throw new Error("SOURCE_REVIEW_EVIDENCE_ARTIFACT_MISSING");
+  const normalizedExpectedArtifactSha256 = requiredText(expectedArtifactSha256, "EVIDENCE_ARTIFACT_SHA256").toLowerCase();
+  if (!/^[a-f0-9]{64}$/.test(normalizedExpectedArtifactSha256)
+    || artifactSnapshot.sha256 !== normalizedExpectedArtifactSha256) {
+    throw new Error("SOURCE_REVIEW_EVIDENCE_ARTIFACT_HASH_MISMATCH");
+  }
+  const mediaType = detectEvidenceMediaType(artifactSnapshot.bytes);
+  const normalizedAttestedAt = new Date(requiredText(attestedAt, "EVIDENCE_ATTESTED_AT")).toISOString();
+  const normalizedReviewedAt = new Date(review.reviewedAt).toISOString();
+  const normalizedCapturedAt = artifactCapturedAt === "NOT_RECORDED"
+    ? "NOT_RECORDED"
+    : new Date(requiredText(artifactCapturedAt, "EVIDENCE_CAPTURED_AT")).toISOString();
+  const resolvedAt = Date.parse(resolution.resolvedAt);
+  const reviewedAtMs = Date.parse(normalizedReviewedAt);
+  const attestedAtMs = Date.parse(normalizedAttestedAt);
+  if (attestedAtMs > Date.now() + MAX_RESOLUTION_CLOCK_SKEW_MS || reviewedAtMs > attestedAtMs) {
+    throw new Error("SOURCE_REVIEW_EVIDENCE_TIME_INVALID");
+  }
+  if (reviewedAttempt.sourceCheckedAt !== "NOT_RECORDED"
+    && Date.parse(reviewedAttempt.sourceCheckedAt) > reviewedAtMs) {
+    throw new Error("SOURCE_REVIEW_EVIDENCE_REVIEW_BEFORE_SOURCE_CHECK");
+  }
+  if (attestationMode === "POST_RESOLUTION_REATTESTATION" && resolvedAt > reviewedAtMs) {
+    throw new Error("SOURCE_REVIEW_EVIDENCE_POST_HOC_TIME_INVALID");
+  }
+  if (attestationMode === "PRE_CLOSE_ATOMIC" && (reviewedAtMs > resolvedAt || attestedAtMs > resolvedAt)) {
+    throw new Error("SOURCE_REVIEW_EVIDENCE_PRE_CLOSE_TIME_INVALID");
+  }
+  if (normalizedCapturedAt !== "NOT_RECORDED" && Date.parse(normalizedCapturedAt) > reviewedAtMs) {
+    throw new Error("SOURCE_REVIEW_EVIDENCE_CAPTURE_AFTER_REVIEW");
+  }
+  const canonicalSourceRecord = {};
+  for (const key of SOURCE_RECORD_KEYS) canonicalSourceRecord[key] = sourceRecord[key];
+  if (JSON.stringify(sourceRecord) !== JSON.stringify(canonicalSourceRecord)) {
+    throw new Error("SOURCE_REVIEW_EVIDENCE_SOURCE_RECORD_SHAPE_INVALID");
+  }
+  sortedUniqueText(sourceRecord.appliesToGeos, "SOURCE_APPLICABILITY");
+  sortedUniqueText(sourceRecord.evidenceScopes, "SOURCE_SCOPES");
+  if (!sourceRecord.appliesToGeos.includes(operation.geo)
+    || sourceRecord.sourceOwnerGeo === "NOT_RECORDED") {
+    throw new Error("SOURCE_REVIEW_EVIDENCE_SOURCE_APPLICABILITY_MISMATCH");
+  }
+  if (review.visibleEvidenceScopes.some((scope) => !sourceRecord.evidenceScopes.includes(scope))) {
+    throw new Error("SOURCE_REVIEW_EVIDENCE_VISIBLE_SCOPE_NOT_RETAINED");
+  }
+  validateVisibilityAgainstSourceRecord(review, sourceRecord);
+  const sourceRecordSha256 = sha256(JSON.stringify(sourceRecord));
+  const fragmentBytes = Buffer.from(sourceRecord.fragment, "utf8");
+  const unsigned = {
+    evidenceFormat: EVIDENCE_FORMAT,
+    resolutionId: resolution.resolutionId,
+    operationId: operation.operationId,
+    reviewedAttemptId: reviewedAttempt.attemptId,
+    reviewedSignalIdentitySha256: reviewedAttempt.signalIdentitySha256,
+    reviewedSignalPayloadSha256: reviewedAttempt.signalPayloadSha256,
+    resolutionRegistryPreimageSha256: resolution.reviewRegistrySha256,
+    geo: operation.geo,
+    sourceUrl: operation.sourceUrl,
+    sourceRecord,
+    sourceRecordSha256,
+    bindings: {
+      exactFragmentUtf8: {
+        format: "EXACT_FRAGMENT_UTF8",
+        sha256: sha256(fragmentBytes),
+        byteLength: fragmentBytes.length,
+        normalization: "NONE"
+      },
+      visualArtifactBytes: {
+        format: "VISUAL_ARTIFACT_BYTES",
+        sha256: artifactSnapshot.sha256,
+        byteLength: artifactSnapshot.bytes.length,
+        mediaType,
+        locator: normalizedArtifactLocator(artifactPath, evidenceRoot),
+        capturedAt: normalizedCapturedAt
+      }
+    },
+    review: {
+      c2: review.c2,
+      c3: review.c3,
+      reviewerId: requiredText(review.reviewerId, "EVIDENCE_REVIEWER_ID"),
+      reviewedAt: normalizedReviewedAt,
+      visibleEvidenceScopes: [...review.visibleEvidenceScopes],
+      visibility: { ...review.visibility }
+    },
+    attestationMode,
+    attestedAt: normalizedAttestedAt,
+    inputs: {
+      sourceLedgerSha256: sourceLedgerSnapshot.sha256,
+      canonicalGeosSha256: canonicalGeosSnapshot.sha256,
+      officialRegistrySha256: officialRegistrySnapshot.sha256,
+      ownershipRegistrySha256: ownershipSnapshot.sha256
+    },
+    supersedesAttestationId,
+    previousAttestationSha256,
+    boundary: "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE"
+  };
+  const identityPreimage = attestationIdentityPreimage(unsigned);
+  const attestation = {
+    ...unsigned,
+    attestationId: `SRCEVT-${sha256(identityPreimage).slice(0, 24)}`,
+    identityPreimage
+  };
+  return { ...attestation, attestationSha256: sha256(JSON.stringify(attestation)) };
 }
 
 function requiredText(value, field) {
@@ -244,6 +583,7 @@ export function validateRegistry(registry, {
   canonicalGeosPath,
   officialRegistryPath,
   ownershipPath,
+  allowLegacyV6 = false,
   officialRegistry = parseJsonSnapshot(
     exactFileSnapshot(officialRegistryPath),
     "SOURCE_REVIEW_OFFICIAL_REGISTRY_INVALID"
@@ -255,13 +595,19 @@ export function validateRegistry(registry, {
 }) {
   if (
     !registry
-    || registry.schemaVersion !== 6
+    || ![6, 7].includes(registry.schemaVersion)
     || registry.localOnly !== true
     || registry.appendOnly !== true
     || !Array.isArray(registry.operations)
     || !Array.isArray(registry.attempts)
     || !Array.isArray(registry.resolutions)
   ) throw new Error("SOURCE_REVIEW_OPERATIONS_REGISTRY_INVALID");
+  if (registry.schemaVersion === 6 && !allowLegacyV6) {
+    throw new Error("SOURCE_REVIEW_EVIDENCE_MIGRATION_REQUIRED");
+  }
+  if (registry.schemaVersion === 7 && !Array.isArray(registry.evidenceAttestations)) {
+    throw new Error("SOURCE_REVIEW_EVIDENCE_ATTESTATIONS_INVALID");
+  }
   const canonicalGeos = new Set(JSON.parse(fs.readFileSync(canonicalGeosPath, "utf8")));
   if (canonicalGeos.size !== 307) {
     throw new Error(`SOURCE_REVIEW_CANONICAL_UNIVERSE_INVALID=${canonicalGeos.size}`);
@@ -385,6 +731,7 @@ export function validateRegistry(registry, {
 
   const resolutionIds = new Set();
   const resolvedOperationIds = new Set();
+  const resolutionsById = new Map();
   for (const resolution of registry.resolutions) {
     if (!resolution.resolutionId || resolutionIds.has(resolution.resolutionId)) {
       throw new Error(`SOURCE_REVIEW_RESOLUTION_ID_INVALID=${resolution.resolutionId || "EMPTY"}`);
@@ -440,7 +787,129 @@ export function validateRegistry(registry, {
       throw new Error(`SOURCE_REVIEW_RESOLUTION_BOUNDARY_INVALID=${resolution.resolutionId}`);
     }
     resolutionIds.add(resolution.resolutionId);
+    resolutionsById.set(resolution.resolutionId, resolution);
     resolvedOperationIds.add(resolution.operationId);
+  }
+  if (registry.schemaVersion === 7) {
+    const attestationIds = new Set();
+    const attestationHashes = new Set();
+    const attestationsById = new Map();
+    const activeByResolution = new Map();
+    let previousAttestationSha256 = "GENESIS";
+    for (const attestation of registry.evidenceAttestations) {
+      const resolution = resolutionsById.get(attestation.resolutionId);
+      const operation = operationsById.get(attestation.operationId);
+      const reviewedAttempt = attemptsById.get(attestation.reviewedAttemptId);
+      if (!resolution || !operation || !reviewedAttempt
+        || resolution.operationId !== operation.operationId
+        || reviewedAttempt.operationId !== operation.operationId
+        || attestation.geo !== operation.geo
+        || attestation.sourceUrl !== operation.sourceUrl
+        || attestation.reviewedSignalIdentitySha256 !== reviewedAttempt.signalIdentitySha256
+        || attestation.reviewedSignalPayloadSha256 !== reviewedAttempt.signalPayloadSha256
+        || attestation.resolutionRegistryPreimageSha256 !== resolution.reviewRegistrySha256) {
+        throw new Error(`SOURCE_REVIEW_EVIDENCE_RELATION_INVALID=${attestation.attestationId || "EMPTY"}`);
+      }
+      if (attestation.evidenceFormat !== EVIDENCE_FORMAT
+        || !ATTESTATION_MODES.has(attestation.attestationMode)
+        || !/^SRCEVT-[a-f0-9]{24}$/.test(String(attestation.attestationId || ""))
+        || attestationIds.has(attestation.attestationId)
+        || !/^[a-f0-9]{64}$/.test(String(attestation.attestationSha256 || ""))
+        || attestationHashes.has(attestation.attestationSha256)
+        || attestation.boundary !== "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE") {
+        throw new Error(`SOURCE_REVIEW_EVIDENCE_IDENTITY_INVALID=${attestation.attestationId || "EMPTY"}`);
+      }
+      const canonicalSourceRecord = {};
+      for (const key of SOURCE_RECORD_KEYS) canonicalSourceRecord[key] = attestation.sourceRecord?.[key];
+      if (!attestation.sourceRecord
+        || JSON.stringify(attestation.sourceRecord) !== JSON.stringify(canonicalSourceRecord)
+        || sha256(JSON.stringify(attestation.sourceRecord)) !== attestation.sourceRecordSha256
+        || attestation.sourceRecord.sourceOwnerGeo === "NOT_RECORDED"
+        || !canonicalGeos.has(attestation.sourceRecord.sourceOwnerGeo)
+        || !attestation.sourceRecord.appliesToGeos?.includes(operation.geo)
+        || attestation.sourceRecord.appliesToGeos.some((geo) => !canonicalGeos.has(geo))
+        || ((attestation.sourceRecord.sourceOwnerGeo !== operation.geo
+          || attestation.sourceRecord.appliesToGeos.length > 1)
+          && attestation.sourceRecord.legalBasisForExtension === "NOT_RECORDED")) {
+        throw new Error(`SOURCE_REVIEW_EVIDENCE_SOURCE_RECORD_INVALID=${attestation.attestationId}`);
+      }
+      sortedUniqueText(attestation.sourceRecord.appliesToGeos, "SOURCE_APPLICABILITY");
+      sortedUniqueText(attestation.sourceRecord.evidenceScopes, "SOURCE_SCOPES");
+      const fragmentBytes = Buffer.from(String(attestation.sourceRecord.fragment ?? ""), "utf8");
+      const fragmentBinding = attestation.bindings?.exactFragmentUtf8;
+      const artifactBinding = attestation.bindings?.visualArtifactBytes;
+      if (!fragmentBytes.length
+        || fragmentBinding?.format !== "EXACT_FRAGMENT_UTF8"
+        || fragmentBinding.normalization !== "NONE"
+        || fragmentBinding.byteLength !== fragmentBytes.length
+        || fragmentBinding.sha256 !== sha256(fragmentBytes)) {
+        throw new Error(`SOURCE_REVIEW_EVIDENCE_FRAGMENT_BINDING_INVALID=${attestation.attestationId}`);
+      }
+      if (artifactBinding?.format !== "VISUAL_ARTIFACT_BYTES"
+        || !/^[a-f0-9]{64}$/.test(String(artifactBinding.sha256 || ""))
+        || !Number.isInteger(artifactBinding.byteLength)
+        || artifactBinding.byteLength <= 0
+        || !["image/png", "image/jpeg"].includes(artifactBinding.mediaType)
+        || !String(artifactBinding.locator || "").trim()
+        || path.isAbsolute(artifactBinding.locator)
+        || artifactBinding.locator.split("/").includes("..")
+        || !(artifactBinding.capturedAt === "NOT_RECORDED"
+          || (Number.isFinite(Date.parse(artifactBinding.capturedAt))
+            && new Date(artifactBinding.capturedAt).toISOString() === artifactBinding.capturedAt))) {
+        throw new Error(`SOURCE_REVIEW_EVIDENCE_ARTIFACT_BINDING_INVALID=${attestation.attestationId}`);
+      }
+      validateReviewAssertions(attestation.review);
+      if (attestation.review.visibleEvidenceScopes.some(
+        (scope) => !attestation.sourceRecord.evidenceScopes.includes(scope)
+      )) throw new Error(`SOURCE_REVIEW_EVIDENCE_VISIBLE_SCOPE_NOT_RETAINED=${attestation.attestationId}`);
+      validateVisibilityAgainstSourceRecord(attestation.review, attestation.sourceRecord);
+      if (!Number.isFinite(Date.parse(attestation.attestedAt))
+        || new Date(attestation.attestedAt).toISOString() !== attestation.attestedAt
+        || Date.parse(attestation.attestedAt) > Date.now() + MAX_RESOLUTION_CLOCK_SKEW_MS) {
+        throw new Error(`SOURCE_REVIEW_EVIDENCE_ATTESTED_AT_INVALID=${attestation.attestationId}`);
+      }
+      const reviewedAt = Date.parse(attestation.review.reviewedAt);
+      const attestedAt = Date.parse(attestation.attestedAt);
+      const resolvedAt = Date.parse(resolution.resolvedAt);
+      if (reviewedAt > attestedAt
+        || (artifactBinding.capturedAt !== "NOT_RECORDED"
+          && Date.parse(artifactBinding.capturedAt) > reviewedAt)
+        || (reviewedAttempt.sourceCheckedAt !== "NOT_RECORDED"
+          && Date.parse(reviewedAttempt.sourceCheckedAt) > reviewedAt)
+        || (attestation.attestationMode === "POST_RESOLUTION_REATTESTATION" && resolvedAt > reviewedAt)
+        || (attestation.attestationMode === "PRE_CLOSE_ATOMIC"
+          && (reviewedAt > resolvedAt || attestedAt > resolvedAt))) {
+        throw new Error(`SOURCE_REVIEW_EVIDENCE_TIME_INVALID=${attestation.attestationId}`);
+      }
+      if (!attestation.inputs
+        || ["sourceLedgerSha256", "canonicalGeosSha256", "officialRegistrySha256", "ownershipRegistrySha256"]
+          .some((key) => !/^[a-f0-9]{64}$/.test(String(attestation.inputs[key] || "")))) {
+        throw new Error(`SOURCE_REVIEW_EVIDENCE_INPUT_HASH_INVALID=${attestation.attestationId}`);
+      }
+      if (attestation.previousAttestationSha256 !== previousAttestationSha256) {
+        throw new Error(`SOURCE_REVIEW_EVIDENCE_CHAIN_INVALID=${attestation.attestationId}`);
+      }
+      const activeAttestationId = activeByResolution.get(attestation.resolutionId) || null;
+      if (attestation.supersedesAttestationId !== activeAttestationId
+        || (attestation.supersedesAttestationId !== null
+          && !attestationsById.has(attestation.supersedesAttestationId))) {
+        throw new Error(`SOURCE_REVIEW_EVIDENCE_SUPERSESSION_INVALID=${attestation.attestationId}`);
+      }
+      const expectedIdentityPreimage = attestationIdentityPreimage(attestation);
+      if (attestation.identityPreimage !== expectedIdentityPreimage
+        || attestation.attestationId !== `SRCEVT-${sha256(expectedIdentityPreimage).slice(0, 24)}`) {
+        throw new Error(`SOURCE_REVIEW_EVIDENCE_PREIMAGE_INVALID=${attestation.attestationId}`);
+      }
+      const { attestationSha256: _attestationSha256, ...withoutAttestationSha256 } = attestation;
+      if (sha256(JSON.stringify(withoutAttestationSha256)) !== attestation.attestationSha256) {
+        throw new Error(`SOURCE_REVIEW_EVIDENCE_HASH_INVALID=${attestation.attestationId}`);
+      }
+      attestationIds.add(attestation.attestationId);
+      attestationHashes.add(attestation.attestationSha256);
+      attestationsById.set(attestation.attestationId, attestation);
+      activeByResolution.set(attestation.resolutionId, attestation.attestationId);
+      previousAttestationSha256 = attestation.attestationSha256;
+    }
   }
   for (const [key, operations] of operationKeys) {
     const openBySignal = new Map();
@@ -470,10 +939,10 @@ function fsyncDirectory(directory) {
 export function exactFileSnapshot(filePath, { allowMissing = false } = {}) {
   try {
     const bytes = fs.readFileSync(filePath);
-    return { exists: true, bytes, sha256: registrySha256(bytes) };
+    return { exists: true, bytes, sha256: registrySha256(bytes), realpath: fs.realpathSync(filePath) };
   } catch (error) {
     if (allowMissing && error?.code === "ENOENT") {
-      return { exists: false, bytes: Buffer.alloc(0), sha256: null };
+      return { exists: false, bytes: Buffer.alloc(0), sha256: null, realpath: null };
     }
     throw error;
   }
@@ -524,6 +993,7 @@ export function withOwnedRegistryLock(registryPath, callback) {
           immediatelyBeforeRename.exists !== expectedSnapshot.exists
           || !immediatelyBeforeRename.bytes.equals(expectedSnapshot.bytes)
           || immediatelyBeforeRename.sha256 !== expectedSnapshot.sha256
+          || immediatelyBeforeRename.realpath !== expectedSnapshot.realpath
         ) {
           throw new Error(`SOURCE_REVIEW_RESOLUTION_REGISTRY_STALE=${immediatelyBeforeRename.sha256}`);
         }
@@ -543,6 +1013,7 @@ export function withOwnedRegistryLock(registryPath, callback) {
             currentGuard.exists !== guard.snapshot.exists
             || !currentGuard.bytes.equals(guard.snapshot.bytes)
             || currentGuard.sha256 !== guard.snapshot.sha256
+            || currentGuard.realpath !== guard.snapshot.realpath
           ) throw new Error(`SOURCE_REVIEW_RESOLUTION_EVIDENCE_REGISTRY_STALE=${guard.path}`);
         }
         const immediatelyBeforeRenameStage = exactFileSnapshot(stagedPath);
@@ -577,9 +1048,11 @@ export function withOwnedRegistryLock(registryPath, callback) {
 
 export function resolveSourceReviewOperation({
   registryPath = DEFAULT_REGISTRY_PATH,
+  sourceLedgerPath = DEFAULT_SOURCE_LEDGER_PATH,
   officialRegistryPath = DEFAULT_OFFICIAL_REGISTRY_PATH,
   ownershipPath = DEFAULT_OWNERSHIP_PATH,
   canonicalGeosPath = DEFAULT_CANONICAL_GEOS_PATH,
+  evidenceRoot = ROOT,
   operationId,
   reviewedAttemptId,
   expectedSignalIdentitySha256,
@@ -591,6 +1064,13 @@ export function resolveSourceReviewOperation({
   resolvedAt = new Date().toISOString(),
   resultingRevalidationState,
   resultingChangeReason,
+  evidenceArtifactPath,
+  expectedArtifactSha256,
+  expectedFragmentSha256,
+  reviewedAt = resolvedAt,
+  artifactCapturedAt = "NOT_RECORDED",
+  attestedAt = resolvedAt,
+  reviewAssertions,
   humanReviewed = false,
   beforeCommit
 } = {}) {
@@ -619,6 +1099,8 @@ export function resolveSourceReviewOperation({
 
   return withOwnedRegistryLock(registryPath, ({ stage, commit }) => {
     const registrySnapshot = exactFileSnapshot(registryPath);
+    const sourceLedgerSnapshot = exactFileSnapshot(sourceLedgerPath);
+    const canonicalGeosSnapshot = exactFileSnapshot(canonicalGeosPath);
     const officialRegistrySnapshot = exactFileSnapshot(officialRegistryPath);
     const ownershipSnapshot = exactFileSnapshot(ownershipPath);
     if (registrySnapshot.sha256 !== normalizedExpectedRegistrySha256) {
@@ -660,6 +1142,25 @@ export function resolveSourceReviewOperation({
     if (Date.parse(normalizedResolvedAt) < Date.parse(operation.openedAt)) {
       throw new Error("SOURCE_REVIEW_RESOLUTION_DATE_BEFORE_OPEN");
     }
+    const normalizedEvidenceArtifactPath = path.resolve(requiredText(
+      evidenceArtifactPath,
+      "EVIDENCE_ARTIFACT_PATH"
+    ));
+    const artifactSnapshot = exactFileSnapshot(normalizedEvidenceArtifactPath);
+    const sourceRecord = exactSourceRecordFromSnapshot(
+      sourceLedgerSnapshot,
+      operation.geo,
+      operation.sourceUrl
+    );
+    const normalizedExpectedFragmentSha256 = requiredText(
+      expectedFragmentSha256,
+      "EVIDENCE_FRAGMENT_SHA256"
+    ).toLowerCase();
+    const actualFragmentSha256 = sha256(Buffer.from(sourceRecord.fragment, "utf8"));
+    if (!/^[a-f0-9]{64}$/.test(normalizedExpectedFragmentSha256)
+      || normalizedExpectedFragmentSha256 !== actualFragmentSha256) {
+      throw new Error("SOURCE_REVIEW_EVIDENCE_FRAGMENT_HASH_MISMATCH");
+    }
     const normalizedEvidenceRelation = evidenceRelation({
       evidenceUrl: normalizedEvidenceUrl,
       operation,
@@ -697,13 +1198,44 @@ export function resolveSourceReviewOperation({
       resultingChangeReason: normalizedResultingReason,
       boundary: "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
     };
-    const nextRegistry = { ...registry, resolutions: [...registry.resolutions, resolution] };
+    const priorAttestation = registry.evidenceAttestations.at(-1);
+    const evidenceAttestation = createSourceReviewEvidenceAttestation({
+      resolution,
+      operation,
+      reviewedAttempt,
+      sourceRecord,
+      sourceLedgerSnapshot,
+      canonicalGeosSnapshot,
+      officialRegistrySnapshot,
+      ownershipSnapshot,
+      artifactSnapshot,
+      artifactPath: normalizedEvidenceArtifactPath,
+      evidenceRoot,
+      expectedArtifactSha256,
+      artifactCapturedAt,
+      review: {
+        ...reviewAssertions,
+        reviewerId: normalizedReviewerId,
+        reviewedAt
+      },
+      attestationMode: "PRE_CLOSE_ATOMIC",
+      attestedAt,
+      previousAttestationSha256: priorAttestation?.attestationSha256 || "GENESIS"
+    });
+    const nextRegistry = {
+      ...registry,
+      resolutions: [...registry.resolutions, resolution],
+      evidenceAttestations: [...registry.evidenceAttestations, evidenceAttestation]
+    };
     validateRegistry(nextRegistry, validationContext);
     stage(Buffer.from(`${JSON.stringify(nextRegistry, null, 2)}\n`, "utf8"));
     beforeCommit?.();
     commit(registrySnapshot, [
+      { path: sourceLedgerPath, snapshot: sourceLedgerSnapshot },
+      { path: canonicalGeosPath, snapshot: canonicalGeosSnapshot },
       { path: officialRegistryPath, snapshot: officialRegistrySnapshot },
-      { path: ownershipPath, snapshot: ownershipSnapshot }
+      { path: ownershipPath, snapshot: ownershipSnapshot },
+      { path: normalizedEvidenceArtifactPath, snapshot: artifactSnapshot }
     ]);
     return resolution;
   });
@@ -715,7 +1247,20 @@ function arg(name) {
 }
 
 function main() {
+  const visibilityJson = arg("visibility-json");
+  let visibility;
+  try {
+    visibility = visibilityJson ? JSON.parse(visibilityJson) : undefined;
+  } catch {
+    throw new Error("SOURCE_REVIEW_EVIDENCE_VISIBILITY_JSON_INVALID");
+  }
   const resolution = resolveSourceReviewOperation({
+    registryPath: arg("registry") || DEFAULT_REGISTRY_PATH,
+    sourceLedgerPath: arg("source-ledger") || DEFAULT_SOURCE_LEDGER_PATH,
+    officialRegistryPath: arg("official-registry") || DEFAULT_OFFICIAL_REGISTRY_PATH,
+    ownershipPath: arg("ownership") || DEFAULT_OWNERSHIP_PATH,
+    canonicalGeosPath: arg("canonical-geos") || DEFAULT_CANONICAL_GEOS_PATH,
+    evidenceRoot: arg("evidence-root") || ROOT,
     operationId: arg("operation-id"),
     reviewedAttemptId: arg("reviewed-attempt-id"),
     expectedSignalIdentitySha256: arg("expected-signal-identity-sha256"),
@@ -727,6 +1272,18 @@ function main() {
     resolvedAt: arg("resolved-at") || new Date().toISOString(),
     resultingRevalidationState: arg("resulting-state"),
     resultingChangeReason: arg("resulting-reason"),
+    evidenceArtifactPath: arg("evidence-artifact"),
+    expectedArtifactSha256: arg("expected-artifact-sha256"),
+    expectedFragmentSha256: arg("expected-fragment-sha256"),
+    reviewedAt: arg("reviewed-at") || arg("resolved-at") || new Date().toISOString(),
+    artifactCapturedAt: arg("artifact-captured-at") || "NOT_RECORDED",
+    attestedAt: arg("attested-at") || arg("resolved-at") || new Date().toISOString(),
+    reviewAssertions: {
+      c2: arg("c2"),
+      c3: arg("c3"),
+      visibleEvidenceScopes: (arg("visible-evidence-scopes") || "").split(",").filter(Boolean).sort(),
+      visibility
+    },
     humanReviewed: process.argv.includes("--human-reviewed")
   });
   console.log(`SOURCE_REVIEW_RESOLUTION_ID=${resolution.resolutionId}`);

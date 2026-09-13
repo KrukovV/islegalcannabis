@@ -93,3 +93,14 @@ test("every smoke-consuming CI path uses the shared fail-closed verifier", () =>
   const netHealth = fs.readFileSync("tools/pass_cycle.net_health.sh", "utf8");
   assert.doesNotMatch(netHealth, /SMOKE_TOTAL=.*grep -E '\^SMOKE_TOTAL='/);
 });
+
+test("offline cache never skips mandatory local CI or browser smoke", () => {
+  const ciLocal = fs.readFileSync("tools/ci-local.sh", "utf8");
+  const netHealth = fs.readFileSync("tools/pass_cycle.net_health.sh", "utf8");
+
+  assert.match(ciLocal, /export SMOKE_MODE="\$\{SMOKE_MODE:-local\}"/);
+  assert.match(ciLocal, /CI_LOCAL_OFFLINE reason=OFFLINE_CACHE_OK network_audit=skip local_gates=required/);
+  assert.doesNotMatch(ciLocal, /CI_LOCAL_RESULT rc=0 skipped=1 reason=OFFLINE_CACHE_OK/);
+  assert.match(netHealth, /CI_LOCAL_ENV="CI_LOCAL_OFFLINE_OK=\$\{CI_LOCAL_OFFLINE_OK\} ALLOW_SMOKE_SKIP=0 SMOKE_MODE=local"/);
+  assert.doesNotMatch(netHealth, /CI_LOCAL_OFFLINE_OK=1 ALLOW_SMOKE_SKIP=1 SMOKE_MODE=skip/);
+});

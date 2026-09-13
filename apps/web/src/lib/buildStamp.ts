@@ -39,27 +39,52 @@ function readFirstNonEmpty(candidates: string[]) {
   return null;
 }
 
+function resolveGitMetadataDirs(root: string) {
+  const dotGitPath = path.join(root, ".git");
+  try {
+    if (fs.statSync(dotGitPath).isDirectory()) {
+      return { gitDir: dotGitPath, commonDir: dotGitPath };
+    }
+    const pointer = fs.readFileSync(dotGitPath, "utf8").trim();
+    if (!pointer.startsWith("gitdir:")) return null;
+    const gitDir = path.resolve(root, pointer.slice("gitdir:".length).trim());
+    const commonDirPointer = readFirstNonEmpty([path.join(gitDir, "commondir")]);
+    const commonDir = commonDirPointer ? path.resolve(gitDir, commonDirPointer) : gitDir;
+    return { gitDir, commonDir };
+  } catch {
+    return null;
+  }
+}
+
 function readGitHeadSha(root: string) {
-  const headPath = path.join(root, ".git", "HEAD");
+  const metadata = resolveGitMetadataDirs(root);
+  if (!metadata) return null;
+  const headPath = path.join(metadata.gitDir, "HEAD");
   try {
     const head = fs.readFileSync(headPath, "utf8").trim();
     if (!head) return null;
     if (!head.startsWith("ref:")) return head.slice(0, 7);
     const refName = head.slice(5).trim();
-    const refPath = path.join(root, ".git", refName);
-    const refValue = readFirstNonEmpty([refPath]);
+    const refValue = readFirstNonEmpty([
+      path.join(metadata.gitDir, refName),
+      path.join(metadata.commonDir, refName)
+    ]);
     if (refValue) return refValue.slice(0, 7);
 
-    const packedRefsPath = path.join(root, ".git", "packed-refs");
-    try {
-      const packedRefs = fs.readFileSync(packedRefsPath, "utf8");
-      for (const line of packedRefs.split(/\r?\n/)) {
-        if (!line || line.startsWith("#") || line.startsWith("^")) continue;
-        const [sha, packedRef] = line.trim().split(/\s+/);
-        if (packedRef === refName && sha) return sha.slice(0, 7);
+    for (const packedRefsPath of new Set([
+      path.join(metadata.gitDir, "packed-refs"),
+      path.join(metadata.commonDir, "packed-refs")
+    ])) {
+      try {
+        const packedRefs = fs.readFileSync(packedRefsPath, "utf8");
+        for (const line of packedRefs.split(/\r?\n/)) {
+          if (!line || line.startsWith("#") || line.startsWith("^")) continue;
+          const [sha, packedRef] = line.trim().split(/\s+/);
+          if (packedRef === refName && sha) return sha.slice(0, 7);
+        }
+      } catch {
+        // packed-refs is optional
       }
-    } catch {
-      // packed-refs is optional
     }
   } catch {
     return null;

@@ -340,7 +340,9 @@ The evidence-operations queue is inspected only on localhost:
 - JSON: `http://127.0.0.1:3000/api/truth-map/b2b/source-review`
 - filters: `geo=<canonical-GEO>`, `category=<review-category>`, `state=current|historical|resolved|open`, `operationId=<exact-SRCREV-id>`
 
-The schema-v3 UI/API is read-only, limits broad results to 100 exact dossiers and returns `404` for a non-local host. Every dossier contains the complete ordered attempt history, the current attempt payload/preimage and copy-ready close tokens. A dossier for a current source also shows the retained owner/applicability, exact fragment, current/effective state, visual/screenshot state and paths, evidence scope and confidence. Missing fields remain `NOT_RECORDED`; the Workbench never fills them from another source or GEO. `registrySha256` is computed from the same exact registry bytes as those dossiers. Workbench independently recomputes the current canonical V2 signal from the retained reconciliation source and refuses a missing or stale latest attempt. A current attempt uses canonical `SOURCE_REVIEW_SIGNAL_V1` or a bounded owner/applicability-corrected `SOURCE_REVIEW_SIGNAL_V2`; a legacy attempt can use `LEGACY_SIGNAL_DETAILS_NOT_RECORDED_V1` only when unrecorded fields remain explicitly `NOT_RECORDED`.
+The schema-v4 UI/API is read-only, limits broad results to 100 exact dossiers and returns `404` for a non-local host. Every dossier contains complete ordered attempt and evidence-attestation history. Lifecycle (`CURRENT_ACTIVE|HISTORICAL_OPEN|RESOLVED`) is independent from evidence state (`BOUND_PRE_CLOSE|BOUND_POST_HOC|UNBOUND_LEGACY`; unresolved operations have no evidence state). Only an unresolved operation exposes copy-ready close tokens. A bound dossier shows committed fragment/artifact SHA-256, byte length, magic-verified MIME, C2/C3, reviewer/time/mode and the exact visibility assertions; its artifact locator is a retrieval hint, never identity. Missing fields remain `NOT_RECORDED`; the Workbench never fills them from another source or GEO. `registrySha256` is computed from the same exact registry bytes as those dossiers. Workbench validates the entire attestation chain, independently recomputes the current canonical V2 signal and refuses a missing, stale or inconsistent latest attempt/attestation.
+
+Do not describe historical `307/307` matrix or screenshot completion as current legal review. Report matrix/visual coverage, C2, C3, machine-attested operations, pre-close/post-hoc/unbound resolutions and current-law currency as separate counters with their own denominators.
 
 For an independent shell receipt, compute the same registry identity immediately before review:
 
@@ -348,7 +350,22 @@ For an independent shell receipt, compute the same registry identity immediately
 shasum -a 256 data/b2b_evidence/source_review_operations.json
 ```
 
-After a human reviews the retained official evidence, close only the exact operation/attempt pair:
+If the retained registry is schema v6, run the one-time guarded evidence migration before the builder or resolver:
+
+```bash
+node tools/review/migrate_source_review_evidence_v7.mjs \
+  --evidence-root=<approved-repository-or-external-evidence-root> \
+  --attested-at=<real-ISO-8601-attestation-time> \
+  --receipt=data/b2b_evidence/source_review_evidence_v7_migration.json
+```
+
+The migrator reads its bounded in-code migration item set, validates the five retained legacy resolutions against their exact source fragments and raw reviewed artifacts, preserves every operation/attempt/resolution object exactly, and appends only `POST_RESOLUTION_REATTESTATION` entries. `--evidence-root` is the containment root; each retained relative artifact locator must resolve inside it, so an external archive must preserve those relative paths. On the initial schema-v6 migration, `--attested-at` is mandatory and must be a real current/past instant. `--receipt` is optional in normal use because it defaults to the committed path shown above.
+
+The migrator also writes a compact deterministic schema-v1 `SOURCE_REVIEW_EVIDENCE_V7_MIGRATION_RECEIPT`. It binds the exact pre-migration schema-v6 registry SHA-256 and post-migration schema-v7 registry SHA-256, hashes of the preserved operations/attempts/resolutions arrays, migration-prefix counts, the `evidenceAttestations[]` hash and ordered attestation chain, exact input hashes, `MIGRATION_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE`, and its own identity preimage/hash. This receipt is migration provenance, not an alternate registry or Truth SSOT. Stdout separately reports registry `CHANGED`, receipt `CHANGED`, resulting schema, resolution/attestation totals, final registry SHA-256 and receipt-file SHA-256.
+
+The migration runs under the source-registry owned lock. Registry and receipt each use staged durable writes, exact-byte checks and atomic rename, but they are a recoverable two-file publication rather than one atomic multi-file rename: the registry is committed before the receipt. If an accepted schema-v7 registry has no receipt and has not grown beyond the exact bounded migration state, a rerun deterministically reconstructs the receipt. If later append-only data already exists, a missing receipt fails closed. With an existing receipt, a schema-v7 rerun needs neither raw artifacts nor a new `--attested-at`; it validates the receipt byte-for-byte against its recorded migration prefix and returns both `CHANGED=0`, including after later valid registry appends. A tampered receipt, impossible counts or mismatched migration prefix fails closed. The initial migration still requires every raw artifact and immutable input: if any artifact, fragment, source record, hash, MIME, time, input snapshot or registry preimage is missing, stale or tampered, the registry is not replaced.
+
+After a human reviews retained official evidence for a still-open operation, close only the exact operation/semantic-latest-attempt pair. The close and its `PRE_CLOSE_ATOMIC` evidence entry are one transaction:
 
 ```bash
 node tools/review/resolve_source_review_operation.mjs \
@@ -363,10 +380,23 @@ node tools/review/resolve_source_review_operation.mjs \
   --outcome=<CONFIRMED_CURRENT|SUPERSEDED> \
   --resolved-at=<real-ISO-8601-time> \
   --resulting-state=<reviewed-state> \
-  --resulting-reason=<reviewed-reason>
+  --resulting-reason=<reviewed-reason> \
+  --evidence-root=<approved-repository-or-external-evidence-root> \
+  --evidence-artifact=<exact-reviewed-image-path> \
+  --expected-artifact-sha256=<exact-artifact-sha256> \
+  --expected-fragment-sha256=<exact-utf8-fragment-sha256> \
+  --reviewed-at=<real-ISO-8601-review-time> \
+  --artifact-captured-at=<real-ISO-8601-time-or-NOT_RECORDED> \
+  --attested-at=<real-ISO-8601-attestation-time> \
+  --c2=<PASS|PARTIAL> \
+  --c3=<PASS|NOT_PROVEN> \
+  --visible-evidence-scopes=<comma-separated-retained-scopes> \
+  --visibility-json='{"publisher":true,"officialDomainText":true,"exactFragment":true,"scope":true,"current":true,"effective":true,"geoApplicability":true,"browserOrigin":false,"challengeOrErrorAbsent":true}'
 ```
 
-Before close, the resolver validates the complete schema-v6 registry and recomputes every current signal payload, exact identity preimage, attempt ID and hash. Canonical owner/applicability aliases are read from camelCase and snake_case only when they agree; an alias conflict is a hard failure. An incomplete `SOURCE_REVIEW_SIGNAL_V1` is never edited: the builder appends one `SOURCE_REVIEW_SIGNAL_V2` ownership/applicability correction to the same unresolved operation, or opens a new operation if that V1 operation is already resolved. A resolved operation covers only the exact reviewed signal; return to an older signal opens a new deterministic operation. Latest-attempt selection ignores classifier `attemptedAt`: it uses source checked-at and accepts an equal-check tie only for that exact payload-equivalent V1→V2 migration; every other ambiguity fails closed. A resolution must point to that semantic latest attempt, so an earlier V1 closure cannot inherit a later V2 correction. `resolved-at` must parse as a real instant and cannot be more than the bounded clock-skew allowance in the future. Any backdated classification, future-dated resolution, stale, tampered, concurrent, non-latest or cross-operation state fails before replacement. Builder and resolver share one exclusive owned lock and exact-preimage CAS protocol; each writes and syncs a staged file, rechecks its intended staged bytes, rechecks exact source bytes and atomically renames. Builder also rechecks the exact canonical reconciliation and canonical-GEO bytes at commit. Resolver parses immutable official-domain/ownership snapshots once and rechecks both at every commit, regardless of evidence relation. Foreign locks and concurrent bytes are preserved. Reopen the Workbench and repeat the evidence review rather than weakening the identity guard. A successful resolution removes that exact signal from active Passport/Change Monitor queues and preserves it in append-only history; it does not change Legal Truth, Store Truth or the canonical projection. Finish a batch with the canonical `bash tools/pass_cycle.sh`; never treat focused Workbench tests as release acceptance.
+Before close, the resolver validates the complete schema-v7 registry, its evidence chain and every current signal payload, exact identity preimage, attempt ID and hash. Canonical owner/applicability aliases are read from camelCase and snake_case only when they agree. It also binds the exact official source record, unnormalised UTF-8 fragment bytes and raw visual-artifact bytes; hash/length, realpath containment, magic MIME and a commit-time TOCTOU recheck are mandatory. C2 and C3 are independent: a C2 `PASS` or C3 `PASS` is accepted only when its required visibility booleans support that claim. An incomplete `SOURCE_REVIEW_SIGNAL_V1` is never edited: the builder retains the bounded V1-to-V2 correction rule. A resolved operation covers only the exact reviewed signal; return to an older signal opens a new deterministic operation. Latest selection uses the attempt-ID-bound source checked-at and every non-equivalent equal-check ambiguity fails closed. `resolved-at`, `reviewed-at` and `attested-at` must be real current/past instants under the bounded skew rules.
+
+Builder, migrator and resolver share one exclusive owned lock and exact-preimage CAS protocol; each syncs and hashes its staged bytes, rechecks every immutable input and atomically renames. Foreign locks and concurrent bytes are preserved. A successful resolution removes that exact signal from active Passport/Change Monitor queues and preserves it in append-only history; neither a resolution nor an attestation changes Legal Truth, Store Truth, legal currency or the canonical projection. The raw capture may be archived externally after commit because its exact committed byte identity remains; ordinary Workbench/runtime/CI reads must not require the locator to resolve. Finish a batch with the canonical `bash tools/pass_cycle.sh`; never treat focused Workbench tests as release acceptance.
 
 ## Canonical projection publication
 

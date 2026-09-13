@@ -4,7 +4,9 @@
 
 This document defines the active release gate for cross-surface GEO consistency. It is stricter than the existing popup/wiki visual audit and is required because popup-only evidence did not catch cross-entity leaks such as `GE` vs `US-GA`, or map/popup/SEO color divergence.
 
-This is a required project contract. Until it is implemented and passing, popup/wiki `307/307` alone is not sufficient evidence for resolver/color/content correctness.
+This is a required release contract for any change that can affect canonical GEO identity, map colour, popup content, SEO content, country routing or their shared projection. Popup/wiki `307/307` alone is not sufficient evidence for resolver/color/content correctness.
+
+A registry-only operational change that cannot alter the canonical projection or any rendered map/popup/SEO input is outside this audit's rendering scope. Current `pass_cycle` does not emit an automatic GEO-sync scope-exemption receipt, so an absent manifest must never be reported as a fresh GEO-sync pass.
 
 ## Scope
 
@@ -46,12 +48,12 @@ node tools/gates/geo_sync_audit_guard.mjs
 node tools/reports/generate_geo_sync_completion_reports.mjs
 ```
 
-The completion report step is part of `bash tools/pass_cycle.sh` when `Artifacts/geo-sync/full-manifest.json` exists. It produces:
+The completion report step is conditional in `bash tools/pass_cycle.sh`: it runs only when `Artifacts/geo-sync/full-manifest.json` exists. The shell does not itself fail merely because the manifest is absent. Therefore an in-scope release must first generate the manifest and then require its guard/report PASS; a cycle with no manifest is not evidence that this contract passed. It produces:
 
 - `Artifacts/geo-sync/color-consistency-report.json`
 - `Artifacts/geo-sync/anti-patch-report.json`
 
-These reports are lightweight release evidence. Heavy per-GEO screenshots and HTML/JSON payloads may be archived outside the repo, but the full manifest and HTML index must link to real existing paths.
+These reports are lightweight release evidence. Heavy per-GEO screenshots and HTML/JSON payloads belong outside the repository, while the compact manifest/index/report metadata must link to real existing paths.
 When `GEO_SYNC_AUDIT_ARCHIVE_BASE` is set, heavy per-GEO artifacts are written directly under `<archive-base>/geo-sync`, while the compact release bundle remains in the repository.
 
 Manual visual review is also part of the workflow. For high-risk rows, the agent must open the emitted screenshots and record what is visibly true, especially for:
@@ -115,11 +117,11 @@ This specifically protects same-name collisions such as:
 
 ## Required per-GEO evidence
 
-Each GEO must produce a complete artifact bundle under:
+Each GEO must produce a complete logical artifact bundle referenced by the canonical manifest. With no external archive override its working location is:
 
 `Artifacts/geo-sync/<code>/`
 
-Required artifacts:
+For retained acceptance evidence, set `GEO_SYNC_AUDIT_ARCHIVE_BASE` and store the heavy bytes there; repository `Artifacts/` keeps only compact guard-required metadata. Required bundle members:
 
 - `project-map.png`
 - `project-map.json`
@@ -374,5 +376,6 @@ The task is done only when:
 - color/status are synchronized across map, popup, and SEO
 - same-name entity leaks are closed by general resolver rules
 - sparse GEO stay honest
+- the latest accepted manifest is fresh for every in-scope canonical/rendering input; an out-of-scope registry-only change makes no fresh GEO-sync PASS claim
 - `bash tools/pass_cycle.sh` is green
 - `Reports/ci-final.txt` contains `POST_CHECKS_OK=1` and `HUB_STAGE_REPORT_OK=1`

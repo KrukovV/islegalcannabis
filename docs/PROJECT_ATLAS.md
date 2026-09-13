@@ -8,7 +8,7 @@ The current public product entrypoint is `/`; production `/new-map` is a paramet
 
 Truth/audit work is centered on `/wiki-truth`, `/trust-view`, `/changes`, `/api/ssot/changes`, SSOT snapshots, official link ownership and the localhost-only 307-GEO Evidence Passport/Change Monitor/review workflows below `/truth-map/evidence-passport`. CI and checkpointing are standardized through `bash tools/pass_cycle.sh`. Every B2B evidence route returns `404` on a non-local production host.
 
-Status Engine Audit v3 is present as a review-only evaluator. The current rerun reviews the same 31 first-wave rows, emits exactly `GREEN`/`YELLOW`/`RED`, and keeps Cannabis Profile data in a separate non-color layer for popup, SEO, and AI surfaces.
+Status Engine Audit v3 is retained only as a historical, noncanonical 31-row diagnostic. Its `GREEN`/`YELLOW`/`RED` output and legacy `mapCategory` compatibility mapping cannot determine current Legal Truth, the 307-GEO projection, map, popup, SEO or Passport content. Cannabis Profile remains a separate non-colour layer.
 
 ## Runtime Surfaces
 
@@ -27,7 +27,7 @@ Status Engine Audit v3 is present as a review-only evaluator. The current rerun 
 | `/truth-map/evidence-passport/correction` | Local-only untrusted correction submission | `apps/web/src/app/truth-map/evidence-passport/correction/page.tsx` |
 | `/truth-map/evidence-passport/review` | Local-only read-only Source Review Workbench | `apps/web/src/app/truth-map/evidence-passport/review/page.tsx` |
 | `/truth-map/evidence-passport/correction/review` | Local-only correction assignment/decision/handoff queue | `apps/web/src/app/truth-map/evidence-passport/correction/review/page.tsx` |
-| `/api/truth-map/b2b/source-review` | Local-only bounded schema-v3 source-review dossiers with exact registry SHA/history/close tokens and retained C2/C3 fields; no write method | `apps/web/src/app/api/truth-map/b2b/source-review/route.ts` |
+| `/api/truth-map/b2b/source-review` | Local-only bounded schema-v4 source-review dossiers with exact registry SHA, attempt/attestation history and pre-close/post-hoc/unbound evidence state; no write method | `apps/web/src/app/api/truth-map/b2b/source-review/route.ts` |
 | `/api/truth-map/b2b/correction-review` | Local-only append-only correction review and same-GEO canonical-handoff audit | `apps/web/src/app/api/truth-map/b2b/correction-review/route.ts` |
 | `/api/truth-map/b2b/localisations` | Local-only read-only current editor-approved localisation projection | `apps/web/src/app/api/truth-map/b2b/localisations/route.ts` |
 | `/api/truth-map/b2b/snapshot-ledger` | Local-only read-only canonical snapshot history | `apps/web/src/app/api/truth-map/b2b/snapshot-ledger/route.ts` |
@@ -57,16 +57,17 @@ Status Engine Audit v3 is present as a review-only evaluator. The current rerun 
 | `apps/web/src/lib/officialSources` | Official registry/ownership readers and views | Registry and geo coverage stay separate |
 | `apps/web/src/lib/ssotDiff` | Snapshot/diff read/build logic | Drives `/changes` and API |
 | `apps/web/src/lib/location` | Location precedence and client context | `manual > gps > ip` |
-| `apps/web/src/lib/statusEngineV3.ts` | Three-color review-only status evaluator | No SSOT mutation |
+| `apps/web/src/lib/statusEngineV3.ts` | Historical 31-row diagnostic evaluator | Noncanonical; no current truth or SSOT mutation |
 | `apps/web/src/lib/cannabisProfile.ts` | Cannabis Profile reader | Profile data never affects color |
 | `apps/web/src/truth-map/canonicalProjectionLedger.ts` | Immutable 307-GEO canonical snapshot ledger and publication receipts | New versions require exact-version receipt and exact-byte CAS |
-| `apps/web/src/truth-map/sourceReviewOperations.ts` | Schema-v6 operation/attempt/resolution registry validator | Current V1/V2 signal payload/preimage is reconstructible; legacy gaps are explicit |
+| `apps/web/src/truth-map/sourceReviewOperations.ts` | Schema-v7 operation/attempt/resolution/evidence-attestation registry validator | Current V1/V2 signal and `SOURCE_REVIEW_EVIDENCE_V1` chains are recomputable; legacy gaps stay explicit |
 | `apps/web/src/truth-map/correctionRequest.ts` | Local untrusted correction receipts and audited review/handoff events | Handoff binds candidate to an existing same-GEO source-review operation; no truth mutation |
 | `apps/web/src/truth-map/editorialLocalisation.ts` | Append-only editorial event chain and approved projection | Only exact Passport/citation-bound current approvals publish |
 | `apps/web/scripts/append-canonical-projection-snapshot.ts` | Receipt-backed canonical publication writer | Exclusive lock, staged exact-byte CAS, atomic rename |
 | `apps/web/scripts/append-editorial-localisation-event.ts` | Local draft/approval/supersede writer | Disabled on production/Vercel; exclusive lock and exact-byte CAS |
 | `data/b2b_evidence/canonical_projection_ledger.json` | Honest immutable canonical history | One real 307-GEO baseline; later entries require publication receipts |
-| `data/b2b_evidence/source_review_operations.json` | Append-only schema-v6 source-review registry | Operation/attempt/resolution identities, retained V1 history and canonical owner/applicability V2 corrections |
+| `data/b2b_evidence/source_review_operations.json` | Append-only schema-v7 source-review registry | Preserved operation/attempt/resolution history plus machine-bound `evidenceAttestations[]` |
+| `data/b2b_evidence/source_review_evidence_v7_migration.json` | Deterministic schema-v6-to-v7 migration provenance receipt | Exact pre/post registry, preserved-array, migration-prefix attestation/input hashes and no-Truth-change boundary; not an alternate registry |
 | `data/b2b_evidence/editorial_localisations.json` | Append-only schema-v2 editorial event registry | Honest initial state has zero events/approvals |
 | `apps/web/scripts/status-engine-audit-v3.ts` | Status Engine Audit report generator | Outputs to `Reports/status-engine/` and `data/cannabis_profiles/` |
 | `data/cannabis_profiles` | Generated first-wave Cannabis Profile data | Local names/history/culture/profile notes |
@@ -77,7 +78,7 @@ Status Engine Audit v3 is present as a review-only evaluator. The current rerun 
 | `cache/ssot_diff_pending.json` | Pending diff confirmation cache | Two-cycle confirmation |
 | `cache/ssot_diff_cache.json` | Offline/UI diff cache | Read by `/changes` |
 | `tools/pass_cycle.sh` | CI/checkpoint/ledger entrypoint | Single command for verification |
-| `tools/review/build_source_review_operations.mjs` + `tools/review/resolve_source_review_operation.mjs` | Source classification and explicit human source-review close | Shared exclusive lock, semantic latest-attempt ordering, full schema-v6 revalidation and staged exact-byte CAS; no truth mutation |
+| `tools/review/build_source_review_operations.mjs`, `tools/review/migrate_source_review_evidence_v7.mjs`, `tools/review/resolve_source_review_operation.mjs` | Source classification, bounded legacy reattestation with deterministic receipt, and atomic human close+evidence | Shared exclusive lock, semantic latest-attempt ordering, full schema-v7/attestation validation and staged exact-byte CAS; no truth mutation |
 | `tools/ui_dev_guard.sh` and `tools/ui/ui_dev_ssot.sh` | Dev-server singleton guards | Do not start a second Next server |
 | `Reports` | Operational reports | No history archives |
 | `QUARANTINE` | One PASS snapshot | Historical archives stay outside repo |
@@ -94,13 +95,13 @@ Status Engine Audit v3 is present as a review-only evaluator. The current rerun 
 - UI singleton: do not start another Next.js dev server if one is already running or may be locked. The shared guard removes only a verified empty stale lock file after HTTP, listener and process checks; all ambiguous locks remain fail-closed.
 - Storage hygiene: `QUARANTINE` exactly one PASS snapshot; archives outside repo.
 - Canonical publication: a later 307-GEO snapshot requires an immutable receipt bound to exact version, real publication time, full commit SHA, build ID, actor and exact ledger preimage. Every reload recomputes each preceding canonical prefix and rejects a receipt re-sealed around false history. Tampered receipt/snapshot hashes, equal-version, stale or concurrent appends fail before atomic replacement.
-- Source-review operations: schema v6 keeps all identifiers and complete ordered history; current signal payload/preimage/hashes are recomputable, while legacy missing fields remain explicitly unrecorded. Canonical camelCase/snake_case source-owner and applicability aliases must agree. An incomplete V1 gains one append-only V2 correction on the same unresolved operation, or a new operation after prior resolution; any return to another historical signal also reopens as a distinct deterministic operation. Builder commit is bound to exact reconciliation/GEO inputs; resolver validation and commit share immutable official-domain/ownership snapshots. Workbench and resolver bind the semantic latest attempt, and Workbench also recomputes the current canonical V2 identity before exposing a dossier. Workbench schema v3 displays retained C2/C3 source fields without inference, and backdated classification, future-dated human resolution, stale current identity or input TOCTOU is rejected before byte replacement.
+- Source-review operations: schema v7 keeps all identifiers and complete ordered operation/attempt/resolution history, then appends only hash-chained `SOURCE_REVIEW_EVIDENCE_V1` entries. Each entry binds the exact registry preimage, semantic-latest attempt/signal, source record, owner/applicability, unnormalised UTF-8 fragment bytes and magic-MIME-verified artifact bytes. C2 and C3 remain independent explicit review assertions. Future closes atomically append `PRE_CLOSE_ATOMIC` evidence; prior closes can only gain `POST_RESOLUTION_REATTESTATION`. Workbench schema v4 verifies the chain and reports `BOUND_PRE_CLOSE|BOUND_POST_HOC|UNBOUND_LEGACY`; it never infers current-law currency. The migrator's deterministic receipt separately proves the exact bounded schema transition and validates the recorded prefix after later appends; it does not create another Truth SSOT. Builder, migrator and resolver share one owned-lock/staged exact-byte CAS boundary, reject stale/tampered/TOCTOU/foreign-lock state and never change Legal Truth or Store Truth.
 - Correction review: every event append is exact-bytes CAS; a handoff binds one approved candidate only to an existing open same-GEO source-review operation and remains non-mutating.
 - Editorial localisation: deterministic event IDs/content hashes plus `previousEventSha256` form an append-only `DRAFT -> APPROVED -> SUPERSEDED` chain with globally unique localisation IDs. Broken, tampered, duplicate or Passport-drifted chains publish nothing.
 
-## Status Engine Audit v3
+## Historical Status Engine Audit v3
 
-Scope:
+Retained diagnostic scope only; these facts are not the current 307-GEO legal state:
 
 - Same first-wave rows from `Reports/status-engine/status_engine_audit_v1.json`.
 - First 30 alphabetic `WIKI_COUNTRIES` plus the previously recorded Iran control row.
@@ -108,7 +109,7 @@ Scope:
 - Output colors: `GREEN`, `YELLOW`, `RED`.
 - Cannabis Profile is a separate non-color layer.
 
-Current report facts:
+Retained historical report facts (not current-law or 307-GEO review metrics):
 
 - Reviewed: `31`
 - NEW_COLOR counts: `GREEN=2`, `YELLOW=13`, `RED=16`
@@ -144,7 +145,8 @@ npm -w apps/web run lint
 npm -w apps/web run build
 
 # focused evidence-integrity writers/models (fixture-only; do not append real events)
-npm -w apps/web test -- --run src/truth-map/appendCanonicalProjectionSnapshotScript.test.ts src/truth-map/editorialLocalisationWriter.test.ts src/truth-map/sourceReviewWorkbench.test.ts src/truth-map/correctionRequest.test.ts
+npm -w apps/web test -- --run src/truth-map/appendCanonicalProjectionSnapshotScript.test.ts src/truth-map/editorialLocalisationWriter.test.ts src/truth-map/sourceReviewOperations.test.ts src/truth-map/sourceReviewWorkbench.test.ts src/truth-map/correctionRequest.test.ts
+node --test tools/review/build_source_review_operations.test.mjs tools/review/migrate_source_review_evidence_v7.test.mjs tools/review/resolve_source_review_operation.test.mjs
 
 # real publication/localisation writes are intentionally absent from routine verification;
 # their exact receipt/CAS commands and required provenance are in docs/OPS.md

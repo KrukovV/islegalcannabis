@@ -37,7 +37,10 @@ function sourceRegistryFixture(geo: string) {
       ...canonical,
       operations: [operation],
       attempts: canonical.attempts.filter((attempt) => attempt.operationId === operation.operationId),
-      resolutions: []
+      resolutions: [],
+      // Keep this schema-v7 subset internally closed: canonical attestations
+      // belong to resolutions outside this controlled unresolved operation.
+      evidenceAttestations: []
     },
     operationId: operation.operationId
   };

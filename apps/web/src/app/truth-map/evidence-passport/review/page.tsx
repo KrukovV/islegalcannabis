@@ -64,7 +64,45 @@ function Dossier({ dossier }: { dossier: SourceReviewWorkbenchDossier }) {
       <div><dt>Resolution</dt><dd>{dossier.resolution?.outcome || "OPEN"}</dd></div>
       <div><dt>Resolution evidence</dt><dd>{dossier.resolution ? linkedValue(dossier.resolution.evidenceUrl) : "NOT_RECORDED"}</dd></div>
       <div><dt>Reviewed attempt</dt><dd>{dossier.resolution?.reviewedAttemptId || "NOT_RECORDED"}</dd></div>
+      <div><dt>Machine evidence binding</dt><dd>{dossier.evidenceAttestationState || "NOT_APPLICABLE_OPEN_OPERATION"}</dd></div>
     </dl>
+    {dossier.evidenceAttestation ? <section data-testid={`source-review-evidence-attestation-${dossier.operation.operationId}`}>
+      <h3>Machine-bound human evidence attestation</h3>
+      <p>The committed byte hashes are the evidence identity. The locator below is only a retrieval hint and is never treated as identity.</p>
+      <dl className={styles.definitionGrid}>
+        <div><dt>Attestation</dt><dd>{dossier.evidenceAttestation.attestationId}</dd></div>
+        <div><dt>Attestation state</dt><dd>{dossier.evidenceAttestationState}</dd></div>
+        <div><dt>Mode</dt><dd>{dossier.evidenceAttestation.attestationMode}</dd></div>
+        <div><dt>Attested</dt><dd>{dossier.evidenceAttestation.attestedAt}</dd></div>
+        <div><dt>Resolution registry preimage SHA-256</dt><dd>{dossier.evidenceAttestation.resolutionRegistryPreimageSha256}</dd></div>
+        <div><dt>Reviewed signal identity SHA-256</dt><dd>{dossier.evidenceAttestation.reviewedSignalIdentitySha256}</dd></div>
+        <div><dt>Reviewed signal payload SHA-256</dt><dd>{dossier.evidenceAttestation.reviewedSignalPayloadSha256}</dd></div>
+        <div><dt>Reviewer</dt><dd>{dossier.evidenceAttestation.review.reviewerId}</dd></div>
+        <div><dt>Reviewed</dt><dd>{dossier.evidenceAttestation.review.reviewedAt}</dd></div>
+        <div><dt>C2</dt><dd>{dossier.evidenceAttestation.review.c2}</dd></div>
+        <div><dt>C3</dt><dd>{dossier.evidenceAttestation.review.c3}</dd></div>
+        <div><dt>Source record SHA-256</dt><dd>{dossier.evidenceAttestation.sourceRecordSha256}</dd></div>
+        <div><dt>Exact fragment SHA-256</dt><dd>{dossier.evidenceAttestation.bindings.exactFragmentUtf8.sha256}</dd></div>
+        <div><dt>Exact fragment bytes</dt><dd>{dossier.evidenceAttestation.bindings.exactFragmentUtf8.byteLength}</dd></div>
+        <div><dt>Visual artifact SHA-256</dt><dd>{dossier.evidenceAttestation.bindings.visualArtifactBytes.sha256}</dd></div>
+        <div><dt>Visual artifact media type</dt><dd>{dossier.evidenceAttestation.bindings.visualArtifactBytes.mediaType}</dd></div>
+        <div><dt>Visual artifact bytes</dt><dd>{dossier.evidenceAttestation.bindings.visualArtifactBytes.byteLength}</dd></div>
+        <div><dt>Artifact retrieval hint (not identity)</dt><dd>{dossier.evidenceAttestation.bindings.visualArtifactBytes.locator}</dd></div>
+        <div><dt>Artifact captured</dt><dd>{dossier.evidenceAttestation.bindings.visualArtifactBytes.capturedAt}</dd></div>
+        <div><dt>Visible evidence scopes</dt><dd>{dossier.evidenceAttestation.review.visibleEvidenceScopes.join(", ") || "NOT_RECORDED"}</dd></div>
+        <div><dt>Visibility checks</dt><dd><pre>{JSON.stringify(dossier.evidenceAttestation.review.visibility, null, 2)}</pre></dd></div>
+        <div><dt>Evidence attestation SHA-256</dt><dd>{dossier.evidenceAttestation.attestationSha256}</dd></div>
+        <div><dt>Previous attestation SHA-256</dt><dd>{dossier.evidenceAttestation.previousAttestationSha256}</dd></div>
+        <div><dt>Superseded attestation</dt><dd>{dossier.evidenceAttestation.supersedesAttestationId || "GENESIS_FOR_RESOLUTION"}</dd></div>
+        <div><dt>Source ledger SHA-256</dt><dd>{dossier.evidenceAttestation.inputs.sourceLedgerSha256}</dd></div>
+        <div><dt>Canonical GEO list SHA-256</dt><dd>{dossier.evidenceAttestation.inputs.canonicalGeosSha256}</dd></div>
+        <div><dt>Official registry SHA-256</dt><dd>{dossier.evidenceAttestation.inputs.officialRegistrySha256}</dd></div>
+        <div><dt>Ownership registry SHA-256</dt><dd>{dossier.evidenceAttestation.inputs.ownershipRegistrySha256}</dd></div>
+      </dl>
+      <details><summary>Bound retained source record</summary><pre>{JSON.stringify(dossier.evidenceAttestation.sourceRecord, null, 2)}</pre></details>
+    </section> : dossier.resolution ? <p data-testid={`source-review-evidence-attestation-${dossier.operation.operationId}`}>
+      Machine-bound human evidence attestation: UNBOUND_LEGACY
+    </p> : null}
     {dossier.currentSource ? <section data-testid={`source-review-current-source-${dossier.operation.operationId}`}>
       <h3>Current retained source evidence</h3>
       <dl className={styles.definitionGrid}>
@@ -161,10 +199,12 @@ export default async function SourceReviewWorkbenchPage({
         <span>{workbench.summary.currentActive} current active operations</span>
         <span>{workbench.summary.openHistorical} historical open operations</span>
         <span>{workbench.summary.resolved} explicitly resolved operations</span>
+        <span>{workbench.summary.evidenceAttested}/{workbench.summary.resolved} resolved operations with machine-bound evidence</span>
+        <span>{workbench.summary.evidenceBoundPreClose} pre-close · {workbench.summary.evidenceBoundPostHoc} post-hoc · {workbench.summary.evidenceUnboundLegacy} legacy unbound</span>
         <span>{workbench.summary.matchingOperations} matching · {workbench.summary.returnedOperations} shown</span>
         <span>Exact registry SHA-256: {workbench.registrySha256}</span>
         {workbench.summary.truncated ? <small>Result is bounded. Narrow GEO, category or lifecycle to inspect the exact dossier.</small> : null}
-        <Link href={`/api/truth-map/b2b/source-review${toSearchParams(raw).size ? `?${toSearchParams(raw).toString()}` : ""}`}>Open the same read-only JSON</Link>
+        <a href={`/api/truth-map/b2b/source-review${toSearchParams(raw).size ? `?${toSearchParams(raw).toString()}` : ""}`}>Open the same read-only JSON</a>
       </div>
     </section>
 
