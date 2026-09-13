@@ -50643,6 +50643,26 @@
       },
       "publicationImpact": "PUBLICATION_RECONCILIATION_GATE_REMAINS_BLOCKED",
       "boundary": "REVIEW_METADATA_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "operationId": "SRCREV-139990f1fe938374bcc6a565",
+      "sourceIdentitySha256": "67dcc5811e4ef8b1aa3a2ff6583a0ba4be8409b1e2f38665700769adfa18471e",
+      "geo": "US-ND",
+      "sourceUrl": "https://www.hhs.nd.gov/mm/patients",
+      "eventKind": "SOURCE_CHANGE",
+      "category": "SOURCE_CONTENT_CHANGE",
+      "openedAt": "2026-09-13T06:24:36.030Z",
+      "sourceChangeDetectedAt": "2026-09-13T06:24:36.030Z",
+      "lastAttemptAt": "2026-09-13T06:24:36.030Z",
+      "revalidationStateAtOpen": "CONTENT_CHANGED",
+      "changeReasonAtOpen": "DOCUMENT_SHA256_CHANGED",
+      "outcome": {
+        "state": "CANONICAL_REVIEW_REQUIRED",
+        "closedAt": null,
+        "evidenceUrl": "https://www.hhs.nd.gov/mm/patients"
+      },
+      "publicationImpact": "PUBLICATION_RECONCILIATION_GATE_REMAINS_BLOCKED",
+      "boundary": "REVIEW_METADATA_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
     }
   ],
   "resolutions": [
@@ -51169,6 +51189,69 @@
       "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
       "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
       "resultingChangeReason": "CURRENT_OFFICIAL_IOWA_FIVE_DISPENSARY_ROUTE_SEMANTIC_FRAGMENT_STABLE_DYNAMIC_DOCUMENT_DRIFT_REVIEWED_C3_NOT_PROVEN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-d086e14abee8266601e530f3",
+      "operationId": "SRCREV-6b44d198871ed7abf3977347",
+      "geo": "US-MT",
+      "sourceUrl": "https://mca.legmt.gov/bills/mca/title_0160/chapter_0120/part_0010/section_0060/0160-0120-0010-0060.html",
+      "resolvedAt": "2026-09-13T06:20:50.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "CODEX_VISUAL_REVIEW_20260913",
+      "evidenceUrl": "https://mca.legmt.gov/bills/mca/title_0160/chapter_0120/part_0010/section_0060/0160-0120-0010-0060.html",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "US-MT",
+      "reviewedAttemptId": "SRCATT-2678433614d8af61fb2cde69",
+      "reviewedSignalIdentitySha256": "840be0dff3479219379fdba4ab4dc844db7a505f8b7f574872795883f5735452",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "e137fa13abc0ca292452d242887e04b67ef4be3cbb10f2f2966076e93c8b650f",
+      "note": "The retained capture visibly identifies the Montana Legislature, Montana Code Annotated 2025, Title 16, Chapter 12 and section 16-12-106, together with the operative lawful-conduct clause and listed possession, purchase, obtaining and use provisions for adults 21 or older. A fresh official read reproduces the same statutory substance; ETag and Last-Modified remain equal to the V2 attempt. The canonical fragment is an editorially composed excerpt joining separated statutory passages with an ellipsis, so it is not one byte-contiguous visible quotation. The artifact contains no browser address bar or literal official-domain text. Review is C2 PARTIAL and C3 NOT_PROVEN. This review changes no Legal Truth or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
+      "resultingChangeReason": "CURRENT_OFFICIAL_MONTANA_LAWFUL_PERSONAL_USE_ROUTE_PARTIAL_EXACT_FRAGMENT_C3_NOT_PROVEN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-e211c04c0a2bfb5206d6f7bc",
+      "operationId": "SRCREV-6edfba620c52d7f9085ca1c8",
+      "geo": "US-NH",
+      "sourceUrl": "https://www.dhhs.nh.gov/programs-services/population-health/therapeutic-cannabis",
+      "resolvedAt": "2026-09-13T06:23:55.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "CODEX_VISUAL_REVIEW_20260913",
+      "evidenceUrl": "https://www.dhhs.nh.gov/programs-services/population-health/therapeutic-cannabis",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "US-NH",
+      "reviewedAttemptId": "SRCATT-22c078c242855e89c8e5730c",
+      "reviewedSignalIdentitySha256": "521b02fe9d0c25e34d07e51132ff4d63db2c3eb0ba5ce8a397a38ca4a75f12b9",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "0fd711f85ff38f6e4f0051282ab67f4660452d67301c0888cb077155dc2869b9",
+      "note": "The retained capture visibly identifies the New Hampshire Department of Health and Human Services and the Therapeutic Cannabis Program, and shows the current qualifying-patient registry, application and registry-card process, lawful purchase through licensed Alternative Treatment Centers, and ATC cultivation, production and dispensing role. Two fresh official reads are byte-identical to the semantic-latest V2 document and preserve its ETag and Last-Modified values. The canonical fragment editorially normalizes and joins the visible paragraphs, so it is not one byte-contiguous visible quotation. The artifact contains no browser address bar or literal official-domain text. Review is C2 PARTIAL and C3 NOT_PROVEN. This review changes no Legal Truth or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
+      "resultingChangeReason": "CURRENT_OFFICIAL_NEW_HAMPSHIRE_THERAPEUTIC_CANNABIS_ROUTE_PARTIAL_EXACT_FRAGMENT_C3_NOT_PROVEN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-ef7c69dff1986b3a7410bbb2",
+      "operationId": "SRCREV-139990f1fe938374bcc6a565",
+      "geo": "US-ND",
+      "sourceUrl": "https://www.hhs.nd.gov/mm/patients",
+      "resolvedAt": "2026-09-13T06:31:00.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "CODEX_VISUAL_REVIEW_20260913",
+      "evidenceUrl": "https://www.hhs.nd.gov/mm/patients",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "US-ND",
+      "reviewedAttemptId": "SRCATT-98439142b4200f909810f53f",
+      "reviewedSignalIdentitySha256": "a333ace73e53297db36ab04d95703d842e02a2f4c5744737696c50a8bfc1cad3",
+      "reviewedSourceCheckedAt": "2026-09-13T06:24:36.030Z",
+      "reviewRegistrySha256": "89251b0d0dfe666991c253a95c824ce3f15b2934554fabb609a1dc172c02f9a8",
+      "note": "Fresh official North Dakota Health and Human Services review confirms that the current ND Medical Marijuana Patients page still provides Sign In or Create an Account and separately states that an individual with a North Dakota medical marijuana card may purchase and possess medical marijuana only from one of the eight registered dispensaries in the state. The canonical fragment joins these separated page passages with normalized introductory wording, so the full retained fragment is not byte-contiguous and C2 is PARTIAL. The retained visual artifact visibly identifies the state publisher and patient/dispensary scope but contains no browser chrome or official-domain text, so C3 remains NOT_PROVEN. Fresh official revalidation records the new document identity while the relevant legal fragment remains unchanged. This review changes no Legal Truth or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
+      "resultingChangeReason": "CURRENT_OFFICIAL_NORTH_DAKOTA_PATIENT_DISPENSARY_ROUTE_SEMANTIC_FRAGMENT_STABLE_DOCUMENT_DRIFT_REVIEWED_C3_NOT_PROVEN",
       "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
     }
   ],
@@ -180968,6 +181051,43 @@
       "signalIdentityPreimage": "{\"geo\":\"US-IA\",\"sourceUrl\":\"https://hhs.iowa.gov/health-prevention/medical-cannabis/dispensary-locations\",\"eventKind\":\"SOURCE_CHANGE\",\"revalidationState\":\"CONTENT_CHANGED\",\"changeReason\":\"DOCUMENT_SHA256_CHANGED\",\"finalUrl\":\"https://hhs.iowa.gov/health-prevention/medical-cannabis/dispensary-locations\",\"httpStatus\":200,\"accessState\":\"HTTP_OK\",\"documentSha256\":\"5b9263e45a6a778b5ed311757ab4c6e5540c9584cf69b3b431138cb2833cce43\",\"relevantFragmentSha256\":\"e14894a937ad8fc1600d49fd8e772f54d7ea7ec086f5640d1e58ecf48d988c58\",\"etag\":\"NOT_RECORDED\",\"lastModified\":\"Sun, 13 Sep 2026 05:19:05 GMT\",\"sourceOwnerGeo\":\"US-IA\",\"appliesToGeos\":[\"US-IA\"]}",
       "signalIdentityFormat": "SOURCE_REVIEW_SIGNAL_V2",
       "boundary": "SOURCE_REVIEW_ATTEMPT_ONLY_NO_REVIEW_CLOSURE"
+    },
+    {
+      "attemptId": "SRCATT-98439142b4200f909810f53f",
+      "operationId": "SRCREV-139990f1fe938374bcc6a565",
+      "geo": "US-ND",
+      "sourceUrl": "https://www.hhs.nd.gov/mm/patients",
+      "eventKind": "SOURCE_CHANGE",
+      "attemptedAt": "2026-09-13T06:29:54.890Z",
+      "sourceCheckedAt": "2026-09-13T06:24:36.030Z",
+      "signalIdentitySha256": "a333ace73e53297db36ab04d95703d842e02a2f4c5744737696c50a8bfc1cad3",
+      "revalidationState": "CONTENT_CHANGED",
+      "changeReason": "DOCUMENT_SHA256_CHANGED",
+      "finalUrl": "https://www.hhs.nd.gov/mm/patients",
+      "documentSha256": "fef1ab4730ff87a7805f7693f15a367cccb8f0bd18faa734d17e38d43495d196",
+      "relevantFragmentSha256": "75b7927967acadecaa5f173a4d3ee52de2924311909bf83b3bb0a24e59f857ba",
+      "signalPayload": {
+        "geo": "US-ND",
+        "sourceUrl": "https://www.hhs.nd.gov/mm/patients",
+        "eventKind": "SOURCE_CHANGE",
+        "revalidationState": "CONTENT_CHANGED",
+        "changeReason": "DOCUMENT_SHA256_CHANGED",
+        "finalUrl": "https://www.hhs.nd.gov/mm/patients",
+        "httpStatus": 200,
+        "accessState": "HTTP_OK",
+        "documentSha256": "fef1ab4730ff87a7805f7693f15a367cccb8f0bd18faa734d17e38d43495d196",
+        "relevantFragmentSha256": "75b7927967acadecaa5f173a4d3ee52de2924311909bf83b3bb0a24e59f857ba",
+        "etag": "\"1789202405\"",
+        "lastModified": "Sat, 12 Sep 2026 08:40:05 GMT",
+        "sourceOwnerGeo": "US-ND",
+        "appliesToGeos": [
+          "US-ND"
+        ]
+      },
+      "signalPayloadSha256": "a333ace73e53297db36ab04d95703d842e02a2f4c5744737696c50a8bfc1cad3",
+      "signalIdentityPreimage": "{\"geo\":\"US-ND\",\"sourceUrl\":\"https://www.hhs.nd.gov/mm/patients\",\"eventKind\":\"SOURCE_CHANGE\",\"revalidationState\":\"CONTENT_CHANGED\",\"changeReason\":\"DOCUMENT_SHA256_CHANGED\",\"finalUrl\":\"https://www.hhs.nd.gov/mm/patients\",\"httpStatus\":200,\"accessState\":\"HTTP_OK\",\"documentSha256\":\"fef1ab4730ff87a7805f7693f15a367cccb8f0bd18faa734d17e38d43495d196\",\"relevantFragmentSha256\":\"75b7927967acadecaa5f173a4d3ee52de2924311909bf83b3bb0a24e59f857ba\",\"etag\":\"\\\"1789202405\\\"\",\"lastModified\":\"Sat, 12 Sep 2026 08:40:05 GMT\",\"sourceOwnerGeo\":\"US-ND\",\"appliesToGeos\":[\"US-ND\"]}",
+      "signalIdentityFormat": "SOURCE_REVIEW_SIGNAL_V2",
+      "boundary": "SOURCE_REVIEW_ATTEMPT_ONLY_NO_REVIEW_CLOSURE"
     }
   ],
   "evidenceAttestations": [
@@ -183019,6 +183139,252 @@
       "attestationId": "SRCEVT-e87c07fca55b4529dd257b75",
       "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-1be0587ebbf87913aa36ad77\",\"operationId\":\"SRCREV-31ed37f53b3e25ba6efcb18c\",\"reviewedAttemptId\":\"SRCATT-9f35590bc88fe9112aeff7e9\",\"reviewedSignalIdentitySha256\":\"d0ed29807625e16eca8d1875c9f824209c1e6046bf95fdc023f04839a377f2a5\",\"reviewedSignalPayloadSha256\":\"d0ed29807625e16eca8d1875c9f824209c1e6046bf95fdc023f04839a377f2a5\",\"resolutionRegistryPreimageSha256\":\"c81734ab7615a9628914666f0a11402ddcfa8eafa772ff3817350d4a5385ecfd\",\"geo\":\"US-IA\",\"sourceUrl\":\"https://hhs.iowa.gov/health-prevention/medical-cannabis/dispensary-locations\",\"sourceRecordSha256\":\"4b3fb9d5c1946c2001e565562a389bf172edfe90661460922d94357f2757c20c\",\"exactFragmentSha256\":\"e14894a937ad8fc1600d49fd8e772f54d7ea7ec086f5640d1e58ecf48d988c58\",\"visualArtifactSha256\":\"f42fc85cd6f49bc64c1e6b84878fe909051f1fa5cb87345772d63f4db13e5f2c\",\"reviewSha256\":\"861c0a788a6913d331141ae7313b200ccd2f2166d64965d4d1fad436fc72a716\",\"reviewerId\":\"CODEX_VISUAL_REVIEW_20260913\",\"reviewedAt\":\"2026-09-13T05:45:30.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T05:45:30.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"9f78b7f6d883445e74e1d646912620119e521568d9443db3436c5b62726d2f1c\",\"sourceLedgerSha256\":\"576656bf8f2e4b24c90fba614df514d8c1bd9acf7cb9b6c002addb3efb01e532\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f\"}",
       "attestationSha256": "dfbe324ae21becfc209c9192b252947343ac0f71c5486732956eec0c571b856d"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-d086e14abee8266601e530f3",
+      "operationId": "SRCREV-6b44d198871ed7abf3977347",
+      "reviewedAttemptId": "SRCATT-2678433614d8af61fb2cde69",
+      "reviewedSignalIdentitySha256": "840be0dff3479219379fdba4ab4dc844db7a505f8b7f574872795883f5735452",
+      "reviewedSignalPayloadSha256": "840be0dff3479219379fdba4ab4dc844db7a505f8b7f574872795883f5735452",
+      "resolutionRegistryPreimageSha256": "e137fa13abc0ca292452d242887e04b67ef4be3cbb10f2f2966076e93c8b650f",
+      "geo": "US-MT",
+      "sourceUrl": "https://mca.legmt.gov/bills/mca/title_0160/chapter_0120/part_0010/section_0060/0160-0120-0010-0060.html",
+      "sourceRecord": {
+        "officialPublisher": "Montana Legislature",
+        "sourceOwnerGeo": "US-MT",
+        "appliesToGeos": [
+          "US-MT"
+        ],
+        "legalBasisForExtension": "Direct Montana Code Annotated or Montana Department of Revenue material applicable only to the U.S. state of Montana.",
+        "sourceType": "CURRENT_STATE_STATUTE_SECTION",
+        "primaryOrContext": "PRIMARY",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "\"the following acts are lawful and may not be an offense under state law ... or be a basis to impose a civil fine, penalty, or sanction, or be a basis to detain, search, or arrest\" for a person 21+; including \"possessing, purchasing, obtaining, using, ingesting, inhaling, or transporting 1 ounce or less of usable marijuana.\"",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "336afd953fe825c6503697c6b59fd3bce2a0c8422a230fb05a4abf9d4cdcb659",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "772e1ffea9fad7cce8c99528de4568e25eb0b5c07a6d88a82258a2d2d6b84e7d",
+          "byteLength": 326,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "f526ff806ffa0b946433f614133ac52c51ed2485d4e41f227c2946cc1722fd07",
+          "byteLength": 174185,
+          "mediaType": "image/jpeg",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/US-MT-mca-16-12-106-current-2026-08-10.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "CODEX_VISUAL_REVIEW_20260913",
+        "reviewedAt": "2026-09-13T06:20:50.000Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": true,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": true,
+          "effective": true,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-13T06:20:50.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "ef96ca0f28e3fc8634158e566eaec8b5f771fc2f443b21ede6faaa5a38c1f686",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "dfbe324ae21becfc209c9192b252947343ac0f71c5486732956eec0c571b856d",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-6672cca0c735ea6930494906",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-d086e14abee8266601e530f3\",\"operationId\":\"SRCREV-6b44d198871ed7abf3977347\",\"reviewedAttemptId\":\"SRCATT-2678433614d8af61fb2cde69\",\"reviewedSignalIdentitySha256\":\"840be0dff3479219379fdba4ab4dc844db7a505f8b7f574872795883f5735452\",\"reviewedSignalPayloadSha256\":\"840be0dff3479219379fdba4ab4dc844db7a505f8b7f574872795883f5735452\",\"resolutionRegistryPreimageSha256\":\"e137fa13abc0ca292452d242887e04b67ef4be3cbb10f2f2966076e93c8b650f\",\"geo\":\"US-MT\",\"sourceUrl\":\"https://mca.legmt.gov/bills/mca/title_0160/chapter_0120/part_0010/section_0060/0160-0120-0010-0060.html\",\"sourceRecordSha256\":\"336afd953fe825c6503697c6b59fd3bce2a0c8422a230fb05a4abf9d4cdcb659\",\"exactFragmentSha256\":\"772e1ffea9fad7cce8c99528de4568e25eb0b5c07a6d88a82258a2d2d6b84e7d\",\"visualArtifactSha256\":\"f526ff806ffa0b946433f614133ac52c51ed2485d4e41f227c2946cc1722fd07\",\"reviewSha256\":\"e4bbadad1e136897f4a20642c5176b22df8c172a287745ef73501f09ba8f8ae4\",\"reviewerId\":\"CODEX_VISUAL_REVIEW_20260913\",\"reviewedAt\":\"2026-09-13T06:20:50.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T06:20:50.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"dfbe324ae21becfc209c9192b252947343ac0f71c5486732956eec0c571b856d\",\"sourceLedgerSha256\":\"ef96ca0f28e3fc8634158e566eaec8b5f771fc2f443b21ede6faaa5a38c1f686\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f\"}",
+      "attestationSha256": "61338d869f8a91d0f7d0d40a3ffb478359de946c52c776a75c6c22dee5d3e097"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-e211c04c0a2bfb5206d6f7bc",
+      "operationId": "SRCREV-6edfba620c52d7f9085ca1c8",
+      "reviewedAttemptId": "SRCATT-22c078c242855e89c8e5730c",
+      "reviewedSignalIdentitySha256": "521b02fe9d0c25e34d07e51132ff4d63db2c3eb0ba5ce8a397a38ca4a75f12b9",
+      "reviewedSignalPayloadSha256": "521b02fe9d0c25e34d07e51132ff4d63db2c3eb0ba5ce8a397a38ca4a75f12b9",
+      "resolutionRegistryPreimageSha256": "0fd711f85ff38f6e4f0051282ab67f4660452d67301c0888cb077155dc2869b9",
+      "geo": "US-NH",
+      "sourceUrl": "https://www.dhhs.nh.gov/programs-services/population-health/therapeutic-cannabis",
+      "sourceRecord": {
+        "officialPublisher": "New Hampshire Department of Health and Human Services",
+        "sourceOwnerGeo": "US-NH",
+        "appliesToGeos": [
+          "US-NH"
+        ],
+        "legalBasisForExtension": "DIRECT_NEW_HAMPSHIRE_STATE_HEALTH_PROGRAMME_PAGE",
+        "sourceType": "CURRENT_OFFICIAL_OPERATIONAL_PROGRAMME_PAGE",
+        "primaryOrContext": "OPERATIONAL_PROGRAMME",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "The Therapeutic Cannabis Program maintains a confidential registry of qualifying patients, caregivers, and certifying medical providers; processes applications and issues cannabis registry ID cards to eligible patients and caregivers. Registry ID cards allow cardholders to purchase therapeutic cannabis from one of the state's licensed Alternative Treatment Centers. ATCs are independently operated entities responsible for cultivation, production, and dispensing to qualifying patients in New Hampshire.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "09a3e868cb2982da326764a40a95977cb98a0a200b80bc1d7e622e0e7f35c649",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "f2bae0eafdf9a060f7f58bf90d5bbd363a7178346d4fc781c6723b3a240da87b",
+          "byteLength": 505,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "ac0ed19bf03328400fbca41804c2dbd37dff94a2339bf1979b43df423c7cd6f6",
+          "byteLength": 128314,
+          "mediaType": "image/jpeg",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/US-NH-dhhs-therapeutic-cannabis-current-2026-08-10.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "CODEX_VISUAL_REVIEW_20260913",
+        "reviewedAt": "2026-09-13T06:23:55.000Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": true,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": true,
+          "effective": true,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-13T06:23:55.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "ef96ca0f28e3fc8634158e566eaec8b5f771fc2f443b21ede6faaa5a38c1f686",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "61338d869f8a91d0f7d0d40a3ffb478359de946c52c776a75c6c22dee5d3e097",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-fb31b0ad6d65d48e63f70a0a",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-e211c04c0a2bfb5206d6f7bc\",\"operationId\":\"SRCREV-6edfba620c52d7f9085ca1c8\",\"reviewedAttemptId\":\"SRCATT-22c078c242855e89c8e5730c\",\"reviewedSignalIdentitySha256\":\"521b02fe9d0c25e34d07e51132ff4d63db2c3eb0ba5ce8a397a38ca4a75f12b9\",\"reviewedSignalPayloadSha256\":\"521b02fe9d0c25e34d07e51132ff4d63db2c3eb0ba5ce8a397a38ca4a75f12b9\",\"resolutionRegistryPreimageSha256\":\"0fd711f85ff38f6e4f0051282ab67f4660452d67301c0888cb077155dc2869b9\",\"geo\":\"US-NH\",\"sourceUrl\":\"https://www.dhhs.nh.gov/programs-services/population-health/therapeutic-cannabis\",\"sourceRecordSha256\":\"09a3e868cb2982da326764a40a95977cb98a0a200b80bc1d7e622e0e7f35c649\",\"exactFragmentSha256\":\"f2bae0eafdf9a060f7f58bf90d5bbd363a7178346d4fc781c6723b3a240da87b\",\"visualArtifactSha256\":\"ac0ed19bf03328400fbca41804c2dbd37dff94a2339bf1979b43df423c7cd6f6\",\"reviewSha256\":\"46e22def2c18336234a7a491f78862117c78a411165660173e7bbcd6136bd9a1\",\"reviewerId\":\"CODEX_VISUAL_REVIEW_20260913\",\"reviewedAt\":\"2026-09-13T06:23:55.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T06:23:55.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"61338d869f8a91d0f7d0d40a3ffb478359de946c52c776a75c6c22dee5d3e097\",\"sourceLedgerSha256\":\"ef96ca0f28e3fc8634158e566eaec8b5f771fc2f443b21ede6faaa5a38c1f686\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f\"}",
+      "attestationSha256": "f51803ee092ce16bf783f1c055f2ab53ef42d1d8ac7388d788debdb93b04736d"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-ef7c69dff1986b3a7410bbb2",
+      "operationId": "SRCREV-139990f1fe938374bcc6a565",
+      "reviewedAttemptId": "SRCATT-98439142b4200f909810f53f",
+      "reviewedSignalIdentitySha256": "a333ace73e53297db36ab04d95703d842e02a2f4c5744737696c50a8bfc1cad3",
+      "reviewedSignalPayloadSha256": "a333ace73e53297db36ab04d95703d842e02a2f4c5744737696c50a8bfc1cad3",
+      "resolutionRegistryPreimageSha256": "89251b0d0dfe666991c253a95c824ce3f15b2934554fabb609a1dc172c02f9a8",
+      "geo": "US-ND",
+      "sourceUrl": "https://www.hhs.nd.gov/mm/patients",
+      "sourceRecord": {
+        "officialPublisher": "North Dakota Health and Human Services",
+        "sourceOwnerGeo": "US-ND",
+        "appliesToGeos": [
+          "US-ND"
+        ],
+        "legalBasisForExtension": "DIRECT_NORTH_DAKOTA_STATE_HEALTH_PROGRAMME_PAGE",
+        "sourceType": "CURRENT_OFFICIAL_OPERATIONAL_PROGRAMME_PAGE",
+        "primaryOrContext": "OPERATIONAL_PATIENT_ACCESS",
+        "cannabisSpecific": "NOT_RECORDED",
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "The current HHS patient page provides Sign In or Create an Account and states: an individual with a North Dakota medical marijuana card is only authorized to purchase and possess medical marijuana from one of the eight registered dispensaries in the state.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "c15e5bf5e6b14a939825976bba0b4807336fa2700ce0ab87b5b64252e2cd35a9",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "75b7927967acadecaa5f173a4d3ee52de2924311909bf83b3bb0a24e59f857ba",
+          "byteLength": 256,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "979531234138109a9eaea4567918b4ca7316157f146245cc2741784f16e23072",
+          "byteLength": 133042,
+          "mediaType": "image/jpeg",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/US-ND-hhs-patients-current-2026-08-10.png",
+          "capturedAt": "2026-08-10T00:00:00.000Z"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "CODEX_VISUAL_REVIEW_20260913",
+        "reviewedAt": "2026-09-13T06:31:00.000Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": true,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": true,
+          "effective": true,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-13T06:31:00.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "10b21f55142a8b106ef45c89c1a9aeb4308798e604de1100f0d324563297b9f4",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "f51803ee092ce16bf783f1c055f2ab53ef42d1d8ac7388d788debdb93b04736d",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-84fc3d90d4cec30a11909927",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-ef7c69dff1986b3a7410bbb2\",\"operationId\":\"SRCREV-139990f1fe938374bcc6a565\",\"reviewedAttemptId\":\"SRCATT-98439142b4200f909810f53f\",\"reviewedSignalIdentitySha256\":\"a333ace73e53297db36ab04d95703d842e02a2f4c5744737696c50a8bfc1cad3\",\"reviewedSignalPayloadSha256\":\"a333ace73e53297db36ab04d95703d842e02a2f4c5744737696c50a8bfc1cad3\",\"resolutionRegistryPreimageSha256\":\"89251b0d0dfe666991c253a95c824ce3f15b2934554fabb609a1dc172c02f9a8\",\"geo\":\"US-ND\",\"sourceUrl\":\"https://www.hhs.nd.gov/mm/patients\",\"sourceRecordSha256\":\"c15e5bf5e6b14a939825976bba0b4807336fa2700ce0ab87b5b64252e2cd35a9\",\"exactFragmentSha256\":\"75b7927967acadecaa5f173a4d3ee52de2924311909bf83b3bb0a24e59f857ba\",\"visualArtifactSha256\":\"979531234138109a9eaea4567918b4ca7316157f146245cc2741784f16e23072\",\"reviewSha256\":\"899579aeb7ff61efdb56f04c6d115167ed3ed300c7481b501aac3e777cbd18aa\",\"reviewerId\":\"CODEX_VISUAL_REVIEW_20260913\",\"reviewedAt\":\"2026-09-13T06:31:00.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T06:31:00.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"f51803ee092ce16bf783f1c055f2ab53ef42d1d8ac7388d788debdb93b04736d\",\"sourceLedgerSha256\":\"10b21f55142a8b106ef45c89c1a9aeb4308798e604de1100f0d324563297b9f4\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f\"}",
+      "attestationSha256": "805c9cf73dc97a69f40c4916690bd86c4997a9e0d181439be1c3e304d13ab5b3"
     }
   ]
 }

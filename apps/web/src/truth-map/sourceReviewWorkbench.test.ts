@@ -132,6 +132,7 @@ describe("source review workbench", () => {
   });
 
   it("keeps current canonical signals distinct from append-only historical operations", () => {
+    const all = buildSourceReviewWorkbench({ geo: "US-MT" });
     const current = buildSourceReviewWorkbench({ geo: "US-MT", state: "current" });
     const historical = buildSourceReviewWorkbench({ geo: "US-MT", state: "historical" });
     const open = buildSourceReviewWorkbench({ geo: "US-MT", state: "open" });
@@ -142,12 +143,15 @@ describe("source review workbench", () => {
     expect(historical.dossiers.every((dossier) => !dossier.currentSignal)).toBe(true);
     expect(open.dossiers.every((dossier) => dossier.resolution === null)).toBe(true);
     expect(open.dossiers.every((dossier) => dossier.evidenceAttestation === null && dossier.evidenceAttestationState === null)).toBe(true);
-    expect(open.summary.matchingOperations).toBe(current.summary.matchingOperations + historical.summary.matchingOperations);
-    expect(resolved.summary.matchingOperations).toBe(0);
-    expect(resolved.dossiers).toEqual([]);
-    expect(new Set(current.dossiers.map((dossier) => dossier.operation.operationId))).not.toEqual(
-      new Set(historical.dossiers.map((dossier) => dossier.operation.operationId))
-    );
+    expect(resolved.dossiers.every((dossier) => dossier.resolution !== null)).toBe(true);
+    expect(current.summary.matchingOperations + historical.summary.matchingOperations).toBe(all.summary.matchingOperations);
+    expect(open.summary.matchingOperations + resolved.summary.matchingOperations).toBe(all.summary.matchingOperations);
+    const openIds = new Set(open.dossiers.map((dossier) => dossier.operation.operationId));
+    const resolvedIds = new Set(resolved.dossiers.map((dossier) => dossier.operation.operationId));
+    const currentIds = new Set(current.dossiers.map((dossier) => dossier.operation.operationId));
+    const historicalIds = new Set(historical.dossiers.map((dossier) => dossier.operation.operationId));
+    expect([...openIds].every((operationId) => !resolvedIds.has(operationId))).toBe(true);
+    expect([...currentIds].every((operationId) => !historicalIds.has(operationId))).toBe(true);
   });
 
   it("returns exact latest-attempt provenance without mutating either source ledger", () => {
