@@ -8,6 +8,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..")
 const DEFAULT_REGISTRY_PATH = path.join(ROOT, "data/b2b_evidence/source_review_operations.json");
 const DEFAULT_OFFICIAL_REGISTRY_PATH = path.join(ROOT, "data/official/official_domains.ssot.json");
 const DEFAULT_OWNERSHIP_PATH = path.join(ROOT, "data/ssot/official_link_ownership.json");
+const DEFAULT_AUTHORITY_OWNER_SNAPSHOTS_PATH = path.join(ROOT, "data/ssot/source_authority_owner_snapshots.json");
 const DEFAULT_CANONICAL_GEOS_PATH = path.join(ROOT, "data/reviews/geo-list-307.json");
 const DEFAULT_SOURCE_LEDGER_PATH = path.join(ROOT, "data/reviews/wiki-truth-307-final-reconciliation.json");
 const OUTCOMES = new Set(["CONFIRMED_CURRENT", "SUPERSEDED"]);
@@ -455,6 +456,52 @@ export function validateSourceAuthorityOwners(ownership, canonicalGeos, official
   return index;
 }
 
+export function sourceAuthorityOwnersSha256(entries) {
+  return sha256(JSON.stringify(entries));
+}
+
+export function validateSourceAuthorityOwnerSnapshots(value, canonicalGeos, officialDomains) {
+  if (!exactKeys(value, ["appendOnly", "schemaVersion", "versions"])
+    || value.schemaVersion !== 1
+    || value.appendOnly !== true
+    || !Array.isArray(value.versions)) {
+    throw new Error("SOURCE_AUTHORITY_OWNER_SNAPSHOTS_INVALID");
+  }
+  const versions = new Map();
+  for (const version of value.versions) {
+    if (!exactKeys(version, [
+      "ownershipRegistrySha256", "sourceAuthorityOwnersSha256", "source_authority_owners"
+    ])
+      || !/^[a-f0-9]{64}$/.test(String(version.ownershipRegistrySha256 || ""))
+      || !/^[a-f0-9]{64}$/.test(String(version.sourceAuthorityOwnersSha256 || ""))
+      || versions.has(version.ownershipRegistrySha256)) {
+      throw new Error(`SOURCE_AUTHORITY_OWNER_SNAPSHOT_INVALID=${version?.ownershipRegistrySha256 || "EMPTY"}`);
+    }
+    const authorityOwners = validateSourceAuthorityOwners(version, canonicalGeos, officialDomains);
+    if (sourceAuthorityOwnersSha256(version.source_authority_owners) !== version.sourceAuthorityOwnersSha256) {
+      throw new Error(`SOURCE_AUTHORITY_OWNER_SNAPSHOT_SEMANTIC_HASH_INVALID=${version.ownershipRegistrySha256}`);
+    }
+    versions.set(version.ownershipRegistrySha256, authorityOwners);
+  }
+  return versions;
+}
+
+export function assertCurrentSourceAuthorityOwnerSnapshot(
+  ownershipRegistrySha256,
+  sourceAuthorityOwners,
+  versions
+) {
+  if (!sourceAuthorityOwners.length) return;
+  const authorityOwners = versions.get(ownershipRegistrySha256);
+  if (!authorityOwners) {
+    throw new Error(`SOURCE_AUTHORITY_OWNER_CURRENT_SNAPSHOT_MISSING=${ownershipRegistrySha256}`);
+  }
+  const uniqueEntries = [...new Map([...authorityOwners.values()].map((entry) => [entry.id, entry])).values()];
+  if (JSON.stringify(uniqueEntries) !== JSON.stringify(sourceAuthorityOwners)) {
+    throw new Error(`SOURCE_AUTHORITY_OWNER_CURRENT_SNAPSHOT_MISMATCH=${ownershipRegistrySha256}`);
+  }
+}
+
 export function matchesSourceAuthorityOwner(sourceOwner, sourceUrl, canonicalGeos, authorityOwners) {
   if (canonicalGeos.has(sourceOwner)) return true;
   const owner = authorityOwners.get(sourceOwner);
@@ -475,8 +522,8 @@ export function hasRequiredSourceAuthorityLegalBasis(
   legalBasisForExtension
 ) {
   const required = sourceOwner !== operationGeo || appliesToGeos.length > 1;
-  return !required || Boolean(String(legalBasisForExtension || "").trim()
-    && legalBasisForExtension !== "NOT_RECORDED");
+  const normalizedLegalBasis = String(legalBasisForExtension || "").trim();
+  return !required || Boolean(normalizedLegalBasis && normalizedLegalBasis !== "NOT_RECORDED");
 }
 
 function parseJsonSnapshot(snapshot, errorCode) {
@@ -665,6 +712,7 @@ export function validateRegistry(registry, {
   canonicalGeosPath,
   officialRegistryPath,
   ownershipPath,
+  authorityOwnerSnapshotsPath = DEFAULT_AUTHORITY_OWNER_SNAPSHOTS_PATH,
   allowLegacyV6 = false,
   officialRegistry = parseJsonSnapshot(
     exactFileSnapshot(officialRegistryPath),
@@ -673,6 +721,11 @@ export function validateRegistry(registry, {
   ownership = parseJsonSnapshot(
     exactFileSnapshot(ownershipPath),
     "SOURCE_REVIEW_OWNERSHIP_REGISTRY_INVALID"
+  ),
+  ownershipRegistrySha256 = ownershipPath ? exactFileSnapshot(ownershipPath).sha256 : "",
+  authorityOwnerSnapshots = parseJsonSnapshot(
+    exactFileSnapshot(authorityOwnerSnapshotsPath),
+    "SOURCE_AUTHORITY_OWNER_SNAPSHOTS_INVALID"
   )
 }) {
   if (
@@ -694,10 +747,30 @@ export function validateRegistry(registry, {
   if (canonicalGeos.size !== 307) {
     throw new Error(`SOURCE_REVIEW_CANONICAL_UNIVERSE_INVALID=${canonicalGeos.size}`);
   }
-  const authorityOwners = validateSourceAuthorityOwners(
+  const currentAuthorityOwners = validateSourceAuthorityOwners(
     ownership,
     canonicalGeos,
     Array.isArray(officialRegistry.domains) ? officialRegistry.domains : []
+  );
+  const requiresAuthoritySnapshots = currentAuthorityOwners.size > 0
+    || (registry.evidenceAttestations || []).some((attestation) => (
+      !canonicalGeos.has(attestation?.sourceRecord?.sourceOwnerGeo)
+      && attestation?.sourceRecord?.sourceOwnerGeo !== "NOT_RECORDED"
+    ));
+  const authorityOwnerVersions = requiresAuthoritySnapshots
+    ? validateSourceAuthorityOwnerSnapshots(
+      authorityOwnerSnapshots,
+      canonicalGeos,
+      Array.isArray(officialRegistry.domains) ? officialRegistry.domains : []
+    )
+    : new Map();
+  if (currentAuthorityOwners.size > 0 && !/^[a-f0-9]{64}$/.test(ownershipRegistrySha256)) {
+    throw new Error("SOURCE_AUTHORITY_OWNER_CURRENT_SNAPSHOT_HASH_REQUIRED");
+  }
+  assertCurrentSourceAuthorityOwnerSnapshot(
+    ownershipRegistrySha256,
+    [...new Map([...currentAuthorityOwners.values()].map((entry) => [entry.id, entry])).values()],
+    authorityOwnerVersions
   );
   if (!Number.isFinite(Date.parse(String(registry.createdAt || "")))) {
     throw new Error("SOURCE_REVIEW_OPERATIONS_CREATED_AT_INVALID");
@@ -906,6 +979,14 @@ export function validateRegistry(registry, {
         || attestation.boundary !== "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE") {
         throw new Error(`SOURCE_REVIEW_EVIDENCE_IDENTITY_INVALID=${attestation.attestationId || "EMPTY"}`);
       }
+      if (!attestation.inputs
+        || ["sourceLedgerSha256", "canonicalGeosSha256", "officialRegistrySha256", "ownershipRegistrySha256"]
+          .some((key) => !/^[a-f0-9]{64}$/.test(String(attestation.inputs[key] || "")))) {
+        throw new Error(`SOURCE_REVIEW_EVIDENCE_INPUT_HASH_INVALID=${attestation.attestationId}`);
+      }
+      const attestedAuthorityOwners = authorityOwnerVersions.get(
+        attestation.inputs.ownershipRegistrySha256
+      ) || new Map();
       const canonicalSourceRecord = {};
       for (const key of SOURCE_RECORD_KEYS) canonicalSourceRecord[key] = attestation.sourceRecord?.[key];
       if (!attestation.sourceRecord
@@ -916,7 +997,7 @@ export function validateRegistry(registry, {
           attestation.sourceRecord.sourceOwnerGeo,
           operation.sourceUrl,
           canonicalGeos,
-          authorityOwners
+          attestedAuthorityOwners
         )
         || !attestation.sourceRecord.appliesToGeos?.includes(operation.geo)
         || attestation.sourceRecord.appliesToGeos.some((geo) => !canonicalGeos.has(geo))
@@ -975,11 +1056,6 @@ export function validateRegistry(registry, {
         || (attestation.attestationMode === "PRE_CLOSE_ATOMIC"
           && (reviewedAt > resolvedAt || attestedAt > resolvedAt))) {
         throw new Error(`SOURCE_REVIEW_EVIDENCE_TIME_INVALID=${attestation.attestationId}`);
-      }
-      if (!attestation.inputs
-        || ["sourceLedgerSha256", "canonicalGeosSha256", "officialRegistrySha256", "ownershipRegistrySha256"]
-          .some((key) => !/^[a-f0-9]{64}$/.test(String(attestation.inputs[key] || "")))) {
-        throw new Error(`SOURCE_REVIEW_EVIDENCE_INPUT_HASH_INVALID=${attestation.attestationId}`);
       }
       if (attestation.previousAttestationSha256 !== previousAttestationSha256) {
         throw new Error(`SOURCE_REVIEW_EVIDENCE_CHAIN_INVALID=${attestation.attestationId}`);
@@ -1146,6 +1222,7 @@ export function resolveSourceReviewOperation({
   sourceLedgerPath = DEFAULT_SOURCE_LEDGER_PATH,
   officialRegistryPath = DEFAULT_OFFICIAL_REGISTRY_PATH,
   ownershipPath = DEFAULT_OWNERSHIP_PATH,
+  authorityOwnerSnapshotsPath = DEFAULT_AUTHORITY_OWNER_SNAPSHOTS_PATH,
   canonicalGeosPath = DEFAULT_CANONICAL_GEOS_PATH,
   evidenceRoot = ROOT,
   operationId,
@@ -1198,6 +1275,7 @@ export function resolveSourceReviewOperation({
     const canonicalGeosSnapshot = exactFileSnapshot(canonicalGeosPath);
     const officialRegistrySnapshot = exactFileSnapshot(officialRegistryPath);
     const ownershipSnapshot = exactFileSnapshot(ownershipPath);
+    const authorityOwnerSnapshotsSnapshot = exactFileSnapshot(authorityOwnerSnapshotsPath);
     if (registrySnapshot.sha256 !== normalizedExpectedRegistrySha256) {
       throw new Error(`SOURCE_REVIEW_RESOLUTION_REGISTRY_STALE=${registrySnapshot.sha256}`);
     }
@@ -1215,7 +1293,17 @@ export function resolveSourceReviewOperation({
       ownershipSnapshot,
       "SOURCE_REVIEW_OWNERSHIP_REGISTRY_INVALID"
     );
-    const validationContext = { canonicalGeosPath, officialRegistry, ownership };
+    const authorityOwnerSnapshots = parseJsonSnapshot(
+      authorityOwnerSnapshotsSnapshot,
+      "SOURCE_AUTHORITY_OWNER_SNAPSHOTS_INVALID"
+    );
+    const validationContext = {
+      canonicalGeosPath,
+      officialRegistry,
+      ownership,
+      ownershipRegistrySha256: ownershipSnapshot.sha256,
+      authorityOwnerSnapshots
+    };
     const registry = validateRegistry(parsedRegistry, validationContext);
     const operation = registry.operations.find((entry) => entry.operationId === normalizedOperationId);
     if (!operation) throw new Error(`SOURCE_REVIEW_RESOLUTION_OPERATION_NOT_FOUND=${normalizedOperationId}`);
@@ -1330,6 +1418,7 @@ export function resolveSourceReviewOperation({
       { path: canonicalGeosPath, snapshot: canonicalGeosSnapshot },
       { path: officialRegistryPath, snapshot: officialRegistrySnapshot },
       { path: ownershipPath, snapshot: ownershipSnapshot },
+      { path: authorityOwnerSnapshotsPath, snapshot: authorityOwnerSnapshotsSnapshot },
       { path: normalizedEvidenceArtifactPath, snapshot: artifactSnapshot }
     ]);
     return resolution;
@@ -1354,6 +1443,7 @@ function main() {
     sourceLedgerPath: arg("source-ledger") || DEFAULT_SOURCE_LEDGER_PATH,
     officialRegistryPath: arg("official-registry") || DEFAULT_OFFICIAL_REGISTRY_PATH,
     ownershipPath: arg("ownership") || DEFAULT_OWNERSHIP_PATH,
+    authorityOwnerSnapshotsPath: arg("authority-owner-snapshots") || DEFAULT_AUTHORITY_OWNER_SNAPSHOTS_PATH,
     canonicalGeosPath: arg("canonical-geos") || DEFAULT_CANONICAL_GEOS_PATH,
     evidenceRoot: arg("evidence-root") || ROOT,
     operationId: arg("operation-id"),

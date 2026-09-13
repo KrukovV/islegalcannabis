@@ -16,6 +16,7 @@ const DEFAULT_REGISTRY_PATH = path.join(ROOT, "data/b2b_evidence/source_review_o
 const DEFAULT_SOURCE_LEDGER_PATH = path.join(ROOT, "data/reviews/wiki-truth-307-final-reconciliation.json");
 const DEFAULT_OFFICIAL_REGISTRY_PATH = path.join(ROOT, "data/official/official_domains.ssot.json");
 const DEFAULT_OWNERSHIP_PATH = path.join(ROOT, "data/ssot/official_link_ownership.json");
+const DEFAULT_AUTHORITY_OWNER_SNAPSHOTS_PATH = path.join(ROOT, "data/ssot/source_authority_owner_snapshots.json");
 const DEFAULT_CANONICAL_GEOS_PATH = path.join(ROOT, "data/reviews/geo-list-307.json");
 const DEFAULT_RECEIPT_PATH = path.join(ROOT, "data/b2b_evidence/source_review_evidence_v7_migration.json");
 
@@ -310,6 +311,7 @@ export function migrateSourceReviewEvidenceV7({
   sourceLedgerPath = DEFAULT_SOURCE_LEDGER_PATH,
   officialRegistryPath = DEFAULT_OFFICIAL_REGISTRY_PATH,
   ownershipPath = DEFAULT_OWNERSHIP_PATH,
+  authorityOwnerSnapshotsPath = DEFAULT_AUTHORITY_OWNER_SNAPSHOTS_PATH,
   canonicalGeosPath = DEFAULT_CANONICAL_GEOS_PATH,
   receiptPath = DEFAULT_RECEIPT_PATH,
   evidenceRoot = ROOT,
@@ -323,13 +325,20 @@ export function migrateSourceReviewEvidenceV7({
     const canonicalGeosSnapshot = exactFileSnapshot(canonicalGeosPath);
     const officialRegistrySnapshot = exactFileSnapshot(officialRegistryPath);
     const ownershipSnapshot = exactFileSnapshot(ownershipPath);
+    const authorityOwnerSnapshotsSnapshot = exactFileSnapshot(authorityOwnerSnapshotsPath);
     const officialRegistry = jsonSnapshot(officialRegistrySnapshot, "SOURCE_REVIEW_OFFICIAL_REGISTRY_INVALID");
     const ownership = jsonSnapshot(ownershipSnapshot, "SOURCE_REVIEW_OWNERSHIP_REGISTRY_INVALID");
+    const authorityOwnerSnapshots = jsonSnapshot(
+      authorityOwnerSnapshotsSnapshot,
+      "SOURCE_AUTHORITY_OWNER_SNAPSHOTS_INVALID"
+    );
     const registry = jsonSnapshot(registrySnapshot, "SOURCE_REVIEW_OPERATIONS_REGISTRY_INVALID");
     const validationContext = {
       canonicalGeosPath,
       officialRegistry,
-      ownership
+      ownership,
+      ownershipRegistrySha256: ownershipSnapshot.sha256,
+      authorityOwnerSnapshots
     };
 
     if (registry.schemaVersion === 7) {
@@ -472,6 +481,7 @@ export function migrateSourceReviewEvidenceV7({
       { path: canonicalGeosPath, snapshot: canonicalGeosSnapshot },
       { path: officialRegistryPath, snapshot: officialRegistrySnapshot },
       { path: ownershipPath, snapshot: ownershipSnapshot },
+      { path: authorityOwnerSnapshotsPath, snapshot: authorityOwnerSnapshotsSnapshot },
       ...artifactGuards
     ]);
     writeReceiptAtomic(receiptPath, receiptSnapshot, expectedReceiptBytes);
@@ -498,6 +508,7 @@ function main() {
     sourceLedgerPath: arg("source-ledger") || DEFAULT_SOURCE_LEDGER_PATH,
     officialRegistryPath: arg("official-registry") || DEFAULT_OFFICIAL_REGISTRY_PATH,
     ownershipPath: arg("ownership") || DEFAULT_OWNERSHIP_PATH,
+    authorityOwnerSnapshotsPath: arg("authority-owner-snapshots") || DEFAULT_AUTHORITY_OWNER_SNAPSHOTS_PATH,
     canonicalGeosPath: arg("canonical-geos") || DEFAULT_CANONICAL_GEOS_PATH,
     receiptPath: arg("receipt") || DEFAULT_RECEIPT_PATH,
     evidenceRoot: arg("evidence-root") || ROOT,

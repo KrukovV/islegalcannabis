@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "appendOnly": true,
+  "versions": [
+    {
+      "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52",
+      "sourceAuthorityOwnersSha256": "d7b75be3913dbff89c011f261555e191cc444256d78743d3c08c77e619a50247",
+      "source_authority_owners": [
+        {
+          "id": "AU-WA",
+          "aliases": [
+            "WA"
+          ],
+          "scope": "subnational",
+          "parent_geos": [
+            "AU"
+          ],
+          "official_domains": [
+            "wa.gov.au"
+          ],
+          "active": true
+        },
+        {
+          "id": "UNODC-GLOBAL",
+          "aliases": [
+            "UNODC_GLOBAL"
+          ],
+          "scope": "global",
+          "parent_geos": [],
+          "official_domains": [
+            "unodc.org"
+          ],
+          "active": true
+        }
+      ]
+    }
+  ]
+}

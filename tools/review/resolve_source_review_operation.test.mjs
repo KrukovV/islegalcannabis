@@ -12,6 +12,8 @@ import {
   latestSourceReviewAttempt,
   matchesSourceAuthorityOwner,
   resolveSourceReviewOperation,
+  sourceAuthorityOwnersSha256,
+  validateSourceAuthorityOwnerSnapshots,
   validateSourceAuthorityOwners,
   validateRegistry
 } from "./resolve_source_review_operation.mjs";
@@ -20,6 +22,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..")
 const SOURCE_REGISTRY_PATH = path.join(ROOT, "data/b2b_evidence/source_review_operations.json");
 const SOURCE_OFFICIAL_REGISTRY_PATH = path.join(ROOT, "data/official/official_domains.ssot.json");
 const SOURCE_OWNERSHIP_PATH = path.join(ROOT, "data/ssot/official_link_ownership.json");
+const SOURCE_AUTHORITY_OWNER_SNAPSHOTS_PATH = path.join(ROOT, "data/ssot/source_authority_owner_snapshots.json");
 const CANONICAL_GEOS_PATH = path.join(ROOT, "data/reviews/geo-list-307.json");
 const SOURCE_LEDGER_PATH = path.join(ROOT, "data/reviews/wiki-truth-307-final-reconciliation.json");
 
@@ -32,7 +35,8 @@ function retainedSourceResolutionInput(
   officialRegistryPath,
   ownershipPath,
   sourceLedgerPath = SOURCE_LEDGER_PATH,
-  canonicalGeosPath = CANONICAL_GEOS_PATH
+  canonicalGeosPath = CANONICAL_GEOS_PATH,
+  authorityOwnerSnapshotsPath = SOURCE_AUTHORITY_OWNER_SNAPSHOTS_PATH
 ) {
   const reviewTimestamp = new Date().toISOString();
   const registryBytes = fs.readFileSync(registryPath);
@@ -59,6 +63,7 @@ function retainedSourceResolutionInput(
     evidenceRoot: path.dirname(registryPath),
     officialRegistryPath,
     ownershipPath,
+    authorityOwnerSnapshotsPath,
     canonicalGeosPath,
     operationId: operation.operationId,
     reviewedAttemptId: reviewedAttempt.attemptId,
@@ -257,6 +262,8 @@ test("authority owner compatibility aliases are bounded by registry, official ho
     "WA", "CC", ["CC"], "Direct territorial extension."
   ), true);
   assert.equal(hasRequiredSourceAuthorityLegalBasis("WA", "CC", ["CC"], "NOT_RECORDED"), false);
+  assert.equal(hasRequiredSourceAuthorityLegalBasis("WA", "CC", ["CC"], " NOT_RECORDED "), false);
+  assert.equal(hasRequiredSourceAuthorityLegalBasis("WA", "CC", ["CC"], "   "), false);
   assert.equal(hasRequiredSourceAuthorityLegalBasis(
     "UNODC_GLOBAL", "NG", ["NG"], "Treaty evidence applies to Nigeria."
   ), true);
@@ -281,6 +288,47 @@ test("authority owner compatibility aliases are bounded by registry, official ho
       /SOURCE_AUTHORITY_OWNER_IDENTITY_INVALID=/
     );
   }
+  for (const malformed of [null, false, "WA"]) {
+    assert.throws(
+      () => validateSourceAuthorityOwners(
+        { source_authority_owners: malformed },
+        canonicalGeos,
+        official.domains
+      ),
+      /SOURCE_AUTHORITY_OWNERS_INVALID/
+    );
+  }
+  assert.equal(validateSourceAuthorityOwners({}, canonicalGeos, official.domains).size, 0);
+});
+
+test("authority owner snapshots bind aliases and domains to the exact ownership registry hash", () => {
+  const canonicalGeos = new Set(JSON.parse(fs.readFileSync(CANONICAL_GEOS_PATH, "utf8")));
+  const official = JSON.parse(fs.readFileSync(SOURCE_OFFICIAL_REGISTRY_PATH, "utf8"));
+  const ownershipBytes = fs.readFileSync(SOURCE_OWNERSHIP_PATH);
+  const ownership = JSON.parse(ownershipBytes);
+  const snapshots = JSON.parse(fs.readFileSync(SOURCE_AUTHORITY_OWNER_SNAPSHOTS_PATH, "utf8"));
+  const versions = validateSourceAuthorityOwnerSnapshots(snapshots, canonicalGeos, official.domains);
+  const exactOwnershipSha256 = sha256(ownershipBytes);
+  const exactOwners = versions.get(exactOwnershipSha256);
+  assert.ok(exactOwners);
+  assert.equal(sourceAuthorityOwnersSha256(ownership.source_authority_owners), snapshots.versions[0].sourceAuthorityOwnersSha256);
+  assert.equal(matchesSourceAuthorityOwner(
+    "WA", "https://legislation.wa.gov.au/example", canonicalGeos, exactOwners
+  ), true);
+
+  const tampered = structuredClone(snapshots);
+  tampered.versions[0].source_authority_owners[0].aliases.push("AU_WA");
+  assert.throws(
+    () => validateSourceAuthorityOwnerSnapshots(tampered, canonicalGeos, official.domains),
+    /SOURCE_AUTHORITY_OWNER_(?:INVALID|SNAPSHOT_SEMANTIC_HASH_INVALID)/
+  );
+  const missing = { ...snapshots, versions: [] };
+  assert.throws(() => validateRegistry(JSON.parse(fs.readFileSync(SOURCE_REGISTRY_PATH, "utf8")), {
+    canonicalGeosPath: CANONICAL_GEOS_PATH,
+    officialRegistryPath: SOURCE_OFFICIAL_REGISTRY_PATH,
+    ownershipPath: SOURCE_OWNERSHIP_PATH,
+    authorityOwnerSnapshots: missing
+  }), /SOURCE_AUTHORITY_OWNER_CURRENT_SNAPSHOT_MISSING=/);
 });
 
 test("retained-source resolution guards every immutable registry and evidence snapshot", () => {
@@ -289,17 +337,20 @@ test("retained-source resolution guards every immutable registry and evidence sn
     const registryPath = path.join(directory, "source_review_operations.json");
     const officialRegistryPath = path.join(directory, "official_domains.ssot.json");
     const ownershipPath = path.join(directory, "official_link_ownership.json");
+    const authorityOwnerSnapshotsPath = path.join(directory, "source_authority_owner_snapshots.json");
     const sourceLedgerPath = path.join(directory, "wiki-truth-307-final-reconciliation.json");
     const canonicalGeosPath = path.join(directory, "geo-list-307.json");
     fs.copyFileSync(SOURCE_REGISTRY_PATH, registryPath);
     fs.copyFileSync(SOURCE_OFFICIAL_REGISTRY_PATH, officialRegistryPath);
     fs.copyFileSync(SOURCE_OWNERSHIP_PATH, ownershipPath);
+    fs.copyFileSync(SOURCE_AUTHORITY_OWNER_SNAPSHOTS_PATH, authorityOwnerSnapshotsPath);
     fs.copyFileSync(SOURCE_LEDGER_PATH, sourceLedgerPath);
     fs.copyFileSync(CANONICAL_GEOS_PATH, canonicalGeosPath);
 
     const registryBefore = fs.readFileSync(registryPath);
     const officialBefore = fs.readFileSync(officialRegistryPath);
     const ownershipBefore = fs.readFileSync(ownershipPath);
+    const authorityOwnerSnapshotsBefore = fs.readFileSync(authorityOwnerSnapshotsPath);
     const sourceLedgerBefore = fs.readFileSync(sourceLedgerPath);
     const canonicalGeosBefore = fs.readFileSync(canonicalGeosPath);
     const input = retainedSourceResolutionInput(
@@ -307,7 +358,8 @@ test("retained-source resolution guards every immutable registry and evidence sn
       officialRegistryPath,
       ownershipPath,
       sourceLedgerPath,
-      canonicalGeosPath
+      canonicalGeosPath,
+      authorityOwnerSnapshotsPath
     );
     const artifactBefore = fs.readFileSync(input.evidenceArtifactPath);
 
@@ -329,6 +381,15 @@ test("retained-source resolution guards every immutable registry and evidence sn
     assert.deepEqual(fs.readFileSync(registryPath), registryBefore);
 
     fs.writeFileSync(ownershipPath, ownershipBefore);
+    assert.throws(() => resolveSourceReviewOperation({
+      ...input,
+      beforeCommit() {
+        fs.appendFileSync(authorityOwnerSnapshotsPath, " ");
+      }
+    }), new RegExp(`SOURCE_REVIEW_RESOLUTION_EVIDENCE_REGISTRY_STALE=${authorityOwnerSnapshotsPath}`));
+    assert.deepEqual(fs.readFileSync(registryPath), registryBefore);
+
+    fs.writeFileSync(authorityOwnerSnapshotsPath, authorityOwnerSnapshotsBefore);
     assert.throws(() => resolveSourceReviewOperation({
       ...input,
       beforeCommit() {

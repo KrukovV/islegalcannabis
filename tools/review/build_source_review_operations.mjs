@@ -14,6 +14,7 @@ const SOURCE_PATH = path.join(ROOT, "data/reviews/wiki-truth-307-final-reconcili
 const OUTPUT_PATH = path.join(ROOT, "data/b2b_evidence/source_review_operations.json");
 const OFFICIAL_REGISTRY_PATH = path.join(ROOT, "data/official/official_domains.ssot.json");
 const OWNERSHIP_PATH = path.join(ROOT, "data/ssot/official_link_ownership.json");
+const AUTHORITY_OWNER_SNAPSHOTS_PATH = path.join(ROOT, "data/ssot/source_authority_owner_snapshots.json");
 const CANONICAL_GEOS_PATH = path.join(ROOT, "data/reviews/geo-list-307.json");
 const PENDING_STATES = new Set(["NEEDS_SEMANTIC_REVIEW", "NEEDS_VISUAL_REVIEW", "EFFECTIVE_DATE_REVIEW_DUE", "ACCESS_BLOCKED"]);
 
@@ -75,7 +76,7 @@ function normalizedOwnerAlias(value) {
 }
 
 function sourceOwnerGeo(source) {
-  const aliases = [source.sourceOwnerGeo, source.source_owner_geo, source.source_owner_scope]
+  const aliases = [source.sourceOwnerGeo, source.source_owner_geo]
     .filter((value) => value !== undefined && value !== null)
     .map(normalizedOwnerAlias);
   const distinct = [...new Set(aliases)];
@@ -299,6 +300,7 @@ function buildSourceReviewOperationsLocked({
   classifiedAt = new Date().toISOString(),
   officialRegistryPath = OFFICIAL_REGISTRY_PATH,
   ownershipPath = OWNERSHIP_PATH,
+  authorityOwnerSnapshotsPath = AUTHORITY_OWNER_SNAPSHOTS_PATH,
   canonicalGeosPath = CANONICAL_GEOS_PATH,
   registrySnapshot,
   stage,
@@ -465,7 +467,13 @@ function buildSourceReviewOperationsLocked({
   }
   const officialRegistrySnapshot = exactFileSnapshot(officialRegistryPath);
   const ownershipSnapshot = exactFileSnapshot(ownershipPath);
-  validateRegistry(output, { canonicalGeosPath, officialRegistryPath, ownershipPath });
+  const authorityOwnerSnapshotsSnapshot = exactFileSnapshot(authorityOwnerSnapshotsPath);
+  validateRegistry(output, {
+    canonicalGeosPath,
+    officialRegistryPath,
+    ownershipPath,
+    authorityOwnerSnapshotsPath
+  });
   const nextBytes = Buffer.from(`${JSON.stringify(output, null, 2)}\n`, "utf8");
   if (!registrySnapshot.exists || !nextBytes.equals(registrySnapshot.bytes)) {
     stage(nextBytes);
@@ -474,7 +482,8 @@ function buildSourceReviewOperationsLocked({
       { path: sourcePath, snapshot: sourceSnapshot },
       { path: canonicalGeosPath, snapshot: canonicalGeosSnapshot },
       { path: officialRegistryPath, snapshot: officialRegistrySnapshot },
-      { path: ownershipPath, snapshot: ownershipSnapshot }
+      { path: ownershipPath, snapshot: ownershipSnapshot },
+      { path: authorityOwnerSnapshotsPath, snapshot: authorityOwnerSnapshotsSnapshot }
     ]);
   }
   return {
@@ -494,6 +503,7 @@ export function buildSourceReviewOperations({
   classifiedAt = new Date().toISOString(),
   officialRegistryPath = OFFICIAL_REGISTRY_PATH,
   ownershipPath = OWNERSHIP_PATH,
+  authorityOwnerSnapshotsPath = AUTHORITY_OWNER_SNAPSHOTS_PATH,
   canonicalGeosPath = CANONICAL_GEOS_PATH,
   beforeCommit
 } = {}) {
@@ -505,6 +515,7 @@ export function buildSourceReviewOperations({
       classifiedAt,
       officialRegistryPath,
       ownershipPath,
+      authorityOwnerSnapshotsPath,
       canonicalGeosPath,
       registrySnapshot,
       stage,

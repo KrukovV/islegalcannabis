@@ -356,6 +356,29 @@ describe("source review operations", () => {
     }
   });
 
+  it("rejects a compatibility authority owner when its attested ownership hash has no exact snapshot", () => {
+    const registry = loadSourceReviewOperationsRegistry();
+    const authorityIndex = registry.evidenceAttestations.map((entry) => (
+      entry.sourceRecord.sourceOwnerGeo === "WA" || entry.sourceRecord.sourceOwnerGeo === "UNODC_GLOBAL"
+    )).lastIndexOf(true);
+    expect(authorityIndex).toBeGreaterThanOrEqual(0);
+    const authorityAttestation = registry.evidenceAttestations[authorityIndex];
+    const tampered = rehashEvidenceAttestation({
+      ...authorityAttestation,
+      inputs: {
+        ...authorityAttestation.inputs,
+        ownershipRegistrySha256: "f".repeat(64)
+      }
+    });
+    expect(() => validateSourceReviewOperationsRegistry({
+      ...registry,
+      evidenceAttestations: [
+        ...registry.evidenceAttestations.slice(0, authorityIndex),
+        tampered
+      ]
+    })).toThrow("SOURCE_REVIEW_EVIDENCE_SOURCE_RECORD_INVALID");
+  });
+
   it("rejects cross-resolution, source-record, fragment, artifact and review tampering", () => {
     const registry = loadSourceReviewOperationsRegistry();
     const evidence = registry.evidenceAttestations[0];

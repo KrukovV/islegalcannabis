@@ -1,3 +1,4 @@
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import type {
@@ -7,8 +8,25 @@ import type {
 } from "./officialLinkOwnershipTypes.ts";
 
 const SOURCE_AUTHORITY_OWNER_KEYS = ["id", "aliases", "scope", "parent_geos", "official_domains", "active"].sort();
+const SOURCE_AUTHORITY_OWNER_SNAPSHOT_KEYS = [
+  "ownershipRegistrySha256", "sourceAuthorityOwnersSha256", "source_authority_owners"
+].sort();
+const SOURCE_AUTHORITY_OWNER_SNAPSHOTS_KEYS = ["schemaVersion", "appendOnly", "versions"].sort();
 const SOURCE_AUTHORITY_OWNER_SCOPES = new Set(["subnational", "supranational", "global"]);
 const FORBIDDEN_SOURCE_AUTHORITY_IDENTITIES = new Set(["UN", "INTL", "WEB_ARCHIVE"]);
+const SHA256_PATTERN = /^[a-f0-9]{64}$/;
+
+export type SourceAuthorityOwnerSnapshotVersion = {
+  ownershipRegistrySha256: string;
+  sourceAuthorityOwnersSha256: string;
+  source_authority_owners: SourceAuthorityOwnerEntry[];
+};
+
+export type SourceAuthorityOwnerSnapshots = {
+  schemaVersion: 1;
+  appendOnly: true;
+  versions: SourceAuthorityOwnerSnapshotVersion[];
+};
 
 function isForbiddenSourceAuthorityIdentity(value: string) {
   return FORBIDDEN_SOURCE_AUTHORITY_IDENTITIES.has(value) || value.startsWith("UNCONFIRMED");
@@ -44,7 +62,7 @@ function hasExactKeys(value: object, keys: string[]) {
 }
 
 export function validateSourceAuthorityOwners(
-  dataset: Pick<OfficialLinkOwnershipDataset, "source_authority_owners">,
+  dataset: { source_authority_owners?: unknown },
   canonicalGeos: ReadonlySet<string>,
   officialDomains: readonly string[]
 ) {
@@ -55,7 +73,8 @@ export function validateSourceAuthorityOwners(
   const identities = new Set<string>();
   let priorId = "";
   const index = new Map<string, SourceAuthorityOwnerEntry>();
-  for (const entry of entries) {
+  for (const candidate of entries) {
+    const entry = candidate as SourceAuthorityOwnerEntry;
     if (!entry || typeof entry !== "object" || !hasExactKeys(entry, SOURCE_AUTHORITY_OWNER_KEYS)
       || !/^[A-Z][A-Z0-9-]*$/.test(entry.id)
       || entry.id <= priorId
@@ -86,6 +105,65 @@ export function validateSourceAuthorityOwners(
   return index;
 }
 
+export function sourceAuthorityOwnersSha256(entries: readonly SourceAuthorityOwnerEntry[]) {
+  return crypto.createHash("sha256").update(JSON.stringify(entries)).digest("hex");
+}
+
+export function validateSourceAuthorityOwnerSnapshots(
+  value: unknown,
+  canonicalGeos: ReadonlySet<string>,
+  officialDomains: readonly string[]
+) {
+  if (!value || typeof value !== "object" || Array.isArray(value)
+    || !hasExactKeys(value, SOURCE_AUTHORITY_OWNER_SNAPSHOTS_KEYS)) {
+    throw new Error("SOURCE_AUTHORITY_OWNER_SNAPSHOTS_INVALID");
+  }
+  const dataset = value as Partial<SourceAuthorityOwnerSnapshots>;
+  if (dataset.schemaVersion !== 1 || dataset.appendOnly !== true || !Array.isArray(dataset.versions)) {
+    throw new Error("SOURCE_AUTHORITY_OWNER_SNAPSHOTS_INVALID");
+  }
+  const versions = new Map<string, ReadonlyMap<string, SourceAuthorityOwnerEntry>>();
+  for (const candidate of dataset.versions) {
+    if (!candidate || typeof candidate !== "object" || Array.isArray(candidate)
+      || !hasExactKeys(candidate, SOURCE_AUTHORITY_OWNER_SNAPSHOT_KEYS)) {
+      throw new Error("SOURCE_AUTHORITY_OWNER_SNAPSHOT_INVALID=EMPTY");
+    }
+    const version = candidate as SourceAuthorityOwnerSnapshotVersion;
+    if (!SHA256_PATTERN.test(version.ownershipRegistrySha256)
+      || !SHA256_PATTERN.test(version.sourceAuthorityOwnersSha256)
+      || versions.has(version.ownershipRegistrySha256)) {
+      throw new Error(`SOURCE_AUTHORITY_OWNER_SNAPSHOT_INVALID=${version.ownershipRegistrySha256 || "EMPTY"}`);
+    }
+    const authorityOwners = validateSourceAuthorityOwners(version, canonicalGeos, officialDomains);
+    if (sourceAuthorityOwnersSha256(version.source_authority_owners) !== version.sourceAuthorityOwnersSha256) {
+      throw new Error(`SOURCE_AUTHORITY_OWNER_SNAPSHOT_SEMANTIC_HASH_INVALID=${version.ownershipRegistrySha256}`);
+    }
+    versions.set(version.ownershipRegistrySha256, authorityOwners);
+  }
+  return versions;
+}
+
+export function assertCurrentSourceAuthorityOwnerSnapshot(
+  ownershipRegistrySha256: string,
+  sourceAuthorityOwners: readonly SourceAuthorityOwnerEntry[],
+  versions: ReadonlyMap<string, ReadonlyMap<string, SourceAuthorityOwnerEntry>>
+) {
+  if (!sourceAuthorityOwners.length) return;
+  const authorityOwners = versions.get(ownershipRegistrySha256);
+  if (!authorityOwners) {
+    throw new Error(`SOURCE_AUTHORITY_OWNER_CURRENT_SNAPSHOT_MISSING=${ownershipRegistrySha256}`);
+  }
+  const uniqueEntries = [...new Map([...authorityOwners.values()].map((entry) => [entry.id, entry])).values()];
+  if (JSON.stringify(uniqueEntries) !== JSON.stringify(sourceAuthorityOwners)) {
+    throw new Error(`SOURCE_AUTHORITY_OWNER_CURRENT_SNAPSHOT_MISMATCH=${ownershipRegistrySha256}`);
+  }
+}
+
+export function readSourceAuthorityOwnerSnapshots(rootDir: string): SourceAuthorityOwnerSnapshots {
+  const filePath = path.join(rootDir, "data", "ssot", "source_authority_owner_snapshots.json");
+  return JSON.parse(fs.readFileSync(filePath, "utf8")) as SourceAuthorityOwnerSnapshots;
+}
+
 export function matchesSourceAuthorityOwner(
   sourceOwnerGeo: string,
   sourceUrl: string,
@@ -111,7 +189,8 @@ export function hasRequiredSourceAuthorityLegalBasis(
   legalBasisForExtension: string
 ) {
   const required = sourceOwnerGeo !== operationGeo || appliesToGeos.length > 1;
-  return !required || Boolean(legalBasisForExtension.trim() && legalBasisForExtension !== "NOT_RECORDED");
+  const normalizedLegalBasis = String(legalBasisForExtension || "").trim();
+  return !required || Boolean(normalizedLegalBasis && normalizedLegalBasis !== "NOT_RECORDED");
 }
 
 export function readOfficialLinkOwnership(rootDir: string): OfficialLinkOwnershipDataset {

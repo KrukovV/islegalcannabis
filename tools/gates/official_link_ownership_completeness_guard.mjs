@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -6,6 +7,7 @@ const ROOT = process.cwd();
 const filePath = path.join(ROOT, "data", "ssot", "official_link_ownership.json");
 const registryPath = path.join(ROOT, "data", "official", "official_domains.ssot.json");
 const canonicalGeosPath = path.join(ROOT, "data", "reviews", "geo-list-307.json");
+const authoritySnapshotsPath = path.join(ROOT, "data", "ssot", "source_authority_owner_snapshots.json");
 if (!fs.existsSync(filePath)) {
   console.log("OFFICIAL_LINK_OWNERSHIP_COMPLETENESS_GUARD=FAIL");
   console.log("OFFICIAL_LINK_OWNERSHIP_REASON=MISSING_DATASET");
@@ -21,10 +23,17 @@ if (!fs.existsSync(canonicalGeosPath)) {
   console.log("OFFICIAL_LINK_OWNERSHIP_REASON=MISSING_CANONICAL_GEOS");
   process.exit(1);
 }
+if (!fs.existsSync(authoritySnapshotsPath)) {
+  console.log("OFFICIAL_LINK_OWNERSHIP_COMPLETENESS_GUARD=FAIL");
+  console.log("OFFICIAL_LINK_OWNERSHIP_REASON=MISSING_AUTHORITY_SNAPSHOTS");
+  process.exit(1);
+}
 
-const payload = JSON.parse(fs.readFileSync(filePath, "utf8"));
+const ownershipBytes = fs.readFileSync(filePath);
+const payload = JSON.parse(ownershipBytes.toString("utf8"));
 const registry = JSON.parse(fs.readFileSync(registryPath, "utf8"));
 const canonicalGeos = new Set(JSON.parse(fs.readFileSync(canonicalGeosPath, "utf8")));
+const authoritySnapshots = JSON.parse(fs.readFileSync(authoritySnapshotsPath, "utf8"));
 const items = Array.isArray(payload.items) ? payload.items : [];
 const authorityOwners = Array.isArray(payload.source_authority_owners) ? payload.source_authority_owners : [];
 const rawTotal = Number(payload.raw_registry_total || 0) || 0;
@@ -42,33 +51,83 @@ const missingFromDataset = Array.from(registryDomains).filter((domain) => !datas
 const extraInDataset = Array.from(datasetDomains).filter((domain) => !registryDomains.has(domain));
 const authorityKeys = ["active", "aliases", "id", "official_domains", "parent_geos", "scope"];
 const authorityScopes = new Set(["subnational", "supranational", "global"]);
+const forbiddenAuthorityIdentities = new Set(["UN", "INTL", "WEB_ARCHIVE"]);
 const exactKeys = (value) => value && typeof value === "object" && !Array.isArray(value)
   && JSON.stringify(Object.keys(value).sort()) === JSON.stringify(authorityKeys);
 const sortedUnique = (values, normalize) => Array.isArray(values)
   && values.every((value) => typeof value === "string")
   && JSON.stringify(values) === JSON.stringify([...new Set(values.map(normalize).filter(Boolean))].sort());
 const hostMatches = (host, registered) => host === registered || host.endsWith(`.${registered}`);
-let priorAuthorityId = "";
-const invalidAuthorityOwners = authorityOwners.filter((entry) => {
-  const valid = exactKeys(entry)
-    && /^[A-Z][A-Z0-9-]*$/.test(String(entry.id || ""))
-    && entry.id > priorAuthorityId
-    && entry.active === true
-    && authorityScopes.has(entry.scope)
-    && sortedUnique(entry.aliases, (value) => String(value).trim().toUpperCase())
-    && entry.aliases.every((alias) => /^[A-Z][A-Z0-9_-]*$/.test(alias))
-    && sortedUnique(entry.parent_geos, (value) => String(value).trim().toUpperCase())
-    && entry.parent_geos.every((geo) => canonicalGeos.has(geo))
-    && (entry.scope !== "subnational" || entry.parent_geos.length === 1)
-    && (entry.scope !== "global" || entry.parent_geos.length === 0)
-    && entry.official_domains.length > 0
-    && sortedUnique(entry.official_domains, normalizeDomain)
-    && entry.official_domains.every((domain) => Array.from(registryDomains).some((registered) => (
-      hostMatches(domain, registered)
-    )));
-  priorAuthorityId = String(entry?.id || "");
-  return !valid;
-}).length;
+const sha256 = (value) => crypto.createHash("sha256").update(value).digest("hex");
+function invalidAuthorityEntryCount(entries) {
+  if (!Array.isArray(entries)) return 1;
+  let priorAuthorityId = "";
+  const identities = new Set();
+  return entries.filter((entry) => {
+    const entryIdentities = exactKeys(entry) && Array.isArray(entry.aliases)
+      ? [entry.id, ...entry.aliases]
+      : [];
+    const identitiesValid = entryIdentities.every((identity) => (
+      typeof identity === "string"
+      && !canonicalGeos.has(identity)
+      && !identities.has(identity)
+      && !forbiddenAuthorityIdentities.has(identity)
+      && !identity.startsWith("UNCONFIRMED")
+    ));
+    for (const identity of entryIdentities) identities.add(identity);
+    const valid = exactKeys(entry)
+      && /^[A-Z][A-Z0-9-]*$/.test(String(entry.id || ""))
+      && entry.id > priorAuthorityId
+      && entry.active === true
+      && authorityScopes.has(entry.scope)
+      && sortedUnique(entry.aliases, (value) => String(value).trim().toUpperCase())
+      && entry.aliases.every((alias) => /^[A-Z][A-Z0-9_-]*$/.test(alias))
+      && sortedUnique(entry.parent_geos, (value) => String(value).trim().toUpperCase())
+      && entry.parent_geos.every((geo) => canonicalGeos.has(geo))
+      && (entry.scope !== "subnational" || entry.parent_geos.length === 1)
+      && (entry.scope !== "global" || entry.parent_geos.length === 0)
+      && entry.official_domains.length > 0
+      && sortedUnique(entry.official_domains, normalizeDomain)
+      && entry.official_domains.every((domain) => Array.from(registryDomains).some((registered) => (
+        hostMatches(domain, registered)
+      )))
+      && identitiesValid;
+    priorAuthorityId = String(entry?.id || "");
+    return !valid;
+  }).length;
+}
+const invalidAuthorityOwners = invalidAuthorityEntryCount(payload.source_authority_owners);
+const authoritySnapshotTopLevelValid = authoritySnapshots && typeof authoritySnapshots === "object"
+  && !Array.isArray(authoritySnapshots)
+  && JSON.stringify(Object.keys(authoritySnapshots).sort()) === JSON.stringify(["appendOnly", "schemaVersion", "versions"])
+  && authoritySnapshots.schemaVersion === 1
+  && authoritySnapshots.appendOnly === true
+  && Array.isArray(authoritySnapshots.versions);
+const snapshotOwnershipHashes = new Set();
+let invalidAuthoritySnapshots = authoritySnapshotTopLevelValid ? 0 : 1;
+if (authoritySnapshotTopLevelValid) {
+  for (const version of authoritySnapshots.versions) {
+    const exactVersionKeys = version && typeof version === "object" && !Array.isArray(version)
+      && JSON.stringify(Object.keys(version).sort()) === JSON.stringify([
+        "ownershipRegistrySha256", "sourceAuthorityOwnersSha256", "source_authority_owners"
+      ]);
+    const ownershipHash = String(version?.ownershipRegistrySha256 || "");
+    const versionValid = exactVersionKeys
+      && /^[a-f0-9]{64}$/.test(ownershipHash)
+      && /^[a-f0-9]{64}$/.test(String(version.sourceAuthorityOwnersSha256 || ""))
+      && !snapshotOwnershipHashes.has(ownershipHash)
+      && invalidAuthorityEntryCount(version.source_authority_owners) === 0
+      && sha256(JSON.stringify(version.source_authority_owners)) === version.sourceAuthorityOwnersSha256;
+    snapshotOwnershipHashes.add(ownershipHash);
+    if (!versionValid) invalidAuthoritySnapshots += 1;
+  }
+}
+const currentOwnershipSha256 = sha256(ownershipBytes);
+const currentAuthoritySnapshot = authoritySnapshotTopLevelValid
+  ? authoritySnapshots.versions.find((version) => version.ownershipRegistrySha256 === currentOwnershipSha256)
+  : null;
+const currentAuthoritySnapshotMatches = Boolean(currentAuthoritySnapshot)
+  && JSON.stringify(currentAuthoritySnapshot.source_authority_owners) === JSON.stringify(authorityOwners);
 
 console.log(`OFFICIAL_LINK_OWNERSHIP_RAW_TOTAL=${rawTotal}`);
 console.log(`OFFICIAL_LINK_OWNERSHIP_ITEMS=${items.length}`);
@@ -84,6 +143,9 @@ console.log(`OFFICIAL_LINK_OWNERSHIP_MISSING_FROM_DATASET=${missingFromDataset.l
 console.log(`OFFICIAL_LINK_OWNERSHIP_EXTRA_IN_DATASET=${extraInDataset.length}`);
 console.log(`OFFICIAL_LINK_OWNERSHIP_AUTHORITY_OWNERS=${authorityOwners.length}`);
 console.log(`OFFICIAL_LINK_OWNERSHIP_INVALID_AUTHORITY_OWNERS=${invalidAuthorityOwners}`);
+console.log(`OFFICIAL_LINK_OWNERSHIP_AUTHORITY_SNAPSHOTS=${authoritySnapshotTopLevelValid ? authoritySnapshots.versions.length : 0}`);
+console.log(`OFFICIAL_LINK_OWNERSHIP_INVALID_AUTHORITY_SNAPSHOTS=${invalidAuthoritySnapshots}`);
+console.log(`OFFICIAL_LINK_OWNERSHIP_CURRENT_AUTHORITY_SNAPSHOT_MATCH=${currentAuthoritySnapshotMatches ? 1 : 0}`);
 
 if (
   items.length !== rawTotal ||
@@ -98,6 +160,8 @@ if (
   extraInDataset.length > 0
   || authorityOwners.length === 0
   || invalidAuthorityOwners > 0
+  || invalidAuthoritySnapshots > 0
+  || !currentAuthoritySnapshotMatches
 ) {
   console.log("OFFICIAL_LINK_OWNERSHIP_COMPLETENESS_GUARD=FAIL");
   process.exit(1);

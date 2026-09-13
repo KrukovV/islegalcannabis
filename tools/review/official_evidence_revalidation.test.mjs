@@ -427,6 +427,17 @@ test("exact_locator is accepted as the canonical source locator alias", () => {
   assert.equal(records[0].locator, "Article 35(1)(5)-(7)");
 });
 
+test("source_owner_scope remains descriptive and never supplies authority ownership", () => {
+  const evidence = source("https://official.example/scope-only", {
+    source_owner_geo: undefined,
+    sourceOwnerGeo: undefined,
+    source_owner_scope: "ARBITRARY_SCOPE_TOKEN",
+  });
+  const records = collectOfficialSourceRecords(ledger([row("AA", [evidence])]));
+  assert.equal(records.length, 1);
+  assert.equal(records[0].owner, "");
+});
+
 test("shared URL is fetched once and queues every linked GEO", async () => {
   const sharedUrl = "https://shared.example/law";
   const input = ledger([

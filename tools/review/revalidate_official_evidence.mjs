@@ -100,7 +100,7 @@ function arrayValue(value) {
 
 function sourceOwner(source) {
   return stringValue(
-    source?.source_owner_geo ?? source?.sourceOwnerGeo ?? source?.source_owner_scope,
+    source?.source_owner_geo ?? source?.sourceOwnerGeo,
   );
 }
 

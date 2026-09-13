@@ -305,6 +305,31 @@ test("C1 source states never auto-close a legal review operation", () => {
   }
 });
 
+test("source_owner_scope never becomes a source authority owner identity", () => {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), "islegal-source-owner-scope-"));
+  try {
+    const sourcePath = path.join(directory, "projection.json");
+    const outputPath = path.join(directory, "operations.json");
+    const scopeOnly = source(
+      "EFFECTIVE_DATE_REVIEW_DUE",
+      "EFFECTIVE_OR_LIFECYCLE_DATE_REACHED",
+      "2026-09-10T10:00:00.000Z"
+    );
+    delete scopeOnly.source_owner_geo;
+    scopeOnly.source_owner_scope = "ARBITRARY_SCOPE_TOKEN";
+    fs.writeFileSync(sourcePath, JSON.stringify(ledger(scopeOnly)));
+    buildSourceReviewOperations({
+      sourcePath,
+      outputPath,
+      classifiedAt: "2026-09-11T10:00:00.000Z"
+    });
+    const registry = JSON.parse(fs.readFileSync(outputPath, "utf8"));
+    assert.equal(registry.attempts[0].signalPayload.sourceOwnerGeo, "NOT_RECORDED");
+  } finally {
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
+});
+
 test("canonical camelCase owner/applicability appends one migration attempt without duplicating an unresolved operation", () => {
   const directory = fs.mkdtempSync(path.join(os.tmpdir(), "islegal-source-review-owner-upgrade-"));
   try {
@@ -984,8 +1009,10 @@ test("builder shares the resolver lock and exact-preimage CAS instead of losing 
     fs.writeFileSync(outputPath, initialSnapshot.bytes);
     const officialRegistryPath = path.join(directory, "official.json");
     const ownershipPath = path.join(directory, "ownership.json");
+    const authorityOwnerSnapshotsPath = path.join(directory, "source_authority_owner_snapshots.json");
     fs.writeFileSync(officialRegistryPath, JSON.stringify({ domains: ["example.gov"] }));
     fs.writeFileSync(ownershipPath, JSON.stringify({ items: [{ domain: "example.gov", owner_geos: ["AD"], effective: true }] }));
+    fs.writeFileSync(authorityOwnerSnapshotsPath, JSON.stringify({ schemaVersion: 1, appendOnly: true, versions: [] }));
     assert.throws(() => buildSourceReviewOperations({
       sourcePath,
       outputPath,
@@ -997,6 +1024,22 @@ test("builder shares the resolver lock and exact-preimage CAS instead of losing 
       }
     }), /SOURCE_REVIEW_RESOLUTION_EVIDENCE_REGISTRY_STALE=/);
     assert.deepEqual(fs.readFileSync(outputPath), initialSnapshot.bytes);
+
+    fs.writeFileSync(ownershipPath, JSON.stringify({ items: [{ domain: "example.gov", owner_geos: ["AD"], effective: true }] }));
+    const authorityOwnerSnapshotsBefore = fs.readFileSync(authorityOwnerSnapshotsPath);
+    assert.throws(() => buildSourceReviewOperations({
+      sourcePath,
+      outputPath,
+      officialRegistryPath,
+      ownershipPath,
+      authorityOwnerSnapshotsPath,
+      classifiedAt: "2026-09-11T11:01:00.000Z",
+      beforeCommit() {
+        fs.appendFileSync(authorityOwnerSnapshotsPath, " ");
+      }
+    }), /SOURCE_REVIEW_RESOLUTION_EVIDENCE_REGISTRY_STALE=/);
+    assert.deepEqual(fs.readFileSync(outputPath), initialSnapshot.bytes);
+    fs.writeFileSync(authorityOwnerSnapshotsPath, authorityOwnerSnapshotsBefore);
 
     const result = buildSourceReviewOperations({
       sourcePath,

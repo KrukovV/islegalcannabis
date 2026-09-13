@@ -1,13 +1,17 @@
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import {
+  assertCurrentSourceAuthorityOwnerSnapshot,
   buildOfficialLinkOwnershipIndex,
   hasRequiredSourceAuthorityLegalBasis,
   matchesSourceAuthorityOwner,
   matchesOfficialGeoOwnership,
   readOfficialLinkOwnership,
   resolveOfficialLinkOwnership,
+  sourceAuthorityOwnersSha256,
+  validateSourceAuthorityOwnerSnapshots,
   validateSourceAuthorityOwners
 } from "@/lib/officialSources/officialLinkOwnership";
 
@@ -86,6 +90,8 @@ describe("official link ownership", () => {
     expect(matchesSourceAuthorityOwner("UN", "https://www.unodc.org/example", canonicalGeos, authorityOwners)).toBe(false);
     expect(hasRequiredSourceAuthorityLegalBasis("WA", "CC", ["CC"], "Direct territorial extension.")).toBe(true);
     expect(hasRequiredSourceAuthorityLegalBasis("WA", "CC", ["CC"], "NOT_RECORDED")).toBe(false);
+    expect(hasRequiredSourceAuthorityLegalBasis("WA", "CC", ["CC"], " NOT_RECORDED ")).toBe(false);
+    expect(hasRequiredSourceAuthorityLegalBasis("WA", "CC", ["CC"], "   ")).toBe(false);
     expect(hasRequiredSourceAuthorityLegalBasis("UNODC_GLOBAL", "NG", ["NG"], "Treaty evidence applies to Nigeria.")).toBe(true);
     expect(hasRequiredSourceAuthorityLegalBasis("UNODC_GLOBAL", "NG", ["NG"], "NOT_RECORDED")).toBe(false);
   });
@@ -113,5 +119,44 @@ describe("official link ownership", () => {
       canonicalGeos,
       ["legislation.wa.gov.au"]
     )).toThrow("SOURCE_AUTHORITY_OWNER_INVALID=AU-WA");
+    for (const malformed of [null, false, "WA"]) {
+      expect(() => validateSourceAuthorityOwners(
+        { source_authority_owners: malformed },
+        canonicalGeos,
+        officialDomains
+      )).toThrow("SOURCE_AUTHORITY_OWNERS_INVALID");
+    }
+    expect(validateSourceAuthorityOwners({}, canonicalGeos, officialDomains).size).toBe(0);
+  });
+
+  it("binds authority semantics to the exact ownership registry bytes", () => {
+    const ownershipBytes = fs.readFileSync(path.join(root, "data", "ssot", "official_link_ownership.json"));
+    const ownershipSha256 = crypto.createHash("sha256").update(ownershipBytes).digest("hex");
+    const snapshots = JSON.parse(fs.readFileSync(
+      path.join(root, "data", "ssot", "source_authority_owner_snapshots.json"),
+      "utf8"
+    ));
+    const versions = validateSourceAuthorityOwnerSnapshots(snapshots, canonicalGeos, officialDomains);
+    expect(sourceAuthorityOwnersSha256(dataset.source_authority_owners)).toBe(
+      snapshots.versions[0].sourceAuthorityOwnersSha256
+    );
+    expect(() => assertCurrentSourceAuthorityOwnerSnapshot(
+      ownershipSha256,
+      dataset.source_authority_owners,
+      versions
+    )).not.toThrow();
+
+    const tampered = structuredClone(snapshots);
+    tampered.versions[0].source_authority_owners[0].aliases.push("AU_WA");
+    expect(() => validateSourceAuthorityOwnerSnapshots(
+      tampered,
+      canonicalGeos,
+      officialDomains
+    )).toThrow(/SOURCE_AUTHORITY_OWNER_(?:INVALID|SNAPSHOT_SEMANTIC_HASH_INVALID)/);
+    expect(() => assertCurrentSourceAuthorityOwnerSnapshot(
+      ownershipSha256,
+      dataset.source_authority_owners,
+      new Map()
+    )).toThrow("SOURCE_AUTHORITY_OWNER_CURRENT_SNAPSHOT_MISSING");
   });
 });

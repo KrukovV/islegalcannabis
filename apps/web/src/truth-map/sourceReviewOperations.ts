@@ -3,8 +3,10 @@ import crypto from "node:crypto";
 import path from "node:path";
 import { findRepoRoot } from "@/lib/ssotDiff/ssotSnapshotStore";
 import {
+  assertCurrentSourceAuthorityOwnerSnapshot,
   hasRequiredSourceAuthorityLegalBasis,
   matchesSourceAuthorityOwner,
+  validateSourceAuthorityOwnerSnapshots,
   validateSourceAuthorityOwners
 } from "@/lib/officialSources/officialLinkOwnership";
 import type { SourceAuthorityOwnerEntry } from "@/lib/officialSources/officialLinkOwnershipTypes";
@@ -679,7 +681,7 @@ function validateSourceReviewEvidenceAttestation(
   operation: SourceReviewOperation,
   attempt: SourceReviewAttempt,
   canonicalGeos: ReadonlySet<string>,
-  authorityOwners: ReadonlyMap<string, SourceAuthorityOwnerEntry>
+  authorityOwnerSnapshots: ReadonlyMap<string, ReadonlyMap<string, SourceAuthorityOwnerEntry>>
 ) {
   if (!hasExactKeys(attestation, [
     "evidenceFormat", "attestationId", "resolutionId", "operationId", "reviewedAttemptId",
@@ -702,8 +704,15 @@ function validateSourceReviewEvidenceAttestation(
   ) {
     throw new Error(`SOURCE_REVIEW_EVIDENCE_BINDING_INVALID=${attestation.attestationId}`);
   }
+  if (!hasExactKeys(attestation.inputs, [
+    "sourceLedgerSha256", "canonicalGeosSha256", "officialRegistrySha256", "ownershipRegistrySha256"
+  ]) || !Object.values(attestation.inputs).every((value) => typeof value === "string" && SHA256_PATTERN.test(value))) {
+    throw new Error(`SOURCE_REVIEW_EVIDENCE_INPUTS_INVALID=${attestation.attestationId}`);
+  }
 
   const sourceRecord = attestation.sourceRecord;
+  const authorityOwners = authorityOwnerSnapshots.get(attestation.inputs.ownershipRegistrySha256)
+    || new Map<string, SourceAuthorityOwnerEntry>();
   if (!hasExactKeys(sourceRecord, [
     "officialPublisher", "sourceOwnerGeo", "appliesToGeos", "legalBasisForExtension", "sourceType",
     "primaryOrContext", "cannabisSpecific", "current", "effective", "effectiveDate", "confidence",
@@ -813,11 +822,6 @@ function validateSourceReviewEvidenceAttestation(
     throw new Error(`SOURCE_REVIEW_EVIDENCE_DATE_INVALID=${attestation.attestationId}`);
   }
 
-  if (!hasExactKeys(attestation.inputs, [
-    "sourceLedgerSha256", "canonicalGeosSha256", "officialRegistrySha256", "ownershipRegistrySha256"
-  ]) || !Object.values(attestation.inputs).every((value) => typeof value === "string" && SHA256_PATTERN.test(value))) {
-    throw new Error(`SOURCE_REVIEW_EVIDENCE_INPUTS_INVALID=${attestation.attestationId}`);
-  }
   if (attestation.supersedesAttestationId !== null && !ATTESTATION_ID_PATTERN.test(attestation.supersedesAttestationId)
     || !(attestation.previousAttestationSha256 === "GENESIS" || SHA256_PATTERN.test(attestation.previousAttestationSha256))) {
     throw new Error(`SOURCE_REVIEW_EVIDENCE_CHAIN_REFERENCE_INVALID=${attestation.attestationId}`);
@@ -851,14 +855,29 @@ export function validateSourceReviewOperationsRegistry(value: unknown): SourceRe
     path.join(root, "data", "official", "official_domains.ssot.json"),
     "utf8"
   )) as { domains?: string[] };
-  const ownershipRegistry = JSON.parse(fs.readFileSync(
-    path.join(root, "data", "ssot", "official_link_ownership.json"),
-    "utf8"
-  )) as { source_authority_owners?: SourceAuthorityOwnerEntry[] };
-  const authorityOwners = validateSourceAuthorityOwners(
-    { source_authority_owners: ownershipRegistry.source_authority_owners || [] },
+  const ownershipRegistryBytes = fs.readFileSync(
+    path.join(root, "data", "ssot", "official_link_ownership.json")
+  );
+  const ownershipRegistry = JSON.parse(ownershipRegistryBytes.toString("utf8")) as {
+    source_authority_owners?: unknown;
+  };
+  const currentAuthorityOwners = validateSourceAuthorityOwners(
+    ownershipRegistry,
     canonicalGeos,
     officialRegistry.domains || []
+  );
+  const authorityOwnerSnapshots = validateSourceAuthorityOwnerSnapshots(
+    JSON.parse(fs.readFileSync(
+      path.join(root, "data", "ssot", "source_authority_owner_snapshots.json"),
+      "utf8"
+    )),
+    canonicalGeos,
+    officialRegistry.domains || []
+  );
+  assertCurrentSourceAuthorityOwnerSnapshot(
+    sha256(ownershipRegistryBytes),
+    [...new Map([...currentAuthorityOwners.values()].map((entry) => [entry.id, entry])).values()],
+    authorityOwnerSnapshots
   );
   if (!Number.isFinite(Date.parse(String(registry.createdAt || "")))) throw new Error("SOURCE_REVIEW_OPERATIONS_CREATED_AT_INVALID");
   const operationIds = new Set<string>();
@@ -1017,7 +1036,14 @@ export function validateSourceReviewOperationsRegistry(value: unknown): SourceRe
     if (!resolution || !operation || !attempt) {
       throw new Error(`SOURCE_REVIEW_EVIDENCE_RESOLUTION_INVALID=${attestation.attestationId}`);
     }
-    validateSourceReviewEvidenceAttestation(attestation, resolution, operation, attempt, canonicalGeos, authorityOwners);
+    validateSourceReviewEvidenceAttestation(
+      attestation,
+      resolution,
+      operation,
+      attempt,
+      canonicalGeos,
+      authorityOwnerSnapshots
+    );
     if (attestationHashes.has(attestation.attestationSha256)
       || attestation.previousAttestationSha256 !== (previousGlobalAttestation?.attestationSha256 || "GENESIS")) {
       throw new Error(`SOURCE_REVIEW_EVIDENCE_CHAIN_INVALID=${attestation.attestationId}`);
