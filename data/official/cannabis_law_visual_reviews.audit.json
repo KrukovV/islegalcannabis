@@ -83656,7 +83656,7 @@
             "browser_current_capture": "VALID"
           },
           "direct_evidence_url": "https://sdlegislature.gov/Statutes/34-20G",
-          "fragment_locator": "Chapter 34-20G table of contents; §§34-20G-1, -2, -4, -5, -15",
+          "fragment_locator": "Chapter 34-20G table of contents; §§34-20G-1, -2, -4, -5, -14, -15",
           "screenshot_path": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/US-SD-legislature-chapter-34-20G-current-2026-08-10.png",
           "screenshot_valid": true,
           "reviewed_by_human_visual": true,
@@ -83666,30 +83666,30 @@
           "cannabis_fragment_visible": true,
           "effective_rule_visible": true,
           "visual_reviewer_timestamp": "2026-08-10",
-          "exact_fragment": "The current official chapter is titled CHAPTER 34-20G MEDICAL CANNABIS. Its table of contents identifies 34-20G-2 cardholder protections from arrest/prosecution/penalty, 34-20G-4 presumption for qualifying patient or designated caregiver with registry card, 34-20G-5 practitioner protections for certifications and 34-20G-15 possession of or application for registry identification card not grounds for search.",
+          "exact_fragment": "The current official chapter is titled CHAPTER 34-20G MEDICAL CANNABIS. Its table of contents identifies 34-20G-2 cardholder protections from arrest/prosecution/penalty, 34-20G-4 presumption for qualifying patient or designated caregiver with registry card, 34-20G-5 practitioner protections for certifications, 34-20G-14 possession of or application for registry identification card not grounds for search, and 34-20G-15 activity conducted in accordance with the chapter as lawful.",
           "legal_interpretation": "Current primary law independently proves the legal registry/cardholder and practitioner-certification framework. It supports current medical axes but does not by itself prove that dispensing operates; that fact derives from the separate current DOH programme page.",
           "visual_review_result": "VALID_CURRENT_OFFICIAL_OWNER_CHAPTER_AND_CARDHOLDER_PRACTITIONER_PROVISIONS_VISIBLE",
           "visual_summary": "2026-08-10 screenshot visibly shows South Dakota Legislature / Legislative Research Council owner, Chapter 34-20G Medical Cannabis and the relevant cardholder/practitioner provision headings.",
           "revalidation": {
-            "checked_at": "2026-09-11T19:40:08.913Z",
+            "checked_at": "2026-09-13T06:53:15.819Z",
             "final_url": "https://sdlegislature.gov/Statutes/34-20G",
-            "http_status": 200,
+            "http_status": 304,
             "etag": "\"1dd41d7748ab35e\"",
             "last_modified": "Fri, 11 Sep 2026 10:22:32 GMT",
             "content_type": "text/html",
             "content_length": 5982,
             "document_sha256": "2c089b72b9d50fcae4e361ab3cfbb3f24397dcde1f58832a824e47029be0c0a3",
-            "relevant_fragment_sha256": "d7e93f462a74716531e2603b3b3e75802a446beea7f967b2058180e0ddf4afe6",
-            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "relevant_fragment_sha256": "b06810898acba38b6d048ab86f0719ccfe226f4f1d8c60eb405fe023b0cf192a",
+            "revalidation_state": "CONTENT_CHANGED",
             "access_state": "HTTP_OK",
-            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "change_reason": "RETAINED_FRAGMENT_SHA256_CHANGED",
             "queue": [
               "C2",
               "C3"
             ],
             "queue_reasons": [
-              "GREEN_OR_RED_CRITICAL_SOURCE",
-              "NEEDS_SEMANTIC_REVIEW"
+              "CONTENT_CHANGED",
+              "GREEN_OR_RED_CRITICAL_SOURCE"
             ],
             "dependent_geos": [
               "US-SD"

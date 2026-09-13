@@ -111,6 +111,42 @@ test("304 preserves legal axes and does not create a color decision", async () =
   assert.equal(input.rows[0].independent_truth_color, colorBefore);
 });
 
+test("a corrected retained fragment opens semantic review even when the official document returns 304", async () => {
+  const correctedFragment = "cannabis corrected section 14";
+  const evidence = source("https://official.example/law", {
+    exact_fragment: correctedFragment,
+    revalidation: {
+      checked_at: "2026-01-01T00:00:00.000Z",
+      final_url: "https://official.example/law",
+      http_status: 200,
+      etag: '"v1"',
+      last_modified: null,
+      content_type: "text/html",
+      content_length: 100,
+      document_sha256: sha256("unchanged official document"),
+      relevant_fragment_sha256: sha256("cannabis wrong section 15"),
+      revalidation_state: "NOT_MODIFIED",
+      access_state: "HTTP_OK",
+      change_reason: "BASELINE",
+    },
+  });
+  const input = ledger([row("AA", [evidence])]);
+  const legalBefore = structuredClone(input.rows[0].official_status);
+  const colorBefore = input.rows[0].independent_truth_color;
+  const result = await runRevalidation({
+    ledger: input,
+    geos: new Set(["AA"]),
+    network: true,
+    fetchImpl: async () => new Response(null, { status: 304, headers: { etag: '"v1"' } }),
+  });
+  const revalidation = result.records[0].source.revalidation;
+  assert.equal(revalidation.revalidation_state, "CONTENT_CHANGED");
+  assert.equal(revalidation.change_reason, "RETAINED_FRAGMENT_SHA256_CHANGED");
+  assert.equal(revalidation.relevant_fragment_sha256, sha256(correctedFragment));
+  assert.deepEqual(input.rows[0].official_status, legalBefore);
+  assert.equal(input.rows[0].independent_truth_color, colorBefore);
+});
+
 test("network revalidation preserves prior C2/C3 review provenance", async () => {
   const c2C3Review = {
     reviewed_at: "2026-08-13T07:42:00.000Z",

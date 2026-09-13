@@ -628,10 +628,12 @@ function applyNetworkResult(
   let documentHash = previous.document_sha256;
   let relevantHash = previous.relevant_fragment_sha256;
   let semanticProbe = previous.semantic_probe;
+  let currentSourceContentProven = false;
 
   if (response.status === 304 && conditional304Proven) {
     state = "NOT_MODIFIED";
     reason = "HTTP_304_CONDITIONAL_GET";
+    currentSourceContentProven = true;
   } else if (response.status === 304) {
     state = "NEEDS_SEMANTIC_REVIEW";
     accessState = "HTTP_304_WITHOUT_SHARED_BASELINE";
@@ -658,6 +660,7 @@ function applyNetworkResult(
       state = "REDIRECT_OR_OWNER_CHANGED";
       reason = `FINAL_URL_CHANGED:${canonicalRecordUrl}->${finalUrl}`;
     } else if (previous.document_sha256 && previous.document_sha256 === documentHash) {
+      currentSourceContentProven = true;
       const etagChanged = previous.etag && metadata.etag && previous.etag !== metadata.etag;
       const lastModifiedChanged = previous.last_modified && metadata.last_modified &&
         previous.last_modified !== metadata.last_modified;
@@ -671,9 +674,11 @@ function applyNetworkResult(
         reason = "HTTP_200_DOCUMENT_SHA256_UNCHANGED";
       }
     } else if (previous.document_sha256 && previous.document_sha256 !== documentHash) {
+      currentSourceContentProven = true;
       state = "CONTENT_CHANGED";
       reason = "DOCUMENT_SHA256_CHANGED";
     } else {
+      currentSourceContentProven = true;
       state = "NEEDS_SEMANTIC_REVIEW";
       reason = "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED";
     }
@@ -717,6 +722,20 @@ function applyNetworkResult(
       state = "CONTENT_CHANGED";
       reason = "RELEVANT_FRAGMENT_SHA256_CHANGED";
     }
+  }
+
+  const retainedFragmentHash = record.exactFragment
+    ? sha256(normalizeText(record.exactFragment))
+    : null;
+  if (
+    currentSourceContentProven &&
+    previous.relevant_fragment_sha256 &&
+    retainedFragmentHash &&
+    previous.relevant_fragment_sha256 !== retainedFragmentHash
+  ) {
+    relevantHash = retainedFragmentHash;
+    state = "CONTENT_CHANGED";
+    reason = "RETAINED_FRAGMENT_SHA256_CHANGED";
   }
 
   if (effectiveDateDue(record, checkedAt)) {
