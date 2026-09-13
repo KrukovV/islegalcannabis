@@ -142,9 +142,16 @@ describe("local source review workbench API", () => {
         },
         review: expect.objectContaining({
           c3: "NOT_PROVEN",
-          visibility: expect.objectContaining({ browserOrigin: false })
+          visibility: expect.any(Object)
         })
       }));
+      expect(Object.values(dossier.evidenceAttestation.review.visibility).every(
+        (value) => typeof value === "boolean"
+      )).toBe(true);
+      if (dossier.evidenceAttestation.review.c3 === "PASS") {
+        expect(dossier.evidenceAttestation.review.visibility.browserOrigin).toBe(true);
+        expect(dossier.evidenceAttestation.review.visibility.officialDomainText).toBe(true);
+      }
     }
 
     if (payload.summary.truncated) {

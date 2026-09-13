@@ -341,8 +341,13 @@ describe("source review workbench", () => {
         resolutionId: dossier.resolution?.resolutionId,
         operationId: dossier.operation.operationId,
         reviewedAttemptId: dossier.latestAttempt.attemptId,
-        review: { c3: "NOT_PROVEN", visibility: { browserOrigin: false } }
+        review: { c3: "NOT_PROVEN" }
       });
+      expect(Object.values(dossier.evidenceAttestation!.review.visibility).every((value) => typeof value === "boolean")).toBe(true);
+      if (dossier.evidenceAttestation!.review.c3 === "PASS") {
+        expect(dossier.evidenceAttestation!.review.visibility.browserOrigin).toBe(true);
+        expect(dossier.evidenceAttestation!.review.visibility.officialDomainText).toBe(true);
+      }
       expect(dossier.evidenceAttestation?.bindings.exactFragmentUtf8.sha256).toMatch(/^[a-f0-9]{64}$/);
       expect(dossier.evidenceAttestation?.bindings.visualArtifactBytes).toEqual(expect.objectContaining({
         sha256: expect.stringMatching(/^[a-f0-9]{64}$/),

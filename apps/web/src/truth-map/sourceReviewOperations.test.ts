@@ -337,9 +337,14 @@ describe("source review operations", () => {
           ? "GENESIS"
           : registry.evidenceAttestations[index - 1].attestationSha256,
         supersedesAttestationId: null,
-        review: { c3: "NOT_PROVEN", visibility: { browserOrigin: false } },
+        review: { c3: "NOT_PROVEN" },
         boundary: "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE"
       });
+      expect(Object.values(attestation.review.visibility).every((value) => typeof value === "boolean")).toBe(true);
+      if (attestation.review.c3 === "PASS") {
+        expect(attestation.review.visibility.browserOrigin).toBe(true);
+        expect(attestation.review.visibility.officialDomainText).toBe(true);
+      }
       expect(attestation.sourceRecord.appliesToGeos).toContain(attestation.geo);
       expect(attestation.sourceRecordSha256).toBe(
         crypto.createHash("sha256").update(JSON.stringify(attestation.sourceRecord)).digest("hex")

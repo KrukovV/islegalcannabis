@@ -52826,6 +52826,174 @@
       "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
       "resultingChangeReason": "NU_2021_2024_SUPPLEMENT_BYTE_STABLE_PARTIAL_ACT_TABLE_C3_NOT_PROVEN",
       "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-19ae50421ea073011da03058",
+      "operationId": "SRCREV-e9e86c1f7e81059038e2a6db",
+      "geo": "DM",
+      "sourceUrl": "https://dominica.gov.dm/laws/2020/Drug%20Prevention%20%28Amendment%29%20Act%202020.pdf",
+      "resolvedAt": "2026-09-13T22:24:55.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-current-source-review",
+      "evidenceUrl": "https://dominica.gov.dm/laws/2020/Drug%20Prevention%20%28Amendment%29%20Act%202020.pdf",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "DM",
+      "reviewedAttemptId": "SRCATT-384eface0b7a3c7c9af143c7",
+      "reviewedSignalIdentitySha256": "210fbb045c5d18eace2f3b385b263b3c52198307b3cb18663b39046e77d7a40d",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "a637d32bef5ab88a11b6218003344b10355815a8bfbf1219c5861ea0e5ec7018",
+      "note": "Direct review confirms the exact current source signal and visible Act 16/2020 sections 7A and 7B only. The crop does not show the publisher/domain, territorial identity, assent/effect/current consolidation, or the retained section 8(1A) three-plant proposition. This closes only the exact semantic signal and does not change Legal Truth or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
+      "resultingChangeReason": "VISUAL_SCOPE_PARTIAL_SECTION_8_AND_CURRENT_EFFECTIVE_NOT_PROVEN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-b03582b5e59e343a2ac19462",
+      "operationId": "SRCREV-fe82a98e7439875289f1b365",
+      "geo": "ES",
+      "sourceUrl": "https://www.aemps.gob.es/formulario-nacional/monografias/formulas-magistrales-tipificadas/fn_2026_fmt_043.pdf",
+      "resolvedAt": "2026-09-13T22:24:56.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-current-source-review",
+      "evidenceUrl": "https://www.aemps.gob.es/formulario-nacional/monografias/formulas-magistrales-tipificadas/fn_2026_fmt_043.pdf",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "ES",
+      "reviewedAttemptId": "SRCATT-1643855506d1d041c0b2e71b",
+      "reviewedSignalIdentitySha256": "ba9243be98d662a850b707b7d7d2f472017b7ec3e86dc2aff5c0305c4d35c6ed",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "471e25fbdbf4340a547ad9dd42611196545964bb637c26c6be33c4c69c02fe59",
+      "note": "Direct review confirms AEMPS/Ministry/BOE marks, the 2026 formulary identity and the cannabis THC/CBD oral-solution title. The crop does not show the retained refractory-patient indications, browser domain or an explicit effective rule. This closes only the exact semantic signal and does not change Legal Truth or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
+      "resultingChangeReason": "VISUAL_SCOPE_PARTIAL_INDICATIONS_EFFECTIVE_RULE_NOT_SHOWN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-072aac0ee92d94bd9b6d74b2",
+      "operationId": "SRCREV-012c1e0d641b86686c72fe8e",
+      "geo": "BM",
+      "sourceUrl": "https://www.bermudalaws.bm/Laws/Consolidated%20Law/1972/Misuse%20of%20Drugs%20Act%201972",
+      "resolvedAt": "2026-09-13T22:24:56.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-current-source-review",
+      "evidenceUrl": "https://www.bermudalaws.bm/Laws/Consolidated%20Law/1972/Misuse%20of%20Drugs%20Act%201972",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "BM",
+      "reviewedAttemptId": "SRCATT-ddaa8443f7bdaf6c89740b9b",
+      "reviewedSignalIdentitySha256": "6164a114bca1c8f7f4d8162c335f3b3a60b95e7999068620331e3adaf298cb0a",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "aeaf85bf4853722eba7344ef14ef9278d5d93af5cb4b06dd6633c6631e307a63",
+      "note": "Direct review confirms Schedule 8, the seven-gram cannabis threshold, the 20 December 2017 effective insertion and amendments through BR 2/2024. The crop does not show Bermuda publisher/domain/browser identity, and the retained fragment is composite rather than literal. This closes only the exact semantic signal and does not change Legal Truth or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
+      "resultingChangeReason": "VISUAL_SCOPE_PARTIAL_OWNER_DOMAIN_EXACT_COMPOSITE_FRAGMENT_NOT_SHOWN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-f8fc17aa782f9dcd38b1d823",
+      "operationId": "SRCREV-3b8e9389f3bfbc2534ca292c",
+      "geo": "NG",
+      "sourceUrl": "https://nass.gov.ng/documents/download/11222#page=2",
+      "resolvedAt": "2026-09-13T22:24:57.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-current-source-review",
+      "evidenceUrl": "https://nass.gov.ng/documents/download/11222#page=2",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "NG",
+      "reviewedAttemptId": "SRCATT-69c853ea6cd4c98acb1e769d",
+      "reviewedSignalIdentitySha256": "3322ac027a8bfc306f12635a9b8975b5552f6b266a2c081cb8324f5527efc79b",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "c3f4f03f75d9953e5e789ed331170813ddd97d2037c5477e21c8f69047844623",
+      "note": "Direct review confirms only Nigeria National Assembly Order Paper No. 46 dated 12 November 2025 and entry 10, Cannabis (Medical, Industrial and Control) Bill 2025 HB.2605, First Reading. It does not prove enactment, commencement, present effect or lawful access. This closes only the exact bill-status semantic signal and does not change Legal Truth or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
+      "resultingChangeReason": "VISUAL_SCOPE_PARTIAL_BILL_STATUS_ONLY_NOT_ENACTMENT",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-5e438aa1e1b257b78ef9a59a",
+      "operationId": "SRCREV-5648ad76459fdbb772e1012d",
+      "geo": "SK",
+      "sourceUrl": "https://static.slov-lex.sk/pdf/SK/ZZ/2005/300/ZZ_2005_300_20260715.pdf",
+      "resolvedAt": "2026-09-13T22:24:57.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-current-source-review",
+      "evidenceUrl": "https://static.slov-lex.sk/pdf/SK/ZZ/2005/300/ZZ_2005_300_20260715.pdf",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "SK",
+      "reviewedAttemptId": "SRCATT-66ea1190a5982d6e0ae1cbfc",
+      "reviewedSignalIdentitySha256": "7efbfe4e406195fcb6d76649ef861ef3925af4e9f3f54169d0d792dfce088242",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "a4802ff08c41ea4a498e29aa8b749cf56063b3a9545b29f1622f2349f59d4864",
+      "note": "Direct review confirms Slovak Criminal Code sections 171 and 172 visibly cover unauthorised cannabis/THC possession and Cannabis cultivation. The retained English fragment is a translated composite, and the crop does not independently show publisher/domain or present current/effective status. This closes only the exact semantic signal and does not change Legal Truth or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
+      "resultingChangeReason": "VISUAL_SCOPE_PARTIAL_TRANSLATED_COMPOSITE_CURRENT_EFFECTIVE_NOT_SHOWN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-3a035bc5a2351ad9d492a5fb",
+      "operationId": "SRCREV-284f9dfe2a88bfd591fd5772",
+      "geo": "UZ",
+      "sourceUrl": "https://www.lex.uz/pdffile/3203272",
+      "resolvedAt": "2026-09-13T22:24:58.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-current-source-review",
+      "evidenceUrl": "https://www.lex.uz/pdffile/3203272",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "UZ",
+      "reviewedAttemptId": "SRCATT-8daec2d489a5ce365d0e08e2",
+      "reviewedSignalIdentitySha256": "ae70c77c74779e65ad28100ccac6d696b5963dce05cef12ca466cb2e53f5ca56",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "a02c2d6de1f9986d0e9e0858138e3442e1e13213432d0d9b99380cff0edfb6be",
+      "note": "Direct review confirms paragraph 4 visibly distinguishes prohibited List I circulation from restricted Lists II-IV and names the Republic of Uzbekistan. The retained English fragment is translated/composite and the crop does not independently prove publisher/domain or present current/effective status. This closes only the exact semantic signal and does not change Legal Truth or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
+      "resultingChangeReason": "VISUAL_SCOPE_PARTIAL_TRANSLATED_COMPOSITE_CURRENT_EFFECTIVE_NOT_SHOWN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-eafef2399c6221fe3bbd821e",
+      "operationId": "SRCREV-0c5b4991a546958cc40e79ea",
+      "geo": "UY",
+      "sourceUrl": "https://www.gub.uy/junta-nacional-drogas/sites/junta-nacional-drogas/files/documentos/publicaciones/Regulacion_mar2026.pdf",
+      "resolvedAt": "2026-09-13T22:24:58.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-current-source-review",
+      "evidenceUrl": "https://www.gub.uy/junta-nacional-drogas/sites/junta-nacional-drogas/files/documentos/publicaciones/Regulacion_mar2026.pdf",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "UY",
+      "reviewedAttemptId": "SRCATT-86e73286aee8d12b5b749d38",
+      "reviewedSignalIdentitySha256": "3d6f022794e9b3d19cc57b21594abd0a4063a1effeed6ae0e126714a9e9337fc",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "940b587768b0fe3d6e47e68973aa9c9bab5f1afc08340ab596078624273cb324",
+      "note": "Direct review confirms page 9 reports 74,583 registered purchasers, more than 15 tonnes dispensed since 2017, pharmacy and club routes, and an effective regulated market in Uruguay. The crop does not show the report cover, publisher/domain or March 2026 document identity, so current/effective status is not independently visible. This closes only the exact semantic signal and does not change Legal Truth or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
+      "resultingChangeReason": "VISUAL_SCOPE_PARTIAL_OWNER_DOMAIN_REPORT_IDENTITY_NOT_SHOWN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-8577683bbe657a4424622c25",
+      "operationId": "SRCREV-26f10070aaa08cfc90151277",
+      "geo": "US-ND",
+      "sourceUrl": "https://ndlegis.gov/cencode/t19c24-1.pdf",
+      "resolvedAt": "2026-09-13T22:24:59.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-current-source-review",
+      "evidenceUrl": "https://ndlegis.gov/cencode/t19c24-1.pdf",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "US-ND",
+      "reviewedAttemptId": "SRCATT-a1b5d95c406e60f8386d877b",
+      "reviewedSignalIdentitySha256": "255aef34e9bf66404323f6c6cfb0100e8b7d8b745f87b6b7d6027630c5d3913b",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "6ca1d4a0ff7414acb6b68c7d2793c93f165c90f4d826da9ccddeaa55c279b0f2",
+      "note": "Direct review confirms browser-origin ndlegis.gov and visible NDCC 19-24.1-02/03 medical-marijuana programme and qualifying-patient registration text. The retained fragment is composite, the capture is historical, and it does not independently prove present current/effective state or all dispensing-route claims. This closes only the exact semantic signal and does not change Legal Truth or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
+      "resultingChangeReason": "VISUAL_SCOPE_PARTIAL_HISTORICAL_CAPTURE_CURRENT_EFFECTIVE_NOT_PROVEN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
     }
   ],
   "attempts": [
@@ -191016,6 +191184,670 @@
       "attestationId": "SRCEVT-ed4abd814816b6d59d6af1f7",
       "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-e8d34b3069c0add04710bbb4\",\"operationId\":\"SRCREV-2f87ac78139ab23c235b67d2\",\"reviewedAttemptId\":\"SRCATT-94b675a44a3ab99a77c5eab3\",\"reviewedSignalIdentitySha256\":\"bcc84696cd6fb7069259e5c5cb3a66620e70e7697d0abba1a09b478b494d3787\",\"reviewedSignalPayloadSha256\":\"bcc84696cd6fb7069259e5c5cb3a66620e70e7697d0abba1a09b478b494d3787\",\"resolutionRegistryPreimageSha256\":\"dbd5bc3e0ec8c113824074e0241e0dcf19e7a97e6434d089cb21f818de273298\",\"geo\":\"NU\",\"sourceUrl\":\"https://www.gov.nu/media/pages/information/51f88605f2-1779840449/niue-legislation-supplement-2021-2024-part-1.pdf#page=19\",\"sourceRecordSha256\":\"638bc096f0a6d76e2bee7c7c56d869f42a6c2beb6b1eda1077fcaad19772d66a\",\"exactFragmentSha256\":\"8335607a5c9177962e4102aa6380b9eaa06b25870d5d65dd1ff5c2a49d59e0e9\",\"visualArtifactSha256\":\"21b0fd1711a09b69e101a0cac0a41fad156aa1892905f1a5b059b52787401f9e\",\"reviewSha256\":\"05b901ef85f88e8448f526feb6ce48f9d27938b7f002187cae97e42662e11674\",\"reviewerId\":\"codex-current-source-review\",\"reviewedAt\":\"2026-09-13T21:50:19.615Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T21:50:19.615Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"48d32a0669ca7ae5ec62d8ad805bd4481a938c208269481f848baa2f08c04f96\",\"sourceLedgerSha256\":\"a23d13614362bfce4ca61c8e792b50b8dd09fc41a6e301b2f0e69faccdcd51a0\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
       "attestationSha256": "327043078b5233725d4aaf922b035e4ce1efc70e1d6ee72fbdc3ee7baa58d689"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-19ae50421ea073011da03058",
+      "operationId": "SRCREV-e9e86c1f7e81059038e2a6db",
+      "reviewedAttemptId": "SRCATT-384eface0b7a3c7c9af143c7",
+      "reviewedSignalIdentitySha256": "210fbb045c5d18eace2f3b385b263b3c52198307b3cb18663b39046e77d7a40d",
+      "reviewedSignalPayloadSha256": "210fbb045c5d18eace2f3b385b263b3c52198307b3cb18663b39046e77d7a40d",
+      "resolutionRegistryPreimageSha256": "a637d32bef5ab88a11b6218003344b10355815a8bfbf1219c5861ea0e5ec7018",
+      "geo": "DM",
+      "sourceUrl": "https://dominica.gov.dm/laws/2020/Drug%20Prevention%20%28Amendment%29%20Act%202020.pdf",
+      "sourceRecord": {
+        "officialPublisher": "Commonwealth of Dominica Parliament / Government Printer (Act text); hosted on Government of Dominica portal",
+        "sourceOwnerGeo": "DM",
+        "appliesToGeos": [
+          "DM"
+        ],
+        "legalBasisForExtension": "Act No. 16 of 2020 is a Commonwealth of Dominica Act amending Chapter 40:07; its territorial scope is Dominica. No parent, claimant or state-law transfer is involved.",
+        "sourceType": "government_hosted_gazetted_act_electronic_copy",
+        "primaryOrContext": "direct_legislative_text_with_portal_official_version_caveat",
+        "cannabisSpecific": true,
+        "current": "NOT_RECORDED",
+        "effective": "NOT_RECORDED",
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "Section 7A(2) says a person with 28 grammes or less of cannabis or cannabis resin is not guilty of an offence under section 7(2). Section 7B keeps public smoking/use unlawful. The new section 8(1A) makes it lawful for a person 18 or older to cultivate no more than three Cannabis plants at their permanent residence.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "463b678b1e06b5ffdca2564ebe0ee4f91c495be67daae2683c80e619a0356263",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "e9abea723fa2afce9ea268ea805f3efdd183aed3e1ac2368d4211144b5dc92db",
+          "byteLength": 316,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "2ee579537fcc6329a94a5f6cc612800346f216e840b6f2b647cb67c8714900b0",
+          "byteLength": 233019,
+          "mediaType": "image/png",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/DM-amendment-2020-current-2026-08-10-2.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-current-source-review",
+        "reviewedAt": "2026-09-13T22:24:55.000Z",
+        "visibleEvidenceScopes": [
+          "C2",
+          "C3"
+        ],
+        "visibility": {
+          "publisher": false,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": false,
+          "effective": false,
+          "geoApplicability": false,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-13T22:24:55.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "e03a10cba9b761634a325882fe5cbc0b8705fa79a9f379df146a7029b93a199d",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "327043078b5233725d4aaf922b035e4ce1efc70e1d6ee72fbdc3ee7baa58d689",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-727f5e2b804aa287c04e7f63",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-19ae50421ea073011da03058\",\"operationId\":\"SRCREV-e9e86c1f7e81059038e2a6db\",\"reviewedAttemptId\":\"SRCATT-384eface0b7a3c7c9af143c7\",\"reviewedSignalIdentitySha256\":\"210fbb045c5d18eace2f3b385b263b3c52198307b3cb18663b39046e77d7a40d\",\"reviewedSignalPayloadSha256\":\"210fbb045c5d18eace2f3b385b263b3c52198307b3cb18663b39046e77d7a40d\",\"resolutionRegistryPreimageSha256\":\"a637d32bef5ab88a11b6218003344b10355815a8bfbf1219c5861ea0e5ec7018\",\"geo\":\"DM\",\"sourceUrl\":\"https://dominica.gov.dm/laws/2020/Drug%20Prevention%20%28Amendment%29%20Act%202020.pdf\",\"sourceRecordSha256\":\"463b678b1e06b5ffdca2564ebe0ee4f91c495be67daae2683c80e619a0356263\",\"exactFragmentSha256\":\"e9abea723fa2afce9ea268ea805f3efdd183aed3e1ac2368d4211144b5dc92db\",\"visualArtifactSha256\":\"2ee579537fcc6329a94a5f6cc612800346f216e840b6f2b647cb67c8714900b0\",\"reviewSha256\":\"7c6d87f4e28c15f6ab7dd768fb708c936928502d8c0e1bf3606fbef9657939c3\",\"reviewerId\":\"codex-current-source-review\",\"reviewedAt\":\"2026-09-13T22:24:55.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T22:24:55.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"327043078b5233725d4aaf922b035e4ce1efc70e1d6ee72fbdc3ee7baa58d689\",\"sourceLedgerSha256\":\"e03a10cba9b761634a325882fe5cbc0b8705fa79a9f379df146a7029b93a199d\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "104ed56ad2d75167a720db032cfa742f50a7aed71a2fbf80ed1e2e87d662abcf"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-b03582b5e59e343a2ac19462",
+      "operationId": "SRCREV-fe82a98e7439875289f1b365",
+      "reviewedAttemptId": "SRCATT-1643855506d1d041c0b2e71b",
+      "reviewedSignalIdentitySha256": "ba9243be98d662a850b707b7d7d2f472017b7ec3e86dc2aff5c0305c4d35c6ed",
+      "reviewedSignalPayloadSha256": "ba9243be98d662a850b707b7d7d2f472017b7ec3e86dc2aff5c0305c4d35c6ed",
+      "resolutionRegistryPreimageSha256": "471e25fbdbf4340a547ad9dd42611196545964bb637c26c6be33c4c69c02fe59",
+      "geo": "ES",
+      "sourceUrl": "https://www.aemps.gob.es/formulario-nacional/monografias/formulas-magistrales-tipificadas/fn_2026_fmt_043.pdf",
+      "sourceRecord": {
+        "officialPublisher": "Agencia Espanola de Medicamentos y Productos Sanitarios",
+        "sourceOwnerGeo": "ES",
+        "appliesToGeos": [
+          "ES"
+        ],
+        "legalBasisForExtension": "National Formulary monograph published by Spain's medicines regulator pursuant to Royal Decree 903/2025.",
+        "sourceType": "CURRENT_OFFICIAL_FORMULARY_MONOGRAPH",
+        "primaryOrContext": "OPERATIONAL",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "FN/2026/FMT/043: PREPARADO ESTANDARIZADO DE CANNABIS (THC, CBD) SOLUCION ORAL. The monograph describes prescribed cannabis formula composition and concrete refractory-patient indications.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "693d827e016a4314acacc01013bacf8a0939f9c2c637f9531c804f98d533bf85",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "a3e31826305e5b60ffbb452a866bed0e08f74365e180f4788549819f6b69562d",
+          "byteLength": 187,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "d3b88ff84efab0413a93d3ef83089ef0a50a559dd7470e72eb037eb30334f89f",
+          "byteLength": 95686,
+          "mediaType": "image/png",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/ES-aemps-fn-2026-fmt-043-cannabis-oral-solution-current-2026-08-09.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-current-source-review",
+        "reviewedAt": "2026-09-13T22:24:56.000Z",
+        "visibleEvidenceScopes": [
+          "C2",
+          "C3"
+        ],
+        "visibility": {
+          "publisher": true,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": true,
+          "effective": false,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-13T22:24:56.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "e03a10cba9b761634a325882fe5cbc0b8705fa79a9f379df146a7029b93a199d",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "104ed56ad2d75167a720db032cfa742f50a7aed71a2fbf80ed1e2e87d662abcf",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-f6657d577265171e61f30553",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-b03582b5e59e343a2ac19462\",\"operationId\":\"SRCREV-fe82a98e7439875289f1b365\",\"reviewedAttemptId\":\"SRCATT-1643855506d1d041c0b2e71b\",\"reviewedSignalIdentitySha256\":\"ba9243be98d662a850b707b7d7d2f472017b7ec3e86dc2aff5c0305c4d35c6ed\",\"reviewedSignalPayloadSha256\":\"ba9243be98d662a850b707b7d7d2f472017b7ec3e86dc2aff5c0305c4d35c6ed\",\"resolutionRegistryPreimageSha256\":\"471e25fbdbf4340a547ad9dd42611196545964bb637c26c6be33c4c69c02fe59\",\"geo\":\"ES\",\"sourceUrl\":\"https://www.aemps.gob.es/formulario-nacional/monografias/formulas-magistrales-tipificadas/fn_2026_fmt_043.pdf\",\"sourceRecordSha256\":\"693d827e016a4314acacc01013bacf8a0939f9c2c637f9531c804f98d533bf85\",\"exactFragmentSha256\":\"a3e31826305e5b60ffbb452a866bed0e08f74365e180f4788549819f6b69562d\",\"visualArtifactSha256\":\"d3b88ff84efab0413a93d3ef83089ef0a50a559dd7470e72eb037eb30334f89f\",\"reviewSha256\":\"154d0bac8de274070adb58a8574534575e5e518209fac2476f47b8edc9695315\",\"reviewerId\":\"codex-current-source-review\",\"reviewedAt\":\"2026-09-13T22:24:56.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T22:24:56.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"104ed56ad2d75167a720db032cfa742f50a7aed71a2fbf80ed1e2e87d662abcf\",\"sourceLedgerSha256\":\"e03a10cba9b761634a325882fe5cbc0b8705fa79a9f379df146a7029b93a199d\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "216de7dc59a70041c5503c136b2d2337bb492d77b714a47d43d44ed94c93deb4"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-072aac0ee92d94bd9b6d74b2",
+      "operationId": "SRCREV-012c1e0d641b86686c72fe8e",
+      "reviewedAttemptId": "SRCATT-ddaa8443f7bdaf6c89740b9b",
+      "reviewedSignalIdentitySha256": "6164a114bca1c8f7f4d8162c335f3b3a60b95e7999068620331e3adaf298cb0a",
+      "reviewedSignalPayloadSha256": "6164a114bca1c8f7f4d8162c335f3b3a60b95e7999068620331e3adaf298cb0a",
+      "resolutionRegistryPreimageSha256": "aeaf85bf4853722eba7344ef14ef9278d5d93af5cb4b06dd6633c6631e307a63",
+      "geo": "BM",
+      "sourceUrl": "https://www.bermudalaws.bm/Laws/Consolidated%20Law/1972/Misuse%20of%20Drugs%20Act%201972",
+      "sourceRecord": {
+        "officialPublisher": "Bermuda Laws",
+        "sourceOwnerGeo": "BM",
+        "appliesToGeos": [
+          "BM"
+        ],
+        "legalBasisForExtension": "Bermuda territory official consolidated legislation portal; the retrieved current PDF identifies Schedule 8 and applies to Bermuda, with no metropolitan-law inference.",
+        "sourceType": "TERRITORY_OFFICIAL_CURRENT_CONSOLIDATED_ACT",
+        "primaryOrContext": "PRIMARY",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "Schedule 8 (sections 6(1) and (2)): \"STATUTORY AMOUNT OF CANNABIS WHERE CRIMINAL SANCTIONS DO NOT APPLY\" lists \"(a) Cannabis — 7 grams\" and states it was inserted by 2017:48 section 4 effective 20 December 2017. The current consolidation carries amendments through BR 2/2024.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "dcfa11bcf9df78f06c857441c59beb3533c1eed0b1b295e1950de219493812be",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "261753f34b2750b0b293e24b5153ead494c97d96a094257d278ed55b6682ba30",
+          "byteLength": 277,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "cb455d5799f7ccd79f0c115256591ad832be467c785e86c83cc54903c5b593ee",
+          "byteLength": 141944,
+          "mediaType": "image/png",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/BM-bermuda-laws-schedule-8-current-2026-08-09.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-current-source-review",
+        "reviewedAt": "2026-09-13T22:24:56.000Z",
+        "visibleEvidenceScopes": [
+          "C2",
+          "C3"
+        ],
+        "visibility": {
+          "publisher": false,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": true,
+          "effective": true,
+          "geoApplicability": false,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-13T22:24:56.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "e03a10cba9b761634a325882fe5cbc0b8705fa79a9f379df146a7029b93a199d",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "216de7dc59a70041c5503c136b2d2337bb492d77b714a47d43d44ed94c93deb4",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-12f070f54d925bb579015ce6",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-072aac0ee92d94bd9b6d74b2\",\"operationId\":\"SRCREV-012c1e0d641b86686c72fe8e\",\"reviewedAttemptId\":\"SRCATT-ddaa8443f7bdaf6c89740b9b\",\"reviewedSignalIdentitySha256\":\"6164a114bca1c8f7f4d8162c335f3b3a60b95e7999068620331e3adaf298cb0a\",\"reviewedSignalPayloadSha256\":\"6164a114bca1c8f7f4d8162c335f3b3a60b95e7999068620331e3adaf298cb0a\",\"resolutionRegistryPreimageSha256\":\"aeaf85bf4853722eba7344ef14ef9278d5d93af5cb4b06dd6633c6631e307a63\",\"geo\":\"BM\",\"sourceUrl\":\"https://www.bermudalaws.bm/Laws/Consolidated%20Law/1972/Misuse%20of%20Drugs%20Act%201972\",\"sourceRecordSha256\":\"dcfa11bcf9df78f06c857441c59beb3533c1eed0b1b295e1950de219493812be\",\"exactFragmentSha256\":\"261753f34b2750b0b293e24b5153ead494c97d96a094257d278ed55b6682ba30\",\"visualArtifactSha256\":\"cb455d5799f7ccd79f0c115256591ad832be467c785e86c83cc54903c5b593ee\",\"reviewSha256\":\"713629f1791f075975d425e0ddd497eb3cfdd954943f23a1538e7c896dfd5d66\",\"reviewerId\":\"codex-current-source-review\",\"reviewedAt\":\"2026-09-13T22:24:56.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T22:24:56.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"216de7dc59a70041c5503c136b2d2337bb492d77b714a47d43d44ed94c93deb4\",\"sourceLedgerSha256\":\"e03a10cba9b761634a325882fe5cbc0b8705fa79a9f379df146a7029b93a199d\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "9448336036a4610d7384036e9ad6762387f2d3951ec102d1f9d317bc3c4923ab"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-f8fc17aa782f9dcd38b1d823",
+      "operationId": "SRCREV-3b8e9389f3bfbc2534ca292c",
+      "reviewedAttemptId": "SRCATT-69c853ea6cd4c98acb1e769d",
+      "reviewedSignalIdentitySha256": "3322ac027a8bfc306f12635a9b8975b5552f6b266a2c081cb8324f5527efc79b",
+      "reviewedSignalPayloadSha256": "3322ac027a8bfc306f12635a9b8975b5552f6b266a2c081cb8324f5527efc79b",
+      "resolutionRegistryPreimageSha256": "c3f4f03f75d9953e5e789ed331170813ddd97d2037c5477e21c8f69047844623",
+      "geo": "NG",
+      "sourceUrl": "https://nass.gov.ng/documents/download/11222#page=2",
+      "sourceRecord": {
+        "officialPublisher": "National Assembly of the Federal Republic of Nigeria",
+        "sourceOwnerGeo": "NG",
+        "appliesToGeos": [
+          "NG"
+        ],
+        "legalBasisForExtension": "Official National Assembly order paper for House business in Nigeria.",
+        "sourceType": "OFFICIAL_PARLIAMENTARY_ORDER_PAPER",
+        "primaryOrContext": "CONTEXT_BILL_STATUS",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "Page 2, entry 10.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "026cc8a87bc354ce3a933d6f6106e5aa86ff2975dc8fcd72a5cd285e9f679cdf",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "754a10897bb8002cb4696549efa5edb8c18a9a997a71ff3c8edfb49d7033948a",
+          "byteLength": 17,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "c1f2323d74137e159bf82ae6dfc30653540236d386f4f89b5ff2d0f3df1b8c03",
+          "byteLength": 471143,
+          "mediaType": "image/png",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/NG-nass-cannabis-medical-industrial-control-bill-first-reading-2025-11-12-current-2026-08-11.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-current-source-review",
+        "reviewedAt": "2026-09-13T22:24:57.000Z",
+        "visibleEvidenceScopes": [
+          "C2",
+          "C3"
+        ],
+        "visibility": {
+          "publisher": false,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": false,
+          "effective": false,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-13T22:24:57.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "e03a10cba9b761634a325882fe5cbc0b8705fa79a9f379df146a7029b93a199d",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "9448336036a4610d7384036e9ad6762387f2d3951ec102d1f9d317bc3c4923ab",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-cb74f22f0e4228901bfa8825",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-f8fc17aa782f9dcd38b1d823\",\"operationId\":\"SRCREV-3b8e9389f3bfbc2534ca292c\",\"reviewedAttemptId\":\"SRCATT-69c853ea6cd4c98acb1e769d\",\"reviewedSignalIdentitySha256\":\"3322ac027a8bfc306f12635a9b8975b5552f6b266a2c081cb8324f5527efc79b\",\"reviewedSignalPayloadSha256\":\"3322ac027a8bfc306f12635a9b8975b5552f6b266a2c081cb8324f5527efc79b\",\"resolutionRegistryPreimageSha256\":\"c3f4f03f75d9953e5e789ed331170813ddd97d2037c5477e21c8f69047844623\",\"geo\":\"NG\",\"sourceUrl\":\"https://nass.gov.ng/documents/download/11222#page=2\",\"sourceRecordSha256\":\"026cc8a87bc354ce3a933d6f6106e5aa86ff2975dc8fcd72a5cd285e9f679cdf\",\"exactFragmentSha256\":\"754a10897bb8002cb4696549efa5edb8c18a9a997a71ff3c8edfb49d7033948a\",\"visualArtifactSha256\":\"c1f2323d74137e159bf82ae6dfc30653540236d386f4f89b5ff2d0f3df1b8c03\",\"reviewSha256\":\"0aad61d3ffa6270efb77978a0d06281efa08ba8dffdab5d96244c4a4830617d4\",\"reviewerId\":\"codex-current-source-review\",\"reviewedAt\":\"2026-09-13T22:24:57.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T22:24:57.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"9448336036a4610d7384036e9ad6762387f2d3951ec102d1f9d317bc3c4923ab\",\"sourceLedgerSha256\":\"e03a10cba9b761634a325882fe5cbc0b8705fa79a9f379df146a7029b93a199d\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "b98a0910a4b0d7e8307dbd934087a417b6d9523e057ed4461096a45bb6664161"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-5e438aa1e1b257b78ef9a59a",
+      "operationId": "SRCREV-5648ad76459fdbb772e1012d",
+      "reviewedAttemptId": "SRCATT-66ea1190a5982d6e0ae1cbfc",
+      "reviewedSignalIdentitySha256": "7efbfe4e406195fcb6d76649ef861ef3925af4e9f3f54169d0d792dfce088242",
+      "reviewedSignalPayloadSha256": "7efbfe4e406195fcb6d76649ef861ef3925af4e9f3f54169d0d792dfce088242",
+      "resolutionRegistryPreimageSha256": "a4802ff08c41ea4a498e29aa8b749cf56063b3a9545b29f1622f2349f59d4864",
+      "geo": "SK",
+      "sourceUrl": "https://static.slov-lex.sk/pdf/SK/ZZ/2005/300/ZZ_2005_300_20260715.pdf",
+      "sourceRecord": {
+        "officialPublisher": "Slov-Lex / Collection of Laws of the Slovak Republic",
+        "sourceOwnerGeo": "SK",
+        "appliesToGeos": [
+          "SK"
+        ],
+        "legalBasisForExtension": "NATIONAL_STATUTE_OR_NATIONAL_MEDICINES_REGULATOR_APPLIES_TO_SLOVAK_REPUBLIC",
+        "sourceType": "CURRENT_PRIMARY_CRIMINAL_STATUTE_OFFICIAL_PDF",
+        "primaryOrContext": "PRIMARY",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "§171 makes unauthorised possession of cannabis, cannabis resin or a THC-containing psychotropic substance in a negligible quantity punishable by imprisonment up to one year. §172 makes unauthorised cultivation of Cannabis for personal consumption in a negligible quantity punishable by imprisonment up to six months.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "90d063230cf985ff31f1e1dcf0935be2d1d2f2ecb51f4a1765d228c52bfc9d6c",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "8fdc4e4a20fc5cd90a7d3848e1fb93465f679e7288ec7833628e2bca8a12a0e6",
+          "byteLength": 318,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "b5681a60f194a1f50c1678e0568d0d93be7337cbb9ea77f39286b3e4e5f5b0fe",
+          "byteLength": 323793,
+          "mediaType": "image/png",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/SK-slov-lex-criminal-171-172-current-2026-07-15.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-current-source-review",
+        "reviewedAt": "2026-09-13T22:24:57.000Z",
+        "visibleEvidenceScopes": [
+          "C2",
+          "C3"
+        ],
+        "visibility": {
+          "publisher": false,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": false,
+          "effective": false,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-13T22:24:57.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "e03a10cba9b761634a325882fe5cbc0b8705fa79a9f379df146a7029b93a199d",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "b98a0910a4b0d7e8307dbd934087a417b6d9523e057ed4461096a45bb6664161",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-c8f1cf25bf441609913dd9cf",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-5e438aa1e1b257b78ef9a59a\",\"operationId\":\"SRCREV-5648ad76459fdbb772e1012d\",\"reviewedAttemptId\":\"SRCATT-66ea1190a5982d6e0ae1cbfc\",\"reviewedSignalIdentitySha256\":\"7efbfe4e406195fcb6d76649ef861ef3925af4e9f3f54169d0d792dfce088242\",\"reviewedSignalPayloadSha256\":\"7efbfe4e406195fcb6d76649ef861ef3925af4e9f3f54169d0d792dfce088242\",\"resolutionRegistryPreimageSha256\":\"a4802ff08c41ea4a498e29aa8b749cf56063b3a9545b29f1622f2349f59d4864\",\"geo\":\"SK\",\"sourceUrl\":\"https://static.slov-lex.sk/pdf/SK/ZZ/2005/300/ZZ_2005_300_20260715.pdf\",\"sourceRecordSha256\":\"90d063230cf985ff31f1e1dcf0935be2d1d2f2ecb51f4a1765d228c52bfc9d6c\",\"exactFragmentSha256\":\"8fdc4e4a20fc5cd90a7d3848e1fb93465f679e7288ec7833628e2bca8a12a0e6\",\"visualArtifactSha256\":\"b5681a60f194a1f50c1678e0568d0d93be7337cbb9ea77f39286b3e4e5f5b0fe\",\"reviewSha256\":\"0aad61d3ffa6270efb77978a0d06281efa08ba8dffdab5d96244c4a4830617d4\",\"reviewerId\":\"codex-current-source-review\",\"reviewedAt\":\"2026-09-13T22:24:57.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T22:24:57.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"b98a0910a4b0d7e8307dbd934087a417b6d9523e057ed4461096a45bb6664161\",\"sourceLedgerSha256\":\"e03a10cba9b761634a325882fe5cbc0b8705fa79a9f379df146a7029b93a199d\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "8d60dca297a0d33de2a2e1453e1c46459076fcdaf5cb454a09c24b6059cd5a54"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-3a035bc5a2351ad9d492a5fb",
+      "operationId": "SRCREV-284f9dfe2a88bfd591fd5772",
+      "reviewedAttemptId": "SRCATT-8daec2d489a5ce365d0e08e2",
+      "reviewedSignalIdentitySha256": "ae70c77c74779e65ad28100ccac6d696b5963dce05cef12ca466cb2e53f5ca56",
+      "reviewedSignalPayloadSha256": "ae70c77c74779e65ad28100ccac6d696b5963dce05cef12ca466cb2e53f5ca56",
+      "resolutionRegistryPreimageSha256": "a02c2d6de1f9986d0e9e0858138e3442e1e13213432d0d9b99380cff0edfb6be",
+      "geo": "UZ",
+      "sourceUrl": "https://www.lex.uz/pdffile/3203272",
+      "sourceRecord": {
+        "officialPublisher": "SUPREME_COURT_OF_THE_REPUBLIC_OF_UZBEKISTAN",
+        "sourceOwnerGeo": "UZ",
+        "appliesToGeos": [
+          "UZ"
+        ],
+        "legalBasisForExtension": "DIRECT_UZBEKISTAN_SUPREME_COURT_NATIONAL_CRIMINAL_LAW_GUIDANCE",
+        "sourceType": "OFFICIAL_COURT_GUIDANCE",
+        "primaryOrContext": "CURRENT_LIST_I_APPLICABILITY_AND_SCOPE_CONFIRMATION",
+        "cannabisSpecific": "NOT_RECORDED",
+        "current": "NOT_RECORDED",
+        "effective": "NOT_RECORDED",
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "Paragraph 4 states that administrative and criminal liability for unlawful circulation applies to substances included in the Cabinet No. 330 lists and distinguishes List I, whose circulation is prohibited, from Lists II-IV, whose circulation is restricted.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "43e78227ebaf8a7715b033373ee781ed7ee2b5b26ff15814fe2cbc7255353a38",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "2a95cd887bd85504755b3d4e61c6d86b119c6c7f6faff7048f569a2b20df0f96",
+          "byteLength": 256,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "3a13b7bddb23d3ab0d820600c2fc8fcb00a1106069869e142ce3911c071f8edd",
+          "byteLength": 509974,
+          "mediaType": "image/png",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/UZ-supreme-court-list-i-applicability-current-2026-08-10.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-current-source-review",
+        "reviewedAt": "2026-09-13T22:24:58.000Z",
+        "visibleEvidenceScopes": [
+          "C2",
+          "C3"
+        ],
+        "visibility": {
+          "publisher": false,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": false,
+          "effective": false,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-13T22:24:58.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "e03a10cba9b761634a325882fe5cbc0b8705fa79a9f379df146a7029b93a199d",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "8d60dca297a0d33de2a2e1453e1c46459076fcdaf5cb454a09c24b6059cd5a54",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-f450253264cd81fcb0177565",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-3a035bc5a2351ad9d492a5fb\",\"operationId\":\"SRCREV-284f9dfe2a88bfd591fd5772\",\"reviewedAttemptId\":\"SRCATT-8daec2d489a5ce365d0e08e2\",\"reviewedSignalIdentitySha256\":\"ae70c77c74779e65ad28100ccac6d696b5963dce05cef12ca466cb2e53f5ca56\",\"reviewedSignalPayloadSha256\":\"ae70c77c74779e65ad28100ccac6d696b5963dce05cef12ca466cb2e53f5ca56\",\"resolutionRegistryPreimageSha256\":\"a02c2d6de1f9986d0e9e0858138e3442e1e13213432d0d9b99380cff0edfb6be\",\"geo\":\"UZ\",\"sourceUrl\":\"https://www.lex.uz/pdffile/3203272\",\"sourceRecordSha256\":\"43e78227ebaf8a7715b033373ee781ed7ee2b5b26ff15814fe2cbc7255353a38\",\"exactFragmentSha256\":\"2a95cd887bd85504755b3d4e61c6d86b119c6c7f6faff7048f569a2b20df0f96\",\"visualArtifactSha256\":\"3a13b7bddb23d3ab0d820600c2fc8fcb00a1106069869e142ce3911c071f8edd\",\"reviewSha256\":\"19b52685dfd50085497828d7f7041aa72230e33f91490a87fb2b06206887f74b\",\"reviewerId\":\"codex-current-source-review\",\"reviewedAt\":\"2026-09-13T22:24:58.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T22:24:58.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"8d60dca297a0d33de2a2e1453e1c46459076fcdaf5cb454a09c24b6059cd5a54\",\"sourceLedgerSha256\":\"e03a10cba9b761634a325882fe5cbc0b8705fa79a9f379df146a7029b93a199d\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "eb519c89e6fcea7f55ade880d03be0802119a57856deb329cf29e14f8af19aec"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-eafef2399c6221fe3bbd821e",
+      "operationId": "SRCREV-0c5b4991a546958cc40e79ea",
+      "reviewedAttemptId": "SRCATT-86e73286aee8d12b5b749d38",
+      "reviewedSignalIdentitySha256": "3d6f022794e9b3d19cc57b21594abd0a4063a1effeed6ae0e126714a9e9337fc",
+      "reviewedSignalPayloadSha256": "3d6f022794e9b3d19cc57b21594abd0a4063a1effeed6ae0e126714a9e9337fc",
+      "resolutionRegistryPreimageSha256": "940b587768b0fe3d6e47e68973aa9c9bab5f1afc08340ab596078624273cb324",
+      "geo": "UY",
+      "sourceUrl": "https://www.gub.uy/junta-nacional-drogas/sites/junta-nacional-drogas/files/documentos/publicaciones/Regulacion_mar2026.pdf",
+      "sourceRecord": {
+        "officialPublisher": "Junta Nacional de Drogas, Uruguay",
+        "sourceOwnerGeo": "UY",
+        "appliesToGeos": [
+          "UY"
+        ],
+        "legalBasisForExtension": "Direct national statute, regulation or national authority service applicable throughout Uruguay.",
+        "sourceType": "OFFICIAL_IMPLEMENTATION_EVALUATION_REPORT",
+        "primaryOrContext": "OPERATIONAL",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "Informe oficial marzo 2026, pág. 9: a diciembre de 2024 existían 74.583 adquirentes registrados; desde 2017 se han dispensado más de 15 toneladas de cannabis; tras once años Uruguay consolidó un mercado regulado efectivo.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "49e4cafa89062ee94df9112f8a07f059120440eb1c758e365a20ef7e945b921c",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "43752d471173ba72334fc92598c7724ea148095b5fe6863418668120b61e2eab",
+          "byteLength": 226,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "1342d882b7c0b19c9895d197d22a1136da6aeccce6cd150157e9545a8537d4ec",
+          "byteLength": 248016,
+          "mediaType": "image/png",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/UY-jnd-regulated-market-page9-current-2026-08-10.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-current-source-review",
+        "reviewedAt": "2026-09-13T22:24:58.000Z",
+        "visibleEvidenceScopes": [
+          "C2",
+          "C3"
+        ],
+        "visibility": {
+          "publisher": false,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": false,
+          "effective": false,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-13T22:24:58.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "e03a10cba9b761634a325882fe5cbc0b8705fa79a9f379df146a7029b93a199d",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "eb519c89e6fcea7f55ade880d03be0802119a57856deb329cf29e14f8af19aec",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-3def94c1770ffa78348df970",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-eafef2399c6221fe3bbd821e\",\"operationId\":\"SRCREV-0c5b4991a546958cc40e79ea\",\"reviewedAttemptId\":\"SRCATT-86e73286aee8d12b5b749d38\",\"reviewedSignalIdentitySha256\":\"3d6f022794e9b3d19cc57b21594abd0a4063a1effeed6ae0e126714a9e9337fc\",\"reviewedSignalPayloadSha256\":\"3d6f022794e9b3d19cc57b21594abd0a4063a1effeed6ae0e126714a9e9337fc\",\"resolutionRegistryPreimageSha256\":\"940b587768b0fe3d6e47e68973aa9c9bab5f1afc08340ab596078624273cb324\",\"geo\":\"UY\",\"sourceUrl\":\"https://www.gub.uy/junta-nacional-drogas/sites/junta-nacional-drogas/files/documentos/publicaciones/Regulacion_mar2026.pdf\",\"sourceRecordSha256\":\"49e4cafa89062ee94df9112f8a07f059120440eb1c758e365a20ef7e945b921c\",\"exactFragmentSha256\":\"43752d471173ba72334fc92598c7724ea148095b5fe6863418668120b61e2eab\",\"visualArtifactSha256\":\"1342d882b7c0b19c9895d197d22a1136da6aeccce6cd150157e9545a8537d4ec\",\"reviewSha256\":\"19b52685dfd50085497828d7f7041aa72230e33f91490a87fb2b06206887f74b\",\"reviewerId\":\"codex-current-source-review\",\"reviewedAt\":\"2026-09-13T22:24:58.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T22:24:58.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"eb519c89e6fcea7f55ade880d03be0802119a57856deb329cf29e14f8af19aec\",\"sourceLedgerSha256\":\"e03a10cba9b761634a325882fe5cbc0b8705fa79a9f379df146a7029b93a199d\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "af93a4d23786f6290fd31e174622708f370d42a421508a7ae52e1feec0d0fa68"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-8577683bbe657a4424622c25",
+      "operationId": "SRCREV-26f10070aaa08cfc90151277",
+      "reviewedAttemptId": "SRCATT-a1b5d95c406e60f8386d877b",
+      "reviewedSignalIdentitySha256": "255aef34e9bf66404323f6c6cfb0100e8b7d8b745f87b6b7d6027630c5d3913b",
+      "reviewedSignalPayloadSha256": "255aef34e9bf66404323f6c6cfb0100e8b7d8b745f87b6b7d6027630c5d3913b",
+      "resolutionRegistryPreimageSha256": "6ca1d4a0ff7414acb6b68c7d2793c93f165c90f4d826da9ccddeaa55c279b0f2",
+      "geo": "US-ND",
+      "sourceUrl": "https://ndlegis.gov/cencode/t19c24-1.pdf",
+      "sourceRecord": {
+        "officialPublisher": "North Dakota Legislative Branch",
+        "sourceOwnerGeo": "US-ND",
+        "appliesToGeos": [
+          "US-ND"
+        ],
+        "legalBasisForExtension": "DIRECT_NORTH_DAKOTA_STATE_STATUTE",
+        "sourceType": "PRIMARY_STATE_STATUTE",
+        "primaryOrContext": "PRIMARY_LAW",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "NDCC 19-24.1-02: The department shall establish and implement a medical marijuana program under this chapter to allow for production and processing, the sale and dispensing of usable marijuana, and medical use of marijuana. The same current chapter defines written certification as a health-care-provider form in a bona fide provider-patient relationship and requires a registry identification card for lawful qualifying-patient purchase, use or possession.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "8c1b0c3257afa91ddf483b3ce243b13abffa66e76cdb2e066463ab7b6db1db11",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "c010540ac3ce5222e47ead474b9155ffb86380ecf223eda5531848f24a00d563",
+          "byteLength": 457,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "0956e7613cf8db86ef1bb7d5ab18b698abd14a6a3691ffa10abbf4188ecd5ab2",
+          "byteLength": 207405,
+          "mediaType": "image/jpeg",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/US-ND-century-code-19-24-1-programme-registration-dispensing-historical-2026-08-02.jpeg",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-current-source-review",
+        "reviewedAt": "2026-09-13T22:24:59.000Z",
+        "visibleEvidenceScopes": [
+          "C2",
+          "C3"
+        ],
+        "visibility": {
+          "publisher": false,
+          "officialDomainText": true,
+          "exactFragment": false,
+          "scope": true,
+          "current": false,
+          "effective": false,
+          "geoApplicability": true,
+          "browserOrigin": true,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-13T22:24:59.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "e03a10cba9b761634a325882fe5cbc0b8705fa79a9f379df146a7029b93a199d",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "af93a4d23786f6290fd31e174622708f370d42a421508a7ae52e1feec0d0fa68",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-908125aef790df14380230b4",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-8577683bbe657a4424622c25\",\"operationId\":\"SRCREV-26f10070aaa08cfc90151277\",\"reviewedAttemptId\":\"SRCATT-a1b5d95c406e60f8386d877b\",\"reviewedSignalIdentitySha256\":\"255aef34e9bf66404323f6c6cfb0100e8b7d8b745f87b6b7d6027630c5d3913b\",\"reviewedSignalPayloadSha256\":\"255aef34e9bf66404323f6c6cfb0100e8b7d8b745f87b6b7d6027630c5d3913b\",\"resolutionRegistryPreimageSha256\":\"6ca1d4a0ff7414acb6b68c7d2793c93f165c90f4d826da9ccddeaa55c279b0f2\",\"geo\":\"US-ND\",\"sourceUrl\":\"https://ndlegis.gov/cencode/t19c24-1.pdf\",\"sourceRecordSha256\":\"8c1b0c3257afa91ddf483b3ce243b13abffa66e76cdb2e066463ab7b6db1db11\",\"exactFragmentSha256\":\"c010540ac3ce5222e47ead474b9155ffb86380ecf223eda5531848f24a00d563\",\"visualArtifactSha256\":\"0956e7613cf8db86ef1bb7d5ab18b698abd14a6a3691ffa10abbf4188ecd5ab2\",\"reviewSha256\":\"c5f828685774fe7cb23805ec7e17b705c3e8f48f6aab4917314c60ac09a939cf\",\"reviewerId\":\"codex-current-source-review\",\"reviewedAt\":\"2026-09-13T22:24:59.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T22:24:59.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"af93a4d23786f6290fd31e174622708f370d42a421508a7ae52e1feec0d0fa68\",\"sourceLedgerSha256\":\"e03a10cba9b761634a325882fe5cbc0b8705fa79a9f379df146a7029b93a199d\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "b15b88bcbd0a6a18901eae6770b655a07b3ec3c5644b3f5b10859b87319fb879"
     }
   ]
 }
