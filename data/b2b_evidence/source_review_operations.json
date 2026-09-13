@@ -52469,6 +52469,132 @@
       "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
       "resultingChangeReason": "SK_SUKL_SATIVEX_SPC_BYTE_STABLE_PARTIAL_COMPOSITION_INDICATION_C3_NOT_PROVEN",
       "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-b515d6527d72cd887097ad39",
+      "operationId": "SRCREV-4f5cb294df903db5b5c9e7a3",
+      "geo": "ZW",
+      "sourceUrl": "https://www.mcaz.co.zw/wp-content/uploads/2026/01/LED-FAQ-02-Rev-2-_-February-2025-MCAZ-Medicinal-Cannabis-FAQs-verified.pdf",
+      "resolvedAt": "2026-09-13T21:12:00.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-current-source-review",
+      "evidenceUrl": "https://www.mcaz.co.zw/wp-content/uploads/2026/01/LED-FAQ-02-Rev-2-_-February-2025-MCAZ-Medicinal-Cannabis-FAQs-verified.pdf",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "ZW",
+      "reviewedAttemptId": "SRCATT-8ff02d40dd4da80748c482c0",
+      "reviewedSignalIdentitySha256": "a3fe229916534464fa77285b0584bc41e32d0f04e8cd0f678d6eba7ddf7fa04a",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "26d7b6050fa149ba30cbadb8ab66e702a3cda3f3872a059b1d590974a7d3f8a2",
+      "note": "Two fresh exact URL reads on 2026-09-13 returned HTTP 200 with the retained raw final URL, exact 314280 bytes and SHA-256 3a3a68173b29aec1d0cc8f6ddc517bbf5223d7a91aff05f295fa9f7dfe086252. The retained artifact visibly shows MCAZ and Medicines Control Authority of Zimbabwe, LED-FAQ-02, Rev 2 February 2025, S.I. 62 of 2018 production for medicinal and scientific uses only, export-only production and local research-and-development use. It does not show the official domain, browser origin, the complete composite fragment including the CBD import-permit statement, a separate effective rule, or present currentness beyond the dated FAQ wording. This closes only the exact semantic review signal.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
+      "resultingChangeReason": "ZW_MCAZ_FAQ_BYTE_STABLE_PARTIAL_SCOPE_C3_NOT_PROVEN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-cea82f803766df28686aa79b",
+      "operationId": "SRCREV-7a21ce52237cf540d0a00b23",
+      "geo": "ZW",
+      "sourceUrl": "https://www.mcaz.co.zw/wp-content/uploads/2024/12/MCAZ-LED-GL-20-Rev-0_November-2024-Production-of-Cannabis-Guidelines.pdf",
+      "resolvedAt": "2026-09-13T21:12:01.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-current-source-review",
+      "evidenceUrl": "https://www.mcaz.co.zw/wp-content/uploads/2024/12/MCAZ-LED-GL-20-Rev-0_November-2024-Production-of-Cannabis-Guidelines.pdf",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "ZW",
+      "reviewedAttemptId": "SRCATT-e5f4679871c0282deadef980",
+      "reviewedSignalIdentitySha256": "4e5625a8f75b1f3d816ce7ab67450eb5fb7ef95d708fd5e0d9f5018719eb712e",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "c96610cdb7d6d60b6f4e7d7f203bb001f039a5c5ac71c50b1621313255f6bafa",
+      "note": "Two fresh exact URL reads on 2026-09-13 returned HTTP 200 with the retained raw final URL, exact 509743 bytes and SHA-256 e133ed07a8bb13f46aaf1347dd29d73e27f4c94b3f12ff86b88227b4c8295862. The retained title artifact visibly shows MCAZ and Medicines Control Authority of Zimbabwe, the medicinal-and-scientific cannabis-production scope, effective date 22 November 2024, www.mcaz.co.zw and Rev 0 November 2024. It does not show the complete composite fragment covering licence, written commencement authorisation and import-export processes, browser origin, or proof the guidance remains current now. This closes only the exact semantic review signal.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
+      "resultingChangeReason": "ZW_MCAZ_PRODUCTION_GUIDELINE_BYTE_STABLE_PARTIAL_TITLE_EFFECTIVE_C3_NOT_PROVEN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-56d4369eaf80309f1ef2d1b4",
+      "operationId": "SRCREV-d9db2a21eb2fda0f99cba4e3",
+      "geo": "DK",
+      "sourceUrl": "https://laegemiddelstyrelsen.dk/da/special/medicinsk-cannabis/ordningen-med-medicinsk-cannabis/",
+      "resolvedAt": "2026-09-13T21:12:02.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-current-source-review",
+      "evidenceUrl": "https://laegemiddelstyrelsen.dk/da/special/medicinsk-cannabis/ordningen-med-medicinsk-cannabis/",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "DK",
+      "reviewedAttemptId": "SRCATT-a3dc0622b903f4c1776d6a2a",
+      "reviewedSignalIdentitySha256": "8f740352574d62696e8955144bdd731855832182e3976a52a9bf7822db22d537",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "abdaa3223cb60e07252529af8242dd58169afa15c706242c5d4bbdd185e745ee",
+      "note": "Two fresh exact URL reads on 2026-09-13 returned HTTP 200 with the retained raw final URL including its trailing slash, exact 140344 decoded bytes and SHA-256 e65bcb46cb0c730975f68bb31253fe7b7c827710ef298e436e517925e0034c98. The retained artifact visibly shows the Danish medical-cannabis programme, page update 1 January 2026, the programme becoming permanent on that date, lawful patient treatment opportunity and explicit Denmark wording. It does not show the publisher identity, official domain, browser origin, or the exact English canonical fragment because that fragment is an editorial translation of visible Danish text. This closes only the exact semantic review signal.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
+      "resultingChangeReason": "DK_PERMANENT_MEDICAL_CANNABIS_PROGRAMME_BYTE_STABLE_PARTIAL_TRANSLATION_C3_NOT_PROVEN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-4a8862235740bffc1394df4d",
+      "operationId": "SRCREV-5395218bac9eee73a3a0bda0",
+      "geo": "DK",
+      "sourceUrl": "https://laegemiddelstyrelsen.dk/da/special/medicinsk-cannabis/ordningen-med-medicinsk-cannabis/apotekernes-rolle/",
+      "resolvedAt": "2026-09-13T21:12:03.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-current-source-review",
+      "evidenceUrl": "https://laegemiddelstyrelsen.dk/da/special/medicinsk-cannabis/ordningen-med-medicinsk-cannabis/apotekernes-rolle/",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "DK",
+      "reviewedAttemptId": "SRCATT-3bc0c58fc68bb25985831b5d",
+      "reviewedSignalIdentitySha256": "dd4a66298db81bcfa9b55e8504962113da1aff6c75c4e0c99b8cff32c75d24f6",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "127a3c4fb30d91393d8faa11952c8d76b1314398791a7f7475f6d274e27c0054",
+      "note": "Two fresh exact URL reads on 2026-09-13 returned HTTP 200 with the retained raw final URL including its trailing slash, exact 141026 decoded bytes and SHA-256 a4eb14ec82d89349fa1bcfeba0f7f5e71bc7810e71280a9cb36422d0fd25d762. The retained artifact visibly shows a 1 January 2026 page update and states that pharmacies and branches participate in the supply chain, receive and check cannabis-product prescriptions and dispense cannabis final products to patients. It does not show the publisher, official domain, browser origin, an explicit Denmark label, a separate legal effective date, or the exact English canonical fragment because that fragment is an editorial translation. This closes only the exact semantic review signal.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
+      "resultingChangeReason": "DK_PHARMACY_DISPENSING_BYTE_STABLE_PARTIAL_TRANSLATION_C3_NOT_PROVEN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-a833d0c0219392f00d80b8f9",
+      "operationId": "SRCREV-a8dca51d6d904cd87a0d7477",
+      "geo": "PY",
+      "sourceUrl": "https://senad.gov.py/wp-content/uploads/2025/07/DECRETO_N_9303.pdf",
+      "resolvedAt": "2026-09-13T21:12:04.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-current-source-review",
+      "evidenceUrl": "https://senad.gov.py/wp-content/uploads/2025/07/DECRETO_N_9303.pdf",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "PY",
+      "reviewedAttemptId": "SRCATT-38278487d20eb2378ff6b9ee",
+      "reviewedSignalIdentitySha256": "2da7289ad82afe6a18b0807eae6924221033683c76b4ab153097c080f5f6d41f",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "264d9f7f06a6bdbf7afa1905ab1950df639ca275c455ef78afd2e5198976ee70",
+      "note": "Two fresh exact URL reads on 2026-09-13 returned HTTP 200 with the retained raw final URL, exact 925538 bytes and SHA-256 2ad769135de930c6d96969fb834104c4992f16310fa88d91f0219d841089d58a. The bound artifact visibly shows the Presidency of the Republic of Paraguay, Ministry of Public Health, Decree 9303, the national medicinal-cannabis programme title and Articles 22 to 23 on registered access and users; a separately reviewed companion crop shows Article 24 dispensing. The bound artifact does not show the official domain, browser origin, the entire composite canonical fragment in one exact image, or independent present current and effective state. This closes only the exact semantic review signal.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
+      "resultingChangeReason": "PY_DECREE_9303_BYTE_STABLE_PARTIAL_ACCESS_SCOPE_C3_NOT_PROVEN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-50e9f84da8012e17b05f3d7b",
+      "operationId": "SRCREV-d57689cfc75d1a7c42c61b8b",
+      "geo": "PY",
+      "sourceUrl": "https://dinavisa.gov.py/wp-content/uploads/2026/03/Memoria-2025.pdf",
+      "resolvedAt": "2026-09-13T21:12:05.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-current-source-review",
+      "evidenceUrl": "https://dinavisa.gov.py/wp-content/uploads/2026/03/Memoria-2025.pdf",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "PY",
+      "reviewedAttemptId": "SRCATT-a8b037990039e089c0f895ec",
+      "reviewedSignalIdentitySha256": "5ba05e77f09b17d5c0314474404d5af2c840157400cf9d66d61c85860de6e2e3",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "6102ee4360c55d82bf6eca8e5a0e3441572156f4f9d4b5dea3910513e8f2bd20",
+      "note": "Two fresh exact URL reads on 2026-09-13 returned HTTP 200 with the retained raw final URL, exact 7064117 bytes and SHA-256 113f33dc9ae3fa9fe34b79f8419f79178e10106be75232ff667a83bfec7e095d. The retained artifact visibly shows DINAVISA Exercise 2025, the PROINCUMEC medicinal-cannabis programme and reported counts of 291 registered patients, 21 registered physicians and 999 products received during 2025, including the Decree 9303 of 2018 context. It does not show the official domain, browser origin, an explicit Paraguay label in the crop, present current or effective state, or the exact English canonical fragment because that fragment is an editorial translation. This closes only the exact semantic review signal.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
+      "resultingChangeReason": "PY_DINAVISA_2025_REPORT_BYTE_STABLE_PARTIAL_OPERATIONAL_COUNTS_C3_NOT_PROVEN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
     }
   ],
   "attempts": [
@@ -189265,6 +189391,498 @@
       "attestationId": "SRCEVT-d56fb2f891aa3e1267168015",
       "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-ba685c1720925053c7909158\",\"operationId\":\"SRCREV-6fe217459cdc542c59afd1c0\",\"reviewedAttemptId\":\"SRCATT-d27f223abcdfa6dfad59968a\",\"reviewedSignalIdentitySha256\":\"9215c3ad1e3215cd1d1dd2719d9069c003f48ca465ede1198abb870ec0e2b452\",\"reviewedSignalPayloadSha256\":\"9215c3ad1e3215cd1d1dd2719d9069c003f48ca465ede1198abb870ec0e2b452\",\"resolutionRegistryPreimageSha256\":\"4c5cc888258d5124fbc4254ae7a2a0d95a362048dc03fbcc5737eb3d995943f8\",\"geo\":\"SK\",\"sourceUrl\":\"https://www.sukl.sk/document/download?dok_id=898868&dok_sec=9f624fbae5865aa202d796902f2e66c4\",\"sourceRecordSha256\":\"dfe3221425f1edc83c4fb0a58b9e2b057d51c1232564fab33bf143e068fef0df\",\"exactFragmentSha256\":\"c1b49d30beab6e7a3668bbd08bb39ddc126cd7242250da0fa05665c39fb7b137\",\"visualArtifactSha256\":\"0c01599879e83034ec0fbb73a151c2f7dc45aa78ef2118e09e6fbd68d912903f\",\"reviewSha256\":\"4863b8996076abbfa9790f10d7bca32f6c41635e97638594ad75440012d332a7\",\"reviewerId\":\"codex-current-source-review\",\"reviewedAt\":\"2026-09-13T20:47:24.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T20:47:24.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"4292638593fcbbddcb2382c3e9b68473965dbbc0031ee6b47dcf2d2687fc87bb\",\"sourceLedgerSha256\":\"f1005227a244aacea61c980537570fdac7492da2b7cac389259c0e913cd6e75c\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
       "attestationSha256": "26e333e4c7c84e043f015a763341f07ef715c477f55ab3876dfd47a73ec14b4c"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-b515d6527d72cd887097ad39",
+      "operationId": "SRCREV-4f5cb294df903db5b5c9e7a3",
+      "reviewedAttemptId": "SRCATT-8ff02d40dd4da80748c482c0",
+      "reviewedSignalIdentitySha256": "a3fe229916534464fa77285b0584bc41e32d0f04e8cd0f678d6eba7ddf7fa04a",
+      "reviewedSignalPayloadSha256": "a3fe229916534464fa77285b0584bc41e32d0f04e8cd0f678d6eba7ddf7fa04a",
+      "resolutionRegistryPreimageSha256": "26d7b6050fa149ba30cbadb8ab66e702a3cda3f3872a059b1d590974a7d3f8a2",
+      "geo": "ZW",
+      "sourceUrl": "https://www.mcaz.co.zw/wp-content/uploads/2026/01/LED-FAQ-02-Rev-2-_-February-2025-MCAZ-Medicinal-Cannabis-FAQs-verified.pdf",
+      "sourceRecord": {
+        "officialPublisher": "Medicines Control Authority of Zimbabwe (MCAZ)",
+        "sourceOwnerGeo": "ZW",
+        "appliesToGeos": [
+          "ZW"
+        ],
+        "legalBasisForExtension": "Zimbabwe national legislation or MCAZ national regulatory authority; direct territorial applicability.",
+        "sourceType": "OFFICIAL_REGULATOR_FAQ_PDF",
+        "primaryOrContext": "DIRECT_OFFICIAL_OPERATIONAL_EVIDENCE",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "\"The S.I. 62 of 2018 legalized production of Cannabis for Medicinal and Scientific Uses only\"; \"The medicinal cannabis produced is currently for export purposes only\"; \"Local use ... can only be in the form of research and development\"; \"MCAZ allows importation of only registered CBD-containing medicinal products through an import permit issued in terms of SI 57 of 2008.\"",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "5009807e855a16a82f5a4cc51cc04540268836d6e35e3297d1a48e027692ed70",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "d6e8e6acb424e5f34779ad30bfb394d3a18b176c704ee30b3ffc7f1d2c891281",
+          "byteLength": 374,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "1cd5a4e7278a06674ae36565ae6e40a36bba48516a5614d33923274d2d5b0979",
+          "byteLength": 344340,
+          "mediaType": "image/png",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/ZW-mcaz-cannabis-licensing-faq-2025-current-2026-08-10-1.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-current-source-review",
+        "reviewedAt": "2026-09-13T21:12:00.000Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": true,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": false,
+          "effective": false,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-13T21:12:00.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "6c702482f53208719c5d0b8ceb517a53c4ca961a6f301acfabcc96191e4739ec",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "26e333e4c7c84e043f015a763341f07ef715c477f55ab3876dfd47a73ec14b4c",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-65dfe909dc40753031f30be3",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-b515d6527d72cd887097ad39\",\"operationId\":\"SRCREV-4f5cb294df903db5b5c9e7a3\",\"reviewedAttemptId\":\"SRCATT-8ff02d40dd4da80748c482c0\",\"reviewedSignalIdentitySha256\":\"a3fe229916534464fa77285b0584bc41e32d0f04e8cd0f678d6eba7ddf7fa04a\",\"reviewedSignalPayloadSha256\":\"a3fe229916534464fa77285b0584bc41e32d0f04e8cd0f678d6eba7ddf7fa04a\",\"resolutionRegistryPreimageSha256\":\"26d7b6050fa149ba30cbadb8ab66e702a3cda3f3872a059b1d590974a7d3f8a2\",\"geo\":\"ZW\",\"sourceUrl\":\"https://www.mcaz.co.zw/wp-content/uploads/2026/01/LED-FAQ-02-Rev-2-_-February-2025-MCAZ-Medicinal-Cannabis-FAQs-verified.pdf\",\"sourceRecordSha256\":\"5009807e855a16a82f5a4cc51cc04540268836d6e35e3297d1a48e027692ed70\",\"exactFragmentSha256\":\"d6e8e6acb424e5f34779ad30bfb394d3a18b176c704ee30b3ffc7f1d2c891281\",\"visualArtifactSha256\":\"1cd5a4e7278a06674ae36565ae6e40a36bba48516a5614d33923274d2d5b0979\",\"reviewSha256\":\"cb1a3520c0d0726493593e7a95a2af36ecfe1f73fca451272e363b48056f3bc4\",\"reviewerId\":\"codex-current-source-review\",\"reviewedAt\":\"2026-09-13T21:12:00.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T21:12:00.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"26e333e4c7c84e043f015a763341f07ef715c477f55ab3876dfd47a73ec14b4c\",\"sourceLedgerSha256\":\"6c702482f53208719c5d0b8ceb517a53c4ca961a6f301acfabcc96191e4739ec\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "4adfdb0646ac5718ff02b55800456aa2f77132b78a382229237483d03cdfe88e"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-cea82f803766df28686aa79b",
+      "operationId": "SRCREV-7a21ce52237cf540d0a00b23",
+      "reviewedAttemptId": "SRCATT-e5f4679871c0282deadef980",
+      "reviewedSignalIdentitySha256": "4e5625a8f75b1f3d816ce7ab67450eb5fb7ef95d708fd5e0d9f5018719eb712e",
+      "reviewedSignalPayloadSha256": "4e5625a8f75b1f3d816ce7ab67450eb5fb7ef95d708fd5e0d9f5018719eb712e",
+      "resolutionRegistryPreimageSha256": "c96610cdb7d6d60b6f4e7d7f203bb001f039a5c5ac71c50b1621313255f6bafa",
+      "geo": "ZW",
+      "sourceUrl": "https://www.mcaz.co.zw/wp-content/uploads/2024/12/MCAZ-LED-GL-20-Rev-0_November-2024-Production-of-Cannabis-Guidelines.pdf",
+      "sourceRecord": {
+        "officialPublisher": "Medicines Control Authority of Zimbabwe (MCAZ)",
+        "sourceOwnerGeo": "ZW",
+        "appliesToGeos": [
+          "ZW"
+        ],
+        "legalBasisForExtension": "Zimbabwe national legislation or MCAZ national regulatory authority; direct territorial applicability.",
+        "sourceType": "OFFICIAL_REGULATOR_GUIDANCE_PDF",
+        "primaryOrContext": "OFFICIAL_POLICY_GUIDANCE",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "\"These guidelines apply to the production of cannabis intended for medicinal or scientific purposes\" and describe production-licence, written commencement authorisation and licensee import/export processes.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "fafc295c35f0918d43033ad32873c746b024630e03c89ffeeb35cc00f07304f6",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "bac10d6186588d789c1b07d14654eb10ece8b4f2c95dfb0125305a31e0ec6f98",
+          "byteLength": 206,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "7b6222848b9e0ae8a45299fa055b36bcd166b4e00856f0e410751560ab1a475b",
+          "byteLength": 54904,
+          "mediaType": "image/png",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/ZW-mcaz-production-guideline-2024-current-2026-08-10-01.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-current-source-review",
+        "reviewedAt": "2026-09-13T21:12:01.000Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": true,
+          "officialDomainText": true,
+          "exactFragment": false,
+          "scope": true,
+          "current": false,
+          "effective": true,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-13T21:12:01.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "6c702482f53208719c5d0b8ceb517a53c4ca961a6f301acfabcc96191e4739ec",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "4adfdb0646ac5718ff02b55800456aa2f77132b78a382229237483d03cdfe88e",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-241a24d012af3cfffd1e1172",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-cea82f803766df28686aa79b\",\"operationId\":\"SRCREV-7a21ce52237cf540d0a00b23\",\"reviewedAttemptId\":\"SRCATT-e5f4679871c0282deadef980\",\"reviewedSignalIdentitySha256\":\"4e5625a8f75b1f3d816ce7ab67450eb5fb7ef95d708fd5e0d9f5018719eb712e\",\"reviewedSignalPayloadSha256\":\"4e5625a8f75b1f3d816ce7ab67450eb5fb7ef95d708fd5e0d9f5018719eb712e\",\"resolutionRegistryPreimageSha256\":\"c96610cdb7d6d60b6f4e7d7f203bb001f039a5c5ac71c50b1621313255f6bafa\",\"geo\":\"ZW\",\"sourceUrl\":\"https://www.mcaz.co.zw/wp-content/uploads/2024/12/MCAZ-LED-GL-20-Rev-0_November-2024-Production-of-Cannabis-Guidelines.pdf\",\"sourceRecordSha256\":\"fafc295c35f0918d43033ad32873c746b024630e03c89ffeeb35cc00f07304f6\",\"exactFragmentSha256\":\"bac10d6186588d789c1b07d14654eb10ece8b4f2c95dfb0125305a31e0ec6f98\",\"visualArtifactSha256\":\"7b6222848b9e0ae8a45299fa055b36bcd166b4e00856f0e410751560ab1a475b\",\"reviewSha256\":\"a0c74b34561f1ca1cca5fb5aa17b272802bf0293d5663d9b25ae3d544729cd52\",\"reviewerId\":\"codex-current-source-review\",\"reviewedAt\":\"2026-09-13T21:12:01.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T21:12:01.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"4adfdb0646ac5718ff02b55800456aa2f77132b78a382229237483d03cdfe88e\",\"sourceLedgerSha256\":\"6c702482f53208719c5d0b8ceb517a53c4ca961a6f301acfabcc96191e4739ec\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "ed88d3b650ab342256eceabf7b1a8be3f72dcc23d2eb944bbf14be212489b98a"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-56d4369eaf80309f1ef2d1b4",
+      "operationId": "SRCREV-d9db2a21eb2fda0f99cba4e3",
+      "reviewedAttemptId": "SRCATT-a3dc0622b903f4c1776d6a2a",
+      "reviewedSignalIdentitySha256": "8f740352574d62696e8955144bdd731855832182e3976a52a9bf7822db22d537",
+      "reviewedSignalPayloadSha256": "8f740352574d62696e8955144bdd731855832182e3976a52a9bf7822db22d537",
+      "resolutionRegistryPreimageSha256": "abdaa3223cb60e07252529af8242dd58169afa15c706242c5d4bbdd185e745ee",
+      "geo": "DK",
+      "sourceUrl": "https://laegemiddelstyrelsen.dk/da/special/medicinsk-cannabis/ordningen-med-medicinsk-cannabis/",
+      "sourceRecord": {
+        "officialPublisher": "Danish Medicines Agency",
+        "sourceOwnerGeo": "DK",
+        "appliesToGeos": [
+          "DK"
+        ],
+        "legalBasisForExtension": "Danish Medicines Agency programme applies nationally in Denmark.",
+        "sourceType": "OFFICIAL_REGULATOR_PERMANENT_PATIENT_PROGRAMME",
+        "primaryOrContext": "OPERATIONAL",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "The scheme became permanent on 1 January 2026; it lets doctors prescribe a new type of cannabis products and gives patients a lawful opportunity to try treatment with medicinal cannabis.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "bd055e84b11ea5edc9bbd44f70b7f2bf7981f916b54ed933d4e1e26373dcc303",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "cc2f3f8e846120ad39ce8fffa036dda4f942bafd7c10072bfc435f9ffd55838f",
+          "byteLength": 186,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "e6744b6ad0055537d7bd3f9d79f54f6bcae74365a9aecc198f3e28056664caf3",
+          "byteLength": 144084,
+          "mediaType": "image/png",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/DK-medicines-agency-permanent-programme-current-2026-08-09.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-current-source-review",
+        "reviewedAt": "2026-09-13T21:12:02.000Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": false,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": true,
+          "effective": true,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-13T21:12:02.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "6c702482f53208719c5d0b8ceb517a53c4ca961a6f301acfabcc96191e4739ec",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "ed88d3b650ab342256eceabf7b1a8be3f72dcc23d2eb944bbf14be212489b98a",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-815e83db8c0f592754c1599b",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-56d4369eaf80309f1ef2d1b4\",\"operationId\":\"SRCREV-d9db2a21eb2fda0f99cba4e3\",\"reviewedAttemptId\":\"SRCATT-a3dc0622b903f4c1776d6a2a\",\"reviewedSignalIdentitySha256\":\"8f740352574d62696e8955144bdd731855832182e3976a52a9bf7822db22d537\",\"reviewedSignalPayloadSha256\":\"8f740352574d62696e8955144bdd731855832182e3976a52a9bf7822db22d537\",\"resolutionRegistryPreimageSha256\":\"abdaa3223cb60e07252529af8242dd58169afa15c706242c5d4bbdd185e745ee\",\"geo\":\"DK\",\"sourceUrl\":\"https://laegemiddelstyrelsen.dk/da/special/medicinsk-cannabis/ordningen-med-medicinsk-cannabis/\",\"sourceRecordSha256\":\"bd055e84b11ea5edc9bbd44f70b7f2bf7981f916b54ed933d4e1e26373dcc303\",\"exactFragmentSha256\":\"cc2f3f8e846120ad39ce8fffa036dda4f942bafd7c10072bfc435f9ffd55838f\",\"visualArtifactSha256\":\"e6744b6ad0055537d7bd3f9d79f54f6bcae74365a9aecc198f3e28056664caf3\",\"reviewSha256\":\"fa7a6889277185a7fe7103aa532de8335ac3a3b546f0ebab40ab30b2d594d1e4\",\"reviewerId\":\"codex-current-source-review\",\"reviewedAt\":\"2026-09-13T21:12:02.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T21:12:02.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"ed88d3b650ab342256eceabf7b1a8be3f72dcc23d2eb944bbf14be212489b98a\",\"sourceLedgerSha256\":\"6c702482f53208719c5d0b8ceb517a53c4ca961a6f301acfabcc96191e4739ec\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "f5104aae8a0e61940193d96d35343a7f1e8a31b9d996edbf6a466dc1b55a9816"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-4a8862235740bffc1394df4d",
+      "operationId": "SRCREV-5395218bac9eee73a3a0bda0",
+      "reviewedAttemptId": "SRCATT-3bc0c58fc68bb25985831b5d",
+      "reviewedSignalIdentitySha256": "dd4a66298db81bcfa9b55e8504962113da1aff6c75c4e0c99b8cff32c75d24f6",
+      "reviewedSignalPayloadSha256": "dd4a66298db81bcfa9b55e8504962113da1aff6c75c4e0c99b8cff32c75d24f6",
+      "resolutionRegistryPreimageSha256": "127a3c4fb30d91393d8faa11952c8d76b1314398791a7f7475f6d274e27c0054",
+      "geo": "DK",
+      "sourceUrl": "https://laegemiddelstyrelsen.dk/da/special/medicinsk-cannabis/ordningen-med-medicinsk-cannabis/apotekernes-rolle/",
+      "sourceRecord": {
+        "officialPublisher": "Danish Medicines Agency",
+        "sourceOwnerGeo": "DK",
+        "appliesToGeos": [
+          "DK"
+        ],
+        "legalBasisForExtension": "Danish Medicines Agency guidance applies to pharmacies participating in the national medicinal-cannabis programme.",
+        "sourceType": "OFFICIAL_REGULATOR_OPERATIONAL_PHARMACY_SUPPLY",
+        "primaryOrContext": "OPERATIONAL",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "Updated 1 January 2026: pharmacies and pharmacy branches are part of the supply chain, receive and check prescriptions, and dispense cannabis final products to patients.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "0338ae3cf27791528b5d92bf591e82275db6e70670cc2c2b16e4e353a15c67e3",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "1d3c55104eaf6c854fba14a7e500b2da16c3dc04271100303a3bbea9150fceb1",
+          "byteLength": 169,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "7e7663d249463f50100b4b68fc45363d1c797c4cf1076c548f217bae5cfc5ab7",
+          "byteLength": 126433,
+          "mediaType": "image/png",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/DK-medicines-agency-pharmacy-dispensing-current-2026-08-09.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-current-source-review",
+        "reviewedAt": "2026-09-13T21:12:03.000Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": false,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": true,
+          "effective": false,
+          "geoApplicability": false,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-13T21:12:03.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "6c702482f53208719c5d0b8ceb517a53c4ca961a6f301acfabcc96191e4739ec",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "f5104aae8a0e61940193d96d35343a7f1e8a31b9d996edbf6a466dc1b55a9816",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-e0257f2071886bd1de0e0b5c",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-4a8862235740bffc1394df4d\",\"operationId\":\"SRCREV-5395218bac9eee73a3a0bda0\",\"reviewedAttemptId\":\"SRCATT-3bc0c58fc68bb25985831b5d\",\"reviewedSignalIdentitySha256\":\"dd4a66298db81bcfa9b55e8504962113da1aff6c75c4e0c99b8cff32c75d24f6\",\"reviewedSignalPayloadSha256\":\"dd4a66298db81bcfa9b55e8504962113da1aff6c75c4e0c99b8cff32c75d24f6\",\"resolutionRegistryPreimageSha256\":\"127a3c4fb30d91393d8faa11952c8d76b1314398791a7f7475f6d274e27c0054\",\"geo\":\"DK\",\"sourceUrl\":\"https://laegemiddelstyrelsen.dk/da/special/medicinsk-cannabis/ordningen-med-medicinsk-cannabis/apotekernes-rolle/\",\"sourceRecordSha256\":\"0338ae3cf27791528b5d92bf591e82275db6e70670cc2c2b16e4e353a15c67e3\",\"exactFragmentSha256\":\"1d3c55104eaf6c854fba14a7e500b2da16c3dc04271100303a3bbea9150fceb1\",\"visualArtifactSha256\":\"7e7663d249463f50100b4b68fc45363d1c797c4cf1076c548f217bae5cfc5ab7\",\"reviewSha256\":\"6ce8184a56565a3c8dacedaf647e574982e14cb79c3c73d5306fe9b54d670592\",\"reviewerId\":\"codex-current-source-review\",\"reviewedAt\":\"2026-09-13T21:12:03.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T21:12:03.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"f5104aae8a0e61940193d96d35343a7f1e8a31b9d996edbf6a466dc1b55a9816\",\"sourceLedgerSha256\":\"6c702482f53208719c5d0b8ceb517a53c4ca961a6f301acfabcc96191e4739ec\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "ad1610e0fc2266dd9593aa268b24481f5cfc9a9dd9845755e35e0710fb143597"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-a833d0c0219392f00d80b8f9",
+      "operationId": "SRCREV-a8dca51d6d904cd87a0d7477",
+      "reviewedAttemptId": "SRCATT-38278487d20eb2378ff6b9ee",
+      "reviewedSignalIdentitySha256": "2da7289ad82afe6a18b0807eae6924221033683c76b4ab153097c080f5f6d41f",
+      "reviewedSignalPayloadSha256": "2da7289ad82afe6a18b0807eae6924221033683c76b4ab153097c080f5f6d41f",
+      "resolutionRegistryPreimageSha256": "264d9f7f06a6bdbf7afa1905ab1950df639ca275c455ef78afd2e5198976ee70",
+      "geo": "PY",
+      "sourceUrl": "https://senad.gov.py/wp-content/uploads/2025/07/DECRETO_N_9303.pdf",
+      "sourceRecord": {
+        "officialPublisher": "Presidencia de la República del Paraguay / Ministerio de Salud Pública y Bienestar Social; official current PDF hosted by Secretaría Nacional Antidrogas (SENAD)",
+        "sourceOwnerGeo": "PY",
+        "appliesToGeos": [
+          "PY"
+        ],
+        "legalBasisForExtension": "Direct national Paraguayan law or nationally applicable Paraguayan executive/regulator material.",
+        "sourceType": "NATIONAL_EXECUTIVE_REGULATION_PDF",
+        "primaryOrContext": "PRIMARY",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "Arts. 22-24: the programme provides cannabis oil and derivatives free of charge to people in the National Registry; a patient enters the registry with the relevant condition and medical prescription; dispensing occurs after registry verification and in the amount stated in the prescription.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "0b18a07ac19630e71ed3846d2bea3d912c58c65d0b1de2dc030d07dc82893219",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "1febe850b978421d0ec26012da53498a7a91476f8de21641e195d17137bfdecc",
+          "byteLength": 291,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "aabeb05a6354a0c9bdc015b0d2475934e6810e48dbe16307b6114e2a9440e7ba",
+          "byteLength": 119489,
+          "mediaType": "image/png",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/PY-decree-9303-access-registry-current-2026-08-10.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-current-source-review",
+        "reviewedAt": "2026-09-13T21:12:04.000Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": true,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": false,
+          "effective": false,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-13T21:12:04.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "6c702482f53208719c5d0b8ceb517a53c4ca961a6f301acfabcc96191e4739ec",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "ad1610e0fc2266dd9593aa268b24481f5cfc9a9dd9845755e35e0710fb143597",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-2d22197013646fe082a0792a",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-a833d0c0219392f00d80b8f9\",\"operationId\":\"SRCREV-a8dca51d6d904cd87a0d7477\",\"reviewedAttemptId\":\"SRCATT-38278487d20eb2378ff6b9ee\",\"reviewedSignalIdentitySha256\":\"2da7289ad82afe6a18b0807eae6924221033683c76b4ab153097c080f5f6d41f\",\"reviewedSignalPayloadSha256\":\"2da7289ad82afe6a18b0807eae6924221033683c76b4ab153097c080f5f6d41f\",\"resolutionRegistryPreimageSha256\":\"264d9f7f06a6bdbf7afa1905ab1950df639ca275c455ef78afd2e5198976ee70\",\"geo\":\"PY\",\"sourceUrl\":\"https://senad.gov.py/wp-content/uploads/2025/07/DECRETO_N_9303.pdf\",\"sourceRecordSha256\":\"0b18a07ac19630e71ed3846d2bea3d912c58c65d0b1de2dc030d07dc82893219\",\"exactFragmentSha256\":\"1febe850b978421d0ec26012da53498a7a91476f8de21641e195d17137bfdecc\",\"visualArtifactSha256\":\"aabeb05a6354a0c9bdc015b0d2475934e6810e48dbe16307b6114e2a9440e7ba\",\"reviewSha256\":\"6235b767abe8d1ee533af00f08ab8e8922cbdfb61ff6080aa954eea48a3cf30e\",\"reviewerId\":\"codex-current-source-review\",\"reviewedAt\":\"2026-09-13T21:12:04.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T21:12:04.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"ad1610e0fc2266dd9593aa268b24481f5cfc9a9dd9845755e35e0710fb143597\",\"sourceLedgerSha256\":\"6c702482f53208719c5d0b8ceb517a53c4ca961a6f301acfabcc96191e4739ec\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "9591286bf15db53cbbbf0236ee441677f5ffa2fc55fac40f2044b51ff62efcf2"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-50e9f84da8012e17b05f3d7b",
+      "operationId": "SRCREV-d57689cfc75d1a7c42c61b8b",
+      "reviewedAttemptId": "SRCATT-a8b037990039e089c0f895ec",
+      "reviewedSignalIdentitySha256": "5ba05e77f09b17d5c0314474404d5af2c840157400cf9d66d61c85860de6e2e3",
+      "reviewedSignalPayloadSha256": "5ba05e77f09b17d5c0314474404d5af2c840157400cf9d66d61c85860de6e2e3",
+      "resolutionRegistryPreimageSha256": "6102ee4360c55d82bf6eca8e5a0e3441572156f4f9d4b5dea3910513e8f2bd20",
+      "geo": "PY",
+      "sourceUrl": "https://dinavisa.gov.py/wp-content/uploads/2026/03/Memoria-2025.pdf",
+      "sourceRecord": {
+        "officialPublisher": "Dirección Nacional de Vigilancia Sanitaria (DINAVISA), Paraguay",
+        "sourceOwnerGeo": "PY",
+        "appliesToGeos": [
+          "PY"
+        ],
+        "legalBasisForExtension": "Direct national Paraguayan law or nationally applicable Paraguayan executive/regulator material.",
+        "sourceType": "OFFICIAL_REGULATOR_ANNUAL_OPERATIONAL_REPORT_PDF",
+        "primaryOrContext": "PRIMARY",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "The 2025 report states that 291 people were enrolled in the National Registry, 21 medical professionals were registered, and 999 products were received in 2025 through the Decreto 9303 donation mechanism.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "630679c1a11cf96ef5aafab0d92feb805f2d05051f251f41330469b925713bf8",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "14c6699f978745d6962929fb0d5e6251e8a0eb7c2acf662c441bb85581b446df",
+          "byteLength": 204,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "a85e2af828b66fa4f002454031ebb9fd428757eb591a9354f2255404965937b0",
+          "byteLength": 823687,
+          "mediaType": "image/png",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/PY-dinavisa-2025-proincumec-current-2026-08-10.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-current-source-review",
+        "reviewedAt": "2026-09-13T21:12:05.000Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": true,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": false,
+          "effective": false,
+          "geoApplicability": false,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-13T21:12:05.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "6c702482f53208719c5d0b8ceb517a53c4ca961a6f301acfabcc96191e4739ec",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "9591286bf15db53cbbbf0236ee441677f5ffa2fc55fac40f2044b51ff62efcf2",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-e1c161a98c61967d78d80f7b",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-50e9f84da8012e17b05f3d7b\",\"operationId\":\"SRCREV-d57689cfc75d1a7c42c61b8b\",\"reviewedAttemptId\":\"SRCATT-a8b037990039e089c0f895ec\",\"reviewedSignalIdentitySha256\":\"5ba05e77f09b17d5c0314474404d5af2c840157400cf9d66d61c85860de6e2e3\",\"reviewedSignalPayloadSha256\":\"5ba05e77f09b17d5c0314474404d5af2c840157400cf9d66d61c85860de6e2e3\",\"resolutionRegistryPreimageSha256\":\"6102ee4360c55d82bf6eca8e5a0e3441572156f4f9d4b5dea3910513e8f2bd20\",\"geo\":\"PY\",\"sourceUrl\":\"https://dinavisa.gov.py/wp-content/uploads/2026/03/Memoria-2025.pdf\",\"sourceRecordSha256\":\"630679c1a11cf96ef5aafab0d92feb805f2d05051f251f41330469b925713bf8\",\"exactFragmentSha256\":\"14c6699f978745d6962929fb0d5e6251e8a0eb7c2acf662c441bb85581b446df\",\"visualArtifactSha256\":\"a85e2af828b66fa4f002454031ebb9fd428757eb591a9354f2255404965937b0\",\"reviewSha256\":\"d804669535a223040962b6f98e1178b9784e972a5ede6e15c937c9747482fc52\",\"reviewerId\":\"codex-current-source-review\",\"reviewedAt\":\"2026-09-13T21:12:05.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T21:12:05.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"9591286bf15db53cbbbf0236ee441677f5ffa2fc55fac40f2044b51ff62efcf2\",\"sourceLedgerSha256\":\"6c702482f53208719c5d0b8ceb517a53c4ca961a6f301acfabcc96191e4739ec\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "708a97bc62377e49ce6c488e4cad391a14543faac1cca92bc7ad5bfae9f17076"
     }
   ]
 }
