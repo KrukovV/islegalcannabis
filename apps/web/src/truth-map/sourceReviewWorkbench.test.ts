@@ -221,19 +221,23 @@ describe("source review workbench", () => {
     });
   });
 
-  it("retains the first two exact human resolutions while reopening only their corrected V2 signals", () => {
+  it("retains the first two exact human resolutions and the current lifecycle of their corrected V2 signals", () => {
     const expected = [
       {
         geo: "US-HI",
         operationId: "SRCREV-af09b349e3805dd21b3f7485",
         attemptId: "SRCATT-905ca0bd8532bd77629a2762",
-        resolutionId: "SRCRES-e3e4a8a0ef85d0528d7e6e0d"
+        resolutionId: "SRCRES-e3e4a8a0ef85d0528d7e6e0d",
+        currentLifecycle: "CURRENT_ACTIVE" as const
       },
       {
         geo: "US-OH",
         operationId: "SRCREV-f5114f00e6e80509788f2748",
         attemptId: "SRCATT-6d5e00fd4816e549c1585aae",
-        resolutionId: "SRCRES-7bdeb70b8e4d478161515c9d"
+        resolutionId: "SRCRES-7bdeb70b8e4d478161515c9d",
+        currentLifecycle: "RESOLVED" as const,
+        currentOperationId: "SRCREV-d3b596eaf26eb7a4c7c450a0",
+        currentResolutionId: "SRCRES-965c7842003eb1f65c22f769"
       }
     ];
 
@@ -275,10 +279,10 @@ describe("source review workbench", () => {
         && dossier.operation.changeReasonAtOpen === priorOperation.changeReasonAtOpen
       ));
       expect(current).toHaveLength(1);
+      expect(current[0].operation.operationId).not.toBe(item.operationId);
       expect(current[0]).toMatchObject({
-        lifecycle: "CURRENT_ACTIVE",
+        lifecycle: item.currentLifecycle,
         currentSignal: true,
-        resolution: null,
         latestAttempt: {
           signalIdentityFormat: "SOURCE_REVIEW_SIGNAL_V2",
           signalPayload: {
@@ -286,9 +290,28 @@ describe("source review workbench", () => {
           }
         }
       });
-      expect(current[0].operation.operationId).not.toBe(item.operationId);
-      expect(current[0].closeTokens?.reviewedAttemptId).toBe(current[0].latestAttempt.attemptId);
-      expect(current[0].closeTokens?.expectedSignalIdentitySha256).toBe(current[0].latestAttempt.signalIdentitySha256);
+      if (item.currentLifecycle === "CURRENT_ACTIVE") {
+        expect(current[0].resolution).toBeNull();
+        expect(current[0].closeTokens?.reviewedAttemptId).toBe(current[0].latestAttempt.attemptId);
+        expect(current[0].closeTokens?.expectedSignalIdentitySha256).toBe(current[0].latestAttempt.signalIdentitySha256);
+      } else {
+        expect(current[0]).toMatchObject({
+          lifecycle: "RESOLVED",
+          closeTokens: null,
+          operation: { operationId: item.currentOperationId },
+          resolution: {
+            resolutionId: item.currentResolutionId,
+            operationId: item.currentOperationId,
+            resolutionBasis: "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+            boundary: "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+          },
+          evidenceAttestationState: "BOUND_PRE_CLOSE",
+          evidenceAttestation: {
+            attestationMode: "PRE_CLOSE_ATOMIC",
+            review: { c2: "PASS", c3: "NOT_PROVEN" }
+          }
+        });
+      }
     }
   });
 

@@ -50898,6 +50898,90 @@
       "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
       "resultingChangeReason": "CURRENT_OFFICIAL_PHARMACY_DIRECTORY_PARTIAL_FRAGMENT_C3_NOT_PROVEN",
       "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-de0a3d75d4d5abc5af253768",
+      "operationId": "SRCREV-b0173c6b6166d9fbcd82a0df",
+      "geo": "LC",
+      "sourceUrl": "https://attorneygeneralchambers.com/laws-of-saint-lucia/drugs-prevention-of-misuse-act/section-4-03",
+      "resolvedAt": "2026-09-13T04:40:25.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "CODEX_VISUAL_REVIEW_20260913",
+      "evidenceUrl": "https://attorneygeneralchambers.com/laws-of-saint-lucia/drugs-prevention-of-misuse-act/section-4-03",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "LC",
+      "reviewedAttemptId": "SRCATT-f98b2e6fe689ca372d169e52",
+      "reviewedSignalIdentitySha256": "8dd40ccd1e196d3f8021cf78f7bd0311f421c541779c498eec7f6af8757c672e",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "f1841d706c9090c5117b0d9181c5a8d639dc0eb64cdc321c392b34b5104f27fa",
+      "note": "The retained Saint Lucia Attorney General's Chambers Revised Laws capture visibly identifies the official national publisher, regulation 4, and the complete exact rule permitting no more than four cannabis plants at a dwelling-house. The current V2 HTTP_OK signal retains the identical fragment hash and direct LC applicability. No challenge or error is present; browser origin and literal source-domain text are absent. Review is C2 PASS and C3 NOT_PROVEN. This closes only the source-content review and changes no Legal Truth or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_CONFIRMED",
+      "resultingChangeReason": "CURRENT_EXACT_CULTIVATION_LIMIT_FRAGMENT_OFFICIAL_OWNER_CONFIRMED_C3_NOT_PROVEN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-8580f59b4eed6e7f7a0fe2dc",
+      "operationId": "SRCREV-e0a4a622b06bdad737b7f41b",
+      "geo": "LC",
+      "sourceUrl": "https://attorneygeneralchambers.com/laws-of-saint-lucia/drugs-prevention-of-misuse-act/section-5-02",
+      "resolvedAt": "2026-09-13T04:40:56.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "CODEX_VISUAL_REVIEW_20260913",
+      "evidenceUrl": "https://attorneygeneralchambers.com/laws-of-saint-lucia/drugs-prevention-of-misuse-act/section-5-02",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "LC",
+      "reviewedAttemptId": "SRCATT-ff54c8b14829cdfbcec076c9",
+      "reviewedSignalIdentitySha256": "7388e249bb939cae9e811e1fdd310f88a4b36721ee91f6543f44954e35d275f0",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "a76e8d8468f9d28b5177df11479e7ac987607871f386906cba760bf301624f04",
+      "note": "The retained Saint Lucia Attorney General's Chambers Revised Laws capture visibly identifies the official national publisher, regulation 5, and the complete exact rule authorising possession and obtaining specified cannabis material by a person cultivating under regulation 4. The current V2 HTTP_OK signal retains the identical fragment hash and direct LC applicability. No challenge or error is present; browser origin and literal source-domain text are absent. Review is C2 PASS and C3 NOT_PROVEN. This closes only the source-content review and changes no Legal Truth or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_CONFIRMED",
+      "resultingChangeReason": "CURRENT_EXACT_OFFICIAL_CULTIVATION_POSSESSION_SCOPE_FRAGMENT_CONFIRMED_CONTENT_CHANGE_REVIEWED_C3_NOT_PROVEN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-313d55fa92494284c86ae064",
+      "operationId": "SRCREV-f2df1bcfaee3aac214232122",
+      "geo": "LC",
+      "sourceUrl": "https://attorneygeneralchambers.com/laws-of-saint-lucia/drugs-prevention-of-misuse-act/section-9",
+      "resolvedAt": "2026-09-13T04:41:59.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "CODEX_VISUAL_REVIEW_20260913",
+      "evidenceUrl": "https://attorneygeneralchambers.com/laws-of-saint-lucia/drugs-prevention-of-misuse-act/section-9",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "LC",
+      "reviewedAttemptId": "SRCATT-11339633749d2213d265fd25",
+      "reviewedSignalIdentitySha256": "a1726ae0f71e8af1e5bd3ab9537bc4c04181728c16536a9a266b004dfb4c5dd8",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "590e223e4d96622c391a5ddc30b1543d3a91e13e7826426543a3b6bdad98a7fc",
+      "note": "The retained Saint Lucia Attorney General's Chambers Revised Laws capture visibly identifies the official national publisher, section 9, and the complete exact general cultivation restriction plus its offence clause, expressly subject to regulations under section 10 and section 40. The current V2 HTTP_OK signal retains the identical fragment hash and direct LC applicability. No challenge or error is present; browser origin and literal source-domain text are absent. Review is C2 PASS and C3 NOT_PROVEN. This closes only the source-content review and changes no Legal Truth or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_CONFIRMED",
+      "resultingChangeReason": "CURRENT_EXACT_OFFICIAL_CULTIVATION_BOUNDARY_FRAGMENT_CONFIRMED_CONTENT_CHANGE_REVIEWED_C3_NOT_PROVEN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-965c7842003eb1f65c22f769",
+      "operationId": "SRCREV-d3b596eaf26eb7a4c7c450a0",
+      "geo": "US-OH",
+      "sourceUrl": "https://www.pharmacy.ohio.gov/OARRS/",
+      "resolvedAt": "2026-09-13T04:42:34.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "CODEX_VISUAL_REVIEW_20260913",
+      "evidenceUrl": "https://www.pharmacy.ohio.gov/OARRS/",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "US-OH",
+      "reviewedAttemptId": "SRCATT-06856235307783081d6e496e",
+      "reviewedSignalIdentitySha256": "de8ab080f0671090f509ede70edcf6f28e762cda661c1ca57ac6a81c4f18b833",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "19ad088770d90b7a0b778cd17157243c8a2f406477a6c6df07ac3b47de9fa33f",
+      "note": "The retained Ohio Board of Pharmacy OARRS capture visibly identifies the official publisher and the complete 119-byte statement that all medical-marijuana sales are reported by Ohio licensed dispensaries within five minutes of sale. The current V2 attempt preserves the same exact fragment hash and Ohio applicability but records a timeout access condition. The artifact contains no challenge or error, but it has no browser origin or literal source-domain text. Review is C2 PASS and C3 NOT_PROVEN. This closes only the source review and changes no Legal Truth or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_CONFIRMED",
+      "resultingChangeReason": "CURRENT_EXACT_OFFICIAL_DISPENSARY_REPORTING_FRAGMENT_CONFIRMED_ACCESS_TIMEOUT_ONLY_C3_NOT_PROVEN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
     }
   ],
   "attempts": [
@@ -181726,6 +181810,334 @@
       "attestationId": "SRCEVT-4af2a6aa26e098ff55b8d1a1",
       "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-7820e127e14e268d1d0886e0\",\"operationId\":\"SRCREV-1470cf7d368bf8a6b2d98a9f\",\"reviewedAttemptId\":\"SRCATT-4587c72f6b81810cf8a4d724\",\"reviewedSignalIdentitySha256\":\"a7119bfe30fa2abea2258a36f15cfe9798a8db9b1c33ec94bf64b660537fea1d\",\"reviewedSignalPayloadSha256\":\"a7119bfe30fa2abea2258a36f15cfe9798a8db9b1c33ec94bf64b660537fea1d\",\"resolutionRegistryPreimageSha256\":\"d0f0520d73ef9b95695e3295c01d3f7060d21f0f99b86d7472b9d783e43d8414\",\"geo\":\"US-UT\",\"sourceUrl\":\"https://medicalcannabis.utah.gov/pharmacy-locations/\",\"sourceRecordSha256\":\"0f0221c6a1430a278861322102d9e72a2f5eee264ecaf0e0e616dad626696a91\",\"exactFragmentSha256\":\"5c06a8b3140377798022d1e617fab169a627e0cc5151e7bfba88211a9ec05d78\",\"visualArtifactSha256\":\"10e380ca269f41672a324eb1ea2b1e895e5f5f62daae8d89e1494dc9797a674f\",\"reviewSha256\":\"31f8227da0bbec710553d206109d51e5c81e6b23b540a23c6dfc5f3b28656a77\",\"reviewerId\":\"CODEX_VISUAL_REVIEW_20260913\",\"reviewedAt\":\"2026-09-13T04:12:31.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T04:12:31.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"69675acf98571f36baaab6fbdf80fa3b5e7b989cc3ecf9236fb384f148df8e05\",\"sourceLedgerSha256\":\"a5c72dc326306c768374ef1b87474d3b970a0c5872a22820267604352d304174\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f\"}",
       "attestationSha256": "b70db4ecb6e0ba86e8578cf19e9a232a63c8f727dc4142be4260351900f8083a"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-de0a3d75d4d5abc5af253768",
+      "operationId": "SRCREV-b0173c6b6166d9fbcd82a0df",
+      "reviewedAttemptId": "SRCATT-f98b2e6fe689ca372d169e52",
+      "reviewedSignalIdentitySha256": "8dd40ccd1e196d3f8021cf78f7bd0311f421c541779c498eec7f6af8757c672e",
+      "reviewedSignalPayloadSha256": "8dd40ccd1e196d3f8021cf78f7bd0311f421c541779c498eec7f6af8757c672e",
+      "resolutionRegistryPreimageSha256": "f1841d706c9090c5117b0d9181c5a8d639dc0eb64cdc321c392b34b5104f27fa",
+      "geo": "LC",
+      "sourceUrl": "https://attorneygeneralchambers.com/laws-of-saint-lucia/drugs-prevention-of-misuse-act/section-4-03",
+      "sourceRecord": {
+        "officialPublisher": "Saint Lucia Attorney General's Chambers official Revised Laws publisher",
+        "sourceOwnerGeo": "LC",
+        "appliesToGeos": [
+          "LC"
+        ],
+        "legalBasisForExtension": "The Government of Saint Lucia Attorney General's Chambers publishes the national Revised Laws for Saint Lucia; no parent, claimant or foreign regime is used.",
+        "sourceType": "CURRENT_OFFICIAL_CANNABIS_CULTIVATION_REGULATION",
+        "primaryOrContext": "PRIMARY_CURRENT_PERSONAL_CULTIVATION_EXCEPTION",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "(1) A person may cultivate not more than 4 cannabis plants at a time at his or her dwelling-house. (2) Subregulation (1) applies where there is more than one person at the dwelling-house.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "51806e41191f9bde6c211bf0074036eef8bbfacd39faab0d48ce98e925c40823",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "e825a6292df8973ab5331f0e2b44bb64c48676d4c2c8ba6262cd3c302c4b024c",
+          "byteLength": 187,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "a17f49d9d533dd0d55f1e33c241cb32abc1463982e46239bf29e3b64a57c8221",
+          "byteLength": 268711,
+          "mediaType": "image/png",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/LC-cultivation-four-plants-current-2026-08-12.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PASS",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "CODEX_VISUAL_REVIEW_20260913",
+        "reviewedAt": "2026-09-13T04:40:25.000Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": true,
+          "officialDomainText": false,
+          "exactFragment": true,
+          "scope": true,
+          "current": true,
+          "effective": true,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-13T04:40:25.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "a53ea25ac99ce803561176a14bd8219700c08a6928b6544b0880dc5b9448547c",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "b70db4ecb6e0ba86e8578cf19e9a232a63c8f727dc4142be4260351900f8083a",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-b996a080108b8c79c7d78613",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-de0a3d75d4d5abc5af253768\",\"operationId\":\"SRCREV-b0173c6b6166d9fbcd82a0df\",\"reviewedAttemptId\":\"SRCATT-f98b2e6fe689ca372d169e52\",\"reviewedSignalIdentitySha256\":\"8dd40ccd1e196d3f8021cf78f7bd0311f421c541779c498eec7f6af8757c672e\",\"reviewedSignalPayloadSha256\":\"8dd40ccd1e196d3f8021cf78f7bd0311f421c541779c498eec7f6af8757c672e\",\"resolutionRegistryPreimageSha256\":\"f1841d706c9090c5117b0d9181c5a8d639dc0eb64cdc321c392b34b5104f27fa\",\"geo\":\"LC\",\"sourceUrl\":\"https://attorneygeneralchambers.com/laws-of-saint-lucia/drugs-prevention-of-misuse-act/section-4-03\",\"sourceRecordSha256\":\"51806e41191f9bde6c211bf0074036eef8bbfacd39faab0d48ce98e925c40823\",\"exactFragmentSha256\":\"e825a6292df8973ab5331f0e2b44bb64c48676d4c2c8ba6262cd3c302c4b024c\",\"visualArtifactSha256\":\"a17f49d9d533dd0d55f1e33c241cb32abc1463982e46239bf29e3b64a57c8221\",\"reviewSha256\":\"1febf018cb76fa00e71ef83d4ccfedbb7224f8895491bf8ac03de37442a07a53\",\"reviewerId\":\"CODEX_VISUAL_REVIEW_20260913\",\"reviewedAt\":\"2026-09-13T04:40:25.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T04:40:25.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"b70db4ecb6e0ba86e8578cf19e9a232a63c8f727dc4142be4260351900f8083a\",\"sourceLedgerSha256\":\"a53ea25ac99ce803561176a14bd8219700c08a6928b6544b0880dc5b9448547c\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f\"}",
+      "attestationSha256": "7c095dc0e672f5f082e4aee5a0fdc2d51247f35e6927930ce34532d579d3bcd1"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-8580f59b4eed6e7f7a0fe2dc",
+      "operationId": "SRCREV-e0a4a622b06bdad737b7f41b",
+      "reviewedAttemptId": "SRCATT-ff54c8b14829cdfbcec076c9",
+      "reviewedSignalIdentitySha256": "7388e249bb939cae9e811e1fdd310f88a4b36721ee91f6543f44954e35d275f0",
+      "reviewedSignalPayloadSha256": "7388e249bb939cae9e811e1fdd310f88a4b36721ee91f6543f44954e35d275f0",
+      "resolutionRegistryPreimageSha256": "a76e8d8468f9d28b5177df11479e7ac987607871f386906cba760bf301624f04",
+      "geo": "LC",
+      "sourceUrl": "https://attorneygeneralchambers.com/laws-of-saint-lucia/drugs-prevention-of-misuse-act/section-5-02",
+      "sourceRecord": {
+        "officialPublisher": "Saint Lucia Attorney General's Chambers official Revised Laws publisher",
+        "sourceOwnerGeo": "LC",
+        "appliesToGeos": [
+          "LC"
+        ],
+        "legalBasisForExtension": "The Government of Saint Lucia Attorney General's Chambers publishes the national Revised Laws for Saint Lucia; no parent, claimant or foreign regime is used.",
+        "sourceType": "CURRENT_OFFICIAL_CANNABIS_CULTIVATION_REGULATION",
+        "primaryOrContext": "PRIMARY_CURRENT_PERSONAL_CULTIVATION_POSSESSION_SCOPE",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "A person who cultivates a cannabis plant under regulation 4 may— (a) possess the cannabis; or (b) obtain dried cannabis, fresh cannabis, cannabis or cannabis seeds.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "1a1ec3c5ee0b5ae6c378003fc9a0e0ea7f409022896f1ae9e394aae330470500",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "8919b1d62ba211fd48122e0043b4e557e83b4ef5acb57a74264659dd7e54599e",
+          "byteLength": 166,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "8ede22ca09fe14f485a2daa4a65c1793ae2e40800b3471580dcf439e1a98a250",
+          "byteLength": 272543,
+          "mediaType": "image/png",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/LC-cultivation-authorized-current-2026-08-12.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PASS",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "CODEX_VISUAL_REVIEW_20260913",
+        "reviewedAt": "2026-09-13T04:40:56.000Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": true,
+          "officialDomainText": false,
+          "exactFragment": true,
+          "scope": true,
+          "current": true,
+          "effective": true,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-13T04:40:56.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "a53ea25ac99ce803561176a14bd8219700c08a6928b6544b0880dc5b9448547c",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "7c095dc0e672f5f082e4aee5a0fdc2d51247f35e6927930ce34532d579d3bcd1",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-c07d62f9ad61d36dfdcf29cf",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-8580f59b4eed6e7f7a0fe2dc\",\"operationId\":\"SRCREV-e0a4a622b06bdad737b7f41b\",\"reviewedAttemptId\":\"SRCATT-ff54c8b14829cdfbcec076c9\",\"reviewedSignalIdentitySha256\":\"7388e249bb939cae9e811e1fdd310f88a4b36721ee91f6543f44954e35d275f0\",\"reviewedSignalPayloadSha256\":\"7388e249bb939cae9e811e1fdd310f88a4b36721ee91f6543f44954e35d275f0\",\"resolutionRegistryPreimageSha256\":\"a76e8d8468f9d28b5177df11479e7ac987607871f386906cba760bf301624f04\",\"geo\":\"LC\",\"sourceUrl\":\"https://attorneygeneralchambers.com/laws-of-saint-lucia/drugs-prevention-of-misuse-act/section-5-02\",\"sourceRecordSha256\":\"1a1ec3c5ee0b5ae6c378003fc9a0e0ea7f409022896f1ae9e394aae330470500\",\"exactFragmentSha256\":\"8919b1d62ba211fd48122e0043b4e557e83b4ef5acb57a74264659dd7e54599e\",\"visualArtifactSha256\":\"8ede22ca09fe14f485a2daa4a65c1793ae2e40800b3471580dcf439e1a98a250\",\"reviewSha256\":\"00a935dcf4984289f9b335b3723ba2e957426fd2d1e4519055a5ee0365f5b1d7\",\"reviewerId\":\"CODEX_VISUAL_REVIEW_20260913\",\"reviewedAt\":\"2026-09-13T04:40:56.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T04:40:56.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"7c095dc0e672f5f082e4aee5a0fdc2d51247f35e6927930ce34532d579d3bcd1\",\"sourceLedgerSha256\":\"a53ea25ac99ce803561176a14bd8219700c08a6928b6544b0880dc5b9448547c\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f\"}",
+      "attestationSha256": "7ea64e0ff6433114920f03a97e952020e5f278411e16c14c6ebbdde0d7fd4941"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-313d55fa92494284c86ae064",
+      "operationId": "SRCREV-f2df1bcfaee3aac214232122",
+      "reviewedAttemptId": "SRCATT-11339633749d2213d265fd25",
+      "reviewedSignalIdentitySha256": "a1726ae0f71e8af1e5bd3ab9537bc4c04181728c16536a9a266b004dfb4c5dd8",
+      "reviewedSignalPayloadSha256": "a1726ae0f71e8af1e5bd3ab9537bc4c04181728c16536a9a266b004dfb4c5dd8",
+      "resolutionRegistryPreimageSha256": "590e223e4d96622c391a5ddc30b1543d3a91e13e7826426543a3b6bdad98a7fc",
+      "geo": "LC",
+      "sourceUrl": "https://attorneygeneralchambers.com/laws-of-saint-lucia/drugs-prevention-of-misuse-act/section-9",
+      "sourceRecord": {
+        "officialPublisher": "Saint Lucia Attorney General's Chambers official Revised Laws publisher",
+        "sourceOwnerGeo": "LC",
+        "appliesToGeos": [
+          "LC"
+        ],
+        "legalBasisForExtension": "The Government of Saint Lucia Attorney General's Chambers publishes the national Revised Laws for Saint Lucia; no parent, claimant or foreign regime is used.",
+        "sourceType": "CURRENT_OFFICIAL_REVISED_PRIMARY_LAW",
+        "primaryOrContext": "PRIMARY_LAW_CULTIVATION_BOUNDARY",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "(1) Subject to any regulations under section 10, it shall not be lawful for a person to cultivate any plant of the genus Cannabis. (2) Subject to section 40, it is an offence to cultivate such plant in contravention of subsection (1).",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "d277a3892609de26e63d526b8709591be7c1b387779d4274b3fdff25c3746bf6",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "c311db46b639c0c84dc07f01e01954b83ceeaea26604220667a0b394570dda72",
+          "byteLength": 234,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "501e64586554cb0a4b42ce8534a55ba4ad10e6c4643fd9826e1316bdc646708c",
+          "byteLength": 275328,
+          "mediaType": "image/png",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/LC-cultivation-restriction-current-2026-08-12.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PASS",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "CODEX_VISUAL_REVIEW_20260913",
+        "reviewedAt": "2026-09-13T04:41:59.000Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": true,
+          "officialDomainText": false,
+          "exactFragment": true,
+          "scope": true,
+          "current": true,
+          "effective": true,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-13T04:41:59.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "a53ea25ac99ce803561176a14bd8219700c08a6928b6544b0880dc5b9448547c",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "7ea64e0ff6433114920f03a97e952020e5f278411e16c14c6ebbdde0d7fd4941",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-db328e7d16114ae79249f841",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-313d55fa92494284c86ae064\",\"operationId\":\"SRCREV-f2df1bcfaee3aac214232122\",\"reviewedAttemptId\":\"SRCATT-11339633749d2213d265fd25\",\"reviewedSignalIdentitySha256\":\"a1726ae0f71e8af1e5bd3ab9537bc4c04181728c16536a9a266b004dfb4c5dd8\",\"reviewedSignalPayloadSha256\":\"a1726ae0f71e8af1e5bd3ab9537bc4c04181728c16536a9a266b004dfb4c5dd8\",\"resolutionRegistryPreimageSha256\":\"590e223e4d96622c391a5ddc30b1543d3a91e13e7826426543a3b6bdad98a7fc\",\"geo\":\"LC\",\"sourceUrl\":\"https://attorneygeneralchambers.com/laws-of-saint-lucia/drugs-prevention-of-misuse-act/section-9\",\"sourceRecordSha256\":\"d277a3892609de26e63d526b8709591be7c1b387779d4274b3fdff25c3746bf6\",\"exactFragmentSha256\":\"c311db46b639c0c84dc07f01e01954b83ceeaea26604220667a0b394570dda72\",\"visualArtifactSha256\":\"501e64586554cb0a4b42ce8534a55ba4ad10e6c4643fd9826e1316bdc646708c\",\"reviewSha256\":\"146b852be8840096d4c9ce147ba0721beca4253816d3137da72cdb640829cfcc\",\"reviewerId\":\"CODEX_VISUAL_REVIEW_20260913\",\"reviewedAt\":\"2026-09-13T04:41:59.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T04:41:59.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"7ea64e0ff6433114920f03a97e952020e5f278411e16c14c6ebbdde0d7fd4941\",\"sourceLedgerSha256\":\"a53ea25ac99ce803561176a14bd8219700c08a6928b6544b0880dc5b9448547c\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f\"}",
+      "attestationSha256": "3dacdafc68fd9ae93680fb343c75b5ddcaa9edd6e2d77aa564dd9830406fbd35"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-965c7842003eb1f65c22f769",
+      "operationId": "SRCREV-d3b596eaf26eb7a4c7c450a0",
+      "reviewedAttemptId": "SRCATT-06856235307783081d6e496e",
+      "reviewedSignalIdentitySha256": "de8ab080f0671090f509ede70edcf6f28e762cda661c1ca57ac6a81c4f18b833",
+      "reviewedSignalPayloadSha256": "de8ab080f0671090f509ede70edcf6f28e762cda661c1ca57ac6a81c4f18b833",
+      "resolutionRegistryPreimageSha256": "19ad088770d90b7a0b778cd17157243c8a2f406477a6c6df07ac3b47de9fa33f",
+      "geo": "US-OH",
+      "sourceUrl": "https://www.pharmacy.ohio.gov/OARRS/",
+      "sourceRecord": {
+        "officialPublisher": "Ohio Board of Pharmacy",
+        "sourceOwnerGeo": "US-OH",
+        "appliesToGeos": [
+          "US-OH"
+        ],
+        "legalBasisForExtension": "Direct statewide Ohio Board of Pharmacy operational reporting statement; no territorial extension inference.",
+        "sourceType": "OFFICIAL_STATE_PHARMACY_PROGRAMME_CURRENT_MEDICAL_CANNABIS_SALES_REPORTING",
+        "primaryOrContext": "OPERATIONAL_PROGRAMME",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "Additionally, all medical marijuana sales are reported to OARRS by Ohio licensed dispensaries within 5 minutes of sale.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "1f781eacf09ffa2afaff7210ec02d5c1576c4f7b65b3aa02ae475c6fca8d7601",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "a1409e6aca5ec3fd9967084f835579904797d34d4c6969574f96d54b91b94f63",
+          "byteLength": 119,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "cebe012ab7100db407853982d6988198036442915be13c670a9511529f1d3057",
+          "byteLength": 154728,
+          "mediaType": "image/jpeg",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/US-OH-oarrs-current-medical-dispensary-sales-2026-08-13.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PASS",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "CODEX_VISUAL_REVIEW_20260913",
+        "reviewedAt": "2026-09-13T04:42:34.000Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": true,
+          "officialDomainText": false,
+          "exactFragment": true,
+          "scope": true,
+          "current": true,
+          "effective": true,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-13T04:42:34.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "a53ea25ac99ce803561176a14bd8219700c08a6928b6544b0880dc5b9448547c",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "3dacdafc68fd9ae93680fb343c75b5ddcaa9edd6e2d77aa564dd9830406fbd35",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-935b02968b7c61f409639360",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-965c7842003eb1f65c22f769\",\"operationId\":\"SRCREV-d3b596eaf26eb7a4c7c450a0\",\"reviewedAttemptId\":\"SRCATT-06856235307783081d6e496e\",\"reviewedSignalIdentitySha256\":\"de8ab080f0671090f509ede70edcf6f28e762cda661c1ca57ac6a81c4f18b833\",\"reviewedSignalPayloadSha256\":\"de8ab080f0671090f509ede70edcf6f28e762cda661c1ca57ac6a81c4f18b833\",\"resolutionRegistryPreimageSha256\":\"19ad088770d90b7a0b778cd17157243c8a2f406477a6c6df07ac3b47de9fa33f\",\"geo\":\"US-OH\",\"sourceUrl\":\"https://www.pharmacy.ohio.gov/OARRS/\",\"sourceRecordSha256\":\"1f781eacf09ffa2afaff7210ec02d5c1576c4f7b65b3aa02ae475c6fca8d7601\",\"exactFragmentSha256\":\"a1409e6aca5ec3fd9967084f835579904797d34d4c6969574f96d54b91b94f63\",\"visualArtifactSha256\":\"cebe012ab7100db407853982d6988198036442915be13c670a9511529f1d3057\",\"reviewSha256\":\"1a2576300dc64df7ce66c189551ded492563d98f5a2ffd28a2c56723df46e9d2\",\"reviewerId\":\"CODEX_VISUAL_REVIEW_20260913\",\"reviewedAt\":\"2026-09-13T04:42:34.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-13T04:42:34.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"3dacdafc68fd9ae93680fb343c75b5ddcaa9edd6e2d77aa564dd9830406fbd35\",\"sourceLedgerSha256\":\"a53ea25ac99ce803561176a14bd8219700c08a6928b6544b0880dc5b9448547c\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"7737bea06acb3e5c81e91554aa3e62fa2780d85ef647e2b08150cfe71d89f54f\"}",
+      "attestationSha256": "e018ccd0b9bfd47d01055d8f86b7da918e30ac19953d9b890fa247109e15d65e"
     }
   ]
 }
