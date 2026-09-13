@@ -111,7 +111,11 @@ describe("local source review workbench API", () => {
       matchingEvidenceBoundPostHoc: postHoc,
       matchingEvidenceUnboundLegacy: 0
     }));
-    expect(payload.dossiers).toHaveLength(payload.summary.matchingResolved);
+    expect(payload.dossiers).toHaveLength(payload.summary.returnedOperations);
+    expect(payload.summary.returnedOperations).toBeLessThanOrEqual(payload.summary.matchingResolved);
+    expect(payload.summary.truncated).toBe(
+      payload.summary.returnedOperations < payload.summary.matchingResolved
+    );
     for (const dossier of payload.dossiers) {
       expect(dossier.evidenceAttestationState).toBe(
         dossier.evidenceAttestation?.attestationMode === "PRE_CLOSE_ATOMIC"
@@ -141,6 +145,31 @@ describe("local source review workbench API", () => {
           visibility: expect.objectContaining({ browserOrigin: false })
         })
       }));
+    }
+
+    if (payload.summary.truncated) {
+      const returnedOperationIds = new Set(
+        payload.dossiers.map((dossier: { operation: { operationId: string } }) => dossier.operation.operationId)
+      );
+      const omittedResolution = registry.resolutions.find(
+        (resolution) => !returnedOperationIds.has(resolution.operationId)
+      );
+      expect(omittedResolution).toBeDefined();
+      const exact = await route.GET(localRequest(`?operationId=${omittedResolution!.operationId}`));
+      expect(exact.status).toBe(200);
+      const exactPayload = await exact.json();
+      expect(exactPayload.summary).toEqual(expect.objectContaining({
+        matchingOperations: 1,
+        returnedOperations: 1,
+        truncated: false
+      }));
+      expect(exactPayload.dossiers).toEqual([
+        expect.objectContaining({
+          lifecycle: "RESOLVED",
+          evidenceAttestationState: expect.stringMatching(/^BOUND_(?:PRE_CLOSE|POST_HOC)$/),
+          operation: expect.objectContaining({ operationId: omittedResolution!.operationId })
+        })
+      ]);
     }
   });
 
