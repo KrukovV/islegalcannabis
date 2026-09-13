@@ -672,7 +672,7 @@
       "artifacts": {
         "json": {
           "path": "/api/truth-map/b2b/evidence-passport/bs",
-          "sha256": "61372e78137c7d1ce2acc8279bc976b8613c436e2bf453d2b589c59786b10b0c"
+          "sha256": "65c04ccbbab460cfa42ee83b2a054ddd5b1e3c91a9d202e8d761a77b343058c7"
         },
         "embed": {
           "path": "/api/truth-map/b2b/embed/bs",
@@ -680,7 +680,7 @@
         },
         "printPdf": {
           "path": "/api/truth-map/b2b/print/bs",
-          "sha256": "fa314cb1e6e8a85d54a5ec6f4e657648c9405c466b872d76c5792a2872cfd699",
+          "sha256": "eb6036261faa67fc55ff9867b81c4eb0de55ec2a48b0b2404412e885349da907",
           "delivery": "PRINT_HTML_SAVE_AS_PDF"
         }
       }
@@ -2792,7 +2792,7 @@
       "artifacts": {
         "json": {
           "path": "/api/truth-map/b2b/evidence-passport/ma",
-          "sha256": "5826fc85e0691b96fd249e1529bb0b8953308d58bece347f9c527edb172a1d9c"
+          "sha256": "961d06828c89a653ef0a0f93862358279eb7bb8a9a93f11b1930da395df6517b"
         },
         "embed": {
           "path": "/api/truth-map/b2b/embed/ma",
@@ -2800,7 +2800,7 @@
         },
         "printPdf": {
           "path": "/api/truth-map/b2b/print/ma",
-          "sha256": "107294feff37841640347bdb69f187f017b76709c275c5a27deb73a6254233dc",
+          "sha256": "4b340adfff4e009901415a9812380169574b2c0bd5d0fc060d3d2e298ff171f3",
           "delivery": "PRINT_HTML_SAVE_AS_PDF"
         }
       }
@@ -6146,5 +6146,5 @@
       }
     }
   ],
-  "manifestSha256": "6df878f359f5d9de0910e4c89a2c826daf23fec4dc5de001f2dc2959b14e192c"
+  "manifestSha256": "43a56e22e0d9332827cd5ec19902e3d9d002bc4973750373ecb4d56f259714fc"
 }
