@@ -18673,6 +18673,7 @@
             "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/KY-misuse-drugs-act-2026-authorised-participants-current-2026-08-09.png",
             "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/KY-misuse-drugs-act-2026-section-2a-and-section-3-current-2026-08-09.png",
             "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/KY-misuse-drugs-act-2026-schedule-1-listed-cannabis-current-2026-08-09.png",
+            "/Users/james/islegalcannabis_archive/20260914-batch39-ky/rendered/page-12.png",
             "data/reviews/wiki-truth-307-visual-evidence/KY-misuse-drugs-act-2026-section-2a-current-12.png"
           ],
           "visualOpened": true,
@@ -18681,7 +18682,7 @@
           "effectiveRuleVisible": true,
           "screenshotValid": true,
           "revalidation": {
-            "checked_at": "2026-09-11T19:40:08.913Z",
+            "checked_at": "2026-09-14T11:47:31.000Z",
             "final_url": "https://legislation.gov.ky/cms/images/LEGISLATION/PRINCIPAL/1973/1973-0013/1973-0013.pdf",
             "http_status": 200,
             "etag": "\"698bbf88-aca58\"",
@@ -68930,10 +68931,12 @@
           "directFragmentAvailable": true,
           "screenshotAvailable": true,
           "freshScreenshotPaths": [
+            "/Users/james/islegalcannabis_archive/20260914-batch39-ph-mp/rendered/mp-rules-page-60.png",
             "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/MP-cannabis-commission-rules-adult-homegrown-2026-08-09-60.png"
           ],
+          "historicalScreenshotPath": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/MP-cannabis-commission-rules-adult-homegrown-2026-08-09-60.png",
           "revalidation": {
-            "checked_at": "2026-09-11T19:40:08.913Z",
+            "checked_at": "2026-09-14T11:54:49.000Z",
             "final_url": "https://governor.cnmi.gov/wp-content/uploads/2020/08/CNMI-Cannabis-Commission-Rules-and-Regulations-v0720.pdf",
             "http_status": 200,
             "etag": "\"682c1a66-4983e\"",
@@ -68944,7 +68947,7 @@
             "relevant_fragment_sha256": "1675d58b3596cc8d1bf70287a7465baf17a0c548cadc975b213183f35916b39e",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
             "access_state": "HTTP_OK",
-            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "change_reason": "HTTP_200_DOCUMENT_SHA256_UNCHANGED_FRESH_REVIEW",
             "queue": [
               "C2",
               "C3"
@@ -68957,7 +68960,7 @@
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
           "note": "Section 180-10.3.101 provides that registered adults 21+ may produce, process, keep or store homegrown marijuana for non-commercial purposes; the rule sets six mature plants, twelve immature plants, eight ounces and limited 21+ transfers.",
-          "screenshotPath": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/MP-cannabis-commission-rules-adult-homegrown-2026-08-09-60.png",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/20260914-batch39-ph-mp/rendered/mp-rules-page-60.png",
           "visualEvidenceKind": "CURRENT_STRICT_CAPTURE",
           "visualReview": "Fresh independent review on 2026-08-09 proves an operational adult-use regime in the Northern Mariana Islands. Public Law 20-66 authorises adults 21+ to homegrow, possess in public within limits, transport and make non-commercial transfers; it separately establishes licensed retail. Public Law 21-05 is visually confirmed as a signed amendment, not a repeal. Final Commission rules implement the adult registry framework. The independent CNMI Public Auditor FY2025 report lists seven licensed retailers as direct-sale outlets and records their renewal fees before 30 September 2025 expiry; the December 2025 executive order transfers regulatory authority rather than repealing the Act. Independent proposal-only result: GREEN / OPERATIONAL_ADULT_USE. Medical provisions are non-determinative. No live-map, SSOT, popup, API, SEO, runtime, production or deployment conclusion is asserted."
         },
@@ -69177,7 +69180,8 @@
         "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/MP-public-law-20-66-public-possession-and-retail-2026-08-09-36.png",
         "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/MP-cannabis-commission-rules-adult-homegrown-2026-08-09-60.png",
         "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/MP-public-law-21-05-governor-signed-amendment-2026-08-09-01.png",
-        "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/MP-opa-fy2025-operational-licensed-retail-market-2026-08-09-06.png"
+        "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/MP-opa-fy2025-operational-licensed-retail-market-2026-08-09-06.png",
+        "/Users/james/islegalcannabis_archive/20260914-batch39-ph-mp/rendered/mp-rules-page-60.png"
       ],
       "reviewConfidence": "high",
       "reviewNotes": "VISUALLY_VERIFIED: Fresh independent review on 2026-08-09 proves an operational adult-use regime in the Northern Mariana Islands. Public Law 20-66 authorises adults 21+ to homegrow, possess in public within limits, transport and make non-commercial transfers; it separately establishes licensed retail. Public Law 21-05 is visually confirmed as a signed amendment, not a repeal. Final Commission rules implement the adult registry framework. The independent CNMI Public Auditor FY2025 report lists seven licensed retailers as direct-sale outlets and records their renewal fees before 30 September 2025 expiry; the December 2025 executive order transfers regulatory authority rather than repealing the Act. Independent proposal-only result: GREEN / OPERATIONAL_ADULT_USE. Medical provisions are non-determinative. No live-map, SSOT, popup, API, SEO, runtime, production or deployment conclusion is asserted. Strict-current acceptance: PARTIAL_FRESH_RENDERED_OFFICIAL_PDF_EVIDENCE_REVIEWED; BROWSER_ADDRESS_BAR_NOT_REQUIRED_FOR_LEGAL_TRUTH.",
@@ -73991,7 +73995,7 @@
           "current": true,
           "screenshotAvailable": true,
           "freshScreenshotPaths": [
-            "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ra-9165-section-16-current-2026-08-12-14.png",
+            "/Users/james/islegalcannabis_archive/20260914-batch39-ph-mp/rendered/ph-ra9165-page-14.png",
             "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PH/png/pages/PH-ra-9165-ddb-05.png"
           ],
           "visualOpened": true,
@@ -74003,18 +74007,18 @@
           "historicalScreenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PH/png/pages/PH-ra-9165-ddb-05.png",
           "officialHostVerified": true,
           "revalidation": {
-            "checked_at": "2026-09-11T19:40:08.913Z",
+            "checked_at": "2026-09-14T11:54:46.000Z",
             "final_url": "https://ddb.gov.ph//images/RA_9165/RA%209165.pdf",
-            "http_status": 304,
+            "http_status": 200,
             "etag": "\"4176c-4dd62062d2cc0\"",
             "last_modified": "Thu, 23 May 2013 12:43:07 GMT",
             "content_type": "application/pdf",
             "content_length": 268140,
             "document_sha256": "6f217733079513399c8568e8e117e232e97fc01d1319d61a07a820df62615a96",
             "relevant_fragment_sha256": "646c1d18f99d1ac07f2eb34bff2708527aaff32893fc979fcf90b97b05454071",
-            "revalidation_state": "ACCESS_BLOCKED",
-            "access_state": "TIMEOUT",
-            "change_reason": "TIMEOUT_IS_ACCESS_STATE_ONLY",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "HTTP_200_DOCUMENT_SHA256_UNCHANGED_FRESH_REVIEW",
             "queue": [
               "C2",
               "C3"
@@ -74027,7 +74031,7 @@
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
           "note": "Page 5 defines Cannabis/Marijuana as Cannabis sativa L. and its varieties, hashish, bhang, guaza, churrus, ganjab, marijuana, resin, extract and tincture. Section 5 (pp. 7-8) penalises sale, trading, administration, dispensation, delivery, distribution and transportation of a dangerous drug unless authorised by law. Section 11 (p. 11) penalises possession of a dangerous drug unless authorised by law. Section 16 (p. 14) penalises cultivation/culture of marijuana, with a narrow carve-out solely for medical laboratories and medical research centers conducting medical experiments, research or creation of new medicine under Board guidelines; it does not create a patient registration, prescription or dispensing route.",
-          "screenshotPath": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ra-9165-section-16-current-2026-08-12-14.png",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/20260914-batch39-ph-mp/rendered/ph-ra9165-page-14.png",
           "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
           "visualReview": "Current PDF pages 5, 7-8, 11 and 14 were rendered locally and read. Cannabis definition, sale/supply prohibition, possession prohibition and Section 16's research-only marijuana carve-out are visible. The C1 redirect resolves from www.ddb.gov.ph to ddb.gov.ph; both are manually confirmed DDB hosts, but the source record preserves the original URL and strict browser-domain acceptance remains separate."
         },
@@ -74049,7 +74053,7 @@
           "current": true,
           "screenshotAvailable": true,
           "freshScreenshotPaths": [
-            "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ddb-schedule-2022-page-2-current-2026-08-12-02.png",
+            "/Users/james/islegalcannabis_archive/20260914-batch39-ph-mp/rendered/ph-schedule-page-2.png",
             "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PH/png/pages/PH-controlled-substances-2022-ddb-02.png"
           ],
           "visualOpened": true,
@@ -74061,9 +74065,9 @@
           "historicalScreenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/PH/png/pages/PH-controlled-substances-2022-ddb-02.png",
           "officialHostVerified": true,
           "revalidation": {
-            "checked_at": "2026-09-11T19:40:08.913Z",
+            "checked_at": "2026-09-14T11:54:39.000Z",
             "final_url": "https://ddb.gov.ph/wp-content/uploads/2022/04/Updated-Lists-of-controlled-substances-as-of-25-April-2022.pdf",
-            "http_status": 304,
+            "http_status": 200,
             "etag": "\"5f0fa-5dd855fe84640\"",
             "last_modified": "Tue, 26 Apr 2022 02:23:13 GMT",
             "content_type": "application/pdf",
@@ -74072,7 +74076,7 @@
             "relevant_fragment_sha256": "4ca504ca7229da8260a20efaffd946f0d055b692073e9dfad909eefa5ee8cedc",
             "revalidation_state": "NOT_MODIFIED",
             "access_state": "HTTP_OK",
-            "change_reason": "HTTP_304_CONDITIONAL_GET",
+            "change_reason": "HTTP_200_DOCUMENT_SHA256_UNCHANGED_FRESH_REVIEW",
             "queue": [
               "C2",
               "C3"
@@ -74085,7 +74089,7 @@
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
           "note": "The official Schedule I narcotic-drug list identifies Cannabis and Cannabis resin, extracts and tinctures as items 26 and 27.",
-          "screenshotPath": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ddb-schedule-2022-page-2-current-2026-08-12-02.png",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/20260914-batch39-ph-mp/rendered/ph-schedule-page-2.png",
           "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
           "visualReview": "Current page 2 was extracted with pdftotext and rendered locally. The Office of the President/Dangerous Drugs Board header and Schedule I items 26 Cannabis and 27 Cannabis resin, extracts and tinctures are visible; strict browser-domain acceptance remains separate."
         },
@@ -74107,7 +74111,7 @@
           "current": true,
           "screenshotAvailable": true,
           "freshScreenshotPaths": [
-            "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ddb-resolution-6-2024-current-2026-08-12-2.png"
+            "/Users/james/islegalcannabis_archive/20260914-batch39-ph-mp/rendered/ph-resolution-page-2.png"
           ],
           "visualOpened": true,
           "officialOwnerVisible": true,
@@ -74116,9 +74120,9 @@
           "effectiveRuleVisible": true,
           "screenshotValid": true,
           "revalidation": {
-            "checked_at": "2026-09-11T19:40:08.913Z",
+            "checked_at": "2026-09-14T11:54:41.000Z",
             "final_url": "https://ddb.gov.ph/wp-content/uploads/2024/04/Board-Resolution-No.-6-Series-of-2024-2.pdf",
-            "http_status": 304,
+            "http_status": 200,
             "etag": "\"84ca9-6158bac6f281d\"",
             "last_modified": "Mon, 08 Apr 2024 01:24:57 GMT",
             "content_type": "application/pdf",
@@ -74127,7 +74131,7 @@
             "relevant_fragment_sha256": "ef5b6afbe77892f6f0507c04bcc870eafec8a85ddbd5d6d5b28921af8d282884",
             "revalidation_state": "NOT_MODIFIED",
             "access_state": "HTTP_OK",
-            "change_reason": "HTTP_304_CONDITIONAL_GET",
+            "change_reason": "HTTP_200_DOCUMENT_SHA256_UNCHANGED_FRESH_REVIEW",
             "queue": [
               "C2",
               "C3"
@@ -74140,7 +74144,7 @@
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW",
           "confidence": "high",
           "note": "Page 2 states that, despite UN-CND reclassification, RA 9165 and the International Drug Conventions consistently classify cannabis and cannabis-related substances as dangerous drugs and legal access thereto is limited to medical experiments and research purposes only. It resolves to approve and adopt the recommendation denying the petition to reclassify Cannabis and Cannabis Resin in the Philippine schedules from Schedule 1 to Schedule 2, approved and adopted 8 March 2024.",
-          "screenshotPath": "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ddb-resolution-6-2024-current-2026-08-12-2.png",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/20260914-batch39-ph-mp/rendered/ph-resolution-page-2.png",
           "visualEvidenceKind": "CURRENT_OFFICIAL_CAPTURE_NO_ADDRESS_BAR",
           "visualReview": "Page 1 visibly identifies the Republic of the Philippines, Office of the President and Dangerous Drugs Board, Board Resolution No. 6 Series of 2024 and its cannabis/reclassification subject. Page 2 visibly gives the research-only legal-access clause and denial/resolution. Strict browser-domain acceptance remains separate."
         }
@@ -74250,7 +74254,10 @@
         "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ra-9165-section-16-current-2026-08-12-14.png",
         "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ddb-schedule-2022-page-2-current-2026-08-12-02.png",
         "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ddb-resolution-6-2024-current-2026-08-12-1.png",
-        "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ddb-resolution-6-2024-current-2026-08-12-2.png"
+        "/Users/james/Projects/isLegal/data/reviews/wiki-truth-307-visual-evidence/PH-ddb-resolution-6-2024-current-2026-08-12-2.png",
+        "/Users/james/islegalcannabis_archive/20260914-batch39-ph-mp/rendered/ph-ra9165-page-14.png",
+        "/Users/james/islegalcannabis_archive/20260914-batch39-ph-mp/rendered/ph-schedule-page-2.png",
+        "/Users/james/islegalcannabis_archive/20260914-batch39-ph-mp/rendered/ph-resolution-page-2.png"
       ],
       "reviewConfidence": "high",
       "reviewNotes": "VISUALLY_VERIFIED: Philippines is independently proposal-only RED from current official Dangerous Drugs Board RA 9165, the DDB Schedule I list and Board Resolution No. 6, Series of 2024. The primary evidence directly identifies cannabis/cannabis derivatives, proves unauthorised supply, possession and cultivation prohibitions, and confirms that legal access remains limited to medical experiments and research only; no patient pathway is inferred from that research carve-out. 2026 House/Senate medical-cannabis bills are preserved as official non-effective proposal context only. SSOT, map, runtime, production and deployment remain unchanged; APPLY_ALLOWED=false.",
