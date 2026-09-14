@@ -53330,6 +53330,48 @@
       "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
       "resultingChangeReason": "VISUAL_SCOPE_PARTIAL_LB1235_COMPOSITE_CURRENT_EFFECTIVE_NOT_PROVEN",
       "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-eae24d35c09c3479e677d533",
+      "operationId": "SRCREV-ee9a272488f6cca097eecc21",
+      "geo": "SH",
+      "sourceUrl": "https://www.sainthelena.gov.sh/documents/20250204_STH-Laws_Category-list.pdf",
+      "resolvedAt": "2026-09-14T01:46:01.002Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-current-source-review",
+      "evidenceUrl": "https://www.sainthelena.gov.sh/documents/20250204_STH-Laws_Category-list.pdf",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "SH",
+      "reviewedAttemptId": "SRCATT-46740c9d8888ff1ba7ae5d45",
+      "reviewedSignalIdentitySha256": "902f1951d9834dbf16516a6c63c12cc5626b4fb28c07eaf785093b6d670161ef",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "5db84c4322c152173ed1e17025dabed25c6e2d768d2ee6ca1fd4ee7ef11541d2",
+      "note": "The retained page visibly lists the Drugs (Prevention of Misuse) Ordinance, 2003 and the Drugs (Authorisation Of Cultivation And Possession) Regulations, 2009 within the St Helena legislation category index. It does not show the official publisher or domain, browser origin, source date, a present-current/effective bridge, or the complete canonical sentence as one literal fragment. Two fresh exact raw reads returned HTTP 200 with the retained final URL and byte-identical 302319-byte PDF bodies with SHA-256 56b7c377c8e056facc746b9f9bc2358fe00a16ced855792b85eb1c4f54360b9b. Stable exact PDF bytes bind only the reviewed V2 source identity; no Legal or Store Truth inference is made. Review is C2 PARTIAL and C3 NOT_PROVEN.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
+      "resultingChangeReason": "VISUAL_SCOPE_PARTIAL_CATEGORY_INDEX_CURRENT_EFFECTIVE_NOT_PROVEN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-15c28a149b08edc5ef749fdf",
+      "operationId": "SRCREV-ab0e1c158dfce4320e63de01",
+      "geo": "UY",
+      "sourceUrl": "https://www.impo.com.uy/bases/leyes/19172-2013/2",
+      "resolvedAt": "2026-09-14T01:46:30.789Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-current-source-review",
+      "evidenceUrl": "https://www.impo.com.uy/bases/leyes/19172-2013/2",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "UY",
+      "reviewedAttemptId": "SRCATT-840064f524b57fde258972c5",
+      "reviewedSignalIdentitySha256": "ae29b524e9c313cd49b6153fff3879d7f91981482e3c7a0609bafddfbc291638",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "7d4a2aa4af7699da390be89ecdfbfcf95a08dbac3c213eb77b7730d32ddf6a06",
+      "note": "The retained full-page crop visibly identifies IMPO as Uruguay official information centre, Law 19.172, its cannabis-regulation title, updated-document state, promulgation and publication metadata, and Article 2 state-control scope over cannabis activities. The canonical fragment is a condensed editorial excerpt rather than one literal contiguous visible fragment; the image has no browser origin or domain and does not independently prove current legal effectiveness. Two fresh exact raw reads returned HTTP 200 with the retained final URL and byte-identical 10912-byte bodies with SHA-256 f5ac3677f607177988d49585171dd4d04d16fbca0eef1ae0af0c429bcb8e0979. Stable exact HTML bytes bind only the reviewed V2 identity; no Legal or Store Truth inference is made. Review is C2 PARTIAL and C3 NOT_PROVEN.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
+      "resultingChangeReason": "VISUAL_SCOPE_PARTIAL_CONDENSED_ARTICLE_CURRENT_EFFECTIVE_NOT_PROVEN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
     }
   ],
   "attempts": [
@@ -193496,6 +193538,170 @@
       "attestationId": "SRCEVT-390977f508bf3abcc6c5e6b7",
       "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-0e641fddb354c80a1668c88a\",\"operationId\":\"SRCREV-5ae206a5823c82aab2de7a1b\",\"reviewedAttemptId\":\"SRCATT-804fa76d4fae08814f157530\",\"reviewedSignalIdentitySha256\":\"7c93488e90b84b999addfd10be7e82768f0bb54fedbaaf7fe9d808fe0d676b10\",\"reviewedSignalPayloadSha256\":\"7c93488e90b84b999addfd10be7e82768f0bb54fedbaaf7fe9d808fe0d676b10\",\"resolutionRegistryPreimageSha256\":\"d36f488d04b375aae796ce87fbd8407b9f9094ecae1e93429f47b32dc78df55b\",\"geo\":\"US-NE\",\"sourceUrl\":\"https://nebraskalegislature.gov/FloorDocs/109/PDF/Slip/LB1235.pdf\",\"sourceRecordSha256\":\"5cf55d40e28c99e1572fa740524861af891e414b7c1c69c41ea507eeafef3693\",\"exactFragmentSha256\":\"c180f626ba4965ba386d8511c85d9fe8656de4a48d280c08984169492a6235fb\",\"visualArtifactSha256\":\"efb8d86cbe180ad3e48ba4d4535c85eceabdced8f73ca7432a53db99247ab1f7\",\"reviewSha256\":\"3674ed89a6b24e36cee4db9351abd568bd65d124cc315b67c42ba10402ef6959\",\"reviewerId\":\"codex-current-source-review\",\"reviewedAt\":\"2026-09-14T01:24:14.543Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-14T01:24:14.543Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"2c40ff73f6caf7e4c73f235120002c6f111844d5d9b42bdb867660104c45e73e\",\"sourceLedgerSha256\":\"693d249bba4d0c201966b3cea62dcabc488b004f4fe328f10df3f9d2ce09d103\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
       "attestationSha256": "5d75f1abfa87198e3d82ca0dbcfa292c4865eb3930eef4cf063cbc7a37be8d73"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-eae24d35c09c3479e677d533",
+      "operationId": "SRCREV-ee9a272488f6cca097eecc21",
+      "reviewedAttemptId": "SRCATT-46740c9d8888ff1ba7ae5d45",
+      "reviewedSignalIdentitySha256": "902f1951d9834dbf16516a6c63c12cc5626b4fb28c07eaf785093b6d670161ef",
+      "reviewedSignalPayloadSha256": "902f1951d9834dbf16516a6c63c12cc5626b4fb28c07eaf785093b6d670161ef",
+      "resolutionRegistryPreimageSha256": "5db84c4322c152173ed1e17025dabed25c6e2d768d2ee6ca1fd4ee7ef11541d2",
+      "geo": "SH",
+      "sourceUrl": "https://www.sainthelena.gov.sh/documents/20250204_STH-Laws_Category-list.pdf",
+      "sourceRecord": {
+        "officialPublisher": "St Helena Government official Laws of St Helena publisher",
+        "sourceOwnerGeo": "SH",
+        "appliesToGeos": [
+          "SH"
+        ],
+        "legalBasisForExtension": "Official St Helena domestic legislation-category index for the territory, not a cross-territory applied-law list.",
+        "sourceType": "CURRENT_OFFICIAL_LEGISLATION_CATEGORY_INDEX_PDF",
+        "primaryOrContext": "CONTEXT_CURRENT_OFFICIAL_INDEX_OF_APPLICABLE_DRUGS_SUBSIDIARY_LEGISLATION",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "Under Drugs (Prevention of Misuse) Ordinance, 2003, the official category list identifies \"Drugs (Authorisation Of Cultivation And Possession) Regulations, 2009\" as the listed subsidiary legislation.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "109740ceed50f02b21ffef452ef78642e12df1318f02f37922540c1ad42ba8dd",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "b9e1401b7ce15aedb71723e4177236b85ad935bbaca2e9143594857428655201",
+          "byteLength": 199,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "a4d1005f8f607a3281774a44c8c8c4a21080ccd51c43a83b5ffb512351f39c9f",
+          "byteLength": 220153,
+          "mediaType": "image/png",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/SH-category-index-2025-current-2026-08-12-04.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-current-source-review",
+        "reviewedAt": "2026-09-14T01:46:01.002Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": false,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": false,
+          "effective": false,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-14T01:46:01.002Z",
+      "inputs": {
+        "sourceLedgerSha256": "4d2f10c3adec513ca46d340ee4cbd4c6f489afc7d7b3f55acdcde1e65dee8ae3",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "5d75f1abfa87198e3d82ca0dbcfa292c4865eb3930eef4cf063cbc7a37be8d73",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-8c95ecdd25fbb729d5169cdb",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-eae24d35c09c3479e677d533\",\"operationId\":\"SRCREV-ee9a272488f6cca097eecc21\",\"reviewedAttemptId\":\"SRCATT-46740c9d8888ff1ba7ae5d45\",\"reviewedSignalIdentitySha256\":\"902f1951d9834dbf16516a6c63c12cc5626b4fb28c07eaf785093b6d670161ef\",\"reviewedSignalPayloadSha256\":\"902f1951d9834dbf16516a6c63c12cc5626b4fb28c07eaf785093b6d670161ef\",\"resolutionRegistryPreimageSha256\":\"5db84c4322c152173ed1e17025dabed25c6e2d768d2ee6ca1fd4ee7ef11541d2\",\"geo\":\"SH\",\"sourceUrl\":\"https://www.sainthelena.gov.sh/documents/20250204_STH-Laws_Category-list.pdf\",\"sourceRecordSha256\":\"109740ceed50f02b21ffef452ef78642e12df1318f02f37922540c1ad42ba8dd\",\"exactFragmentSha256\":\"b9e1401b7ce15aedb71723e4177236b85ad935bbaca2e9143594857428655201\",\"visualArtifactSha256\":\"a4d1005f8f607a3281774a44c8c8c4a21080ccd51c43a83b5ffb512351f39c9f\",\"reviewSha256\":\"5eb527f7531de83a35ce9ebcc1bd3407bf06d0248977bae76c0eda1861515df0\",\"reviewerId\":\"codex-current-source-review\",\"reviewedAt\":\"2026-09-14T01:46:01.002Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-14T01:46:01.002Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"5d75f1abfa87198e3d82ca0dbcfa292c4865eb3930eef4cf063cbc7a37be8d73\",\"sourceLedgerSha256\":\"4d2f10c3adec513ca46d340ee4cbd4c6f489afc7d7b3f55acdcde1e65dee8ae3\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "c7b237f2ebc591972ffa0efa25b3d502a3955e1a4fd9cefe6fd97ae28cf001ec"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-15c28a149b08edc5ef749fdf",
+      "operationId": "SRCREV-ab0e1c158dfce4320e63de01",
+      "reviewedAttemptId": "SRCATT-840064f524b57fde258972c5",
+      "reviewedSignalIdentitySha256": "ae29b524e9c313cd49b6153fff3879d7f91981482e3c7a0609bafddfbc291638",
+      "reviewedSignalPayloadSha256": "ae29b524e9c313cd49b6153fff3879d7f91981482e3c7a0609bafddfbc291638",
+      "resolutionRegistryPreimageSha256": "7d4a2aa4af7699da390be89ecdfbfcf95a08dbac3c213eb77b7730d32ddf6a06",
+      "geo": "UY",
+      "sourceUrl": "https://www.impo.com.uy/bases/leyes/19172-2013/2",
+      "sourceRecord": {
+        "officialPublisher": "IMPO - Centro de Información Oficial, Uruguay",
+        "sourceOwnerGeo": "UY",
+        "appliesToGeos": [
+          "UY"
+        ],
+        "legalBasisForExtension": "Direct national statute applicable throughout Uruguay.",
+        "sourceType": "OFFICIAL_LEGISLATION_ARTICLE",
+        "primaryOrContext": "PRIMARY",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "Artículo 2: el Estado asumirá control y regulación de importación, exportación, plantación, cultivo, cosecha, producción, adquisición, almacenamiento, comercialización y distribución de cannabis y sus derivados.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "6a248b7a16098715445c25c4ee56eef8a77a15634900a68addc05a68cceaf799",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "fe9d84d697e0a98fb611b19b3338eafd77a8927931badc79983f828825149718",
+          "byteLength": 221,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "c34ffacdae416328e75ccc1aa2d26242fd032dbe76db968f9efc11f3df2b33b9",
+          "byteLength": 106127,
+          "mediaType": "image/jpeg",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/UY-law-19172-article2-fullpage-2026-08-10.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-current-source-review",
+        "reviewedAt": "2026-09-14T01:46:30.789Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": true,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": true,
+          "effective": false,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-14T01:46:30.789Z",
+      "inputs": {
+        "sourceLedgerSha256": "4d2f10c3adec513ca46d340ee4cbd4c6f489afc7d7b3f55acdcde1e65dee8ae3",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "c7b237f2ebc591972ffa0efa25b3d502a3955e1a4fd9cefe6fd97ae28cf001ec",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-8680fc41da832c619c3bd9b1",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-15c28a149b08edc5ef749fdf\",\"operationId\":\"SRCREV-ab0e1c158dfce4320e63de01\",\"reviewedAttemptId\":\"SRCATT-840064f524b57fde258972c5\",\"reviewedSignalIdentitySha256\":\"ae29b524e9c313cd49b6153fff3879d7f91981482e3c7a0609bafddfbc291638\",\"reviewedSignalPayloadSha256\":\"ae29b524e9c313cd49b6153fff3879d7f91981482e3c7a0609bafddfbc291638\",\"resolutionRegistryPreimageSha256\":\"7d4a2aa4af7699da390be89ecdfbfcf95a08dbac3c213eb77b7730d32ddf6a06\",\"geo\":\"UY\",\"sourceUrl\":\"https://www.impo.com.uy/bases/leyes/19172-2013/2\",\"sourceRecordSha256\":\"6a248b7a16098715445c25c4ee56eef8a77a15634900a68addc05a68cceaf799\",\"exactFragmentSha256\":\"fe9d84d697e0a98fb611b19b3338eafd77a8927931badc79983f828825149718\",\"visualArtifactSha256\":\"c34ffacdae416328e75ccc1aa2d26242fd032dbe76db968f9efc11f3df2b33b9\",\"reviewSha256\":\"059e6b5e91691cde4f706a724468d77fd95c23a4e439209475fd027701cc93ec\",\"reviewerId\":\"codex-current-source-review\",\"reviewedAt\":\"2026-09-14T01:46:30.789Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-14T01:46:30.789Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"c7b237f2ebc591972ffa0efa25b3d502a3955e1a4fd9cefe6fd97ae28cf001ec\",\"sourceLedgerSha256\":\"4d2f10c3adec513ca46d340ee4cbd4c6f489afc7d7b3f55acdcde1e65dee8ae3\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "6d78a4d3132b7069aa53994e1ae170506e3d3d153948859baae211d82d94b3f4"
     }
   ]
 }
