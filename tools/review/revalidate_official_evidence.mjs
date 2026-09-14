@@ -618,10 +618,15 @@ function applyNetworkResult(
   const previous = baseRevalidation(record, checkedAt);
   const { response, bytes } = result;
   const metadata = contentMetadata(response, bytes);
-  const finalUrl = canonicalUrl(response.url || record.url);
+  // Keep the transport-reported final URL byte-for-byte as provenance. URL
+  // canonicalisation is used only for the comparison that decides whether a
+  // redirect changed the location/owner; it must never rewrite the retained
+  // identity that a later source-review attempt binds.
+  const finalUrl = stringValue(response.url) || record.url;
+  const canonicalFinalUrl = canonicalUrl(finalUrl);
   const canonicalRecordUrl = canonicalUrl(record.url);
   const redirectedOwner = normalizedHost(finalUrl) !== normalizedHost(canonicalRecordUrl);
-  const canonicalLocationChanged = finalUrl !== canonicalRecordUrl;
+  const canonicalLocationChanged = canonicalFinalUrl !== canonicalRecordUrl;
   let state = previous.revalidation_state;
   let accessState = "HTTP_OK";
   let reason = "";
@@ -658,7 +663,7 @@ function applyNetworkResult(
       reason = `${accessState}_IS_ACCESS_STATE_ONLY`;
     } else if (redirectedOwner || canonicalLocationChanged) {
       state = "REDIRECT_OR_OWNER_CHANGED";
-      reason = `FINAL_URL_CHANGED:${canonicalRecordUrl}->${finalUrl}`;
+      reason = `FINAL_URL_CHANGED:${record.url}->${finalUrl}`;
     } else if (previous.document_sha256 && previous.document_sha256 === documentHash) {
       currentSourceContentProven = true;
       const etagChanged = previous.etag && metadata.etag && previous.etag !== metadata.etag;

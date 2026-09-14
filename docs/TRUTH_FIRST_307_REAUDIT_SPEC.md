@@ -397,7 +397,7 @@ Repeated source checks use `tools/review/revalidate_official_evidence.mjs` and s
 
 - external requests require `--network`; `HEAD` is not required;
 - use a conditional `GET` with saved `If-None-Match` and `If-Modified-Since` metadata;
-- save final URL, response status, ETag, Last-Modified, content type, content length and document hash;
+- save the exact transport-reported final URL without query sorting, trailing-slash removal or other identity rewriting, plus response status, ETag, Last-Modified, content type, content length and the hash of the exact response body bytes; URL canonicalisation may be used only for redirect comparison and never as retained provenance;
 - `304` becomes `NOT_MODIFIED`; `200` with the same document hash also becomes `NOT_MODIFIED`;
 - a changed document or relevant-fragment hash becomes `CONTENT_CHANGED` and queues dependent GEO only;
 - a redirect or host/owner boundary change becomes `REDIRECT_OR_OWNER_CHANGED`; applicability is never inherited from the old owner. A transport redirect that normalizes to the same canonical URL (for example, a trailing slash only) is not an owner/location change and must retain its normal conditional-content result;

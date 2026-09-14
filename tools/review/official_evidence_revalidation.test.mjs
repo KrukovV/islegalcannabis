@@ -273,7 +273,7 @@ test("redirect to another owner requires review and never inherits applicability
   assert.equal(result.records[0].source.source_owner_geo, "AA");
 });
 
-test("a transport redirect that normalizes only a trailing slash does not create a false owner-change review", async () => {
+test("a transport redirect that differs only by a trailing slash retains its exact final URL without a false owner-change review", async () => {
   const evidence = source("https://official.example/law/");
   const result = await runRevalidation({
     ledger: ledger([row("AA", [evidence])]),
@@ -289,6 +289,27 @@ test("a transport redirect that normalizes only a trailing slash does not create
   });
   const revalidation = result.records[0].source.revalidation;
   assert.equal(revalidation.final_url, "https://official.example/law");
+  assert.equal(revalidation.revalidation_state, "NEEDS_SEMANTIC_REVIEW");
+  assert.equal(revalidation.change_reason, "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED");
+});
+
+test("retained final URL preserves the transport-reported query ordering while comparison remains canonical", async () => {
+  const evidence = source("https://official.example/law?b=2&a=1");
+  const transportFinalUrl = "https://official.example/law?a=1&b=2";
+  const result = await runRevalidation({
+    ledger: ledger([row("AA", [evidence])]),
+    network: true,
+    fetchImpl: async () => ({
+      status: 200,
+      ok: true,
+      redirected: true,
+      url: transportFinalUrl,
+      headers: new Headers({ "content-type": "text/html" }),
+      arrayBuffer: async () => Buffer.from("cannabis exact fragment"),
+    }),
+  });
+  const revalidation = result.records[0].source.revalidation;
+  assert.equal(revalidation.final_url, transportFinalUrl);
   assert.equal(revalidation.revalidation_state, "NEEDS_SEMANTIC_REVIEW");
   assert.equal(revalidation.change_reason, "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED");
 });
