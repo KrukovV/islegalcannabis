@@ -55711,6 +55711,153 @@
       "resultingRevalidationState": "NOT_MODIFIED",
       "resultingChangeReason": "HTTP_200_DOCUMENT_SHA256_UNCHANGED_FRESH_PDF_PAGE_REVIEW",
       "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-f7f7d87447518739be555b93",
+      "operationId": "SRCREV-9b974072162eac1d99d387d1",
+      "geo": "DJ",
+      "sourceUrl": "https://www.journalofficiel.dj/texte-juridique/decret-n2003-0202-pre-portant-reglementation-des-activites-economiques-des-zones-franches-a-djibouti/",
+      "resolvedAt": "2026-09-14T12:38:31.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-main-2026-09-14",
+      "evidenceUrl": "https://www.journalofficiel.dj/texte-juridique/decret-n2003-0202-pre-portant-reglementation-des-activites-economiques-des-zones-franches-a-djibouti/",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "DJ",
+      "reviewedAttemptId": "SRCATT-c0fc1af6ac5eebb336a199ce",
+      "reviewedSignalIdentitySha256": "2071459755223cc6f262e4fcdebcc9251a97a5fcaefb30cffea7bc7257b69462",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "a7682a41723e6c52f298150c8b0dece3e38d1558381ba043d83271b683bd1251",
+      "note": "Two sequential exact-URL reads returned HTTP 200 with no redirect and byte-identical 133606-byte HTML matching retained SHA-256 4afd70874c3b7d36d092bfac9b60f96e26514e90298979b723fa2318bd4f6a95. Direct visual review of the official eJO page shows the Djibouti decree title and publication date, Article 1 Free Zone scope, and Article 13 cannabis/hashish/resin admission prohibition. The retained fragment is an English summary, not a literal French quotation; the bound artifact has no browser origin and does not independently prove present legal force. C2 is PARTIAL and C3 NOT_PROVEN. This closes only the exact scope-limited source-review signal and changes no Legal or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "NOT_MODIFIED",
+      "resultingChangeReason": "HTTP_200_DOCUMENT_SHA256_UNCHANGED_DIRECT_OFFICIAL_PAGE_REVIEW",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-4f3df9bcc30905e5a2958131",
+      "operationId": "SRCREV-a4bbc6e5bde9dc6790963d26",
+      "geo": "DJ",
+      "sourceUrl": "https://www.journalofficiel.dj/texte-juridique/proclamation-nlr-77-001-du-27-juin-1977-dite-loi-constitutionnelle-n1-de-proclamation-de-la-republique-de-djibouti-une-et-indivisible-independante-et-souveraine/",
+      "resolvedAt": "2026-09-14T12:44:19.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-main-2026-09-14",
+      "evidenceUrl": "https://www.journalofficiel.dj/texte-juridique/proclamation-nlr-77-001-du-27-juin-1977-dite-loi-constitutionnelle-n1-de-proclamation-de-la-republique-de-djibouti-une-et-indivisible-independante-et-souveraine/",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "DJ",
+      "reviewedAttemptId": "SRCATT-db781ac486e654ece36b3786",
+      "reviewedSignalIdentitySha256": "54108f5296e261f0a38ecf73f7db1f38cf57ef801fca850c1e6743c69c7bae19",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "7df5f8be2b7071a397dd30dca77a7d55dd22f7ff0acf9c6227b32c48fd3ed53e",
+      "note": "Two fresh exact reads reproduce the retained 123572-byte official eJO body at SHA-256 bd71a9ebedf8fc65f1773b089c16bce2795cde50b1629576739a46c44a9d9333. The bound visual artifact shows the official Djibouti instrument title, publication date, Article 5 continuity wording and Article 7 immediate enforceability. It does not independently prove present non-repeal/current legal force and is not cannabis-specific; this closes only the exact source-review signal and changes no Legal Truth or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "NOT_MODIFIED",
+      "resultingChangeReason": "HTTP_200_DOCUMENT_SHA256_UNCHANGED_DIRECT_OFFICIAL_PAGE_REVIEW",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-89bee8d16a2e93b3f27d039a",
+      "operationId": "SRCREV-d9481e2572f6af4f12de5542",
+      "geo": "BF",
+      "sourceUrl": "https://www.an.bf/storage/Loi/n53UNiWibGu7dOfkIqc0pgYQpwb51QUX0rDJsCvg.pdf",
+      "resolvedAt": "2026-09-14T12:45:54.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-main-2026-09-14",
+      "evidenceUrl": "https://www.an.bf/storage/Loi/n53UNiWibGu7dOfkIqc0pgYQpwb51QUX0rDJsCvg.pdf",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "BF",
+      "reviewedAttemptId": "SRCATT-8a5398dffc4f79e76082ecac",
+      "reviewedSignalIdentitySha256": "16a2ba3d14332bc03ce22e1fc5aeb8595599bd194404ef2716707f2db52eb02a",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "a5e112d4e309708025d1c9c2c7c492a6ce5923b2d7461140e39ddfb498177845",
+      "note": "Two fresh exact reads reproduce the retained 1956349-byte National Assembly PDF at SHA-256 e375ad2b5d52356e48f30decce2ca3588557d6db6c1f64a796d26640eda55428. Main-agent visual review shows page 156, Article 385-1 national-scope prohibition and Article 385-2 cannabis-oil and cannabis-derivative penalty rows. The bound English record is a synthesis rather than a literal visible fragment, and the image proves neither publisher/domain nor current consolidation/effectivity; this closes only the exact source-review signal and changes no Legal Truth or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "NOT_MODIFIED",
+      "resultingChangeReason": "HTTP_200_DOCUMENT_SHA256_UNCHANGED_DIRECT_OFFICIAL_PDF_REVIEW",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-4ffb3964a9a78440dd892eb9",
+      "operationId": "SRCREV-66b67f42c9087a69fbe5ec79",
+      "geo": "BO",
+      "sourceUrl": "https://diprevcon.mingobierno.gob.bo/wp-content/uploads/2025/09/LEY-1358.pdf",
+      "resolvedAt": "2026-09-14T12:46:42.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-main-2026-09-14",
+      "evidenceUrl": "https://diprevcon.mingobierno.gob.bo/wp-content/uploads/2025/09/LEY-1358.pdf",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "BO",
+      "reviewedAttemptId": "SRCATT-7a63abaf77f1d3184c387554",
+      "reviewedSignalIdentitySha256": "a3791a3fc09fe5ed00762a146e2c67e8dec18781ada6c566dd4ad638ec3e8cec",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "1b9fc2d83870f8a71492b5e239e8b3dab2c551ff013a658573ea256fed4a0618",
+      "note": "Two fresh exact reads reproduce the retained 56895-byte official DIPREVCON PDF at SHA-256 b2029e0455dda213fee15fe61b44154dcf7c53bbe700ae963d0baac5578d8cac. Main-agent visual review shows Law 1358, its 6 January 2021 document date and Article 1 amendment scope naming Section I, Articles 38, 39, 40 and Article 63(II). The bound English record is not a literal visible fragment; the source snapshot does not retain an independently attestable effective-state field, and the image proves neither DIPREVCON/browser origin nor present consolidation/currentness. This closes only the exact source-review signal and changes no Legal Truth or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "NOT_MODIFIED",
+      "resultingChangeReason": "HTTP_200_DOCUMENT_SHA256_UNCHANGED_DIRECT_OFFICIAL_PDF_REVIEW",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-ffe2257c947cda00629d9b27",
+      "operationId": "SRCREV-1ebc59c25cd0b41530d703bc",
+      "geo": "US-MD",
+      "sourceUrl": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcr&section=5-601",
+      "resolvedAt": "2026-09-14T12:48:01.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-main-2026-09-14",
+      "evidenceUrl": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcr&section=5-601",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "US-MD",
+      "reviewedAttemptId": "SRCATT-4549d75e7466c7e2f87a4835",
+      "reviewedSignalIdentitySha256": "301cbc4f64e2d53b903419f52ef1a95c79170b9a9187c42ff7b6f887ed29950c",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "dc694aa89245e98ba740f144aaca43dbd65d045e62717c9a2b9260c138621a91",
+      "note": "Two fresh exact reads reproduce the retained 76763-byte Maryland General Assembly statute page at SHA-256 9c770e7f995efba2b40628ea600e98e0231ed22e90849a453e44f657830142ac. Main-agent visual review shows Maryland General Assembly publisher identity, Criminal Law section 5-601 and the 21-plus personal-use cannabis exception. The bound 167-byte record includes editorial section/quotation punctuation and is not a literal screenshot byte run; the artifact proves neither browser origin nor current/effective date. Its .png locator contains real JPEG/JFIF bytes and is attested by magic, SHA and MIME. This closes only the exact source-review signal and changes no Legal Truth or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "NOT_MODIFIED",
+      "resultingChangeReason": "HTTP_200_DOCUMENT_SHA256_UNCHANGED_DIRECT_OFFICIAL_PAGE_REVIEW",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-82d4ded72cc96570fb5c8894",
+      "operationId": "SRCREV-e6c836428ccc6b9020a5d04b",
+      "geo": "US-OH",
+      "sourceUrl": "https://codes.ohio.gov/assets/laws/revised-code/authenticated/37/3796/3796.22/3-20-2026/3796.22-3-20-2026.pdf",
+      "resolvedAt": "2026-09-14T12:48:28.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-main-2026-09-14",
+      "evidenceUrl": "https://codes.ohio.gov/assets/laws/revised-code/authenticated/37/3796/3796.22/3-20-2026/3796.22-3-20-2026.pdf",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "US-OH",
+      "reviewedAttemptId": "SRCATT-cc02b5c01204b453fe012b10",
+      "reviewedSignalIdentitySha256": "ff3cac2ae2373b2623283a367680bfe0044329a028490b7122e92bef10bf18d5",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "fef2f4c9b87f1e49a3799ca7430c1003b4bf219df91c2c7fbc11b06ff2ddfe1f",
+      "note": "Two fresh exact reads reproduce the retained 207097-byte authenticated Ohio Legislative Service Commission PDF at SHA-256 b4aef873299862c656f7654ebdd5c08f47f4672ea45abd491995cdb2be1ad80f. Main-agent visual review shows Section 3796.22, the March 20 2026 effective date, registered-patient licensed-dispensary route, use/possession rights and protection from arrest or prosecution. The bound 260-byte record synthesizes clauses A and C rather than preserving one literal screenshot byte run, and the artifact has no browser/domain origin or independent present-currentness proof. This closes only the exact source-review signal and changes no Legal Truth or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "NOT_MODIFIED",
+      "resultingChangeReason": "HTTP_200_DOCUMENT_SHA256_UNCHANGED_DIRECT_OFFICIAL_PDF_REVIEW",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-c0cc758a37dc18d247eb6713",
+      "operationId": "SRCREV-0bc32ed10146548586af162d",
+      "geo": "SH",
+      "sourceUrl": "https://www.sainthelena.gov.sh/app/uploads/gazette/LN-1-Drugs-Prevention-of-Misuse-Amendment-Ordinance-2023-Commencement-Order-2023.pdf",
+      "resolvedAt": "2026-09-14T12:48:51.000Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-main-2026-09-14",
+      "evidenceUrl": "https://www.sainthelena.gov.sh/app/uploads/gazette/LN-1-Drugs-Prevention-of-Misuse-Amendment-Ordinance-2023-Commencement-Order-2023.pdf",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "SH",
+      "reviewedAttemptId": "SRCATT-eef66821f8f3b60502b36589",
+      "reviewedSignalIdentitySha256": "d45c8ad017cdca00b11a24a79ed827d643d669f3a5717fc94051adcdb0942702",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "375c56befac5e9353e9379944b547f1a08b71ecb95cab3ffa464c248d64aaf8a",
+      "note": "Two fresh exact reads reproduce the retained 37907-byte St Helena Government Gazette PDF at SHA-256 b45096c42d4da7f554e5261d97614148a5afe7a600479734570812b8a990c77f. Main-agent visual review shows Legal Notice No. 1 of 2023, St Helena publisher/territory, the commencement order and the 24 February 2023 effective date. The bound 111-byte editorial sentence normalizes the printed wording \"24th day of February\" and is therefore not one literal screenshot byte run; the artifact has no browser/domain origin or independent present-currentness proof. This closes only the exact source-review signal and changes no Legal Truth or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "NOT_MODIFIED",
+      "resultingChangeReason": "HTTP_200_DOCUMENT_SHA256_UNCHANGED_DIRECT_OFFICIAL_PDF_REVIEW",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
     }
   ],
   "attempts": [
@@ -201880,6 +202027,587 @@
       "attestationId": "SRCEVT-c075916b297fd471e33c3cf8",
       "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-569daa27a9360eb2869cff68\",\"operationId\":\"SRCREV-83d3e767bc238abe99af2fdf\",\"reviewedAttemptId\":\"SRCATT-6f33ab649ff24c3202f210e5\",\"reviewedSignalIdentitySha256\":\"b3a1c47ede67b597c1e10918c4ca908c2ed37923b8054f9df2d9f87d06b00191\",\"reviewedSignalPayloadSha256\":\"b3a1c47ede67b597c1e10918c4ca908c2ed37923b8054f9df2d9f87d06b00191\",\"resolutionRegistryPreimageSha256\":\"4817984a9c7fb5e2312a7258633065521efe134c3733b270194fcd24125db40b\",\"geo\":\"PH\",\"sourceUrl\":\"https://ddb.gov.ph/wp-content/uploads/2024/04/Board-Resolution-No.-6-Series-of-2024-2.pdf\",\"sourceRecordSha256\":\"c8db158d19f4b8b78253f7ba4066c5358770896662cd3542aaee1b792b64d83f\",\"exactFragmentSha256\":\"385eb4669710140428076c947c623218b93a829321e8c0fd2c994e742322aefe\",\"visualArtifactSha256\":\"e2f824da592563126f3ec52d0a13f8ba0afaf0974a69fbf39f8081b9c3de5ebc\",\"reviewSha256\":\"19fbde83e9439e36a9cdbd931edf312e09c479e13c078fb8c19b4e1fb3ab91f3\",\"reviewerId\":\"codex-main-2026-09-14\",\"reviewedAt\":\"2026-09-14T12:08:18.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-14T12:08:18.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"1f79ee45fc3d158252b06aa0a9c06bf4b124f53f6a66d0e5c5f2742e3c7133c8\",\"sourceLedgerSha256\":\"a884aab7479d9632c1f1a4c9cc1a4ee3188db06851a93598f5033d583e5a5f3d\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
       "attestationSha256": "2a84affd0168d267f1d09c2fd44bf2b2d227d196ae1dc7206e509ccf909235cf"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-f7f7d87447518739be555b93",
+      "operationId": "SRCREV-9b974072162eac1d99d387d1",
+      "reviewedAttemptId": "SRCATT-c0fc1af6ac5eebb336a199ce",
+      "reviewedSignalIdentitySha256": "2071459755223cc6f262e4fcdebcc9251a97a5fcaefb30cffea7bc7257b69462",
+      "reviewedSignalPayloadSha256": "2071459755223cc6f262e4fcdebcc9251a97a5fcaefb30cffea7bc7257b69462",
+      "resolutionRegistryPreimageSha256": "a7682a41723e6c52f298150c8b0dece3e38d1558381ba043d83271b683bd1251",
+      "geo": "DJ",
+      "sourceUrl": "https://www.journalofficiel.dj/texte-juridique/decret-n2003-0202-pre-portant-reglementation-des-activites-economiques-des-zones-franches-a-djibouti/",
+      "sourceRecord": {
+        "officialPublisher": "Journal Officiel de la République de Djibouti",
+        "sourceOwnerGeo": "DJ",
+        "appliesToGeos": [
+          "DJ"
+        ],
+        "legalBasisForExtension": "eJO is the Journal Officiel of the Republic of Djibouti; the cited instruments apply within DJ only.",
+        "sourceType": "official_free_zone_regulation",
+        "primaryOrContext": "scope_limited_cannabis_specific_context",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": "NOT_RECORDED",
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "Article 13 prohibits admission into Djibouti Free Zones of “cannabis (chanvre indien), haschisch et résine de cannabis”.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "abc8966b94d711ae6109edea30d8f85becdc263cd1402e72a53eeda080b0f62b",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "bee106ffc5d1195ea1c98288e41d2dff32757f11011ac1aa8a264a476cfe195f",
+          "byteLength": 125,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "e44c921d9c66a626be7c0aa9b1d05ba83c0b672c832225a8f2f94bcfc25929c4",
+          "byteLength": 795259,
+          "mediaType": "image/png",
+          "locator": "20260914-batch40-dj-free-zone/DJ-ejo-2003-free-zone-article-13-current-2026-08-10.png",
+          "capturedAt": "2026-08-10T10:35:01.000Z"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-main-2026-09-14",
+        "reviewedAt": "2026-09-14T12:38:31.000Z",
+        "visibleEvidenceScopes": [
+          "C2",
+          "C3"
+        ],
+        "visibility": {
+          "publisher": true,
+          "officialDomainText": false,
+          "exactFragment": true,
+          "scope": true,
+          "current": false,
+          "effective": false,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-14T12:38:31.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "949426bfbbf1cb3119d841884158fe9ac8dbf96fef13d19a077935d44767b32d",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "2a84affd0168d267f1d09c2fd44bf2b2d227d196ae1dc7206e509ccf909235cf",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-78dec389e8c2dc28a58544a4",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-f7f7d87447518739be555b93\",\"operationId\":\"SRCREV-9b974072162eac1d99d387d1\",\"reviewedAttemptId\":\"SRCATT-c0fc1af6ac5eebb336a199ce\",\"reviewedSignalIdentitySha256\":\"2071459755223cc6f262e4fcdebcc9251a97a5fcaefb30cffea7bc7257b69462\",\"reviewedSignalPayloadSha256\":\"2071459755223cc6f262e4fcdebcc9251a97a5fcaefb30cffea7bc7257b69462\",\"resolutionRegistryPreimageSha256\":\"a7682a41723e6c52f298150c8b0dece3e38d1558381ba043d83271b683bd1251\",\"geo\":\"DJ\",\"sourceUrl\":\"https://www.journalofficiel.dj/texte-juridique/decret-n2003-0202-pre-portant-reglementation-des-activites-economiques-des-zones-franches-a-djibouti/\",\"sourceRecordSha256\":\"abc8966b94d711ae6109edea30d8f85becdc263cd1402e72a53eeda080b0f62b\",\"exactFragmentSha256\":\"bee106ffc5d1195ea1c98288e41d2dff32757f11011ac1aa8a264a476cfe195f\",\"visualArtifactSha256\":\"e44c921d9c66a626be7c0aa9b1d05ba83c0b672c832225a8f2f94bcfc25929c4\",\"reviewSha256\":\"e8418edd819927bfa553cf391aedbab7c9302ebfccd192002f6d2892a36742a5\",\"reviewerId\":\"codex-main-2026-09-14\",\"reviewedAt\":\"2026-09-14T12:38:31.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-14T12:38:31.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"2a84affd0168d267f1d09c2fd44bf2b2d227d196ae1dc7206e509ccf909235cf\",\"sourceLedgerSha256\":\"949426bfbbf1cb3119d841884158fe9ac8dbf96fef13d19a077935d44767b32d\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "8f458188b4a7be9a6abf37e2bb78278eb26da7a139a10d9a37ed6c000425fc26"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-4f3df9bcc30905e5a2958131",
+      "operationId": "SRCREV-a4bbc6e5bde9dc6790963d26",
+      "reviewedAttemptId": "SRCATT-db781ac486e654ece36b3786",
+      "reviewedSignalIdentitySha256": "54108f5296e261f0a38ecf73f7db1f38cf57ef801fca850c1e6743c69c7bae19",
+      "reviewedSignalPayloadSha256": "54108f5296e261f0a38ecf73f7db1f38cf57ef801fca850c1e6743c69c7bae19",
+      "resolutionRegistryPreimageSha256": "7df5f8be2b7071a397dd30dca77a7d55dd22f7ff0acf9c6227b32c48fd3ed53e",
+      "geo": "DJ",
+      "sourceUrl": "https://www.journalofficiel.dj/texte-juridique/proclamation-nlr-77-001-du-27-juin-1977-dite-loi-constitutionnelle-n1-de-proclamation-de-la-republique-de-djibouti-une-et-indivisible-independante-et-souveraine/",
+      "sourceRecord": {
+        "officialPublisher": "Journal Officiel de la République de Djibouti",
+        "sourceOwnerGeo": "DJ",
+        "appliesToGeos": [
+          "DJ"
+        ],
+        "legalBasisForExtension": "eJO is the Journal Officiel of the Republic of Djibouti; the cited instruments apply within DJ only.",
+        "sourceType": "official_constitutional_transition_instrument",
+        "primaryOrContext": "currentness_and_applicability_bridge",
+        "cannabisSpecific": false,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "Article 5: “Les lois et règlements applicables au jour de la promulgation ... restent et demeurent en vigueur ... jusqu’à ce qu’il soit légalement décidé de leur abrogation ou modification.”",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "42a3dc0b3a2ff740c0d3cf05affd1c036e3a8fedd230b7d21ce355cf4b829df5",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "fcd8fdc4fe7932126397812c334d3ef9a349194e69216e4ec44d3609264bfe90",
+          "byteLength": 203,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "500b2b38aa1565fea2421f709fb2bcd5cfddc4f0b918111f65d80f46c2173346",
+          "byteLength": 303491,
+          "mediaType": "image/png",
+          "locator": "20260914-batch40-dj-continuity/DJ-ejo-lr77-001-continuity-current-2026-08-10-refresh.png",
+          "capturedAt": "2026-08-10T10:34:51.000Z"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-main-2026-09-14",
+        "reviewedAt": "2026-09-14T12:44:19.000Z",
+        "visibleEvidenceScopes": [
+          "C2",
+          "C3"
+        ],
+        "visibility": {
+          "publisher": true,
+          "officialDomainText": false,
+          "exactFragment": true,
+          "scope": true,
+          "current": false,
+          "effective": true,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-14T12:44:19.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "949426bfbbf1cb3119d841884158fe9ac8dbf96fef13d19a077935d44767b32d",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "8f458188b4a7be9a6abf37e2bb78278eb26da7a139a10d9a37ed6c000425fc26",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-546c26440c7284f9827611bc",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-4f3df9bcc30905e5a2958131\",\"operationId\":\"SRCREV-a4bbc6e5bde9dc6790963d26\",\"reviewedAttemptId\":\"SRCATT-db781ac486e654ece36b3786\",\"reviewedSignalIdentitySha256\":\"54108f5296e261f0a38ecf73f7db1f38cf57ef801fca850c1e6743c69c7bae19\",\"reviewedSignalPayloadSha256\":\"54108f5296e261f0a38ecf73f7db1f38cf57ef801fca850c1e6743c69c7bae19\",\"resolutionRegistryPreimageSha256\":\"7df5f8be2b7071a397dd30dca77a7d55dd22f7ff0acf9c6227b32c48fd3ed53e\",\"geo\":\"DJ\",\"sourceUrl\":\"https://www.journalofficiel.dj/texte-juridique/proclamation-nlr-77-001-du-27-juin-1977-dite-loi-constitutionnelle-n1-de-proclamation-de-la-republique-de-djibouti-une-et-indivisible-independante-et-souveraine/\",\"sourceRecordSha256\":\"42a3dc0b3a2ff740c0d3cf05affd1c036e3a8fedd230b7d21ce355cf4b829df5\",\"exactFragmentSha256\":\"fcd8fdc4fe7932126397812c334d3ef9a349194e69216e4ec44d3609264bfe90\",\"visualArtifactSha256\":\"500b2b38aa1565fea2421f709fb2bcd5cfddc4f0b918111f65d80f46c2173346\",\"reviewSha256\":\"8d6a723e3e0b1c73591411e59e8ae048ac375c4fde0a0fd21dd55a9645727d50\",\"reviewerId\":\"codex-main-2026-09-14\",\"reviewedAt\":\"2026-09-14T12:44:19.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-14T12:44:19.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"8f458188b4a7be9a6abf37e2bb78278eb26da7a139a10d9a37ed6c000425fc26\",\"sourceLedgerSha256\":\"949426bfbbf1cb3119d841884158fe9ac8dbf96fef13d19a077935d44767b32d\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "d989c0992af1856c7d0384a13fa5cecb974ba89ded467ca0cf6d8f9443eeec25"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-89bee8d16a2e93b3f27d039a",
+      "operationId": "SRCREV-d9481e2572f6af4f12de5542",
+      "reviewedAttemptId": "SRCATT-8a5398dffc4f79e76082ecac",
+      "reviewedSignalIdentitySha256": "16a2ba3d14332bc03ce22e1fc5aeb8595599bd194404ef2716707f2db52eb02a",
+      "reviewedSignalPayloadSha256": "16a2ba3d14332bc03ce22e1fc5aeb8595599bd194404ef2716707f2db52eb02a",
+      "resolutionRegistryPreimageSha256": "a5e112d4e309708025d1c9c2c7c492a6ce5923b2d7461140e39ddfb498177845",
+      "geo": "BF",
+      "sourceUrl": "https://www.an.bf/storage/Loi/n53UNiWibGu7dOfkIqc0pgYQpwb51QUX0rDJsCvg.pdf",
+      "sourceRecord": {
+        "officialPublisher": "Assemblée législative de transition / National Assembly of Burkina Faso",
+        "sourceOwnerGeo": "BF",
+        "appliesToGeos": [
+          "BF"
+        ],
+        "legalBasisForExtension": "National Penal Code applies throughout Burkina Faso.",
+        "sourceType": "PRIMARY_LAW_CANNABIS_SPECIFIC_POSSESSION_AND_MEDICAL_PRESCRIPTION_EXCEPTION",
+        "primaryOrContext": "PRIMARY",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": "NOT_RECORDED",
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "Article 385-1: \"L’usage hors prescriptions médicales des drogues sous contrôle est interdit sur le territoire national.\" Article 385-2 punishes illicit personal purchase, possession or cultivation; for a high-risk drug including cannabis oil the penalty is one month to one year plus CFA 250,000-600,000, and for a cannabis-plant derivative other than cannabis oil it is one to six months plus the same fine.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "551172191575a985756ded50f20f1c3a97e14df15f6a1663a4d0f768aa47ef37",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "5bcf9d5d5db394dc463d02b45a05a25ff70ef11befff6d5e7d70da0e75935813",
+          "byteLength": 412,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "09a4e5af8fcbf411fb0226a9e1d50378ef812ced7f19319aa2fc5c1388b2872c",
+          "byteLength": 314591,
+          "mediaType": "image/png",
+          "locator": "20260914-batch40-bf-bo/BF-penal-code-articles-385-1-385-2-current-2026-08-09.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-main-2026-09-14",
+        "reviewedAt": "2026-09-14T12:45:54.000Z",
+        "visibleEvidenceScopes": [
+          "C2",
+          "C3"
+        ],
+        "visibility": {
+          "publisher": false,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": false,
+          "effective": false,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-14T12:45:54.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "949426bfbbf1cb3119d841884158fe9ac8dbf96fef13d19a077935d44767b32d",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "d989c0992af1856c7d0384a13fa5cecb974ba89ded467ca0cf6d8f9443eeec25",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-fd41264d3713bdf5669bcedb",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-89bee8d16a2e93b3f27d039a\",\"operationId\":\"SRCREV-d9481e2572f6af4f12de5542\",\"reviewedAttemptId\":\"SRCATT-8a5398dffc4f79e76082ecac\",\"reviewedSignalIdentitySha256\":\"16a2ba3d14332bc03ce22e1fc5aeb8595599bd194404ef2716707f2db52eb02a\",\"reviewedSignalPayloadSha256\":\"16a2ba3d14332bc03ce22e1fc5aeb8595599bd194404ef2716707f2db52eb02a\",\"resolutionRegistryPreimageSha256\":\"a5e112d4e309708025d1c9c2c7c492a6ce5923b2d7461140e39ddfb498177845\",\"geo\":\"BF\",\"sourceUrl\":\"https://www.an.bf/storage/Loi/n53UNiWibGu7dOfkIqc0pgYQpwb51QUX0rDJsCvg.pdf\",\"sourceRecordSha256\":\"551172191575a985756ded50f20f1c3a97e14df15f6a1663a4d0f768aa47ef37\",\"exactFragmentSha256\":\"5bcf9d5d5db394dc463d02b45a05a25ff70ef11befff6d5e7d70da0e75935813\",\"visualArtifactSha256\":\"09a4e5af8fcbf411fb0226a9e1d50378ef812ced7f19319aa2fc5c1388b2872c\",\"reviewSha256\":\"aa36f56f295565c891097901462255cf46c0f5a3b9c44aaa12f7fc02aadaedf4\",\"reviewerId\":\"codex-main-2026-09-14\",\"reviewedAt\":\"2026-09-14T12:45:54.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-14T12:45:54.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"d989c0992af1856c7d0384a13fa5cecb974ba89ded467ca0cf6d8f9443eeec25\",\"sourceLedgerSha256\":\"949426bfbbf1cb3119d841884158fe9ac8dbf96fef13d19a077935d44767b32d\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "565c9bc5504dd4af3449ca38ad797a7dc6e611fb2160969348f3724bd0f9c239"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-4ffb3964a9a78440dd892eb9",
+      "operationId": "SRCREV-66b67f42c9087a69fbe5ec79",
+      "reviewedAttemptId": "SRCATT-7a63abaf77f1d3184c387554",
+      "reviewedSignalIdentitySha256": "a3791a3fc09fe5ed00762a146e2c67e8dec18781ada6c566dd4ad638ec3e8cec",
+      "reviewedSignalPayloadSha256": "a3791a3fc09fe5ed00762a146e2c67e8dec18781ada6c566dd4ad638ec3e8cec",
+      "resolutionRegistryPreimageSha256": "1b9fc2d83870f8a71492b5e239e8b3dab2c551ff013a658573ea256fed4a0618",
+      "geo": "BO",
+      "sourceUrl": "https://diprevcon.mingobierno.gob.bo/wp-content/uploads/2025/09/LEY-1358.pdf",
+      "sourceRecord": {
+        "officialPublisher": "Ministerio de Gobierno de Bolivia / DIPREVCON",
+        "sourceOwnerGeo": "BO",
+        "appliesToGeos": [
+          "BO"
+        ],
+        "legalBasisForExtension": "NATIVE_BOLIVIAN_STATUTE",
+        "sourceType": "PRIMARY_LAW_AMENDMENT_PDF",
+        "primaryOrContext": "PRIMARY",
+        "cannabisSpecific": false,
+        "current": true,
+        "effective": "NOT_RECORDED",
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "Article 1 expressly limits the amendments to the Chapter VI Section I denomination, Articles 38, 39, 40, and Article 63(II) of Law 913. Article 18 is not among the amended provisions.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "efd679882661bf8b4f43d6fcb1c0e1cd7aea5e549210b9fadec67f4ed0ee233e",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "10c23deb185c200f20e3dee32f7cad43afaa1c0ffceedd9c66c211001dd3d09d",
+          "byteLength": 183,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "eb31465a50a0f18549f9bab61c776011b6688e759a57c12d8b4f179c4ed28c47",
+          "byteLength": 245599,
+          "mediaType": "image/png",
+          "locator": "20260914-batch40-bf-bo/BO-diprevcon-law-1358-amendment-scope-current-2026-08-08.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-main-2026-09-14",
+        "reviewedAt": "2026-09-14T12:46:42.000Z",
+        "visibleEvidenceScopes": [
+          "C2",
+          "C3"
+        ],
+        "visibility": {
+          "publisher": false,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": false,
+          "effective": false,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-14T12:46:42.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "949426bfbbf1cb3119d841884158fe9ac8dbf96fef13d19a077935d44767b32d",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "565c9bc5504dd4af3449ca38ad797a7dc6e611fb2160969348f3724bd0f9c239",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-9b811310bbcc09404c5ef0d5",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-4ffb3964a9a78440dd892eb9\",\"operationId\":\"SRCREV-66b67f42c9087a69fbe5ec79\",\"reviewedAttemptId\":\"SRCATT-7a63abaf77f1d3184c387554\",\"reviewedSignalIdentitySha256\":\"a3791a3fc09fe5ed00762a146e2c67e8dec18781ada6c566dd4ad638ec3e8cec\",\"reviewedSignalPayloadSha256\":\"a3791a3fc09fe5ed00762a146e2c67e8dec18781ada6c566dd4ad638ec3e8cec\",\"resolutionRegistryPreimageSha256\":\"1b9fc2d83870f8a71492b5e239e8b3dab2c551ff013a658573ea256fed4a0618\",\"geo\":\"BO\",\"sourceUrl\":\"https://diprevcon.mingobierno.gob.bo/wp-content/uploads/2025/09/LEY-1358.pdf\",\"sourceRecordSha256\":\"efd679882661bf8b4f43d6fcb1c0e1cd7aea5e549210b9fadec67f4ed0ee233e\",\"exactFragmentSha256\":\"10c23deb185c200f20e3dee32f7cad43afaa1c0ffceedd9c66c211001dd3d09d\",\"visualArtifactSha256\":\"eb31465a50a0f18549f9bab61c776011b6688e759a57c12d8b4f179c4ed28c47\",\"reviewSha256\":\"bf1ebe099ee346120f5d2804ad8059f277b097e7fe2ac8c7a9ad967fe434ec4d\",\"reviewerId\":\"codex-main-2026-09-14\",\"reviewedAt\":\"2026-09-14T12:46:42.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-14T12:46:42.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"565c9bc5504dd4af3449ca38ad797a7dc6e611fb2160969348f3724bd0f9c239\",\"sourceLedgerSha256\":\"949426bfbbf1cb3119d841884158fe9ac8dbf96fef13d19a077935d44767b32d\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "06f5ea18d2ad1e79c180259574c138581f2b52a756fed2fd7554a4f96095b63b"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-ffe2257c947cda00629d9b27",
+      "operationId": "SRCREV-1ebc59c25cd0b41530d703bc",
+      "reviewedAttemptId": "SRCATT-4549d75e7466c7e2f87a4835",
+      "reviewedSignalIdentitySha256": "301cbc4f64e2d53b903419f52ef1a95c79170b9a9187c42ff7b6f887ed29950c",
+      "reviewedSignalPayloadSha256": "301cbc4f64e2d53b903419f52ef1a95c79170b9a9187c42ff7b6f887ed29950c",
+      "resolutionRegistryPreimageSha256": "dc694aa89245e98ba740f144aaca43dbd65d045e62717c9a2b9260c138621a91",
+      "geo": "US-MD",
+      "sourceUrl": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcr&section=5-601",
+      "sourceRecord": {
+        "officialPublisher": "Maryland General Assembly",
+        "sourceOwnerGeo": "US-MD",
+        "appliesToGeos": [
+          "US-MD"
+        ],
+        "legalBasisForExtension": "Direct Maryland State statute or Maryland Cannabis Administration material applicable to Maryland only.",
+        "sourceType": "CURRENT_STATUTE",
+        "primaryOrContext": "PRIMARY",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "§ 5-601(a)(1)(ii): “the controlled dangerous substance is cannabis, the individual is at least 21 years old, and the amount possessed is the personal use amount”.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "a19533c1dc6eaea7555c26a74e45cbb12d77d410628382e8b7241c32dcfb8fb3",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "26fb5a8600ea2d5bd879d80e3ab6e919ff5d593177cda0aa840c89ff1b35cd55",
+          "byteLength": 167,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "11942faf71b4c0737686be052beda1797b212ca31dda53bf21d31e8aaf43cee0",
+          "byteLength": 678318,
+          "mediaType": "image/jpeg",
+          "locator": "20260914-batch40-md-oh-sh/US-MD-statute-5-601-wide-current-2026-08-10.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-main-2026-09-14",
+        "reviewedAt": "2026-09-14T12:48:01.000Z",
+        "visibleEvidenceScopes": [
+          "C2",
+          "C3"
+        ],
+        "visibility": {
+          "publisher": true,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": false,
+          "effective": false,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-14T12:48:01.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "949426bfbbf1cb3119d841884158fe9ac8dbf96fef13d19a077935d44767b32d",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "06f5ea18d2ad1e79c180259574c138581f2b52a756fed2fd7554a4f96095b63b",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-904069c68ba80e7d51337e4c",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-ffe2257c947cda00629d9b27\",\"operationId\":\"SRCREV-1ebc59c25cd0b41530d703bc\",\"reviewedAttemptId\":\"SRCATT-4549d75e7466c7e2f87a4835\",\"reviewedSignalIdentitySha256\":\"301cbc4f64e2d53b903419f52ef1a95c79170b9a9187c42ff7b6f887ed29950c\",\"reviewedSignalPayloadSha256\":\"301cbc4f64e2d53b903419f52ef1a95c79170b9a9187c42ff7b6f887ed29950c\",\"resolutionRegistryPreimageSha256\":\"dc694aa89245e98ba740f144aaca43dbd65d045e62717c9a2b9260c138621a91\",\"geo\":\"US-MD\",\"sourceUrl\":\"https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcr&section=5-601\",\"sourceRecordSha256\":\"a19533c1dc6eaea7555c26a74e45cbb12d77d410628382e8b7241c32dcfb8fb3\",\"exactFragmentSha256\":\"26fb5a8600ea2d5bd879d80e3ab6e919ff5d593177cda0aa840c89ff1b35cd55\",\"visualArtifactSha256\":\"11942faf71b4c0737686be052beda1797b212ca31dda53bf21d31e8aaf43cee0\",\"reviewSha256\":\"bef3c7fdbb0372d17d8c1c5eeea527c5d505b4049c01238e7de299601b761cbb\",\"reviewerId\":\"codex-main-2026-09-14\",\"reviewedAt\":\"2026-09-14T12:48:01.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-14T12:48:01.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"06f5ea18d2ad1e79c180259574c138581f2b52a756fed2fd7554a4f96095b63b\",\"sourceLedgerSha256\":\"949426bfbbf1cb3119d841884158fe9ac8dbf96fef13d19a077935d44767b32d\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "e0059459c638c7d5b83f401fd27f9751f0c92e6dc8348d35064b1918027428fa"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-82d4ded72cc96570fb5c8894",
+      "operationId": "SRCREV-e6c836428ccc6b9020a5d04b",
+      "reviewedAttemptId": "SRCATT-cc02b5c01204b453fe012b10",
+      "reviewedSignalIdentitySha256": "ff3cac2ae2373b2623283a367680bfe0044329a028490b7122e92bef10bf18d5",
+      "reviewedSignalPayloadSha256": "ff3cac2ae2373b2623283a367680bfe0044329a028490b7122e92bef10bf18d5",
+      "resolutionRegistryPreimageSha256": "fef2f4c9b87f1e49a3799ca7430c1003b4bf219df91c2c7fbc11b06ff2ddfe1f",
+      "geo": "US-OH",
+      "sourceUrl": "https://codes.ohio.gov/assets/laws/revised-code/authenticated/37/3796/3796.22/3-20-2026/3796.22-3-20-2026.pdf",
+      "sourceRecord": {
+        "officialPublisher": "Ohio Legislative Service Commission / Ohio Laws",
+        "sourceOwnerGeo": "US-OH",
+        "appliesToGeos": [
+          "US-OH"
+        ],
+        "legalBasisForExtension": "Direct Ohio state statute; no territorial extension inference.",
+        "sourceType": "STATE_STATUTE_AUTHENTICATED_PDF",
+        "primaryOrContext": "PRIMARY",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "A patient registered under this chapter who obtains medical marijuana from a licensed dispensary may use and possess it; a registered patient is not subject to arrest or criminal prosecution for obtaining, using or possessing it in accordance with the chapter.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "fc23a52842e5f997a87c40c5a2282407dcc03238fa3d2cd229331cb9c7356d26",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "0525794916790f4ba9f76a0492ff10f1f3fedfff50470bc453ef58338da20b8d",
+          "byteLength": 260,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "1a6259b027645cf1dc1e6272c2c41589c01753fee72bdca3b1bd8fbbc65396f7",
+          "byteLength": 254699,
+          "mediaType": "image/png",
+          "locator": "20260914-batch40-md-oh-sh/US-OH-authenticated-medical-rights-current-2026-08-09-01.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-main-2026-09-14",
+        "reviewedAt": "2026-09-14T12:48:28.000Z",
+        "visibleEvidenceScopes": [
+          "C2",
+          "C3"
+        ],
+        "visibility": {
+          "publisher": true,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": false,
+          "effective": true,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-14T12:48:28.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "949426bfbbf1cb3119d841884158fe9ac8dbf96fef13d19a077935d44767b32d",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "e0059459c638c7d5b83f401fd27f9751f0c92e6dc8348d35064b1918027428fa",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-5255c9a8c0af089077dbc3f0",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-82d4ded72cc96570fb5c8894\",\"operationId\":\"SRCREV-e6c836428ccc6b9020a5d04b\",\"reviewedAttemptId\":\"SRCATT-cc02b5c01204b453fe012b10\",\"reviewedSignalIdentitySha256\":\"ff3cac2ae2373b2623283a367680bfe0044329a028490b7122e92bef10bf18d5\",\"reviewedSignalPayloadSha256\":\"ff3cac2ae2373b2623283a367680bfe0044329a028490b7122e92bef10bf18d5\",\"resolutionRegistryPreimageSha256\":\"fef2f4c9b87f1e49a3799ca7430c1003b4bf219df91c2c7fbc11b06ff2ddfe1f\",\"geo\":\"US-OH\",\"sourceUrl\":\"https://codes.ohio.gov/assets/laws/revised-code/authenticated/37/3796/3796.22/3-20-2026/3796.22-3-20-2026.pdf\",\"sourceRecordSha256\":\"fc23a52842e5f997a87c40c5a2282407dcc03238fa3d2cd229331cb9c7356d26\",\"exactFragmentSha256\":\"0525794916790f4ba9f76a0492ff10f1f3fedfff50470bc453ef58338da20b8d\",\"visualArtifactSha256\":\"1a6259b027645cf1dc1e6272c2c41589c01753fee72bdca3b1bd8fbbc65396f7\",\"reviewSha256\":\"53dd0268c55a72119edf5fd4db1d5ddbf2d8769aded4a96eb871c50d9fbb004f\",\"reviewerId\":\"codex-main-2026-09-14\",\"reviewedAt\":\"2026-09-14T12:48:28.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-14T12:48:28.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"e0059459c638c7d5b83f401fd27f9751f0c92e6dc8348d35064b1918027428fa\",\"sourceLedgerSha256\":\"949426bfbbf1cb3119d841884158fe9ac8dbf96fef13d19a077935d44767b32d\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "50ffd0d51f99ede804b1ce73940f33002e1b9df461928320460bb41de627c96c"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-c0cc758a37dc18d247eb6713",
+      "operationId": "SRCREV-0bc32ed10146548586af162d",
+      "reviewedAttemptId": "SRCATT-eef66821f8f3b60502b36589",
+      "reviewedSignalIdentitySha256": "d45c8ad017cdca00b11a24a79ed827d643d669f3a5717fc94051adcdb0942702",
+      "reviewedSignalPayloadSha256": "d45c8ad017cdca00b11a24a79ed827d643d669f3a5717fc94051adcdb0942702",
+      "resolutionRegistryPreimageSha256": "375c56befac5e9353e9379944b547f1a08b71ecb95cab3ffa464c248d64aaf8a",
+      "geo": "SH",
+      "sourceUrl": "https://www.sainthelena.gov.sh/app/uploads/gazette/LN-1-Drugs-Prevention-of-Misuse-Amendment-Ordinance-2023-Commencement-Order-2023.pdf",
+      "sourceRecord": {
+        "officialPublisher": "St Helena Government Gazette official legislation publisher",
+        "sourceOwnerGeo": "SH",
+        "appliesToGeos": [
+          "SH"
+        ],
+        "legalBasisForExtension": "Domestic St Helena commencement Order for Ordinance 1 of 2023.",
+        "sourceType": "CURRENT_OFFICIAL_CANNABIS_LAW_COMMENCEMENT_ORDER_PDF",
+        "primaryOrContext": "PRIMARY_CURRENTNESS_CONTEXT_FOR_ENACTED_2023_AMENDMENT",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "This Order brings the Drugs (Prevention of Misuse) (Amendment) Ordinance, 2023, into force on 24 February 2023.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "747794e440b698456757666d0723df57d4f6d3c2861068fcef171f5bd3004848",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "8bd75251aa8e789aca7b11d174ee7031a82ecf6f2c5c4f6fe4c7cde73fb2c669",
+          "byteLength": 111,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "cbeb13f776e8e555a6d21753ddc0d012a8c35abf20f103576b7d22dfa350e28d",
+          "byteLength": 224383,
+          "mediaType": "image/png",
+          "locator": "20260914-batch40-md-oh-sh/SH-commencement-2023-current-2026-08-12-1.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-main-2026-09-14",
+        "reviewedAt": "2026-09-14T12:48:51.000Z",
+        "visibleEvidenceScopes": [
+          "C2",
+          "C3"
+        ],
+        "visibility": {
+          "publisher": true,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": false,
+          "effective": true,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-14T12:48:51.000Z",
+      "inputs": {
+        "sourceLedgerSha256": "949426bfbbf1cb3119d841884158fe9ac8dbf96fef13d19a077935d44767b32d",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "50ffd0d51f99ede804b1ce73940f33002e1b9df461928320460bb41de627c96c",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-1f001de577a36757edcd1d03",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-c0cc758a37dc18d247eb6713\",\"operationId\":\"SRCREV-0bc32ed10146548586af162d\",\"reviewedAttemptId\":\"SRCATT-eef66821f8f3b60502b36589\",\"reviewedSignalIdentitySha256\":\"d45c8ad017cdca00b11a24a79ed827d643d669f3a5717fc94051adcdb0942702\",\"reviewedSignalPayloadSha256\":\"d45c8ad017cdca00b11a24a79ed827d643d669f3a5717fc94051adcdb0942702\",\"resolutionRegistryPreimageSha256\":\"375c56befac5e9353e9379944b547f1a08b71ecb95cab3ffa464c248d64aaf8a\",\"geo\":\"SH\",\"sourceUrl\":\"https://www.sainthelena.gov.sh/app/uploads/gazette/LN-1-Drugs-Prevention-of-Misuse-Amendment-Ordinance-2023-Commencement-Order-2023.pdf\",\"sourceRecordSha256\":\"747794e440b698456757666d0723df57d4f6d3c2861068fcef171f5bd3004848\",\"exactFragmentSha256\":\"8bd75251aa8e789aca7b11d174ee7031a82ecf6f2c5c4f6fe4c7cde73fb2c669\",\"visualArtifactSha256\":\"cbeb13f776e8e555a6d21753ddc0d012a8c35abf20f103576b7d22dfa350e28d\",\"reviewSha256\":\"afc11bb76bf9d4d103daba0f9d262ebf5e1053920d182878c2e5eeb33ed8a1c9\",\"reviewerId\":\"codex-main-2026-09-14\",\"reviewedAt\":\"2026-09-14T12:48:51.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-14T12:48:51.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"50ffd0d51f99ede804b1ce73940f33002e1b9df461928320460bb41de627c96c\",\"sourceLedgerSha256\":\"949426bfbbf1cb3119d841884158fe9ac8dbf96fef13d19a077935d44767b32d\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "16ff3102783a0883ce9f95df3c3e814f074891dd1c17ac51fa9113a0d16f28f5"
     }
   ]
 }
