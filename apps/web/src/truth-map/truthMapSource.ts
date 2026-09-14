@@ -86,6 +86,8 @@ type FinalTruthEvidenceSource = {
     revalidation_state?: string;
     access_state?: string;
     change_reason?: string;
+    queue?: string[];
+    queue_reasons?: string[];
   };
 };
 
@@ -211,6 +213,8 @@ export type TruthMapCanonicalProjectionSource = {
     state: string;
     accessState: string;
     changeReason: string;
+    queue: string[];
+    queueReasons: string[];
   };
 };
 
@@ -422,7 +426,13 @@ function projectCanonicalSource(source: FinalTruthEvidenceSource): TruthMapCanon
       httpStatus: typeof revalidation.http_status === "number" ? revalidation.http_status : null,
       state: String(revalidation.revalidation_state || "NOT_RECORDED").trim() || "NOT_RECORDED",
       accessState: String(revalidation.access_state || "NOT_RECORDED").trim() || "NOT_RECORDED",
-      changeReason: String(revalidation.change_reason || "NOT_RECORDED").trim() || "NOT_RECORDED"
+      changeReason: String(revalidation.change_reason || "NOT_RECORDED").trim() || "NOT_RECORDED",
+      queue: Array.isArray(revalidation.queue)
+        ? [...new Set(revalidation.queue.map((value) => String(value).trim().toUpperCase()).filter(Boolean))].sort()
+        : [],
+      queueReasons: Array.isArray(revalidation.queue_reasons)
+        ? [...new Set(revalidation.queue_reasons.map((value) => String(value).trim()).filter(Boolean))].sort()
+        : []
     }
   };
 }

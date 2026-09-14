@@ -182,8 +182,16 @@ function attemptSignalFields(payload, preimage, format) {
 function eventKindsForSource(source) {
   const state = String(source.revalidation?.revalidation_state || "NOT_RECORDED");
   const kinds = [];
-  if (sourceChanged(source)) kinds.push("SOURCE_CHANGE");
-  if (PENDING_STATES.has(state)) kinds.push("PENDING_REVIEW");
+  const changed = sourceChanged(source);
+  const explicitQueue = new Set(Array.isArray(source.revalidation?.queue)
+    ? source.revalidation.queue.map((value) => String(value).trim().toUpperCase())
+    : []);
+  const hasPendingReviewQueue = explicitQueue.has("C2") || explicitQueue.has("C3");
+  if (changed) kinds.push("SOURCE_CHANGE");
+  if (
+    PENDING_STATES.has(state) ||
+    (!changed && state !== "NOT_RECORDED" && hasPendingReviewQueue)
+  ) kinds.push("PENDING_REVIEW");
   if (state === "NOT_RECORDED") kinds.push("FRESHNESS_METADATA_GAP");
   return kinds;
 }

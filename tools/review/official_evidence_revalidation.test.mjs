@@ -147,6 +147,85 @@ test("a corrected retained fragment opens semantic review even when the official
   assert.equal(input.rows[0].independent_truth_color, colorBefore);
 });
 
+test("legacy NFKC fragment hashes migrate to exact UTF-8 without a false source change", async () => {
+  for (const [exactFragment, normalizedDocument] of [
+    ["Lei nº 3/97", "Lei no 3/97"],
+    ["Закон № 12", "Закон No 12"],
+    ["ข้อกำหนด", "ข้อกําหนด"],
+  ]) {
+    const normalizedFragment = exactFragment.normalize("NFKC");
+    assert.notEqual(sha256(exactFragment), sha256(normalizedFragment));
+    const evidence = source("https://official.example/compatibility-fragment", {
+      exact_fragment: exactFragment,
+      revalidation: {
+        checked_at: "2026-01-01T00:00:00.000Z",
+        final_url: "https://official.example/compatibility-fragment",
+        http_status: 200,
+        etag: '"v1"',
+        last_modified: null,
+        content_type: "text/html",
+        content_length: Buffer.byteLength(normalizedDocument),
+        document_sha256: sha256(normalizedDocument),
+        relevant_fragment_sha256: sha256(normalizedFragment),
+        revalidation_state: "NEEDS_SEMANTIC_REVIEW",
+        access_state: "HTTP_OK",
+        change_reason: "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+      },
+    });
+    const result = await runRevalidation({
+      ledger: ledger([row("AA", [evidence])]),
+      geos: new Set(["AA"]),
+      network: true,
+      checkedAt: "2026-09-14T04:00:00.000Z",
+      fetchImpl: async () => new Response(null, { status: 304, headers: { etag: '"v1"' } }),
+    });
+    const revalidation = result.records[0].source.revalidation;
+    assert.equal(revalidation.revalidation_state, "NOT_MODIFIED");
+    assert.equal(revalidation.change_reason, "HTTP_304_CONDITIONAL_GET");
+    assert.equal(revalidation.relevant_fragment_sha256, sha256(exactFragment));
+    assert.equal(revalidation.relevant_fragment_identity_format, "EXACT_UTF8_V1");
+    assert.deepEqual(revalidation.relevant_fragment_identity_migration, {
+      kind: "LEGACY_NFKC_TO_EXACT_UTF8",
+      observed_at: "2026-09-14T04:00:00.000Z",
+      previous_sha256: sha256(normalizedFragment),
+      exact_utf8_sha256: sha256(exactFragment),
+      boundary: "IDENTITY_FORMAT_CORRECTION_ONLY_NO_SOURCE_OR_LEGAL_CHANGE",
+    });
+  }
+});
+
+test("normalized document search never replaces the exact source fragment byte hash", async () => {
+  const exactFragment = "Lei nº 3/97";
+  const result = await runRevalidation({
+    ledger: ledger([row("AA", [source("https://official.example/normalized-document", {
+      exact_fragment: exactFragment,
+      revalidation: {
+        checked_at: "2026-01-01T00:00:00.000Z",
+        final_url: "https://official.example/normalized-document",
+        http_status: 200,
+        etag: null,
+        last_modified: null,
+        content_type: "text/html",
+        content_length: 3,
+        document_sha256: sha256("old"),
+        relevant_fragment_sha256: sha256(exactFragment),
+        revalidation_state: "NOT_MODIFIED",
+        access_state: "HTTP_OK",
+        change_reason: "BASELINE",
+      },
+    })])]),
+    geos: new Set(["AA"]),
+    network: true,
+    fetchImpl: async () => new Response("Lei no 3/97", {
+      headers: { "content-type": "text/html" },
+    }),
+  });
+  const revalidation = result.records[0].source.revalidation;
+  assert.equal(revalidation.semantic_probe.exact_fragment_found, true);
+  assert.equal(revalidation.relevant_fragment_sha256, sha256(exactFragment));
+  assert.equal(revalidation.relevant_fragment_identity_format, "EXACT_UTF8_V1");
+});
+
 test("network revalidation preserves prior C2/C3 review provenance", async () => {
   const c2C3Review = {
     reviewed_at: "2026-08-13T07:42:00.000Z",

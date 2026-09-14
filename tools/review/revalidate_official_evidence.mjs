@@ -88,6 +88,14 @@ export function sha256(value) {
   return crypto.createHash("sha256").update(value).digest("hex");
 }
 
+function exactFragmentUtf8Sha256(value) {
+  return sha256(Buffer.from(String(value), "utf8"));
+}
+
+function legacyNormalizedFragmentSha256(value) {
+  return exactFragmentUtf8Sha256(normalizeText(value));
+}
+
 function stringValue(value) {
   return typeof value === "string" ? value.trim() : "";
 }
@@ -391,7 +399,7 @@ function baseRevalidation(record, checkedAt) {
     document_sha256: previous.document_sha256 ?? null,
     relevant_fragment_sha256:
       previous.relevant_fragment_sha256 ??
-      (record.exactFragment ? sha256(normalizeText(record.exactFragment)) : null),
+      (record.exactFragment ? exactFragmentUtf8Sha256(record.exactFragment) : null),
     revalidation_state: state,
     access_state: previous.access_state || "NOT_CHECKED_LOCAL_ONLY",
     change_reason: reason,
@@ -428,7 +436,10 @@ function fragmentHashFromText(text, exactFragment) {
   const normalizedFragment = normalizeText(exactFragment);
   if (!normalizedFragment) return null;
   if (!normalizedDocument.includes(normalizedFragment.toLocaleLowerCase())) return null;
-  return sha256(normalizedFragment);
+  // Normalization is only a tolerant search comparison. The retained identity
+  // must bind the source record's exact UTF-8 fragment bytes because the
+  // resolver and evidence attestation bind those same unmodified bytes.
+  return exactFragmentUtf8Sha256(exactFragment);
 }
 
 function defaultCommandRunner(command, args, options = {}) {
@@ -634,6 +645,20 @@ function applyNetworkResult(
   let relevantHash = previous.relevant_fragment_sha256;
   let semanticProbe = previous.semantic_probe;
   let currentSourceContentProven = false;
+  const retainedFragmentHash = record.exactFragment
+    ? exactFragmentUtf8Sha256(record.exactFragment)
+    : null;
+  const legacyNormalizedFragmentHash = record.exactFragment
+    ? legacyNormalizedFragmentSha256(record.exactFragment)
+    : null;
+  const legacyFragmentIdentityCorrection = Boolean(
+    previous.relevant_fragment_sha256 &&
+    retainedFragmentHash &&
+    legacyNormalizedFragmentHash &&
+    previous.relevant_fragment_sha256 === legacyNormalizedFragmentHash &&
+    previous.relevant_fragment_sha256 !== retainedFragmentHash
+  );
+  let fragmentIdentityMigration = previous.relevant_fragment_identity_migration ?? null;
 
   if (response.status === 304 && conditional304Proven) {
     state = "NOT_MODIFIED";
@@ -722,16 +747,14 @@ function applyNetworkResult(
     if (
       previous.relevant_fragment_sha256 &&
       relevantHash &&
-      previous.relevant_fragment_sha256 !== relevantHash
+      previous.relevant_fragment_sha256 !== relevantHash &&
+      !legacyFragmentIdentityCorrection
     ) {
       state = "CONTENT_CHANGED";
       reason = "RELEVANT_FRAGMENT_SHA256_CHANGED";
     }
   }
 
-  const retainedFragmentHash = record.exactFragment
-    ? sha256(normalizeText(record.exactFragment))
-    : null;
   if (
     currentSourceContentProven &&
     previous.relevant_fragment_sha256 &&
@@ -739,8 +762,18 @@ function applyNetworkResult(
     previous.relevant_fragment_sha256 !== retainedFragmentHash
   ) {
     relevantHash = retainedFragmentHash;
-    state = "CONTENT_CHANGED";
-    reason = "RETAINED_FRAGMENT_SHA256_CHANGED";
+    if (legacyFragmentIdentityCorrection) {
+      fragmentIdentityMigration ||= {
+        kind: "LEGACY_NFKC_TO_EXACT_UTF8",
+        observed_at: checkedAt,
+        previous_sha256: previous.relevant_fragment_sha256,
+        exact_utf8_sha256: retainedFragmentHash,
+        boundary: "IDENTITY_FORMAT_CORRECTION_ONLY_NO_SOURCE_OR_LEGAL_CHANGE",
+      };
+    } else {
+      state = "CONTENT_CHANGED";
+      reason = "RETAINED_FRAGMENT_SHA256_CHANGED";
+    }
   }
 
   if (effectiveDateDue(record, checkedAt)) {
@@ -760,6 +793,12 @@ function applyNetworkResult(
     content_length: metadata.content_length ?? previous.content_length,
     document_sha256: documentHash,
     relevant_fragment_sha256: relevantHash,
+    ...(retainedFragmentHash && relevantHash === retainedFragmentHash
+      ? { relevant_fragment_identity_format: "EXACT_UTF8_V1" }
+      : {}),
+    ...(fragmentIdentityMigration
+      ? { relevant_fragment_identity_migration: fragmentIdentityMigration }
+      : {}),
     revalidation_state: state,
     access_state: accessState,
     change_reason: reason,

@@ -133,8 +133,12 @@ function compareNewestFirst(left: string, right: string) {
 }
 
 function isPendingReview(source: TruthMapCanonicalProjectionSource) {
-  return source.revalidation.state === "NOT_RECORDED"
-    || /(?:NEEDS_(?:SEMANTIC|VISUAL)_REVIEW|EFFECTIVE_DATE_REVIEW_DUE|ACCESS_BLOCKED)/.test(source.revalidation.state);
+  const state = source.revalidation.state;
+  const changed = isSourceChange(source);
+  const explicitlyQueued = source.revalidation.queue.some((stage) => stage === "C2" || stage === "C3");
+  return state === "NOT_RECORDED"
+    || /(?:NEEDS_(?:SEMANTIC|VISUAL)_REVIEW|EFFECTIVE_DATE_REVIEW_DUE|ACCESS_BLOCKED)/.test(state)
+    || (!changed && explicitlyQueued);
 }
 
 function isSourceChange(source: TruthMapCanonicalProjectionSource) {

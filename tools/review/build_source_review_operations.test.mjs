@@ -207,13 +207,26 @@ test("C1 source states never auto-close a legal review operation", () => {
     assert.ok(secondRegistry.operations.every((operation) => operation.boundary === "REVIEW_METADATA_ONLY_NO_LEGAL_CONCLUSION_CHANGE"));
     assert.equal(secondRegistry.attempts.length, 2);
 
-    fs.writeFileSync(sourcePath, JSON.stringify(ledger(source("NOT_MODIFIED", "HTTP_304_CONDITIONAL_GET", "2026-09-11T13:00:00.000Z"))));
+    fs.writeFileSync(sourcePath, JSON.stringify(ledger(source(
+      "NOT_MODIFIED",
+      "HTTP_304_CONDITIONAL_GET",
+      "2026-09-11T13:00:00.000Z",
+      { queue: [] }
+    ))));
     const third = buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-11T13:01:00.000Z" });
     const thirdRegistry = JSON.parse(fs.readFileSync(outputPath, "utf8"));
     assert.equal(third.currentEventCount, 0);
     assert.equal(third.resolutionTotal, 0);
     assert.equal(third.openOperationTotal, 2);
     assert.equal(thirdRegistry.resolutions.length, 0);
+
+    // The historical effective-date operation is reviewed against retained C2
+    // evidence even though the stable C1 signal itself has no current queue.
+    fs.writeFileSync(sourcePath, JSON.stringify(ledger(source(
+      "NOT_MODIFIED",
+      "HTTP_304_CONDITIONAL_GET",
+      "2026-09-11T13:00:00.000Z"
+    ))));
 
     assert.throws(() => resolveSourceReviewOperation({
       registryPath: outputPath,
@@ -300,6 +313,35 @@ test("C1 source states never auto-close a legal review operation", () => {
     assert.equal(sixth.openOperationTotal, 2);
     assert.equal(sixthRegistry.attempts.length, attemptsBeforeRepeat.length + 1);
     assert.deepEqual(sixthRegistry.attempts.slice(0, attemptsBeforeRepeat.length), attemptsBeforeRepeat);
+  } finally {
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test("an explicit C2/C3 queue stays current after a stable C1 result", () => {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), "islegal-source-review-stable-c1-"));
+  try {
+    const sourcePath = path.join(directory, "projection.json");
+    const outputPath = path.join(directory, "operations.json");
+    fs.writeFileSync(sourcePath, JSON.stringify(ledger(source(
+      "NOT_MODIFIED",
+      "HTTP_200_DOCUMENT_SHA256_UNCHANGED",
+      "2026-09-14T04:00:00.000Z",
+      { queue: ["C2", "C3"], queue_reasons: ["CURRENT_LAYER_MISMATCH"] }
+    ))));
+    const result = buildSourceReviewOperations({
+      sourcePath,
+      outputPath,
+      classifiedAt: "2026-09-14T04:01:00.000Z"
+    });
+    const registry = JSON.parse(fs.readFileSync(outputPath, "utf8"));
+    assert.equal(result.currentEventCount, 1);
+    assert.equal(result.currentCounts.SOURCE_CHANGE, 0);
+    assert.equal(result.currentCounts.PENDING_REVIEW, 1);
+    assert.equal(registry.operations.length, 1);
+    assert.equal(registry.operations[0].eventKind, "PENDING_REVIEW");
+    assert.equal(registry.operations[0].category, "SEMANTIC_REVIEW");
+    assert.equal(registry.attempts[0].signalPayload.relevantFragmentSha256, "b".repeat(64));
   } finally {
     fs.rmSync(directory, { recursive: true, force: true });
   }
