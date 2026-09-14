@@ -21615,82 +21615,93 @@
         "data/reviews/wiki-truth-307-visual-evidence/BZ-national-assembly-act-25-2023-section-48.png",
         "data/reviews/wiki-truth-307-visual-evidence/BZ-national-assembly-act-26-2024-section-28B.png",
         "data/reviews/wiki-truth-307-visual-evidence/BZ-national-assembly-act-47-2017-section-7-7-current-2026-08-09.png",
-        "data/reviews/wiki-truth-307-visual-evidence/BZ-national-assembly-act-25-2023-section-48-current-2026-08-09.png",
-        "data/reviews/wiki-truth-307-visual-evidence/BZ-national-assembly-act-26-2024-section-28B-current-2026-08-09.png"
+        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-09-14/BZ/BZ-agm-act-25-2023-identity-and-section-48-2026-09-14.png",
+        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-09-14/BZ/BZ-agm-act-26-2024-identity-and-section-28B-2026-09-14.png",
+        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-09-14/BZ/BZ-agm-cap-103-cover-2026-09-14.png",
+        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-09-14/BZ/BZ-agm-cap-103-section-7-7-2026-09-14.png"
       ],
       "verified_sources": [
         {
-          "title": "Belize Misuse of Drugs (Amendment) Act 2017",
-          "url": "https://www.nationalassembly.gov.bz/wp-content/uploads/2017/04/Act-no.-47-of-2017-Misuse-of-Drugs-Amendment-1.pdf",
+          "title": "Belize Misuse of Drugs Act, Chapter 103, Revised Edition 2020",
+          "url": "https://www.agm.gov.bz/uploads/laws/639762f72c5a8_Cap_103_Misuse_of_Drugs_Act.pdf",
           "source_owner_geo": "BZ",
           "applies_to_geo": [
             "BZ"
           ],
-          "legal_basis_for_extension": "National Act of the Belize National Assembly applies within Belize; no external-jurisdiction extension is used.",
-          "source_authority": "National Assembly of Belize / Government Printer",
-          "source_type": "PRIMARY_ENACTED_STATUTORY_AMENDMENT",
+          "legal_basis_for_extension": "Attorney General's Ministry statutory-law consolidation for Belize; no external-jurisdiction extension is used.",
+          "source_authority": "Attorney General's Ministry of Belize / Law Revision Commissioner / Government Printer",
+          "source_type": "OFFICIAL_REVISED_SUBSTANTIVE_LAW_CONSOLIDATION",
           "primary_or_context": "PRIMARY",
           "cannabis_specific": true,
-          "current_effective_state": "CURRENT_FOR_SECTION_7_7_ON_REVIEWED_AMENDMENT_CHAIN",
-          "effective_date": "2017-11-04",
-          "exact_fragment": "Section 3 inserts section 7(7): where the controlled drug is cannabis or cannabis resin not exceeding ten grammes and the subsection (8) circumstances do not apply, possession is not unlawful and an offence is not committed; subsection (7)(b) provides warning and violation-ticket treatment for the specified circumstance.",
-          "locator": "Act No. 47 of 2017, p. 437, section 3(d), inserted section 7(7)(a)-(b)",
+          "current_effective_state": "REVISED_EDITION_2020_WITH_2023_AND_2024_AMENDMENT_CHAIN_REVIEWED",
+          "effective_date": "2020-12-31",
+          "exact_fragment": "Where the controlled drug in a person’s possession is cannabis or cannabis resin in an amount of not more than ten grammes and— (a) the circumstances are not as specified in sub-section (8) then, notwithstanding section 10, the possession is not unlawful and an offence is not committed;",
+          "locator": "Chapter 103, Revised Edition 2020, p. 18, section 7(7)(a)",
           "legal_axes": [
             "recreational_possession",
             "penalty_regime"
           ],
-          "reviewed_at": "2026-08-09T00:00:00.000Z",
+          "reviewed_at": "2026-09-14T08:50:00.000Z",
           "reviewed_by_human_visual": true,
           "visual_review_result": "CURRENT_OFFICIAL_PDF_RULE_VISUALLY_VISIBLE_ADDRESS_CHROME_ABSENT",
-          "screenshot_path": "data/reviews/wiki-truth-307-visual-evidence/BZ-national-assembly-act-47-2017-section-7-7-current-2026-08-09.png",
-          "sha256": "655d230f1cecee1c3b2d1814a909fcb726aa78441cb7071bf76fcc721dbe61ff",
+          "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-09-14/BZ/BZ-agm-cap-103-section-7-7-2026-09-14.png",
+          "sha256": "95a51fa883851c684516de5a9c957a25175492668c4f5ed467c80b7c50cd5530",
           "screenshot_valid": true,
           "cannabis_fragment_visible": true,
           "effective_rule_visible": true,
-          "access_result": "2026-08-09 direct National Assembly PDF retrieved, text-read, rendered and visually re-read. Section 7(7) directly establishes the ten-gramme not-unlawful/not-an-offence rule outside subsection (8).",
+          "access_result": "2026-09-14 two direct Attorney General's Ministry PDF reads were byte-identical. The official 2020 consolidation states that it includes Act No. 47 of 2017; page 18 was text-read, rendered and visually re-read and directly establishes the section 7(7)(a) ten-gramme not-unlawful/not-an-offence rule outside subsection (8).",
           "revalidation": {
-            "checked_at": "2026-09-11T19:40:08.913Z",
-            "final_url": "https://www.nationalassembly.gov.bz/cgi-sys/suspendedpage.cgi",
+            "checked_at": "2026-09-14T08:50:00.000Z",
+            "final_url": "https://www.agm.gov.bz/uploads/laws/639762f72c5a8_Cap_103_Misuse_of_Drugs_Act.pdf",
             "http_status": 200,
-            "etag": null,
-            "last_modified": null,
-            "content_type": "text/html",
-            "content_length": 4243,
-            "document_sha256": "13bd96f7dd955541f8a70483f3e53bff9a3ba9e5cacdddefd589dd4138cc07ac",
-            "relevant_fragment_sha256": "91de9d10fa1d8d4c550a777f1a10776e0eb2eedd94110687a7e36f3b33b111ee",
-            "revalidation_state": "REDIRECT_OR_OWNER_CHANGED",
+            "etag": "\"11676b-5f9ba8266991e\"",
+            "last_modified": "Thu, 20 Apr 2023 01:32:10 GMT",
+            "content_type": "application/pdf",
+            "content_length": 1140587,
+            "document_sha256": "95a51fa883851c684516de5a9c957a25175492668c4f5ed467c80b7c50cd5530",
+            "relevant_fragment_sha256": "3f6fc5f4a2fdeb89df1ddab42ba375e8abc06edf604a9a0db0db881c75a3acfe",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
             "access_state": "HTTP_OK",
-            "change_reason": "FINAL_URL_CHANGED:https://www.nationalassembly.gov.bz/wp-content/uploads/2017/04/Act-no.-47-of-2017-Misuse-of-Drugs-Amendment-1.pdf->https://www.nationalassembly.gov.bz/cgi-sys/suspendedpage.cgi",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
             "queue": [
-              "C2"
+              "C2",
+              "C3"
             ],
             "queue_reasons": [
-              "REDIRECT_OR_OWNER_CHANGED"
+              "NEEDS_SEMANTIC_REVIEW"
             ],
             "dependent_geos": [
               "BZ"
             ],
             "schema_issues": [],
             "semantic_probe": {
-              "extractor": "html_to_text",
-              "text_layer_length": 120,
+              "extractor": "pdftotext",
+              "text_layer_length": 196490,
               "ocr_used": false,
-              "relevant_pages": [],
-              "rendered_pages": [],
-              "matching_terms": [],
-              "exact_fragment_found": false
+              "relevant_pages": [
+                20
+              ],
+              "rendered_pages": [
+                20
+              ],
+              "matching_terms": [
+                "cannabis",
+                "cannabis resin",
+                "not unlawful"
+              ],
+              "exact_fragment_found": true
             }
           }
         },
         {
           "title": "Belize Misuse of Drugs (Amendment) Act 2023, Act No. 25",
-          "url": "https://www.nationalassembly.gov.bz/wp-content/uploads/2023/07/Act-No.-25-of-2023-Misuse-of-Drugs-Amendment-Act-2023.pdf",
+          "url": "https://www.agm.gov.bz/uploads/laws/64baeb84e3181_Act_No._25_of_2023_Misuse_of_Drugs__Amendment__Act__2023..pdf",
           "source_owner_geo": "BZ",
           "applies_to_geo": [
             "BZ"
           ],
           "legal_basis_for_extension": "National Act of the Belize National Assembly applies within Belize; no external-jurisdiction extension is used.",
-          "source_authority": "National Assembly of Belize / Government Printer",
+          "source_authority": "Attorney General's Ministry of Belize / Government Printer",
           "source_type": "PRIMARY_ENACTED_STATUTORY_AMENDMENT",
           "primary_or_context": "PRIMARY_CURRENTNESS_CHECK",
           "cannabis_specific": false,
@@ -21701,15 +21712,152 @@
           "legal_axes": [
             "amendment_currentness"
           ],
-          "reviewed_at": "2026-08-09T00:00:00.000Z",
+          "reviewed_at": "2026-09-14T08:50:00.000Z",
           "reviewed_by_human_visual": true,
           "visual_review_result": "CURRENT_OFFICIAL_PDF_AMENDMENT_SCOPE_VISUALLY_VISIBLE_ADDRESS_CHROME_ABSENT",
-          "screenshot_path": "data/reviews/wiki-truth-307-visual-evidence/BZ-national-assembly-act-25-2023-section-48-current-2026-08-09.png",
+          "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-09-14/BZ/BZ-agm-act-25-2023-identity-and-section-48-2026-09-14.png",
           "sha256": "664848cfa512c5edca196790607aaea0db5a9fb8a692dcb5557b96f05cf3ed0f",
           "screenshot_valid": true,
           "cannabis_fragment_visible": false,
           "effective_rule_visible": true,
-          "access_result": "2026-08-09 direct National Assembly PDF retrieved, text-read, rendered and visually re-read. Section 2 amends section 48(4) only.",
+          "access_result": "2026-09-14 two direct Attorney General's Ministry PDF reads were byte-identical and exactly match the retained reviewed PDF SHA-256. Section 2 amends section 48(4) only.",
+          "revalidation": {
+            "checked_at": "2026-09-14T08:50:00.000Z",
+            "final_url": "https://www.agm.gov.bz/uploads/laws/64baeb84e3181_Act_No._25_of_2023_Misuse_of_Drugs__Amendment__Act__2023..pdf",
+            "http_status": 200,
+            "etag": "\"12564-611bd252cf355\"",
+            "last_modified": "Mon, 19 Feb 2024 14:45:30 GMT",
+            "content_type": "application/pdf",
+            "content_length": 75108,
+            "document_sha256": "664848cfa512c5edca196790607aaea0db5a9fb8a692dcb5557b96f05cf3ed0f",
+            "relevant_fragment_sha256": "9fd12221555b066f1f63a336339b3648e711e8d26bbf44cde9a6f815f02357b3",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "NEEDS_SEMANTIC_REVIEW"
+            ],
+            "dependent_geos": [
+              "BZ"
+            ],
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 1585,
+              "ocr_used": false,
+              "relevant_pages": [
+                3
+              ],
+              "rendered_pages": [
+                3
+              ],
+              "matching_terms": [
+                "section 48"
+              ],
+              "exact_fragment_found": false
+            }
+          }
+        },
+        {
+          "title": "Belize Misuse of Drugs (Amendment) Act 2024, Act No. 26",
+          "url": "https://www.agm.gov.bz/uploads/laws/67fe7a0e1645c_Act_No._26_of_2024_Misuse_of_Drugs_Amendment_Act-2024.pdf",
+          "source_owner_geo": "BZ",
+          "applies_to_geo": [
+            "BZ"
+          ],
+          "legal_basis_for_extension": "National Act of the Belize National Assembly applies within Belize; no external-jurisdiction extension is used.",
+          "source_authority": "Attorney General's Ministry of Belize / Government Printer",
+          "source_type": "PRIMARY_ENACTED_STATUTORY_AMENDMENT",
+          "primary_or_context": "PRIMARY_CURRENTNESS_CHECK",
+          "cannabis_specific": false,
+          "current_effective_state": "CURRENT_AMENDMENT_REVIEWED",
+          "effective_date": "2024-11-30",
+          "exact_fragment": "Section 2 repeals only section 28B of the principal Act; it does not amend section 7(7).",
+          "locator": "Act No. 26 of 2024, p. 472, section 2",
+          "legal_axes": [
+            "amendment_currentness"
+          ],
+          "reviewed_at": "2026-09-14T08:50:00.000Z",
+          "reviewed_by_human_visual": true,
+          "visual_review_result": "CURRENT_OFFICIAL_PDF_AMENDMENT_SCOPE_VISUALLY_VISIBLE_ADDRESS_CHROME_ABSENT",
+          "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-09-14/BZ/BZ-agm-act-26-2024-identity-and-section-28B-2026-09-14.png",
+          "sha256": "7f9e480f78ce18561927a86a442d3ccba75104761ccc7d1d3346728c21fc5480",
+          "screenshot_valid": true,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": true,
+          "access_result": "2026-09-14 two direct Attorney General's Ministry PDF reads were byte-identical and exactly match the retained reviewed PDF SHA-256. Section 2 repeals section 28B only.",
+          "revalidation": {
+            "checked_at": "2026-09-14T08:50:00.000Z",
+            "final_url": "https://www.agm.gov.bz/uploads/laws/67fe7a0e1645c_Act_No._26_of_2024_Misuse_of_Drugs_Amendment_Act-2024.pdf",
+            "http_status": 200,
+            "etag": "\"11aee-632d2c1e984af\"",
+            "last_modified": "Tue, 15 Apr 2025 15:23:58 GMT",
+            "content_type": "application/pdf",
+            "content_length": 72430,
+            "document_sha256": "7f9e480f78ce18561927a86a442d3ccba75104761ccc7d1d3346728c21fc5480",
+            "relevant_fragment_sha256": "49da5fdba88a8c4a7a034c43f22645e4405c7b6dbf89bba99b132badcb2b9fc2",
+            "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
+            "access_state": "HTTP_OK",
+            "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+            "queue": [
+              "C2",
+              "C3"
+            ],
+            "queue_reasons": [
+              "NEEDS_SEMANTIC_REVIEW"
+            ],
+            "dependent_geos": [
+              "BZ"
+            ],
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "pdftotext",
+              "text_layer_length": 1015,
+              "ocr_used": false,
+              "relevant_pages": [
+                3
+              ],
+              "rendered_pages": [
+                3
+              ],
+              "matching_terms": [
+                "section 28B"
+              ],
+              "exact_fragment_found": false
+            }
+          }
+        },
+        {
+          "title": "Legacy National Assembly URL — Belize Misuse of Drugs (Amendment) Act 2017",
+          "url": "https://www.nationalassembly.gov.bz/wp-content/uploads/2017/04/Act-no.-47-of-2017-Misuse-of-Drugs-Amendment-1.pdf",
+          "source_owner_geo": "BZ",
+          "applies_to_geo": [
+            "BZ"
+          ],
+          "legal_basis_for_extension": "National Act of the Belize National Assembly applies within Belize; the suspended legacy URL is retained only for append-only provenance.",
+          "source_authority": "National Assembly of Belize / Government Printer",
+          "source_type": "SUPERSEDED_SOURCE_LOCATOR",
+          "primary_or_context": "HISTORICAL_CONTEXT_ONLY",
+          "cannabis_specific": true,
+          "current_effective_state": "LEGACY_URL_SUSPENDED_CURRENT_TEXT_REPLACED_BY_OFFICIAL_AGM_CONSOLIDATION",
+          "effective_date": "2017-11-04",
+          "exact_fragment": "Section 3 inserted section 7(7); the legacy source locator is retained, while the current evidence chain uses the Attorney General's Ministry Revised Edition 2020 and later official amendments.",
+          "locator": "Act No. 47 of 2017, p. 437, section 3(d)",
+          "legal_axes": [
+            "source_provenance"
+          ],
+          "reviewed_at": "2026-09-14T08:50:00.000Z",
+          "reviewed_by_human_visual": true,
+          "visual_review_result": "LEGACY_OFFICIAL_PDF_CAPTURE_RETAINED_CURRENT_URL_SUSPENDED",
+          "screenshot_path": "data/reviews/wiki-truth-307-visual-evidence/BZ-national-assembly-act-47-2017-section-7-7-current-2026-08-09.png",
+          "sha256": "655d230f1cecee1c3b2d1814a909fcb726aa78441cb7071bf76fcc721dbe61ff",
+          "screenshot_valid": true,
+          "cannabis_fragment_visible": true,
+          "effective_rule_visible": true,
           "revalidation": {
             "checked_at": "2026-09-11T19:40:08.913Z",
             "final_url": "https://www.nationalassembly.gov.bz/cgi-sys/suspendedpage.cgi",
@@ -21719,10 +21867,10 @@
             "content_type": "text/html",
             "content_length": 4243,
             "document_sha256": "13bd96f7dd955541f8a70483f3e53bff9a3ba9e5cacdddefd589dd4138cc07ac",
-            "relevant_fragment_sha256": "9fd12221555b066f1f63a336339b3648e711e8d26bbf44cde9a6f815f02357b3",
+            "relevant_fragment_sha256": "cd15f912be671d8631d37fcc58157499ae80bf2934d876d8a947ca820f95578d",
             "revalidation_state": "REDIRECT_OR_OWNER_CHANGED",
             "access_state": "HTTP_OK",
-            "change_reason": "FINAL_URL_CHANGED:https://www.nationalassembly.gov.bz/wp-content/uploads/2023/07/Act-No.-25-of-2023-Misuse-of-Drugs-Amendment-Act-2023.pdf->https://www.nationalassembly.gov.bz/cgi-sys/suspendedpage.cgi",
+            "change_reason": "LEGACY_NATIONAL_ASSEMBLY_URL_SUSPENDED_REPLACED_BY_OFFICIAL_AGM_CONSOLIDATION",
             "queue": [
               "C2"
             ],
@@ -21745,33 +21893,32 @@
           }
         },
         {
-          "title": "Belize Misuse of Drugs (Amendment) Act 2024, Act No. 26",
-          "url": "https://www.nationalassembly.gov.bz/wp-content/uploads/2024/12/Act-No.-26-of-2024-Misuse-of-Drugs-Amendment-Act-2024.pdf",
+          "title": "Legacy National Assembly URL — Belize Misuse of Drugs (Amendment) Act 2023, Act No. 25",
+          "url": "https://www.nationalassembly.gov.bz/wp-content/uploads/2023/07/Act-No.-25-of-2023-Misuse-of-Drugs-Amendment-Act-2023.pdf",
           "source_owner_geo": "BZ",
           "applies_to_geo": [
             "BZ"
           ],
-          "legal_basis_for_extension": "National Act of the Belize National Assembly applies within Belize; no external-jurisdiction extension is used.",
+          "legal_basis_for_extension": "National Act applies within Belize; the suspended URL is retained only for append-only provenance and the same PDF bytes now come from the Attorney General's Ministry.",
           "source_authority": "National Assembly of Belize / Government Printer",
-          "source_type": "PRIMARY_ENACTED_STATUTORY_AMENDMENT",
-          "primary_or_context": "PRIMARY_CURRENTNESS_CHECK",
+          "source_type": "SUPERSEDED_SOURCE_LOCATOR",
+          "primary_or_context": "HISTORICAL_CONTEXT_ONLY",
           "cannabis_specific": false,
-          "current_effective_state": "CURRENT_AMENDMENT_REVIEWED",
-          "effective_date": "2024-11-30",
-          "exact_fragment": "Section 2 repeals only section 28B of the principal Act; it does not amend section 7(7).",
-          "locator": "Act No. 26 of 2024, p. 472, section 2",
+          "current_effective_state": "LEGACY_URL_SUSPENDED_REPLACED_BY_BYTE_IDENTICAL_AGM_DOCUMENT",
+          "effective_date": "2023-07-04",
+          "exact_fragment": "Section 2 amends only section 48(4); the legacy source locator is retained while the byte-identical current PDF is read from the Attorney General's Ministry.",
+          "locator": "Act No. 25 of 2023, p. 420, section 2",
           "legal_axes": [
-            "amendment_currentness"
+            "source_provenance"
           ],
-          "reviewed_at": "2026-08-09T00:00:00.000Z",
+          "reviewed_at": "2026-09-14T08:50:00.000Z",
           "reviewed_by_human_visual": true,
-          "visual_review_result": "CURRENT_OFFICIAL_PDF_AMENDMENT_SCOPE_VISUALLY_VISIBLE_ADDRESS_CHROME_ABSENT",
-          "screenshot_path": "data/reviews/wiki-truth-307-visual-evidence/BZ-national-assembly-act-26-2024-section-28B-current-2026-08-09.png",
-          "sha256": "7f9e480f78ce18561927a86a442d3ccba75104761ccc7d1d3346728c21fc5480",
+          "visual_review_result": "LEGACY_OFFICIAL_URL_RETAINED_BYTE_IDENTICAL_AGM_REPLACEMENT_PROVEN",
+          "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-09-14/BZ/BZ-agm-act-25-2023-identity-and-section-48-2026-09-14.png",
+          "sha256": "664848cfa512c5edca196790607aaea0db5a9fb8a692dcb5557b96f05cf3ed0f",
           "screenshot_valid": true,
           "cannabis_fragment_visible": false,
           "effective_rule_visible": true,
-          "access_result": "2026-08-09 direct National Assembly PDF retrieved, text-read, rendered and visually re-read. Section 2 repeals section 28B only.",
           "revalidation": {
             "checked_at": "2026-09-11T19:40:08.913Z",
             "final_url": "https://www.nationalassembly.gov.bz/cgi-sys/suspendedpage.cgi",
@@ -21781,10 +21928,71 @@
             "content_type": "text/html",
             "content_length": 4243,
             "document_sha256": "13bd96f7dd955541f8a70483f3e53bff9a3ba9e5cacdddefd589dd4138cc07ac",
-            "relevant_fragment_sha256": "49da5fdba88a8c4a7a034c43f22645e4405c7b6dbf89bba99b132badcb2b9fc2",
+            "relevant_fragment_sha256": "42e9b453f7463a2bdf8ad0a9549917ff9884c702be4b66e3bf46fecc14acfbae",
             "revalidation_state": "REDIRECT_OR_OWNER_CHANGED",
             "access_state": "HTTP_OK",
-            "change_reason": "FINAL_URL_CHANGED:https://www.nationalassembly.gov.bz/wp-content/uploads/2024/12/Act-No.-26-of-2024-Misuse-of-Drugs-Amendment-Act-2024.pdf->https://www.nationalassembly.gov.bz/cgi-sys/suspendedpage.cgi",
+            "change_reason": "LEGACY_NATIONAL_ASSEMBLY_URL_SUSPENDED_BYTE_IDENTICAL_AGM_REPLACEMENT_PROVEN",
+            "queue": [
+              "C2"
+            ],
+            "queue_reasons": [
+              "REDIRECT_OR_OWNER_CHANGED"
+            ],
+            "dependent_geos": [
+              "BZ"
+            ],
+            "schema_issues": [],
+            "semantic_probe": {
+              "extractor": "html_to_text",
+              "text_layer_length": 120,
+              "ocr_used": false,
+              "relevant_pages": [],
+              "rendered_pages": [],
+              "matching_terms": [],
+              "exact_fragment_found": false
+            }
+          }
+        },
+        {
+          "title": "Legacy National Assembly URL — Belize Misuse of Drugs (Amendment) Act 2024, Act No. 26",
+          "url": "https://www.nationalassembly.gov.bz/wp-content/uploads/2024/12/Act-No.-26-of-2024-Misuse-of-Drugs-Amendment-Act-2024.pdf",
+          "source_owner_geo": "BZ",
+          "applies_to_geo": [
+            "BZ"
+          ],
+          "legal_basis_for_extension": "National Act applies within Belize; the suspended URL is retained only for append-only provenance and the same PDF bytes now come from the Attorney General's Ministry.",
+          "source_authority": "National Assembly of Belize / Government Printer",
+          "source_type": "SUPERSEDED_SOURCE_LOCATOR",
+          "primary_or_context": "HISTORICAL_CONTEXT_ONLY",
+          "cannabis_specific": false,
+          "current_effective_state": "LEGACY_URL_SUSPENDED_REPLACED_BY_BYTE_IDENTICAL_AGM_DOCUMENT",
+          "effective_date": "2024-11-30",
+          "exact_fragment": "Section 2 repeals only section 28B; the legacy source locator is retained while the byte-identical current PDF is read from the Attorney General's Ministry.",
+          "locator": "Act No. 26 of 2024, p. 472, section 2",
+          "legal_axes": [
+            "source_provenance"
+          ],
+          "reviewed_at": "2026-09-14T08:50:00.000Z",
+          "reviewed_by_human_visual": true,
+          "visual_review_result": "LEGACY_OFFICIAL_URL_RETAINED_BYTE_IDENTICAL_AGM_REPLACEMENT_PROVEN",
+          "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-09-14/BZ/BZ-agm-act-26-2024-identity-and-section-28B-2026-09-14.png",
+          "sha256": "7f9e480f78ce18561927a86a442d3ccba75104761ccc7d1d3346728c21fc5480",
+          "screenshot_valid": true,
+          "cannabis_fragment_visible": false,
+          "effective_rule_visible": true,
+          "revalidation": {
+            "checked_at": "2026-09-11T19:40:08.913Z",
+            "final_url": "https://www.nationalassembly.gov.bz/cgi-sys/suspendedpage.cgi",
+            "http_status": 200,
+            "etag": null,
+            "last_modified": null,
+            "content_type": "text/html",
+            "content_length": 4243,
+            "document_sha256": "13bd96f7dd955541f8a70483f3e53bff9a3ba9e5cacdddefd589dd4138cc07ac",
+            "relevant_fragment_sha256": "0f661d43ca47d472bc699d94a7b79966b9fa363452ac95d5eae1622e97b46b9e",
+            "revalidation_state": "REDIRECT_OR_OWNER_CHANGED",
+            "access_state": "HTTP_OK",
+            "change_reason": "LEGACY_NATIONAL_ASSEMBLY_URL_SUSPENDED_BYTE_IDENTICAL_AGM_REPLACEMENT_PROVEN",
             "queue": [
               "C2"
             ],
@@ -21825,10 +22033,10 @@
           "legal_axes": [
             "penalty_regime"
           ],
-          "reviewed_at": "2026-07-16T00:00:00.000Z",
+          "reviewed_at": "2026-09-14T09:52:00.000Z",
           "reviewed_by_human_visual": true,
-          "visual_review_result": "HISTORICAL_ARCHIVE_CAPTURE_ONLY",
-          "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/BZ/BZ-ticket-fine.png",
+          "visual_review_result": "CURRENT_OFFICIAL_PDF_SCOPE_VISUALLY_VISIBLE_ADDRESS_CHROME_ABSENT",
+          "screenshot_path": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-09-14/BZ/BZ-agm-cap-103-cannabis-violation-tickets-pages-88-90-2026-09-14.png",
           "sha256": "ff314d4158c6e7a103052e16356f2305bd65f2c025b6c7d4264f566d4eb57173",
           "revalidation": {
             "checked_at": "2026-09-11T19:40:08.913Z",
@@ -21945,31 +22153,31 @@
         "status": "CURRENT_RECORDED_MAP_YELLOW_CONSISTENT_WITH_INDEPENDENT_LEGAL_COLOR",
         "reason": "The recorded local map layer is YELLOW. The independent legal conclusion is also YELLOW because Act No. 47 of 2017 directly proves a current limited lawful recreational possession regime. This comparison does not treat the existing automated map capture as a fresh human live-map verification."
       },
-      "conclusion": "Belize has a directly proven, current limited lawful cannabis regime: possession of cannabis or cannabis resin up to ten grammes is not unlawful and is not an offence outside the specified school-premises circumstance. The later reviewed amendments do not remove that clause. This independently derives YELLOW through decriminalization; no working medical patient route is inferred.",
+      "conclusion": "Belize has a directly proven limited lawful cannabis regime: the official Attorney General's Ministry Revised Edition 2020 consolidates Act No. 47 of 2017 and states that possession of cannabis or cannabis resin up to ten grammes is not unlawful and is not an offence outside the specified school-premises circumstance. The official 2023 and 2024 amendments do not amend that clause. This independently derives YELLOW through decriminalization; no working medical patient route is inferred.",
       "independent_truth_color": "YELLOW",
       "independent_truth_rule": "GENERAL_RECREATIONAL_DECRIMINALIZATION",
       "independent_evidence_axes": {
         "recreational_possession": {
           "value": "YES",
-          "source_url": "https://www.nationalassembly.gov.bz/wp-content/uploads/2017/04/Act-no.-47-of-2017-Misuse-of-Drugs-Amendment-1.pdf",
-          "source_type": "PRIMARY_ENACTED_STATUTORY_AMENDMENT",
-          "exact_fragment": "Section 7(7)(a): possession is not unlawful and an offence is not committed for cannabis or cannabis resin not exceeding ten grammes outside the subsection (8) circumstance.",
-          "effective_date": "2017-11-04",
+          "source_url": "https://www.agm.gov.bz/uploads/laws/639762f72c5a8_Cap_103_Misuse_of_Drugs_Act.pdf",
+          "source_type": "OFFICIAL_REVISED_SUBSTANTIVE_LAW_CONSOLIDATION",
+          "exact_fragment": "Where the controlled drug in a person’s possession is cannabis or cannabis resin in an amount of not more than ten grammes and— (a) the circumstances are not as specified in sub-section (8) then, notwithstanding section 10, the possession is not unlawful and an offence is not committed;",
+          "effective_date": "2020-12-31",
           "applicability": "BZ",
           "confidence": "HIGH",
           "reviewed_by_human_visual": true,
-          "screenshot": "data/reviews/wiki-truth-307-visual-evidence/BZ-national-assembly-act-47-2017-section-7-7-current-2026-08-09.png"
+          "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-09-14/BZ/BZ-agm-cap-103-section-7-7-2026-09-14.png"
         },
         "penalty_regime": {
           "value": "YES",
-          "source_url": "https://www.nationalassembly.gov.bz/wp-content/uploads/2017/04/Act-no.-47-of-2017-Misuse-of-Drugs-Amendment-1.pdf",
-          "source_type": "PRIMARY_ENACTED_STATUTORY_AMENDMENT",
+          "source_url": "https://www.agm.gov.bz/uploads/laws/639762f72c5a8_Cap_103_Misuse_of_Drugs_Act.pdf",
+          "source_type": "OFFICIAL_REVISED_SUBSTANTIVE_LAW_CONSOLIDATION",
           "exact_fragment": "Section 7(7)(b) provides a warning on the first specified contravention and a violation-ticket pathway thereafter; the conduct does not constitute an offence or form part of a criminal record.",
-          "effective_date": "2017-11-04",
+          "effective_date": "2020-12-31",
           "applicability": "BZ",
           "confidence": "HIGH",
           "reviewed_by_human_visual": true,
-          "screenshot": "data/reviews/wiki-truth-307-visual-evidence/BZ-national-assembly-act-47-2017-section-7-7-current-2026-08-09.png"
+          "screenshot": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-09-14/BZ/BZ-agm-cap-103-section-7-7-2026-09-14.png"
         },
         "patient_eligible": {
           "value": "UNKNOWN",
@@ -21989,26 +22197,26 @@
         }
       },
       "final_visual_acceptance": {
-        "status": "PRIMARY_LAW_PAGES_VISUALLY_REVIEWED_ADDRESS_CHROME_ABSENT",
+        "status": "OFFICIAL_CONSOLIDATION_AND_AMENDMENT_PAGES_VISUALLY_REVIEWED_ADDRESS_CHROME_ABSENT",
         "strict_acceptance": false,
-        "reason": "The three official Act pages were rendered and visually read. The document title, Act numbers, legal text and Gazette dates are visible, but the static PDF renders do not contain browser address chrome; this strict-visual limitation is not a legal-truth input.",
-        "reviewed_at": "2026-08-09T00:00:00.000Z",
-        "revalidation_result": "THREE_CURRENT_OFFICIAL_PRIMARY_PDF_PAGES_VISUALLY_READ_ADDRESS_CHROME_ABSENT"
+        "reason": "The Attorney General's Ministry Revised Edition 2020 cover and section 7(7)(a), plus the official 2023 and 2024 amendment pages, were rendered and visually read. The official publication identity, consolidation scope, legal text, Act numbers and Gazette dates are visible, but the static PDF renders do not contain browser address chrome; this strict-visual limitation is not a legal-truth input.",
+        "reviewed_at": "2026-09-14T08:50:00.000Z",
+        "revalidation_result": "CURRENT_OFFICIAL_AGM_CONSOLIDATION_AND_TWO_LATER_PRIMARY_AMENDMENT_PDFS_VISUALLY_READ_ADDRESS_CHROME_ABSENT"
       },
       "independent_review": {
         "packet_id": "BZ_CURRENT_DECRIMINALIZATION_AND_AMENDMENT_CHAIN_RECONFIRMED",
         "status": "COMPLETE_PROPOSAL_ONLY",
-        "reviewed_at": "2026-08-09T00:00:00.000Z",
-        "method": "DIRECT_OFFICIAL_NATIONAL_ASSEMBLY_PDF_RETRIEVAL_TEXT_EXTRACTION_PHYSICAL_RENDER_AND_HUMAN_VISUAL_REVIEW",
+        "reviewed_at": "2026-09-14T08:50:00.000Z",
+        "method": "DIRECT_OFFICIAL_ATTORNEY_GENERAL_MINISTRY_INDEX_AND_PDF_RETRIEVAL_TWO_READ_BYTE_IDENTITY_TEXT_EXTRACTION_PHYSICAL_RENDER_AND_HUMAN_VISUAL_REVIEW",
         "legal_truth_inputs": [
-          "https://www.nationalassembly.gov.bz/wp-content/uploads/2017/04/Act-no.-47-of-2017-Misuse-of-Drugs-Amendment-1.pdf",
-          "https://www.nationalassembly.gov.bz/wp-content/uploads/2023/07/Act-No.-25-of-2023-Misuse-of-Drugs-Amendment-Act-2023.pdf",
-          "https://www.nationalassembly.gov.bz/wp-content/uploads/2024/12/Act-No.-26-of-2024-Misuse-of-Drugs-Amendment-Act-2024.pdf"
+          "https://www.agm.gov.bz/uploads/laws/639762f72c5a8_Cap_103_Misuse_of_Drugs_Act.pdf",
+          "https://www.agm.gov.bz/uploads/laws/64baeb84e3181_Act_No._25_of_2023_Misuse_of_Drugs__Amendment__Act__2023..pdf",
+          "https://www.agm.gov.bz/uploads/laws/67fe7a0e1645c_Act_No._26_of_2024_Misuse_of_Drugs_Amendment_Act-2024.pdf"
         ],
-        "currentness_result": "Act No. 25 of 2023 addresses section 48 only and Act No. 26 of 2024 addresses section 28B only; neither alters the relied-on section 7(7) decriminalization clause.",
+        "currentness_result": "The official Revised Edition 2020 consolidates Act No. 47 of 2017. Act No. 25 of 2023 addresses section 48 only and Act No. 26 of 2024 addresses section 28B only; neither alters the relied-on section 7(7) decriminalization clause.",
         "conclusion": "The cannabis-specific rule directly proves limited decriminalized possession, not adult retail or medical patient access. General recreational decriminalization yields proposal-only YELLOW."
       },
-      "updated_at": "2026-08-09T00:00:00.000Z"
+      "updated_at": "2026-09-14T08:50:00.000Z"
     },
     {
       "geo": "CA",
@@ -79273,7 +79481,7 @@
           "visual_reviewer_timestamp": "2026-08-10T04:14:00.000Z",
           "annotation": "Currentness and jurisdiction source. The iframe exposes the current compilation context; it is not used alone for the exact personal-use clause.",
           "revalidation": {
-            "checked_at": "2026-09-13T05:46:11.753Z",
+            "checked_at": "2026-09-14T03:55:22.378Z",
             "final_url": "https://nmonesource.com/nmos/nmsa-unanno/en/item/18526/index.do",
             "http_status": 200,
             "etag": null,
@@ -79306,7 +79514,8 @@
               "rendered_pages": [],
               "matching_terms": [],
               "exact_fragment_found": false
-            }
+            },
+            "relevant_fragment_identity_format": "EXACT_UTF8_V1"
           }
         },
         {
@@ -147615,7 +147824,7 @@
           "visual_review_result": "OFFICIAL_GAZETTE_RENDERED_AND_READ; Gazette owner, Act XIX, commencement and narrow section-7 scope visible.",
           "confidence": "HIGH",
           "revalidation": {
-            "checked_at": "2026-09-11T19:40:08.913Z",
+            "checked_at": "2026-09-14T03:55:20.110Z",
             "final_url": "https://na.gov.pk/uploads/documents/69d4e17704917_332.pdf",
             "http_status": 304,
             "etag": "\"b3ef5-64edc8d522e55\"",
@@ -147643,7 +147852,8 @@
               "ocr_used": true,
               "relevant_pages": [],
               "rendered_pages": []
-            }
+            },
+            "relevant_fragment_identity_format": "EXACT_UTF8_V1"
           }
         },
         {
@@ -148176,7 +148386,7 @@
             "visual_review_result": "OFFICIAL_GAZETTE_RENDERED_AND_READ; Gazette owner, Act XIX, commencement and narrow section-7 scope visible.",
             "confidence": "HIGH",
             "revalidation": {
-              "checked_at": "2026-09-11T19:40:08.913Z",
+              "checked_at": "2026-09-14T03:55:20.110Z",
               "final_url": "https://na.gov.pk/uploads/documents/69d4e17704917_332.pdf",
               "http_status": 304,
               "etag": "\"b3ef5-64edc8d522e55\"",
@@ -148204,7 +148414,8 @@
                 "ocr_used": true,
                 "relevant_pages": [],
                 "rendered_pages": []
-              }
+              },
+              "relevant_fragment_identity_format": "EXACT_UTF8_V1"
             }
           }
         ],
@@ -163322,7 +163533,7 @@
           "fresh_visual_review": "FRESH_HUMAN_VISUAL_ACCEPTANCE_2026_07_20",
           "fresh_visual_analysis_ru": "На первой странице Gazette of Pakistan читается Act XIX of 2026, президентское одобрение и прямое назначение: amend the Cannabis Control and Regulatory Authority Act, 2024.",
           "revalidation": {
-            "checked_at": "2026-09-11T19:40:08.913Z",
+            "checked_at": "2026-09-14T03:55:20.110Z",
             "final_url": "https://na.gov.pk/uploads/documents/69d4e17704917_332.pdf",
             "http_status": 304,
             "etag": "\"b3ef5-64edc8d522e55\"",
@@ -163351,7 +163562,8 @@
               "ocr_used": true,
               "relevant_pages": [],
               "rendered_pages": []
-            }
+            },
+            "relevant_fragment_identity_format": "EXACT_UTF8_V1"
           }
         },
         {

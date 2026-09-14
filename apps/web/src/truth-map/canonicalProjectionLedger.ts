@@ -34,6 +34,8 @@ export type CanonicalProjectionLedger = {
   snapshots: CanonicalProjectionSnapshot[];
 };
 
+type CanonicalProjectionEntry = CanonicalProjectionSnapshot["entries"][number];
+
 type PublicationReceiptInput = Omit<CanonicalProjectionPublicationReceipt, "receiptId" | "receiptSha256">;
 
 function isSha256(value: unknown): value is string {
@@ -289,6 +291,35 @@ export function canonicalProjectionHistoryForGeo(
 export function loadCanonicalProjectionLedger(repoRoot?: string) {
   const filePath = canonicalProjectionLedgerPath(repoRoot);
   return validateCanonicalProjectionLedger(JSON.parse(fs.readFileSync(filePath, "utf8")));
+}
+
+function canonicalProjectionEntriesIdentity(entries: CanonicalProjectionEntry[]) {
+  return JSON.stringify(entries
+    .map((entry) => ({
+      geo: entry.geo,
+      legalTruthColor: entry.legalTruthColor,
+      ruleId: entry.ruleId
+    }))
+    .sort((left, right) => left.geo.localeCompare(right.geo)));
+}
+
+/**
+ * Static delivery payloads include citations and source-review presentation,
+ * so their content-addressed hashes may change without changing Legal Truth.
+ * A registered canonical version is selected only when the complete current
+ * 307-GEO legal projection (GEO + colour + rule) equals the latest immutable
+ * snapshot. This prevents source-only delivery changes from fabricating a new
+ * legal-conclusion version while still failing closed on any legal drift.
+ */
+export function selectLatestCanonicalProjectionSnapshotForEntries(
+  ledger: CanonicalProjectionLedger,
+  entries: CanonicalProjectionEntry[]
+) {
+  const latest = ledger.snapshots.at(-1);
+  if (!latest || entries.length !== latest.entries.length) return null;
+  return canonicalProjectionEntriesIdentity(entries) === canonicalProjectionEntriesIdentity(latest.entries)
+    ? latest
+    : null;
 }
 
 export function selectPreviousCanonicalProjectionSnapshot(

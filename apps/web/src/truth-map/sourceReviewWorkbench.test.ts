@@ -93,6 +93,15 @@ describe("source review workbench", () => {
     expect(workbench.boundary).toBe("READ_ONLY_SOURCE_REVIEW_VIEW_NO_TRUTH_MUTATION");
     expect(workbench.summary.canonicalGeos).toBe(307);
     expect(workbench.summary.currentSignals).toBeGreaterThan(0);
+    expect(workbench.summary.geosAnalysed + workbench.summary.geosRemainingFirstPass).toBe(307);
+    expect(workbench.summary.geosWithCurrentSignals + workbench.summary.geosWithoutCurrentSignals).toBe(307);
+    expect(workbench.summary.geosFullyClosed + workbench.summary.geosWithCurrentSignalsRemaining)
+      .toBe(workbench.summary.geosWithCurrentSignals);
+    expect(workbench.summary.currentGeoDocumentsReviewed + workbench.summary.currentGeoDocumentsRemaining)
+      .toBe(workbench.summary.currentGeoDocuments);
+    expect(workbench.summary.currentSignalsReviewed + workbench.summary.currentSignalsRemaining)
+      .toBe(workbench.summary.currentSignals);
+    expect(workbench.summary.attestedGeoDocuments).toBeGreaterThan(0);
     expect(workbench.summary.currentActive + workbench.summary.openHistorical + workbench.summary.resolved)
       .toBe(workbench.summary.totalOperations);
     expect(workbench.summary.evidenceAttested + workbench.summary.evidenceUnboundLegacy).toBe(workbench.summary.resolved);

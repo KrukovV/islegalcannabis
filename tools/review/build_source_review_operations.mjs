@@ -5,6 +5,8 @@ import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import {
   exactFileSnapshot,
+  exactSourceRecordFromSnapshot,
+  latestSourceReviewAttempt,
   validateRegistry,
   withOwnedRegistryLock
 } from "./resolve_source_review_operation.mjs";
@@ -196,7 +198,18 @@ function eventKindsForSource(source) {
   return kinds;
 }
 
-function buildOperation({ geo, source, url, kind, classifiedAt, signal, reopenAfterResolutionIds = [] }) {
+function buildOperation({
+  geo,
+  source,
+  url,
+  kind,
+  classifiedAt,
+  signal,
+  reopenAfterResolutionIds = [],
+  reopenAfterOperationIds = [],
+  reopenAfterSourceRecordResolutionIds = [],
+  sourceRecordSha256 = ""
+}) {
   const state = String(source.revalidation?.revalidation_state || "NOT_RECORDED");
   const reason = String(source.revalidation?.change_reason || "NOT_RECORDED");
   const checkedAt = String(source.revalidation?.checked_at || "");
@@ -205,6 +218,16 @@ function buildOperation({ geo, source, url, kind, classifiedAt, signal, reopenAf
   const operationIdentity = [operationKey(geo, url, kind, state, reason), signal];
   if (reopenAfterResolutionIds.length) {
     operationIdentity.push("REOPEN_AFTER_DIFFERENT_REVIEWED_SIGNAL", ...reopenAfterResolutionIds);
+  }
+  if (reopenAfterOperationIds.length) {
+    operationIdentity.push("RETURN_TO_HISTORICAL_SIGNAL", ...reopenAfterOperationIds);
+  }
+  if (reopenAfterSourceRecordResolutionIds.length) {
+    operationIdentity.push(
+      "REOPEN_AFTER_ATTESTED_SOURCE_RECORD_CHANGE",
+      sourceRecordSha256,
+      ...reopenAfterSourceRecordResolutionIds
+    );
   }
   return {
     operationId: `SRCREV-${sha256(operationIdentity.join("\u0000")).slice(0, 24)}`,
@@ -343,6 +366,10 @@ function buildSourceReviewOperationsLocked({
   }
   const resolvedBefore = new Set(existingResolutions.map((resolution) => resolution.operationId));
   const resolutionsByOperation = new Map(existingResolutions.map((resolution) => [resolution.operationId, resolution]));
+  const activeAttestationsByResolution = new Map();
+  for (const attestation of existingEvidenceAttestations) {
+    activeAttestationsByResolution.set(attestation.resolutionId, attestation);
+  }
   const sourceSnapshot = exactFileSnapshot(sourcePath);
   const canonicalGeosSnapshot = exactFileSnapshot(canonicalGeosPath);
   const sources = readSources(sourceSnapshot.bytes);
@@ -384,15 +411,27 @@ function buildSourceReviewOperationsLocked({
       const key = operationKey(item.geo, item.url, kind, state, reason);
       const payload = signalPayload({ ...item, kind });
       const signal = signalIdentity(payload);
+      let currentSourceRecord;
+      const exactCurrentSourceRecord = () => {
+        currentSourceRecord ||= exactSourceRecordFromSnapshot(sourceSnapshot, item.geo, item.url);
+        return currentSourceRecord;
+      };
       currentSignals.add(`${key}\u0000${signal}`);
       currentCounts[kind] += 1;
       const prior = byKey.get(key) || [];
       let operation = prior.find((candidate) => {
-        const containsCurrentSignal = (attemptsByOperation.get(candidate.operationId) || [])
-          .some((attempt) => attempt.signalIdentitySha256 === signal);
-        if (!containsCurrentSignal) return false;
+        const candidateAttempts = attemptsByOperation.get(candidate.operationId) || [];
+        const latestAttempt = latestSourceReviewAttempt(candidateAttempts);
+        // A return to an older retained signal is a new review operation. It
+        // must not rewind the latest-attempt identity of an existing open
+        // operation or inherit a closure recorded for another signal.
+        if (latestAttempt?.signalIdentitySha256 !== signal) return false;
         const resolution = resolutionsByOperation.get(candidate.operationId);
-        return !resolution || resolution.reviewedSignalIdentitySha256 === signal;
+        if (!resolution) return true;
+        if (resolution.reviewedSignalIdentitySha256 !== signal) return false;
+        const attestation = activeAttestationsByResolution.get(resolution.resolutionId);
+        return Boolean(attestation)
+          && JSON.stringify(attestation.sourceRecord) === JSON.stringify(exactCurrentSourceRecord());
       });
       if (!operation) {
         const mismatchedResolvedSignalIds = prior.flatMap((candidate) => {
@@ -402,10 +441,35 @@ function buildSourceReviewOperationsLocked({
             .some((attempt) => attempt.signalIdentitySha256 === signal);
           return containsCurrentSignal ? [resolution.resolutionId] : [];
         }).sort();
+        const historicalSignalOperationIds = prior.flatMap((candidate) => {
+          if (resolvedBefore.has(candidate.operationId)) return [];
+          const candidateAttempts = attemptsByOperation.get(candidate.operationId) || [];
+          const containsCurrentSignal = candidateAttempts.some((attempt) => attempt.signalIdentitySha256 === signal);
+          const latestAttempt = latestSourceReviewAttempt(candidateAttempts);
+          return containsCurrentSignal && latestAttempt?.signalIdentitySha256 !== signal
+            ? [candidate.operationId]
+            : [];
+        }).sort();
+        const staleSourceRecordResolutionIds = prior.flatMap((candidate) => {
+          const resolution = resolutionsByOperation.get(candidate.operationId);
+          if (!resolution || resolution.reviewedSignalIdentitySha256 !== signal) return [];
+          const latestAttempt = latestSourceReviewAttempt(attemptsByOperation.get(candidate.operationId) || []);
+          if (latestAttempt?.signalIdentitySha256 !== signal) return [];
+          const attestation = activeAttestationsByResolution.get(resolution.resolutionId);
+          return !attestation
+            || JSON.stringify(attestation.sourceRecord) !== JSON.stringify(exactCurrentSourceRecord())
+            ? [resolution.resolutionId]
+            : [];
+        }).sort();
         const ownershipUpgradeCandidates = prior.filter((candidate) => {
           if (resolvedBefore.has(candidate.operationId)) return false;
           const candidateAttempts = attemptsByOperation.get(candidate.operationId) || [];
-          return candidateAttempts.some((attempt) => isCanonicalOwnershipUpgrade(attempt, payload));
+          // One unresolved legacy V1 signal may gain exactly one canonical V2
+          // ownership/applicability correction. Once a V2 attempt exists, a
+          // different V2 identity is a new review operation; appending it to
+          // the legacy operation would make equal-check ordering ambiguous.
+          return !candidateAttempts.some((attempt) => attempt.signalIdentityFormat === "SOURCE_REVIEW_SIGNAL_V2")
+            && candidateAttempts.some((attempt) => isCanonicalOwnershipUpgrade(attempt, payload));
         });
         if (ownershipUpgradeCandidates.length > 1) {
           throw new Error(`SOURCE_REVIEW_OWNERSHIP_UPGRADE_AMBIGUOUS=${key}`);
@@ -419,7 +483,12 @@ function buildSourceReviewOperationsLocked({
             kind,
             classifiedAt: normalizedClassifiedAt,
             signal,
-            reopenAfterResolutionIds: mismatchedResolvedSignalIds
+            reopenAfterResolutionIds: mismatchedResolvedSignalIds,
+            reopenAfterOperationIds: historicalSignalOperationIds,
+            reopenAfterSourceRecordResolutionIds: staleSourceRecordResolutionIds,
+            sourceRecordSha256: staleSourceRecordResolutionIds.length
+              ? sha256(JSON.stringify(exactCurrentSourceRecord()))
+              : ""
           });
         if (!unresolvedLegacy && !ownershipUpgradeCandidates.length) prior.push(operation);
         byKey.set(key, prior);

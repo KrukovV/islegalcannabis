@@ -1,5 +1,9 @@
 import { parseTruthMapLegalEvidenceCitations, type TruthMapLegalEvidenceCitation } from "./TruthMapLegalEvidence";
-import { canonicalProjectionHistoryForGeo, loadCanonicalProjectionLedger } from "./canonicalProjectionLedger";
+import {
+  canonicalProjectionHistoryForGeo,
+  loadCanonicalProjectionLedger,
+  selectLatestCanonicalProjectionSnapshotForEntries
+} from "./canonicalProjectionLedger";
 import { sha256EvidencePayload } from "./evidenceHash";
 import { getStaticTruthMapAsset } from "./staticTruthMap";
 import {
@@ -341,6 +345,16 @@ function ensureCanonicalUniverse(
   if (missing.length) throw new Error(`EVIDENCE_PASSPORT_LEDGER_MISSING_GEO=${missing.join(",")}`);
 }
 
+function canonicalProjectionEntries(properties: Map<string, TruthMapFeatureProperties>) {
+  return [...properties.entries()]
+    .map(([geo, feature]) => ({
+      geo,
+      legalTruthColor: feature.legalTruthColor,
+      ruleId: feature.truthRuleId
+    }))
+    .sort((left, right) => left.geo.localeCompare(right.geo));
+}
+
 export function buildEvidencePassportCollection(
   origin = "",
   {
@@ -360,14 +374,19 @@ export function buildEvidencePassportCollection(
   const resolutions = sourceReviewResolutionsIndex(reviewRegistry);
   const unregisteredVersion = buildVersion(properties);
   const canonicalLedger = loadCanonicalProjectionLedger();
-  const registeredCurrentSnapshot = canonicalLedger.snapshots.find(
-    (snapshot) => snapshot.versionId === unregisteredVersion.id
+  const registeredCurrentSnapshot = selectLatestCanonicalProjectionSnapshotForEntries(
+    canonicalLedger,
+    canonicalProjectionEntries(properties)
   );
   if (!registeredCurrentSnapshot && !allowUnregisteredCurrentVersion) {
     throw new Error(`EVIDENCE_PASSPORT_CANONICAL_VERSION_NOT_REGISTERED=${unregisteredVersion.id}`);
   }
   const version = {
     ...unregisteredVersion,
+    // The canonical legal version is the latest immutable 307-GEO
+    // colour/rule projection. Static hashes remain the exact delivery
+    // identity and may change when citations or source metadata improve.
+    id: registeredCurrentSnapshot?.versionId || unregisteredVersion.id,
     generatedAt: registeredCurrentSnapshot?.generatedAt || "NOT_RECORDED"
   };
 

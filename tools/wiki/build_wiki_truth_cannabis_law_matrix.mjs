@@ -9,6 +9,10 @@ import {
   assertCanonicalGeoUniverse,
   assertLedgerSourceApplicability,
 } from "./canonical_geo_universe.mjs";
+import {
+  canonicalSourceRawIdentityScore,
+  mergeCanonicalSourceRecordsByUrl,
+} from "./canonical_source_merge.mjs";
 import { reconcileDeclaredIndependentTruth } from "./independent_truth_consistency.mjs";
 
 const ROOT = process.cwd();
@@ -201,47 +205,20 @@ const normalizedUrlKey = (value) => {
   if (parsed.pathname !== "/") parsed.pathname = parsed.pathname.replace(/\/+$/, "");
   return parsed.toString();
 };
-const mergeSameUrlContextLinks = (links) => [...links.reduce((byUrl, candidate) => {
-  const key = normalizedUrlKey(candidate.url);
-  const current = byUrl.get(key);
-  if (!current) {
-    byUrl.set(key, candidate);
-    return byUrl;
-  }
-  // The revalidation ledger can add fresher provenance for a URL that is
-  // already represented by a complete visual context record. Preserve that
-  // readable capture instead of silently downgrading it to a null screenshot.
-  const contextLinkScore = (link) =>
-    Number(Boolean(link.screenshotPath)) +
-    Number(link.officialOwnerVisible === true) +
-    Number(link.effectiveRuleVisible === true) +
-    Number(link.screenshotValid === true) +
-    Number(link.current === true);
-  const preferred = contextLinkScore(candidate) > contextLinkScore(current) ? candidate : current;
-  const secondary = preferred === candidate ? current : candidate;
-  const combinedNotes = [preferred.note, secondary.note]
-    .filter(Boolean)
-    .filter((value, index, values) => values.indexOf(value) === index)
-    .join(" ");
-  const combinedReviews = [preferred.visualReview, secondary.visualReview]
-    .filter(Boolean)
-    .filter((value, index, values) => values.indexOf(value) === index)
-    .join(" ");
-  byUrl.set(key, {
-    ...secondary,
-    ...preferred,
-    note: combinedNotes || null,
-    visualReview: combinedReviews || null,
-    // A current revalidation annotation remains authoritative even when the
-    // earlier record supplies the stronger visual capture for that same URL.
-    sourceAnnotation: secondary.sourceAnnotation || preferred.sourceAnnotation,
-    screenshotPath: preferred.screenshotPath || secondary.screenshotPath || null,
-    officialOwnerVisible: preferred.officialOwnerVisible ?? secondary.officialOwnerVisible,
-    effectiveRuleVisible: preferred.effectiveRuleVisible ?? secondary.effectiveRuleVisible,
-    screenshotValid: preferred.screenshotValid ?? secondary.screenshotValid,
-  });
-  return byUrl;
-}, new Map()).values()];
+const contextLinkScore = (link) =>
+  Number(Boolean(link.screenshotPath)) +
+  Number(link.officialOwnerVisible === true) +
+  Number(link.effectiveRuleVisible === true) +
+  Number(link.screenshotValid === true) +
+  Number(link.current === true);
+const mergeSameUrlContextLinks = (links) => mergeCanonicalSourceRecordsByUrl(links, {
+  context: "MATRIX_CONTEXT_LINKS",
+  // A readable crop may enrich a source, but it cannot replace that source's
+  // exact fragment/revalidation identity merely because it has more visual
+  // flags. This prevents a same-URL merge from manufacturing a freshness gap.
+  identityPriority: (link) => canonicalSourceRawIdentityScore(link) * 100 + contextLinkScore(link),
+  urlKey: normalizedUrlKey,
+});
 const sourceProvenance = (source) => {
   const appliesToGeos = Array.from(new Set([
     ...(Array.isArray(source?.appliesToGeos) ? source.appliesToGeos : []),
@@ -692,19 +669,23 @@ const rows = geoList.map((geo) => {
   const currentOfficialSources = Array.isArray(visualRow?.current_official_sources)
     ? visualRow.current_official_sources.filter((source) => source?.url)
     : [];
-  const reviewedSourceByUrl = new Map();
-  for (const source of historicalReviewedStandaloneSources) {
-    if (!source?.url) continue;
-    const key = normalizedUrlKey(source.url);
-    // `verified_sources` precede less-complete annotation mirrors.
-    if (!reviewedSourceByUrl.has(key)) reviewedSourceByUrl.set(key, source);
-  }
-  for (const source of currentOfficialSources) {
-    // The current revalidation ledger is the authoritative current record for
-    // its URL and therefore intentionally supersedes a historical mirror.
-    reviewedSourceByUrl.set(normalizedUrlKey(source.url), source);
-  }
-  const reviewedStandaloneSources = [...reviewedSourceByUrl.values()];
+  const verifiedSourceSet = new Set(visualRow?.verified_sources || []);
+  const currentOfficialSourceSet = new Set(currentOfficialSources);
+  const reviewedStandaloneSources = mergeCanonicalSourceRecordsByUrl(
+    [...historicalReviewedStandaloneSources, ...currentOfficialSources],
+    {
+      context: `MATRIX_REVIEWED_SOURCES:${geo}`,
+      // Current-ledger entries keep the exact raw identity. Historical
+      // verified entries keep identity precedence over annotation mirrors;
+      // the merger enriches only the allow-listed metadata around it.
+      identityPriority: (source) => currentOfficialSourceSet.has(source)
+        ? 3
+        : verifiedSourceSet.has(source)
+          ? 2
+          : 1,
+      urlKey: normalizedUrlKey,
+    },
+  );
   const acceptedVisualEvidenceForSource = (source) => {
     const currentPath = source?.current_screenshot_path || source?.screenshot_path || source?.screenshotPath;
     const currentCaptureValid = currentPath &&

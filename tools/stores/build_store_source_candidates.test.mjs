@@ -209,6 +209,48 @@ test("collapses a landing page and its direct document from one official source 
   assert.equal(candidates[0].source_url, "https://regulator.example.gov/list.pdf");
 });
 
+test("an equal-rank duplicate retains one complete source record without cross-record field mixing", () => {
+  const rows = Array.from({ length: 307 }, (_, index) => row(`X${String(index).padStart(3, "0")}`, "RED"));
+  rows[0] = {
+    geo: "AG",
+    truthColor: "GREEN",
+    primaryLaw: {
+      officialSources: [
+        {
+          title: "Official licensed cannabis dispensary directory",
+          url: "https://regulator.example.gov/dispensaries",
+          sourceOwnerGeo: "AG",
+          appliesToGeos: ["AG"],
+          officialPublisher: "Cannabis regulator",
+          sourceKind: "OFFICIAL_LICENSED_CANNABIS_DISPENSARY_DIRECTORY",
+          cannabisSpecific: true,
+        },
+      ],
+      freshAxisOfficialSources: [
+        {
+          title: "Official licensed cannabis dispensary directory",
+          url: "https://regulator.example.gov/dispensaries",
+          packetGeo: "AG",
+          sourceOwnerGeo: "AG",
+          appliesToGeos: ["AG", "AG"],
+          officialPublisher: "Cannabis regulator",
+          sourceKind: "OFFICIAL_LICENSED_CANNABIS_DISPENSARY_DIRECTORY",
+          evidenceRole: "CURRENT_NAMED_DISPENSARY_CONFIRMATION",
+          cannabisSpecific: true,
+        },
+      ],
+    },
+  };
+  const [candidate] = buildStoreSourceCandidates({ rows });
+  assert.equal(candidate.provenance.packet_geo, "AG");
+  assert.equal(candidate.provenance.evidence_role, "CURRENT_NAMED_DISPENSARY_CONFIRMATION");
+  assert.deepEqual(candidate.provenance.applies_to_geos, ["AG", "AG"]);
+  assert.equal(
+    candidate.provenance.legal_evidence_ref,
+    "data/reviews/wiki-truth-307-final-reconciliation.json#rows[AG].primaryLaw.freshAxisOfficialSources[0]",
+  );
+});
+
 test("keeps an explicitly active official licence record as a narrower candidate", () => {
   const rows = Array.from({ length: 307 }, (_, index) => row(`X${String(index).padStart(3, "0")}`, "RED"));
   rows[0] = sourceRow("US-AK", "GREEN", {

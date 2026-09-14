@@ -4,6 +4,8 @@ import { describe, expect, it } from "vitest";
 import { isEvidencePassportPendingReview, isEvidencePassportSourceChange } from "./evidencePassport";
 import {
   compareSourceReviewAttempts,
+  latestSourceReviewAttempt,
+  loadCanonicalSourceReviewV2SignalIdentityIndex,
   loadSourceReviewOperationsRegistry,
   loadSourceReviewOperationsRegistrySnapshot,
   sourceReviewOperationsPath,
@@ -58,6 +60,40 @@ function rehashEvidenceAttestation(attestation: SourceReviewEvidenceAttestation)
 }
 
 describe("source review operations", () => {
+  it("selects an exact current V2 signal when append-only operations retain the same review class", () => {
+    const registry = loadSourceReviewOperationsRegistry();
+    const canonicalSignals = loadCanonicalSourceReviewV2SignalIdentityIndex();
+    const attemptsByOperation = new Map<string, typeof registry.attempts>();
+    for (const attempt of registry.attempts) {
+      const values = attemptsByOperation.get(attempt.operationId) || [];
+      values.push(attempt);
+      attemptsByOperation.set(attempt.operationId, values);
+    }
+    const groups = new Map<string, typeof registry.operations>();
+    for (const operation of registry.operations) {
+      const key = [
+        operation.geo,
+        operation.sourceUrl,
+        operation.eventKind,
+        operation.revalidationStateAtOpen,
+        operation.changeReasonAtOpen
+      ].join("\u0000");
+      const values = groups.get(key) || [];
+      values.push(operation);
+      groups.set(key, values);
+    }
+    const retainedSameClass = [...groups].find(([, operations]) => operations.length > 1);
+    expect(retainedSameClass).toBeTruthy();
+    const [key, operations] = retainedSameClass!;
+    const canonicalSignal = canonicalSignals.get(key);
+    expect(canonicalSignal).toMatch(/^[a-f0-9]{64}$/);
+    const selected = sourceReviewOperationsIndex(registry, canonicalSignals).get(key);
+    expect(selected).toBeTruthy();
+    const latest = latestSourceReviewAttempt(attemptsByOperation.get(selected!.operationId) || []);
+    expect(latest?.signalIdentitySha256).toBe(canonicalSignal);
+    expect(operations.some((operation) => operation.operationId === selected!.operationId)).toBe(true);
+  });
+
   it("classifies every current source-change and pending-review event without inventing a legal change", () => {
     const registry = loadSourceReviewOperationsRegistry();
     expect(registry.schemaVersion).toBe(7);
@@ -261,8 +297,11 @@ describe("source review operations", () => {
 
   it("rejects a source-review close without explicit human provenance", () => {
     const registry = loadSourceReviewOperationsRegistry();
-    const operation = registry.operations[0];
-    const reviewedAttempt = registry.attempts.find((attempt) => attempt.operationId === operation.operationId);
+    const resolvedOperationIds = new Set(registry.resolutions.map((resolution) => resolution.operationId));
+    const operation = registry.operations.find((entry) => !resolvedOperationIds.has(entry.operationId))!;
+    const reviewedAttempt = latestSourceReviewAttempt(
+      registry.attempts.filter((attempt) => attempt.operationId === operation.operationId)
+    );
     expect(operation).toBeTruthy();
     expect(reviewedAttempt).toBeTruthy();
     const resolution = {
@@ -286,32 +325,25 @@ describe("source review operations", () => {
       resultingChangeReason: "SCOPE_AND_EFFECTIVE_STATE_CONFIRMED",
       boundary: "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
     } as const;
-    const resolved = validateSourceReviewOperationsRegistry({ ...registry, resolutions: [resolution], evidenceAttestations: [] });
-    expect(resolved.resolutions).toHaveLength(1);
-    expect(sourceReviewOperationsIndex(resolved).get([
-      operation.geo,
-      operation.sourceUrl,
-      operation.eventKind,
-      operation.revalidationStateAtOpen,
-      operation.changeReasonAtOpen
-    ].join("\u0000"))?.operationId).toBe(operation.operationId);
+    const resolved = validateSourceReviewOperationsRegistry({
+      ...registry,
+      resolutions: [...registry.resolutions, resolution]
+    });
+    expect(resolved.resolutions).toHaveLength(registry.resolutions.length + 1);
     expect(() => validateSourceReviewOperationsRegistry({
       ...registry,
-      resolutions: [{ ...resolution, reviewerId: "", note: "" }],
-      evidenceAttestations: []
+      resolutions: [...registry.resolutions, { ...resolution, reviewerId: "", note: "" }]
     })).toThrow("SOURCE_REVIEW_RESOLUTION_PROVENANCE_INVALID");
     expect(() => validateSourceReviewOperationsRegistry({
       ...registry,
-      resolutions: [{ ...resolution, reviewRegistrySha256: "not-a-sha256" }],
-      evidenceAttestations: []
+      resolutions: [...registry.resolutions, { ...resolution, reviewRegistrySha256: "not-a-sha256" }]
     })).toThrow("SOURCE_REVIEW_RESOLUTION_PROVENANCE_INVALID");
     expect(() => validateSourceReviewOperationsRegistry({
       ...registry,
       attempts: registry.attempts.map((attempt) => attempt.attemptId === reviewedAttempt!.attemptId
         ? { ...attempt, signalIdentitySha256: "0".repeat(64) }
         : attempt),
-      resolutions: [resolution],
-      evidenceAttestations: []
+      resolutions: [...registry.resolutions, resolution]
     })).toThrow(/SOURCE_REVIEW_(?:ATTEMPT_SIGNAL_PREIMAGE_HASH_INVALID|OPERATION_SIGNAL_REWRITE_FORBIDDEN|RESOLUTION_SOURCE_INVALID)/);
   });
 

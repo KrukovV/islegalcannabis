@@ -8,6 +8,7 @@ import {
   createCanonicalProjectionSnapshot,
   canonicalProjectionHistoryForGeo,
   loadCanonicalProjectionLedger,
+  selectLatestCanonicalProjectionSnapshotForEntries,
   selectPreviousCanonicalProjectionSnapshot,
   validateCanonicalProjectionLedger
 } from "./canonicalProjectionLedger";
@@ -35,6 +36,17 @@ describe("canonical projection ledger", () => {
     expect(ledger.snapshots[0]).toEqual(current);
     expect(current.generatedAt).toBe("NOT_RECORDED");
     expect(selectPreviousCanonicalProjectionSnapshot(ledger, current)).toBeNull();
+  });
+
+  it("keeps source-only delivery drift on the latest canonical legal version and rejects legal drift", () => {
+    const ledger = loadCanonicalProjectionLedger();
+    const latest = ledger.snapshots.at(-1)!;
+    expect(selectLatestCanonicalProjectionSnapshotForEntries(ledger, structuredClone(latest.entries)))
+      .toEqual(latest);
+
+    const changed = structuredClone(latest.entries);
+    changed[0].ruleId = `${changed[0].ruleId}:LEGAL-DRIFT`;
+    expect(selectLatestCanonicalProjectionSnapshotForEntries(ledger, changed)).toBeNull();
   });
 
   it("rejects rewritten hashes and duplicate versions", () => {

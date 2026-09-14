@@ -2,6 +2,10 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
+import {
+  canonicalSourceRawIdentityScore,
+  mergeCanonicalSourceRecordsByUrl,
+} from "./canonical_source_merge.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -778,7 +782,7 @@ function countBy(rows, selector) {
   }, {});
 }
 
-function normalizeLinks(row) {
+function normalizeOfficialSourceLinks(row) {
   const buckets = [
     ...(Array.isArray(row?.directOfficialCannabisLawLinks)
       ? row.directOfficialCannabisLawLinks
@@ -794,8 +798,10 @@ function normalizeLinks(row) {
       ? row.latestColorReaudit.freshOfficialSources
       : []),
   ];
-  const seen = new Set();
-  return buckets
+  return mergeCanonicalSourceRecordsByUrl(buckets, {
+    context: `FINAL_NORMALIZE_LINKS:${String(row?.geo || "NOT_RECORDED")}`,
+    identityPriority: (_source, index) => -index,
+  })
     .map((link) => ({
       title: String(link?.title || link?.url || "Official source"),
       url: String(link?.url || ""),
@@ -827,9 +833,22 @@ function normalizeLinks(row) {
       officialDomainVisible: link?.officialDomainVisible,
       cannabisFragmentVisible: link?.cannabisFragmentVisible,
       effectiveRuleVisible: link?.effectiveRuleVisible,
+      screenshotAvailable: link?.screenshotAvailable,
+      screenshotPaths: [...new Set([
+        link?.screenshotPath,
+        ...(Array.isArray(link?.screenshotPaths) ? link.screenshotPaths : []),
+        ...(Array.isArray(link?.freshScreenshotPaths) ? link.freshScreenshotPaths : []),
+      ].map((value) => String(value || "").trim()).filter(Boolean))],
       note: String(link?.note || ""),
-      fragment: String(link?.fragment || link?.exactFragment || ""),
-      sourceAnnotation: String(link?.sourceAnnotation || ""),
+      fragment: String(
+        link?.fragment ||
+        link?.exactFragment ||
+        link?.exact_fragment ||
+        link?.directFragment ||
+        link?.direct_fragment ||
+        "",
+      ),
+      sourceAnnotation: String(link?.sourceAnnotation || link?.source_annotation || link?.annotation || ""),
       sourceOwnerGeo: String(link?.sourceOwnerGeo || "").trim(),
       appliesToGeos: Array.isArray(link?.appliesToGeos)
         ? link.appliesToGeos.map((geo) => String(geo || "").trim()).filter(Boolean)
@@ -841,12 +860,7 @@ function normalizeLinks(row) {
       revalidation: link?.revalidation && typeof link.revalidation === "object"
         ? link.revalidation
         : null,
-    }))
-    .filter((link) => {
-      if (!link.url || seen.has(link.url)) return false;
-      seen.add(link.url);
-      return true;
-    });
+    }));
 }
 
 function sourceRowsByUrl(payload) {
@@ -1364,20 +1378,25 @@ function main() {
     const canonicalTruth = selectCanonicalTruthResult(truthRow, matrixRow);
     const truthColor = canonicalTruth.color;
     const previousColor = String(baselineRow?.truthColor || "UNKNOWN");
-    const officialSources = normalizeLinks(matrixRow);
+    const officialSources = normalizeOfficialSourceLinks(matrixRow);
     const freshAxisOfficialSources = Array.isArray(
       truthRow?.truth?.officialSources,
     )
       ? truthRow.truth.officialSources
       : [];
-    const evidenceSourcesByUrl = new Map();
-    for (const source of [...officialSources, ...freshAxisOfficialSources]) {
-      const url = String(source?.url || "").trim();
-      if (!url) continue;
-      const current = evidenceSourcesByUrl.get(url) || {};
-      evidenceSourcesByUrl.set(url, { ...current, ...source, url });
-    }
-    const reconciledOfficialSources = [...evidenceSourcesByUrl.values()];
+    const officialSourceSet = new Set(officialSources);
+    const reconciledOfficialSources = mergeCanonicalSourceRecordsByUrl(
+      [...officialSources, ...freshAxisOfficialSources],
+      {
+        context: `FINAL_EVIDENCE_SOURCES:${geo}`,
+        // The most complete raw fragment/revalidation tuple owns the exact
+        // source identity. Matrix sources win only as a deterministic tie;
+        // compatible visual/publisher metadata may enrich around that tuple,
+        // but no shallow spread can manufacture a mixed source record.
+        identityPriority: (source) => canonicalSourceRawIdentityScore(source) * 100
+          + (officialSourceSet.has(source) ? 1 : 0),
+      },
+    );
     const truthRuleId = canonicalTruth.ruleId;
     const truthSource = canonicalTruth.source;
     const truthEvidenceSource = String(
@@ -1914,6 +1933,7 @@ export {
   hasLiveMapCapture,
   hasProvenAdultUse,
   normalizeLiveMapCapture,
+  normalizeOfficialSourceLinks,
   selectCanonicalTruthResult,
 };
 

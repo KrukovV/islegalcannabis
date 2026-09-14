@@ -195,6 +195,10 @@ export default async function SourceReviewWorkbenchPage({
       </form>
       <div className={styles.monitor} data-testid="source-review-workbench-summary">
         <strong>{workbench.summary.canonicalGeos}/307 canonical GEO</strong>
+        <span>{workbench.summary.geosAnalysed} GEO analysed · {workbench.summary.geosRemainingFirstPass} GEO remain for first-pass C2/C3</span>
+        <span>{workbench.summary.geosFullyClosed} GEO fully closed · {workbench.summary.geosWithCurrentSignalsRemaining} GEO still have current signals</span>
+        <span>{workbench.summary.currentGeoDocumentsReviewed}/{workbench.summary.currentGeoDocuments} current GEO legal-source records reviewed · {workbench.summary.currentGeoDocumentsRemaining} remain</span>
+        <span>{workbench.summary.currentSignalsReviewed}/{workbench.summary.currentSignals} current signals reviewed · {workbench.summary.currentSignalsRemaining} remain</span>
         <span>{workbench.summary.currentSignals} current signals</span>
         <span>{workbench.summary.currentActive} current active operations</span>
         <span>{workbench.summary.openHistorical} historical open operations</span>

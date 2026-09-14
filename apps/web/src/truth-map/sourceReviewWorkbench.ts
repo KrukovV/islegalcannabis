@@ -85,6 +85,18 @@ export type SourceReviewWorkbench = {
   };
   summary: {
     canonicalGeos: number;
+    geosAnalysed: number;
+    geosRemainingFirstPass: number;
+    geosWithCurrentSignals: number;
+    geosFullyClosed: number;
+    geosWithCurrentSignalsRemaining: number;
+    geosWithoutCurrentSignals: number;
+    attestedGeoDocuments: number;
+    currentGeoDocuments: number;
+    currentGeoDocumentsReviewed: number;
+    currentGeoDocumentsRemaining: number;
+    currentSignalsReviewed: number;
+    currentSignalsRemaining: number;
     totalOperations: number;
     currentSignals: number;
     currentActive: number;
@@ -322,6 +334,18 @@ export function buildSourceReviewWorkbench(
   });
 
   const overall = partition(dossiers);
+  const attestedDossiers = dossiers.filter((dossier) => dossier.evidenceAttestation !== null);
+  const currentDossiers = dossiers.filter((dossier) => dossier.currentSignal);
+  const currentActiveDossiers = currentDossiers.filter((dossier) => dossier.lifecycle === "CURRENT_ACTIVE");
+  const geosAnalysed = new Set(attestedDossiers.map((dossier) => dossier.operation.geo));
+  const currentSignalGeos = new Set(currentDossiers.map((dossier) => dossier.operation.geo));
+  const currentActiveGeos = new Set(currentActiveDossiers.map((dossier) => dossier.operation.geo));
+  const geoDocumentKey = (dossier: SourceReviewWorkbenchDossier) => (
+    `${dossier.operation.geo}\u0000${dossier.operation.sourceUrl}`
+  );
+  const attestedGeoDocuments = new Set(attestedDossiers.map(geoDocumentKey));
+  const currentGeoDocuments = new Set(currentDossiers.map(geoDocumentKey));
+  const currentGeoDocumentsRemaining = new Set(currentActiveDossiers.map(geoDocumentKey));
   const matching = dossiers.filter((dossier) => (
     (!normalized.geo || dossier.operation.geo === normalized.geo)
     && (!normalized.category || dossier.operation.category === normalized.category)
@@ -339,6 +363,19 @@ export function buildSourceReviewWorkbench(
     filters: normalized,
     summary: {
       canonicalGeos: canonicalGeos.size,
+      geosAnalysed: geosAnalysed.size,
+      geosRemainingFirstPass: canonicalGeos.size - geosAnalysed.size,
+      geosWithCurrentSignals: currentSignalGeos.size,
+      geosFullyClosed: [...currentSignalGeos].filter((geo) => !currentActiveGeos.has(geo)).length,
+      geosWithCurrentSignalsRemaining: currentActiveGeos.size,
+      geosWithoutCurrentSignals: canonicalGeos.size - currentSignalGeos.size,
+      attestedGeoDocuments: attestedGeoDocuments.size,
+      currentGeoDocuments: currentGeoDocuments.size,
+      currentGeoDocumentsReviewed: [...currentGeoDocuments]
+        .filter((key) => !currentGeoDocumentsRemaining.has(key)).length,
+      currentGeoDocumentsRemaining: currentGeoDocumentsRemaining.size,
+      currentSignalsReviewed: currentSourcesByOperation.size - overall.currentActive,
+      currentSignalsRemaining: overall.currentActive,
       totalOperations: dossiers.length,
       currentSignals: currentSourcesByOperation.size,
       ...overall,

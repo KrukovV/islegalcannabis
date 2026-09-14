@@ -19,6 +19,7 @@ import {
   hasLiveMapCapture,
   hasProvenAdultUse,
   normalizeLiveMapCapture,
+  normalizeOfficialSourceLinks,
   selectCanonicalTruthResult,
 } from "./build_wiki_truth_307_final_reconciliation.mjs";
 import {
@@ -27,13 +28,203 @@ import {
   auditCanonicalGeoUniverse,
   selectNextCanonicalGeo,
 } from "./canonical_geo_universe.mjs";
+import {
+  canonicalSourceRawIdentityScore,
+  mergeCanonicalSourceRecordsByUrl,
+} from "./canonical_source_merge.mjs";
+import { reconcileDeclaredIndependentTruth } from "./independent_truth_consistency.mjs";
 import { buildAxisCell } from "./build_wiki_truth_307_legal_knowledge_axis_matrix.mjs";
 import {
   evaluateLegalInterpretation,
   evaluatePrimaryLaw,
 } from "./build_wiki_truth_307_acceptance_audit.mjs";
 import { deriveOfficialTruthColor } from "../../apps/web/src/lib/wikiTruthColorEngine.js";
-import { reconcileDeclaredIndependentTruth } from "./independent_truth_consistency.mjs";
+
+test("same-URL merge preserves one exact legal identity and enriches only presentation/visual metadata", () => {
+  const url = "https://example.go.jp/current-law";
+  const identity = {
+    url,
+    title: "Current revalidation record",
+    fragment: "Exact UTF-8 bytes owned by the current identity.",
+    source_owner_geo: "JP",
+    applies_to_geos: ["JP"],
+    screenshot_path: "/captures/current-shell.png",
+    revalidation: {
+      final_url: "https://example.go.jp/current-law",
+      document_sha256: "a".repeat(64),
+      relevant_fragment_sha256: "b".repeat(64),
+      checked_at: "2026-09-14T10:00:00.000Z",
+    },
+  };
+  const strongerMetadata = {
+    url,
+    title: "Annotated current law",
+    source_owner_geo: "JP",
+    applies_to_geo: ["JP"],
+    legal_basis_for_extension: "National source applies directly to Japan.",
+    source_type: "CURRENT_PRIMARY_LAW",
+    exact_fragment: "A different retained fragment must not replace the identity fragment.",
+    screenshot: "/captures/readable-law.png",
+    visual_evidence: ["/captures/readable-scope.png"],
+    official_owner_visible: true,
+    screenshot_valid: true,
+    revalidation: {
+      final_url: "https://example.go.jp/current-law",
+      document_sha256: "a".repeat(64),
+      relevant_fragment_sha256: "c".repeat(64),
+      checked_at: "2026-09-13T10:00:00.000Z",
+    },
+  };
+
+  const [merged] = mergeCanonicalSourceRecordsByUrl([identity, strongerMetadata], {
+    context: "TEST_IDENTITY_BOUNDARY",
+    identityPriority: (source) => source === identity ? 2 : 1,
+  });
+
+  assert.equal(merged.fragment, identity.fragment);
+  assert.equal(merged.exact_fragment, undefined);
+  assert.deepEqual(merged.revalidation, identity.revalidation);
+  assert.equal(merged.sourceOwnerGeo, "JP");
+  assert.deepEqual(merged.appliesToGeos, ["JP"]);
+  assert.equal(merged.sourceType, undefined);
+  assert.equal(merged.officialOwnerVisible, true);
+  assert.equal(merged.screenshotValid, true);
+  assert.deepEqual(merged.freshScreenshotPaths, [
+    "/captures/current-shell.png",
+    "/captures/readable-law.png",
+    "/captures/readable-scope.png",
+  ]);
+});
+
+test("same-URL merge rejects metadata conflicts and quarantines a different document identity", () => {
+  const base = {
+    url: "https://example.gov/law",
+    sourceOwnerGeo: "AA",
+    appliesToGeos: ["AA"],
+    revalidation: {
+      final_url: "https://example.gov/law",
+      document_sha256: "a".repeat(64),
+    },
+  };
+  assert.throws(
+    () => mergeCanonicalSourceRecordsByUrl([base, { ...base, sourceOwnerGeo: "BB" }], { context: "OWNER" }),
+    /CANONICAL_SOURCE_MERGE_OWNER_CONFLICT/,
+  );
+  assert.throws(
+    () => mergeCanonicalSourceRecordsByUrl([base, { ...base, appliesToGeos: ["BB"] }], { context: "APPLICABILITY" }),
+    /CANONICAL_SOURCE_MERGE_APPLICABILITY_CONFLICT/,
+  );
+  const [documentIdentity] = mergeCanonicalSourceRecordsByUrl([
+    base,
+    {
+      ...base,
+      sourceType: "MUST_NOT_CROSS_DOCUMENT_IDENTITY",
+      screenshotPath: "/captures/other-document.png",
+      revalidation: { ...base.revalidation, document_sha256: "b".repeat(64) },
+    },
+  ], {
+    context: "DOCUMENT",
+    identityPriority: (source) => source === base ? 2 : 1,
+  });
+  assert.deepEqual(documentIdentity.revalidation, base.revalidation);
+  assert.equal(documentIdentity.sourceType, undefined);
+  assert.equal(documentIdentity.screenshotPath, undefined);
+});
+
+test("comparison URL keys never rewrite the selected raw URL identity", () => {
+  const records = [
+    { url: "https://example.gov/law", fragment: "First exact identity." },
+    { url: "https://example.gov/law/", fragment: "Second exact identity." },
+  ];
+  const merged = mergeCanonicalSourceRecordsByUrl(records);
+  assert.equal(merged.length, 2);
+  assert.deepEqual(merged.map((source) => source.url), [
+    "https://example.gov/law",
+    "https://example.gov/law/",
+  ]);
+
+  const [comparisonMerged] = mergeCanonicalSourceRecordsByUrl(records, {
+    identityPriority: (_source, index) => -index,
+    urlKey: (url) => url.replace(/\/$/, ""),
+  });
+  assert.equal(comparisonMerged.url, records[0].url);
+  assert.equal(comparisonMerged.fragment, records[0].fragment);
+});
+
+test("final source projection retains one semantic identity while adding compatible visual evidence", () => {
+  const url = "https://example.ee/current";
+  const identity = {
+    url,
+    fragment: "Exact current projection fragment.",
+    revalidation: {
+      final_url: url,
+      document_sha256: "d".repeat(64),
+      relevant_fragment_sha256: "e".repeat(64),
+    },
+  };
+  const annotation = {
+    url,
+    sourceOwnerGeo: "EE",
+    appliesToGeos: ["EE"],
+    sourceType: "CURRENT_REGULATOR_GUIDANCE",
+    exactFragment: "A separate annotation fragment.",
+    screenshotPath: "/captures/ee-current.png",
+    revalidation: {
+      final_url: url,
+      document_sha256: "d".repeat(64),
+      relevant_fragment_sha256: "f".repeat(64),
+    },
+  };
+
+  const [source] = normalizeOfficialSourceLinks({
+    geo: "EE",
+    directOfficialCannabisLawLinks: [identity],
+    officialContextLinks: [annotation],
+  });
+  assert.equal(source.fragment, identity.fragment);
+  assert.deepEqual(source.revalidation, identity.revalidation);
+  assert.equal(source.sourceOwnerGeo, "");
+  assert.deepEqual(source.appliesToGeos, []);
+  assert.equal(source.sourceType, "");
+  assert.equal(source.screenshotAvailable, true);
+  assert.deepEqual(source.screenshotPaths, ["/captures/ee-current.png"]);
+});
+
+test("raw source identity outranks a metadata-only same-URL projection", () => {
+  const url = "https://example.gov/current-law";
+  const retained = {
+    url,
+    fragment: "Exact retained legal fragment.",
+    revalidation: {
+      checked_at: "2026-09-14T09:00:00.000Z",
+      final_url: url,
+      document_sha256: "a".repeat(64),
+      relevant_fragment_sha256: "b".repeat(64),
+      revalidation_state: "NOT_MODIFIED",
+      access_state: "HTTP_OK",
+    },
+  };
+  const metadataOnly = {
+    url,
+    sourceOwnerGeo: "AA",
+    appliesToGeos: ["AA"],
+    officialPublisher: "Example legislature",
+    screenshotPath: "/captures/readable.png",
+  };
+
+  const [merged] = mergeCanonicalSourceRecordsByUrl([retained, metadataOnly], {
+    identityPriority: (source, index) => canonicalSourceRawIdentityScore(source) * 100
+      + Number(source === metadataOnly)
+      - index / 100_000,
+  });
+
+  assert.equal(merged.fragment, retained.fragment);
+  assert.deepEqual(merged.revalidation, retained.revalidation);
+  assert.equal(merged.sourceOwnerGeo, undefined);
+  assert.equal(merged.appliesToGeos, undefined);
+  assert.equal(merged.officialPublisher, undefined);
+  assert.equal(merged.screenshotPath, "/captures/readable.png");
+});
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const normalizedUrlKey = (value) => {
@@ -278,19 +469,29 @@ test("pass_cycle refreshes the canonical matrix once before every projection-tes
   const passCycle = fs.readFileSync(path.join(ROOT, "tools", "pass_cycle.sh"), "utf8");
   const netHealth = fs.readFileSync(path.join(ROOT, "tools", "pass_cycle.net_health.sh"), "utf8");
   const refreshCommand = 'run_step "wiki_truth_307_build_wiki_truth_cannabis_law_matrix"';
+  const staticAssetsCommand = 'run_step "public_truth_map_static_assets"';
+  const preCiManifestCommand = 'run_step "b2b_evidence_delivery_manifest_pre_ci"';
   const netHealthSource = 'source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/pass_cycle.net_health.sh"';
   const projectionTests = 'echo "RUN_OFFICIAL_EVIDENCE_REVALIDATION_TESTS=1"';
   const refreshIndex = passCycle.indexOf(refreshCommand);
+  const staticAssetsIndex = passCycle.indexOf(staticAssetsCommand);
+  const preCiManifestIndex = passCycle.indexOf(preCiManifestCommand);
   const netHealthSourceIndex = passCycle.indexOf(netHealthSource);
   const projectionTestsIndex = passCycle.indexOf(projectionTests);
   const derivedBuildersStart = passCycle.indexOf("TRUTH_FIRST_DERIVED_BUILDERS=(");
   const derivedBuildersEnd = passCycle.indexOf("\n)", derivedBuildersStart);
 
   assert(refreshIndex >= 0, "canonical matrix refresh command must exist");
+  assert(staticAssetsIndex >= 0, "public static asset generation command must exist");
+  assert(preCiManifestIndex >= 0, "pre-CI evidence manifest generation command must exist");
   assert(netHealthSourceIndex >= 0, "network-health stage must be sourced");
   assert(projectionTestsIndex >= 0, "projection-test stage must exist");
   assert.match(netHealth, /run_ci_local_step/, "network-health stage must invoke ci-local");
   assert(refreshIndex < netHealthSourceIndex, "canonical matrix must be fresh before sourced ci-local projection tests");
+  assert(
+    staticAssetsIndex < preCiManifestIndex && preCiManifestIndex < netHealthSourceIndex,
+    "evidence manifest must bind the current static assets before sourced ci-local tests",
+  );
   assert(refreshIndex < projectionTestsIndex, "canonical matrix must be fresh before projection tests");
   assert.equal(passCycle.split(refreshCommand).length - 1, 1, "canonical matrix refresh must run exactly once");
   assert(derivedBuildersStart >= 0 && derivedBuildersEnd > derivedBuildersStart, "derived-builder stage must exist");

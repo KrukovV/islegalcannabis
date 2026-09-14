@@ -1086,7 +1086,10 @@ export function loadSourceReviewOperationsRegistrySnapshot(repoRoot?: string): S
   };
 }
 
-export function sourceReviewOperationsIndex(registry = loadSourceReviewOperationsRegistry()) {
+export function sourceReviewOperationsIndex(
+  registry = loadSourceReviewOperationsRegistry(),
+  canonicalSignalIdentityIndex = loadCanonicalSourceReviewV2SignalIdentityIndex()
+) {
   const operationsById = new Map(registry.operations.map((operation) => [operation.operationId, operation]));
   const latestAttemptByOperation = new Map<string, SourceReviewAttempt>();
   for (const attempt of registry.attempts) {
@@ -1095,17 +1098,42 @@ export function sourceReviewOperationsIndex(registry = loadSourceReviewOperation
       latestAttemptByOperation.set(attempt.operationId, attempt);
     }
   }
-  const selected = new Map<string, { operation: SourceReviewOperation; attempt: SourceReviewAttempt }>();
+  const candidates = new Map<string, Array<{ operation: SourceReviewOperation; attempt: SourceReviewAttempt }>>();
   for (const [operationId, attempt] of latestAttemptByOperation) {
     const operation = operationsById.get(operationId);
     if (!operation) continue;
     const key = [operation.geo, operation.sourceUrl, operation.eventKind, operation.revalidationStateAtOpen, operation.changeReasonAtOpen].join("\u0000");
-    const previous = selected.get(key);
-    if (!previous || compareSourceReviewAttempts(attempt, previous.attempt) > 0) {
-      selected.set(key, { operation, attempt });
-    }
+    const values = candidates.get(key) || [];
+    values.push({ operation, attempt });
+    candidates.set(key, values);
   }
-  return new Map([...selected].map(([key, value]) => [key, value.operation]));
+  const selected = new Map<string, SourceReviewOperation>();
+  const resolvedOperationIds = new Set(registry.resolutions.map((resolution) => resolution.operationId));
+  for (const [key, values] of candidates) {
+    if (values.length === 1) {
+      selected.set(key, values[0].operation);
+      continue;
+    }
+    // Operations are append-only reviews of exact signals. Two operations can
+    // legitimately retain the same GEO/URL/class after the source identity
+    // changes. Never compare their attempt timestamps or IDs: that comparator
+    // is intentionally valid only inside one operation. Select the sole
+    // operation whose V2 signal is recomputed from today's canonical source.
+    const canonicalSignalIdentitySha256 = canonicalSignalIdentityIndex.get(key);
+    if (!canonicalSignalIdentitySha256) {
+      throw new Error(`SOURCE_REVIEW_CURRENT_SIGNAL_IDENTITY_MISSING=${key}`);
+    }
+    const exactSignal = values.filter(({ attempt }) => (
+      attempt.signalIdentitySha256 === canonicalSignalIdentitySha256
+    ));
+    const open = exactSignal.filter(({ operation }) => !resolvedOperationIds.has(operation.operationId));
+    const current = open.length ? open : exactSignal;
+    if (current.length !== 1) {
+      throw new Error(`SOURCE_REVIEW_CURRENT_SIGNAL_OPERATION_AMBIGUOUS=${key}|${canonicalSignalIdentitySha256}|${current.length}`);
+    }
+    selected.set(key, current[0].operation);
+  }
+  return selected;
 }
 
 export function sourceReviewResolutionsIndex(registry = loadSourceReviewOperationsRegistry()) {

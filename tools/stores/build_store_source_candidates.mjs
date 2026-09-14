@@ -74,10 +74,27 @@ function candidateExtractabilityRank(candidate) {
   return 1;
 }
 
+function candidateProvenanceCompleteness(candidate) {
+  const provenance = candidate?.provenance || {};
+  return [
+    provenance.packet_geo,
+    provenance.source_owner_geo,
+    Array.isArray(provenance.applies_to_geos) && provenance.applies_to_geos.length > 0,
+    provenance.source_kind,
+    provenance.evidence_role,
+  ].filter(Boolean).length;
+}
+
 function retainPreferredCandidate(candidateByFamily, candidate) {
   const key = candidateSourceFamilyKey(candidate);
   const existing = candidateByFamily.get(key);
-  if (!existing || candidateExtractabilityRank(candidate) > candidateExtractabilityRank(existing)) {
+  const candidateRank = candidateExtractabilityRank(candidate);
+  const existingRank = candidateExtractabilityRank(existing);
+  if (
+    !existing ||
+    candidateRank > existingRank ||
+    (candidateRank === existingRank && candidateProvenanceCompleteness(candidate) > candidateProvenanceCompleteness(existing))
+  ) {
     candidateByFamily.set(key, candidate);
   }
 }
@@ -208,8 +225,8 @@ function isRootLandingUrl(url) {
   }
 }
 
-function localEvidenceRef(geoId, index) {
-  return `data/reviews/wiki-truth-307-final-reconciliation.json#rows[${geoId}].primaryLaw.officialSources[${index}]`;
+function localEvidenceRef(geoId, collection, index) {
+  return `data/reviews/wiki-truth-307-final-reconciliation.json#rows[${geoId}].primaryLaw.${collection}[${index}]`;
 }
 
 function inferStoreTypes(sourceText) {
@@ -296,9 +313,12 @@ export function extractSourceCandidates(row) {
   const geoId = upper(row.geo);
   const officialSources = Array.isArray(row.primaryLaw?.officialSources) ? row.primaryLaw.officialSources : [];
   const freshSources = Array.isArray(row.primaryLaw?.freshAxisOfficialSources) ? row.primaryLaw.freshAxisOfficialSources : [];
-  const allSources = [...officialSources, ...freshSources];
+  const allSources = [
+    ...officialSources.map((source, index) => ({ source, evidenceRef: localEvidenceRef(geoId, "officialSources", index) })),
+    ...freshSources.map((source, index) => ({ source, evidenceRef: localEvidenceRef(geoId, "freshAxisOfficialSources", index) })),
+  ];
   const candidates = [];
-  for (const [index, source] of allSources.entries()) {
+  for (const { source, evidenceRef } of allSources) {
     const url = text(source?.url);
     if (!geoId || !/^https:\/\//i.test(url)) continue;
     // A regulator home page can advertise or link to a directory, but it is
@@ -357,7 +377,7 @@ export function extractSourceCandidates(row) {
       },
       provenance: {
         origin: "CANONICAL_LEGAL_LEDGER_LOCAL_SEMANTIC_SCAN",
-        legal_evidence_ref: localEvidenceRef(geoId, index),
+        legal_evidence_ref: evidenceRef,
         packet_geo: packetGeo || null,
         source_owner_geo: sourceOwnerGeo || null,
         applies_to_geos: appliesTo,

@@ -2,16 +2,16 @@
   "schemaVersion": 1,
   "assets": {
     "countries": {
-      "hash": "6e4d50dee3bd",
-      "file": "countries.6e4d50dee3bd.json.br",
-      "byteLength": 2621450,
-      "brotliByteLength": 544138
+      "hash": "48449fbc175c",
+      "file": "countries.48449fbc175c.json.br",
+      "byteLength": 2622008,
+      "brotliByteLength": 544272
     },
     "us-states": {
-      "hash": "e144a4f9e90b",
-      "file": "us-states.e144a4f9e90b.json.br",
-      "byteLength": 207730,
-      "brotliByteLength": 39324
+      "hash": "6f6e221807bc",
+      "file": "us-states.6f6e221807bc.json.br",
+      "byteLength": 208399,
+      "brotliByteLength": 39359
     }
   }
 }

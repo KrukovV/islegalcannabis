@@ -408,6 +408,46 @@ test("canonical camelCase owner/applicability appends one migration attempt with
   }
 });
 
+test("a second distinct V2 ownership identity opens a new operation instead of making latest selection ambiguous", () => {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), "islegal-source-review-second-v2-"));
+  try {
+    const sourcePath = path.join(directory, "projection.json");
+    const outputPath = path.join(directory, "operations.json");
+    const currentSource = canonicalCamelCaseSource(
+      "NEEDS_SEMANTIC_REVIEW",
+      "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+      "2026-09-11T10:00:00.000Z"
+    );
+    fs.writeFileSync(sourcePath, JSON.stringify(ledger(currentSource)));
+    buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-11T10:01:00.000Z" });
+    const legacy = JSON.parse(fs.readFileSync(outputPath, "utf8"));
+    downgradeAttemptToMissingOwnership(legacy);
+    fs.writeFileSync(outputPath, `${JSON.stringify(legacy, null, 2)}\n`);
+
+    buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-12T10:01:00.000Z" });
+    const firstV2 = JSON.parse(fs.readFileSync(outputPath, "utf8"));
+    assert.equal(firstV2.operations.length, 1);
+    assert.equal(firstV2.attempts.length, 2);
+
+    const correctedSource = structuredClone(currentSource);
+    delete correctedSource.appliesToGeos;
+    fs.writeFileSync(sourcePath, JSON.stringify(ledger(correctedSource)));
+    const result = buildSourceReviewOperations({
+      sourcePath,
+      outputPath,
+      classifiedAt: "2026-09-13T10:01:00.000Z"
+    });
+    const secondV2 = JSON.parse(fs.readFileSync(outputPath, "utf8"));
+    assert.equal(result.appendOnlyTotal, 2);
+    assert.equal(result.attemptTotal, 3);
+    assert.equal(secondV2.operations.length, 2);
+    assert.equal(secondV2.attempts.filter((attempt) => attempt.signalIdentityFormat === "SOURCE_REVIEW_SIGNAL_V2").length, 2);
+    assert.doesNotThrow(() => latestAttemptForOperation(secondV2, firstV2.operations[0].operationId));
+  } finally {
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
+});
+
 test("a corrected owner/applicability identity opens a new operation after the incomplete signal was resolved", () => {
   const directory = fs.mkdtempSync(path.join(os.tmpdir(), "islegal-source-review-resolved-owner-upgrade-"));
   try {
@@ -505,6 +545,111 @@ test("a resolved V2 signal does not cover a later return to the older V1 signal"
       classifiedAt: "2026-09-13T10:01:00.000Z"
     });
     assert.deepEqual(fs.readFileSync(outputPath), rebuiltBytes);
+  } finally {
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test("an unresolved V2 operation is not rewound when the canonical source returns to its older V1 signal", () => {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), "islegal-source-review-open-v2-to-v1-"));
+  try {
+    const sourcePath = path.join(directory, "projection.json");
+    const outputPath = path.join(directory, "operations.json");
+    const currentSource = canonicalCamelCaseSource(
+      "NEEDS_SEMANTIC_REVIEW",
+      "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+      "2026-09-11T10:00:00.000Z"
+    );
+    fs.writeFileSync(sourcePath, JSON.stringify(ledger(currentSource)));
+    buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-11T10:01:00.000Z" });
+
+    const migrated = JSON.parse(fs.readFileSync(outputPath, "utf8"));
+    const oldV1 = downgradeAttemptToMissingOwnership(migrated);
+    const originalOperationId = migrated.operations[0].operationId;
+    fs.writeFileSync(outputPath, `${JSON.stringify(migrated, null, 2)}\n`);
+    buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-11T11:01:00.000Z" });
+
+    const regressedSource = source(
+      "NEEDS_SEMANTIC_REVIEW",
+      "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+      "2026-09-12T10:00:00.000Z"
+    );
+    delete regressedSource.source_owner_geo;
+    delete regressedSource.applies_to_geo;
+    fs.writeFileSync(sourcePath, JSON.stringify(ledger(regressedSource)));
+    const result = buildSourceReviewOperations({
+      sourcePath,
+      outputPath,
+      classifiedAt: "2026-09-12T10:01:00.000Z"
+    });
+    const rebuiltBytes = fs.readFileSync(outputPath);
+    const rebuilt = JSON.parse(rebuiltBytes.toString("utf8"));
+    assert.equal(result.appendOnlyTotal, 2);
+    assert.equal(result.resolutionTotal, 0);
+    assert.equal(result.openOperationTotal, 2);
+    assert.equal(rebuilt.attempts.filter((attempt) => attempt.operationId === originalOperationId).length, 2);
+
+    const reopened = rebuilt.operations.find((operation) => operation.operationId !== originalOperationId);
+    assert.ok(reopened);
+    const reopenedAttempt = latestAttemptForOperation(rebuilt, reopened.operationId);
+    assert.equal(reopenedAttempt.signalIdentitySha256, oldV1.signalIdentitySha256);
+    assert.equal(reopenedAttempt.signalPayload.sourceOwnerGeo, "NOT_RECORDED");
+    assert.deepEqual(reopenedAttempt.signalPayload.appliesToGeos, []);
+
+    buildSourceReviewOperations({
+      sourcePath,
+      outputPath,
+      classifiedAt: "2026-09-13T10:01:00.000Z"
+    });
+    assert.deepEqual(fs.readFileSync(outputPath), rebuiltBytes);
+  } finally {
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test("a changed attested source record reopens review without rewriting the resolved signal", () => {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), "islegal-source-review-record-change-"));
+  try {
+    const sourcePath = path.join(directory, "projection.json");
+    const outputPath = path.join(directory, "operations.json");
+    const originalSource = source(
+      "NEEDS_SEMANTIC_REVIEW",
+      "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
+      "2026-09-11T10:00:00.000Z"
+    );
+    fs.writeFileSync(sourcePath, JSON.stringify(ledger(originalSource)));
+    buildSourceReviewOperations({ sourcePath, outputPath, classifiedAt: "2026-09-11T10:01:00.000Z" });
+    const beforeResolution = registrySnapshot(outputPath);
+    resolveSourceReviewOperation(resolutionInput(outputPath, beforeResolution));
+    const closed = JSON.parse(fs.readFileSync(outputPath, "utf8"));
+    const closedOperationId = closed.operations[0].operationId;
+    const closedSignal = closed.attempts[0].signalIdentitySha256;
+
+    const correctedSourceRecord = { ...originalSource, officialPublisher: "Example Ministry of Justice" };
+    fs.writeFileSync(sourcePath, JSON.stringify(ledger(correctedSourceRecord)));
+    const result = buildSourceReviewOperations({
+      sourcePath,
+      outputPath,
+      classifiedAt: "2026-09-12T10:01:00.000Z"
+    });
+    const reopenedBytes = fs.readFileSync(outputPath);
+    const reopened = JSON.parse(reopenedBytes.toString("utf8"));
+    assert.equal(result.appendOnlyTotal, 2);
+    assert.equal(result.resolutionTotal, 1);
+    assert.equal(result.openOperationTotal, 1);
+    assert.equal(reopened.resolutions[0].operationId, closedOperationId);
+    assert.equal(reopened.evidenceAttestations[0].sourceRecord.officialPublisher, "Example Government");
+    const current = reopened.operations.find((operation) => operation.operationId !== closedOperationId);
+    assert.ok(current);
+    const currentAttempt = latestAttemptForOperation(reopened, current.operationId);
+    assert.equal(currentAttempt.signalIdentitySha256, closedSignal);
+
+    buildSourceReviewOperations({
+      sourcePath,
+      outputPath,
+      classifiedAt: "2026-09-13T10:01:00.000Z"
+    });
+    assert.deepEqual(fs.readFileSync(outputPath), reopenedBytes);
   } finally {
     fs.rmSync(directory, { recursive: true, force: true });
   }

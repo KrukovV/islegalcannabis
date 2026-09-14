@@ -33,7 +33,7 @@
       },
       "provenance": {
         "origin": "CANONICAL_LEGAL_LEDGER_LOCAL_SEMANTIC_SCAN",
-        "legal_evidence_ref": "data/reviews/wiki-truth-307-final-reconciliation.json#rows[AG].primaryLaw.officialSources[5]",
+        "legal_evidence_ref": "data/reviews/wiki-truth-307-final-reconciliation.json#rows[AG].primaryLaw.freshAxisOfficialSources[5]",
         "packet_geo": "AG",
         "source_owner_geo": "AG",
         "applies_to_geos": [

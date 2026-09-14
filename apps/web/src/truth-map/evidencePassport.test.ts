@@ -8,6 +8,7 @@ import {
   renderEvidencePassportEmbedHtml,
   renderEvidencePassportPrintHtml
 } from "./evidencePassport";
+import { loadCanonicalProjectionLedger } from "./canonicalProjectionLedger";
 import type {
   TruthMapCanonicalProjectionRecord,
   TruthMapCanonicalProjectionSource,
@@ -76,6 +77,11 @@ describe("Evidence Passport", () => {
     expect(passports).toHaveLength(307);
     expect(properties.size).toBe(307);
     expect(version.finalSnapshotId).toBe("FINAL_307_RECONCILIATION");
+    expect(version.id).toBe(loadCanonicalProjectionLedger().snapshots.at(-1)?.versionId);
+    expect(version.staticAssetHashes).toEqual({
+      countries: getStaticTruthMapAsset("countries").hash,
+      usStates: getStaticTruthMapAsset("us-states").hash
+    });
 
     for (const passport of passports) {
       const mapFeature = properties.get(passport.geo);
