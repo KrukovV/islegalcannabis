@@ -53246,6 +53246,90 @@
       "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
       "resultingChangeReason": "VISUAL_SCOPE_PARTIAL_COMPOSITE_ARTICLE_270_CURRENT_EFFECTIVE_NOT_PROVEN",
       "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-44160641af8e2f49d5fe33dc",
+      "operationId": "SRCREV-34891301d5dcaa479e263fa1",
+      "geo": "GL",
+      "sourceUrl": "https://nalunaarutit.gl/groenlandsk-lovgivning/2025/selvstyrets-bekendtgoerelse-nr-61-af-01_09_2025?sc_lang=da",
+      "resolvedAt": "2026-09-14T01:20:38.073Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-current-source-review",
+      "evidenceUrl": "https://nalunaarutit.gl/groenlandsk-lovgivning/2025/selvstyrets-bekendtgoerelse-nr-61-af-01_09_2025?sc_lang=da",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "GL",
+      "reviewedAttemptId": "SRCATT-5414056b09f1fd06b23bffea",
+      "reviewedSignalIdentitySha256": "e360dbb99fd0c0b5225f670cc51de936252b74c3c4a186ddb0db596f261c2bc3",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "c1e6f8c2888a1e87f1c3314113672d622531350954e7b178a90a98f43e9dcbbe",
+      "note": "Two fresh sequential exact-URL reads returned HTTP 200 with no redirect and byte-identical 64675-byte bodies with SHA-256 bd91854340f214004e79aadc03896cb0f80d6b46bd7f73e1a5fe61a9f830d7f3, exactly matching the semantic-latest V2 document. The retained full-page PNG visibly identifies Nalunaarutit.gl, Greenland Self-Government regulation No. 61 dated 1 September 2025, the Gældende current label, and Danish sections 3 through 7 governing medical dispensing, prescription possession and authorised supply. The canonical 379-byte English fragment is a composite translation rather than a literal byte-contiguous quotation, and the artifact has no browser chrome or address origin. Review is C2 PARTIAL and C3 NOT_PROVEN. This closes only this source-review signal and changes no Legal Truth or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
+      "resultingChangeReason": "VISUAL_SCOPE_PARTIAL_ENGLISH_COMPOSITE_FRAGMENT_BROWSER_ORIGIN_NOT_PROVEN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-d9cdf890dff0942620516bc4",
+      "operationId": "SRCREV-0fb48bd369a82bd5c537d46c",
+      "geo": "UY",
+      "sourceUrl": "https://www.impo.com.uy/bases/decretos/120-2014/34",
+      "resolvedAt": "2026-09-14T01:23:31.112Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-current-source-review",
+      "evidenceUrl": "https://www.impo.com.uy/bases/decretos/120-2014/34",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "UY",
+      "reviewedAttemptId": "SRCATT-91a28e27849bb1080fc25e0d",
+      "reviewedSignalIdentitySha256": "5aefd9474cdec15484df9d2a240b63569c5a3a61b432a36240229c843edeadfc",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "39421e7110dfdce9bcbe88f1a3dd90738e3057c549d0d6a064d2f78b5a092431",
+      "note": "Two fresh sequential exact-URL reads returned HTTP 200 with no redirect and byte-identical 9769-byte bodies with SHA-256 b3403cfeeecfb0c9eff360a6d169bfc01fc9ed3b1a2be2028f2d44f1e0af9219, exactly matching the semantic-latest V2 document. The retained artifact visibly identifies IMPO and Uruguay, Decreto 120/014, the Documento Actualizado state, publication metadata, Article 34 and the registered adult-purchaser eligibility scope. The canonical 213-byte fragment is an editorial normalization rather than a literal byte-contiguous quotation. The artifact contains no literal source domain or browser origin and does not independently establish legal effectiveness. Review is C2 PARTIAL and C3 NOT_PROVEN. This closes only this source-review signal and changes no Legal Truth or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
+      "resultingChangeReason": "VISUAL_SCOPE_PARTIAL_EDITORIAL_FRAGMENT_EFFECTIVE_BROWSER_ORIGIN_NOT_PROVEN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-0d38eb052bec75a394ba5c0c",
+      "operationId": "SRCREV-f1f585a0661b85dd3f5a2b30",
+      "geo": "VG",
+      "sourceUrl": "https://laws.gov.vg/sites/default/files/consolidated_laws/2020/Drugs%20Prevention%20of%20Misuse%20Act.pdf",
+      "resolvedAt": "2026-09-14T01:23:54.301Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-current-source-review",
+      "evidenceUrl": "https://laws.gov.vg/sites/default/files/consolidated_laws/2020/Drugs%20Prevention%20of%20Misuse%20Act.pdf",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "VG",
+      "reviewedAttemptId": "SRCATT-50f0cab5b05173a8e631eb83",
+      "reviewedSignalIdentitySha256": "d0addb22b0672ff667a4650f4f7ad0dcf46ec36581472124712521f9171f8680",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "1453315c9328057b4f9906bdeec80178d3522f1661c4c5ee1482fafc6aa3a596",
+      "note": "Two fresh sequential exact-URL reads returned HTTP 200 with no redirect and byte-identical 500323-byte PDFs with SHA-256 985db0244d20a11005f86b703946d796591446aeed00d8ab6de79a5d9d0cd35a, exactly matching the semantic-latest V2 document, ETag and Last-Modified. The retained artifact visibly identifies the Law of the Virgin Islands, the Drugs Prevention of Misuse Act, revision date 1 January 2020, practitioner and retail-pharmacy controlled-drug provisions, ministerial restriction powers and cannabis conduct in section 10. The canonical 436-byte fragment additionally composes Schedule 2 and sections 6 through 8, which are outside this exact crop, so exact-fragment visibility is not claimed. The crop does not identify the Attorney General Chambers, official domain, browser origin or independently prove present current/effective state. Review is C2 PARTIAL and C3 NOT_PROVEN. This closes only this source-review signal and changes no Legal Truth or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
+      "resultingChangeReason": "VISUAL_SCOPE_PARTIAL_COMPOSITE_SECTIONS_CURRENT_EFFECTIVE_PUBLISHER_ORIGIN_NOT_PROVEN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
+    },
+    {
+      "resolutionId": "SRCRES-0e641fddb354c80a1668c88a",
+      "operationId": "SRCREV-5ae206a5823c82aab2de7a1b",
+      "geo": "US-NE",
+      "sourceUrl": "https://nebraskalegislature.gov/FloorDocs/109/PDF/Slip/LB1235.pdf",
+      "resolvedAt": "2026-09-14T01:24:14.543Z",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewerId": "codex-current-source-review",
+      "evidenceUrl": "https://nebraskalegislature.gov/FloorDocs/109/PDF/Slip/LB1235.pdf",
+      "evidenceUrlRelation": "RETAINED_SOURCE_URL",
+      "evidenceOwnerGeo": "US-NE",
+      "reviewedAttemptId": "SRCATT-804fa76d4fae08814f157530",
+      "reviewedSignalIdentitySha256": "7c93488e90b84b999addfd10be7e82768f0bb54fedbaaf7fe9d808fe0d676b10",
+      "reviewedSourceCheckedAt": "2026-09-11T19:40:08.913Z",
+      "reviewRegistrySha256": "d36f488d04b375aae796ce87fbd8407b9f9094ecae1e93429f47b32dc78df55b",
+      "note": "The retained crop visibly shows LB1235 (2026), the Section 5 amendment reference to the Nebraska Medical Cannabis Regulation Act, and Section 6 creation of the Nebraska Medical Cannabis Commission for registration and regulation of medical-cannabis possession, manufacture, distribution, delivery and dispensing. It does not show the official publisher or domain, browser origin, signature or enactment, the April 8 2026 operative date, a current consolidated-statute bridge, the complete composite retained fragment, or operational patient supply. Stable exact PDF bytes bind only the reviewed V2 document identity; no Legal or Store Truth inference is made. Review is C2 PARTIAL and C3 NOT_PROVEN. This closes only this source-review signal and changes no Legal Truth or Store Truth.",
+      "resolutionBasis": "EXPLICIT_HUMAN_EVIDENCE_REVIEW",
+      "resultingRevalidationState": "HUMAN_REVIEW_PARTIAL",
+      "resultingChangeReason": "VISUAL_SCOPE_PARTIAL_LB1235_COMPOSITE_CURRENT_EFFECTIVE_NOT_PROVEN",
+      "boundary": "SOURCE_REVIEW_RESOLUTION_ONLY_NO_LEGAL_CONCLUSION_CHANGE"
     }
   ],
   "attempts": [
@@ -193084,6 +193168,334 @@
       "attestationId": "SRCEVT-dbe855579a8254bf98e47905",
       "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-efc26e38992d743418ad0a15\",\"operationId\":\"SRCREV-a39b947cc41db0112c833189\",\"reviewedAttemptId\":\"SRCATT-13dab8c7f6a4a28b4de6bfab\",\"reviewedSignalIdentitySha256\":\"7a22556206a5e9f3263001e94b625f346576006f3bd53fba806fef83fe8f487e\",\"reviewedSignalPayloadSha256\":\"7a22556206a5e9f3263001e94b625f346576006f3bd53fba806fef83fe8f487e\",\"resolutionRegistryPreimageSha256\":\"a408fc53515fe83a844acd28c7c65dd8602ea205d4f358fe197ed56f18df9e40\",\"geo\":\"UZ\",\"sourceUrl\":\"https://lex.uz/docs/111453\",\"sourceRecordSha256\":\"19abc03ee9a289eb129fb8211ad1a2f8dfdd2ea43873f83abb821e76a35cc733\",\"exactFragmentSha256\":\"e172f7e4048b54c1fe8db80810d1847baa9f2091c4d6a135233c0acf9acbd28d\",\"visualArtifactSha256\":\"2c88ac7e0e9b7b3d370dbc17ef2b9d628240cf3164ab199e460cf91d120396ff\",\"reviewSha256\":\"c672cbb16e93e77ded9b47c09df992743ef09b86c3403e8cbb336f29ff91406f\",\"reviewerId\":\"codex-current-source-review\",\"reviewedAt\":\"2026-09-14T00:27:43.000Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-14T00:27:43.000Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"6715f342eb104b5ad0b591f3447a9489a7a890658d7536f0c2751091f81d6bed\",\"sourceLedgerSha256\":\"13e86c91c5e961d58c890324e49b28d82017116161c6c6fc4303e91c78583a41\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
       "attestationSha256": "80c5436d63bc2587c232a6930dae9024b0b8769f1d6b10194f22141b83389862"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-44160641af8e2f49d5fe33dc",
+      "operationId": "SRCREV-34891301d5dcaa479e263fa1",
+      "reviewedAttemptId": "SRCATT-5414056b09f1fd06b23bffea",
+      "reviewedSignalIdentitySha256": "e360dbb99fd0c0b5225f670cc51de936252b74c3c4a186ddb0db596f261c2bc3",
+      "reviewedSignalPayloadSha256": "e360dbb99fd0c0b5225f670cc51de936252b74c3c4a186ddb0db596f261c2bc3",
+      "resolutionRegistryPreimageSha256": "c1e6f8c2888a1e87f1c3314113672d622531350954e7b178a90a98f43e9dcbbe",
+      "geo": "GL",
+      "sourceUrl": "https://nalunaarutit.gl/groenlandsk-lovgivning/2025/selvstyrets-bekendtgoerelse-nr-61-af-01_09_2025?sc_lang=da",
+      "sourceRecord": {
+        "officialPublisher": "Greenland Self-Government",
+        "sourceOwnerGeo": "GL",
+        "appliesToGeos": [
+          "GL"
+        ],
+        "legalBasisForExtension": "GREENLAND_SELF_GOVERNMENT_TERRITORIAL_REGULATION_NO_61_2025",
+        "sourceType": "NOT_RECORDED",
+        "primaryOrContext": "PRIMARY_LAW_OPERATIVE_PATIENT_PRESCRIPTION_AND_SUPPLY_ROUTE",
+        "cannabisSpecific": false,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "Section 3 limits euphoriant substances to medical or scientific use. Section 4 permits medical dispensing under the medicines rules. Section 5 permits receipt and possession by persons or institutions holding a current prescription or requisition, or receiving the substance from a doctor. Section 7 limits dealing to Landsapotek and regional hospitals under the medicines rules.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "2a7911d935f019f119d81b8e306063ab13fd4f37419154fd8bddaab402b70b36",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "794f951737d96901c80e5c59c4b919a9e4e886b975a2e8ffc6eda2a3e2a1ccb3",
+          "byteLength": 379,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "596ff3a6021cbb3caa184e8891733e445f9853cf0e8759da3c94147895abb2d8",
+          "byteLength": 1291545,
+          "mediaType": "image/png",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/GL-order-61-2025-current-patient-prescription-and-supply-2026-08-09.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-current-source-review",
+        "reviewedAt": "2026-09-14T01:20:38.073Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": true,
+          "officialDomainText": true,
+          "exactFragment": false,
+          "scope": true,
+          "current": true,
+          "effective": true,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-14T01:20:38.073Z",
+      "inputs": {
+        "sourceLedgerSha256": "693d249bba4d0c201966b3cea62dcabc488b004f4fe328f10df3f9d2ce09d103",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "80c5436d63bc2587c232a6930dae9024b0b8769f1d6b10194f22141b83389862",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-cddfff2e7fd6eef535557698",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-44160641af8e2f49d5fe33dc\",\"operationId\":\"SRCREV-34891301d5dcaa479e263fa1\",\"reviewedAttemptId\":\"SRCATT-5414056b09f1fd06b23bffea\",\"reviewedSignalIdentitySha256\":\"e360dbb99fd0c0b5225f670cc51de936252b74c3c4a186ddb0db596f261c2bc3\",\"reviewedSignalPayloadSha256\":\"e360dbb99fd0c0b5225f670cc51de936252b74c3c4a186ddb0db596f261c2bc3\",\"resolutionRegistryPreimageSha256\":\"c1e6f8c2888a1e87f1c3314113672d622531350954e7b178a90a98f43e9dcbbe\",\"geo\":\"GL\",\"sourceUrl\":\"https://nalunaarutit.gl/groenlandsk-lovgivning/2025/selvstyrets-bekendtgoerelse-nr-61-af-01_09_2025?sc_lang=da\",\"sourceRecordSha256\":\"2a7911d935f019f119d81b8e306063ab13fd4f37419154fd8bddaab402b70b36\",\"exactFragmentSha256\":\"794f951737d96901c80e5c59c4b919a9e4e886b975a2e8ffc6eda2a3e2a1ccb3\",\"visualArtifactSha256\":\"596ff3a6021cbb3caa184e8891733e445f9853cf0e8759da3c94147895abb2d8\",\"reviewSha256\":\"9c4672b0070c988c4fbf90251b5a6ca341fd8c81c03d5002f9ea68494142b026\",\"reviewerId\":\"codex-current-source-review\",\"reviewedAt\":\"2026-09-14T01:20:38.073Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-14T01:20:38.073Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"80c5436d63bc2587c232a6930dae9024b0b8769f1d6b10194f22141b83389862\",\"sourceLedgerSha256\":\"693d249bba4d0c201966b3cea62dcabc488b004f4fe328f10df3f9d2ce09d103\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "a5793fffbe1c2387739de89d98913bc16fd98249c7fcf12fa646b16448f22852"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-d9cdf890dff0942620516bc4",
+      "operationId": "SRCREV-0fb48bd369a82bd5c537d46c",
+      "reviewedAttemptId": "SRCATT-91a28e27849bb1080fc25e0d",
+      "reviewedSignalIdentitySha256": "5aefd9474cdec15484df9d2a240b63569c5a3a61b432a36240229c843edeadfc",
+      "reviewedSignalPayloadSha256": "5aefd9474cdec15484df9d2a240b63569c5a3a61b432a36240229c843edeadfc",
+      "resolutionRegistryPreimageSha256": "39421e7110dfdce9bcbe88f1a3dd90738e3057c549d0d6a064d2f78b5a092431",
+      "geo": "UY",
+      "sourceUrl": "https://www.impo.com.uy/bases/decretos/120-2014/34",
+      "sourceRecord": {
+        "officialPublisher": "IMPO - Centro de Información Oficial, Uruguay",
+        "sourceOwnerGeo": "UY",
+        "appliesToGeos": [
+          "UY"
+        ],
+        "legalBasisForExtension": "Direct national statute, regulation or national authority service applicable throughout Uruguay.",
+        "sourceType": "CURRENT_CONSOLIDATED_REGULATION",
+        "primaryOrContext": "PRIMARY",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "Artículo 34: pueden adquirir cannabis psicoactivo las personas capaces y mayores de 18 años con ciudadanía uruguaya legal o natural, o residencia permanente acreditada, inscritas en el Registro correspondiente.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "6c4123f0741ae57cf05a53d640f8ace575a9fb87753a5e1fc8a77ba5fae47d75",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "a6ceb705b5b3a6bc8cd9f81ede8f7511eae6fce4a9e3b7075d08b4b71d4c1a26",
+          "byteLength": 213,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "047ca78e782bd787c395ff7f2f765847e34bd1ab4659d96fb942a129d15ce6e3",
+          "byteLength": 83918,
+          "mediaType": "image/jpeg",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/UY-decree-120-article34-fullpage-current-2026-08-10.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-current-source-review",
+        "reviewedAt": "2026-09-14T01:23:31.112Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": true,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": true,
+          "effective": false,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-14T01:23:31.112Z",
+      "inputs": {
+        "sourceLedgerSha256": "693d249bba4d0c201966b3cea62dcabc488b004f4fe328f10df3f9d2ce09d103",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "a5793fffbe1c2387739de89d98913bc16fd98249c7fcf12fa646b16448f22852",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-b5efd01550b5785dd56945d4",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-d9cdf890dff0942620516bc4\",\"operationId\":\"SRCREV-0fb48bd369a82bd5c537d46c\",\"reviewedAttemptId\":\"SRCATT-91a28e27849bb1080fc25e0d\",\"reviewedSignalIdentitySha256\":\"5aefd9474cdec15484df9d2a240b63569c5a3a61b432a36240229c843edeadfc\",\"reviewedSignalPayloadSha256\":\"5aefd9474cdec15484df9d2a240b63569c5a3a61b432a36240229c843edeadfc\",\"resolutionRegistryPreimageSha256\":\"39421e7110dfdce9bcbe88f1a3dd90738e3057c549d0d6a064d2f78b5a092431\",\"geo\":\"UY\",\"sourceUrl\":\"https://www.impo.com.uy/bases/decretos/120-2014/34\",\"sourceRecordSha256\":\"6c4123f0741ae57cf05a53d640f8ace575a9fb87753a5e1fc8a77ba5fae47d75\",\"exactFragmentSha256\":\"a6ceb705b5b3a6bc8cd9f81ede8f7511eae6fce4a9e3b7075d08b4b71d4c1a26\",\"visualArtifactSha256\":\"047ca78e782bd787c395ff7f2f765847e34bd1ab4659d96fb942a129d15ce6e3\",\"reviewSha256\":\"79848258ae880d30bcd973416f64b784bd24f1312ff7e1282392298374bb9cfc\",\"reviewerId\":\"codex-current-source-review\",\"reviewedAt\":\"2026-09-14T01:23:31.112Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-14T01:23:31.112Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"a5793fffbe1c2387739de89d98913bc16fd98249c7fcf12fa646b16448f22852\",\"sourceLedgerSha256\":\"693d249bba4d0c201966b3cea62dcabc488b004f4fe328f10df3f9d2ce09d103\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "12f7d90a3c7a44c5d88630edfc52df32e18db5ad9edbe6f9dee7c47c100adf16"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-0d38eb052bec75a394ba5c0c",
+      "operationId": "SRCREV-f1f585a0661b85dd3f5a2b30",
+      "reviewedAttemptId": "SRCATT-50f0cab5b05173a8e631eb83",
+      "reviewedSignalIdentitySha256": "d0addb22b0672ff667a4650f4f7ad0dcf46ec36581472124712521f9171f8680",
+      "reviewedSignalPayloadSha256": "d0addb22b0672ff667a4650f4f7ad0dcf46ec36581472124712521f9171f8680",
+      "resolutionRegistryPreimageSha256": "1453315c9328057b4f9906bdeec80178d3522f1661c4c5ee1482fafc6aa3a596",
+      "geo": "VG",
+      "sourceUrl": "https://laws.gov.vg/sites/default/files/consolidated_laws/2020/Drugs%20Prevention%20of%20Misuse%20Act.pdf",
+      "sourceRecord": {
+        "officialPublisher": "Attorney General's Chambers, Virgin Islands",
+        "sourceOwnerGeo": "VG",
+        "appliesToGeos": [
+          "VG"
+        ],
+        "legalBasisForExtension": "Direct territorial consolidated legislation issued through the Virgin Islands Attorney General legal portal.",
+        "sourceType": "CURRENT_TERRITORIAL_CONSOLIDATED_DRUGS_ACT",
+        "primaryOrContext": "PRIMARY",
+        "cannabisSpecific": true,
+        "current": "NOT_RECORDED",
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "Schedule 2 Part II lists Cannabis and cannabis resin as Class B drugs. Sections 6-8 make production, supply, possession and cultivation unlawful subject to regulations under section 9. Section 9(3) requires regulations to permit doctor/dentist/veterinary practitioner and pharmacy activity for controlled drugs, but section 9(4) permits a cannabis-specific order that can restrict a controlled drug to research or special circumstances.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "781ed83e7680a72fb203828fecbb030b2f2f1b4182cce583eb4b19e238059928",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "e036e65c31210582503306af3fc12a825458d890e95c9bba784c4927a1dcf5a2",
+          "byteLength": 436,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "e92e59a478a101c824429d24e7d961738fb1b856ff5fc516c689343b1747beb2",
+          "byteLength": 461403,
+          "mediaType": "image/png",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/VG-drugs-act-section-9-practitioner-framework-current-2026-08-09.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-current-source-review",
+        "reviewedAt": "2026-09-14T01:23:54.301Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": false,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": false,
+          "effective": false,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-14T01:23:54.301Z",
+      "inputs": {
+        "sourceLedgerSha256": "693d249bba4d0c201966b3cea62dcabc488b004f4fe328f10df3f9d2ce09d103",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "12f7d90a3c7a44c5d88630edfc52df32e18db5ad9edbe6f9dee7c47c100adf16",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-a5547ad1de143dfb758c29f5",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-0d38eb052bec75a394ba5c0c\",\"operationId\":\"SRCREV-f1f585a0661b85dd3f5a2b30\",\"reviewedAttemptId\":\"SRCATT-50f0cab5b05173a8e631eb83\",\"reviewedSignalIdentitySha256\":\"d0addb22b0672ff667a4650f4f7ad0dcf46ec36581472124712521f9171f8680\",\"reviewedSignalPayloadSha256\":\"d0addb22b0672ff667a4650f4f7ad0dcf46ec36581472124712521f9171f8680\",\"resolutionRegistryPreimageSha256\":\"1453315c9328057b4f9906bdeec80178d3522f1661c4c5ee1482fafc6aa3a596\",\"geo\":\"VG\",\"sourceUrl\":\"https://laws.gov.vg/sites/default/files/consolidated_laws/2020/Drugs%20Prevention%20of%20Misuse%20Act.pdf\",\"sourceRecordSha256\":\"781ed83e7680a72fb203828fecbb030b2f2f1b4182cce583eb4b19e238059928\",\"exactFragmentSha256\":\"e036e65c31210582503306af3fc12a825458d890e95c9bba784c4927a1dcf5a2\",\"visualArtifactSha256\":\"e92e59a478a101c824429d24e7d961738fb1b856ff5fc516c689343b1747beb2\",\"reviewSha256\":\"25475ad33ebb4fbfc2f5e09fa1716261bcfab0caf96d200c5613d9bc2a22c4e5\",\"reviewerId\":\"codex-current-source-review\",\"reviewedAt\":\"2026-09-14T01:23:54.301Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-14T01:23:54.301Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"12f7d90a3c7a44c5d88630edfc52df32e18db5ad9edbe6f9dee7c47c100adf16\",\"sourceLedgerSha256\":\"693d249bba4d0c201966b3cea62dcabc488b004f4fe328f10df3f9d2ce09d103\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "2c40ff73f6caf7e4c73f235120002c6f111844d5d9b42bdb867660104c45e73e"
+    },
+    {
+      "evidenceFormat": "SOURCE_REVIEW_EVIDENCE_V1",
+      "resolutionId": "SRCRES-0e641fddb354c80a1668c88a",
+      "operationId": "SRCREV-5ae206a5823c82aab2de7a1b",
+      "reviewedAttemptId": "SRCATT-804fa76d4fae08814f157530",
+      "reviewedSignalIdentitySha256": "7c93488e90b84b999addfd10be7e82768f0bb54fedbaaf7fe9d808fe0d676b10",
+      "reviewedSignalPayloadSha256": "7c93488e90b84b999addfd10be7e82768f0bb54fedbaaf7fe9d808fe0d676b10",
+      "resolutionRegistryPreimageSha256": "d36f488d04b375aae796ce87fbd8407b9f9094ecae1e93429f47b32dc78df55b",
+      "geo": "US-NE",
+      "sourceUrl": "https://nebraskalegislature.gov/FloorDocs/109/PDF/Slip/LB1235.pdf",
+      "sourceRecord": {
+        "officialPublisher": "NEBRASKA_UNICAMERAL_LEGISLATURE_OR_NEBRASKA_MEDICAL_CANNABIS_COMMISSION",
+        "sourceOwnerGeo": "US-NE",
+        "appliesToGeos": [
+          "US-NE"
+        ],
+        "legalBasisForExtension": "NATIVE_STATE_LAW_AND_NEBRASKA_MEDICAL_CANNABIS_COMMISSION",
+        "sourceType": "CURRENT_PRIMARY_LAW_AMENDMENT",
+        "primaryOrContext": "PRIMARY",
+        "cannabisSpecific": true,
+        "current": true,
+        "effective": true,
+        "effectiveDate": "NOT_RECORDED",
+        "confidence": "NOT_RECORDED",
+        "fragment": "The 2026 slip law amends the Regulation Act and Commission provisions; current consolidated statutes cite LB1235 and, where stated, show operative date 8 April 2026. It is retained as amendment/currentness context and does not establish operational patient supply.",
+        "evidenceScopes": [
+          "C2",
+          "C3"
+        ]
+      },
+      "sourceRecordSha256": "5cf55d40e28c99e1572fa740524861af891e414b7c1c69c41ea507eeafef3693",
+      "bindings": {
+        "exactFragmentUtf8": {
+          "format": "EXACT_FRAGMENT_UTF8",
+          "sha256": "c180f626ba4965ba386d8511c85d9fe8656de4a48d280c08984169492a6235fb",
+          "byteLength": 264,
+          "normalization": "NONE"
+        },
+        "visualArtifactBytes": {
+          "format": "VISUAL_ARTIFACT_BYTES",
+          "sha256": "efb8d86cbe180ad3e48ba4d4535c85eceabdced8f73ca7432a53db99247ab1f7",
+          "byteLength": 158438,
+          "mediaType": "image/jpeg",
+          "locator": "data/reviews/wiki-truth-307-visual-evidence/US-NE-lb1235-historical-2026-07-16.png",
+          "capturedAt": "NOT_RECORDED"
+        }
+      },
+      "review": {
+        "c2": "PARTIAL",
+        "c3": "NOT_PROVEN",
+        "reviewerId": "codex-current-source-review",
+        "reviewedAt": "2026-09-14T01:24:14.543Z",
+        "visibleEvidenceScopes": [
+          "C2"
+        ],
+        "visibility": {
+          "publisher": false,
+          "officialDomainText": false,
+          "exactFragment": false,
+          "scope": true,
+          "current": false,
+          "effective": false,
+          "geoApplicability": true,
+          "browserOrigin": false,
+          "challengeOrErrorAbsent": true
+        }
+      },
+      "attestationMode": "PRE_CLOSE_ATOMIC",
+      "attestedAt": "2026-09-14T01:24:14.543Z",
+      "inputs": {
+        "sourceLedgerSha256": "693d249bba4d0c201966b3cea62dcabc488b004f4fe328f10df3f9d2ce09d103",
+        "canonicalGeosSha256": "0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d",
+        "officialRegistrySha256": "6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35",
+        "ownershipRegistrySha256": "5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52"
+      },
+      "supersedesAttestationId": null,
+      "previousAttestationSha256": "2c40ff73f6caf7e4c73f235120002c6f111844d5d9b42bdb867660104c45e73e",
+      "boundary": "SOURCE_REVIEW_EVIDENCE_ONLY_NO_LEGAL_OR_STORE_TRUTH_CHANGE",
+      "attestationId": "SRCEVT-390977f508bf3abcc6c5e6b7",
+      "identityPreimage": "{\"evidenceFormat\":\"SOURCE_REVIEW_EVIDENCE_V1\",\"resolutionId\":\"SRCRES-0e641fddb354c80a1668c88a\",\"operationId\":\"SRCREV-5ae206a5823c82aab2de7a1b\",\"reviewedAttemptId\":\"SRCATT-804fa76d4fae08814f157530\",\"reviewedSignalIdentitySha256\":\"7c93488e90b84b999addfd10be7e82768f0bb54fedbaaf7fe9d808fe0d676b10\",\"reviewedSignalPayloadSha256\":\"7c93488e90b84b999addfd10be7e82768f0bb54fedbaaf7fe9d808fe0d676b10\",\"resolutionRegistryPreimageSha256\":\"d36f488d04b375aae796ce87fbd8407b9f9094ecae1e93429f47b32dc78df55b\",\"geo\":\"US-NE\",\"sourceUrl\":\"https://nebraskalegislature.gov/FloorDocs/109/PDF/Slip/LB1235.pdf\",\"sourceRecordSha256\":\"5cf55d40e28c99e1572fa740524861af891e414b7c1c69c41ea507eeafef3693\",\"exactFragmentSha256\":\"c180f626ba4965ba386d8511c85d9fe8656de4a48d280c08984169492a6235fb\",\"visualArtifactSha256\":\"efb8d86cbe180ad3e48ba4d4535c85eceabdced8f73ca7432a53db99247ab1f7\",\"reviewSha256\":\"3674ed89a6b24e36cee4db9351abd568bd65d124cc315b67c42ba10402ef6959\",\"reviewerId\":\"codex-current-source-review\",\"reviewedAt\":\"2026-09-14T01:24:14.543Z\",\"attestationMode\":\"PRE_CLOSE_ATOMIC\",\"attestedAt\":\"2026-09-14T01:24:14.543Z\",\"supersedesAttestationId\":null,\"previousAttestationSha256\":\"2c40ff73f6caf7e4c73f235120002c6f111844d5d9b42bdb867660104c45e73e\",\"sourceLedgerSha256\":\"693d249bba4d0c201966b3cea62dcabc488b004f4fe328f10df3f9d2ce09d103\",\"canonicalGeosSha256\":\"0f5e81962cc8fdc3816defcbf791703e4cbfaed8fbdc0908f8ec121bb277935d\",\"officialRegistrySha256\":\"6e982e1df1b2871b3c46a9f96ff0ccdc3bb08d3c738a746aa7405dae39352b35\",\"ownershipRegistrySha256\":\"5d10cd2b5fa396d90b15f5b84bc83018a7d97eaf14c0be0ba42b709fa0100d52\"}",
+      "attestationSha256": "5d75f1abfa87198e3d82ca0dbcfa292c4865eb3930eef4cf063cbc7a37be8d73"
     }
   ]
 }
