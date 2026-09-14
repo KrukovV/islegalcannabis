@@ -26628,16 +26628,39 @@
           "title": "Loi n° 171/AN/81 sur les Substances Psychotropes",
           "url": "https://www.journalofficiel.dj/texte-juridique/loi-n171-an-81-sur-les-substances-psychotropes/",
           "sourceKind": "PRESERVED_PREVIOUSLY_PUBLISHED_LINK_RECLASSIFIED_AS_CONTEXT_DJIBOUTI_OFFICIAL_JOURNAL_PSYCHOTROPIC_SUBSTANCES_LAW_CONTEXT_PAGE_NOT_CANNABIS_SPECIFIC",
+          "sourceOwnerGeo": "DJ",
+          "appliesToGeos": [
+            "DJ"
+          ],
+          "legalBasisForExtension": "DIRECT_DJIBOUTI_OFFICIAL_JOURNAL_ARTICLE_1_EXPRESS_TERRITORIAL_SCOPE",
+          "officialPublisher": "Journal Officiel de la République de Djibouti",
+          "exactFragment": "Article 1er : Sont interdits sur toute l’étendue du Territoire de la République de Djibouti y compris les eaux territoriales et la Zone Franche : l’importation, le transit, la production, la distribution, la commercialisation, la détention, l’usage et l’exportation des substances psychotropes quelles que soient leurs dormes dont la liste figure au Tableau 1 de la Convention de 1971, reproduit en Annexe A.",
+          "sourceAnnotation": "Fresh exact official-body and visual review proves the Djibouti official publisher, the nationwide Article 1 scope and the literal retained paragraph. The provision concerns Convention 1971 psychotropic substances and is not cannabis-specific. Current legal force is not inferred from present portal availability.",
+          "sourceType": "OFFICIAL_GAZETTE_LEGISLATION_TEXT",
+          "primaryOrContext": "CONTEXT_NOT_CANNABIS_SPECIFIC",
+          "cannabisSpecific": false,
+          "effective": true,
+          "directFragmentAvailable": true,
+          "screenshotAvailable": true,
+          "freshScreenshotPaths": [
+            "/Users/james/islegalcannabis_archive/20260914-batch38-dj/DJ-journalofficiel-loi-171-AN-81-article-1-2026-09-14.png"
+          ],
+          "visualOpened": true,
+          "officialOwnerVisible": true,
+          "officialDomainVisible": false,
+          "cannabisFragmentVisible": false,
+          "effectiveRuleVisible": false,
+          "screenshotValid": true,
           "revalidation": {
-            "checked_at": "2026-09-11T19:40:08.913Z",
-            "final_url": "https://www.journalofficiel.dj/texte-juridique/loi-n171-an-81-sur-les-substances-psychotropes",
+            "checked_at": "2026-09-14T11:23:19.000Z",
+            "final_url": "https://www.journalofficiel.dj/texte-juridique/loi-n171-an-81-sur-les-substances-psychotropes/",
             "http_status": 200,
-            "etag": "\"158d32a7c86ed9c5196eaea34e481f4f\"",
-            "last_modified": "Fri, 11 Sep 2026 20:54:33 GMT",
+            "etag": "\"47eed27801b8c4f8e5ef8911bc85852f\"",
+            "last_modified": null,
             "content_type": "text/html; charset=UTF-8",
             "content_length": 122795,
             "document_sha256": "a9c1ae2aed7ff3fa04f1a32d50f0a04ef16c0db0448d06d58083108419142b3d",
-            "relevant_fragment_sha256": null,
+            "relevant_fragment_sha256": "aeef81d6929f32f093a34f9c09a39c4cbeca982e2ced1e449faabd54d2d77ee7",
             "revalidation_state": "NEEDS_SEMANTIC_REVIEW",
             "access_state": "HTTP_OK",
             "change_reason": "NETWORK_BASELINE_ESTABLISHED_REVIEW_REQUIRED",
@@ -26652,13 +26675,9 @@
           "evidenceScope": "OFFICIAL_CONTEXT_ONLY",
           "verification": "MANUAL_VISUAL_SCREENSHOT_REVIEW_CONTEXT_ONLY",
           "confidence": "high",
-          "note": "Ссылка сохранена anti-shrink правилом. После свежего визуального аудита она не повышает доказательство выше явно указанного контекстного статуса.",
-          "screenshotPath": "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/DJ/DJ-journalofficiel-loi-171-AN-81-fullpage.png",
-          "visualReview": "CONTEXT_ONLY",
-          "freshScreenshotPaths": [
-            "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/DJ/DJ-journalofficiel-loi-171-AN-81-fullpage.png"
-          ],
-          "screenshotAvailable": true
+          "note": "The preserved official link is now bound to a fresh exact Article 1 paragraph and current visual artifact. It remains context-only and does not change Legal Truth.",
+          "screenshotPath": "/Users/james/islegalcannabis_archive/20260914-batch38-dj/DJ-journalofficiel-loi-171-AN-81-article-1-2026-09-14.png",
+          "visualReview": "CONTEXT_ONLY"
         },
         {
           "title": "Loi No. 171/AN/81 sur les substances psychotropes — United Nations copy communicated by the Government of Djibouti",
@@ -26714,7 +26733,7 @@
         "data/reviews/wiki-truth-307-visual-evidence/DJ-ejo-2003-free-zone-article-13-current-2026-08-10.png",
         "data/reviews/wiki-truth-307-visual-evidence/DJ-ejo-2026-penal-context-current-2026-08-10.png",
         "data/reviews/wiki-truth-307-visual-evidence/DJ-ejo-lr77-001-continuity-current-2026-08-10-refresh.png",
-        "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/DJ/DJ-journalofficiel-loi-171-AN-81-fullpage.png",
+        "/Users/james/islegalcannabis_archive/20260914-batch38-dj/DJ-journalofficiel-loi-171-AN-81-article-1-2026-09-14.png",
         "/Users/james/islegalcannabis_archive/cannabis-law-screenshots/2026-07-16/remaining-210/DJ/pdf_pages/DJ-unodc-loi-171-81-1.png"
       ],
       "reviewConfidence": "high",
