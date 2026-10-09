@@ -580,7 +580,7 @@ function clusterKey(record: CanonicalStoreRecord, zoom: number) {
   return `${latitudeBucket}:${longitudeBucket}`;
 }
 
-function toClusterFeatures(records: CanonicalStoreRecord[], zoom: number) {
+export function toClusterFeatures(records: CanonicalStoreRecord[], zoom: number) {
   const clusters = new Map<string, CanonicalStoreRecord[]>();
   for (const record of records) {
     const key = clusterKey(record, zoom);
@@ -588,12 +588,98 @@ function toClusterFeatures(records: CanonicalStoreRecord[], zoom: number) {
     current.push(record);
     clusters.set(key, current);
   }
-  return [...clusters.values()].map((items) => {
+  // The degree grid preserves exact membership, but adjacent grid cells can
+  // place two storefront/count pairs only a few screen pixels apart. Those
+  // labels then read as one false number (for example 1 + 7 appears as 17).
+  // Merge only presentation groups that would collide at the current zoom;
+  // no Store Truth record is dropped or duplicated.
+  let groups = [...clusters.values()];
+  const worldSize = 512 * 2 ** zoom;
+  const iconSize = zoom <= 8 ? 0.78 + (zoom - 5.8) * (0.12 / 2.2) : 0.9 + (zoom - 8) * (0.12 / 2.19);
+  const textSize = zoom <= 8 ? 13 + (zoom - 5.8) / 2.2 : 14 + (zoom - 8) / 2.19;
+  const meanLongitude = (items: CanonicalStoreRecord[]) => {
+    if (items.length === 1) return items[0].longitude;
+    const first = items[0].longitude;
+    const mean = items.reduce((sum, item) => {
+      const difference = ((item.longitude - first + 540) % 360) - 180;
+      return sum + first + difference;
+    }, 0) / items.length;
+    return ((mean + 180 + 360) % 360) - 180;
+  };
+  const screenPoint = (items: CanonicalStoreRecord[]) => {
+    const latitude = items.reduce((sum, item) => sum + item.latitude, 0) / items.length;
+    const longitude = meanLongitude(items);
+    const sinLat = Math.sin(Math.max(-85, Math.min(85, latitude)) * Math.PI / 180);
+    return {
+      x: (longitude + 180) / 360 * worldSize,
+      y: (0.5 - Math.log((1 + sinLat) / (1 - sinLat)) / (4 * Math.PI)) * worldSize
+    };
+  };
+  const bounds = (x: number, y: number, count: number) => {
+    // The image is 48px at pixelRatio 2. Match the shared MapLibre layout:
+    // right-anchored icon, left-anchored text, 0.45em text offset and halos.
+    // Width must grow with the digit count; a fixed centre radius misses
+    // 3–5-digit collisions in dense regions.
+    const iconWidth = 24 * iconSize;
+    const textWidth = String(count).length * textSize * 0.72;
+    // A readable gap is part of the presentation contract: labels separated
+    // by only a few pixels still look like one number during animation.
+    const padding = 12;
+    const halfHeight = Math.max(iconWidth, textSize + 4) / 2 + padding;
+    return {
+      left: x - iconWidth - padding - 2,
+      right: x + textSize * 0.45 + textWidth + padding + 2,
+      top: y - halfHeight,
+      bottom: y + halfHeight,
+    };
+  };
+  const overlaps = (left: ReturnType<typeof bounds>, right: ReturnType<typeof bounds>) =>
+    left.left < right.right && right.left < left.right &&
+    left.top < right.bottom && right.top < left.bottom;
+  const cellSize = 128;
+  while (groups.length > 1) {
+    const parent = groups.map((_, index) => index);
+    const find = (index: number): number => parent[index] === index ? index : (parent[index] = find(parent[index]));
+    const buckets = new Map<string, number[]>();
+    const points = groups.map(screenPoint);
+    const rectangles = points.map((point, index) => bounds(point.x, point.y, groups[index].length));
+    let merged = false;
+    points.forEach((point, index) => {
+      for (const wrappedX of [point.x - worldSize, point.x, point.x + worldSize]) {
+        const cellX = Math.floor(wrappedX / cellSize);
+        const cellY = Math.floor(point.y / cellSize);
+        for (let dx = -1; dx <= 1; dx++) {
+          for (let dy = -1; dy <= 1; dy++) {
+            for (const other of buckets.get(`${cellX + dx}:${cellY + dy}`) || []) {
+              const shifted = bounds(wrappedX, point.y, groups[index].length);
+              if (!overlaps(shifted, rectangles[other])) continue;
+              const root = find(index);
+              const otherRoot = find(other);
+              if (root !== otherRoot) {
+                parent[root] = otherRoot;
+                merged = true;
+              }
+            }
+          }
+        }
+        const key = `${cellX}:${cellY}`;
+        buckets.set(key, [...(buckets.get(key) || []), index]);
+      }
+    });
+    if (!merged) break;
+    const next = new Map<number, CanonicalStoreRecord[]>();
+    groups.forEach((items, index) => {
+      const root = find(index);
+      next.set(root, [...(next.get(root) || []), ...items]);
+    });
+    groups = [...next.values()];
+  }
+  return groups.map((items) => {
     // A cluster represents its constituent verified locations.  In particular,
     // a one-record cluster must stay at that record's exact coordinate so the
     // medium-to-local transition cannot make a storefront jump across the map.
     const latitude = items.reduce((sum, item) => sum + item.latitude, 0) / items.length;
-    const longitude = items.reduce((sum, item) => sum + item.longitude, 0) / items.length;
+    const longitude = meanLongitude(items);
     return {
       type: "Feature" as const,
       geometry: { type: "Point" as const, coordinates: [longitude, latitude] },
