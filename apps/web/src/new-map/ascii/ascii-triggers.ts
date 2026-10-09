@@ -5,6 +5,9 @@ export function bindAsciiMapTriggers(map: maplibregl.Map) {
   const syncGeo = () => {
     const center = map.getCenter();
     const anchor = map.project([0, -77]);
+    // The SVG scene must remain inside a conservative Antarctic polar cap.
+    // This projected north edge moves with the same camera as the anchor.
+    const antarcticNorth = map.project([0, -71.5]);
     const canvas = map.getCanvas();
     setGeoContext({
       lat: center.lat,
@@ -12,6 +15,7 @@ export function bindAsciiMapTriggers(map: maplibregl.Map) {
       zoom: map.getZoom(),
       anchorX: anchor.x,
       anchorY: anchor.y,
+      antarcticNorthY: antarcticNorth.y,
       viewportWidth: canvas.clientWidth,
       viewportHeight: canvas.clientHeight
     });

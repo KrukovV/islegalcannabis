@@ -9,6 +9,9 @@ import { nextSvgStoryIndex, SVG_STORIES } from "./svg-scenarios";
 const LOCAL_ASCII_START_DELAY_MS = 5_000;
 const PRODUCTION_ASCII_START_DELAY_MS = 60_000;
 const FALLBACK_VIEWPORT = { width: 1280, height: 720 } as const;
+const STAGE_HALF_WIDTH = 282;
+const STAGE_TOP = 228;
+const STAGE_BOTTOM = 48;
 
 function asciiStartDelay() {
   const host = window.location.hostname;
@@ -21,18 +24,30 @@ function asciiStartDelay() {
 export function resolveSvgAnchor(geo: GeoContext, viewport: { width: number; height: number }) {
   const scaleX = geo.viewportWidth ? viewport.width / geo.viewportWidth : 1;
   const scaleY = geo.viewportHeight ? viewport.height / geo.viewportHeight : 1;
-  const projectedX = Number.isFinite(geo.anchorX) ? Number(geo.anchorX) * scaleX : viewport.width * 0.5;
-  const projectedY = Number.isFinite(geo.anchorY) ? Number(geo.anchorY) * scaleY - 20 : viewport.height * 0.82;
-  const stageScale = Math.max(0.62, Math.min(1.08, viewport.width / 980));
-  const halfWidth = 282 * stageScale;
-  const minX = Math.min(viewport.width * 0.5, halfWidth + 18);
-  const maxX = Math.max(minX, viewport.width - halfWidth - 18);
-  const minY = Math.min(viewport.height * 0.5, 156 * stageScale);
-  const maxY = Math.max(minY, viewport.height - 142);
+  const hasProjectedAnchor = Number.isFinite(geo.anchorX) && Number.isFinite(geo.anchorY);
+  const projectedX = hasProjectedAnchor ? Number(geo.anchorX) * scaleX : viewport.width * 0.5;
+  const projectedY = hasProjectedAnchor ? Number(geo.anchorY) * scaleY - 20 : viewport.height * 0.82;
+  const baseScale = Math.max(0.62, Math.min(1.08, viewport.width / 980));
+  const northY = Number.isFinite(geo.antarcticNorthY) ? Number(geo.antarcticNorthY) * scaleY : -Infinity;
+  const stageScale = Math.min(baseScale, (projectedY - northY - 12) / STAGE_TOP);
+  const bounds = {
+    left: projectedX - STAGE_HALF_WIDTH * stageScale,
+    right: projectedX + STAGE_HALF_WIDTH * stageScale,
+    top: projectedY - STAGE_TOP * stageScale,
+    bottom: projectedY + STAGE_BOTTOM * stageScale
+  };
+  const visible = hasProjectedAnchor
+    && stageScale >= 0.18
+    && bounds.right >= 0
+    && bounds.left <= viewport.width
+    && bounds.bottom >= 0
+    && bounds.top <= viewport.height;
 
   return {
-    x: Math.max(minX, Math.min(maxX, projectedX)),
-    y: Math.max(minY, Math.min(maxY, projectedY))
+    x: projectedX,
+    y: projectedY,
+    scale: stageScale,
+    visible
   };
 }
 
@@ -40,7 +55,7 @@ type AsciiOverlayProps = {
   surfaceTestId?: string;
 };
 
-type OverlayState = "waiting" | "scheduled" | "running" | "paused" | "reduced-motion";
+type OverlayState = "waiting" | "scheduled" | "running" | "paused" | "reduced-motion" | "offscreen";
 
 export default function AsciiOverlay({ surfaceTestId = "new-map-surface" }: AsciiOverlayProps) {
   const [started, setStarted] = useState(false);
@@ -116,8 +131,9 @@ export default function AsciiOverlay({ surfaceTestId = "new-map-surface" }: Asci
     };
   }, [started, surfaceTestId]);
 
-  const motionEnabled = started && documentVisible && !reducedMotion;
   const story = SVG_STORIES[storyIndex];
+  const anchor = useMemo(() => resolveSvgAnchor(geo, viewport), [geo, viewport]);
+  const motionEnabled = started && documentVisible && !reducedMotion && anchor.visible;
 
   useEffect(() => {
     if (!motionEnabled) return;
@@ -129,10 +145,11 @@ export default function AsciiOverlay({ surfaceTestId = "new-map-surface" }: Asci
 
   const overlayState: OverlayState = !started
     ? scheduled ? "scheduled" : "waiting"
-    : reducedMotion
+    : !anchor.visible
+      ? "offscreen"
+      : reducedMotion
       ? "reduced-motion"
       : documentVisible ? "running" : "paused";
-  const anchor = useMemo(() => resolveSvgAnchor(geo, viewport), [geo, viewport]);
 
   return (
     <SvgAntarcticaStage
@@ -141,6 +158,8 @@ export default function AsciiOverlay({ surfaceTestId = "new-map-surface" }: Asci
       height={viewport.height}
       anchorX={anchor.x}
       anchorY={anchor.y}
+      stageScale={anchor.scale}
+      visible={anchor.visible}
       motionEnabled={motionEnabled}
       className={styles.asciiCanvas}
       testId="antarctic-ascii-overlay"

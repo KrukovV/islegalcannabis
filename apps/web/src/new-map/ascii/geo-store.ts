@@ -4,6 +4,7 @@ export type GeoContext = {
   zoom: number;
   anchorX?: number;
   anchorY?: number;
+  antarcticNorthY?: number;
   viewportWidth?: number;
   viewportHeight?: number;
 };

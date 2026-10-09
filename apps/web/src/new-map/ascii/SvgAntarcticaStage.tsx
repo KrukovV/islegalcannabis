@@ -60,6 +60,8 @@ type SvgAntarcticaStageProps = {
   height: number;
   anchorX: number;
   anchorY: number;
+  stageScale?: number;
+  visible?: boolean;
   motionEnabled: boolean;
   className?: string;
   testId?: string;
@@ -312,19 +314,22 @@ export default function SvgAntarcticaStage({
   height,
   anchorX,
   anchorY,
+  stageScale,
+  visible = true,
   motionEnabled,
   className,
   testId,
   overlayState,
   storyCount
 }: SvgAntarcticaStageProps) {
-  const stageScale = Math.max(0.62, Math.min(1.08, width / 980));
+  const resolvedScale = stageScale ?? Math.max(0.62, Math.min(1.08, width / 980));
   const figureCount = (story.people?.length ?? 0) + (story.animals?.length ?? 0);
 
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className={className}
+      style={{ visibility: visible ? "visible" : "hidden", pointerEvents: "none" }}
       viewBox={`0 0 ${width} ${height}`}
       preserveAspectRatio="none"
       focusable="false"
@@ -332,6 +337,7 @@ export default function SvgAntarcticaStage({
       data-testid={testId}
       data-renderer="svg"
       data-ascii-state={overlayState}
+      data-svg-anchor-visible={visible ? "1" : "0"}
       data-ascii-scenario={story.id}
       data-svg-story={story.id}
       data-svg-story-count={storyCount}
@@ -339,7 +345,7 @@ export default function SvgAntarcticaStage({
     >
       <title>{`Decorative Antarctica SVG story: ${story.title}`}</title>
       <style>{SVG_ANIMATION_CSS}</style>
-      <g transform={`translate(${anchorX} ${anchorY}) scale(${stageScale})`}>
+      <g transform={`translate(${anchorX} ${anchorY}) scale(${resolvedScale})`}>
         <g key={story.id} className="ant-svg-scene" style={animationStyle(0, motionEnabled)}>
           <SceneAccent story={story} motionEnabled={motionEnabled} />
           <path d="M-282,12 H282" stroke="rgba(71,99,112,.26)" strokeWidth="1.5" />

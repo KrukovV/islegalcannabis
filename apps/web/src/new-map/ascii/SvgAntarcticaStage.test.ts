@@ -46,6 +46,26 @@ describe("SvgAntarcticaStage", () => {
     expect(markup).toContain("animation-play-state:paused");
   });
 
+  it("keeps an off-polar scene mounted but invisible and motion-paused", () => {
+    const markup = renderToStaticMarkup(createElement(SvgAntarcticaStage, {
+      story: SVG_STORIES[0],
+      width: 1280,
+      height: 720,
+      anchorX: 640,
+      anchorY: 560,
+      stageScale: 0.25,
+      visible: false,
+      motionEnabled: false,
+      overlayState: "offscreen",
+      storyCount: SVG_STORIES.length,
+    }));
+
+    expect(markup).toContain('data-svg-anchor-visible="0"');
+    expect(markup).toContain("visibility:hidden");
+    expect(markup).toContain("scale(0.25)");
+    expect(markup).toContain("animation-play-state:paused");
+  });
+
   it("renders every retained story as self-contained finite SVG markup", () => {
     SVG_STORIES.forEach((story) => {
       const markup = renderToStaticMarkup(createElement(SvgAntarcticaStage, {

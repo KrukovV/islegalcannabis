@@ -2,6 +2,14 @@
 
 Statuses: pending | in_progress | done
 
+## 2026-10-09 user-prioritised map zoom and Antarctica repair
+
+- [done] Inspect both supplied recordings at half-second cadence and separate the gray US handoff, visually joined Store counts, Arkansas native-label placement and offscreen Antarctica anchor.
+- [done] Preserve the production map/data model while repairing the classes of presentation defects in shared code: permanent US fallback under opaque state polygons, collision-safe Store count grouping with exact all-GEO sums, placement-independent native state labels, and offscreen/polar-bounded Antarctica SVG.
+- [done] Save fresh local Chromium/WebKit screenshots and pass focused tests plus the mandatory canonical root cycle. Browser zoom `4/4`, Antarctica `1/1`, and public-route polar visibility `2/2` pass; canonical run `20261009T184000Z-14490` passes CI `20/0`, mandatory smoke `38/38/0`, post-check and hub-stage gates. The first cold-build zoom outlier was retained as a failed attempt; the fresh full rerun measured worst `598ms` without loosening the bound.
+- [done] Release the narrow common map repair from accepted `origin/main` through the green helper; production code build `Q07hKjA0CMwlT5qWHlo_f` serves `6192daf6`. Live acceptance covers Store `8,167`/bounded `1,187`, Arkansas wheel colour/label/count, full popup/SEO/close, Antarctica canvas, audit isolation, adapters, sitemap `311/311`, and post-release root CI `20/0`, smoke `30/30/0`, post/hub PASS. The local SVG audit route remains separate from the production canvas.
+- [in_progress] Close the local-only SVG Antarctica fix with its 307-GEO review-branch root cycle and green delivery, then continue Batch 42 official-source C2/C3 review.
+
 ## 307-GEO evidence operationalization and reproducible delivery
 
 - [done] Preserve the mixed local tree with exact hashes, then split the accepted 307-GEO evidence infrastructure, independent UI/runtime fixes and verified restart-policy changes onto a clean `origin/main`-based branch without copying the already-released Andorra hotfix back over itself.
