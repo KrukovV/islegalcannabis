@@ -346,6 +346,11 @@ function tuneNativeBasemapLayers(map: maplibregl.Map) {
         map.setPaintProperty(layer.id, "text-halo-width", 1.5);
       } else if (/place_state/i.test(layer.id)) {
         map.setLayerZoomRange(layer.id, 4.9, 24);
+        // State names must not blink when native city/store placement is
+        // recalculated during a zoom. Keep the native state text independent
+        // of the changing collision index, without GEO-specific rules.
+        map.setLayoutProperty(layer.id, "text-allow-overlap", true);
+        map.setLayoutProperty(layer.id, "text-ignore-placement", true);
         map.setPaintProperty(layer.id, "text-opacity", 0.78);
       } else if (/place_city/i.test(layer.id)) {
         map.setLayerZoomRange(layer.id, 5.8, 24);
@@ -527,18 +532,10 @@ export function createMap(
           ["to-color", ["get", "hoverColor"]],
           ["to-color", ["get", "baseColor"]]
         ],
-        "fill-opacity": [
-          "step",
-          ["zoom"],
-          1,
-          4.5,
-          [
-            "case",
-            ["==", ["get", "geo"], "US"],
-            0,
-            1
-          ]
-        ]
+        // Keep an opaque US fallback beneath the equally opaque state fills.
+        // Tiles can become unavailable again on a later pan/style reload, so
+        // a one-time "ready" hand-off would still allow a gray hole.
+        "fill-opacity": 1
       }
     }, beforeId);
 
@@ -822,7 +819,11 @@ export function createMap(
     if (!source) return;
     usStatesRequested = true;
     markNewMapTrace("NM_US_STATES_REQUESTED");
-    source.setData(options?.usStatesUrl || US_STATES_DATA_URL);
+    void source.setData(options?.usStatesUrl || US_STATES_DATA_URL, true).catch(() => {
+      if (!destroyed && map.getSource(NEW_MAP_US_STATES_SOURCE_ID) === source) {
+        usStatesRequested = false;
+      }
+    });
   };
   const loadUsStatesWhenZoomed = () => {
     if (map.getZoom() >= US_STATES_LOAD_ZOOM) {
@@ -923,7 +924,9 @@ export function createMap(
     queueMicrotask(onStyleReady);
   }
   map.on("moveend", ensureFlatCamera);
-  map.on("zoomend", loadUsStatesWhenZoomed);
+  // Begin loading as the camera crosses the threshold; the fallback fill stays
+  // in place until the source reports ready, even if the animation ends first.
+  map.on("zoom", loadUsStatesWhenZoomed);
 
   return {
     map,
@@ -947,7 +950,7 @@ export function createMap(
       map.getCanvas().style.cursor = "";
       map.off("style.load", onStyleReady);
       map.off("moveend", ensureFlatCamera);
-      map.off("zoomend", loadUsStatesWhenZoomed);
+      map.off("zoom", loadUsStatesWhenZoomed);
       map.remove();
     }
   };

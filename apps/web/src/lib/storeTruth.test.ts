@@ -9,6 +9,7 @@ import {
   queryVisibleStores,
   resolveCurrentStoreLegalGate,
   selectStoreSpatialCandidates,
+  toClusterFeatures,
   STORE_TYPES,
   STORE_ZOOM_POLICY,
   validateStoreVisibility,
@@ -166,6 +167,44 @@ describe("canonical store truth", () => {
     expect(clusteredCount).toBe(result.visibleStores);
   });
 
+  it("merges adjacent storefront counts instead of visually reading 1 plus 7 as 17", () => {
+    const nearby = [
+      { ...record, latitude: 44, longitude: -116.9 },
+      ...Array.from({ length: 7 }, (_, index) => ({
+        ...record,
+        canonical_store_id: `nearby-${index}`,
+        latitude: 44.001 + index * 0.001,
+        longitude: -116.74 + index * 0.001,
+      })),
+    ];
+    const features = toClusterFeatures(nearby, 8);
+    expect(Math.floor(-116.9 / 0.18)).not.toBe(Math.floor(-116.74 / 0.18));
+    expect(features).toHaveLength(1);
+    expect(features[0].properties.count).toBe(8);
+    expect(toClusterFeatures([nearby[0], nearby[1]], 8)[0].properties.count).toBe(2);
+    expect(toClusterFeatures(nearby.slice(0, 1), 8)[0].geometry.coordinates).toEqual([-116.9, 44]);
+  });
+
+  it("sizes collision groups for every count width and across the dateline", () => {
+    const largeGroup = Array.from({ length: 1000 }, (_, index) => ({
+      ...record,
+      canonical_store_id: `large-${index}`,
+      latitude: 39.7,
+      longitude: -104.99,
+    }));
+    const nearby = { ...record, canonical_store_id: "nearby", latitude: 39.7, longitude: -104.83 };
+    expect(toClusterFeatures([...largeGroup, nearby], 8).map((feature) => feature.properties.count)).toEqual([1001]);
+
+    const wrapped = [
+      { ...record, longitude: 179.95, latitude: 0 },
+      { ...record, canonical_store_id: "across-dateline", longitude: -179.95, latitude: 0 },
+    ];
+    const features = toClusterFeatures(wrapped, 5.8);
+    expect(features).toHaveLength(1);
+    expect(features[0].properties.count).toBe(2);
+    expect(Math.abs(features[0].geometry.coordinates[0])).toBeGreaterThan(179);
+  });
+
   it("keeps every GEO with a visible Store Truth record exactly accountable at aggregate, cluster, and leaf levels", () => {
     const summaries = queryStoreSummaryLevels();
     const local = queryVisibleStores({ west: -180, south: -90, east: 180, north: 90, zoom: STORE_ZOOM_POLICY.localMinZoom });
@@ -186,6 +225,38 @@ describe("canonical store truth", () => {
       .toEqual([...leavesByGeo.entries()].sort(([left], [right]) => left.localeCompare(right)));
     expect(clusteredCount).toBe(local.visibleStores);
     expect(summaries.geoRows.reduce((total, row) => total + row.count, 0)).toBe(local.visibleStores);
+  });
+
+  it("keeps counts and rendered cluster bounds non-overlapping across the complete Store universe and medium zoom band", () => {
+    const local = queryVisibleStores({ west: -180, south: -90, east: 180, north: 90, zoom: STORE_ZOOM_POLICY.localMinZoom });
+    for (const zoom of [5.8, 8, 10.19]) {
+      const medium = queryVisibleStores({ west: -180, south: -90, east: 180, north: 90, zoom });
+      expect(medium.visibleStores).toBe(local.visibleStores);
+      expect(medium.features.reduce((sum, feature) => sum + Number(feature.properties.count), 0)).toBe(local.visibleStores);
+      const worldSize = 512 * 2 ** zoom;
+      const iconSize = zoom <= 8 ? 0.78 + (zoom - 5.8) * (0.12 / 2.2) : 0.9 + (zoom - 8) * (0.12 / 2.19);
+      const textSize = zoom <= 8 ? 13 + (zoom - 5.8) / 2.2 : 14 + (zoom - 8) / 2.19;
+      const bounds = medium.features.map((feature) => {
+        const [longitude, latitude] = feature.geometry.coordinates;
+        const sinLat = Math.sin(Math.max(-85, Math.min(85, latitude)) * Math.PI / 180);
+        const x = (longitude + 180) / 360 * worldSize;
+        const y = (0.5 - Math.log((1 + sinLat) / (1 - sinLat)) / (4 * Math.PI)) * worldSize;
+        const count = Number(feature.properties.count);
+        const iconWidth = 24 * iconSize;
+        const halfHeight = Math.max(iconWidth, textSize + 4) / 2 + 12;
+        return { x, y, left: x - iconWidth - 14, right: x + textSize * 0.45 + String(count).length * textSize * 0.72 + 14, top: y - halfHeight, bottom: y + halfHeight };
+      });
+      for (let index = 0; index < bounds.length; index++) {
+        for (let other = 0; other < index; other++) {
+          const left = bounds[index];
+          const right = bounds[other];
+          const separation = Math.min(Math.abs(left.x - right.x), worldSize - Math.abs(left.x - right.x));
+          if (separation > 140 || Math.abs(left.y - right.y) > 55) continue;
+          const shift = Math.round((left.x - right.x) / worldSize) * worldSize;
+          expect(left.left < right.right + shift && right.left + shift < left.right && left.top < right.bottom && right.top < left.bottom).toBe(false);
+        }
+      }
+    }
   });
 
   it("requires independent legal, source, license, and coordinate gates", () => {
