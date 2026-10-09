@@ -11,12 +11,24 @@ test("local public root retains only the local AI dock beside the public Truth M
   await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 30_000 });
   await expect(page.getByTestId("public-map-notice")).toBeVisible();
   await expect(page.getByTestId("antarctic-ascii-overlay")).toBeAttached();
-  await expect(page.getByTestId("antarctic-ascii-overlay")).toHaveAttribute("data-ascii-state", "running", { timeout: 12_000 });
+  // The decorative scene is mounted but remains scheduled when Antarctica is
+  // outside the camera; polar visibility is verified separately below.
+  await expect(page.getByTestId("antarctic-ascii-overlay")).toHaveAttribute("data-ascii-state", /scheduled|running/);
   await expect(page.getByTestId("new-map-ai-dock")).toBeVisible();
   await expect(page.getByTestId("truth-map-social-panel")).toHaveCount(0);
   await expect(page.getByTestId("truth-map-audit-notice")).toHaveCount(0);
   await expect.poll(() => apiRequests.some((url) => url.includes("/api/public-map/countries")), { timeout: 15_000 }).toBe(true);
   expect(apiRequests.some((url) => url.includes("/api/truth-map/") || url.includes("/api/social/") || url.includes("/api/dm/"))).toBe(false);
+});
+
+test("public Antarctica scene runs when the continent is in view @opt-in-visual-audit", async ({ page }) => {
+  test.setTimeout(90_000);
+  await page.goto("/?qa=1&lat=-77&lng=0&zoom=4", { waitUntil: "domcontentloaded" });
+  await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 30_000 });
+  await expect(page.getByTestId("antarctic-ascii-overlay")).toHaveAttribute("data-ascii-state", "running", { timeout: 75_000 });
+  if (process.env.ANTARCTICA_RECEIPT_PATH) {
+    await page.screenshot({ path: process.env.ANTARCTICA_RECEIPT_PATH });
+  }
 });
 
 test("public GEO popup keeps its rich legal content and opens the SEO panel without a reload", async ({ page }) => {

@@ -2,6 +2,12 @@
 
 Statuses: pending | in_progress | done
 
+## 2026-10-09 map zoom release from accepted main
+
+- [done] Reuse the accepted public MapLibre and Store-gate machinery: retain an opaque US country fallback below state polygons, load state source on zoom crossing, make native state labels placement-independent, and merge only overlapping Store count presentations. No Legal/Store Truth, coordinates, eligibility or production Antarctica animation change.
+- [done] Validate in an isolated main-based worktree. Canonical run `20261009T200202Z-15464` passes CI `20/0`, mandatory WebKit smoke `30/30/0`, `POST_CHECKS_OK=1` and `HUB_STAGE_REPORT_OK=1`. Missing ignored validation inputs and pre-existing baselines were restored from the accepted main checkout; generated Store timestamps were restored exactly.
+- [in_progress] Complete a real polar Antarctica browser receipt and narrow Git delivery through the green helper, then verify production build SHA, root/canonical routes, Store viewport arithmetic, zoom/fill/labels, animation confinement, and post-release root cycle. The 307-GEO legal-review branch remains isolated.
+
 ## Exact Home Canonical Hotfix
 
 - [done] Release only the three-file home-canonical patch as `2b6bf809` (`apps/web/src/app/page.tsx`, `apps/web/src/app/layout.tsx`, `apps/web/e2e/favicon.spec.ts`) from an isolated `main` worktree. The patch emits one literal `https://www.islegal.info/` canonical for `/`, removes the competing global fallback, and adds rendered WebKit coverage. It changes no Legal Truth, SSOT, Store Truth, Social, `/truth-map`, `/new-map` or country SEO data.

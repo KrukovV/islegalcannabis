@@ -40,17 +40,24 @@ function readFirstNonEmpty(candidates: string[]) {
 }
 
 function readGitHeadSha(root: string) {
-  const headPath = path.join(root, ".git", "HEAD");
+  const dotGitPath = path.join(root, ".git");
   try {
-    const head = fs.readFileSync(headPath, "utf8").trim();
+    // A managed worktree stores a gitdir pointer here, while a regular
+    // checkout stores the Git directory itself. Both must resolve to the
+    // actual commit before the short-lived dirty-state probe runs.
+    const gitDir = fs.statSync(dotGitPath).isDirectory()
+      ? dotGitPath
+      : path.resolve(root, fs.readFileSync(dotGitPath, "utf8").trim().replace(/^gitdir:\s*/, ""));
+    const commonDirHint = readFirstNonEmpty([path.join(gitDir, "commondir")]);
+    const commonDir = commonDirHint ? path.resolve(gitDir, commonDirHint) : gitDir;
+    const head = fs.readFileSync(path.join(gitDir, "HEAD"), "utf8").trim();
     if (!head) return null;
     if (!head.startsWith("ref:")) return head.slice(0, 7);
     const refName = head.slice(5).trim();
-    const refPath = path.join(root, ".git", refName);
-    const refValue = readFirstNonEmpty([refPath]);
+    const refValue = readFirstNonEmpty([path.join(gitDir, refName), path.join(commonDir, refName)]);
     if (refValue) return refValue.slice(0, 7);
 
-    const packedRefsPath = path.join(root, ".git", "packed-refs");
+    const packedRefsPath = path.join(commonDir, "packed-refs");
     try {
       const packedRefs = fs.readFileSync(packedRefsPath, "utf8");
       for (const line of packedRefs.split(/\r?\n/)) {
