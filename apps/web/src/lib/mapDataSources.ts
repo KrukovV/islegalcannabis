@@ -155,6 +155,7 @@ const DATA_FILE_PATHS: Record<string, string> = {
 
 const GEOJSON_FILE_PATHS: Record<string, string> = {
   "ne_10m_admin_0_countries.geojson": path.join(DATA_ROOT, "geojson", "ne_10m_admin_0_countries.geojson"),
+  "ne_10m_admin_1_us_states.geojson": path.join(DATA_ROOT, "geojson", "ne_10m_admin_1_us_states.geojson"),
   "ne_50m_admin_0_countries.geojson": path.join(DATA_ROOT, "geojson", "ne_50m_admin_0_countries.geojson"),
   "ne_50m_admin_1_states_provinces.geojson": path.join(DATA_ROOT, "geojson", "ne_50m_admin_1_states_provinces.geojson"),
 };

@@ -2,6 +2,12 @@
 
 Statuses: pending | in_progress | done
 
+## 2026-10-10 production basemap/US-fill regression
+
+- [done] Reproduce the delayed-label class in live WebKit and compare the current same-origin Carto proxy with the previously accepted direct CDN mechanism; identify the 10m-country/50m-state coast mismatch without changing status data.
+- [done] Restore direct Carto vector/glyph/sprite transport; use a bounded immutable 10m US-admin1 geometry extract for the state fill, regenerate the content-addressed static state payload, and add class-wide transport, geometry and visible-label timing guards. Focused unit/parity checks and root CI `20/0`, mandatory smoke `30/30/0`, post/hub gates pass.
+- [in_progress] Deliver through the green release helper, verify production build SHA, public routes, sitemap, rich popup/SEO, US coast/labels/Store counts, Antarctica, then repeat the post-release root cycle.
+
 ## 2026-10-09 map zoom release from accepted main
 
 - [done] Reuse the accepted public MapLibre and Store-gate machinery: retain an opaque US country fallback below state polygons, load state source on zoom crossing, make native state labels placement-independent, and merge only overlapping Store count presentations. No Legal/Store Truth, coordinates, eligibility or production Antarctica animation change.

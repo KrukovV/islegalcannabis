@@ -34,18 +34,19 @@ test("truth-map shares the stable city-label visibility ranges used by new-map",
       .map((layer) => ({ id: String(layer.id), minzoom: layer.minzoom ?? 0, maxzoom: layer.maxzoom ?? 24 }))
       .sort((left, right) => left.id.localeCompare(right.id));
     const activeBands = summarize(map.getStyle().layers || []);
-    const stops: Array<{ zoom: number; activeLayerIds: string[]; renderedLabelCount: number }> = [];
+    const stops: Array<{ zoom: number; activeLayerIds: string[]; renderedLabelCount: number; settledByIdle: boolean; settleMs: number }> = [];
     for (const zoom of [5.9, 6.4, 7.4, 8.4]) {
-      await new Promise<void>((resolve) => {
+      const startedAt = performance.now();
+      const settledByIdle = await new Promise<boolean>((resolve) => {
         let settled = false;
-        const finish = () => {
+        const finish = (idle: boolean) => {
           if (settled) return;
           settled = true;
-          resolve();
+          resolve(idle);
         };
-        map.once("idle", finish);
+        map.once("idle", () => finish(true));
         map.jumpTo({ center: [103.8467, 46.8625], zoom });
-        window.setTimeout(finish, 5_000);
+        window.setTimeout(() => finish(false), 5_000);
       });
       const activeLayerIds = activeBands
         .filter((layer) => layer.minzoom <= zoom && zoom < layer.maxzoom)
@@ -53,10 +54,19 @@ test("truth-map shares the stable city-label visibility ranges used by new-map",
       stops.push({
         zoom: map.getZoom(),
         activeLayerIds,
-        renderedLabelCount: map.queryRenderedFeatures({ layers: activeLayerIds }).length
+        renderedLabelCount: map.queryRenderedFeatures({ layers: activeLayerIds }).length,
+        settledByIdle,
+        settleMs: Math.round(performance.now() - startedAt)
       });
     }
-    return { activeBands, stops };
+    const style = map.getStyle();
+    return {
+      activeBands,
+      stops,
+      sourceUrl: "url" in style.sources.carto ? style.sources.carto.url : null,
+      glyphs: style.glyphs,
+      sprite: style.sprite
+    };
   });
 
   expect(labelBandState.activeBands).toEqual(expect.arrayContaining([
@@ -69,7 +79,11 @@ test("truth-map shares the stable city-label visibility ranges used by new-map",
       : layer.minzoom === 6.6 && layer.maxzoom === 24
   ))).toBe(true);
   expect(labelBandState.stops.every((stop) => stop.activeLayerIds.length > 0)).toBe(true);
-  expect(labelBandState.stops.every((stop) => stop.renderedLabelCount > 0)).toBe(true);
+  expect(labelBandState.stops.every((stop) => stop.renderedLabelCount > 0), JSON.stringify(labelBandState.stops)).toBe(true);
+  expect(labelBandState.stops.every((stop) => stop.settledByIdle && stop.settleMs < 5_000), JSON.stringify(labelBandState.stops)).toBe(true);
+  expect(labelBandState.sourceUrl).toMatch(/^https:\/\/tiles\.basemaps\.cartocdn\.com\//);
+  expect(labelBandState.glyphs).toMatch(/^https:\/\/tiles\.basemaps\.cartocdn\.com\//);
+  expect(labelBandState.sprite).toMatch(/^https:\/\/tiles\.basemaps\.cartocdn\.com\//);
   expect(runtimeErrors).toEqual([]);
 });
 

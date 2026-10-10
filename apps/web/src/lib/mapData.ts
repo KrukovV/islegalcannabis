@@ -976,7 +976,7 @@ export function buildGeoJson(type: string) {
   const wikiClaims = !isState ? loadWikiClaimsMap() : {};
   const wikiLegalityTableByIso = !isState ? loadWikiLegalityTableByIso() : {};
   const fileName = isState
-    ? "ne_50m_admin_1_states_provinces.geojson"
+    ? "ne_10m_admin_1_us_states.geojson"
     : "ne_10m_admin_0_countries.geojson";
   const geojson = loadGeoJsonFile(fileName);
   if (!geojson) {

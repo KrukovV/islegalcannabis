@@ -67,19 +67,19 @@ describe("new-map route config", () => {
     expect(source).not.toContain('rel="dns-prefetch" href="https://tiles.basemaps.cartocdn.com"');
   });
 
-  it("keeps basemap metadata same-origin and host-specific", () => {
+  it("uses the previously working direct Carto vector, glyph and sprite transport", () => {
     const stylePath = path.join(process.cwd(), "src", "app", "api", "new-map", "basemap-style", "route.ts");
     const sourcePath = path.join(process.cwd(), "src", "app", "api", "new-map", "basemap-source", "route.ts");
     const styleSource = fs.readFileSync(stylePath, "utf8");
     const tilejsonSource = fs.readFileSync(sourcePath, "utf8");
 
-    expect(styleSource).toContain('tiles: ["/api/new-map/basemap-tile/{z}/{x}/{y}"]');
-    expect(styleSource).toContain('delete (sources.carto as Record<string, unknown>).url;');
-    expect(styleSource).toContain('style.glyphs = `${origin}${SAME_ORIGIN_GLYPHS_PATH}`');
-    expect(styleSource).toContain('style.sprite = `${origin}${SAME_ORIGIN_SPRITE_PATH}`');
-    expect(styleSource).toContain('request.headers.get("host")');
+    expect(styleSource).toContain('const UPSTREAM_STYLE_URL = "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json"');
+    expect(styleSource).not.toContain("UPSTREAM_TILEJSON_URL");
+    expect(styleSource).not.toContain("SAME_ORIGIN_GLYPHS_PATH");
+    expect(styleSource).not.toContain("SAME_ORIGIN_SPRITE_PATH");
+    expect(styleSource).not.toContain("/api/new-map/basemap-tile/{z}/{x}/{y}");
     expect(styleSource).toContain('dynamic = "force-dynamic"');
-    expect(styleSource).toContain('"Vary": "Host"');
+    // The old proxy endpoint is retained for compatibility, not as a map dependency.
     expect(tilejsonSource).toContain('tilejson.tiles = ["/api/new-map/basemap-tile/{z}/{x}/{y}"];');
     expect(tilejsonSource).not.toContain('dynamic = "force-dynamic"');
   });
