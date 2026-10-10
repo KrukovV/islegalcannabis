@@ -532,9 +532,10 @@ export function createMap(
           ["to-color", ["get", "hoverColor"]],
           ["to-color", ["get", "baseColor"]]
         ],
-        // Keep an opaque US fallback beneath the equally opaque state fills.
-        // Tiles can become unavailable again on a later pan/style reload, so
-        // a one-time "ready" hand-off would still allow a gray hole.
+        // Keep the US country fallback while the independent state source is
+        // loading. Its coastline is not pixel-identical to the state source;
+        // retaining this yellow fill after the states arrive leaks a false
+        // legal colour through small coastal gaps.
         "fill-opacity": 1
       }
     }, beforeId);
@@ -819,7 +820,16 @@ export function createMap(
     if (!source) return;
     usStatesRequested = true;
     markNewMapTrace("NM_US_STATES_REQUESTED");
-    void source.setData(options?.usStatesUrl || US_STATES_DATA_URL, true).catch(() => {
+    void source.setData(options?.usStatesUrl || US_STATES_DATA_URL, true).then(() => {
+      if (destroyed || map.getSource(NEW_MAP_US_STATES_SOURCE_ID) !== source || !map.getLayer(NEW_MAP_FILL_LAYER_ID)) return;
+      // Below state zoom the canonical US country verdict remains visible.
+      // Above it only the 51 state/DC polygons may supply US display colours;
+      // otherwise the country fallback can create a yellow coastal fringe.
+      map.setPaintProperty(NEW_MAP_FILL_LAYER_ID, "fill-opacity", [
+        "step", ["zoom"], 1, 4.5,
+        ["case", ["==", ["get", "geo"], "US"], 0, 1]
+      ]);
+    }).catch(() => {
       if (!destroyed && map.getSource(NEW_MAP_US_STATES_SOURCE_ID) === source) {
         usStatesRequested = false;
       }

@@ -87,6 +87,26 @@ test("truth-map shares the stable city-label visibility ranges used by new-map",
   expect(runtimeErrors).toEqual([]);
 });
 
+test("US country fallback disappears only after the shared state source is ready", async ({ page }) => {
+  await gotoReadyTruthMap(page, "/truth-map?qa=1&lat=44.5&lng=-123.5&zoom=7");
+  await page.waitForFunction(() => {
+    const map = window.__TRUTH_MAP_DEBUG__?.map;
+    return Boolean(map?.isSourceLoaded("us-states") && Array.isArray(map.getPaintProperty("legal-fill", "fill-opacity")));
+  }, undefined, { timeout: 20_000 });
+  const state = await page.evaluate(() => {
+    const map = window.__TRUTH_MAP_DEBUG__!.map;
+    return {
+      sourceLoaded: map.isSourceLoaded("us-states"),
+      opacity: map.getPaintProperty("legal-fill", "fill-opacity")
+    };
+  });
+  expect(state.sourceLoaded).toBe(true);
+  expect(state.opacity).toEqual([
+    "step", ["zoom"], 1, 4.5,
+    ["case", ["==", ["get", "geo"], "US"], 0, 1]
+  ]);
+});
+
 test("truth-map reloads local Store leaves after an in-place viewport move, including a wrapped world copy", async ({ page }) => {
   test.setTimeout(120_000);
   const runtimeErrors: string[] = [];

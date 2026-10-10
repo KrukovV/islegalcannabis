@@ -18,6 +18,7 @@ test("local public root retains only the local AI dock beside the public Truth M
   await expect(page.getByTestId("truth-map-social-panel")).toHaveCount(0);
   await expect(page.getByTestId("truth-map-audit-notice")).toHaveCount(0);
   await expect.poll(() => apiRequests.some((url) => url.includes("/api/public-map/countries")), { timeout: 15_000 }).toBe(true);
+  expect(apiRequests.some((url) => url.includes("/api/new-map/countries?inline=1"))).toBe(false);
   expect(apiRequests.some((url) => url.includes("/api/truth-map/") || url.includes("/api/social/") || url.includes("/api/dm/"))).toBe(false);
 });
 

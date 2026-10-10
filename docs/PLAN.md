@@ -6,7 +6,7 @@ Statuses: pending | in_progress | done
 
 - [done] Reproduce the delayed-label class in live WebKit and compare the current same-origin Carto proxy with the previously accepted direct CDN mechanism; identify the 10m-country/50m-state coast mismatch without changing status data.
 - [done] Restore direct Carto vector/glyph/sprite transport; use a bounded immutable 10m US-admin1 geometry extract for the state fill, regenerate the content-addressed static state payload, and add class-wide transport, geometry and visible-label timing guards. Focused unit/parity checks and root CI `20/0`, mandatory smoke `30/30/0`, post/hub gates pass.
-- [in_progress] Deliver through the green release helper, verify production build SHA, public routes, sitemap, rich popup/SEO, US coast/labels/Store counts, Antarctica, then repeat the post-release root cycle.
+- [in_progress] Follow up the first deployed live receipt: scope the unused legacy 423-KB `/new-map` prefetch away from public `/`, remove the US country underlay only after state source readiness, run full root validation, deliver through the green helper and verify production build SHA, public routes, sitemap, rich popup/SEO, US coast/labels/Store counts, Antarctica and post-release root gates. The first deployment `937ea56a` is live but is not the final accepted fix.
 
 ## 2026-10-09 map zoom release from accepted main
 

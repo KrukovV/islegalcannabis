@@ -63,7 +63,10 @@ export const viewport: Viewport = {
 const NEW_MAP_PREFETCH_SCRIPT = `
 (() => {
   const host = globalThis;
-  if (location.pathname === "/wiki-truth" || location.pathname === "/trust-view") return;
+  // This legacy inline payload is consumed only by the local /new-map shell.
+  // The public Truth Map loads its own content-addressed 307-GEO collection;
+  // downloading both competes with its first paint and delays native labels.
+  if (location.pathname !== "/new-map") return;
   const trace = host.__NEW_MAP_TRACE__ || {
     t0: performance.now(),
     marks: {},

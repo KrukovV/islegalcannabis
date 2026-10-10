@@ -62,6 +62,7 @@ describe("new-map route config", () => {
     const filePath = path.join(process.cwd(), "src", "app", "layout.tsx");
     const source = fs.readFileSync(filePath, "utf8");
     expect(source).toContain('countries: loadJson("${NEW_MAP_COUNTRIES_URL}")');
+    expect(source).toContain('if (location.pathname !== "/new-map") return;');
     expect(source).not.toContain('style: loadJson("${NEW_MAP_STYLE_URL}")');
     expect(source).not.toContain('rel="preconnect" href="https://tiles.basemaps.cartocdn.com"');
     expect(source).not.toContain('rel="dns-prefetch" href="https://tiles.basemaps.cartocdn.com"');
