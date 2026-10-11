@@ -35,6 +35,7 @@ let workerUrlConfigured = false;
 type SelectedGeoCallback = (_geo: { iso2: string; country: string; lng: number; lat: number } | null) => void;
 type CreateMapOptions = {
   style?: StyleSpecification | string | null;
+  initialCamera?: { lat: number; lng: number; zoom: number } | null;
   onSelectGeo?: (_geo: string | null, _anchor?: { x: number; y: number } | null, _seed?: CountryCardSeed | null) => void;
   shouldSelectFeature?: (_point: { x: number; y: number }, _lngLat: { lng: number; lat: number }) => boolean;
   onSelectFeature?: (
@@ -420,12 +421,19 @@ export function createMap(
     __MAP_SELECTED_GEO__?: SelectedGeoCallback;
   };
   configureMapLibreWorkerUrl();
+  const requestedCamera = options?.initialCamera;
+  const initialCamera = requestedCamera
+    && Number.isFinite(requestedCamera.lat) && Math.abs(requestedCamera.lat) <= 90
+    && Number.isFinite(requestedCamera.lng) && Math.abs(requestedCamera.lng) <= 180
+    && Number.isFinite(requestedCamera.zoom) && requestedCamera.zoom >= 0 && requestedCamera.zoom <= 15
+    ? { center: [requestedCamera.lng, requestedCamera.lat] as [number, number], zoom: requestedCamera.zoom, bearing: 0, pitch: 0 }
+    : FLAT_CAMERA;
   markNewMapTrace("NM_T2_MAP_CONSTRUCTOR_START");
   const map = new maplibregl.Map({
     container,
     style: options?.style || NEW_MAP_BASEMAP_STYLE_URL,
-    center: DEFAULT_CENTER,
-    zoom: DEFAULT_ZOOM,
+    center: initialCamera.center,
+    zoom: initialCamera.zoom,
     bearing: 0,
     pitch: 0,
     maxPitch: 0,
@@ -500,7 +508,7 @@ export function createMap(
 
   const installCountryLayers = () => {
     if (map.getSource(NEW_MAP_SOURCE_ID)) return;
-    map.jumpTo(FLAT_CAMERA);
+    map.jumpTo(initialCamera);
     const beforeId = findFirstSymbolLayerId(map);
     map.addSource(NEW_MAP_SOURCE_ID, {
       type: "geojson",
@@ -914,7 +922,7 @@ export function createMap(
   const onStyleReady = () => {
     if (bootstrapped) return;
     bootstrapped = true;
-    map.jumpTo(FLAT_CAMERA);
+    map.jumpTo(initialCamera);
     tuneNativeBasemapLayers(map);
     addSupplementalSeaLayer(map);
     const shouldReloadUsStates = usStatesRequested;

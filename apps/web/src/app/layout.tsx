@@ -63,9 +63,15 @@ export const viewport: Viewport = {
 const NEW_MAP_PREFETCH_SCRIPT = `
 (() => {
   const host = globalThis;
-  // This legacy inline payload is consumed only by the local /new-map shell.
-  // The public Truth Map loads its own content-addressed 307-GEO collection;
-  // downloading both competes with its first paint and delays native labels.
+  // Start the public root's actual 307-GEO request during HTML parsing. Its
+  // map consumes this one response after hydration instead of fetching twice.
+  if (location.pathname === "/") {
+    host.__PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__ = fetch("/api/public-map/countries", {
+      credentials: "same-origin"
+    }).catch(() => null);
+    return;
+  }
+  // The legacy inline collection belongs only to the local /new-map shell.
   if (location.pathname !== "/new-map") return;
   const trace = host.__NEW_MAP_TRACE__ || {
     t0: performance.now(),

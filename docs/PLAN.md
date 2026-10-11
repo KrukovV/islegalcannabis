@@ -2,6 +2,12 @@
 
 Statuses: pending | in_progress | done
 
+## 2026-10-11 cold map response, then technical SEO
+
+- [in_progress] Remove avoidable public-map cold work: initialize MapLibre on the requested camera and start the one real immutable 307-GEO response during root HTML parsing, reusing response clones across development remounts. Compare fresh WebKit timings and verify first zoom/native labels, Store visibility, legal popup, Antarctica, audit isolation and post-release root gates before delivery.
+- [pending] Deliver the two saved documentation receipts plus the tested cold-start code via the green helper, verify exact production build SHA and live browser/crawl behavior.
+- [pending] After the map release, diagnose Search Console's indexed/excluded URL cohorts against robots, sitemap, canonicals, localized metadata and rendered content; repair proven technical faults and establish read-only Search Console API access/monitoring without claiming or automating guaranteed indexing.
+
 ## 2026-10-10 production basemap/US-fill regression
 
 - [done] Reproduce the delayed-label class in live WebKit and compare the current same-origin Carto proxy with the previously accepted direct CDN mechanism; identify the 10m-country/50m-state coast mismatch without changing status data.

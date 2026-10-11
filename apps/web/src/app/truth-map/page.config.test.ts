@@ -82,6 +82,8 @@ describe("truth-map audit route", () => {
     expect(truthMap).toContain("useStoreMapLayer");
     expect(truthMap).toContain("publicPresentation ? PUBLIC_STORE_MAP_LAYER_ENDPOINTS : undefined");
     expect(mapFactory).toContain("renderWorldCopies: true");
+    expect(mapFactory).toContain("center: initialCamera.center");
+    expect(truthMap).toContain("initialCamera: documentNavigation?.camera || initialMapViewRef.current");
     expect(truthMap).not.toContain("runtime.map.setRenderWorldCopies(false)");
     expect(truthMap).toContain("getStoreGeoSummaryCount");
     expect(truthMap).toContain('data-testid="truth-map-store-control"');

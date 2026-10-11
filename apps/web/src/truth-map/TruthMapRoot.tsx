@@ -67,6 +67,7 @@ type TruthMapQaController = {
 type TruthMapWindow = Window & typeof globalThis & {
   __TRUTH_MAP_DEBUG__?: { map: maplibregl.Map };
   __TRUTH_MAP_QA__?: TruthMapQaController;
+  __PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__?: Promise<Response | null>;
 };
 
 export type ActiveGeo = {
@@ -99,7 +100,11 @@ type TruthMapPopupSelection = {
 };
 
 async function fetchTruthMapCollection(url: string): Promise<TruthMapCollection> {
-  const response = await fetch(url, { credentials: "same-origin" });
+  const host = window as TruthMapWindow;
+  const prefetched = url === "/api/public-map/countries" ? host.__PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__ : null;
+  // Keep the original immutable response untouched so a development remount
+  // can consume its own clone without repeating the same network request.
+  const response = (prefetched && (await prefetched)?.clone()) || await fetch(url, { credentials: "same-origin" });
   if (!response.ok) throw new Error(`truth_map_dataset_fetch:${response.status}`);
   return response.json() as Promise<TruthMapCollection>;
 }
@@ -536,6 +541,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
     const runtime = createMap(container, {
       style: NEW_MAP_BASEMAP_STYLE_URL,
       usStatesUrl,
+      initialCamera: documentNavigation?.camera || initialMapViewRef.current,
       shouldSelectFeature: (point) => {
         const map = mapRef.current;
         if (!map) return true;
