@@ -54,6 +54,11 @@ final-reconciliation input at request time. The accepted public runtime instead
 uses two committed, content-addressed Brotli assets (country and U.S.-state
 geometry) behind immutable `/static/truth-map/<file>` routes. The public
 compatibility adapters redirect to those assets with HTTP 308.
+The public root requests the manifest-selected immutable URLs directly on its
+critical path; the 308 adapters remain available and tested as compatibility
+routes. The public first paint does not wait for an unrelated full U.S.-state
+lookup. A state deep link still loads that lookup before selecting its popup,
+and MapLibre loads state geometry at the existing state-zoom threshold.
 
 The local reconciliation is permitted to generate the assets before release;
 it is not a production runtime input. Static delivery is a transport

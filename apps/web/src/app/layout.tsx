@@ -8,6 +8,7 @@ import ServiceWorkerGuard from "@/plugins/serviceWorkerGuard";
 import { NEW_MAP_WATER_COLOR } from "@/new-map/mapPalette";
 import { INLINE_COUNTRIES_URL } from "@/new-map/staticCountries";
 import { NEW_MAP_BASEMAP_STYLE_URL } from "@/new-map/runtimeUrls";
+import { STATIC_TRUTH_MAP_COUNTRIES_URL } from "@/truth-map/staticTruthMapUrls";
 
 const NEW_MAP_COUNTRIES_URL = INLINE_COUNTRIES_URL;
 const YANDEX_METRIKA_ID = 108419114;
@@ -66,7 +67,7 @@ const NEW_MAP_PREFETCH_SCRIPT = `
   // Start the public root's actual 307-GEO request during HTML parsing. Its
   // map consumes this one response after hydration instead of fetching twice.
   if (location.pathname === "/") {
-    host.__PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__ = fetch("/api/public-map/countries", {
+    host.__PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__ = fetch("${STATIC_TRUTH_MAP_COUNTRIES_URL}", {
       credentials: "same-origin"
     }).catch(() => null);
     return;

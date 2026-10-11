@@ -2,8 +2,10 @@ import { expect, test } from "@playwright/test";
 
 test("local public root retains only the local AI dock beside the public Truth Map display core", async ({ page }) => {
   const apiRequests: string[] = [];
+  const staticMapRequests: string[] = [];
   page.on("request", (request) => {
     if (request.url().includes("/api/")) apiRequests.push(request.url());
+    if (request.url().includes("/static/truth-map/")) staticMapRequests.push(request.url());
   });
 
   await page.goto("/", { waitUntil: "domcontentloaded" });
@@ -17,11 +19,14 @@ test("local public root retains only the local AI dock beside the public Truth M
   await expect(page.getByTestId("new-map-ai-dock")).toBeVisible();
   await expect(page.getByTestId("truth-map-social-panel")).toHaveCount(0);
   await expect(page.getByTestId("truth-map-audit-notice")).toHaveCount(0);
-  await expect.poll(() => apiRequests.some((url) => url.includes("/api/public-map/countries")), { timeout: 15_000 }).toBe(true);
-  expect(apiRequests.filter((url) => url.includes("/api/public-map/countries"))).toHaveLength(1);
+  await expect.poll(() => page.evaluate(() => performance.getEntriesByType("resource")
+    .some((entry) => entry.name.includes("/static/truth-map/countries."))), { timeout: 15_000 }).toBe(true);
+  expect(apiRequests.filter((url) => url.includes("/api/public-map/countries"))).toHaveLength(0);
+  expect(staticMapRequests.filter((url) => url.includes("/countries."))).toHaveLength(1);
+  expect(staticMapRequests.filter((url) => url.includes("/us-states."))).toHaveLength(0);
   const coldRequestOrder = await page.evaluate(() => ({
     countryStart: performance.getEntriesByType("resource")
-      .find((entry) => entry.name.includes("/api/public-map/countries"))?.startTime,
+      .find((entry) => entry.name.includes("/static/truth-map/countries."))?.startTime,
     mapConstructor: (window as unknown as { __NEW_MAP_TRACE__?: { marks?: Record<string, number> } })
       .__NEW_MAP_TRACE__?.marks?.NM_T2_MAP_CONSTRUCTOR_START
   }));

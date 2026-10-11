@@ -22,8 +22,8 @@ describe("truth-map audit route", () => {
     const nextConfig = fs.readFileSync(path.join(process.cwd(), "next.config.ts"), "utf8");
     expect(root).toContain("TruthMapRoot");
     expect(root).toContain('presentation="public"');
-    expect(root).toContain('countriesUrl: "/api/public-map/countries"');
-    expect(root).toContain('usStatesUrl: "/api/public-map/us-states"');
+    expect(root).toContain('countriesUrl: STATIC_TRUTH_MAP_COUNTRIES_URL');
+    expect(root).toContain('usStatesUrl: STATIC_TRUTH_MAP_US_STATES_URL');
     expect(root).not.toContain("getSocialRuntimeConfig");
     expect(root).not.toContain("MapGeoDock");
     expect(root).not.toContain("TruthMapSocialPanel");
@@ -160,7 +160,7 @@ describe("truth-map audit route", () => {
     expect(truthMap).not.toContain("TRUTH_MAP_COLLECTION_CHUNKS_V1");
     expect(truthMap).not.toContain("truth_map_dataset_chunk_fetch");
     expect(truthMap).toContain("countries.features.find");
-    expect(truthMap).toContain("usStates.features.find");
+    expect(truthMap).toContain("usStates?.features.find");
     expect(truthMap).toContain("openGeo: async (geo)");
   });
 });

@@ -31,6 +31,7 @@ import type { TruthMapCollection, TruthMapDatasetMeta, TruthMapFeatureProperties
 import { projectTruthMapRichCard, TRUTH_MAP_CONTEXT_LABELS, TRUTH_MAP_PROFILE_SECTION_LABELS } from "./truthMapRichCard";
 import TruthMapLegalEvidence from "./TruthMapLegalEvidence";
 import { storeTruthMapDocumentNavigation, takeTruthMapDocumentNavigation, type TruthMapDocumentNavigationContext } from "./documentNavigationContext";
+import { STATIC_TRUTH_MAP_COUNTRIES_URL } from "./staticTruthMapUrls";
 
 type Props = {
   countriesUrl: string;
@@ -101,7 +102,7 @@ type TruthMapPopupSelection = {
 
 async function fetchTruthMapCollection(url: string): Promise<TruthMapCollection> {
   const host = window as TruthMapWindow;
-  const prefetched = url === "/api/public-map/countries" ? host.__PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__ : null;
+  const prefetched = url === STATIC_TRUTH_MAP_COUNTRIES_URL ? host.__PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__ : null;
   // Keep the original immutable response untouched so a development remount
   // can consume its own clone without repeating the same network request.
   const response = (prefetched && (await prefetched)?.clone()) || await fetch(url, { credentials: "same-origin" });
@@ -580,10 +581,14 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
     const load = async () => {
       let hover: ReturnType<typeof attachHoverController> | null = null;
       try {
-        const [countries, usStates] = await Promise.all([
-          fetchTruthMapCollection(countriesUrl),
-          fetchTruthMapCollection(usStatesUrl),
-        ]);
+        const normalizedGeo = String(documentNavigation?.geo || initialGeoCodeRef.current || "").trim().toUpperCase();
+        // The public first paint needs the 307-GEO collection, not the full
+        // state lookup. MapLibre already requests state geometry when the
+        // camera crosses its state-zoom threshold; fetch the lookup separately
+        // only for a state deep link. The audit route retains its full lookup.
+        const [countries, auditStates] = publicPresentation
+          ? [await fetchTruthMapCollection(countriesUrl), null]
+          : await Promise.all([fetchTruthMapCollection(countriesUrl), fetchTruthMapCollection(usStatesUrl)]);
         if (disposed) return;
         // The basemap phase has installed the shared feature layers. Attach the
         // same controller as /new-map before waiting for all reconciliation data,
@@ -609,9 +614,11 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
         await runtime.ready;
         if (disposed) return;
         const initialView = documentNavigation?.camera || initialMapViewRef.current;
-        const normalizedGeo = String(documentNavigation?.geo || initialGeoCodeRef.current || "").trim().toUpperCase();
+        const usStates = auditStates || (normalizedGeo.startsWith("US-")
+          ? await fetchTruthMapCollection(usStatesUrl)
+          : null);
         const initialFeature = normalizedGeo
-          ? [...countries.features, ...usStates.features].find((feature) => String(feature.properties?.geo || "").toUpperCase() === normalizedGeo)
+          ? [...countries.features, ...(usStates?.features || [])].find((feature) => String(feature.properties?.geo || "").toUpperCase() === normalizedGeo)
           : null;
         const initialProperties = initialFeature?.properties as TruthMapFeatureProperties | undefined;
         const lng = Number(initialProperties?.labelAnchorLng);
@@ -663,7 +670,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
               // the canonical audit lookup for small territories outside those tiles.
               return loadedFeature
                 || countries.features.find((candidate) => String(candidate.properties?.geo || "").toUpperCase() === normalizedGeo)
-                || usStates.features.find((candidate) => String(candidate.properties?.geo || "").toUpperCase() === normalizedGeo);
+                || usStates?.features.find((candidate) => String(candidate.properties?.geo || "").toUpperCase() === normalizedGeo);
             };
             let feature = getFeature();
             if (!feature && normalizedGeo.startsWith("US-")) {
