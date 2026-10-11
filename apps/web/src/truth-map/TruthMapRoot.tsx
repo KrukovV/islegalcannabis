@@ -293,6 +293,10 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
   }, []);
 
   useEffect(() => {
+    // The public first paint needs one GEO payload. A clicked feature loads its
+    // own rich record below; eagerly downloading the full card index competes
+    // with that GEO request and adds a large JSON parse to the cold path.
+    if (publicPresentation) return;
     let cancelled = false;
     void fetch("/api/new-map/card-index", { credentials: "same-origin" })
       .then(async (response) => response.ok ? response.json() as Promise<Record<string, CountryCardEntry>> : null)
@@ -305,7 +309,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [publicPresentation]);
 
   useEffect(() => {
     const geo = selectedPopup?.properties.geo;
