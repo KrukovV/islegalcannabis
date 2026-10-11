@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { headers } from "next/headers";
 import { formatVisibleRuntimeStamp } from "@/lib/runtimeIdentity";
 import { isLocalAuditHost } from "@/lib/privateAuditHost";
@@ -6,6 +7,7 @@ import TruthMapRoot from "@/truth-map/TruthMapRoot";
 import { getTruthMapRuntimeIdentity } from "./truth-map/runtimeConfig";
 import LocalPublicMapRoot from "./_components/LocalPublicMapRoot";
 import { STATIC_TRUTH_MAP_COUNTRIES_URL, STATIC_TRUTH_MAP_US_STATES_URL } from "@/truth-map/staticTruthMapUrls";
+import styles from "./page.module.css";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
@@ -50,6 +52,9 @@ export default async function HomePage({
     <>
       <link rel="canonical" href="https://www.islegal.info/" />
       {localAuditHost ? <LocalPublicMapRoot {...mapProps} /> : <TruthMapRoot {...mapProps} presentation="public" showPublicMapNotice={false} />}
+      <nav aria-label="Browse jurisdictions" className={styles.jurisdictionDirectoryNav}>
+        <Link href="/jurisdictions" className={styles.jurisdictionDirectoryLink}>Browse all jurisdictions</Link>
+      </nav>
     </>
   );
 }

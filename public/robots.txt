@@ -1,5 +1,10 @@
 # ========================================
-# CORE SEARCH ENGINES (ALLOW)
+# CANONICAL HOST
+# ========================================
+Host: www.islegal.info
+
+# ========================================
+# CORE SEARCH ENGINES
 # ========================================
 User-agent: Googlebot
 Allow: /
@@ -14,7 +19,7 @@ User-agent: Yandex
 Allow: /
 
 # ========================================
-# AI SEARCH (ALLOW)
+# AI SEARCH
 # ========================================
 User-agent: ChatGPT-User
 Allow: /
@@ -29,7 +34,7 @@ User-agent: Claude-SearchBot
 Allow: /
 
 # ========================================
-# AI TRAINING (BLOCK)
+# AI TRAINING
 # ========================================
 User-agent: GPTBot
 Disallow: /
@@ -41,7 +46,7 @@ User-agent: Google-Extended
 Disallow: /
 
 # ========================================
-# BAD SCRAPERS
+# HEAVY / BAD SCRAPERS
 # ========================================
 User-agent: CCBot
 Disallow: /
@@ -53,19 +58,22 @@ User-agent: Diffbot
 Disallow: /
 
 # ========================================
-# DEFAULT
+# DEFAULT RULE
 # ========================================
 User-agent: *
 Allow: /
-
-Disallow: /api/
-Disallow: /_next/
+Allow: /sitemap.xml
+Allow: /sitemap-main.xml
+Allow: /sitemap-index.xml
+Allow: /sitemap-countries.xml
+Allow: /sitemap-states.xml
+Allow: /sitemap-i18n.xml
+Allow: /api/sitemap
 Disallow: /admin/
 Disallow: /private/
 Disallow: /tmp/
 Disallow: /build/
 Disallow: /draft/
-Disallow: /*?*
 
 # ========================================
 # SITEMAP

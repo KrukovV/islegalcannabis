@@ -33,15 +33,17 @@ Before release:
    `/wiki-truth`, Social, DM or Store include.
 3. Verify localhost country/state/localized samples return 200 with title,
    canonical and `index, follow`.
-4. Verify sitemap counts `311/238/50/22` and four sitemap-index entries.
+4. Verify sitemap counts `312/238/50/22` (root, directory, GEO and locale
+   partitions) and four sitemap-index entries.
 5. Run `bash tools/pass_cycle.sh` and require the full PASS receipt.
 6. Release only through `Tools/commit_if_green.sh`. Use an isolated clean clone
    when the canonical worktree contains parallel uncommitted work.
 
 After Vercel promotion:
 
-1. Crawl all 311 URLs from `https://www.islegal.info/sitemap.xml` with bounded
-   concurrency and require 311 HTTP-200/indexable HTML results.
+1. Crawl all 312 URLs from `https://www.islegal.info/sitemap.xml` with bounded
+   concurrency and require 312 HTTP-200/indexable HTML results, including
+   `/jurisdictions` and its 310 server-rendered canonical child links.
 2. Recheck the split counts and `robots.txt` Googlebot/sitemap policy.
 3. Require production 404 for `/truth-map` and `/wiki-truth` and zero audit-route
    URLs in every sitemap.
@@ -54,6 +56,17 @@ Do not report immediate Google index recovery from these checks. Report
 current crawl/index result.
 
 ### Search Console API setup (read-only)
+
+The Codex GSC Wizard connector is already authorized for the verified
+`sc-domain:islegal.info` property with owner-level Google access. It can read
+Search Analytics, sitemaps and indexed-version URL Inspection without a
+browser or repository-local key. Its 2026-10-11 submission of the existing
+canonical `/sitemap.xml` was accepted and queued for download; it is not an
+indexing request or a guarantee of Google inclusion. The separate local
+`tools/seo/gsc_read.mjs` CLI still needs its own credential if it must run
+unattended outside Codex; the connector grant is not a file on disk.
+
+For that optional independent CLI path:
 
 1. In a dedicated Google Cloud project, enable the **Search Console API**
    (which includes URL Inspection). Create a dedicated service account for this site.

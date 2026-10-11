@@ -75,6 +75,7 @@ The following surfaces are public product/indexability routes:
 | Surface | Production requirement |
 | --- | --- |
 | `/` | Canonical public 307-GEO map: legal colours, enriched legal popups, in-place dotted popup-to-SEO links, verified Store Truth markers and the existing Antarctica animation; no legacy CannabisLawMap card, AI, Social, DM or audit UI |
+| `/jurisdictions` | Human-readable, server-rendered directory linking to every sitemap country, state and localized page; linked visibly from `/` |
 | `/new-map` | Permanent redirect to `/`, retaining valid map query parameters |
 | `/c/[code]` | HTTP 200 for every canonical country/state code in the sitemap |
 | `/[lang]/c/[code]` | HTTP 200 for every localized URL in the sitemap |
@@ -155,19 +156,22 @@ Hard prohibitions:
 
 ## 5. Sitemap baseline and non-shrinking rule
 
-The accepted 2026-08-23 production baseline is:
+The accepted 2026-08-23 production baseline was `311` URLs. The intentional
+2026-10-11 internal-discovery expansion adds one crawlable jurisdiction
+directory; it does not shrink or reclassify any protected GEO URL. The release
+baseline becomes:
 
 ```text
-sitemap.xml              311 unique URLs
-sitemap-main.xml         311 URLs
+sitemap.xml              312 unique URLs
+sitemap-main.xml         312 URLs
 sitemap-countries.xml    238 URLs
 sitemap-states.xml        50 URLs
 sitemap-i18n.xml          22 URLs
 sitemap-index.xml          4 sitemap entries
 ```
 
-The full 311-URL set is one root URL plus 238 country URLs, 50 U.S. state URLs
-and 22 localized URLs. A sitemap URL is valid only when the production URL it
+The full 312-URL set is one root URL, one jurisdiction directory, 238 country
+URLs, 50 U.S. state URLs and 22 localized URLs. A sitemap URL is valid only when the production URL it
 advertises is fetchable and indexable.
 
 The root URL is exact, not merely normalization-equivalent:
@@ -229,7 +233,13 @@ status. The full under-map document is the expanded evidence surface and keeps
 the authoritative evidence plus explicitly labelled supplementary action,
 profile/history, source-register and related-territory context. Map-only
 noindex fallback documents are not sitemap entries and cannot change the
-protected 311-URL baseline.
+protected 312-URL baseline.
+
+The root HTML must expose a visible, crawlable link to `/jurisdictions`.
+That directory must render ordinary server-side anchors to all 238 canonical
+country URLs, 50 canonical U.S. state URLs and 22 existing localized URLs;
+map-only JavaScript feature clicks are not the sole internal discovery path.
+The directory contains navigation, not a second legal conclusion or source.
 
 The SEO repair must not change Legal Truth, display colour, source ownership,
 Store eligibility, Social visibility, SSOT or popup conclusions. Popup/SEO data
@@ -242,6 +252,8 @@ Before release, localhost must prove at minimum:
 - `/c/swz`, `/c/nld`, `/c/us-ca` and `/es/c/nld` return 200;
 - their title, canonical and robots metadata match the requested GEO/locale;
 - sitemap counts match the protected baseline;
+- `/` has a visible directory link, and `/jurisdictions` has 310 unique
+  canonical GEO/language links in initial HTML;
 - `/truth-map` and `/wiki-truth` remain available only on localhost;
 - `/` renders the public display-only map with legal colours, enriched legal
   evidence popup and only Store Truth-gated markers;
@@ -293,9 +305,10 @@ A push or Vercel deployment is not acceptance. After Vercel promotion, verify:
 
 1. `origin/main` identifies the authorized commit and `/api/build-meta` exposes
    that exact SHA through `commit` or `buildSha`.
-2. All 311 canonical sitemap URLs return HTTP 200.
+2. All 312 canonical sitemap URLs return HTTP 200.
 3. Every advertised HTML page has title, canonical and `index, follow`.
 4. Split sitemap counts are `238/50/22`; the sitemap index contains 4 entries.
+   The full and main sitemaps include the root and jurisdiction directory.
 5. `robots.txt` allows Googlebot and rendering assets, and publishes the canonical full sitemap once. The split sitemaps and index remain live and guarded; retry/API compatibility endpoints are not additional robots declarations.
 6. `/truth-map` and `/wiki-truth` return 404 on the public host.
 7. Public country/state adapters return HTTP 308 to immutable
@@ -333,6 +346,13 @@ a sitemap 200, or a successful push. Google recrawl/index convergence is an
 external asynchronous state.
 
 ### Search Console read integration
+
+The authorized Codex GSC Wizard connector currently reads the verified
+`sc-domain:islegal.info` property directly, without a local credential file.
+Its sitemap submission and URL Inspection receipts are Google-state evidence,
+not proof that all advertised pages have been indexed. The independent CLI
+below is optional for unattended repository-local reads and has a separate
+credential boundary.
 
 `tools/seo/gsc_read.mjs` is a local, read-only diagnostic client. It accepts
 only the verified `sc-domain:islegal.info` or `https://www.islegal.info/`
