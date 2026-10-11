@@ -51,6 +51,10 @@ export function buildMainSitemapEntries(): SitemapEntry[] {
       url: toCanonicalUrl("/"),
       lastModified: toIsoDate(getBuildStamp().buildTime),
       priority: "1.0"
+    },
+    {
+      url: toCanonicalUrl("/jurisdictions"),
+      lastModified: toIsoDate(getBuildStamp().buildTime)
     }
   ];
 }
