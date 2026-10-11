@@ -26,7 +26,7 @@ export function getCountrySeoTitle(
   locale: SeoLocale
 ) {
   const seo = getSeoText(locale);
-  const name = data.node_type === "country" ? getLocalizedCountryName(data, locale) : data.name;
+  const name = data.node_type === "country" ? getLocalizedCountryName(data, locale) : `${data.name}, USA`;
   return seo.title(name);
 }
 

@@ -14,7 +14,7 @@ test("/c/us-ca starts as a state document without a map overlay", async ({ page 
 
   await expect(page.getByTestId("new-map-seo-overlay")).toHaveCount(0);
   await expect(page.getByTestId("new-map-country-popup")).toHaveCount(0);
-  await expect(page.locator("article").getByRole("heading", { level: 1 })).toHaveText("Is cannabis legal in California?");
+  await expect(page.locator("article").getByRole("heading", { level: 1 })).toHaveText("Is cannabis legal in California, USA?");
 
   const center = await page.getByTestId("public-map-canvas").locator(".maplibregl-canvas").evaluate((node) => {
     const value = node.getAttribute("data-truth-map-initial-camera");

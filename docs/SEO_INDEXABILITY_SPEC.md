@@ -217,6 +217,7 @@ Every advertised HTML URL must return:
 - `robots` equal to `index, follow`;
 - no conflicting `noindex` directive;
 - the canonical GEO-specific country/state content;
+- a state title and H1 that identify the U.S. state as `, USA`, including when a country has the same name;
 - the normal product map and country popup for that GEO;
 - no AI assistant, Social, DM or audit control on public routes.
 
