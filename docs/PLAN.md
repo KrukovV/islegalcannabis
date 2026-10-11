@@ -2,6 +2,14 @@
 
 Statuses: pending | in_progress | done
 
+## 2026-10-12 production cold map response and remaining work
+
+- [in_progress] Replace the public map's dynamic basemap-style fetch with the exact byte-pinned production-approved Carto style in the client bundle. Local optimized build, three isolated WebKit requests/first-fill traces, mandatory smoke 32/32/0 and canonical root CI/post/hub gates pass. Deliver the candidate and compare fresh production WebKit cold runs before claiming improvement.
+- [in_progress] Refresh dated Search Console evidence. The 2026-10-12 read found the canonical sitemap pending download, root indexed, /jurisdictions unknown to Google, /c/arg crawled but not indexed, and /es/c/mng unknown; these are sampled URL states, not whole-site counts. The 10:00 MSK read monitor is active. Complete Pages cohorts still require a dated UI export.
+- [pending] Continue official-source C2/C3 review for the exact 307-GEO universe and current 1,477 document/signal queue on the isolated review branch, without applying proposal colours or changing production before the full gate and explicit authorization.
+- [pending] Close Store coverage only with official premises, coordinate and lifecycle evidence; keep saved records distinct from visible Store Truth-gated leaves. The current Montana DOR October list has 554 city-only rows versus 558 in the retained August snapshot and needs source reconciliation; the South Dakota DOH list has 62 city-only rows. Neither provides a publishable individual location or current lifecycle proof.
+- [pending] Advance immutable publication snapshots, correction handoffs and approved legal localizations only when the required receipts and review identities exist; preserve review-branch isolation and release gates.
+
 ## 2026-10-11 cold map response, then technical SEO
 
 - [in_progress] GSC Wizard now reads the verified `sc-domain:islegal.info` property as owner without browser interaction; URL Inspection proves indexed canonical root/Mongolia/Texas, while sampled excluded URLs are crawl-allowed and successfully fetched or not yet crawled. The canonical 311-URL `/sitemap.xml` was submitted once via API on 2026-10-11 and is pending Google's download. Add a visible root-to-directory internal link and a server-rendered directory to all 238 country, 50 state and 22 localized sitemap pages; guard the intentional 312-URL expansion and both robots copies. Do not equate sitemap submission or the GSC sitemap `indexed: 0` field with confirmed indexing.

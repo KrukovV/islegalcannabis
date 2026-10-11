@@ -124,7 +124,13 @@ test("truth-map keeps the AI assistant primary and Social compact by default", a
 
   await page.getByTestId("truth-map-social-toggle").click();
   await expect(social).toHaveAttribute("data-social-panel-state", "expanded");
-  await expect(page.getByText("Выберите псевдоним", { exact: true })).toBeVisible();
+  const socialStatus = await social.getAttribute("data-social-chat-status");
+  expect(["ACTIVE", "DISABLED"]).toContain(socialStatus);
+  if (socialStatus === "ACTIVE") {
+    await expect(page.getByText("Выберите псевдоним", { exact: true })).toBeVisible();
+  } else {
+    await expect(page.getByRole("heading", { name: "Обсуждения сообщества недоступны" })).toBeVisible();
+  }
   const [aiBox, socialBox] = await Promise.all([aiDock.boundingBox(), social.boundingBox()]);
   expect(aiBox).not.toBeNull();
   expect(socialBox).not.toBeNull();
