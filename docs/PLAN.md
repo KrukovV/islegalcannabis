@@ -4,9 +4,9 @@ Statuses: pending | in_progress | done
 
 ## 2026-10-11 cold map response, then technical SEO
 
-- [in_progress] Remove avoidable public-map cold work: initialize MapLibre on the requested camera and start the one real immutable 307-GEO response during root HTML parsing, reusing response clones across development remounts. Compare fresh WebKit timings and verify first zoom/native labels, Store visibility, legal popup, Antarctica, audit isolation and post-release root gates before delivery.
-- [pending] Deliver the two saved documentation receipts plus the tested cold-start code via the green helper, verify exact production build SHA and live browser/crawl behavior.
-- [pending] After the map release, diagnose Search Console's indexed/excluded URL cohorts against robots, sitemap, canonicals, localized metadata and rendered content; repair proven technical faults and establish read-only Search Console API access/monitoring without claiming or automating guaranteed indexing.
+- [done] Remove avoidable public-map cold work: initialize MapLibre on the requested camera and start the one real immutable 307-GEO response during root HTML parsing, reusing response clones across development remounts. Local focused WebKit 10/10 and root CI/smoke pass. Production at `66058fe8` passes popup/SEO 2/2, all 311 crawlable URLs and post-release root gates; fresh cold map readiness remains network-bound at 8.18-11.36s and is not claimed instant.
+- [done] Deliver the two saved documentation receipts plus the tested cold-start code via the green helper; exact production build SHA, full live crawl, public adapters, Store and audit-route isolation verified.
+- [in_progress] Diagnose Search Console's indexed/excluded cohorts against robots, sitemap, canonicals, localized metadata and rendered content. Restore render-asset crawling, native-language neutral metadata for all 22 localized URLs, and establish isolated read-only API diagnostics. Actual Google Pages cohorts and live API access remain unconfirmed pending a separately authorized credential and dated Search Console export; do not claim automated indexing.
 
 ## 2026-10-10 production basemap/US-fill regression
 

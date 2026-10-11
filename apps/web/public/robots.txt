@@ -63,14 +63,12 @@ Disallow: /
 User-agent: *
 Allow: /
 Allow: /sitemap.xml
-Allow: /sitemap.xml?retry=1
 Allow: /sitemap-main.xml
 Allow: /sitemap-index.xml
 Allow: /sitemap-countries.xml
 Allow: /sitemap-states.xml
 Allow: /sitemap-i18n.xml
 Allow: /api/sitemap
-Disallow: /_next/
 Disallow: /admin/
 Disallow: /private/
 Disallow: /tmp/
@@ -81,7 +79,3 @@ Disallow: /draft/
 # SITEMAP
 # ========================================
 Sitemap: https://www.islegal.info/sitemap.xml
-Sitemap: https://www.islegal.info/sitemap-main.xml
-Sitemap: https://www.islegal.info/sitemap-index.xml
-Sitemap: https://www.islegal.info/sitemap.xml?retry=1
-Sitemap: https://www.islegal.info/api/sitemap

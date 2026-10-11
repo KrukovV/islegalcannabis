@@ -179,6 +179,19 @@ export function getLocalizedSeoTitle(data: CountryPageData, locale: SeoAltLocale
   return ALT_COPY[locale].title(getLocalizedCountryName(data, locale));
 }
 
+// Navigational metadata only. Do not translate a legal conclusion or reuse
+// historical wiki summaries as current legal evidence.
+export function getLocalizedSeoEvidenceDescription(data: CountryPageData, locale: SeoAltLocale) {
+  const name = getLocalizedCountryName(data, locale);
+  switch (locale) {
+    case "es": return `Consulta las fuentes oficiales, el alcance y las pruebas sobre la situación legal del cannabis en ${name}.`;
+    case "fr": return `Consultez les sources officielles, leur portée et les preuves du statut juridique du cannabis en ${name}.`;
+    case "de": return `Offizielle Quellen, Geltungsbereich und Belege zum rechtlichen Status von Cannabis in ${name}.`;
+    case "pt": return `Consulte fontes oficiais, o âmbito e as provas sobre a situação legal da cannabis em ${name}.`;
+    case "nl": return `Bekijk officiële bronnen, de reikwijdte en het bewijs voor de juridische status van cannabis in ${name}.`;
+  }
+}
+
 export function getLocalizedSeoIntro(data: CountryPageData, locale: SeoAltLocale) {
   if (getEffectiveSeoLocale(data.code, locale) !== locale) {
     return data.notes_normalized;

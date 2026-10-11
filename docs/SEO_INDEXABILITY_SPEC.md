@@ -80,7 +80,7 @@ The following surfaces are public product/indexability routes:
 | `/sitemap-i18n.xml` | Localized partition |
 | `/sitemap-index.xml` | Index containing the four split sitemap URLs |
 | `/api/sitemap` | Existing XML compatibility endpoint |
-| `/robots.txt` | Allows Googlebot and publishes canonical sitemap locations |
+| `/robots.txt` | Allows Googlebot and rendering assets, publishes one canonical full sitemap location |
 
 Local audit routes have a different contract:
 
@@ -291,7 +291,7 @@ A push or Vercel deployment is not acceptance. After Vercel promotion, verify:
 2. All 311 canonical sitemap URLs return HTTP 200.
 3. Every advertised HTML page has title, canonical and `index, follow`.
 4. Split sitemap counts are `238/50/22`; the sitemap index contains 4 entries.
-5. `robots.txt` allows Googlebot and publishes sitemap locations.
+5. `robots.txt` allows Googlebot and rendering assets, and publishes the canonical full sitemap once. The split sitemaps and index remain live and guarded; retry/API compatibility endpoints are not additional robots declarations.
 6. `/truth-map` and `/wiki-truth` return 404 on the public host.
 7. Public country/state adapters return HTTP 308 to immutable
    content-addressed `/static/truth-map/<file>` payloads.
@@ -302,7 +302,7 @@ A push or Vercel deployment is not acceptance. After Vercel promotion, verify:
 10. A real production browser waits for the public map canvas, clicks an actual
    GEO feature and verifies the complete rich legal-evidence popup. Its dotted
    SEO CTA must open the country panel without a document reload; closing that
-   panel must restore the same popup record. The same browser proof verifies
+   panel must leave the map with no SEO panel, restored popup or `i` marker. The same browser proof verifies
    Antarctica animation, without legacy CannabisLawMap, AI, Social, DM or audit
    controls.
 11. A post-release canonical-root `pass_cycle` remains green.
@@ -326,6 +326,31 @@ Use these states precisely:
 Never report `GOOGLE_INDEX_CONFIRMED` from local tests, `curl`, Vercel readiness,
 a sitemap 200, or a successful push. Google recrawl/index convergence is an
 external asynchronous state.
+
+### Search Console read integration
+
+`tools/seo/gsc_read.mjs` is a local, read-only diagnostic client. It accepts
+only the verified `sc-domain:islegal.info` or `https://www.islegal.info/`
+property, requests only `webmasters.readonly`, checks that the credential can
+see that exact property, and reads its sitemap status and finalized Search
+Analytics metrics. An optional canonical URL uses indexed-version URL
+Inspection. It never submits a sitemap, sends an indexing notification,
+requests a live-index test, or claims that a sitemap/API response guarantees
+indexing. Search Analytics is not a complete URL inventory, and the Search
+Console Pages report's excluded cohorts are not exposed through these reads;
+retain dated UI exports for the `crawled/discovered, not indexed` cohorts.
+
+The credential file is external to the repository and is never logged or
+committed. `GSC_SERVICE_ACCOUNT_FILE` uses an isolated service account granted
+read access to the verified property; `GSC_ACCESS_TOKEN` accepts a separately
+consented read-only OAuth token if the service-account grant is unavailable.
+The unrelated Google Ads OAuth grant must not be reused: it lacks the Search
+Console scope. Missing credentials mean `GSC_API_NOT_CONNECTED`, not a green
+live API check. Do not use the Google Indexing API for ordinary country pages.
+
+Localized metadata for the 22 protected alternate URLs uses neutral
+native-language navigational descriptions. It does not translate or replace
+the original official legal citation or current canonical legal conclusion.
 
 ## 11. Change control
 

@@ -53,6 +53,26 @@ Do not report immediate Google index recovery from these checks. Report
 `CRAWLABILITY_PASS` and `GOOGLE_RECRAWL_UNCONFIRMED` until Search Console shows a
 current crawl/index result.
 
+### Search Console API setup (read-only)
+
+1. In a dedicated Google Cloud project, enable the **Search Console API**
+   (which includes URL Inspection). Create a dedicated service account for this site.
+2. In Search Console's verified `islegal.info` property, grant its service-account
+   email **Restricted** access under Settings → Users and permissions. If Google
+   does not accept that principal, use a separately consented installed-app
+   OAuth token with only `webmasters.readonly`; do not reuse the Google Ads
+   refresh token or paste credentials into chat/repository.
+3. Store the service-account JSON outside the checkout, with owner-only file
+   permissions. Set `GSC_SERVICE_ACCOUNT_FILE` to that path and
+   `GSC_PROPERTY=sc-domain:islegal.info` (or the exact verified URL-prefix
+   property). Run `node tools/seo/gsc_read.mjs` for local configuration check,
+   then `node tools/seo/gsc_read.mjs --live --inspect=https://www.islegal.info/c/mng`.
+4. Preserve a dated, credential-free report outside the repository and compare
+   sitemap errors, indexed-version inspection and 28-day finalized performance
+   with the Search Console Pages UI export. Do not infer 307-page index coverage
+   from Search Analytics rows. A missing grant/credential is
+   `GSC_API_NOT_CONNECTED`; it is not a passed live check.
+
 ## UI Singleton
 
 Only one Next.js dev server instance is allowed. Use:

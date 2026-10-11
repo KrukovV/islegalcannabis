@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import CountrySeoPage, { ensureCountryPageHash, getCountrySeoTitle } from "@/app/_components/CountrySeoPage";
 import { getCountryPageData, listCountryPageCodes } from "@/lib/countryPageStorage";
-import { buildSeoLanguageAlternates, isSeoAltLocale, type SeoAltLocale } from "@/lib/seo/i18n";
+import { buildSeoLanguageAlternates, getLocalizedSeoEvidenceDescription, isSeoAltLocale, type SeoAltLocale } from "@/lib/seo/i18n";
 import { getEffectiveSeoLocale, listSeoTranslationEntries, type SeoLocale } from "@/lib/seo/wikiLocaleContent";
 import { getTruthMapCountryPageProjection } from "@/truth-map/truthMapCountryPage";
 
@@ -39,7 +39,7 @@ export async function generateMetadata({
   const truthMapProjection = getTruthMapCountryPageProjection(data);
   if (!truthMapProjection) return { title: "Country not found", robots: { index: false, follow: false } };
   const heading = getCountrySeoTitle(data, locale);
-  const localizedSummary = truthMapProjection.properties.legalEvidenceSummary;
+  const localizedSummary = getLocalizedSeoEvidenceDescription(data, requestedLocale);
   return {
     title: heading,
     description: localizedSummary,
