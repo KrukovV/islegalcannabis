@@ -32,4 +32,12 @@ describe("/[lang]/c/[code] metadata", () => {
       "https://www.islegal.info/c/tha"
     );
   });
+
+  it("keeps the U.S. state qualifier in a localized state title", async () => {
+    const metadata = await generateMetadata({
+      params: Promise.resolve({ lang: "es", code: "us-ca" })
+    });
+    expect(metadata.title).toBe("¿Es legal el cannabis en California, USA?");
+    expect(metadata.alternates?.canonical).toBe("/es/c/us-ca");
+  });
 });
