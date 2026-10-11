@@ -69,6 +69,20 @@ test("public GEO popup keeps its rich legal content and opens the SEO panel with
   expect(await page.evaluate(() => performance.getEntriesByType("navigation").length)).toBe(navigationCount);
 });
 
+test("public query camera accepts one real legal-feature click immediately after ready", async ({ page }) => {
+  test.setTimeout(60_000);
+  await page.goto("/?lat=57&lng=-105&zoom=4", { waitUntil: "domcontentloaded" });
+  await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 45_000 });
+  const canvas = page.locator(".maplibregl-canvas").first();
+  const bounds = await canvas.boundingBox();
+  expect(bounds).not.toBeNull();
+  await canvas.click({ position: { x: bounds!.width / 2, y: bounds!.height / 2 } });
+  const popup = page.getByTestId("new-map-country-popup");
+  await expect(popup).toBeVisible({ timeout: 15_000 });
+  await expect(popup).toContainText("Canada");
+  await expect(popup.getByTestId("truth-map-legal-evidence")).toContainText("Current legal conclusion:");
+});
+
 test("public Truth Map keeps Mongolia's SEO panel on the same current GREEN record and exposes its country info marker", async ({ page }) => {
   await page.goto("/?geo=MN", { waitUntil: "domcontentloaded" });
   await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 30_000 });
