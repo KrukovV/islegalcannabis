@@ -10,7 +10,7 @@ import AsciiOverlay from "@/new-map/ascii/AsciiOverlay";
 import { attachHoverController } from "@/new-map/hoverController";
 import type { CountryCardEntry, LegalCountryCollection, NewMapBootResult } from "@/new-map/map.types";
 import type { CountryPageData } from "@/lib/countryPageStorage";
-import { NEW_MAP_BASEMAP_STYLE_URL } from "@/new-map/runtimeUrls";
+import { STATIC_BASEMAP_STYLE } from "@/new-map/staticBasemapStyle";
 import {
   readVisualViewportKeyboardOffset,
   readVisualViewportSnapshot,
@@ -540,7 +540,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
     if (!container) return;
     let disposed = false;
     const runtime = createMap(container, {
-      style: NEW_MAP_BASEMAP_STYLE_URL,
+      style: structuredClone(STATIC_BASEMAP_STYLE),
       usStatesUrl,
       initialCamera: documentNavigation?.camera || initialMapViewRef.current,
       shouldSelectFeature: (point) => {

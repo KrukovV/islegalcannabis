@@ -1,8 +1,21 @@
 import fs from "node:fs";
 import path from "node:path";
+import { createHash } from "node:crypto";
 import { describe, expect, it } from "vitest";
 
 describe("new-map route config", () => {
+  it("keeps the public map's direct-Carto style byte-pinned without a cold HTTP request", () => {
+    const stylePath = path.join(process.cwd(), "src", "new-map", "styles", "positron.227fe978a37b.json");
+    const bytes = fs.readFileSync(stylePath);
+    const hash = createHash("sha256").update(bytes).digest("hex").slice(0, 12);
+    expect(path.basename(stylePath)).toBe(`positron.${hash}.json`);
+    const style = JSON.parse(bytes.toString("utf8"));
+    expect(style.sources.carto.url).toBe("https://tiles.basemaps.cartocdn.com/vector/carto.streets/v1/tiles.json");
+    expect(style.glyphs).toBe("https://tiles.basemaps.cartocdn.com/fonts/{fontstack}/{range}.pbf");
+    expect(style.layers.length).toBe(93);
+    const publicMap = fs.readFileSync(path.join(process.cwd(), "src", "truth-map", "TruthMapRoot.tsx"), "utf8");
+    expect(publicMap).toContain("style: structuredClone(STATIC_BASEMAP_STYLE)");
+  });
   it("keeps the route force-dynamic so local runtime refresh can converge", () => {
     const filePath = path.join(process.cwd(), "src", "app", "new-map", "page.tsx");
     const source = fs.readFileSync(filePath, "utf8");
