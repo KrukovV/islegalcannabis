@@ -182,6 +182,9 @@ a {
   background: #fff;
 }
 
+.auditView .proposalToolbar label { min-width: 0; }
+.auditView .proposalToolbar select { width: 100%; min-width: 0; max-width: 100%; }
+
 .auditView .truthTable {
   width: max-content;
   min-width: 2300px;

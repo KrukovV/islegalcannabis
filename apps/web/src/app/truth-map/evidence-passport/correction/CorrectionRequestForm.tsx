@@ -1,6 +1,10 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState, useSyncExternalStore, type FormEvent } from "react";
+
+const subscribeHydration = () => () => {};
+const clientHydrated = () => true;
+const serverHydrated = () => false;
 
 type Receipt = {
   receiptId: string;
@@ -11,6 +15,7 @@ type Receipt = {
 };
 
 export default function CorrectionRequestForm({ geos, initialGeo }: { geos: Array<{ geo: string; territory: string }>; initialGeo: string }) {
+  const hydrated = useSyncExternalStore(subscribeHydration, clientHydrated, serverHydrated);
   const [receipt, setReceipt] = useState<Receipt | null>(null);
   const [error, setError] = useState("");
   const [pending, setPending] = useState(false);
@@ -30,7 +35,7 @@ export default function CorrectionRequestForm({ geos, initialGeo }: { geos: Arra
     else setReceipt(payload);
     setPending(false);
   }
-  return <form onSubmit={submit} data-testid="correction-request-form">
+  return <form method="post" onSubmit={submit} data-testid="correction-request-form">
     <label htmlFor="correction-geo">Jurisdiction</label>
     <select id="correction-geo" name="geo" defaultValue={initialGeo}>{geos.map((entry) => <option key={entry.geo} value={entry.geo}>{entry.territory} ({entry.geo})</option>)}</select>
     <label htmlFor="correction-organization">Submitting organization</label>
@@ -41,7 +46,7 @@ export default function CorrectionRequestForm({ geos, initialGeo }: { geos: Arra
     <input id="correction-licence" name="licenceReference" maxLength={180} />
     <label htmlFor="correction-note">What should be independently checked?</label>
     <textarea id="correction-note" name="note" maxLength={2000} />
-    <button type="submit" disabled={pending}>{pending ? "Recording candidate…" : "Submit unverified candidate"}</button>
+    <button type="submit" disabled={!hydrated || pending}>{pending ? "Recording candidate…" : "Submit unverified candidate"}</button>
     {error ? <p role="alert">{error}</p> : null}
     {receipt ? <section data-testid="correction-request-receipt"><strong>Candidate recorded — no automatic change</strong><p>Receipt: <code>{receipt.receiptId}</code></p><p>{receipt.candidate.geo} · {receipt.provenance.classification} · {receipt.review.state} · {receipt.outcome.state}</p><p>Candidate SHA-256: <code>{receipt.provenance.candidateSha256}</code></p></section> : null}
   </form>;

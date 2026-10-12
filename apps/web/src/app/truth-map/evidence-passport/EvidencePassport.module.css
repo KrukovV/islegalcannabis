@@ -29,14 +29,15 @@
 .hero > p:not(.eyebrow) { max-width: 760px; color: #476075; font-size: 18px; line-height: 1.55; }
 .eyebrow { color: #275c71; font-size: 12px; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; }
 .pillRow { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
-.pillRow span { padding: 7px 10px; border-radius: 999px; background: #e5f0f3; color: #214e62; font-size: 13px; font-weight: 700; }
+.pillRow span { max-width: 100%; padding: 7px 10px; border-radius: 999px; background: #e5f0f3; color: #214e62; font-size: 13px; font-weight: 700; overflow-wrap: anywhere; }
 
 .designPartners { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; width: min(100%, 1120px); margin: 20px auto; }
 .designPartners article { display: grid; gap: 8px; padding: 18px; color: #567084; line-height: 1.45; }
 .designPartners strong { color: #19384f; }
 
 .controls { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 0.9fr); gap: 18px; align-items: stretch; padding: 18px; margin-bottom: 20px; }
-.controls form { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: end; }
+.controls > * { min-width: 0; }
+.controls form { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: end; min-width: 0; }
 .controls label { grid-column: 1 / -1; color: #3d566a; font-size: 14px; font-weight: 700; }
 .controls select,
 .controls input,
@@ -45,11 +46,12 @@
 .controls select,
 .controls input,
 .controls textarea { min-width: 0; color: #152538; background: #fff; }
+.controls select { max-width: 100%; }
 .controls input,
 .controls textarea { grid-column: 1 / -1; width: 100%; box-sizing: border-box; }
 .controls textarea { min-height: 110px; padding-block: 10px; resize: vertical; }
 .controls button { color: #fff; background: #17677e; font-weight: 750; cursor: pointer; }
-.monitor { display: grid; align-content: center; gap: 4px; padding: 4px 2px; color: #496478; font-size: 14px; }
+.monitor { display: grid; grid-template-columns: minmax(0, 1fr); align-content: center; gap: 4px; min-width: 0; padding: 4px 2px; color: #496478; font-size: 14px; }
 .monitor strong { color: #173c51; }
 .monitor small { color: #687f8f; line-height: 1.35; }
 .monitor a { color: #135d78; font-weight: 750; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; }
@@ -86,8 +88,16 @@
 .warning { color: #516b7d; font-size: 14px; }
 .warning { padding: 10px 12px; border-left: 4px solid #c78013; background: #fff7e7; }
 
-.citations { display: grid; gap: 14px; margin: 14px 0 0 22px; }
-.citations li { padding-left: 4px; color: #466177; line-height: 1.45; }
+.citations { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; min-width: 0; margin: 14px 0 0 22px; }
+.citations li { min-width: 0; padding-left: 4px; color: #466177; line-height: 1.45; }
+.page a,
+.page code,
+.page pre,
+.page dd,
+.page li,
+.page span,
+.page strong { overflow-wrap: anywhere; }
+.page pre { max-width: 100%; white-space: pre-wrap; }
 .citations a,
 .endpointList a { color: #135d78; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; font-weight: 750; }
 .citations p { margin-top: 2px; font-size: 13px; }
@@ -107,7 +117,7 @@
   .page { padding-inline: 14px; }
   .designPartners,
   .controls { grid-template-columns: 1fr; }
-  .controls form { grid-template-columns: 1fr; }
+  .controls form { grid-template-columns: minmax(0, 1fr); }
   .definitionGrid { grid-template-columns: 1fr; }
   .passportHeader { flex-direction: column; }
 }

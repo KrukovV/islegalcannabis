@@ -175,6 +175,16 @@
   pointer-events: auto;
 }
 
+@media (max-width: 720px) {
+  .root[data-testid="truth-map-root"] :global([data-testid="truth-map-audit-notice"]) {
+    max-height: min(30dvh, 240px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    touch-action: pan-y;
+    pointer-events: auto;
+  }
+}
+
 .richPopupLoading {
   position: fixed;
   z-index: 40;

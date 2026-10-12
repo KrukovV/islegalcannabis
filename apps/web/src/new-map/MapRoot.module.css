@@ -389,6 +389,12 @@
   backdrop-filter: blur(18px);
 }
 
+/* The local audit dock must let its input shrink to the mobile viewport. */
+.root[data-testid="truth-map-root"] .aiBar {
+  min-width: 0;
+  width: 100%;
+}
+
 .aiAction,
 .aiSubmit {
   width: 44px;

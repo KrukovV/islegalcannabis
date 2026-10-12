@@ -13,6 +13,47 @@ async function gotoReadyTruthMap(page: Page, route: string) {
   ), undefined, { timeout: MAP_READY_TIMEOUT });
 }
 
+test("truth-map mobile audit preview leaves a rendered legal map accessible", async ({ page }) => {
+  test.setTimeout(90_000);
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto("/truth-map?lat=40.7033862&lng=-73.9893613&zoom=13", { waitUntil: "domcontentloaded" });
+  await page.waitForFunction(() => document.querySelector('[data-testid="truth-map-canvas"]')?.getAttribute("data-map-ready") === "1", undefined, { timeout: MAP_READY_TIMEOUT });
+
+  const state = await page.evaluate(() => {
+    const map = window.__TRUTH_MAP_DEBUG__?.map;
+    const notice = document.querySelector('[data-testid="truth-map-audit-notice"]');
+    const dock = document.querySelector('[data-testid="new-map-ai-dock"]');
+    if (!map || !notice || !dock) return null;
+    const noticeRect = notice.getBoundingClientRect();
+    const dockRect = dock.getBoundingClientRect();
+    const x = Math.round(innerWidth / 2);
+    const y = Math.round((noticeRect.bottom + dockRect.top) / 2);
+    return {
+      noticeHeight: noticeRect.height,
+      freeHeight: dockRect.top - noticeRect.bottom,
+      mapHit: Boolean(document.elementFromPoint(x, y)?.closest('[data-testid="truth-map-canvas"]')),
+      legalLoaded: map.isSourceLoaded("legal-countries"),
+      legalFeatures: map.queryRenderedFeatures({ layers: ["legal-fill"] }).length,
+      centerLng: map.getCenter().lng,
+      x, y
+    };
+  });
+  expect(state).not.toBeNull();
+  expect(state?.noticeHeight).toBeLessThanOrEqual(241);
+  expect(state?.freeHeight).toBeGreaterThan(200);
+  expect(state?.mapHit).toBe(true);
+  expect(state?.legalLoaded).toBe(true);
+  expect(state?.legalFeatures).toBeGreaterThan(0);
+  expect(await page.getByTestId("truth-map-social-chat").getAttribute("data-social-panel-state")).toBe("collapsed");
+
+  await page.mouse.move(state!.x, state!.y);
+  await page.mouse.down();
+  await page.mouse.move(state!.x + 70, state!.y + 25, { steps: 8 });
+  await page.mouse.up();
+  const afterLng = await page.evaluate(() => window.__TRUTH_MAP_DEBUG__?.map?.getCenter().lng);
+  expect(afterLng).not.toBe(state?.centerLng);
+});
+
 test("local Evidence Passport demonstrates one exact canonical GEO watchlist", async ({ page }) => {
   test.setTimeout(60_000);
   const runtimeErrors: string[] = [];

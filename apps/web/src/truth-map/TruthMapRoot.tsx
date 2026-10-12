@@ -3,7 +3,7 @@
 import { createContext, useCallback, useContext, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import maplibregl from "maplibre-gl";
 import type { RuntimeIdentity } from "@/lib/runtimeIdentity";
-import { createMap, NEW_MAP_SOURCE_ID, NEW_MAP_US_STATES_SOURCE_ID } from "@/new-map/createMap";
+import { createMap, NEW_MAP_FILL_LAYER_ID, NEW_MAP_SOURCE_ID, NEW_MAP_US_STATES_SOURCE_ID } from "@/new-map/createMap";
 import ViewportCountryPopup from "@/new-map/components/ViewportCountryPopup";
 import UnifiedSeoStatusPanel from "@/new-map/components/UnifiedSeoStatusPanel";
 import AsciiOverlay from "@/new-map/ascii/AsciiOverlay";
@@ -53,6 +53,35 @@ type Props = {
 };
 
 const NO_INTERACTIVE_OVERLAY_LAYERS: readonly string[] = [];
+
+function waitForCurrentLegalRender(map: maplibregl.Map, signal: AbortSignal): Promise<void> {
+  return new Promise((resolve, reject) => {
+    let timer = 0;
+    const cleanup = () => {
+      map.off("render", onRender);
+      signal.removeEventListener("abort", onAbort);
+      window.clearTimeout(timer);
+    };
+    const onAbort = () => {
+      cleanup();
+      reject(new Error("TRUTH_MAP_LEGAL_RENDER_ABORTED"));
+    };
+    const onRender = () => {
+      // The GEO source owns the legal fill; basemap tile readiness is separate.
+      if (!map.getLayer(NEW_MAP_FILL_LAYER_ID) || !map.isSourceLoaded(NEW_MAP_SOURCE_ID)) return;
+      cleanup();
+      resolve();
+    };
+    if (signal.aborted) return onAbort();
+    map.on("render", onRender);
+    signal.addEventListener("abort", onAbort, { once: true });
+    timer = window.setTimeout(() => {
+      cleanup();
+      reject(new Error("TRUTH_MAP_LEGAL_RENDER_TIMEOUT"));
+    }, 30_000);
+    map.triggerRepaint();
+  });
+}
 
 type TruthMapQaController = {
   jumpTo: (_lng: number, _lat: number, _zoom: number) => Promise<void>;
@@ -533,6 +562,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
     const container = containerRef.current;
     if (!container) return;
     let disposed = false;
+    const renderAbort = new AbortController();
     const runtime = createMap(container, {
       style: NEW_MAP_BASEMAP_STYLE_URL,
       usStatesUrl,
@@ -636,6 +666,8 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
           lng: Number(initialCenter.lng.toFixed(6)),
           zoom: Number(runtime.map.getZoom().toFixed(6))
         });
+        await waitForCurrentLegalRender(runtime.map, renderAbort.signal);
+        if (disposed) return;
         setMapReady(true);
         if (!publicPresentation && new URLSearchParams(window.location.search).get("qa") === "1") host.__TRUTH_MAP_QA__ = {
           jumpTo: (lng, lat, zoom) => new Promise<void>((resolve) => {
@@ -713,6 +745,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
 
     return () => {
       disposed = true;
+      renderAbort.abort();
       hoverCleanup?.();
       if (!hoverCleanup) asciiCleanup?.();
       locationMarkerRef.current?.remove();
