@@ -12,6 +12,11 @@ function isPrivateTruthAuditPath(pathname: string) {
     pathname.startsWith("/trust-view/");
 }
 
+function isCrawlServicePath(pathname: string) {
+  return pathname === "/robots.txt" || pathname === "/api/sitemap" ||
+    /^\/sitemap(?:-(?:main|index|countries|states|i18n))?\.xml$/.test(pathname);
+}
+
 export function proxy(req: NextRequest) {
   const { pathname, hostname } = req.nextUrl;
 
@@ -25,6 +30,12 @@ export function proxy(req: NextRequest) {
     nextUrl.protocol = "https";
     nextUrl.port = "";
     return NextResponse.redirect(nextUrl, 301);
+  }
+
+  // XML/text endpoints own their headers and never use browser locale state.
+  // Keep canonical-host redirection above this pass-through.
+  if (isCrawlServicePath(pathname)) {
+    return NextResponse.next();
   }
 
   const redirectPath = resolveBrowserLocaleRedirect(pathname, req.headers.get("accept-language"));
@@ -43,10 +54,6 @@ export function proxy(req: NextRequest) {
       headers: requestHeaders
     }
   });
-
-  if (pathname.startsWith("/sitemap") || pathname === "/api/sitemap") {
-    response.headers.set("cache-control", "no-store");
-  }
 
   return response;
 }

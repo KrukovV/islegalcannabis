@@ -2,6 +2,13 @@
 
 Statuses: pending | in_progress | done
 
+## 2026-10-13 canonical sitemap delivery repair
+
+- [done] Compare root MetadataRoute with accepted explicit XML handler: identical 312-URL universe, but lost language alternates in the root generator. Current Vercel logs show root HTTP 200 without a verified Googlebot/body binding; GSC root fetch remains pending.
+- [in_progress] Keep `/sitemap.xml` and all 312 URLs; use the shared explicit UTF-8 XML handler through a before-files internal rewrite, isolate crawl services from HTML locale processing and retain alternates in the metadata fallback. Verify focused regressions, the canonical root cycle and real candidate HTTP responses.
+- [done] Restore exact historical reports-route source required by the committed privacy test but accidentally untracked by the Reports/ ignore; no logic or Social enablement change. Keep all assertions strict.
+- [pending] Deliver only the scoped SEO repair from current main; verify live crawl/headers/XML and request one canonical GSC re-fetch. Google parsing/indexing acceptance requires its own dated receipt.
+
 ## 2026-10-13 mobile and desktop map response
 
 - [in_progress] Resume cold-response work after the user pause. Reproduce and remove the animation-module network dependency before submitting complete GEO data; make first-fill timing wait for a real loaded legal-source render. The held-GEO WebKit regression fails on the prior build (marker 483 ms with no GEO response). Complete GEO submission and render timing regression, 18.5% startup JS reduction, visible Store frame continuity, mandatory smoke 34/34 and fresh visual audit 307/307 are confirmed locally. The first root cycle failed at an isolated dependency alias (LINT_DEPS_MISSING); the complete retry passed CI_STATUS=PASS, smoke 34/0/0, visual 307/307 and post/hub 1. Production delivery and live timing remain pending. Fresh public rendered-ready baseline: mobile 9.21 s, desktop 17.60 s; external receipts under `/Users/james/islegalcannabis_archive/2026-10-13-map-cold-resume/`.
