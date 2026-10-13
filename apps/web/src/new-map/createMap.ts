@@ -1,7 +1,7 @@
 import maplibregl, { type StyleSpecification } from "maplibre-gl";
 import type { CountryCardSeed, LegalCountryCollection, NewMapBootResult } from "./map.types";
 import { emitFirstVisualReady, markNewMapTrace } from "./startupTrace";
-import { NEW_MAP_BASEMAP_STYLE_URL, NEW_MAP_MAPLIBRE_WORKER_URL } from "./runtimeUrls";
+import { NEW_MAP_BASEMAP_STYLE_URL } from "./runtimeUrls";
 export const NEW_MAP_ADMIN_SOURCE_ID = "admin-boundaries";
 export const NEW_MAP_ADMIN_LAYER_ID = "admin-boundary-line";
 
@@ -30,7 +30,6 @@ const FLAT_CAMERA = {
   pitch: 0
 } as const;
 const CAMERA_EPSILON = 0.001;
-let workerUrlConfigured = false;
 
 type SelectedGeoCallback = (_geo: { iso2: string; country: string; lng: number; lat: number } | null) => void;
 type CreateMapOptions = {
@@ -65,12 +64,6 @@ export function getCountryFeatureAtPoint(map: maplibregl.Map, point: { x: number
     if (feature) return feature;
   }
   return null;
-}
-
-function configureMapLibreWorkerUrl() {
-  if (workerUrlConfigured || typeof window === "undefined") return;
-  maplibregl.setWorkerUrl(NEW_MAP_MAPLIBRE_WORKER_URL);
-  workerUrlConfigured = true;
 }
 
 function getUsStateFeatureAtPoint(map: maplibregl.Map, point: { x: number; y: number }) {
@@ -396,6 +389,8 @@ export function createMap(
   options?: CreateMapOptions
 ): NewMapBootResult {
   let countries: LegalCountryCollection = { type: "FeatureCollection", features: [] };
+  let countriesRevision = 0;
+  let submittedCountriesRevision = -1;
   let mapLoaded = false;
   let bootstrapped = false;
   let basemapReadyResolved = false;
@@ -421,7 +416,8 @@ export function createMap(
     __NEW_MAP_DEBUG__?: Record<string, unknown>;
     __MAP_SELECTED_GEO__?: SelectedGeoCallback;
   };
-  configureMapLibreWorkerUrl();
+  // The standard MapLibre bundle creates its worker from already loaded bytes.
+  // A separate HTTP worker would add another cold dependency before legal paint.
   const requestedCamera = options?.initialCamera;
   const initialCamera = requestedCamera
     && Number.isFinite(requestedCamera.lat) && Math.abs(requestedCamera.lat) <= 90
@@ -488,7 +484,9 @@ export function createMap(
     if (!mapLoaded) return;
     const countriesSource = map.getSource(NEW_MAP_SOURCE_ID) as maplibregl.GeoJSONSource | undefined;
     if (!countriesSource) return;
+    if (submittedCountriesRevision === countriesRevision) return;
     countriesSource.setData(countries);
+    submittedCountriesRevision = countriesRevision;
     legalDataSubmitted = countries.features.length > 0;
   };
 
@@ -515,6 +513,10 @@ export function createMap(
       data: countries,
       promoteId: "geo"
     });
+    // addSource already submits this revision. Sending it again at bootstrap
+    // makes the worker index the same complete legal collection twice.
+    submittedCountriesRevision = countriesRevision;
+    legalDataSubmitted = countries.features.length > 0;
 
     map.addLayer({
       id: NEW_MAP_FILL_LAYER_ID,
@@ -951,6 +953,7 @@ export function createMap(
     ready,
     setData: (nextCountries) => {
       countries = nextCountries;
+      countriesRevision += 1;
       applyData();
     },
     loadUsStates,
