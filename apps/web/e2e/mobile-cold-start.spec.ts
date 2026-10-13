@@ -2,7 +2,9 @@ import { expect, test } from "@playwright/test";
 import fs from "node:fs";
 import path from "node:path";
 
-const QA_DIR = path.resolve(process.cwd(), "..", "..", "QA", "mobile", "cold-start");
+const QA_DIR = process.env.UI_COLD_START_REPORT_DIR
+  ? path.resolve(process.env.UI_COLD_START_REPORT_DIR)
+  : path.resolve(process.cwd(), "..", "..", "QA", "mobile", "cold-start");
 
 type NewMapTrace = {
   marks?: Record<string, number>;
@@ -34,6 +36,20 @@ async function collectStartupState(page: import("@playwright/test").Page) {
     } } }).__NEW_MAP_DEBUG__?.map;
     return {
       trace,
+      navigation: performance.getEntriesByType("navigation")[0]?.toJSON() || null,
+      startupResources: performance.getEntriesByType("resource")
+        .filter((entry) => /\/api\/new-map\/basemap-style|\/static\/countries\/|\/_next\/static\//.test(entry.name))
+        .map((entry) => {
+          const timing = entry as PerformanceResourceTiming;
+          return {
+            url: new URL(entry.name).pathname,
+            startTime: Math.round(timing.startTime),
+            responseStart: Math.round(timing.responseStart),
+            responseEnd: Math.round(timing.responseEnd),
+            duration: Math.round(timing.duration),
+            transferSize: timing.transferSize
+          };
+        }),
       countriesUrl: countriesEntry?.name || null,
       countriesTransferSize: Math.round(countriesEntry?.transferSize || 0),
       countriesDecodedBodySize: Math.round(countriesEntry?.decodedBodySize || 0),
