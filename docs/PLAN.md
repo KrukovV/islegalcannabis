@@ -8,7 +8,8 @@ Statuses: pending | in_progress | done
 - [done] Keep `/sitemap.xml` and all 312 URLs; implement shared explicit UTF-8 XML delivery through a before-files internal rewrite, isolate crawl services from HTML locale processing and retain alternates in the metadata fallback. Focused regressions pass 10/10; actual production-mode and current-main dev HTTP responses preserve every URL and language alternate.
 - [in_progress] Complete root runtime acceptance without weakening any timing/assertion: latest complete mandatory smoke is 31/34 (three map-runtime failures, zero skipped), focused dev diagnosis is 2/3. Source changes are local only; coordinate the cold-path class with the parallel map owner and preserve accepted-main isolation.
 - [done] Restore exact historical reports-route source required by the committed privacy test but accidentally untracked by the Reports/ ignore; no logic or Social enablement change. Keep all assertions strict.
-- [pending] Deliver only the scoped SEO repair from current main; verify live crawl/headers/XML and request one canonical GSC re-fetch. Google parsing/indexing acceptance requires its own dated receipt.
+- [in_progress] User authorized scoped SEO publication: coordinate the accepted map release first, merge only accepted origin/main, obtain combined root PASS, deliver through the green helper, verify exact-build live crawl/headers/XML/browser and request one canonical GSC re-fetch. Google parsing/indexing acceptance requires its own dated receipt.
+- [done] Preserve one active full GSC/technical SEO heartbeat every two days at 10:00 Europe/Moscow; update its dated baseline so the downloaded index is not falsely labelled pending. No duplicate schedule or automatic release authority.
 
 ## 2026-10-13 mobile and desktop map response
 
