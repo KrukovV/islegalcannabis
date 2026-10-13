@@ -8,7 +8,7 @@ import ServiceWorkerGuard from "@/plugins/serviceWorkerGuard";
 import { NEW_MAP_WATER_COLOR } from "@/new-map/mapPalette";
 import { INLINE_COUNTRIES_URL } from "@/new-map/staticCountries";
 import { NEW_MAP_BASEMAP_STYLE_URL } from "@/new-map/runtimeUrls";
-import { STATIC_TRUTH_MAP_COUNTRIES_URL } from "@/truth-map/staticTruthMapUrls";
+import { PUBLIC_TRUTH_MAP_BOOTSTRAP_ID } from "@/truth-map/truthMapBootstrap";
 
 const NEW_MAP_COUNTRIES_URL = INLINE_COUNTRIES_URL;
 const YANDEX_METRIKA_ID = 108419114;
@@ -64,14 +64,18 @@ export const viewport: Viewport = {
 const NEW_MAP_PREFETCH_SCRIPT = `
 (() => {
   const host = globalThis;
-  // Start the public root's actual 307-GEO request during HTML parsing. Its
-  // map consumes this one response after hydration instead of fetching twice.
-  if (location.pathname === "/") {
-    host.__PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__ = fetch("${STATIC_TRUTH_MAP_COUNTRIES_URL}", {
-      credentials: "same-origin"
-    }).catch(() => null);
-    return;
-  }
+  // The root's native async script delivers the complete collection once.
+  const failed = (event) => {
+    if (event.target?.id === "${PUBLIC_TRUTH_MAP_BOOTSTRAP_ID}") host.__PUBLIC_TRUTH_MAP_COUNTRIES_RESOLVE__(null);
+  };
+  host.__PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__ = new Promise((resolve) => {
+    host.__PUBLIC_TRUTH_MAP_COUNTRIES_RESOLVE__ = (collection) => {
+      host.removeEventListener("error", failed, true);
+      resolve(collection);
+    };
+  });
+  host.addEventListener("error", failed, true);
+  if (host.__PUBLIC_TRUTH_MAP_COUNTRIES__) host.__PUBLIC_TRUTH_MAP_COUNTRIES_RESOLVE__(host.__PUBLIC_TRUTH_MAP_COUNTRIES__);
   // The legacy inline collection belongs only to the local /new-map shell.
   if (location.pathname !== "/new-map") return;
   const trace = host.__NEW_MAP_TRACE__ || {

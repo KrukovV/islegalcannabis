@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { buildCardIndexSnapshot } from "@/new-map/countrySource";
+import { deriveCountryCardEntryFromCountryPageData, getCountryPageIndexByGeoCode } from "@/lib/countryPageStorage";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -12,7 +13,10 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: "MISSING_GEO" }, { status: 400 });
   }
 
-  const entry = buildCardIndexSnapshot()[geo] || null;
+  const page = getCountryPageIndexByGeoCode().get(geo);
+  const entry = page
+    ? deriveCountryCardEntryFromCountryPageData(page)
+    : buildCardIndexSnapshot()[geo] || null;
   if (!entry) {
     return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
   }

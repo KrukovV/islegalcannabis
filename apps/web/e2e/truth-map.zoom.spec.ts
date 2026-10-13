@@ -21,6 +21,11 @@ test("truth-map shares the stable city-label visibility ranges used by new-map",
     if (message.type() === "error") runtimeErrors.push(message.text());
   });
 
+  const transfers = new Map<string, { url: string; start: number; end?: number; failure?: string }>();
+  page.on("request", (request) => transfers.set(request.url(), { url: request.url(), start: Date.now() }));
+  page.on("requestfinished", (request) => { const row = transfers.get(request.url()); if (row) row.end = Date.now(); });
+  page.on("requestfailed", (request) => { const row = transfers.get(request.url()); if (row) { row.end = Date.now(); row.failure = request.failure()?.errorText; } });
+
   // Mongolia is sparse enough to expose labels being switched off during a
   // zoom. Both routes use createMap(), so the assertion fixes their shared
   // visibility policy rather than prescribing labels for one territory.
@@ -34,9 +39,10 @@ test("truth-map shares the stable city-label visibility ranges used by new-map",
       .map((layer) => ({ id: String(layer.id), minzoom: layer.minzoom ?? 0, maxzoom: layer.maxzoom ?? 24 }))
       .sort((left, right) => left.id.localeCompare(right.id));
     const activeBands = summarize(map.getStyle().layers || []);
-    const stops: Array<{ zoom: number; activeLayerIds: string[]; renderedLabelCount: number; settledByIdle: boolean; settleMs: number }> = [];
+    const stops: Array<{ zoom: number; activeLayerIds: string[]; renderedLabelCount: number; settledByIdle: boolean; settleMs: number; startedEpoch: number; finishedEpoch: number; basemapLoaded: boolean }> = [];
     for (const zoom of [5.9, 6.4, 7.4, 8.4]) {
       const startedAt = performance.now();
+      const startedEpoch = Date.now();
       const settledByIdle = await new Promise<boolean>((resolve) => {
         let settled = false;
         const finish = (idle: boolean) => {
@@ -56,7 +62,10 @@ test("truth-map shares the stable city-label visibility ranges used by new-map",
         activeLayerIds,
         renderedLabelCount: map.queryRenderedFeatures({ layers: activeLayerIds }).length,
         settledByIdle,
-        settleMs: Math.round(performance.now() - startedAt)
+        settleMs: Math.round(performance.now() - startedAt),
+        startedEpoch,
+        finishedEpoch: Date.now(),
+        basemapLoaded: map.isSourceLoaded("carto")
       });
     }
     const style = map.getStyle();
@@ -69,6 +78,10 @@ test("truth-map shares the stable city-label visibility ranges used by new-map",
     };
   });
 
+  await test.info().attach("native-label-transport", {
+    body: JSON.stringify({ ...labelBandState, transfers: [...transfers.values()].filter((row) => row.url.includes("cartocdn.com")) }),
+    contentType: "application/json"
+  });
   expect(labelBandState.activeBands).toEqual(expect.arrayContaining([
     expect.objectContaining({ id: expect.stringMatching(/place_city/i), minzoom: 5.8, maxzoom: 24 }),
     expect.objectContaining({ id: expect.stringMatching(/place_town|place_villages|place_hamlet|place_suburbs?/i), minzoom: 6.6, maxzoom: 24 })

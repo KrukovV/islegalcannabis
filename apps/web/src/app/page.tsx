@@ -6,7 +6,8 @@ import { isLocalAuditHost } from "@/lib/privateAuditHost";
 import TruthMapRoot from "@/truth-map/TruthMapRoot";
 import { getTruthMapRuntimeIdentity } from "./truth-map/runtimeConfig";
 import LocalPublicMapRoot from "./_components/LocalPublicMapRoot";
-import { STATIC_TRUTH_MAP_COUNTRIES_URL, STATIC_TRUTH_MAP_US_STATES_URL } from "@/truth-map/staticTruthMapUrls";
+import { STATIC_TRUTH_MAP_COUNTRIES_URL, STATIC_TRUTH_MAP_US_STATES_URL, STATIC_TRUTH_MAP_COUNTRIES_BOOTSTRAP_URL } from "@/truth-map/staticTruthMapUrls";
+import { PUBLIC_TRUTH_MAP_BOOTSTRAP_ID } from "@/truth-map/truthMapBootstrap";
 import styles from "./page.module.css";
 
 export const dynamic = "force-dynamic";
@@ -50,6 +51,7 @@ export default async function HomePage({
 
   return (
     <>
+      <script id={PUBLIC_TRUTH_MAP_BOOTSTRAP_ID} src={STATIC_TRUTH_MAP_COUNTRIES_BOOTSTRAP_URL} async />
       <link rel="canonical" href="https://www.islegal.info/" />
       {localAuditHost ? <LocalPublicMapRoot {...mapProps} /> : <TruthMapRoot {...mapProps} presentation="public" showPublicMapNotice={false} />}
       <nav aria-label="Browse jurisdictions" className={styles.jurisdictionDirectoryNav}>
