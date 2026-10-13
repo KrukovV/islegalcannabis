@@ -62,6 +62,9 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.resolve(__dirname, "../.."),
     resolveAlias: {
+      // The runtime already uses our separate CSP worker. Avoid downloading
+      // the unused inline-worker wrapper with the main map bundle.
+      "maplibre-gl": "maplibre-gl/dist/maplibre-gl-csp.js",
       "next/dist/build/polyfills/polyfill-module": modernNoopPolyfill,
       "../build/polyfills/polyfill-module": modernNoopPolyfill
     }
@@ -70,6 +73,7 @@ const nextConfig: NextConfig = {
     config.resolve = config.resolve || {};
     config.resolve.alias = {
       ...(config.resolve.alias || {}),
+      "maplibre-gl$": "maplibre-gl/dist/maplibre-gl-csp.js",
       "next/dist/build/polyfills/polyfill-module": modernNoopPolyfillPath,
       "../build/polyfills/polyfill-module": modernNoopPolyfillPath
     };
