@@ -1,7 +1,6 @@
 import type { CountryPageData } from "@/lib/countryPageStorage";
 import type { CountryCardEntry } from "@/new-map/map.types";
 import type { SeoLocale } from "@/lib/seo/i18n";
-import { getLocalizedCountryName } from "@/lib/seo/i18n";
 
 type PanelLabels = {
   eyebrowCountry: string;
@@ -285,11 +284,10 @@ function translateReasonText(reasonId: string, data: CountryPageData | null | un
   }
 }
 
-export function localizePanel(entry: CountryCardEntry, data: CountryPageData, locale: SeoLocale) {
+export function localizePanel(entry: CountryCardEntry, data: CountryPageData, locale: SeoLocale, localizedName: string) {
   const labels = localeLabels(locale);
   const levelTitle = translateLevelTitle(entry, locale);
   const summary = translateSummary(entry, locale);
-  const localizedName = data.node_type === "country" ? getLocalizedCountryName(data, locale) : (data.name.split(" / ")[0] || data.name);
   const translateReasons = (items: CountryCardEntry["panel"]["critical"]) =>
     items.map((item) => ({
       ...item,

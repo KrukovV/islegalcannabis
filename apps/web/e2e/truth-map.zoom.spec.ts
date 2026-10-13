@@ -201,12 +201,12 @@ test("truth-map keeps the Canada aggregate through the medium hand-off and prese
     if (!map) throw new Error("truth_map_missing_for_canada_store_bridge");
     map.jumpTo({ center: [-80, 44], zoom: 5.8 });
     return {
-      fallbackVisible: map.getLayoutProperty("validated-cannabis-store-geo-summaries", "visibility"),
+      fallbackOpacity: map.getPaintProperty("validated-cannabis-store-geo-summaries", "icon-opacity"),
       canadaAggregateStillRendered: (map.queryRenderedFeatures({ layers: ["validated-cannabis-store-geo-summaries"] }) || [])
         .some((feature) => feature.properties?.geo_id === "CA" && Number(feature.properties?.count) === 1825),
     };
   });
-  expect(bridgeState.fallbackVisible).toBe("visible");
+  expect(bridgeState.fallbackOpacity).toBe(1);
   expect(bridgeState.canadaAggregateStillRendered).toBe(true);
   await canadaMediumResponse;
   await page.waitForFunction(() => {
@@ -215,8 +215,32 @@ test("truth-map keeps the Canada aggregate through the medium hand-off and prese
     return map.getCanvas().dataset.storeVisibilityLevel === "MEDIUM"
       && Number(map.getCanvas().dataset.storeSpatialCandidates || "0") > 0
       && (map.queryRenderedFeatures({ layers: ["validated-cannabis-store-clusters"] }) || []).length > 0
-      && map.getLayoutProperty("validated-cannabis-store-geo-summaries", "visibility") === "none";
+      && JSON.stringify(map.getPaintProperty("validated-cannabis-store-geo-summaries", "icon-opacity")) === '["step",["zoom"],1,5.8,0]';
   }, undefined, { timeout: 20_000 });
+
+  // Transparent prepainted aggregates must not capture a real legal-map click.
+  const legalClick = await page.evaluate(() => {
+    const map = window.__TRUTH_MAP_DEBUG__?.map;
+    if (!map) throw new Error("truth_map_missing_for_transparent_aggregate_click");
+    const anchor = map.project([-80.5, 44]);
+    const rect = map.getCanvas().getBoundingClientRect();
+    for (let dx = -40; dx <= 100; dx += 5) for (let dy = -30; dy <= 30; dy += 5) {
+      const point: [number, number] = [anchor.x + dx, anchor.y + dy];
+      if (point[0] < 20 || point[1] < 100 || point[0] > rect.width - 20 || point[1] > rect.height - 100) continue;
+      const aggregate = map.queryRenderedFeatures(point, { layers: ["validated-cannabis-store-geo-summaries"] });
+      const clusters = map.queryRenderedFeatures(point, { layers: ["validated-cannabis-store-clusters"] });
+      const legal = map.queryRenderedFeatures(point, { layers: ["legal-fill"] });
+      if (aggregate.some((feature) => feature.properties?.geo_id === "CA") && !clusters.length && legal.length) {
+        return { x: rect.left + point[0], y: rect.top + point[1], zoom: map.getZoom() };
+      }
+    }
+    throw new Error("no_unobstructed_transparent_aggregate_point");
+  });
+  await page.mouse.click(legalClick.x, legalClick.y);
+  await expect(page.getByTestId("new-map-country-popup")).toContainText("Canada");
+  expect(await page.evaluate(() => window.__TRUTH_MAP_DEBUG__?.map?.getZoom())).toBe(legalClick.zoom);
+  await page.getByTestId("viewport-country-popup-close").click();
+  await expect(page.getByTestId("new-map-country-popup")).toHaveCount(0);
 
   const beforePanQueryId = await page.evaluate(() => window.__TRUTH_MAP_DEBUG__?.map?.getCanvas().dataset.storeQueryId || "");
   const panResponse = page.waitForResponse((response) => (
@@ -256,7 +280,7 @@ test("truth-map ZoomIn and ZoomOut stay responsive across the Store aggregate bo
     const map = window.__TRUTH_MAP_DEBUG__?.map;
     return Boolean(map
       && map.getCanvas().dataset.storeVisibilityLevel === "LOW"
-      && map.getLayoutProperty("validated-cannabis-store-geo-summaries", "visibility") === "visible"
+      && map.getPaintProperty("validated-cannabis-store-geo-summaries", "icon-opacity") === 1
       && (map.queryRenderedFeatures({ layers: ["validated-cannabis-store-geo-summaries"] }) || [])
         .some((feature) => feature.properties?.geo_id === "CA" && Number(feature.properties?.count) === 1825));
   }, undefined, { timeout: 20_000 });
@@ -278,11 +302,11 @@ test("truth-map ZoomIn and ZoomOut stay responsive across the Store aggregate bo
       const map = window.__TRUTH_MAP_DEBUG__?.map;
       if (!map || map.getCanvas().dataset.storeVisibilityLevel !== level) return false;
       if (level === "LOW") {
-        return map.getLayoutProperty("validated-cannabis-store-geo-summaries", "visibility") === "visible"
+        return map.getPaintProperty("validated-cannabis-store-geo-summaries", "icon-opacity") === 1
           && (map.queryRenderedFeatures({ layers: ["validated-cannabis-store-geo-summaries"] }) || [])
             .some((feature) => feature.properties?.geo_id === "CA" && Number(feature.properties?.count) === 1825);
       }
-      return map.getLayoutProperty("validated-cannabis-store-geo-summaries", "visibility") === "none"
+      return JSON.stringify(map.getPaintProperty("validated-cannabis-store-geo-summaries", "icon-opacity")) === '["step",["zoom"],1,5.8,0]'
         && (map.queryRenderedFeatures({ layers: ["validated-cannabis-store-clusters"] }) || []).length > 0;
     }, expectedLevel, { timeout: 20_000 });
     return {
@@ -526,7 +550,7 @@ test("truth-map declutters global store counts and reaches full local zoom witho
   const mediumZoomStoreState = await page.evaluate(() => {
     const map = window.__TRUTH_MAP_DEBUG__?.map;
     return {
-      geo: map?.queryRenderedFeatures({ layers: ["validated-cannabis-store-geo-summaries"] }).length || 0,
+      geoOpacity: map?.getPaintProperty("validated-cannabis-store-geo-summaries", "icon-opacity"),
       country: map?.queryRenderedFeatures({ layers: ["validated-cannabis-store-country-summaries"] }).length || 0,
       clusterType: map?.getLayer("validated-cannabis-store-clusters")?.type,
       clusterIcon: map?.getLayoutProperty("validated-cannabis-store-clusters", "icon-image"),
@@ -536,7 +560,7 @@ test("truth-map declutters global store counts and reaches full local zoom witho
       legacyClusterCountLayerPresent: Boolean(map?.getLayer("validated-cannabis-store-cluster-counts")),
     };
   });
-  expect(mediumZoomStoreState.geo).toBe(0);
+  expect(mediumZoomStoreState.geoOpacity).toEqual(["step", ["zoom"], 1, 5.8, 0]);
   expect(mediumZoomStoreState.country).toBe(0);
   expect(mediumZoomStoreState.clusterType).toBe("symbol");
   expect(mediumZoomStoreState.clusterIcon).toBe("validated-cannabis-store-geo-summary-shop");

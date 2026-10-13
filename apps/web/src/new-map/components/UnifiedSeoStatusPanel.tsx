@@ -7,7 +7,7 @@ import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntr
 import { getCannabisProfileCardSections } from "@/lib/cannabisProfile";
 import { buildCountryIntentSections } from "@/lib/seo/countryIntentContent";
 import type { SeoLocale } from "@/lib/seo/i18n";
-import { getSeoText } from "@/lib/seo/i18n";
+import { getLocalizedCountryName, getSeoText } from "@/lib/seo/i18n";
 import { localizePanel, localizePanelFromEntry } from "@/lib/seo/panelLocale";
 import { getLinkScope, isSameLink } from "@/lib/linkDisplayPolicy";
 import { sanitizeEvidenceQuoteText } from "@/lib/text/sanitizeEvidenceQuoteText";
@@ -48,7 +48,9 @@ export default function UnifiedSeoStatusPanel({
   const seo = getSeoText(locale);
   const localizedPanel = entryOwnsCurrentLegalPresentation
     ? localizePanelFromEntry(card, locale)
-    : data ? localizePanel(card, data, locale) : localizePanelFromEntry(card, locale);
+    : data ? localizePanel(card, data, locale, data.node_type === "country"
+      ? getLocalizedCountryName(data, locale)
+      : (data.name.split(" / ")[0] || data.name)) : localizePanelFromEntry(card, locale);
   const panelTitle = "title" in localizedPanel && typeof localizedPanel.title === "string" && localizedPanel.title
     ? localizedPanel.title
     : localizedPanel.labels.titleIn(localizedPanel.levelTitle, card.displayName.split(" / ")[0] || card.displayName);

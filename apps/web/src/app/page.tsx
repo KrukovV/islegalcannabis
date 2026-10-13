@@ -53,7 +53,7 @@ export default async function HomePage({
       <link rel="canonical" href="https://www.islegal.info/" />
       {localAuditHost ? <LocalPublicMapRoot {...mapProps} /> : <TruthMapRoot {...mapProps} presentation="public" showPublicMapNotice={false} />}
       <nav aria-label="Browse jurisdictions" className={styles.jurisdictionDirectoryNav}>
-        <Link href="/jurisdictions" className={styles.jurisdictionDirectoryLink}>Browse all jurisdictions</Link>
+        <Link href="/jurisdictions" prefetch={false} className={styles.jurisdictionDirectoryLink}>Browse all jurisdictions</Link>
       </nav>
     </>
   );

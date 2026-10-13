@@ -2,6 +2,20 @@
 
 Statuses: pending | in_progress | done
 
+## 2026-10-13 mobile and desktop map response
+
+- [in_progress] Resume cold-response work after the user pause. Reproduce and remove the animation-module network dependency before submitting complete GEO data; make first-fill timing wait for a real loaded legal-source render. The held-GEO WebKit regression fails on the prior build (marker 483 ms with no GEO response). Complete GEO submission and render timing regression, 18.5% startup JS reduction, visible Store frame continuity, mandatory smoke 34/34 and fresh visual audit 307/307 are confirmed locally. The first root cycle failed at an isolated dependency alias (LINT_DEPS_MISSING); the complete retry passed CI_STATUS=PASS, smoke 34/0/0, visual 307/307 and post/hub 1. Production delivery and live timing remain pending. Fresh public rendered-ready baseline: mobile 9.21 s, desktop 17.60 s; external receipts under `/Users/james/islegalcannabis_archive/2026-10-13-map-cold-resume/`.
+
+- [in_progress] Restore reliably fast cold legal paint on the public `/`. Exact production build `33cc00b9` remains variable: isolated WebKit first legal fill was 3.20/9.91 s desktop and 3.37/8.61 s mobile; the earlier 2.09 s first fill and 1.992 s map-ready were different `/new-map` measurements. Fresh PageSpeed API laboratory results are mobile score 34, FCP 3.230 s, LCP 7.438 s, TBT 3.815 s; desktop score 67, FCP 0.286 s, LCP 0.368 s, TBT 3.910 s. The mobile CSS-before-inline-fetch chain delayed GEO request start by about 380 ms in that lab run. Lean MapLibre source projection lacked a stable WebKit A/B gain and preload duplicated the immutable GEO transfer; both were rejected. No stable production speed claim or cold-start release is accepted.
+- [in_progress] Repair the Store z5.8 visual hand-off without changing any Store gate, count, coordinate or request scheduler. Production WebKit reproduced 52–77 ms empty Store frames during ZoomIn and a ZoomOut gap. The isolated candidate waits for a completed viewport source render before withdrawing the aggregate bridge and keeps the low-band aggregate paint ready through a zoom expression. Local WebKit frame capture now shows 0 empty frames over 12 crossings, three ZoomIn/ZoomOut cycles each at 375 px and 1440 px; legal fill remains present. Focused WebKit transition tests pass 2/2. Full canonical CI, public-map acceptance and release remain pending.
+
+
+### Canonical acceptance environment recovery
+
+- [done] Restore the isolated root lint dependency alias to the already installed @eslint/js package.
+- [done] Restore exact missing ignored canonical validation reports and their referenced AQ evidence captures; source/reconciliation tests pass 104/104 with unchanged evidence fields; restored the final missing ignored runtime-blocker seed after the third cycle exposed it.
+- [in_progress] Repeat the complete canonical pass cycle and deliver the accepted map candidate to production with fresh mobile/desktop and HTTP receipts.
+
 ## 2026-10-12 production cold map response and remaining work
 
 - [in_progress] Restore fast production cold map. Exact aa6fb9c4 is live; a real first click after `data-map-ready=1` opens Canada's current legal evidence, SEO opens in place and closes cleanly. Three isolated WebKit runs show first legal fill 2.06/2.31/2.47 s and map-ready 2.58/3.03/3.38 s. Only one immutable GEO request occurs, with no style API or eager card-index; 228 KB encoded SEO JS arrives only after opening the panel. Technical production crawl is 312/312 with split 238/50/22/index4; adapters 308, audit 404, Store visible, Antarctica running. Post-release root cycle passed CI 20/0, smoke 32/32/0, post/hub 1. Stable ~2 s under variable network is NOT_PROVEN.

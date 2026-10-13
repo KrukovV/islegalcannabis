@@ -1,4 +1,34 @@
 import { expect, test } from "@playwright/test";
+import { STATIC_TRUTH_MAP_COUNTRIES_URL } from "../src/truth-map/staticTruthMapUrls";
+
+test("public first-fill timing waits for the complete legal source to render", async ({ page }) => {
+  let releaseCountries: () => void = () => {};
+  const countriesGate = new Promise<void>((resolve) => { releaseCountries = resolve; });
+  await page.route(`**${STATIC_TRUTH_MAP_COUNTRIES_URL}`, async (route) => {
+    await countriesGate;
+    await route.continue();
+  });
+  try {
+    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.waitForFunction(() => {
+      const trace = (window as unknown as { __NEW_MAP_TRACE__?: { marks?: Record<string, number> } }).__NEW_MAP_TRACE__;
+      return typeof trace?.marks?.NM_T2_STYLE_READY === "number";
+    });
+    // Let the initial empty source finish while the real GEO response is held.
+    await page.waitForTimeout(300);
+    const firstFill = await page.evaluate(() =>
+      (window as unknown as { __NEW_MAP_TRACE__?: { marks?: Record<string, number> } }).__NEW_MAP_TRACE__?.marks?.NM_T7_FIRST_FILL_RENDERED
+    );
+    expect(firstFill).toBeUndefined();
+    releaseCountries();
+    await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 30_000 });
+    expect(await page.evaluate(() =>
+      (window as unknown as { __NEW_MAP_TRACE__?: { marks?: Record<string, number> } }).__NEW_MAP_TRACE__?.marks?.NM_T7_FIRST_FILL_RENDERED
+    )).toBeGreaterThan(0);
+  } finally {
+    releaseCountries();
+  }
+});
 
 test("local public root retains only the local AI dock beside the public Truth Map display core", async ({ page }) => {
   const apiRequests: string[] = [];
