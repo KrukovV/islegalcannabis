@@ -2,6 +2,12 @@ import { expect, test } from "@playwright/test";
 import { STATIC_TRUTH_MAP_COUNTRIES_URL } from "../src/truth-map/staticTruthMapUrls";
 
 test("public first-fill timing waits for the complete legal source to render", async ({ page }) => {
+  const workerRequests: string[] = [];
+  page.on("request", (request) => {
+    if (request.url().includes("/api/new-map/maplibre-worker")) workerRequests.push(request.url());
+  });
+  // Cold paint must also work when the former HTTP worker is unavailable.
+  await page.route("**/api/new-map/maplibre-worker**", (route) => route.abort());
   let releaseCountries: () => void = () => {};
   const countriesGate = new Promise<void>((resolve) => { releaseCountries = resolve; });
   await page.route(`**${STATIC_TRUTH_MAP_COUNTRIES_URL}`, async (route) => {
@@ -25,12 +31,25 @@ test("public first-fill timing waits for the complete legal source to render", a
     expect(await page.evaluate(() =>
       (window as unknown as { __NEW_MAP_TRACE__?: { marks?: Record<string, number> } }).__NEW_MAP_TRACE__?.marks?.NM_T7_FIRST_FILL_RENDERED
     )).toBeGreaterThan(0);
+    expect(workerRequests).toHaveLength(0);
   } finally {
     releaseCountries();
   }
 });
 
 test("local public root retains only the local AI dock beside the public Truth Map display core", async ({ page }) => {
+  await page.addInitScript(() => {
+    const posts: number[] = [];
+    Object.assign(window, { __PUBLIC_LEGAL_WORKER_POSTS__: posts });
+    const originalPost = Worker.prototype.postMessage;
+    Worker.prototype.postMessage = function (message: unknown, options?: Transferable[] | StructuredSerializeOptions) {
+      const update = message as { type?: string; data?: { source?: string; data?: { features?: unknown[] } } };
+      if (update.type === "LD" && update.data?.source === "legal-countries" && update.data.data?.features?.length) {
+        posts.push(update.data.data.features.length);
+      }
+      return originalPost.call(this, message, Array.isArray(options) ? { transfer: options } : options);
+    };
+  });
   const apiRequests: string[] = [];
   const staticMapRequests: string[] = [];
   page.on("request", (request) => {
@@ -41,6 +60,11 @@ test("local public root retains only the local AI dock beside the public Truth M
   await page.goto("/", { waitUntil: "domcontentloaded" });
   await expect(page.getByTestId("public-map-root")).toBeAttached();
   await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 30_000 });
+  // One complete legal collection must mean one worker indexing pass, even
+  // when the head request finishes before the style installs its source.
+  expect(await page.evaluate(() =>
+    (window as unknown as { __PUBLIC_LEGAL_WORKER_POSTS__: number[] }).__PUBLIC_LEGAL_WORKER_POSTS__.length
+  )).toBe(1);
   await expect(page.getByTestId("public-map-notice")).toBeVisible();
   await expect(page.getByTestId("antarctic-ascii-overlay")).toBeAttached();
   // The decorative scene is mounted but remains scheduled when Antarctica is
