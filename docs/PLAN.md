@@ -5,7 +5,8 @@ Statuses: pending | in_progress | done
 ## 2026-10-13 canonical sitemap delivery repair
 
 - [done] Compare root MetadataRoute with accepted explicit XML handler: identical 312-URL universe, but lost language alternates in the root generator. Current Vercel logs show root HTTP 200 without a verified Googlebot/body binding; GSC root fetch remains pending.
-- [in_progress] Keep `/sitemap.xml` and all 312 URLs; use the shared explicit UTF-8 XML handler through a before-files internal rewrite, isolate crawl services from HTML locale processing and retain alternates in the metadata fallback. Verify focused regressions, the canonical root cycle and real candidate HTTP responses.
+- [done] Keep `/sitemap.xml` and all 312 URLs; implement shared explicit UTF-8 XML delivery through a before-files internal rewrite, isolate crawl services from HTML locale processing and retain alternates in the metadata fallback. Focused regressions pass 10/10; actual production-mode and current-main dev HTTP responses preserve every URL and language alternate.
+- [in_progress] Complete root runtime acceptance without weakening any timing/assertion: latest complete mandatory smoke is 31/34 (three map-runtime failures, zero skipped), focused dev diagnosis is 2/3. Source changes are local only; coordinate the cold-path class with the parallel map owner and preserve accepted-main isolation.
 - [done] Restore exact historical reports-route source required by the committed privacy test but accidentally untracked by the Reports/ ignore; no logic or Social enablement change. Keep all assertions strict.
 - [pending] Deliver only the scoped SEO repair from current main; verify live crawl/headers/XML and request one canonical GSC re-fetch. Google parsing/indexing acceptance requires its own dated receipt.
 
