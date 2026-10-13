@@ -370,7 +370,16 @@ function setCountrySummaryData(map: maplibregl.Map, data: StoreFeatureCollection
 
 function setGeoSummaryFallbackVisible(map: maplibregl.Map, visible: boolean) {
   if (!map.getLayer(STORE_GEO_SUMMARY_LAYER_ID)) return;
-  map.setLayoutProperty(STORE_GEO_SUMMARY_LAYER_ID, "visibility", visible ? "visible" : "none");
+  // Keep the low-band symbols prepared through the camera transition.
+  const opacity = visible ? 1 : ["step", ["zoom"], 1, 5.8, 0];
+  map.setPaintProperty(STORE_GEO_SUMMARY_LAYER_ID, "icon-opacity", opacity);
+  map.setPaintProperty(STORE_GEO_SUMMARY_LAYER_ID, "text-opacity", opacity);
+}
+
+/** MapLibre queries transparent symbols too; only painted aggregates own clicks. */
+export function isStoreGeoSummaryVisible(map: maplibregl.Map) {
+  if (!map.getLayer(STORE_GEO_SUMMARY_LAYER_ID) || map.getZoom() < WORLD_SUMMARY_MAX_ZOOM) return false;
+  return map.getZoom() < 5.8 || map.getPaintProperty(STORE_GEO_SUMMARY_LAYER_ID, "icon-opacity") === 1;
 }
 
 export function buildStoreGeoSummaryFeatures(rows: StoreGeoSummaryRow[]): StoreFeatureCollection {
@@ -438,6 +447,25 @@ export function useStoreMapLayer(
     let interactionsBound = false;
     let hasViewportPayload = false;
 
+    const waitForViewportRender = (signal: AbortSignal) => new Promise<boolean>((resolve) => {
+      const finish = (rendered: boolean) => {
+        map.off("render", onRender);
+        signal.removeEventListener("abort", onAbort);
+        resolve(rendered);
+      };
+      const onAbort = () => finish(false);
+      const onRender = () => {
+        if (map.isSourceLoaded(SOURCE_ID)) finish(true);
+      };
+      if (signal.aborted) {
+        resolve(false);
+        return;
+      }
+      signal.addEventListener("abort", onAbort, { once: true });
+      map.on("render", onRender);
+      map.triggerRepaint();
+    });
+
     const empty = () => setData(map, EMPTY_DATA);
     const emptyGeoSummary = () => setGeoSummaryData(map, EMPTY_DATA);
     const emptyCountrySummary = () => setCountrySummaryData(map, EMPTY_DATA);
@@ -503,9 +531,14 @@ export function useStoreMapLayer(
         if (!response.ok) throw new Error(`store_viewport_fetch:${response.status}`);
         const payload = await response.json() as StoreFeatureCollection & { meta?: { level?: string; spatialCandidateStores?: number; queryDurationMs?: number; estimatedPayloadBytes?: number } };
         if (disposed || currentRequestId !== requestIdRef.current) return;
-        setData(map, payload);
+        const source = map.getSource(SOURCE_ID) as maplibregl.GeoJSONSource | undefined;
+        if (!source) return;
+        await source.setData(payload, true);
+        if (disposed || controller.signal.aborted || currentRequestId !== requestIdRef.current) return;
+        if (!await waitForViewportRender(controller.signal)) return;
+        if (disposed || controller.signal.aborted || currentRequestId !== requestIdRef.current) return;
         hasViewportPayload = true;
-        setGeoSummaryFallbackVisible(map, false);
+        if (getStoreVisibilityLevel(map.getZoom()) !== "LOW") setGeoSummaryFallbackVisible(map, false);
         map.getCanvas().dataset.storeVisibilityLevel = String(payload.meta?.level || level);
         map.getCanvas().dataset.storeQueryId = String(currentRequestId);
         map.getCanvas().dataset.storeSpatialCandidates = String(payload.meta?.spatialCandidateStores ?? 0);
@@ -542,6 +575,7 @@ export function useStoreMapLayer(
       map.easeTo({ center: event.lngLat, zoom: targetZoom, duration: 350, essential: true });
     };
     const onGeoSummaryClick = (event: maplibregl.MapMouseEvent) => {
+      if (!isStoreGeoSummaryVisible(map)) return;
       const targetZoom = Math.max(6.4, Math.min(map.getZoom() + 2, 8));
       map.easeTo({ center: event.lngLat, zoom: targetZoom, duration: 350, essential: true });
     };
@@ -552,6 +586,7 @@ export function useStoreMapLayer(
 
     const onMarkerEnter = () => { map.getCanvas().style.cursor = "pointer"; };
     const onMarkerLeave = () => { map.getCanvas().style.cursor = ""; };
+    const onGeoSummaryEnter = () => { if (isStoreGeoSummaryVisible(map)) onMarkerEnter(); };
     void ensureStoreLayers(map, () => disposed)
       .then((initialized) => {
         if (disposed || !initialized) return;
@@ -571,7 +606,7 @@ export function useStoreMapLayer(
         map.on("mouseleave", STORE_MARKER_LAYER_ID, onMarkerLeave);
         map.on("mouseenter", STORE_MARKER_HITBOX_LAYER_ID, onMarkerEnter);
         map.on("mouseleave", STORE_MARKER_HITBOX_LAYER_ID, onMarkerLeave);
-        map.on("mouseenter", STORE_GEO_SUMMARY_LAYER_ID, onMarkerEnter);
+        map.on("mouseenter", STORE_GEO_SUMMARY_LAYER_ID, onGeoSummaryEnter);
         map.on("mouseleave", STORE_GEO_SUMMARY_LAYER_ID, onMarkerLeave);
         map.on("mouseenter", STORE_COUNTRY_SUMMARY_LAYER_ID, onMarkerEnter);
         map.on("mouseleave", STORE_COUNTRY_SUMMARY_LAYER_ID, onMarkerLeave);
@@ -600,7 +635,7 @@ export function useStoreMapLayer(
         map.off("mouseleave", STORE_MARKER_LAYER_ID, onMarkerLeave);
         map.off("mouseenter", STORE_MARKER_HITBOX_LAYER_ID, onMarkerEnter);
         map.off("mouseleave", STORE_MARKER_HITBOX_LAYER_ID, onMarkerLeave);
-        map.off("mouseenter", STORE_GEO_SUMMARY_LAYER_ID, onMarkerEnter);
+        map.off("mouseenter", STORE_GEO_SUMMARY_LAYER_ID, onGeoSummaryEnter);
         map.off("mouseleave", STORE_GEO_SUMMARY_LAYER_ID, onMarkerLeave);
         map.off("mouseenter", STORE_COUNTRY_SUMMARY_LAYER_ID, onMarkerEnter);
         map.off("mouseleave", STORE_COUNTRY_SUMMARY_LAYER_ID, onMarkerLeave);

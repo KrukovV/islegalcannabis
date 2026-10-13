@@ -405,6 +405,7 @@ export function createMap(
   let firstStyleDataMarked = false;
   let firstBasemapReadyMarked = false;
   let firstCountriesReadyMarked = false;
+  let legalDataSubmitted = false;
   let firstIdleMarked = false;
   let firstVisualReadyMarked = false;
   let usStatesRequested = false;
@@ -473,7 +474,6 @@ export function createMap(
     firstCountriesReadyMarked = true;
     markNewMapTrace("NM_T4_COUNTRIES_READY");
     markNewMapTrace("NM_T6_COUNTRIES_SOURCE_READY");
-    finalizeFirstVisualReady();
   };
 
   const finalizeBasemapReady = () => {
@@ -489,15 +489,15 @@ export function createMap(
     const countriesSource = map.getSource(NEW_MAP_SOURCE_ID) as maplibregl.GeoJSONSource | undefined;
     if (!countriesSource) return;
     countriesSource.setData(countries);
-    if (countries.features.length > 0) {
-      markCountriesReady();
-    }
+    legalDataSubmitted = countries.features.length > 0;
   };
 
-  const finalizeFirstVisualReady = () => {
+  const finalizeFirstVisualReady = (rendered = false) => {
+    if (!rendered) return;
     if (destroyed || readyResolved || !mapLoaded) return;
     const styleReadyForInteraction = firstBasemapReadyMarked || firstStyleDataMarked;
-    if (!styleReadyForInteraction || !firstCountriesReadyMarked) return;
+    if (!styleReadyForInteraction || !legalDataSubmitted || !map.isSourceLoaded(NEW_MAP_SOURCE_ID)) return;
+    markCountriesReady();
     if (!firstVisualReadyMarked) {
       firstVisualReadyMarked = true;
       emitFirstVisualReady();
@@ -905,10 +905,9 @@ export function createMap(
       markNewMapTrace("NM_T5_SOURCEDATA_BASEMAP_READY");
       finalizeBasemapReady();
     }
-    if (!firstCountriesReadyMarked && event.sourceId === NEW_MAP_SOURCE_ID && event.isSourceLoaded) {
-      markCountriesReady();
-    }
   });
+
+  map.on("render", () => finalizeFirstVisualReady(true));
 
   map.on("idle", () => {
     if (!firstIdleMarked) {

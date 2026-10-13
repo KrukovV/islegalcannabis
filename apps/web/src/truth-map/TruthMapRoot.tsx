@@ -7,6 +7,7 @@ import type { RuntimeIdentity } from "@/lib/runtimeIdentity";
 import { createMap, NEW_MAP_FILL_LAYER_ID, NEW_MAP_SOURCE_ID, NEW_MAP_US_STATES_SOURCE_ID } from "@/new-map/createMap";
 import ViewportCountryPopup from "@/new-map/components/ViewportCountryPopup";
 import AsciiOverlay from "@/new-map/ascii/AsciiOverlay";
+import { bindAsciiMapTriggers } from "@/new-map/ascii/ascii-triggers";
 import { attachHoverController } from "@/new-map/hoverController";
 import type { CountryCardEntry, LegalCountryCollection, NewMapBootResult } from "@/new-map/map.types";
 import type { CountryPageData } from "@/lib/countryPageStorage";
@@ -25,6 +26,7 @@ import {
   STORE_MARKER_HITBOX_LAYER_ID,
   STORE_MARKER_LAYER_ID,
   PUBLIC_STORE_MAP_LAYER_ENDPOINTS,
+  isStoreGeoSummaryVisible,
   useStoreMapLayer
 } from "@/new-map/stores/StoreLayer";
 import type { TruthMapCollection, TruthMapDatasetMeta, TruthMapFeatureProperties } from "./truthMapSource";
@@ -589,7 +591,8 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
           STORE_GEO_SUMMARY_LAYER_ID,
           STORE_COUNTRY_SUMMARY_LAYER_ID,
           ...(!publicPresentation ? interactiveOverlayLayerIds : []),
-        ].filter((layerId) => Boolean(map.getLayer(layerId)));
+        ].filter((layerId) => Boolean(map.getLayer(layerId))
+          && (layerId !== STORE_GEO_SUMMARY_LAYER_ID || isStoreGeoSummaryVisible(map)));
         if (mountedOverlayLayers.length === 0) return true;
         try {
           return map.queryRenderedFeatures([point.x, point.y], { layers: mountedOverlayLayers }).length === 0;
@@ -626,6 +629,11 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
           ? [await fetchTruthMapCollection(countriesUrl), null]
           : await Promise.all([fetchTruthMapCollection(countriesUrl), fetchTruthMapCollection(usStatesUrl)]);
         if (disposed) return;
+        // Submit the complete immutable collection as soon as it arrives.
+        // createMap retains it until the style is ready, so worker processing
+        // can overlap shell setup without another chunk-request waterfall.
+        runtime.setData(countries as LegalCountryCollection);
+        setMeta(countries.meta || null);
         // The basemap phase has installed the shared feature layers. Attach the
         // same controller as /new-map before waiting for all reconciliation data,
         // so the pointer feedback is never contingent on a delayed idle event.
@@ -639,14 +647,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
         // Reuse the established map-trigger binding for both shells.  The
         // canvas itself is visual-only; this keeps the local audit preview's
         // Antarctica animation in the same state as the public display map.
-        const { bindAsciiMapTriggers } = await import("@/new-map/ascii/ascii-triggers");
-        if (disposed) {
-          hover.destroy();
-          return null;
-        }
         asciiCleanup = bindAsciiMapTriggers(runtime.map);
-        runtime.setData(countries as LegalCountryCollection);
-        setMeta(countries.meta || null);
         await runtime.ready;
         if (disposed) return;
         const initialView = documentNavigation?.camera || initialMapViewRef.current;
