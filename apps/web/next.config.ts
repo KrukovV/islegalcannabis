@@ -49,6 +49,15 @@ const nextConfig: NextConfig = {
     ...publicMapRuntimeRoutes.map((route) => [route, [...publicMapRuntimeData, ...publicMapStaticAssets]]),
     ["/static/truth-map/*", publicMapStaticAssets],
   ]),
+  // Keep the public address, but deliver it through the same explicit XML
+  // handler as the already accepted full sitemap, before metadata routes.
+  async rewrites() {
+    return {
+      beforeFiles: [{ source: "/sitemap.xml", destination: "/sitemap-main.xml" }],
+      afterFiles: [],
+      fallback: []
+    };
+  },
   transpilePackages: ["@islegal/shared"],
   turbopack: {
     root: path.resolve(__dirname, "../.."),

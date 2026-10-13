@@ -2,6 +2,15 @@
 
 Statuses: pending | in_progress | done
 
+## 2026-10-13 canonical sitemap delivery repair
+
+- [done] Compare root MetadataRoute with accepted explicit XML handler: identical 312-URL universe, but lost language alternates in the root generator. Current Vercel logs show root HTTP 200 without a verified Googlebot/body binding; GSC root fetch remains pending.
+- [done] Keep `/sitemap.xml` and all 312 URLs; implement shared explicit UTF-8 XML delivery through a before-files internal rewrite, isolate crawl services from HTML locale processing and retain alternates in the metadata fallback. Focused regressions pass 10/10; actual production-mode and current-main dev HTTP responses preserve every URL and language alternate.
+- [in_progress] Resumed by user on 2026-10-13. Complete root runtime acceptance without weakening any timing/assertion: latest complete mandatory smoke is 33/34 (one warm mobile timing failure, zero skipped). The three earlier map failures pass. Three isolated unchanged warm repeats pass; the second full suite repeats the failure at 11,261 ms against 3,500 ms and was stopped on pause. First resume priority is the full-suite-versus-isolated timing cause, not another blind rerun or raised threshold. Source changes remain local; preserve accepted-main isolation.
+- [done] Restore exact historical reports-route source required by the committed privacy test but accidentally untracked by the Reports/ ignore; no logic or Social enablement change. Keep all assertions strict.
+- [in_progress] User authorized scoped SEO publication: coordinate the accepted map release first, merge only accepted origin/main, obtain combined root PASS, deliver through the green helper, verify exact-build live crawl/headers/XML/browser and request one canonical GSC re-fetch. Google parsing/indexing acceptance requires its own dated receipt.
+- [done] Preserve one active full GSC/technical SEO heartbeat every two days at 10:00 Europe/Moscow; update its dated baseline so the downloaded index is not falsely labelled pending. No duplicate schedule or automatic release authority.
+
 ## 2026-10-13 mobile and desktop map response
 
 ### Resumed with resource limits
@@ -560,3 +569,9 @@ This list is derived from the canonical ledger aliases defined in the re-audit s
 - [x] `IQ` independent official-law review: Law No. 50 of 2017 was visually read from the Iraqi Official Gazette (Articles 18-23 and cannabis schedules); the legal result is proposal-only `YELLOW` from a limited cannabis-specific medical/scientific exception plus prescription/pharmacy mechanism, while Green remains unproven without an operational cannabis programme or supply record. Live MapLibre capture is current `ILLEGAL`/RED; singleton CI checkpoint passed with `CI_STATUS=PASS`, `Smoke 16/0`, `POST_CHECKS_OK=1`, and `HUB_STAGE_REPORT_OK=1`.
 - [x] `NG` independent official-law review: visually re-opened cannabis-specific Indian Hemp Act text establishes adult prohibition plus a narrow medical-preparation exception; current NDLEA enforcement corroborates the prohibition axis and the National Assembly record confirms the Cannabis Bill was only First Reading. Proposal-only `YELLOW`, not Green without operational patient access and not Red because of the statutory exception. Live map/raw SSOT remain `ILLEGAL`/RED; singleton CI checkpoint passed with `CI_STATUS=PASS`, `SMOKE_STATUS=PASS`, `POST_CHECKS_OK=1`, and `HUB_STAGE_REPORT_OK=1.
 - [in_progress] Restore production and localhost SEO structure: keep sitemap-advertised `/c/*` and localized country pages backed by the narrow monorepo runtime-data trace, prove split sitemaps and representative SSR/canonical responses, and deploy without `/truth-map` or unrelated product/data changes.
+
+### Sitemap publication micro tasks after three incomplete root cycles
+
+- [done] Restore exact missing operational/evidence inputs and refresh the required complete 307-GEO visual proof on the isolated candidate; retain unchanged criteria and external raw evidence.
+- [in_progress] Obtain a complete fresh root PASS and deliver only the scoped sitemap candidate through the green helper and accepted main.
+- [pending] Verify exact-build 312-URL production acceptance, canonical GSC processing and required post-release root cycle.

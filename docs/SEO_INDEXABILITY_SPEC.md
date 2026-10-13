@@ -174,6 +174,22 @@ The full 312-URL set is one root URL, one jurisdiction directory, 238 country
 URLs, 50 U.S. state URLs and 22 localized URLs. A sitemap URL is valid only when the production URL it
 advertises is fetchable and indexable.
 
+### Root XML delivery
+
+The exact `/sitemap.xml` URL is internally rewritten before filesystem routes
+to the shared `/sitemap-main.xml` handler. This is not an HTTP redirect and must
+return the same complete UTF-8 XML, including all retained language alternates.
+The MetadataRoute fallback must preserve those alternates too. Neither path
+may silently shrink the protected set or replace missing data with empty XML.
+
+After canonical-host redirection, robots and the seven sitemap service paths
+pass through the proxy without browser locale negotiation or HTML request-header
+overrides. XML content type/cache policy belongs to each endpoint. A release
+must verify root/full-handler byte parity, 312 unique canonical URLs and the
+four populated index children using real HTTP responses. HTTP success remains
+separate from Google's download, parsing and indexing state; do not claim a
+confirmed Google fetch from uncorrelated Vercel HTTP-200 request logs.
+
 The root URL is exact, not merely normalization-equivalent:
 
 ```text
