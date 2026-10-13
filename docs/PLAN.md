@@ -15,6 +15,8 @@ Statuses: pending | in_progress | done
 
 ### Resumed with resource limits
 
+- [in_progress] Production rejected native GEO startup: same-build3+3 zero-delay medians3245 ms JSON /11296 ms native, errors0. Restore one complete immutable JSON head fetch, preserve selected-card simplification, corrective full CI PASS34/34/post1/hub1; complete honest cold/zoom/render production acceptance; ~2 s remains open.
+
 - [in_progress] Close reproduced selected-card server blocking: cold one-card request blocks concurrent HTML for 2300 ms by building unrelated catalogue/geometry. Derive the selected stored page with the identical function; original map-only fallback and every card field remain. Lint/parity/no-full-build/fallback tests pass 3/3. Rebuilt HTTP: card2288->180 ms/concurrent HTML2300->179 ms; unchanged warm mobile gate671 ms. Full canonical cycle PASS34/34/post1/hub1; exact-production acceptance pending.
 
 - [in_progress] User resumed with no subagents, one heavy runner and simplification-first changes. Latest full cycle smoke passes 34/34, including warm mobile, US startup and native labels; root fails only at the stale popup manifest. Fresh real audit-route 307/307 and unchanged guard now pass. Public 307 captures completed and accepted main a57f6ab3 integrated; complete full canonical acceptance; dev-only _wrap_native_super and stable production ~2 s remain separate.
