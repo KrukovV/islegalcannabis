@@ -101,7 +101,7 @@ type TruthMapQaController = {
 type TruthMapWindow = Window & typeof globalThis & {
   __TRUTH_MAP_DEBUG__?: { map: maplibregl.Map };
   __TRUTH_MAP_QA__?: TruthMapQaController;
-  __PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__?: Promise<Response | null>;
+  __PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__?: Promise<TruthMapCollection | null>;
 };
 
 export type ActiveGeo = {
@@ -136,9 +136,10 @@ type TruthMapPopupSelection = {
 async function fetchTruthMapCollection(url: string): Promise<TruthMapCollection> {
   const host = window as TruthMapWindow;
   const prefetched = url === STATIC_TRUTH_MAP_COUNTRIES_URL ? host.__PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__ : null;
-  // Keep the original immutable response untouched so a development remount
-  // can consume its own clone without repeating the same network request.
-  const response = (prefetched && (await prefetched)?.clone()) || await fetch(url, { credentials: "same-origin" });
+  const collection = prefetched && await prefetched;
+  // Each mount owns its data; the one cached complete collection stays intact.
+  if (collection) return structuredClone(collection);
+  const response = await fetch(url, { credentials: "same-origin" });
   if (!response.ok) throw new Error(`truth_map_dataset_fetch:${response.status}`);
   return response.json() as Promise<TruthMapCollection>;
 }

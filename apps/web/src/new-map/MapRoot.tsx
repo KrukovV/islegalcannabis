@@ -932,18 +932,14 @@ export default function MapRoot({
   useEffect(() => {
     if (!selectedGeo || cardIndex[selectedGeo]) return;
     let cancelled = false;
-    let timeoutId = 0;
     queueMicrotask(() => {
-      if (!cancelled) {
-        void loadCardEntry(selectedGeo);
-        timeoutId = window.setTimeout(() => {
-          if (!cancelled) void loadCardIndex();
-        }, 800);
-      }
+      if (cancelled) return;
+      void loadCardEntry(selectedGeo).then((entry) => {
+        if (!cancelled && !entry) void loadCardIndex();
+      });
     });
     return () => {
       cancelled = true;
-      window.clearTimeout(timeoutId);
     };
   }, [cardIndex, loadCardEntry, loadCardIndex, selectedGeo]);
 

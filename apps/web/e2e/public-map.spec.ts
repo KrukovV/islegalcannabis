@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { STATIC_TRUTH_MAP_COUNTRIES_URL } from "../src/truth-map/staticTruthMapUrls";
+import { STATIC_TRUTH_MAP_COUNTRIES_URL, STATIC_TRUTH_MAP_COUNTRIES_BOOTSTRAP_URL } from "../src/truth-map/staticTruthMapUrls";
 
 test("public first-fill timing waits for the complete legal source to render", async ({ page }) => {
   const workerRequests: string[] = [];
@@ -10,7 +10,7 @@ test("public first-fill timing waits for the complete legal source to render", a
   await page.route("**/api/new-map/maplibre-worker**", (route) => route.abort());
   let releaseCountries: () => void = () => {};
   const countriesGate = new Promise<void>((resolve) => { releaseCountries = resolve; });
-  await page.route(`**${STATIC_TRUTH_MAP_COUNTRIES_URL}`, async (route) => {
+  await page.route(`**${STATIC_TRUTH_MAP_COUNTRIES_BOOTSTRAP_URL}`, async (route) => {
     await countriesGate;
     await route.continue();
   });
@@ -31,6 +31,15 @@ test("public first-fill timing waits for the complete legal source to render", a
     expect(await page.evaluate(() =>
       (window as unknown as { __NEW_MAP_TRACE__?: { marks?: Record<string, number> } }).__NEW_MAP_TRACE__?.marks?.NM_T7_FIRST_FILL_RENDERED
     )).toBeGreaterThan(0);
+    await page.unroute(`**${STATIC_TRUTH_MAP_COUNTRIES_BOOTSTRAP_URL}`);
+    await page.route(`**${STATIC_TRUTH_MAP_COUNTRIES_BOOTSTRAP_URL}`, (route) => route.abort());
+    const fallbackRequests: string[] = [];
+    page.on("request", (request) => {
+      if (request.url().endsWith(STATIC_TRUTH_MAP_COUNTRIES_URL)) fallbackRequests.push(request.url());
+    });
+    await page.reload({ waitUntil: "domcontentloaded" });
+    await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 30_000 });
+    expect(fallbackRequests).toHaveLength(1);
     expect(workerRequests).toHaveLength(0);
   } finally {
     releaseCountries();
@@ -38,6 +47,12 @@ test("public first-fill timing waits for the complete legal source to render", a
 });
 
 test("local public root retains only the local AI dock beside the public Truth Map display core", async ({ page }) => {
+  // Expose stylesheet blocking without adding another browser journey.
+  await page.route("**/*.css", async (route) => {
+    const response = await route.fetch();
+    await page.waitForTimeout(500);
+    await route.fulfill({ response });
+  });
   await page.addInitScript(() => {
     const posts: number[] = [];
     Object.assign(window, { __PUBLIC_LEGAL_WORKER_POSTS__: posts });
@@ -84,9 +99,13 @@ test("local public root retains only the local AI dock beside the public Truth M
     countryStart: performance.getEntriesByType("resource")
       .find((entry) => entry.name.includes("/static/truth-map/countries."))?.startTime,
     mapConstructor: (window as unknown as { __NEW_MAP_TRACE__?: { marks?: Record<string, number> } })
-      .__NEW_MAP_TRACE__?.marks?.NM_T2_MAP_CONSTRUCTOR_START
+      .__NEW_MAP_TRACE__?.marks?.NM_T2_MAP_CONSTRUCTOR_START,
+    stylesEnd: Math.max(...performance.getEntriesByType("resource")
+      .filter((entry) => entry.name.endsWith(".css"))
+      .map((entry) => (entry as PerformanceResourceTiming).responseEnd))
   }));
   expect(coldRequestOrder.countryStart).toBeLessThan(coldRequestOrder.mapConstructor);
+  expect(coldRequestOrder.countryStart).toBeLessThan(coldRequestOrder.stylesEnd);
   expect(apiRequests.some((url) => url.includes("/api/new-map/countries?inline=1"))).toBe(false);
   expect(apiRequests.some((url) => url.includes("/api/truth-map/") || url.includes("/api/social/") || url.includes("/api/dm/"))).toBe(false);
 });
