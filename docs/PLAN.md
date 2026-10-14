@@ -15,8 +15,8 @@ Statuses: pending | in_progress | done
 
 ### Resumed with resource limits
 
-- [in_progress] Remove CSS-dependent full-GEO startup using the existing framework CSS delivery option, with identical CSS/data and one complete GEO request. Canonical34/34 and local6/6 pass; controlled two-browser CSS overlap saves592/652 ms. Production timing pending;126341 raw CSS bytes and SSR/RSC duplication are explicit tradeoffs.
-- [pending] Separate detailed native tile transfer, worker completion and rendered-frame delays before choosing a delivery change.
+- [done] Remove CSS-dependent full-GEO startup using the existing framework CSS delivery option, with identical CSS/data and one complete GEO request. Canonical34/34 and local6/6 pass; controlled two-browser CSS overlap saves592/652 ms. PR14/main9fc production: zero initial CSS requests, six fresh cold mobile3359/4559/5475 and desktop2953/3347/5015 ms. Stable~2s remains open;126341 raw CSS bytes and SSR/RSC duplication are explicit tradeoffs.
+- [in_progress] Separate detailed native tile transfer, worker completion and rendered-frame delays before choosing a delivery change. Current native20/20 passes but desktopz15 Store837/native20590 ms; HTTP bodies reach22170 ms and last network-to-complete93–839 ms. SDK worker-event split NOT_RECORDED. Official compatible-provider desktop2+2/mobile1+1 improves completion with unchanged93-layer presentation; local candidate uses live descriptor and standard attribution. Full canonical candidate acceptance, first-click/cold and actual deployed-source timings pending. No proxy/cache.
 - [pending] Verify an accepted simplification on exact production SHA with fresh mobile/desktop cold and real ZoomIn/ZoomOut.
 
 - [done] Reject two post-release transport prototypes: tiny async fetch still waitsCSS in WebKit; one official Carto host worsens native rendering and fails2 unchanged30s directions. Complete raw evidence retained externally; no product change.

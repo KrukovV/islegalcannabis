@@ -1,8 +1,8 @@
 import type { StyleSpecification, VectorSourceSpecification } from "maplibre-gl";
-import acceptedStyle from "./styles/positron.ab81337170d2.json";
+import acceptedStyle from "./styles/positron.9e07dd691d25.json";
 
-// The approved 93-layer style and provider TileJSON delivery fields are pinned
-// together. Native tile loading needs neither a style nor a descriptor request.
+// Keep the approved93-layer presentation. The compatible provider descriptor
+// selects its maintained dataset; pinning its dated tile URL would freeze it.
 const carto = acceptedStyle.sources.carto;
 const cartoSource: VectorSourceSpecification = {
   ...carto,

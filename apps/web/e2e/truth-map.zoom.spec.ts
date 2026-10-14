@@ -95,10 +95,8 @@ test("truth-map shares the stable city-label visibility ranges used by new-map",
   expect(labelBandState.stops.every((stop) => stop.activeLayerIds.length > 0)).toBe(true);
   expect(labelBandState.stops.every((stop) => stop.renderedLabelCount > 0), JSON.stringify(labelBandState.stops)).toBe(true);
   expect(labelBandState.stops.every((stop) => stop.settledByIdle && stop.settleMs < 5_000), JSON.stringify(labelBandState.stops)).toBe(true);
-  expect(labelBandState.sourceUrl).toBeNull();
-  expect(labelBandState.sourceTiles).toEqual(["a", "b", "c", "d"].map((host) =>
-    `https://tiles-${host}.basemaps.cartocdn.com/vectortiles/carto.streets/v1/{z}/{x}/{y}.mvt`
-  ));
+  expect(labelBandState.sourceUrl).toBe("https://tiles.openfreemap.org/planet");
+  expect(labelBandState.sourceTiles).toEqual([]);
   expect(labelBandState.glyphs).toMatch(/^https:\/\/tiles\.basemaps\.cartocdn\.com\//);
   expect(labelBandState.sprite).toMatch(/^https:\/\/tiles\.basemaps\.cartocdn\.com\//);
   expect(runtimeErrors).toEqual([]);

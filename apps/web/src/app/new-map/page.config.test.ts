@@ -5,21 +5,21 @@ import { describe, expect, it } from "vitest";
 import { STATIC_BASEMAP_STYLE } from "@/new-map/staticBasemapStyle";
 
 describe("new-map route config", () => {
-  it("keeps the public map's direct-Carto style byte-pinned without a cold HTTP request", () => {
-    const stylePath = path.join(process.cwd(), "src", "new-map", "styles", "positron.ab81337170d2.json");
+  it("keeps the approved93-layer style byte-pinned with maintained compatible tile delivery", () => {
+    const stylePath = path.join(process.cwd(), "src", "new-map", "styles", "positron.9e07dd691d25.json");
     const bytes = fs.readFileSync(stylePath);
     const hash = createHash("sha256").update(bytes).digest("hex").slice(0, 12);
     expect(path.basename(stylePath)).toBe(`positron.${hash}.json`);
     const style = JSON.parse(bytes.toString("utf8"));
     expect(STATIC_BASEMAP_STYLE).toEqual(style);
-    expect(style.sources.carto.url).toBeUndefined();
-    expect(style.sources.carto.tiles).toEqual(["a", "b", "c", "d"].map((host) =>
-      `https://tiles-${host}.basemaps.cartocdn.com/vectortiles/carto.streets/v1/{z}/{x}/{y}.mvt`
-    ));
+    expect(style.sources.carto.url).toBe("https://tiles.openfreemap.org/planet");
+    expect(style.sources.carto.tiles).toBeUndefined();
     expect(style.sources.carto.minzoom).toBe(0);
     expect(style.sources.carto.maxzoom).toBe(14);
     expect(style.sources.carto.bounds).toEqual([-180, -85.0511, 180, 85.0511]);
     expect(style.sources.carto.attribution).toContain("OpenStreetMap");
+    expect(style.sources.carto.attribution).toContain("OpenFreeMap");
+    expect(style.sources.carto.attribution).toContain("OpenMapTiles");
     expect(style.sources.carto.attribution).toContain("https://carto.com/about-carto/");
     const approved = JSON.parse(fs.readFileSync(path.join(process.cwd(), "src", "new-map", "styles", "positron.227fe978a37b.json"), "utf8"));
     // Preserve every native layer, glyph, sprite, paint and layout value.
