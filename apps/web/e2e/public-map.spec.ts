@@ -61,9 +61,11 @@ test("local public root retains only the local AI dock beside the public Truth M
       return originalPost.call(this, message, Array.isArray(options) ? { transfer: options } : options);
     };
   });
+  const descriptorRequests: string[] = [];
   const apiRequests: string[] = [];
   const staticMapRequests: string[] = [];
   page.on("request", (request) => {
+    if (request.url().includes("/vector/carto.streets/v1/tiles.json")) descriptorRequests.push(request.url());
     if (request.url().includes("/api/")) apiRequests.push(request.url());
     if (request.url().includes("/static/truth-map/")) staticMapRequests.push(request.url());
   });
@@ -88,6 +90,7 @@ test("local public root retains only the local AI dock beside the public Truth M
     .some((entry) => entry.name.includes("/static/truth-map/countries."))), { timeout: 15_000 }).toBe(true);
   expect(apiRequests.filter((url) => url.includes("/api/public-map/countries"))).toHaveLength(0);
   expect(apiRequests.filter((url) => url.includes("/api/new-map/basemap-style"))).toHaveLength(0);
+  expect(descriptorRequests).toHaveLength(0);
   expect(apiRequests.filter((url) => url.includes("/api/new-map/card-index"))).toHaveLength(0);
   expect(staticMapRequests.filter((url) => url.includes("/countries."))).toHaveLength(1);
   expect(staticMapRequests.filter((url) => url.includes("/us-states."))).toHaveLength(0);

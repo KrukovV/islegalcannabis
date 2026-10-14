@@ -73,6 +73,7 @@ test("truth-map shares the stable city-label visibility ranges used by new-map",
       activeBands,
       stops,
       sourceUrl: "url" in style.sources.carto ? style.sources.carto.url : null,
+      sourceTiles: "tiles" in style.sources.carto ? style.sources.carto.tiles : [],
       glyphs: style.glyphs,
       sprite: style.sprite
     };
@@ -94,7 +95,10 @@ test("truth-map shares the stable city-label visibility ranges used by new-map",
   expect(labelBandState.stops.every((stop) => stop.activeLayerIds.length > 0)).toBe(true);
   expect(labelBandState.stops.every((stop) => stop.renderedLabelCount > 0), JSON.stringify(labelBandState.stops)).toBe(true);
   expect(labelBandState.stops.every((stop) => stop.settledByIdle && stop.settleMs < 5_000), JSON.stringify(labelBandState.stops)).toBe(true);
-  expect(labelBandState.sourceUrl).toMatch(/^https:\/\/tiles\.basemaps\.cartocdn\.com\//);
+  expect(labelBandState.sourceUrl).toBeNull();
+  expect(labelBandState.sourceTiles).toEqual(["a", "b", "c", "d"].map((host) =>
+    `https://tiles-${host}.basemaps.cartocdn.com/vectortiles/carto.streets/v1/{z}/{x}/{y}.mvt`
+  ));
   expect(labelBandState.glyphs).toMatch(/^https:\/\/tiles\.basemaps\.cartocdn\.com\//);
   expect(labelBandState.sprite).toMatch(/^https:\/\/tiles\.basemaps\.cartocdn\.com\//);
   expect(runtimeErrors).toEqual([]);
