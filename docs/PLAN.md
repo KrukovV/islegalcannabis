@@ -15,7 +15,15 @@ Statuses: pending | in_progress | done
 
 ### Resumed with resource limits
 
-- [in_progress] Remove the reproduced Carto descriptor network dependency by pinning exact provider tiles/minzoom/maxzoom/bounds/attribution with the unchanged93-layer style. Same-production desktop2+2 native complete originalin8376/9981,out9078/12458 vs inlinein3269/3088,out3766/2502 ms; mobile functional complete but equivalent-start gain not proven, cold11444 ms. Preserve native labels, geometry, all GEO/popup/Store data; finish root/release/exact-build production evidence.
+- [in_progress] Remove CSS-dependent full-GEO startup using the existing framework CSS delivery option, with identical CSS/data and one complete GEO request. Canonical34/34 and local6/6 pass; controlled two-browser CSS overlap saves592/652 ms. Production timing pending;126341 raw CSS bytes and SSR/RSC duplication are explicit tradeoffs.
+- [pending] Separate detailed native tile transfer, worker completion and rendered-frame delays before choosing a delivery change.
+- [pending] Verify an accepted simplification on exact production SHA with fresh mobile/desktop cold and real ZoomIn/ZoomOut.
+
+- [done] Reject two post-release transport prototypes: tiny async fetch still waitsCSS in WebKit; one official Carto host worsens native rendering and fails2 unchanged30s directions. Complete raw evidence retained externally; no product change.
+
+- [in_progress] Accepted492efd2a/PR13 removes one serial descriptor request, preserves93 native layers. Live native gestures20/20 and rich-popup/SEO6/6/crawl312/312 pass; sustainable speed remains unproven: cold mobile5122/2862/5707, desktop2199/10069/3964 ms; WebKitz15 Store832/native9940 ms. Chromium nativein3121/4469,out2050/4093 ms. All six cold GEO requests start9–17 ms after CSS; separate this startup dependency from slow detail-body delivery. Canonical post-release root PASS34/34/post1/hub1; prior intermittent33/34 FAIL retained with cause UNCONFIRMED. Use these receipts for the continuing speed task.
+
+- [done] Remove the reproduced Carto descriptor network dependency by pinning exact provider tiles/minzoom/maxzoom/bounds/attribution with the unchanged93-layer style. Same-production desktop2+2 native complete originalin8376/9981,out9078/12458 vs inlinein3269/3088,out3766/2502 ms; mobile functional complete but equivalent-start gain not proven, cold11444 ms. Native labels, geometry and all GEO/popup/Store data retained; PR13/main492, live20/6/312 and canonical post-root34/34/post1/hub1 complete. Stable cold and complete-native speed remain a separate open item.
 
 - [in_progress] Corrected production8d0f408b: six fresh default-root cold mobile3615/5383/14704 ms; desktop5677/11681/6560 ms, errors0. Store transitions20/20 at350–2128 ms and full rich-popup/SEO6/6 pass. Separate desktop z14->15 visible street delivery9969 ms while Store746 ms; mobile screenshot has an unrendered top strip. Fast complete native details and stable cold ~2 s remain NOT_PROVEN. Live312/312 crawl and final post-release rootPASS34/34/post1/hub1 are complete. Performance goals remain open.
 

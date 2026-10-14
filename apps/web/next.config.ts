@@ -39,7 +39,8 @@ const publicMapRuntimeRoutes = [
 const nextConfig: NextConfig = {
   productionBrowserSourceMaps: true,
   experimental: {
-    externalDir: true
+    externalDir: true,
+    inlineCss: true
   },
   // Country/SEO routes and the canonical public display map read bounded
   // monorepo datasets at request time. Audit, Social and DM traces stay out.
