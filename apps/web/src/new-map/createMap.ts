@@ -442,6 +442,7 @@ export function createMap(
     dragRotate: false,
     pitchWithRotate: false
   });
+  map.addControl(new maplibregl.AttributionControl({ compact: true }), "top-right");
   markNewMapTrace("NM_T1_MAP_CONSTRUCTOR");
   markNewMapTrace("NM_T3_MAP_INSTANCE_READY");
 

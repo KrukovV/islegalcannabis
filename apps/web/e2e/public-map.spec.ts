@@ -91,6 +91,9 @@ test("local public root retains only the local AI dock beside the public Truth M
   expect(apiRequests.filter((url) => url.includes("/api/public-map/countries"))).toHaveLength(0);
   expect(apiRequests.filter((url) => url.includes("/api/new-map/basemap-style"))).toHaveLength(0);
   expect(descriptorRequests).toHaveLength(0);
+  await expect(page.locator(".maplibregl-ctrl-attrib-button")).toBeVisible();
+  await expect(page.locator(".maplibregl-ctrl-attrib-inner")).toContainText("OpenFreeMap");
+  await expect(page.locator(".maplibregl-ctrl-attrib-inner")).toContainText("OpenStreetMap");
   expect(apiRequests.filter((url) => url.includes("/api/new-map/card-index"))).toHaveLength(0);
   expect(staticMapRequests.filter((url) => url.includes("/countries."))).toHaveLength(1);
   expect(staticMapRequests.filter((url) => url.includes("/us-states."))).toHaveLength(0);
