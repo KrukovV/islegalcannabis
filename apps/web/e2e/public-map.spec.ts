@@ -119,10 +119,15 @@ test("public Antarctica scene runs when the continent is in view @opt-in-visual-
 });
 
 test("public GEO popup keeps its rich legal content and opens the SEO panel without a reload", async ({ page }) => {
+  const startedAt = Date.now();
+  const phase = (name: string) => console.warn(`UI_PUBLIC_SEO_PHASE ${JSON.stringify({ name, elapsedMs: Date.now() - startedAt })}`);
   await page.goto("/?geo=US-CA", { waitUntil: "domcontentloaded" });
+  phase("document-ready");
   await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 30_000 });
+  phase("map-ready");
   const popup = page.getByTestId("new-map-country-popup");
   await expect(popup).toBeVisible({ timeout: 30_000 });
+  phase("popup-visible");
   await expect(popup.getByTestId("truth-map-legal-evidence")).toBeVisible();
   await expect(popup.getByTestId("truth-map-legal-evidence")).toContainText("Current legal conclusion:");
   expect(await popup.locator("section").count()).toBeGreaterThanOrEqual(5);
@@ -133,8 +138,11 @@ test("public GEO popup keeps its rich legal content and opens the SEO panel with
   await expect(seoLink).toHaveAttribute("data-seo-content-link", "1");
   expect(await seoLink.evaluate((node) => getComputedStyle(node).textDecorationStyle)).toBe("dotted");
   const navigationCount = await page.evaluate(() => performance.getEntriesByType("navigation").length);
+  phase("before-seo-click");
   await seoLink.click();
+  phase("after-seo-click");
   await expect(page.getByTestId("new-map-seo-overlay")).toBeVisible({ timeout: 30_000 });
+  phase("seo-overlay-visible");
   await expect(page.getByTestId("new-map-seo-overlay")).toContainText("Law snapshot");
   await expect(page).toHaveURL(/\/c\/us-ca$/);
   expect(await page.evaluate(() => performance.getEntriesByType("navigation").length)).toBe(navigationCount);
