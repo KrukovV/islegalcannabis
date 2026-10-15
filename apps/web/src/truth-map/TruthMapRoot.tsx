@@ -33,7 +33,6 @@ import type { TruthMapCollection, TruthMapDatasetMeta, TruthMapFeatureProperties
 import { projectTruthMapRichCard, TRUTH_MAP_CONTEXT_LABELS, TRUTH_MAP_PROFILE_SECTION_LABELS } from "./truthMapRichCard";
 import TruthMapLegalEvidence from "./TruthMapLegalEvidence";
 import { storeTruthMapDocumentNavigation, takeTruthMapDocumentNavigation, type TruthMapDocumentNavigationContext } from "./documentNavigationContext";
-import { STATIC_TRUTH_MAP_COUNTRIES_URL } from "./staticTruthMapUrls";
 
 type Props = {
   countriesUrl: string;
@@ -101,7 +100,6 @@ type TruthMapQaController = {
 type TruthMapWindow = Window & typeof globalThis & {
   __TRUTH_MAP_DEBUG__?: { map: maplibregl.Map };
   __TRUTH_MAP_QA__?: TruthMapQaController;
-  __PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__?: Promise<TruthMapCollection | null>;
 };
 
 export type ActiveGeo = {
@@ -134,11 +132,6 @@ type TruthMapPopupSelection = {
 };
 
 async function fetchTruthMapCollection(url: string): Promise<TruthMapCollection> {
-  const host = window as TruthMapWindow;
-  const prefetched = url === STATIC_TRUTH_MAP_COUNTRIES_URL ? host.__PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__ : null;
-  const collection = prefetched && await prefetched;
-  // Each mount owns its data; the one cached complete collection stays intact.
-  if (collection) return structuredClone(collection);
   const response = await fetch(url, { credentials: "same-origin" });
   if (!response.ok) throw new Error(`truth_map_dataset_fetch:${response.status}`);
   return response.json() as Promise<TruthMapCollection>;
@@ -580,6 +573,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
     const renderAbort = new AbortController();
     const runtime = createMap(container, {
       style: structuredClone(STATIC_BASEMAP_STYLE),
+      countriesUrl: publicPresentation ? countriesUrl : undefined,
       usStatesUrl,
       initialCamera: documentNavigation?.camera || initialMapViewRef.current,
       shouldSelectFeature: (point) => {
@@ -627,13 +621,14 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
         // camera crosses its state-zoom threshold; fetch the lookup separately
         // only for a state deep link. The audit route retains its full lookup.
         const [countries, auditStates] = publicPresentation
-          ? [await fetchTruthMapCollection(countriesUrl), null]
+          ? [await runtime.ready.then(() =>
+            (runtime.map.getSource(NEW_MAP_SOURCE_ID) as maplibregl.GeoJSONSource).getData()
+          ) as TruthMapCollection, null]
           : await Promise.all([fetchTruthMapCollection(countriesUrl), fetchTruthMapCollection(usStatesUrl)]);
         if (disposed) return;
-        // Submit the complete immutable collection as soon as it arrives.
-        // createMap retains it until the style is ready, so worker processing
-        // can overlap shell setup without another chunk-request waterfall.
-        runtime.setData(countries as LegalCountryCollection);
+        // Public data already belongs to the native source. Reuse its exact
+        // complete record for popup/deep-link lookup without submitting it twice.
+        if (!publicPresentation) runtime.setData(countries as LegalCountryCollection);
         setMeta(countries.meta || null);
         // The basemap phase has installed the shared feature layers. Attach the
         // same controller as /new-map before waiting for all reconciliation data,

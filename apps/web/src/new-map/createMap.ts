@@ -1,7 +1,7 @@
 import maplibregl, { type StyleSpecification } from "maplibre-gl";
 import type { CountryCardSeed, LegalCountryCollection, NewMapBootResult } from "./map.types";
 import { emitFirstVisualReady, markNewMapTrace } from "./startupTrace";
-import { NEW_MAP_BASEMAP_STYLE_URL } from "./runtimeUrls";
+import { NEW_MAP_BASEMAP_STYLE_URL, NEW_MAP_MAPLIBRE_WORKER_URL } from "./runtimeUrls";
 export const NEW_MAP_ADMIN_SOURCE_ID = "admin-boundaries";
 export const NEW_MAP_ADMIN_LAYER_ID = "admin-boundary-line";
 
@@ -34,6 +34,7 @@ const CAMERA_EPSILON = 0.001;
 type SelectedGeoCallback = (_geo: { iso2: string; country: string; lng: number; lat: number } | null) => void;
 type CreateMapOptions = {
   style?: StyleSpecification | string | null;
+  countriesUrl?: string;
   initialCamera?: { lat: number; lng: number; zoom: number } | null;
   onSelectGeo?: (_geo: string | null, _anchor?: { x: number; y: number } | null, _seed?: CountryCardSeed | null) => void;
   shouldSelectFeature?: (_point: { x: number; y: number }, _lngLat: { lng: number; lat: number }) => boolean;
@@ -401,16 +402,19 @@ export function createMap(
   let firstBasemapReadyMarked = false;
   let firstCountriesReadyMarked = false;
   let legalDataSubmitted = false;
+  let countriesRetried = false;
   let firstIdleMarked = false;
   let firstVisualReadyMarked = false;
   let usStatesRequested = false;
   let resolveBasemapReady = () => {};
   let resolveReady = () => {};
+  let rejectReady: (_error: Error) => void = () => {};
   const basemapReady = new Promise<void>((resolve) => {
     resolveBasemapReady = resolve;
   });
-  const ready = new Promise<void>((resolve) => {
+  const ready = new Promise<void>((resolve, reject) => {
     resolveReady = resolve;
+    rejectReady = reject;
   });
   const host = globalThis as typeof globalThis & {
     __NEW_MAP_DEBUG__?: Record<string, unknown>;
@@ -418,6 +422,11 @@ export function createMap(
   };
   // The standard MapLibre bundle creates its worker from already loaded bytes.
   // A separate HTTP worker would add another cold dependency before legal paint.
+  if (process.env.NODE_ENV === "development") {
+    // Turbopack dev moves helpers outside the Blob factory (_wrap_native_super).
+    // The existing untransformed SDK worker retains URL loading in local QA.
+    maplibregl.setWorkerUrl(NEW_MAP_MAPLIBRE_WORKER_URL);
+  }
   const requestedCamera = options?.initialCamera;
   const initialCamera = requestedCamera
     && Number.isFinite(requestedCamera.lat) && Math.abs(requestedCamera.lat) <= 90
@@ -511,13 +520,13 @@ export function createMap(
     const beforeId = findFirstSymbolLayerId(map);
     map.addSource(NEW_MAP_SOURCE_ID, {
       type: "geojson",
-      data: countries,
+      data: options?.countriesUrl || countries,
       promoteId: "geo"
     });
     // addSource already submits this revision. Sending it again at bootstrap
     // makes the worker index the same complete legal collection twice.
     submittedCountriesRevision = countriesRevision;
-    legalDataSubmitted = countries.features.length > 0;
+    legalDataSubmitted = Boolean(options?.countriesUrl) || countries.features.length > 0;
 
     map.addLayer({
       id: NEW_MAP_FILL_LAYER_ID,
@@ -911,6 +920,19 @@ export function createMap(
   });
 
   map.on("render", () => finalizeFirstVisualReady(true));
+
+  map.on("error", (event) => {
+    if (!options?.countriesUrl || !("sourceId" in event) || event.sourceId !== NEW_MAP_SOURCE_ID || readyResolved) return;
+    // Preserve the former prefetch + fetch contract: one bounded retry.
+    if (!countriesRetried) {
+      countriesRetried = true;
+      (map.getSource(NEW_MAP_SOURCE_ID) as maplibregl.GeoJSONSource).setData(options.countriesUrl);
+      return;
+    }
+    legalDataSubmitted = false;
+    readyResolved = true;
+    rejectReady(event.error);
+  });
 
   map.on("idle", () => {
     if (!firstIdleMarked) {
