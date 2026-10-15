@@ -52,6 +52,17 @@ const nextConfig: NextConfig = {
     ...publicMapRuntimeRoutes.map((route) => [route, [...publicMapRuntimeData, ...publicMapStaticAssets]]),
     ["/static/truth-map/*", publicMapStaticAssets],
   ]),
+  async headers() {
+    return [{
+      source: "/geometry/countries.:hash([a-f0-9]{12}).json.br",
+      headers: [
+        { key: "Content-Type", value: "application/json; charset=utf-8" },
+        { key: "Content-Encoding", value: "br" },
+        { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        { key: "X-Truth-Map-Hash", value: ":hash" }
+      ]
+    }];
+  },
   // Keep the public address, but deliver it through the same explicit XML
   // handler as the already accepted full sitemap, before metadata routes.
   async rewrites() {

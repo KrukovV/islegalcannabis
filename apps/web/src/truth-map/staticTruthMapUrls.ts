@@ -17,3 +17,5 @@ if (
 export const STATIC_TRUTH_MAP_COUNTRIES_URL = `/static/truth-map/countries.${countriesHash}.json.br`;
 export const STATIC_TRUTH_MAP_US_STATES_URL = `/static/truth-map/us-states.${usStatesHash}.json.br`;
 export const STATIC_TRUTH_MAP_COUNTRIES_BOOTSTRAP_URL = `/static/truth-map/countries.${STATIC_TRUTH_MAP_COUNTRIES_BOOTSTRAP_HASH}.js.br`;
+
+export const STATIC_TRUTH_MAP_PUBLIC_COUNTRIES_URL = `/geometry/countries.${countriesHash}.json.br`;

@@ -1,3 +1,5 @@
+import { createHash } from "node:crypto";
+import fs from "node:fs";
 import { describe, expect, it } from "vitest";
 import {
   getStaticTruthMapAsset,
@@ -8,6 +10,15 @@ import { buildTruthMapDataset } from "./truthMapSource";
 import { buildStaticTruthMapMetadata, buildStaticTruthMapSnapshot } from "./truthMapStaticSnapshot";
 
 describe("static Truth Map payloads", () => {
+  it("publishes the exact complete immutable JSON bytes through the normal public file path", () => {
+    const original = getStaticTruthMapAsset("countries");
+    const published = fs.readFileSync(new URL(`../../public/geometry/countries.${original.hash}.json.br`, import.meta.url));
+    expect(published.byteLength).toBe(original.brotliByteLength);
+    expect(createHash("sha256").update(published).digest("hex")).toBe(
+      createHash("sha256").update(original.brotli).digest("hex")
+    );
+  });
+
   it("keeps the full country truth properties in a compact immutable asset", () => {
     const asset = getStaticTruthMapAsset("countries");
     expect(asset.hash).toBe(STATIC_TRUTH_MAP_COUNTRIES_HASH);

@@ -22,7 +22,7 @@ describe("truth-map audit route", () => {
     const nextConfig = fs.readFileSync(path.join(process.cwd(), "next.config.ts"), "utf8");
     expect(root).toContain("TruthMapRoot");
     expect(root).toContain('presentation="public"');
-    expect(root).toContain('countriesUrl: STATIC_TRUTH_MAP_COUNTRIES_URL');
+    expect(root).toContain('countriesUrl: STATIC_TRUTH_MAP_PUBLIC_COUNTRIES_URL');
     expect(root).toContain('usStatesUrl: STATIC_TRUTH_MAP_US_STATES_URL');
     expect(root).not.toContain("getSocialRuntimeConfig");
     expect(root).not.toContain("MapGeoDock");

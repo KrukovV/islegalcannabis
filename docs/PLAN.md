@@ -2,6 +2,17 @@
 
 Statuses: pending | in_progress | done
 
+
+## 2026-10-16 native map delivery and critical review
+
+- [in_progress] User requests fastest genuine cold rendering across entire Git/receipt history; rank default production separately from camera-query/legacy/local/warm/weak markers and inspect timing phases plus diffs. 279 retained timing JSONs indexed, raw AA6 markers excluded; verify earliest April–May claims and later strict-render candidates before naming winner.
+- [done] Native-public current canonical pre-gate actual0/PASS34/34/0,642units, lint/build/post1/hub1. No speed or release acceptance.
+
+- [done] Reject unmerged PR20 for release: matched mobileWK current12572/6488 vs candidate17699/7187ms, full parity but no win. Preserve raw artifacts/source c4a7e121. Two economical read-only critics plus independent check corrected AA6 synchronous T7 and coarse native sample metric; no timeout relaxation.
+- [in_progress] Standard public immutable full JSON delivery on accepted5fcd: preserve exact compressed6e4d bytes/encoding, native SDK URL loading and current AppRoute/adapters. Same-origin isolated ABBA with exact decoded hash/headers before full-map/release proof. No codec, cache, timer or popup delay.
+- [in_progress] Benchmark preflight: exact document/status and same-context build, hosting script inventory, precise experimental controls and metric scopes. Retain all failed/confounded/slow rows.
+- [done] User cancels the five-hour historical fallback2026-10-16: AA6 T7 did not prove real paint, so no deadline-triggered rollback to that version. Historical diffs remain diagnostic; retain current strict render fence and every accepted legal/Store/native/popup/SEO fix.
+
 ## Principal goal reconfirmed by user — 2026-10-15
 
 - [in_progress] Confirm automatic canonical sitemap processing and actual indexing of all312 public URLs with current GSC evidence. Full22 translations/strict CI are enabling work; do not close the Google goal on publication, submit, crawlability or samples.

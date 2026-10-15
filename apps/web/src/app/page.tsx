@@ -6,7 +6,7 @@ import { isLocalAuditHost } from "@/lib/privateAuditHost";
 import TruthMapRoot from "@/truth-map/TruthMapRoot";
 import { getTruthMapRuntimeIdentity } from "./truth-map/runtimeConfig";
 import LocalPublicMapRoot from "./_components/LocalPublicMapRoot";
-import { STATIC_TRUTH_MAP_COUNTRIES_URL, STATIC_TRUTH_MAP_US_STATES_URL } from "@/truth-map/staticTruthMapUrls";
+import { STATIC_TRUTH_MAP_PUBLIC_COUNTRIES_URL, STATIC_TRUTH_MAP_US_STATES_URL } from "@/truth-map/staticTruthMapUrls";
 import styles from "./page.module.css";
 
 export const dynamic = "force-dynamic";
@@ -40,7 +40,7 @@ export default async function HomePage({
   const initialMapView = lat === null || lng === null || zoom === null ? null : { lat, lng, zoom };
 
   const mapProps = {
-    countriesUrl: STATIC_TRUTH_MAP_COUNTRIES_URL,
+    countriesUrl: STATIC_TRUTH_MAP_PUBLIC_COUNTRIES_URL,
     usStatesUrl: STATIC_TRUTH_MAP_US_STATES_URL,
     visibleStamp: formatVisibleRuntimeStamp(runtimeIdentity),
     runtimeIdentity,

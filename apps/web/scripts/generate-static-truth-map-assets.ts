@@ -29,6 +29,11 @@ const assets = (Object.keys({ countries: true, "us-states": true }) as Layer[]).
   const hash = createHash("sha256").update(json).digest("hex").slice(0, 12);
   const file = `${layer}.${hash}.json.br`;
   fs.writeFileSync(path.join(assetDirectory, file), brotli);
+  if (layer === "countries") {
+    const publicDirectory = path.join(root, "apps", "web", "public", "geometry");
+    fs.mkdirSync(publicDirectory, { recursive: true });
+    fs.writeFileSync(path.join(publicDirectory, file), brotli);
+  }
   result[layer] = {
     hash,
     file,
