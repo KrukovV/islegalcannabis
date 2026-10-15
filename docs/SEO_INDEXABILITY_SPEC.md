@@ -391,8 +391,10 @@ Console scope. Missing credentials mean `GSC_API_NOT_CONNECTED`, not a green
 live API check. Do not use the Google Indexing API for ordinary country pages.
 
 Localized metadata for the 22 protected alternate URLs uses neutral
-native-language navigational descriptions. It does not translate or replace
-the original official legal citation or current canonical legal conclusion.
+native-language descriptions. The retained legal explanations, annotations,
+action restrictions and historical/profile context are translated on those
+pages. Original official quotation text, citation titles, publishers and URLs
+remain intact. Translation cannot derive or replace a canonical legal conclusion.
 
 ## 11. Change control
 
@@ -409,7 +411,8 @@ All288 advertised English country/state pages must have GEO-specific neutral
 metadata descriptions, with `, USA` on U.S. states. Open Graph uses the same
 description. These describe the retained evidence and context, and cannot
 replace or reinterpret any canonical legal conclusion. The22 localized
-navigation descriptions and all body evidence remain unchanged.
+descriptions remain neutral; the subsequent complete body-localisation contract
+below governs the translated presentation of retained evidence.
 
 Generated sitemaps omit optional `lastmod` until a retained timestamp can prove
 the last significant update of the complete rendered page. Process start,
@@ -425,3 +428,28 @@ Duplicated metadata and unproved modification dates are confirmed technical
 quality findings. They do not establish the cause of automatic sitemap pending
 or guarantee indexing. Eligibility, sitemap processing and actual312-URL
 index membership remain separate dated acceptance gates.
+
+## 2026-10-15 complete existing language-page bodies
+
+All22 existing alternate URLs must render their complete retained explanatory
+body in the requested language, including source annotations, reconciliation
+rationale, action-specific boundaries, historical/profile context and supporting
+facts. The source language of a retained official quotation must not be changed.
+Names of official documents/publishers and original source URLs are retained.
+Unrecorded quantities and truncated source text cannot be reconstructed.
+
+The presentation-only catalog is an immutable public export with deterministic,
+append-only DRAFT/APPROVED/SUPERSEDED review events. An approval binds the exact
+displayed source, translated text, current retained Passport/citation identities,
+original fragments, territorial scope and supplementary disclaimers. Review is
+honestly labelled AI_AGENT; it is not human legal verification. A changed source,
+quote or translated payload cannot inherit an earlier approval. A stale or
+invalid export renders the current original with a visible translated notice;
+it cannot publish obsolete legal text or turn a valid public page into a404.
+CI must reject incomplete/stale coverage of the current22 editions.
+
+Only the localized server route imports the catalog. No client translation API,
+new runtime model, local audit dependency, broad trace include, SSOT/Store change,
+map-colour change, English legal-body replacement or sitemap membership change
+is permitted. Source translations and numeric parity are verified independently
+of Google selection; published translations never prove indexing by themselves.

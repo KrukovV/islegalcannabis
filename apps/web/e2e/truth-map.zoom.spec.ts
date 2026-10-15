@@ -80,7 +80,12 @@ test("truth-map shares the stable city-label visibility ranges used by new-map",
   });
 
   await test.info().attach("native-label-transport", {
-    body: JSON.stringify({ ...labelBandState, transfers: [...transfers.values()].filter((row) => row.url.includes("cartocdn.com")) }),
+    body: JSON.stringify({
+      ...labelBandState,
+      transfers: [...transfers.values()].filter((row) => (
+        row.url.includes("cartocdn.com") || row.url.includes("openfreemap.org")
+      ))
+    }),
     contentType: "application/json"
   });
   expect(labelBandState.activeBands).toEqual(expect.arrayContaining([

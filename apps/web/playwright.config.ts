@@ -13,6 +13,9 @@ export default {
   use: {
     baseURL,
     headless: true,
+    // Preserve failed live-provider request timings without screenshots or DOM
+    // snapshots. Assertions, deadlines and retry count remain unchanged.
+    trace: { mode: "retain-on-failure", screenshots: false, snapshots: false, sources: false },
     launchOptions: {
       args: [
         "--use-angle=swiftshader",

@@ -2,6 +2,28 @@
 
 Statuses: pending | in_progress | done
 
+## Principal goal reconfirmed by user — 2026-10-15
+
+- [in_progress] Confirm automatic canonical sitemap processing and actual indexing of all312 public URLs with current GSC evidence. Full22 translations/strict CI are enabling work; do not close the Google goal on publication, submit, crawlability or samples.
+
+## 2026-10-15 user-resumed causal CI repair
+
+- [done] Preserve exact failed transports and prove complete shared-lease/bounded-resource prePASS34/34/0; original5s/3.5s/assertions remain, historical CDN latency causeUNCONFIRMED.
+- [done] Prove shared CI exclusion/failure propagation/live legacy-owner preservation3/3 and bound corpus workers min1/max2/buildcpus1. No map runtime or test assertion/deadline/selection/isolation edit; exact original native delay still requires the complete current gate.
+- [pending] Complete canonical pre-gate, final PR19 publication, exact-build live312/all22/quotes/browser/post-gate and fresh GSC readback.
+
+## 2026-10-15 localisation release transport microtasks
+
+- [done] Preserve failed33/34 run and bind missing first-zoom labels to a required Cyrillic font finishing after the strict deadline. Underlying CDN delay remains UNCONFIRMED.
+- [done] Run only the original failing test on unchanged built bytes with a complete trace; current1/1 passes, first zoom2000ms and font<=1034ms, threshold5s unchanged.
+- [in_progress] Release blocked: three final-source full cycles33/34 fail unchanged native-label5s gate despite bounded1/1+2/2 passes. Latest20261015T191532Z-22041; no further heavy loops without a new confirmed prerequisite/map fix. DraftPR19 remote50c2 and final local number-formatting patch retained. Require full green pre/live312/browser/post/GSC before closure.
+
+## 2026-10-15 complete22 language-page localisation
+
+- [done] Inventory exact substantive text for all22 current language pages; translate without changing legal conclusions, preserve original citation fragments/links and source identity.
+- [pending] Verify all22 rendered language pages and unchanged English/map behaviour, run mandatory canonical pre-release cycle, publish through green helper/PR and verify exact-build live312 plus browser proof.
+- [pending] Run canonical post-release cycle and verify current GSC sitemap and22 URL Inspection states; no blind sitemap or indexing retries.
+
 ## 2026-10-15 release blocker microtasks
 
 - [done] Capture the two failing unchanged native-map UI tests with full request traces; identify exact403 endpoints and native readiness assertion without changing map code, timing, test exclusions or the foreign singleton.

@@ -5,6 +5,7 @@ import { getCountryPageData, listCountryPageCodes } from "@/lib/countryPageStora
 import { buildSeoLanguageAlternates, getLocalizedSeoEvidenceDescription, isSeoAltLocale, type SeoAltLocale } from "@/lib/seo/i18n";
 import { getEffectiveSeoLocale, listSeoTranslationEntries, type SeoLocale } from "@/lib/seo/wikiLocaleContent";
 import { getTruthMapCountryPageProjection } from "@/truth-map/truthMapCountryPage";
+import { getCountryBodyTranslation, staleTranslationNotice } from "@/lib/seo/localizedBody";
 
 export const revalidate = 604800;
 
@@ -76,5 +77,6 @@ export default async function LocalizedCountryCodePage({
   if (!truthMapProjection) notFound();
   ensureCountryPageHash(data);
   const locale = getEffectiveSeoLocale(data.code, lang as SeoAltLocale) as SeoLocale;
-  return <CountrySeoPage data={data} locale={locale} query={query} truthMapProjection={truthMapProjection} />;
+  const bodyTranslation = getCountryBodyTranslation(data, truthMapProjection, locale);
+  return <CountrySeoPage data={data} locale={locale} query={query} truthMapProjection={truthMapProjection} bodyTranslation={bodyTranslation} translationNotice={bodyTranslation.current ? undefined : staleTranslationNotice(locale)} />;
 }
