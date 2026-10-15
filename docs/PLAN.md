@@ -2,6 +2,40 @@
 
 Statuses: pending | in_progress | done
 
+## 2026-10-16 native prerendered home
+
+- [done] Native Next force-static root from accepted5fcd, bounded browser URL/localdock/public Analytics retained; canonicalactual0/PASS649units/34mandatory failed0/skipped0/post1/hub1 and actual nativecircle/original5s pass. Core5 files byte-identical; generated Store timestamps restored only after wholeJSON/CAS. Final remote speed acceptance still deferred by user to quiet host.
+- [done] Confirm static build/root HTTP cached/prerender headers and exact footprint: JS1753320B vs1768642, estimatedBr406381 vs410609; HTML348319 vs351089. Actual public-host local WK+Chromium portrait/landscape/desktop6/6 query cameras/first click/all11 popup sections/dottedSEO/no reload/clear/noAI/errors/overflow/one URL worker pass. Local fixture timings are not production evidence; original native+Store zoom gates pass in canonical34.
+- [in_progress] Bind remote preview cache/transport observations to exact candidate SHA/build and historical diff; require measured cold benefit plus unchanged native/UI/SEO and quiet-window final acceptance before any production release.
+- [pending] Resolve observed mobile expanded-attribution overlap with directory using native layout, retaining accessible source credits and audit AI/Social controls; verify screenshot and actual control hit targets.
+
+
+## 2026-10-16 native sprite delivery
+
+- [done] Fresh exact5fcd production WK mobile/desktop native diagnostics4/4 actual zooms:5431/1715 and1748/1222ms, roads/buildings/labels/circle/full6e4d present. Cold query-camera legal/native4864/6151 and11070/14691ms, under load. Earlier fixture reverse-gesture popup interception retained FAIL, corrected actual Close before gesture; no deadline/SDK change. Visual mobile attribution overlap remains observed UI issue. Final acceptance awaits quiet host.
+- [done] Reject for release after honest matched native-config prototype WKmobileABBA6255/5398/9448/6162ms; atlas/data/actualcircle4/4 correct, no stable whole-cold win. PR22 closed unmerged, local absoluteURL correction retained. No production change.
+- [done] Production5fcd GPU-pixel+getData diagnostic: ready4918ms/pixel4864ms, source6e4d/276 and oneworker; getData0.1ms, so no speculative data-read deferral. Stock Chromium still SwiftShader; no hardware-mobile/stability claim.
+- [done] First stock Next --webpack build fails at SWC CSS Browserslist parsing before a comparable footprint exists; preserve webpack-build.log, no bundler/config/browser-target change or speed claim. Saved Turbopack root HTTP/asset hashes:1.77MB raw/~411KB estimatedBrotli JS. Production HTML retains126KB inline CSS before firstJS; ordering alone is not causal latency proof.
+- [done] User chooses continued diagnostics under host load; final acceptance deferred to a free window. Absolute URL correction passes actual circle-11 plus original native-label gate, but canonical current-source FAIL33/34/0 at Store zoom4961ms/server3214ms. Reports and full traces archived as absolute-FAIL-*; strict thresholds retained, no release or blind full-cycle repeat.
+- [in_progress] Repair measured candidate defect: MapLibre requires absolute sprite URL; first remoteA aborts on zero sprite requests. Resolve relative style sprite against document baseURI before nativeMap and require actual hasImage(circle-11). Prior fullPASS does not certify the atlas; require new current-source gate and corrected same-build standard style-configuration A/B.
+- [done] External PSI200desktop/mobile bound to5fcd: GEO~468/212ms, later legal-colour filmstrip (mobile3320blank/4150fill; desktop4964blank/6204partialfill), Other main work~5.3s. Preserve observed/simulated distinction and coarse pixel bounds, no exact map-ready claim.
+
+- [done] Passive exact5fcd production baseline: Chromium mobile7158ms/desktop4076ms, complete6e4d, one source/one worker post/errors0, critical assets CDNHIT/Brotli/fra1. Split pre-JS, constructor, source network and render; no causal GPU/CDN inference.
+- [done] Final canonicalactual0/PASS34/34/0,643units/lint/build/post1/hub1; priorFAIL retained. Canonical first cycleFAIL32/34: popup30s under observed host pressure; native failure final old-origin URL assertion. Corrected exact immutable URL expectation, no timing/assertion reduction. Same built bytes original popup/native2/2pass; HTTP4/4 hashes/headers pass. Renewed full gate passed; no remote speed acceptance yet.
+- [in_progress] Deliver exact original1x/2x circle-11 atlas through ordinary same-origin immutable public files; verify819B/bundleffd461572dc4 and unchanged all93 layers/tile/glyph fields. Removing used native sprites is forbidden. Same-build native browser transport/timing before any release.
+- [pending] Require measured benefit and unchanged mobile/desktop ZoomIn/ZoomOut, rich popup/SEO,312crawl and canonical pre/post gates before publication.
+
+## 2026-10-16 native map delivery and critical review
+
+- [done] Audit all reachable Git performance history fromApril and336 retained timing JSONs with independent critic: best default-root runtime-render492efd2a2199ms; stronger external real-featurefc9d53b42631.7ms; camera-query8ae2116.8ms separate. No stable historical2s proved. Raw identities/conditions/exclusions/phase deltas/diffs in external native-public/history-best-rendering.json.
+- [done] Native-public current canonical pre-gate actual0/PASS34/34/0,642units, lint/build/post1/hub1. No speed or release acceptance.
+
+- [done] Reject unmerged PR20 for release: matched mobileWK current12572/6488 vs candidate17699/7187ms, full parity but no win. Preserve raw artifacts/source c4a7e121. Two economical read-only critics plus independent check corrected AA6 synchronous T7 and coarse native sample metric; no timeout relaxation.
+- [done] Standard public full JSON candidate5d22841e preserves exact6e4d bytes/encoding/nativeSDK and passes canonical34. Isolated same-origin transport4/4hash/headerPASS but no measured win: A/B/B/A1608PRERENDER/3579MISS/4024HIT/3796HIT. PR21 closed unmerged; preserve branch, skip larger browser runs absent a new positive prerequisite.
+- [pending] Before any future browser A/B, fix unused compare.mjs preflight URL warm-up symmetry and durable final validation/cleanup identified by critic. Same build/origin, document/status/build and hosting inventories remain required. Planned browser comparison was NOT_RUN; no script-only claim.
+- [in_progress] Continue critical JS/GEO/native delivery diagnosis from unchanged exact-build production HTTP timings/cache/POP, distinguishing pre-request delay, first byte, transfer and actual rendered feature. Historical phase comparisons do not establish a commit/provider causal regression.
+- [done] User cancels the five-hour historical fallback2026-10-16: AA6 T7 did not prove real paint, so no deadline-triggered rollback to that version. Historical diffs remain diagnostic; retain current strict render fence and every accepted legal/Store/native/popup/SEO fix.
+
 ## Principal goal reconfirmed by user — 2026-10-15
 
 - [in_progress] Confirm automatic canonical sitemap processing and actual indexing of all312 public URLs with current GSC evidence. Full22 translations/strict CI are enabling work; do not close the Google goal on publication, submit, crawlability or samples.
