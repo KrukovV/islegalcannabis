@@ -179,6 +179,13 @@ export function getLocalizedSeoTitle(data: CountryPageData, locale: SeoAltLocale
   return ALT_COPY[locale].title(getLocalizedCountryName(data, locale));
 }
 
+// Keep jurisdiction names in English metadata, including the country qualifier
+// for U.S. states. Legal conclusions remain in the canonical evidence projection.
+export function getEnglishSeoEvidenceDescription(data: CountryPageData) {
+  const name = data.node_type === "state" ? `${data.name}, USA` : getLocalizedCountryName(data, "en");
+  return `Cannabis law in ${name}: current legal evidence, official sources and their scope, plus clearly labelled supplementary and historical context.`;
+}
+
 // Navigational metadata only. Do not translate a legal conclusion or reuse
 // historical wiki summaries as current legal evidence.
 export function getLocalizedSeoEvidenceDescription(data: CountryPageData, locale: SeoAltLocale) {

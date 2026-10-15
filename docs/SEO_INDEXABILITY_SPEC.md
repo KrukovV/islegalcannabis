@@ -401,3 +401,27 @@ canonical metadata, robots policy, production route exposure or audit-route
 isolation must update this specification in the same accepted documentation
 change. Historical failure text stays evidence; active rules live here,
 `AGENTS.md`, `docs/CONTRACT.md` and `docs/OPS.md`.
+
+
+## 2026-10-15 indexing recovery: descriptions and sitemap dates
+
+All288 advertised English country/state pages must have GEO-specific neutral
+metadata descriptions, with `, USA` on U.S. states. Open Graph uses the same
+description. These describe the retained evidence and context, and cannot
+replace or reinterpret any canonical legal conclusion. The22 localized
+navigation descriptions and all body evidence remain unchanged.
+
+Generated sitemaps omit optional `lastmod` until a retained timestamp can prove
+the last significant update of the complete rendered page. Process start,
+deployment/build time and a supporting legacy country record's `updated_at`
+do not prove that date for the current canonical legal projection, page links
+or localized content. Do not substitute today's date or a release date without
+page-specific evidence. Both the XML handler and MetadataRoute fallback must
+omit unknown dates; future explicitly evidenced dates remain serializable.
+The protected312 URLs,238/50/22 partitions, four index children, current root
+URL/internal rewrite, UTF-8 namespace and all alternates remain mandatory.
+
+Duplicated metadata and unproved modification dates are confirmed technical
+quality findings. They do not establish the cause of automatic sitemap pending
+or guarantee indexing. Eligibility, sitemap processing and actual312-URL
+index membership remain separate dated acceptance gates.

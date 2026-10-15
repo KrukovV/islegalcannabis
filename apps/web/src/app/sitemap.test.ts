@@ -1,6 +1,6 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import sitemap from "@/app/sitemap";
-import { buildCountrySitemapEntries, buildI18nSitemapEntries, buildMainSitemapEntries, buildPrimarySitemapEntries, buildStateSitemapEntries } from "@/lib/seo/sitemaps";
+import { buildCountrySitemapEntries, buildI18nSitemapEntries, buildMainSitemapEntries, buildPrimarySitemapEntries, buildStateSitemapEntries, renderUrlSetXml } from "@/lib/seo/sitemaps";
 import nextConfig from "../../next.config";
 import { GET as getFullSitemap } from "@/app/sitemap-main.xml/route";
 
@@ -13,11 +13,29 @@ describe("sitemap", () => {
     for (const entry of entries) {
       expect(entry.url.startsWith("https://www.islegal.info")).toBe(true);
       expect(entry.url.includes("?")).toBe(false);
-      expect(entry.lastModified instanceof Date).toBe(true);
+      expect(entry.lastModified).toBeUndefined();
       if (entry.url !== "https://www.islegal.info/") {
         expect(entry.url.startsWith("https://www.islegal.info/")).toBe(true);
       }
     }
+  });
+
+  it("never invents significant update dates from process time or supporting records", () => {
+    vi.useFakeTimers();
+    try {
+      vi.setSystemTime(new Date("2026-10-15T10:00:00Z"));
+      const before = renderUrlSetXml(buildPrimarySitemapEntries());
+      vi.setSystemTime(new Date("2026-11-20T10:00:00Z"));
+      expect(renderUrlSetXml(buildPrimarySitemapEntries())).toBe(before);
+      expect(before).not.toContain("<lastmod>");
+      expect(before).not.toContain("Invalid Date");
+      expect(sitemap().every((entry) => entry.lastModified === undefined)).toBe(true);
+    } finally {
+      vi.useRealTimers();
+    }
+    // An explicitly evidenced date remains supported by the XML serializer.
+    expect(renderUrlSetXml([{ url: "https://www.islegal.info/", lastModified: "2026-10-13" }]))
+      .toContain("<lastmod>2026-10-13</lastmod>");
   });
 
   it("includes countries, us states, and localized priority pages", () => {

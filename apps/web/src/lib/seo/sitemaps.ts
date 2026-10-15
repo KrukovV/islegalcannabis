@@ -1,4 +1,3 @@
-import { getBuildStamp } from "@/lib/buildStamp";
 import { listCountryPageDataCached, type CountryPageData } from "@/lib/countryPageStorage";
 import { buildSeoLanguageAlternates, getSeoLocaleHref, listSeoTranslationEntries } from "@/lib/seo/wikiLocaleContent";
 
@@ -6,27 +5,13 @@ export const SEO_BASE_URL = "https://www.islegal.info";
 
 export type SitemapEntry = {
   url: string;
-  lastModified: string;
+  lastModified?: string;
   priority?: string;
   alternates?: Array<{ hreflang: string; href: string }>;
 };
 
-function toIsoDate(value: string | null | undefined) {
-  const fallback = new Date(getBuildStamp().buildTime).toISOString().slice(0, 10);
-  if (!value) return fallback;
-  const parsed = new Date(value);
-  if (Number.isNaN(parsed.getTime())) return fallback;
-  return parsed.toISOString().slice(0, 10);
-}
-
 function toCanonicalUrl(pathname: string) {
   return `${SEO_BASE_URL}${pathname}`;
-}
-
-function getCountryLastModifiedByCode(countryEntries: CountryPageData[]) {
-  return new Map(
-    countryEntries.map((entry) => [entry.code, toIsoDate(entry.updated_at)] as const)
-  );
 }
 
 function buildLocaleAlternates(code: string) {
@@ -45,16 +30,17 @@ export function buildSitemapIndexEntries() {
   ];
 }
 
+// Omit lastmod until a retained significant-page-update timestamp exists.
+// Process/build clocks and the supporting legacy country record do not date
+// the current canonical legal projection, page links or localized content.
 export function buildMainSitemapEntries(): SitemapEntry[] {
   return [
     {
       url: toCanonicalUrl("/"),
-      lastModified: toIsoDate(getBuildStamp().buildTime),
       priority: "1.0"
     },
     {
-      url: toCanonicalUrl("/jurisdictions"),
-      lastModified: toIsoDate(getBuildStamp().buildTime)
+      url: toCanonicalUrl("/jurisdictions")
     }
   ];
 }
@@ -65,7 +51,7 @@ export function buildPrimarySitemapEntries(): SitemapEntry[] {
     ...buildMainSitemapEntries(),
     ...buildCountrySitemapEntriesFrom(countryEntries),
     ...buildStateSitemapEntriesFrom(countryEntries),
-    ...buildI18nSitemapEntriesFrom(countryEntries)
+    ...buildI18nSitemapEntriesFrom()
   ];
 }
 
@@ -74,7 +60,6 @@ function buildCountrySitemapEntriesFrom(countryEntries: CountryPageData[]): Site
     .filter((entry) => entry.node_type === "country")
     .map((entry) => ({
       url: toCanonicalUrl(`/c/${entry.code}`),
-      lastModified: toIsoDate(entry.updated_at),
       priority: "0.9"
     }));
 }
@@ -88,7 +73,6 @@ function buildStateSitemapEntriesFrom(countryEntries: CountryPageData[]): Sitema
     .filter((entry) => entry.node_type === "state")
     .map((entry) => ({
       url: toCanonicalUrl(`/c/${entry.code}`),
-      lastModified: toIsoDate(entry.updated_at),
       priority: "0.8"
     }));
 }
@@ -97,17 +81,15 @@ export function buildStateSitemapEntries(): SitemapEntry[] {
   return buildStateSitemapEntriesFrom(listCountryPageDataCached());
 }
 
-function buildI18nSitemapEntriesFrom(countryEntries: CountryPageData[]): SitemapEntry[] {
-  const lastModifiedByCode = getCountryLastModifiedByCode(countryEntries);
+function buildI18nSitemapEntriesFrom(): SitemapEntry[] {
   return listSeoTranslationEntries().map((entry) => ({
     url: toCanonicalUrl(getSeoLocaleHref(entry.code, entry.locale)),
-    lastModified: lastModifiedByCode.get(entry.code) || toIsoDate(null),
     alternates: buildLocaleAlternates(entry.code)
   }));
 }
 
 export function buildI18nSitemapEntries(): SitemapEntry[] {
-  return buildI18nSitemapEntriesFrom(listCountryPageDataCached());
+  return buildI18nSitemapEntriesFrom();
 }
 
 function escapeXml(value: string) {
@@ -138,8 +120,9 @@ export function renderUrlSetXml(entries: SitemapEntry[]) {
             `    <xhtml:link rel="alternate" hreflang="${escapeXml(alternate.hreflang)}" href="${escapeXml(alternate.href)}"/>`
         )
         .join("\n");
+      const lastModifiedXml = entry.lastModified ? `\n    <lastmod>${escapeXml(entry.lastModified)}</lastmod>` : "";
       const priorityXml = entry.priority ? `\n    <priority>${escapeXml(entry.priority)}</priority>` : "";
-      return `  <url>\n    <loc>${escapeXml(entry.url)}</loc>\n    <lastmod>${escapeXml(entry.lastModified)}</lastmod>${priorityXml}${
+      return `  <url>\n    <loc>${escapeXml(entry.url)}</loc>${lastModifiedXml}${priorityXml}${
         alternateXml ? `\n${alternateXml}` : ""
       }\n  </url>`;
     })

@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import CountrySeoPage, { ensureCountryPageHash, getCountrySeoTitle } from "@/app/_components/CountrySeoPage";
 import TruthMapTerritorySeoPage from "@/app/_components/TruthMapTerritorySeoPage";
 import { getCountryPageData, listCountryPageCodes } from "@/lib/countryPageStorage";
-import { buildSeoLanguageAlternates } from "@/lib/seo/i18n";
+import { buildSeoLanguageAlternates, getEnglishSeoEvidenceDescription } from "@/lib/seo/i18n";
 import {
   getTruthMapCountryPageProjection,
   getTruthMapCountryPageProjectionForGeo,
@@ -36,16 +36,17 @@ export async function generateMetadata({ params }: { params: Promise<{ code: str
     };
   }
   const heading = getCountrySeoTitle(data, "en");
+  const description = getEnglishSeoEvidenceDescription(data);
   return {
     title: heading,
-    description: truthMapProjection.properties.legalEvidenceSummary,
+    description,
     alternates: {
       canonical: `/c/${data.code}`,
       languages: buildSeoLanguageAlternates(data.code)
     },
     openGraph: {
       title: heading,
-      description: truthMapProjection.properties.legalEvidenceSummary,
+      description,
       url: `https://www.islegal.info/c/${data.code}`,
       type: "article"
     }
