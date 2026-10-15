@@ -54,7 +54,8 @@ describe("source-bound substantive translations", () => {
       for (const text of countryBodyTexts(source)) {
         expect(entries[text]?.[entry.locale], `${entry.locale}/${entry.code}: ${text}`).toBeTruthy();
         // Dates, quantities, law identifiers and penalties cannot silently change.
-        const numbers = (s: string) => (s.match(/\d+(?:[.,]\d+)*/g) || []).sort();
+        const numbers = (s: string) => (s.replace(/(?<=\d)[\u202f\u00a0](?=\d)/g, "").match(/\d+(?:[.,]\d+)*/g) || [])
+          .map((n) => /^\d{1,3}(,\d{3})+$/.test(n) ? n.replace(/,/g, "") : n.replace(/,/g, ".")).sort();
         expect(numbers(translation.translate(text))).toEqual(numbers(text));
       }
       const html = renderToStaticMarkup(CountrySeoPage({ data, locale: entry.locale, query: null, truthMapProjection: projection, bodyTranslation: translation }));

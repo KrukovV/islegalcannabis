@@ -2,6 +2,12 @@
 
 Statuses: pending | in_progress | done
 
+## 2026-10-15 localisation release transport microtasks
+
+- [done] Preserve failed33/34 run and bind missing first-zoom labels to a required Cyrillic font finishing after the strict deadline. Underlying CDN delay remains UNCONFIRMED.
+- [done] Run only the original failing test on unchanged built bytes with a complete trace; current1/1 passes, first zoom2000ms and font<=1034ms, threshold5s unchanged.
+- [in_progress] Release blocked: three final-source full cycles33/34 fail unchanged native-label5s gate despite bounded1/1+2/2 passes. Latest20261015T191532Z-22041; no further heavy loops without a new confirmed prerequisite/map fix. DraftPR19 remote50c2 and final local number-formatting patch retained. Require full green pre/live312/browser/post/GSC before closure.
+
 ## 2026-10-15 complete22 language-page localisation
 
 - [done] Inventory exact substantive text for all22 current language pages; translate without changing legal conclusions, preserve original citation fragments/links and source identity.
