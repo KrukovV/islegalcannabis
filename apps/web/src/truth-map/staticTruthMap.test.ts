@@ -1,6 +1,11 @@
 import { describe, expect, it } from "vitest";
+import { isDeepStrictEqual } from "node:util";
+import { brotliDecompressSync } from "node:zlib";
+import { decode } from "geobuf";
+import Pbf from "pbf";
 import {
   getStaticTruthMapAsset,
+  getStaticTruthMapGeobufAsset,
   STATIC_TRUTH_MAP_COUNTRIES_HASH,
   STATIC_TRUTH_MAP_US_STATES_HASH
 } from "./staticTruthMap";
@@ -8,6 +13,15 @@ import { buildTruthMapDataset } from "./truthMapSource";
 import { buildStaticTruthMapMetadata, buildStaticTruthMapSnapshot } from "./truthMapStaticSnapshot";
 
 describe("static Truth Map payloads", () => {
+  it("preserves every coordinate, typed property and extension in the complete binary source", () => {
+    const original = getStaticTruthMapAsset("countries");
+    const binary = getStaticTruthMapGeobufAsset();
+    const decoded = decode(new Pbf(brotliDecompressSync(binary.brotli)));
+    expect(isDeepStrictEqual(decoded, JSON.parse(original.json))).toBe(true);
+    expect(binary.sourceHash).toBe(original.hash);
+    expect(binary.brotliByteLength).toBeLessThan(original.brotliByteLength);
+  });
+
   it("keeps the full country truth properties in a compact immutable asset", () => {
     const asset = getStaticTruthMapAsset("countries");
     expect(asset.hash).toBe(STATIC_TRUTH_MAP_COUNTRIES_HASH);

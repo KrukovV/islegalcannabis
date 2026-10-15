@@ -1,4 +1,6 @@
 import { brotliDecompressSync } from "node:zlib";
+import manifest from "@/truth-map/static-assets/manifest.json";
+import { getStaticTruthMapGeobufAsset } from "@/truth-map/staticTruthMap";
 import { createHash } from "node:crypto";
 import { runInNewContext } from "node:vm";
 import { STATIC_TRUTH_MAP_COUNTRIES_BOOTSTRAP_HASH } from "@/truth-map/staticTruthMapUrls";
@@ -24,7 +26,8 @@ describe("static Truth Map route", () => {
     expect(generateStaticParams()).toEqual([
       { file: `countries.${STATIC_TRUTH_MAP_COUNTRIES_HASH}.json.br` },
       { file: `us-states.${STATIC_TRUTH_MAP_US_STATES_HASH}.json.br` },
-      { file: `countries.${STATIC_TRUTH_MAP_COUNTRIES_BOOTSTRAP_HASH}.js.br` }
+      { file: `countries.${STATIC_TRUTH_MAP_COUNTRIES_BOOTSTRAP_HASH}.js.br` },
+      { file: manifest.geobuf.file }
     ]);
 
     for (const layer of ["countries", "us-states"] as const) {
@@ -40,6 +43,19 @@ describe("static Truth Map route", () => {
       const compressed = Buffer.from(await response.arrayBuffer());
       expect(brotliDecompressSync(compressed).toString("utf8")).toBe(asset.json);
     }
+  });
+
+  it("delivers the committed complete binary with immutable and source-integrity headers", async () => {
+    const asset = getStaticTruthMapGeobufAsset();
+    const response = await GET(new Request(`https://www.islegal.info/static/truth-map/${asset.file}`), {
+      params: Promise.resolve({ file: asset.file })
+    });
+    expect(response.status).toBe(200);
+    expect(response.headers.get("content-type")).toBe("application/octet-stream");
+    expect(response.headers.get("content-encoding")).toBe("br");
+    expect(response.headers.get("cache-control")).toContain("immutable");
+    expect(response.headers.get("x-truth-map-source-hash")).toBe(STATIC_TRUTH_MAP_COUNTRIES_HASH);
+    expect(Buffer.from(await response.arrayBuffer()).equals(asset.brotli)).toBe(true);
   });
 
   it("delivers exactly the complete country collection through the immutable script", async () => {

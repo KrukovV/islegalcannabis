@@ -14,5 +14,12 @@
       "brotliByteLength": 57314
     }
   },
-  "countriesBootstrapHash": "d1c6994d0295"
+  "countriesBootstrapHash": "d1c6994d0295",
+  "geobuf": {
+    "hash": "32a7e5a9db98",
+    "sourceHash": "6e4d50dee3bd",
+    "file": "countries.32a7e5a9db98.geobuf.br",
+    "byteLength": 1044397,
+    "brotliByteLength": 451078
+  }
 }

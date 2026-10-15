@@ -93,3 +93,15 @@ export function getStaticTruthMapAsset(layer: StaticTruthMapLayer): StaticTruthM
   assets = { ...assets, [layer]: asset };
   return asset;
 }
+
+export function getStaticTruthMapGeobufAsset() {
+  const entry = manifest.geobuf;
+  const brotli = fs.readFileSync(path.join(findRepoRoot(process.cwd()), "apps", "web", "src", "truth-map", "static-assets", entry.file));
+  const bytes = brotliDecompressSync(brotli);
+  if (createHash("sha256").update(bytes).digest("hex").slice(0, 12) !== entry.hash
+    || bytes.byteLength !== entry.byteLength || brotli.byteLength !== entry.brotliByteLength
+    || entry.sourceHash !== STATIC_TRUTH_MAP_COUNTRIES_HASH) {
+    throw new Error("STATIC_TRUTH_MAP_GEOBUF_INTEGRITY_FAIL");
+  }
+  return { ...entry, brotli, cacheControl: STATIC_TRUTH_MAP_CACHE_CONTROL };
+}

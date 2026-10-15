@@ -1,4 +1,5 @@
 import maplibregl, { type StyleSpecification } from "maplibre-gl";
+import { resolvePublicCountriesSourceUrl } from "@/truth-map/publicGeometry";
 import type { CountryCardSeed, LegalCountryCollection, NewMapBootResult } from "./map.types";
 import { emitFirstVisualReady, markNewMapTrace } from "./startupTrace";
 import { NEW_MAP_BASEMAP_STYLE_URL, NEW_MAP_MAPLIBRE_WORKER_URL } from "./runtimeUrls";
@@ -389,6 +390,7 @@ export function createMap(
   container: HTMLElement,
   options?: CreateMapOptions
 ): NewMapBootResult {
+  const countriesSourceUrl = options?.countriesUrl ? resolvePublicCountriesSourceUrl(options.countriesUrl) : undefined;
   let countries: LegalCountryCollection = { type: "FeatureCollection", features: [] };
   let countriesRevision = 0;
   let submittedCountriesRevision = -1;
@@ -520,13 +522,13 @@ export function createMap(
     const beforeId = findFirstSymbolLayerId(map);
     map.addSource(NEW_MAP_SOURCE_ID, {
       type: "geojson",
-      data: options?.countriesUrl || countries,
+      data: countriesSourceUrl || countries,
       promoteId: "geo"
     });
     // addSource already submits this revision. Sending it again at bootstrap
     // makes the worker index the same complete legal collection twice.
     submittedCountriesRevision = countriesRevision;
-    legalDataSubmitted = Boolean(options?.countriesUrl) || countries.features.length > 0;
+    legalDataSubmitted = Boolean(countriesSourceUrl) || countries.features.length > 0;
 
     map.addLayer({
       id: NEW_MAP_FILL_LAYER_ID,
@@ -922,11 +924,11 @@ export function createMap(
   map.on("render", () => finalizeFirstVisualReady(true));
 
   map.on("error", (event) => {
-    if (!options?.countriesUrl || !("sourceId" in event) || event.sourceId !== NEW_MAP_SOURCE_ID || readyResolved) return;
+    if (!countriesSourceUrl || !("sourceId" in event) || event.sourceId !== NEW_MAP_SOURCE_ID || readyResolved) return;
     // Preserve the former prefetch + fetch contract: one bounded retry.
     if (!countriesRetried) {
       countriesRetried = true;
-      (map.getSource(NEW_MAP_SOURCE_ID) as maplibregl.GeoJSONSource).setData(options.countriesUrl);
+      (map.getSource(NEW_MAP_SOURCE_ID) as maplibregl.GeoJSONSource).setData(countriesSourceUrl);
       return;
     }
     legalDataSubmitted = false;

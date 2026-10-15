@@ -1,9 +1,11 @@
 import { createHash } from "node:crypto";
+import manifest from "@/truth-map/static-assets/manifest.json";
 import { brotliCompressSync, constants } from "node:zlib";
 import { buildTruthMapBootstrap } from "@/truth-map/truthMapBootstrap";
 import { STATIC_TRUTH_MAP_COUNTRIES_BOOTSTRAP_HASH } from "@/truth-map/staticTruthMapUrls";
 import {
   getStaticTruthMapAsset,
+  getStaticTruthMapGeobufAsset,
   STATIC_TRUTH_MAP_COUNTRIES_HASH,
   STATIC_TRUTH_MAP_US_STATES_HASH,
   type StaticTruthMapLayer
@@ -20,7 +22,7 @@ const files: Record<string, StaticTruthMapLayer> = {
 const bootstrapFile = `countries.${STATIC_TRUTH_MAP_COUNTRIES_BOOTSTRAP_HASH}.js.br`;
 
 export function generateStaticParams() {
-  return [...Object.keys(files), bootstrapFile].map((file) => ({ file }));
+  return [...Object.keys(files), bootstrapFile, manifest.geobuf.file].map((file) => ({ file }));
 }
 
 export async function GET(
@@ -28,6 +30,19 @@ export async function GET(
   { params }: { params: Promise<{ file: string }> }
 ) {
   const { file } = await params;
+  if (file === manifest.geobuf.file) {
+    const asset = getStaticTruthMapGeobufAsset();
+    return new Response(new Blob([new Uint8Array(asset.brotli)]), {
+      headers: {
+        "Content-Type": "application/octet-stream",
+        "Content-Encoding": "br",
+        "Content-Length": String(asset.brotliByteLength),
+        "Cache-Control": asset.cacheControl,
+        "X-Truth-Map-Hash": asset.hash,
+        "X-Truth-Map-Source-Hash": asset.sourceHash
+      }
+    });
+  }
   if (file === bootstrapFile) {
     const asset = getStaticTruthMapAsset("countries");
     const script = buildTruthMapBootstrap(asset.json);

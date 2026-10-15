@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { STATIC_TRUTH_MAP_COUNTRIES_GEOBUF_URL } from "@/truth-map/staticTruthMapUrls";
 import { headers } from "next/headers";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
@@ -63,6 +64,19 @@ export const viewport: Viewport = {
 const NEW_MAP_PREFETCH_SCRIPT = `
 (() => {
   const host = globalThis;
+  if (location.pathname === "/") {
+    const url = new URL("${STATIC_TRUTH_MAP_COUNTRIES_GEOBUF_URL}", location.href).href;
+    const controller = new AbortController();
+    const promise = fetch(url, { signal: controller.signal, credentials: "same-origin" }).then((response) => {
+      if (!response.ok) throw new Error("public_map_geometry:" + response.status);
+      return response.arrayBuffer();
+    });
+    // Observe early rejection now; the SDK receives this same rejected promise
+    // and retains its existing one-retry/error presentation contract.
+    promise.catch(() => {});
+    host.__PUBLIC_MAP_GEOMETRY_REQUEST__ = { url, controller, promise };
+    return;
+  }
   // The legacy inline collection belongs only to the local /new-map shell.
   if (location.pathname !== "/new-map") return;
   const trace = host.__NEW_MAP_TRACE__ || {

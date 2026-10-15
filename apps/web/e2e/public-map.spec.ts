@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { STATIC_TRUTH_MAP_COUNTRIES_URL } from "../src/truth-map/staticTruthMapUrls";
+import { STATIC_TRUTH_MAP_COUNTRIES_GEOBUF_URL } from "../src/truth-map/staticTruthMapUrls";
 
 test("public first-fill timing waits for the complete legal source to render", async ({ page }) => {
   const devMode = (await (await page.request.get("/api/build-meta")).json()).devMode === true;
@@ -12,7 +12,7 @@ test("public first-fill timing waits for the complete legal source to render", a
   if (!devMode) await page.route("**/api/new-map/maplibre-worker**", (route) => route.abort());
   let releaseCountries: () => void = () => {};
   const countriesGate = new Promise<void>((resolve) => { releaseCountries = resolve; });
-  await page.route(`**${STATIC_TRUTH_MAP_COUNTRIES_URL}`, async (route) => {
+  await page.route(`**${STATIC_TRUTH_MAP_COUNTRIES_GEOBUF_URL}`, async (route) => {
     await countriesGate;
     await route.continue();
   });
@@ -33,12 +33,12 @@ test("public first-fill timing waits for the complete legal source to render", a
     expect(await page.evaluate(() =>
       (window as unknown as { __NEW_MAP_TRACE__?: { marks?: Record<string, number> } }).__NEW_MAP_TRACE__?.marks?.NM_T7_FIRST_FILL_RENDERED
     )).toBeGreaterThan(0);
-    await page.unroute(`**${STATIC_TRUTH_MAP_COUNTRIES_URL}`);
+    await page.unroute(`**${STATIC_TRUTH_MAP_COUNTRIES_GEOBUF_URL}`);
     let attempts = 0;
-    await page.route(`**${STATIC_TRUTH_MAP_COUNTRIES_URL}`, (route) => ++attempts === 1 ? route.abort() : route.continue());
+    await page.route(`**${STATIC_TRUTH_MAP_COUNTRIES_GEOBUF_URL}`, (route) => ++attempts === 1 ? route.abort() : route.continue());
     const fallbackRequests: string[] = [];
     page.on("request", (request) => {
-      if (request.url().endsWith(STATIC_TRUTH_MAP_COUNTRIES_URL)) fallbackRequests.push(request.url());
+      if (request.url().endsWith(STATIC_TRUTH_MAP_COUNTRIES_GEOBUF_URL)) fallbackRequests.push(request.url());
     });
     await page.reload({ waitUntil: "domcontentloaded" });
     await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 30_000 });
@@ -46,9 +46,9 @@ test("public first-fill timing waits for the complete legal source to render", a
     expect(attempts).toBe(2);
     if (devMode) expect(workerRequests.length).toBeGreaterThan(0);
     else expect(workerRequests).toHaveLength(0);
-    await page.unroute(`**${STATIC_TRUTH_MAP_COUNTRIES_URL}`);
+    await page.unroute(`**${STATIC_TRUTH_MAP_COUNTRIES_GEOBUF_URL}`);
     let failedAttempts = 0;
-    await page.route(`**${STATIC_TRUTH_MAP_COUNTRIES_URL}`, (route) => {
+    await page.route(`**${STATIC_TRUTH_MAP_COUNTRIES_GEOBUF_URL}`, (route) => {
       failedAttempts += 1;
       return route.fulfill({ status: 503, body: "temporarily unavailable" });
     });
@@ -86,10 +86,10 @@ test("local public root retains only the local AI dock beside the public Truth M
   await page.goto("/", { waitUntil: "domcontentloaded" });
   await expect(page.getByTestId("public-map-root")).toBeAttached();
   await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 30_000 });
-  // The SDK owns one complete URL load, with no head fetch or duplicate data post.
+  // One early HTTP request is consumed by the native SDK URL source; no duplicate data post.
   expect(await page.evaluate(() =>
     (window as unknown as { __PUBLIC_LEGAL_WORKER_POSTS__: string[] }).__PUBLIC_LEGAL_WORKER_POSTS__
-  )).toEqual([new URL(STATIC_TRUTH_MAP_COUNTRIES_URL, page.url()).href]);
+  )).toEqual([new URL(STATIC_TRUTH_MAP_COUNTRIES_GEOBUF_URL, page.url()).href.replace(/^https?:/, "islegal-geobuf:")]);
   await expect(page.getByTestId("public-map-notice")).toBeVisible();
   await expect(page.getByTestId("antarctic-ascii-overlay")).toBeAttached();
   // The decorative scene is mounted but remains scheduled when Antarctica is
@@ -106,6 +106,14 @@ test("local public root retains only the local AI dock beside the public Truth M
   await expect(page.locator(".maplibregl-ctrl-attrib-inner")).toContainText("OpenStreetMap");
   expect(apiRequests.filter((url) => url.includes("/api/new-map/card-index"))).toHaveLength(0);
   expect(staticMapRequests.filter((url) => url.includes("/countries."))).toHaveLength(1);
+  const delivery = await page.evaluate((path) => {
+    const entry = performance.getEntriesByType("resource").find((item) => item.name.endsWith(path));
+    const marks = (window as unknown as { __NEW_MAP_TRACE__?: { marks: Record<string, number> } }).__NEW_MAP_TRACE__?.marks;
+    return { started: entry?.startTime, constructor: marks?.NM_T2_MAP_CONSTRUCTOR_START };
+  }, STATIC_TRUTH_MAP_COUNTRIES_GEOBUF_URL);
+  expect(delivery.started).toBeGreaterThan(0);
+  expect(delivery.started).toBeLessThan(delivery.constructor!);
+
   expect(staticMapRequests.filter((url) => url.includes("/us-states."))).toHaveLength(0);
   expect(await page.evaluate(() =>
     (window as unknown as { __PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__?: unknown }).__PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__

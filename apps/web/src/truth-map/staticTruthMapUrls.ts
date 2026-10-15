@@ -8,6 +8,9 @@ if (
   manifest.schemaVersion !== 1
   || !/^[a-f0-9]{12}$/.test(countriesHash)
   || !/^[a-f0-9]{12}$/.test(usStatesHash)
+  || !/^[a-f0-9]{12}$/.test(manifest.geobuf.hash)
+  || manifest.geobuf.sourceHash !== countriesHash
+  || manifest.geobuf.file !== `countries.${manifest.geobuf.hash}.geobuf.br`
   || !/^[a-f0-9]{12}$/.test(STATIC_TRUTH_MAP_COUNTRIES_BOOTSTRAP_HASH)
 ) {
   throw new Error("STATIC_TRUTH_MAP_MANIFEST_INVALID");
@@ -17,3 +20,5 @@ if (
 export const STATIC_TRUTH_MAP_COUNTRIES_URL = `/static/truth-map/countries.${countriesHash}.json.br`;
 export const STATIC_TRUTH_MAP_US_STATES_URL = `/static/truth-map/us-states.${usStatesHash}.json.br`;
 export const STATIC_TRUTH_MAP_COUNTRIES_BOOTSTRAP_URL = `/static/truth-map/countries.${STATIC_TRUTH_MAP_COUNTRIES_BOOTSTRAP_HASH}.js.br`;
+
+export const STATIC_TRUTH_MAP_COUNTRIES_GEOBUF_URL = `/static/truth-map/${manifest.geobuf.file}`;

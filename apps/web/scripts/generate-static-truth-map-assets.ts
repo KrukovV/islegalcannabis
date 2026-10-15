@@ -1,6 +1,9 @@
 import { createHash } from "node:crypto";
 import { brotliCompressSync, constants as zlibConstants } from "node:zlib";
 import fs from "node:fs";
+import { isDeepStrictEqual } from "node:util";
+import { encode, decode } from "geobuf";
+import Pbf from "pbf";
 import path from "node:path";
 import { findRepoRoot } from "../src/lib/ssotDiff/ssotSnapshotStore";
 import { buildStaticTruthMapSnapshot } from "../src/truth-map/truthMapStaticSnapshot";
@@ -40,5 +43,21 @@ const assets = (Object.keys({ countries: true, "us-states": true }) as Layer[]).
 
 const countriesBootstrapHash = createHash("sha256")
   .update(buildTruthMapBootstrap(countriesJson)).digest("hex").slice(0, 12);
-fs.writeFileSync(manifestPath, `${JSON.stringify({ schemaVersion: 1, assets, countriesBootstrapHash }, null, 2)}\n`);
+const collection = JSON.parse(countriesJson);
+const binary = encode(collection, new Pbf());
+// Future input precision or unsupported extensions must fail before publication.
+if (!isDeepStrictEqual(decode(new Pbf(binary)), collection)) {
+  throw new Error("STATIC_TRUTH_MAP_GEOBUF_PARITY_FAIL");
+}
+const binaryBrotli = brotliCompressSync(binary, { params: { [zlibConstants.BROTLI_PARAM_QUALITY]: 11 } });
+const binaryHash = createHash("sha256").update(binary).digest("hex").slice(0, 12);
+const geobuf = {
+  hash: binaryHash,
+  sourceHash: assets.countries.hash,
+  file: `countries.${binaryHash}.geobuf.br`,
+  byteLength: binary.byteLength,
+  brotliByteLength: binaryBrotli.byteLength
+};
+fs.writeFileSync(path.join(assetDirectory, geobuf.file), binaryBrotli);
+fs.writeFileSync(manifestPath, `${JSON.stringify({ schemaVersion: 1, assets, countriesBootstrapHash, geobuf }, null, 2)}\n`);
 process.stdout.write(`PUBLIC_TRUTH_MAP_STATIC_ASSETS=OK countries=${assets.countries.hash} states=${assets["us-states"].hash}\n`);
