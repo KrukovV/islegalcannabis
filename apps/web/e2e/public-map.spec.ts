@@ -2,12 +2,14 @@ import { expect, test } from "@playwright/test";
 import { STATIC_TRUTH_MAP_COUNTRIES_URL } from "../src/truth-map/staticTruthMapUrls";
 
 test("public first-fill timing waits for the complete legal source to render", async ({ page }) => {
+  const devMode = (await (await page.request.get("/api/build-meta")).json()).devMode === true;
   const workerRequests: string[] = [];
   page.on("request", (request) => {
     if (request.url().includes("/api/new-map/maplibre-worker")) workerRequests.push(request.url());
   });
-  // Cold paint must also work when the former HTTP worker is unavailable.
-  await page.route("**/api/new-map/maplibre-worker**", (route) => route.abort());
+  // Production keeps the inline worker even when the former HTTP URL fails.
+  // Turbopack development uses the untransformed SDK worker.
+  if (!devMode) await page.route("**/api/new-map/maplibre-worker**", (route) => route.abort());
   let releaseCountries: () => void = () => {};
   const countriesGate = new Promise<void>((resolve) => { releaseCountries = resolve; });
   await page.route(`**${STATIC_TRUTH_MAP_COUNTRIES_URL}`, async (route) => {
@@ -20,7 +22,7 @@ test("public first-fill timing waits for the complete legal source to render", a
       const trace = (window as unknown as { __NEW_MAP_TRACE__?: { marks?: Record<string, number> } }).__NEW_MAP_TRACE__;
       return typeof trace?.marks?.NM_T2_STYLE_READY === "number";
     });
-    // Let the initial empty source finish while the real GEO response is held.
+    // A pending native URL source must never publish a first-fill marker.
     await page.waitForTimeout(300);
     const firstFill = await page.evaluate(() =>
       (window as unknown as { __NEW_MAP_TRACE__?: { marks?: Record<string, number> } }).__NEW_MAP_TRACE__?.marks?.NM_T7_FIRST_FILL_RENDERED
@@ -42,7 +44,18 @@ test("public first-fill timing waits for the complete legal source to render", a
     await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 30_000 });
     expect(fallbackRequests).toHaveLength(2);
     expect(attempts).toBe(2);
-    expect(workerRequests).toHaveLength(0);
+    if (devMode) expect(workerRequests.length).toBeGreaterThan(0);
+    else expect(workerRequests).toHaveLength(0);
+    await page.unroute(`**${STATIC_TRUTH_MAP_COUNTRIES_URL}`);
+    let failedAttempts = 0;
+    await page.route(`**${STATIC_TRUTH_MAP_COUNTRIES_URL}`, (route) => {
+      failedAttempts += 1;
+      return route.fulfill({ status: 503, body: "temporarily unavailable" });
+    });
+    await page.reload({ waitUntil: "domcontentloaded" });
+    await expect(page.getByText(/503/)).toBeVisible();
+    await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "0");
+    expect(failedAttempts).toBe(2);
   } finally {
     releaseCountries();
   }
@@ -50,13 +63,13 @@ test("public first-fill timing waits for the complete legal source to render", a
 
 test("local public root retains only the local AI dock beside the public Truth Map display core", async ({ page }) => {
   await page.addInitScript(() => {
-    const posts: number[] = [];
+    const posts: string[] = [];
     Object.assign(window, { __PUBLIC_LEGAL_WORKER_POSTS__: posts });
     const originalPost = Worker.prototype.postMessage;
     Worker.prototype.postMessage = function (message: unknown, options?: Transferable[] | StructuredSerializeOptions) {
-      const update = message as { type?: string; data?: { source?: string; data?: { features?: unknown[] } } };
-      if (update.type === "LD" && update.data?.source === "legal-countries" && update.data.data?.features?.length) {
-        posts.push(update.data.data.features.length);
+      const update = message as { type?: string; data?: { source?: string; request?: { url?: string }; data?: { features?: unknown[] } } };
+      if (update.type === "LD" && update.data?.source === "legal-countries" && (update.data.request?.url || update.data.data?.features?.length)) {
+        posts.push(update.data.request?.url || `collection:${update.data.data?.features?.length}`);
       }
       return originalPost.call(this, message, Array.isArray(options) ? { transfer: options } : options);
     };
@@ -73,11 +86,10 @@ test("local public root retains only the local AI dock beside the public Truth M
   await page.goto("/", { waitUntil: "domcontentloaded" });
   await expect(page.getByTestId("public-map-root")).toBeAttached();
   await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 30_000 });
-  // One complete legal collection must mean one worker indexing pass, even
-  // when the head request finishes before the style installs its source.
+  // The SDK owns one complete URL load, with no head fetch or duplicate data post.
   expect(await page.evaluate(() =>
-    (window as unknown as { __PUBLIC_LEGAL_WORKER_POSTS__: number[] }).__PUBLIC_LEGAL_WORKER_POSTS__.length
-  )).toBe(1);
+    (window as unknown as { __PUBLIC_LEGAL_WORKER_POSTS__: string[] }).__PUBLIC_LEGAL_WORKER_POSTS__
+  )).toEqual([new URL(STATIC_TRUTH_MAP_COUNTRIES_URL, page.url()).href]);
   await expect(page.getByTestId("public-map-notice")).toBeVisible();
   await expect(page.getByTestId("antarctic-ascii-overlay")).toBeAttached();
   // The decorative scene is mounted but remains scheduled when Antarctica is
@@ -86,8 +98,6 @@ test("local public root retains only the local AI dock beside the public Truth M
   await expect(page.getByTestId("new-map-ai-dock")).toBeVisible();
   await expect(page.getByTestId("truth-map-social-panel")).toHaveCount(0);
   await expect(page.getByTestId("truth-map-audit-notice")).toHaveCount(0);
-  await expect.poll(() => page.evaluate(() => performance.getEntriesByType("resource")
-    .some((entry) => entry.name.includes("/static/truth-map/countries."))), { timeout: 15_000 }).toBe(true);
   expect(apiRequests.filter((url) => url.includes("/api/public-map/countries"))).toHaveLength(0);
   expect(apiRequests.filter((url) => url.includes("/api/new-map/basemap-style"))).toHaveLength(0);
   expect(descriptorRequests).toHaveLength(0);
@@ -97,16 +107,9 @@ test("local public root retains only the local AI dock beside the public Truth M
   expect(apiRequests.filter((url) => url.includes("/api/new-map/card-index"))).toHaveLength(0);
   expect(staticMapRequests.filter((url) => url.includes("/countries."))).toHaveLength(1);
   expect(staticMapRequests.filter((url) => url.includes("/us-states."))).toHaveLength(0);
-  const coldRequestOrder = await page.evaluate(() => ({
-    countryStart: performance.getEntriesByType("resource")
-      .find((entry) => entry.name.includes("/static/truth-map/countries."))?.startTime,
-    mapConstructor: (window as unknown as { __NEW_MAP_TRACE__?: { marks?: Record<string, number> } })
-      .__NEW_MAP_TRACE__?.marks?.NM_T2_MAP_CONSTRUCTOR_START,
-    stylesEnd: Math.max(...performance.getEntriesByType("resource")
-      .filter((entry) => entry.name.endsWith(".css"))
-      .map((entry) => (entry as PerformanceResourceTiming).responseEnd))
-  }));
-  expect(coldRequestOrder.countryStart).toBeLessThan(coldRequestOrder.mapConstructor);
+  expect(await page.evaluate(() =>
+    (window as unknown as { __PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__?: unknown }).__PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__
+  )).toBeUndefined();
   expect(apiRequests.some((url) => url.includes("/api/new-map/countries?inline=1"))).toBe(false);
   expect(apiRequests.some((url) => url.includes("/api/truth-map/") || url.includes("/api/social/") || url.includes("/api/dm/"))).toBe(false);
 });
