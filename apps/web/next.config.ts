@@ -39,6 +39,8 @@ const publicMapRuntimeRoutes = [
 const nextConfig: NextConfig = {
   productionBrowserSourceMaps: true,
   experimental: {
+    // Bound build/static-generation memory alongside the serial corpus tests.
+    cpus: 1,
     externalDir: true,
     inlineCss: true
   },

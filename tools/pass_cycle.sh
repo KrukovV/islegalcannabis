@@ -32,6 +32,12 @@ if [ "${START_DIR_REAL}" != "${ROOT}" ]; then
 fi
 cd "${ROOT}"
 
+# Serialize full release cycles across this repository's worktrees. An older
+# checkout's live local owner is respected by the lease before heavy work.
+if [ "${PASS_CYCLE_LEASE_OWNER:-}" != "${PPID}" ] || [ "${PASS_CYCLE_LEASE_ROOT:-}" != "${ROOT}" ]; then
+  exec perl "${ROOT}/tools/runtime/with_ci_lease.pl" "${ROOT}" bash "${ROOT}/tools/pass_cycle.sh" "$@"
+fi
+
 CHECKPOINT_DIR="${ROOT}/.checkpoints"
 PASS_CYCLE_LOCK_DIR="${CHECKPOINT_DIR}/pass_cycle.lock"
 PASS_CYCLE_LOCK_OWNER_FILE="${PASS_CYCLE_LOCK_DIR}/owner.pid"

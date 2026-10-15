@@ -2,6 +2,16 @@
 
 Statuses: pending | in_progress | done
 
+## Principal goal reconfirmed by user — 2026-10-15
+
+- [in_progress] Confirm automatic canonical sitemap processing and actual indexing of all312 public URLs with current GSC evidence. Full22 translations/strict CI are enabling work; do not close the Google goal on publication, submit, crawlability or samples.
+
+## 2026-10-15 user-resumed causal CI repair
+
+- [done] Preserve exact failed transports and prove complete shared-lease/bounded-resource prePASS34/34/0; original5s/3.5s/assertions remain, historical CDN latency causeUNCONFIRMED.
+- [done] Prove shared CI exclusion/failure propagation/live legacy-owner preservation3/3 and bound corpus workers min1/max2/buildcpus1. No map runtime or test assertion/deadline/selection/isolation edit; exact original native delay still requires the complete current gate.
+- [pending] Complete canonical pre-gate, final PR19 publication, exact-build live312/all22/quotes/browser/post-gate and fresh GSC readback.
+
 ## 2026-10-15 localisation release transport microtasks
 
 - [done] Preserve failed33/34 run and bind missing first-zoom labels to a required Cyrillic font finishing after the strict deadline. Underlying CDN delay remains UNCONFIRMED.
