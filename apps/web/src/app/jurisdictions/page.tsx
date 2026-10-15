@@ -43,7 +43,7 @@ export default function JurisdictionsPage() {
       </section>
       <section aria-labelledby="languages-heading">
         <h2 id="languages-heading">Available language editions ({translations.length})</h2>
-        <p className={styles.note}>Translations are navigational; original legal citations remain in their source language.</p>
+        <p className={styles.note}>Language editions translate the evidence explanations and supplementary context; original legal quotations remain in their source language.</p>
         <ul className={styles.links}>
           {translations.map(({ code, locale }) => (
             <li key={`${locale}-${code}`}>

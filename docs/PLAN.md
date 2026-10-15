@@ -2,6 +2,12 @@
 
 Statuses: pending | in_progress | done
 
+## 2026-10-15 complete22 language-page localisation
+
+- [done] Inventory exact substantive text for all22 current language pages; translate without changing legal conclusions, preserve original citation fragments/links and source identity.
+- [pending] Verify all22 rendered language pages and unchanged English/map behaviour, run mandatory canonical pre-release cycle, publish through green helper/PR and verify exact-build live312 plus browser proof.
+- [pending] Run canonical post-release cycle and verify current GSC sitemap and22 URL Inspection states; no blind sitemap or indexing retries.
+
 ## 2026-10-15 release blocker microtasks
 
 - [done] Capture the two failing unchanged native-map UI tests with full request traces; identify exact403 endpoints and native readiness assertion without changing map code, timing, test exclusions or the foreign singleton.

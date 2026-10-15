@@ -18,6 +18,7 @@ import {
   type TruthMapCountryPageProjection
 } from "@/truth-map/truthMapCountryPage";
 import { isTruthMapCurrentStatusAssertion } from "@/truth-map/truthMapRichCard";
+import type { CountryBodyTranslation } from "@/lib/seo/localizedBody";
 import styles from "@/app/c/[code]/page.module.css";
 export { sanitizeEvidenceQuoteText };
 
@@ -53,23 +54,28 @@ export default function CountrySeoPage({
   data,
   locale,
   query: _query,
-  truthMapProjection = getTruthMapCountryPageProjection(data)
+  truthMapProjection = getTruthMapCountryPageProjection(data),
+  bodyTranslation,
+  translationNotice
 }: {
   data: CountryPageData;
   locale: SeoLocale;
   query: string | null;
   truthMapProjection?: TruthMapCountryPageProjection | null;
+  bodyTranslation?: CountryBodyTranslation;
+  translationNotice?: string;
 }) {
   void _query;
   if (!truthMapProjection) {
     throw new Error(`TRUTH_MAP_COUNTRY_PAGE_PROJECTION_MISSING:${data.geo_code}`);
   }
   const seo = getSeoText(locale);
+  const t = bodyTranslation?.translate || ((text: string) => text);
   const runtimeIdentity = getTruthMapRuntimeIdentity();
   const visibleStamp = formatVisibleRuntimeStamp(runtimeIdentity);
   const heading = getCountrySeoTitle(data, locale);
   const { properties, card } = truthMapProjection;
-  const intro = properties.legalEvidenceSummary;
+  const intro = t(properties.legalEvidenceSummary);
   const cannabisProfileSections = getCannabisProfileCardSections(card.cannabisProfile);
   const selfPath = `/c/${data.code}`;
   const faqJsonLd = {
@@ -143,9 +149,9 @@ export default function CountrySeoPage({
     }))
     .filter((section) => section.items.length > 0);
   const supportingFacts = [
-    data.facts.possession_limit ? `${seo.possession}: ${data.facts.possession_limit}` : null,
-    data.facts.cultivation ? `${seo.cultivation}: ${data.facts.cultivation}` : null,
-    data.facts.penalty ? `${seo.penalty}: ${data.facts.penalty}` : null
+    data.facts.possession_limit ? `${seo.possession}: ${t(data.facts.possession_limit)}` : null,
+    data.facts.cultivation ? `${seo.cultivation}: ${t(data.facts.cultivation)}` : null,
+    data.facts.penalty ? `${seo.penalty}: ${t(data.facts.penalty)}` : null
   ].filter((item): item is string => Boolean(item));
 
   return (
@@ -166,42 +172,43 @@ export default function CountrySeoPage({
         showPublicMapNotice={false}
         bodyScroll="allow"
       />
-      <article className={styles.article}>
+      {translationNotice ? <p lang={locale} role="status">{translationNotice}</p> : null}
+      <article className={styles.article} lang={bodyTranslation?.current ? locale : "en"} data-source-translation-current={bodyTranslation?.current ? "true" : undefined}>
         <section id="seo-content" className={styles.section}>
           <p className={styles.eyebrow}>{data.node_type === "state" ? seo.statePrefix : seo.countryPrefix}</p>
           <h1 className={styles.title}>{heading}</h1>
           <p className={styles.intro}>{intro}</p>
           <div id="law-summary" className={styles.metaGrid}>
             <div className={styles.metaBlock}>
-              <p className={styles.metaLabel}>Current legal conclusion</p>
+              <p className={styles.metaLabel}>{t("Current legal conclusion")}</p>
               <p className={styles.metaText}>{properties.legalEvidenceIcon} {properties.legalTruthColor} · {properties.truthConfidence}</p>
             </div>
             <div className={styles.metaBlock}>
-              <p className={styles.metaLabel}>Evidence status</p>
-              <p className={styles.metaText}>{properties.legalEvidenceLabel}</p>
+              <p className={styles.metaLabel}>{t("Evidence status")}</p>
+              <p className={styles.metaText}>{t(properties.legalEvidenceLabel)}</p>
             </div>
             <div className={styles.metaBlock}>
-              <p className={styles.metaLabel}>Map display</p>
-              <p className={styles.metaText}>{properties.displayIsResearchDirection ? `Research direction ${properties.truthMapDisplayColor}` : `Legal verdict ${properties.truthMapDisplayColor}`}</p>
+              <p className={styles.metaLabel}>{t("Map display")}</p>
+              <p className={styles.metaText}>{properties.displayIsResearchDirection ? `${t("Research direction")} ${properties.truthMapDisplayColor}` : `${t("Legal verdict")} ${properties.truthMapDisplayColor}`}</p>
             </div>
             <div className={styles.metaBlock}>
-              <p className={styles.metaLabel}>Final-reconciliation rule</p>
+              <p className={styles.metaLabel}>{t("Final-reconciliation rule")}</p>
               <p className={styles.metaText}>{properties.truthRuleId}</p>
             </div>
           </div>
         </section>
         <section id="law-status-explanation" className={styles.section}>
-          <h2>{humanFallback.currentEvidence}</h2>
-          <TruthMapLegalEvidence properties={properties} auditOnly={false} testId="country-page-current-legal-evidence" />
+          <h2>{t(humanFallback.currentEvidence)}</h2>
+          <TruthMapLegalEvidence properties={properties} auditOnly={false} testId="country-page-current-legal-evidence" translateText={bodyTranslation?.current ? t : undefined} />
         </section>
         {supplementaryActions.length > 0 ? (
           <section id="law-recreational" className={styles.section}>
-            <h2>{humanFallback.supplementaryAction}</h2>
+            <h2>{t(humanFallback.supplementaryAction)}</h2>
             <ul className={styles.factsList}>
               {supplementaryActions.map((item) => (
                 <li key={item.id}>
-                  {item.text}
-                  {item.sourceUrl ? <>{" "}{renderArticleLink(item.sourceUrl, "Source")}</> : null}
+                  {t(item.text)}
+                  {item.sourceUrl ? <>{" "}{renderArticleLink(item.sourceUrl, t("Source"))}</> : null}
                 </li>
               ))}
             </ul>
@@ -209,22 +216,22 @@ export default function CountrySeoPage({
         ) : null}
         {jurisdictionContext.length > 0 ? (
           <section className={styles.section}>
-            <h2>{humanFallback.jurisdictionContext}</h2>
+            <h2>{t(humanFallback.jurisdictionContext)}</h2>
             <ul className={styles.factsList}>
-              {jurisdictionContext.map((item) => <li key={item}>{item}</li>)}
+              {jurisdictionContext.map((item) => <li key={item}>{t(item)}</li>)}
             </ul>
           </section>
         ) : null}
         {safeProfileSections.length > 0 ? (
           <section id="cannabis-profile" className={styles.section}>
-            <h2>{humanFallback.retainedContext}</h2>
+            <h2>{t(humanFallback.retainedContext)}</h2>
             {card.cannabisProfile?.sourceUrl ? <p className={styles.intro}>{renderArticleLink(card.cannabisProfile.sourceUrl, card.cannabisProfile.sourceTitle || "Profile source")}</p> : null}
             {safeProfileSections.map((section) => (
               <div key={section.id} id={`cannabis-profile-${section.id}`}>
-                <h3 className={styles.subheading}>{section.heading}</h3>
+                <h3 className={styles.subheading}>{t(section.heading)}</h3>
                 <ul className={styles.factsList}>
                   {section.items.map((item) => (
-                    <li key={`${section.id}-${item}`}>{item}</li>
+                    <li key={`${section.id}-${item}`}>{t(item)}</li>
                   ))}
                 </ul>
               </div>
@@ -233,13 +240,13 @@ export default function CountrySeoPage({
         ) : null}
         {supportingFacts.length > 0 ? (
           <section id="law-facts" className={styles.section}>
-            <h2>{humanFallback.supportingFacts}</h2>
+            <h2>{t(humanFallback.supportingFacts)}</h2>
             <ul className={styles.factsList}>{supportingFacts.map((item) => <li key={item}>{item}</li>)}</ul>
           </section>
         ) : null}
         {card.sources.length > 0 ? (
           <section id="law-source-register" className={styles.section}>
-            <h2>{humanFallback.retainedSourceRegister}</h2>
+            <h2>{t(humanFallback.retainedSourceRegister)}</h2>
             <ul className={styles.factsList}>
               {card.sources.map((source) => (
                 <li key={source.id}>{renderArticleLink(source.url, source.title)}</li>
