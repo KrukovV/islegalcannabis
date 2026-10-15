@@ -11,5 +11,7 @@ const cartoSource: VectorSourceSpecification = {
 };
 export const STATIC_BASEMAP_STYLE = {
   ...acceptedStyle,
+  // Exact original1x/2x circle atlas, delivered beside the map assets.
+  sprite: "/map-sprite/ffd461572dc4/sprite",
   sources: { carto: cartoSource }
 } as StyleSpecification;

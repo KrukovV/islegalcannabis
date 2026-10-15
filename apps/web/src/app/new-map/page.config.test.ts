@@ -11,7 +11,10 @@ describe("new-map route config", () => {
     const hash = createHash("sha256").update(bytes).digest("hex").slice(0, 12);
     expect(path.basename(stylePath)).toBe(`positron.${hash}.json`);
     const style = JSON.parse(bytes.toString("utf8"));
-    expect(STATIC_BASEMAP_STYLE).toEqual(style);
+    expect(STATIC_BASEMAP_STYLE).toEqual({
+      ...style,
+      sprite: "/map-sprite/ffd461572dc4/sprite"
+    });
     expect(style.sources.carto.url).toBe("https://tiles.openfreemap.org/planet");
     expect(style.sources.carto.tiles).toBeUndefined();
     expect(style.sources.carto.minzoom).toBe(0);

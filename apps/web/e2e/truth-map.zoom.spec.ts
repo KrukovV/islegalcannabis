@@ -103,7 +103,7 @@ test("truth-map shares the stable city-label visibility ranges used by new-map",
   expect(labelBandState.sourceUrl).toBe("https://tiles.openfreemap.org/planet");
   expect(labelBandState.sourceTiles).toEqual([]);
   expect(labelBandState.glyphs).toMatch(/^https:\/\/tiles\.basemaps\.cartocdn\.com\//);
-  expect(labelBandState.sprite).toMatch(/^https:\/\/tiles\.basemaps\.cartocdn\.com\//);
+  expect(labelBandState.sprite).toBe("/map-sprite/ffd461572dc4/sprite");
   expect(runtimeErrors).toEqual([]);
 });
 
