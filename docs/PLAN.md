@@ -2,13 +2,25 @@
 
 Statuses: pending | in_progress | done
 
+## 2026-10-15 release blocker microtasks
+
+- [done] Capture the two failing unchanged native-map UI tests with full request traces; identify exact403 endpoints and native readiness assertion without changing map code, timing, test exclusions or the foreign singleton.
+- [done] Resolve only a proved checkout/CI prerequisite; require a complete canonical green receipt before scoped publication. A passing isolated test cannot replace that gate.
+- [pending] Preserve fresh312-URL baseline and accepted directory request, then continue automatic sitemap/index membership verification under the existing monitor.
+
+## 2026-10-15 full public indexing recovery
+
+- [done] Inspect all312 canonical public URLs with a bounded Google API run and retain exact coverage/canonical/last-crawl evidence. Compare the dated159indexed/90CNI/62DNI/1unknown sitemap membership without treating the old Pages export as fresh.
+- [done] Repair confirmed GEO-description duplication and fabricated runtime lastmod only; preserve legal evidence/conclusions, all312 URLs and language alternates. Original automatic root/i18n processing cause remains UNCONFIRMED; a live Google XML success is not processor acceptance.
+- [in_progress] Focused12 and canonical637unit/34mandatory pre-release gates PASS. Complete exact-build production proof and post-release canonical gate; submit/request discovery only for a new proved reason, then measure actual Google processing/indexing. Preserve the parallel map owner and the existing single two-day monitor.
+
 ## 2026-10-13 canonical sitemap delivery repair
 
 - [done] Compare root MetadataRoute with accepted explicit XML handler: identical 312-URL universe, but lost language alternates in the root generator. Current Vercel logs show root HTTP 200 without a verified Googlebot/body binding; GSC root fetch remains pending.
 - [done] Keep `/sitemap.xml` and all 312 URLs; implement shared explicit UTF-8 XML delivery through a before-files internal rewrite, isolate crawl services from HTML locale processing and retain alternates in the metadata fallback. Focused regressions pass 10/10; actual production-mode and current-main dev HTTP responses preserve every URL and language alternate.
-- [in_progress] Resumed by user on 2026-10-13. Complete root runtime acceptance without weakening any timing/assertion: latest complete mandatory smoke is 33/34 (one warm mobile timing failure, zero skipped). The three earlier map failures pass. Three isolated unchanged warm repeats pass; the second full suite repeats the failure at 11,261 ms against 3,500 ms and was stopped on pause. First resume priority is the full-suite-versus-isolated timing cause, not another blind rerun or raised threshold. Source changes remain local; preserve accepted-main isolation.
+- [done] PR10 runtime acceptance and publication completed13Oct at a57f6ab3 with dated pre/post root34/34 PASS. Later unchanged repeat33/34 FAIL remains history; map latency belongs to its parallel owner and no stable2s claim is made.
 - [done] Restore exact historical reports-route source required by the committed privacy test but accidentally untracked by the Reports/ ignore; no logic or Social enablement change. Keep all assertions strict.
-- [in_progress] User authorized scoped SEO publication: coordinate the accepted map release first, merge only accepted origin/main, obtain combined root PASS, deliver through the green helper, verify exact-build live crawl/headers/XML/browser and request one canonical GSC re-fetch. Google parsing/indexing acceptance requires its own dated receipt.
+- [done] Publish PR10 scoped sitemap repair through the green helper; exact-build312 crawl/browser/Store and13Oct post-cycle PASS retained. One canonical submit accepted13Oct19:26:58UTC; automatic processing/indexing stays open.
 - [done] Preserve one active full GSC/technical SEO heartbeat every two days at 10:00 Europe/Moscow; update its dated baseline so the downloaded index is not falsely labelled pending. No duplicate schedule or automatic release authority.
 
 ## 2026-10-13 mobile and desktop map response

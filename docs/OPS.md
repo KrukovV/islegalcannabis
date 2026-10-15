@@ -39,6 +39,18 @@ Before release:
 6. Release only through `Tools/commit_if_green.sh`. Use an isolated clean clone
    when the canonical worktree contains parallel uncommitted work.
 
+The built-mode localhost audit smoke requires the normal local AI input and
+reset capability. For an isolated release checkout, bind its exact root and
+both local flags explicitly:
+
+```sh
+ISLEGAL_EXPECTED_ROOT="$(pwd)" MAP_ENABLED=1 NEXT_PUBLIC_AI_ENABLE_PROD=1 AI_ENABLE_PROD=1 bash tools/pass_cycle.sh
+```
+
+These are process-local CI settings. The production public-map presentation
+continues to omit AI/Social controls; Vercel environment settings are separate.
+The flags preserve all mandatory input/reset assertions and timing limits.
+
 After Vercel promotion:
 
 1. Crawl all 312 URLs from `https://www.islegal.info/sitemap.xml` with bounded
