@@ -27,6 +27,8 @@ Statuses: pending | in_progress | done
 
 ### Resumed with resource limits
 
+- [in_progress] Current main77d84f7f: remove the complete decorative animation engine/registry from critical map JavaScript using a standard dynamic import after actual map readiness. Preserve its shared canvas, exact registry, map binding and 60s production schedule. Canonical actual34/34/post1/hub1 and built public-host browser6/6/all11 pass; full scene31901raw/8836gzip removed from initial dependencies. Publish through green helper and bind default production cold/zoom/detail evidence; stable2s remains open. Prior fc9 accepted native URL20/6/312 and34/34 are archived in `~/islegalcannabis_archive/2026-10-15-history-source-url/acceptance.json`.
+
 - [done] Search both original chat logs and Git history beyond the old2.09s report: aa6 full-current-payload series records2058/2309/2470ms first-layer marks and2578/3030/3379ms map-ready. SourceURL commitb255645a removes eager main-thread data handling; its ledger793ms T7 lacks a retained raw receipt. Source/readiness conditions remain separate.
 - [in_progress] Restore standard native full-GeoJSON URL transport after bounded same8ae desktop/mobile prototype: one complete identical hash/request, all four adjacent comparisons favour sourceURL by216–2675ms, but mobile26–28s network cases prevent stable2s acceptance. Remove public head prefetch/clone, reuse source.getData and preserve one bounded retry. Verify first real feature, errors, full307 popup guard and existing zoom thresholds.
   - [done] Native URL failure/one-request tests2/2; full-source hash unchanged.
