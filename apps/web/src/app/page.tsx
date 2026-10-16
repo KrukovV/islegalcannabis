@@ -26,10 +26,12 @@ export default function HomePage() {
   return (
     <>
       <link rel="canonical" href="https://www.islegal.info/" />
-      <HomeMapEntry {...mapProps} />
-      <nav aria-label="Browse jurisdictions" className={styles.jurisdictionDirectoryNav}>
-        <Link href="/jurisdictions" prefetch={false} className={styles.jurisdictionDirectoryLink}>Browse all jurisdictions</Link>
-      </nav>
+      <div className={styles.map}>
+        <HomeMapEntry {...mapProps} />
+        <nav aria-label="Browse jurisdictions" className={styles.jurisdictionDirectoryNav}>
+          <Link href="/jurisdictions" prefetch={false} className={styles.jurisdictionDirectoryLink}>Browse all jurisdictions</Link>
+        </nav>
+      </div>
     </>
   );
 }

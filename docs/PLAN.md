@@ -2,12 +2,32 @@
 
 Statuses: pending | in_progress | done
 
+## 2026-10-16 critical SDK priority
+
+- [done] Native CDP confirms current async SDKLow versus GEOHigh. First SDK selector missed actual immutable path; invalid trial retained/excluded. Corrected DOM fetchPriority setter still leaves native requestLow; no claimed win.
+- [done] Standard script preload nativeHigh/oneSDK GET eligibility and actual5fcd Chromium ABBA2997/4482/3575/2255ms. Both B rows lose; all4 complete6e4d/276/oneHTTP/onefullworker/realrender/errors0. Reject product SDK priority/loader/constant; fixed chunk URL remains diagnostic only.
+- [pending] Retain only a measured native/framework-supported mechanism; preserve original complete-data/Zoom/CI gates. Final performance acceptance remains quiet-window deferred.
+
+## 2026-10-16 early complete JSON candidate
+
+- [done] Native delivery microtask1: canonical actualFAIL33/34/0 despite657units/fresh307+307/UI6. Descriptor4126ms -> tiles -> glyphs requested3339ms after firstzoom and ending5339–6497ms. Preserve5s and all failures; no push/publication.
+- [done] Native delivery microtask2: native external TileJSON preload reused1x1803B in both B; WK ABBA cold4369/7366/8292/9331 and combined earlyJSON+TileJSON10014/5753/5785/2762ms do not prove stable whole-cold win. All full data/current render retained; native positive labels/circle/source4/4, post-jump native errors not separately captured. No product TileJSON hint. Chromium native CDP priorityHigh->Low confirmed, ABBA3266/4671/4191/3054 loses bothpairs; reject lowGEOpriority without another full cycle.
+- [pending] Native delivery microtask3: new proved prerequisite before another full cycle; exact-candidate remote cold/Zoom comparison follows green gates. Final acceptance remains user-deferred to quiet window.
+
+- [done] Read-only same-production5fcd WKmobile ABBA6467/4335/4298/9267ms supports early full JSON overlap; all4 complete6e4d/276/oneHTTP/one fullworker/errors0. Prototype async style callback boundary and host/network variability remain explicit; not production change or stable2s acceptance.
+- [done] Root-only early native fetch/shared exact-URL promise/two attempts/one complete setData, full-object identity/error/query-camera/control proof and fresh307+307/UI6; final canonical actual0/PASS657units/34mandatory/0fail/0skip/post1/hub1. Prior nativeFAIL preserved; original thresholds unchanged.
+- [done] Current frozen candidate lint/8unit/TypeScript/build and focused built3/3: held/abort/all503, exact complete Worker SHA256/oneHTTP/one full submission, query-camera first click and real native-controls hit targets at375/812/1440 pass. Fresh canonical audit307 captured; public307 capture and complete canonical gate remain open.
+- [done] Fresh canonical audit307/307+public307/307 captures, original guard PASS, exact source/build stable. Actual public-host WK+Chromium portrait/landscape/desktop6/6 full rich11/dottedSEO/SPA/clear/noAI/errors/overflow and complete Worker SHA256/oneHTTP/one submission pass; local fixture speed ineligible. Canonical current-source full cycle remains required.
+- [pending] Compare actual built candidate to historical early full-JSON mechanism and current native URL baseline, verify mobile/desktop native zoom/details and exact remote SHA before any release; final performance acceptance remains deferred to quiet window.
+
 ## 2026-10-16 native prerendered home
 
 - [done] Native Next force-static root from accepted5fcd, bounded browser URL/localdock/public Analytics retained; canonicalactual0/PASS649units/34mandatory failed0/skipped0/post1/hub1 and actual nativecircle/original5s pass. Core5 files byte-identical; generated Store timestamps restored only after wholeJSON/CAS. Final remote speed acceptance still deferred by user to quiet host.
 - [done] Confirm static build/root HTTP cached/prerender headers and exact footprint: JS1753320B vs1768642, estimatedBr406381 vs410609; HTML348319 vs351089. Actual public-host local WK+Chromium portrait/landscape/desktop6/6 query cameras/first click/all11 popup sections/dottedSEO/no reload/clear/noAI/errors/overflow/one URL worker pass. Local fixture timings are not production evidence; original native+Store zoom gates pass in canonical34.
-- [in_progress] Bind remote preview cache/transport observations to exact candidate SHA/build and historical diff; require measured cold benefit plus unchanged native/UI/SEO and quiet-window final acceptance before any production release.
-- [pending] Resolve observed mobile expanded-attribution overlap with directory using native layout, retaining accessible source credits and audit AI/Social controls; verify screenshot and actual control hit targets.
+- [done] Green-helper push e548c437, draftPR23/previewREADY; bind remote HTTP-only ABBA3071/1271/855/886ms to dynamica0b/static e548 builds, fra1, native PRERENDER/HIT vsMISS. Unmodified e548 WK mobile10549/desktop6738ms, full6e4d/276/oneHTTP/oneworker/errors0 and same-context/before-after build; record allowed hosting requests and shared host load. Delivery mechanism works but no controlled whole-cold gain or stable2s proved; production unchanged.
+- [in_progress] Diagnose measured critical SDK HTTP2HIT delivery2856–4025ms and complete GEO2275–3743ms on current preview; preserve original full data/render fence/native/UI/SEO. Require matched cold benefit and quiet-window final acceptance before any production release.
+- [done] Revalidate without interception: exacte548 WKmobile native anonymous fetch preload still transfers2 complete GEO bodies (main preload + SDK worker), so reject and stop after firstB. Equal SDK ResourceTiming, original sources untouched; initial reader's exact encoded-body-length assumption corrected because browser metric includes protocol overhead. Preserve both failures; no product hint. Node protocol-only8/8 identity/HIT shows variable GEO delivery2575/5274/3512/991ms outside browser; browser H2 cause remains UNCONFIRMED (different receive settings).
+- [in_progress] New original-root UI assertion reproduces directory/expanded-attribution overlap at375px; preserve focusedFAIL trace. Public wrapper+one native-control position rule separates header rows at every width, retaining all credits and audit UI; canonical validation of portrait/landscape/desktop and actual toggle/link hit targets pending.
 
 
 ## 2026-10-16 native sprite delivery

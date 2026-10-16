@@ -8,6 +8,7 @@ import ServiceWorkerGuard from "@/plugins/serviceWorkerGuard";
 import { NEW_MAP_WATER_COLOR } from "@/new-map/mapPalette";
 import { INLINE_COUNTRIES_URL } from "@/new-map/staticCountries";
 import { NEW_MAP_BASEMAP_STYLE_URL } from "@/new-map/runtimeUrls";
+import { PUBLIC_COUNTRIES_PREFETCH_SCRIPT } from "@/truth-map/publicCountriesLoader";
 
 const NEW_MAP_COUNTRIES_URL = INLINE_COUNTRIES_URL;
 const YANDEX_METRIKA_ID = 108419114;
@@ -97,6 +98,7 @@ export default async function RootLayout({
     <html lang={htmlLang} suppressHydrationWarning>
       <head>
         <meta name="msvalidate.01" content={MS_VALIDATE_CONTENT} />
+        <script dangerouslySetInnerHTML={{ __html: PUBLIC_COUNTRIES_PREFETCH_SCRIPT }} />
         <script dangerouslySetInnerHTML={{ __html: NEW_MAP_PREFETCH_SCRIPT }} />
         <Script id="yandex-metrika" strategy="afterInteractive">
           {`

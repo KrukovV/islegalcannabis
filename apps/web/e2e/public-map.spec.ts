@@ -1,5 +1,11 @@
 import { expect, test } from "@playwright/test";
+import { createHash } from "node:crypto";
 import { STATIC_TRUTH_MAP_COUNTRIES_URL } from "../src/truth-map/staticTruthMapUrls";
+import { getStaticTruthMapAsset } from "../src/truth-map/staticTruthMap";
+
+const completeCountries = getStaticTruthMapAsset("countries");
+const completeCountryFeatureCount = JSON.parse(completeCountries.json).features.length;
+const completeCountrySha256 = createHash("sha256").update(completeCountries.json).digest("hex");
 
 test("public first-fill timing waits for the complete legal source to render", async ({ page }) => {
   const devMode = (await (await page.request.get("/api/build-meta")).json()).devMode === true;
@@ -22,7 +28,7 @@ test("public first-fill timing waits for the complete legal source to render", a
       const trace = (window as unknown as { __NEW_MAP_TRACE__?: { marks?: Record<string, number> } }).__NEW_MAP_TRACE__;
       return typeof trace?.marks?.NM_T2_STYLE_READY === "number";
     });
-    // A pending native URL source must never publish a first-fill marker.
+    // A pending complete collection must never publish a first-fill marker.
     await page.waitForTimeout(300);
     const firstFill = await page.evaluate(() =>
       (window as unknown as { __NEW_MAP_TRACE__?: { marks?: Record<string, number> } }).__NEW_MAP_TRACE__?.marks?.NM_T7_FIRST_FILL_RENDERED
@@ -64,12 +70,17 @@ test("public first-fill timing waits for the complete legal source to render", a
 test("local public root retains only the local AI dock beside the public Truth Map display core", async ({ page }) => {
   await page.addInitScript(() => {
     const posts: string[] = [];
-    Object.assign(window, { __PUBLIC_LEGAL_WORKER_POSTS__: posts });
+    const hashes: Promise<string>[] = [];
+    Object.assign(window, { __PUBLIC_LEGAL_WORKER_POSTS__: posts, __PUBLIC_LEGAL_WORKER_HASHES__: hashes });
     const originalPost = Worker.prototype.postMessage;
     Worker.prototype.postMessage = function (message: unknown, options?: Transferable[] | StructuredSerializeOptions) {
       const update = message as { type?: string; data?: { source?: string; request?: { url?: string }; data?: { features?: unknown[] } } };
       if (update.type === "LD" && update.data?.source === "legal-countries" && (update.data.request?.url || update.data.data?.features?.length)) {
         posts.push(update.data.request?.url || `collection:${update.data.data?.features?.length}`);
+        if (update.data.data?.features?.length) {
+          hashes.push(crypto.subtle.digest("SHA-256", new TextEncoder().encode(JSON.stringify(update.data.data)))
+            .then((digest) => Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, "0")).join("")));
+        }
       }
       return originalPost.call(this, message, Array.isArray(options) ? { transfer: options } : options);
     };
@@ -86,10 +97,13 @@ test("local public root retains only the local AI dock beside the public Truth M
   await page.goto("/", { waitUntil: "domcontentloaded" });
   await expect(page.getByTestId("public-map-root")).toBeAttached();
   await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 30_000 });
-  // The SDK owns one complete URL load, with no head fetch or duplicate data post.
+  // The head fetch overlaps SDK loading; its complete collection is submitted once.
   expect(await page.evaluate(() =>
     (window as unknown as { __PUBLIC_LEGAL_WORKER_POSTS__: string[] }).__PUBLIC_LEGAL_WORKER_POSTS__
-  )).toEqual([new URL(STATIC_TRUTH_MAP_COUNTRIES_URL, page.url()).href]);
+  )).toEqual([`collection:${completeCountryFeatureCount}`]);
+  expect(await page.evaluate(() => Promise.all(
+    (window as unknown as { __PUBLIC_LEGAL_WORKER_HASHES__: Promise<string>[] }).__PUBLIC_LEGAL_WORKER_HASHES__
+  ))).toEqual([completeCountrySha256]);
   await expect(page.getByTestId("public-map-notice")).toBeVisible();
   await expect(page.getByTestId("antarctic-ascii-overlay")).toBeAttached();
   // The decorative scene is mounted but remains scheduled when Antarctica is
@@ -108,10 +122,30 @@ test("local public root retains only the local AI dock beside the public Truth M
   expect(staticMapRequests.filter((url) => url.includes("/countries."))).toHaveLength(1);
   expect(staticMapRequests.filter((url) => url.includes("/us-states."))).toHaveLength(0);
   expect(await page.evaluate(() =>
-    (window as unknown as { __PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__?: unknown }).__PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__
-  )).toBeUndefined();
+    (window as unknown as { __PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__?: { url: string } }).__PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__?.url
+  )).toBe(STATIC_TRUTH_MAP_COUNTRIES_URL);
   expect(apiRequests.some((url) => url.includes("/api/new-map/countries?inline=1"))).toBe(false);
   expect(apiRequests.some((url) => url.includes("/api/truth-map/") || url.includes("/api/social/") || url.includes("/api/dm/"))).toBe(false);
+  // Expanded native credits and the directory link remain separately usable
+  // in portrait, landscape and desktop layouts, including after a resize.
+  const attribution = page.locator(".maplibregl-ctrl-attrib");
+  const toggle = attribution.locator("summary");
+  const credits = attribution.locator(".maplibregl-ctrl-attrib-inner");
+  const directory = page.getByRole("link", { name: "Browse all jurisdictions", exact: true });
+  for (const viewport of [{ width: 375, height: 812 }, { width: 812, height: 375 }, { width: 1440, height: 900 }]) {
+    await page.setViewportSize(viewport);
+    if (!await attribution.evaluate((element) => element.hasAttribute("open"))) await toggle.click();
+    await expect(credits).toBeVisible();
+    const linkBox = await directory.boundingBox();
+    const creditsBox = await attribution.boundingBox();
+    if (!linkBox || !creditsBox) throw new Error("public_map_controls_missing");
+    expect(linkBox.y + linkBox.height <= creditsBox.y || creditsBox.y + creditsBox.height <= linkBox.y
+      || linkBox.x + linkBox.width <= creditsBox.x || creditsBox.x + creditsBox.width <= linkBox.x,
+    `Directory overlaps expanded native attribution at ${viewport.width}x${viewport.height}`).toBe(true);
+    await directory.click({ trial: true });
+    await toggle.click();
+    await expect(credits).toBeHidden();
+  }
 });
 
 test("public Antarctica scene runs when the continent is in view @opt-in-visual-audit", async ({ page }) => {
