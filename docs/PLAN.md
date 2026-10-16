@@ -10,6 +10,7 @@ Statuses: pending | in_progress | done
 - [done] User-preserved a56 checksum-bound external checkpoint: cold WK3593–5531ms/Chromium1959–3466ms; full276/onefetch/oneworker/errors0. Retina/apex5178ms;18 rapid SDK transitions; native8 gestures/FR12+SEOclear4/4/live312/adapters308/audit404/Store8167+34. Initial city native5584–9928ms separately retained.
 - [done] Exact a56 post-release canonical gate PASS657unit/34mandatory0fail0skip/post1/hub1/processguardPASS. Raw reports retained, only3 CI Store date fields restored via fullJSON/CAS; data equalHEAD. Preserved checkpoint sealed with hashes. Stable~2s unfulfilled; no general speedup claim from unmatched cohorts.
 - [done] Native first-setStyle-after-full-GEO ABBA rejected: legal median3894->3661ms but native labels4429->4966ms; no product change. First singular/plural selector harnessFAIL preserved.
+- [in_progress] Simplify discarded legacy bootstrap: remove only RuntimeMiddleware unused hook/import (2lines); preserve flags/analytics/manual behavior and sealed production a56. Canonical/exact-preview network/full-data/native/popup and matched-cold proof required; no speedup claimed.
 - [pending] Continue eliminating measured JavaScript/GEO/native tile tail; stable~2s remains unfulfilled. Preserve genuine state colours/outlines and all full popup/Store gates.
 
 ## 2026-10-16 Safari Private blank production incident
