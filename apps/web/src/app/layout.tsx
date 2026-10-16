@@ -1,13 +1,14 @@
 import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
 import Script from "next/script";
-import { Analytics } from "@vercel/analytics/next";
 import NewMapDeferredRuntime from "./_components/NewMapDeferredRuntime";
+import PublicAnalytics from "./_components/PublicAnalytics";
 import "./globals.css";
 import ServiceWorkerGuard from "@/plugins/serviceWorkerGuard";
 import { NEW_MAP_WATER_COLOR } from "@/new-map/mapPalette";
 import { INLINE_COUNTRIES_URL } from "@/new-map/staticCountries";
 import { NEW_MAP_BASEMAP_STYLE_URL } from "@/new-map/runtimeUrls";
+import { PUBLIC_COUNTRIES_PREFETCH_SCRIPT } from "@/truth-map/publicCountriesLoader";
 
 const NEW_MAP_COUNTRIES_URL = INLINE_COUNTRIES_URL;
 const YANDEX_METRIKA_ID = 108419114;
@@ -15,13 +16,6 @@ const MS_VALIDATE_CONTENT = "8160A885E417B2396DD1C0633F13C70F";
 const NEW_MAP_FIRST_VISUAL_EVENT = "new-map:first-visual-ready";
 const YANDEX_METRIKA_INTERACTION_DELAY_MS = 1200;
 const YANDEX_METRIKA_IDLE_FALLBACK_MS = 60000;
-
-function isLocalHost(host: string) {
-  const normalized = host.startsWith("[")
-    ? host.slice(1, host.indexOf("]")).toLowerCase()
-    : (host.split(":")[0]?.toLowerCase() || "");
-  return normalized === "127.0.0.1" || normalized === "localhost" || normalized === "::1";
-}
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.islegal.info"),
@@ -100,11 +94,11 @@ export default async function RootLayout({
 }>) {
   const routeHeaders = await headers();
   const htmlLang = routeHeaders.get("x-route-locale") || "en";
-  const showVercelAnalytics = !isLocalHost(routeHeaders.get("host") || "");
   return (
     <html lang={htmlLang} suppressHydrationWarning>
       <head>
         <meta name="msvalidate.01" content={MS_VALIDATE_CONTENT} />
+        <script dangerouslySetInnerHTML={{ __html: PUBLIC_COUNTRIES_PREFETCH_SCRIPT }} />
         <script dangerouslySetInnerHTML={{ __html: NEW_MAP_PREFETCH_SCRIPT }} />
         <Script id="yandex-metrika" strategy="afterInteractive">
           {`
@@ -187,7 +181,7 @@ export default async function RootLayout({
         <ServiceWorkerGuard />
         <NewMapDeferredRuntime />
         {children}
-        {showVercelAnalytics ? <Analytics /> : null}
+        <PublicAnalytics />
       </body>
     </html>
   );

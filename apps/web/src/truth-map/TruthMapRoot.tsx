@@ -32,6 +32,7 @@ import {
 import type { TruthMapCollection, TruthMapDatasetMeta, TruthMapFeatureProperties } from "./truthMapSource";
 import { projectTruthMapRichCard, TRUTH_MAP_CONTEXT_LABELS, TRUTH_MAP_PROFILE_SECTION_LABELS } from "./truthMapRichCard";
 import TruthMapLegalEvidence from "./TruthMapLegalEvidence";
+import { loadPublicCountries, type PublicCountriesPrefetch } from "./publicCountriesLoader";
 import { storeTruthMapDocumentNavigation, takeTruthMapDocumentNavigation, type TruthMapDocumentNavigationContext } from "./documentNavigationContext";
 
 type Props = {
@@ -98,6 +99,7 @@ type TruthMapQaController = {
 };
 
 type TruthMapWindow = Window & typeof globalThis & {
+  __PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__?: PublicCountriesPrefetch;
   __TRUTH_MAP_DEBUG__?: { map: maplibregl.Map };
   __TRUTH_MAP_QA__?: TruthMapQaController;
 };
@@ -573,7 +575,6 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
     const renderAbort = new AbortController();
     const runtime = createMap(container, {
       style: structuredClone(STATIC_BASEMAP_STYLE),
-      countriesUrl: publicPresentation ? countriesUrl : undefined,
       usStatesUrl,
       initialCamera: documentNavigation?.camera || initialMapViewRef.current,
       shouldSelectFeature: (point) => {
@@ -621,14 +622,13 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
         // camera crosses its state-zoom threshold; fetch the lookup separately
         // only for a state deep link. The audit route retains its full lookup.
         const [countries, auditStates] = publicPresentation
-          ? [await runtime.ready.then(() =>
-            (runtime.map.getSource(NEW_MAP_SOURCE_ID) as maplibregl.GeoJSONSource).getData()
-          ) as TruthMapCollection, null]
+          ? [await loadPublicCountries(countriesUrl, host.__PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__), null]
           : await Promise.all([fetchTruthMapCollection(countriesUrl), fetchTruthMapCollection(usStatesUrl)]);
         if (disposed) return;
-        // Public data already belongs to the native source. Reuse its exact
-        // complete record for popup/deep-link lookup without submitting it twice.
-        if (!publicPresentation) runtime.setData(countries as LegalCountryCollection);
+        // Both shells submit one complete collection through the same revision
+        // guard. The public head fetch overlaps SDK delivery without a second
+        // worker URL fetch or partial-data readiness.
+        runtime.setData(countries as LegalCountryCollection);
         setMeta(countries.meta || null);
         // The basemap phase has installed the shared feature layers. Attach the
         // same controller as /new-map before waiting for all reconciliation data,

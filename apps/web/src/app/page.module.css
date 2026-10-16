@@ -29,6 +29,11 @@
   left: max(12px, env(safe-area-inset-left));
 }
 
+/* Keep expanded native credits below the directory row at every width. */
+.map :global(.maplibregl-ctrl-top-right) {
+  top: calc(max(12px, env(safe-area-inset-top)) + 40px);
+}
+
 .jurisdictionDirectoryLink {
   display: inline-block;
   padding: 8px 11px;

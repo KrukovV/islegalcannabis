@@ -75,7 +75,8 @@ test("truth-map shares the stable city-label visibility ranges used by new-map",
       sourceUrl: "url" in style.sources.carto ? style.sources.carto.url : null,
       sourceTiles: "tiles" in style.sources.carto ? style.sources.carto.tiles : [],
       glyphs: style.glyphs,
-      sprite: style.sprite
+      sprite: style.sprite,
+      hasNativeCircle: map.hasImage("circle-11")
     };
   });
 
@@ -104,6 +105,7 @@ test("truth-map shares the stable city-label visibility ranges used by new-map",
   expect(labelBandState.sourceTiles).toEqual([]);
   expect(labelBandState.glyphs).toMatch(/^https:\/\/tiles\.basemaps\.cartocdn\.com\//);
   expect(labelBandState.sprite).toMatch(/^https:\/\/tiles\.basemaps\.cartocdn\.com\//);
+  expect(labelBandState.hasNativeCircle).toBe(true);
   expect(runtimeErrors).toEqual([]);
 });
 
