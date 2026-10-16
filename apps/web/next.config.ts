@@ -28,7 +28,8 @@ const countryRuntimeRoutes = [
   "/sitemap-i18n.xml"
 ];
 const publicMapRuntimeRoutes = [
-  "/",
+  // `/` is prerendered. Next matches trace keys with contains:true, so a
+  // literal slash here would include these runtime inputs in every route.
   "/api/public-map/countries",
   "/api/public-map/us-states",
   "/api/public-map/stores",

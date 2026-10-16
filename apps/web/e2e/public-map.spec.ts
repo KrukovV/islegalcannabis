@@ -1,7 +1,25 @@
 import { expect, test } from "@playwright/test";
-import { STATIC_TRUTH_MAP_COUNTRIES_URL } from "../src/truth-map/staticTruthMapUrls";
+import { createHash } from "node:crypto";
+import type { Map as MapLibreMap } from "maplibre-gl";
+import { getStaticTruthMapAsset } from "../src/truth-map/staticTruthMap";
+import { getNativeCountryDescriptor } from "../src/truth-map/nativeCountryProjection";
+import type { NativeCountryRecords } from "../src/truth-map/nativeCountryRecords";
+
+const completeCountries = getStaticTruthMapAsset("countries");
+const completeCountrySha256 = createHash("sha256").update(completeCountries.json).digest("hex");
+const nativeCountries = getNativeCountryDescriptor();
+type NativeTestWindow = Window & { __PUBLIC_TEST_MAP__?: MapLibreMap };
 
 test("public first-fill timing waits for the complete legal source to render", async ({ page }) => {
+  // Capture the real SDK instance in the test, without a product QA endpoint.
+  await page.addInitScript(() => {
+    Object.defineProperty(Object.prototype, "cancelPendingTileRequestsWhileZooming", { configurable: true, set(value) {
+      Object.defineProperty(this, "cancelPendingTileRequestsWhileZooming", { value, writable: true, configurable: true, enumerable: true });
+      if (typeof this.getCanvas === "function") {
+        (window as NativeTestWindow).__PUBLIC_TEST_MAP__ = this;
+      }
+    } });
+  });
   const devMode = (await (await page.request.get("/api/build-meta")).json()).devMode === true;
   const workerRequests: string[] = [];
   page.on("request", (request) => {
@@ -12,33 +30,52 @@ test("public first-fill timing waits for the complete legal source to render", a
   if (!devMode) await page.route("**/api/new-map/maplibre-worker**", (route) => route.abort());
   let releaseCountries: () => void = () => {};
   const countriesGate = new Promise<void>((resolve) => { releaseCountries = resolve; });
-  await page.route(`**${STATIC_TRUTH_MAP_COUNTRIES_URL}`, async (route) => {
+  await page.route(`**${nativeCountries.recordsUrl}`, async (route) => {
     await countriesGate;
     await route.continue();
   });
   try {
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/?lat=46.6&lng=2.4&zoom=4", { waitUntil: "domcontentloaded" });
     await page.waitForFunction(() => {
       const trace = (window as unknown as { __NEW_MAP_TRACE__?: { marks?: Record<string, number> } }).__NEW_MAP_TRACE__;
       return typeof trace?.marks?.NM_T2_STYLE_READY === "number";
     });
-    // A pending native URL source must never publish a first-fill marker.
+    // A pending complete collection must never publish a first-fill marker.
     await page.waitForTimeout(300);
     const firstFill = await page.evaluate(() =>
       (window as unknown as { __NEW_MAP_TRACE__?: { marks?: Record<string, number> } }).__NEW_MAP_TRACE__?.marks?.NM_T7_FIRST_FILL_RENDERED
     );
     expect(firstFill).toBeUndefined();
+    // Native geometry may already paint while the complete record is pending.
+    // Its first click must survive the pending index and open the full popup.
+    await page.waitForFunction(() => {
+      const map = (window as NativeTestWindow).__PUBLIC_TEST_MAP__;
+      return map?.getStyle() && map.getLayer("legal-fill") && map.isSourceLoaded("legal-countries")
+        && map.queryRenderedFeatures(map.project([2.4, 46.6]), { layers: ["legal-fill"] }).some((feature) => feature.properties.geo === "FR");
+    });
+    const canvas = page.getByTestId("public-map-canvas");
+    const box = await canvas.boundingBox();
+    if (!box) throw new Error("native_country_canvas_missing");
+    await canvas.click({ position: { x: box.width / 2, y: box.height / 2 } });
+    await expect(page.getByTestId("new-map-country-popup")).toHaveCount(0);
     releaseCountries();
     await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 30_000 });
     expect(await page.evaluate(() =>
       (window as unknown as { __NEW_MAP_TRACE__?: { marks?: Record<string, number> } }).__NEW_MAP_TRACE__?.marks?.NM_T7_FIRST_FILL_RENDERED
     )).toBeGreaterThan(0);
-    await page.unroute(`**${STATIC_TRUTH_MAP_COUNTRIES_URL}`);
+    await expect(page.getByTestId("new-map-country-popup")).toBeVisible();
+    await expect(page.getByTestId("truth-map-legal-evidence")).toContainText("Current legal conclusion:");
+    await page.getByTestId("viewport-country-popup-close").click();
+    await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+    await expect.poll(() => page.evaluate((sourceLayer) =>
+      (window as NativeTestWindow).__PUBLIC_TEST_MAP__?.getFeatureState({ source: "legal-countries", sourceLayer, id: "FR" }).hover,
+    nativeCountries.sourceLayer)).toBe(true);
+    await page.unroute(`**${nativeCountries.recordsUrl}`);
     let attempts = 0;
-    await page.route(`**${STATIC_TRUTH_MAP_COUNTRIES_URL}`, (route) => ++attempts === 1 ? route.abort() : route.continue());
+    await page.route(`**${nativeCountries.recordsUrl}`, (route) => ++attempts === 1 ? route.abort() : route.continue());
     const fallbackRequests: string[] = [];
     page.on("request", (request) => {
-      if (request.url().endsWith(STATIC_TRUTH_MAP_COUNTRIES_URL)) fallbackRequests.push(request.url());
+      if (request.url().endsWith(nativeCountries.recordsUrl)) fallbackRequests.push(request.url());
     });
     await page.reload({ waitUntil: "domcontentloaded" });
     await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 30_000 });
@@ -46,9 +83,9 @@ test("public first-fill timing waits for the complete legal source to render", a
     expect(attempts).toBe(2);
     if (devMode) expect(workerRequests.length).toBeGreaterThan(0);
     else expect(workerRequests).toHaveLength(0);
-    await page.unroute(`**${STATIC_TRUTH_MAP_COUNTRIES_URL}`);
+    await page.unroute(`**${nativeCountries.recordsUrl}`);
     let failedAttempts = 0;
-    await page.route(`**${STATIC_TRUTH_MAP_COUNTRIES_URL}`, (route) => {
+    await page.route(`**${nativeCountries.recordsUrl}`, (route) => {
       failedAttempts += 1;
       return route.fulfill({ status: 503, body: "temporarily unavailable" });
     });
@@ -64,12 +101,17 @@ test("public first-fill timing waits for the complete legal source to render", a
 test("local public root retains only the local AI dock beside the public Truth Map display core", async ({ page }) => {
   await page.addInitScript(() => {
     const posts: string[] = [];
-    Object.assign(window, { __PUBLIC_LEGAL_WORKER_POSTS__: posts });
+    const hashes: Promise<string>[] = [];
+    Object.assign(window, { __PUBLIC_LEGAL_WORKER_POSTS__: posts, __PUBLIC_LEGAL_WORKER_HASHES__: hashes });
     const originalPost = Worker.prototype.postMessage;
     Worker.prototype.postMessage = function (message: unknown, options?: Transferable[] | StructuredSerializeOptions) {
       const update = message as { type?: string; data?: { source?: string; request?: { url?: string }; data?: { features?: unknown[] } } };
       if (update.type === "LD" && update.data?.source === "legal-countries" && (update.data.request?.url || update.data.data?.features?.length)) {
         posts.push(update.data.request?.url || `collection:${update.data.data?.features?.length}`);
+        if (update.data.data?.features?.length) {
+          hashes.push(crypto.subtle.digest("SHA-256", new TextEncoder().encode(JSON.stringify(update.data.data)))
+            .then((digest) => Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, "0")).join("")));
+        }
       }
       return originalPost.call(this, message, Array.isArray(options) ? { transfer: options } : options);
     };
@@ -86,10 +128,17 @@ test("local public root retains only the local AI dock beside the public Truth M
   await page.goto("/", { waitUntil: "domcontentloaded" });
   await expect(page.getByTestId("public-map-root")).toBeAttached();
   await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 30_000 });
-  // The SDK owns one complete URL load, with no head fetch or duplicate data post.
+  // Native tiles replace worker-side full-GeoJSON indexing. The complete
+  // metadata response remains exact and bound to the original source bytes.
   expect(await page.evaluate(() =>
     (window as unknown as { __PUBLIC_LEGAL_WORKER_POSTS__: string[] }).__PUBLIC_LEGAL_WORKER_POSTS__
-  )).toEqual([new URL(STATIC_TRUTH_MAP_COUNTRIES_URL, page.url()).href]);
+  )).toEqual([]);
+  const records = await page.evaluate(() =>
+    (window as unknown as { __PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__: { promise: Promise<NativeCountryRecords> } }).__PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__.promise
+  );
+  expect(records.sourceSha256).toBe(completeCountrySha256);
+  expect(createHash("sha256").update(JSON.stringify(records)).digest("hex")).toBe(nativeCountries.recordsSha256);
+  expect(records.records).toHaveLength(nativeCountries.recordCount);
   await expect(page.getByTestId("public-map-notice")).toBeVisible();
   await expect(page.getByTestId("antarctic-ascii-overlay")).toBeAttached();
   // The decorative scene is mounted but remains scheduled when Antarctica is
@@ -105,13 +154,35 @@ test("local public root retains only the local AI dock beside the public Truth M
   await expect(page.locator(".maplibregl-ctrl-attrib-inner")).toContainText("OpenFreeMap");
   await expect(page.locator(".maplibregl-ctrl-attrib-inner")).toContainText("OpenStreetMap");
   expect(apiRequests.filter((url) => url.includes("/api/new-map/card-index"))).toHaveLength(0);
-  expect(staticMapRequests.filter((url) => url.includes("/countries."))).toHaveLength(1);
+  expect(staticMapRequests.filter((url) => url.includes("/countries."))).toHaveLength(0);
+  expect(staticMapRequests.filter((url) => url.endsWith(nativeCountries.recordsUrl))).toHaveLength(1);
+  expect(staticMapRequests.filter((url) => url.includes(`/native/${nativeCountries.version}/`) && url.endsWith(".pbf")).length).toBeGreaterThan(0);
   expect(staticMapRequests.filter((url) => url.includes("/us-states."))).toHaveLength(0);
   expect(await page.evaluate(() =>
-    (window as unknown as { __PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__?: unknown }).__PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__
-  )).toBeUndefined();
+    (window as unknown as { __PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__?: { url: string } }).__PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__?.url
+  )).toBe(nativeCountries.recordsUrl);
   expect(apiRequests.some((url) => url.includes("/api/new-map/countries?inline=1"))).toBe(false);
   expect(apiRequests.some((url) => url.includes("/api/truth-map/") || url.includes("/api/social/") || url.includes("/api/dm/"))).toBe(false);
+  // Expanded native credits and the directory link remain separately usable
+  // in portrait, landscape and desktop layouts, including after a resize.
+  const attribution = page.locator(".maplibregl-ctrl-attrib");
+  const toggle = attribution.locator("summary");
+  const credits = attribution.locator(".maplibregl-ctrl-attrib-inner");
+  const directory = page.getByRole("link", { name: "Browse all jurisdictions", exact: true });
+  for (const viewport of [{ width: 375, height: 812 }, { width: 812, height: 375 }, { width: 1440, height: 900 }]) {
+    await page.setViewportSize(viewport);
+    if (!await attribution.evaluate((element) => element.hasAttribute("open"))) await toggle.click();
+    await expect(credits).toBeVisible();
+    const linkBox = await directory.boundingBox();
+    const creditsBox = await attribution.boundingBox();
+    if (!linkBox || !creditsBox) throw new Error("public_map_controls_missing");
+    expect(linkBox.y + linkBox.height <= creditsBox.y || creditsBox.y + creditsBox.height <= linkBox.y
+      || linkBox.x + linkBox.width <= creditsBox.x || creditsBox.x + creditsBox.width <= linkBox.x,
+    `Directory overlaps expanded native attribution at ${viewport.width}x${viewport.height}`).toBe(true);
+    await directory.click({ trial: true });
+    await toggle.click();
+    await expect(credits).toBeHidden();
+  }
 });
 
 test("public Antarctica scene runs when the continent is in view @opt-in-visual-audit", async ({ page }) => {

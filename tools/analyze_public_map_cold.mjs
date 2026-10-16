@@ -17,10 +17,20 @@ assert.equal(commit(receipt.after), commit(receipt.before), "Build changed durin
 assert.ok(receipt.before.buildId);
 assert.equal(receipt.after.buildId, receipt.before.buildId);
 assert.ok(Array.isArray(receipt.rows) && receipt.rows.length > 0);
+const contextMode = (row) => row.browserContextMode || receipt.browserContextMode || "NOT_RECORDED";
+const contextModes = new Set(receipt.rows.map(contextMode));
+assert.equal(contextModes.size, 1, "Mixed browser context modes must be analyzed separately");
+const engines = new Set(receipt.rows.map((row) => row.engine || "NOT_RECORDED"));
+assert.equal(engines.size, 1, "Mixed browser engines must be analyzed separately");
 
 const rows = receipt.rows.map((row) => {
   assert.equal(typeof row.mobile, "boolean");
   assert.deepEqual(row.errors, [], "Browser errors invalidate the cohort");
+  finite(row.strictRenderAt);
+  assert.ok(row.strictRenderAt > 0, "A ready marker alone is not rendered-feature proof");
+  assert.ok(row.readyMs >= row.strictRenderAt, "Ready precedes rendered-feature proof");
+  assert.equal(row.features, 276, "Complete country source required");
+  assert.equal(row.sourceHash, "6e4d50dee3bd", "Complete source identity required");
   assert.ok(Array.isArray(row.resources));
   // Worker fetches need the browser network event timing; they need not appear
   // in the document's Resource Timing buffer. Never combine the two copies.
@@ -31,10 +41,6 @@ const rows = receipt.rows.map((row) => {
   const geo = matches[0];
   if (row.countryNetwork !== undefined) {
     assert.equal(row.countryRequests, 1);
-    assert.equal(row.features, 276);
-    assert.equal(row.sourceHash, "6e4d50dee3bd");
-    finite(row.strictRenderAt);
-    assert.ok(row.readyMs >= row.strictRenderAt);
   }
   const constructor = row.trace?.marks?.NM_T2_MAP_CONSTRUCTOR_START;
   const firstByte = row.navigation?.responseStart;
@@ -76,6 +82,8 @@ console.log(JSON.stringify({
   measuredAt: receipt.at,
   commit: commit(receipt.before),
   buildId: receipt.before.buildId,
+  browserEngine: [...engines][0],
+  browserContextMode: [...contextModes][0],
   definition: "First rendered legal-ready marker; mobile viewport emulation, not physical devices or complete native-tile readiness. Overlapping phases must not be added. Later prerequisite is timing order, not root-cause attribution. One cohort cannot prove stable production latency.",
   historicalTargetMs: 2000,
   targetMetInEveryRecordedRun: rows.every((row) => row.readyMs <= 2000),

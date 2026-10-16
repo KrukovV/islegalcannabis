@@ -54,16 +54,18 @@ function getGeoIdAtPoint(map: MapLibreMap, point: { x: number; y: number }) {
   if (!feature) return null;
   return {
     geo: String(feature.properties?.geo || feature.id || "").trim().toUpperCase(),
-    source: String(feature.source || "")
+    source: String(feature.source || ""),
+    sourceLayer: feature.sourceLayer,
   };
 }
 
-function getGeoIdFromLayerEvent(event: MapMouseEvent & { features?: Array<{ id?: string | number; source?: string; properties?: Record<string, unknown> }> }) {
+function getGeoIdFromLayerEvent(event: MapMouseEvent & { features?: Array<{ id?: string | number; source?: string; sourceLayer?: string; properties?: Record<string, unknown> }> }) {
   const feature = Array.isArray(event.features) ? event.features.find((item) => String(item.properties?.geo || item.id || "").trim()) : null;
   if (!feature) return null;
   return {
     geo: String(feature.properties?.geo || feature.id || "").trim().toUpperCase(),
-    source: String(feature.source || "")
+    source: String(feature.source || ""),
+    sourceLayer: feature.sourceLayer,
   };
 }
 
@@ -71,22 +73,24 @@ export function attachHoverController(map: MapLibreMap, options: HoverController
   const debug = ensureDebugState();
   let hoveredId: string | null = null;
   let hoveredSource: string = NEW_MAP_SOURCE_ID;
+  let hoveredSourceLayer: string | undefined;
   let selectedId: string | null = null;
 
-  const setHoveredId = (next: { geo: string; source: string } | null) => {
+  const setHoveredId = (next: { geo: string; source: string; sourceLayer?: string } | null) => {
     const nextId = next?.geo ?? null;
     const nextSource = next?.source === NEW_MAP_US_STATES_SOURCE_ID ? NEW_MAP_US_STATES_SOURCE_ID : NEW_MAP_SOURCE_ID;
-    if (hoveredId === nextId) return;
+    if (hoveredId === nextId && hoveredSource === nextSource && hoveredSourceLayer === next?.sourceLayer) return;
     if (hoveredId) {
-      map.setFeatureState({ source: hoveredSource, id: hoveredId }, { hover: false });
+      map.setFeatureState({ source: hoveredSource, sourceLayer: hoveredSourceLayer, id: hoveredId }, { hover: false });
     }
     hoveredId = nextId;
     hoveredSource = nextSource;
+    hoveredSourceLayer = next?.sourceLayer;
     debug.hoveredId = hoveredId;
     debug.hoverSwitchCount += 1;
     options.onHoverChange?.(hoveredId);
     if (hoveredId) {
-      map.setFeatureState({ source: hoveredSource, id: hoveredId }, { hover: true });
+      map.setFeatureState({ source: hoveredSource, sourceLayer: hoveredSourceLayer, id: hoveredId }, { hover: true });
     }
   };
 
@@ -103,12 +107,12 @@ export function attachHoverController(map: MapLibreMap, options: HoverController
     setHoveredId(getGeoIdAtPoint(map, event.point));
   };
 
-  const onLayerMove = (event: MapMouseEvent & { features?: Array<{ id?: string | number; source?: string; properties?: Record<string, unknown> }> }) => {
+  const onLayerMove = (event: MapMouseEvent & { features?: Array<{ id?: string | number; source?: string; sourceLayer?: string; properties?: Record<string, unknown> }> }) => {
     setHoveredId(getGeoIdFromLayerEvent(event));
   };
 
   const onLeave = () => setHoveredId(null);
-  const onClick = (event: MapMouseEvent & { features?: Array<{ id?: string | number; source?: string; properties?: Record<string, unknown> }> }) => {
+  const onClick = (event: MapMouseEvent & { features?: Array<{ id?: string | number; source?: string; sourceLayer?: string; properties?: Record<string, unknown> }> }) => {
     const nextSelection = getGeoIdFromLayerEvent(event) || getGeoIdAtPoint(map, event.point);
     setSelectedId(nextSelection?.geo ?? null);
   };

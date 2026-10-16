@@ -35,6 +35,7 @@ type SelectedGeoCallback = (_geo: { iso2: string; country: string; lng: number; 
 type CreateMapOptions = {
   style?: StyleSpecification | string | null;
   countriesUrl?: string;
+  countriesVector?: { tilesUrl: string; sourceLayer: string; maxzoom: number; metadataReady: Promise<void> };
   initialCamera?: { lat: number; lng: number; zoom: number } | null;
   onSelectGeo?: (_geo: string | null, _anchor?: { x: number; y: number } | null, _seed?: CountryCardSeed | null) => void;
   shouldSelectFeature?: (_point: { x: number; y: number }, _lngLat: { lng: number; lat: number }) => boolean;
@@ -416,6 +417,15 @@ export function createMap(
     resolveReady = resolve;
     rejectReady = reject;
   });
+  void options?.countriesVector?.metadataReady.then(() => {
+    if (destroyed || readyResolved) return;
+    legalDataSubmitted = true;
+    map.triggerRepaint();
+  }, (error: Error) => {
+    if (destroyed || readyResolved) return;
+    readyResolved = true;
+    rejectReady(error);
+  });
   const host = globalThis as typeof globalThis & {
     __NEW_MAP_DEBUG__?: Record<string, unknown>;
     __MAP_SELECTED_GEO__?: SelectedGeoCallback;
@@ -491,6 +501,7 @@ export function createMap(
   };
 
   const applyData = () => {
+    if (options?.countriesVector) return;
     if (!mapLoaded) return;
     const countriesSource = map.getSource(NEW_MAP_SOURCE_ID) as maplibregl.GeoJSONSource | undefined;
     if (!countriesSource) return;
@@ -518,7 +529,14 @@ export function createMap(
     if (map.getSource(NEW_MAP_SOURCE_ID)) return;
     map.jumpTo(initialCamera);
     const beforeId = findFirstSymbolLayerId(map);
-    map.addSource(NEW_MAP_SOURCE_ID, {
+    const vector = options?.countriesVector;
+    const countrySourceLayer = vector ? { "source-layer": vector.sourceLayer } : {};
+    map.addSource(NEW_MAP_SOURCE_ID, vector ? {
+      type: "vector",
+      tiles: [new URL(container.ownerDocument.baseURI).origin + vector.tilesUrl],
+      maxzoom: vector.maxzoom,
+      promoteId: "geo"
+    } : {
       type: "geojson",
       data: options?.countriesUrl || countries,
       promoteId: "geo"
@@ -526,12 +544,13 @@ export function createMap(
     // addSource already submits this revision. Sending it again at bootstrap
     // makes the worker index the same complete legal collection twice.
     submittedCountriesRevision = countriesRevision;
-    legalDataSubmitted = Boolean(options?.countriesUrl) || countries.features.length > 0;
+    if (!vector) legalDataSubmitted = Boolean(options?.countriesUrl) || countries.features.length > 0;
 
     map.addLayer({
       id: NEW_MAP_FILL_LAYER_ID,
       type: "fill",
       source: NEW_MAP_SOURCE_ID,
+      ...countrySourceLayer,
       maxzoom: 24,
       filter: ["match", ["geometry-type"], ["Polygon", "MultiPolygon"], true, false],
       paint: {
@@ -564,6 +583,7 @@ export function createMap(
       id: NEW_MAP_POINT_LAYER_ID,
       type: "circle",
       source: NEW_MAP_SOURCE_ID,
+      ...countrySourceLayer,
       maxzoom: 24,
       filter: [
         "all",
@@ -609,6 +629,7 @@ export function createMap(
       id: NEW_MAP_TERRITORY_HITBOX_LAYER_ID,
       type: "circle",
       source: NEW_MAP_SOURCE_ID,
+      ...countrySourceLayer,
       maxzoom: 24,
       filter: [
         "all",
@@ -741,6 +762,7 @@ export function createMap(
       id: NEW_MAP_TERRITORY_LABEL_LAYER_ID,
       type: "symbol",
       source: NEW_MAP_SOURCE_ID,
+      ...countrySourceLayer,
       minzoom: 2.1,
       maxzoom: 24,
       filter: [
@@ -922,11 +944,17 @@ export function createMap(
   map.on("render", () => finalizeFirstVisualReady(true));
 
   map.on("error", (event) => {
-    if (!options?.countriesUrl || !("sourceId" in event) || event.sourceId !== NEW_MAP_SOURCE_ID || readyResolved) return;
+    if ((!options?.countriesUrl && !options?.countriesVector) || !("sourceId" in event) || event.sourceId !== NEW_MAP_SOURCE_ID || readyResolved) return;
     // Preserve the former prefetch + fetch contract: one bounded retry.
     if (!countriesRetried) {
       countriesRetried = true;
-      (map.getSource(NEW_MAP_SOURCE_ID) as maplibregl.GeoJSONSource).setData(options.countriesUrl);
+      if (options.countriesVector) {
+        (map.getSource(NEW_MAP_SOURCE_ID) as maplibregl.VectorTileSource).setTiles([
+          new URL(container.ownerDocument.baseURI).origin + options.countriesVector.tilesUrl
+        ]);
+      } else {
+        (map.getSource(NEW_MAP_SOURCE_ID) as maplibregl.GeoJSONSource).setData(options.countriesUrl!);
+      }
       return;
     }
     legalDataSubmitted = false;

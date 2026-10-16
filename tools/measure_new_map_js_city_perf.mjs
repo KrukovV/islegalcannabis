@@ -66,7 +66,7 @@ function compactUrl(rawUrl) {
 function isFirstPartyChunk(rawUrl, pageOrigin) {
   try {
     const parsed = new URL(rawUrl);
-    return parsed.origin === pageOrigin && /\/_next\/static\/chunks\/.+\.js$/.test(parsed.pathname);
+    return parsed.origin === pageOrigin && /\/_next\/static\/(?:immutable\/)?chunks\/.+\.js$/.test(parsed.pathname);
   } catch {
     return false;
   }

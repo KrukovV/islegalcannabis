@@ -14,6 +14,12 @@ importers:
       '@islegal/shared':
         specifier: file:../../packages/shared
         version: file:../../packages/shared
+      '@maplibre/geojson-vt':
+        specifier: 6.1.1
+        version: 6.1.1
+      '@maplibre/vt-pbf':
+        specifier: 4.3.2
+        version: 4.3.2
       '@vercel/analytics':
         specifier: ^2.0.1
         version: 2.0.1(next@16.3.1(@babel/core@7.29.7(supports-color@7.2.0))(@playwright/test@1.61.1)(@types/node@20.19.43)(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(react@19.2.1)

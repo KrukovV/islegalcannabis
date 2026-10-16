@@ -15,21 +15,25 @@ describe("truth-map audit route", () => {
 
   it("uses the reconciled display core as the public map without production Social or AI", () => {
     const root = fs.readFileSync(path.join(process.cwd(), "src", "app", "page.tsx"), "utf8");
+    const entry = fs.readFileSync(path.join(process.cwd(), "src", "app", "_components", "HomeMapEntry.tsx"), "utf8");
     const currentMap = fs.readFileSync(path.join(process.cwd(), "src", "app", "new-map", "page.tsx"), "utf8");
     const localRoot = fs.readFileSync(path.join(process.cwd(), "src", "app", "_components", "LocalPublicMapRoot.tsx"), "utf8");
     const runtime = fs.readFileSync(path.join(process.cwd(), "src", "app", "truth-map", "runtimeConfig.ts"), "utf8");
     const staticPayload = fs.readFileSync(path.join(process.cwd(), "src", "truth-map", "staticTruthMap.ts"), "utf8");
     const nextConfig = fs.readFileSync(path.join(process.cwd(), "next.config.ts"), "utf8");
-    expect(root).toContain("TruthMapRoot");
-    expect(root).toContain('presentation="public"');
-    expect(root).toContain('countriesUrl: STATIC_TRUTH_MAP_COUNTRIES_URL');
+    expect(root).toContain('export const dynamic = "force-static";');
+    expect(entry).toContain("TruthMapRoot");
+    expect(entry).toContain('presentation="public"');
+    expect(root).toContain('const nativeCountries = getNativeCountryDescriptor();');
+    expect(root).toContain('countriesUrl: nativeCountries.recordsUrl');
+    expect(root).toContain('buildPublicCountriesPrefetchScript(nativeCountries.recordsUrl)');
     expect(root).toContain('usStatesUrl: STATIC_TRUTH_MAP_US_STATES_URL');
     expect(root).not.toContain("getSocialRuntimeConfig");
     expect(root).not.toContain("MapGeoDock");
     expect(root).not.toContain("TruthMapSocialPanel");
-    expect(root).toContain("isLocalAuditHost");
-    expect(root).toContain("LocalPublicMapRoot");
-    expect(root).toContain('showPublicMapNotice={false}');
+    expect(entry).toContain("isLocalAuditHost");
+    expect(entry).toContain("LocalPublicMapRoot");
+    expect(entry).toContain('showPublicMapNotice={false}');
     expect(runtime).toContain("getStaticTruthMapRuntimeMeta");
     expect(runtime).not.toContain("truthMapSource");
     expect(staticPayload).not.toContain("truthMapSource");
