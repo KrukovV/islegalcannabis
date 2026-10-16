@@ -33,10 +33,12 @@ import type { TruthMapCollection, TruthMapDatasetMeta, TruthMapFeatureProperties
 import { projectTruthMapRichCard, TRUTH_MAP_CONTEXT_LABELS, TRUTH_MAP_PROFILE_SECTION_LABELS } from "./truthMapRichCard";
 import TruthMapLegalEvidence from "./TruthMapLegalEvidence";
 import { loadPublicCountries, type PublicCountriesPrefetch } from "./publicCountriesLoader";
+import { readNativeCountryRecords, resolveNativeCountryProperties, type NativeCountryDescriptor } from "./nativeCountryRecords";
 import { storeTruthMapDocumentNavigation, takeTruthMapDocumentNavigation, type TruthMapDocumentNavigationContext } from "./documentNavigationContext";
 
 type Props = {
   countriesUrl: string;
+  nativeCountries?: NativeCountryDescriptor;
   usStatesUrl: string;
   visibleStamp: string;
   runtimeIdentity: RuntimeIdentity;
@@ -173,11 +175,12 @@ function resolveEntryDetailsCode(entry: CountryCardEntry) {
   return entry.parentCountry?.code ? String(entry.parentCountry.code).trim().toLowerCase() : null;
 }
 
-export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, runtimeIdentity, initialMapView = null, initialGeoCode = null, initialGeoOpensPopup = true, presentation = "audit", showPublicMapNotice = false, interactiveOverlayLayerIds = NO_INTERACTIVE_OVERLAY_LAYERS, auditMapLayer, auditDock, auditPanel, publicLocalDock, bodyScroll = "lock" }: Props) {
+export default function TruthMapRoot({ countriesUrl, nativeCountries, usStatesUrl, visibleStamp, runtimeIdentity, initialMapView = null, initialGeoCode = null, initialGeoOpensPopup = true, presentation = "audit", showPublicMapNotice = false, interactiveOverlayLayerIds = NO_INTERACTIVE_OVERLAY_LAYERS, auditMapLayer, auditDock, auditPanel, publicLocalDock, bodyScroll = "lock" }: Props) {
   const publicPresentation = presentation === "public";
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const runtimeRef = useRef<NewMapBootResult | null>(null);
+  const pendingSelectionRef = useRef(0);
   const locationMarkerRef = useRef<maplibregl.Marker | null>(null);
   const seoInfoMarkerRef = useRef<maplibregl.Marker | null>(null);
   const seoPanelOriginCameraRef = useRef<{ lat: number; lng: number; zoom: number } | null>(null);
@@ -264,6 +267,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
   }, []);
 
   const clearSelectedGeo = useCallback(() => {
+    pendingSelectionRef.current += 1;
     setSelectedPopup(null);
     setPopupAnchor(null);
     setSelectedGeo(null);
@@ -573,9 +577,20 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
     if (!container) return;
     let disposed = false;
     const renderAbort = new AbortController();
+    const host = window as TruthMapWindow;
+    const nativeRequest = publicPresentation && nativeCountries
+      ? loadPublicCountries<unknown>(countriesUrl, host.__PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__)
+        .then((index) => readNativeCountryRecords(index, nativeCountries))
+      : null;
     const runtime = createMap(container, {
       style: structuredClone(STATIC_BASEMAP_STYLE),
       usStatesUrl,
+      countriesVector: nativeRequest && nativeCountries ? {
+        tilesUrl: nativeCountries.tilesUrl,
+        sourceLayer: nativeCountries.sourceLayer,
+        maxzoom: nativeCountries.maxzoom,
+        metadataReady: nativeRequest.then(() => undefined),
+      } : undefined,
       initialCamera: documentNavigation?.camera || initialMapViewRef.current,
       shouldSelectFeature: (point) => {
         const map = mapRef.current;
@@ -598,8 +613,18 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
         }
       },
       onSelectFeature: (feature, lngLat) => {
-        const map = mapRef.current;
-        if (!map) return;
+        if (!mapRef.current) return;
+        const selection = ++pendingSelectionRef.current;
+        if (nativeRequest && nativeCountries && feature.source === NEW_MAP_SOURCE_ID) {
+          void nativeRequest.then((index) => {
+            if (disposed || selection !== pendingSelectionRef.current) return;
+            const properties = resolveNativeCountryProperties(feature.properties, index, nativeCountries);
+            openTruthPopup(properties, lngLat);
+          }).catch((selectionError: Error) => {
+            if (!disposed && selection === pendingSelectionRef.current) setError(selectionError.message);
+          });
+          return;
+        }
         const properties = feature.properties as unknown as TruthMapFeatureProperties | undefined;
         if (!properties?.geo || properties.truthDataset !== "FINAL_307_RECONCILIATION") return;
         openTruthPopup(properties, lngLat);
@@ -609,7 +634,6 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
     runtimeRef.current = runtime;
     mapRef.current = runtime.map;
     setMapInstance(runtime.map);
-    const host = window as TruthMapWindow;
     if (!publicPresentation) host.__TRUTH_MAP_DEBUG__ = { map: runtime.map };
 
     let asciiCleanup: (() => void) | null = null;
@@ -621,14 +645,15 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
         // state lookup. MapLibre already requests state geometry when the
         // camera crosses its state-zoom threshold; fetch the lookup separately
         // only for a state deep link. The audit route retains its full lookup.
-        const [countries, auditStates] = publicPresentation
-          ? [await loadPublicCountries(countriesUrl, host.__PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__), null]
-          : await Promise.all([fetchTruthMapCollection(countriesUrl), fetchTruthMapCollection(usStatesUrl)]);
+        const [countries, auditStates] = nativeRequest
+          ? [await Promise.all([nativeRequest, runtime.ready]).then(([index]) => ({ ...index.collection, features: index.records })), null]
+          : publicPresentation
+            ? [await loadPublicCountries(countriesUrl, host.__PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__), null]
+            : await Promise.all([fetchTruthMapCollection(countriesUrl), fetchTruthMapCollection(usStatesUrl)]);
         if (disposed) return;
-        // Both shells submit one complete collection through the same revision
-        // guard. The public head fetch overlaps SDK delivery without a second
-        // worker URL fetch or partial-data readiness.
-        runtime.setData(countries as LegalCountryCollection);
+        // Vector tiles carry native geometry; their ordinal resolves the exact
+        // full record. GeoJSON routes retain their single revision submission.
+        if (!nativeRequest) runtime.setData(countries as LegalCountryCollection);
         setMeta(countries.meta || null);
         // The basemap phase has installed the shared feature layers. Attach the
         // same controller as /new-map before waiting for all reconciliation data,
@@ -756,6 +781,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
 
     return () => {
       disposed = true;
+      pendingSelectionRef.current += 1;
       renderAbort.abort();
       hoverCleanup?.();
       if (!hoverCleanup) asciiCleanup?.();
@@ -771,7 +797,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
       runtimeRef.current = null;
       runtime.destroy();
     };
-  }, [countriesUrl, interactiveOverlayLayerIds, publicPresentation, usStatesUrl, openTruthPopup]);
+  }, [countriesUrl, nativeCountries, interactiveOverlayLayerIds, publicPresentation, usStatesUrl, openTruthPopup]);
 
   return (
     <TruthMapAuditContext.Provider value={auditContext}>

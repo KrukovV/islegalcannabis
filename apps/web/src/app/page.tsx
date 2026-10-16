@@ -3,7 +3,9 @@ import Link from "next/link";
 import { formatVisibleRuntimeStamp } from "@/lib/runtimeIdentity";
 import { getTruthMapRuntimeIdentity } from "./truth-map/runtimeConfig";
 import HomeMapEntry from "./_components/HomeMapEntry";
-import { STATIC_TRUTH_MAP_COUNTRIES_URL, STATIC_TRUTH_MAP_US_STATES_URL } from "@/truth-map/staticTruthMapUrls";
+import { STATIC_TRUTH_MAP_US_STATES_URL } from "@/truth-map/staticTruthMapUrls";
+import { getNativeCountryDescriptor } from "@/truth-map/nativeCountryProjection";
+import { buildPublicCountriesPrefetchScript } from "@/truth-map/publicCountriesLoader";
 import styles from "./page.module.css";
 
 export const dynamic = "force-static";
@@ -15,9 +17,11 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const runtimeIdentity = getTruthMapRuntimeIdentity();
+  const nativeCountries = getNativeCountryDescriptor();
 
   const mapProps = {
-    countriesUrl: STATIC_TRUTH_MAP_COUNTRIES_URL,
+    countriesUrl: nativeCountries.recordsUrl,
+    nativeCountries,
     usStatesUrl: STATIC_TRUTH_MAP_US_STATES_URL,
     visibleStamp: formatVisibleRuntimeStamp(runtimeIdentity),
     runtimeIdentity,
@@ -26,6 +30,7 @@ export default function HomePage() {
   return (
     <>
       <link rel="canonical" href="https://www.islegal.info/" />
+      <script dangerouslySetInnerHTML={{ __html: buildPublicCountriesPrefetchScript(nativeCountries.recordsUrl) }} />
       <div className={styles.map}>
         <HomeMapEntry {...mapProps} />
         <nav aria-label="Browse jurisdictions" className={styles.jurisdictionDirectoryNav}>

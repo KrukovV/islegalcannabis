@@ -24,7 +24,9 @@ describe("truth-map audit route", () => {
     expect(root).toContain('export const dynamic = "force-static";');
     expect(entry).toContain("TruthMapRoot");
     expect(entry).toContain('presentation="public"');
-    expect(root).toContain('countriesUrl: STATIC_TRUTH_MAP_COUNTRIES_URL');
+    expect(root).toContain('const nativeCountries = getNativeCountryDescriptor();');
+    expect(root).toContain('countriesUrl: nativeCountries.recordsUrl');
+    expect(root).toContain('buildPublicCountriesPrefetchScript(nativeCountries.recordsUrl)');
     expect(root).toContain('usStatesUrl: STATIC_TRUTH_MAP_US_STATES_URL');
     expect(root).not.toContain("getSocialRuntimeConfig");
     expect(root).not.toContain("MapGeoDock");

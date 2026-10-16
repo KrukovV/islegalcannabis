@@ -2,7 +2,9 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { expect, test } from "@playwright/test";
-import type { Map as MapLibreMap, GeoJSONSource } from "maplibre-gl";
+import type { Map as MapLibreMap } from "maplibre-gl";
+import { getStaticTruthMapAsset } from "../src/truth-map/staticTruthMap";
+import type { NativeCountryRecords } from "../src/truth-map/nativeCountryRecords";
 import type { FeatureCollection } from "geojson";
 import { STATIC_TRUTH_MAP_US_STATES_URL } from "../src/truth-map/staticTruthMapUrls";
 
@@ -61,9 +63,14 @@ test("truth-map visual audit captures complete popup records on the explicitly s
     });
     await page.goto("/", { waitUntil: "domcontentloaded" });
     await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 30_000 });
-    const records = await page.evaluate(async (statesUrl) => {
-      const map = (window as PublicAuditWindow).__PUBLIC_POPUP_AUDIT_MAP__!;
-      const countries = await (map.getSource("legal-countries") as GeoJSONSource).getData() as FeatureCollection;
+    // The retained full geometry is an independent test camera reference only;
+    // it is never injected into the vector source or its rendering fence.
+    const countriesReference = JSON.parse(getStaticTruthMapAsset("countries").json) as FeatureCollection;
+    const completeRecords = await page.evaluate(() => (window as unknown as {
+      __PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__: { promise: Promise<NativeCountryRecords> }
+    }).__PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__.promise);
+    expect(completeRecords.records.map((record) => record.properties)).toEqual(countriesReference.features.map((feature) => feature.properties));
+    const records = await page.evaluate(async ({ countries, statesUrl }) => {
       const states = await (await fetch(statesUrl)).json() as FeatureCollection;
       return [{ data: countries, sourceId: "legal-countries" }, { data: states, sourceId: "us-states" }]
         .flatMap(({ data, sourceId }) => data.features.map((feature) => {
@@ -86,7 +93,7 @@ test("truth-map visual audit captures complete popup records on the explicitly s
           bounds,
         };
         }));
-    }, STATIC_TRUTH_MAP_US_STATES_URL);
+    }, { countries: countriesReference, statesUrl: STATIC_TRUTH_MAP_US_STATES_URL });
     for (const record of records) publicRecords.set(record.geo, record);
   } else {
     await page.goto("/truth-map?qa=1", { waitUntil: "domcontentloaded" });

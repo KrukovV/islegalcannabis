@@ -8,7 +8,7 @@ import { useBrowserUrl } from "@/lib/useBrowserUrl";
 import TruthMapRoot from "@/truth-map/TruthMapRoot";
 
 const LocalPublicMapRoot = dynamic(() => import("./LocalPublicMapRoot"), { ssr: false });
-type Props = Pick<ComponentProps<typeof TruthMapRoot>, "countriesUrl" | "usStatesUrl" | "visibleStamp" | "runtimeIdentity">;
+type Props = Pick<ComponentProps<typeof TruthMapRoot>, "countriesUrl" | "usStatesUrl" | "visibleStamp" | "runtimeIdentity" | "nativeCountries">;
 
 export default function HomeMapEntry(props: Props) {
   const href = useBrowserUrl();
