@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { FeatureFlag, summarizeFeatureFlags, type FeatureFlagMap } from "@/config/featureFlags";
 import { resolveColorMode } from "@/config/theme";
-import { useSSOTData } from "@/composables/useSSOTData";
 import { initAnalytics, trackEvent } from "@/plugins/analytics";
 import { runMiddleware } from "@/middleware/orchestrator";
 
@@ -13,7 +12,6 @@ type RuntimeWindow = Window & { __runtimeFlags?: FeatureFlagMap };
 export default function RuntimeMiddleware() {
   const router = useRouter();
   const pathname = usePathname();
-  useSSOTData();
 
   useEffect(() => {
     const mode = resolveColorMode();
