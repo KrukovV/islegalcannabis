@@ -16,7 +16,7 @@ export const PUBLIC_COUNTRIES_PREFETCH_SCRIPT = `
   if (host.__PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__?.url === url) return;
   host.__PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__ = {
     url,
-    promise: fetch(url, { credentials: "same-origin" })
+    promise: fetch(url, { credentials: "same-origin", priority: "low" })
       .then(response => response.ok ? response.json() : null)
       .catch(() => null)
   };

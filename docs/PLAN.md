@@ -2,10 +2,28 @@
 
 Statuses: pending | in_progress | done
 
+## 2026-10-16 native delivery and rapid-zoom verification
+
+- [done] Reproduced rapid world/US-interior/world on actual213d and visually compared native alternatives. Large coloured rectangles match retained KS/NE/CO/OK/TX geometry; bounded baseline13 projected grid checks47835 expected colour samples/0wrong. Prior blanket colour-artifact description corrected. Camera-opacity prototype rejected without product edits; native detail loading remains separate.
+- [done] Same actual213d/full276/onefetch/oneworker mobile priority ABBA+BAAB Chromium8rows Amedian6522/B4415ms, WebKitABBA4rows A5351/B3523ms. Cold profiles/default cache/no interception/no artificialdelay; underload and small cohorts, not stable2s or final quiet-window acceptance.
+- [in_progress] Minimal candidate: one standard priority:low field on existing eager complete home GEO fetch; update existing exact request assertion. Canonical CI, real preview/production mobile/desktop cold/render/native-detail/rapid zoom/rich-popup/SEO gates required before acceptance.
+- [pending] Continue eliminating measured JavaScript/GEO/native tile tail; stable~2s remains unfulfilled. Preserve genuine state colours/outlines and all full popup/Store gates.
+
+## 2026-10-16 Safari Private blank production incident
+
+- [done] Visually reproduced production grey HTML-only shell at3s; same www-private run rendered legal at9.262s. Apex private navigation separately timed out45s; no application exception. Root curl HTTP2 TTFB7.759s, cacheMISS. Preview391a legal5.956s, PRERENDER; single observations, not causal speed acceptance.
+- [done] Preview391a WebKit/Chromium8/8 gestures including mobile touch in, full276 SHA, native roads/buildings/labels, wrappedFR12 sections/SEOclear, Antarctica running; HTTP root canonical/adapter308/audit404/Store8167 and bounded34 PASS. PR24 merged main213d98c5, exact Git tree equal validated391a.
+- [done] Production213d98c5 fresh private WebKit visually loaded; source/render fence4157ms in one observation, no page exception. User confirms native Safari Private map appeared after refresh. Live HTTP312/312, split238/50/22/index4, adapters308, audit404, Store8167 and bounded34 PASS. This does not establish stable~2s or Google indexing.
+- [done] Production213d exact-SHA WebKit/Chromium mobile375/DPR2 and desktop1440/DPR1 bounded8/8 gestures, complete276 SHA, native roads/buildings/labels/Store, FR12 sections/SEOclear4/4 and Antarctica2/2 PASS. Post-release canonical exit0/657unit/34mandatory0fail0skip/post1/hub1/processguardPASS. Generated Store dates restored by fullJSON/CAS; source/data unchanged.
+- [done] User video130402 retained and visually analysed with0.25s transition samples: navigation3.75–4.00, firstcolour10.25–10.50 (6.25–6.75s elapsed), Store11.75–12.00, rectangularcolour/detailpatches21.5–22.5 absent sampled22.75. Video SHA/cache/cause UNCONFIRMED. Evidence in external2026-10-16-cold-resume-090811/video-130402/analysis.json and keyframes.jpg.
+- [pending] Reproduce rapid world-to-region-to-world rendering from video and identify colour/detail handoff cause. Bounded settled14/15 PASS does not accept this path; preserve legitimate state/country zoom policy and full native detail.
+- [done] Minimal candidate canonical PASS657unit/34mandatory/0fail/0skip/post1/hub1; green helper pushed391a3334, PR24 merged main213d98c5. Geo-priority assay produced no valid sample; not adopted.
+- [pending] Resolve measured remaining startup and wide-zoom defects without changing full GEO/Store/native detail. Stable~2s remains open.
+
 ## 2026-10-16 resumed cold delivery task
 
 - [done] Resumed canonical gate PASS: 657 unit, 34 mandatory smoke / 0 failed / 0 skipped, post/hub=1 and process guard PASS. Exact source bytes retained; generated Store timestamps restored by full semantic comparison. Fresh visual307 guard retained; final quiet-window speed acceptance remains deferred.
-- [in_progress] Exact-SHA minimal preview and production phase comparison; mobile/desktop ZoomIn/ZoomOut/native details and rich-popup proof. Preserve ordinary caching, full GEO/Store and historical diff controls.
+- [done] Exact-SHA minimal preview391a and production213d bounded mobile/desktop ZoomIn/ZoomOut/native details and rich-popup proof completed; live312 and postrelease canonical green. Ordinary caching/full GEO/Store retained. This is functional acceptance only; video-wide transitions and stable~2s remain open.
 - [pending] Fix only repeatable causal delay; release requires complete repository/SEO/browser gates and honest production proof. Stable ~2s not accepted.
 
 ## 2026-10-16 user pause
