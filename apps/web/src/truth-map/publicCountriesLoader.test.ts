@@ -24,7 +24,7 @@ describe("public complete JSON delivery", () => {
     expect(await loadPublicCountries(STATIC_TRUTH_MAP_COUNTRIES_URL, entry)).toBe(data);
     expect(data).toEqual(complete);
     expect(fetch).toHaveBeenCalledTimes(1);
-    expect(fetch).toHaveBeenCalledWith(STATIC_TRUTH_MAP_COUNTRIES_URL, { credentials: "same-origin" });
+    expect(fetch).toHaveBeenCalledWith(STATIC_TRUTH_MAP_COUNTRIES_URL, { credentials: "same-origin", priority: "low" });
   });
 
   it.each(["/c/de", "/truth-map", "/wiki-truth", "/new-map"])("does not start a public transfer on %s", (pathname) => {
