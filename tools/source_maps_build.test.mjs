@@ -86,3 +86,27 @@ test("country pages and dynamic sitemaps retain their monorepo runtime data", ()
     }
   }
 });
+
+test("immutable geometry delivery traces committed static assets without audit data", () => {
+  const prerender = JSON.parse(fs.readFileSync(path.join(webRoot, ".next/prerender-manifest.json"), "utf8"));
+  assert.ok(prerender.routes["/"], "the home page must remain prerendered without a runtime data include");
+  const paths = [
+    "static/truth-map/[file]/route.js.nft.json"
+  ];
+  const manifest = JSON.parse(fs.readFileSync(path.join(webRoot, "src/truth-map/static-assets/manifest.json"), "utf8"));
+  const countries = path.join(webRoot, "src/truth-map/static-assets", manifest.assets.countries.file);
+  const auditDataRoot = path.join(repoRoot, "data") + path.sep;
+  for (const relative of paths) {
+    const tracePath = path.join(webRoot, ".next/server/app", relative);
+    const trace = JSON.parse(fs.readFileSync(tracePath, "utf8"));
+    const files = trace.files.map((file) => path.resolve(path.dirname(tracePath), file));
+    assert.ok(files.includes(countries), `${relative} must retain the immutable country payload`);
+    assert.deepEqual(files.filter((file) => file.startsWith(auditDataRoot)), [], `${relative} must not depend on audit/Truth/Store files`);
+    const assetRoot = path.join(webRoot, "src/truth-map/static-assets") + path.sep;
+    const compiledRoot = path.join(webRoot, ".next") + path.sep;
+    const unexpected = files.filter((file) => !file.includes(`${path.sep}node_modules${path.sep}`)
+      && !file.startsWith(assetRoot) && !file.startsWith(compiledRoot)
+      && file !== path.join(repoRoot, "package.json") && file !== path.join(webRoot, "package.json"));
+    assert.deepEqual(unexpected, [], `${relative} must not package application sources, tests, reports or unrelated files`);
+  }
+});

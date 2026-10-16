@@ -2,7 +2,6 @@ import { createHash } from "node:crypto";
 import { brotliDecompressSync } from "node:zlib";
 import fs from "node:fs";
 import path from "node:path";
-import { findRepoRoot } from "@/lib/ssotDiff/ssotSnapshotStore";
 import manifest from "./static-assets/manifest.json";
 
 const STATIC_TRUTH_MAP_CACHE_CONTROL = "public, max-age=31536000, s-maxage=31536000, immutable";
@@ -60,8 +59,13 @@ function urlForLayer(layer: StaticTruthMapLayer) {
   return layer === "countries" ? STATIC_TRUTH_MAP_COUNTRIES_URL : STATIC_TRUTH_MAP_US_STATES_URL;
 }
 
-function assetPath(layer: StaticTruthMapLayer) {
-  return path.join(findRepoRoot(process.cwd()), "apps", "web", "src", "truth-map", "static-assets", entries[layer].file);
+function readAssetBrotli(layer: StaticTruthMapLayer) {
+  // Static geometry must not discover its root through an audit/SSOT file.
+  // Both supported working directories retain only the committed assets.
+  // Keep literal path prefixes visible to Next's static file tracer.
+  const appAsset = path.join(process.cwd(), "src", "truth-map", "static-assets", entries[layer].file);
+  if (fs.existsSync(appAsset)) return fs.readFileSync(appAsset);
+  return fs.readFileSync(path.join(process.cwd(), "apps", "web", "src", "truth-map", "static-assets", entries[layer].file));
 }
 
 export function getStaticTruthMapAsset(layer: StaticTruthMapLayer): StaticTruthMapAsset {
@@ -69,7 +73,7 @@ export function getStaticTruthMapAsset(layer: StaticTruthMapLayer): StaticTruthM
   if (existing) return existing;
 
   const entry = entries[layer];
-  const brotli = fs.readFileSync(assetPath(layer));
+  const brotli = readAssetBrotli(layer);
   const json = brotliDecompressSync(brotli).toString("utf8");
   const hash = createHash("sha256").update(json).digest("hex").slice(0, 12);
   if (
