@@ -94,13 +94,15 @@ describe("new-map route config", () => {
     expect(source).not.toContain('rel="dns-prefetch" href="https://tiles.basemaps.cartocdn.com"');
   });
 
-  it("uses the previously working direct Carto vector, glyph and sprite transport", () => {
+  it("uses the accepted shared style with direct provider assets instead of mutable upstream style discovery", () => {
     const stylePath = path.join(process.cwd(), "src", "app", "api", "new-map", "basemap-style", "route.ts");
     const sourcePath = path.join(process.cwd(), "src", "app", "api", "new-map", "basemap-source", "route.ts");
     const styleSource = fs.readFileSync(stylePath, "utf8");
     const tilejsonSource = fs.readFileSync(sourcePath, "utf8");
 
-    expect(styleSource).toContain('const UPSTREAM_STYLE_URL = "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json"');
+    expect(styleSource).toContain('import { STATIC_BASEMAP_STYLE } from "@/new-map/staticBasemapStyle"');
+    expect(styleSource).toContain("Response.json(STATIC_BASEMAP_STYLE");
+    expect(styleSource).not.toContain("fetch(");
     expect(styleSource).not.toContain("UPSTREAM_TILEJSON_URL");
     expect(styleSource).not.toContain("SAME_ORIGIN_GLYPHS_PATH");
     expect(styleSource).not.toContain("SAME_ORIGIN_SPRITE_PATH");

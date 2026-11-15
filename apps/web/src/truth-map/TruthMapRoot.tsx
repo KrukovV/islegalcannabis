@@ -270,15 +270,9 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
   }, []);
 
   const clearSeoPanel = useCallback(() => {
-    // An in-place SEO panel replaces the map popup for one selected GEO. Its
-    // close control must finish that shared overlay interaction, rather than
-    // exposing the now-stale popup underneath.
-    clearSelectedGeo();
-    seoPanelOriginCameraRef.current = null;
+    // Closing SEO reveals the retained popup; its GEO and info marker survive.
     setSeoPanelOpen(false);
-    setActiveSeoData(null);
-    setActiveSeoSelection(null);
-  }, [clearSelectedGeo]);
+  }, []);
   const clearMapOnlyOverlays = useCallback(() => {
     clearSelectedGeo();
     // The fixed popup/panel must not follow a reader into the article. The
@@ -404,7 +398,10 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
     if (!code) return;
     const targetHref = `/c/${code}`;
     if (typeof window !== "undefined" && window.location.pathname !== targetHref) {
-      window.history.pushState({ seoCode: code }, "", targetHref);
+      window.history.pushState({
+        seoCode: code,
+        seoDocumentPath: window.history.state?.seoDocumentPath || window.location.pathname
+      }, "", targetHref);
     }
     // The map feature is the canonical current legal record.  country-page is
     // deliberately loaded only as supporting SEO navigation data below, never
@@ -437,11 +434,14 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
     if (data) setActiveSeoData(data);
   }, [loadSeoCountryData, selectedPopup]);
 
-  const handleOpenContextDocument = useCallback((href: string) => {
+  const handleOpenContextDocument = useCallback((href: string, owner?: TruthMapPopupSelection) => {
     if (typeof window === "undefined") return;
     const map = mapRef.current;
-    const selection = selectedPopup || activeSeoSelection;
-    if (map && selection) {
+    const selection = owner || selectedPopup || activeSeoSelection;
+    const sourceEntry = selection ? cardIndex[selection.properties.geo] : null;
+    // Related-country links use their destination's own initial GEO/camera.
+    // Only an Action in this territory inherits its map presentation context.
+    if (map && selection && sourceEntry && parseSeoCodeFromHref(href) === resolveEntryDetailsCode(sourceEntry)) {
       const center = map.getCenter();
       const originCamera = seoPanelOpen ? seoPanelOriginCameraRef.current : null;
       storeTruthMapDocumentNavigation(href, selection.properties.geo, {
@@ -457,16 +457,18 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
     const target = new URL(href, window.location.origin);
     const mapRouteIsMirroringTarget = target.origin === window.location.origin
       && window.location.pathname === target.pathname
-      && Boolean(document.querySelector('[data-overlay-scope="route"]'));
+      && window.history.state?.seoCode === parseSeoCodeFromHref(href);
     if (mapRouteIsMirroringTarget) {
-      window.history.replaceState(window.history.state, "", `${target.pathname}${target.search}${target.hash}`);
-      window.location.reload();
-      return;
+      // Restore the actual document identity before native anchor navigation.
+      // Reloading the synthetic URL can restore its old scroll instead of the
+      // destination anchor; a hash-only assign can leave the old article open.
+      window.history.replaceState({ ...window.history.state, seoCode: null, seoDocumentPath: null }, "",
+        window.history.state.seoDocumentPath);
     }
     // This is deliberately the existing canonical link, without camera query
     // parameters. The bounded hand-off above is consumed once by `/c/[code]`.
     window.location.assign(href);
-  }, [activeSeoSelection, selectedPopup, seoPanelOpen]);
+  }, [activeSeoSelection, cardIndex, selectedPopup, seoPanelOpen]);
 
   const handleSeoPanelClose = clearSeoPanel;
 
@@ -844,7 +846,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
           entry={activeSeoEntry}
           locale="en"
           onClose={handleSeoPanelClose}
-          onOpenContextDocument={handleOpenContextDocument}
+          onOpenContextDocument={(href) => handleOpenContextDocument(href, activeSeoSelection || undefined)}
           truthMapPresentation
           truthMapEvidence={activeSeoSelection?.properties}
         />
