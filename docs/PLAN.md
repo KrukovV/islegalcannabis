@@ -1,3 +1,10 @@
+# 2026-11-15 restored-marker data dependency
+
+- [done] Own regression audit found missing SEO record after Action -> article -> return to map; genuine25e production RED1 retained.
+- [done] Reuse existing card-entry owner for missing popup or explicitly opened SEO; no initial record fetch, no popup mutation. Original local functional9 plus corrected focused1 pass; native cache revalidation separately diagnosed.
+- [done] Fresh307/307 andfinalprecanonicalactualexit0/PASS657unit/39smoke0fail0skip/post1/hub1.
+- [in_progress] Final preview and production complete-marker/navigation/native/312/cold acceptance; green postrelease cycle.
+
 # 2026-11-15 info marker SEO-only toggle
 
 - [done] Reproduce production i-open restoring a previously closed popup; remove marker popup/selection/camera side effects.

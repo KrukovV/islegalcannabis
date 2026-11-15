@@ -60,6 +60,22 @@ for (const width of [375, 1440]) {
     await expect(page.getByTestId("country-page-current-legal-evidence")).toContainText("Current legal conclusion: GREEN");
     await expect(page.locator("#law-recreational")).toBeInViewport();
     await expect(panel).toHaveCount(0);
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 30_000 });
+    await expect(popup).toHaveCount(0);
+    expect(await page.evaluate(() => performance.getEntriesByType("resource")
+      .filter(resource => resource.name.includes("/api/new-map/card-entry")).length)).toBe(0);
+    const cardRequests: string[] = [];
+    page.on("request", request => {
+      if (request.resourceType() === "fetch" && request.url().includes("/api/new-map/card-entry")) cardRequests.push(request.url());
+    });
+    await page.locator('[data-seo-marker="1"][data-seo-marker-geo="CH"]').click();
+    await expect(panel).toContainText("GREEN in Switzerland", { timeout: 20_000 });
+    expect(cardRequests).toEqual([expect.stringContaining("/api/new-map/card-entry?geo=CH")]);
+    await expect(popup).toHaveCount(0);
+    await panel.getByRole("button", { name: "Close country info" }).click();
+    await expect(panel).toHaveCount(0);
+    await expect(popup).toHaveCount(0);
   });
 
   test(`public SEO close preserves the popup and info marker at ${width}px`, async ({ page }) => {
