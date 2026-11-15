@@ -55,9 +55,13 @@ test("an open SEO panel retains its country marker and does not block selecting 
   await expect(francePopup).toContainText("ISO2: FR");
   await expect(panel).toBeVisible();
   await expect(marker).toBeVisible();
+  await francePopup.getByTestId("viewport-country-popup-close").click();
+  await expect(francePopup).toHaveCount(0);
+  await expect(panel).toBeVisible();
+  await expect(marker).toBeVisible();
 });
 
-test("closing an in-place SEO panel clears its underlying rich popup", async ({ page }) => {
+test("closing an in-place SEO panel retains its underlying rich popup and info marker", async ({ page }) => {
   test.setTimeout(75_000);
   await page.goto(QA_ROUTE, { waitUntil: "domcontentloaded" });
   await waitForTruthMapReady(page);
@@ -76,8 +80,8 @@ test("closing an in-place SEO panel clears its underlying rich popup", async ({ 
 
   await panel.getByRole("button", { name: "Close country info" }).click();
   await expect(panel).toHaveCount(0);
-  await expect(popup).toHaveCount(0);
-  await expect(page.locator('[data-seo-marker="1"][data-seo-marker-geo="AU"]')).toHaveCount(0);
+  await expect(popup).toContainText("ISO2: AU");
+  await expect(page.locator('[data-seo-marker="1"][data-seo-marker-geo="AU"]')).toBeVisible();
 });
 
 test("the richer SEO panel stays inside a desktop viewport and wraps retained legal annotations", async ({ page }) => {

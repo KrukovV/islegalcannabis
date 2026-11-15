@@ -1,3 +1,14 @@
+# 2026-11-15 production SEO navigation repair
+
+- [done] Match internal country link to its actual destination document; preserve correct GEO and existing document scrolling/camera handoff.
+- [done] Closing SEO retains the open rich popup and selected i marker; popup close is independent. Update superseded contract/tests.
+- [done] Genuine production RED2/2; local browser8/8, context4/4 and fresh private/public307/307 with unchanged assertions/900s deadline.
+- [done] CI bootstrap: exact retained non-shrink baselines/metrics imported with identical data-tree provenance; fresh coverage preserved, guardsPASS, original two FAILs retained.
+- [done] CI microtask1: complete bounded missing local Wiki/audit inputs from the verified source checkout with exact hashes; no status patches or changed expectations.
+- [done] CI microtask2: both failing unit files12/12 PASS, original assertions; complete static assets exact6e4d/4cf36, trackeddata diff0.
+- [done] CI microtask3a: full canonicalv10 actualexit0/PASS657unit/39smoke0fail0skip/post1/hub1 after exact input recovery and owned stale-cache restart; original FAILs retained.
+- [in_progress] CI microtask3b: exact-SHA preview, green release, production browser/Zoom and312 crawl, green postrelease acceptance.
+
 # Plan
 
 Statuses: pending | in_progress | done
@@ -791,3 +802,6 @@ This list is derived from the canonical ledger aliases defined in the re-audit s
 - [done] Restore exact missing operational/evidence inputs and refresh the required complete 307-GEO visual proof on the isolated candidate; retain unchanged criteria and external raw evidence.
 - [in_progress] Obtain a complete fresh root PASS and deliver only the scoped sitemap candidate through the green helper and accepted main.
 - [pending] Verify exact-build 312-URL production acceptance, canonical GSC processing and required post-release root cycle.
+
+- [done] Restore legacy QA style delivery after observed CARTO26Oct upstream schema drift: reuse the existing accepted93-layer static style, preserving public loader, tile schema and all original hover/state assertions.
+- Evidence: original hover/CA assertions2/2 PASS after static-style reuse; no fixture stubs or threshold changes. Full657/build/37of39 prior receipt retained as FAIL; complete canonical is required.

@@ -96,7 +96,7 @@ export default function UnifiedSeoStatusPanel({
   const isSelfLink = (href: string) => isSameLink(href, currentPath, currentPath);
   const isSameReasonSourceLink = (sourceUrl: string, reasonHref: string) =>
     isSelfLink(sourceUrl) || isSameLink(sourceUrl, reasonHref, currentPath);
-  const renderLink = (href: string, label: string, contextKind?: CountryCardEntry["panel"]["critical"][number]["contextKind"]) => {
+  const renderLink = (href: string, label: string) => {
     if (!href) return null;
     const className = reasonLinkClass(href);
     const isProject = getLinkScope(href) === "project";
@@ -107,15 +107,17 @@ export default function UnifiedSeoStatusPanel({
           rel: "nofollow noopener noreferrer"
         };
     if (isProject && !href.startsWith("#")) {
+      if (onOpenContextDocument) {
+        return <a href={href} className={className} onClick={(event) => {
+          if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+          event.preventDefault();
+          onOpenContextDocument(href);
+        }}>{label}</a>;
+      }
       return (
         <Link
           href={href}
           className={className}
-          onClick={(event) => {
-            if (contextKind !== "supplementary-map-context" || !onOpenContextDocument) return;
-            event.preventDefault();
-            onOpenContextDocument(href);
-          }}
         >
           {label}
         </Link>
@@ -138,7 +140,7 @@ export default function UnifiedSeoStatusPanel({
           {reasonItems.map((reason) => (
             <li key={reason.id}>
               {!isSelfLink(reason.href) ? (
-                renderLink(reason.href, reason.text, reason.contextKind)
+                renderLink(reason.href, reason.text)
               ) : null}
               {reason.sourceUrl && !isSameReasonSourceLink(reason.sourceUrl, reason.href) ? (
                 <>

@@ -1,27 +1,26 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { STATIC_BASEMAP_STYLE } from "@/new-map/staticBasemapStyle";
 import { GET } from "./route";
 
 afterEach(() => vi.unstubAllGlobals());
 
 describe("public basemap style transport", () => {
-  it("retains Carto's CDN source, glyphs and sprites without a serverless asset proxy", async () => {
-    const style = {
-      sources: { carto: { type: "vector", url: "https://tiles.basemaps.cartocdn.com/vector/carto.streets/v1/tiles.json" } },
-      glyphs: "https://tiles.basemaps.cartocdn.com/fonts/{fontstack}/{range}.pbf",
-      sprite: "https://basemaps.cartocdn.com/gl/positron-gl-style/sprite",
-      layers: [{ id: "water", type: "fill", paint: { "fill-color": "#ffffff" } }]
-    };
-    const fetchMock = vi.fn(async () => Response.json(style));
+  it("retains the accepted93-layer style and direct provider assets without a serverless asset proxy", async () => {
+    // The formerly used CARTO URL now serves a different vector schema. Its
+    // contents must not enter a runtime that requires the accepted carto source.
+    const fetchMock = vi.fn(async () => Response.json({ sources: { protomaps: {} }, layers: [] }));
     vi.stubGlobal("fetch", fetchMock);
-
     const response = await GET();
     const served = await response.json();
 
     expect(response.status).toBe(200);
-    expect(fetchMock).toHaveBeenCalledTimes(1);
-    expect(served.sources.carto.url).toBe(style.sources.carto.url);
-    expect(served.glyphs).toBe(style.glyphs);
-    expect(served.sprite).toBe(style.sprite);
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(served).toEqual(JSON.parse(JSON.stringify(STATIC_BASEMAP_STYLE)));
+    expect(served.layers).toHaveLength(93);
+    expect(served.sources.carto.type).toBe("vector");
+    expect(served.sources.carto.url).toBe("https://tiles.openfreemap.org/planet");
+    expect(served.glyphs).toBe(STATIC_BASEMAP_STYLE.glyphs);
+    expect(served.sprite).toEqual(STATIC_BASEMAP_STYLE.sprite);
     expect(JSON.stringify(served)).not.toContain("/api/new-map/basemap-tile/");
     expect(JSON.stringify(served)).not.toContain("/api/new-map/basemap-glyph/");
     expect(JSON.stringify(served)).not.toContain("/api/new-map/basemap-sprite/");

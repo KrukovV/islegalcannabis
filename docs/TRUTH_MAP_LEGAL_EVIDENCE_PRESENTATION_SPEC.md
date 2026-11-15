@@ -132,8 +132,7 @@ Rich popups and in-place SEO panels are map-viewport controls. A scrollable
 auto-open either overlay from its route or anchor. After an Action transition
 to `#law-recreational`, the expanded article is the only surface above that
 content; no fixed popup or SEO panel may cover it. On a map route, a rich popup
-hands off to its in-place panel. Closing that panel clears the complete
-map-only overlay interaction: neither the panel nor the rich popup is restored.
+hands off to its in-place panel. Closing that panel hides only SEO and reveals the retained rich popup with all its sections; the GEO info marker stays on the map. Closing the popup hides only the popup and leaves the marker and any independently open SEO panel intact. The info marker toggles SEO; closing SEO through that marker follows the same retention rule. This explicit user contract2026-11-15 supersedes the former clear-both rule. The user explicitly retains the large mobile popup: on narrow screens it may cover the retained map info marker until the popup is separately closed. The marker must then remain visible and usable; no mobile popup resizing or repositioning is introduced. Scrolling below a country-document map still hides fixed overlays to keep the article readable.
 
 The anchor target is headed `Supplementary action-specific context — not the
 current legal conclusion`. A present-tense profile statement that itself
@@ -243,7 +242,7 @@ row.
 A representative production browser receipt is a separate deployment check:
 it must select an actual map feature rather than rely only on a URL parameter,
 then verify the complete selected GEO card, open the dotted SEO CTA and close
-the SEO panel to a clear map overlay with neither panel nor rich popup. The
+only the SEO panel, verifying that the full rich popup and its i marker remain. Closing the popup separately must retain the marker. The
 receipt also binds the loaded page to the accepted build identity; it cannot
 replace the canonical 307-GEO local visual-manifest audit.
 

@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 import { createHash } from "node:crypto";
 import { STATIC_TRUTH_MAP_COUNTRIES_URL } from "../src/truth-map/staticTruthMapUrls";
 import { getStaticTruthMapAsset } from "../src/truth-map/staticTruthMap";
@@ -6,6 +6,116 @@ import { getStaticTruthMapAsset } from "../src/truth-map/staticTruthMap";
 const completeCountries = getStaticTruthMapAsset("countries");
 const completeCountryFeatureCount = JSON.parse(completeCountries.json).features.length;
 const completeCountrySha256 = createHash("sha256").update(completeCountries.json).digest("hex");
+
+async function capturePublicMap(page: Page) {
+  await page.addInitScript(() => {
+    Object.defineProperty(Object.prototype, "cancelPendingTileRequestsWhileZooming", {
+      configurable: true,
+      set(value: boolean) {
+        Object.defineProperty(this, "cancelPendingTileRequestsWhileZooming", { value, writable: true, configurable: true });
+        if (typeof this.project === "function" && typeof this.getCanvas === "function") {
+          Object.assign(window, { __PUBLIC_SEO_MAP__: this });
+        }
+      }
+    });
+  });
+}
+
+async function clickSwissFeature(page: Page) {
+  await page.evaluate(() => {
+    const map = (window as unknown as { __PUBLIC_SEO_MAP__: import("maplibre-gl").Map }).__PUBLIC_SEO_MAP__;
+    map.jumpTo({ center: [8.3, 46.8], zoom: 5 });
+  });
+  await expect.poll(() => page.evaluate(() => {
+    const map = (window as unknown as { __PUBLIC_SEO_MAP__: import("maplibre-gl").Map }).__PUBLIC_SEO_MAP__;
+    return map.queryRenderedFeatures(map.project([8.3, 46.8]), { layers: ["legal-fill"] }).some(f => f.properties?.geo === "CH");
+  })).toBe(true);
+  await page.locator("canvas.maplibregl-canvas").first().click({ position: await page.evaluate(() => {
+    const map = (window as unknown as { __PUBLIC_SEO_MAP__: import("maplibre-gl").Map }).__PUBLIC_SEO_MAP__;
+    const point = map.project([8.3, 46.8]);
+    return { x: point.x, y: point.y };
+  }) });
+}
+
+for (const width of [375, 1440]) {
+  test(`public SEO country navigation replaces an already open country document at ${width}px`, async ({ page }) => {
+    test.setTimeout(90_000);
+    await page.setViewportSize({ width, height: 900 });
+    await capturePublicMap(page);
+    await page.goto("/c/fra", { waitUntil: "domcontentloaded" });
+    await expect(page.locator("h1")).toContainText("France");
+    await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 30_000 });
+    await clickSwissFeature(page);
+    const popup = page.getByTestId("new-map-country-popup");
+    await expect(popup).toContainText("ISO2: CH", { timeout: 20_000 });
+    await popup.getByTestId("country-popup-seo-link").click();
+    const panel = page.getByTestId("new-map-seo-overlay");
+    await expect(panel).toContainText("GREEN in Switzerland");
+    const action = panel.getByRole("link", { name: /Action: sale or distribution/i }).first();
+    await expect(action).toHaveAttribute("href", "/c/che#law-recreational");
+    await action.click();
+    await expect(page).toHaveURL(/\/c\/che#law-recreational$/);
+    await expect(page.locator("h1")).toContainText("Switzerland", { timeout: 20_000 });
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://www.islegal.info/c/che");
+    await expect(page.getByTestId("country-page-current-legal-evidence")).toContainText("Current legal conclusion: GREEN");
+    await expect(page.locator("#law-recreational")).toBeInViewport();
+    await expect(panel).toHaveCount(0);
+  });
+
+  test(`public SEO close preserves the popup and info marker at ${width}px`, async ({ page }) => {
+    test.setTimeout(60_000);
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/?geo=CH", { waitUntil: "domcontentloaded" });
+    const popup = page.getByTestId("new-map-country-popup");
+    await expect(popup).toContainText("ISO2: CH", { timeout: 30_000 });
+    const sections = await popup.locator("section").count();
+    const documents: string[] = [];
+    page.on("request", request => { if (request.isNavigationRequest() && request.frame() === page.mainFrame()) documents.push(request.url()); });
+    const marker = page.locator('[data-seo-marker="1"][data-seo-marker-geo="CH"]');
+    const panel = page.getByTestId("new-map-seo-overlay");
+    await popup.getByTestId("country-popup-seo-link").click();
+    await expect(panel).toBeVisible({ timeout: 20_000 });
+    await panel.getByRole("button", { name: "Close country info" }).click();
+    await expect(panel).toHaveCount(0);
+    await expect(popup).toContainText("ISO2: CH");
+    expect(await popup.locator("section").count()).toBe(sections);
+    await expect(marker).toBeVisible();
+    await popup.getByTestId("viewport-country-popup-close").click();
+    await expect(popup).toHaveCount(0);
+    await expect(marker).toBeVisible();
+    await marker.click();
+    await expect(panel).toBeVisible();
+    await panel.getByRole("button", { name: "Close country info" }).click();
+    await expect(panel).toHaveCount(0);
+    await expect(popup).toContainText("ISO2: CH");
+    expect(documents).toEqual([]);
+  });
+}
+
+test("public SEO related-country links use the destination GEO instead of the previous marker", async ({ page }) => {
+  test.setTimeout(60_000);
+  await page.goto("/?geo=CH", { waitUntil: "domcontentloaded" });
+  const popup = page.getByTestId("new-map-country-popup");
+  await expect(popup).toContainText("ISO2: CH", { timeout: 30_000 });
+  await popup.getByTestId("country-popup-seo-link").click();
+  const related = page.getByTestId("new-map-seo-overlay").locator('a[href^="/c/"]:not([href*="#"])').first();
+  await expect(related).toBeVisible({ timeout: 20_000 });
+  const href = (await related.getAttribute("href"))!;
+  const name = (await related.innerText()).split(" / ")[0];
+  const target = await (await page.request.get(`/api/new-map/country-page?code=${href.split("/").pop()}`)).json();
+  expect(target.geo_code).not.toBe("CH");
+  await related.click();
+  await expect(page).toHaveURL(new RegExp(`${href}$`));
+  await expect(page.locator("h1")).toContainText(name);
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://www.islegal.info${href}`);
+  await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 30_000 });
+  const feature = JSON.parse(completeCountries.json).features.find((item: { properties: { geo: string } }) => item.properties.geo === target.geo_code);
+  expect(feature).toBeTruthy();
+  const camera = await page.locator("canvas.maplibregl-canvas").first().evaluate(canvas => JSON.parse((canvas as HTMLElement).dataset.truthMapInitialCamera || "{}"));
+  expect(camera.lng).toBeCloseTo(Number(feature.properties.labelAnchorLng), 4);
+  expect(camera.lat).toBeCloseTo(Number(feature.properties.labelAnchorLat), 4);
+  await expect(page.locator('[data-seo-marker-geo="CH"]')).toHaveCount(0);
+});
 
 test("public first-fill timing waits for the complete legal source to render", async ({ page }) => {
   const devMode = (await (await page.request.get("/api/build-meta")).json()).devMode === true;
