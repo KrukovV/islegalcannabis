@@ -65,6 +65,7 @@ for (const width of [375, 1440]) {
   test(`public SEO close preserves the popup and info marker at ${width}px`, async ({ page }) => {
     test.setTimeout(60_000);
     await page.setViewportSize({ width, height: 900 });
+    await capturePublicMap(page);
     await page.goto("/?geo=CH", { waitUntil: "domcontentloaded" });
     const popup = page.getByTestId("new-map-country-popup");
     await expect(popup).toContainText("ISO2: CH", { timeout: 30_000 });
@@ -80,14 +81,67 @@ for (const width of [375, 1440]) {
     await expect(popup).toContainText("ISO2: CH");
     expect(await popup.locator("section").count()).toBe(sections);
     await expect(marker).toBeVisible();
+    if (width === 1440) {
+      await marker.click();
+      await expect(panel).toBeVisible();
+      await marker.click();
+      await expect(panel).toHaveCount(0);
+      await expect(popup).toContainText("ISO2: CH");
+      expect(await popup.locator("section").count()).toBe(sections);
+    }
     await popup.getByTestId("viewport-country-popup-close").click();
     await expect(popup).toHaveCount(0);
     await expect(marker).toBeVisible();
-    await marker.click();
-    await expect(panel).toBeVisible();
-    await panel.getByRole("button", { name: "Close country info" }).click();
-    await expect(panel).toHaveCount(0);
-    await expect(popup).toContainText("ISO2: CH");
+    if (width === 375) {
+      // Expose the marker's lower edge below the full-height mobile SEO panel.
+      // Move only the real map camera; keep the accepted panel layout intact.
+      await page.evaluate(() => {
+        const map = (window as unknown as { __PUBLIC_SEO_MAP__: import("maplibre-gl").Map }).__PUBLIC_SEO_MAP__;
+        const point = map.project([8.3, 46.8]);
+        map.panBy([point.x - 187.5, point.y - 896], { duration: 0 });
+      });
+    }
+    const clickPosition = width === 375 ? { x: 22, y: 40 } : undefined;
+    for (let cycle = 0; cycle < 3; cycle += 1) {
+      await marker.click({ position: clickPosition });
+      await expect(panel).toBeVisible({ timeout: 20_000 });
+      await marker.click({ position: clickPosition });
+      await expect(panel).toHaveCount(0);
+      await expect(popup).toHaveCount(0);
+      await expect(marker).toBeVisible();
+    }
+    if (width === 1440) {
+      await page.evaluate(() => {
+        const map = (window as unknown as { __PUBLIC_SEO_MAP__: import("maplibre-gl").Map }).__PUBLIC_SEO_MAP__;
+        map.jumpTo({ center: [2.35, 46.5], zoom: 4 });
+      });
+      await expect.poll(() => page.evaluate(() => {
+        const map = (window as unknown as { __PUBLIC_SEO_MAP__: import("maplibre-gl").Map }).__PUBLIC_SEO_MAP__;
+        return map.queryRenderedFeatures(map.project([2.35, 46.5]), { layers: ["legal-fill"] }).some(f => f.properties?.geo === "FR");
+      })).toBe(true);
+      await page.locator("canvas.maplibregl-canvas").first().click({ position: { x: 720, y: 450 } });
+      await expect(popup).toContainText("ISO2: FR", { timeout: 20_000 });
+      await page.evaluate(() => {
+        const map = (window as unknown as { __PUBLIC_SEO_MAP__: import("maplibre-gl").Map }).__PUBLIC_SEO_MAP__;
+        const rect = document.querySelector('[data-seo-marker="1"]')!.getBoundingClientRect();
+        map.panBy([rect.x + rect.width / 2 - 50, rect.bottom - 896], { duration: 0 });
+      });
+      const camera = () => page.evaluate(() => {
+        const map = (window as unknown as { __PUBLIC_SEO_MAP__: import("maplibre-gl").Map }).__PUBLIC_SEO_MAP__;
+        const center = map.getCenter();
+        return [center.lng, center.lat, map.getZoom()];
+      });
+      const before = await camera();
+      for (let cycle = 0; cycle < 2; cycle += 1) {
+        await marker.click({ position: { x: 22, y: 40 } });
+        await expect(panel).toContainText("GREEN in Switzerland");
+        await expect(popup).toContainText("ISO2: FR");
+        await marker.click({ position: { x: 22, y: 40 } });
+        await expect(panel).toHaveCount(0);
+        await expect(popup).toContainText("ISO2: FR");
+        expect(await camera()).toEqual(before);
+      }
+    }
     expect(documents).toEqual([]);
   });
 }
