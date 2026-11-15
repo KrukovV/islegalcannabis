@@ -335,8 +335,9 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
   }, [publicPresentation]);
 
   useEffect(() => {
-    const geo = selectedPopup?.properties.geo;
-    if (!geo || cardIndex[geo]) return;
+    const geo = [selectedPopup?.properties.geo, seoPanelOpen ? activeSeoSelection?.properties.geo : null]
+      .find((candidate) => candidate && !cardIndex[candidate]);
+    if (!geo) return;
     const existingRequest = cardEntryRequestsRef.current[geo];
     const request = existingRequest || fetch(`/api/new-map/card-entry?geo=${encodeURIComponent(geo)}`, { credentials: "same-origin" })
       .then(async (response) => response.ok ? response.json() as Promise<CountryCardEntry> : null)
@@ -351,7 +352,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
     return () => {
       cancelled = true;
     };
-  }, [cardIndex, selectedPopup]);
+  }, [activeSeoSelection, cardIndex, selectedPopup, seoPanelOpen]);
 
   useEffect(() => {
     if (!selectedPopup || !mapInstance) return;
