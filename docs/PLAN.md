@@ -1,3 +1,10 @@
+# 2026-11-15 info marker SEO-only toggle
+
+- [done] Reproduce production i-open restoring a previously closed popup; remove marker popup/selection/camera side effects.
+- [done] Verify repeated real i clicks preserve open, closed and other-GEO popup state on desktop/mobile; retain country/anchor/close/native/data contracts.
+- [done] Fresh307/307 popup audit/guard andcanonicalactualexit0/PASS657unit/39mandatory0fail0skip/post1/hub1.
+- [in_progress] Exact-SHA preview/release/live312/browser/native/cold acceptance and green postrelease cycle.
+
 # 2026-11-15 production SEO navigation repair
 
 - [done] Match internal country link to its actual destination document; preserve correct GEO and existing document scrolling/camera handoff.
@@ -7,7 +14,8 @@
 - [done] CI microtask1: complete bounded missing local Wiki/audit inputs from the verified source checkout with exact hashes; no status patches or changed expectations.
 - [done] CI microtask2: both failing unit files12/12 PASS, original assertions; complete static assets exact6e4d/4cf36, trackeddata diff0.
 - [done] CI microtask3a: full canonicalv10 actualexit0/PASS657unit/39smoke0fail0skip/post1/hub1 after exact input recovery and owned stale-cache restart; original FAILs retained.
-- [in_progress] CI microtask3b: exact-SHA preview, green release, production browser/Zoom and312 crawl, green postrelease acceptance.
+- [done] CI microtask3b: PR27 main5be9ea8f/buildgkVv; live312/312, SEO10/10, native8/8, FR12/Antarctica2/fullimmutablePASS. Native pending-card helper defect fixed only in external measurement, rawFAIL retained.
+- [done] CI microtask3c: accepted5be9ea8f postcycle actualexit0/PASS657unit/39mandatory0fail0skip/post1/hub1/processguardPASS. ExacttimestampCAS preserves all data. Four cold2891-7565ms remain bounded observations, not stable2s.
 
 # Plan
 

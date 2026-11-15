@@ -474,21 +474,8 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
 
   const handleSeoMarkerToggle = useCallback(() => {
     if (!activeSeoSelection) return;
-    if (seoPanelOpen) {
-      handleSeoPanelClose();
-      return;
-    }
-    setSelectedGeo({
-      country: activeSeoSelection.properties.displayName || activeSeoSelection.properties.geo,
-      iso2: activeSeoSelection.properties.geo,
-      lat: activeSeoSelection.lngLat.lat,
-      lng: activeSeoSelection.lngLat.lng,
-    });
-    setSelectedPopup(activeSeoSelection);
-    const map = mapRef.current;
-    if (map) setPopupAnchor(popupAnchorFor(map, activeSeoSelection.lngLat));
-    setSeoPanelOpen(true);
-  }, [activeSeoSelection, handleSeoPanelClose, seoPanelOpen]);
+    setSeoPanelOpen((open) => !open);
+  }, [activeSeoSelection]);
 
   const applyGeoToMap = useCallback((geo: ActiveGeo, options?: { recenter?: boolean }) => {
     const map = mapRef.current;
