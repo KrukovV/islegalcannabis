@@ -1,5 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
 import { createHash } from "node:crypto";
+import { captureMapInstance, type MapTestWindow } from "./mapTestSupport";
 import { STATIC_TRUTH_MAP_COUNTRIES_URL } from "../src/truth-map/staticTruthMapUrls";
 import { getStaticTruthMapAsset } from "../src/truth-map/staticTruthMap";
 
@@ -7,31 +8,17 @@ const completeCountries = getStaticTruthMapAsset("countries");
 const completeCountryFeatureCount = JSON.parse(completeCountries.json).features.length;
 const completeCountrySha256 = createHash("sha256").update(completeCountries.json).digest("hex");
 
-async function capturePublicMap(page: Page) {
-  await page.addInitScript(() => {
-    Object.defineProperty(Object.prototype, "cancelPendingTileRequestsWhileZooming", {
-      configurable: true,
-      set(value: boolean) {
-        Object.defineProperty(this, "cancelPendingTileRequestsWhileZooming", { value, writable: true, configurable: true });
-        if (typeof this.project === "function" && typeof this.getCanvas === "function") {
-          Object.assign(window, { __PUBLIC_SEO_MAP__: this });
-        }
-      }
-    });
-  });
-}
-
 async function clickSwissFeature(page: Page) {
   await page.evaluate(() => {
-    const map = (window as unknown as { __PUBLIC_SEO_MAP__: import("maplibre-gl").Map }).__PUBLIC_SEO_MAP__;
+    const map = (window as MapTestWindow).__MAP_TEST_INSTANCE__!;
     map.jumpTo({ center: [8.3, 46.8], zoom: 5 });
   });
   await expect.poll(() => page.evaluate(() => {
-    const map = (window as unknown as { __PUBLIC_SEO_MAP__: import("maplibre-gl").Map }).__PUBLIC_SEO_MAP__;
+    const map = (window as MapTestWindow).__MAP_TEST_INSTANCE__!;
     return map.queryRenderedFeatures(map.project([8.3, 46.8]), { layers: ["legal-fill"] }).some(f => f.properties?.geo === "CH");
   })).toBe(true);
   await page.locator("canvas.maplibregl-canvas").first().click({ position: await page.evaluate(() => {
-    const map = (window as unknown as { __PUBLIC_SEO_MAP__: import("maplibre-gl").Map }).__PUBLIC_SEO_MAP__;
+    const map = (window as MapTestWindow).__MAP_TEST_INSTANCE__!;
     const point = map.project([8.3, 46.8]);
     return { x: point.x, y: point.y };
   }) });
@@ -41,7 +28,7 @@ for (const width of [375, 1440]) {
   test(`public SEO country navigation replaces an already open country document at ${width}px`, async ({ page }) => {
     test.setTimeout(90_000);
     await page.setViewportSize({ width, height: 900 });
-    await capturePublicMap(page);
+    await captureMapInstance(page);
     await page.goto("/c/fra", { waitUntil: "domcontentloaded" });
     await expect(page.locator("h1")).toContainText("France");
     await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 30_000 });
@@ -62,7 +49,7 @@ for (const width of [375, 1440]) {
     await expect(panel).toHaveCount(0);
     await page.evaluate(() => window.scrollTo(0, 0));
     await expect.poll(() => page.evaluate(() => {
-      const map = (window as unknown as { __PUBLIC_SEO_MAP__: import("maplibre-gl").Map }).__PUBLIC_SEO_MAP__;
+      const map = (window as MapTestWindow).__MAP_TEST_INSTANCE__!;
       return Boolean(map?.getLayer("legal-fill") && map.isSourceLoaded("legal-countries")
         && map.queryRenderedFeatures(undefined, { layers: ["legal-fill"] }).length);
     }), { timeout: 30_000 }).toBe(true);
@@ -90,7 +77,7 @@ for (const width of [375, 1440]) {
   test(`public SEO close clears the same GEO and preserves the info marker at ${width}px`, async ({ page }) => {
     test.setTimeout(60_000);
     await page.setViewportSize({ width, height: 900 });
-    await capturePublicMap(page);
+    await captureMapInstance(page);
     await page.goto("/?geo=CH", { waitUntil: "domcontentloaded" });
     const popup = page.getByTestId("new-map-country-popup");
     await expect(popup).toContainText("ISO2: CH", { timeout: 30_000 });
@@ -109,7 +96,7 @@ for (const width of [375, 1440]) {
       // Expose the marker's lower edge below the full-height mobile SEO panel.
       // Move only the real map camera; keep the accepted panel layout intact.
       await page.evaluate(() => {
-        const map = (window as unknown as { __PUBLIC_SEO_MAP__: import("maplibre-gl").Map }).__PUBLIC_SEO_MAP__;
+        const map = (window as MapTestWindow).__MAP_TEST_INSTANCE__!;
         const point = map.project([8.3, 46.8]);
         map.panBy([point.x - 187.5, point.y - 896], { duration: 0 });
       });
@@ -125,22 +112,22 @@ for (const width of [375, 1440]) {
     }
     if (width === 1440) {
       await page.evaluate(() => {
-        const map = (window as unknown as { __PUBLIC_SEO_MAP__: import("maplibre-gl").Map }).__PUBLIC_SEO_MAP__;
+        const map = (window as MapTestWindow).__MAP_TEST_INSTANCE__!;
         map.jumpTo({ center: [2.35, 46.5], zoom: 4 });
       });
       await expect.poll(() => page.evaluate(() => {
-        const map = (window as unknown as { __PUBLIC_SEO_MAP__: import("maplibre-gl").Map }).__PUBLIC_SEO_MAP__;
+        const map = (window as MapTestWindow).__MAP_TEST_INSTANCE__!;
         return map.queryRenderedFeatures(map.project([2.35, 46.5]), { layers: ["legal-fill"] }).some(f => f.properties?.geo === "FR");
       })).toBe(true);
       await page.locator("canvas.maplibregl-canvas").first().click({ position: { x: 720, y: 450 } });
       await expect(popup).toContainText("ISO2: FR", { timeout: 20_000 });
       await page.evaluate(() => {
-        const map = (window as unknown as { __PUBLIC_SEO_MAP__: import("maplibre-gl").Map }).__PUBLIC_SEO_MAP__;
+        const map = (window as MapTestWindow).__MAP_TEST_INSTANCE__!;
         const rect = document.querySelector('[data-seo-marker="1"]')!.getBoundingClientRect();
         map.panBy([rect.x + rect.width / 2 - 50, rect.bottom - 896], { duration: 0 });
       });
       const camera = () => page.evaluate(() => {
-        const map = (window as unknown as { __PUBLIC_SEO_MAP__: import("maplibre-gl").Map }).__PUBLIC_SEO_MAP__;
+        const map = (window as MapTestWindow).__MAP_TEST_INSTANCE__!;
         const center = map.getCenter();
         return [center.lng, center.lat, map.getZoom()];
       });
@@ -158,6 +145,36 @@ for (const width of [375, 1440]) {
     expect(documents).toEqual([]);
   });
 }
+
+test.describe("public map touch selection", () => {
+  test.use({ viewport: { width: 375, height: 812 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 });
+
+  test("public popup yields to native double-tap zoom on mobile", async ({ page }) => {
+    test.setTimeout(60_000);
+    await captureMapInstance(page);
+    await page.goto("/?lat=46.6&lng=2.3&zoom=8", { waitUntil: "domcontentloaded" });
+    await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 30_000 });
+    const canvas = page.locator("canvas.maplibregl-canvas").first();
+    const box = await canvas.boundingBox();
+    expect(box).not.toBeNull();
+    const x = box!.x + box!.width / 2;
+    const y = box!.y + box!.height / 2;
+
+    await page.touchscreen.tap(x, y);
+    // Use an inter-tap interval long enough for a fast popup to render.
+    await page.waitForTimeout(150);
+    await page.touchscreen.tap(x, y);
+    await expect.poll(() => page.evaluate(() => {
+      const map = (window as MapTestWindow).__MAP_TEST_INSTANCE__!;
+      return !map.isMoving() && Math.abs(map.getZoom() - 9) < 0.01;
+    })).toBe(true);
+
+    const popup = page.getByTestId("new-map-country-popup");
+    await expect(popup).toHaveCount(0);
+    await page.touchscreen.tap(x, y);
+    await expect(popup).toContainText("ISO2: FR");
+  });
+});
 
 test("public popup shows current legal evidence before additional details arrive", async ({ page }) => {
   let release = () => {};
