@@ -5,7 +5,7 @@ type ContextItem = CountryCardEntry["panel"]["critical"][number];
 
 const SUPPLEMENTARY_SOURCE_LABEL = "Supplementary source";
 
-function mapCategoryForTruthColor(color: TruthColor): CountryCardEntry["mapCategory"] {
+export function mapCategoryForTruthColor(color: TruthColor): CountryCardEntry["mapCategory"] {
   if (color === "GREEN") return "LEGAL_OR_DECRIM";
   if (color === "YELLOW") return "LIMITED_OR_MEDICAL";
   if (color === "RED") return "ILLEGAL";

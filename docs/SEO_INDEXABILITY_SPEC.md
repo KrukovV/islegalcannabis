@@ -337,7 +337,7 @@ A push or Vercel deployment is not acceptance. After Vercel promotion, verify:
 10. A real production browser waits for the public map canvas, clicks an actual
    GEO feature and verifies the complete rich legal-evidence popup. Its dotted
    SEO CTA must open the country panel without a document reload; closing that
-   panel must hide only SEO while retaining the full selected popup and its `i` marker (explicit user contract2026-11-15); closing the popup separately retains the marker. Subsequent i clicks toggle only SEO and must not recreate that closed popup. The same browser proof verifies
+   panel must retain its `i` marker, keep a same-GEO popup closed and preserve any open different-GEO popup. Closing the popup separately retains the marker. Subsequent i clicks toggle only SEO and must not recreate that closed popup. The same browser proof verifies
    Antarctica animation, without legacy CannabisLawMap, AI, Social, DM or audit
    controls.
 11. A post-release canonical-root `pass_cycle` remains green.

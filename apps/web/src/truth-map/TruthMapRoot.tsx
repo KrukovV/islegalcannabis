@@ -30,7 +30,7 @@ import {
   useStoreMapLayer
 } from "@/new-map/stores/StoreLayer";
 import type { TruthMapCollection, TruthMapDatasetMeta, TruthMapFeatureProperties } from "./truthMapSource";
-import { projectTruthMapRichCard, TRUTH_MAP_CONTEXT_LABELS, TRUTH_MAP_PROFILE_SECTION_LABELS } from "./truthMapRichCard";
+import { mapCategoryForTruthColor, projectTruthMapRichCard, TRUTH_MAP_CONTEXT_LABELS, TRUTH_MAP_PROFILE_SECTION_LABELS } from "./truthMapRichCard";
 import TruthMapLegalEvidence from "./TruthMapLegalEvidence";
 import { loadPublicCountries, type PublicCountriesPrefetch } from "./publicCountriesLoader";
 import { storeTruthMapDocumentNavigation, takeTruthMapDocumentNavigation, type TruthMapDocumentNavigationContext } from "./documentNavigationContext";
@@ -193,6 +193,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
   const [selectedPopup, setSelectedPopup] = useState<TruthMapPopupSelection | null>(null);
   const [popupAnchor, setPopupAnchor] = useState<{ x: number; y: number } | null>(null);
   const [cardIndex, setCardIndex] = useState<Record<string, CountryCardEntry>>({});
+  const [failedCardEntries, setFailedCardEntries] = useState<ReadonlySet<string>>(() => new Set());
   const [activeSeoData, setActiveSeoData] = useState<CountryPageData | null>(null);
   const [activeSeoSelection, setActiveSeoSelection] = useState<TruthMapPopupSelection | null>(null);
   const [seoPanelOpen, setSeoPanelOpen] = useState(false);
@@ -270,9 +271,11 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
   }, []);
 
   const clearSeoPanel = useCallback(() => {
-    // Closing SEO reveals the retained popup; its GEO and info marker survive.
+    if (selectedPopup && selectedPopup.properties.geo === activeSeoSelection?.properties.geo) {
+      clearSelectedGeo();
+    }
     setSeoPanelOpen(false);
-  }, []);
+  }, [activeSeoSelection, clearSelectedGeo, selectedPopup]);
   const clearMapOnlyOverlays = useCallback(() => {
     clearSelectedGeo();
     // The fixed popup/panel must not follow a reader into the article. The
@@ -336,7 +339,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
 
   useEffect(() => {
     const geo = [selectedPopup?.properties.geo, seoPanelOpen ? activeSeoSelection?.properties.geo : null]
-      .find((candidate) => candidate && !cardIndex[candidate]);
+      .find((candidate) => candidate && !cardIndex[candidate] && !failedCardEntries.has(candidate));
     if (!geo) return;
     const existingRequest = cardEntryRequestsRef.current[geo];
     const request = existingRequest || fetch(`/api/new-map/card-entry?geo=${encodeURIComponent(geo)}`, { credentials: "same-origin" })
@@ -345,14 +348,20 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
     cardEntryRequestsRef.current[geo] = request;
     let cancelled = false;
     void request.then((entry) => {
-      if (!cancelled && entry) {
+      if (!entry && cardEntryRequestsRef.current[geo] === request) {
+        delete cardEntryRequestsRef.current[geo];
+      }
+      if (cancelled) return;
+      if (entry) {
         setCardIndex((current) => current[geo] ? current : { ...current, [geo]: entry });
+      } else {
+        setFailedCardEntries((current) => new Set(current).add(geo));
       }
     });
     return () => {
       cancelled = true;
     };
-  }, [activeSeoSelection, cardIndex, selectedPopup, seoPanelOpen]);
+  }, [activeSeoSelection, cardIndex, failedCardEntries, selectedPopup, seoPanelOpen]);
 
   useEffect(() => {
     if (!selectedPopup || !mapInstance) return;
@@ -475,8 +484,12 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
 
   const handleSeoMarkerToggle = useCallback(() => {
     if (!activeSeoSelection) return;
-    setSeoPanelOpen((open) => !open);
-  }, [activeSeoSelection]);
+    if (seoPanelOpen) {
+      clearSeoPanel();
+    } else {
+      setSeoPanelOpen(true);
+    }
+  }, [activeSeoSelection, clearSeoPanel, seoPanelOpen]);
 
   const applyGeoToMap = useCallback((geo: ActiveGeo, options?: { recenter?: boolean }) => {
     const map = mapRef.current;
@@ -763,6 +776,21 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
     };
   }, [countriesUrl, interactiveOverlayLayerIds, publicPresentation, usStatesUrl, openTruthPopup]);
 
+  const renderCardLoading = (geo: string) => {
+    const failed = failedCardEntries.has(geo);
+    return (
+      <div data-testid="truth-map-rich-popup-loading" role={failed ? "alert" : "status"}>
+        {failed ? (
+          <button type="button" onClick={() => setFailedCardEntries((current) => {
+            const remaining = new Set(current);
+            remaining.delete(geo);
+            return remaining;
+          })}>Retry territory record</button>
+        ) : "Loading additional territory details…"}
+      </div>
+    );
+  };
+
   return (
     <TruthMapAuditContext.Provider value={auditContext}>
       <main
@@ -823,10 +851,8 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
       </section>
       {publicPresentation ? publicLocalDock : auditDock}
       {!publicPresentation ? auditMapLayer : null}
-      {selectedPopup && !selectedRichEntry ? (
-        <div className={truthStyles.richPopupLoading} data-testid="truth-map-rich-popup-loading" role="status">
-          Opening the full territory record…
-        </div>
+      {seoPanelOpen && activeSeoSelection && !activeSeoEntry ? (
+        <div className={truthStyles.richPopupLoading}>{renderCardLoading(activeSeoSelection.properties.geo)}</div>
       ) : null}
       {showSeoOverlay && activeSeoEntry ? (
         <UnifiedSeoStatusPanel
@@ -839,11 +865,24 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
           truthMapEvidence={activeSeoSelection?.properties}
         />
       ) : null}
-      {selectedPopup && selectedRichEntry && popupAnchor && (
+      {selectedPopup && popupAnchor && (
         !showSeoOverlay || selectedPopup.properties.geo !== activeSeoSelection?.properties.geo
       ) ? (
         <ViewportCountryPopup
-          entry={selectedRichEntry}
+          entry={selectedRichEntry || {
+            geo: selectedPopup.properties.geo,
+            iso2: selectedPopup.properties.geo,
+            displayName: selectedPopup.properties.displayName,
+            mapCategory: mapCategoryForTruthColor(selectedPopup.properties.legalTruthColor),
+            panel: {
+              levelTitle: `${selectedPopup.properties.legalEvidenceIcon} ${selectedPopup.properties.legalTruthColor}`,
+              summary: selectedPopup.properties.legalEvidenceSummary,
+              critical: [],
+              info: [],
+              why: []
+            },
+            loading: renderCardLoading(selectedPopup.properties.geo)
+          }}
           locale="en"
           anchor={popupAnchor}
           onClose={clearSelectedGeo}

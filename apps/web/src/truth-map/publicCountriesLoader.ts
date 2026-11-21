@@ -6,11 +6,8 @@ export type PublicCountriesPrefetch = {
   promise: Promise<TruthMapCollection | null>;
 };
 
-// Start the one complete JSON transfer while the browser loads the map SDK.
-// Other documents and the local audit route keep their existing loaders.
-export const PUBLIC_COUNTRIES_PREFETCH_SCRIPT = `
-(() => {
-  if (location.pathname !== "/") return;
+// The homepage and article maps share the same immutable transfer.
+const PREFETCH_COUNTRIES = `
   const host = globalThis;
   const url = ${JSON.stringify(STATIC_TRUTH_MAP_COUNTRIES_URL)};
   if (host.__PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__?.url === url) return;
@@ -19,9 +16,15 @@ export const PUBLIC_COUNTRIES_PREFETCH_SCRIPT = `
     promise: fetch(url, { credentials: "same-origin", priority: "low" })
       .then(response => response.ok ? response.json() : null)
       .catch(() => null)
-  };
-})();
+  };`;
+
+export const PUBLIC_COUNTRIES_PREFETCH_SCRIPT = `
+(() => {
+  if (location.pathname !== "/") return;
+${PREFETCH_COUNTRIES}})();
 `;
+
+export const PUBLIC_ARTICLE_COUNTRIES_PREFETCH_SCRIPT = `(() => {${PREFETCH_COUNTRIES}})();`;
 
 export async function loadPublicCountries(url: string, prefetched?: PublicCountriesPrefetch) {
   const request = async (): Promise<TruthMapCollection> => {

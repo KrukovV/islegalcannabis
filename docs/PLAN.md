@@ -1,16 +1,22 @@
+# 2026-11-21 article return and independent overlays
+
+- [done] Review paired 1s video samples and reproduce production delay and same-GEO popup restore.
+- [done] Share the proven early immutable GEO transfer with article maps and reopen no same-GEO popup on SEO close. Open the popup from local authoritative evidence and keep all rich sections.
+- [pending] Focused browser proof, fresh popup audit, release gates and production acceptance.
+
 # 2026-11-15 restored-marker data dependency
 
 - [done] Own regression audit found missing SEO record after Action -> article -> return to map; genuine25e production RED1 retained.
 - [done] Reuse existing card-entry owner for missing popup or explicitly opened SEO; no initial record fetch, no popup mutation. Original local functional9 plus corrected focused1 pass; native cache revalidation separately diagnosed.
 - [done] Fresh307/307 andfinalprecanonicalactualexit0/PASS657unit/39smoke0fail0skip/post1/hub1.
-- [in_progress] Final preview and production complete-marker/navigation/native/312/cold acceptance; green postrelease cycle.
+- [done] PR29/main e125d002 finalpreview10/WKnative4; production10SEO/8native/312HTTP/FR12/Antarctica2/nativei3cyclesperdesktopenginePASS. Finalpostcycle actualexit0/PASS657unit/39mandatory0fail0skip/post1/hub1. Data unchanged afterexacttimestampCAS.
 
 # 2026-11-15 info marker SEO-only toggle
 
 - [done] Reproduce production i-open restoring a previously closed popup; remove marker popup/selection/camera side effects.
 - [done] Verify repeated real i clicks preserve open, closed and other-GEO popup state on desktop/mobile; retain country/anchor/close/native/data contracts.
 - [done] Fresh307/307 popup audit/guard andcanonicalactualexit0/PASS657unit/39mandatory0fail0skip/post1/hub1.
-- [in_progress] Exact-SHA preview/release/live312/browser/native/cold acceptance and green postrelease cycle.
+- [done] PR28+29 combined e125d002 finalacceptance10SEO/8native/312/FR12/Antarctica2 andpre/post657/39/post1/hub1PASS; restoredmarkerdata regression fixedbysharedloader.
 
 # 2026-11-15 production SEO navigation repair
 

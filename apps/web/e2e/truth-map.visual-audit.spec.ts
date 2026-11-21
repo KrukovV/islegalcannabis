@@ -140,7 +140,7 @@ test("truth-map visual audit captures complete popup records on the explicitly s
       rows.push({ geo, popupScreenshot: null, status: "MISSING" });
       continue;
     }
-    const popup = page.locator('[data-popup-variant="truth-map"]');
+    const popup = page.locator('[data-popup-variant="truth-map"][data-popup-stage="full"]');
     await expect(popup).toBeVisible({ timeout: 10_000 });
     await expect(popup).toContainText(`ISO2: ${geo}`, { timeout: 10_000 });
     const popupText = await popup.textContent();

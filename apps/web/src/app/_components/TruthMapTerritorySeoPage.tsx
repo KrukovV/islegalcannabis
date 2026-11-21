@@ -6,6 +6,8 @@ import { formatVisibleRuntimeStamp } from "@/lib/runtimeIdentity";
 import { getTruthMapRuntimeIdentity } from "@/app/truth-map/runtimeConfig";
 import TruthMapLegalEvidence from "@/truth-map/TruthMapLegalEvidence";
 import TruthMapRoot from "@/truth-map/TruthMapRoot";
+import { PUBLIC_ARTICLE_COUNTRIES_PREFETCH_SCRIPT } from "@/truth-map/publicCountriesLoader";
+import { STATIC_TRUTH_MAP_COUNTRIES_URL, STATIC_TRUTH_MAP_US_STATES_URL } from "@/truth-map/staticTruthMapUrls";
 import type { TruthMapCountryPageProjection } from "@/truth-map/truthMapCountryPage";
 import { isTruthMapCurrentStatusAssertion } from "@/truth-map/truthMapRichCard";
 import styles from "@/app/c/[code]/page.module.css";
@@ -47,9 +49,10 @@ export default function TruthMapTerritorySeoPage({
   return (
     <main className={styles.page}>
       <Script id={`truth-map-territory-faq-${code}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script dangerouslySetInnerHTML={{ __html: PUBLIC_ARTICLE_COUNTRIES_PREFETCH_SCRIPT }} />
       <TruthMapRoot
-        countriesUrl="/api/public-map/countries"
-        usStatesUrl="/api/public-map/us-states"
+        countriesUrl={STATIC_TRUTH_MAP_COUNTRIES_URL}
+        usStatesUrl={STATIC_TRUTH_MAP_US_STATES_URL}
         visibleStamp={visibleStamp}
         runtimeIdentity={runtimeIdentity}
         initialGeoCode={properties.geo}

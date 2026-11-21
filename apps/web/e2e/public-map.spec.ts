@@ -61,6 +61,15 @@ for (const width of [375, 1440]) {
     await expect(page.locator("#law-recreational")).toBeInViewport();
     await expect(panel).toHaveCount(0);
     await page.evaluate(() => window.scrollTo(0, 0));
+    await expect.poll(() => page.evaluate(() => {
+      const map = (window as unknown as { __PUBLIC_SEO_MAP__: import("maplibre-gl").Map }).__PUBLIC_SEO_MAP__;
+      return Boolean(map?.getLayer("legal-fill") && map.isSourceLoaded("legal-countries")
+        && map.queryRenderedFeatures(undefined, { layers: ["legal-fill"] }).length);
+    }), { timeout: 30_000 }).toBe(true);
+    const geoDelivery = await page.evaluate(() => performance.getEntriesByType("resource")
+      .filter(resource => resource.name.includes("/static/truth-map/countries.") || resource.name.includes("/api/public-map/countries"))
+      .map(resource => new URL(resource.name).pathname));
+    expect(geoDelivery).toEqual([STATIC_TRUTH_MAP_COUNTRIES_URL]);
     await expect(page.getByTestId("public-map-canvas")).toHaveAttribute("data-map-ready", "1", { timeout: 30_000 });
     await expect(popup).toHaveCount(0);
     expect(await page.evaluate(() => performance.getEntriesByType("resource")
@@ -78,14 +87,14 @@ for (const width of [375, 1440]) {
     await expect(popup).toHaveCount(0);
   });
 
-  test(`public SEO close preserves the popup and info marker at ${width}px`, async ({ page }) => {
+  test(`public SEO close clears the same GEO and preserves the info marker at ${width}px`, async ({ page }) => {
     test.setTimeout(60_000);
     await page.setViewportSize({ width, height: 900 });
     await capturePublicMap(page);
     await page.goto("/?geo=CH", { waitUntil: "domcontentloaded" });
     const popup = page.getByTestId("new-map-country-popup");
     await expect(popup).toContainText("ISO2: CH", { timeout: 30_000 });
-    const sections = await popup.locator("section").count();
+    await expect(popup).toHaveAttribute("data-popup-stage", "full");
     const documents: string[] = [];
     page.on("request", request => { if (request.isNavigationRequest() && request.frame() === page.mainFrame()) documents.push(request.url()); });
     const marker = page.locator('[data-seo-marker="1"][data-seo-marker-geo="CH"]');
@@ -94,18 +103,6 @@ for (const width of [375, 1440]) {
     await expect(panel).toBeVisible({ timeout: 20_000 });
     await panel.getByRole("button", { name: "Close country info" }).click();
     await expect(panel).toHaveCount(0);
-    await expect(popup).toContainText("ISO2: CH");
-    expect(await popup.locator("section").count()).toBe(sections);
-    await expect(marker).toBeVisible();
-    if (width === 1440) {
-      await marker.click();
-      await expect(panel).toBeVisible();
-      await marker.click();
-      await expect(panel).toHaveCount(0);
-      await expect(popup).toContainText("ISO2: CH");
-      expect(await popup.locator("section").count()).toBe(sections);
-    }
-    await popup.getByTestId("viewport-country-popup-close").click();
     await expect(popup).toHaveCount(0);
     await expect(marker).toBeVisible();
     if (width === 375) {
@@ -161,6 +158,29 @@ for (const width of [375, 1440]) {
     expect(documents).toEqual([]);
   });
 }
+
+test("public popup shows current legal evidence before additional details arrive", async ({ page }) => {
+  let release = () => {};
+  const hold = new Promise<void>((resolve) => { release = resolve; });
+  await page.route("**/api/new-map/card-entry?geo=CH", async (route) => {
+    await hold;
+    await route.continue();
+  });
+  try {
+    await page.goto("/?geo=CH", { waitUntil: "domcontentloaded" });
+    const popup = page.getByTestId("new-map-country-popup");
+    await expect(popup).toHaveAttribute("data-popup-stage", "preview", { timeout: 30_000 });
+    await expect(popup).toContainText("ISO2: CH");
+    await expect(popup.getByTestId("truth-map-legal-evidence")).toContainText("Current legal conclusion: GREEN");
+    await expect(popup.getByTestId("viewport-country-popup-close")).toBeVisible();
+    await expect(popup.getByTestId("country-popup-seo-link")).toHaveCount(0);
+    release();
+    await expect(popup).toHaveAttribute("data-popup-stage", "full", { timeout: 20_000 });
+    await expect(popup.getByTestId("country-popup-seo-link")).toBeVisible();
+  } finally {
+    release();
+  }
+});
 
 test("public SEO related-country links use the destination GEO instead of the previous marker", async ({ page }) => {
   test.setTimeout(60_000);
@@ -350,6 +370,7 @@ test("public GEO popup keeps its rich legal content and opens the SEO panel with
   phase("popup-visible");
   await expect(popup.getByTestId("truth-map-legal-evidence")).toBeVisible();
   await expect(popup.getByTestId("truth-map-legal-evidence")).toContainText("Current legal conclusion:");
+  await expect(popup).toHaveAttribute("data-popup-stage", "full");
   expect(await popup.locator("section").count()).toBeGreaterThanOrEqual(5);
   await expect(page.getByText("Audit preview only")).toHaveCount(0);
 

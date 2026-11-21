@@ -11,6 +11,8 @@ import { getLocalizedCountryName, getSeoText, type SeoLocale } from "@/lib/seo/i
 import { sanitizeEvidenceQuoteText } from "@/lib/text/sanitizeEvidenceQuoteText";
 import { getLinkScope, isSameLink } from "@/lib/linkDisplayPolicy";
 import TruthMapRoot from "@/truth-map/TruthMapRoot";
+import { PUBLIC_ARTICLE_COUNTRIES_PREFETCH_SCRIPT } from "@/truth-map/publicCountriesLoader";
+import { STATIC_TRUTH_MAP_COUNTRIES_URL, STATIC_TRUTH_MAP_US_STATES_URL } from "@/truth-map/staticTruthMapUrls";
 import TruthMapLegalEvidence from "@/truth-map/TruthMapLegalEvidence";
 import { getTruthMapRuntimeIdentity } from "@/app/truth-map/runtimeConfig";
 import {
@@ -161,9 +163,10 @@ export default function CountrySeoPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
+      <script dangerouslySetInnerHTML={{ __html: PUBLIC_ARTICLE_COUNTRIES_PREFETCH_SCRIPT }} />
       <TruthMapRoot
-        countriesUrl="/api/public-map/countries"
-        usStatesUrl="/api/public-map/us-states"
+        countriesUrl={STATIC_TRUTH_MAP_COUNTRIES_URL}
+        usStatesUrl={STATIC_TRUTH_MAP_US_STATES_URL}
         visibleStamp={visibleStamp}
         runtimeIdentity={runtimeIdentity}
         initialGeoCode={properties.geo}

@@ -61,7 +61,7 @@ test("an open SEO panel retains its country marker and does not block selecting 
   await expect(marker).toBeVisible();
 });
 
-test("closing an in-place SEO panel retains its underlying rich popup and info marker", async ({ page }) => {
+test("closing an in-place SEO panel clears the same-GEO popup and retains the info marker", async ({ page }) => {
   test.setTimeout(75_000);
   await page.goto(QA_ROUTE, { waitUntil: "domcontentloaded" });
   await waitForTruthMapReady(page);
@@ -80,7 +80,7 @@ test("closing an in-place SEO panel retains its underlying rich popup and info m
 
   await panel.getByRole("button", { name: "Close country info" }).click();
   await expect(panel).toHaveCount(0);
-  await expect(popup).toContainText("ISO2: AU");
+  await expect(popup).toHaveCount(0);
   await expect(page.locator('[data-seo-marker="1"][data-seo-marker-geo="AU"]')).toBeVisible();
 });
 

@@ -132,7 +132,7 @@ Rich popups and in-place SEO panels are map-viewport controls. A scrollable
 auto-open either overlay from its route or anchor. After an Action transition
 to `#law-recreational`, the expanded article is the only surface above that
 content; no fixed popup or SEO panel may cover it. On a map route, a rich popup
-hands off to its in-place panel. Closing that panel hides only SEO and reveals the retained rich popup with all its sections; the GEO info marker stays on the map. Closing the popup hides only the popup and leaves the marker and any independently open SEO panel intact. The info marker changes only SEO visibility using the current state. It must not open, close, restore or replace a rich popup, change the selected GEO, or move the camera. A separately closed popup stays closed through repeated i clicks; an already selected popup retains its state. A document-restored marker may have no cached rich entry: the existing shared card-entry loader must load it when SEO is opened, independently of popup selection. It must not preload that record while SEO and popup are closed. Closing SEO through that marker follows the same retention rule. This explicit user contract2026-11-15 supersedes the former clear-both rule. The user explicitly retains the large mobile popup: on narrow screens it may cover the retained map info marker until the popup is separately closed. The marker must then remain visible and usable; no mobile popup resizing or repositioning is introduced. Scrolling below a country-document map still hides fixed overlays to keep the article readable.
+hands off to its in-place panel. Closing SEO dismisses the same-GEO popup and retains the GEO info marker. An open popup for a different GEO stays open. Closing the popup hides only the popup and leaves the marker and any independently open SEO panel intact. The info marker opens or closes SEO without opening, restoring or replacing a popup or moving the camera. Closing SEO via i dismisses a hidden same-GEO popup and preserves a different-GEO popup. A document-restored marker may have no cached rich entry: the existing shared card-entry loader must load it when SEO is opened, independently of popup selection. It must not preload that record while SEO and popup are closed. Closing SEO through that marker follows the same retention rule. This is the user-approved 2026-11-21 close rule. The user explicitly retains the large mobile popup: on narrow screens it may cover the retained map info marker until the popup is separately closed. The marker must then remain visible and usable; no mobile popup resizing or repositioning is introduced. Scrolling below a country-document map still hides fixed overlays to keep the article readable.
 
 The anchor target is headed `Supplementary action-specific context — not the
 current legal conclusion`. A present-tense profile statement that itself
@@ -242,11 +242,13 @@ row.
 A representative production browser receipt is a separate deployment check:
 it must select an actual map feature rather than rely only on a URL parameter,
 then verify the complete selected GEO card, open the dotted SEO CTA and close
-only the SEO panel, verifying that the full rich popup and its i marker remain. Closing the popup separately must retain the marker. The
+the SEO panel, verifying that the same-GEO popup stays closed and its i marker remains. Verify that a different-GEO popup stays open. The
 receipt also binds the loaded page to the accepted build identity; it cannot
 replace the canonical 307-GEO local visual-manifest audit.
 
 A random live sample is supplemental evidence, never a replacement for the separate canonical 307-GEO visual-manifest refresh. Guard freshness must not be faked, weakened, or repaired by timestamp changes.
+
+The popup opens from the selected feature’s current legal evidence while the shared card loader fetches supplementary details. The visual audit waits for the complete card. Country documents start the same complete immutable GEO transfer as the home map and preserve the bounded camera handoff and anchor.
 
 ## 8. Route boundary
 
