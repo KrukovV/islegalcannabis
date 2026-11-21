@@ -11,6 +11,9 @@ import { sanitizeEvidenceQuoteText } from "@/lib/text/sanitizeEvidenceQuoteText"
 import { readVisualViewportSnapshot, subscribeToVisualViewportChanges } from "../viewportMetrics";
 import { getLinkScope, isSameLink } from "@/lib/linkDisplayPolicy";
 
+type PopupPreview = Pick<CountryCardEntry, "geo" | "displayName" | "iso2" | "mapCategory" | "panel">
+  & Partial<CountryCardEntry> & { loading: ReactNode };
+
 export default function ViewportCountryPopup({
   entry,
   locale,
@@ -25,7 +28,7 @@ export default function ViewportCountryPopup({
   sectionLabels,
   profileSectionLabels
 }: {
-  entry: CountryCardEntry;
+  entry: CountryCardEntry | PopupPreview;
   locale: SeoLocale;
   anchor: { x: number; y: number } | null;
   onClose: () => void;
@@ -50,7 +53,8 @@ export default function ViewportCountryPopup({
     top: 16,
     placement: "right"
   });
-  const panel = localizePanelFromEntry(entry, locale);
+  const preview = "loading" in entry;
+  const panel = preview ? { ...entry.panel, labels: null } : localizePanelFromEntry(entry, locale);
 
   useLayoutEffect(() => {
     if (!anchor || !panelRef.current || typeof window === "undefined") return;
@@ -263,7 +267,7 @@ export default function ViewportCountryPopup({
   const enforcementSectionItems = resolveSection("Enforcement Reality", entry.cannabisProfile?.enforcementReality, compactLimit);
   const cultureSectionItems = resolveSection("Culture", entry.cannabisProfile?.culture, compactLimit);
   const historySectionItems = resolveSection("History", entry.cannabisProfile?.history, compactLimit);
-  const hasDetailsCta = Boolean(entry.detailsHref || /^\/c\//i.test(entry.pageHref));
+  const hasDetailsCta = !preview && Boolean(entry.detailsHref || /^\/c\//i.test(entry.pageHref));
 
   const sourceDisplayTitle = (title: string, href: string) => {
     const sanitized = sanitizeEvidenceQuoteText(title || "").trim();
@@ -284,6 +288,7 @@ export default function ViewportCountryPopup({
       className={[styles.viewportPopupPanel, className].filter(Boolean).join(" ")}
       data-testid="new-map-country-popup"
       data-popup-variant={popupVariant}
+      data-popup-stage={preview ? "preview" : "full"}
       data-placement={position.placement}
       style={{
         left: `${position.left}px`,
@@ -318,10 +323,11 @@ export default function ViewportCountryPopup({
         </ul>
       </section>
       {supplementalContent}
+      {preview ? entry.loading : null}
       {jurisdictionSection.length > 0 ? renderProfileSection("Jurisdiction", jurisdictionSection) : null}
-      {renderList(sectionLabels?.hardRestrictions || panel?.labels.hardRestrictions || "Hard restrictions", panel?.critical || entry.panel.critical)}
-      {renderList(sectionLabels?.moreContext || panel?.labels.moreContext || "More context", panel?.info || entry.panel.info)}
-      {renderList(sectionLabels?.whyThisColor || panel?.labels.whyThisColor || "Why this color", panel?.why || entry.panel.why)}
+      {renderList(sectionLabels?.hardRestrictions || panel.labels?.hardRestrictions || "Hard restrictions", panel?.critical || entry.panel.critical)}
+      {renderList(sectionLabels?.moreContext || panel.labels?.moreContext || "More context", panel?.info || entry.panel.info)}
+      {renderList(sectionLabels?.whyThisColor || panel.labels?.whyThisColor || "Why this color", panel?.why || entry.panel.why)}
       {renderProfileSection("History", historySectionItems)}
       {renderProfileSection("Culture", cultureSectionItems)}
       {renderProfileSection("Enforcement Reality", enforcementSectionItems)}
@@ -334,11 +340,11 @@ export default function ViewportCountryPopup({
       {renderProfileSection("Local Names", localNamesSectionItems)}
       {renderProfileSection("Cannabis Profile", notesSectionItems)}
 
-      {entry.sources.length > 0 ? (
+      {(entry.sources?.length ?? 0) > 0 ? (
         <section className={styles.viewportPopupSection}>
-          <div className={styles.viewportPopupSectionTitle}>{panel?.labels.sources || "Sources"}</div>
+          <div className={styles.viewportPopupSectionTitle}>{panel.labels?.sources || "Sources"}</div>
           <ul className={styles.viewportPopupList}>
-            {entry.sources.map((source) => (
+            {entry.sources?.map((source) => (
               <li key={source.id} className={styles.viewportPopupPlainItem}>
                 {isSameLink(source.url, `/c/${entry.code}`, currentPath) ? null : (
                 <a
@@ -368,7 +374,7 @@ export default function ViewportCountryPopup({
               onOpenDetails(entry);
             }}
           >
-            {panel?.labels.details || "Details →"}
+            {panel.labels?.details || "Details →"}
           </a>
         </div>
       ) : null}

@@ -1,7 +1,7 @@
 import vm from "node:vm";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import type { TruthMapCollection } from "./truthMapSource";
-import { loadPublicCountries, PUBLIC_COUNTRIES_PREFETCH_SCRIPT } from "./publicCountriesLoader";
+import { loadPublicCountries, PUBLIC_ARTICLE_COUNTRIES_PREFETCH_SCRIPT, PUBLIC_COUNTRIES_PREFETCH_SCRIPT } from "./publicCountriesLoader";
 import { STATIC_TRUTH_MAP_COUNTRIES_URL } from "./staticTruthMapUrls";
 
 const complete = {
@@ -13,11 +13,14 @@ const complete = {
 afterEach(() => vi.unstubAllGlobals());
 
 describe("public complete JSON delivery", () => {
-  it("starts once in the home head and retains the complete response for the consumer", async () => {
+  it.each([
+    ["/", PUBLIC_COUNTRIES_PREFETCH_SCRIPT],
+    ["/c/fra", PUBLIC_ARTICLE_COUNTRIES_PREFETCH_SCRIPT]
+  ])("starts once on %s and retains the complete response for the map", async (pathname, script) => {
     const fetch = vi.fn().mockResolvedValue(new Response(JSON.stringify(complete)));
-    const context = vm.createContext({ location: { pathname: "/" }, fetch });
-    vm.runInContext(PUBLIC_COUNTRIES_PREFETCH_SCRIPT, context);
-    vm.runInContext(PUBLIC_COUNTRIES_PREFETCH_SCRIPT, context);
+    const context = vm.createContext({ location: { pathname }, fetch });
+    vm.runInContext(script, context);
+    vm.runInContext(script, context);
     const entry = context.__PUBLIC_TRUTH_MAP_COUNTRIES_PREFETCH__;
     const data = await entry.promise;
     vi.stubGlobal("fetch", fetch);
