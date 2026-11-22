@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { captureMapInstance, type MapTestWindow } from "./mapTestSupport";
 
 const GPS_POINT = { latitude: 50.0755, longitude: 14.4378 };
 const QA_ROUTE = "/new-map?qa=1";
@@ -6,12 +7,15 @@ const QA_ROUTE = "/new-map?qa=1";
 async function waitForMapReady(page: import("@playwright/test").Page) {
   await page.waitForSelector('[data-testid="new-map-root"]', { timeout: 5000, state: "attached" });
   await page.waitForSelector('[data-testid="new-map-surface"]', { timeout: 5000, state: "attached" });
-  await page.waitForFunction(() => document.querySelector('[data-testid="new-map-surface"]')?.getAttribute("data-map-ready") === "1", { timeout: 20000 });
+  await page.waitForFunction(() => (
+    document.querySelector('[data-testid="new-map-surface"]')?.getAttribute("data-map-ready") === "1" &&
+    Boolean((window as MapTestWindow).__MAP_TEST_INSTANCE__)
+  ), undefined, { timeout: 20_000 });
 }
 
 async function waitForGpsCenter(page: import("@playwright/test").Page) {
   await page.waitForFunction(({ lng, lat }) => {
-    const map = window.__NEW_MAP_DEBUG__?.map;
+    const map = (window as MapTestWindow).__MAP_TEST_INSTANCE__;
     const center = map?.getCenter?.();
     return Boolean(center && Math.abs(center.lng - lng) < 0.01 && Math.abs(center.lat - lat) < 0.01);
   }, { lng: GPS_POINT.longitude, lat: GPS_POINT.latitude }, { timeout: 10000 });
@@ -37,6 +41,7 @@ test("new-map restored gps marker survives reload", async ({ page }) => {
 });
 
 test("new-map GPS click places marker, persists location, and recenters on repeat click", async ({ page, context }) => {
+  await captureMapInstance(page);
   await context.setGeolocation(GPS_POINT);
   await context.grantPermissions(["geolocation"]);
   await page.addInitScript(() => {
@@ -70,7 +75,7 @@ test("new-map GPS click places marker, persists location, and recenters on repea
   await waitForMapReady(page);
 
   await page.evaluate(() => {
-    window.__NEW_MAP_DEBUG__?.map?.jumpTo({ center: [-100, 35], zoom: 2.1 });
+    (window as MapTestWindow).__MAP_TEST_INSTANCE__!.jumpTo({ center: [-100, 35], zoom: 2.1 });
   });
 
   await page.getByRole("button", { name: /GPS/i }).click();
@@ -90,13 +95,14 @@ test("new-map GPS click places marker, persists location, and recenters on repea
   await page.waitForFunction(() => document.querySelector('[data-user-marker="1"]')?.getAttribute("data-user-marker-position") === "14.4378,50.0755", { timeout: 10000 });
 
   await page.evaluate(() => {
-    window.__NEW_MAP_DEBUG__?.map?.jumpTo({ center: [-80, 30], zoom: 2.1 });
+    (window as MapTestWindow).__MAP_TEST_INSTANCE__!.jumpTo({ center: [-80, 30], zoom: 2.1 });
   });
   await page.getByRole("button", { name: /GPS/i }).click();
   await waitForGpsCenter(page);
 });
 
 test("new-map GPS first click retries precise browser position after cached failure", async ({ page, context }) => {
+  await captureMapInstance(page);
   await context.addInitScript((point) => {
     window.localStorage.clear();
     const calls: Array<{ enableHighAccuracy?: boolean; timeout?: number; maximumAge?: number }> = [];
@@ -178,6 +184,7 @@ test("new-map GPS first click retries precise browser position after cached fail
 });
 
 test("new-map repeat green GPS click recenters immediately and still refreshes browser GPS", async ({ page }) => {
+  await captureMapInstance(page);
   await page.addInitScript(() => {
     window.localStorage.setItem("geo", JSON.stringify({
       lat: 50.0755,
@@ -223,7 +230,7 @@ test("new-map repeat green GPS click recenters immediately and still refreshes b
   await page.waitForFunction(() => document.querySelector('[data-user-marker="1"]')?.getAttribute("data-user-marker-position") === "14.4378,50.0755", { timeout: 5000 });
 
   await page.evaluate(() => {
-    window.__NEW_MAP_DEBUG__?.map?.jumpTo({ center: [-80, 30], zoom: 2.1 });
+    (window as MapTestWindow).__MAP_TEST_INSTANCE__!.jumpTo({ center: [-80, 30], zoom: 2.1 });
   });
   await page.getByRole("button", { name: /GPS/i }).click();
   await waitForGpsCenter(page);

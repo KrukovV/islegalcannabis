@@ -2,7 +2,11 @@
 
 - [done] Review paired 1s video samples and reproduce production delay and same-GEO popup restore.
 - [done] Share the proven early immutable GEO transfer with article maps and reopen no same-GEO popup on SEO close. Open the popup from local authoritative evidence and keep all rich sections.
-- [pending] Focused browser proof, fresh popup audit, release gates and production acceptance.
+- [done] Focused browser proof, fresh 307 popup audit, local release gates and exact preview.
+- [done] Live acceptance on 0707e959 retained both mobile native double-tap failures; browser overlays, article return, SEO crawl and desktop zoom passed.
+- [done] Restore native touch zoom in the local candidate; prove on WebKit and Chromium. Fix the late info marker and verify GPS against the live camera.
+- [done] Fresh 307 popup audit, unchanged 41/41 smoke and full canonical PASS on the touch candidate. Retain late TileJSON and glyph transfer evidence.
+- [in_progress] Bind the touch fix to preview, production SHA, native zoom, cold paint, popup/SEO proofs and the post-release canonical cycle.
 
 # 2026-11-15 restored-marker data dependency
 

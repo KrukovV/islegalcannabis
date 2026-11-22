@@ -526,9 +526,9 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
   }, []);
 
   useEffect(() => {
-    const map = mapRef.current;
+    const map = mapInstance;
     const selection = activeSeoSelection;
-    if (!mapReady || !map || !selection) {
+    if (!map || !selection) {
       seoInfoMarkerRef.current?.remove();
       seoInfoMarkerRef.current = null;
       return;
@@ -559,7 +559,7 @@ export default function TruthMapRoot({ countriesUrl, usStatesUrl, visibleStamp, 
     return () => {
       button.onclick = null;
     };
-  }, [activeSeoSelection, handleSeoMarkerToggle, mapReady, seoPanelOpen]);
+  }, [activeSeoSelection, handleSeoMarkerToggle, mapInstance, seoPanelOpen]);
 
   const auditContext = useMemo<TruthMapAuditState>(() => ({
     map: mapInstance,

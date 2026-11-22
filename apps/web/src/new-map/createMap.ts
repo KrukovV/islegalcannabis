@@ -30,6 +30,8 @@ const FLAT_CAMERA = {
   pitch: 0
 } as const;
 const CAMERA_EPSILON = 0.001;
+// MapLibre 5.24 recognizes the second tap up to 500 ms after the first.
+const DOUBLE_TAP_INTERVAL_MS = 500;
 
 type SelectedGeoCallback = (_geo: { iso2: string; country: string; lng: number; lat: number } | null) => void;
 type CreateMapOptions = {
@@ -434,10 +436,13 @@ export function createMap(
     && Number.isFinite(requestedCamera.zoom) && requestedCamera.zoom >= 0 && requestedCamera.zoom <= 15
     ? { center: [requestedCamera.lng, requestedCamera.lat] as [number, number], zoom: requestedCamera.zoom, bearing: 0, pitch: 0 }
     : FLAT_CAMERA;
+  const style = options?.style || NEW_MAP_BASEMAP_STYLE_URL;
+  const baseSource = typeof style === "string" ? undefined : style.sources.carto;
+  const attribution = baseSource && "attribution" in baseSource ? baseSource.attribution : undefined;
   markNewMapTrace("NM_T2_MAP_CONSTRUCTOR_START");
   const map = new maplibregl.Map({
     container,
-    style: options?.style || NEW_MAP_BASEMAP_STYLE_URL,
+    style,
     center: initialCamera.center,
     zoom: initialCamera.zoom,
     bearing: 0,
@@ -451,7 +456,7 @@ export function createMap(
     dragRotate: false,
     pitchWithRotate: false
   });
-  map.addControl(new maplibregl.AttributionControl({ compact: true }), "top-right");
+  map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: attribution }), "top-right");
   markNewMapTrace("NM_T1_MAP_CONSTRUCTOR");
   markNewMapTrace("NM_T3_MAP_INSTANCE_READY");
 
@@ -897,9 +902,41 @@ export function createMap(
     options?.onSelectGeo?.(iso2, popupAnchor, seed);
     host.__MAP_SELECTED_GEO__?.({ iso2, country, lng: lngLat.lng, lat: lngLat.lat });
   };
-  map.on("click", (event) => {
-    if (options?.shouldSelectFeature?.(event.point, event.lngLat) === false) return;
-    selectFeatureAtPoint(event.point, event.lngLat);
+  let lastTouchEnd: { x: number; y: number; at: number } | undefined;
+  let pendingTouchSelection: number | undefined;
+  const cancelTouchSelection = () => {
+    lastTouchEnd = undefined;
+    window.clearTimeout(pendingTouchSelection);
+  };
+  map.on("touchend", ({ originalEvent }) => {
+    const touch = originalEvent.changedTouches[0];
+    lastTouchEnd = touch && originalEvent.changedTouches.length === 1 && !originalEvent.touches.length
+      ? { x: touch.clientX, y: touch.clientY, at: originalEvent.timeStamp }
+      : undefined;
+  });
+  map.on("touchcancel", cancelTouchSelection);
+  map.on("movestart", cancelTouchSelection);
+  map.on("remove", cancelTouchSelection);
+  map.on("click", ({ point, lngLat, originalEvent }) => {
+    const touch = lastTouchEnd;
+    cancelTouchSelection();
+    if (options?.shouldSelectFeature?.(point, lngLat) === false) return;
+
+    const pointerType = (originalEvent as PointerEvent).pointerType;
+    const elapsed = originalEvent.timeStamp - (touch?.at ?? -Infinity);
+    const recentTouch = elapsed >= 0 && elapsed < DOUBLE_TAP_INTERVAL_MS;
+    // WebKit may label the click synthesized from a touch as a mouse click.
+    const isTouch = pointerType === "touch" || (touch && recentTouch
+      && Math.abs(originalEvent.clientX - touch.x) <= 1 && Math.abs(originalEvent.clientY - touch.y) <= 1);
+    if (options?.onSelectFeature && isTouch && map.doubleClickZoom.isEnabled()) {
+      // An immediately mounted popup can intercept the second tap on mobile.
+      // Leave the canvas available until the SDK can distinguish the gesture.
+      const remaining = recentTouch ? DOUBLE_TAP_INTERVAL_MS - elapsed : DOUBLE_TAP_INTERVAL_MS;
+      pendingTouchSelection = window.setTimeout(() => selectFeatureAtPoint(point, lngLat), remaining);
+      return;
+    }
+
+    selectFeatureAtPoint(point, lngLat);
   });
 
   map.on("styledata", () => {
