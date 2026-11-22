@@ -5,7 +5,8 @@
 - [done] Focused browser proof, fresh 307 popup audit, local release gates and exact preview.
 - [done] Live acceptance on 0707e959 retained both mobile native double-tap failures; browser overlays, article return, SEO crawl and desktop zoom passed.
 - [done] Restore native touch zoom in the local candidate; prove on WebKit and Chromium. Fix the late info marker and verify GPS against the live camera.
-- [pending] Release the follow-up after full smoke passes. Best 40/41, last 36/41; external style/label failures retained. Production stays on PR #30 with the mobile double-tap regression.
+- [done] Fresh 307 popup audit, unchanged 41/41 smoke and full canonical PASS on the touch candidate. Retain late TileJSON and glyph transfer evidence.
+- [in_progress] Bind the touch fix to preview, production SHA, native zoom, cold paint, popup/SEO proofs and the post-release canonical cycle.
 
 # 2026-11-15 restored-marker data dependency
 
